@@ -2,24 +2,24 @@
 title: Implantar uma especificação de modelo como um modelo vinculado
 description: Saiba como implantar uma especificação de modelo existente em uma implantação vinculada.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 5d4824ea432d804418fda2cdc90d49154d496722
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095634"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918376"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: implantar uma especificação de modelo como um modelo vinculado (versão prévia)
 
-Saiba como implantar uma especificação de [modelo](template-specs.md) existente usando uma [implantação vinculada](linked-templates.md#linked-template). Use as especificações do modelo para compartilhar modelos do ARM com outros usuários em sua organização. Depois de criar uma especificação de modelo, você pode implantar a especificação do modelo usando Azure PowerShell. Você também pode implantar a especificação do modelo como parte de sua solução usando um modelo vinculado.
+Saiba como implantar uma especificação de [modelo](template-specs.md) existente usando uma [implantação vinculada](linked-templates.md#linked-template). Use as especificações do modelo para compartilhar modelos do ARM com outros usuários em sua organização. Depois de criar uma especificação de modelo, você pode implantar a especificação do modelo usando Azure PowerShell ou CLI do Azure. Você também pode implantar a especificação do modelo como parte de sua solução usando um modelo vinculado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> No momento, as especificações do modelo estão em versão prévia. Para usá-lo, você deve [inscrever-se na versão prévia](https://aka.ms/templateSpecOnboarding).
+> As especificações de modelo estão atualmente em versão prévia. Para usá-lo, você deve [inscrever-se na versão prévia](https://aka.ms/templateSpecOnboarding).
 
 ## <a name="create-a-template-spec"></a>Criar uma especificação de modelo
 
@@ -117,9 +117,22 @@ Para implantar uma especificação de modelo em um modelo do ARM, adicione um [r
 
 A ID de especificação do modelo é gerada usando a [`resourceID()`](template-functions-resource.md#resourceid) função. O argumento do grupo de recursos na função ResourceId () será opcional se o templateSpec estiver no mesmo grupo de recursos da implantação atual.  Você também pode transmitir diretamente a ID do recurso como um parâmetro. Para obter a ID, use:
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell-interactive
 $id = (Get-AzTemplateSpec -ResourceGroupName $resourceGroupName -Name $templateSpecName -Version $templateSpecVersion).Version.Id
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli-interactive
+id = $(az template-specs show --name $templateSpecName --resource-group $resourceGroupName --version $templateSpecVersion --query "id")
+```
+
+> [!NOTE]
+> Há um problema conhecido ao obter a ID de especificação do modelo e, em seguida, atribuí-la a uma variável no Windows PowerShell.
+
+---
 
 A sintaxe para passar parâmetros para a especificação do modelo é:
 
@@ -138,6 +151,8 @@ A sintaxe para passar parâmetros para a especificação do modelo é:
 
 Quando você implanta o modelo vinculado, ele implanta o aplicativo Web e a conta de armazenamento. A implantação é a mesma de implantar outros modelos de ARM.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name webRG `
@@ -148,6 +163,21 @@ New-AzResourceGroupDeployment `
   -TemplateFile "c:\Templates\deployTS\azuredeploy.json"
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+az deployment group create \
+  --resource-group webRG \
+  --template-file "c:\Templates\deployTS\azuredeploy.json"
+
+```
+
+---
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como criar uma especificação de modelo que inclua modelos vinculados, consulte [criar uma especificação de modelo de um modelo vinculado](template-specs-create-linked.md).
+Para saber mais sobre como criar uma especificação de modelo que inclua modelos vinculados, confira [Criar uma especificação de modelo com um modelo vinculado](template-specs-create-linked.md).

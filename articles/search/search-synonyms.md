@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 96ad10fcca260223d92203a80f396de816238efc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dce3c484a16918931df80d5201fad090b2c0cb2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529549"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922626"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinônimos no Azure Pesquisa Cognitiva
 
@@ -23,7 +23,7 @@ No Azure Pesquisa Cognitiva, a expansão do sinônimo é feita no momento da con
 
 ## <a name="create-synonyms"></a>Criar sinônimos
 
-Não há suporte do portal para criar sinônimos, mas você pode usar a API REST ou o SDK do .NET. Para começar com o REST, é recomendável [usar o postmaster](search-get-started-postman.md) e a formulação de solicitações usando esta API: [criar mapas de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para desenvolvedores de C#, você pode começar a [Adicionar sinônimos na pesquisa cognitiva do Azure usando C#](search-synonyms-tutorial-sdk.md).
+Não há suporte do portal para criar sinônimos, mas você pode usar a API REST ou o SDK do .NET. Para começar com o REST, é recomendável [usar o postmaster](search-get-started-postman.md) e a formulação de solicitações usando esta API: [criar mapas de sinônimos](/rest/api/searchservice/create-synonym-map). Para desenvolvedores de C#, você pode começar a [Adicionar sinônimos na pesquisa cognitiva do Azure usando C#](search-synonyms-tutorial-sdk.md).
 
 Opcionalmente, se você estiver usando [chaves gerenciadas pelo cliente](search-security-manage-encryption-keys.md) para criptografia do lado do serviço em repouso, poderá aplicar essa proteção ao conteúdo do seu mapa de sinônimos.
 
@@ -173,4 +173,4 @@ Se houver um índice em um ambiente de desenvolvimento (não produção), experi
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Criar um mapa de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Criar um mapa de sinônimos](/rest/api/searchservice/create-synonym-map)

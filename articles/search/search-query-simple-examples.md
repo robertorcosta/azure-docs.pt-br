@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3ea1c42234267bdbc5f8a7d35f0fd73bbb59b33c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553418"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918019"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Criar uma consulta simples no Azure Pesquisa Cognitiva
 
 No Azure Pesquisa Cognitiva, a [sintaxe de consulta simples](query-simple-syntax.md) invoca o analisador de consulta padrão para executar consultas de pesquisa de texto completo em um índice. Esse analisador é rápido e manipula cenários comuns, incluindo pesquisa de texto completo, pesquisa filtrada e facetada e pesquisa geográfica. 
 
-Neste artigo, usamos exemplos para ilustrar a sintaxe simples, preenchendo o `search=` parâmetro de uma operação [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) .
+Neste artigo, usamos exemplos para ilustrar a sintaxe simples, preenchendo o `search=` parâmetro de uma operação [Pesquisar documentos](/rest/api/searchservice/search-documents) .
 
 Uma sintaxe de consulta alternativa é o [Lucene completo](query-lucene-syntax.md), dando suporte a estruturas de consulta mais complexas, como pesquisa difusa e curinga, o que pode levar mais tempo para processar. Para obter mais informações e exemplos que demonstram a sintaxe completa, consulte [usar a sintaxe Lucene completa](search-query-lucene-examples.md).
 
@@ -103,7 +103,7 @@ Você deve ter notado a pontuação de pesquisa na resposta. Pontuações unifor
 
 ## <a name="example-2-look-up-by-id"></a>Exemplo 2: pesquisar por ID
 
-Este exemplo é um pouco atípico, mas ao avaliar os comportamentos de pesquisa, você poderá querer inspecionar todo o conteúdo de um documento específico para entender por que ele foi incluído ou excluído dos resultados. Para retornar um único documento em sua totalidade, use uma [Operação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para passar na ID do documento.
+Este exemplo é um pouco atípico, mas ao avaliar os comportamentos de pesquisa, você poderá querer inspecionar todo o conteúdo de um documento específico para entender por que ele foi incluído ou excluído dos resultados. Para retornar um único documento em sua totalidade, use uma [Operação de pesquisa](/rest/api/searchservice/lookup-document) para passar na ID do documento.
 
 Todos os documentos possuem um identificador exclusivo. Para experimentar a sintaxe de uma consulta, primeiro retorne uma lista de IDs do documento para que seja possível localizar uma a ser utilizada. Para Trabalhos de Nova Iorque, os identificadores são armazenados no campo `id`.
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Exemplo 3: consultas de filtro
 
-A [sintaxe de filtro](https://docs.microsoft.com/azure/search/search-query-odata-filter) é uma expressão OData que pode ser usada com **pesquisa** ou por si própria. Um filtro independente, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar totalmente os documentos de interesse. Sem uma cadeia de caracteres de consulta, não há análise léxica ou linguística, nenhuma pontuação (todas as pontuações são 1) e nenhuma classificação. Observe que a cadeia de caracteres de pesquisa está vazia.
+A [sintaxe de filtro](./search-query-odata-filter.md) é uma expressão OData que pode ser usada com **pesquisa** ou por si própria. Um filtro independente, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar totalmente os documentos de interesse. Sem uma cadeia de caracteres de consulta, não há análise léxica ou linguística, nenhuma pontuação (todas as pontuações são 1) e nenhuma classificação. Observe que a cadeia de caracteres de pesquisa está vazia.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2020-06-30
@@ -147,7 +147,7 @@ Outra maneira eficiente de combinar filtro e pesquisa é por meio **`search.isma
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Para obter mais informações sobre a função, consulte [search.ismatch em "Exemplos de filtros"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
+Para obter mais informações sobre a função, consulte [search.ismatch em "Exemplos de filtros"](./search-query-odata-full-text-search-functions.md#examples).
 
 ## <a name="example-4-range-filters"></a>Exemplo 4: filtros de intervalo
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 ## <a name="example-5-geo-search"></a>Exemplo 5: pesquisa geográfica
 
-O índice de exemplo inclui um campo geo_location com coordenadas de latitude e longitude. Este exemplo usa a [função geo.distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) que filtra os documentos dentro da circunferência de um ponto inicial, até uma distância arbitrária (em quilômetros) que você fornece. É possível ajustar o último valor na consulta (4) para reduzir ou ampliar a área da superfície da consulta.
+O índice de exemplo inclui um campo geo_location com coordenadas de latitude e longitude. Este exemplo usa a [função geo.distance](./search-query-odata-geo-spatial-functions.md#examples) que filtra os documentos dentro da circunferência de um ponto inicial, até uma distância arbitrária (em quilômetros) que você fornece. É possível ajustar o último valor na consulta (4) para reduzir ou ampliar a área da superfície da consulta.
 
 O exemplo a seguir está no formato POST para legibilidade:
 
@@ -223,7 +223,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Consultas de termo são termos únicos, talvez muitos deles, avaliados independentemente. Consultas de frase são colocadas entre aspas e avaliadas como uma cadeia de caracteres textual. A precisão da correspondência é controlada pelos operadores e pelo searchMode.
 
-Exemplo 1: **`&search=fire`** retorna 150 resultados, onde todas as correspondências contêm a palavra Fire em algum lugar no documento.
+Exemplo 1: **`&search=fire`**  retorna 150 resultados, onde todas as correspondências contêm a palavra Fire em algum lugar no documento.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=fire
@@ -288,13 +288,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ## <a name="next-steps"></a>Próximas etapas
 Experimente especificar consultas no código. Os links a seguir explicam como configurar consultas de pesquisa para .NET e API REST usando a sintaxe simples padrão.
 
-* [Consultar seu índice usando o SDK do .NET](search-query-dotnet.md)
-* [Consultar seu índice usando a API REST](search-create-index-rest-api.md)
+* [Consultar seu índice usando o SDK do .NET](./search-get-started-dotnet.md)
+* [Consultar seu índice usando a API REST](./search-get-started-powershell.md)
 
 Referência de sintaxe adicional, arquitetura de consulta e exemplos podem ser encontrados nos links a seguir:
 
 + [Exemplos de consulta de sintaxe Lucene para criar consultas avançadas](search-query-lucene-examples.md)
 + [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Consulta Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Filtro e sintaxe Orderby](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
++ [Sintaxe de consulta simples](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Consulta Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Filtro e sintaxe Orderby](/rest/api/searchservice/odata-expression-syntax-for-azure-search)

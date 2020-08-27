@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 081bab0cd930d90ca0d359461e4a41b15ba4911b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0a430ebfb19ca529ae96698173df27d18e6dd10
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075506"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705156"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Início Rápido: Criar um WAF v2 do Azure no Gateway de Aplicativo usando um modelo do ARM
 
@@ -37,7 +37,7 @@ Este modelo cria um Firewall do Aplicativo Web v2 simples no Gateway de Aplicati
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
-:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
+:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json":::
 
 Vários recursos do Azure são definidos no modelo:
 
