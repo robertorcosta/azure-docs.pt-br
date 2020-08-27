@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18, fasttrack-edit
-ms.openlocfilehash: d55d1c0d72f0122472813fc6e79ba021e8b86e89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c8b71e4be11a886da3e0889add0a3cdc19a56c3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831243"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962410"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Conexões Híbridas do Serviço de Aplicativo do Azure
 
@@ -20,7 +20,7 @@ Conexões Híbridas é um serviço no Azure e uma funcionalidade no Serviço de 
 
 No serviço de aplicativo, Conexões Híbridas pode ser usado para acessar recursos do aplicativo em qualquer rede que possa fazer chamadas de saída para o Azure pela porta 443. Conexões Híbridas fornece acesso de seu aplicativo para um ponto de extremidade TCP e não permite uma nova maneira de acessar seu aplicativo. Conforme usado no Serviço de Aplicativo, cada conexão híbrida se correlaciona com uma única combinação de host e de porta TCP. Isso permite que seus aplicativos acessem recursos em qualquer sistema operacional, desde que seja um ponto de extremidade TCP. O recurso Conexões Híbridas não sabe e nem se importa com o protocolo de aplicativo ou o que você está acessando. Ele simplesmente fornece acesso à rede.  
 
-## <a name="how-it-works"></a>Como funciona ##
+## <a name="how-it-works"></a>Como ele funciona ##
 Conexões Híbridas requer que um agente de retransmissão seja implantado onde ele possa alcançar o ponto de extremidade desejado, bem como o Azure. O agente de retransmissão, Gerenciador de Conexões Híbridas (HCM), chama a retransmissão do Azure pela porta 443. No site do aplicativo Web, a infraestrutura do serviço de aplicativo também se conecta à retransmissão do Azure em nome do seu aplicativo. Por meio das conexões Unidas, seu aplicativo é capaz de acessar o ponto de extremidade desejado. A conexão usa o protocolo TLS 1.2 para segurança e as chaves de SAS (Assinatura de Acesso Compartilhado) para autenticação e autorização.    
 
 ![Diagrama de fluxo de alto nível de Conexão híbrida][1]
@@ -94,7 +94,7 @@ As conexões híbridas do serviço de aplicativos estão disponíveis apenas nos
 
 | Plano de preços | Número de Conexões Híbridas utilizáveis no plano |
 |----|----|
-| Basic | 5 por plano |
+| Básico | 5 por plano |
 | Standard | 25 por plano |
 | PremiumV2 | 200 por aplicativo |
 | Isolado | 200 por aplicativo |
@@ -134,7 +134,7 @@ Para adicionar uma ou mais Conexões Híbridas a seu HCM:
 1. Selecione as Conexões Híbridas que você deseja que o HCM retransmita.
 ![Captura de tela de Conexões Híbridas][9]
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Agora você pode ver as Conexões Híbridas adicionadas. Você também pode selecionar a Conexão híbrida configurada para ver os detalhes.
 
@@ -225,8 +225,8 @@ Se você tiver um cliente de linha de comando para seu ponto de extremidade, pod
 [12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
-[HCService]: https://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
+[HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/
 [portal]: https://portal.azure.com/
-[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
+[oldhc]: /azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

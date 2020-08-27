@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: 1e5c909dfebf9c2073ac1809e0a1b7dcbcc7a297
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: e79381c156247efafa55de51f7e2e0154dbc1b51
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874190"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962495"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
 O ASE (Ambiente de Serviço de Aplicativo) tem diversas dependências externas às quais ele requer acesso para funcionar corretamente. O ASE reside na VNet (rede virtual) do Azure do cliente. Os clientes devem permitir o tráfego de dependência do ASE, que é um problema para os clientes que desejam bloquear toda a saída da VNet.
 
-Há vários pontos de extremidade de entrada que são usados para gerenciar um ASE. O tráfego de gerenciamento de entrada não pode ser enviado por meio de um dispositivo de firewall. Os endereços de origem para esse tráfego são conhecidos e publicados no documento [Endereços de gerenciamento do Ambiente do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/environment/management-addresses). Também há uma Marca de Serviço chamada AppServiceManagement que pode ser usada com NSGs (grupos de segurança de rede) para proteger o tráfego de entrada.
+Há vários pontos de extremidade de entrada que são usados para gerenciar um ASE. O tráfego de gerenciamento de entrada não pode ser enviado por meio de um dispositivo de firewall. Os endereços de origem para esse tráfego são conhecidos e publicados no documento [Endereços de gerenciamento do Ambiente do Serviço de Aplicativo](./management-addresses.md). Também há uma Marca de Serviço chamada AppServiceManagement que pode ser usada com NSGs (grupos de segurança de rede) para proteger o tráfego de entrada.
 
 As dependências de saída do ASE são quase que totalmente definidas com FQDNs, que não têm endereços estáticos por trás delas. A falta de endereços estáticos significa que os grupos de segurança de rede não podem ser usados para bloquear o tráfego de saída por meio de um ASE. Os endereços mudam com frequência suficiente para que não seja possível configurar regras com base na resolução atual e usá-las para criar NSGs. 
 
@@ -55,7 +55,7 @@ As etapas para bloquear a saída do ASE existente com o Firewall do Azure são:
 
    ![selecionar pontos de extremidade de serviço][2]
   
-1. Crie uma sub-rede chamada AzureFirewallSubnet na VNET em que o ASE está localizado. Siga as instruções da [documentação do Firewall do Azure](https://docs.microsoft.com/azure/firewall/) para criar seu Firewall do Azure.
+1. Crie uma sub-rede chamada AzureFirewallSubnet na VNET em que o ASE está localizado. Siga as instruções da [documentação do Firewall do Azure](../../firewall/index.yml) para criar seu Firewall do Azure.
 
 1. Na interface do usuário do Firewall do Azure > Regras > Coleção de regras de aplicativo, selecione Adicionar coleção de regras de aplicativo. Forneça um nome e uma prioridade e defina Permitir. Na seção Marcas de FQDN, forneça um nome, defina os endereços de origem como * e selecione a marca FQDN do Ambiente do Serviço de Aplicativo e o Windows Update. 
    
@@ -69,7 +69,7 @@ As etapas para bloquear a saída do ASE existente com o Firewall do Azure são:
 
    ![Adicionar uma regra de rede da marca de serviço NTP][6]
    
-1. Criar uma tabela de rotas com os endereços de gerenciamento dos [Endereços de gerenciamento do Ambiente do Serviço de Aplicativo]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) com um próximo salto da Internet. As entradas da tabela de rota são necessárias para evitar problemas de roteamento assimétrico. Adicione as rotas para as dependências de endereço IP indicadas abaixo nas dependências de endereço IP com um próximo salto de Internet. Adicione uma rota da Solução de Virtualização à sua tabela de rotas para 0.0.0.0/0 com o próximo nó sendo seu endereço IP privado do Firewall do Azure. 
+1. Criar uma tabela de rotas com os endereços de gerenciamento dos [Endereços de gerenciamento do Ambiente do Serviço de Aplicativo]( ./management-addresses.md) com um próximo salto da Internet. As entradas da tabela de rota são necessárias para evitar problemas de roteamento assimétrico. Adicione as rotas para as dependências de endereço IP indicadas abaixo nas dependências de endereço IP com um próximo salto de Internet. Adicione uma rota da Solução de Virtualização à sua tabela de rotas para 0.0.0.0/0 com o próximo nó sendo seu endereço IP privado do Firewall do Azure. 
 
    ![Criando uma tabela de rotas][4]
    
@@ -77,7 +77,7 @@ As etapas para bloquear a saída do ASE existente com o Firewall do Azure são:
 
 #### <a name="deploying-your-ase-behind-a-firewall"></a>Implantando o ASE atrás de um firewall
 
-As etapas para implantar o ASE atrás de um firewall são as mesmas da configuração do ASE existente com um Firewall do Azure, exceto que você precisará criar a sub-rede do ASE e, em seguida, seguir as etapas anteriores. Para criar o ASE em uma sub-rede pré-existente, você precisa usar um modelo do Resource Manager, conforme descrito no documento sobre como [Criar o ASE com um modelo do Resource Manager](https://docs.microsoft.com/azure/app-service/environment/create-from-template).
+As etapas para implantar o ASE atrás de um firewall são as mesmas da configuração do ASE existente com um Firewall do Azure, exceto que você precisará criar a sub-rede do ASE e, em seguida, seguir as etapas anteriores. Para criar o ASE em uma sub-rede pré-existente, você precisa usar um modelo do Resource Manager, conforme descrito no documento sobre como [Criar o ASE com um modelo do Resource Manager](./create-from-template.md).
 
 ## <a name="application-traffic"></a>Tráfego de aplicativo 
 
@@ -88,7 +88,7 @@ As etapas acima permitirão que seu ASE opere sem problemas. Você ainda precisa
 
 Se seus aplicativos tiverem dependências, precisarão ser adicionados ao Firewall do Azure. Crie regras de aplicativo para permitir o tráfego HTTP/HTTPS e regras de Rede para todo o resto. 
 
-Se você souber o intervalo de endereços do qual seu tráfego de solicitação de aplicativo virá, poderá adicioná-lo à tabela de rotas atribuída à sua sub-rede do ASE. Se o intervalo de endereços for grande ou não estiver especificado, você poderá usar um dispositivo de rede, como o Gateway de Aplicativo para fornecer um endereço para adicionar à sua tabela de rotas. Para obter detalhes sobre como configurar um Gateway de Aplicativo com seu ILB ASE, leia [Como integrar seu ILB ASE a um Gateway de Aplicativo](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway)
+Se você souber o intervalo de endereços do qual seu tráfego de solicitação de aplicativo virá, poderá adicioná-lo à tabela de rotas atribuída à sua sub-rede do ASE. Se o intervalo de endereços for grande ou não estiver especificado, você poderá usar um dispositivo de rede, como o Gateway de Aplicativo para fornecer um endereço para adicionar à sua tabela de rotas. Para obter detalhes sobre como configurar um Gateway de Aplicativo com seu ILB ASE, leia [Como integrar seu ILB ASE a um Gateway de Aplicativo](./integrate-with-application-gateway.md)
 
 Esse uso do Gateway de Aplicativo é apenas um exemplo de como configurar o sistema. Se você seguiu esse caminho, você precisa adicionar uma rota à tabela de rotas da sub-rede do ASE, de modo que o tráfego de resposta enviado ao Gateway de Aplicativo acesse-o diretamente. 
 
@@ -100,7 +100,7 @@ O Firewall do Azure pode enviar logs para o Armazenamento do Azure, o Hub de Eve
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-A integração do Firewall do Azure aos logs do Azure Monitor é útil ao tornar o aplicativo funcional pela primeira vez, quando você não está ciente de todas as dependências de aplicativo. Saiba mais sobre os logs do Azure Monitor em [Analisar dados de log no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+A integração do Firewall do Azure aos logs do Azure Monitor é útil ao tornar o aplicativo funcional pela primeira vez, quando você não está ciente de todas as dependências de aplicativo. Saiba mais sobre os logs do Azure Monitor em [Analisar dados de log no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
  
 ## <a name="dependencies"></a>Dependências
 
@@ -269,7 +269,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 
 ## <a name="us-gov-dependencies"></a>Dependências de US Gov
 
-Para os ASEs nas regiões US Gov, siga as instruções da seção [Como configurar o Firewall do Azure com o seu ASE](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) deste documento para configurar um Firewall do Azure com o ASE.
+Para os ASEs nas regiões US Gov, siga as instruções da seção [Como configurar o Firewall do Azure com o seu ASE](#configuring-azure-firewall-with-your-ase) deste documento para configurar um Firewall do Azure com o ASE.
 
 Caso deseje usar um dispositivo que não seja o Firewall do Azure em US Gov 
 

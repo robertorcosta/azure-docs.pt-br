@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831872"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962036"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificados e o Ambiente do Serviço de Aplicativo 
 
-O ASE (Ambiente do Serviço de Aplicativo) é uma implantação do Serviço de Aplicativo do Azure que é executada na sua VNet (Rede Virtual) do Azure. Ele pode ser implantado com um ponto de extremidade do aplicativo acessível pela internet ou um ponto de extremidade do aplicativo que esteja em sua rede virtual. Se você implantar o ASE com um ponto de extremidade acessível pela Internet, a implantação será chamada de ASE externo. Se você implantar o ASE com um ponto de extremidade em sua rede virtual, a implantação será chamada de ILB ASE. Você pode aprender mais sobre o ILB ASE no documento [Criar e usar um ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+O ASE (Ambiente do Serviço de Aplicativo) é uma implantação do Serviço de Aplicativo do Azure que é executada na sua VNet (Rede Virtual) do Azure. Ele pode ser implantado com um ponto de extremidade do aplicativo acessível pela internet ou um ponto de extremidade do aplicativo que esteja em sua rede virtual. Se você implantar o ASE com um ponto de extremidade acessível pela Internet, a implantação será chamada de ASE externo. Se você implantar o ASE com um ponto de extremidade em sua rede virtual, a implantação será chamada de ILB ASE. Você pode aprender mais sobre o ILB ASE no documento [Criar e usar um ILB ASE](./create-ilb-ase.md).
 
 O ASE é um sistema de locatário único. Como ele é de locatário único, há alguns recursos disponíveis apenas para ASE que não esteja disponível no Serviço de Aplicativo multilocatário. 
 

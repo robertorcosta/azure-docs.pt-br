@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207528"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962172"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -46,12 +46,12 @@ Para habilitar o log de aplicativos para aplicativos do Windows no [portal do Az
 
 Selecione **ativado** para o **registro em log do aplicativo (Filesystem)** ou **log de aplicativo (BLOB)** ou ambos. 
 
-A opção **FileSystem** é para fins de depuração temporária e fica desativada em 12 horas. A opção **blob** é para o log de longo prazo e precisa de um contêiner de armazenamento de BLOBs no qual os logs serão gravados.  A opção **blob** também inclui informações adicionais nas mensagens de log, como a ID da instância de VM de origem da mensagem de log ( `InstanceId` ), ID de thread ( `Tid` ) e um carimbo de data/hora mais granular ( [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) ).
+A opção **FileSystem** é para fins de depuração temporária e fica desativada em 12 horas. A opção **blob** é para o log de longo prazo e precisa de um contêiner de armazenamento de BLOBs no qual os logs serão gravados.  A opção **blob** também inclui informações adicionais nas mensagens de log, como a ID da instância de VM de origem da mensagem de log ( `InstanceId` ), ID de thread ( `Tid` ) e um carimbo de data/hora mais granular ( [`EventTickCount`](/dotnet/api/system.datetime.ticks) ).
 
 > [!NOTE]
 > No momento, somente logs de aplicativo do .NET podem ser gravados no Armazenamento de Blobs. Os logs de aplicativos Java, PHP, Node.js, Python só podem ser armazenados no sistema de arquivos do serviço de aplicativo (sem modificações de código para gravar logs no armazenamento externo).
 >
-> Além disso, se você [regenerar as chaves de acesso da sua conta de armazenamento](../storage/common/storage-create-storage-account.md), deverá redefinir a respectiva configuração de registro em log para usar as chaves de acesso atualizadas. Para fazer isso:
+> Além disso, se você [regenerar as chaves de acesso da sua conta de armazenamento](../storage/common/storage-account-create.md), deverá redefinir a respectiva configuração de registro em log para usar as chaves de acesso atualizadas. Para fazer isso:
 >
 > 1. Na guia **Configurar**, defina o respectivo recurso de log como **Desativado**. Salve sua configuração.
 > 2. Habilite o registro no blob da conta de armazenamento novamente. Salve sua configuração.
@@ -89,7 +89,7 @@ Para o **log do servidor Web**, selecione **armazenamento** para armazenar logs 
 Em **período de retenção (dias)**, defina o número de dias que os logs devem ser retidos.
 
 > [!NOTE]
-> Se você [regenerar as chaves de acesso de sua conta de armazenamento](../storage/common/storage-create-storage-account.md), será necessário redefinir a respectiva configuração de log para usar as chaves atualizadas. Para fazer isso:
+> Se você [regenerar as chaves de acesso de sua conta de armazenamento](../storage/common/storage-account-create.md), será necessário redefinir a respectiva configuração de log para usar as chaves atualizadas. Para fazer isso:
 >
 > 1. Na guia **Configurar**, defina o respectivo recurso de log como **Desativado**. Salve sua configuração.
 > 2. Habilite o registro no blob da conta de armazenamento novamente. Salve sua configuração.
@@ -116,7 +116,7 @@ No código do aplicativo, você usa os recursos de log usuais para enviar mensag
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Por padrão, ASP.NET Core usa o provedor de log [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Para obter mais informações, consulte [Registro do ASP.NET Core no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- Por padrão, ASP.NET Core usa o provedor de log [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Para obter mais informações, consulte [Registro do ASP.NET Core no Azure](/aspnet/core/fundamentals/logging/).
 
 ## <a name="stream-logs"></a>Transmitir logs
 
@@ -151,7 +151,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### <a name="in-local-terminal"></a>No terminal local
 
-Para transmitir logs no console local, [instale CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [entre em sua conta](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Depois de conectado, seguiu as [instruções para Cloud Shell](#in-cloud-shell)
+Para transmitir logs no console local, [instale CLI do Azure](/cli/azure/install-azure-cli) e [entre em sua conta](/cli/azure/authenticate-azure-cli). Depois de conectado, seguiu as [instruções para Cloud Shell](#in-cloud-shell)
 
 ## <a name="access-log-files"></a>Acessar arquivos de log
 

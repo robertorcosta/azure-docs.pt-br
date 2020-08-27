@@ -3,14 +3,14 @@ title: Executar runbooks da Automação do Azure em um Hybrid Runbook Worker
 description: Este artigo mostra como executar runbooks em computadores em seu datacenter local ou no provedor de nuvem com o Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2019
+ms.date: 08/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22ab982abe9f73aa77cb9bb2c8d3eaa383bc42fb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 13c982dcfab21371ea6017f730065cc5ced4b79e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186207"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959561"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -304,6 +304,14 @@ Ao iniciar um runbook usando o PowerShell, use o parâmetro `RunOn` com o cmdlet
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
+
+## <a name="logging"></a>Registrando em log
+
+Para ajudar a solucionar problemas com seus runbooks em execução em um runbook Worker híbrido, os logs são armazenados localmente no seguinte local:
+
+* No Windows em `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` para o log de processos detalhados do tempo de execução do trabalho. Eventos de status de trabalho de runbook de alto nível são gravados no log de eventos **Logs\Microsoft-Automation\Operations de aplicativos e serviços** .
+
+* No Linux, os logs de trabalho híbrido do usuário podem ser encontrados em `/home/nxautomation/run/worker.log` , e os logs do runbook Worker do sistema podem ser encontrados em `/var/opt/microsoft/omsagent/run/automationworker/worker.log` .
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75768479"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962444"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Práticas Recomendadas para o Serviço de Aplicativo do Azure
 Este artigo resume as práticas recomendadas para usar o [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -67,7 +67,7 @@ A configuração padrão do Serviço de Aplicativo do Azure para aplicativos Nod
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre as práticas recomendadas, visite [diagnóstico do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/overview-diagnostics) para descobrir práticas recomendadas acionáveis específicas ao seu recurso.
+Para obter mais informações sobre as práticas recomendadas, visite [diagnóstico do serviço de aplicativo](./overview-diagnostics.md) para descobrir práticas recomendadas acionáveis específicas ao seu recurso.
 
 - Navegue até seu aplicativo Web no [portal do Azure](https://portal.azure.com).
 - Clique em **diagnosticar e resolver problemas** no painel de navegação esquerdo, que abre o diagnóstico do serviço de aplicativo.

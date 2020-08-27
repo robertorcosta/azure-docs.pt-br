@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d6e85bad7705647164fb1010f6c782729e20596b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211914"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961662"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurar um aplicativo de ASP.NET Core para o serviço Azure App
 
@@ -56,7 +56,7 @@ az webapp list-runtimes --linux | grep DOTNETCORE
 
 ::: zone pivot="platform-windows"  
 
-Defina a estrutura de destino no arquivo de projeto para seu projeto ASP.NET Core. Para obter mais informações, consulte [selecionar a versão do .NET Core a ser usada](https://docs.microsoft.com/dotnet/core/versions/selection) na documentação do .NET Core.
+Defina a estrutura de destino no arquivo de projeto para seu projeto ASP.NET Core. Para obter mais informações, consulte [selecionar a versão do .NET Core a ser usada](/dotnet/core/versions/selection) na documentação do .NET Core.
 
 ::: zone-end
 
@@ -128,7 +128,7 @@ namespace SomeNamespace
 Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e no *appsettings.jsem*, por exemplo, o valor do serviço de aplicativo terá precedência sobre a *appsettings.jsno* valor. O *appsettings.jslocal no* valor permite que você depure o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
 
 > [!NOTE]
-> Observe que os [dados de configuração hierárquica](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) no *appsettings.jsem* é acessado usando o `:` delimitador padrão para o .NET Core. Para substituir uma definição de configuração hierárquica específica no serviço de aplicativo, defina o nome da configuração do aplicativo com o mesmo formato delimitado na chave. Você pode executar o exemplo a seguir no [Cloud Shell](https://shell.azure.com):
+> Observe que os [dados de configuração hierárquica](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) no *appsettings.jsem* é acessado usando o `:` delimitador padrão para o .NET Core. Para substituir uma definição de configuração hierárquica específica no serviço de aplicativo, defina o nome da configuração do aplicativo com o mesmo formato delimitado na chave. Você pode executar o exemplo a seguir no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
@@ -144,7 +144,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="access-diagnostic-logs"></a>Acessar logs de diagnóstico
 
-ASP.NET Core fornece um [provedor de registro em log interno para o serviço de aplicativo](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). Em *Program.cs* do seu projeto, adicione o provedor ao seu aplicativo por meio do `ConfigureLogging` método de extensão, conforme mostrado no exemplo a seguir:
+ASP.NET Core fornece um [provedor de registro em log interno para o serviço de aplicativo](/aspnet/core/fundamentals/logging/#azure-app-service). Em *Program.cs* do seu projeto, adicione o provedor ao seu aplicativo por meio do `ConfigureLogging` método de extensão, conforme mostrado no exemplo a seguir:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -159,11 +159,11 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
-Em seguida, você pode configurar e gerar logs com o [padrão .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging)padrão.
+Em seguida, você pode configurar e gerar logs com o [padrão .NET Core](/aspnet/core/fundamentals/logging)padrão.
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-Para obter mais informações sobre como solucionar problemas de aplicativos ASP.NET Core no serviço de aplicativo, consulte [solucionar problemas ASP.NET Core no serviço Azure app e IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
+Para obter mais informações sobre como solucionar problemas de aplicativos ASP.NET Core no serviço de aplicativo, consulte [solucionar problemas ASP.NET Core no serviço Azure app e IIS](/aspnet/core/test/troubleshoot-azure-iis)
 
 ## <a name="get-detailed-exceptions-page"></a>Página obter exceções detalhadas
 
@@ -177,9 +177,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 No Serviço de Aplicativo, a [Terminação SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre nos balanceadores de carga de rede de modo que todas as solicitações HTTPS cheguem ao seu aplicativo como solicitações HTTP não criptografadas. Se a lógica do aplicativo precisar saber se as solicitações do usuário estão criptografadas ou não, configure o middleware de cabeçalhos encaminhados em *Startup.cs*:
 
-- Configure o middleware com [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os cabeçalhos `X-Forwarded-For` e `X-Forwarded-Proto` em `Startup.ConfigureServices`.
+- Configure o middleware com [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) para encaminhar os cabeçalhos `X-Forwarded-For` e `X-Forwarded-Proto` em `Startup.ConfigureServices`.
 - Adicione intervalos de endereços IP privados às redes conhecidas, para que o middleware possa confiar no balanceador de carga do serviço de aplicativo.
-- Invoque o método [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) no `Startup.Configure` antes de chamar outro middleware.
+- Invoque o método [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) no `Startup.Configure` antes de chamar outro middleware.
 
 Colocando todos os três elementos juntos, seu código é semelhante ao exemplo a seguir:
 
@@ -208,7 +208,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Para obter mais informações, veja [Configurar o ASP.NET Core para trabalhar com servidores proxy e balanceadores de carga](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+Para obter mais informações, veja [Configurar o ASP.NET Core para trabalhar com servidores proxy e balanceadores de carga](/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ::: zone pivot="platform-linux"
 
@@ -223,7 +223,7 @@ Para obter mais informações, veja [Configurar o ASP.NET Core para trabalhar co
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: ASP.NET Core aplicativo com o banco de dados SQL](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: Aplicativo ASP.NET Core com o Banco de Dados SQL](tutorial-dotnetcore-sqldb-app.md)
 
 ::: zone pivot="platform-linux"
 
@@ -231,4 +231,3 @@ Para obter mais informações, veja [Configurar o ASP.NET Core para trabalhar co
 > [Perguntas frequentes sobre o Serviço de Aplicativo no Linux](faq-app-service-linux.md)
 
 ::: zone-end
-

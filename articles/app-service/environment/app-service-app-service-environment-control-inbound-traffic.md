@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 5efca8ab51c789a619e48b1ae96a53494ae411ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831157"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962053"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
 ## <a name="overview"></a>Visão geral
@@ -31,8 +31,8 @@ Antes de bloquear o tráfego de rede de entrada com um grupo de segurança de re
 
 A lista a seguir contém as portas usadas por um Ambiente do Serviço de Aplicativo. Todas as portas são **TCP**, a menos que indicado o claramente contrário:
 
-* 454: **porta necessária** usada pela infraestrutura do Azure para gerenciar e manter ambientes de serviço de aplicativo via TLS.  Não bloqueie o tráfego para esta porta.  Essa porta é sempre associada ao VIP público de um ASE.
-* 455: **porta necessária** usada pela infraestrutura do Azure para gerenciar e manter ambientes de serviço de aplicativo via TLS.  Não bloqueie o tráfego para esta porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 454:  **porta necessária** usada pela infraestrutura do Azure para gerenciar e manter ambientes de serviço de aplicativo via TLS.  Não bloqueie o tráfego para esta porta.  Essa porta é sempre associada ao VIP público de um ASE.
+* 455:  **porta necessária** usada pela infraestrutura do Azure para gerenciar e manter ambientes de serviço de aplicativo via TLS.  Não bloqueie o tráfego para esta porta.  Essa porta é sempre associada ao VIP público de um ASE.
 * 80: porta padrão para tráfego HTTP de entrada para aplicativos executados em Planos de Serviço de Aplicativo em um Ambiente de Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 * 443: porta padrão para tráfego TLS de entrada para aplicativos que são executados nos planos do serviço de aplicativo em um Ambiente do Serviço de Aplicativo.  Em um ASE habilitado para ILB, essa porta é associada ao endereço ILB do ASE.
 * 21: canal de controle para FTP.  Essa porta pode ser bloqueada com segurança se o FTP não estiver sendo usado.  Em um ASE habilitado para ILB, essa porta pode ser associada ao endereço ILB de um ASE.
@@ -86,7 +86,7 @@ Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityR
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 ```
 
-(**Observação:** o intervalo de portas do canal de dados pode ser alterado durante o período de visualização.)
+(**Observação:**  o intervalo de portas do canal de dados pode ser alterado durante o período de visualização.)
 
 Se a depuração remota com o Visual Studio é usada, as regras a seguir demonstram como conceder acesso.  Há uma regra separada para cada versão com suporte do Visual Studio, já que cada versão usa uma porta diferente para a depuração remota.  Assim como acontece com acesso ao FTP, o tráfego de depuração remota pode não fluir corretamente por meio de um dispositivo de proxy ou WAF tradicional.  O *SourceAddressPrefix* pode ser definido, em vez disso, como o intervalo de endereços IP dos computadores de desenvolvedor executando o Visual Studio.
 
@@ -130,12 +130,11 @@ Para obter mais informações, consulte [conectando-se com segurança a recursos
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md
 [NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->
-
