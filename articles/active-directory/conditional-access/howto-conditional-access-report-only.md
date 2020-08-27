@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ea039526b9434501b60ed6ccf762f45625b26
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83994962"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948140"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurar uma política de acesso condicional no modo somente de relatório
 
@@ -51,8 +51,8 @@ Para exibir o resultado de uma política somente de relatório para uma entrada 
 
 Para exibir o impacto agregado das políticas de acesso condicional usando a nova pasta de trabalho de informações de acesso condicional, você deve integrar o Azure Monitor ao Azure AD e exportar os logs de entrada. Há duas etapas para configurar essa integração: 
 
-1. [Inscreva-se em uma assinatura Azure monitor e crie um espaço de trabalho](/azure/azure-monitor/learn/quick-create-workspace).
-1. [Exporte os logs de entrada do Azure ad para Azure monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Inscreva-se em uma assinatura Azure monitor e crie um espaço de trabalho](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Exporte os logs de entrada do Azure ad para Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 Mais informações sobre preços de Azure Monitor podem ser encontradas na [página de preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Os recursos para estimar os custos, definir um limite diário ou personalizar o período de retenção de dados podem ser encontrados no artigo [gerenciar o uso e os custos com logs de Azure monitor](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 

@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 08/25/2020
-ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c7b78f14602632068a19d520aeeb940b543be61
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869110"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948208"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planejar eventos de manutenção do Azure no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,6 +24,8 @@ ms.locfileid: "88869110"
 Saiba como se preparar para eventos de manutenção planejada em seu banco de dados no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>O que é um evento de manutenção planejada?
+
+Para manter o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada Services seguros, compatíveis, estáveis e com bom desempenho, as atualizações estão sendo executadas por meio dos componentes de serviço quase continuamente. Graças à arquitetura de serviço moderna e robusta e às tecnologias inovadoras, como a [aplicação de patches](https://aka.ms/azuresqlhotpatching), a maioria das atualizações é totalmente transparente e sem impacto em termos de disponibilidade do serviço. Ainda assim, poucos tipos de atualizações causam interrupções de serviço curtas e exigem tratamento especial. 
 
 Para cada banco de dados, o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada mantêm um quorum de réplicas de banco de dados em que uma réplica é a primária. Em todos os momentos, uma réplica primária deve estar em manutenção online e pelo menos uma réplica secundária deve estar íntegra. Durante a manutenção planejada, os membros do quorum do banco de dados ficarão offline um por vez com a intenção de que há uma réplica primária respondendo e pelo menos uma réplica secundária online para garantir que não haja tempo de inatividade do cliente. Quando a réplica primária precisa ser colocada offline, ocorrerá um processo de reconfiguração/failover no qual uma réplica secundária se tornará a nova primária.  
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80546255"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927197"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajustar a capacidade no Azure Pesquisa Cognitiva
 
@@ -21,7 +21,7 @@ Antes de [provisionar um serviço de pesquisa](search-create-service-portal.md) 
 
 A capacidade é uma função da [camada escolhida](search-sku-tier.md) (camadas determinam as características de hardware) e a combinação de réplica e partição necessária para cargas de trabalho projetadas. Dependendo da camada e do tamanho do ajuste, adicionar ou reduzir a capacidade pode levar de 15 minutos a várias horas. 
 
-Ao modificar a alocação de réplicas e partições, é recomendável usar o portal do Azure. O portal impõe limites para combinações permitidas que ficam abaixo dos limites máximos de uma camada. No entanto, se você precisar de uma abordagem de provisionamento baseada em script ou em código, o [Azure PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/services) são soluções alternativas.
+Ao modificar a alocação de réplicas e partições, é recomendável usar o portal do Azure. O portal impõe limites para combinações permitidas que ficam abaixo dos limites máximos de uma camada. No entanto, se você precisar de uma abordagem de provisionamento baseada em script ou em código, o [Azure PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](/rest/api/searchmanagement/services) são soluções alternativas.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e partições
 

@@ -11,19 +11,25 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01decb99a9eb24ae60250f83f1f961b4c1690bc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 116446c2ca6512ac39b907e95a2c1ccdf70befda
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652856"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949279"
 ---
 # <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Cenários avançados com o servidor MFA do Azure e soluções de VPN de terceiros
 
 O Azure Servidor de Autenticação Multifator (servidor Azure MFA) pode ser usado para se conectar diretamente com várias soluções VPN de terceiros. Este artigo enfoca &reg; o dispositivo VPN Cisco ASA, o dispositivo de VPN Citrix Netscaler SSL e o dispositivo de VPN Juniper Networks Secure Access/Pulse seguro Connect Secure SSL. Criamos guias de configuração para abordar esses três dispositivos comuns. O servidor MFA do Azure também pode ser integrado à maioria dos outros sistemas que usam RADIUS, LDAP, IIS ou autenticação baseada em declarações para AD FS. Você pode encontrar mais detalhes nas [configurações do servidor do Azure MFA](howto-mfaserver-deploy.md#next-steps).
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Os novos clientes que desejarem exigir a autenticação multifator de seus usuários devem usar a Autenticação Multifator do Microsoft Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferece mais o servidor MFA para novas implantações. Novos clientes que desejam exigir a MFA (autenticação multifator) durante eventos de entrada devem usar a autenticação multifator do Azure baseada em nuvem.
+>
+> Para começar a usar a MFA baseada em nuvem, consulte [tutorial: proteger eventos de entrada do usuário com a autenticação multifator do Azure](tutorial-enable-azure-mfa.md).
+>
+> Se você usar MFA baseada em nuvem, consulte [integrar sua infraestrutura de VPN com o Azure MFA](howto-mfa-nps-extension-vpn.md).
+>
+> Os clientes existentes que ativaram o servidor MFA antes de 1º de julho de 2019 podem baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
 ## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Dispositivo VPN Cisco ASA e servidor Azure MFA
 O servidor MFA do Azure integra-se ao &reg; dispositivo VPN Cisco ASA para fornecer segurança adicional para &reg; logons de VPN do Cisco AnyConnect e acesso ao Portal.  Use o protocolo LDAP ou RADIUS.  Selecione um dos procedimentos a seguir para baixar os guias passo a passo de configuração detalhados.

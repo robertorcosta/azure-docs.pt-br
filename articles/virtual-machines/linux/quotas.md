@@ -4,19 +4,22 @@ description: Saiba mais sobre as cotas de vCPU do Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 684c665d57127b7ca52771c0498ef370293e4003
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 028da1fa9d2b16b4d87c345d8435c99b565e1774
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292308"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949687"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Cotas de vCPU de máquina virtual
+# <a name="check-vcpu-quotas-using-the-azure-cli"></a>Verifique as cotas do vCPU usando o CLI do Azure
 
 As cotas de vCPU para máquinas virtuais e conjuntos de escala de máquinas virtuais são organizadas em duas camadas para cada assinatura, em cada região. A primeira camada é a vCPUs Total Regional e a segunda camada são os vários núcleos da família de tamanho da VM, como as vCPUs da série D. Sempre que uma nova VM é implantada a vCPUs para a máquina virtual não deve exceder a cota de vCPU para a família de tamanho VM ou a cota total vCPU regional. Se qualquer uma das cotas é excedida, a implantação de VM não será permitida. Também há uma cota para o número total de máquinas virtuais na região. Os detalhes sobre cada uma dessas cotas podem ser vistos no **uso + cotas** seção o **assinatura** página o [portal do Azure](https://portal.azure.com), ou você pode consultar os valores usando o Azure CLI.
+
+> [!NOTE]
+> A cota é calculada com base no número total de núcleos em alocados e desalocados. Se precisar de núcleos adicionais, [solicite um aumento de cota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) ou exclua VMs desnecessárias. 
 
 
 ## <a name="check-usage"></a>Verificar o uso

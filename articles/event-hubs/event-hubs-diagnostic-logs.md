@@ -3,12 +3,12 @@ title: Configurar logs de diagnóstico – Hub de Eventos do Azure | Microsoft D
 description: Saiba como configurar logs de atividade e de diagnóstico para Hubs de Eventos no Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521931"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927724"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
@@ -61,18 +61,18 @@ As cadeias de caracteres JSON do log de arquivo morto incluem os elementos lista
 
 Nome | Descrição
 ------- | -------
-TaskName | Descrição da tarefa que falhou
-ActivityId | ID interna, usada para acompanhamento
-trackingId | ID interna, usada para acompanhamento
-resourceId | ID de recurso do Azure Resource Manager
-eventHub | Nome completo do hub de eventos (inclui o nome do namespace)
-partitionId | Partição do Hub de Eventos usada para gravação
-archiveStep | valores possíveis: ArchiveFlushWriter, DestinationInit
-startTime | Hora de início de falha
-falhas | Número de vezes que a falha ocorreu
-durationInSeconds | Duração de falha
-message | Mensagem de erro
-category | ArchiveLogs
+`TaskName` | Descrição da tarefa que falhou
+`ActivityId` | ID interna, usada para acompanhamento
+`trackingId` | ID interna, usada para acompanhamento
+`resourceId` | ID de recurso do Azure Resource Manager
+`eventHub` | Nome completo do hub de eventos (inclui o nome do namespace)
+`partitionId` | Partição do Hub de Eventos usada para gravação
+`archiveStep` | valores possíveis: ArchiveFlushWriter, DestinationInit
+`startTime` | Hora de início de falha
+`failures` | Número de vezes que a falha ocorreu
+`durationInSeconds` | Duração de falha
+`message` | Mensagem de erro
+`category` | ArchiveLogs
 
 O código a seguir é um exemplo de uma cadeia de caracteres JSON do log de arquivo morto:
 
@@ -99,15 +99,15 @@ As cadeias de caracteres JSON do log operacional incluem os elementos listados n
 
 Nome | Descrição
 ------- | -------
-ActivityId | ID interna, usada para acompanhamento |
-EventName | Nome da operação |
-resourceId | ID de recurso do Azure Resource Manager |
-SubscriptionId | ID da assinatura |
-EventTimeString | Tempo de operação |
-EventProperties | Propriedades da operação |
-Status | Status da operação |
-Chamador | Chamador da operação (portal do Azure ou cliente de gerenciamento) |
-Categoria | OperationalLogs |
+`ActivityId` | ID interna, usada para acompanhamento |
+`EventName` | Nome da operação |
+`resourceId` | ID de recurso do Azure Resource Manager |
+`SubscriptionId` | ID da assinatura |
+`EventTimeString` | Tempo de operação |
+`EventProperties` | Propriedades da operação |
+`Status` | Status da operação |
+`Caller` | Chamador da operação (portal do Azure ou cliente de gerenciamento) |
+`Category` | OperationalLogs |
 
 O código a seguir é um exemplo de uma cadeia de caracteres JSON do log operacional:
 
@@ -131,9 +131,9 @@ O JSON do log de dimensionamento automático incluem os elementos listados na se
 
 | Nome | Descrição |
 | ---- | ----------- | 
-| TrackingId | ID interna, que é usada para fins de rastreamento |
-| ResourceId | ID do Recurso do Azure Resource Manager. |
-| Mensagem | Mensagem informativa, que fornece detalhes sobre a ação de inflar automaticamente. A mensagem contém o valor anterior e o atual da unidade de taxa de transferência para um namespace específico e o que disparou a inflação da TU. |
+| `TrackingId` | ID interna, que é usada para fins de rastreamento |
+| `ResourceId` | ID do Recurso do Azure Resource Manager. |
+| `Message` | Mensagem informativa, que fornece detalhes sobre a ação de inflar automaticamente. A mensagem contém o valor anterior e o atual da unidade de taxa de transferência para um namespace específico e o que disparou a inflação da TU. |
 
 Veja um exemplo de evento de dimensionamento automático: 
 
@@ -150,13 +150,13 @@ O JSON do log do coordenador de Kafka inclui os elementos listados na seguinte t
 
 | Nome | Descrição |
 | ---- | ----------- | 
-| RequestId | ID de solicitação, que é usada para fins de rastreamento |
-| ResourceId | ID de recurso do Azure Resource Manager |
-| Operação | Nome da operação que é feita durante a coordenação do grupo |
-| ClientId | ID do Cliente |
-| NamespaceName | Nome do Namespace | 
-| SubscriptionId | ID de assinatura do Azure |
-| Mensagem | Mensagem informativa ou de aviso, que fornece detalhes sobre as ações feitas durante a coordenação do grupo. |
+| `RequestId` | ID de solicitação, que é usada para fins de rastreamento |
+| `ResourceId` | ID de recurso do Azure Resource Manager |
+| `Operation` | Nome da operação que é feita durante a coordenação do grupo |
+| `ClientId` | ID do Cliente |
+| `NamespaceName` | Nome do Namespace | 
+| `SubscriptionId` | ID de assinatura do Azure |
+| `Message` | Mensagem informativa ou de aviso, que fornece detalhes sobre as ações feitas durante a coordenação do grupo. |
 
 ### <a name="example"></a>Exemplo
 
@@ -178,14 +178,14 @@ O JSON do log de erro do usuário do Kafka inclui os elementos listados na segui
 
 | Nome | Descrição |
 | ---- | ----------- |
-| TrackingId | ID de rastreamento, que é usada para fins de rastreamento. |
-| NamespaceName | Nome do Namespace |
-| Eventhub | Nome do Hub de Eventos |
-| PartitionId | Partition ID |
-| GroupId | ID do Grupo |
-| ClientId | ID do Cliente |
-| ResourceId | ID do Recurso do Azure Resource Manager. |
-| Mensagem | Mensagem informativa, que fornece detalhes sobre um erro |
+| `TrackingId` | ID de rastreamento, que é usada para fins de rastreamento. |
+| `NamespaceName` | Nome do Namespace |
+| `Eventhub` | Nome do Hub de Eventos |
+| `PartitionId` | Partition ID |
+| `GroupId` | ID do Grupo |
+| `ClientId` | ID do Cliente |
+| `ResourceId` | ID do Recurso do Azure Resource Manager. |
+| `Message` | Mensagem informativa, que fornece detalhes sobre um erro |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Esquema de evento de conexão de rede virtual de Hubs de Eventos
 
@@ -193,13 +193,13 @@ O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elem
 
 | Nome | Descrição |
 | ---  | ----------- | 
-| SubscriptionId | ID de assinatura do Azure |
-| NamespaceName | Nome do Namespace |
-| IPAddress | Endereço IP de um cliente que se conecta ao serviço de Hubs de Eventos |
-| Ação | Ação feita pelo serviço de Hubs de Eventos ao avaliar solicitações de conexão. As ações com suporte são **Aceitar conexão** e **Negar conexão**. |
-| Motivo | Fornece um motivo pelo qual a ação foi feita |
-| Contagem | Número de ocorrências para a ação especificada |
-| ResourceId | ID do Recurso do Azure Resource Manager. |
+| `SubscriptionId` | ID de assinatura do Azure |
+| `NamespaceName` | Nome do Namespace |
+| `IPAddress` | Endereço IP de um cliente que se conecta ao serviço de Hubs de Eventos |
+| `Action` | Ação feita pelo serviço de Hubs de Eventos ao avaliar solicitações de conexão. As ações com suporte são **Aceitar conexão** e **Negar conexão**. |
+| `Reason` | Fornece um motivo pelo qual a ação foi feita |
+| `Count` | Número de ocorrências para a ação especificada |
+| `ResourceId` | ID do Recurso do Azure Resource Manager. |
 
 ### <a name="example"></a>Exemplo
 
@@ -221,14 +221,14 @@ O JSON do log de usuário gerenciada pelo cliente inclui os elementos listados n
 
 | Nome | Descrição |
 | ---- | ----------- | 
-| Categoria | Tipo de categoria para uma mensagem. É um dos seguintes valores: **error** e **info** |
-| ResourceId | ID de recurso interno, que inclui a ID da assinatura do Azure e o nome do namespace |
-| KeyVault | Nome do recurso do Key Vault |
-| Chave | Nome da chave do Key Vault. |
-| Versão | Versão da chave do Key Vault |
-| Operação | O nome de uma operação feita para atender a solicitações |
-| Código | Código de status |
-| Mensagem | Mensagem, que fornece detalhes sobre um erro ou mensagem informativa |
+| `Category` | Tipo de categoria para uma mensagem. É um dos seguintes valores: **error** e **info** |
+| `ResourceId` | ID de recurso interno, que inclui a ID da assinatura do Azure e o nome do namespace |
+| `KeyVault` | Nome do recurso do Key Vault |
+| `Key` | Nome da chave do Key Vault. |
+| `Version` | Versão da chave do Key Vault |
+| `Operation` | O nome de uma operação feita para atender a solicitações |
+| `Code` | Código de status |
+| `Message` | Mensagem, que fornece detalhes sobre um erro ou mensagem informativa |
 
 
 
@@ -236,7 +236,7 @@ O JSON do log de usuário gerenciada pelo cliente inclui os elementos listados n
 - [Introdução aos Hubs de Eventos](./event-hubs-about.md)
 - [Exemplos de Hubs de Eventos](sdks.md)
 - Introdução aos Hubs de Eventos
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)

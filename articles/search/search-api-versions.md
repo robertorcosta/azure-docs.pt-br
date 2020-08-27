@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: bf3e4262f4342788f343ab287fd3db53d12736c7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: 73037ac3725ad1e7e9dd84597936c47406244630
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918104"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949874"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versões de API no Azure Pesquisa Cognitiva
 
@@ -24,7 +24,24 @@ Como regra, a equipe de Pesquisa Cognitiva do Azure publica novas versões somen
 A mesma regra se aplica às atualizações do SDK. O SDK do Pesquisa Cognitiva do Azure segue as regras de [controle de versão semântica](https://semver.org/) , o que significa que sua versão tem três partes: principal, secundária e número de compilação (por exemplo, 1.1.0). Uma nova versão principal do SDK será liberada somente no caso de alterações que interrompam a compatibilidade com versões anteriores. Para atualizações contínuas de recursos, incrementaremos a versão secundária, e para correções de bug, só aumentaremos a versão de build.
 
 > [!Important]
-> Os SDKs do Azure para .NET, Java, Python e JavaScript estão distribuindo novas bibliotecas de cliente para o Azure Pesquisa Cognitiva. No momento, nenhuma das bibliotecas do SDK do Azure dá suporte total às APIs REST de pesquisa mais recentes (2020-06-30) ou às APIs REST de gerenciamento (2020-03-13), mas isso mudará ao longo do tempo. Você pode verificar periodicamente esta página ou o [que há de novo](whats-new.md) para anúncios em aprimoramentos funcionais. 
+> Os SDKs do Azure para .NET, Java, Python e JavaScript estão distribuindo novas bibliotecas de cliente para o Azure Pesquisa Cognitiva. No momento, nenhuma das bibliotecas do SDK do Azure dá suporte total às APIs REST de pesquisa mais recentes (2020-06-30) ou às APIs REST de gerenciamento (2020-03-13), mas isso mudará ao longo do tempo. Você pode verificar periodicamente esta página ou o [que há de novo](whats-new.md) para anúncios em aprimoramentos funcionais.
+
+<a name="unsupported-versions"></a>
+
+## <a name="unsupported-versions"></a>Versões sem suporte
+
+Atualize as soluções de pesquisa existentes para a versão mais recente da API REST até 15 de outubro de 2020. Nesse momento, as seguintes versões da API REST do Azure Pesquisa Cognitiva serão desativadas e não terão mais suporte:
+
++ **2015-02-28**
++ **2015-02-28-Preview**
++ **2014-07-31-Preview**
++ **2014-10-20-Preview**
+
+Além disso, as versões do SDK do .NET do Azure Pesquisa Cognitiva [**com mais de 3.0.0-RC**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) também serão desativadas, pois destinam-se a uma dessas versões da API REST. 
+
+Após essa data, os aplicativos que usam qualquer uma das versões preteridas da API REST ou do SDK deixarão de funcionar e deverão ser atualizados. Assim como acontece com qualquer alteração desse tipo, estamos dando um aviso de 12 meses, portanto, você tem tempo adequado para se ajustar.
+
+Para continuar usando o Azure Pesquisa Cognitiva, migre o código existente destinado à [API](search-api-migration.md) REST para a [api REST versão 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) ou para um SDK mais recente até 15 de outubro de 2020.  Se você tiver alguma dúvida sobre a atualização para a versão mais recente, envie um email para azuresearch_contact@microsoft.com 15 de maio de 2020 para garantir que você tenha tempo suficiente para atualizar seu código.
 
 ## <a name="rest-apis"></a>APIs REST
 
@@ -40,16 +57,16 @@ Criar e gerenciar conteúdo em um serviço de pesquisa.
 |-------------------------|--------|------------------------------|
 | [Pesquisar 2020-06-30](/rest/api/searchservice/index)| Estável | Versão estável mais recente das APIs REST de pesquisa, com avanços na pontuação de relevância e geralmente a disponibilidade para a loja de conhecimento.|
 | [Pesquisar 2020-06-30-Preview](/rest/api/searchservice/index-preview)| Visualização | Versão de visualização associada à versão estável. Inclui vários [recursos de visualização](search-api-preview.md). |
-| Pesquisar 2019-05-06 | Estável | Adiciona [tipos complexos](search-howto-complex-data-types.md). |
+| Pesquisar 2019-05-06 | Estável  | Adiciona [tipos complexos](search-howto-complex-data-types.md). |
 | Pesquisa 2019-05-06-Versão Prévia | Visualização | Versão de visualização associada à versão estável. |
-| Pesquisar 2017-11-11 | Estável  | Adiciona habilidades e [enriquecimento de ia](cognitive-search-concept-intro.md). |
+| Pesquisar 2017-11-11 | Estável | Adiciona habilidades e [enriquecimento de ia](cognitive-search-concept-intro.md). |
 | Pesquisa 2017-11-11-visualização | Visualização | Versão de visualização associada à versão estável. |
 | Pesquisar 2016-09-01 |Estável | Adiciona [indexadores](search-indexer-overview.md). |
 | Pesquisa 2016-09-01-visualização | Visualização | Versão de visualização associada à versão estável.|
-| Pesquisar 2015-02-28 | Estável  | Primeira versão disponível em geral.  |
-| Pesquisa 2015-02-28-visualização | Visualização | Versão de visualização associada à versão estável. |
-| Pesquisa 2014-10-20-visualização | Visualização | Segunda visualização pública. |
-| Pesquisa 2014-07-31-visualização | Visualização | Primeira visualização pública. |
+| Pesquisar 2015-02-28 | Sem suporte após 10-10-2020   | Primeira versão disponível em geral.  |
+| Pesquisa 2015-02-28-visualização | Sem suporte após 10-10-2020  | Versão de visualização associada à versão estável. |
+| Pesquisa 2014-10-20-visualização | Sem suporte após 10-10-2020 | Segunda visualização pública. |
+| Pesquisa 2014-07-31-visualização | Sem suporte após 10-10-2020  | Primeira visualização pública. |
 
 ### <a name="management-rest-apis"></a>APIs REST de gerenciamento
 
@@ -64,8 +81,7 @@ Criar e configurar um serviço de pesquisa e gerenciar chaves de API.
 
 ## <a name="azure-sdk-for-net"></a>SDK do Azure para .NET
 
-O histórico de versão do pacote está disponível em NuGet.org. Esta tabela fornece links para cada página de pacote.
-
+A tabela a seguir fornece links para versões mais recentes do SDK. 
 
 | Versão do SDK | Status | Descrição |
 |-------------|--------|------------------------------|
@@ -73,6 +89,8 @@ O histórico de versão do pacote está disponível em NuGet.org. Esta tabela fo
 | [Microsoft. Azure. Search 10,0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Estável | Lançada em maio de 2019. Tem como destino a API REST de pesquisa-Version = 2019-05-06.|
 | [Microsoft. Azure. Search 8,0-Preview](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Visualização | lançada em abril de 2019. Tem como destino a API REST de pesquisa-Version = 2019-05-06-Preview.|
 | [Microsoft. Azure. Management. Search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Estável | Destina-se à API REST de gerenciamento-versão = 2015-08-19.  |
+
+Para obter mais informações sobre versões anteriores do Microsoft. Azure. Search, acesse uma [página de pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search/) para qualquer versão, role até o **histórico de versão**e expanda a seção para exibir a lista completa de versões.
 
 ## <a name="azure-sdk-for-java"></a>SDK do Azure para Java
 

@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414936"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949942"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
 
@@ -166,6 +166,46 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 - Execução de orquestração de pipeline &amp; = **$1.463**
   - Execuções de atividade = 001\*2 = 0,002 [1 execução = US$ 1/1000 = 0,001]
   - Atividades de fluxo de dados = $1.461 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.274/hora em Azure Integration Runtime com 16 núcleos de computação geral
+
+## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Integração de dados na VNET gerenciada Azure Data Factory
+Nesse cenário, você deseja excluir os arquivos originais no armazenamento de BLOBs do Azure e copiar dados do banco de dados SQL do Azure para o armazenamento de BLOBs do Azure. Você fará essa execução duas vezes em pipelines diferentes. O tempo de execução desses dois pipelines se sobrepõe.
+![Scenario4 ](media/pricing-concepts/scenario-4.png) para realizar o cenário, você precisa criar dois pipelines com os seguintes itens:
+  - Uma atividade de pipeline – excluir atividade.
+  - Uma atividade de cópia com um conjunto de dados de entrada que será copiado do armazenamento de BLOBs do Azure.
+  - Um DataSet de saída para os dados no banco de dado SQL do Azure.
+  - Um agendamento de gatilhos para executar o pipeline.
+
+
+| **Operações** | **Tipos e unidades** |
+| --- | --- |
+| Criar serviço vinculado | 4 entidade de leitura/gravação |
+| Criar conjuntos de dados | 8 entidades de leitura/gravação (4 para criação de conjuntos de conjunto, 4 para referências de serviço vinculadas) |
+| Criar pipeline | 6 entidades de leitura/gravação (2 para criação de pipeline, 4 para referências de DataSet) |
+| Obter pipeline | 2 entidades de leitura/gravação |
+| Executar pipeline | 6 execuções de atividade (2 para execução de gatilho, 4 para execuções de atividade) |
+| Executar atividade de exclusão: cada tempo de execução = 5 min. A execução da atividade de exclusão no primeiro pipeline é de 10:00 AM UTC para 10:05 AM UTC. A execução da atividade de exclusão no segundo pipeline é de 10:02 AM UTC para 10:07 AM UTC.|Total de 7 minutos de execução da atividade de pipeline na VNET gerenciada. A atividade de pipeline dá suporte a até 50 de simultaneidade na VNET gerenciada. |
+| Pressuposição de Copiar Dados: cada tempo de execução = 10 min. A execução da cópia no primeiro pipeline é de 10:06 AM UTC para 10:15 AM UTC. A execução da atividade de exclusão no segundo pipeline é de 10:08 AM UTC para 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (configuração padrão de DIU = 4) para obter mais informações sobre unidades de integração de dados e otimizar o desempenho de cópia, consulte [Este artigo](copy-activity-performance.md) |
+| Monitorar a suposição de pipeline: apenas 2 execuções ocorreram | 6 registros de execução de monitoramento repetidos (2 para execução de pipeline, 4 para execução de atividade) |
+
+
+**Preço do cenário total: $0.45523**
+
+- Operações de Data Factory = $0.23
+  - Leitura/gravação = 20 * 00001 = $0.02 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 6 * 000005 = $0.03 [1 monitoramento = $0,25/50000 = 0, 5]
+- Execução de & de orquestração de pipeline = $0.455
+  - Execuções de atividade = 0,001 * 6 = 0, 6 [1 Run = $1/1000 = 0, 1]
+  - Atividades de movimentação de dados = $0.333 (rateado por 10 minutos de tempo de execução. US$ 0,25 no Azure Integration Runtime)
+  - Atividade de pipeline = $0.116 (rateado por 7 minutos de tempo de execução. US $1/hora no Azure Integration Runtime)
+
+> [!NOTE]
+> Esses preços são apenas para fins de exemplo.
+
+**perguntas frequentes**
+
+P: se eu quiser executar mais de 50 atividades de pipeline, essas atividades poderão ser executadas simultaneamente?
+
+R: as atividades de pipeline simultâneas máximas 50 serão permitidas.  A atividade de pipeline 51th será enfileirada até que um "slot livre" seja aberto. Mesmo para atividade externa. O máximo de 800 atividades externas simultâneas serão permitidas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

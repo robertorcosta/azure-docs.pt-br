@@ -12,19 +12,23 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 866fa7333565a1875984aa5640d2028b6e399df1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480973"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949534"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
 
 Use a seção Integração de Diretórios do Servidor do Azure MFA para se integrar com o Active Directory ou com outro diretório LDAP. Você pode configurar atributos para corresponder ao esquema de diretório e configurar a sincronização automática de usuários.
 
 > [!IMPORTANT]
-> A partir de 1º de julho de 2019, a Microsoft não oferecerá mais o servidor MFA para novas implantações. Os novos clientes que desejarem exigir a autenticação multifator de seus usuários devem usar a Autenticação Multifator do Microsoft Azure baseada em nuvem. Os clientes existentes que ativaram o servidor MFA antes de 1º de julho poderão baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
+> A partir de 1º de julho de 2019, a Microsoft não oferece mais o servidor MFA para novas implantações. Novos clientes que desejam exigir a MFA (autenticação multifator) durante eventos de entrada devem usar a autenticação multifator do Azure baseada em nuvem.
+>
+> Para começar a usar a MFA baseada em nuvem, consulte [tutorial: proteger eventos de entrada do usuário com a autenticação multifator do Azure](tutorial-enable-azure-mfa.md).
+>
+> Os clientes existentes que ativaram o servidor MFA antes de 1º de julho de 2019 podem baixar a versão mais recente, atualizações futuras e gerar credenciais de ativação como de costume.
 
 ## <a name="settings"></a>Configurações
 
@@ -107,7 +111,7 @@ Para editar atributos, clique em **Editar** na guia atributos.  Isso abre uma ja
 
 ![Editar mapeamento de atributo de diretório no servidor MFA](./media/howto-mfaserver-dir-ad/dirint4.png)
 
-## <a name="synchronization"></a>Sincronização
+## <a name="synchronization"></a>Synchronization
 
 A sincronização mantém o banco de dados do usuário do Azure MFA sincronizado com os usuários no Active Directory ou outro diretório LDAP. O processo é semelhante à importação manual de usuários do Active Directory, mas faz sondagens para processar alterações do grupo de segurança e de usuário do Active Directory.  Ela também desativa ou remove usuários que foram removidos de um contêiner, o grupo de segurança ou o Active Directory.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225267"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928761"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança no Azure Pesquisa Cognitiva-visão geral
 
@@ -94,7 +94,7 @@ Para controlar ainda mais o acesso ao serviço de pesquisa, você pode criar reg
 
 Você pode usar o portal para [Configurar o acesso de entrada](service-configure-firewall.md).
 
-Como alternativa, você pode usar as APIs REST de gerenciamento. A versão da API 2020-03-13, com o parâmetro [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) , permite restringir o acesso ao serviço identificando endereços IP, individualmente ou em um intervalo, que você deseja conceder acesso ao serviço de pesquisa.
+Como alternativa, você pode usar as APIs REST de gerenciamento. A versão da API 2020-03-13, com o parâmetro [IpRule](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) , permite restringir o acesso ao serviço identificando endereços IP, individualmente ou em um intervalo, que você deseja conceder acesso ao serviço de pesquisa.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Ponto de extremidade privado (sem tráfego de Internet)
 
@@ -120,14 +120,14 @@ Como um usuário acessa um índice e outros objetos é determinado pelo tipo de 
 
 Se você precisar de controle granular por usuário sobre os resultados da pesquisa, poderá criar filtros de segurança em suas consultas, retornando documentos associados a uma determinada identidade de segurança. Em vez de funções predefinidas e atribuições de função, o controle de acesso baseado em identidade é implementado como um *filtro* que corta os resultados da pesquisa de documentos e conteúdo com base em identidades. A tabela a seguir descreve duas abordagens para cortar resultados da pesquisa com conteúdo não autorizado.
 
-| Abordagem | Descrição |
+| Abordagem | DESCRIÇÃO |
 |----------|-------------|
 |[Filtragem de segurança com base nos filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para implementar o controle de acesso de identidade do usuário. Ele aborda a adição de identificadores de segurança a um índice e explica a filtragem em relação a esse campo para cortar resultados de conteúdo proibido. |
 |[Filtragem de segurança com base em Identidades do Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo aprofunda o artigo anterior, fornecendo etapas para recuperar identidades do Azure Active Directory (AAD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma de nuvem do Azure. |
 
 ## <a name="administrative-rights"></a>Direitos administrativos
 
-O Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) do Azure é um sistema de autorização criado em [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o provisionamento de recursos do Azure. No Azure Pesquisa Cognitiva, o Resource Manager é usado para criar ou excluir o serviço, gerenciar chaves de API e dimensionar o serviço. Dessa forma, as atribuições de função do Azure determinarão quem pode executar essas tarefas, independentemente de estarem usando o [portal](search-manage.md), o [PowerShell](search-manage-powershell.md)ou as [APIs REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+O Azure [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) do Azure é um sistema de autorização criado em [Azure Resource Manager](../azure-resource-manager/management/overview.md) para o provisionamento de recursos do Azure. No Azure Pesquisa Cognitiva, o Resource Manager é usado para criar ou excluir o serviço, gerenciar chaves de API e dimensionar o serviço. Dessa forma, as atribuições de função do Azure determinarão quem pode executar essas tarefas, independentemente de estarem usando o [portal](search-manage.md), o [PowerShell](search-manage-powershell.md)ou as [APIs REST de gerenciamento](/rest/api/searchmanagement/search-howto-management-rest-api).
 
 Por outro lado, os direitos de administrador sobre o conteúdo hospedado no serviço, como a capacidade de criar ou excluir um índice, são conferidos por meio de chaves de API, conforme descrito na [seção anterior](#index-access).
 

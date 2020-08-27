@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275421"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948446"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Práticas recomendadas para acesso condicional no Azure Active Directory
 
-Com o [acesso condicional do Azure Active Directory (AD do Azure)](../active-directory-conditional-access-azure-portal.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Este artigo fornece informações sobre:
+Com o [acesso condicional do Azure Active Directory (AD do Azure)](./overview.md), você pode controlar como os usuários autorizados acessam seus aplicativos de nuvem. Este artigo fornece informações sobre:
 
 - O que você deve saber 
 - O que você deve evitar fazer ao configurar políticas de acesso condicional. 
 
-Este artigo pressupõe que você esteja familiarizado com os conceitos e a terminologia descrita em [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+Este artigo pressupõe que você esteja familiarizado com os conceitos e a terminologia descrita em [o que é o acesso condicional no Azure Active Directory?](./overview.md)
 
 ## <a name="whats-required-to-make-a-policy-work"></a>O que é necessário para fazer uma política funcionar?
 
@@ -57,7 +57,7 @@ Todas as políticas são impostas em duas fases:
    - Use os detalhes da sessão coletados na fase 1 para identificar os requisitos que não foram atendidos. 
    - Se houver uma política configurada para bloquear o acesso, com o controle de concessão de bloqueio, a imposição será interrompida aqui e o usuário será bloqueado. 
    - O usuário será solicitado a concluir os requisitos adicionais de controle de concessão que não foram atendidos durante a fase 1 na seguinte ordem, até que a política seja satisfeita:  
-      - Autenticação Multifator 
+      - Autenticação multifator 
       - Aplicativo cliente aprovado/política de proteção de aplicativo 
       - Dispositivo gerenciado (ingresso em conformidade ou Azure AD híbrido) 
       - Termos de uso 
@@ -154,5 +154,5 @@ Para obter mais informações, consulte [Migrar políticas clássicas no portal 
 
 Se você quiser saber:
 
-- Como configurar uma política de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md).
+- Como configurar uma política de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](../authentication/tutorial-enable-azure-mfa.md).
 - Como planejar suas políticas de acesso condicional, consulte [como planejar sua implantação de acesso condicional no Azure Active Directory](plan-conditional-access.md).

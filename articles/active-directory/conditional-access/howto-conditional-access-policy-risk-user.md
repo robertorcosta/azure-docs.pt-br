@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c890c8e9af7310338e8470c4d56b46d1e259c168
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605580"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948055"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Acesso condicional: acesso condicional baseado em risco do usuário
 
@@ -29,7 +29,7 @@ Há dois locais em que essa política pode ser atribuída. As organizações dev
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione **Nova política**.
-1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas. Para obter mais informações, [defina os padrões de nomenclatura para suas políticas](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
+1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas. Para obter mais informações, [defina os padrões de nomenclatura para suas políticas](./plan-conditional-access.md#set-naming-standards-for-your-policies).
 1. Em **Atribuições**, selecione **Usuários e grupos**.
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
@@ -66,4 +66,4 @@ Há dois locais em que essa política pode ser atribuída. As organizações dev
 
 [Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)
 
-[O que é Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[O que é Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

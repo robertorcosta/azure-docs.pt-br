@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295318"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948378"
 ---
 # <a name="building-a-conditional-access-policy"></a>Criando uma política de acesso condicional
 
@@ -44,7 +44,7 @@ Uma política pode conter várias [condições](concept-conditional-access-condi
 
 #### <a name="sign-in-risk"></a>Risco de entrada
 
-Para organizações com [Azure ad Identity Protection](../identity-protection/overview.md), as detecções de risco geradas podem influenciar suas políticas de acesso condicional.
+Para organizações com [Azure ad Identity Protection](../identity-protection/overview-identity-protection.md), as detecções de risco geradas podem influenciar suas políticas de acesso condicional.
 
 #### <a name="device-platforms"></a>Plataformas de dispositivo
 
@@ -115,7 +115,7 @@ Os administradores podem optar por exigir um dos controles anteriores ou todos o
 Uma política de acesso condicional deve conter, no mínimo, o seguinte para ser aplicado:
 
 - **Nome** da política.
-- **Designa**
+- **Atribuições**
    - **Usuários e/ou grupos** aos quais aplicar a política.
    - **Aplicativos de nuvem ou ações** às quais aplicar a política.
 - **Controles de acesso**

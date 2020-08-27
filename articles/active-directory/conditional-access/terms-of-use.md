@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184339"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948905"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -50,7 +50,7 @@ Os termos de uso do Azure AD têm os seguintes recursos:
 - Liste quem tem ou não aceito para seus termos de uso.
 - Ajudar a atender às normas de privacidade.
 - Exibir um log de atividades de termos de uso para conformidade e auditoria.
-- Crie e gerencie os termos de uso usando [APIs de Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (atualmente em versão prévia).
+- Crie e gerencie os termos de uso usando [APIs de Microsoft Graph](/graph/api/resources/agreement?view=graph-rest-beta) (atualmente em versão prévia).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,22 +94,22 @@ Depois de ter finalizado seu documento de termos de uso, use o procedimento a se
 
    | Expirar a partir de | Frequência | Result |
    | --- | --- | --- |
-   | Data de hoje  | Mensal | A partir de hoje, os usuários devem aceitar os termos de uso e, em seguida, reaceitar todos os meses. |
-   | Data no futuro  | Mensal | A partir de hoje, os usuários devem aceitar os termos de uso. Quando a data futura chegar, os consentimentos irão expirar e depois os usuários devem aceitar novamente a todos os meses.  |
+   | Data de hoje  | Mensalmente | A partir de hoje, os usuários devem aceitar os termos de uso e, em seguida, reaceitar todos os meses. |
+   | Data no futuro  | Mensalmente | A partir de hoje, os usuários devem aceitar os termos de uso. Quando a data futura chegar, os consentimentos irão expirar e depois os usuários devem aceitar novamente a todos os meses.  |
 
    Por exemplo, se você definir a expiração a partir da data para **1 de janeiro** e a frequência para **Mensal**, segue como ocorreriam as expirações para dois usuários:
 
    | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
-   | Bob | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
+   | Roberto | 15 de janeiro | 1 de fevereiro | 1 de março | 1 de abril |
 
 1. Use a configuração **duração antes da reaceitação requer (dias)** para especificar o número de dias antes que o usuário precise aceitar os termos de uso novamente. Isso permite que os usuários sigam seu próprio cronograma. Por exemplo, se você definir a duração como **30** dias, segue como ocorreriam as expirações para dois usuários:
 
    | Usuário | Primeira data de aceitação | Primeira data de expiração | Segunda data de expiração | Terceira data de expiração |
    | --- | --- | --- | --- | --- |
    | Alice | 1 de janeiro | 31 de janeiro | 2 de março | 1 de abril |
-   | Bob | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
+   | Roberto | 15 de janeiro | 14 de fevereiro | 16 de março | 15 de abril |
 
    É possível usar as configurações **Expirar consentimentos** e **Duração (dias) até exigir a nova aceitação** juntas, mas normalmente você usa uma ou a outra.
 

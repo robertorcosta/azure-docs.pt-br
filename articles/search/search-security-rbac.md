@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: c01806194156fb43524e2db5f4c9bf636186de95
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f0c8fe6b8df5efef0cf3948c8d628d20c79502ff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009198"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928674"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Definir funções do Azure para acesso administrativo ao Azure Pesquisa Cognitiva
 
@@ -30,7 +30,7 @@ Para Pesquisa Cognitiva do Azure, as funções são associadas a níveis de perm
 | --- | --- |
 | Proprietário |Criar ou excluir o serviço ou qualquer objeto no serviço, incluindo chaves de api, índices, indexadores, fontes de dados do indexador e agendas do indexador.<p>Exibir o status do serviço, incluindo o tamanho de armazenamento e contagens.<p>Adicionar ou excluir a associação de função (somente um Proprietário pode gerenciar a associação de função).<p>Os administradores de assinatura e proprietários de serviço possuem associação automática na função Proprietários. |
 | Colaborador |Mesmo nível de acesso que o proprietário, menos o gerenciamento de função do Azure. Por exemplo, um Colaborador pode criar ou excluir objetos ou exibir e regenerar [chaves de API](search-security-api-keys.md), mas não pode modificar associações de função. |
-| [Função interna do Colaborador do Serviço de Pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor) | Equivalente à função Colaborador. |
+| [Função interna do Colaborador do Serviço de Pesquisa](../role-based-access-control/built-in-roles.md#search-service-contributor) | Equivalente à função Colaborador. |
 | Leitor |Exibe métricas e conceitos básicos do serviço. Os membros dessa função não podem exibir índice, indexador, fonte de dados ou informações importantes.  |
 
 As funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço Search, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte [Gerenciar chaves de API](search-security-api-keys.md).
@@ -50,7 +50,7 @@ A tabela a seguir resume as operações permitidas no Azure Pesquisa Cognitiva e
 | Gerenciar chaves de administrador | Chave de administrador, Proprietário ou Colaborador RBAC no recurso |
 | Gerenciar chaves de consulta |  Chave de administrador, Proprietário ou Colaborador RBAC no recurso  |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 + [Gerenciar usando o PowerShell](search-manage-powershell.md) 
 + [Desempenho e otimização no Azure Pesquisa Cognitiva](search-performance-optimization.md)

@@ -3,22 +3,20 @@ title: Receber eventos usando o Host do Processador de Eventos - Hubs de Eventos
 description: Este artigo descreve o Host do Processador de Eventos nos Hubs de Eventos do Azure, que simplifica o gerenciamento de ponto de verificação, aluguel e ler eventos paralelo iônico.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7c6d08c385174597ce80e3ddfd6204db6b0b14a5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936173"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949075"
 ---
 # <a name="event-processor-host"></a>Host do processador de eventos
 > [!NOTE]
-> Este artigo se aplica à versão antiga do SDK dos hubs de eventos do Azure. Para saber como migrar seu código para a versão mais recente do SDK, consulte esses guias de migração. 
+> Este artigo se aplica à versão antiga do SDK dos hubs de eventos do Azure. Para a versão atual do SDK, consulte [balancear a carga da partição entre várias instâncias do seu aplicativo](event-processor-balance-partition-load.md). Para saber como migrar seu código para a versão mais recente do SDK, consulte esses guias de migração. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Script Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
->
-> Além disso, consulte [balancear a carga da partição entre várias instâncias do seu aplicativo](event-processor-balance-partition-load.md).
 
 Os Hubs de Evento do Azure são um poderoso serviço de ingestão de telemetria que pode ser usado para transmitir milhões de eventos a baixo custo. Este artigo descreve como consumir eventos ingeridos usando o *Host do Processador de Eventos* (EPH); um agente do consumidor inteligente que simplifica o gerenciamento de leitores de pontos de verificação, leasing e eventos paralelos.  
 

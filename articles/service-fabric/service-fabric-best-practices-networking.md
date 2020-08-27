@@ -1,16 +1,16 @@
 ---
 title: Práticas recomendadas de rede Service Fabric do Azure
-description: Práticas recomendadas e considerações de design para gerenciar a conectividade de rede usando o Azure Service Fabric.
-author: peterpogorski
+description: Regras e considerações de design para gerenciar a conectividade de rede usando o Azure Service Fabric.
+author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.author: pepogors
-ms.openlocfilehash: 853e53d32f87f81e5db587de2654f83037930da7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.author: chrpap
+ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261133"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948956"
 ---
 # <a name="networking"></a>Rede
 
@@ -19,7 +19,7 @@ Conforme você cria e gerencia clusters do Azure Service Fabric, você fornece c
 Examine os [padrões de rede Service Fabric](./service-fabric-patterns-networking.md) do Azure para saber como criar clusters que usam os seguintes recursos: rede virtual ou sub-rede existente, endereço IP público estático, balanceador de carga somente interno ou balanceador de carga interno e externo.
 
 ## <a name="infrastructure-networking"></a>Rede de infraestrutura
-Maximize o desempenho de sua Máquina Virtual com a Rede Acelerada declarando a propriedade enableAcceleratedNetworking no modelo do Resource Manager. O seguinte snippet refere-se a NetworkInterfaceConfigurations de um conjunto de dimensionamento de máquinas virtuais que habilita a Rede Acelerada:
+Maximize o desempenho da sua máquina virtual com rede acelerada, declarando a propriedade *enableAcceleratedNetworking* em seu modelo do Resource Manager, o trecho a seguir é de um NetworkInterfaceConfigurations do conjunto de dimensionamento de máquinas virtuais que permite a rede acelerada:
 
 ```json
 "networkInterfaceConfigurations": [
@@ -39,7 +39,7 @@ Maximize o desempenho de sua Máquina Virtual com a Rede Acelerada declarando a 
 ```
 O cluster do Service Fabric pode ser provisionado no [Linux com a Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md) e no [Windows com a Rede Acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-A rede acelerada tem suporte para SKUs da série de máquinas virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. A Rede Acelerada foi testada com êxito usando o SKU Standard_DS8_v3 em 23/1/2019 em um Cluster do Windows no Service Fabric e usando o Standard_DS12_v2 em 29/01/2019 em um Cluster do Linux no Service Fabric.
+A rede acelerada tem suporte para SKUs da série de máquinas virtuais do Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e MS/MMS. A rede acelerada foi testada com êxito usando o Standard_DS8_v3 SKU em 01/23/2019 para um Cluster Service Fabric Windows e usando Standard_DS12_v2 em 01/29/2019 para um Cluster Service Fabric Linux.
 
 Para habilitar a Rede Acelerada em um cluster existente do Service Fabric, primeiro você precisará [Expandir um cluster do Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais](./virtual-machine-scale-set-scale-node-type-scale-out.md) para executar o seguinte:
 1. Provisionar um NodeType com a Rede Acelerada habilitada
@@ -51,11 +51,69 @@ A expansão da infraestrutura é necessária para habilitar a Rede Acelerada em 
 
 * Os clusters do Service Fabric podem ser implantados em uma rede virtual existente seguindo as etapas descritas em [Padrões de rede do Service Fabric](./service-fabric-patterns-networking.md).
 
-* Os NSGs (grupos de segurança de rede) são recomendados para tipos de nós que restringem o tráfego de entrada e saída para o cluster. Verifique se as portas necessárias estão abertas no NSG. Por exemplo: ![ Service Fabric regras NSG][NSGSetup]
+* Os NSGs (grupos de segurança de rede) são recomendados para tipos de nó para restringir o tráfego de entrada e de saída para seu cluster. Verifique se as portas necessárias estão abertas no NSG. 
 
 * O tipo de nó primário, que contém os serviços do sistema do Service Fabric, não precisa ser exposto por meio do balanceador de carga externo e pode ser exposto por um [balanceador de carga interno](./service-fabric-patterns-networking.md#internal-only-load-balancer)
 
 * Use um [endereço IP público estático](./service-fabric-patterns-networking.md#static-public-ip-address-1) para seu cluster.
+
+## <a name="network-security-rules"></a>Regras de Segurança de Rede
+
+As regras básicas aqui são o mínimo para um bloqueio de segurança de um cluster de Service Fabric gerenciado do Azure. Falha ao abrir as portas a seguir ou a lista de permissões o IP/URL impedirá a operação adequada do cluster e talvez não tenha suporte. Com esse conjunto de regras, é estritamente necessário usar [atualizações automáticas de imagem do sistema operacional](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), caso contrário, as portas adicionais precisarão ser abertas.
+
+### <a name="inbound"></a>Entrada 
+|Prioridade   |Nome               |Porta        |Protocolo  |Fonte             |Destino       |Ação   
+|---        |---                |---         |---       |---                |---               |---
+|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Allow
+|3910       |Cliente             |19000       |TCP       |Internet           |VirtualNetwork    |Allow
+|3920       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3930       |Efêmeras          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3940       |Aplicativo        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |Negar
+|3970       |SSH                |22          |TCP       |Internet           |VirtualNetwork    |Negar
+|3980       |Ponto de extremidade personalizado    |80          |TCP       |Internet           |VirtualNetwork    |Allow
+|4100       |Bloquear entrada      |443         |Qualquer       |Qualquer                |Qualquer               |Allow
+
+Mais informações sobre as regras de segurança de entrada:
+
+* **Azure**. Essa porta é usada pelo Service Fabric Explorer para procurar e gerenciar seu cluster e também é usada pelo provedor de recursos de Service Fabric para consultar informações sobre o cluster a fim de exibi-los na Portal de Gerenciamento do Azure. Se essa porta não estiver acessível do provedor de recursos de Service Fabric, você verá uma mensagem como ' nós não encontrados ' ou ' UpgradeServiceNotReachable ' no portal do Azure e sua lista de nós e aplicativos aparecerá vazia. Isso significa que, se você quiser ter visibilidade do cluster na Portal de Gerenciamento do Azure, o balanceador de carga deverá expor um endereço IP público e seu NSG deverá permitir o tráfego de entrada 19080.  
+
+* **Cliente**do. O ponto de extremidade de conexão de cliente para APIs como REST/PowerShell/CLI. 
+
+* **Cluster**. Usado para comunicação entre nós; Nunca deve ser bloqueado.
+
+* **Efêmero**. O Service Fabric usa parte dessas portas como portas do aplicativo e o restante fica disponível para o SO. Ele também mapeia esse intervalo para o intervalo existente presente no sistema operacional, portanto, para todas as finalidades, você pode usar os intervalos fornecidos no exemplo aqui. Verifique se a diferença entre as portas de início e de fim é de pelo menos 255. Você poderá encontrar conflitos se a diferença for muito baixa, uma vez que esse intervalo é compartilhado com o sistema operacional. Para ver o intervalo de portas dinâmicas configurado, execute *netsh int IPv4 mostrar porta dinâmica TCP*. Essas portas não são necessárias para clusters do Linux.
+
+* **Aplicativo**. O intervalo de portas do aplicativo deve ser amplo o bastante para cobrir o requisito de ponto de extremidade dos aplicativos. Esse intervalo deve ser exclusivo no intervalo de portas dinâmico no computador, isto é, o intervalo ephemeralPorts conforme definido na configuração. O Service Fabric usa essas portas sempre que novas portas são necessárias e cuida da abertura do firewall para essas portas nos nós.
+
+* **SMB**. O protocolo SMB está em uso pelo serviço ImageStore para dois cenários. Essa porta é necessária para baixar os pacotes do ImageStore pelos nós, bem como para duplicá-los entre as réplicas. 
+
+* **RDP**. Opcional, se o RDP for necessário na Internet ou no VirtualNetwork para cenários Jumpbox. 
+
+* **SSH**. Opcional, se o SSH for necessário na Internet ou no VirtualNetwork para cenários Jumpbox.
+
+* **Ponto de extremidade personalizado**. Um exemplo para seu aplicativo habilitar um ponto de extremidade acessível pela Internet.
+
+### <a name="outbound"></a>Saída
+
+|Prioridade   |Nome               |Porta        |Protocolo  |Fonte             |Destino       |Ação   
+|---        |---                |---         |---       |---                |---               |---
+|3900       |Rede            |Qualquer         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|3910       |Provedor de recursos  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
+|3920       |Atualizar            |443         |TCP       |VirtualNetwork     |Internet          |Allow
+|3950       |Bloquear saída     |Qualquer         |Qualquer       |Qualquer                |Qualquer               |Negar
+
+Mais informações sobre as regras de segurança de saída:
+
+* **Rede**. Canal de comunicação para sub-redes e para outras redes virtuais.
+
+* **Provedor de recursos**. Conexão pelo UpgradeService para executar todas as implantações do ARM pelo provedor de recursos Service Fabric.
+
+* **Atualização**. O serviço de atualização usando o endereço download.microsoft.com para obter os bits, isso é necessário para a instalação, refazer a imagem e as atualizações de tempo de execução. O serviço opera com endereços IP dinâmicos. No cenário de um balanceador de carga "somente interno", um balanceador de carga externo adicional deve ser adicionado ao modelo com uma regra que permita o tráfego de saída para a porta 443. Opcionalmente, essa porta pode ser bloqueada após uma configuração bem-sucedida, mas, nesse caso, o pacote de atualização deve ser distribuído para os nós ou a porta precisa ser aberta por um curto período de tempo, posteriormente, uma atualização manual é necessária.
+
+Use o Firewall do Azure com o [log de fluxo do NSG](../network-watcher/network-watcher-nsg-flow-logging-overview.md) e a análise de [tráfego](../network-watcher/traffic-analytics.md) para acompanhar problemas com o bloqueio de segurança. O modelo ARM [Service Fabric com NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) é um bom exemplo para começar. 
+
 
 ## <a name="application-networking"></a>Rede de aplicativo
 

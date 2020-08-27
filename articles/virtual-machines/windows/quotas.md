@@ -8,14 +8,14 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 64491a4093cc7174e84737a7fe5021337ebe7e01
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b00d84e1c2dc8f104046fe24360d79e6952dfacc
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286131"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950282"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Cotas de vCPU de máquina virtual
+# <a name="check-vcpu-quotas-using-azure-powershell"></a>Verifique as cotas do vCPU usando Azure PowerShell
 
 As cotas de vCPU para máquinas virtuais e conjuntos de escala de máquinas virtuais são organizadas em duas camadas para cada assinatura, em cada região. A primeira camada é a vCPUs Total Regional e a segunda camada são os vários núcleos da família de tamanho da VM, como as vCPUs da série D. Sempre que uma nova VM é implantada a vCPUs para a máquina virtual não deve exceder a cota de vCPU para a família de tamanho VM ou a cota total vCPU regional. Se qualquer uma das cotas é excedida, a implantação de VM não será permitida. Também há uma cota para o número total de máquinas virtuais na região. Os detalhes sobre cada uma dessas cotas podem ser vistos na seção **uso + cotas** da página de **assinatura** no [portal do Azure](https://portal.azure.com), ou você pode consultar os valores usando o PowerShell.
 

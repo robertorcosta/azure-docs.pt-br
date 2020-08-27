@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9ec9e110c3a476c9096ae3e216c9780da0e0f49
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72881319"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949189"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Usuários do Identity Protection e B2B
 
@@ -53,4 +53,4 @@ A exclusão de usuários B2B das políticas de acesso condicional com base em ri
 
 Consulte os seguintes artigos na colaboração B2B do Azure AD:
 
-- [O que é a colaboração B2B do AD do Azure?](../b2b/what-is-b2b.md)
+- [O que é a colaboração B2B do AD do Azure?](../external-identities/what-is-b2b.md)

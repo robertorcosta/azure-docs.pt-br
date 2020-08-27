@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: efcc4aebf16fccc70af7c77f0e8481d24f13b9cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0e83f63e3c39f2aa20cd46f098185aba523e2478
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935255"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950469"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Recursos de visualização no Azure Pesquisa Cognitiva
 
@@ -35,7 +35,7 @@ Os recursos de visualização que fazem a transição para a disponibilidade ger
 |  [**Indexador do Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Fonte de dados do indexador | Indexe o conteúdo e os metadados do Data Lake Storage Gen2.| A [inscrição](https://aka.ms/azure-cognitive-search/indexer-preview) é necessária para que o suporte possa ser habilitado para sua assinatura no back-end. Acesse essa fonte de dados usando [criar fonte de dados (REST)](/rest/api/searchservice/create-data-source) com a API-Version = 2020-06 -30-Preview ou API-Version = 2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Consulta | Localiza documentos que são relevantes para um documento específico. Esse recurso é encontrado em versões prévias anteriores. | Adicione este parâmetro de consulta em chamadas de [documentos de pesquisa (REST)](/rest/api/searchservice/search-documents) com a versão de API = 2020-06 -30-preview, 2019-05-06-preview, 2016-09-01-preview ou 2017-11-11-Preview. |
 
-## <a name="calling-preview-rest-apis"></a>Chamando APIs REST de visualização
+## <a name="how-to-call-a-preview-rest-api"></a>Como chamar uma API REST de visualização
 
 O Azure Pesquisa Cognitiva sempre libera recursos experimentais por meio da API REST primeiro e, em seguida, por meio de versões de pré-lançamento do SDK do .NET.
 
@@ -47,12 +47,14 @@ Embora alguns recursos de visualização possam estar disponíveis no portal e n
 
 + Para operações de gerenciamento, [**`2019-10-01-Preview`**](/rest/api/searchmanagement/index-2019-10-01-preview) é a versão de visualização atual.
 
-As versões prévias mais antigas ainda funcionam, mas se tornam obsoletas ao longo do tempo. Se seu código chamar `api-version=2019-05-06-Preview` ou `api-version=2016-09-01-Preview` ou `api-version=2017-11-11-Preview` , essas chamadas ainda serão válidas. No entanto, apenas a versão prévia mais recente é atualizada com melhorias. 
+As versões prévias mais antigas ainda funcionam, mas se tornam obsoletas ao longo do tempo. Se seu código chamar `api-version=2019-05-06-Preview` ou `api-version=2016-09-01-Preview` ou `api-version=2017-11-11-Preview` , essas chamadas ainda serão válidas. No entanto, apenas a versão prévia mais recente é atualizada com melhorias.
 
 A sintaxe de exemplo a seguir ilustra uma chamada para a versão de visualização da API.
 
 ```HTTP
-GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
 O serviço de Pesquisa Cognitiva do Azure está disponível em várias versões. Para obter mais informações, confira [Versões de API](search-api-versions.md).

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339722"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948888"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -67,7 +67,7 @@ Se forem necessários recursos adicionais, talvez você também precise obter li
 Os recursos a seguir podem ser úteis à medida que você aprende sobre o acesso condicional:
 
 
-#### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>vídeos
 
 * [O que é Acesso Condicional?](https://youtu.be/ffMAw2IVO7A)
 * [Como implantar acesso condicional?](https://youtu.be/c_izIRNJNuk)
@@ -313,7 +313,7 @@ Os casos de uso comuns para exigir acesso MFA são:
 
 * [Por administradores](howto-conditional-access-policy-admin-mfa.md)
 
-* [Para aplicativos específicos](app-based-mfa.md)
+* [Para aplicativos específicos](../authentication/tutorial-enable-azure-mfa.md)
 
 * [Para todos os usuários](howto-conditional-access-policy-all-users-mfa.md)
 
@@ -384,18 +384,18 @@ O plano de teste é importante para que se tenha uma comparação entre os resul
 | - | - | - |
 | [Exigir MFA quando não estiver no trabalho](untrusted-networks.md)| Usuário autorizado entra no Aplicativo quando está no trabalho/em um local confiável| O usuário não é solicitado a usar a MFA |
 | [Exigir MFA quando não estiver no trabalho](untrusted-networks.md)| Usuário autorizado entra no Aplicativo quando não está no trabalho/em um local confiável| É solicitado que o usuário use a MFA para se conectar com êxito |
-| [Exigir MFA (para administradores)](howto-baseline-protect-administrators.md)| Administrador global entra no Aplicativo| É solicitado que o administrador use MFA |
-| [Entradas de risco](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| O usuário entra no aplicativo usando um navegador não aprovado| É solicitado que o administrador use MFA |
+| [Exigir MFA (para administradores)](../fundamentals/concept-fundamentals-security-defaults.md)| Administrador global entra no Aplicativo| É solicitado que o administrador use MFA |
+| [Entradas de risco](../identity-protection/howto-identity-protection-configure-risk-policies.md)| O usuário entra no aplicativo usando um navegador não aprovado| É solicitado que o administrador use MFA |
 | [Gerenciamento de dispositivos](require-managed-devices.md)| O usuário autorizado tenta se conectar usando um dispositivo autorizado| Acesso concedido |
 | [Gerenciamento de dispositivos](require-managed-devices.md)| O usuário autorizado tenta se conectar usando um dispositivo não autorizado| Acesso bloqueado |
-| [Alteração de senha para usuários arriscados](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| O usuário autorizado tenta se conectar com credenciais comprometidas (conexão de alto risco)| O usuário é solicitado a alterar a senha ou o acesso é bloqueado com base na sua política |
+| [Alteração de senha para usuários arriscados](../identity-protection/howto-identity-protection-configure-risk-policies.md)| O usuário autorizado tenta se conectar com credenciais comprometidas (conexão de alto risco)| O usuário é solicitado a alterar a senha ou o acesso é bloqueado com base na sua política |
 
 
 ### <a name="configure-the-test-policy"></a>Configure a política de testes
 
 No [portal do Azure](https://portal.azure.com/), você configura as políticas de autoridade de certificação em Azure Active Directory > Segurança > Acesso Condicional.
 
-Se você quiser saber mais sobre como criar políticas de CA, consulte este exemplo: [Política de CA para solicitar MFA quando um usuário entrar no portal do Azure](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json). Este início rápido ajuda você a:
+Se você quiser saber mais sobre como criar políticas de CA, consulte este exemplo: [Política de CA para solicitar MFA quando um usuário entrar no portal do Azure](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Este início rápido ajuda você a:
 
 * Familiarizar-se com a interface do usuário
 
@@ -442,7 +442,7 @@ Caso você precise reverter as suas políticas recentemente implementadas, use u
 > [!NOTE]
 >  Essa opção deve ser usada com moderação, somente em situações em que o usuário é confiável. O usuário deve ser adicionado de volta à política ou ao grupo assim que possível.
 
-* **Excluir a política.** Se a política não for mais necessária, [exclua-a](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
+* **Excluir a política.** Se a política não for mais necessária, [exclua-a](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 ## <a name="manage-access-to-cloud-apps"></a>Gerenciar o acesso aos aplicativos de nuvem
 
@@ -501,4 +501,4 @@ Após recolher as informações, consulte os recursos a seguir:
 
 [Saiba mais sobre Proteção de identidade](../identity-protection/overview-identity-protection.md)
 
-[Gerenciar políticas de CA com Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gerenciar políticas de CA com Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

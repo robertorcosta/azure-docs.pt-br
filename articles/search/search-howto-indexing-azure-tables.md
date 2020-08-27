@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: a57232853284dad6f363797c009b1c38738d5b37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519772"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929560"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas do armazenamento de tabelas do Azure com o Azure Pesquisa Cognitiva
 
@@ -25,8 +25,8 @@ Este artigo mostra como usar os Pesquisa Cognitiva do Azure para indexar dados a
 Você pode configurar um indexador de armazenamento de Tabela do Azure usando estes recursos:
 
 * [Azure portal](https://ms.portal.azure.com)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) do Azure pesquisa cognitiva
-* SDK do [.net](https://docs.microsoft.com/dotnet/api/overview/azure/search) pesquisa cognitiva do Azure
+* [API REST](/rest/api/searchservice/Indexer-operations) do Azure pesquisa cognitiva
+* SDK do [.net](/dotnet/api/overview/azure/search) pesquisa cognitiva do Azure
 
 Aqui, demonstraremos o fluxo usando a API REST. 
 
@@ -62,7 +62,7 @@ Para criar uma fonte de dados:
     }   
 ```
 
-Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Criar Fonte de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Para obter mais informações sobre Criar a API da Fonte de Dados, consulte [Criar Fonte de Dados](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="ways-to-specify-credentials"></a>Maneiras de especificar credenciais ####
@@ -73,7 +73,7 @@ Você pode fornecer as credenciais para a tabela de uma das seguintes maneiras:
 - **Cadeia de conexão de assinatura de acesso compartilhado da conta de armazenamento**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso compartilhado deve ter as permissões de lista e leitura em contêineres (tabelas neste caso) e objetos (linhas de tabela).
 -  **Assinatura de acesso compartilhado de tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso compartilhado deve ter permissões de consulta (leitura) na tabela.
 
-Para saber mais sobre assinaturas de acesso compartilhado, confira [Uso de assinaturas de acesso compartilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para saber mais sobre assinaturas de acesso compartilhado, confira [Uso de assinaturas de acesso compartilhado](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Se você usar credenciais de assinaturas de acesso compartilhado, você precisará atualizar as credenciais de fonte de dados periodicamente com assinaturas renovadas para impedir sua expiração. Se as credenciais de assinatura de acesso compartilhado expirarem, o indexador falha com uma mensagem de erro semelhante a "Credenciais fornecidas na cadeia de conexão são inválidas ou expiraram."  
@@ -97,7 +97,7 @@ Para criar um índice:
     }
 ```
 
-Para obter mais informações sobre a criação de índices, consulte [Criar Índice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para obter mais informações sobre a criação de índices, consulte [Criar Índice](/rest/api/searchservice/create-index).
 
 ### <a name="step-3-create-an-indexer"></a>Etapa 3: Criar um indexador
 Um indexador conecta uma fonte de dados a um índice de pesquisa de destino e fornece um agendamento para automatizar a atualização de dados. 
@@ -119,7 +119,7 @@ Após o índice e a fonte de dados terem sido criados, será possível criar o i
 
 Esse indexador é executado a cada duas horas. (O intervalo de agendamento é definido como "PT2H".) Para executar um indexador a cada 30 minutos, defina o intervalo como "PT30M". O intervalo mais curto com suporte é de cinco minutos. O agendamento é opcional; se ele for omitido, um indexador será executado apenas uma vez quando for criado. No entanto, você pode executar um indexador sob demanda a qualquer momento.   
 
-Para obter mais informações sobre Criar a API do Indexador, consulte [Criar Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para obter mais informações sobre Criar a API do Indexador, consulte [Criar Indexador](/rest/api/searchservice/create-indexer).
 
 Para obter mais informações sobre como definir as agendas do indexador, confira [Como agendar indexadores para o Azure Cognitive Search](search-howto-schedule-indexers.md).
 
@@ -170,7 +170,7 @@ Aqui estão duas abordagens possíveis para melhorar o desempenho de indexação
 
 - Se os dados são particionados por hora (por exemplo, se você cria uma nova partição a cada dia ou semana), considere a seguinte abordagem: 
     - Use uma consulta com o seguinte formato: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-    - Monitore o progresso do indexador usando a [API Obter Status do Indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) e atualize periodicamente a condição `<TimeStamp>` da consulta com base no valor de marca d'água alta bem-sucedido mais recente. 
+    - Monitore o progresso do indexador usando a [API Obter Status do Indexador](/rest/api/searchservice/get-indexer-status) e atualize periodicamente a condição `<TimeStamp>` da consulta com base no valor de marca d'água alta bem-sucedido mais recente. 
     - Com essa abordagem, se você precisar disparar uma reindexação completa, você precisará redefinir a consulta de fonte de dados, além de redefinir o indexador. 
 
 

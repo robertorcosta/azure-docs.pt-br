@@ -2,7 +2,7 @@
 title: Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML | Azure
 description: Saiba como efetuar fetch de dados do Microsoft Graph sem solicitar credenciais ao usuário usando o fluxo de declaração de portador SAML.
 services: active-directory
-author: umeshbarapatre
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.custom: aaddev
-ms.openlocfilehash: e0db5bec00ce864536b3559eda160acdada5e157
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114686"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949347"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Plataforma de identidade da Microsoft e fluxo de declaração de portador SAML do OAuth 2.0
 O fluxo de declaração do portador SAML do OAuth 2.0 permite solicitar um token de acesso OAuth usando uma declaração SAML quando um cliente precisa usar uma relação de confiança existente. A assinatura aplicada à declaração SAML fornece autenticação do aplicativo autorizado. Uma declaração SAML é um token de segurança XML emitido por um provedor de identidade e consumido por um provedor de serviços. O provedor de serviços depende do conteúdo para identificar a entidade da declaração para fins relacionados à segurança.

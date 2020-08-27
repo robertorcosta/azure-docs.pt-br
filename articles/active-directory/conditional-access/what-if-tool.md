@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032876"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948191"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta de What If no acesso condicional
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta What If no Acesso Condicional
 
-O [acesso condicional](../active-directory-conditional-access-azure-portal.md) é um recurso do Azure Active Directory (AD do Azure) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder a essa pergunta, você pode usar a **ferramenta de What If de acesso condicional**.
+O [acesso condicional](./overview.md) é um recurso do Azure Active Directory (AD do Azure) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder a essa pergunta, você pode usar a **ferramenta de What If de acesso condicional**.
 
 Este artigo explica como você pode usar essa ferramenta para testar suas políticas de acesso condicional.
 
@@ -105,4 +105,4 @@ Na lista de políticas que não se aplicam ao usuário, você pode também encon
 ## <a name="next-steps"></a>Próximas etapas
 
 - Mais informações sobre o aplicativo de política de acesso condicional podem ser encontradas usando o modo somente relatório de políticas usando [informações e relatórios de acesso condicional](howto-conditional-access-insights-reporting.md).
-- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte as [políticas comuns de acesso condicional](concept-conditional-access-policy-common.md). 
+- Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, consulte as [políticas comuns de acesso condicional](concept-conditional-access-policy-common.md).

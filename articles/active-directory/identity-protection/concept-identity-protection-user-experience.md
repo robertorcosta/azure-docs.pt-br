@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72886994"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950197"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Experiências do usuário com o Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Todas as políticas de proteção de identidade têm um impacto na experiência 
 
 ## <a name="multi-factor-authentication-registration"></a>Registro de autenticação multifator
 
-Habilitar a política de proteção de identidade que requer o registro da autenticação multifator e direcionar todos os seus usuários garantirá que eles tenham a capacidade de usar o Azure MFA para corrigir automaticamente no futuro. Configurar essa política dá aos seus usuários um período de 14 dias em que eles podem optar por se registrar e, no final, são forçados a se registrar. A experiência para os usuários é descrita abaixo. Mais informações podem ser encontradas na documentação do usuário final no artigo [visão geral da verificação de dois fatores e sua conta corporativa ou de estudante](../user-help/user-help-two-step-verification-overview.md).
+Habilitar a política de proteção de identidade que requer o registro da autenticação multifator e direcionar todos os seus usuários garantirá que eles tenham a capacidade de usar o Azure MFA para corrigir automaticamente no futuro. Configurar essa política dá aos seus usuários um período de 14 dias em que eles podem optar por se registrar e, no final, são forçados a se registrar. A experiência para os usuários é descrita abaixo. Mais informações podem ser encontradas na documentação do usuário final no artigo [visão geral da verificação de dois fatores e sua conta corporativa ou de estudante](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Interrupção de registro
 
@@ -67,7 +67,7 @@ Quando uma política de risco do usuário tiver sido configurada, os usuários q
 
 1. O usuário é informado de que a segurança da conta está em risco devido à atividade suspeita ou credenciais vazadas.
    
-    ![Remediação](./media/concept-identity-protection-user-experience/101.png)
+    ![Correção](./media/concept-identity-protection-user-experience/101.png)
 
 1. O usuário precisa provar sua identidade concluindo o Azure MFA com um de seus métodos anteriormente registrados. 
 1. Por fim, o usuário é forçado a alterar sua senha usando a redefinição de senha de autoatendimento, já que outra pessoa pode ter tido acesso à sua conta.
@@ -80,8 +80,8 @@ Os administradores podem optar por bloquear os usuários após a entrada, depend
 
 A equipe de ti pode seguir as instruções na seção [desbloqueando os usuários](howto-identity-protection-remediate-unblock.md#unblocking-based-on-user-risk) para permitir que os usuários entrem novamente.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Corrigir riscos e desbloquear usuários](howto-identity-protection-remediate-unblock.md)
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232354"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949167"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário do Azure Active Directory Identity Protection
 
@@ -29,7 +29,7 @@ Uma entrada de um local geográfico incomum para o usuário específico, usuári
 ### <a name="azure-ad-identity-protection"></a>Azure AD Identity Protection
 Um módulo de segurança do Azure Active Directory que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades de uma organização.
 
-### <a name="conditional-access"></a>Acesso Condicional
+### <a name="conditional-access"></a>Acesso condicional
 Uma política para proteger o acesso aos recursos. As regras de acesso condicional são armazenadas no Azure Active Directory e são avaliadas pelo Azure AD antes de conceder acesso ao recurso.  As regras de exemplo incluem restrição baseada na localização do usuário, integridade do dispositivo ou método de autenticação do usuário.
 
 ### <a name="credentials"></a>Credenciais
@@ -89,7 +89,7 @@ A detecção de anomalias e a avaliação do risco de um evento, tal como uma te
 ### <a name="remediated-risk-detection"></a>Corrigido (detecção de risco)
 Um status de detecção de risco definido automaticamente pela proteção de identidade, indicando que a detecção de risco foi corrigida usando a ação de correção padrão para esse tipo de detecção de risco. Por exemplo, quando a senha do usuário é redefinida, muitas detecções de risco que indicam que a senha anterior foi comprometida são automaticamente corrigidas.
 
-### <a name="remediation"></a>Remediação
+### <a name="remediation"></a>Correção
 Uma ação que visa proteger uma identidade ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente. Uma ação de correção restaura a identidade ou o dispositivo para um estado seguro e resolve as detecções de risco anteriores associadas à identidade ou ao dispositivo.
 
 ### <a name="resolved-risk-detection"></a>Resolvido (detecção de risco)
@@ -158,6 +158,6 @@ Usuários que têm detecções de risco, que são ativas ou corrigidas
 ### <a name="vulnerability"></a>Vulnerabilidade
 Uma configuração ou condição no Azure Active Directory que torna o diretório suscetível a vulnerabilidades ou ameaças.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

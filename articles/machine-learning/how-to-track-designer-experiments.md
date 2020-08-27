@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0d8d9f598da41b2bd39369e063200f5445ba740a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554748"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950401"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Habilitar o log em pipelines do designer de Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -78,5 +78,5 @@ Depois que a execução do pipeline for concluída, você poderá ver o *Mean_Ab
 
 Neste artigo, você aprendeu a usar os logs no designer. Para as próximas etapas, consulte estes artigos relacionados:
 
-* Saiba como solucionar problemas de pipelines de designer, consulte [Debug & solucionar problemas de pipelines de ml](how-to-debug-pipelines.md#azure-machine-learning-designer-preview).
+* Saiba como solucionar problemas de pipelines de designer, consulte [Debug & solucionar problemas de pipelines de ml](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
 * Saiba como usar o SDK do Python para registrar métricas na experiência de criação do SDK, consulte [habilitar o log nas execuções de treinamento do Azure ml](how-to-track-experiments.md).

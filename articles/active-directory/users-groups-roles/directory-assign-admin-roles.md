@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a2bb8b98bfb936421c0522d4637a288d20a708b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 87bb20d23f773997addd170da09ca8f20d2a8ce7
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795398"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949976"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -56,19 +56,12 @@ As seguintes funções de administrador estão disponíveis:
 
 Os usuários nessa função podem criar e gerenciar todos os aspectos de aplicativos empresariais, registros dos aplicativos e configurações de proxy de aplicativos. Observe que os usuários atribuídos a essa função não são adicionados como proprietários, ao criar novos registros de aplicativo ou aplicativos empresariais.
 
-Os Administradores de Aplicativos podem gerenciar credenciais de aplicativo que permitam que eles o representem. Portanto, os usuários atribuídos a essa função só podem gerenciar as credenciais dos aplicativos que não estejam atribuídos a nenhuma função do Azure AD ou daqueles atribuídos somente às seguintes funções de administrador:
-
-* Administrador de aplicativos
-* Desenvolvedor de aplicativos
-* Administrador de Aplicativos de Nuvem
-* Leitores de Diretório
-
-Caso um seja aplicativo atribuído a qualquer outra função que não esteja mencionada acima, o Administrador de Aplicativos não poderá gerenciar as credenciais desse aplicativo.
-
 Essa função também concede a capacidade de _consentimento_ para permissões delegadas e permissões do aplicativo, com a exceção de permissões na API do Microsoft Graph.
 
 > [!IMPORTANT]
 > Essa exceção significa que você ainda pode consentir com permissões para _outros_ aplicativos (por exemplo, aplicativos que não sejam da Microsoft ou aplicativos que você tenha registrado), mas não com permissões no próprio Azure AD. Você ainda pode _solicitar_ essas permissões como parte do registro do aplicativo, mas a _concessão_ (ou seja, o consentimento) dessas permissões requer um administrador do Azure AD. Dessa foram, um usuário mal-intencionado não poderá facilmente elevar suas próprias permissões ao, por exemplo, criar e consentir com um aplicativo que possa fazer gravações em todo o diretório e, por meio das permissões do aplicativo, tornar a si mesmo um Administrador global.
+>
+>Essa função concede a capacidade de gerenciar credenciais de aplicativos. Os usuários atribuídos a essa função podem adicionar credenciais a um aplicativo e usar essas credenciais para representar a identidade do aplicativo. Se a identidade do aplicativo tiver recebido acesso a um recurso, como a capacidade de criar ou atualizar usuários ou outros objetos, um usuário atribuído a essa função poderá executar essas ações ao representar o aplicativo. Essa capacidade de representar a identidade do aplicativo pode ser uma elevação de privilégio sobre o que o usuário pode fazer por meio de suas atribuições de função. É importante entender que atribuir um usuário à função de administrador do aplicativo permite que ele represente a identidade de um aplicativo.
 
 ### <a name="application-developer"></a>[Desenvolvedor de Aplicativo](#application-developer-permissions)
 
@@ -125,15 +118,11 @@ Faz compras, gerencia assinaturas, gerencia tíquetes de suporte e monitora a in
 
 ### <a name="cloud-application-administrator"></a>[Administrador de Aplicativos de Nuvem](#cloud-application-administrator-permissions)
 
-Os usuários nessa função têm as mesmas permissões que a função Administrador de Aplicativos, excluindo a capacidade de gerenciar o proxy de aplicativo. Essa função concede a capacidade de criar e gerenciar todos os aspectos de aplicativos corporativos e os registros do aplicativo. Essa função também concede a capacidade de consentimento para permissões delegadas e permissões do aplicativo excluindo a API do Microsoft Graph. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
+Os usuários nessa função têm as mesmas permissões que a função Administrador de Aplicativos, excluindo a capacidade de gerenciar o proxy de aplicativo. Essa função concede a capacidade de criar e gerenciar todos os aspectos de aplicativos corporativos e os registros do aplicativo. Essa função também concede a capacidade de consentimento para permissões delegadas e permissões do aplicativo excluindo o Microsoft Graph e o Microsoft Azure AD Graph. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
 
-Os Administradores de Aplicativos de Nuvem podem gerenciar credenciais de aplicativo que permitam que eles o representem. Portanto, os usuários atribuídos a essa função só podem gerenciar as credenciais dos aplicativos que não estejam atribuídos a nenhuma função do Azure AD ou daqueles atribuídos somente às seguintes funções de administrador:
+> [!IMPORTANT]
+> Essa função concede a capacidade de gerenciar credenciais de aplicativos. Os usuários atribuídos a essa função podem adicionar credenciais a um aplicativo e usar essas credenciais para representar a identidade do aplicativo. Se a identidade do aplicativo tiver recebido acesso a um recurso, como a capacidade de criar ou atualizar usuários ou outros objetos, um usuário atribuído a essa função poderá executar essas ações ao representar o aplicativo. Essa capacidade de representar a identidade do aplicativo pode ser uma elevação de privilégio sobre o que o usuário pode fazer por meio de suas atribuições de função. É importante entender que atribuir um usuário à função de administrador do Cloud Application permite que ele represente a identidade de um aplicativo.
 
-* Desenvolvedor de aplicativos
-* Administrador de Aplicativos de Nuvem
-* Leitores de Diretório
-
-Caso um seja aplicativo atribuído a qualquer outra função que não esteja mencionada acima, o Administrador de Aplicativos de Nuvem não poderá gerenciar as credenciais desse aplicativo.
 
 ### <a name="cloud-device-administrator"></a>[Administrador de dispositivo de nuvem](#cloud-device-administrator-permissions)
 

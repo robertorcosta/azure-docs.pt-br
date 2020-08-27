@@ -5,34 +5,47 @@ description: Depure seus pipelines de Azure Machine Learning no Python. Aprenda 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: likebupt
-ms.author: keli19
-ms.date: 03/18/2020
+author: lobrien
+ms.author: laobri
+ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: ac8896bae4b3bf36ee6e943581bbf6791401c821
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a036cb4212b0237bea1c8509532dc78d469acb17
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904642"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950146"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprenderá a depurar e solucionar problemas de [pipelines do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) e no [Designer de Azure Machine Learning (versão prévia)](https://docs.microsoft.com/azure/machine-learning/concept-designer). As informações são fornecidas sobre como:
+Neste artigo, você aprende a solucionar problemas e depurar [pipelines do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) e no [Designer de Azure Machine Learning (versão prévia)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
 
-* Depurar usando o SDK do Azure Machine Learning
-* Depurar usando o designer de Azure Machine Learning
-* Depurar usando Application Insights
-* Depurar interativamente usando Visual Studio Code (VS Code) e o Ferramentas Python para Visual Studio (PTVSD)
+## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
-## <a name="azure-machine-learning-sdk"></a>SDK do Azure Machine Learning
-As seções a seguir fornecem uma visão geral das armadilhas comuns ao criar pipelines e estratégias diferentes para depurar seu código em execução em um pipeline. Use as dicas a seguir quando estiver tendo problemas para fazer com que um pipeline seja executado conforme o esperado.
+A tabela a seguir contém problemas comuns durante o desenvolvimento de pipeline, com possíveis soluções.
 
-### <a name="testing-scripts-locally"></a>Testar scripts localmente
+| Problema | Solução possível |
+|--|--|
+| Não é possível passar dados para o `PipelineData` diretório | Verifique se você criou um diretório no script que corresponde a onde o seu pipeline espera os dados de saída da etapa. Na maioria dos casos, um argumento de entrada definirá o diretório de saída e, em seguida, você criará o diretório explicitamente. Use `os.makedirs(args.output_dir, exist_ok=True)` para criar o diretório de saída. Consulte o [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) para obter um exemplo de script de pontuação que mostra esse padrão de design. |
+| Bugs de dependência | Se você vir erros de dependência em seu pipeline remoto que não ocorreram durante o teste local, confirme se as suas dependências e versões de ambiente remoto correspondem àquelas em seu ambiente de teste. (Consulte [criação de ambiente, Caching e reutilização](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
+| Erros ambíguos com destinos de computação | Tente excluir e recriar destinos de computação. Recriar destinos de computação é rápido e pode resolver alguns problemas transitórios. |
+| O pipeline não está Reutilizando as etapas | A reutilização de etapa é habilitada por padrão, mas certifique-se de que você não a desabilitou em uma etapa de pipeline. Se a reutilização estiver desabilitada, o `allow_reuse` parâmetro na etapa será definido como `False` . |
+| O pipeline está sendo executado desnecessariamente | Para garantir que as etapas sejam executadas somente quando seus dados ou scripts subjacentes forem alterados, desassocie os diretórios de código-fonte para cada etapa. Se você usar o mesmo diretório de origem para várias etapas, poderá ocorrer uma reexecutação desnecessária. Use o `source_directory` parâmetro em um objeto Step de pipeline para apontar para seu diretório isolado para essa etapa e verifique se você não está usando o mesmo `source_directory` caminho para várias etapas. |
 
-Uma das falhas mais comuns em um pipeline é que um script anexado (script de limpeza de dados, script de pontuação, etc.) não está em execução como pretendido, ou contém erros de tempo de execução no contexto de computação remota que são difíceis de Depurar em seu espaço de trabalho no Azure Machine Learning Studio. 
+
+## <a name="debugging-techniques"></a>Técnicas de depuração
+
+Há três técnicas principais para a depuração de pipelines: 
+
+* Depurar etapas de pipeline individuais no computador local
+* Use registro em log e Application Insights para isolar e diagnosticar a origem do problema
+* Anexar um depurador remoto a um pipeline em execução no Azure
+
+### <a name="debug-scripts-locally"></a>Depurar scripts localmente
+
+Uma das falhas mais comuns em um pipeline é que o script de domínio não é executado conforme o esperado, ou contém erros de tempo de execução no contexto de computação remota que são difíceis de depurar.
 
 Os pipelines propriamente ditos não podem ser executados localmente, mas a execução dos scripts em isolamento no computador local permite que você depure mais rápido porque não precisa esperar o processo de compilação do ambiente e da computação. Alguns trabalhos de desenvolvimento são necessários para fazer isso:
 
@@ -49,41 +62,9 @@ Quando você tiver uma configuração de script para ser executada no seu ambien
 > [!TIP] 
 > Depois que você puder verificar se o script está sendo executado conforme o esperado, uma boa próxima etapa é executar o script em um pipeline de etapa única antes de tentar executá-lo em um pipeline com várias etapas.
 
-### <a name="debugging-scripts-from-remote-context"></a>Depurar scripts do contexto remoto
+## <a name="configure-write-to-and-review-pipeline-logs"></a>Configurar, gravar e examinar logs de pipeline
 
 O teste de scripts localmente é uma ótima maneira de depurar fragmentos de código principais e lógica complexa antes de começar a criar um pipeline, mas, em algum momento, você provavelmente precisará depurar scripts durante a execução real do pipeline, especialmente ao diagnosticar o comportamento que ocorre durante a interação entre as etapas do pipeline. É recomendável liberal o uso de `print()` instruções em seus scripts de etapa para que você possa ver o estado do objeto e os valores esperados durante a execução remota, semelhante a como você depuraria o código JavaScript.
-
-O arquivo de log `70_driver_log.txt` contém: 
-
-* Todas as instruções impressas durante a execução do script
-* O rastreamento de pilha para o script 
-
-Para localizar esse e outros arquivos de log no portal, primeiro clique no pipeline executado no seu espaço de trabalho.
-
-![Página de lista de execução de pipeline](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Navegue até a página de detalhes da execução do pipeline.
-
-![Página de detalhes da execução do pipeline](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Clique no módulo para a etapa específica. Navegue até a guia **logs** . Outros logs incluem informações sobre o processo de compilação da imagem do ambiente e os scripts de preparação de etapa.
-
-![Guia log da página detalhes da execução do pipeline](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Execuções para *pipelines publicados* podem ser encontradas na guia **pontos de extremidade** em seu espaço de trabalho. Execuções para *pipelines não publicados* podem ser encontradas em **experimentos** ou **pipelines**.
-
-### <a name="troubleshooting-tips"></a>Dicas de solução de problemas
-
-A tabela a seguir contém problemas comuns durante o desenvolvimento de pipeline, com possíveis soluções.
-
-| Problema | Solução possível |
-|--|--|
-| Não é possível passar dados para o `PipelineData` diretório | Verifique se você criou um diretório no script que corresponde a onde o seu pipeline espera os dados de saída da etapa. Na maioria dos casos, um argumento de entrada definirá o diretório de saída e, em seguida, você criará o diretório explicitamente. Use `os.makedirs(args.output_dir, exist_ok=True)` para criar o diretório de saída. Consulte o [tutorial](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) para obter um exemplo de script de pontuação que mostra esse padrão de design. |
-| Bugs de dependência | Se você tiver desenvolvido e testado com scripts localmente, mas encontrar problemas de dependência ao executar em uma computação remota no pipeline, verifique se as dependências e as versões do ambiente de computação correspondem ao ambiente de teste. (Consulte [criação de ambiente, Caching e reutilização](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
-| Erros ambíguos com destinos de computação | Excluir e recriar destinos de computação pode resolver determinados problemas com destinos de computação. |
-| O pipeline não está Reutilizando as etapas | A reutilização de etapa é habilitada por padrão, mas certifique-se de que você não a desabilitou em uma etapa de pipeline. Se a reutilização estiver desabilitada, o `allow_reuse` parâmetro na etapa será definido como `False` . |
-| O pipeline está sendo executado desnecessariamente | Para garantir que as etapas sejam executadas apenas novamente quando os dados ou scripts subjacentes forem alterados, desassocie os diretórios para cada etapa. Se você usar o mesmo diretório de origem para várias etapas, poderá ocorrer uma reexecutação desnecessária. Use o `source_directory` parâmetro em um objeto Step de pipeline para apontar para seu diretório isolado para essa etapa e verifique se você não está usando o mesmo `source_directory` caminho para várias etapas. |
 
 ### <a name="logging-options-and-behavior"></a>Opções e comportamento de log
 
@@ -127,9 +108,31 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="azure-machine-learning-designer-preview"></a>Azure Machine Learning Designer (versão prévia)
+### <a name="finding-and-reading-pipeline-log-files"></a>Localizando e lendo arquivos de log de pipeline
 
-Esta seção fornece uma visão geral de como solucionar problemas de pipelines no designer. Para pipelines criados no designer, você pode encontrar o arquivo de **70_driver_log** na página de criação ou na página de detalhes de execução de pipeline.
+O arquivo de log `70_driver_log.txt` contém: 
+
+* Todas as instruções impressas durante a execução do script
+* O rastreamento de pilha para o script 
+
+Para localizar esse e outros arquivos de log no portal, primeiro clique no pipeline executado no seu espaço de trabalho.
+
+![Página de lista de execução de pipeline](./media/how-to-debug-pipelines/pipelinerun-01.png)
+
+Navegue até a página de detalhes da execução do pipeline.
+
+![Página de detalhes da execução do pipeline](./media/how-to-debug-pipelines/pipelinerun-02.png)
+
+Clique no módulo para a etapa específica. Navegue até a guia **logs** . Outros logs incluem informações sobre o processo de compilação da imagem do ambiente e os scripts de preparação de etapa.
+
+![Guia log da página detalhes da execução do pipeline](./media/how-to-debug-pipelines/pipelinerun-03.png)
+
+> [!TIP]
+> Execuções para *pipelines publicados* podem ser encontradas na guia **pontos de extremidade** em seu espaço de trabalho. Execuções para *pipelines não publicados* podem ser encontradas em **experimentos** ou **pipelines**.
+
+## <a name="logging-in-azure-machine-learning-designer-preview"></a>Registrando em log Azure Machine Learning designer (versão prévia)
+
+Para pipelines criados no designer, você pode encontrar o arquivo de **70_driver_log** na página de criação ou na página de detalhes de execução de pipeline.
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>Habilitar o registro em log para pontos de extremidade em tempo real
 
@@ -140,7 +143,7 @@ Para solucionar problemas e depurar pontos de extremidade em tempo real no desig
 Ao enviar uma execução de pipeline e permanecer na página de criação, você poderá encontrar os arquivos de log gerados para cada módulo à medida que cada módulo terminar a execução.
 
 1. Selecione um módulo que concluiu a execução na tela de criação.
-1. No painel direito do módulo, vá para a guia **saídas + logs** .
+1. No painel direito do módulo, vá para a guia  **saídas + logs** .
 1. Expanda o painel direito e selecione o **70_driver_log.txt** para exibir o arquivo no navegador. Você também pode baixar logs localmente.
 
     ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)
@@ -154,7 +157,7 @@ Você também pode encontrar os arquivos de log para execuções específicas na
     ![Página de execução de pipeline](./media/how-to-debug-pipelines/designer-pipelines.png)
 
 1. Selecione um módulo no painel de visualização.
-1. No painel direito do módulo, vá para a guia **saídas + logs** .
+1. No painel direito do módulo, vá para a guia  **saídas + logs** .
 1. Expanda o painel direito para exibir o arquivo de **70_driver_log.txt** no navegador ou selecione o arquivo para baixar os logs localmente.
 
 > [!IMPORTANT]
@@ -163,7 +166,7 @@ Você também pode encontrar os arquivos de log para execuções específicas na
 ## <a name="application-insights"></a>Application Insights
 Para obter mais informações sobre como usar a biblioteca do OpenCensus Python dessa maneira, consulte este guia: [depurar e solucionar problemas de pipelines do Machine Learning no Application insights](how-to-debug-pipelines-application-insights.md)
 
-## <a name="visual-studio-code"></a>Visual Studio Code
+## <a name="interactive-debugging-with-visual-studio-code"></a>Depuração interativa com Visual Studio Code
 
 Em alguns casos, talvez seja necessário depurar interativamente o código Python usado em seu pipeline de ML. Usando Visual Studio Code (VS Code) e debugpy, você pode anexar ao código conforme ele é executado no ambiente de treinamento. Para obter mais informações, visite a [depuração interativa no guia vs Code](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
 

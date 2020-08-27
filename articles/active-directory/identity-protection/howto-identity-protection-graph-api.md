@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81c3715995d0d53cd72acf7277f46a279fa4cfb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019651"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950112"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e ao Microsoft Graph
 
-O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](../active-directory-identityprotection.md). Há três APIs que expõem informações sobre usuários arriscados e entradas. A primeira API, **riskDetection**, permite que você consulte Microsoft Graph para obter uma lista de detecções de risco vinculadas de usuário e de entrada e informações associadas sobre a detecção. A segunda API, **riskyUsers**, permite que você consulte o Microsoft Graph para obter informações sobre a proteção do Identity Protection detectada como risco. A terceira API, **signIn**, permite que você consulte o Microsoft Graph para obter informações sobre entradas do Azure AD com propriedades específicas relacionadas ao estado, detalhe e nível de risco. 
+O Microsoft Graph é o ponto de extremidade de API unificado da Microsoft e a página inicial das APIs do [Azure Active Directory Identity Protection](./overview-identity-protection.md). Há três APIs que expõem informações sobre usuários arriscados e entradas. A primeira API, **riskDetection**, permite que você consulte Microsoft Graph para obter uma lista de detecções de risco vinculadas de usuário e de entrada e informações associadas sobre a detecção. A segunda API, **riskyUsers**, permite que você consulte o Microsoft Graph para obter informações sobre a proteção do Identity Protection detectada como risco. A terceira API, **signIn**, permite que você consulte o Microsoft Graph para obter informações sobre entradas do Azure AD com propriedades específicas relacionadas ao estado, detalhe e nível de risco. 
 
 Este artigo é uma introdução para conectar o Microsoft Graph e consultar essas APIs. Para obter uma introdução detalhada, documentação completa e acesso ao Graph Explorer, consulte o [site do Microsoft Graph](https://graph.microsoft.io/) ou a documentação de referência específica para essas APIs:
 
@@ -167,8 +167,8 @@ Para saber mais sobre o Microsoft Graph e como criar aplicativos usando a API do
 
 Para obter informações relacionadas. consulte:
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-- [Tipos de detecções de risco detectadas pelo Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)
+- [Tipos de detecções de risco detectadas pelo Azure Active Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Visão geral do Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Raiz do Serviço Azure AD Identity Protection](https://docs.microsoft.com/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Raiz do Serviço Azure AD Identity Protection](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
