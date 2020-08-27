@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206919"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922813"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Função OData no Azure pesquisa cognitiva
 
@@ -46,7 +46,7 @@ No entanto, há uma maneira mais curta de escrever isso, usando a `search.in` fu
 > [!NOTE]
 > A versão 4, 1 do padrão OData introduziu recentemente o [ `in` operador](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), que tem comportamento semelhante à `search.in` função no pesquisa cognitiva do Azure. No entanto, o Azure Pesquisa Cognitiva não oferece suporte a esse operador, portanto, você deve usar a `search.in` função em vez disso.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O EBNF a seguir ([formulário Backus-Naur Estendido](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) define a gramática da `search.in` função:
 
@@ -74,7 +74,7 @@ Há duas sobrecargas da `search.in` função:
 
 Os parâmetros são definidos na tabela a seguir:
 
-| Nome do parâmetro | Tipo | Descrição |
+| Nome do parâmetro | Type | DESCRIÇÃO |
 | --- | --- | --- |
 | `variable` | `Edm.String` | Uma referência de campo de cadeia de caracteres (ou uma variável de intervalo em um campo de coleção de cadeia de caracteres no caso em que `search.in` é usada dentro de uma `any` `all` expressão ou). |
 | `valueList` | `Edm.String` | Uma cadeia de caracteres que contém uma lista delimitada de valores para corresponder ao `variable` parâmetro. Se o `delimiters` parâmetro não for especificado, os delimitadores padrão serão espaço e vírgula. |
@@ -82,7 +82,7 @@ Os parâmetros são definidos na tabela a seguir:
 
 <a name="bkmk_performance"></a>
 
-### <a name="performance-of-searchin"></a>Desempenho de`search.in`
+### <a name="performance-of-searchin"></a>Desempenho de `search.in`
 
 Se você usar `search.in`, espere um tempo de resposta abaixo de um segundo quando o segundo parâmetro contiver uma lista de centenas ou milhares de valores. Não há nenhum limite explícito para o número de itens que você pode passar `search.in` , embora ainda esteja limitado pelo tamanho máximo da solicitação. No entanto, a latência aumenta à medida em que cresce o número de valores.
 
@@ -123,4 +123,4 @@ Localize todos os hotéis sem a marca ' motel ' ou ' cabin':
 - [Filtros no Azure Pesquisa Cognitiva](search-filters.md)
 - [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
 - [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Pesquisar documentos &#40;API REST do Azure Pesquisa Cognitiva&#41;](/rest/api/searchservice/Search-Documents)

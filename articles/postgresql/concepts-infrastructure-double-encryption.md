@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d54bef277d80a178c45ce918290d46c11387b7d1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067487"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918087"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Criptografia dupla da infraestrutura do banco de dados do Azure para PostgreSQL
 
@@ -32,7 +32,7 @@ A implementação nas camadas de infraestrutura também dá suporte a uma divers
 > [!NOTE]
 > Usar a criptografia dupla de infraestrutura terá impacto no desempenho no banco de dados do Azure para o servidor PostgreSQL devido ao processo de criptografia adicional.
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 A criptografia dupla de infraestrutura para o banco de dados do Azure para PostgreSQL oferece os seguintes benefícios:
 
@@ -62,6 +62,12 @@ Os recursos de criptografia fornecidos pelo banco de dados do Azure para Postgre
 Para o banco de dados do Azure para PostgreSQL, o suporte para criptografia dupla de infraestrutura usando chave gerenciada por serviço tem as seguintes limitações:
 
 * O suporte para essa funcionalidade é limitado a tipos de preço **uso geral** e com **otimização de memória** .
+* Você pode criar um banco de dados do Azure para PostgreSQL com criptografia dupla de infraestrutura habilitada nas seguintes regiões:
+
+   * Leste dos EUA
+   * Centro-Sul dos Estados Unidos
+   * Oeste dos EUA 2
+   
 * Esse recurso só tem suporte em regiões e servidores, que dão suporte a armazenamento de até 16 TB. Para obter a lista de regiões do Azure que dão suporte a armazenamento de até 16 TB, consulte a [documentação de armazenamento](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

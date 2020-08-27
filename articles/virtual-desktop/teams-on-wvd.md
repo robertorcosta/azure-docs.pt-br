@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509596"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922558"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usar o Microsoft Teams na área de trabalho virtual do Windows
 
 >[!IMPORTANT]
->Não há suporte para a otimização de mídia para equipes em ambientes Microsoft 365 governamental.
+>Há suporte para a otimização de mídia para equipes em ambientes Microsoft 365 (GCC) do governo. A otimização de mídia para equipes não tem suporte para GCC-High ou DoD.
 
 >[!NOTE]
 >A otimização de mídia para o Microsoft Teams está disponível somente para o cliente de desktop do Windows em computadores Windows 10. As otimizações de mídia exigem o cliente da área de trabalho do Windows versão 1.2.1026.0 ou posterior.
@@ -32,7 +32,7 @@ Antes de poder usar o Microsoft Teams na área de trabalho virtual do Windows, v
 - [Prepare sua rede para o](/microsoftteams/prepare-network/) Microsoft Teams.
 - Instale o [cliente de área de trabalho do Windows](connect-windows-7-10.md) em um dispositivo Windows 10 ou Windows 10 IOT Enterprise que atenda aos requisitos de hardware do Microsoft Team [para equipes em um computador Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Conecte-se a uma VM (máquina virtual) do Windows 10 de várias sessões ou do Windows 10 Enterprise.
-- Instale o aplicativo de área de trabalho de equipes no host usando a instalação por máquina. A otimização de mídia para o Microsoft Teams requer o aplicativo de área de trabalho de equipes versão 1.3.00.4461 ou posterior.
+- [Baixe](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) e instale o aplicativo de área de trabalho de equipes no host usando a instalação por máquina. A otimização de mídia para o Microsoft Teams requer o aplicativo de área de trabalho de equipes versão 1.3.00.4461 ou posterior.
 
 ## <a name="install-the-teams-desktop-app"></a>Instalar o aplicativo de área de trabalho de equipes
 
@@ -94,8 +94,8 @@ Você pode implantar o aplicativo de área de trabalho de equipes usando uma ins
 
         Isso instala as equipes na pasta arquivos de programas (x86) em um sistema operacional de 64 bits e na pasta arquivos de programas em um sistema operacional de 32 bits. Neste ponto, a configuração da imagem dourada foi concluída. A instalação de equipes por máquina é necessária para configurações não persistentes.
 
-        Há dois sinalizadores que podem ser definidos ao instalar equipes, **usuário = 1** e **AllUsers = 1**. É importante entender a diferença entre esses parâmetros. O parâmetro de **usuário = 1** é usado somente em ambientes de VDI para especificar uma instalação por computador. O parâmetro **AllUsers = 1** pode ser usado em ambientes não VDI e VDI. Quando você define esse parâmetro, o instalador de todo o computador é exibido em programas e recursos no painel de controle, bem como aplicativos & recursos nas configurações do Windows. Todos os usuários com credenciais de administrador no computador podem desinstalar as equipes. 
-       
+        Há dois sinalizadores que podem ser definidos ao instalar equipes, **usuário = 1** e **AllUsers = 1**. É importante entender a diferença entre esses parâmetros. O parâmetro de **usuário = 1** é usado somente em ambientes de VDI para especificar uma instalação por computador. O parâmetro **AllUsers = 1** pode ser usado em ambientes não VDI e VDI. Quando você define esse parâmetro, o instalador de todo o computador é exibido em programas e recursos no painel de controle, bem como aplicativos & recursos nas configurações do Windows. Todos os usuários com credenciais de administrador no computador podem desinstalar as equipes.
+
         > [!NOTE]
         > Os usuários e administradores não podem desabilitar o lançamento automático para equipes durante a entrada no momento.
 

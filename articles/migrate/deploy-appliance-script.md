@@ -3,12 +3,12 @@ title: Configurar um dispositivo de migrações para Azure com um script
 description: Saiba como configurar um dispositivo de migrações para Azure com um script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 47b6b35e62d484b4d7a33f6a53796c59e01817fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 43e47c6b4121a2f389dfec27873b90b7031c4f2c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102439"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929968"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um dispositivo com um script
 
@@ -36,7 +36,7 @@ Hyper-V | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB
 
 ## <a name="set-up-the-appliance-for-vmware"></a>Configurar o dispositivo para VMware
 
-Para configurar o dispositivo para VMware, baixe o arquivo compactado chamado AzureMigrateInstaller.zip [aqui](https://go.microsoft.com/fwlink/?linkid=2105112)e extraia o conteúdo. Você executa o script do PowerShell para iniciar o aplicativo Web do dispositivo. Você configura o dispositivo e o configura pela primeira vez. Em seguida, você registra o dispositivo com o projeto de migrações para Azure.
+Para configurar o dispositivo para VMware, baixe o arquivo compactado chamado AzureMigrateInstaller-Server-Public.zip no portal ou [aqui](https://go.microsoft.com/fwlink/?linkid=2140334)e extraia o conteúdo. Você executa o script do PowerShell para iniciar o aplicativo Web do dispositivo. Você configura o dispositivo e o configura pela primeira vez. Em seguida, você registra o dispositivo com o projeto de migrações para Azure.
 
 
 ### <a name="verify-file-security"></a>Verificar a segurança do arquivo
@@ -46,12 +46,12 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
 2. Execute o seguinte comando para gerar o hash para o arquivo zip
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256```
 3. Verifique a versão mais recente do dispositivo e o script para a nuvem pública do Azure:
 
     **Algoritmo** | **Download** | **SHA256**
     --- | --- | ---
-    VMware (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
+    VMware (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
 
 
 
@@ -74,7 +74,7 @@ Para executar o script:
 3. Altere o diretório do PowerShell para a pasta que contém o conteúdo extraído do arquivo compactado baixado.
 4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira:
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 -scenario VMware ```
    
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
@@ -84,7 +84,7 @@ Verifique se o dispositivo pode se conectar às URLs do Azure para a nuvem [púb
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Configurar o dispositivo para Hyper-V
 
-Para configurar o dispositivo para Hyper-V, baixe o arquivo compactado chamado AzureMigrateInstaller.zip [aqui](https://go.microsoft.com/fwlink/?linkid=2105112)e extraia o conteúdo. Você executa o script do PowerShell para iniciar o aplicativo Web do dispositivo. Você configura o dispositivo e o configura pela primeira vez. Em seguida, você registra o dispositivo com o projeto de migrações para Azure.
+Para configurar o dispositivo para Hyper-V, baixe o arquivo compactado chamado AzureMigrateInstaller-Server-Public.zip no portal ou [aqui](https://go.microsoft.com/fwlink/?linkid=2105112)e extraia o conteúdo. Você executa o script do PowerShell para iniciar o aplicativo Web do dispositivo. Você configura o dispositivo e o configura pela primeira vez. Em seguida, você registra o dispositivo com o projeto de migrações para Azure.
 
 
 ### <a name="verify-file-security"></a>Verificar a segurança do arquivo
@@ -94,13 +94,13 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
 2. Execute o seguinte comando para gerar o hash para o arquivo zip
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256```
 
 3. Verifique a versão mais recente do dispositivo e o script para a nuvem pública do Azure:
 
     **Cenário** | **Download** | **SHA256**
     --- | --- | ---
-    Hyper-V (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2105112) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+    Hyper-V (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140334) |  5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
 
 ### <a name="run-the-script"></a>Executar o script
 
@@ -119,7 +119,9 @@ Para executar o script:
 1. Extraia o arquivo compactado em uma pasta no computador que hospedará o dispositivo. Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no computador com privilégios de administrador (elevado).
 3. Altere o diretório do PowerShell para a pasta que contém o conteúdo extraído do arquivo compactado baixado.
-4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
+4. Execute o script **AzureMigrateInstaller.ps1**, da seguinte maneira: 
+
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
 5. Depois que o script é executado com êxito, ele inicia o aplicativo Web do dispositivo para que você possa configurar o dispositivo. Se você encontrar problemas, examine os logs de script em C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 

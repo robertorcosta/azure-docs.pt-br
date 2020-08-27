@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253300"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922082"
 ---
 # <a name="custom-controls-preview"></a>Controles personalizados (versão prévia)
 
@@ -33,11 +33,11 @@ Copie os dados JSON e, em seguida, cole-os na caixa de texto relacionada. Não f
 
 A opção para criar um controle personalizado está na seção **gerenciar** da página de **acesso condicional** .
 
-![Control](./media/controls/82.png)
+![Interface de controles personalizados no acesso condicional](./media/controls/custom-controls-conditional-access.png)
 
 Clicar em **Novo controle personalizado** abrirá uma folha com uma caixa de texto para os dados JSON do seu controle.  
 
-![Control](./media/controls/81.png)
+![Novo controle personalizado](./media/controls/new-custom-controls-conditional-access.png)
 
 ## <a name="deleting-custom-controls"></a>Excluindo controles personalizados
 
@@ -53,7 +53,7 @@ Para editar um controle personalizado, você deve excluir o controle atual e cri
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-Os controles personalizados não podem ser usados com a automação da proteção de identidade que requer a autenticação multifator do Azure, redefinição de senha de autoatendimento do Azure AD (SSPR), atendendo aos requisitos de declaração de autenticação multifator ou para elevar funções no PIM (Privileged Identity Manager).
+Os controles personalizados não podem ser usados com a automação da proteção de identidade que requer autenticação multifator do Azure, redefinição de senha de autoatendimento do Azure AD (SSPR), atendendo aos requisitos de declaração da autenticação multifator, para elevar funções no Gerenciador de identidade privilegiada (PIM) ou como parte do registro de dispositivo do Intune.
 
 ## <a name="next-steps"></a>Próximas etapas
 
