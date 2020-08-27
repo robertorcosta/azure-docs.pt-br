@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 49918335dc6855726e7d8de15c01a5f15280af08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 895e22d94122539ee68bcac8ee4debce2d824ff0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503210"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935272"
 ---
 # <a name="sentiment-cognitive-skill"></a>Habilidade cognitiva do Sentiment
 
-A habilidade do **Sentiment** avalia o texto não estruturado ao longo de um conjunto negativo positivo e para cada registro, retorna uma pontuação numérica entre 0 e 1. Pontuações próximas de 1 indicam sentimento positivo e pontuações próximas de 0 indicam sentimento negativo. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) nos Serviços Cognitivos.
+A habilidade do **Sentiment** avalia o texto não estruturado ao longo de um conjunto negativo positivo e para cada registro, retorna uma pontuação numérica entre 0 e 1. Pontuações próximas de 1 indicam sentimento positivo e pontuações próximas de 0 indicam sentimento negativo. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](../cognitive-services/text-analytics/overview.md) nos Serviços Cognitivos.
 
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem, como parte do estágio de quebra de documento na Pesquisa Cognitiva do Azure. Não há encargos para extração de texto em documentos.
@@ -29,27 +29,27 @@ A habilidade do **Sentiment** avalia o texto não estruturado ao longo de um con
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de 5000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 5000 caracteres conforme medido por [`String.Length`](/dotnet/api/system.string.length) . Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do Parâmetro | Descrição |
+| Nome do Parâmetro | DESCRIÇÃO |
 |----------------|----------------------|
-| `defaultLanguageCode` | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma. <br/> Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
+| `defaultLanguageCode` | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma. <br/> Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/language-support.md) |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades 
 
-| Nome de entrada | Descrição |
+| Nome de entrada | DESCRIÇÃO |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
-| `languageCode`    |  (opcional) Uma cadeia de caracteres que indica o idioma dos registros. Se este parâmetro não for especificado, o valor padrão é “en”. <br/>Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
+| `languageCode`    |  (opcional) Uma cadeia de caracteres que indica o idioma dos registros. Se este parâmetro não for especificado, o valor padrão é “en”. <br/>Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/language-support.md).|
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome de saída | Descrição |
+| Nome de saída | DESCRIÇÃO |
 |--------------------|-------------|
 | `score` | Um valor entre 0 e 1 que representa o sentimento do texto analisado. Valores próximos a 0 têm sentimento negativo, perto de 0,5, têm sentimento neutro, e valores próximo a 1 têm o sentimento positivo.|
 

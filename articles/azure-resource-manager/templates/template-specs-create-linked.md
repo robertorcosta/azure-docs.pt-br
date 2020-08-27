@@ -2,13 +2,13 @@
 title: Criar uma especificação de modelo com modelos vinculados
 description: Saiba como criar uma especificação de modelo com modelos vinculados.
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/26/2020
+ms.openlocfilehash: 49a26bf61c3c66f41761afe293471575e76c4eb9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387856"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936360"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: criar uma especificação de modelo com modelos vinculados (visualização)
 
@@ -19,7 +19,7 @@ Saiba como criar uma [especificação de modelo](template-specs.md) com um [mode
 Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> No momento, as especificações do modelo estão em versão prévia. Para usá-lo, você deve [inscrever-se na versão prévia](https://aka.ms/templateSpecOnboarding).
+> As especificações de modelo estão atualmente em versão prévia. Para usá-lo, você deve [inscrever-se na versão prévia](https://aka.ms/templateSpecOnboarding).
 
 ## <a name="create-linked-templates"></a>Criar modelos vinculados
 
@@ -27,7 +27,7 @@ Crie o modelo principal e o modelo vinculado.
 
 Para vincular um modelo, adicione um [recurso de implantações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na `templateLink` propriedade, especifique o caminho relativo do modelo vinculado de acordo com o caminho do modelo pai.
 
-O modelo vinculado é chamado **delinkedTemplate.jsem**e é armazenado em uma subpasta chamada **artefatos** no caminho em que o modelo principal está armazenado.  Você pode usar um dos seguintes valores para o relativePath:
+O modelo vinculado é chamado ** delinkedTemplate.jsem**e é armazenado em uma subpasta chamada **artefatos** no caminho em que o modelo principal está armazenado.  Você pode usar um dos seguintes valores para o relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
@@ -164,28 +164,59 @@ A `relativePath` propriedade é sempre relativa ao arquivo de modelo em que `rel
 
 As especificações de modelos são armazenadas em grupos de recursos.  Crie um grupo de recursos e, em seguida, crie uma especificação de modelo com o script a seguir. O nome de especificação do modelo é **Webspec**.
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```azurepowershell
 New-AzResourceGroup `
   -Name templateSpecRG `
   -Location westus2
 
 New-AzTemplateSpec `
-  -ResourceGroupName templateSpecRG `
   -Name webSpec `
   -Version "1.0.0.0" `
+  -ResourceGroupName templateSpecRG `
   -Location westus2 `
   -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name templateSpecRG \
+  --location westus2
+
+az template-specs create \
+  --name webSpec \
+  --version "1.0.0.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "c:\Templates\linkedTS\azuredeploy.json"
+```
+
+---
+
 Quando terminar, você poderá exibir a especificação do modelo no portal do Azure ou usando o seguinte cmdlet:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+```
+
+---
+
 ## <a name="deploy-template-spec"></a>Implantar especificação de modelo
 
-Agora você pode implantar a especificação do modelo. implantar a especificação do modelo é assim como implantar o modelo que ela contém, exceto que você passa a ID de recurso da especificação do modelo. Você usa os mesmos comandos de implantação e, se necessário, transmite valores de parâmetro para a especificação do modelo.
+Agora você pode implantar a especificação de modelo. Implantar a especificação de modelo é igual à implantação do modelo que a contém, exceto pelo fato de que você passa a ID do recurso da especificação de modelo. Você usa os mesmos comandos de implantação e, se necessário, passa os valores de parâmetro para a especificação de modelo.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -198,6 +229,25 @@ New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName webRG
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+id = $(az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+
+az deployment group create \
+  --resource-group webRG \
+  --template-spec $id
+```
+
+> [!NOTE]
+> Há um problema conhecido ao obter a ID de especificação do modelo e, em seguida, atribuí-la a uma variável no Windows PowerShell.
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

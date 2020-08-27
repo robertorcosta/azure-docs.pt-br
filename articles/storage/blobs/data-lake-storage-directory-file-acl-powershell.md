@@ -6,15 +6,15 @@ author: normesta
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: ef205a9a94ef7b40ed271387df617a5d96a78307
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054299"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923867"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o PowerShell para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
@@ -297,7 +297,7 @@ $file.ACL
 
 A imagem a seguir mostra a saída depois de obter a ACL de um diretório.
 
-![Obter saída de ACL](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
+![Obter saída de ACL para o diretório](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
 
 Neste exemplo, o usuário proprietário tem permissões de leitura, gravação e execução. O grupo proprietário tem permissões de somente leitura e execução. Para obter mais informações sobre as listas de controle de acesso, confira [Controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -344,31 +344,9 @@ $file.ACL
 
 A imagem a seguir mostra a saída depois de definir a ACL de um arquivo.
 
-![Obter saída de ACL](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
+![Obter saída de ACL para o arquivo](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
 
 Neste exemplo, o usuário proprietário e o grupo proprietário têm permissões de somente leitura e gravação. Todos os outros usuários têm permissões de gravação e execução. Para obter mais informações sobre as listas de controle de acesso, confira [Controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
-
-
-### <a name="set-acls-on-all-items-in-a-container"></a>Definir ACLs em todos os itens em um contêiner
-
-Você pode usar o `Get-AzDataLakeGen2Item` e o `-Recurse` parâmetro junto com o `Update-AzDataLakeGen2Item` cmdlet para recursivamente definir a ACL para diretórios e arquivos em um contêiner. 
-
-```powershell
-$filesystemName = "my-file-system"
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
-
-$Token = $Null
-do
-{
-     $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
-     if($items.Count -le 0) { Break;}
-     $items | Update-AzDataLakeGen2Item -Acl $acl
-     $Token = $items[$items.Count -1].ContinuationToken;
-}
-While ($Token -ne $Null) 
-```
 
 ### <a name="add-or-update-an-acl-entry"></a>Adicionar ou atualizar uma entrada de ACL
 
@@ -405,6 +383,10 @@ foreach ($a in $aclnew)
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
 
+### <a name="set-an-acl-recursively-preview"></a>Definir uma ACL recursivamente (visualização)
+
+Você pode adicionar, atualizar e remover ACLs recursivamente nos itens filho existentes de um diretório pai sem precisar fazer essas alterações individualmente para cada item filho. Para obter mais informações, consulte [definir listas de controle de acesso (ACLs) recursivamente para Azure data Lake Storage Gen2](recursive-access-control-lists.md).
+
 <a id="gen1-gen2-map"></a>
 
 ## <a name="gen1-to-gen2-mapping"></a>Mapeamento de Gen1 para Gen2
@@ -422,7 +404,7 @@ A tabela a seguir mostra como os cmdlets usados para Data Lake Storage Gen1 são
 |Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|O cmdlet Update-AzDataLakeGen2Item atualiza apenas um único item e não recursivamente. Se desejar atualizar recursivamente, liste os itens usando o cmdlet Get-AzDataLakeStoreChildItem e, em seguida, pipeline para o cmdlet Update-AzDataLakeGen2Item.|
 |Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|O cmdlet Get-AzDataLakeGen2Item relatará um erro se o item não existir.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Cmdlets do PowerShell do Armazenamento](/powershell/module/az.storage)

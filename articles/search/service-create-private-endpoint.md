@@ -8,12 +8,12 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 27fb165c36c17cee83cd9f90eba3bdcb9e32d517
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206912"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935748"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto de extremidade privado para uma conexão segura com o Azure Pesquisa Cognitiva
 
@@ -22,11 +22,11 @@ Neste artigo, você usará o portal do Azure para criar uma nova instância do s
 Pontos de extremidade privados são fornecidos pelo [link privado do Azure](../private-link/private-link-overview.md), como um serviço separado. Para obter mais informações sobre os custos, consulte a [página de preços](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
-> O suporte de ponto de extremidade privado para o Azure Pesquisa Cognitiva pode ser configurado usando o portal do Azure ou a [API REST de gerenciamento versão 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). Quando o ponto de extremidade de serviço é privado, alguns recursos do portal são desabilitados. Você poderá exibir e gerenciar as informações de nível de serviço, mas o acesso ao portal para indexar dados e os vários componentes no serviço, como o índice, o indexador e as definições de qualificações, é restrito por motivos de segurança.
+> O suporte de ponto de extremidade privado para o Azure Pesquisa Cognitiva pode ser configurado usando o portal do Azure ou a [API REST de gerenciamento versão 2020-03-13](/rest/api/searchmanagement/). Quando o ponto de extremidade de serviço é privado, alguns recursos do portal são desabilitados. Você poderá exibir e gerenciar as informações de nível de serviço, mas o acesso ao portal para indexar dados e os vários componentes no serviço, como o índice, o indexador e as definições de qualificações, é restrito por motivos de segurança.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Por que usar um ponto de extremidade privado para acesso seguro?
 
-[Pontos de extremidade privados](../private-link/private-endpoint-overview.md) para o Azure pesquisa cognitiva permitem que um cliente em uma rede virtual acesse dados com segurança em um índice de pesquisa por um [link privado](../private-link/private-link-overview.md). O ponto de extremidade privado usa um endereço IP do [espaço de endereço de rede virtual](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) para o serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. Para obter uma lista de outros serviços de PaaS que dão suporte ao link privado, verifique a [seção disponibilidade](../private-link/private-link-overview.md#availability) na documentação do produto.
+[Pontos de extremidade privados](../private-link/private-endpoint-overview.md) para o Azure pesquisa cognitiva permitem que um cliente em uma rede virtual acesse dados com segurança em um índice de pesquisa por um [link privado](../private-link/private-link-overview.md). O ponto de extremidade privado usa um endereço IP do [espaço de endereço de rede virtual](../virtual-network/private-ip-addresses.md) para o serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. Para obter uma lista de outros serviços de PaaS que dão suporte ao link privado, verifique a [seção disponibilidade](../private-link/private-link-overview.md#availability) na documentação do produto.
 
 Pontos de extremidade privados para o serviço de pesquisa permitem que você:
 
@@ -211,7 +211,7 @@ Quando o ponto de extremidade do serviço de pesquisa é privado, alguns recurso
 
 1. Para verificar se o serviço não está acessível em um ponto de extremidade público, abra o postmaster em sua estação de trabalho local e tente as várias tarefas no início rápido. Se você receber um erro informando que o servidor remoto não existe, você configurou com êxito um ponto de extremidade privado para o serviço de pesquisa.
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar os recursos 
 Quando você terminar de usar o ponto de extremidade privado, o serviço de pesquisa e a VM, exclua o grupo de recursos e todos os recursos que ele contém:
 1. Insira *MyResource*   The na caixa de **pesquisa** na parte superior do portal e selecione *MyResource*   Bedos resultados da pesquisa. 
 1. Selecione **Excluir grupo de recursos**. 

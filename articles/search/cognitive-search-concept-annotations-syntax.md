@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113861"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935527"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Como fazer referência a anotações em um Azure Pesquisa Cognitiva skillset
 
@@ -25,7 +25,7 @@ Os exemplos neste artigo são baseados campo *content* gerado automaticamente pe
 
 Antes de examinarmos a sintaxe, vamos rever alguns conceitos importantes para entender melhor os exemplos fornecidos mais adiante neste artigo.
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 |------|-------------|
 | Documento enriquecido | Um documento enriquecido é uma estrutura interna criada e usada pelo pipeline para reter todas as anotações relacionadas a um documento. Pense em um documento enriquecido como uma árvore de anotações. Em geral, uma anotação criada de uma anotação anterior se torna seu filho.<p/>Documentos enriquecidos existem somente pela duração da execução do conjunto de habilidades. Após o conteúdo ser mapeado para o índice de pesquisa, o documento enriquecido deixará de ser necessário. Embora você não interaja diretamente com documentos enriquecidos, é útil ter um modelo mental dos documentos ao criar um conjunto de habilidades. |
 | Contexto de enriquecimento | O contexto em que o enriquecimento ocorre, em termos de qual elemento é enriquecido. Por padrão, o contexto de enriquecimento está no nível do `"/document"` e seu escopo são documentos individuais. Quando uma habilidade é executada, suas saídas se tornam [propriedades do contexto definido](#example-2).|
@@ -120,8 +120,8 @@ Observe que a cardinalidade de `"/document/people/*/lastname"` é maior do que a
 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 + [Como integrar uma habilidade personalizada a um pipeline de enriquecimento](cognitive-search-custom-skill-interface.md)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Criar conjunto de qualificações (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md) (Como mapear campos enriquecidos para um índice)

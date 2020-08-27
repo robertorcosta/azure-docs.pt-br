@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496410"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928516"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de segurança para aparar resultados no Azure Pesquisa Cognitiva
 
@@ -109,13 +109,13 @@ Se você precisar atualizar um documento existente com a lista de grupos, poder�
 }
 ```
 
-Para obter detalhes completos sobre como adicionar ou atualizar os documentos, leia [Editar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Para obter detalhes completos sobre como adicionar ou atualizar os documentos, leia [Editar documentos](/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Aplicar o filtro de segurança
 
 Para cortar documentos com base em acesso `group_ids`, você deverá emitir uma consulta de pesquisa com um filtro `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, em que 'group_id1, group_id2,...' são os grupos aos quais o emissor da solicitação de pesquisa pertence.
 Esse filtro corresponde a todos os documentos para os quais o campo `group_ids` contém um dos identificadores determinados.
-Para obter detalhes completos sobre como pesquisar documentos usando o Azure Pesquisa Cognitiva, você pode ler [documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Para obter detalhes completos sobre como pesquisar documentos usando o Azure Pesquisa Cognitiva, você pode ler [documentos de pesquisa](/rest/api/searchservice/search-documents).
 Observe que este exemplo mostra como pesquisar documentos usando uma solicitação POST.
 
 Emita a solicitação HTTP POST:
@@ -156,7 +156,7 @@ Você deve obter os documentos de volta, em que `group_ids` contém "group_id1" 
 
 É assim que você pode filtrar os resultados com base na identidade do usuário e na função de Pesquisa Cognitiva do Azure `search.in()` . Você pode usar essa função para passar identificadores principais para que o usuário solicitante coincida com os identificadores de entidade de segurança associados a cada documento de destino. Quando uma solicitação de pesquisa é manipulada, a função `search.in` filtra os resultados da pesquisa aos quais nenhuma das entidades do usuário têm acesso de leitura. Os identificadores de entidade podem representar itens como grupos de segurança, funções ou até mesmo a própria identidade do usuário.
  
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 + [Active Directory controle de acesso baseado em identidade usando filtros de Pesquisa Cognitiva do Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros no Azure Pesquisa Cognitiva](search-filters.md)

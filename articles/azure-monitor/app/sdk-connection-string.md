@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 375929a983c5dfea01a88fb64fd5ab19bf105c0c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 944257c93e00dca77507f26db15f7bf45fbb387e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383623"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936411"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
 
@@ -56,19 +56,19 @@ A conexão tem um comprimento máximo com suporte de 4096 caracteres.
 
 #### <a name="key-value-pairs"></a>Pares de chave-valor
 
-A cadeia de conexão consiste em uma lista de configurações representadas como pares chave-valor separados por ponto e vírgula:`key1=value1;key2=value2;key3=value3`
+A cadeia de conexão consiste em uma lista de configurações representadas como pares chave-valor separados por ponto e vírgula: `key1=value1;key2=value2;key3=value3`
 
 #### <a name="syntax"></a>Sintaxe
 
-- `InstrumentationKey`(ex: 00000000-0000-0000-0000-000000000000)  A cadeia de conexão é um campo **obrigatório** .
-- `Authorization`(ex: iKey) (Essa configuração é opcional porque hoje só damos suporte à autorização iKey.)
-- `EndpointSuffix`(ex: applicationinsights.azure.cn) Definir o sufixo do ponto de extremidade instruirá o SDK ao qual a nuvem do Azure se conectará. O SDK montará o restante do ponto de extremidade para serviços individuais.
+- `InstrumentationKey` (ex: 00000000-0000-0000-0000-000000000000)  A cadeia de conexão é um campo **obrigatório** .
+- `Authorization` (ex: iKey) (Essa configuração é opcional porque hoje só damos suporte à autorização iKey.)
+- `EndpointSuffix` (ex: applicationinsights.azure.cn) Definir o sufixo do ponto de extremidade instruirá o SDK ao qual a nuvem do Azure se conectará. O SDK montará o restante do ponto de extremidade para serviços individuais.
 - Pontos de extremidade explícitos.
   Qualquer serviço pode ser explicitamente substituído na cadeia de conexão.
-   - `IngestionEndpoint`(ex: `https://dc.applicationinsights.azure.com` )
-   - `LiveEndpoint`(ex: `https://live.applicationinsights.azure.com` )
-   - `ProfilerEndpoint`(ex: `https://profiler.applicationinsights.azure.com` )
-   - `SnapshotEndpoint`(ex: `https://snapshot.applicationinsights.azure.com` )
+   - `IngestionEndpoint` (ex: `https://dc.applicationinsights.azure.com` )
+   - `LiveEndpoint` (ex: `https://live.applicationinsights.azure.com` )
+   - `ProfilerEndpoint` (ex: `https://profiler.applicationinsights.azure.com` )
+   - `SnapshotEndpoint` (ex: `https://snapshot.applicationinsights.azure.com` )
 
 #### <a name="endpoint-schema"></a>Esquema de ponto de extremidade
 
@@ -88,10 +88,10 @@ Consulte também: https://docs.microsoft.com/azure/azure-monitor/app/custom-endp
 
 ##### <a name="valid-prefixes"></a>Prefixos válidos
 
-- [Ingestão de telemetria](./app-insights-overview.md):`dc`
-- [Métricas ao vivo](./live-stream.md):`live`
-- [Criador de perfil](./profiler-overview.md):`profiler`
-- [Instantâneo](./snapshot-debugger.md):`snapshot`
+- [Ingestão de telemetria](./app-insights-overview.md): `dc`
+- [Métricas ao vivo](./live-stream.md): `live`
+- [Criador de perfil](./profiler-overview.md): `profiler`
+- [Instantâneo](./snapshot-debugger.md): `snapshot`
 
 
 
@@ -107,10 +107,10 @@ Neste exemplo, somente a chave de instrumentação foi definida.
 - O esquema de autorização assume como padrão "iKey" 
 - Chave de instrumentação: 00000000-0000-0000-0000-000000000000
 - Os URIs de serviço regional baseiam-se nos [padrões do SDK](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) e se conectarão ao Azure global público:
-   - Ingestão`https://dc.services.visualstudio.com/`
-   - Métricas ao vivo:`https://rt.services.visualstudio.com/`
-   - Profiler`https://agent.azureserviceprofiler.net/`
-   - Depurador`https://agent.azureserviceprofiler.net/`
+   - Ingestão `https://dc.services.visualstudio.com/`
+   - Métricas ao vivo: `https://rt.services.visualstudio.com/`
+   - Profiler `https://agent.azureserviceprofiler.net/`
+   - Depurador `https://agent.azureserviceprofiler.net/`
 
 
 
@@ -123,10 +123,10 @@ Neste exemplo, essa cadeia de conexão especifica o sufixo do ponto de extremida
 - O esquema de autorização assume como padrão "iKey" 
 - Chave de instrumentação: 00000000-0000-0000-0000-000000000000
 - Os URIs de serviço regional se baseiam no sufixo de ponto de extremidade fornecido: 
-   - Ingestão`https://dc.ai.contoso.com`
-   - Métricas ao vivo:`https://live.ai.contoso.com`
-   - Profiler`https://profiler.ai.contoso.com`
-   - Depurador`https://snapshot.ai.contoso.com`  
+   - Ingestão `https://dc.ai.contoso.com`
+   - Métricas ao vivo: `https://live.ai.contoso.com`
+   - Profiler `https://profiler.ai.contoso.com`
+   - Depurador `https://snapshot.ai.contoso.com`  
 
 
 
@@ -139,10 +139,10 @@ Neste exemplo, essa cadeia de conexão especifica substituições explícitas pa
 - O esquema de autorização assume como padrão "iKey" 
 - Chave de instrumentação: 00000000-0000-0000-0000-000000000000
 - Os URIs de serviço regional baseiam-se nos valores de substituição explícitos: 
-   - Ingestão`https://custom.com:111/`
-   - Métricas ao vivo:`https://custom.com:222/`
-   - Profiler`https://custom.com:333/`
-   - Depurador`https://custom.com:444/`  
+   - Ingestão `https://custom.com:111/`
+   - Métricas ao vivo: `https://custom.com:222/`
+   - Profiler `https://custom.com:333/`
+   - Depurador `https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Como definir uma cadeia de conexão
@@ -164,7 +164,7 @@ Uma cadeia de conexão pode ser definida no código, na variável de ambiente ou
 
 # <a name="netnetcore"></a>[.NET/. NetCore](#tab/net)
 
-TelemetryConfiguration. ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetryConfiguration. ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
 .NET definido explicitamente:
 ```csharp

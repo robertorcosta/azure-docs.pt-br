@@ -3,12 +3,13 @@ title: Contadores de eventos no Application Insights | Microsoft Docs
 description: Monitore o sistema e os EventCounters do .NET/.NET Core personalizados no Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 000486ecd4fddd5749e4c7cc9f9210a1f0f8666c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3082c90f3e9f7a150206e1df8806af0de1c17024
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272358"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936479"
 ---
 # <a name="eventcounters-introduction"></a>Introdução ao EventCounters
 

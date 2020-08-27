@@ -8,16 +8,16 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562614"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927129"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Atualizar para a versão mais recente da API REST do serviço de Pesquisa Cognitiva do Azure
 
-Se você estiver usando uma versão anterior da [API REST de pesquisa](https://docs.microsoft.com/rest/api/searchservice/), este artigo o ajudará a atualizar seu aplicativo para usar a versão de API mais recente disponível, 2020-06-30.
+Se você estiver usando uma versão anterior da [API REST de pesquisa](/rest/api/searchservice/), este artigo o ajudará a atualizar seu aplicativo para usar a versão de API mais recente disponível, 2020-06-30.
 
 A versão 2020-06-30 da API REST contém algumas alterações de versões anteriores. Elas são principalmente compatíveis com versões anteriores. Portanto, a alteração do código deve exigir apenas um mínimo de esforço, dependendo da versão que você estava usando antes. [As etapas para atualizar](#UpgradeSteps) descreve as alterações de código necessárias para o uso de novos recursos.
 
@@ -32,7 +32,7 @@ Ao atualizar para novas versões, você provavelmente não precisará fazer nenh
 
 * O código falha quando propriedades não reconhecidas são retornadas em uma resposta da API. Por padrão, o aplicativo deve ignorar propriedades que não entende.
 
-* O código persiste solicitações de API e tenta reenviá-las à nova versão da API. Por exemplo, isso poderá acontecer se o aplicativo persistir tokens de continuação retornados da API de Pesquisa (para obter mais informações, procure `@search.nextPageParameters` na [Referência de API de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* O código persiste solicitações de API e tenta reenviá-las à nova versão da API. Por exemplo, isso poderá acontecer se o aplicativo persistir tokens de continuação retornados da API de Pesquisa (para obter mais informações, procure `@search.nextPageParameters` na [Referência de API de Pesquisa](/rest/api/searchservice/Search-Documents)).
 
 * Seu código faz referência a uma versão de API que é preactualizada 2019-05-06 e está sujeita a uma ou mais das alterações significativas nessa versão. A seção [atualizar para 2019-05-06](#upgrade-to-2019-05-06) fornece mais detalhes. 
 
@@ -61,7 +61,7 @@ A versão 2019-05-06 é a versão mais antiga disponível da API REST. Os recurs
 * Os [modos de análise de JsonLines](search-howto-index-json-blobs.md), parte da indexação de BLOBs do Azure, cria um documento de pesquisa por entidade JSON que é separado por uma nova linha.
 * O [enriquecimento de ia](cognitive-search-concept-intro.md) fornece indexação que aproveita os mecanismos de enriquecimento de ia de serviços cognitivas.
 
-### <a name="breaking-changes"></a>Alterações de quebra
+### <a name="breaking-changes"></a>Alterações da falha
 
 O código existente escrito em versões anteriores da API será interrompido na API-Version = 2019-05-06 se o código contiver a seguinte funcionalidade:
 
@@ -146,4 +146,4 @@ Você pode atualizar índices "simples" para o novo formato com as seguintes eta
 Examine a documentação de referência da API REST de pesquisa. Se você tiver problemas, peça ajuda em [Stack Overflow](https://stackoverflow.com/) ou [entre em contato com o suporte](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Referência da API REST do serviço de pesquisa](https://docs.microsoft.com/rest/api/searchservice/)
+> [Referência da API REST do serviço de pesquisa](/rest/api/searchservice/)

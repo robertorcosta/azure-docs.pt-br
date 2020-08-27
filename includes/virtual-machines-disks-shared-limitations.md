@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/21/2020
+ms.date: 08/26/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cdee82ddae7f6edf43765063bb610b743dbf0121
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88809840"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944506"
 ---
 A habilitação de discos compartilhados só está disponível para um subconjunto de tipos de disco. No momento, apenas ultra discos e o SSDs Premium podem habilitar discos compartilhados. Cada disco gerenciado que tem discos compartilhados habilitados está sujeito às seguintes limitações, organizadas por tipo de disco:
 
@@ -50,10 +50,15 @@ O SSDs Premium compartilhado só tem suporte nas seguintes regiões:
 - Oeste dos EUA 2
 - Centro-Oeste dos EUA
 - Centro-Sul dos Estados Unidos
+- Centro-Norte dos EUA
 - Centro dos EUA
+- Europa Ocidental
+- Norte da Europa
 - Coreia Central
 - Canadá Central
 - Leste do Canadá
+- Leste do Japão
+- Oeste do Japão
 - Gov. dos EUA – Virgínia
 - Governo dos EUA do Arizona
 

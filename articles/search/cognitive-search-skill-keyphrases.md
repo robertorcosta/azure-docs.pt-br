@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 529e79abbd7fa8f9733254d207af570237044305
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 145d8265412c4efcaa2afad97feb23528a36191d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080817"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936054"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Habilidade cognitiva de Extração de Frases-Chave
 
-A habilidade de **Extração de Frases-Chave** avalia o texto não estruturado e para cada registro, retorna uma lista de frases-chave. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) nos Serviços Cognitivos.
+A habilidade de **Extração de Frases-Chave** avalia o texto não estruturado e para cada registro, retorna uma lista de frases-chave. Essa habilidade usa os modelos de machine learning fornecidos pela [Análise de Texto](../cognitive-services/text-analytics/overview.md) nos Serviços Cognitivos.
 
 Esse recurso é útil se você precisar identificar rapidamente os principais pontos de estratégias no registro. Por exemplo, texto de entrada especificado “A comida estava deliciosa e a equipe foi maravilhosa”, o serviço retorna “comida” e “equipe maravilhosa”.
 
@@ -31,7 +31,7 @@ Esse recurso é útil se você precisar identificar rapidamente os principais po
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-la para o extrator de frases-chave, considere o uso de [habilidade de Texto Dividido](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-la para o extrator de frases-chave, considere o uso de [habilidade de Texto Dividido](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
 
@@ -39,7 +39,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Entradas                | Descrição |
 |---------------------|-------------|
-| `defaultLanguageCode` | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma.  Se o código de idioma padrão não for especificado, em inglês (en) será usado como o código de idioma padrão. <br/> Consulte [Lista completa dos idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| `defaultLanguageCode` | (opcional) O código de idioma a ser aplicado a documentos que não especifica explicitamente o idioma.  Se o código de idioma padrão não for especificado, em inglês (en) será usado como o código de idioma padrão. <br/> Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (opcional) O número máximo de frases-chave para produzir. |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -47,7 +47,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 | Entrada  | Descrição |
 |--------------------|-------------|
 | `text` | O texto a ser analisado.|
-| `languageCode`    |  Uma cadeia de caracteres que indica o idioma dos registros. Se esse parâmetro não for especificado, o código de idioma padrão será usado para analisar os registros. <br/>Consulte [Lista completa dos idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| `languageCode`    |  Uma cadeia de caracteres que indica o idioma dos registros. Se esse parâmetro não for especificado, o código de idioma padrão será usado para analisar os registros. <br/>Consulte [Lista completa dos idiomas com suporte](../cognitive-services/text-analytics/language-support.md)|
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 

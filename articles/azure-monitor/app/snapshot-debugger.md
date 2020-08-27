@@ -2,14 +2,15 @@
 title: Depurador de Instantâneos de informações do Aplicativo Azure para aplicativos .NET
 description: Depure instantâneos são coletados automaticamente quando exceções forem geradas na produção de aplicativos .NET
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: 58fbb0cee5e4f06c20d31b4b5011582957f6f6c3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ab142b4e0a2d5486727ffc71fc94ae4944513052
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325637"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935799"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
 Quando ocorrer uma exceção, você pode coletar automaticamente um Instantâneo de Depuração de seu aplicativo web ativo. O instantâneo mostra o estado do código-fonte e variáveis no momento em que a exceção foi lançada. O Depurador de Instantâneos no [insights do aplicativo Azure](./app-insights-overview.md) monitora a telemetria de exceção do seu aplicativo Web. Ele coleta instantâneos em suas exceções com mais lançamentos para que você tenha as informações necessárias para diagnosticar problemas na produção. Inclua o [pacote NuGet do coletor de instantâneos](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo e, opcionalmente, configure os parâmetros de coleção no [ApplicationInsights.config](./configuration-with-applicationinsights-config.md). Os instantâneos aparecem em [exceções](./asp-net-exceptions.md) no portal de Application insights.
@@ -46,7 +47,7 @@ O acesso a instantâneos é protegido por RBAC (controle de acesso baseado em fu
 Os proprietários de assinaturas deverão atribuir a função `Application Insights Snapshot Debugger` aos usuários que inspecionarão os instantâneos. Essa função pode ser atribuída a usuários individuais ou a grupos por proprietários de assinatura para o recurso Application Insights de destino ou seu grupo de recursos ou a assinatura.
 
 1. Navegue até o recurso Application Insights no portal do Azure.
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 1. Clique no botão **+ Adicionar atribuição de função** .
 1. Selecione **Application Insights depurador de instantâneos** na lista suspensa **funções** .
 1. Procure e insira um nome para o usuário a ser adicionado.
