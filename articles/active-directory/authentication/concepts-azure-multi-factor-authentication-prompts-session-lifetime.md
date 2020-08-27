@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169333"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919668"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure
 
@@ -45,6 +45,8 @@ Para otimizar a frequência de prompts de autenticação para seus usuários, vo
 ### <a name="evaluate-session-lifetime-policies"></a>Avaliar políticas de tempo de vida da sessão
 
 Sem nenhuma configuração de tempo de vida da sessão, não há cookies persistentes na sessão do navegador. Sempre que um usuário fechar e abrir o navegador, ele receberá uma solicitação de reautenticação. Em clientes do Office, o período de tempo padrão é uma janela sem interrupção de 90 dias. Com essa configuração padrão do Office, se o usuário tiver redefinido sua senha ou se houvesse inatividade de mais de 90 dias, o usuário precisará autenticar novamente com todos os fatores necessários (primeiro e segundo fator).
+
+Um usuário pode ver vários prompts do MFA em um dispositivo que não tem uma identidade no Azure AD. Vários prompts resultam quando cada aplicativo tem seu próprio token de atualização OAuth que não é compartilhado com outros aplicativos cliente. Nesse cenário, a MFA solicita várias vezes, uma vez que cada aplicativo solicita que um token de atualização OAuth seja validado com MFA.
 
 No Azure AD, a política mais restritiva para o tempo de vida da sessão determina quando o usuário precisa autenticar novamente. Considere o cenário a seguir.
 

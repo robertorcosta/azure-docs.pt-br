@@ -2,13 +2,13 @@
 title: Mover VMs do Azure para uma nova assinatura ou grupo de recursos
 description: Use Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: e812f2cee44fc48dccbd8ab66a3343e087790803
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/26/2020
+ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063093"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933232"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover diretrizes para máquinas virtuais
 
@@ -18,7 +18,6 @@ Este artigo descreve os cenários que atualmente não têm suporte e as etapas p
 
 Ainda não há suporte para os cenários a seguir:
 
-* Managed Disks no Zonas de Disponibilidade não podem ser movidos para uma assinatura diferente.
 * Conjuntos de dimensionamento de máquinas virtuais com Load Balancer SKU padrão ou IP público SKU Standard não podem ser movidos.
 * As máquinas virtuais criadas por meio de recursos do Marketplace com planos anexados não podem ser movidas entre assinaturas. Desprovisionar a máquina virtual na assinatura atual e implantá-la novamente na nova assinatura.
 * As máquinas virtuais em uma rede virtual existente não podem ser movidas para uma nova assinatura quando você não está movendo todos os recursos na rede virtual.

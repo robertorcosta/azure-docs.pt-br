@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7120f95b8b61fc08759f4d15061ec530849dfc05
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: d1258786ec6f611bea5f73f3cb1c176738733acd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406513"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919056"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -215,7 +215,7 @@ Isso permite que sua base de dados de conhecimento retorne respostas quando qual
 ### <a name="metadata-examples-in-quickstarts"></a>Exemplos de metadados em guias de início rápido
 
 Saiba mais sobre metadados no início rápido do portal QnA Maker para obter os metadados:
-* [Criação-adicionar metadados ao par QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Criação – adicionar metadados ao par de pergunta e resposta](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
 * [Previsão de consulta – filtrar respostas por metadados](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>
@@ -269,7 +269,7 @@ Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste u
 
 |Código|Explicação|
 |:--|--|
-|2xx|Sucesso|
+|2xx|Êxito|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
 |400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, errado ou é muito grande|
 |401|Chave inválida|

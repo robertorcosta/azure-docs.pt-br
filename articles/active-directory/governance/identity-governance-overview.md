@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb7ab566d861e0c4256acda8f8facd1e94d4ad6
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 711903b106bf6ff7d8f669e2b1d3489057e09fbc
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796770"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783290"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
 
@@ -58,9 +58,9 @@ As organizações precisam de um processo para gerenciar o acesso além do que f
 
 Em geral, a IT delega as decisões de aprovação de acesso aos tomadores de decisão empresariais.  Além disso, a IT pode envolver os próprios usuários.  Por exemplo, os usuários que acessam os dados confidenciais do cliente no aplicativo de marketing da empresa na Europa precisam conhecer as políticas da empresa. Usuários convidados podem não estar cientes dos requisitos de manipulação para os dados em uma organização para a qual foram convidados.
 
-As organizações podem automatizar o processo de ciclo de vida de acesso por meio de tecnologias como [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md), junto com o provisionamento de usuário para [aplicativos SaaS](../saas-apps/tutorial-list.md) ou [aplicativos integrados ao SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  As organizações também podem controlar quais [usuários convidados têm acesso a aplicativos locais](../b2b/hybrid-cloud-to-on-premises.md).  Esses direitos de acesso podem então ser revisados regularmente usando [revisões de acesso do Azure AD](access-reviews-overview.md) recorrentes.   [O gerenciamento de direitos do Azure AD](entitlement-management-overview.md) também permite que você defina como os usuários solicitam acesso entre pacotes de associações de grupo e de equipe, funções de aplicativo e funções do SharePoint Online.
+As organizações podem automatizar o processo de ciclo de vida de acesso por meio de tecnologias como [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md), junto com o provisionamento de usuário para [aplicativos SaaS](../saas-apps/tutorial-list.md) ou [aplicativos integrados ao SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  As organizações também podem controlar quais [usuários convidados têm acesso a aplicativos locais](../external-identities/hybrid-cloud-to-on-premises.md).  Esses direitos de acesso podem então ser revisados regularmente usando [revisões de acesso do Azure AD](access-reviews-overview.md) recorrentes.   [O gerenciamento de direitos do Azure AD](entitlement-management-overview.md) também permite que você defina como os usuários solicitam acesso entre pacotes de associações de grupo e de equipe, funções de aplicativo e funções do SharePoint Online.
 
-Quando um usuário tenta acessar aplicativos, o Azure AD impõe políticas de [Acesso Condicional](/azure/active-directory/conditional-access/). Por exemplo, políticas de Acesso Condicional podem incluir a exibição de [Termos de uso](../conditional-access/terms-of-use.md) e [garantir que o usuário tenha concordado com esses termos](../conditional-access/require-tou.md) antes de poder acessar um aplicativo.
+Quando um usuário tenta acessar aplicativos, o Azure AD impõe políticas de [Acesso Condicional](../conditional-access/index.yml). Por exemplo, políticas de Acesso Condicional podem incluir a exibição de [Termos de uso](../conditional-access/terms-of-use.md) e [garantir que o usuário tenha concordado com esses termos](../conditional-access/require-tou.md) antes de poder acessar um aplicativo.
 
 ## <a name="privileged-access-lifecycle"></a>Ciclo de vida de acesso privilegiado
 
@@ -100,6 +100,4 @@ A melhor prática é usar a função menos privilegiada para executar tarefas ad
 - [O que é o gerenciamento de direitos do Azure AD?](entitlement-management-overview.md)
 - [Quais são as revisões de acesso do Azure AD?](access-reviews-overview.md)
 - [O que é o Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-- [O que posso fazer com os Termos de uso?](active-directory-tou.md)
-
-
+- [O que posso fazer com os Termos de uso?](../conditional-access/terms-of-use.md)

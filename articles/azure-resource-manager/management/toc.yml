@@ -139,9 +139,9 @@
     - name: Assinaturas de EA
       items:
         - name: Criar
-          href: programmatically-create-subscription.md
+          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Permitir acesso para criar
-          href: grant-access-to-create-subscription.md
+          href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Provedores e tipos de recursos
       href: resource-providers-and-types.md
     - name: Excluir recursos e grupos de recursos

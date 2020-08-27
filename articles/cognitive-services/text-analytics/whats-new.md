@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: 06c36b3f3939c8804149448ecb770a22d658fcbf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854721"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930903"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -27,6 +27,7 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
 
 * Versão `2020-07-01` do modelo para v3 `/keyphrases` `/pii` e pontos de `/languages` extremidade, que adiciona:
     * [Categorias de entidades](named-entity-types.md?tabs=personal) específicas do governo e do país adicionais para reconhecimento de entidade nomeada.
+    * Suporte a norueguês e turco no Análise de Sentimento v3.
 * Um erro HTTP 400 agora será retornado para solicitações de API v3 que excedem os [limites de dados](concepts/data-limits.md)publicados. 
 * Os pontos de extremidade que retornam um deslocamento agora dão suporte ao `stringIndexType` parâmetro opcional, que ajusta o retornado `offset` e os `length` valores para corresponder a um [esquema de índice de cadeia de caracteres](concepts/text-offsets.md)com suporte.
 
@@ -169,7 +170,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
     * Detecção expandida e categorização de entidades encontradas no texto. 
     * Reconhecimento dos seguintes novos tipos de entidade:
-        * Número do telefone
+        * Número de telefone
         * Endereço IP
 
 A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade.
