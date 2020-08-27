@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3ec556c6198a00f217568f6591bd4b43c7fc743e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230767"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924292"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Repositório de conhecimento no Azure Pesquisa Cognitiva
 
@@ -21,7 +21,7 @@ O repositório de conhecimento é um recurso do Azure Cognitive Search que persi
 
 Se você já usou a habilidades cognitivas no passado, sabe que os *conjuntos de habilidades* fazem com que um documento passe por uma sequência de enriquecimentos. O resultado pode ser um índice de pesquisa ou projeções em uma loja de conhecimento. As duas saídas, índice de pesquisa e repositório de conhecimento, são estruturadas, armazenadas e usadas de maneiras muito diferentes, apesar de serem produtos do mesmo pipeline e derivadas das mesmas entradas.
 
-Fisicamente, um repositório de conhecimento é um [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), podendo ser o Armazenamento de Tabelas do Azure, o Armazenamento de Blobs do Azure ou ambos. Qualquer ferramenta ou processo que pode se conectar ao Armazenamento do Azure pode consumir o conteúdo de um repositório de conhecimento.
+Fisicamente, um repositório de conhecimento é um [Armazenamento do Azure](../storage/common/storage-account-overview.md), podendo ser o Armazenamento de Tabelas do Azure, o Armazenamento de Blobs do Azure ou ambos. Qualquer ferramenta ou processo que pode se conectar ao Armazenamento do Azure pode consumir o conteúdo de um repositório de conhecimento.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -39,7 +39,7 @@ Se enumeradas, as vantagens do repositório de dados de conhecimento incluem o s
 
 + Consumir documentos enriquecidos em [ferramentas de relatórios e análise](#tools-and-apps) que não sejam de pesquisa. O Power BI com Power Query é uma opção interessante, mas qualquer ferramenta ou aplicativo que consiga se conectar ao Armazenamento do Azure poderá efetuar pull de um repositório de conhecimento criado.
 
-+ Refinar um pipeline de indexação por IA durante as etapas de depuração e definições de conjuntos de qualificações. Um repositório de dados de conhecimento mostra o produto de uma definição de conjuntos de qualificações em um pipeline de indexação por IA. Você pode usar esses resultados para criar um conjunto de qualificações enriquecido já que pode ver exatamente como são os enriquecimentos. Você pode usar o [Gerenciador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) no Armazenamento do Azure para exibir o conteúdo de um repositório de conhecimento.
++ Refinar um pipeline de indexação por IA durante as etapas de depuração e definições de conjuntos de qualificações. Um repositório de dados de conhecimento mostra o produto de uma definição de conjuntos de qualificações em um pipeline de indexação por IA. Você pode usar esses resultados para criar um conjunto de qualificações enriquecido já que pode ver exatamente como são os enriquecimentos. Você pode usar o [Gerenciador de Armazenamento](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) no Armazenamento do Azure para exibir o conteúdo de um repositório de conhecimento.
 
 + Reformatar os dados. A reformatação é codificada em conjuntos de qualificações. No entanto, a questão é que um conjunto de qualificações já pode oferecer essa capacidade. A [habilidade do Shaper](cognitive-search-skill-shaper.md) na Pesquisa Cognitiva do Azure foi estendida para acomodar essa tarefa. A reformatação permite definir uma projeção que se alinha com o uso pretendido dos dados enquanto preserva as relações.
 
@@ -84,7 +84,7 @@ No entanto, é possível criar vários conjuntos de projeções de `table`-`obje
 
 ## <a name="requirements"></a>Requisitos 
 
-O [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/) é necessário. Ele fornece armazenamento físico. Você pode usar o Armazenamento de Blobs, o Armazenamento de Tabelas ou ambos. O Armazenamento de Blobs é usado para documentos enriquecidos intactos, geralmente quando a saída vai para processos de downstream. O armazenamento de tabela é para fatias de documentos enriquecidos, normalmente usados para análise e relatórios.
+O [Armazenamento do Azure](../storage/index.yml) é necessário. Ele fornece armazenamento físico. Você pode usar o Armazenamento de Blobs, o Armazenamento de Tabelas ou ambos. O Armazenamento de Blobs é usado para documentos enriquecidos intactos, geralmente quando a saída vai para processos de downstream. O armazenamento de tabela é para fatias de documentos enriquecidos, normalmente usados para análise e relatórios.
 
 O [conjunto de habilidades](cognitive-search-working-with-skillsets.md) é necessário. Ele contém a definição de `knowledgeStore` e determina a estrutura e a composição de um documento enriquecido. Você não pode criar um repositório de conhecimento usando um conjunto de habilidades vazio. Um conjunto de habilidades precisa ter pelo menos uma habilidade.
 
@@ -130,7 +130,7 @@ Após os enriquecimentos estarem no armazenamento, qualquer ferramenta ou tecnol
 
 + [Power BI](knowledge-store-connect-power-bi.md) para relatórios e análise. 
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) para manipular mais.
++ [Azure Data Factory](../data-factory/index.yml) para manipular mais.
 
 <a name="kstore-rest-api"></a>
 
@@ -138,8 +138,8 @@ Após os enriquecimentos estarem no armazenamento, qualquer ferramenta ou tecnol
 
 A API REST versão `2020-06-30` fornece o repositório de conhecimento por meio de definições adicionais em conjuntos de habilidades. Além da referência, confira [Criar um repositório de conhecimento usando o Postman](knowledge-store-create-rest.md) para obter detalhes sobre como chamar as APIs.
 
-+ [Criar Qualificable (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Atualizar o Qualificable (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
++ [Criar Qualificable (API-Version = 2020-06-30)](/rest/api/searchservice/create-skillset)
++ [Atualizar o Qualificable (API-Version = 2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ac121195ba46389798acc7f099829fde96da72e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827130"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892568"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -169,7 +169,7 @@ A primeira coluna (VP) mostra o volume físico, as colunas subsequentes mostram 
 
 ###### <a name="duplicate-volume-groups"></a>Grupos de volumes duplicados
 
-Há cenários em que os nomes de grupos de volumes podem ter dois UUIDs após a execução do script. Isso significa que os nomes do grupo de volumes no computador onde o script é executado e na VM de backup são os mesmos. Em seguida, precisamos renomear os grupos de volumes das VMs com backup. Veja o exemplo abaixo.
+Há cenários em que os nomes de grupos de volumes podem ter dois UUIDs após a execução do script. Isso significa que os nomes do grupo de volumes no computador em que o script é executado e na VM de backup são os mesmos. Em seguida, precisamos renomear os grupos de volumes das VMs com backup. Veja o exemplo abaixo.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID

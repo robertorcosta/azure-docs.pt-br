@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230750"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935017"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicativos SaaS multilocatários e Pesquisa Cognitiva do Azure
 
@@ -119,7 +119,7 @@ Os padrões de design acima para modelar cenários de multilocatário no Azure P
 
 Se os modelos de serviço por locatário e de índice por locatário não são escopos suficientemente pequenos, é possível modelar um índice para atingir um nível ainda maior de granularidade.
 
-Para que um único índice se comporte de modo diferente para pontos de extremidade de cliente diferentes, é possível adicionar um campo a um índice que designa um valor determinado para cada cliente possível. Cada vez que um cliente chama o Azure Pesquisa Cognitiva para consultar ou modificar um índice, o código do aplicativo cliente especifica o valor apropriado para esse campo usando a funcionalidade de [filtro](https://msdn.microsoft.com/library/azure/dn798921.aspx) do Azure pesquisa cognitiva no momento da consulta.
+Para que um único índice se comporte de modo diferente para pontos de extremidade de cliente diferentes, é possível adicionar um campo a um índice que designa um valor determinado para cada cliente possível. Cada vez que um cliente chama o Azure Pesquisa Cognitiva para consultar ou modificar um índice, o código do aplicativo cliente especifica o valor apropriado para esse campo usando a funcionalidade de [filtro](./query-odata-filter-orderby-syntax.md) do Azure pesquisa cognitiva no momento da consulta.
 
 Esse método pode ser usado para obter uma funcionalidade de contas de usuário separadas, níveis de permissão separados e até mesmo aplicativos completamente separados.
 
@@ -132,4 +132,3 @@ Esse método pode ser usado para obter uma funcionalidade de contas de usuário 
 O Azure Pesquisa Cognitiva é uma opção atraente para muitos aplicativos. Ao avaliar os vários padrões de design para aplicativos multilocatários, considere os [vários tipos de preço](https://azure.microsoft.com/pricing/details/search/) e os respectivos [limites de serviço](search-limits-quotas-capacity.md) para melhor adaptar os pesquisa cognitiva do Azure para ajustar as cargas de trabalho e arquiteturas de todos os tamanhos do aplicativo.
 
 Quaisquer perguntas sobre cenários de multilocatário e Pesquisa Cognitiva do Azure podem ser direcionadas para o azuresearch_contact@microsoft.com .
-

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 5b3df38e8feef2a7b9bbc090e11a669164010f32
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213196"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924479"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similaridade e pontuação no Azure Cognitive Search
 
@@ -21,11 +21,11 @@ A pontuação refere-se ao cálculo de uma pontuação de pesquisa para cada ite
 
 Por padrão, os 50 primeiros são retornados na resposta, mas você pode usar o parâmetro **$top** para retornar um número menor ou maior de itens (até 1.000 em uma única resposta) e **$skip** para obter o próximo conjunto de resultados.
 
-A pontuação de pesquisa é calculada com base nas propriedades estatísticas dos dados e da consulta. O Azure Cognitive Search localiza documentos que correspondem aos termos de pesquisa (alguns ou todos, dependendo do [searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents#searchmodeany--all-optional)), favorecendo documentos que contêm muitas instâncias do termo de pesquisa. A pontuação de pesquisa aumentará ainda mais se o termo for raro no índice de dados, mas comum no documento. A base para essa abordagem de cálculo de relevância é conhecida como *TF-IDF* ou, frequência do termo-inverso da frequência nos documentos.
+A pontuação de pesquisa é calculada com base nas propriedades estatísticas dos dados e da consulta. O Azure Cognitive Search localiza documentos que correspondem aos termos de pesquisa (alguns ou todos, dependendo do [searchMode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)), favorecendo documentos que contêm muitas instâncias do termo de pesquisa. A pontuação de pesquisa aumentará ainda mais se o termo for raro no índice de dados, mas comum no documento. A base para essa abordagem de cálculo de relevância é conhecida como *TF-IDF* ou, frequência do termo-inverso da frequência nos documentos.
 
 Os valores de pontuação de pesquisa podem ser repetidos em todo um conjunto de resultados. Quando várias ocorrências têm a mesma pontuação de pesquisa, a ordenação dos mesmos itens pontuados não é definida e não é estável. Execute a consulta novamente e você poderá ver os itens mudarem de posição, principalmente se você estiver usando o serviço gratuito ou um serviço faturável com várias réplicas. Se houver dois itens com uma pontuação idêntica, não há garantia de qual deles aparecerá primeiro.
 
-Se quiser quebrar o vínculo entre pontuações repetidas, você poderá adicionar uma cláusula **$orderby** para primeiro classificar por pontuação e, em seguida, por outro campo classificável (por exemplo, `$orderby=search.score() desc,Rating desc`). Para obter mais informações, consulte [$orderby](https://docs.microsoft.com/azure/search/search-query-odata-orderby).
+Se quiser quebrar o vínculo entre pontuações repetidas, você poderá adicionar uma cláusula **$orderby** para primeiro classificar por pontuação e, em seguida, por outro campo classificável (por exemplo, `$orderby=search.score() desc,Rating desc`). Para obter mais informações, consulte [$orderby](./search-query-odata-orderby.md).
 
 > [!NOTE]
 > Um `@search.score = 1.00` indica um conjunto de resultados sem pontuação ou sem classificação. A pontuação é uniforme entre todos os resultados. Os resultados sem pontuação ocorrem quando a forma de consulta for consulta de pesquisa difusa, curinga ou regex ou uma expressão **$filter**. 
@@ -44,7 +44,7 @@ Para escalabilidade, o Azure Cognitive Search distribui cada índice horizontalm
 
 Por padrão, a pontuação de um documento é calculada com base nas propriedades estatísticas dos dados *dentro de um fragmento*. Essa abordagem geralmente não é um problema para uma grande corpus de dados e fornece um melhor desempenho do que ter que calcular a pontuação com base nas informações de todos os fragmentos. Dito isso, o uso dessa otimização de desempenho pode fazer com que dois documentos muito semelhantes (ou até mesmo idênticos) acabem com pontuações de relevância diferentes se eles terminarem em fragmentos diferentes.
 
-Se preferir calcular a pontuação com base nas propriedades estatísticas de todos os fragmentos, você pode fazer isso adicionando *scoringStatistics=global* como um [parâmetro de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents) (ou adicionar *“scoringStatistics”: “global”* como um parâmetro de corpo da [solicitação de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
+Se preferir calcular a pontuação com base nas propriedades estatísticas de todos os fragmentos, você pode fazer isso adicionando *scoringStatistics=global* como um [parâmetro de consulta](/rest/api/searchservice/search-documents) (ou adicionar *“scoringStatistics”: “global”* como um parâmetro de corpo da [solicitação de consulta](/rest/api/searchservice/search-documents)).
 
 ```http
 GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
@@ -77,7 +77,7 @@ O segmento de vídeo a seguir avança rapidamente para uma explicação dos algo
 
 ## <a name="featuresmode-parameter-preview"></a>parâmetro featuresmode (versão prévia)
 
-As solicitações de [pesquisa de documentos](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) têm um novo parâmetro [featuresmode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) que pode fornecer detalhes adicionais sobre a relevância no nível do campo. Enquanto o `@searchScore` é calculado para o documento tudo (o quão relevante é este documento no contexto dessa consulta), por meio de featuresmode, você pode obter informações sobre campos individuais, conforme expresso em uma `@search.features` estrutura. A estrutura contém todos os campos usados na consulta (sejam campos específicos por meio de **searchFields** em uma consulta ou todos os campos atribuídos como **pesquisáveis** em um índice). Para cada campo, você obtém os seguintes valores:
+As solicitações de [pesquisa de documentos](/rest/api/searchservice/preview-api/search-documents) têm um novo parâmetro [featuresmode](/rest/api/searchservice/preview-api/search-documents#featuresmode) que pode fornecer detalhes adicionais sobre a relevância no nível do campo. Enquanto o `@searchScore` é calculado para o documento tudo (o quão relevante é este documento no contexto dessa consulta), por meio de featuresmode, você pode obter informações sobre campos individuais, conforme expresso em uma `@search.features` estrutura. A estrutura contém todos os campos usados na consulta (sejam campos específicos por meio de **searchFields** em uma consulta ou todos os campos atribuídos como **pesquisáveis** em um índice). Para cada campo, você obtém os seguintes valores:
 
 + Número de tokens exclusivos encontrados no campo
 + Pontuação de similaridade ou uma medida de quão semelhante o conteúdo do campo é, relativo ao termo da consulta
@@ -107,6 +107,6 @@ Você pode consumir esses pontos de dados em [soluções de Pontuação personal
 
 ## <a name="see-also"></a>Confira também
 
- [Referência da API REST](index-add-scoring-profiles.md) [dos perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/)   
- [Pesquisar API de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents)   
- [SDK do .NET do Azure Cognitive Search](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+ [Referência da API REST](index-add-scoring-profiles.md) [dos perfis de pontuação](/rest/api/searchservice/)   
+ [Pesquisar API de documentos](/rest/api/searchservice/search-documents)   
+ [SDK do .NET do Azure Cognitive Search](/dotnet/api/overview/azure/search?view=azure-dotnet)

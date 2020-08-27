@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146188"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934915"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva
 
 Este artigo explica como obter uma resposta de consulta que é retornada com uma contagem total de documentos correspondentes, resultados paginados, resultados classificados e termos realçados de ocorrências.
 
-A estrutura de uma resposta é determinada pelos parâmetros na consulta: [documento de pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) na API REST ou na [classe DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) no SDK do .net.
+A estrutura de uma resposta é determinada pelos parâmetros na consulta: [documento de pesquisa](/rest/api/searchservice/Search-Documents) na API REST ou na [classe DocumentSearchResult](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) no SDK do .net.
 
 ## <a name="result-composition"></a>Composição de resultado
 
@@ -47,9 +47,9 @@ Para retornar um número diferente de documentos correspondentes, adicione `$top
 
 + Adicionar `$count=true` para obter uma contagem do número total de documentos correspondentes em um índice.
 
-+ Retorne o primeiro conjunto de 15 documentos correspondentes mais uma contagem do total de correspondências:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
++ Retorne o primeiro conjunto de 15 documentos correspondentes mais uma contagem do total de correspondências: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Retorne o segundo conjunto, ignorando os primeiros 15 para obter os próximos 15: `$top=15&$skip=15` . Faça o mesmo para o terceiro conjunto de 15:`$top=15&$skip=30`
++ Retorne o segundo conjunto, ignorando os primeiros 15 para obter os próximos 15: `$top=15&$skip=15` . Faça o mesmo para o terceiro conjunto de 15: `$top=15&$skip=30`
 
 Os resultados das consultas paginadas não terão garantia de serem estáveis se o índice subjacente estiver sendo alterado. A paginação altera o valor de `$skip` para cada página, mas cada consulta é independente e opera na exibição atual dos dados conforme eles existem no índice no momento da consulta (em outras palavras, não há nenhum cache ou instantâneo de resultados, como aqueles encontrados em um banco de dados de uso geral).
  
@@ -98,7 +98,7 @@ Outra opção é usar um [perfil de Pontuação personalizado](index-add-scoring
 
 ## <a name="hit-highlighting"></a>Realce de ocorrência
 
-Realce de ocorrências refere-se à formatação de texto (como, por exemplo, realces em negrito ou amarelo) aplicados aos termos correspondentes em um resultado, facilitando a identificação da correspondência. As instruções de realce de visita são fornecidas na [solicitação de consulta](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Realce de ocorrências refere-se à formatação de texto (como, por exemplo, realces em negrito ou amarelo) aplicados aos termos correspondentes em um resultado, facilitando a identificação da correspondência. As instruções de realce de visita são fornecidas na [solicitação de consulta](/rest/api/searchservice/search-documents). 
 
 Para habilitar o realce de clique, adicione `highlight=[comma-delimited list of string fields]` para especificar quais campos usarão o realce. O realce é útil para campos de conteúdo mais longos, como um campo de descrição, em que a correspondência não é imediatamente óbvia. Somente definições de campo que são atribuídas como que podem ser **pesquisadas** para realce de clique.
 

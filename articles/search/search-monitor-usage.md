@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 421fddb819d4d396d3ab8890789e58ccb935cbc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806804"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935000"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorar operações e atividades do Azure Pesquisa Cognitiva
 
@@ -59,7 +59,7 @@ Você pode usar as seguintes APIs para recuperar as mesmas informações encontr
 
 ### <a name="activity-logs-and-service-health"></a>Logs de atividade e integridade do serviço
 
-A página [**log de atividades**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) no portal coleta informações de Azure Resource Manager e relata sobre alterações na integridade do serviço. Você pode monitorar o log de atividades em busca de condições críticas, de erro e de aviso relacionadas à integridade do serviço.
+A página [**log de atividades**](../azure-monitor/platform/activity-log.md#view-the-activity-log) no portal coleta informações de Azure Resource Manager e relata sobre alterações na integridade do serviço. Você pode monitorar o log de atividades em busca de condições críticas, de erro e de aviso relacionadas à integridade do serviço.
 
 As entradas comuns incluem referências a chaves de API – notificações informativas genéricas, como *obter chave de administração* e *obter chaves de consulta*. Essas atividades indicam solicitações que foram feitas usando a chave de administração (criar ou excluir objetos) ou a chave de consulta, mas não mostram a solicitação em si. Para obter informações sobre esse detalhamento, você deve configurar o log de diagnósticos.
 
@@ -75,13 +75,13 @@ A ilustração a seguir aplica-se ao serviço gratuito, que está limitado a tr�
  "Status de uso relativo aos limites de camada")
 
 > [!NOTE]
-> Os alertas relacionados ao armazenamento não estão disponíveis no momento; o consumo de armazenamento não é agregado ou conectado à tabela **AzureMetrics** em Azure monitor. Para obter alertas de armazenamento, você precisa [criar uma solução personalizada](../azure-monitor/insights/solutions-creating.md) que emita notificações relacionadas a recursos, em que seu código verifica o tamanho do armazenamento e manipula a resposta.
+> Os alertas relacionados ao armazenamento não estão disponíveis no momento; o consumo de armazenamento não é agregado ou conectado à tabela **AzureMetrics** em Azure monitor. Para obter alertas de armazenamento, você precisa [criar uma solução personalizada](../azure-monitor/insights/solutions.md) que emita notificações relacionadas a recursos, em que seu código verifica o tamanho do armazenamento e manipula a resposta.
 
 <a name="add-azure-monitor"></a>
 
 ## <a name="add-on-monitoring-with-azure-monitor"></a>Monitoramento de complemento com o Azure Monitor
 
-Muitos serviços, incluindo o Azure Pesquisa Cognitiva, são integrados com [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/) para alertas adicionais, métricas e logs de dados de diagnóstico. 
+Muitos serviços, incluindo o Azure Pesquisa Cognitiva, são integrados com [Azure monitor](../azure-monitor/index.yml) para alertas adicionais, métricas e logs de dados de diagnóstico. 
 
 [Habilite o log de diagnóstico](search-monitor-logs.md) para um serviço de pesquisa se você quiser ter controle sobre a coleta de dados e o armazenamento. Os eventos registrados pelo Azure Monitor são armazenados na tabela **AzureDiagnostics** e consistem em dados operacionais relacionados a consultas e à indexação.
 
@@ -107,4 +107,4 @@ Não é possível registrar essas informações separadamente da cadeia de carac
 O fluência com Azure Monitor é essencial para supervisão de qualquer serviço do Azure, incluindo recursos como o Pesquisa Cognitiva do Azure. Se você não estiver familiarizado com Azure Monitor, Reserve um tempo para revisar os artigos relacionados aos recursos. Além dos tutoriais, o artigo a seguir é um bom ponto de partida.
 
 > [!div class="nextstepaction"]
-> [Monitorar recursos do Azure com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Monitorar recursos do Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)

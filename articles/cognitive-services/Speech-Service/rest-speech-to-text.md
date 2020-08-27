@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
-ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056815"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934575"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -49,7 +50,7 @@ Substituir `<REGION_IDENTIFIER>` pelo identificador correspondente à região da
 
 Esses parâmetros podem ser incluídos na string de consulta da solicitação REST.
 
-| Parâmetro | Descrição | Obrigatório/Opcional |
+| Parâmetro | DESCRIÇÃO | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `language` | Identifica a linguagem falada que está sendo reconhecida. Consulte [idiomas com suporte](language-support.md#speech-to-text). | Obrigatório |
 | `format` | Especifica o formato do resultado. Os valores aceitos são `simple` e `detailed`. Resultados simples incluem `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. As respostas detalhadas incluem quatro representações diferentes de texto de exibição. A configuração padrão é `simple`. | Opcional |
@@ -60,7 +61,7 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 
 Esta tabela lista cabeçalhos obrigatórios e opcionais para solicitações de fala para texto.
 
-|Cabeçalho| Descrição | Obrigatório/Opcional |
+|Cabeçalho| DESCRIÇÃO | Obrigatório/Opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
@@ -86,7 +87,7 @@ O áudio é enviado no corpo da solicitação HTTP `POST`. Ele deve estar em um 
 
 Esta tabela lista os parâmetros obrigatórios e opcionais para avaliação de pronúncia.
 
-| Parâmetro | Descrição | Obrigatório/Opcional |
+| Parâmetro | DESCRIÇÃO | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | ReferenceText | O texto em relação ao qual a pronúncia será avaliada. | Obrigatório |
 | GradingSystem | O sistema de ponto para a calibragem de pontuação. Os valores aceitos são `FivePoint` e `HundredMark`. A configuração padrão é `FivePoint`. | Opcional |
@@ -155,7 +156,7 @@ O código de status HTTP para cada resposta indica sucesso ou erros comuns.
 
 A transferência em partes ( `Transfer-Encoding: chunked` ) pode ajudar a reduzir a latência de reconhecimento. Ele permite que o serviço de fala comece a processar o arquivo de áudio enquanto ele é transmitido. A API REST não fornece resultados parciais ou provisórios.
 
-Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request`é um `HttpWebRequest` objeto conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
+Este exemplo de código mostra como enviar áudio em blocos. Apenas o primeiro bloco deve conter o cabeçalho do arquivo de áudio. `request` é um `HttpWebRequest` objeto conectado ao ponto de extremidade REST apropriado. `audioFile` é o caminho para um arquivo de áudio em disco.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
@@ -191,7 +192,7 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 Os resultados são fornecidos como JSON. O `simple` formato inclui esses campos de nível superior.
 
-| Parâmetro | Descrição  |
+| Parâmetro | DESCRIÇÃO  |
 |-----------|--------------|
 |`RecognitionStatus`|Status, como `Success` para reconhecimento bem-sucedido. Consulte a próxima tabela.|
 |`DisplayText`|O texto reconhecido após a capitalização, a pontuação, a normalização inversa de texto (conversão de texto falado em formas mais curtas, como 200 para "200" ou "Dr. Smith" para "médico Smith") e mascaramento de profanação. Apresentar somente em caso de êxito.|
@@ -216,7 +217,7 @@ Ao usar o formato `detailed`, `DisplayText` é fornecido como `Display` para cad
 
 O objeto na `NBest` lista pode incluir:
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 |-----------|-------------|
 | `Confidence` | A pontuação de confiança da entrada de 0,0 (nenhuma confiança) a 1,0 (confiança total) |
 | `Lexical` | O formato lexical do texto reconhecido: as palavras reais reconhecidas. |

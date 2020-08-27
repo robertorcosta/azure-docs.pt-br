@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o aler
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 2112a439585e6b111614e728dbc4a1a5eb4ee3d2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827164"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892551"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
 
@@ -38,7 +38,7 @@ Depois de criar um espaço de trabalho LA, você pode optar por manter os dados 
 
 ### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>Eu verá todos os meus dados em relatórios depois de configurar o espaço de trabalho LA?
 
- Todos os dados gerados depois que você define as configurações de diagnóstico são enviados por push para o espaço de trabalho LA e estão disponíveis em relatórios. Os trabalhos em andamento não são enviados por push para a geração de relatórios. Depois que o trabalho for concluído ou falhar, ele será enviado aos relatórios.
+ Todos os dados gerados depois que você define as configurações de diagnóstico são enviados por push para o espaço de trabalho LA e estão disponíveis em relatórios. Os trabalhos em andamento não são enviados por push para a geração de relatórios. Depois que o trabalho é concluído ou falha, ele é enviado para relatórios.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Posso exibir relatórios entre cofres e assinaturas?
 

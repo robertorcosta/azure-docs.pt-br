@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 2e62296e95a7b412a24c9d0c151c2bc9175ab4b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf7ae504e57d0b7947f4ff7dc48d50b2e0141eea
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529736"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936632"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorar o status e os resultados do indexador Pesquisa Cognitiva do Azure
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre como investigar erros e avisos do indexador,
 
 ## <a name="monitor-using-rest-apis"></a>Monitorar usando APIs REST
 
-Você pode recuperar o status e o histórico de execução de um indexador usando o [comando obter status do indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+Você pode recuperar o status e o histórico de execução de um indexador usando o [comando obter status do indexador](/rest/api/searchservice/get-indexer-status):
 
 ```http
 GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
@@ -125,7 +125,7 @@ Cada execução do indexador também tem seu próprio status que indica se a exe
 
 Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico de execução separada é adicionada com um status de **redefinição** .
 
-Para obter mais detalhes sobre códigos de status e dados de monitoramento do indexador, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Para obter mais detalhes sobre códigos de status e dados de monitoramento do indexador, consulte [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
@@ -184,8 +184,8 @@ Cada execução do indexador também tem seu próprio status para se a execuçã
 
 Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico separada é adicionada com um status de **redefinição** .
 
-Para obter mais detalhes sobre códigos de status e informações de monitoramento do indexador, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) na API REST.
+Para obter mais detalhes sobre códigos de status e informações de monitoramento do indexador, consulte [GetIndexerStatus](/rest/api/searchservice/get-indexer-status) na API REST.
 
 Detalhes sobre erros específicos de documento ou avisos podem ser recuperados enumerando as listas `IndexerExecutionResult.Errors` e `IndexerExecutionResult.Warnings` .
 
-Para obter mais informações sobre as classes do SDK do .NET usadas para monitorar indexadores, consulte [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+Para obter mais informações sobre as classes do SDK do .NET usadas para monitorar indexadores, consulte [IndexerExecutionInfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

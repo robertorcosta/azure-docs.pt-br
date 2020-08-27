@@ -7,15 +7,15 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: d529e4e4b79f0c34eb8f95b028cca730b316d5f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2caf4c66cdbb11ed42c4131ef1584c372ec10332
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060305"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935102"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualize os logs e as métricas do Azure Pesquisa Cognitiva com Power BI
-O [Azure pesquisa cognitiva](https://docs.microsoft.com/azure/search/search-what-is-azure-search) permite que você armazene logs de operação e métricas de serviço sobre o serviço de pesquisa em uma conta de armazenamento do Azure. Esta página fornece instruções sobre como você pode visualizar essas informações por meio de um aplicativo de modelo de Power BI. O aplicativo fornece informações detalhadas sobre o seu serviço de pesquisa, incluindo informação sobre pesquisa, indexação, operações e métricas de serviço.
+O [Azure pesquisa cognitiva](./search-what-is-azure-search.md) permite que você armazene logs de operação e métricas de serviço sobre o serviço de pesquisa em uma conta de armazenamento do Azure. Esta página fornece instruções sobre como você pode visualizar essas informações por meio de um aplicativo de modelo de Power BI. O aplicativo fornece informações detalhadas sobre o seu serviço de pesquisa, incluindo informação sobre pesquisa, indexação, operações e métricas de serviço.
 
 Você pode encontrar o aplicativo de modelo de Power BI **pesquisa cognitiva do Azure: analisar logs e métricas** no [marketplace de aplicativos Power bi](https://appsource.microsoft.com/marketplace/apps).
 
@@ -23,7 +23,7 @@ Você pode encontrar o aplicativo de modelo de Power BI **pesquisa cognitiva do 
 
 1. Habilite o log de recursos e métricas para o serviço de pesquisa:
 
-    1. Criar ou identificar uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) existente onde você pode arquivar os logs
+    1. Criar ou identificar uma [conta de armazenamento do Azure](../storage/common/storage-account-create.md) existente onde você pode arquivar os logs
     1. Navegue até o serviço de Pesquisa Cognitiva do Azure no portal do Azure
     1. Na seção monitoramento, na coluna à esquerda, selecione **configurações de diagnóstico**
 
@@ -98,8 +98,8 @@ Se você achar que não consegue ver seus dados, siga estas etapas de solução 
 1. Verifique se o conjunto de um DataSet ainda está sendo atualizado. O indicador de status de atualização é mostrado na etapa 8 acima. Se ainda estiver atualizando, aguarde até que a atualização seja concluída para abrir e atualizar o relatório.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre o Azure Pesquisa Cognitiva](https://docs.microsoft.com/azure/search/)
+[Saiba mais sobre o Azure Pesquisa Cognitiva](./index.yml)
 
-[O que é o Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[O que é o Power BI?](/power-bi/fundamentals/power-bi-overview)
 
-[Conceitos básicos para designers no serviço do Power BI](https://docs.microsoft.com/power-bi/service-basic-concepts)
+[Conceitos básicos para designers no serviço do Power BI](/power-bi/service-basic-concepts)

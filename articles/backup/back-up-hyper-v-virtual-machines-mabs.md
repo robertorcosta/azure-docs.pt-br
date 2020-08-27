@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Hyper-V com MABS
 description: Este artigo contém os procedimentos para fazer backup e recuperação de máquinas virtuais usando o Backup do Microsoft Azure Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: dc135e74564d4104c61ffef6f1403eddc08586be
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823957"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892806"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Fazer backup de máquinas virtuais do Hyper-V com Servidor de Backup do Azure
 
@@ -132,7 +132,7 @@ Quando for possível recuperar uma máquina virtual do backup, use o Assistente 
 
 3. No menu **Ações**, clique em **Recuperar** para abrir o Assistente de Recuperação.
 
-    A VM e o ponto de recuperação selecionados aparecem na tela **Examinar Seleção de Recuperação**. Clique em **Próximo**.
+    A VM e o ponto de recuperação selecionados aparecem na tela **Examinar Seleção de Recuperação**. Clique em **Avançar**.
 
 4. Na tela **Selecionar Tipo de Recuperação**, selecione onde você deseja restaurar os dados e clique em **Avançar**.
 
@@ -149,7 +149,7 @@ Quando for possível recuperar uma máquina virtual do backup, use o Assistente 
     - Selecione **Habilitar a recuperação baseada em SAN usando instantâneos de hardware** se tiver configurado a rede.
     - Selecione **Enviar um email ao concluir a recuperação** e forneça os endereços de email se desejar que notificações de email sejam enviadas quando o processo de recuperação for concluído.
 
-6. Na tela de Resumo, verifique se todos os detalhes estão corretos. Se os detalhes não estiverem corretos ou se desejar fazer uma alteração, clique em **Voltar**. Se você estiver satisfeito com as configurações, clique em **Recuperar** para iniciar o processo de recuperação.
+6. Na tela de Resumo, verifique se todos os detalhes estão corretos. Se os detalhes não estiverem corretos ou se desejar fazer uma alteração, clique em **Voltar**. Se estiver satisfeito com as configurações, clique em **recuperar** para iniciar o processo de recuperação.
 
 7. A tela **Status de Recuperação** fornece informações sobre o trabalho de recuperação.
 

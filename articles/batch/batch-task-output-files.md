@@ -3,13 +3,13 @@ title: Persistir dados de saída para o Armazenamento do Azure com a API do serv
 description: Saiba como usar a API do serviço de Lote para persistir dados de saída de trabalhos e tarefas no Armazenamento do Azure.
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: 964ffea2ed1536dc1851aefc03c735cb08ba7ed7
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 720c064c6b382bc62565c0828422181c761df8e8
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475610"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936921"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefa para o Armazenamento do Azure com a API de serviço de lote
 

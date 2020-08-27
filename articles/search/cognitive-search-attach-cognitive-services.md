@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: ffb52cd34d56c227fc689ea70146e99983e17c0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9f6a5ebc4f3242181196bd40b62f7522d025b84
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564447"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924970"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Anexar um recurso de serviços cognitivas a um conconhecimento no Azure Pesquisa Cognitiva 
 
@@ -37,7 +37,7 @@ O Azure Pesquisa Cognitiva tem uma dependência de serviços cognitivas, incluin
 
 ## <a name="same-region-requirement"></a>Requisito de mesma região
 
-Exigimos que o Azure Pesquisa Cognitiva e os serviços cognitivas do Azure existam na mesma região. Caso contrário, você receberá essa mensagem em tempo de execução:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Exigimos que o Azure Pesquisa Cognitiva e os serviços cognitivas do Azure existam na mesma região. Caso contrário, você receberá essa mensagem em tempo de execução: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 Não é possível mover um serviço entre regiões. Se você receber esse erro, deverá criar um novo recurso de serviços cognitivas na mesma região que o Azure Pesquisa Cognitiva.
 
@@ -170,5 +170,5 @@ Juntando tudo isso, você pagaria cerca de $57 para ingerir documentos PDF de 1.
 ## <a name="next-steps"></a>Próximas etapas
 + [Página de preços do Azure Pesquisa Cognitiva](https://azure.microsoft.com/pricing/details/search/)
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
-+ [Criar conjunto de qualificações (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Criar conjunto de qualificações (REST)](/rest/api/searchservice/create-skillset)
 + [Como mapear campos enriquecidos](cognitive-search-output-field-mapping.md)

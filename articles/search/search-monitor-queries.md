@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552522"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935068"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Monitorar solicitações de consulta no Azure Pesquisa Cognitiva
 
@@ -36,13 +36,13 @@ O volume é medido como **consultas de pesquisa por segundo** (QPS), uma métric
 
 É comum que as consultas sejam executadas em milissegundos, portanto, somente as consultas que medem como segundos aparecerão em métricas.
 
-| Tipo de agregação | Descrição |
+| Tipo de agregação | DESCRIÇÃO |
 |------------------|-------------|
 | Média | O número médio de segundos em um minuto durante o qual a execução da consulta ocorreu.|
 | Contagem | O número de métricas emitidas para o log dentro do intervalo de um minuto. |
 | Máximo | O número mais alto de consultas de pesquisa por segundo registradas durante um minuto. |
 | Mínimo | O número mais baixo de consultas de pesquisa por segundo registradas durante um minuto.  |
-| SUM | A soma de todas as consultas executadas dentro do minuto.  |
+| Soma | A soma de todas as consultas executadas dentro do minuto.  |
 
 Por exemplo, em um minuto, você pode ter um padrão como este: um segundo de alta carga que é o máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga média e, finalmente, um segundo com apenas uma consulta, que é o mínimo.
 
@@ -100,7 +100,7 @@ Na captura de tela a seguir, o primeiro número é a contagem (ou o número de m
 
 Para uma visão rápida dos números atuais, a guia **monitoramento** na página Visão geral do serviço mostra três métricas (**latência de pesquisa**, **consultas de pesquisa por segundo (por unidade de pesquisa)**, **percentual de consultas de pesquisa limitadas**) sobre os intervalos fixos medidos em horas, dias e semanas, com a opção de alterar o tipo de agregação.
 
-Para uma exploração mais profunda, abra o Metrics Explorer no menu **monitoramento** para que você possa aplicar camadas, ampliar e Visualizar dados para explorar tendências ou anomalias. Saiba mais sobre o Metrics Explorer concluindo este [tutorial sobre como criar um gráfico de métricas](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
+Para uma exploração mais profunda, abra o Metrics Explorer no menu **monitoramento** para que você possa aplicar camadas, ampliar e Visualizar dados para explorar tendências ou anomalias. Saiba mais sobre o Metrics Explorer concluindo este [tutorial sobre como criar um gráfico de métricas](../azure-monitor/learn/tutorial-metrics-explorer.md).
 
 1. Na seção monitoramento, selecione **métricas** para abrir o Gerenciador de métricas com o escopo definido para o serviço de pesquisa.
 
@@ -179,7 +179,7 @@ Ao enviar por push os limites de uma configuração de partição de réplica es
 
 1. Por fim, especifique os detalhes do alerta. Nomeie e descreva o alerta, atribua um valor de severidade e especifique se deseja criar a regra em um estado habilitado ou desabilitado.
 
-   ![Detalhes do Alerta](./media/search-monitor-usage/alert-details.png "Detalhes do Alerta")
+   ![Detalhes do alerta](./media/search-monitor-usage/alert-details.png "Detalhes do alerta")
 
 Se você especificou uma notificação por email, receberá um email de "Microsoft Azure" com uma linha de assunto de "Azure: severidade ativada: 3 `<your rule name>` ".
 

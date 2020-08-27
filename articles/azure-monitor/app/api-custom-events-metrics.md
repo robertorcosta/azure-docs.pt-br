@@ -3,13 +3,13 @@ title: API do Application Insights para métricas e eventos personalizados | Mic
 description: Insira algumas linhas de código em seu aplicativo da área de trabalho ou de dispositivo, página da Web ou serviço para acompanhar o uso e diagnosticar problemas.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 430ec96006ed8f564ea5bbd0a28beca858ebe1ab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f60fdf9164d09b10d12ada7481edb503cd57a411
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366865"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936564"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -59,7 +59,7 @@ Obter uma instância de `TelemetryClient` (exceto em JavaScript em páginas da W
 
 Para aplicativos [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) e [não http/Worker para aplicativos .net/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) , é recomendável obter uma instância do `TelemetryClient` do contêiner de injeção de dependência, conforme explicado em sua respectiva documentação.
 
-Se você usar AzureFunctions v2 + ou Azure WebJobs v3 +, siga este documento:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+Se você usar AzureFunctions v2 + ou Azure WebJobs v3 +, siga este documento: https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
 *C#*
 
@@ -489,7 +489,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 Registrar um evento de diagnóstico, como entrar ou sair de um método.
 
- Parâmetro | Descrição
+ Parâmetro | DESCRIÇÃO
 ---|---
 `message` | Dados de diagnóstico. Pode ser muito mais longo do que um nome.
 `properties` | Mapa de cadeia de caracteres para cadeia de caracteres: dados adicionais usados para [Filtrar exceções](#properties) no Portal. O padrão é vazio.

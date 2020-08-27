@@ -2,15 +2,16 @@
 title: Azure Application Insights – coleta automática de dependência | Microsoft Docs
 description: O Application Insights coleta e visualiza dependências automaticamente
 ms.topic: reference
+ms.custom: devx-track-dotnet
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ca1c63f042bd06c19f232c2ff8170d23741e73f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324175"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936428"
 ---
 # <a name="dependency-auto-collection"></a>Coleta automática de dependência
 
@@ -84,7 +85,7 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 
 | Bibliotecas de comunicação | Versões |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Todos |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | Tudo |
 
 ## <a name="next-steps"></a>Próximas etapas
 

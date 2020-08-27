@@ -3,12 +3,12 @@ title: Planejar seu aplicativo-LUIS
 description: Descreva intenções e entidades de aplicativo relevantes e crie seus planos de aplicativo no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 8141e2a47e2a550a5dba50bc22117649c0bd04e2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 38d80a77303e248ab137f87f8063b5cbc358f51a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340225"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892908"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planejar o esquema do aplicativo LUIS com a extração de dados e domínio do assunto
 
@@ -64,7 +64,7 @@ Considere as duas declarações a seguir, que são muito próximas Considerando 
 
 Em vez de ter duas intenções separadas, crie uma única intenção com uma `FlightAction` entidade de aprendizado de máquina. A entidade de aprendizado de máquina deve extrair os detalhes da ação para um agendamento e uma solicitação de cancelamento, bem como um local de origem ou de destino.
 
-A `FlightAction` entidade seria estruturada no seguinte suedo de entidades de aprendizado de máquina e subentidades:
+A `FlightAction` entidade seria estruturada no seguinte pseudocódigo de entidades e subentidades de aprendizado de máquina:
 
 * Vooaction
     * Ação

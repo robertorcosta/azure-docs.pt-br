@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510864"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935459"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para o enriquecimento de ia no Azure Pesquisa Cognitiva
 
@@ -54,7 +54,7 @@ Nesse caso, convém orientar o indexador a ignorar erros. Faça isso definindo *
 
 ## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Dica 4: usar sessões de depuração para identificar e resolver problemas com seu qualificable 
 
-As Sessões de depuração são um editor visual que funciona com um conjunto de habilidades existente no portal do Azure. Em uma sessão de depuração, você pode identificar e resolver erros, validar alterações e confirmar alterações em um confirmante de produção no pipeline de enriquecimento de ia. Este é um recurso de visualização [Leia a documentação](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Para obter mais informações sobre conceitos e introdução, consulte [depurar sessões](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+As Sessões de depuração são um editor visual que funciona com um conjunto de habilidades existente no portal do Azure. Em uma sessão de depuração, você pode identificar e resolver erros, validar alterações e confirmar alterações em um confirmante de produção no pipeline de enriquecimento de ia. Este é um recurso de visualização [Leia a documentação](./cognitive-search-debug-session.md). Para obter mais informações sobre conceitos e introdução, consulte [depurar sessões](./cognitive-search-tutorial-debug-sessions.md).
 
 As sessões de depuração funcionam em um único documento são uma ótima maneira de Compilar iterativamente pipelines de enriquecimento mais complexos.
 
@@ -112,7 +112,7 @@ Para a indexação baseada em portal (conforme descrita no guia de início rápi
 Para a [indexação paralela](search-howto-large-index.md), coloque os dados em vários contêineres ou várias pastas virtuais dentro do mesmo contêiner. Em seguida, crie vários pares de fonte de dados e indexador. Todos os indexadores podem usar o mesmo conjunto de habilidades e gravar no mesmo índice de pesquisa de destino, de modo que seu aplicativo de pesquisa não precisa estar ciente desse particionamento.
 Para obter mais informações, consulte [Indexando grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 + [Início rápido: criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: aprender sobre APIs REST de rericação de AI](cognitive-search-tutorial-blob.md)
 + [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials) (Especificando credenciais de fonte de dados)

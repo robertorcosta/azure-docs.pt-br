@@ -8,19 +8,19 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560383"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936156"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessões de depuração no Azure Pesquisa Cognitiva
 
 As Sessões de depuração são um editor visual que funciona com um conjunto de habilidades existente no portal do Azure. Em uma Sessão de depuração, você pode identificar e resolver erros, validar alterações e efetuar push de alterações em um conjunto de habilidades de produção no pipeline de enriquecimento de IA.
 
 > [!Important]
-> Sessões de depuração é um recurso de visualização fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> As sessões de depuração são uma versão prévia do recurso fornecida sem um contrato de nível de serviço e não são recomendadas para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 ## <a name="using-debug-sessions"></a>Usar as Sessões de depuração
@@ -95,4 +95,4 @@ Debug sesisons trabalha com todas as fontes de dados geralmente disponíveis AMD
 Agora que você entendeu os elementos das Sessões de depuração, use o tutorial para ter uma experiência prática.
 
 > [!div class="nextstepaction"]
-> [Explorar o tutorial do recurso de Sessões de depuração](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+> [Explorar o tutorial do recurso de Sessões de depuração](./cognitive-search-tutorial-debug-sessions.md)
