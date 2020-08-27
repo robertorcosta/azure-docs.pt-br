@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88081044"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961866"
 ---
 # <a name="deployment-best-practices"></a>Práticas recomendadas de implantação
 
@@ -127,7 +127,7 @@ Em seu script, faça logon usando `az login --service-principal` , fornecendo as
 
 ### <a name="java"></a>Java
 
-Use o kudu [zipdeploy/](deploy-zip.md) API para implantar aplicativos jar e [wardeploy/](deploy-zip.md#deploy-war-file) para aplicativos War. Se você estiver usando o Jenkins, poderá usar essas APIs diretamente na fase de implantação. Para obter mais informações, consulte [este artigo](../jenkins/execute-cli-jenkins-pipeline.md).
+Use o kudu [zipdeploy/](deploy-zip.md) API para implantar aplicativos jar e [wardeploy/](deploy-zip.md#deploy-war-file) para aplicativos War. Se você estiver usando o Jenkins, poderá usar essas APIs diretamente na fase de implantação. Para obter mais informações, consulte [este artigo](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Nó
 
@@ -149,7 +149,7 @@ Sempre use o cache local em conjunto com [Slots de implantação](deploy-staging
 
 Se o plano do serviço de aplicativo estiver usando mais de 90% da memória ou CPU disponível, a máquina virtual subjacente poderá ter problemas para processar sua implantação. Quando isso acontece, expanda temporariamente sua contagem de instâncias para executar a implantação. Depois que a implantação for concluída, você poderá retornar a contagem de instâncias para seu valor anterior.
 
-Para obter mais informações sobre as práticas recomendadas, visite [diagnóstico do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/overview-diagnostics) para descobrir práticas recomendadas acionáveis específicas ao seu recurso.
+Para obter mais informações sobre as práticas recomendadas, visite [diagnóstico do serviço de aplicativo](./overview-diagnostics.md) para descobrir práticas recomendadas acionáveis específicas ao seu recurso.
 
 - Navegue até seu aplicativo Web no [portal do Azure](https://portal.azure.com).
 - Clique em **diagnosticar e resolver problemas** no painel de navegação esquerdo, que abre o diagnóstico do serviço de aplicativo.

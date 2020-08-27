@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: b6984e16d1ddcee7d3f276ddcdf8c89609f14fe5
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 19d6a646df22e2f8c9bdfc03f15453a520e527a4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271015"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962818"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no serviço Azure App e Azure Functions
 
@@ -31,9 +31,9 @@ A autenticação e autorização seguras exigem um profundo entendimento de segu
 > [!NOTE]
 > Habilitar esse recurso fará com que **todas** as solicitações HTTP não seguras para seu aplicativo sejam redirecionadas automaticamente para https, independentemente da definição de configuração do serviço de aplicativo para [impor https](configure-ssl-bindings.md#enforce-https). Se necessário, você pode desabilitar isso por meio da `requireHttps` configuração no [arquivo de configuração de configurações de autenticação](app-service-authentication-how-to.md#configuration-file-reference), mas você deve tomar cuidado para garantir que nenhum token de segurança seja transmitido por conexões http não seguras.
 
-Para informações específicas sobre aplicativos móveis nativos, consulte [Autenticação e autorização de usuários para aplicativos móveis com Serviço de Aplicativo do Azure ](../app-service-mobile/app-service-mobile-auth.md).
+Para informações específicas sobre aplicativos móveis nativos, consulte [Autenticação e autorização de usuários para aplicativos móveis com Serviço de Aplicativo do Azure ](/previous-versions/azure/app-service-mobile/app-service-mobile-auth).
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 ### <a name="on-windows"></a>No Windows
 
@@ -52,7 +52,7 @@ O módulo executa separadamente do código do aplicativo e é configurado usando
 
 ### <a name="on-containers"></a>Em contêineres
 
-O módulo de autenticação e autorização é executado em um contêiner separado, isolado do código do aplicativo. Usando o que é conhecido como o [padrão embaixador](https://docs.microsoft.com/azure/architecture/patterns/ambassador), ele interage com o tráfego de entrada para executar uma funcionalidade semelhante à do Windows. Como ele não é executado em processo, nenhuma integração direta com estruturas de linguagem específicas é possível; no entanto, as informações relevantes de que seu aplicativo precisa são passadas usando cabeçalhos de solicitação, conforme explicado abaixo.
+O módulo de autenticação e autorização é executado em um contêiner separado, isolado do código do aplicativo. Usando o que é conhecido como o [padrão embaixador](/azure/architecture/patterns/ambassador), ele interage com o tráfego de entrada para executar uma funcionalidade semelhante à do Windows. Como ele não é executado em processo, nenhuma integração direta com estruturas de linguagem específicas é possível; no entanto, as informações relevantes de que seu aplicativo precisa são passadas usando cabeçalhos de solicitação, conforme explicado abaixo.
 
 ### <a name="userapplication-claims"></a>Declarações de usuário/aplicativo
 
@@ -150,7 +150,7 @@ Com essa opção, você não precisa gravar nenhum código de autenticação no 
 ## <a name="more-resources"></a>Mais recursos
 
 [Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure (Windows)](tutorial-auth-aad.md)  
-[Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](containers/tutorial-auth-aad.md)  
+[Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure para Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 [Personalizar a autenticação e a autorização no serviço](app-service-authentication-how-to.md) 
  de aplicativo [Integração do .NET Core do Azure AppService EasyAuth (terceiros)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
  [Obtendo Azure app a autenticação do serviço funcionando com o .NET Core (terceiros)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
@@ -171,8 +171,8 @@ Guias de instruções específicas do provedor:
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
 
-[custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
+[custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
+[ADAL-Android]: /previous-versions/azure/app-service-mobile/app-service-mobile-android-how-to-use-client-library#adal
+[ADAL-iOS]: /previous-versions/azure/app-service-mobile/app-service-mobile-ios-how-to-use-client-library#adal
+[ADAL-dotnet]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#adal

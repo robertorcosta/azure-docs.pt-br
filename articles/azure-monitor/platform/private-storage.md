@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: a14f7ca3e5a7b291e430db6ea536edc5396b5448
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 58d6f98c87e37254e77bcc8dda1cdca6e608cafc
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318888"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962665"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Contas de armazenamento de propriedade do cliente para ingestão de logs no Azure Monitor
 
@@ -53,7 +53,7 @@ O único método disponível para criar e remover links é por meio da API REST.
 
 ## <a name="command-line-and-rest-api"></a>Linha de comando e API REST
 
-### <a name="command-line"></a>Linha de comando
+### <a name="command-line"></a>Linha de Comando
 Para criar e gerenciar contas de armazenamento vinculadas, use [AZ monitor log-Analytics espaço de trabalho vinculado-Storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Esse comando pode vincular e desvincular contas de armazenamento de um espaço de trabalho e listar as contas de armazenamento vinculadas.
 
 ### <a name="request-and-cli-values"></a>Valores de solicitação e CLI
@@ -77,6 +77,8 @@ Esse valor usa a seguinte estrutura:
 subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName1}
 ```
 
+
+## <a name="get-linked-storage-accounts"></a>Obter contas de armazenamento vinculadas
 
 ### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Obter contas de armazenamento vinculadas para todos os tipos de fonte de dados
 

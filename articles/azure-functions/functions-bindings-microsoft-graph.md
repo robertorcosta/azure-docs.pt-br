@@ -6,14 +6,17 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 9dd4067d066362f5842b504971afbc59fd0717a3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d10b36047959299f5b66da5fb16beef8a591a983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212203"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962835"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
+
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
 
 Este artigo explica como configurar e trabalhar com gatilhos e associações do Microsoft Graph no Azure Functions. Com isso, você pode usar o Azure Functions para trabalhar com eventos, percepções e dados do [Microsoft Graph](https://developer.microsoft.com/graph).
 
@@ -38,6 +41,9 @@ A associação de entrada de token de autenticação é fornecida no pacote NuGe
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Como configurar as extensões
+
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
 
 As associações do Microsoft Graph estão disponíveis por meio de _extensões de associação_. Extensões de associação são componentes opcionais para o Azure Functions runtime. Esta seção mostra como configurar o Microsoft Graph e as extensões de token de autenticação.
 
@@ -72,13 +78,16 @@ Se estiver usando o portal do Azure, você verá um aviso abaixo do prompt para 
 <a name="token-input"></a>
 ## <a name="auth-token"></a>Token de autenticação
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 Essas associações de entrada do token de autenticação obtêm um token do Azure AD para um determinado recurso e fornece-o ao seu código como uma cadeia de caracteres. O recurso pode ser qualquer um para o qual o aplicativo tenha permissões. 
 
 Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#auth-token---example)
 * [Atributos](#auth-token---attributes)
-* [Configuration](#auth-token---configuration)
+* [Configuração](#auth-token---configuration)
 * [Usage](#auth-token---usage)
 
 ### <a name="auth-token---example"></a>Token de autenticação - exemplo
@@ -230,13 +239,16 @@ O token sempre é apresentado ao código como uma cadeia de caracteres.
 <a name="excel-input"></a>
 ## <a name="excel-input"></a>Entrada do Excel
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 Essa associação de entrada de tabela do Excel lê o conteúdo de uma tabela do Excel armazenada no OneDrive.
 
 Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#excel-input---example)
 * [Atributos](#excel-input---attributes)
-* [Configuration](#excel-input---configuration)
+* [Configuração](#excel-input---configuration)
 * [Usage](#excel-input---usage)
 
 ### <a name="excel-input---example"></a>Entrada do Excel - exemplo
@@ -385,7 +397,7 @@ Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#excel-output---example)
 * [Atributos](#excel-output---attributes)
-* [Configuration](#excel-output---configuration)
+* [Configuração](#excel-output---configuration)
 * [Usage](#excel-output---usage)
 
 ### <a name="excel-output---example"></a>Saída do Excel - exemplo
@@ -538,13 +550,16 @@ A associação expõe os seguintes tipos a funções .NET:
 <a name="onedrive-input"></a>
 ## <a name="file-input"></a>Entrada do arquivo
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 Essa associação de entrada do Arquivo do OneDrive lê o conteúdo de um arquivo armazenado no OneDrive.
 
 Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#file-input---example)
 * [Atributos](#file-input---attributes)
-* [Configuration](#file-input---configuration)
+* [Configuração](#file-input---configuration)
 * [Usage](#file-input---usage)
 
 ### <a name="file-input---example"></a>Entrada do Arquivo - exemplo
@@ -682,13 +697,16 @@ A associação expõe os seguintes tipos a funções .NET:
 <a name="onedrive-output"></a>
 ## <a name="file-output"></a>Saída do arquivo
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 Essa associação de saída do arquivo do OneDrive modifica o conteúdo de um arquivo armazenado no OneDrive.
 
 Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#file-output---example)
 * [Atributos](#file-output---attributes)
-* [Configuration](#file-output---configuration)
+* [Configuração](#file-output---configuration)
 * [Usage](#file-output---usage)
 
 ### <a name="file-output---example"></a>Saída do arquivo - exemplo
@@ -829,13 +847,16 @@ A associação expõe os seguintes tipos a funções .NET:
 <a name="outlook-output"></a>
 ## <a name="outlook-output"></a>Saída de Outlook
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 A associação de saída de mensagem do Outlook envia uma mensagem de email por meio do Outlook.
 
 Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#outlook-output---example)
 * [Atributos](#outlook-output---attributes)
-* [Configuration](#outlook-output---configuration)
+* [Configuração](#outlook-output---configuration)
 * [Usage](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Saída do Outlook - exemplo
@@ -979,6 +1000,9 @@ A associação expõe os seguintes tipos a funções .NET:
 
 ## <a name="webhooks"></a>Webhooks
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 Webhooks permitem reagir a eventos no Microsoft Graph. Para dar suporte a webhooks, são necessárias funções para criar, atualizar e reagir a _assinaturas de webhook_. Uma solução completa de webhook exige uma combinação das seguintes associações:
 - Um [gatilho de webhook do Microsoft Graph](#webhook-trigger) permite reagir a um webhook de entrada.
 - Uma [associação de entrada de assinatura do webhook do Microsoft Graph](#webhook-input) permite que você liste as assinaturas existentes e, opcionalmente, atualize-as.
@@ -994,13 +1018,16 @@ Para obter mais informações sobre webhooks, confira [Como trabalhar com webhoo
 
 ## <a name="webhook-trigger"></a>Gatilho de webhook
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 O gatilho de webhook do Microsoft Graph permite que uma função reaja a um webhook de entrada do Microsoft Graph. Cada instância desse gatilho pode reagir a um tipo de recurso do Microsoft Graph.
 
 Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#webhook-trigger---example)
 * [Atributos](#webhook-trigger---attributes)
-* [Configuration](#webhook-trigger---configuration)
+* [Configuração](#webhook-trigger---configuration)
 * [Usage](#webhook-trigger---usage)
 
 ### <a name="webhook-trigger---example"></a>Gatilho de webhook - exemplo
@@ -1113,13 +1140,16 @@ A associação expõe os seguintes tipos a funções .NET:
 <a name="webhook-input"></a>
 ## <a name="webhook-input"></a>Entrada do webhook
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 A associação da entrada do webhook do Microsoft Graph permite recuperar a lista de assinaturas gerenciadas por este aplicativo de funções. A associação lê do armazenamento do aplicativo de funções e, assim, não reflete outras assinaturas criadas de fora do aplicativo.
 
 Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#webhook-input---example)
 * [Atributos](#webhook-input---attributes)
-* [Configuration](#webhook-input---configuration)
+* [Configuração](#webhook-input---configuration)
 * [Usage](#webhook-input---usage)
 
 ### <a name="webhook-input---example"></a>Entrada de webhook - exemplo
@@ -1248,7 +1278,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**name**| n/d |Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
 |**tipo**| n/d |Obrigatório – deve ser definido como `graphWebhookSubscription`.|
 |**direction**| n/d |Obrigatório – deve ser definido como `in`.|
-|**sem**|**Filter**| Se definido como `userFromRequest`, a associação apenas recuperará assinaturas pertencentes ao usuário que está chamando (válido somente com [gatilho HTTP]).| 
+|**filter**|**Filter**| Se definido como `userFromRequest`, a associação apenas recuperará assinaturas pertencentes ao usuário que está chamando (válido somente com [gatilho HTTP]).| 
 
 ### <a name="webhook-input---usage"></a>Entrada de webhook - uso
 
@@ -1264,13 +1294,16 @@ A associação expõe os seguintes tipos a funções .NET:
 
 ## <a name="webhook-output"></a>Saída de webhook
 
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
+
 Essa associação de saída de assinatura de webhook permite que você crie, exclua e atualize as assinaturas de webhook no Microsoft Graph.
 
 Essa seção contém os seguintes procedimentos:
 
 * [Exemplo](#webhook-output---example)
 * [Atributos](#webhook-output---attributes)
-* [Configuration](#webhook-output---configuration)
+* [Configuração](#webhook-output---configuration)
 * [Usage](#webhook-output---usage)
 
 ### <a name="webhook-output---example"></a>Saída de webhook - exemplo
@@ -1407,6 +1440,9 @@ A associação expõe os seguintes tipos a funções .NET:
 
 <a name="webhook-examples"></a>
 ## <a name="webhook-subscription-refresh"></a>Atualização de assinatura de webhook
+
+> [!IMPORTANT]
+> As associações de visualização de Microsoft Graph agora estão preteridas. Consulte o tutorial [Azure Functions de compilação com Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) para obter detalhes sobre como usar Microsoft Graph com Azure functions.
 
 Há duas abordagens para atualizar assinaturas:
 

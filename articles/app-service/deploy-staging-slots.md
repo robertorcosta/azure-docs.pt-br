@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236736"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962155"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
 <a name="Overview"></a>
@@ -62,7 +62,7 @@ O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Is
 
 6. Selecione a URL do aplicativo na página de recursos do slot. O slot de implantação tem seu próprio nome de host e também é um aplicativo ativo. Para limitar o acesso público ao slot de implantação, consulte [Azure app restrições de IP do serviço](app-service-ip-restrictions.md).
 
-O novo slot de implantação não tem nenhum conteúdo, mesmo se as configurações são clonadas de outro slot. Por exemplo, você pode [publicar neste slot com o Git](app-service-deploy-local-git.md). É possível fazer uma implantação no slot de outro branch do repositório ou de outro repositório.
+O novo slot de implantação não tem nenhum conteúdo, mesmo se as configurações são clonadas de outro slot. Por exemplo, você pode [publicar neste slot com o Git](./deploy-local-git.md). É possível fazer uma implantação no slot de outro branch do repositório ou de outro repositório.
 
 <a name="AboutConfiguration"></a>
 
@@ -83,7 +83,7 @@ Quando você troca dois slots (geralmente de um slot de preparo no slot de produ
 
 1. Se o [cache local](overview-local-cache.md) estiver habilitado, dispare a inicialização do cache local fazendo uma solicitação HTTP para a raiz do aplicativo ("/") em cada instância do slot de origem. Aguarde até que cada instância retorne qualquer resposta HTTP. A inicialização do cache local causa outra reinicialização em cada instância.
 
-1. Se a [troca automática](#Auto-Swap) estiver habilitada com a inicialização [personalizada](#Warm-up)do [aplicativo](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) de disparo, fazendo uma solicitação HTTP para a raiz do aplicativo ("/") em cada instância do slot de origem.
+1. Se a [troca automática](#Auto-Swap) estiver habilitada com a inicialização [personalizada](#Warm-up)do [aplicativo](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) de disparo, fazendo uma solicitação HTTP para a raiz do aplicativo ("/") em cada instância do slot de origem.
 
     Se `applicationInitialization` não for especificado, dispare uma solicitação HTTP para a raiz do aplicativo do slot de origem em cada instância. 
     
@@ -222,7 +222,7 @@ Se você tiver problemas, consulte [solucionar problemas de trocas](#troubleshoo
 
 ## <a name="monitor-a-swap"></a>Monitorar uma troca
 
-Se a [operação de permuta](#AboutConfiguration) levar muito tempo para ser concluída, você poderá obter informações sobre a operação de permuta no [log de atividades](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Se a [operação de permuta](#AboutConfiguration) levar muito tempo para ser concluída, você poderá obter informações sobre a operação de permuta no [log de atividades](../azure-monitor/platform/platform-logs-overview.md).
 
 Na página de recursos do aplicativo no portal, no painel esquerdo, selecione log de **atividades**.
 
@@ -238,7 +238,7 @@ Para rotear o tráfego de produção automaticamente:
 
 1. Vá para a página de recursos do aplicativo e selecione **Slots de implantação**.
 
-2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Selecione **Salvar**.
+2. Na coluna **% do Tráfego** do slot para o qual você deseja rotear, especifique um percentual (entre 0 e 100) para representar a quantidade de tráfego total que deseja rotear. Clique em **Salvar**.
 
     ![Definindo um percentual de tráfego](./media/web-sites-staged-publishing/RouteTraffic.png)
 
@@ -335,7 +335,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-resource-manager-templates"></a>Automatizar com modelos do Resource Manager
 
-Os [modelos de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) são arquivos JSON declarativos usados para automatizar a implantação e a configuração de recursos do Azure. Para trocar os slots usando modelos do Resource Manager, você definirá duas propriedades nos recursos *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
+Os [modelos de Azure Resource Manager](../azure-resource-manager/templates/overview.md) são arquivos JSON declarativos usados para automatizar a implantação e a configuração de recursos do Azure. Para trocar os slots usando modelos do Resource Manager, você definirá duas propriedades nos recursos *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
 
 - `buildVersion`: essa é uma propriedade de cadeia de caracteres que representa a versão atual do aplicativo implantado no slot. Por exemplo: "v1", "1.0.0.1" ou "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: essa é uma propriedade de cadeia de caracteres que especifica o que `buildVersion` o slot deve ter. Se o targetBuildVersion não for igual ao atual `buildVersion` , isso disparará a operação de permuta localizando o slot que tem o especificado `buildVersion` .

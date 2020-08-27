@@ -2,13 +2,13 @@
 title: Implantar uma especificação de modelo como um modelo vinculado
 description: Saiba como implantar uma especificação de modelo existente em uma implantação vinculada.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: dacf2fba3ff78f3ff92741b49edad8fdf5bffe29
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/27/2020
+ms.openlocfilehash: dd1bb00c1cfd737478a8d5f6ebffdb57e5e1640e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918376"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959197"
 ---
 # <a name="tutorial-deploy-a-template-spec-as-a-linked-template-preview"></a>Tutorial: implantar uma especificação de modelo como um modelo vinculado (versão prévia)
 
@@ -130,7 +130,7 @@ id = $(az template-specs show --name $templateSpecName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Há um problema conhecido ao obter a ID de especificação do modelo e, em seguida, atribuí-la a uma variável no Windows PowerShell.
+> Há um problema conhecido com a obtenção de uma ID de especificação de modelo e sua atribuição a uma variável no Windows PowerShell.
 
 ---
 

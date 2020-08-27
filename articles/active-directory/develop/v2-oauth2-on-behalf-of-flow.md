@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3abef3324bee61f2d7eb96c80750ad589b15f342
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987028"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958653"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e o fluxo On-Behalf-Of de OAuth 2.0
 
@@ -61,7 +61,7 @@ Há dois casos que dependem se o aplicativo cliente escolhe ser protegido por um
 
 Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `grant_type` | Obrigatório | O tipo da solicitação do token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obrigatório | A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
@@ -93,7 +93,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 Uma solicitação de token de acesso de serviço a serviço com um certificado contém os seguintes parâmetros:
 
-| Parâmetro | Type | Descrição |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `grant_type` | Obrigatório | O tipo da solicitação de token. Para uma solicitação usando um JWT, o valor deve ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obrigatório |  A ID do aplicativo (cliente) que a página [Portal do Azure - Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) atribuiu ao seu aplicativo. |
@@ -153,7 +153,7 @@ O exemplo a seguir mostra uma resposta bem-sucedida a uma solicitação para um 
 ```
 
 > [!NOTE]
-> O token de acesso acima é um token formatado v 1.0 para o grafo Microsoft. Isso ocorre porque o formato do token é baseado no **recurso** que está sendo acessado e não está relacionado aos pontos de extremidade usados para solicitá-lo. O Microsoft Graph está configurado para aceitar tokens v1.0. Portanto, a plataforma de identidade da Microsoft produz tokens de acesso v1.0 quando um cliente solicita tokens para o Microsoft Graph. Outros aplicativos podem indicar que desejam v 2.0-Format tokens, v 1.0-Format tokens ou até mesmo formatos de token de propriedade ou de proprietário.  Os pontos de extremidade v 1.0 e v 2.0 podem emitir um formato de token, dessa forma, o recurso sempre pode obter o formato correto do token, independentemente de como ou onde o token foi solicitado pelo cliente. 
+> O token de acesso acima é um token formatado v 1.0 para Microsoft Graph. Isso ocorre porque o formato do token é baseado no **recurso** que está sendo acessado e não está relacionado aos pontos de extremidade usados para solicitá-lo. O Microsoft Graph está configurado para aceitar tokens v1.0. Portanto, a plataforma de identidade da Microsoft produz tokens de acesso v1.0 quando um cliente solicita tokens para o Microsoft Graph. Outros aplicativos podem indicar que desejam v 2.0-Format tokens, v 1.0-Format tokens ou até mesmo formatos de token de propriedade ou de proprietário.  Os pontos de extremidade v 1.0 e v 2.0 podem emitir um formato de token, dessa forma, o recurso sempre pode obter o formato correto do token, independentemente de como ou onde o token foi solicitado pelo cliente. 
 >
 > Somente os aplicativos devem examinar os tokens de acesso. Os clientes **não devem** inspecioná-los. Inspecionar tokens de acesso para outros aplicativos em seu código resultará na interrupção inesperada do aplicativo quando o aplicativo alterar o formato de seus tokens ou começar a criptografá-los. 
 

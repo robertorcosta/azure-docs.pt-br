@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfaeee6a6e2a9728d7e63fb5681c487fbbd6139e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82159976"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958983"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
@@ -32,15 +32,15 @@ Vários fatores podem contribuir para diminuir o desempenho do aplicativo. Para 
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Como solucionar problemas de um cenário de alto consumo de CPU?
 
-Em alguns cenários de alto consumo de CPU, seu aplicativo pode exigir realmente mais recursos de computação.Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, o alto consumo de CPU pode ser causado por um loop ou uma prática de codificação incorretos. Obter informações sobre o que está causando o aumento de consumo da CPU é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo para alto consumo de CPU para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+Em alguns cenários de alto consumo de CPU, seu aplicativo pode exigir realmente mais recursos de computação.Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, o alto consumo de CPU pode ser causado por um loop ou uma prática de codificação incorretos. Obter informações sobre o que está causando o aumento de consumo da CPU é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo para alto consumo de CPU para aplicativos Web](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Como solucionar problemas de um cenário de alto consumo de memória?
 
-Em alguns cenários de alto consumo de memória, seu aplicativo pode exigir realmente mais recursos de computação.Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória.Obter informações sobre o que está causando o aumento de consumo da memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Diagnóstico de falha da Galeria de extensão de Site do Azure pode executar com eficiência as seguintes etapas. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo de memória alta intermitente para aplicativos Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Em alguns cenários de alto consumo de memória, seu aplicativo pode exigir realmente mais recursos de computação.Nesse caso, considere a possibilidade de dimensionar para uma camada de serviço superior para que o aplicativo obtenha todos os recursos necessários. Outras vezes, um bug no código pode causar um vazamento de memória. Uma prática de codificação também pode aumentar o consumo de memória.Obter informações sobre o que está causando o aumento de consumo da memória é um processo de duas partes. Primeiro, crie um despejo de processo e, em seguida, analise o despejo de processo. Diagnóstico de falha da Galeria de extensão de Site do Azure pode executar com eficiência as seguintes etapas. Para obter mais informações, consulte [Capturar e analisar um arquivo de despejo de memória alta intermitente para aplicativos Web](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Como automatizar a Aplicativos Web do Serviço de Aplicativo usando o PowerShell?
 
-Você pode usar os cmdlets do PowerShell para gerenciar e manter os aplicativos Web do Serviço de Aplicativo. Em nossa postagem do blog [Automatizar os aplicativos Web hospedados no Serviço de Aplicativo do Azure usando o PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), descrevemos como usar Azure Resource Manager com base nos cmdlets do PowerShell para automatizar tarefas comuns. A postagem do blog também tem o código de exemplo para várias tarefas de gerenciamento de aplicativos web. Para obter descrições e sintaxe para todos os cmdlets de aplicativos Web do Serviço de Aplicativo, consulte [Az.Websites](/powershell/module/az.websites).
+Você pode usar os cmdlets do PowerShell para gerenciar e manter os aplicativos Web do Serviço de Aplicativo. Em nossa postagem do blog [Automatizar os aplicativos Web hospedados no Serviço de Aplicativo do Azure usando o PowerShell](/archive/blogs/puneetgupta/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way), descrevemos como usar Azure Resource Manager com base nos cmdlets do PowerShell para automatizar tarefas comuns. A postagem do blog também tem o código de exemplo para várias tarefas de gerenciamento de aplicativos web. Para obter descrições e sintaxe para todos os cmdlets de aplicativos Web do Serviço de Aplicativo, consulte [Az.Websites](/powershell/module/az.websites).
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>Como exibir os logs de eventos do aplicativo web?
 
@@ -65,7 +65,7 @@ Para capturar um despejo de memória do modo de usuário do seu aplicativo web:
 
 Você tem duas opções para exibir as informações de nível de processo para seu aplicativo web:
 
-*   No Portal do Azure:
+*   No portal do Azure:
     1. Abra o **Process Explorer** para o aplicativo web.
     2. Para ver os detalhes, selecione o **w3wp.exe** processo.
 *   No console do Kudu:
@@ -81,7 +81,7 @@ Três condições podem causar esse erro:
 * O aplicativo web foi interrompido no portal.
 * O aplicativo web atingiu um limite de cota de recursos que pode se aplicar a um plano de serviço de escala gratuito ou compartilhado.
 
-Para ver o que está causando o erro e resolver o problema, siga as etapas em [aplicativos web: "Erro 403 – Este aplicativo web foi interrompido"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Para ver o que está causando o erro e resolver o problema, siga as etapas em [aplicativos web: "Erro 403 – Este aplicativo web foi interrompido"](/archive/blogs/waws/azure-web-apps-error-403-this-web-app-is-stopped).
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Onde posso obter mais informações sobre cotas e limites de vários planos do Serviço de Aplicativo?
 
@@ -103,7 +103,7 @@ Para ativar o rastreamento de solicitação com falha:
 1. No portal do Azure, vá para seu aplicativo web.
 3. Selecione **todas as configurações**  >  **logs de diagnóstico**.
 4. Para **Rastreamento de solicitação com falha**, selecione **On**.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 6. Na folha de aplicativo Web, selecione **Ferramentas**.
 7. Selecione **Visual Studio Online**.
 8. Se a configuração não estiver **On**, selecione **On**.
@@ -167,7 +167,7 @@ O WebJobs foi projetado para processamento em segundo plano. Você pode fazer qu
 
 Um problema conhecido com uma [versão Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) anterior pode fazer com que um aplicativo do ASP.NET Core 1.0 que está hospedado no Serviço de Aplicativo interrompa as respostas intermitentemente. Você também pode ver esta mensagem: "O aplicativo CGI especificado encontrou um erro e o servidor encerrou o processo."
 
-Esse problema foi corrigido no Kestrel versão 1.0.2. Esta versão está incluída na atualização do ASP.NET Core 1.0.3. Para resolver esse problema, certifique-se de atualizar suas dependências de aplicativo para usar o Kestrel 1.0.2. Como alternativa, você pode usar uma das duas soluções alternativas que são descritas na postagem do blog [Problemas de desempenho lento do ASP.NET Core 1.0 em aplicativos web do Serviço de Aplicativo](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
+Esse problema foi corrigido no Kestrel versão 1.0.2. Esta versão está incluída na atualização do ASP.NET Core 1.0.3. Para resolver esse problema, certifique-se de atualizar suas dependências de aplicativo para usar o Kestrel 1.0.2. Como alternativa, você pode usar uma das duas soluções alternativas que são descritas na postagem do blog [Problemas de desempenho lento do ASP.NET Core 1.0 em aplicativos web do Serviço de Aplicativo](/archive/blogs/waws/asp-net-core-slow-perf-issues-on-azure-websites).
 
 
 ## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Não é possível localizar meus arquivos de log na estrutura de arquivos do meu aplicativo web. Como posso encontrá-los?
@@ -188,4 +188,4 @@ Para obter mais informações sobre conexões de saída em seu aplicativo web, c
 
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Como usar o Visual Studio para depuração remota do o meu aplicativo web do Serviço de Aplicativo?
 
-Para obter uma explicação detalhada que mostra como depurar seu aplicativo web usando o Visual Studio, consulte [Depuração remota do seu aplicativo web do Serviço de Aplicativo](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+Para obter uma explicação detalhada que mostra como depurar seu aplicativo web usando o Visual Studio, consulte [Depuração remota do seu aplicativo web do Serviço de Aplicativo](/archive/blogs/benjaminperkins/remote-debug-your-azure-app-service-web-app).

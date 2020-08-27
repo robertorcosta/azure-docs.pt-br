@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327337"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961968"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorando seu serviço de armazenamento com o Azure Monitor for Storage
 
@@ -54,11 +54,11 @@ Para exibir a utilização e a disponibilidade de suas contas de armazenamento e
 
 ### <a name="overview-workbook"></a>Pasta de trabalho Visão geral
 
-Na pasta de trabalho **Visão geral** da assinatura selecionada, a tabela exibe as métricas interativas de armazenamento e o estado da disponibilidade do serviço para até 10 contas de armazenamento agrupadas na assinatura. Você pode filtrar os resultados com base nas opções selecionadas nas seguintes listas suspensas:
+Na pasta de trabalho **visão geral** da assinatura selecionada, a tabela exibe as métricas de armazenamento interativo e o estado de disponibilidade do serviço para até 5 contas de armazenamento agrupadas na assinatura. Você pode filtrar os resultados com base nas opções selecionadas nas seguintes listas suspensas:
 
 * **Assinaturas** - somente as assinaturas que têm contas de armazenamento são listadas.  
 
-* **Contas de Armazenamento** - por padrão, 10 contas de armazenamento são pré-selecionadas. Se você selecionar várias ou todas as contas de armazenamento no seletor de escopo, até 200 contas de armazenamento serão retornadas. Por exemplo, se você tivesse um total de 573 contas de armazenamento nas três assinaturas que selecionou, somente 200 seriam exibidas. 
+* **Contas de armazenamento** -por padrão, 5 contas de armazenamento são previamente selecionadas. Se você selecionar várias ou todas as contas de armazenamento no seletor de escopo, até 200 contas de armazenamento serão retornadas. Por exemplo, se você tivesse um total de 573 contas de armazenamento nas três assinaturas que selecionou, somente 200 seriam exibidas. 
 
 * **Intervalo de tempo** – por padrão, exibe as últimas quatro horas de informações com base nas seleções correspondentes feitas.
 

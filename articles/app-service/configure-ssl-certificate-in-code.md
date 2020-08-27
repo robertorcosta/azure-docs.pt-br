@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b62352d09419de11135f4d7a2740e0e74b80255d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811703"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962121"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Usar um certificado TLS/SSL no seu código no Serviço de Aplicativo do Azure
 
@@ -24,12 +24,12 @@ Quando você permite que o serviço de aplicativo gerencie seus certificados TLS
 
 Para seguir este guia de instruções, é necessário ter:
 
-- [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/)
+- [Crie um aplicativo do Serviço de Aplicativo](./index.yml)
 - [Adicionar um certificado ao seu aplicativo](configure-ssl-certificate.md)
 
 ## <a name="find-the-thumbprint"></a>Localizar a impressão digital
 
-No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **serviços de aplicativos**  >  **\<app-name>** .
+No <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, no menu à esquerda, selecione **Serviços de Aplicativos** >  **\<app-name>** .
 
 No painel de navegação à esquerda do seu aplicativo, selecione **configurações de TLS/SSL**e, em seguida, selecione **certificados de chave privada (. pfx)** ou **certificados de chave pública (. cer)**.
 
@@ -164,4 +164,4 @@ Para ver como carregar um certificado TLS/SSL de um arquivo em Node.js, PHP, Pyt
 * [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Impor o TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Perguntas frequentes: Certificados do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Perguntas frequentes: Certificados do Serviço de Aplicativo](./faq-configuration-and-management.md)

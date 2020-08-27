@@ -1,18 +1,18 @@
 ---
 title: Corrigir recursos sem conformidade
 description: Este guia o orienta pela correção de recursos que não estão em conformidade com as políticas no Azure Policy.
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636301"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958738"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corrigir recursos que não estão em conformidade com o Azure Policy
 
-Recursos que não estão em conformidade com uma política de **deployIfNotExists** ou **modify** podem ser colocados em um estado de conformidade por meio de **Correção**. A correção é realizada instruindo-se o Azure Policy a executar o efeito de **deployIfNotExists** ou a marca **operations** da política atribuída em seus recursos existentes, independentemente se essa atribuição é para um grupo de gerenciamento, uma assinatura, um grupo de recursos ou um recurso individual. Este artigo mostra as etapas necessárias para entender e realizar a correção com o Azure Policy.
+Recursos que não estão em conformidade com uma política de **deployIfNotExists** ou **modify** podem ser colocados em um estado de conformidade por meio de **Correção**. A correção é realizada instruindo Azure Policy a executar o efeito de **deployIfNotExists** ou as **operações de modificação** da política atribuída em seus recursos existentes, seja essa atribuição para um grupo de gerenciamento, uma assinatura, um grupo de recursos ou um recurso individual. Este artigo mostra as etapas necessárias para entender e realizar a correção com o Azure Policy.
 
 ## <a name="how-remediation-security-works"></a>Como funciona a correção de segurança
 

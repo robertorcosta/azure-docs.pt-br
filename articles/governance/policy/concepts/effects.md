@@ -1,14 +1,14 @@
 ---
 title: Entender como funcionam os efeitos
 description: As definições do Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544716"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958755"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -479,14 +479,33 @@ Exemplo: a regra de controle de admissão do Gatekeeper v2 para permitir apenas 
 
 ## <a name="modify"></a>Modificar
 
-Modify é usado para adicionar, atualizar ou remover marcas em um recurso durante a criação ou atualização. Um exemplo comum é a atualização de marcas em recursos como costCenter. Uma política Modify sempre deve ter `mode` definido como _Indexed_, a menos que o recurso de destino seja um grupo de recursos. Os recursos fora de conformidade existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md). Uma única regra Modify pode ter qualquer quantidade de operações.
+Modify é usado para adicionar, atualizar ou remover propriedades ou marcas em um recurso durante a criação ou atualização.
+Um exemplo comum é a atualização de marcas em recursos como costCenter. Os recursos fora de conformidade existentes podem ser corrigidos com uma [tarefa de correção](../how-to/remediate-resources.md). Uma única regra Modify pode ter qualquer quantidade de operações.
+
+As seguintes operações são suportadas pela modificação:
+
+- Adicionar, substituir ou remover marcas de recurso. Para marcas, uma política de modificação deve ter `mode` definido como _indexado_ , a menos que o recurso de destino seja um grupo de recursos.
+- Adicionar ou substituir o valor do tipo de identidade gerenciada ( `identity.type` ) de máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais.
+- Adicionar ou substituir os valores de determinados aliases (versão prévia).
+  - Use `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`.
+    em Azure PowerShell para obter uma lista de aliases que podem ser usados com Modify.
 
 > [!IMPORTANT]
-> No momento, Modify é usado apenas com marcas. Caso você esteja gerenciando marcas, recomendamos o uso de Modify em vez de Append, já que Modify fornece tipos de operação adicionais e a capacidade de corrigir recursos existentes. No entanto, recomendamos o uso de Append caso você não consiga criar uma identidade gerenciada.
+> Se você estiver gerenciando marcas, é recomendável usar modificar em vez de acrescentar como modificar fornece tipos de operação adicionais e a capacidade de corrigir recursos existentes. No entanto, Append é recomendado se você não conseguir criar uma identidade gerenciada ou Modify ainda não oferecer suporte ao alias para a propriedade de recurso.
 
 ### <a name="modify-evaluation"></a>Avaliação de Modify
 
-O efeito Modify é avaliado antes que a solicitação seja processada por um provedor de recursos durante a criação ou a atualização de um recurso. Modify adiciona ou atualiza marcas em um recurso quando a condição **if** da regra de política é atendida.
+O efeito Modify é avaliado antes que a solicitação seja processada por um provedor de recursos durante a criação ou a atualização de um recurso. As operações de modificação são aplicadas ao conteúdo da solicitação quando a condição **If** da regra de política é atendida. Cada operação de modificação pode especificar uma condição que determina quando ela é aplicada. As operações com condições que são avaliadas como _false_ são ignoradas.
+
+Quando um alias é especificado, as seguintes verificações adicionais são executadas para garantir que a operação de modificação não altere o conteúdo da solicitação de forma que faça com que o provedor de recursos o rejeite:
+
+- A propriedade mapeada pelo alias é marcada como "modificável" na versão da API da solicitação.
+- O tipo de token na operação de modificação corresponde ao tipo de token esperado para a propriedade na versão de API da solicitação.
+
+Se uma dessas verificações falhar, a avaliação da política retornará para o **conflictEffect**especificado.
+
+> [!IMPORTANT]
+> É Recommeneded que modificar as definições que incluem aliases usam o **efeito de conflito** de _auditoria_ para evitar solicitações com falha usando versões de API em que a propriedade mapeada não é ' modificável '. Se o mesmo alias se comporta de forma diferente entre as versões de API, as operações de modificação condicional podem ser usadas para determinar a operação de modificação usada para cada versão de API.
 
 Quando uma definição de política usando o efeito Modify é executada como parte de um ciclo de avaliação, ela não faz alterações em recursos já existentes. Em vez disso, ela marca qualquer recurso que atende a condição **se** como não conforme.
 
@@ -498,7 +517,7 @@ A propriedade **details** do efeito Modify tem todas as subpropriedades que defi
   - Essa propriedade deve incluir uma matriz de cadeias de caracteres que correspondem à ID de controle de acesso baseado em função que pode ser acessada pela assinatura. Para obter mais informações, confira [correção – configurar a definição de política](../how-to/remediate-resources.md#configure-policy-definition).
   - A função definida deve incluir todas as operações concedidas à função de [Colaborador](../../../role-based-access-control/built-in-roles.md#contributor).
 - **conflictEffect** (opcional)
-  - Determina qual definição de política "WINS" no caso de mais de uma definição de política modificar a mesma propriedade.
+  - Determina qual definição de política "WINS" no caso de mais de uma definição de política modifica a mesma propriedade ou quando a operação de modificação não funciona no alias especificado.
     - Para recursos novos ou atualizados, a definição de política com _Deny_ tem precedência. As definições de política com _auditoria_ ignoram todas as **operações**. Se mais de uma definição de política tiver _negação_, a solicitação será negada como um conflito. Se todas as definições de política tiverem _auditoria_, nenhuma das **operações** das definições de política conflitantes serão processadas.
     - Para recursos existentes, se mais de uma definição de política tiver _negação_, o status de conformidade será _conflito_. Se uma ou menos definições de política tiverem _negação_, cada atribuição retornará um status de conformidade de _não compatível_.
   - Valores disponíveis: _auditoria_, _negar_, _desabilitado_.
@@ -513,6 +532,9 @@ A propriedade **details** do efeito Modify tem todas as subpropriedades que defi
     - **value** (opcional)
       - O valor a ser definido para a marca.
       - Essa propriedade será necessária se a **operação** for _addOrReplace_ ou _Add_.
+    - **condição** (opcional)
+      - Uma cadeia de caracteres que contém uma expressão de linguagem Azure Policy com [funções de política](./definition-structure.md#policy-functions) que são avaliadas como _true_ ou _false_.
+      - O não oferece suporte às seguintes funções de política: `field()` , `resourceGroup()` , `subscription()` .
 
 ### <a name="modify-operations"></a>Operações de Modify
 
@@ -548,9 +570,9 @@ A propriedade **operation** tem as seguintes opções:
 
 |Operação |Descrição |
 |-|-|
-|addOrReplace |Adiciona a marca e o valor definidos ao recurso, mesmo que a marca já exista com um valor diferente. |
-|Adicionar |Adiciona a marca e o valor definidos ao recurso. |
-|Remover |Remove a marca definida do recurso. |
+|addOrReplace |Adiciona a propriedade ou marca definida e o valor ao recurso, mesmo que a propriedade ou marca já exista com um valor diferente. |
+|Adicionar |Adiciona a propriedade definida ou a marca e o valor ao recurso. |
+|Remover |Remove a propriedade ou marca definida do recurso. |
 
 ### <a name="modify-examples"></a>Exemplos de Modify
 
@@ -593,6 +615,28 @@ Exemplo 2: Remova a marca `env` e adicione a marca `environment` ou substitua as
                 "operation": "addOrReplace",
                 "field": "tags['environment']",
                 "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+Exemplo 3: Verifique se uma conta de armazenamento não permite acesso público de BLOB, a operação de modificação é aplicada somente ao avaliar solicitações com a versão de API maior ou igual a "2019-04-01":
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
             }
         ]
     }

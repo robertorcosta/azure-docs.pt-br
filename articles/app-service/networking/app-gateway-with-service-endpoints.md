@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080925"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958926"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração do gateway de aplicativo com pontos de extremidade de serviço
 Há três variações do serviço de aplicativo que exigem uma configuração um pouco diferente da integração com Aplicativo Azure gateway. As variações incluem o serviço de aplicativo regular, também conhecido como ILB (multilocatário, Load Balancer interno) Ambiente do Serviço de Aplicativo (ASE) e ASE externo. Este artigo explicará como configurá-lo com o serviço de aplicativo (multilocatário) e discutirá considerações sobre o ILB e o ASE externo.
@@ -84,6 +84,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre o Ambiente do Serviço de Aplicativo, consulte [ambiente do serviço de aplicativo documentação](https://docs.microsoft.com/azure/app-service/environment).
+Para obter mais informações sobre o Ambiente do Serviço de Aplicativo, consulte [ambiente do serviço de aplicativo documentação](/azure/app-service/environment).
 
 Para proteger ainda mais seu aplicativo Web, as informações sobre o Firewall do aplicativo Web no gateway de aplicativo podem ser encontradas na [documentação do firewall do aplicativo Web do Azure](../../web-application-firewall/ag/ag-overview.md).

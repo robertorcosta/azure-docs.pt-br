@@ -4,18 +4,18 @@ description: Saiba como Azure App serviço atualiza o sistema operacional e os t
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414931"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961509"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do runtime no Serviço de Aplicativo do Azure
 
 Este artigo mostra como obter determinadas informações de versão sobre o sistema operacional ou o software no [Serviço de Aplicativo](overview.md). 
 
-O Serviço de Aplicativo é considerado Plataforma como Serviço, o que significa que o sistema operacional e a pilha de aplicativos são gerenciados para você pelo Azure; você apenas gerencia seu aplicativo e os dados do aplicativo. Mais controle sobre o sistema operacional e a pilha de aplicativos está disponível em [Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/virtual-machines/). Mesmo considerando isso, é útil para você, como um usuário do Serviço de Aplicativo, saber mais informações, como:
+O Serviço de Aplicativo é considerado Plataforma como Serviço, o que significa que o sistema operacional e a pilha de aplicativos são gerenciados para você pelo Azure; você apenas gerencia seu aplicativo e os dados do aplicativo. Mais controle sobre o sistema operacional e a pilha de aplicativos está disponível em [Máquinas Virtuais do Azure](../virtual-machines/index.yml). Mesmo considerando isso, é útil para você, como um usuário do Serviço de Aplicativo, saber mais informações, como:
 
 -   Como e quando as atualizações do sistema operacional são aplicadas?
 -   Como o Serviço de Aplicativo é corrigido contra vulnerabilidades significativas (como ameaça de dia zero)?
@@ -25,7 +25,7 @@ Por motivos de segurança, algumas informações específicas sobre segurança n
 
 ## <a name="how-and-when-are-os-updates-applied"></a>Como e quando as atualizações do sistema operacional são aplicadas?
 
-O Azure gerencia a aplicação de patch do sistema operacional em dois níveis: nos servidores físicos e nas máquinas virtuais (VMs) convidadas que executam os recursos do Serviço de Aplicativo. Ambos são atualizados mensalmente, o que se alinha ao agendamento do [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) mensal. Essas atualizações são aplicadas automaticamente, de maneira a garantir o SLA de alta disponibilidade dos serviços do Azure. 
+O Azure gerencia a aplicação de patch do sistema operacional em dois níveis: nos servidores físicos e nas máquinas virtuais (VMs) convidadas que executam os recursos do Serviço de Aplicativo. Ambos são atualizados mensalmente, o que se alinha ao agendamento do [Patch Tuesday](/security-updates/) mensal. Essas atualizações são aplicadas automaticamente, de maneira a garantir o SLA de alta disponibilidade dos serviços do Azure. 
 
 Para obter informações detalhadas de como as atualizações são aplicadas, consulte [Desmistificando a mágica por trás das atualizações do sistema operacional do Serviço de Aplicativo](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
@@ -55,7 +55,7 @@ As atualizações de patch para .NET, PHP, SDK do Java ou para a versão Tomcat/
 
 ### <a name="new-major-and-minor-versions"></a>Novas versões principais e secundárias
 
-Quando uma nova versão principal ou secundária é adicionada, ela é instalada lado a lado com as versões existentes. Você pode atualizar manualmente seu aplicativo para a nova versão. Se você configurou a versão do runtime em um arquivo de configuração (como `web.config` e `package.json`), é necessário atualizar com o mesmo método. Se você tiver usado uma configuração do Serviço de Aplicativo para configurar a sua versão do runtime, você poderá alterá-la no [Portal do Azure](https://portal.azure.com) ou por meio da execução de um comando da [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no [Cloud Shell](../cloud-shell/overview.md), como mostrado nos exemplos a seguir:
+Quando uma nova versão principal ou secundária é adicionada, ela é instalada lado a lado com as versões existentes. Você pode atualizar manualmente seu aplicativo para a nova versão. Se você configurou a versão do runtime em um arquivo de configuração (como `web.config` e `package.json`), é necessário atualizar com o mesmo método. Se você tiver usado uma configuração do Serviço de Aplicativo para configurar a sua versão do runtime, você poderá alterá-la no [Portal do Azure](https://portal.azure.com) ou por meio da execução de um comando da [CLI do Azure](/cli/azure/get-started-with-azure-cli) no [Cloud Shell](../cloud-shell/overview.md), como mostrado nos exemplos a seguir:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -75,7 +75,7 @@ Embora as informações críticas do sistema operacional tenham acesso bloqueado
 
 A tabela a seguir mostra como encontrar informações sobre as versões do Windows e do runtime da linguagem que está executando seus aplicativos:
 
-| Informações | Onde encontrá-las | 
+| Informações do | Onde encontrá-las | 
 |-|-|
 | Versão do Windows | Consulte `https://<appname>.scm.azurewebsites.net/Env.cshtml` (em Informações do Sistema) |
 | Versão do .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |
@@ -86,7 +86,7 @@ A tabela a seguir mostra como encontrar informações sobre as versões do Windo
 | Versão Java | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br> `java -version` |  
 
 > [!NOTE]  
-> O acesso ao local do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, em que as informações sobre [patches "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) é armazenada, está bloqueado.
+> O acesso ao local do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, em que as informações sobre [patches "KB"](/security-updates/SecurityBulletins/securitybulletins) é armazenada, está bloqueado.
 >
 >
 
