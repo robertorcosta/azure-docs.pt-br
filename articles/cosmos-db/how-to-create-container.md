@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6e62e307b6c5f5de939505eae8850f0117782a69
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498354"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019990"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um contêiner do Azure Cosmos
 
@@ -23,7 +23,7 @@ Este artigo explica as diferentes maneiras de criar um contêiner Cosmos do Azur
 
 ## <a name="create-a-container-using-azure-portal"></a>Criar um contêiner usando o portal do Azure
 
-### <a name="sql-api"></a><a id="portal-sql"></a>API do SQL
+### <a name="sql-api"></a><a id="portal-sql"></a>API DO SQL
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 

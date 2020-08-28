@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
-ms.openlocfilehash: 1f5609eae106e04928bc2c49bd84aa651b224611
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 787c39681d0e9aff25d205c7b195be00b8c0bc9c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261572"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020007"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Converter formatos de token de sessão no SDK do .NET
 
@@ -31,11 +32,11 @@ Há dois formatos de token de sessão: **simples** e **vetor**.  Esses dois form
 
 ### <a name="simple-session-token"></a>Token de sessão simples
 
-Um token de sessão simples tem este formato:`{pkrangeid}:{globalLSN}`
+Um token de sessão simples tem este formato: `{pkrangeid}:{globalLSN}`
 
 ### <a name="vector-session-token"></a>Token de sessão de vetor
 
-Um token de sessão de vetor tem o seguinte formato:`{pkrangeid}:{Version}#{GlobalLSN}#{RegionId1}={LocalLsn1}#{RegionId2}={LocalLsn2}....#{RegionIdN}={LocalLsnN}`
+Um token de sessão de vetor tem o seguinte formato: `{pkrangeid}:{Version}#{GlobalLSN}#{RegionId1}={LocalLsn1}#{RegionId2}={LocalLsn2}....#{RegionIdN}={LocalLsnN}`
 
 ## <a name="convert-to-simple-session-token"></a>Converter em token de sessão simples
 

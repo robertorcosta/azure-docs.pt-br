@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705365"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020330"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
@@ -26,7 +27,7 @@ Os registros de chave simétrica também são uma ótima maneira para que dispos
 
 ## <a name="symmetric-key-creation"></a>Criação da chave simétrica
 
-Por padrão, o serviço de provisionamento de dispositivos cria chaves simétricas com um tamanho padrão de 32 bytes quando novos registros são salvos com a opção **Gerar chaves automaticamente** habilitada.
+Por padrão, o serviço de provisionamento de dispositivos cria novas chaves simétricas com um comprimento padrão de 64 bytes quando novos registros são salvos com a opção **gerar chaves automaticamente** habilitada.
 
 ![Gerar chaves simétricas automaticamente](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 

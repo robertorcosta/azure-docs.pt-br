@@ -3,12 +3,13 @@ title: Transferências, bloqueios e liquidações de mensagens do barramento de 
 description: Este artigo fornece uma visão geral das operações de transferência, bloqueios e transferências de mensagens do barramento de serviço do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 22be139fccdeecee846c204a8035804fb897ae5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fd71edd12e478bcd5f14815c105c14482cf7e2bd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341153"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020024"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferências de mensagem, bloqueios e liquidação
 

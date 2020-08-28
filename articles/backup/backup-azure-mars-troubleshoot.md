@@ -3,12 +3,12 @@ title: Solucionar problemas do agente de backup do Azure
 description: Neste artigo, saiba como solucionar problemas de instalação e registro do agente de backup do Azure.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763500"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019616"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solucionar problemas do agente de Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -83,7 +83,7 @@ Recomendamos que você verifique o seguinte antes de iniciar a solução de prob
 
 ## <a name="backup-jobs-completed-with-warning"></a>Trabalhos de backup concluídos com aviso
 
-- Quando o agente MARS itera sobre arquivos e pastas durante o backup, ele pode encontrar várias condições que podem fazer com que o backup seja marcado como concluído com avisos. Durante essas condições, um trabalho é mostrado como concluído com avisos. Isso é bom, mas significa que pelo menos um arquivo não pôde ser submetido a backup. Portanto, o trabalho ignorou esse arquivo, mas fez backup de todos os outros arquivos em questão na fonte de dados.
+- Quando o agente MARS itera sobre arquivos e pastas durante o backup, ele pode encontrar várias condições que podem fazer com que o backup seja marcado como concluído com avisos. Durante essas condições, um trabalho é mostrado como concluído com avisos. Tudo bem, mas significa que não foi possível fazer backup de pelo menos um arquivo. Portanto, o trabalho ignorou esse arquivo, mas fez backup de todos os outros arquivos em questão na fonte de dados.
 
   ![Trabalho de backup concluído com avisos](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
 
