@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: f4c021531a4d04bf16e5dbee4172952433f675d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 17b325ab15f55a8fc02729c6f5ed0cb0330ecca2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77912997"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016828"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detectar movimentos com o Azure Media Analytics
 
@@ -98,18 +99,18 @@ A API do Motion Detector fornecerá indicadores quando houver objetos em movimen
 
 A tabela a seguir descreve os elementos do arquivo JSON de saída:
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | --- | --- |
 | version |Refere-se à versão da API de Vídeo. A versão atual é 2. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
 | deslocamento |A diferença de horário para carimbos de data/hora em "tiques." Na versão 1.0 das APIs de Vídeo, sempre será 0. Em cenários futuro para os quais oferecemos suporte, esse valor poderá ser alterado. |
 | taxa de quadros |Quadros por segundo do vídeo. |
 | largura, altura |Refere-se à largura e à altura do vídeo em pixels. |
-| iniciar |O carimbo de hora inicial em "tiques". |
+| start |O carimbo de hora inicial em "tiques". |
 | duration |A duração do evento, em "tiques". |
 | intervalo |O intervalo de cada entrada no evento, em "tiques". |
 | events |Cada fragmento de evento contém o movimento detectado dentro dessa duração. |
-| tipo |Na versão atual, essa opção sempre será “2” para movimentos genéricos. Esse rótulo dá a flexibilidade às APIs de Vídeo para categorizar o movimento em futuras versões. |
+| type |Na versão atual, essa opção sempre será “2” para movimentos genéricos. Esse rótulo dá a flexibilidade às APIs de Vídeo para categorizar o movimento em futuras versões. |
 | regionId |Conforme explicado acima, isso sempre será 0 nesta versão. Esse rótulo oferece à API de Vídeo a flexibilidade de encontrar o movimento em várias regiões em versões futuras. |
 | regions |Refere-se à área no vídeo onde você se preocupa com movimento. <br/><br/>-"id" representa a área de região – nesta versão há apenas uma, ID 0. <br/>-"type" representa a forma da região em que você se preocupa com o movimento. Atualmente, "retângulo" e "polígono" têm suporte.<br/>  Se você tiver especificado "retângulo", a região terá dimensões em X, Y, largura e altura. As coordenadas X e Y representam as coordenadas XY do lado superior esquerdo da região em uma escala normalizada de 0,0 a 1,0. A largura e a altura representam o tamanho da região em uma escala normalizada de 0,0 a 1,0. Na versão atual, X, Y, largura e altura são sempre fixos em 0, 0 e 1, 1. <br/>Se você tiver especificado "polígono", a região terá dimensões em pontos. <br/> |
 | fragmentos |Os metadados são agrupados em segmentos diferentes, chamados fragmentos. Cada fragmento contém um início, uma duração, um número de intervalo e evento(s). Um fragmento sem eventos significa que nenhum movimento foi detectado durante essa hora de início e duração. |

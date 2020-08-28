@@ -4,12 +4,12 @@ description: Neste artigo, saiba como atualizar a configuração do cofre usando
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 3ee2d57b5589daa756020ebb787a5400ed244506
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 8890cb541e38f8bc8b680fbcfeb821f29723e8c0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890035"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007104"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Atualizar as configurações do cofre dos serviços de recuperação do Azure usando a API REST
 
@@ -33,7 +33,7 @@ Para buscar o estado atual de exclusão reversível para um cofre, use a seguint
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-O URI Get tem `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são fornecidos no URI, não é necessário ter o corpo da solicitação separado.
+O URI Get tem `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` parâmetros. Neste exemplo, `{vaultName}` é "testVault" e `{vaultresourceGroupName}` é "testVaultRG". Como todos os parâmetros necessários são fornecidos no URI, não há necessidade de um corpo de solicitação separado.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -85,8 +85,8 @@ Para obter mais detalhes, consulte [a documentação da API REST](/rest/api/back
 
 |Nome  |Obrigatório  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  eTag Opcional       |
-|local     |  true       |String         |   Localização do recurso      |
+|eTag     |         |   Cadeia de caracteres      |  eTag Opcional       |
+|local     |  true       |Cadeia de caracteres         |   Localização do recurso      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |marcas     |         | Objeto        |     Marcações de recursos    |
 

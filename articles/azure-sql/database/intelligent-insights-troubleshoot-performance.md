@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 329d3208037548bd1cb5a5564a4a393747ed48f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986368"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017270"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada com Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -168,7 +168,7 @@ Como um pagelatch é um mecanismo de controle interno, ele determina automaticam
 
 Um método de lidar com contenção de trava é substituir uma chave de índice sequencial por uma não sequencial para distribuir uniformemente as inserções em um intervalo de índice. Normalmente, uma coluna à esquerda no índice distribui a carga de trabalho proporcionalmente. Outro método a considerar é o particionamento de tabela. Uma abordagem comum para reduzir a contenção excessiva de travas é criar um esquema de particionamento de hash com uma coluna computada em uma tabela particionada. No caso de contenção de E/S pagelatch, introduzir índices ajuda a reduzir esse problema de desempenho.
 
-Para obter mais informações, consulte [Diagnosticar e resolver contenção de trava no SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (download do PDF).
+Para obter mais informações, consulte [Diagnosticar e resolver contenção de trava no SQL Server](http://databaser.net/moniwiki/pds/PerformanceTuning/SQLServerLatchContention.pdf) (download do PDF).
 
 ## <a name="missing-index"></a>Índice ausente
 

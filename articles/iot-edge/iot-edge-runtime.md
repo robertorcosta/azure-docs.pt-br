@@ -8,15 +8,13 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:
-- amqp
-- mqtt
-ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, mqtt, devx-track-csharp
+ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730903"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016947"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Reconhecer o runtime do Azure IoT Edge e sua arquitetura
 
@@ -93,21 +91,21 @@ Cada item no manifesto de implantação contém informações específicas sobre
 
   * Baixando
   * Executando
-  * Não Íntegro
-  * Falhou
+  * Unhealthy
+  * Com falha
   * Parado
 
 * **restartPolicy** – como o agente do IoT Edge reinicia um módulo. Os valores possíveis incluem:
   
-  * `never`– O agente de IoT Edge nunca reinicia o módulo.
-  * `on-failure`-Se o módulo falhar, o agente de IoT Edge o reiniciará. Se o módulo for desligado corretamente, o agente de IoT Edge não o reiniciará.
-  * `on-unhealthy`-Se o módulo falhar ou for considerado não íntegro, o agente de IoT Edge o reiniciará.
-  * `always`-Se o módulo falhar, for considerado não íntegro ou for desligado de alguma forma, o agente de IoT Edge o reiniciará.
+  * `never` – O agente de IoT Edge nunca reinicia o módulo.
+  * `on-failure` -Se o módulo falhar, o agente de IoT Edge o reiniciará. Se o módulo for desligado corretamente, o agente de IoT Edge não o reiniciará.
+  * `on-unhealthy` -Se o módulo falhar ou for considerado não íntegro, o agente de IoT Edge o reiniciará.
+  * `always` -Se o módulo falhar, for considerado não íntegro ou for desligado de alguma forma, o agente de IoT Edge o reiniciará.
 
 * **imagePullPolicy** -se o agente de IOT Edge tenta extrair a imagem mais recente de um módulo automaticamente ou não. Se você não especificar um valor, o padrão será *OnCreate*. Os valores possíveis incluem:
 
-  * `on-create`-Ao iniciar um módulo ou atualizar um módulo com base em um novo manifesto de implantação, o agente de IoT Edge tentará extrair a imagem do módulo do registro de contêiner.
-  * `never`-O agente de IoT Edge nunca tentará extrair a imagem do módulo do registro de contêiner. Com essa configuração, você é responsável por obter a imagem do módulo para o dispositivo e gerenciar quaisquer atualizações de imagem.
+  * `on-create` -Ao iniciar um módulo ou atualizar um módulo com base em um novo manifesto de implantação, o agente de IoT Edge tentará extrair a imagem do módulo do registro de contêiner.
+  * `never` -O agente de IoT Edge nunca tentará extrair a imagem do módulo do registro de contêiner. Com essa configuração, você é responsável por obter a imagem do módulo para o dispositivo e gerenciar quaisquer atualizações de imagem.
 
 O agente do IoT Edge envia a resposta de runtime para o Hub IoT. Aqui está uma lista das possíveis respostas:
   

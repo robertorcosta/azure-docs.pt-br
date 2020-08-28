@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b3cf2603dec7e921159824f565336cd91a575731
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8d222eca76f020703f89dd1bdd5848cec4bc52ca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205663"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006526"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Drivers MySQL e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL
 Esse artigo descreve os drivers e as ferramentas de gerenciamento compatíveis com o Banco de Dados do Azure para MySQL.
@@ -34,7 +34,7 @@ O Banco de Dados do Azure para MySQL usa a edição de comunidade mais popular d
 | C | Conector do MySQL/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
 | C | Conector do MySQL/ODBC (MyODBC) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | Conector do MySQL/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 e abaixo | | 
-| C++ | MySQL + +| https://tangentsoft.net/mysql++ | 3.2.3 + | | |
+| C++ | MySQL + +| https://github.com/tangentsoft/mysqlpp | 3.2.3 + | | |
 | Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
 | R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16 + | | |
 | Swift | MySQL-Swift | https://github.com/novi/mysql-swift | 0.7.2 + | | |
@@ -48,7 +48,7 @@ A vantagem de compatibilidade se estende para as ferramentas de gerenciamento de
 | **Criar, atualizar, ler, gravar, excluir** | X | X | X |
 | **Conexão SSL** | X | X | X |
 | **Preenchimento automático da consulta SQL** | X | X |  |
-| **Importação e exportação de dados** | X | X | X |
+| **Importar e exportar dados** | X | X | X |
 | **Exportar para vários formatos** | X | X | X |
 | **Backup e restauração** |  | X |  |
 | **Exibir parâmetros do servidor** | X | X | X |

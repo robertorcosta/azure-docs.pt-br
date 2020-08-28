@@ -3,12 +3,13 @@ title: Reliable Actors temporizadores e lembretes
 description: Introdução a temporizadores e lembretes para Service Fabric Reliable Actors, incluindo diretrizes sobre quando usar cada um deles.
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.openlocfilehash: a464fda3f8b0f293efd36cf0a064156bd7795d44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2b97b15ca4eb287f8d8f2c1af932f22acafae546
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245939"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016539"
 ---
 # <a name="actor-timers-and-reminders"></a>Lembretes e temporizadores de ator
 Os atores podem agendar o trabalho periódico neles mesmos ao registrarem temporizadores ou lembretes. Este artigo mostra como usar temporizadores e lembretes e explica as diferenças entre eles.

@@ -3,7 +3,7 @@ title: Usar identidades gerenciadas em uma VM do Azure para entrar no Azure AVÇ
 description: Instruções passo a passo e exemplos para usar uma identidade gerenciada por VM do Azure para a entidade de serviço de recursos do Azure para entrada de cliente de script e acesso a recursos.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 058058b975116fabcbc242f46afb09dff8df08b6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 02815003bf5167a73c1e2362d9270deb867c84b7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480434"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999403"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para entrada 
 

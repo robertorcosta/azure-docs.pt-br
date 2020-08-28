@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 8e462cc5fa82b8692304f58ef6cf0ea0e2db8725
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dd3a61db32fb8e442beb42bd45c88da8559a29dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245969"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016641"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Enumerar Reliable Actors do Service Fabric
 O serviço Reliable Actors permite que um cliente enumere metadados sobre os atores que estão sendo hospedados pelo serviço. Como o serviço de ator é um serviço com estado particionado, a enumeração é realizada por partição. Como cada partição pode conter vários atores, a enumeração é retornada como um conjunto de resultados paginados. É executado um loop das páginas até que todas as páginas sejam lidas. O seguinte exemplo mostra como criar uma lista de todos os atores ativos em uma partição de um serviço de ator:

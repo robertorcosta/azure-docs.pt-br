@@ -5,12 +5,13 @@ author: amanbha
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: db47a758d33c3ed6e861601285e7737514ab416d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3cea6213b2c6f2797d46f865afe1e13cbf4aaff6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260440"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016692"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Ciclo de vida, coleta automática de lixo e exclusão manual do ator
 Um ator é ativado na primeira vez que uma chamada é feita para qualquer um de seus métodos. Um ator será desativado (lixo coletado pelo runtime dos Atores) se ele não for usado pelo período configurável. Um ator e seu estado também podem ser excluídos manualmente a qualquer momento.

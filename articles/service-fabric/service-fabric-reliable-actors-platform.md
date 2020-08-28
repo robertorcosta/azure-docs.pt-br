@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: 621e325d0b549d2970180a5a40eb09260c1f2ee0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1cd90d4567bde6cd2c4f2a29e2d516b51b79e2af
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86253466"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016607"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como Reliable Actors usam a plataforma do Service Fabric
 Este artigo explica sobre o funcionamento dos Reliable Actors na plataforma do Azure Service Fabric. Reliable Actors executado em uma estrutura hospedada em uma implementação de um serviço confiável com estado chamado *serviço de ator*. O serviço de ator contém todos os componentes necessários para gerenciar o ciclo de vida e a expedição de mensagens para seus atores:

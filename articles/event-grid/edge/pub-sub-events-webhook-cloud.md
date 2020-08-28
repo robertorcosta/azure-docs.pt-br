@@ -7,12 +7,13 @@ ms.author: vkukke
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: ff49e9baf83d52ba7c40d0c0a9efbd72cee66cd9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 12bcb54f4bfdf17209324febeba380ff7789fc0f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171492"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998978"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutorial: publicar, assinar eventos na nuvem
 
@@ -20,7 +21,7 @@ Este artigo percorre todas as etapas necessárias para publicar e assinar evento
 
 Consulte [conceitos da grade de eventos](concepts.md) para entender o que é um tópico e uma assinatura da grade de eventos antes de continuar.
 
-## <a name="prerequisites"></a>Prerequisites 
+## <a name="prerequisites"></a>Pré-requisitos 
 Para concluir este tutorial, você precisará de:
 
 * **Assinatura do Azure** – crie uma [conta gratuita](https://azure.microsoft.com/free) se você ainda não tiver uma. 
@@ -184,7 +185,7 @@ Os assinantes podem se registrar para eventos publicados em um tópico. Para rec
 
 Você pode exibir o evento entregue no portal do Azure na opção **monitorar** da sua função.
 
-## <a name="cleanup-resources"></a>Limpar os recursos
+## <a name="cleanup-resources"></a>Recursos de limpeza
 
 * Execute o seguinte comando para excluir o tópico e todas as suas assinaturas
 
