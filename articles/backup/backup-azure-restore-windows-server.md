@@ -3,12 +3,12 @@ title: Restaurar arquivos no Windows Server com o agente MARS
 description: Neste artigo, aprenda a restaurar os dados armazenados no Azure em um computador ou servidor Windows com o agente MARS (Serviços de Recuperação do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 59e212b31d79c0d9a75369e542fee5e86f29653a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892500"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018902"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Restaurar arquivos no Windows Server com o agente MARS
 
@@ -89,7 +89,7 @@ Essas etapas incluem a seguinte terminologia:
 * *Cofre de exemplo*: o cofre dos Serviços de Recuperação no qual a máquina de origem e a máquina de destino estão registradas.
 
 > [!NOTE]
-> Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito em um computador com Windows 7 pode ser restaurado em um computador com Windows 7 (ou posterior). Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
+> Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito em um computador com Windows 7 pode ser restaurado em um computador com Windows 7 (ou posterior). Um backup feito de um computador com Windows 10 não pode ser restaurado para um computador com Windows 7.
 >
 >
 

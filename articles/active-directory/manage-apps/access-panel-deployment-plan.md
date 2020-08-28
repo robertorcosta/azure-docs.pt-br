@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: b7ddbff2643086f1875ca190b67f521edb115c3e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930529"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017712"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planejar uma implantação do Azure Active Directory meus aplicativos
 
-Azure Active Directory (AD do Azure) meus aplicativos é um portal baseado na Web que ajuda a reduzir os custos de suporte, aumentar a produtividade e a segurança e reduzir a frustração do usuário. O sistema inclui relatórios detalhados que controlam quando você acessa o sistema e notifica os administradores de uso indevido ou abuso.
+Azure Active Directory (AD do Azure) meus aplicativos é um portal baseado na Web que ajuda a reduzir os custos de suporte, aumentar a produtividade e a segurança e reduzir a frustração do usuário. O sistema inclui relatórios detalhados que controlam quando você acessa o sistema e notifica os administradores de uso indevido ou abuso. Para saber mais sobre como usar meus aplicativos de uma perspectiva do usuário final, consulte [a ajuda do portal de meus aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 Usando meus aplicativos do Azure AD, você pode:
 
@@ -42,7 +42,7 @@ Os meus aplicativos do Azure AD beneficiam as empresas das seguintes maneiras:
 
 **Fornece uma experiência de usuário intuitiva**: meus aplicativos fornece uma única plataforma para todos os seus aplicativos conectados ao SSO (logon único) do Azure. Você tem um portal unificado para encontrar configurações existentes e novos recursos, como gerenciamento de grupo e redefinição de senha de autoatendimento, conforme eles são adicionados. A experiência intuitiva permite que os usuários retornem para o trabalho mais rápido e sejam mais produtivos, ao mesmo tempo em que reduzem sua frustração.
 
-**Aumenta a produtividade**: todos os aplicativos de usuário em meus aplicativos têm o SSO habilitado. Habilitar o SSO em aplicativos empresariais e Microsoft 365 cria uma experiência de entrada superior ao reduzir ou eliminar prompts de entrada adicionais. Meus aplicativos usam associação dinâmica e de autoatendimento e melhoram a segurança geral do seu sistema de identidade. Ele faz isso garantindo que as pessoas certas gerenciam o acesso aos aplicativos. Meus aplicativos servem como uma página de aterrissagem coerente para que você encontre recursos rapidamente e continue as tarefas de trabalho.
+**Aumenta a produtividade**: todos os aplicativos de usuário em meus aplicativos têm o SSO habilitado. Habilitar o SSO em aplicativos empresariais e Microsoft 365 cria uma experiência de entrada superior ao reduzir ou eliminar prompts de entrada adicionais. Meus aplicativos usam associação dinâmica e de autoatendimento e melhoram a segurança geral do seu sistema de identidade. Meus aplicativos garantem que as pessoas certas gerenciam o acesso aos aplicativos. Meus aplicativos servem como uma página de aterrissagem coerente para que você encontre recursos rapidamente e continue as tarefas de trabalho.
 
 **Gerencia custos**: habilitar meus aplicativos com o Azure AD pode ajudar com o dibenefício das infraestruturas locais. Ele reduz os custos de suporte fornecendo um portal consistente para localizar todos os seus aplicativos, solicitar acesso a recursos e gerenciar contas.
 
@@ -89,6 +89,10 @@ A tabela a seguir descreve os principais casos de uso para uma implantação de 
 | Experiência de usuário| Os usuários podem gerenciar suas contas. |
 | Experiência de usuário| Os usuários estão cientes da compatibilidade do navegador. |
 | Suporte| Os usuários podem encontrar suporte para meus problemas de aplicativos. |
+
+
+> [!TIP]
+> Meus aplicativos podem ser usados com URLs internas da empresa durante o uso remoto do proxy de aplicativo. Para saber mais, consulte [tutorial: adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ### <a name="best-practices-for-deploying-azure-ad-my-apps"></a>Práticas recomendadas para implantar meus aplicativos do Azure AD
 
@@ -255,7 +259,7 @@ Consulte [atribuir usuários e grupos a um aplicativo no Active Directory](metho
 
 Se, durante o teste ou a implantação, você quiser adicionar os grupos, mas ainda não permitir que os aplicativos sejam mostrados em meus aplicativos, consulte [ocultar um aplicativo da experiência do usuário em Azure Active Directory](hide-application-from-user-portal.md).
 
-### <a name="deploy-microsoft-microsoft-365-applications-to-my-apps"></a>Implantar aplicativos do Microsoft Microsoft 365 em meus aplicativos
+### <a name="deploy-microsoft-365-applications-to-my-apps"></a>Implantar aplicativos Microsoft 365 em meus aplicativos
 
 Para aplicativos Microsoft 365, os usuários recebem uma cópia do Office com base em licenças atribuídas a eles. Um pré-requisito para o acesso aos aplicativos do Office é que os usuários recebam as licenças corretas vinculadas aos aplicativos do Office. Quando você atribui uma licença a um usuário, ele verá automaticamente os aplicativos associados à licença na página meus aplicativos e no iniciador do aplicativo Microsoft 365.
 
@@ -303,7 +307,7 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 
 ## <a name="manage-your-implementation"></a>Gerenciar sua implementação
 
-Você deve usar a função menos privilegiada para realizar uma tarefa necessária dentro de Azure Active Directory. [Examine as diferentes funções que estão disponíveis](../users-groups-roles/directory-assign-admin-roles.md) e escolha a correta para resolver suas necessidades para cada pessoa para este aplicativo. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
+Use a função menos privilegiada para realizar uma tarefa necessária dentro do Azure Active Directory. [Examine as diferentes funções que estão disponíveis](../users-groups-roles/directory-assign-admin-roles.md) e escolha a correta para resolver suas necessidades para cada pessoa para este aplicativo. Algumas funções podem precisar ser aplicadas temporariamente e removidas após a conclusão da implantação.
 
 | Personas| Funções| Função do Azure AD  |
 | - | -| -|

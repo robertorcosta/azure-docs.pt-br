@@ -3,12 +3,12 @@ title: Fazer backup de um farm do SharePoint no Azure Stack
 description: Use o Servidor de Backup do Azure para fazer backup e restaurar seus dados do SharePoint no Azure Stack. Este artigo fornece informações para configurar seu farm do SharePoint para que os dados desejados possam ser armazenados no Azure. Você pode restaurar dados protegidos do SharePoint do disco ou do Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7319cf064ab2bab20e4140f8a208be843df7fa71
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538778"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017960"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Fazer backup de um farm do SharePoint no Azure Stack
 
@@ -84,17 +84,17 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
     Quando você expande o VSS das consultas do SharePoint Server MABS para ver quais dados o MABS pode proteger.  Se o banco de dados do SharePoint for remoto, o MABS se conectará a ele. Se as fontes de dados do SharePoint não aparecerem, verifique se o gravador VSS está em execução no servidor do SharePoint e em qualquer SQL Server remoto e se o agente MABS está instalado tanto no servidor do SharePoint quanto no SQL Server remoto. Além disso, verifique se os bancos de dados do SharePoint não estão sendo protegidos em outro lugar como bancos de dados do SQL Server.
 
-1. Em **Selecionar método de proteção de dados**, especifique como deseja lidar com o backup de longo e curto\-prazo. O \-backup de curto prazo é sempre feito primeiro para o disco e, em seguida, com a opção de fazer backup do disco para o Azure Cloud usando o Backup do Azure \(para curto ou longo \-prazo\).
+1. Em **Selecionar método de proteção de dados**, especifique como deseja lidar com o backup de longo e curto\-prazo. \-O backup de curto prazo é sempre para o disco primeiro, com a opção de fazer backup do disco para a nuvem do Azure com o backup do Azure \( por curto ou longo \- prazo \) .
 
 1. Em **Selecione metas de curto\-prazo**, especifique como você deseja fazer backup no armazenamento de curto\-prazo no disco.   Em **Período de retenção**, especifique por quanto tempo deseja manter os dados no disco. Em **Frequência de sincronização**, especifique a frequência na qual você deseja executar um backup incremental no disco. Se você não quiser definir um intervalo de backup, poderá fazer a verificação logo antes de um ponto de recuperação, para que o MABS execute um backup completo expresso antes de cada ponto de recuperação ser agendado.
 
 1. Na página Rever alocação do disco, examine o espaço em disco do pool de armazenamento alocado para o grupo de proteção.
 
-    O **Tamanho total dos dados** é o tamanho dos dados de que você deseja fazer backup e **Espaço em disco a ser provisionado no MABS** é o espaço que o MABS recomenda para o grupo de proteção. O MABS escolhe o volume de backup ideal com base nas configurações. No entanto, você pode editar as opções de volume de backup nos **Detalhes de alocação do disco**. Para as cargas de trabalho, no menu suspenso, selecione o armazenamento preferido. Suas edições alteram os valores de **Armazenamento Total** e **Armazenamento Gratuito** no painel de **Armazenamento em Disco Disponível**. Espaço subprovisionado é a quantidade de MABS de armazenamento que sugere que você adicione ao volume para continuar com os backups sem problemas no futuro.
+    O **Tamanho total dos dados** é o tamanho dos dados de que você deseja fazer backup e **Espaço em disco a ser provisionado no MABS** é o espaço que o MABS recomenda para o grupo de proteção. O MABS escolhe o volume de backup ideal com base nas configurações. No entanto, você pode editar as opções de volume de backup nos **Detalhes de alocação do disco**. Para as cargas de trabalho, selecione o armazenamento preferido no menu suspenso. Suas edições alteram os valores de **Armazenamento Total** e **Armazenamento Gratuito** no painel de **Armazenamento em Disco Disponível**. Espaço subprovisionado é a quantidade de MABS de armazenamento que sugere que você adicione ao volume para continuar com os backups sem problemas no futuro.
 
 1. Em **Escolher método de criação de réplica**, selecione como você deseja controlar a replicação inicial de dados completo.  Se você optar por replicar pela rede, recomendamos que escolha um horário fora de pico. Para grandes quantidades de dados ou condições de rede abaixo do ideal, considere a possibilidade de replicar os dados offline usando mídia removível.
 
-1. Em **Opções de verificação de consistência**, selecione como e quando automatizar as verificações de consistência. Você pode habilitar uma verificação para ser somente executada quando os dados de réplica se tornarem inconsistentes ou de acordo com uma agenda. Se você não quiser configurar a verificação de consistência automática, poderá executar uma verificação manual a qualquer momento clicando com o botão direito do mouse no grupo de proteção na área **Proteção** do console do MABS e selecionando **Executar Verificação de Consistência**.
+1. Em **Escolher opções de verificação de consistência**, selecione como você deseja automatizar as verificações de consistência. Você pode habilitar uma verificação para ser somente executada quando os dados de réplica se tornarem inconsistentes ou de acordo com uma agenda. Se você não quiser configurar a verificação de consistência automática, poderá executar uma verificação manual a qualquer momento clicando com o botão direito do mouse no grupo de proteção na área **Proteção** do console do MABS e selecionando **Executar Verificação de Consistência**.
 
 1. Se você optou por fazer backup na nuvem com o Backup do Azure, na página **Especificar dados de proteção online**, verifique se as cargas de trabalho das quais você deseja fazer backup no Azure estão selecionadas.
 
@@ -102,7 +102,7 @@ Para fazer backup do farm do SharePoint, configure a proteção do SharePoint us
 
 1. Em **Especificar política de retenção online**, você pode especificar como os pontos de recuperação criados nos backups diários, semanais, mensais e anuais são mantidos no Azure.
 
-1. Em **Escolher replicação online**, especifique como ocorrerá a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa a funcionalidade de importação do Azure. [Leia mais](./backup-azure-backup-import-export.md).
+1. Em **Escolher replicação online**, especifique como ocorrerá a replicação inicial completa de dados. Você pode replicar pela rede ou fazer um backup offline (propagação offline). O backup offline usa o recurso Importação do Azure. [Leia mais](./backup-azure-backup-import-export.md).
 
 1. Na página **Resumo**, examine as configurações. Depois de clicar em **Criar Grupo**, ocorre a replicação inicial dos dados. Quando a replicação terminar, o status do grupo de proteção será exibido como **OK** na página **Status**. Em seguida, ocorre o backup em linha com as configurações do grupo de proteção.
 
@@ -128,7 +128,7 @@ Após a criação do grupo de proteção, a replicação inicial ocorre e o MABS
 
 1. No Console do Administrador MABS, clique em **Monitoramento** > **Ação** > **Opções** > **Publicação de alertas** > **Publicar alertas ativos**
 
-2. Depois de habilitar **Publicação de alertas**, todos os alertas do MABS existentes que poderão exigir uma ação do usuário serão publicados no log de eventos **Alertas do MABS**. Em seguida, o agente do Operations Manager que está instalado no servidor MABS publica esses alertas no Operations Manager e continua atualizando o console conforme novos alertas vão sendo gerados.
+2. Depois de habilitar **Publicação de alertas**, todos os alertas do MABS existentes que poderão exigir uma ação do usuário serão publicados no log de eventos **Alertas do MABS**. O agente de Operations Manager que está instalado no servidor MABS publica esses alertas no Operations Manager e continua a atualizar o console à medida que novos alertas são gerados.
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Restaurar um item do SharePoint do disco usando o MABS
 
@@ -148,7 +148,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
 5. Você também pode navegar pelos diversos pontos de recuperação e selecionar um banco de dados ou item para recuperar. Selecione **Data > Hora da recuperação** e escolha o **Banco de Dados > Farm do SharePoint > Ponto de recuperação > Item** correto.
 
     ![Proteção do SharePoint do MABS 7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Clique com o botão direito do mouse no item e selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Avançar**.
+6. Clique com o botão direito do mouse no item e selecione **Recuperar** para abrir o **Assistente de Recuperação**. Clique em **Próximo**.
 
     ![Rever Seleção de Recuperação](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. Selecione o tipo de recuperação que você deseja executar e clique em **Avançar**.
@@ -161,7 +161,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
    >
 8. Selecione o **Processo de Recuperação** que você deseja usar.
 
-   * Selecione **Recuperar sem usar um farm de recuperação** se o farm do SharePoint não tiver sido alterado e for o mesmo que o ponto de recuperação que está sendo restaurado.
+   * Selecione **recuperar sem usar um farm de recuperação** se o farm do SharePoint não tiver sido alterado e for o mesmo que o ponto de recuperação que está sendo restaurado.
    * Selecione **Recuperar usando um farm de recuperação** se o farm do SharePoint tiver sido alterado desde que o ponto de recuperação foi criado.
 
      ![Processo de Recuperação](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -169,7 +169,7 @@ No exemplo a seguir, o *item Recuperando SharePoint* foi excluído acidentalment
 
     ![Local de Preparo1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    O MABS anexa o banco de dados de conteúdo que está hospedando o item do SharePoint à instância temporária do SQL Server. Do banco de dados de conteúdo, ele recupera o item e o coloca no local do arquivo de preparo no MABS. O item recuperado no local de preparo agora precisa ser exportado para o local de preparo no farm do SharePoint.
+    MABS anexa o banco de dados de conteúdo que está hospedando o item do SharePoint à instância de SQL Server temporária. Do banco de dados de conteúdo, ele recupera o item e o coloca no local do arquivo de preparo no MABS. O item recuperado no local de preparo agora precisa ser exportado para o local de preparo no farm do SharePoint.
 
     ![Local de Preparo2](./media/backup-azure-backup-sharepoint/staging-location2.png)
 10. Selecione **Especificar opções de recuperação**e aplique as configurações de segurança ao farm do SharePoint ou aplique as configurações de segurança do ponto de recuperação. Clique em **Próximo**.

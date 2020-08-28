@@ -3,15 +3,15 @@ title: Configurar a autenticação multifator do Azure para área de trabalho vi
 description: Como configurar a autenticação multifator do Azure para aumentar a segurança na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009453"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017763"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitar a Autenticação Multifator do Azure para a Área de Trabalho Virtual do Windows
 
@@ -47,29 +47,36 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
 6. Em **incluir**, selecione **Selecionar usuários e grupos**  >  **usuários e grupos** > escolha o grupo criado no estágio [pré-requisitos](#prerequisites) .
 7. Selecione **Concluído**.
 8. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **selecionar aplicativos**.
-9. Selecione um dos seguintes grupos de aplicativos com base em qual versão da área de trabalho virtual do Windows você está usando.
-   - Se você estiver usando a área de trabalho virtual do Windows (clássico), escolha estes dois aplicativos:
+9. Selecione um dos aplicativos a seguir com base na versão da área de trabalho virtual do Windows que você está usando.
+   - Se você estiver usando a área de trabalho virtual do Windows (clássico), escolha este aplicativo:
        - **Área de trabalho virtual do Windows** (ID do aplicativo 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Cliente de área de trabalho virtual do Windows** (ID do aplicativo fa4345a4-A730-4230-84a8-7d9651b86739)
-   - Se você estiver usando a área de trabalho virtual do Windows, escolha esses dois aplicativos:
+   - Se você estiver usando a área de trabalho virtual do Windows, escolha este aplicativo:
        -  **Área de trabalho virtual do Windows** (ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07)
-       -  **Cliente de área de trabalho virtual do Windows** (ID do aplicativo a85cf173-4192-42F8-81fa-777a763e6e2c)
 
    >[!IMPORTANT]
-   > Os aplicativos cliente de área de trabalho virtual do Windows são usados para o cliente Web. No entanto, não selecione o aplicativo chamado provedor de Azure Resource Manager de área de trabalho virtual do Windows (50e95039-B200-4007-bc97-8d5790743a63). Este aplicativo é usado somente para recuperar o feed do usuário e não deve ter MFA.
+   > Não selecione o aplicativo chamado provedor de Azure Resource Manager de área de trabalho virtual do Windows (50e95039-B200-4007-bc97-8d5790743a63). Este aplicativo é usado somente para recuperar o feed do usuário e não deve ter MFA.
 
-1. Depois de selecionar seu aplicativo, escolha **selecionar**e, em seguida, selecione **concluído**.
+10. Vá para **condições**  >  **aplicativos de cliente**e selecione para onde deseja aplicar a política:
+    
+    - Selecione **navegador** se você quiser que a política se aplique ao cliente Web.
+    - Selecione **aplicativos móveis e clientes de área de trabalho** se você quiser aplicar a política a outros clientes.
+    - Marque ambas as caixas de seleção se desejar aplicar a política a todos os clientes.
+   
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página de aplicativos cliente. O usuário marcou a caixa de seleção aplicativos móveis e clientes de área de trabalho.](media/select-apply.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Uma captura de tela da página de aplicativos ou ações na nuvem. Os aplicativos cliente de área de trabalho virtual do Windows e área de trabalho virtual do Windows são realçados em vermelho.](media/cloud-apps-enterprise.png)
+11. Depois de selecionar seu aplicativo, escolha **selecionar**e, em seguida, selecione **concluído**.
 
-   >[!NOTE]
-   >Para localizar a ID do aplicativo que você deseja selecionar, vá para **aplicativos empresariais** e selecione aplicativos da **Microsoft** no menu suspenso tipo de aplicativo.
+    > [!div class="mx-imgBorder"]
+    > ![Uma captura de tela da página de aplicativos ou ações na nuvem. Os aplicativos cliente de área de trabalho virtual do Windows e área de trabalho virtual do Windows são realçados em vermelho.](media/cloud-apps-enterprise.png)
 
-10. Em **Access controls**  >  **concessão**de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator**e, em seguida, **selecione**.
-11. Em **Access controls**  >  **sessão**de controles de acesso, selecione **frequência de entrada**, defina o valor como **1** e a unidade para **horas**e selecione **selecionar**.
-12. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
-13. Selecione **criar** para habilitar sua política.
+    >[!NOTE]
+    >Para localizar a ID do aplicativo que você deseja selecionar, vá para **aplicativos empresariais** e selecione aplicativos da **Microsoft** no menu suspenso tipo de aplicativo.
+
+12. Em **Access controls**  >  **concessão**de controles de acesso, selecione **conceder acesso**, **exigir autenticação multifator**e, em seguida, **selecione**.
+13. Em **Access controls**  >  **sessão**de controles de acesso, selecione **frequência de entrada**, defina o valor como **1** e a unidade para **horas**e selecione **selecionar**.
+14. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
+15. Selecione **criar** para habilitar sua política.
 
 ## <a name="next-steps"></a>Próximas etapas
 

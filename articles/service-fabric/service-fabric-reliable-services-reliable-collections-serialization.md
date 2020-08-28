@@ -3,12 +3,13 @@ title: Serialização de objeto de coleção confiável
 description: Saiba mais sobre a serialização de objeto de coleções confiáveis do Azure Service Fabric, incluindo a estratégia padrão e como definir a serialização personalizada. '
 ms.topic: conceptual
 ms.date: 5/8/2017
-ms.openlocfilehash: f7a0dc56c181ddd6a98ab0e263180c222368dafb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245986"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018613"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de Coleções Confiáveis no Azure Service Fabric
 As Coleções Confiáveis replicam e persistem seus itens para garantir que eles são duráveis durante falhas do computador e interrupções de energia.
@@ -33,7 +34,7 @@ O Gerenciador de Estado Confiável tem um serializador interno para os seguintes
 - decimal
 - double
 - FLOAT
-- int
+- INT
 - uint
 - long
 - ulong

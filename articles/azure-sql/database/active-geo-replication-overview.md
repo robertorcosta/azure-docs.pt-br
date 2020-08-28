@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/28/2020
-ms.openlocfilehash: 10c0d3d5f043d31454810b55e808cd6df01467a4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/27/2020
+ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448750"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018358"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criando e usando a replicação geográfica ativa-banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 Para garantir que seu aplicativo possa acessar imediatamente o novo primário após o failover, verifique se os requisitos de autenticação do servidor secundário e do banco de dados estão configurados corretamente. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](active-geo-replication-security-configure.md). Para garantir a conformidade após o failover, verifique se a política de retenção de backup no banco de dados secundário corresponde à do primário. Essas configurações não fazem parte do banco de dados e não são replicadas. Por padrão, o secundário será configurado com um período de retenção de PITR padrão de sete dias. Para obter detalhes, consulte [Backups automáticos do Banco de Dados SQL](automated-backups-overview.md).
 
 > [!IMPORTANT]
-> Se o banco de dados for membro de um grupo de failover, você não poderá iniciar seu failover usando o comando de failover de replicação geográfica. Use o comando de failover para o grupo. Se precisar fazer failover de um banco de dados individual, você deverá removê-lo primeiro do grupo de failover. Consulte [grupos de failover](auto-failover-group-overview.md) para obter detalhes.
+> Se o banco de dados for membro de um grupo de failover, você não poderá iniciar seu failover usando o comando de failover de replicação geográfica. Use o comando de failover para o grupo. Se precisar fazer failover de um banco de dados individual, você deverá removê-lo primeiro do grupo de failover. Consulte  [grupos de failover](auto-failover-group-overview.md) para obter detalhes.
 
 ## <a name="configuring-secondary-database"></a>Configurando banco de dados secundário
 
@@ -178,7 +178,8 @@ O cliente que executa as alterações precisa de acesso à rede para o servidor 
 
 ### <a name="on-the-master-of-the-secondary-server"></a>No mestre do servidor secundário
 
-1. Adicione o endereço IP à lista de permissões do cliente que está executando as alterações. Ele deve ter o mesmo endereço IP exato do servidor primário.
+1. Adicione o endereço IP do cliente à lista de permissões em regras de firewall para o servidor secundário. Valide que exatamente o mesmo endereço IP do cliente que foi adicionado ao servidor primário também foi adicionado ao secundário. Essa é uma etapa necessária a ser feita antes de executar o comando ALTER DATABASE ADD SECONDARY para iniciar a replicação geográfica.
+
 1. Crie o mesmo logon que no servidor primário, usando a mesma senha de nome de usuário e o SID:
 
    ```sql
@@ -245,7 +246,7 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 > [!IMPORTANT]
 > Esses comandos Transact-SQL só se aplicam à replicação geográfica ativa e não se aplicam a grupos de failover. Como tal, eles também não se aplicam a instâncias do SQL Instância Gerenciada, pois oferecem suporte apenas a grupos de failover.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use o argumento ADD SECONDARY ON SERVER para criar um banco de dados secundário para um banco de dados existente e inicie a replicação de dados |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usar o FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para alternar um banco de dados secundário para primário a fim de iniciar o failover |
@@ -276,7 +277,7 @@ Conforme discutido anteriormente, a replicação geográfica ativa pode ser gere
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST: gerenciar failover de bancos de dados individuais e em pool
 
-| API | Description |
+| API | Descrição |
 | --- | --- |
 | [Criar ou atualizar banco de dados (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
 | [Obter, Criar ou Atualizar o Status de um Banco de Dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retorna o status durante uma operação de criação. |

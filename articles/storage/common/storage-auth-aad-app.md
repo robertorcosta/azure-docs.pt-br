@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: has-adal-ref
-ms.openlocfilehash: 57d1cda2e74cfe4ae3948e55124123d05682591b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.custom: has-adal-ref, devx-track-csharp
+ms.openlocfilehash: d842974b0b53e0b0ce199334a07f11e5c998b18d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534219"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018800"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token do Azure AD para autorizar solicitações de um aplicativo cliente
 
@@ -54,7 +54,7 @@ Em seguida, conceda ao seu aplicativo permissões para chamar as APIs de armazen
 1. Na seção **permissões de API** , selecione **Adicionar uma permissão** e escolha **APIs da Microsoft**.
 1. Selecione **armazenamento do Azure** na lista de resultados para exibir o painel **solicitar permissões de API** .
 1. Em **que tipo de permissões seu aplicativo requer?**, observe que o tipo de permissão disponível é **permissões delegadas**. Essa opção é selecionada por padrão.
-1. Na seção **selecionar permissões** do painel **solicitar permissões de API** , marque a caixa de seleção ao lado de **user_impersonation**e clique em **adicionar permissões**.
+1. Na seção **selecionar permissões** do painel **solicitar permissões de API** , marque a caixa de seleção ao lado de **user_impersonation**e clique em  **adicionar permissões**.
 
     ![Captura de tela mostrando permissões para armazenamento](media/storage-auth-aad-app/registered-app-permissions-1.png)
 

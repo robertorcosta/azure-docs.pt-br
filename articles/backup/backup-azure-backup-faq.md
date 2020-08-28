@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892755"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017729"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -56,7 +56,7 @@ Se você já tiver configurado o backup e precisar passar de GRS para LRS, consu
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Posso criar uma ILR (restauração no nível do item) para VMs com backup em um cofre dos Serviços de Recuperação?
 
 - O ILR tem suporte para VMs do Azure com backup pelo backup de VM do Azure. Para saber mais, confira este [artigo](backup-azure-restore-files-from-vm.md)
-- Não há suporte para ILR para pontos de recuperação online de VMs locais com backup feito pelo servidor de backup do Azure ou pelo System Center DPM.
+- Não há suporte para ILR para pontos de recuperação online de VMs locais com backup pelo Servidor de Backup do Azure (MABS) ou pelo System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente de Backup do Azure
 
@@ -127,7 +127,7 @@ Estado do sistema/BMR |Cada cópia individual do BMR ou do estado do sistema da 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Há um limite na quantidade de dados de backup em um cofre dos Serviços de Recuperação?
 
-Não há nenhum limite na quantidade total de dados que você pode fazer backup usando um cofre dos serviços de recuperação. As fontes de dados individuais (que não sejam as VMs do Azure) podem ter no máximo 54.400 GB de tamanho. Para obter mais informações sobre limites, consulte a [seção limites de cofre na matriz de suporte](./backup-support-matrix.md#vault-support).
+Não há limite para a quantidade total de dados que você pode fazer backup usando um cofre dos serviços de recuperação. As fontes de dados individuais (que não sejam as VMs do Azure) podem ter no máximo 54.400 GB de tamanho. Para obter mais informações sobre limites, consulte a [seção limites de cofre na matriz de suporte](./backup-support-matrix.md#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados selecionados para backup?
 
@@ -184,7 +184,7 @@ Você pode criar até 9999 pontos de recuperação por instância protegida. Uma
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quantas vezes posso recuperar dados cujo backup foi feito no Azure?
 
-Não há limite para o número de recuperações do Backup do Azure.
+Não há limite para o número de recuperações do backup do Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Ao restaurar dados, eu pago pelo tráfego de saída do Azure?
 
@@ -218,7 +218,7 @@ A Microsoft não descriptografa os dados de backup a qualquer momento.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Qual é o comprimento mínimo da chave de criptografia usada para criptografar os dados de backup?
 
-A chave de criptografia usada pelo agente de Serviços de Recuperação do Microsoft Azure (MARS) é derivada de uma frase secreta que deve ter pelo menos 16 caracteres. Para VMs do Azure, não há nenhum limite para o comprimento das chaves usadas pelo Azure keyvault.
+A chave de criptografia usada pelo agente de Serviços de Recuperação do Microsoft Azure (MARS) é derivada de uma frase secreta que deve ter pelo menos 16 caracteres. Para VMs do Azure, não há limite para o comprimento das chaves usadas pelo Azure keyvault.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>O que acontecerá se eu inserir a chave de criptografia incorretamente? Posso recuperar os dados? A Microsoft pode recuperar os dados?
 

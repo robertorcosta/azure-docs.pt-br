@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 4873c1c998f62b6180df73a04852704665a4125d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9b3f2f8a6a8a1e4f287af45f994c0f0b1d479811
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075837"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001001"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas sobre a versão do Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="aug-2020"></a>2020 de agosto
+
+| Melhorias nos serviços | Detalhes |
+| --- | --- |
+|**Gerenciamento de carga de trabalho – experiência do portal**|Os usuários podem usar o portal do Azure para configurar e gerenciar suas configurações de gerenciamento de carga de trabalho. Está disponível a capacidade de configurar [grupos de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) e [classificadores de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) com importância.|
+|**Exibição do catálogo de mapeamentos de tabela aprimorada**|A nova exibição de catálogo [Sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapeia **object_ids** de tabelas de usuário permanentes para seus nomes de tabela física. Esta exibição oferece desempenho otimizado sobre o [Sys. pdw_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-table-mappings-transact-sql?view=sqlallproducts-allversions)atual.|
 
 ## <a name="july-2020"></a>Julho de 2020
 

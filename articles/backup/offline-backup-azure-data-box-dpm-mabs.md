@@ -3,12 +3,12 @@ title: Backup offline com Azure Data Box para o DPM e o MABS
 description: Você pode usar Azure Data Box para propagar dados de backup inicial offline do DPM e do MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5a8fbf3869794b6a5ef78e78177f130e4e009795
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890018"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017593"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagação offline usando Azure Data Box para o DPM e MABS (visualização)
 
@@ -203,7 +203,7 @@ Siga estas etapas quando o backup de dados para o Azure Data Box Disk for bem-su
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-O agente MAB (Backup do Microsoft Azure) no servidor DPM criará um aplicativo do Azure AD para você, em seu locatário. Esse aplicativo requer um certificado para autenticação que será criado e carregado ao configurar a política de propagação offline.
+O agente MAB (Backup do Microsoft Azure) no servidor DPM criará um aplicativo do Azure AD para você, em seu locatário. Este aplicativo requer um certificado para autenticação que é criado e carregado ao configurar a política de propagação offline.
 
 Usamos o Azure PowerShell para criar e carregar o certificado para o aplicativo do Azure AD.
 

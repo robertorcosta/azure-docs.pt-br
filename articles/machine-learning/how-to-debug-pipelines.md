@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: a036cb4212b0237bea1c8509532dc78d469acb17
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950146"
+ms.locfileid: "89018052"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -129,6 +129,8 @@ Clique no módulo para a etapa específica. Navegue até a guia **logs** . Outro
 
 > [!TIP]
 > Execuções para *pipelines publicados* podem ser encontradas na guia **pontos de extremidade** em seu espaço de trabalho. Execuções para *pipelines não publicados* podem ser encontradas em **experimentos** ou **pipelines**.
+
+Para obter mais informações sobre registro em log e rastreamento de um `ParallelRunStep` , consulte [debug and Troubleshoot ParallelRunStep](how-to-debug-parallel-run-step.md).
 
 ## <a name="logging-in-azure-machine-learning-designer-preview"></a>Registrando em log Azure Machine Learning designer (versão prévia)
 

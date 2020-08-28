@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre o aler
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892551"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000712"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerta de monitoramento do backup do Azure-perguntas frequentes
 
@@ -50,13 +50,13 @@ Se você for um usuário [Lighthouse do Azure](https://azure.microsoft.com/servi
 
 ## <a name="recovery-services-vault"></a>Cofre dos Serviços de Recuperação
 
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para refletir no portal o status de trabalho do agente de backup do Azure?
+### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para o status do trabalho do agente de backup do Azure refletir no portal?
 
-O portal do Azure pode levar até 15 minutos para refletir o status de trabalho do agente de backup do Azure.
+O portal do Azure pode levar até 15 minutos para refletir o status do trabalho do agente de backup do Azure.
 
 ### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de backup falha, quanto tempo demora para gerar um alerta?
 
-Um alerta é gerado em 20 minutos após a falha de backup do Azure.
+Um alerta é gerado dentro de 20 minutos após a falha do backup do Azure.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
 

@@ -3,12 +3,12 @@ title: Usar o Servidor de Backup do Azure para fazer backup de cargas de trabalh
 description: Neste artigo, veja como preparar o ambiente para proteger e fazer backup de cargas de trabalho usando o MABS (Servidor de Backup do Microsoft Azure).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892279"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001154"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o Servidor de Backup do Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "88892279"
 Este artigo explica como preparar o ambiente para fazer backup de cargas de trabalho usando o MABS (Servidor de Backup do Microsoft Azure). Com o Servidor de Backup do Azure, você pode proteger cargas de trabalho do aplicativo como VMs do Hyper-V, o Microsoft SQL Server, o SharePoint Server, o Microsoft Exchange e os clientes do Windows em um único console.
 
 > [!NOTE]
-> O Servidor de Backup do Azure agora pode proteger VMs do VMware e fornece recursos de segurança aprimorada. Instale o produto, conforme explicado nas seções a seguir, e o último Agente de Backup do Azure. Para saber mais sobre como fazer backup de servidores do VMware com o Servidor de Backup do Azure, consulte o artigo [Usar o Servidor de Backup do Azure para fazer backup de um servidor do VMware](backup-azure-backup-server-vmware.md). Para saber mais sobre as funcionalidades de segurança, consulte a [documentação dos recursos de segurança de backup do Azure](backup-azure-security-feature.md).
+> O Servidor de Backup do Azure agora pode proteger VMs do VMware e fornece recursos de segurança aprimorada. Instale o produto, conforme explicado nas seções a seguir, e o último Agente de Backup do Azure. Para saber mais sobre como fazer backup de servidores do VMware com o Servidor de Backup do Azure, consulte o artigo [Usar o Servidor de Backup do Azure para fazer backup de um servidor do VMware](backup-azure-backup-server-vmware.md). Para saber mais sobre as funcionalidades de segurança, consulte a [documentação dos recursos de segurança do Backup do Azure](backup-azure-security-feature.md).
 >
 >
 
@@ -66,9 +66,9 @@ Você pode eliminar duplicadas do armazenamento DPM usando a Eliminação de Dup
 >
 > * Um computador que esteja sendo executado como um controlador de domínio
 > * Um computador no qual a função de Servidor de Aplicativos está instalada
-> * Um computador que seja um servidor de gerenciamento do System Center Operations Manager
+> * Um computador que é um servidor de gerenciamento System Center Operations Manager
 > * Um computador que o Exchange Server está executando
-> * Um computador que seja um nó de um cluster
+> * Um computador que é um nó de um cluster
 >
 > Não há suporte para a instalação do Servidor de Backup do Azure no Windows Server Core ou Microsoft Hyper-V Server.
 
@@ -261,25 +261,25 @@ Aqui são apresentadas as etapas, caso seja necessário mover o MABS para um nov
 
   > [!IMPORTANT]
   >
-  > * O novo nome do servidor deve ter o mesmo nome da instância original do Servidor de Backup do Azure. Você não poderá alterar o nome da nova instância do Servidor de Backup do Azure se quiser usar o pool de armazenamento anterior e o banco de dados do MABS (DPMDB) para reter os pontos de recuperação.
-  > * Você deve ter um backup do banco de dados do MABS (DPMDB). Você precisará restaurar o banco de dados.
+  > * O nome do novo servidor deve ter o mesmo nome que a instância de Servidor de Backup do Azure original. Você não poderá alterar o nome da nova instância do Servidor de Backup do Azure se quiser usar o pool de armazenamento anterior e o banco de dados do MABS (DPMDB) para reter os pontos de recuperação.
+  > * Você deve ter um backup do banco de dados do MABS (DPMDB). Você precisará dela para restaurar o banco de dados.
 
 1. No painel de exibição, selecione os computadores cliente para o qual você deseja atualizar o agente de proteção.
-2. Desligue o servidor de Backup do Azure original ou retire-o da rede.
-3. Redefina a conta do computador no Active Directory.
-4. Instale o Server 2016 no novo computador e dê a ele o mesmo nome de computador do servidor de Backup do Azure original.
-5. Ingressar no domínio
-6. Instale o servidor do Backup do Azure V3 ou posterior (mova os discos do pool de armazenamento do MABS do servidor antigo e importe)
+2. Desligue o servidor de backup do Azure original ou coloque-o offline.
+3. Redefina a conta da máquina no Active Directory.
+4. Instale o servidor 2016 em um novo computador e dê a ele o mesmo nome de computador que o servidor de backup do Azure original.
+5. Ingresse no domínio.
+6. Instale o Servidor de Backup do Azure V3 ou posterior (Mova os discos do pool de armazenamento MABS do servidor antigo e importe).
 7. Restaure o DPMDB obtido na etapa 1.
 8. Anexe o armazenamento do servidor de backup original ao novo servidor.
-9. Do SQL, restaurar o DPMDB
-10. Na linha de comando de administrador no novo servidor, vá para o diretório do local de instalação do Backup do Microsoft Azure e a pasta bin
+9. No SQL, restaure o DPMDB.
+10. Execute CMD (como administrador) no novo servidor. Vá para a Backup do Microsoft Azure local de instalação e pasta bin
 
     Exemplo de caminho: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
-11. Para Backup do Azure, execute DPMSYNC -SYNC
+11. Para se conectar ao backup do Azure, execute `DPMSYNC -SYNC`
 
-    Se você tiver adicionado NOVOS discos ao pool de armazenamento do DPM em vez de mover os antigos, execute DPMSYNC -Reallocatereplica
+    Se você tiver adicionado **novos** discos ao pool de armazenamento do DPM em vez de mover os antigos, execute `DPMSYNC -Reallocatereplica`
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 
@@ -300,7 +300,7 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recuperação de perda de conectividade
 
-Se você tiver um firewall ou um proxy que esteja impedindo o acesso do Azure, precisará permitir os seguintes endereços de domínio no perfil do firewall/proxy:
+Se você tiver um firewall ou um proxy que esteja impedindo o acesso ao Azure, você precisará permitir os seguintes endereços de domínio no perfil de firewall/proxy:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com

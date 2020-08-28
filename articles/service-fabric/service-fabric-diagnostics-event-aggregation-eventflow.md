@@ -5,12 +5,13 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: cde24657cc8ed78b91e72df16d51df4077a6e030
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a80eea5a50aa7b1e441049eeb2cae381994cd3ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75463084"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018647"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação e coleta de eventos usando EventFlow
 
@@ -24,7 +25,7 @@ EventFlow binários estão disponíveis como um conjunto de pacotes do NuGet. Pa
 
 Você verá uma lista de vários pacotes, rotulados como "Entradas" e "Saídas". O EventFlow dá suporte a vários provedores de log e analisadores diferentes. O serviço que hospeda EventFlow deve incluir pacotes apropriados dependendo da origem e destino para os logs de aplicativo. Além do pacote principal do Service Fabric, você também precisa de pelo menos uma Entrada e Saída configuradas. Por exemplo, você pode adicionar os seguintes pacotes para enviar eventos EventSource ao Application Insights:
 
-* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`para capturar dados da classe EventSource do serviço e de EventSources padrão como *Microsoft-Service Fabric-Services* e *Microsoft-Service Fabric-atores*)
+* `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` para capturar dados da classe EventSource do serviço e de EventSources padrão como *Microsoft-Service Fabric-Services* e *Microsoft-Service Fabric-atores*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (vamos enviar os logs para um recurso do Azure Application Insights)
 * `Microsoft.Diagnostics.EventFlow.ServiceFabric`(habilita a inicialização do pipeline EventFlow da configuração do serviço Service Fabric e relata quaisquer problemas com o envio de dados de diagnóstico como relatórios de integridade do Service Fabric)
 

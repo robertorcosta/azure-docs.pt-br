@@ -8,12 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
-ms.openlocfilehash: 3645b6752a49a0cf2544d170ac55a77cc8ae5e40
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082005"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000185"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm usando ferramentas do Data Lake para Visual Studio
 
@@ -27,7 +28,7 @@ As topologias C# usam o .NET 4,5 e usam o mono para serem executados no cluster 
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3,5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
-| 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
+| 3,6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -150,9 +151,9 @@ Em seguida, adicione o código para o Spout, que é usado para ler dados em uma 
 
    * `NextTuple`: Chamado pelo Storm quando o Spout tem permissão para emitir novas tuplas.
 
-   * `Ack`(somente topologia transacional): lida com confirmações iniciadas por outros componentes na topologia para tuplas enviadas do Spout. Confirmar uma tupla informa ao spout que ele foi processado com êxito por componentes downstream.
+   * `Ack` (somente topologia transacional): lida com confirmações iniciadas por outros componentes na topologia para tuplas enviadas do Spout. Confirmar uma tupla informa ao spout que ele foi processado com êxito por componentes downstream.
 
-   * `Fail`(somente topologia transacional): lida com tuplas que estão processando outros componentes na topologia. A implementação de um `Fail` método permite emitir novamente a tupla para que ela possa ser processada novamente.
+   * `Fail` (somente topologia transacional): lida com tuplas que estão processando outros componentes na topologia. A implementação de um `Fail` método permite emitir novamente a tupla para que ela possa ser processada novamente.
 
 2. Substitua o conteúdo da `Spout` classe pelo seguinte texto:
 
@@ -477,13 +478,13 @@ Considere o seguinte quando você estiver criando e enviando uma topologia híbr
 
 * Ao enviar a topologia para o servidor, você deve usar a opção **Configurações adicionais** para especificar **Caminhos de arquivo Java**. O caminho especificado deve ser o diretório que tem os arquivos JAR que contêm as classes Java.
 
-### <a name="azure-event-hubs"></a>Hubs de eventos do Azure
+### <a name="azure-event-hubs"></a>Hubs de Eventos do Azure
 
 A versão 0.9.4.203 do SCP.NET introduz uma classe e um método novos especificamente para trabalhar com o spout do Hub de Eventos (um spout Java que lê de Hubs de Eventos). Quando você cria uma topologia que usa um Spout do hub de eventos (por exemplo, usando o modelo de **exemplo de leitor de EventHub do Storm** ), use as seguintes APIs:
 
-* `EventHubSpoutConfig`classe: cria um objeto que contém a configuração para o componente Spout.
+* `EventHubSpoutConfig` classe: cria um objeto que contém a configuração para o componente Spout.
 
-* `TopologyBuilder.SetEventHubSpout`método: Adiciona o componente Spout do hub de eventos à topologia.
+* `TopologyBuilder.SetEventHubSpout` método: Adiciona o componente Spout do hub de eventos à topologia.
 
 > [!NOTE]  
 > Você ainda deve usar o `CustomizedInteropJSONSerializer` para serializar dados produzidos pelo Spout.

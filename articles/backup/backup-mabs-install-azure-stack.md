@@ -3,12 +3,12 @@ title: Instalar Servidor de Backup do Azure no Azure Stack
 description: Neste artigo, saiba como usar o Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827000"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018120"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 
@@ -99,7 +99,7 @@ Proteger as cargas de trabalho com o Servidor de Backup do Azure tem muitas nuan
 > - Um computador que esteja sendo executado como um controlador de domínio
 > - Um computador no qual a função de Servidor de Aplicativos está instalada
 > - Um computador que o Exchange Server está executando
-> - Um computador que seja um nó de um cluster
+> - Um computador que é um nó de um cluster
 
 Sempre ingresse o Servidor de Backup do Azure em um domínio. Se você precisa mover o Servidor de Backup do Azure para um domínio diferente, primeiro instale o Servidor de Backup do Azure e, em seguida, ingresse-o em um novo domínio. Depois de implantar o Servidor de Backup do Azure, você não pode movê-lo para um novo domínio.
 
@@ -107,7 +107,7 @@ Sempre ingresse o Servidor de Backup do Azure em um domínio. Se você precisa m
 
 ### <a name="set-storage-replication"></a>Definir replicação de armazenamento
 
-A opção de replicação de armazenamento de cofre dos Serviços de Recuperação permite que você escolha entre o armazenamento com redundância geográfica e o armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha o armazenamento com redundância local se quiser uma opção mais barata que seja menos durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/common/storage-redundancy.md) e [redundância local](../storage/common/storage-redundancy.md) na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento de cofre dos Serviços de Recuperação permite que você escolha entre o armazenamento com redundância geográfica e o armazenamento com redundância local. Por padrão, os cofres dos Serviços de Recuperação usam armazenamento com redundância geográfica. Se este cofre for o primário, deixe a opção de armazenamento definida como armazenamento com redundância geográfica. Escolha armazenamento com redundância local se quiser uma opção mais barata que seja menos durável. Leia mais sobre as opções de armazenamento com [redundância geográfica](../storage/common/storage-redundancy.md) e [redundância local](../storage/common/storage-redundancy.md) na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
 
 Para editar a configuração de replicação de armazenamento:
 

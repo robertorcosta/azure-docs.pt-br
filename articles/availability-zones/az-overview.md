@@ -4,15 +4,15 @@ description: Saiba mais sobre regiões e Zonas de Disponibilidade no Azure para 
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9a400862280cbbc219e87695e363c0ec2e75ee6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413154"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018664"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
 
@@ -39,13 +39,13 @@ Para entender melhor as regiões e Zonas de Disponibilidade no Azure, é útil e
 
 Uma região é um conjunto de data centers implantados em um perímetro definido por latência e conectados por meio de uma rede regional de baixa latência. O Azure oferece a você a flexibilidade de implantar aplicativos onde você precisa, incluindo em várias regiões para fornecer resiliência entre regiões. Para obter mais informações, consulte [visão geral do pilar de resiliência](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview).
 
-## <a name="availability-zones"></a>Zonas de Disponibilidades
+## <a name="availability-zones"></a>Zonas de Disponibilidade
 
 Uma zona de disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
 
 Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma Azure reconhece essa distribuição entre domínios de atualização para garantir que as VMs em diferentes zonas não estejam agendadas para serem atualizadas ao mesmo tempo.
 
-Compila alta disponibilidade na arquitetura do aplicativo, colocalizando os recursos de computação, armazenamento, rede e dados em uma zona e replicando em outras zonas. Os serviços do Azure que fornecem suporte a Zonas de Disponibilidade enquadram-se em duas categorias:
+Compila alta disponibilidade na arquitetura do aplicativo, colocalizando os recursos de computação, armazenamento, rede e dados em uma zona e replicando em outras zonas. Os serviços do Azure que dão suporte a Zonas de Disponibilidade enquadram-se em duas categorias:
 
 - **Serviços zonais** – onde um recurso é fixado em uma zona específica (por exemplo, máquinas virtuais, discos gerenciados, endereços IP padrão) ou
 - **Serviços com redundância de zona** – quando a plataforma do Azure é replicada automaticamente entre zonas (por exemplo, armazenamento com redundância de zona, banco de dados SQL).
@@ -76,7 +76,7 @@ Para ver quais serviços são implantados em uma determinada região, bem como o
 
 Se uma oferta de serviço não estiver disponível em uma região específica, você poderá compartilhar seu interesse entrando em contato com seu representante de vendas da Microsoft.
 
-| Tipo de região | Não regional | Foundational | Base | Especializada | Zonas de Disponibilidades | Residência de dadosResidência de dados |
+| Tipo de região | Não regional | Foundational | Base | Especializada | Zonas de Disponibilidade | Residência de dadosResidência de dados |
 | --- | --- | --- | --- | --- | --- | --- |
 | Recomendado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | Controlado por demanda | N/D | :heavy_check_mark: |
@@ -92,46 +92,45 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Foundational | Base | Especializada |
 > | --- | --- | --- |
 > | Armazenamento de conta | Gerenciamento de API | API do Azure para FHIR |
-> | Gateway de Aplicativo | Configuração de Aplicativos | Serviço do Azure Blockchain |
-> | Serviço de Backup do Azure | Serviço de Aplicativo | Azure Blueprints |
-> | Azure Cosmos DB | Automação | Banco de Dados do Azure para MariaDB |
-> | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | HSM Dedicado do Azure |
-> | Azure ExpressRoute | Azure Analysis Services | Azure Dev Spaces |
-> | Banco de Dados SQL do Azure | Azure Bastion | Gêmeos Digitais do Azure |
-> | Serviços de Nuvem | Cache Redis do Azure | Azure Lab Services |
-> | Serviços de nuvem: série Av2 | Pesquisa Cognitiva do Azure | Azure NetApp Files |
-> | Serviços de nuvem: série Dv2 | Azure Data Explorer | Quantum do Azure |
-> | Serviços de nuvem: série Dv3 | Azure Data Share | Azure Time Series Insights |
-> | Serviços de nuvem: série Ev3 | Banco de Dados do Azure para MySQL | Solução VMware no Azure pela CloudSimple |
-> | Serviços de nuvem: IPs de nível de instância | Banco de Dados do Azure para PostgreSQL | Serviços de nuvem: A8-a11 (computação intensiva) |
-> | Serviços de nuvem: IP Reservado | Serviço de Migração de Banco de Dados do Azure | Serviços de nuvem: série G |
-> | Armazenamento em Disco | Azure Databricks | Serviços de nuvem: série H |
-> | Hubs de Eventos | Proteção contra DDoS do Azure | Serviços cognitivas: detector de anomalias |
-> | Key Vault | Azure DevTest Labs | Serviços cognitivas: Visão Personalizada |
+> | Gateway de Aplicativo | Configuração de Aplicativos | Azure Analysis Services |
+> | Serviço de Backup do Azure | Serviço de Aplicativo | Serviço do Azure Blockchain |
+> | Azure Cosmos DB | Automação | Azure Blueprints |
+> | Azure Data Lake Storage Gen2 | Azure Active Directory Domain Services | Banco de Dados do Azure para MariaDB |
+> | Azure ExpressRoute | Azure Bastion | HSM Dedicado do Azure |
+> | Banco de Dados SQL do Azure | Cache Redis do Azure | Azure Dev Spaces |
+> | Serviços de Nuvem | Pesquisa Cognitiva do Azure | Gêmeos Digitais do Azure |
+> | Serviços de nuvem: série Av2 | Azure Data Explorer | Azure Lab Services |
+> | Serviços de nuvem: série Dv2 | Azure Data Share | Azure NetApp Files |
+> | Serviços de nuvem: série Dv3 | Banco de Dados do Azure para MySQL | Quantum do Azure |
+> | Serviços de nuvem: série Ev3 | Banco de Dados do Azure para PostgreSQL | Serviço de nuvem do Azure Spring |
+> | Serviços de nuvem: IPs de nível de instância | Serviço de Migração de Banco de Dados do Azure | Azure Time Series Insights |
+> | Serviços de nuvem: IP Reservado | Azure Databricks | Solução VMware no Azure pela CloudSimple |
+> | Armazenamento em disco | Proteção contra DDoS do Azure | Serviços de nuvem: série G |
+> | Hubs de Eventos | Azure DevTest Labs | Serviços de nuvem: série H |
+> | Key Vault | Firewall do Azure | Serviços cognitivas: Visão Personalizada |
 > | Balanceador de carga | Gerenciador de Firewall do Azure | Serviços cognitivas: Reconhecimento do Locutor |
-> | Barramento de Serviço | Firewall do Azure | Data Box Heavy |
-> | Service Fabric | Funções do Azure | Catálogo de Dados |
-> | Conjuntos de Dimensionamento de Máquinas Virtuais | Azure HPC Cache | Data Factory: Data Factory v1 |
-> | Máquinas Virtuais | Hub IoT do Azure | Data Lake Analytics |
-> | Máquinas virtuais: Av2-Series | AKS (Serviço de Kubernetes do Azure) | Machine Learning Studio |
-> | Máquinas virtuais: BS-Series | Azure Machine Learning | Microsoft Genomics |
-> | Máquinas virtuais: DSv2-Series | Link Privado do Azure | Remote Rendering |
-> | Máquinas virtuais: DSv3-Series | Red Hat OpenShift no Azure | Âncoras Espaciais |
+> | Barramento de Serviço | Azure Functions | Data Box Heavy |
+> | Service Fabric | Azure HPC Cache | Catálogo de Dados |
+> | Conjuntos de Dimensionamento de Máquinas Virtuais | Hub IoT do Azure | Data Factory: Data Factory v1 |
+> | Máquinas Virtuais | AKS (Serviço de Kubernetes do Azure) | Data Lake Analytics |
+> | Máquinas virtuais: Av2-Series | Azure Machine Learning | Machine Learning Studio |
+> | Máquinas virtuais: BS-Series | Link Privado do Azure | Microsoft Genomics |
+> | Máquinas virtuais: DSv2-Series | Red Hat OpenShift no Azure | Remote Rendering |
+> | Máquinas virtuais: DSv3-Series | Serviço Azure SignalR | Âncoras Espaciais |
 > | Máquinas virtuais: Dv2-Series | Azure Site Recovery | StorSimple |
-> | Máquinas virtuais: Dv3-Series | Serviço de nuvem do Azure Spring | Video Indexer |
-> | Máquinas virtuais: ESv3-Series | Azure Stack Hub | Máquinas virtuais: A8-a11 (computação intensiva) |
-> | Máquinas virtuais: Ev3-Series | Stream Analytics do Azure | Máquinas virtuais: DASv4-Series |
-> | Máquinas virtuais: série F | Azure Synapse Analytics | Máquinas virtuais: DAv4-Series |
-> | Máquinas virtuais: série FS | Serviço Azure SignalR | Máquinas virtuais: DCsv2-Series |
-> | Máquinas virtuais: IPs de nível de instância | Lote | Máquinas virtuais: EASv4-Series |
-> | Máquinas virtuais: IP Reservado | Serviços de nuvem: série M | Máquinas virtuais: EAv4-Series |
-> | Rede Virtual | Serviços Cognitivos | Máquinas virtuais: série G |
-> | Gateway de VPN | Serviços cognitivas: Pesquisa Visual Computacional | Máquinas virtuais: GS-Series |
-> |  | Serviços cognitivas: Content Moderator | Máquinas virtuais: HBv1-Series |
-> |  | Serviços cognitivas: face | Máquinas virtuais: HBv2-Series |
+> | Máquinas virtuais: Dv3-Series | Azure Stack Hub | Video Indexer |
+> | Máquinas virtuais: ESv3-Series | Stream Analytics do Azure | Máquinas virtuais: DASv4-Series |
+> | Máquinas virtuais: Ev3-Series | Azure Synapse Analytics | Máquinas virtuais: DAv4-Series |
+> | Máquinas virtuais: série F | Lote | Máquinas virtuais: DCsv2-Series |
+> | Máquinas virtuais: série FS | Serviços de nuvem: série M | Máquinas virtuais: EASv4-Series |
+> | Máquinas virtuais: IPs de nível de instância | Serviços Cognitivos | Máquinas virtuais: EAv4-Series |
+> | Máquinas virtuais: IP Reservado | Serviços cognitivas: Pesquisa Visual Computacional | Máquinas virtuais: série G |
+> | Rede Virtual | Serviços cognitivas: Content Moderator | Máquinas virtuais: GS-Series |
+> | Gateway de VPN | Serviços cognitivas: face | Máquinas virtuais: HBv1-Series |
+> |  | Serviços cognitivas: reconhecedor de formulário | Máquinas virtuais: HBv2-Series |
 > |  | Serviços cognitivas: Reconhecimento vocal | Máquinas virtuais: HCv1-Series |
-> |  | Serviços cognitivas: serviços de fala | Máquinas virtuais: série H |
-> |  | Serviços Cognitivos: QnA Maker | Máquinas virtuais: série LS |
+> |  | Serviços Cognitivos: QnA Maker | Máquinas virtuais: série H |
+> |  | Serviços cognitivas: serviços de fala | Máquinas virtuais: série LS |
 > |  | Instâncias de Contêiner | Máquinas virtuais: LSv2-Series |
 > |  | Registro de Contêiner | Máquinas virtuais: Mv2-Series |
 > |  | Data Factory | Máquinas virtuais: NC-Series |
@@ -146,6 +145,14 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > |  | Armazenamento de arquivos Premium | Visual Studio App Center |
 > |  | Armazenamento: Armazenamento de Arquivos |  |
 > |  | Ultra Armazenamento em Disco |  |
+> |  | Máquinas virtuais: Ddsv4-Series |  |
+> |  | Máquinas virtuais: Ddv4-Series |  |
+> |  | Máquinas virtuais: Dsv4-Series |  |
+> |  | Máquinas virtuais: dv4-Series |  |
+> |  | Máquinas virtuais: Edsv4-Series |  |
+> |  | Máquinas virtuais: Edv4-Series |  |
+> |  | Máquinas virtuais: Esv4-Series |  |
+> |  | Máquinas virtuais: Ev4-Series |  |
 > |  | Máquinas virtuais: Fsv2-Series |  |
 > |  | Máquinas virtuais: série M |  |
 > |  | WAN Virtual |  |

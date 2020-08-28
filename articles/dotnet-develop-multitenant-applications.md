@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: d1441ede9f448b3e6ffb0726c2ee92f192369e9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81481845"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017695"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
 Um aplicativo multilocatário é um recurso compartilhado que permite "usuários em locatários separados" para exibir o aplicativo como se ele fosse seu. Um cenário típico que se presta a um aplicativo multilocatário é aquele em que todos os usuários do aplicativo de locatários diferentes podem querer personalizar a experiência do usuário, mas, caso contrário, têm os mesmos requisitos básicos de negócios. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
@@ -67,7 +68,7 @@ O gerenciamento de dados, como o Azure SQL Database ou os serviços de armazenam
 
 * Service Bus do Azure, uma infraestrutura de mensagens situada entre aplicativos que permite que eles troquem mensagens de uma maneira vagamente acoplada para fornecer escala e resiliência melhoradas.
 
-**Serviços de rede**
+**Serviços de Rede**
 
 O Azure fornece vários serviços de rede que oferecem suporte à autenticação e melhoram a capacidade de gerenciamento dos aplicativos hospedados. esses serviços incluem o seguinte:
 

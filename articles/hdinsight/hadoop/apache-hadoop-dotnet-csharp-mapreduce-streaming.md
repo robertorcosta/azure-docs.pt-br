@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 0a20a120f72c70cb50cae37cece54d5efad31f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 58f807a5a036f14af9baede604debe9d577cdbf6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074805"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000678"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com fluxo de MapReduce no Apache Hadoop no HDInsight
 
@@ -88,7 +88,7 @@ namespace mapper
 }
 ```
 
-Depois de criar o aplicativo, compile-o para produzir o arquivo de *mapper.exe/bin/Debug/* no diretório do projeto.
+Depois de criar o aplicativo, compile-o para produzir o arquivo de *mapper.exe/bin/Debug/ * no diretório do projeto.
 
 ## <a name="create-the-reducer"></a>Criar o redutor
 
@@ -141,7 +141,7 @@ namespace reducer
 }
 ```
 
-Depois de criar o aplicativo, compile-o para produzir o arquivo de *reducer.exe/bin/Debug/* no diretório do projeto.
+Depois de criar o aplicativo, compile-o para produzir o arquivo de *reducer.exe/bin/Debug/ * no diretório do projeto.
 
 ## <a name="upload-to-storage"></a>Carregar para o armazenamento
 

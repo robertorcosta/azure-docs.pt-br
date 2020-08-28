@@ -4,12 +4,12 @@ description: Funcionalidade de restauração instantânea do Azure e perguntas f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892619"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000372"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor backup e restaurar o desempenho com a funcionalidade de restauração instantânea do Backup do Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "88892619"
 
 O novo modelo para Restauração instantânea oferece os seguintes aprimoramentos de recursos:
 
-* Capacidade de usar o instantâneo tirado como parte do trabalho de backup que está disponível para recuperação sem aguardar a conclusão da transferência de dados para o cofre. Isso reduz o tempo de espera para instantâneos para copiar para o cofre antes de disparar a restauração.
+* Capacidade de usar instantâneos tirados como parte de um trabalho de backup que está disponível para recuperação sem aguardar a conclusão da transferência de dados para o cofre. Isso reduz o tempo de espera para instantâneos para copiar para o cofre antes de disparar a restauração.
 * Reduz os tempos de backup e restauração mantendo os instantâneos localmente. O padrão é de dois dias. Esse valor de retenção de instantâneo padrão é configurável para qualquer valor entre 1 e 5 dias.
 * Dá suporte a tamanhos de disco de até 32 TB. O redimensionamento de discos não é recomendado pelo backup do Azure.
 * Dá suporte a discos SSD Standard juntamente com discos HDD Standard e SSD Premium discos.
@@ -108,9 +108,9 @@ Se o tipo de recuperação é "instantâneo e cofre", a restauração é feita a
 
 O novo modelo não permite excluir o ponto de restauração (tier2), a menos que o instantâneo (nível 1) seja excluído. Recomendamos agendar o período de retenção do ponto de restauração (Camada 2) de forma a ser mais longo que o período de retenção de instantâneos.
 
-### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Por que meu instantâneo existe mesmo após o período de retenção definido na política de backup?
+### <a name="why-does-my-snapshot-still-exist-even-after-the-set-retention-period-in-backup-policy"></a>Por que meu instantâneo ainda existe, mesmo após o período de retenção definido na política de backup?
 
-Se o ponto de recuperação tiver um instantâneo e esse for o RP mais recente disponível, ele será retido até o próximo backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) projetada hoje que exige pelo menos um RP mais recente para estar sempre presente no caso de falha de todos os backups devido a um problema na VM. Em cenários normais, os períodos de retenção são limpos no máximo 24 horas após sua expiração.
+Se o ponto de recuperação tiver um instantâneo e ele for o último ponto de recuperação disponível, ele será retido até o próximo backup bem-sucedido. Isso é de acordo com a política de "coleta de lixo" (GC) designada. Isso exige que pelo menos um ponto de recuperação mais recente sempre esteja presente, no caso de falha em todos os backups subsequentes devido a um problema na VM. Em cenários normais, os pontos de recuperação são limpos no máximo 24 horas após a expiração.
 
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Não preciso da funcionalidade de restauração instantânea. Ele pode ser desabilitado?
 

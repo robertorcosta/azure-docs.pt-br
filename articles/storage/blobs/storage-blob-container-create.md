@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: abf4cb33fa953ec9a257397551b3d17752fe67f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a17ab97dbfa1819154695f4c287b59db90f34334
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070724"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018987"
 ---
 # <a name="create-or-delete-a-container-in-azure-storage-with-net"></a>Criar ou excluir um contêiner no armazenamento do Azure com o .NET
 
@@ -145,14 +146,14 @@ Para excluir um contêiner no .NET, use um dos seguintes métodos:
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-- [Excluir](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
+- [Delete (excluir)](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync)
 - [DeleteIfExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexistsasync)
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-- [Excluir](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
+- [Delete (excluir)](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
