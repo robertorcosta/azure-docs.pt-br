@@ -1,14 +1,14 @@
 ---
 title: Gerenciar espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerenciar efetivamente o Azure Sentinel em recursos de clientes delegados.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1734efb57b18cfc559144b13aaecb882612ca73b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511245"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050804"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerenciar espaços de trabalho do Azure Sentinel em escala
 
@@ -29,7 +29,7 @@ Esse modelo centralizado de implantação tem as seguintes vantagens:
 
 - A propriedade dos dados permanece com cada locatário gerenciado.
 - Dá suporte a requisitos para armazenar dados em limites geográficos.
-- Garante o isolamento de dados, já que os dados de vários clientes não são armazenados no mesmo espaço de trabalho. 
+- Garante o isolamento de dados, já que os dados de vários clientes não são armazenados no mesmo espaço de trabalho.
 - Impede a vazamento de dados dos locatários gerenciados, ajudando a garantir a conformidade dos dados.
 - Os custos relacionados são cobrados em cada locatário gerenciado, e não no locatário de gerenciamento.
 - Os dados de todas as fontes de dados e conectores de dados que são integrados ao Azure Sentinel (como logs de atividades do Azure AD, logs do Office 365 ou alertas de proteção contra ameaças da Microsoft) permanecerão dentro de cada locatário do cliente.
@@ -71,13 +71,21 @@ Você também pode implantar pastas de trabalho diretamente em um locatário ind
 
 ## <a name="run-log-analytics-and-hunting-queries-across-azure-sentinel-workspaces"></a>Executar Log Analytics e buscar consultas em espaços de trabalho do Azure Sentinel
 
-Você pode criar e salvar Log Analytics consultas para detecção de ameaças de forma centralizada no locatário de gerenciamento, incluindo [consultas de busca](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Essas consultas podem ser executadas em todos os espaços de trabalho do Azure Sentinel de seus clientes usando o operador Union e a expressão Workspace (). Para obter mais informações, consulte [consulta entre espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Crie e salve Log Analytics consultas para detecção de ameaças de forma centralizada no locatário de gerenciamento, incluindo [consultas de busca](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). Essas consultas podem ser executadas em todos os espaços de trabalho do Azure Sentinel de seus clientes usando o operador Union e a expressão Workspace (). Para obter mais informações, consulte [consulta entre espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## <a name="use-automation-for-cross-workspace-management"></a>Usar a automação para gerenciamento entre espaços de trabalho
 
 Você pode usar a automação para gerenciar vários espaços de trabalho do Azure Sentinel e configurar [consultas de busca](../../sentinel/hunting.md), guias estratégicos e pastas de trabalho. Para obter mais informações, consulte [gerenciamento entre espaços de trabalho usando automação](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
 
 Observe que alguns recursos [não têm suporte no momento em vários espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+
+## <a name="manage-security-of-office-365-environments"></a>Gerenciar a segurança dos ambientes do Office 365
+
+Use o Azure Lighthouse em conjunto com o Azure Sentinel para gerenciar a segurança de ambientes do Office 365 entre locatários. Primeiro, os conectores de dados prontos para uso do [Office 365 devem ser habilitados no locatário gerenciado](../../sentinel/connect-office-365.md) para que as informações sobre as atividades de usuário e administrador no Exchange e no SharePoint (incluindo o onedrive) possam ser ingeridas em um espaço de trabalho do Azure Sentinel dentro do locatário gerenciado. Isso inclui detalhes sobre ações como downloads de arquivos, solicitações de acesso enviadas, alterações em eventos de grupo e operações de caixa de correio, juntamente com informações sobre os usuários que executaram as ações. Os [alertas do office 365 DLP](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) também têm suporte como parte do conector interno do Office 365.
+
+Você pode habilitar o [conector de Microsoft Cloud app Security (MCAS)](../../sentinel/connect-cloud-app-security.md) para transmitir alertas e Cloud Discovery logs para o Azure Sentinel. Isso permite que você obtenha visibilidade em aplicativos de nuvem, obtenha análises sofisticadas para identificar e combater ameaças cibernéticas e controlar como os dados são transferidos. Os logs de atividades para MCAS podem ser [consumidos usando o formato de evento comum (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+
+Depois de configurar os conectores de dados do Office 365, você pode usar as funcionalidades do Azure Sentinel entre locatários, como exibir e analisar os dados em pastas de trabalho, usar consultas para criar alertas personalizados e configurar guias estratégicos para responder a ameaças.
 
 ## <a name="next-steps"></a>Próximas etapas
 

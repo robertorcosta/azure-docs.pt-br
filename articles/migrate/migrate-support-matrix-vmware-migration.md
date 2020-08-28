@@ -3,12 +3,12 @@ title: Suporte para migração do VMware nas migrações para Azure
 description: Saiba mais sobre o suporte para migração de VM do VMware nas migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 19252a058fd26da6bddf64ad7af132a12cd1e140
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c9ae6a5c3ed0d38b6abc952458422c7789fef8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869092"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051110"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -51,7 +51,7 @@ A tabela resume os requisitos de migração sem agente para VMs VMware.
 
 **Suporte** | **Detalhes**
 --- | ---
-**Sistemas operacionais com suporte** | Você pode migrar os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) com suporte no Azure.
+**Sistemas operacionais compatíveis** | Você pode migrar os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) com suporte no Azure.
 **VMs do Windows no Azure** | Talvez seja necessário [fazer algumas alterações](prepare-for-migration.md#verify-required-changes-before-migrating) nas VMs antes da migração. 
 **VMs do Linux no Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure.<br/><br/> Para o Linux, as migrações para Azure fazem as alterações automaticamente para esses sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. Para outros sistemas operacionais, faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Inicialização do Linux** | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos.
@@ -117,6 +117,7 @@ A tabela resume o suporte de VM do VMware para VMs VMware que você deseja migra
 **Requisitos do Azure** | Para obter as informações mais recentes, examine os requisitos de rede, [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [computação](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) do [Azure](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)para site Recovery. As migrações para Azure têm requisitos idênticos para a migração do VMware.
 **Serviço de mobilidade** | O agente do serviço de mobilidade deve ser instalado em cada VM que você deseja migrar.
 **Inicialização UEFI** | Com suporte.
+**Inicialização segura de UEFI**         | Sem suporte para migração.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Premium) no Azure.
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.

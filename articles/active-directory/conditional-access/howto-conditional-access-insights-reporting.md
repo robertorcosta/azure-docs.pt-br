@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253266"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049410"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Insights e relatórios de acesso condicional
 
@@ -97,6 +97,22 @@ Veja o detalhamento de usuários ou entradas de cada uma das condições. Você 
 
 Você também pode investigar as entradas de um usuário específico procurando as entradas na parte inferior do painel. A consulta à esquerda exibe os usuários mais frequentes. Selecionar um usuário filtra a consulta à direita.  
 
+> [!NOTE]
+> Ao baixar os logs de entradas, escolha formato JSON para incluir acesso condicional somente para dados de resultados de relatório.
+
+## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurar uma política de acesso condicional no modo somente de relatório
+
+Para configurar uma política de acesso condicional no modo somente de relatório:
+
+1. Entre no **portal do Azure** como administrador de acesso condicional, administrador de segurança ou administrador global.
+1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
+1. Selecione uma política existente ou crie uma nova política.
+1. Em **habilitar política** , defina alternar para o modo **somente relatório** .
+1. Selecione **Salvar**
+
+> [!TIP]
+> Editar o estado da **política de habilitação** de uma política existente de **em** para o **relatório somente** desabilita a imposição de política existente. 
+
 ## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Por que as consultas falham devido a um erro de permissões?
@@ -111,6 +127,10 @@ Para acessar a pasta de trabalho, você precisa das permissões adequadas do Azu
 ![Solucionar problemas de consultas com falha](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 Para obter mais informações sobre como transmitir logs de entrada do Azure AD para um Log Analytics espaço de trabalho, consulte o artigo [integrar logs do Azure ad a logs de Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>Por que as consultas na pasta de trabalho falham?
+
+Os clientes perceberam que as consultas às vezes falham se os espaços de trabalho incorretos ou múltiplos estiverem associados à pasta de trabalho. Para corrigir esse problema, clique em **Editar** na parte superior da pasta de trabalho e, em seguida, na engrenagem configurações. Selecione e remova espaços de trabalho que não estão associados à pasta de trabalho. Deve haver apenas um espaço de trabalho associado a cada pasta de trabalho.
 
 ### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Por que o parâmetro de políticas de acesso condicional está vazio?
 
@@ -134,4 +154,8 @@ Você pode editar e personalizar as pastas de trabalho, acessando **Azure Active
  
 ## <a name="next-steps"></a>Próximas etapas
 
-[Modo somente relatório do Acesso Condicional](concept-conditional-access-report-only.md)
+- [Modo somente relatório do Acesso Condicional](concept-conditional-access-report-only.md)
+
+- Para obter mais informações sobre pastas de trabalho do Azure AD, consulte o artigo [como usar Azure monitor pastas de trabalho para relatórios Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+
+- [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)

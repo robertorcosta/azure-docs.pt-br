@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/25/2020
-ms.openlocfilehash: 4890013fe584c49caa9e358c924911255a7f5d33
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 08/28/2020
+ms.openlocfilehash: cd14a183ae1434af83c96b7f8d6575186412b534
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815956"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051212"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure) usando o Azure Data Factory
 
@@ -269,7 +269,7 @@ Para copiar dados do Azure Synapse Analytics, defina a propriedade **type** na o
 | storedProcedureParameters    | Parâmetros para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não       |
 | isolationLevel | Especifica o comportamento de bloqueio de transação para a origem do SQL. Os valores permitidos são: **ReadCommitted**, **READUNCOMMITTED**, **REPEATABLEREAD**, **Serializable**, **snapshot**. Se não for especificado, o nível de isolamento padrão do banco de dados será usado. Veja [este documento](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) para obter mais detalhes. | Não |
 | partitionOptions | Especifica as opções de particionamento de dados usadas para carregar dados do Azure Synapse Analytics. <br>Os valores permitidos são: **None** (padrão), **PhysicalPartitionsOfTable**e **DynamicRange**.<br>Quando uma opção de partição é habilitada (ou seja, não `None` ), o grau de paralelismo para carregar dados simultaneamente de uma análise de Synapse do Azure é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) configuração na atividade de cópia. | Não |
-| partitionSettings | Especifique o grupo de configurações para o particionamento de dados. <br>Aplicar quando a opção de partição não estiver `None` . | Não |
+| partitionSettings | Especifique o grupo de configurações para o particionamento de dados. <br>Aplicar quando a opção de partição não estiver `None` . | No |
 | ***Em `partitionSettings` :*** | | |
 | partitionColumnName | Especifique o nome da coluna de origem **no tipo inteiro ou data/hora** que será usado pelo particionamento de intervalo para cópia paralela. Se não for especificado, o índice ou a chave primária da tabela será detectado automaticamente e usado como a coluna de partição.<br>Aplicar quando a opção de partição for `DynamicRange`. Se você usar uma consulta para recuperar os dados de origem, conecte-se  `?AdfDynamicRangePartitionCondition ` à cláusula WHERE. Para obter um exemplo, consulte a seção [cópia paralela do banco de dados SQL](#parallel-copy-from-synapse-analytics) . | Não |
 | partitionUpperBound | O valor máximo da coluna de partição para divisão de intervalo de partição. Esse valor é usado para decidir o stride da partição, não para filtrar as linhas na tabela. Todas as linhas da tabela ou do resultado da consulta serão particionadas e copiadas. Se não for especificado, a atividade de cópia detectará o valor automaticamente.  <br>Aplicar quando a opção de partição for `DynamicRange`. Para obter um exemplo, consulte a seção [cópia paralela do banco de dados SQL](#parallel-copy-from-synapse-analytics) . | Não |
@@ -504,7 +504,7 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 
 3. Se a sua origem for uma pasta, `recursive` na atividade de cópia precisará ser definida como true.
 
-4. `wildcardFolderPath`, `wildcardFilename`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` e `additionalColumns` não foram especificados.
+4. `wildcardFolderPath` ,,,, `wildcardFilename` `modifiedDateTimeStart` `modifiedDateTimeEnd` `prefix` `enablePartitionDiscovery` e `additionalColumns` não são especificados.
 
 >[!NOTE]
 >Se a sua origem for uma pasta, o PolyBase recuperará arquivos da pasta e de todas as respectivas subpastas e não recuperará dados de arquivos para os quais o nome do arquivo começa com um sublinhado (_) ou um ponto final (.), conforme documentado [aqui – argumento LOCATION](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
@@ -684,7 +684,7 @@ O uso da instrução COPY dá suporte à seguinte configuração:
 
 3. Se a sua origem for uma pasta, `recursive` na atividade de cópia precisará ser definida como true e `wildcardFilename` precisará ser `*`. 
 
-4. `wildcardFolderPath`, `wildcardFilename` (além de `*`), `modifiedDateTimeStart`, `modifiedDateTimeEnd` e `additionalColumns` não foram especificados.
+4. `wildcardFolderPath` , `wildcardFilename` (diferente de `*` ),,, `modifiedDateTimeStart` `modifiedDateTimeEnd` `prefix` `enablePartitionDiscovery` e `additionalColumns` não são especificados.
 
 As seguintes configurações da instrução COPY são compatíveis em `allowCopyCommand` na atividade de cópia:
 

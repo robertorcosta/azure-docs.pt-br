@@ -1,14 +1,14 @@
 ---
 title: Use parâmetros para criar blueprints dinâmicos
 description: Saiba mais sobre os parâmetros estáticos e dinâmicos e como usá-los para criar plantas dinâmicas e seguras.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970630"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051552"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -55,11 +55,11 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 1. Selecione **Definições do blueprint** na página à esquerda.
 
-1. Clique em um plano gráfico existente e, em seguida, clique em **Editar Blueprint** ou clique em **+ criar plano gráfico** e preencha as informações na guia **noções básicas** .
+1. Selecione um plano gráfico existente e, em seguida, selecione **Editar plano gráfico** ou selecione **+ criar plano gráfico** e preencha as informações na guia **noções básicas** .
 
-1. Clique em **Próximo: artefatos** OU clique na guia **Artefatos**.
+1. Selecione **Avançar: artefatos** ou selecione a guia **artefatos** .
 
-1. Os artefatos adicionados ao blueprint que têm opções de parâmetro exibem **X de Y parâmetros populados** na coluna **Parâmetros**. Clique na linha do artefato para editar os seus parâmetros.
+1. Os artefatos adicionados ao blueprint que têm opções de parâmetro exibem **X de Y parâmetros populados** na coluna **Parâmetros**. Selecione a linha de artefato para editar os parâmetros de artefato.
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parâmetros de Blueprint em uma definição de Blueprint" border="false":::
 
@@ -172,7 +172,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâme
 
 1. Selecione **Definições do blueprint** na página à esquerda.
 
-1. Clique com o botão direito do mouse no blueprint que você deseja atribuir. Selecione **atribuir plano gráfico** ou clique no plano gráfico que você deseja atribuir e clique no botão **atribuir Blueprint** .
+1. Clique com o botão direito do mouse no blueprint que você deseja atribuir. Selecione **atribuir plano gráfico** ou selecione o plano gráfico que você deseja atribuir e use o botão **atribuir Blueprint** .
 
 1. Na página **atribuir Blueprint** , localize a seção **parâmetros de artefato** . Cada artefato com pelo menos um **parâmetro dinâmico** exibe o artefato e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir o blueprint. No exemplo abaixo, _Nome_ é um **parâmetro dinâmico** que deve ser definido para concluir a atribuição do blueprint.
 
@@ -234,8 +234,8 @@ Definir **parâmetros dinâmicos** durante a atribuição é feito inserindo o v
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte a lista de [funções de plantas](../reference/blueprint-functions.md).
-- Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
-- Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
-- Saiba como usar o [bloqueio de recurso de blueprint](resource-locking.md).
+- Saiba mais sobre o [ciclo de vida do blueprint](./lifecycle.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](./sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](./resource-locking.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

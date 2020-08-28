@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853928"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047621"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauração de dados sob demanda no Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Use as etapas a seguir para alterar as opções de backup padrão para uma conta
 
    * **Retenção de backup** – representa o período em que cada backup é retido. Você pode configurá-lo em horas ou dias. O período de retenção mínimo não pode ser menor que duas vezes o intervalo de backup (em horas) e não pode ser maior que 720 horas.
 
-   * **Cópias de dados retidas** -por padrão, duas cópias de backup de seus dados são oferecidas gratuitamente. Se você precisar de cópias adicionais, deverá criar uma solicitação de suporte por meio do portal do Azure e as cópias adicionais serão cobradas. Consulte a seção armazenamento consumido na [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o preço exato de cópias adicionais.
+   * **Cópias de dados retidas** -por padrão, duas cópias de backup de seus dados são oferecidas gratuitamente. Haverá uma cobrança adicional se você precisar de mais de duas cópias. Consulte a seção armazenamento consumido na [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o preço exato de cópias adicionais.
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurar o intervalo de backup e a retenção de uma conta existente do Azure Cosmos" border="true":::
 

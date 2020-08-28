@@ -2,28 +2,34 @@
 title: Endereços IP de entrada/saída
 description: Saiba como os endereços IP de entrada e saída são usados no serviço Azure App, quando eles mudam e como encontrar os endereços para seu aplicativo.
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bcd80fde95e467513590f3ed09b1dadd2646aee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537620"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050685"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Endereços IP de entrada e saída no Serviço de Aplicativo do Azure
 
-O [Serviço de Aplicativo do Azure](overview.md) é um serviço multilocatário, exceto para [Ambientes de Serviço de Aplicativo](environment/intro.md). Aplicativos que não estão em um ambiente de Serviço de Aplicativo (não na [Camada isolada](https://azure.microsoft.com/pricing/details/app-service/)) compartilham a infraestrutura de rede com outros aplicativos. Como resultado, os endereços IP de entrada e saída de um aplicativo podem ser diferentes e até alterar em determinadas situações. 
+O [Serviço de Aplicativo do Azure](overview.md) é um serviço multilocatário, exceto para [Ambientes de Serviço de Aplicativo](environment/intro.md). Aplicativos que não estão em um ambiente de Serviço de Aplicativo (não na [Camada isolada](https://azure.microsoft.com/pricing/details/app-service/)) compartilham a infraestrutura de rede com outros aplicativos. Como resultado, os endereços IP de entrada e saída de um aplicativo podem ser diferentes e até alterar em determinadas situações.
 
 [Ambientes de Serviço de Aplicativo](environment/intro.md) usam infraestruturas de rede dedicadas para que aplicativos executados em um ambiente de Serviço de Aplicativo obtenham endereços IP dedicados e estáticos para conexões de entrada e saída.
+
+## <a name="how-ip-addresses-work-in-app-service"></a>Como os endereços IP funcionam no serviço de aplicativo
+
+Um aplicativo do serviço de aplicativo é executado em um plano do serviço de aplicativo, e os planos do serviço de aplicativo são implantados em uma das unidades de implantação na infraestrutura do Azure (internamente chamada de espaço Web). Cada unidade de implantação é atribuída a até cinco endereços IP virtuais, o que inclui um endereço IP de entrada público e quatro endereços IP de saída. Todos os planos do serviço de aplicativo na mesma unidade de implantação e as instâncias de aplicativo que são executados neles compartilham o mesmo conjunto de endereços IP virtuais. Para um Ambiente do Serviço de Aplicativo (um plano do serviço de aplicativo na [camada isolada](https://azure.microsoft.com/pricing/details/app-service/)), o plano do serviço de aplicativo é a própria unidade de implantação e, portanto, os endereços IP virtuais são dedicados a ele como resultado.
+
+Como você não tem permissão para mover um plano do serviço de aplicativo entre as unidades de implantação, os endereços IP virtuais atribuídos ao seu aplicativo geralmente permanecem os mesmos, mas há exceções.
 
 ## <a name="when-inbound-ip-changes"></a>Quando ocorrem alterações do IP de entrada
 
 Independentemente do número de instâncias dimensionadas, cada aplicativo tem um único endereço IP de entrada. O endereço IP de entrada pode alterar ao executar uma das ações a seguir:
 
-- Excluir um aplicativo e recriá-lo em um grupo de recursos diferente.
-- Excluir o último aplicativo em uma combinação de grupo de recursos _e_ região e recriá-lo.
-- Exclua uma associação TLS existente, como durante a renovação do certificado (consulte [renovar certificado](configure-ssl-certificate.md#renew-certificate)).
+- Exclua um aplicativo e recrie-o em um grupo de recursos diferente (a unidade de implantação pode ser alterada).
+- Excluir o último aplicativo em um grupo de recursos _e_ uma combinação de região e recriá-lo (a unidade de implantação pode ser alterada).
+- Exclua uma associação TLS/SSL baseada em IP existente, como durante a renovação do certificado (consulte [renovar certificado](configure-ssl-certificate.md#renew-certificate)).
 
 ## <a name="find-the-inbound-ip"></a>Localizar o IP de entrada
 
@@ -39,9 +45,13 @@ nslookup <app-name>.azurewebsites.net
 
 ## <a name="when-outbound-ips-change"></a>Quando ocorrem alterações dos IPs de saída
 
-Independentemente do número de instâncias dimensionadas, cada aplicativo tem um número definido de endereços IP de saída a qualquer momento. Qualquer conexão de saída do aplicativo do Serviço de Aplicativo, como um banco de dados back-end, usa um dos endereços IP de saída como o endereço IP de origem. Não é possível saber antecipadamente o endereço IP que uma determinada instância de aplicativo usará para estabelecer a conexão de saída, portanto, o serviço de back-end deverá abrir o firewall para todos os endereços IP de saída do aplicativo.
+Independentemente do número de instâncias dimensionadas, cada aplicativo tem um número definido de endereços IP de saída a qualquer momento. Qualquer conexão de saída do aplicativo do Serviço de Aplicativo, como um banco de dados back-end, usa um dos endereços IP de saída como o endereço IP de origem. O endereço IP a ser usado é selecionado aleatoriamente em tempo de execução, de modo que o serviço de back-end deve abrir seu firewall para todos os endereços IP de saída para seu aplicativo.
 
-O conjunto de endereços IP de saída para o aplicativo é alterado quando você dimensiona o aplicativo entre as camadas inferiores (**Básico**, **Standard** e **Premium**) e a camada **Premium V2**.
+O conjunto de endereços IP de saída para seu aplicativo é alterado quando você executa uma das seguintes ações:
+
+- Exclua um aplicativo e recrie-o em um grupo de recursos diferente (a unidade de implantação pode ser alterada).
+- Excluir o último aplicativo em um grupo de recursos _e_ uma combinação de região e recriá-lo (a unidade de implantação pode ser alterada).
+- Dimensione seu aplicativo entre as camadas inferiores (**Basic**, **Standard**e **Premium**) e a camada **Premium v2** (os endereços IP podem ser adicionados ou subtraídos do conjunto).
 
 Você pode encontrar o conjunto de todos os endereços IP de saída possíveis que seu aplicativo pode usar, independentemente dos tipos de preço, procurando a `possibleOutboundIpAddresses` propriedade ou no campo **endereços IP de saída adicionais** na folha **Propriedades** no portal do Azure. Consulte [Localizar IPs de saída](#find-outbound-ips).
 

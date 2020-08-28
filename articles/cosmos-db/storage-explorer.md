@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: b892e4c5078b50bb865a715ddf12aebc1eb05f57
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d1948ae186662c7f60f4d49c19a4d48b424a38f7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799104"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047472"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com os dados usando o Gerenciador de Armazenamento do Azure
 
 O uso do Azure Cosmos DB no Gerenciador de Armazenamento do Azure permite que os usuários gerenciem entidades do Azure Cosmos DB, manipulem dados, atualizem procedimentos armazenados e gatilhos junto com outras entidades do Azure, como os blobs de armazenamento e as filas. Agora você pode usar a mesma ferramenta para gerenciar suas diferentes entidades do Azure em um único local. Neste momento, o Gerenciador de Armazenamento do Microsoft Azure oferece suporte para contas do Cosmos, configuradas para SQL, MongoDB, Graph e APIs de Tabela.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Uma conta do Cosmos com API SQL ou API do Azure Cosmos DB para MongoDB. Caso não tenha uma conta, você pode criar uma no Portal do Azure, conforme descrito em [Azure Cosmos DB: Compilar um aplicativo Web da API com o .NET e com o Portal do Azure](create-sql-api-dotnet.md).
 
@@ -95,7 +95,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 
 * Clique com o botão direito do mouse em uma conta ou banco de dados do Azure Cosmos DB. Você pode escolher a opção **Abrir no Portal** e gerenciar o recurso no navegador do Portal do Azure.
 
-     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Abrir no portal":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Abrir no portal":::
 
 * Você também pode adicionar a conta, o banco de dados e a coleção do Azure Cosmos DB no **Acesso Rápido**.
 * A opção **Pesquisar daqui** habilita a pesquisa de palavra-chave no caminho selecionado.
@@ -106,25 +106,25 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 
 #### <a name="create-a-database"></a>Criar um banco de dados
 
--   Clique com o botão direito do mouse na conta do Azure Cosmos DB, escolha **Criar Banco de Dados**, insira o nome do banco de dados e pressione **Enter** para concluir.
+- Clique com o botão direito do mouse na conta do Azure Cosmos DB, escolha **Criar Banco de Dados**, insira o nome do banco de dados e pressione **Enter** para concluir.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Criar um banco de dados em sua conta do Azure Cosmos":::
+  :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Criar um banco de dados em sua conta do Azure Cosmos":::
 
 #### <a name="delete-a-database"></a>Excluir um banco de dados
 
 - Clique com o botão direito do mouse no banco de dados, selecione **excluir banco de dados**e selecione **Sim** na janela pop-up. O nó do banco de dados é excluído e a conta do Azure Cosmos DB é atualizada automaticamente.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Excluir o primeiro banco de dados":::
+  :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Excluir o primeiro banco de dados":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Excluir os segundo bancos de dados":::
+  :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Excluir os segundo bancos de dados":::
 
 #### <a name="create-a-collection"></a>Criar uma coleção
 
 1. Clique com o botão direito do mouse no banco de dados, escolha **criar coleção**e forneça as informações a seguir, como **ID da coleção**, **capacidade de armazenamento**, etc. Clique em **OK** para concluir.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Criar primeira coleção no banco de dados":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Criar primeira coleção no banco de dados":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Criar a segunda coleção no banco de dados":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Criar a segunda coleção no banco de dados":::
 
 2. Selecione **ilimitado** para poder especificar a chave de partição e, em seguida, selecione **OK** para concluir.
 
@@ -146,7 +146,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 
 - Para criar um novo documento, abra **documentos** na janela esquerda, selecione **novo documento**, edite o conteúdo no painel direito e, em seguida, selecione **salvar**. Você também pode atualizar um documento existente e, em seguida, selecionar **salvar**. As alterações podem ser descartadas clicando em **Descartar**.
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Criar um novo documento":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Criar um novo documento":::
 
 #### <a name="delete-a-document"></a>Excluir um documento
 
@@ -156,7 +156,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 
 - Edite o filtro de documento inserindo uma [consulta SQL](how-to-sql-query.md) e, em seguida, selecione **aplicar**.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Consulta de documentos específicos":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Consulta de documentos específicos":::
 
 ### <a name="graph-management"></a>Gerenciamento de gráfico
 
@@ -165,7 +165,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 1. Para criar um novo vértice, abra o **grafo** na janela esquerda, selecione **novo vértice**, edite o conteúdo e selecione **OK**.
 2. Para modificar um vértice existente, selecione o ícone de caneta no painel direito.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modificar o vértice de um grafo":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modificar o vértice de um grafo":::
 
 #### <a name="delete-a-graph"></a>Excluir um gráfico
 
@@ -175,7 +175,7 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 
 - Edite o filtro de gráfico inserindo uma [consulta Gremlin](gremlin-support.md) e, em seguida, selecione **aplicar filtro**.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Executar uma consulta de grafo":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Executar uma consulta de grafo":::
 
 ### <a name="table-management"></a>Gerenciamento de tabela
 
@@ -184,33 +184,34 @@ Ao clicar com o botão direito do mouse em uma assinatura no painel do Explorer,
 1. Para criar uma nova tabela, abra **entidades** na janela esquerda, selecione **Adicionar**, edite o conteúdo na caixa de diálogo **Adicionar entidade** , adicione a propriedade clicando no botão **Adicionar Propriedade**e selecione **Inserir**.
 2. Para modificar uma tabela, selecione **Editar**, modifique o conteúdo e, em seguida, selecione **Atualizar**.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Criar e modificar uma tabela":::
+   :::image type="content" source="./media/storage-explorer/table.png" alt-text="Criar e modificar uma tabela":::
 
 #### <a name="import-and-export-table"></a>Importar e exportar tabela
 
 1. Para importar, selecione o botão **importar** e escolha uma tabela existente.
 2. Para exportar, selecione o botão **Exportar** e escolha um destino.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importar ou exportar uma tabela":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importar ou exportar uma tabela":::
 
 #### <a name="delete-entities"></a>Excluir entidades
 
 - Selecione as entidades e selecione o botão **excluir**.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Excluir uma tabela":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Excluir uma tabela":::
 
 #### <a name="query-table"></a>Tabela de consulta
 
 - Clique no botão **consulta** , insira a condição de consulta e selecione o botão **Executar consulta** . Feche o painel de consulta clicando no botão **Fechar consulta**.
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Consultar dados da tabela":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Consultar dados da tabela":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gerenciar procedimentos armazenados, gatilhos e UDFs
 
 * Para criar um procedimento armazenado, na árvore à esquerda, clique com o botão direito do mouse em **procedimento armazenado**, escolha **criar procedimento armazenado**, insira um nome à esquerda, digite os scripts de procedimento armazenado na janela direita e, em seguida, selecione **criar**.
 * Você também pode editar os procedimentos armazenados existentes clicando duas vezes em, fazendo a atualização e, em seguida, clicando em **Atualizar** para salvar ou selecionar **descartar** para cancelar a alteração.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Criar e gerenciar procedimentos armazenados":::
+  :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Criar e gerenciar procedimentos armazenados":::
+
 * As operações para **Gatilhos** e **UDF** são semelhantes aos **Procedimentos Armazenados**.
 
 ## <a name="troubleshooting"></a>Solução de problemas
@@ -299,7 +300,7 @@ Não há resposta depois de selecionar o nó "desenvolvimento" no nó "local e a
 
 Se você vir o erro abaixo depois de anexar a conta do Azure Cosmos DB ao nó "Local e Anexado", verifique se você está usando a cadeia de conexão certa.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Erro de anexação do Azure Cosmos DB a Local e Anexado":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Erro de anexação do Azure Cosmos DB a "Local e Anexado"":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Erro de expansão do nó do Azure Cosmos DB
 

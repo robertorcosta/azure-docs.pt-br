@@ -1,7 +1,7 @@
 ---
 title: Registrar aplicativos móveis que chamam APIs da Web | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como criar um aplicativo móvel que chama APIs da Web (configuração de código do aplicativo)
+description: Saiba como criar um aplicativo móvel que chama APIs da Web (registro do aplicativo)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,18 +13,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652634"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047666"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrar aplicativos móveis que chamam APIs da Web
 
 Este artigo contém instruções para ajudá-lo a registrar um aplicativo móvel que você está criando.
 
-## <a name="supported-account-types"></a>Tipos de conta com suporte
+## <a name="supported-account-types"></a>Tipos de conta compatíveis
 
 Os tipos de conta aos quais seus aplicativos móveis dão suporte dependem da experiência que você deseja habilitar e dos fluxos que você deseja usar.
 
@@ -40,7 +40,7 @@ Você também pode conectar usuários usando identidades sociais que passam uma 
 
 Para obter mais informações, consulte [cenários e fluxos de autenticação com suporte](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e [cenários e plataformas e linguagens com suporte](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## <a name="platform-configuration-and-redirect-uris"></a>Configuração de plataforma e URIs de redirecionamento  
+## <a name="platform-configuration-and-redirect-uris"></a>Configuração de plataforma e URIs de redirecionamento
 
 ### <a name="interactive-authentication"></a>Autenticação interativa
 
@@ -72,20 +72,20 @@ Quando você concluir as etapas, o URI de redirecionamento será computado para 
 
 Se preferir configurar manualmente o URI de redirecionamento, você poderá fazer isso por meio do manifesto do aplicativo. Este é o formato recomendado para o manifesto:
 
-- **Ios**:`msauth.<BUNDLE_ID>://auth` 
+- **Ios**: `msauth.<BUNDLE_ID>://auth`
   - Por exemplo, digite `msauth.com.yourcompany.appName://auth`
-- **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Você pode gerar o hash de assinatura do Android usando a chave de versão ou a chave de depuração por meio do comando keytool.
 
 ### <a name="username-password-authentication"></a>Nome de usuário-autenticação de senha
 
-Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para o ponto de extremidade da plataforma Microsoft Identity versão 2,0. Seu aplicativo não será chamado de volta em nenhum URI específico. 
+Se seu aplicativo usar apenas a autenticação de nome de usuário-senha, você não precisará registrar um URI de redirecionamento para seu aplicativo. Esse fluxo faz uma viagem de ida e volta para o ponto de extremidade da plataforma Microsoft Identity versão 2,0. Seu aplicativo não será chamado de volta em nenhum URI específico.
 
 No entanto, você precisa identificar seu aplicativo como um aplicativo cliente público. Para fazer isso, inicie na seção de **autenticação** do seu aplicativo. Na subseção **Configurações avançadas** , no tipo de **cliente padrão** parágrafo, para o aplicativo pergunta **tratar como um cliente público**, selecione **Sim**.
 
 ## <a name="api-permissions"></a>Permissões de API
 
-Os aplicativos móveis chamam APIs em nome do usuário conectado. Seu aplicativo precisa solicitar permissões delegadas. Essas permissões também são chamadas de escopos. Dependendo da experiência desejada, você pode solicitar permissões delegadas estaticamente por meio do portal do Azure. Ou você pode solicitá-los dinamicamente em tempo de execução. 
+Os aplicativos móveis chamam APIs em nome do usuário conectado. Seu aplicativo precisa solicitar permissões delegadas. Essas permissões também são chamadas de escopos. Dependendo da experiência desejada, você pode solicitar permissões delegadas estaticamente por meio do portal do Azure. Ou você pode solicitá-los dinamicamente em tempo de execução.
 
 Ao registrar estaticamente as permissões, você permite que os administradores aprovem facilmente seu aplicativo. O registro estático é recomendado.
 

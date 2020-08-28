@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 9b3f2f8a6a8a1e4f287af45f994c0f0b1d479811
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001001"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047445"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas sobre a versão do Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 | Melhorias nos serviços | Detalhes |
 | --- | --- |
 |**Gerenciamento de carga de trabalho – experiência do portal**|Os usuários podem usar o portal do Azure para configurar e gerenciar suas configurações de gerenciamento de carga de trabalho. Está disponível a capacidade de configurar [grupos de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-portal) e [classificadores de carga de trabalho](/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) com importância.|
-|**Exibição do catálogo de mapeamentos de tabela aprimorada**|A nova exibição de catálogo [Sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapeia **object_ids** de tabelas de usuário permanentes para seus nomes de tabela física. Esta exibição oferece desempenho otimizado sobre o [Sys. pdw_table_mappings](/sql/relational-databases/system-catalog-views/sys-pdw-table-mappings-transact-sql?view=sqlallproducts-allversions)atual.|
+|**Exibição do catálogo de mapeamentos de tabela aprimorada**|A nova exibição de catálogo [Sys. pdw_permanent_table_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=sqlallproducts-allversions) mapeia **object_ids** de tabelas de usuário permanentes para seus nomes de tabela física.|
 
 ## <a name="july-2020"></a>Julho de 2020
 

@@ -8,16 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 7e5c1c74a3659be855b3f846c16672d0d73b9de4
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: b4acd431656eb008702f62dc1ecf12bda62dae17
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309689"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051076"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Suporte a idiomas e regiões para a API do reconhecedor de tinta
+
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tinta. O conteúdo de tinta digital escrito nos idiomas a seguir pode ser interpretado e processado pela API.
 
@@ -89,7 +91,7 @@ Este artigo explica quais idiomas têm suporte para a API do reconhecedor de tin
 | Xhosa                                      |     `xh-ZA`     |
 | Zulu                                       |     `zu-ZA`     |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [O que é a API de Reconhecimento de Tinta Digital?](overview.md)
 * [Enviando traços de tinta digital para a API do reconhecedor de tinta](concepts/send-ink-data.md)

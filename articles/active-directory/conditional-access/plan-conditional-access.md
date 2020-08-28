@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948888"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049920"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -67,7 +67,7 @@ Se forem necessários recursos adicionais, talvez você também precise obter li
 Os recursos a seguir podem ser úteis à medida que você aprende sobre o acesso condicional:
 
 
-#### <a name="videos"></a>vídeos
+#### <a name="videos"></a>Vídeos
 
 * [O que é Acesso Condicional?](https://youtu.be/ffMAw2IVO7A)
 * [Como implantar acesso condicional?](https://youtu.be/c_izIRNJNuk)
@@ -242,7 +242,7 @@ Pode ser difícil prever o número e os nomes dos usuários afetados por iniciat
 
 O [modo somente de relatório ](concept-conditional-access-report-only.md) permite que os administradores avaliem o impacto das políticas de CA antes de habilitá-las em seu ambiente.
 
-Saiba como [configurar o modo somente de relatório em uma política de CA](howto-conditional-access-report-only.md).
+Saiba como [configurar o modo somente de relatório em uma política de CA](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Planejar a interrupção
 

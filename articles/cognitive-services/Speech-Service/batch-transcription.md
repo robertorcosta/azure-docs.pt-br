@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be3b4ce5d89a15009f2b9b31183400890dbefb5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918937"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050175"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
 
@@ -170,7 +170,7 @@ Use essas propriedades opcionais para configurar a transcrição:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL opcional com [SAS de serviço](../../storage/common/storage-sas-overview.md) para um contêiner gravável no Azure. O resultado é armazenado nesse contêiner. Quando não especificado, a Microsoft armazena os resultados em um contêiner de armazenamento gerenciado pela Microsoft. Quando a transcrição for excluída chamando a [transcrição de exclusão](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), os dados de resultado também serão excluídos.
+      URL opcional com [SAS ad hoc de serviço](../../storage/common/storage-sas-overview.md) para um contêiner gravável no Azure. O resultado é armazenado nesse contêiner. **Não** há suporte para SAS com política de acesso armazenada. Quando não especificado, a Microsoft armazena os resultados em um contêiner de armazenamento gerenciado pela Microsoft. Quando a transcrição for excluída chamando a [transcrição de exclusão](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), os dados de resultado também serão excluídos.
 :::row-end:::
 
 ### <a name="storage"></a>Armazenamento

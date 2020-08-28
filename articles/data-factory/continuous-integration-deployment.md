@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: f44c3ac51bfc509df0b8f2b82c2d6259bba0aa3c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815786"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047659"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -625,6 +625,8 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
 
     - As entidades do data factory dependem umas das outras. Por exemplo, os gatilhos dependem de pipelines e os pipelines dependem de conjuntos de dados e de outros pipelines. A publicação seletiva de um subconjunto de recursos pode levar a comportamentos e erros inesperados.
     - Em raras ocasiões em que você precisa de publicação seletiva, considere usar um hotfix. Para obter mais informações, consulte [hotfix Production Environment](#hotfix-production-environment).
+
+- A equipe de Azure Data Factory não recomenda atribuir controles RBAC a entidades individuais (pipelines, conjuntos de valores, etc) em um data factory. Por exemplo, se um desenvolvedor tiver acesso a um pipeline ou a um conjunto de um, ele deverá ser capaz de acessar todos os pipelines ou conjuntos de valores no data factory. Se você achar que precisa implementar muitas funções RBAC dentro de um data factory, examine a implantação de uma segunda data factory.
 
 -   Não é possível publicar de branches particulares.
 

@@ -1,14 +1,14 @@
 ---
 title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueio em plantas do Azure para proteger recursos ao atribuir um plano gráfico.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81383601"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051495"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entenda o bloqueio de recursos nos Blueprints do Azure
 
@@ -28,7 +28,7 @@ Os recursos criados por artefatos em uma atribuição Blueprint têm quatro Esta
 |-|-|-|-|
 |Não Bloquear|*|Não Bloqueado|Os recursos não são protegidos pelas plantas do Azure. Esse estado também é usado para recursos adicionados a um artefato do grupo de recursos **Somente Leitura** ou **Não Excluir** fora de uma atribuição de blueprint.|
 |Somente leitura|Resource group|Não é Possível Editar/Excluir|O grupo de recursos é somente leitura e as marcas no grupo de recursos não podem ser modificadas. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
-|Somente leitura|Não grupo de recursos|Somente leitura|O recurso não pode ser alterado de forma alguma – sem alterações e não pode ser excluído.|
+|Somente leitura|Não grupo de recursos|Somente leitura|O recurso não pode ser alterado de nenhuma forma. Nenhuma alteração e não pode ser excluída.|
 |Não exclua|*|Não é Possível Excluir|Os recursos podem ser alterados, mas não podem ser excluídos. Os recursos **Não Bloqueados** podem ser adicionados, movidos, alterados ou excluídos desse grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Substituindo os estados de bloqueio
@@ -182,8 +182,8 @@ Embora **excludedPrincipals** deva ser explícito, as entradas de **excludedActi
 ## <a name="next-steps"></a>Próximas etapas
 
 - Siga o tutorial [proteger novos recursos](../tutorials/protect-new-resources.md) .
-- Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
-- Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
-- Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
+- Saiba mais sobre o [ciclo de vida do blueprint](./lifecycle.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](./parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](./sequencing-order.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

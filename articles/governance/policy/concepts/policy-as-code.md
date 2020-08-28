@@ -1,14 +1,14 @@
 ---
 title: Projetar os fluxos de trabalho da Política como código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições do Azure Policy como código e validar automaticamente os recursos.
-ms.date: 07/23/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131490"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047319"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projetar os fluxos de trabalho da Política como código
 
@@ -29,10 +29,10 @@ Antes de entrar nos detalhes da política como fluxo de trabalho de código, exa
 - [Definição de iniciativa](./initiative-definition-structure.md)
 
 Os nomes de arquivo se alinham a partes da definição de política ou iniciativa:
-- `policy(set).json`-Toda a definição
-- `policy(set).parameters.json`-A `properties.parameters` parte da definição
-- `policy.rules.json`-A `properties.policyRule` parte da definição
-- `policyset.definitions.json`-A `properties.policyDefinitions` parte da definição
+- `policy(set).json` -Toda a definição
+- `policy(set).parameters.json` -A `properties.parameters` parte da definição
+- `policy.rules.json` -A `properties.policyRule` parte da definição
+- `policyset.definitions.json` -A `properties.policyDefinitions` parte da definição
 
 Exemplos desses formatos de arquivo estão disponíveis no [repositório GitHub Azure Policy](https://github.com/Azure/azure-policy/):
 
@@ -110,7 +110,8 @@ A atribuição deve usar [enforcementMode](./assignment-structure.md#enforcement
 > [!NOTE]
 > Embora o modo de imposição seja útil, não é uma substituição para um teste completo de uma definição de política sob várias condições. A definição de política deve ser testada com chamadas à API REST `PUT` e `PATCH`, recursos compatíveis e não compatíveis e casos de borda como uma propriedade ausente do recurso.
 
-Depois que a atribuição for implantada, use o SDK do Policy para [obter dados de conformidade](../how-to/get-compliance-data.md) para a nova atribuição. O ambiente usado para testar as políticas e atribuições deve ter recursos compatíveis e não compatíveis. Como um bom teste de unidade para o código, você deseja testar se os recursos estão conforme o esperado e se você também não tem falsos positivos ou falsos negativos. Se você testar e validar apenas o que espera, poderá haver um impacto inesperado e não identificado da política. Para obter mais informações, confira [Avaliar o impacto de uma nova definição de Azure Policy](./evaluate-impact.md).
+Depois que a atribuição for implantada, use o SDK de política ou a [ação Azure Policy verificação de conformidade do GitHub](https://github.com/marketplace/actions/azure-policy-compliance-scan) para [obter dados de conformidade](../how-to/get-compliance-data.md) para a nova atribuição. O ambiente usado para testar as políticas e atribuições deve ter recursos compatíveis e não compatíveis.
+Como um bom teste de unidade para o código, você deseja testar se os recursos estão conforme o esperado e se você também não tem falsos positivos ou falsos negativos. Se você testar e validar apenas o que espera, poderá haver um impacto inesperado e não identificado da política. Para obter mais informações, confira [Avaliar o impacto de uma nova definição de Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Habilitar tarefas de correção
 

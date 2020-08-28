@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 398cf947f0a2d250c3cd0ed73a75bc3c091e5f7a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561038"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047523"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua no Azure IoT Edge
 
@@ -184,7 +184,7 @@ Criar um novo pipeline e adicionar um novo estágio
     * **Plataforma padrão**: escolha o mesmo valor ao criar as imagens de módulo.
     * **Caminho de saída**: Coloque o caminho `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` . Esse caminho é o arquivo de manifesto de implantação IoT Edge final.
 
-    Essas configurações ajudam a substituir as URLs de imagem de módulo no `deployment.template.json` arquivo. O **manifesto de implantação de geração** também ajuda a substituir as variáveis pelo valor exato que você definiu no `deployment.template.json` arquivo. No VS/VS Code, você está especificando o valor real em um `.env` arquivo. Em Azure Pipelines, defina o valor na guia variáveis de pipeline de liberação. vá para a guia variáveis e configure o nome e o valor da seguinte maneira.
+    Essas configurações ajudam a substituir as URLs de imagem de módulo no `deployment.template.json` arquivo. O **manifesto de implantação de geração** também ajuda a substituir as variáveis pelo valor exato que você definiu no `deployment.template.json` arquivo. No VS/VS Code, você está especificando o valor real em um `.env` arquivo. Em Azure Pipelines, defina o valor na guia variáveis de pipeline de liberação. Mova para a guia variáveis e configure o nome e o valor da seguinte maneira.
 
     * **ACR_ADDRESS**: seu endereço de registro de contêiner do Azure.
     * **ACR_PASSWORD**: sua senha de registro de contêiner do Azure.
@@ -204,6 +204,15 @@ Criar um novo pipeline e adicionar um novo estágio
       * Se quiser implantar em um único dispositivo, insira a **ID do dispositivo do IoT Edge**.
       * Se estiver implantando em vários dispositivos, especifique a **condição de destino** do dispositivo. A condição de destino é um filtro para corresponder a um conjunto de dispositivos IoT Edge no Hub IoT. Se você quiser usar Marcas de Dispositivo como a condição, será necessário atualizar as Marcas de dispositivos correspondentes com o dispositivo gêmeo do Hub IoT. Atualize a **ID de implantação do IoT Edge** e a **prioridade de implantação do IoT Edge** nas configurações avançadas. Para saber mais sobre como criar uma implantação em vários dispositivos, confira [Entender as implantações automáticas do IoT Edge](module-deployment-monitoring.md).
     * Expanda Configurações avançadas, selecione **IOT Edge ID da implantação**, coloque a variável `$(System.TeamProject)-$(Release.EnvironmentName)` . Isso mapeia o projeto e o nome da versão com sua ID de implantação IoT Edge.
+
+>[!NOTE]
+>Se você quiser usar **implantações em camadas** em seu pipeline, as implantações em camadas ainda não têm suporte em Azure IOT Edge tarefas no Azure DevOps.
+>
+>No entanto, você pode usar uma [tarefa CLI do Azure no Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para criar sua implantação como uma implantação em camadas. Para o valor de **script embutido** , você pode usar o [comando AZ IOT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>
+>   ```azurecli-interactive
+>   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
+>   ```
 
 12. Selecione **Salvar** para salvar as alterações no novo pipeline de lançamento. Retorne para o modo de exibição do pipeline selecionando **Pipeline** no menu.
 

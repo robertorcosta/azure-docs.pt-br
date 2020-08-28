@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037722"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046843"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
@@ -89,13 +89,13 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
 ### <a name="error"></a>Erro
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. Error | Tomcat. global. Error | Contagem | Número de erros que ocorreram em solicitações processadas |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| System. CPU. Usage | System. CPU. Usage | Porcentagem | Uso recente da CPU para todo o sistema. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que todas as CPUs estavam ociosas durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam executando ativamente 100% do tempo durante o período recente observado.|
 >| Process. CPU. Usage | Percentual de Uso de CPU do Aplicativo | Porcentagem | Uso recente da CPU para o processo de Máquina Virtual Java. Esse valor é um duplo no intervalo [0,0, 1,0]. Um valor de 0,0 significa que nenhuma das CPUs estavam executando threads do processo JVM durante o período de tempo recente observado, enquanto um valor de 1,0 significa que todas as CPUs estavam ativamente executando threads da JVM 100% do tempo durante o período recente observado. Os threads da JVM incluem os threads do aplicativo, bem como os threads internos da JVM.|
@@ -111,7 +111,7 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
 ### <a name="request"></a>Solicitação
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. global. sent | Tomcat. global. sent | Bytes | Quantidade de dados do servidor Web Tomcat enviados |
 >| Tomcat. global. Received | Tomcat. global. Received | Bytes | Quantidade de dados do servidor Web Tomcat recebidos |
@@ -120,7 +120,7 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
 ### <a name="session"></a>Session
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
+>| Name | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
 >| Tomcat. Sessions. Active. Max | Tomcat. Sessions. Active. Max | Contagem | Número máximo de sessões que estão ativas ao mesmo tempo |
 >| Tomcat. Sessions. Alive. Max | Tomcat. Sessions. Alive. Max | Milissegundos | Tempo mais longo (em segundos) que uma sessão expirada esteve ativa |
@@ -130,6 +130,8 @@ As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Contagem | Contagem ativa da sessão Tomcat |
 
 ## <a name="see-also"></a>Confira também
+* [Início rápido: monitorando aplicativos de nuvem Spring do Azure com logs, métricas e rastreamento](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Introdução ao Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analisar logs e métricas com configurações de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

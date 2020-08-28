@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 431f1da463e4bd9970bc92b0842393f2de882220
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 19d6933497b469148687dc9c5012513ab7d0314b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604726"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047200"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Sobre o serviço de Mobilidade para VMs do VMware e servidores físicos
 
@@ -108,7 +108,7 @@ Durante uma instalação por push do serviço de mobilidade, as seguintes etapas
 
   ```cmd
   cd C:\Temp
-  ren Microsoft-ASR_UA_version_Windows_GA_date_release.exe MobilityServiceInstaller.exe
+  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   ```
@@ -130,7 +130,7 @@ Durante uma instalação por push do serviço de mobilidade, as seguintes etapas
 
 Setting | Detalhes
 --- | ---
-Sintaxe | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
+Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Platform "VmWare" /Silent`
 Logs de instalação | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Parâmetro de instalação obrigatório. Especifica se o serviço Mobility (MS) ou o destino mestre (MT) deve ser instalado.
 `/InstallLocation`| Parâmetro opcional. Especifica o local de instalação do serviço Mobility (qualquer pasta).
@@ -141,7 +141,7 @@ Logs de instalação | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 
 Setting | Detalhes
 --- | ---
-Sintaxe | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
+Syntax | `UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>`
 Logs de configuração do agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log`
 `/CSEndPoint` | Parâmetro obrigatório. `<CSIP>` Especifica o endereço IP do servidor de configuração. Use qualquer endereço de IP válido.
 `/PassphraseFilePath` |  Mandatory. Local da frase secreta. Use qualquer caminho UNC ou arquivo local válido.
@@ -171,7 +171,7 @@ Logs de configuração do agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentCo
 
 Setting | Detalhes
 --- | ---
-Sintaxe | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
+Syntax | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Parâmetro de instalação obrigatório. Especifica se o serviço Mobility (MS) ou o destino mestre (MT) deve ser instalado.
 `-d` | Parâmetro opcional. Especifica o local de instalação do serviço de mobilidade: `/usr/local/ASR` .
 `-v` | Mandatory. Especifica a plataforma na qual o serviço de mobilidade está instalado. <br/> **VMware** para VMs VMware/servidores físicos. <br/> **Azure** para VMs do Azure.
@@ -181,7 +181,7 @@ Sintaxe | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 
 Setting | Detalhes
 --- | ---
-Sintaxe | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
+Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>`
 `-i` | Parâmetro obrigatório. `<CSIP>` Especifica o endereço IP do servidor de configuração. Use qualquer endereço de IP válido.
 `-P` |  Mandatory. Caminho de arquivo completo do arquivo no qual a frase secreta é salvo. Use qualquer pasta válida.
 

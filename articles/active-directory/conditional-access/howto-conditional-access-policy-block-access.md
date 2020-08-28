@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3ee7287f2a5cf9491ae91d434caf2f653c853a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995302"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049257"
 ---
 # <a name="conditional-access-block-access"></a>Acesso condicional: bloquear acesso
 
@@ -38,7 +38,7 @@ As políticas de Acesso Condicional são ferramentas avançadas, recomendamos ex
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto para o [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) , se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente de relatório](howto-conditional-access-report-only.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores se sentem confortáveis de que as políticas se aplicam conforme pretendido, eles podem alterná-los para **ativado**.
+As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto para o [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) , se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente de relatório](howto-conditional-access-insights-reporting.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores se sentem confortáveis de que as políticas se aplicam conforme pretendido, eles podem alterná-los para **ativado**.
 
 A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplicativos do Office 365, se não estiver em um local confiável.
 
@@ -84,6 +84,6 @@ Uma segunda política é criada abaixo para exigir a autenticação multifator o
 
 [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-insights-reporting.md)
 
 [Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)

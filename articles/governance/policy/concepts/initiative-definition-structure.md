@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de iniciativa
 description: Descreve como as definições de iniciativa de política são usadas para agrupar definições de política para implantação em recursos do Azure em sua organização.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544631"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048492"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Estrutura de definição da iniciativa Azure Policy
 
@@ -284,7 +284,7 @@ Essas informações são:
 
 - Exibido no portal do Azure na visão geral de um **controle** sobre uma iniciativa de conformidade regulatória.
 - Disponível por meio da API REST. Consulte o `Microsoft.PolicyInsights` provedor de recursos e o [grupo de operações policyMetadata](/rest/api/policy-insights/policymetadata/getresource).
-- Disponível por meio de CLI do Azure. Consulte o comando [AZ Policy Metadata](/cli/azure/policy/metadata?view=azure-cli-latest) .
+- Disponível por meio de CLI do Azure. Consulte o comando [AZ Policy Metadata](/cli/azure/policy/metadata) .
 
 > [!IMPORTANT]
 > Os objetos de metadados para conformidade regulatória são _somente leitura_ e não podem ser criados por clientes.

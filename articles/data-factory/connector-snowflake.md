@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/30/2020
-ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529493"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048169"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para floco de neve usando Azure Data Factory
 
@@ -49,7 +49,7 @@ As propriedades a seguir têm suporte para um serviço vinculado a floco de neve
 | Propriedade         | Descrição                                                  | Obrigatório |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | A propriedade Type deve ser definida como **floco de neve**.              | Sim      |
-| connectionString | Especifica as informações necessárias para se conectar à instância de floco de neve. Você pode optar por colocar a senha ou a cadeia de conexão inteira em Azure Key Vault. Consulte os exemplos abaixo da tabela, bem como as credenciais de [armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) , para obter mais detalhes.<br><br>Algumas configurações típicas:<br>- **Nome da conta:** O [nome da conta completa](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) da sua conta do floco de neve (incluindo segmentos adicionais que identificam a região e a plataforma de nuvem), por exemplo, xy12345. leste-US-2. Azure.<br/>- **Nome de usuário:** O nome de logon do usuário para a conexão.<br>- **Senha:** A senha do usuário.<br>- **Banco de dados:** O banco de dados padrão a ser usado uma vez conectado. Deve ser um banco de dados existente para o qual a função especificada tenha privilégios.<br>- **Depósito:** O depósito virtual a ser usado uma vez conectado. Deve ser um depósito existente para o qual a função especificada tenha privilégios.<br>- **Função:** A função de controle de acesso padrão a ser usada na sessão floco de neve. A função especificada deve ser uma função existente que já tenha sido atribuída ao usuário especificado. A função padrão é PUBLIC. | Sim      |
+| connectionString | Especifica as informações necessárias para se conectar à instância de floco de neve. Você pode optar por colocar a senha ou a cadeia de conexão inteira em Azure Key Vault. Consulte os exemplos abaixo da tabela, bem como as credenciais de [armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) , para obter mais detalhes.<br><br>Algumas configurações típicas:<br>- **Nome da conta:** O  [nome da conta completa](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) da sua conta do floco de neve (incluindo segmentos adicionais que identificam a região e a plataforma de nuvem), por exemplo, xy12345. leste-US-2. Azure.<br/>- **Nome de usuário:** O nome de logon do usuário para a conexão.<br>- **Senha:** A senha do usuário.<br>- **Banco de dados:** O banco de dados padrão a ser usado uma vez conectado. Deve ser um banco de dados existente para o qual a função especificada tenha privilégios.<br>- **Depósito:** O depósito virtual a ser usado uma vez conectado. Deve ser um depósito existente para o qual a função especificada tenha privilégios.<br>- **Função:** A função de controle de acesso padrão a ser usada na sessão floco de neve. A função especificada deve ser uma função existente que já tenha sido atribuída ao usuário especificado. A função padrão é PUBLIC. | Sim      |
 | connectVia       | O [Integration Runtime](concepts-integration-runtime.md) que é usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou um tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usará o tempo de execução de integração do Azure padrão. | Não       |
 
 **Exemplo:**
@@ -143,12 +143,12 @@ Para copiar dados do floco de neve, as propriedades a seguir têm suporte na se�
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | A propriedade Type da fonte da atividade de cópia deve ser definida como **floco de neve**. | Sim      |
-| Consulta          | Especifica a consulta SQL para ler dados do floco de neve.<br>Não há suporte para a execução do procedimento armazenado. | Não       |
-| exportSettings | Configurações avançadas usadas para recuperar dados do floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | Não       |
+| Consulta          | Especifica a consulta SQL para ler dados do floco de neve.<br>Não há suporte para a execução do procedimento armazenado. | No       |
+| exportSettings | Configurações avançadas usadas para recuperar dados do floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | No       |
 | ***Em `exportSettings` :*** |  |  |
-| tipo | O tipo de comando de exportação, definido como **SnowflakeExportCopyCommand**. | Sim |
-| additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: MAX_FILE_SIZE, substituir. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Não |
-| additionalFormatOptions | Opções de formato de arquivo adicionais que são fornecidas para copiar comando como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Não |
+| tipo | O tipo de comando de exportação, definido como **SnowflakeExportCopyCommand**. | Yes |
+| additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: MAX_FILE_SIZE, substituir. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
+| additionalFormatOptions | Opções de formato de arquivo adicionais que são fornecidas para copiar comando como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
 
 #### <a name="direct-copy-from-snowflake"></a>Cópia direta do floco de neve
 
@@ -160,14 +160,14 @@ Se o armazenamento e o formato de dados do coletor atenderem aos critérios desc
 
     - Para o formato **parquet** , o codec de compactação é **None**, **snapshot**ou **LZO**.
     - Para o formato de **texto delimitado** :
-        - `rowDelimiter`é **\r\n**ou qualquer caractere único.
-        - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
+        - `rowDelimiter` é **\r\n**ou qualquer caractere único.
+        - `compression` pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
         - `encodingName` é deixado como padrão ou definido como **utf-8**.
-        - `quoteChar`**aspas duplas**, **aspas simples** ou **cadeia de caracteres vazia** (sem caractere de aspas).
+        - `quoteChar` é **aspas duplas**, aspas **simples**ou **cadeia de caracteres vazia** (sem caractere de aspas).
     - Para o formato **JSON** , a cópia direta só dá suporte ao caso de a tabela floco de neve de origem ou o resultado da consulta tem apenas uma única coluna e o tipo de dados dessa coluna é **Variant**, **Object**ou **array**.
-        - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
+        - `compression` pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
         - `encodingName` é deixado como padrão ou definido como **utf-8**.
-        - `filePattern`no coletor de atividade de cópia é deixado como padrão ou definido como **setOfObjects**.
+        - `filePattern` no coletor de atividade de cópia é deixado como padrão ou definido como **setOfObjects**.
 
 - Na origem da atividade de cópia, `additionalColumns` não está especificado.
 - O mapeamento de coluna não foi especificado.
@@ -273,13 +273,13 @@ Para copiar dados para floco de neve, as propriedades a seguir têm suporte na s
 
 | Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | A propriedade Type do coletor da atividade de cópia, definida como **SnowflakeSink**. | Sim                                           |
+| type              | A propriedade Type do coletor da atividade de cópia, definida como **SnowflakeSink**. | Yes                                           |
 | preCopyScript     | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados em floco de neve em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não                                            |
-| importSettings | Configurações avançadas usadas para gravar dados em floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | Não |
+| importSettings | Configurações avançadas usadas para gravar dados em floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | No |
 | ***Em `importSettings` :*** |                                                              |  |
-| tipo | O tipo de comando de importação, definido como **SnowflakeImportCopyCommand**. | Sim |
-| additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: ON_ERROR, FORCE LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Não |
-| additionalFormatOptions | Opções de formato de arquivo adicionais fornecidas para o comando de cópia, fornecidas como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Não |
+| tipo | O tipo de comando de importação, definido como **SnowflakeImportCopyCommand**. | Yes |
+| additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: ON_ERROR, FORCE LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
+| additionalFormatOptions | Opções de formato de arquivo adicionais fornecidas para o comando de cópia, fornecidas como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
 
 #### <a name="direct-copy-to-snowflake"></a>Cópia direta para floco de neve
 
@@ -292,12 +292,12 @@ Se o armazenamento e o formato de dados de origem atenderem aos critérios descr
     - Para o formato **parquet** , o codec de compactação é **None**ou **encaixado**.
 
     - Para o formato de **texto delimitado** :
-        - `rowDelimiter`é **\r\n**ou qualquer caractere único. Se o delimitador de linha não for "\r\n", `firstRowAsHeader` precisará ser **falso**e `skipLineCount` não for especificado.
-        - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
-        - `encodingName`é deixado como padrão ou definido como "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar`**aspas duplas**, **aspas simples** ou **cadeia de caracteres vazia** (sem caractere de aspas).
+        - `rowDelimiter` é **\r\n**ou qualquer caractere único. Se o delimitador de linha não for "\r\n", `firstRowAsHeader` precisará ser **falso**e `skipLineCount` não for especificado.
+        - `compression` pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
+        - `encodingName` é deixado como padrão ou definido como "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar` é **aspas duplas**, aspas **simples**ou **cadeia de caracteres vazia** (sem caractere de aspas).
     - Para o formato **JSON** , a cópia direta dá suporte apenas ao caso em que a tabela floco de neve do coletor tem apenas uma única coluna e o tipo de dados dessa coluna é **Variant**, **Object**ou **array**.
-        - `compression`pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
+        - `compression` pode ser **sem compactação**, **gzip**, **bzip2**ou **deflate**.
         - `encodingName` é deixado como padrão ou definido como **utf-8**.
         - O mapeamento de coluna não foi especificado.
 
@@ -305,7 +305,7 @@ Se o armazenamento e o formato de dados de origem atenderem aos critérios descr
 
    -  `additionalColumns` não está especificado.
    - Se sua origem for uma pasta, `recursive` será definida como true.
-   - `prefix`, `modifiedDateTimeStart` , `modifiedDateTimeEnd` não são especificados.
+   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` e `enablePartitionDiscovery` não foram especificados.
 
 **Exemplo:**
 

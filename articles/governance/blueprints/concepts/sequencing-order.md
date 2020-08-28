@@ -1,14 +1,14 @@
 ---
 title: Entender a ordem da sequência de implantação
 description: Saiba mais sobre a ordem padrão em que os artefatos de Blueprint são implantados durante uma atribuição de Blueprint e como personalizar a ordem de implantação.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8305e5d44caef0f35e5b4beb4b70be9736272fa7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970613"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051467"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entenda a sequência de implantação nos Blueprints do Azure
 
@@ -141,8 +141,8 @@ Um exemplo é um grupo de recursos que depende de uma política no nível da ass
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [ciclo de vida do blueprint](lifecycle.md).
-- Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
-- Saiba como usar o [bloqueio de recurso de blueprint](resource-locking.md).
+- Saiba mais sobre o [ciclo de vida do blueprint](./lifecycle.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](./parameters.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](./resource-locking.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

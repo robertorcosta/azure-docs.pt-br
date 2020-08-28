@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09d07717895c6faa506d692becb261e834e44890
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 717e81a1385b04d3152beac39105c56754c55c40
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995339"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049274"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso condicional: Exigir MFA para gerenciamento do Azure
 
@@ -50,7 +50,7 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
 1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Selecionar aplicativos**, escolha **Microsoft Azure Management**, **Selecionar**, **Concluído**.
-1. Em **Condições** > **Aplicativos clientes (versão prévia)** , defina **Configurar** como **Sim** e selecione **Concluído**.
+1. Em **condições**  >  **aplicativos de cliente (versão prévia)**, em **selecionar os aplicativos cliente para os quais essa política será aplicada** , deixe todos os padrões selecionados e selecione **concluído**.
 1. Em **Controles de acesso** > **Conceder**, selecione **Conceder acesso**, **Exigir autenticação multifator** e selecione **Selecionar**.
 1. Confirme suas configurações e defina **Habilitar política** como **Ativado**.
 1. Selecione **Criar** para criar e habilitar sua política.
@@ -59,6 +59,6 @@ As etapas a seguir ajudarão a criar uma política de acesso condicional para ex
 
 [Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
-[Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-report-only.md)
+[Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-insights-reporting.md)
 
 [Simular comportamento de entrada usando a ferramenta What If de Acesso Condicional](troubleshoot-conditional-access-what-if.md)

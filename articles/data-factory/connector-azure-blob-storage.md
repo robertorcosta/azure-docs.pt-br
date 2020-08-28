@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/18/2020
-ms.openlocfilehash: 489d05f19fe9fafd4c32f988e9b0b90f95c0b5b2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.date: 08/28/2020
+ms.openlocfilehash: eeabc5d29f0f389120429bd31386e2bea69cf5c8
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718332"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047745"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no Armazenamento de Blobs do Azure usando o Azure Data Factory
 
@@ -80,7 +80,7 @@ O Data Factory dá suporte às seguintes propriedades para autenticação de cha
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AzureBlobStorage** (sugerida) ou **AzureStorage** (consulte as observações a seguir). |Sim |
 | connectionString | Especifique as informações necessárias para se conectar ao armazenamento para a propriedade **ConnectionString** . <br/> Você também pode colocar a chave de conta em Azure Key Vault e `accountKey` efetuar pull da configuração da cadeia de conexão. Para obter mais informações, consulte os exemplos a seguir e as [credenciais de armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) . |Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |No |
 
 >[!NOTE]
 >Não há suporte para um ponto de extremidade de serviço blob secundário quando você está usando a autenticação de chave de conta. Você pode usar outros tipos de autenticação.
@@ -150,7 +150,7 @@ O Data Factory dá suporte às seguintes propriedades para usar a autenticação
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AzureBlobStorage** (sugerida) ou **AzureStorage** (consulte a observação a seguir). |Sim |
 | sasUri | Especifique o URI da assinatura de acesso compartilhado para os recursos de armazenamento, como BLOB ou contêiner. <br/>Marque este campo como **SecureString** para armazená-lo com segurança em data Factory. Você também pode colocar o token SAS em Azure Key Vault para usar a rotação automática e remover a parte do token. Para obter mais informações, consulte os exemplos a seguir e [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |No |
 
 >[!NOTE]
 >Se você estiver usando o serviço vinculado de tipo "AzureStorage", ele ainda terá suporte como está. Mas sugerimos que você use o novo tipo de serviço vinculado "AzureBlobStorage" no futuro.
@@ -236,9 +236,9 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 | serviceEndpoint | Especifique o ponto de extremidade do serviço de armazenamento de Blob do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança no data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Recupere-o passando o mouse sobre o canto superior direito do portal do Azure. | Sim |
+| locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Recupere-o passando o mouse sobre o canto superior direito do portal do Azure. | Yes |
 | azureCloudType | Para autenticação de entidade de serviço, especifique o tipo de ambiente de nuvem do Azure ao qual seu aplicativo Azure Active Directory está registrado. <br/> Os valores permitidos são **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Por padrão, o ambiente de nuvem do data factory é usado. | Não |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |No |
 
 >[!NOTE]
 >A autenticação da entidade de serviço tem suporte apenas pelo serviço vinculado do tipo "AzureBlobStorage", não pelo serviço vinculado do tipo "AzureStorage" anterior.
@@ -289,7 +289,7 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AzureBlobStorage**. |Sim |
 | serviceEndpoint | Especifique o ponto de extremidade do serviço de armazenamento de Blob do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
-| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
+| connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |No |
 
 > [!NOTE]
 > As identidades gerenciadas para a autenticação de recursos do Azure têm suporte apenas pelo serviço vinculado do tipo "AzureBlobStorage", não pelo serviço vinculado do tipo "AzureStorage" anterior.
@@ -378,7 +378,9 @@ As propriedades a seguir têm suporte para o armazenamento de BLOBs do Azure em 
 | deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Essa propriedade só é válida em cenário de cópia binária, em que os repositórios de fontes de dados são BLOB, ADLS Gen1, ADLS Gen2, S3, armazenamento em nuvem do Google, arquivo, arquivo do Azure, SFTP ou FTP. O valor padrão: false. |Não |
 | modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo: última modificação. <br>Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado a um fuso horário UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser **nulas**, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem um valor DateTime, mas `modifiedDatetimeEnd` é **nulo**, os arquivos cujo último atributo modificado é maior ou igual ao valor DateTime serão selecionados.  Quando `modifiedDatetimeEnd` tem um valor DateTime, mas `modifiedDatetimeStart` é **nulo**, os arquivos cujo último atributo modificado é menor que o valor DateTime será selecionado.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
-| maxConcurrentConnections | O número de conexões simultâneas com o armazenamento. Especifique somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | Não                                            |
+| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Falso                                            |
+| partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/>-Quando você usa o prefixo, o caminho raiz da partição é subcaminho antes do último "/". <br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Falso                                            |
+| maxConcurrentConnections | O número de conexões simultâneas com o armazenamento. Especifique somente quando desejar limitar as conexões simultâneas ao armazenamento de dados. | No                                            |
 
 > [!NOTE]
 > Para o formato de texto parquet/delimitado, o tipo de **blobname** para a origem da atividade de cópia mencionada na próxima seção ainda tem suporte como é para compatibilidade com versões anteriores. Sugerimos que você use o novo modelo até que a interface do usuário de criação do Data Factory tenha mudado para gerar esses novos tipos.
@@ -515,7 +517,7 @@ Ao copiar arquivos do Amazon S3, armazenamento de BLOBs do Azure ou Azure Data L
 Quando estiver transformando dados no mapeamento de fluxos de dados, você poderá ler e gravar arquivos do armazenamento de BLOBs do Azure nos seguintes formatos:
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
-* [Trifásico](format-delta.md#mapping-data-flow-properties)
+* [Delta](format-delta.md#mapping-data-flow-properties)
 * [Excel](format-excel.md#mapping-data-flow-properties)
 * [JSON](format-json.md#mapping-data-flow-properties)
 * [Parquet](format-parquet.md#mapping-data-flow-properties)

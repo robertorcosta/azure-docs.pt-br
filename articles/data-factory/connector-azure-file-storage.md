@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/21/2020
-ms.openlocfilehash: 135993a39a3b06bdabfff4a219df92d41c736a51
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.date: 08/28/2020
+ms.openlocfilehash: c7b91fb8d283402cf8bda43c707d0ce2c8a1498b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718247"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051246"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar dados de ou para o Armazenamento de Arquivos do Azure usando o Azure Data Factory
 
@@ -63,8 +63,8 @@ O Data Factory dá suporte às seguintes propriedades para autenticação de cha
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **AzureFileStorage**. | Sim |
-| connectionString | Especifique as informações necessárias para se conectar ao armazenamento de arquivos do Azure. <br/> Você também pode colocar a chave de conta em Azure Key Vault e `accountKey` efetuar pull da configuração da cadeia de conexão. Para obter mais informações, consulte os exemplos a seguir e as [credenciais de armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) . |Sim |
-| fileShare | Especifique o compartilhamento de arquivos. | Sim |
+| connectionString | Especifique as informações necessárias para se conectar ao armazenamento de arquivos do Azure. <br/> Você também pode colocar a chave de conta em Azure Key Vault e `accountKey` efetuar pull da configuração da cadeia de conexão. Para obter mais informações, consulte os exemplos a seguir e as [credenciais de armazenamento no artigo Azure Key Vault](store-credentials-in-key-vault.md) . |Yes |
+| fileShare | Especifique o compartilhamento de arquivos. | Yes |
 | instantâneo | Especifique a data do [instantâneo de compartilhamento de arquivos](../storage/files/storage-snapshots-files.md) se você quiser copiar de um instantâneo. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
@@ -123,8 +123,8 @@ O Data Factory dá suporte às seguintes propriedades para usar a autenticação
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **AzureFileStorage**. | Sim |
-| sasUri | Especifique o URI da assinatura de acesso compartilhado para os recursos. <br/>Marque este campo como **SecureString** para armazená-lo com segurança em data Factory. Você também pode colocar o token SAS em Azure Key Vault para usar a rotação automática e remover a parte do token. Para obter mais informações, consulte os exemplos a seguir e [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| fileShare | Especifique o compartilhamento de arquivos. | Sim |
+| sasUri | Especifique o URI da assinatura de acesso compartilhado para os recursos. <br/>Marque este campo como **SecureString** para armazená-lo com segurança em data Factory. Você também pode colocar o token SAS em Azure Key Vault para usar a rotação automática e remover a parte do token. Para obter mais informações, consulte os exemplos a seguir e [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| fileShare | Especifique o compartilhamento de arquivos. | Yes |
 | instantâneo | Especifique a data do [instantâneo de compartilhamento de arquivos](../storage/files/storage-snapshots-files.md) se você quiser copiar de um instantâneo. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
@@ -277,6 +277,8 @@ As propriedades a seguir oferecem suporte para Azure File Storage em configuraç
 | deleteFilesAfterCompletion | Indica se os arquivos binários serão excluídos do repositório de origem após a movimentação com êxito para o repositório de destino. A exclusão do arquivo é por arquivo, portanto, quando a atividade de cópia falhar, você verá que alguns arquivos já foram copiados para o destino e excluídos da origem, enquanto outros ainda permanecem no repositório de origem. <br/>Essa propriedade só é válida em cenário de cópia binária, em que os repositórios de fontes de dados são BLOB, ADLS Gen1, ADLS Gen2, S3, armazenamento em nuvem do Google, arquivo, arquivo do Azure, SFTP ou FTP. O valor padrão: false. |Não |
 | modifiedDatetimeStart    | Filtro de arquivos com base no atributo: Última Modificação. <br>Os arquivos serão escolhidos se a hora da última alteração estiver dentro do período entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. A hora é aplicada ao fuso horário de UTC no formato "2018-12-01T05:00:00Z". <br> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo será aplicado ao conjunto de um.  Quando `modifiedDatetimeStart` tem o valor de data e hora, mas `modifiedDatetimeEnd` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é maior ou igual ao valor de data e hora.  Quando `modifiedDatetimeEnd` tem o valor de data e hora, mas `modifiedDatetimeStart` for NULL, isso significa que serão selecionados os arquivos cujo último atributo modificado é menor que o valor de data e hora.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
 | modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
+| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Falso                                            |
+| partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Falso                                            |
 | maxConcurrentConnections | O número das conexões para se conectar ao repositório de armazenamento simultaneamente. Especifique somente quando quiser limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
 
 **Exemplo:**

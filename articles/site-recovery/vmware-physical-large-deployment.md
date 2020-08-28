@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131784"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047062"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação de desastre em escala para VMs VMware/servidores físicos
 
@@ -100,8 +100,8 @@ O que significa conformidade? Para iniciar uma VM do Azure, o Azure requer algun
 
 **O computador está em conformidade com o Azure?** | **Limites de VM do Azure (failover de disco gerenciado)**
 --- | --- 
-Sim | 2000
-Não | 1000
+Yes | 2000
+No | 1000
 
 - Os limites pressupõem que outros trabalhos mínimos estão em andamento na região de destino da assinatura.
 - Algumas regiões do Azure são menores e podem ter limites ligeiramente menores.
@@ -205,7 +205,7 @@ Você pode se preparar com antecedência para failover da seguinte maneira:
     - Estimar o RTO de ponta a ponta para seus aplicativos.
     - Estimar o RPO de ponta a ponta para suas cargas de trabalho.
     - Identificar conflitos de intervalo de endereços IP.
-    - À medida que você executa análises, recomendamos que você não use redes de produção para análise, evite usar os mesmos nomes de sub-rede em redes de produção e de teste e limpe os failovers de teste após cada análise.
+    - À medida que você executa análises, recomendamos que você não use redes de produção para análises e limpe failovers de teste após cada análise.
 
 Para executar um failover em larga escala, recomendamos o seguinte:
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835877"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049682"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -80,11 +80,8 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
      :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
 
-1. Crie regras de saída da porta HTTPS 443 para os IPs de Site Recovery que correspondem ao local de destino:
-
-   | Localização | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
-   | --- | --- | --- |
-   | Centro dos EUA | 40.69.144.231 | 52.165.34.144 |
+1. Semelhante às regras de segurança acima, crie a regra de segurança HTTPS de saída (443) para "EventHub. Centralus" no NSG que corresponde ao local de destino. Isso permite o acesso ao monitoramento de Site Recovery.
+1. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isso permite o acesso ao Site Recovery Service em qualquer região.
 
 #### <a name="nsg-rules---central-us"></a>Regras de NSG – EUA Central
 
@@ -100,11 +97,8 @@ Para este exemplo, essas regras NSG são necessárias para que a replicação po
    - **Marca de serviço de destino**: _AzureActiveDirectory_
    - **Intervalos de portas de destino**: _443_
 
-1. Crie regras de saída da porta HTTPS 443 para os IPs de Site Recovery que correspondem ao local de origem:
-
-   | Localização | Endereço IP do Site Recovery | Endereço IP de monitoramento do Site Recovery |
-   | --- | --- | --- |
-   | Leste dos EUA | 13.82.88.226 | 104.45.147.24 |
+1. Semelhante às regras de segurança acima, crie a regra de segurança HTTPS de saída (443) para "EventHub. Eastus" no NSG que corresponde ao local de origem. Isso permite o acesso ao monitoramento de Site Recovery.
+1. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isso permite o acesso ao Site Recovery Service em qualquer região.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: falha na configuração do Site Recovery (151197)
 
@@ -127,8 +121,8 @@ As configurações de proxy personalizadas são inválidas e o agente do serviç
 1. O agente do serviço de mobilidade detecta as configurações de proxy do IE no Windows e `/etc/environment` no Linux.
 1. Se preferir definir proxy somente para Azure Site Recovery serviço de mobilidade, você poderá fornecer os detalhes do proxy em _ProxyInfo. conf_ localizado em:
 
-   - **Linux**:`/usr/local/InMage/config/`
-   - **Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **Linux**: `/usr/local/InMage/config/`
+   - **Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. O _ProxyInfo. conf_ deve ter as configurações de proxy no seguinte formato _ini_ :
 
