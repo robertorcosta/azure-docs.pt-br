@@ -4,12 +4,13 @@ description: Neste tutorial, você cria aplicativos de console .NET Core para en
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 477d9d5a23e50d9b303d560b5530cbc22104c5cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cff2b8a8a0f6aefad43737aeb6fe63d40facac05
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337555"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021656"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Barramento de Serviço
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -181,7 +182,7 @@ Selecione o nome da sua fila na janela **visão geral** do namespace para exibir
 
 O valor de **contagem de mensagens ativas** para a fila agora é **10**. Cada vez que você executar esse aplicativo de remetente sem recuperar as mensagens, esse valor aumentará em 10.
 
-O tamanho atual da fila incrementa o valor **atual** no **Essentials** cada vez que o aplicativo adiciona mensagens à fila.
+O tamanho atual da fila incrementa o valor **atual** no **Essentials**  cada vez que o aplicativo adiciona mensagens à fila.
 
 A próxima seção descreve como recuperar essas mensagens.
 

@@ -7,12 +7,13 @@ ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089406"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001902"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Usar o emulador azurite para o desenvolvimento de armazenamento local do Azure
 
@@ -329,8 +330,8 @@ Se você estiver usando os SDKs do Azure, inicie o azurite com as `--oauth basic
 
 O azurite aceita a mesma conta e chave conhecidas usados pelo emulador de armazenamento do Azure herdado.
 
-- Nome da conta:`devstoreaccount1`
-- Chave de conta:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+- Nome da conta: `devstoreaccount1`
+- Chave de conta: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### <a name="custom-storage-accounts-and-keys"></a>Chaves e contas de armazenamento personalizadas
 
@@ -508,12 +509,12 @@ Siga estas etapas para adicionar azurite HTTPS ao Gerenciador de Armazenamento:
 
 Os seguintes arquivos e pastas podem ser criados no local do espaço de trabalho ao inicializar o azurite.
 
-- `__blobstorage__`-Diretório contendo dados binários persistentes do serviço blob azurite
-- `__queuestorage__`-Diretório contendo dados binários persistentes do serviço fila de azurite
-- `__azurite_db_blob__.json`-Arquivo de metadados do serviço blob azurite
-- `__azurite_db_blob_extent__.json`-Arquivo de metadados de extensão do serviço blob azurite
-- `__azurite_db_queue__.json`-Arquivo de metadados do serviço fila de azurite
-- `__azurite_db_queue_extent__.json`-Arquivo de metadados de extensão de serviço da fila azurite
+- `__blobstorage__` -Diretório contendo dados binários persistentes do serviço blob azurite
+- `__queuestorage__` -Diretório contendo dados binários persistentes do serviço fila de azurite
+- `__azurite_db_blob__.json` -Arquivo de metadados do serviço blob azurite
+- `__azurite_db_blob_extent__.json` -Arquivo de metadados de extensão do serviço blob azurite
+- `__azurite_db_queue__.json` -Arquivo de metadados do serviço fila de azurite
+- `__azurite_db_queue_extent__.json` -Arquivo de metadados de extensão de serviço da fila azurite
 
 Para limpar o azurite, exclua os arquivos e as pastas acima e reinicie o emulador.
 

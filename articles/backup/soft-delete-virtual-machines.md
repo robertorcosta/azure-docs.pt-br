@@ -4,12 +4,12 @@ description: Saiba como a exclusão reversível para máquinas virtuais torna os
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: a79f2bf77bcc184db8ac61b51107c1bb4a2a989d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a8b70d4c8240d096c19e5a8d7449921557b8896c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889817"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022234"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Exclusão temporária para máquinas virtuais
 
@@ -19,7 +19,7 @@ A exclusão reversível para VMs protege os backups de suas VMs contra exclusão
 > A exclusão reversível só protege os dados de backup excluídos. Se uma VM for excluída sem um backup, o recurso de exclusão reversível não preservará os dados. Todos os recursos devem ser protegidos com o backup do Azure para garantir a resiliência completa.
 >
 
-## <a name="supported-regions"></a>Regiões compatíveis
+## <a name="supported-regions"></a>Regiões com suporte
 
 A exclusão reversível atualmente é suportada no EUA Central ocidental, Ásia Oriental, Canadá central, leste do Canadá, França central, sul da França, Coreia central, Coreia do Sul, Sul do Reino Unido, Oeste do Reino Unido, leste da Austrália, leste do Japão, Europa Setentrional, oeste dos EUA, oeste da Índia, Índia central, oeste da Índia, leste dos Estados Unidos, leste dos EUA 2 , Norte da Suíça, Oeste da Suíça, oeste da Noruega, leste da Noruega e todas as regiões nacionais.
 

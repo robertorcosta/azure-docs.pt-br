@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796554"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999998"
 ---
 # <a name="features"></a>Recursos
 
@@ -39,7 +39,7 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 | excluir (condicional)           | Não        | Não        | Não        |                                                     |
 | create                         | Sim       | Sim       | Sim       | Suporte para POST/PUT                               |
 | criar (condicional)           | Sim       | Sim       | Sim       |                                                     |
-| pesquisar                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
+| pequisa                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
 | pesquisa encadeada                 | Não        | Sim       | Não        |                                           |
 | pesquisa encadeada inversa         | Não        | Não        | Não        |                                            |
 | funcionalidades                   | Sim       | Sim       | Sim       |                                                     |
@@ -98,7 +98,7 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 | Operações de pesquisa       | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | Não        | Não        | Não        |         |
-| `_sort`                 | Não        | Não        | Não        |         |
+| `_sort`                 | Não        | Parcial   | Parcial        |   `_sort=_lastUpdated` é compatível       |
 | `_score`                | Não        | Não        | Não        |         |
 | `_count`                | Sim       | Sim       | Sim       |         |
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é compatível |

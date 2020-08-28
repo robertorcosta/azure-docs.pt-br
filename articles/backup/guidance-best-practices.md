@@ -3,12 +3,12 @@ title: Diretrizes e melhores práticas
 description: Descubra as práticas recomendadas e as diretrizes para fazer backup da carga de trabalho local e na nuvem para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825572"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000355"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Fazer backup de cargas de trabalho locais e na nuvem para a nuvem
 
@@ -90,7 +90,7 @@ Examine as configurações padrão de tipo de replicação de armazenamento e co
 
 ## <a name="backup-policy-considerations"></a>Considerações sobre política de backup
 
-A política de backup do Azure tem dois componentes: *agendamento* (quando fazer backup) e *retenção* (por quanto tempo manter o backup). Você pode definir a política com base no tipo de dados que está sendo submetido a backup, requisitos de RTO/RPO, necessidades operacionais ou de conformidade regulatória e tipo de carga de trabalho (por exemplo, VM, banco de dados, arquivos). [Saiba mais aqui](backup-architecture.md#backup-policy-essentials).
+A política de backup do Azure tem dois componentes: *agendamento* (quando fazer backup) e *retenção* (por quanto tempo manter o backup). Você pode definir a política com base no tipo de dados de backup, requisitos de RTO/RPO, necessidades de conformidade operacional ou regulatória e tipo de carga de trabalho (por exemplo, VM, banco de dados, arquivos). [Saiba mais aqui](backup-architecture.md#backup-policy-essentials).
 
 Considere as seguintes diretrizes ao criar a política de backup:
 
@@ -131,7 +131,7 @@ Considere as seguintes diretrizes ao criar a política de backup:
   * Não é possível excluir seletivamente pontos de recuperação específicos.
   * Não é possível desabilitar completamente o backup agendado e manter a fonte de dados em um estado protegido. O backup menos frequente que você pode configurar com a política é ter um backup semanal agendado. Uma alternativa seria interromper a proteção com a retenção de dados e habilitar a proteção sempre que você quiser fazer um backup, fazer um backup sob demanda e desativar a proteção, mas manter os dados de backup. [Saiba mais aqui](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 Para ajudá-lo a proteger seus dados de backup e atender às necessidades de segurança de seus negócios, o backup do Azure fornece garantia de confidencialidade, integridade e disponibilidade contra ataques deliberados e abuso de seus dados e sistemas valiosos. Considere as seguintes diretrizes de segurança para sua solução de backup do Azure:
 
@@ -214,7 +214,7 @@ Os recursos do serviço de backup do Azure oferecem a flexibilidade para gerenci
 
 * O backup do Azure tira instantâneos das VMs do Azure e as armazena junto com os discos para impulsionar a criação do ponto de recuperação e acelerar as operações de restauração. Isso é conhecido como restauração instantânea. Por padrão, os instantâneos de restauração instantânea são mantidos por dois dias. Esse recurso permite uma operação de restauração desses instantâneos, reduzindo os tempos de restauração. Ele reduz o tempo necessário para transformar e copiar dados de volta do cofre. Como resultado, você vê os custos de armazenamento correspondentes aos instantâneos obtidos durante esse período. [Saiba mais aqui](backup-instant-restore-capability.md#configure-snapshot-retention).
 
-* O tipo de replicação de armazenamento do cofre de backup do Azure por padrão é definido como GRS (com redundância geográfica). Esta opção não pode ser alterada após a proteção de itens. O GRS (armazenamento com redundância geográfica) fornece um nível mais alto de durabilidade de dados do que o LRS (armazenamento com redundância local), permite que uma aceitação use a restauração entre regiões e os custos mais. Analise as compensações entre custos menores e maior durabilidade de dados que é melhor para seu cenário. [Saiba mais aqui](backup-create-rs-vault.md#set-storage-redundancy)
+* O tipo de replicação de armazenamento do cofre de backup do Azure por padrão é definido como GRS (com redundância geográfica). Esta opção não pode ser alterada após a proteção de itens. O GRS (armazenamento com redundância geográfica) fornece um nível mais alto de durabilidade de dados do que o LRS (armazenamento com redundância local), permite que uma aceitação use a restauração entre regiões e os custos mais. Analise as compensações entre custos menores e maior durabilidade de dados e decida o que é melhor para seu cenário. [Saiba mais aqui](backup-create-rs-vault.md#set-storage-redundancy)
 
 * Se você estiver protegendo a carga de trabalho em execução dentro de uma VM e a própria VM, verifique se essa proteção dupla é necessária.
 

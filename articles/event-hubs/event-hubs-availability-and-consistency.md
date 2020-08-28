@@ -3,12 +3,13 @@ title: Disponibilidade e consistência – Hubs de Eventos do Azure | Microsoft 
 description: Como fornecer o máximo de disponibilidade e consistência com os Hubs de Eventos do Azure usando partições.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 45ca5cc5790824d6c67a47a23691c6b0cae0b9f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 774332b8f2d5c336f1a22d717516ae35a62b341f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537200"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000627"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência nos Hubs de Eventos
 
@@ -142,4 +143,4 @@ O exemplo envia seu evento para uma das partições disponíveis em seu hub de e
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão geral do serviço dos Hubs de Eventos](./event-hubs-about.md)
-* [Criar um hub de eventos](event-hubs-create.md)
+* [Criar um Hub de Evento](event-hubs-create.md)

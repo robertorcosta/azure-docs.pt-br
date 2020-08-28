@@ -3,12 +3,12 @@ title: Sobre o processo de restauração da máquina virtual do Azure
 description: Saiba como o serviço de backup do Azure restaura as máquinas virtuais do Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: fb3f6bf729047dc6fe1c13c5ead1191188e30e5c
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 5458d02e241860a98d1ab5f64df141132813f8dd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761382"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011949"
 ---
 # <a name="about-azure-vm-restore"></a>Sobre a restauração da VM do Azure
 
@@ -16,7 +16,7 @@ Este artigo descreve como o [serviço de backup do Azure](./backup-overview.md) 
 
 ## <a name="concepts"></a>Conceitos
 
-- **Ponto de recuperação** (também conhecido como **ponto de restauração**): um ponto de recuperação é uma cópia dos dados originais que estão sendo submetidos a backup.
+- **Ponto de recuperação** (também conhecido como **ponto de restauração**): um ponto de recuperação é uma cópia dos dados originais cujo backup está sendo feito.
 
 - **Camada (instantâneo versus cofre)**: o backup de VM do Azure ocorre em duas fases:
 

@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88584872"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998064"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de Azure Machine Learning de conjunto de os conjuntos de valores abertos do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Ao criar um [conjunto](../machine-learning/how-to-create-register-datasets.md)de
 
 Para entender onde os conjuntos de dados se encaixam no fluxo de trabalho de acesso de data de Azure Machine Learning geral, confira o artigo [dados de acesso seguro](../machine-learning/concept-data.md#data-workflow) .
 
-Os conjuntos de itens abertos do Azure são conjuntos de informações públicos estruturados que você pode usar para adicionar recursos específicos ao cenário para enriquecer suas soluções preditivas e melhorar sua precisão. Confira o [Catálogo de conjuntos](https://azure.microsoft.com/services/op[en-datasets/catalog/) de dados abertos para o domínio público que podem ajudá-lo a treinar modelos de aprendizado de máquina, como:
+Os conjuntos de itens abertos do Azure são conjuntos de informações públicos estruturados que você pode usar para adicionar recursos específicos ao cenário para enriquecer suas soluções preditivas e melhorar sua precisão. Confira o [Catálogo de conjuntos](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) de dados abertos para o domínio público que podem ajudá-lo a treinar modelos de aprendizado de máquina, como:
 
 * [MSNBC](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [censo](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)

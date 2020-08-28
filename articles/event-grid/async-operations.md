@@ -3,12 +3,13 @@ title: Status das operações assíncronas da grade de eventos
 description: Descreve como acompanhar operações assíncronas da grade de eventos no Azure. Mostra os valores que você pode usar para obter o status de uma operação de longa execução.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 621490a9f56e88baaf343c1c2a072ab84aa7d3ef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103323"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011677"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Acompanhar operações assíncronas do Azure na grade de eventos
 Algumas operações REST do Azure são executadas de forma assíncrona porque a operação não pode ser concluída com rapidez. Este artigo descreve como controlar o status das operações assíncronas por meio de valores retornados na resposta.  
@@ -71,8 +72,8 @@ Somente `status` é retornado para todas as respostas. O objeto de erro é retor
 
 Operações que criam, atualizam ou excluem (PUT, PATCH, DELETE) um recurso geralmente retornam um valor `provisioningState`. Quando uma operação for concluída, um dos três valores a seguir será retornado: 
 
-* Êxito
-* Falhou
+* Com sucesso
+* Com falha
 * Canceled
 
 Todos os outros valores indicam que a operação ainda está em execução. O provedor de recursos pode retornar um valor personalizado que indica o estado. Por exemplo, você pode receber **Aceito** quando a solicitação é recebida e está em execução.
