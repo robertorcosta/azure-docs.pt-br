@@ -1,14 +1,14 @@
 ---
 title: Etapas de uma implantação de blueprint
 description: Conheça as etapas relacionadas à segurança e ao artefato que os serviços de plantas do Azure passam ao criar uma atribuição de plano gráfico.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970647"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049767"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Etapas de uma implantação de blueprint
 
@@ -56,8 +56,8 @@ Depois que as implantações forem concluídas, as plantas do Azure revogarão o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
-- Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
-- Saiba como usar o [bloqueio de recurso de blueprint](resource-locking.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](./parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](./sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](./resource-locking.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

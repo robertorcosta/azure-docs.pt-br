@@ -3,21 +3,23 @@ title: Enviar dados de tinta para a API de Reconhecimento de Tinta Digital
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre como chamar a API do Analisador de Tinta Digital para diferentes aplicativos
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: erhopf
-ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 08/24/2020
+ms.author: aahi
+ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221101"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051093"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de tinta para a API de Reconhecimento de Tinta Digital 
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Escrita à tinta digital se refere às tecnologias que permitem representações digitais de entrada, como manuscrito e desenhos. Normalmente, isso é feito usando um digitalizador que captura os movimentos de dispositivos de entrada, como uma caneta. Conforme os dispositivos continuam possibilitando experiências sofisticadas de escrita à tinta digital, a inteligência artificial e o aprendizado de máquina permitem o reconhecimento de formas e texto escritos em qualquer contexto. A API de Reconhecimento de Tinta Digital permite que você envie traços de tinta e obtenha informações detalhadas sobre eles. 
 

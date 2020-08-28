@@ -3,12 +3,12 @@ title: Conceito de grafo de mídia-Azure
 description: Um grafo de mídia permite definir onde a mídia deve ser capturada, como ela deve ser processada e onde os resultados devem ser entregues. Este artigo fornece uma descrição detalhada do conceito de grafo de mídia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798832"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048408"
 ---
 # <a name="media-graph"></a>Grafo de mídia
 
@@ -17,7 +17,7 @@ ms.locfileid: "88798832"
 * [Visão geral da Análise de Vídeo ao vivo no IoT Edge](overview.md)
 * [Análise de Vídeo ao vivo na terminologia do IoT Edge](terminology.md)
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 
 Um grafo de mídia permite definir onde a mídia deve ser capturada, como ela deve ser processada e onde os resultados devem ser entregues. Isso é feito por meio da conexão de componentes, ou nós, da maneira desejada. O diagrama a seguir fornece uma representação gráfica de um grafo de mídia.  
 
@@ -37,19 +37,28 @@ Os valores para os parâmetros na topologia são especificados quando você cria
 
 ## <a name="media-graph-states"></a>Estados de gráficos de mídia  
 
-Um grafo de mídia pode estar em um dos seguintes Estados:
+O ciclo de vida de topologias de grafo e instâncias de grafo é mostrado no diagrama de estado a seguir.
 
-* Inativo – representa o estado em que um grafo de mídia está configurado, mas não ativo.
-* Ativando – o estado em que um grafo de mídia está sendo instanciado (ou seja, o estado de transição entre inativo e ativo).
-* Ativo – o estado quando um grafo de mídia está ativo. 
+![Topologia do grafo e ciclo de vida da instância do grafo](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  O grafo de mídia pode estar ativo sem que os dados fluam através dele (por exemplo, a fonte de vídeo de entrada fica offline).
-* Desativando – esse é o estado em que um grafo de mídia está fazendo a transição de ativo para inativo.
+Você começa com [a criação de uma topologia de grafo](direct-methods.md#graphtopologyset). Em seguida, para cada feed de vídeo ao vivo que você deseja processar com essa topologia, você [cria uma instância de grafo](direct-methods.md#graphinstanceset). 
 
-O diagrama a seguir ilustra o computador de estado do grafo de mídia.
+A instância do grafo estará no `Inactive` estado (ocioso).
 
-![Computador de estado do grafo de mídia](./media/media-graph/media-graph-state-machine.png)
+Quando você estiver pronto para enviar o feed de vídeo ao vivo para a instância do Graph, [ative](direct-methods.md#graphinstanceactivate) -o. A instância do Graph passará brevemente por um estado de transição `Activating` e, se for bem-sucedida, entrará em um `Active` estado. No `Active` estado, a mídia será processada (se a instância do grafo receber dados de entrada).
+
+> [!NOTE]
+>  Uma instância de grafo pode estar ativa sem que os dados fluam através dela (por exemplo, a câmera fica offline).
+> Sua assinatura do Azure será cobrada quando a instância do grafo estiver no estado ativo.
+
+Você pode repetir o processo de criação e ativação de outras instâncias de grafo para a mesma topologia, se você tiver outros feeds de vídeo ao vivo para processar.
+
+Quando terminar de processar o feed de vídeo ao vivo, você poderá [desativar](direct-methods.md#graphinstancedeactivate) a instância do grafo. A instância de grafo passará brevemente por um estado de transição `Deactivating` , liberará todos os dados que ele tiver e, em seguida, retornará para o `Inactive` estado.
+
+Você só pode [excluir](direct-methods.md#graphinstancedelete) uma instância de grafo quando ela está no `Inactive` estado.
+
+Depois que todas as instâncias de grafo que se referem a uma topologia de grafo específica tiverem sido excluídas, você poderá [excluir a topologia do grafo](direct-methods.md#graphtopologydelete).
+
 
 ## <a name="sources-processors-and-sinks"></a>Fontes, processadores e coletores  
 

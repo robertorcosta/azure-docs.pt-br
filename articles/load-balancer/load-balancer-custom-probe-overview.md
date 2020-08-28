@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207558"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051348"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -92,7 +92,7 @@ Os protocolos disponíveis dependem do Load Balancer SKU usado:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| **SKU padrão** |    &#9989; |   &#9989; |   &#9989; |
+| **SKU Standard** |    &#9989; |   &#9989; |   &#9989; |
 | **SKU Básico** |   &#9989; |   &#9989; | &#10060; |
 
 ### <a name="tcp-probe"></a><a name="tcpprobe"></a>Investigação TCP
@@ -223,7 +223,7 @@ Além de Load Balancer investigações de integridade, as [seguintes operações
 - Permite a comunicação com o servidor virtual de DNS para fornecer resolução de nome filtrado aos clientes que não definem servidores DNS personalizados.  Essa filtragem garante que cada cliente só possa resolver os nomes de host de sua própria implantação.
 - Permite que a VM obtenha um endereço IP dinâmico do serviço DHCP no Azure.
 
-## <a name="design-guidance"></a><a name="design"></a>Diretrizes de design
+## <a name="design-guidance"></a><a name="design"></a> Diretrizes de design
 
 As investigações de integridade são usadas para manter seu serviço resiliente e permitir que ele seja dimensionado. Uma configuração incorreta ou um padrão de design inadequado pode afetar a disponibilidade e a escalabilidade do serviço. Leia este documento na íntegra e considere qual é o impacto no seu cenário quando a resposta dessa investigação é marcada como inoperante ou operante e como isso afeta a disponibilidade do cenário de aplicativo.
 
@@ -263,6 +263,6 @@ O Load Balancer público básico expõe o status de investigação de integridad
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre o [Standard Load Balancer](load-balancer-standard-overview.md)
-- [Introdução à criação de um balanceador de carga público no Gerenciador de Recursos usando PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [Introdução à criação de um balanceador de carga público no Gerenciador de Recursos usando PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [API REST para investigações de integridade](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Solicitar novas habilidades de investigação de integridade com [Uservoice do Load Balancer](https://aka.ms/lbuservoice)

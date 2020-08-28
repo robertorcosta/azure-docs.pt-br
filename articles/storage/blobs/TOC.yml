@@ -347,6 +347,8 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Usar a API REST do Armazenamento do Azure
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Impedir autorização com Chave Compartilhada
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Delegar acesso com SAS (assinaturas de acesso compartilhado)
               items:
                 - name: Criar uma SAS de delegação de usuário

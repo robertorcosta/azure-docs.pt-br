@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: ec27d054055866c72148ad6eb024d4324f063ce8
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: f496d0f38452fa7cf64bc9eef370bd0b2116cfa5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774399"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049954"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte do Red Hat OpenShift no Azure
 
@@ -25,7 +25,6 @@ Determinadas configurações dos clusters do Red Hat OpenShift no Azure 4 podem 
 * Todos os operadores do cluster do OpenShift devem permanecer em um estado gerenciado. A lista de operadores do cluster pode ser retornada executando `oc get clusteroperators`.
 * Não remova nem modifique os serviços Prometheus e Alertmanager do cluster.
 * Não remova as regras de Alertmanager do serviço.
-* Não modifique a versão do cluster do OpenShift.
 * Não remova nem modifique o registro em log do serviço do Red Hat OpenShift no Azure (pods mdsd).
 * Não remova nem modifique o segredo de pull do cluster “arosvc.azurecr.io”.
 * Todas as máquinas virtuais do cluster devem ter acesso direto à Internet de saída, pelo menos para os pontos de extremidade do Azure Resource Manager (ARM) e do registro em log do serviço (Geneva).  Não há suporte para nenhuma forma de proxy HTTPS.

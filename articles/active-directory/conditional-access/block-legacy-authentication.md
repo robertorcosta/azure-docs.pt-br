@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381afdbb57e2de41382a10c1912abac980e89cbd
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948463"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049529"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como fazer: Bloquear autenticação herdada para Azure AD com Acesso Condicional   
 
@@ -85,7 +85,7 @@ Antes de poder bloquear a autenticação herdada em seu diretório, primeiro voc
 
 1. Navegue até o **portal do Azure** > **Azure Active Directory** > **Entradas**.
 1. Adicione a coluna Aplicativo cliente se ela não for exibida clicando em **Colunas** > **Aplicativo cliente**.
-1. **Adicionar filtros**  >  > de **aplicativo cliente** selecione todos os protocolos de autenticação herdados. Selecione fora do diálogo de filtragem blox para aplicar suas seleções e feche a caixa de diálogo.
+1. **Adicionar filtros**  >  > de **aplicativo cliente** selecione todos os protocolos de autenticação herdados. Selecione fora da caixa de diálogo filtragem para aplicar suas seleções e feche a caixa de diálogo.
 
 A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de autenticação herdados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. O campo **Aplicativo cliente** na guia **Informações básicas** indicarão qual protocolo de autenticação herdado foi usado.
 
@@ -122,7 +122,7 @@ Pode levar até 24 horas para que a política entre em vigor.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-report-only.md)
+- [Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-insights-reporting.md)
 - Se você ainda não estiver familiarizado com a configuração de políticas de Acesso Condicional, confira [Exigir MFA para aplicativos específicos com Acesso Condicional do Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md), para obter um exemplo.
 - Para saber mais sobre suporte de autenticação moderna, veja [Como funciona a autenticação moderna para os aplicativos cliente do Office 2013 e do Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
 - [Como configurar um dispositivo ou aplicativo multifuncional para enviar e-mail usando Office 365 e Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

@@ -4,14 +4,17 @@ description: Saiba como importar arquivos de certificado para um serviço de con
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 949cc642572bfbf6ebe297d3ffba16939561ac8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012714"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050736"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importe um arquivo de certificado para um contêiner em execução no Service Fabric
+
+> [!NOTE]
+> Para Service Fabric clusters em execução no Azure, é recomendável usar [Service Fabric identidade gerenciada do aplicativo](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) para provisionar certificados de aplicativo de dentro de um contêiner. A identidade gerenciada fornece isolamento de segredos e certificados no nível de serviço e permite que o provisionamento de certificado de aplicativo faça parte do fluxo de trabalho do aplicativo, em vez do fluxo de trabalho da infraestrutura. O mecanismo CertificateRef será preterido em uma versão futura.
 
 Você pode proteger seus serviços de contêiner especificando um certificado. O Service Fabric fornece um mecanismo para serviços dentro de um contêiner para acessar um certificado que está instalado em nós em um cluster do Windows ou Linux (versão 5.7 ou superior). O certificado deve ser instalado em um repositório de certificados na LocalMachine em todos os nós do cluster. A chave privada correspondente ao certificado deve estar disponível, acessível e, no Windows, exportável. As informações do certificado são fornecidas no manifesto do aplicativo sob a marca `ContainerHostPolicies`, como mostra o snippet de código a seguir:
 
@@ -30,6 +33,8 @@ Para clusters do Linux, os certificados (PEM) são copiados do repositório espe
 
 * Certificates_ServicePackageName_CodePackageName_CertName_PEM
 * Certificates_ServicePackageName_CodePackageName_CertName_PrivateKey
+
+Observe que o `PEM` `PrivateKey` arquivo e contém o certificado e a chave privada não criptografada.
 
 Como alternativa, se você já tiver os certificados no formato necessário e desejar acessá-los dentro do contêiner, será possível criar um pacote de dados dentro do seu pacote do aplicativo e especificar o seguinte dentro do seu manifesto do aplicativo:
 

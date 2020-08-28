@@ -58,7 +58,15 @@
             - name: Autenticar e autorizar com o Azure AD
               href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autorizar com Chave Compartilhada
-              href: /rest/api/storageservices/authorize-with-shared-key
+              items:
+                - name: Exibir e gerenciar chaves de conta
+                  href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Configurar cadeias de conexão
+                  href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Impedir autorização com Chave Compartilhada
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Usar a API REST do Armazenamento do Azure
+                  href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autorizar com SAS
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Como autorizar operações de gerenciamento
@@ -150,6 +158,8 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Usar a API REST do Armazenamento do Azure
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Impedir autorização com Chave Compartilhada
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Gerenciar criptografia de Armazenamento do Azure
           items:
             - name: Criar uma conta que dê suporte a chaves gerenciadas pelo cliente

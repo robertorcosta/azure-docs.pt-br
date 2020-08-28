@@ -1,14 +1,14 @@
 ---
 title: Entender ciclo de vida de um blueprint
 description: Saiba mais sobre o ciclo de vida que uma definição do plano gráfico passa e detalhes sobre cada estágio, incluindo a atualização e a remoção de atribuições de plano gráfico.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc024c0e6643420d26bdc92e47fabe647c55ae7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864021"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049699"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Blueprint do Azure
 
@@ -81,14 +81,14 @@ Exclua um blueprint com o [portal do Azure](../create-blueprint-portal.md#delete
 
 Há vários pontos durante o ciclo de vida em que um blueprint pode ser atribuído a uma assinatura. Quando o modo de uma versão do blueprint é **Publicado**, essa versão pode ser atribuída a uma assinatura. Esse ciclo de vida permite que versões de um blueprint sejam usadas e atribuídas ativamente enquanto uma versão mais nova está sendo desenvolvida.
 
-Como as versões de blueprints são atribuídas, é importante entender o local em que elas estão atribuídas e com quais parâmetros elas foram atribuídas. Os parâmetros podem ser estáticos ou dinâmicos. Para obter mais informações, confira [parâmetros estáticos e dinâmicos](parameters.md).
+Como as versões de blueprints são atribuídas, é importante entender o local em que elas estão atribuídas e com quais parâmetros elas foram atribuídas. Os parâmetros podem ser estáticos ou dinâmicos. Para obter mais informações, confira [parâmetros estáticos e dinâmicos](./parameters.md).
 
 ### <a name="updating-assignments"></a>Atualizando atribuições
 
 Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vários motivos para atualizar uma atribuição existente, como:
 
-- Adicionar ou remover um [bloqueio de recurso](resource-locking.md)
-- Alterar o valor de [parâmetros dinâmicos](parameters.md#dynamic-parameters)
+- Adicionar ou remover um [bloqueio de recurso](./resource-locking.md)
+- Alterar o valor de [parâmetros dinâmicos](./parameters.md#dynamic-parameters)
 - Atualizar a atribuição para uma versão **Publicada** mais recente do blueprint
 
 Para saber como, confira [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
@@ -97,7 +97,7 @@ Para saber como, confira [atualizar atribuições existentes](../how-to/update-e
 
 Se o plano gráfico não for mais necessário, ele poderá não ser atribuído do grupo de gerenciamento ou da assinatura. Durante a desatribuição do plano gráfico, ocorre o seguinte:
 
-- Remoção do [bloqueio de recursos do Blueprint](resource-locking.md)
+- Remoção do [bloqueio de recursos do Blueprint](./resource-locking.md)
 - Exclusão do objeto de atribuição Blueprint
 - Condiciona Se uma **identidade gerenciada atribuída pelo sistema** foi usada, ela também será excluída
 
@@ -106,8 +106,8 @@ Se o plano gráfico não for mais necessário, ele poderá não ser atribuído d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como usar [parâmetros estáticos e dinâmicos](parameters.md).
-- Saiba como personalizar a [ordem de sequenciamento de blueprint](sequencing-order.md).
-- Saiba como usar o [bloqueio de recurso de blueprint](resource-locking.md).
+- Saiba como usar [parâmetros estáticos e dinâmicos](./parameters.md).
+- Saiba como personalizar a [ordem de sequenciamento de blueprint](./sequencing-order.md).
+- Saiba como usar o [bloqueio de recurso de blueprint](./resource-locking.md).
 - Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
 - Resolver problemas durante a atribuição de blueprint com [solução de problemas gerais](../troubleshoot/general.md).

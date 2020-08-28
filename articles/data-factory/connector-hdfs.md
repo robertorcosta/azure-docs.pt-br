@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 0104f9002a1fb4f6f1d0d31bd6eea50bce1b365b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926800"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050362"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiar dados do servidor HDFS usando Azure Data Factory
 
@@ -168,10 +168,12 @@ As propriedades a seguir têm suporte para HDFS em `storeSettings` configuraçõ
 | OPÇÃO 1: caminho estático<br> | Copie da pasta ou do caminho do arquivo especificado no conjunto de um. Se quiser copiar todos os arquivos de uma pasta, especifique também `wildcardFileName` como `*`. |  |
 | OPÇÃO 2: curinga<br>- wildcardFolderPath | O caminho da pasta com caracteres curinga para filtrar as pastas de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caractere único). Use `^` para escapar se o nome real da pasta tiver um curinga ou esse caractere de escape dentro de. <br>Para obter mais exemplos, consulte [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Não                                            |
 | OPÇÃO 2: curinga<br>- wildcardFileName | O nome do arquivo com caracteres curinga no folderPath/wildcardFolderPath especificado para filtrar os arquivos de origem. <br>Os curingas permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou a um único caractere); use `^` para escapar se o nome real da pasta tiver um curinga ou esse caractere de escape dentro.  Para obter mais exemplos, consulte [exemplos de filtro de pasta e arquivo](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um conjunto de arquivos especificado. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar (um arquivo por linha, com o caminho relativo para o caminho configurado no conjunto de um).<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de um. Para obter mais exemplos, consulte [exemplos de lista de arquivos](#file-list-examples). |Não |
+| OPÇÃO 3: uma lista de arquivos<br>- fileListPath | Indica a cópia de um conjunto de arquivos especificado. Aponte para um arquivo de texto que inclui uma lista de arquivos que você deseja copiar (um arquivo por linha, com o caminho relativo para o caminho configurado no conjunto de um).<br/>Ao usar essa opção, não especifique o nome do arquivo no conjunto de um. Para obter mais exemplos, consulte [exemplos de lista de arquivos](#file-list-examples). |No |
 | ***Configurações adicionais*** |  | |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou somente da pasta especificada. Quando `recursive` é definido como *true* e o coletor é um armazenamento baseado em arquivo, uma pasta ou subpasta vazia não é copiada ou criada no coletor. <br>Os valores permitidos são *true* (padrão) e *false*.<br>Essa propriedade não se aplica quando você configura `fileListPath`. |Não |
 | modifiedDatetimeStart    | Os arquivos são filtrados com base no atributo *modificado pela última vez*. <br>Os arquivos serão selecionados se a hora da última modificação estiver dentro do intervalo de `modifiedDatetimeStart` a `modifiedDatetimeEnd` . A hora é aplicada ao fuso horário UTC no formato *2018-12-01T05:00:00Z*. <br> As propriedades podem ser nulas, o que significa que nenhum filtro de atributo de arquivo é aplicado ao conjunto de valores.  Quando `modifiedDatetimeStart` tem um valor de DateTime, mas `modifiedDatetimeEnd` é nulo, significa que os arquivos cujo último atributo modificado é maior ou igual ao valor de DateTime são selecionados.  Quando `modifiedDatetimeEnd` tem um valor de DateTime, mas `modifiedDatetimeStart` é nulo, significa que os arquivos cujo último atributo modificado é menor que o valor de data e hora são selecionados.<br/>Essa propriedade não se aplica quando você configura `fileListPath`. | Não                                            |
+| enablePartitionDiscovery | Para arquivos que são particionados, especifique se deseja analisar as partições do caminho do arquivo e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **false** (padrão) e **true**. | Falso                                            |
+| partitionRootPath | Quando a descoberta de partição estiver habilitada, especifique o caminho raiz absoluto para ler as pastas particionadas como colunas de dados.<br/><br/>Se não for especificado, por padrão,<br/>-Quando você usa o caminho do arquivo no conjunto de programas ou na lista de arquivos na origem, o caminho raiz da partição é o caminho configurado no conjunto de um.<br/>-Quando você usa o filtro de pasta curinga, o caminho raiz da partição é o subcaminho antes do primeiro caractere curinga.<br/><br/>Por exemplo, supondo que você configure o caminho no conjunto de um como "raiz/pasta/ano = 2020/mês = 08/dia = 27":<br/>-Se você especificar o caminho raiz da partição como "raiz/pasta/ano = 2020", a atividade de cópia irá gerar mais duas colunas `month` e `day` com o valor "08" e "27", respectivamente, além das colunas dentro dos arquivos.<br/>-Se o caminho raiz da partição não for especificado, nenhuma coluna extra será gerada. | Falso                                            |
 | maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não                                            |
 | ***Configurações de DistCp*** |  | |
 | distcpSettings | O grupo de propriedades a ser usado ao usar o HDFS DistCp. | Não |
@@ -405,7 +407,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
     a. Selecione **Ferramentas administrativas**  >  **Active Directory usuários e computadores**.
 
-    b. Configure recursos avançados selecionando **Exibir**  >  **recursos avançados**.
+    b. Configure os recursos avançados selecionando **Exibição** > **Recursos Avançados**.
 
     c. No painel **recursos avançados** , clique com o botão direito do mouse na conta para a qual você deseja criar mapeamentos e, no painel **mapeamentos de nome** , selecione a guia **nomes Kerberos** .
 
@@ -490,7 +492,7 @@ Para obter informações sobre propriedades de atividade de pesquisa, consulte [
 | resourceManagerEndpoint | O ponto de extremidade do Gerenciador de recursos YARN | Sim, se estiver usando DistCp |
 | tempScriptPath | Um caminho de pasta que é usado para armazenar o script de comando Temp DistCp. O arquivo de script é gerado pelo Data Factory e será removido depois que o trabalho de cópia for concluído. | Sim, se estiver usando DistCp |
 | distcpOptions | Opções adicionais são fornecidas para o comando DistCp. | Não |
-| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | Não |
+| maxConcurrentConnections | O número de conexões que podem se conectar ao armazenamento de armazenamento simultaneamente. Especifique um valor somente quando desejar limitar a conexão simultânea com o armazenamento de dados. | No |
 
 **Exemplo: origem do HDFS na atividade de cópia usando DistCp**
 

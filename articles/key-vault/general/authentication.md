@@ -7,12 +7,12 @@ ms.date: 06/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 7645600a476a1c2294ddd4a24fe01e2ffe51d5ac
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6336a0d4d8aa9c781befed0470d9a190af5aa9eb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589975"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930852"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticar-se no Azure Key Vault
 
@@ -112,14 +112,9 @@ Neste ponto, você tem uma entidade de serviço registrada. Você pode exibi-la 
 1. Criar um certificado
 
     * Opção 1: criar um certificado usando [OpenSSL](https://www.openssl.org/) (somente para fins de teste, não use certificados autoassinados em produção)
-
-    ```console
-    openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-    ```
-
     * Opção 2: criar um certificado usando o Key Vault. [Criar um certificado no Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-your-first-key-vault-certificate)
 
-1. Baixar o certificado no formato PEM
+1. Baixe o certificado no formato PEM/PFX
 1. Abra o portal do Azure e navegue até o Azure Active Directory
 1. Clique em "Registros de Aplicativo"
 1. Selecione a entidade de serviço que você criou na Parte 1.
