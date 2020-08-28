@@ -3,12 +3,13 @@ title: Autenticação de uma identidade gerenciada com o Azure Active Directory
 description: Este artigo fornece informações sobre como autenticar uma identidade gerenciada com Azure Active Directory para acessar os recursos dos hubs de eventos do Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: c74e49eff8233d9918fcdb55e6fa2ad8d7517f6f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079134"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010011"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticar uma identidade gerenciada com Azure Active Directory para acessar recursos de hubs de eventos
 Os hubs de eventos do Azure dão suporte à autenticação Azure Active Directory (Azure AD) com [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md). Identidades gerenciadas para recursos do Azure podem autorizar o acesso a recursos de hubs de eventos usando as credenciais do Azure AD de aplicativos em execução em VMs (máquinas virtuais) do Azure, aplicativos de funções, conjuntos de dimensionamento de máquinas virtuais e outros serviços. Usando identidades gerenciadas para recursos do Azure junto com a autenticação do Azure AD, você pode evitar o armazenamento de credenciais com seus aplicativos que são executados na nuvem.
@@ -66,7 +67,7 @@ Para atribuir uma função aos recursos dos hubs de eventos, navegue até esse r
 Depois de atribuir a função, o aplicativo Web terá acesso aos recursos dos hubs de eventos no escopo definido. 
 
 ### <a name="test-the-web-application"></a>Testar o aplicativo Web
-1. Criar um namespace de Hubs de Eventos e um hub de eventos. 
+1. Crie um namespace de hubs de eventos e um hub de eventos. 
 2. Implante o aplicativo Web no Azure. Consulte a seguinte seção com guias para obter links para o aplicativo Web no GitHub. 
 3. Verifique se o SendReceive. aspx está definido como o documento padrão para o aplicativo Web. 
 3. Habilite a **identidade** para o aplicativo Web. 

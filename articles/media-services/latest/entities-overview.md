@@ -12,13 +12,13 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
-ms.custom: seodec18
-ms.openlocfilehash: a9f9463cd1cac49e36ea52cafaf4d07f4e709ca7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: 4fbd587b99875690a8c95952ce6b11d41e402726
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053248"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009875"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtragem, ordenação e paginação de entidades de serviços de mídia
 

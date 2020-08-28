@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f77a5b634b035b7cc1142645d355fe6c3756226b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73605610"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004061"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Consultar dados Avro usando a análise do Azure Data Lake Analytics
 
@@ -20,7 +20,7 @@ Este artigo discute como consultar dados da Avro para roteamento eficiente de me
 
 O desafio foi que, quando o Hub IoT do Azure roteia mensagens para o armazenamento de BLOBs do Azure, por padrão, o Hub IoT grava o conteúdo no formato Avro, que tem uma propriedade de corpo de mensagem e uma propriedade de mensagem. O formato Avro não é usado para nenhum outro ponto de extremidade. Embora o formato Avro seja ótimo para preservação de dados e mensagem, é um desafio usá-lo para consultar dados. Em comparação, o formato JSON ou CSV é muito mais fácil para consultar dados. O Hub IoT agora dá suporte à gravação de dados no armazenamento de BLOBs em JSON, bem como AVRO.
 
-Para obter mais informações, consulte [usando o armazenamento do Azure como um ponto de extremidade de roteamento](iot-hub-devguide-messages-d2c.md#azure-storage).
+Para obter mais informações, consulte [usando o armazenamento do Azure como um ponto de extremidade de roteamento](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 Para resolver necessidades de dados grandes não relacionadas e formatos e superar esse desafio você pode usar muitos padrões de dados grandes para transformar e escalonar dados. Um dos padrões, "pagar por consulta," é o Azure Data Lake Analytics, que é o foco deste artigo. Embora facilmente você possa executar a consulta no Hadoop ou outras soluções,o Data Lake Analytics é geralmente mais adequado para essa abordagem "pagar por consulta".
 

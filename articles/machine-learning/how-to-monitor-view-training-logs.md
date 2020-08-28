@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 146b9a04b190808848af56612e14a05a617c7109
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554750"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005948"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
@@ -111,8 +111,7 @@ Faça uma busca detalhada até uma execução específica para exibir suas saíd
 
 Você também pode editar a tabela de lista de execução para selecionar várias execuções e exibir o valor registrado por último, mínimo ou máximo para suas execuções. Personalize seus gráficos para comparar os valores de métricas registrados e as agregações entre várias execuções.
 
-:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Detalhes da execução no estúdio do Azure Machine Learning":::
-
+![Detalhes da execução no estúdio do Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
 
 ### <a name="format-charts-in-the-studio"></a>Formatar gráficos no estúdio
 

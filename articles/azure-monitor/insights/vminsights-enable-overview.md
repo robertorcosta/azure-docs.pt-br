@@ -1,19 +1,19 @@
 ---
-title: Habilitar Azure Monitor para VMs visão geral
+title: Visão geral de Habilitar o Azure Monitor para VMs
 description: Saiba como implantar e configurar Azure Monitor para VMs. Descubra os requisitos do sistema.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
-ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/27/2020
+ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824759"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998400"
 ---
-# <a name="enable-azure-monitor-for-vms-overview"></a>Habilitar Azure Monitor para VMs visão geral
+# <a name="enable-azure-monitor-for-vms-overview"></a>Visão geral de Habilitar o Azure Monitor para VMs
 
 Este artigo fornece uma visão geral das opções disponíveis para permitir que o Azure Monitor para VMs monitore a integridade e o desempenho do seguinte:
 
@@ -78,86 +78,25 @@ Se você não tiver um espaço de trabalho Log Analytics, poderá criar um usand
 
 ## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
-A tabela a seguir lista os sistemas operacionais Windows e Linux aos quais Azure Monitor para VMs dá suporte. Mais adiante nesta seção, você encontrará uma lista completa que detalha a versão principal e secundária do sistema operacional Linux e as versões de kernel com suporte.
+O Azure Monitor para VMs dá suporte a qualquer sistema operacional que ofereça suporte ao agente de Log Analytics e ao agente de dependência. Consulte [visão geral de agentes de Azure monitor ](../platform/agents-overview.md#supported-operating-systems) para obter uma lista completa.
 
-|Versão do SO |Desempenho |Mapas |
-|-----------|------------|-----|
-|Windows Server 2019 | X | X |
-|Windows Server 2016 1803 | X | X |
-|Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
-|Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
-|Windows 10 1803 | X | X |
-|Windows 8.1 | X | X |
-|Windows 8 | X | X |
-|Windows 7 SP1 | X | X |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
-|Ubuntu 18, 4, 16, 4 | X | X |
-|CentOS Linux 7, 6 | X | X |
-|SLES (SUSE Linux Enterprise Server) 12 | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | |
+Consulte a seguinte lista de considerações sobre o suporte do Linux do agente de dependência que dá suporte a Azure Monitor para VMs:
 
-<sup>1</sup> O recurso Desempenho do Azure Monitor para VMs está disponível somente no Azure Monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
+- Somente as versões de kernel padrão e Linux SMP têm suporte.
+- Não há suporte para nenhuma distribuição do Linux em versões de kernel não padrão, como PAE (Extensão do Endereço Físico) e Xen. Por exemplo, não há suporte para um sistema com a cadeia de caracteres de versão *2.6.16.21-0.8-xen*.
+- Não há suporte para kernels personalizados, incluindo recompilações de kernels padrão.
+- Para Debian distribuições que não seja a versão 9,4, o recurso de mapa não tem suporte e o recurso de desempenho está disponível apenas no menu Azure Monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
+- Há suporte para o kernel CentOSPlus.
+- O kernel do Linux deve ser corrigido para a vulnerabilidade Spectre. Consulte seu fornecedor de distribuição do Linux para obter mais detalhes.
 
->[!NOTE]
->No sistema operacional Linux:
-> - Somente as versões de kernel padrão e Linux SMP têm suporte.
-> - Não há suporte para nenhuma distribuição do Linux em versões de kernel não padrão, como PAE (Extensão do Endereço Físico) e Xen. Por exemplo, não há suporte para um sistema com a cadeia de caracteres de versão *2.6.16.21-0.8-xen*.
-> - Não há suporte para kernels personalizados, incluindo recompilações de kernels padrão.
-> - Há suporte para o kernel CentOSPlus.
-> - O kernel do Linux deve ser corrigido para a vulnerabilidade Spectre. Consulte seu fornecedor de distribuição do Linux para obter mais detalhes.
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-
-| Versão do SO | Versão do kernel |
-|:--|:--|
-| 7.6 | 3.10.0-957 |
-| 7.5 | 3.10.0-862 |
-| 7.4 | 3.10.0-693 |
-
-#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-
-| Versão do SO | Versão do kernel |
-|:--|:--|
-| 6.10 | 2.6.32-754 |
-| 6.9 | 2.6.32-696 |
-
-#### <a name="centosplus"></a>CentOSPlus
-
-| Versão do SO | Versão do kernel |
-|:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-
-#### <a name="ubuntu-server"></a>Ubuntu Server
-
-| Versão do SO | Versão do kernel |
-|:--|:--|
-| 18.04 | 5.3.0-1020<br>5,0 (inclui kernel ajustado pelo Azure)<br>4,18* <br> 4,15* |
-| 16.04.3 | 4,15. * |
-| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-
-#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| Versão do SO | Versão do kernel |
-|:--|:--|
-|12 SP4 | 4,12. * (inclui kernel ajustado para o Azure) |
-|12 SP3 | 4.4.* |
-|12 SP2 | 4.4.* |
-
-#### <a name="debian"></a>Debian 
-
-| Versão do SO | Versão do kernel |
-|:--|:--|
-| 9 | 4.9 | 
 
 ## <a name="supported-azure-arc-machines"></a>Máquinas do Arc do Azure com suporte
 Azure Monitor para VMs está disponível para servidores habilitados para Arc do Azure em regiões em que o serviço de extensão Arc está disponível. Você deve estar executando a versão 0,9 ou superior do agente Arc.
 
 | Fonte conectada | Com suporte | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Junto com o [agente do log Analytics para Windows](../platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
+| Agentes do Windows | Sim | Junto com o [agente do log Analytics para Windows](../platform/log-analytics-agent.md), os agentes do Windows precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](../platform/agents-overview.md#supported-operating-systems). |
 | Agentes do Linux | Sim | Junto com o [agente de log Analytics para Linux](../platform/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
 | Grupo de gerenciamento do System Center Operations Manager | Não | |
 
@@ -175,7 +114,7 @@ A seguir estão vários métodos para implantar esses agentes.
 | Método | Descrição |
 |:---|:---|
 | [Azure portal](./vminsights-enable-portal.md) | Instale os dois agentes em uma única máquina virtual, conjunto de dimensionamento de máquinas virtuais ou máquinas virtuais híbridas conectadas com o arco do Azure. |
-| [Modelos do Resource Manager](vminsights-enable-powershell.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
+| [Modelos do Gerenciador de Recursos](vminsights-enable-powershell.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
 | [Azure Policy](./vminsights-enable-policy.md) | Atribua Azure Policy Initiative para instalar automaticamente os agentes quando uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais for criado. |
 | [Instalação manual](./vminsights-enable-hybrid.md) | Instale os agentes no sistema operacional convidado em computadores hospedados fora do Azure, incluindo em seu datacenter ou em outros ambientes de nuvem. |
 

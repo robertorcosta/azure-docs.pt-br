@@ -7,12 +7,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9ff3e12721628e244f247e174af101e71ea91191
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61447570"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998315"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizar e reimplantar um microsserviço
 
@@ -56,7 +57,7 @@ Agora, altere a mensagem de status de microsserviço do Gerenciador do Hub IoT p
 1. Verifique se o terminal está aberto e altere para o diretório onde você clonou a solução de Monitoramento Remoto. 
 1. Altere o diretório para "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
 1. Abra StatusService.cs em qualquer editor de texto ou IDE que desejar. 
-1. Localize o código a seguir:
+1. Localize o seguinte código:
 
     ```csharp
     var result = new StatusServiceModel(true, "Alive and well!");
@@ -121,7 +122,7 @@ Agora, você precisa atualizar seu docker-compose.yml local para receber a nova 
 
 1. Volte para o terminal e mude para o seguinte diretório: “azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local”.
 2. Abra docker-compose.yml em qualquer editor de texto ou o IDE que desejar.
-3. Localize o código a seguir:
+3. Localize o seguinte código:
 
     ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing

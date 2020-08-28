@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654881"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008872"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurar chaves gerenciadas pelo cliente para sua conta do lote do Azure com Azure Key Vault e identidade gerenciada
 
@@ -149,6 +149,6 @@ az batch account set \
   * **Como posso girar minhas chaves?** As chaves gerenciadas pelo cliente não são giradas automaticamente. Para girar a chave, atualize o identificador de chave ao qual a conta está associada.
   * **Depois de restaurar o acesso, quanto tempo levará para que a conta do lote funcione novamente?** Pode levar até 10 minutos para que a conta seja acessível novamente quando o acesso for restaurado.
   * **Enquanto a conta do lote não está disponível, o que acontece com meus recursos?** Todos os pools que estão em execução quando o acesso ao lote para chaves gerenciadas pelo cliente são perdidos continuarão a ser executados. No entanto, os nós passarão para um estado indisponível e as tarefas deixarão de ser executadas (e serão recolocadas na fila). Quando o acesso for restaurado, os nós ficarão disponíveis novamente e as tarefas serão reiniciadas.
-  * **Este mecanismo de criptografia se aplica a discos de VM em um pool do lote?** Não. Para pools de configuração do serviço de nuvem, nenhuma criptografia é aplicada ao sistema operacional e ao disco temporário. Para pools de configuração de máquina virtual, o sistema operacional e todos os discos de dados especificados serão criptografados com uma chave gerenciada da plataforma Microsoft por padrão. No momento, você não pode especificar sua própria chave para esses discos. Para criptografar o disco temporário de VMs para um pool do lote com uma chave gerenciada da plataforma Microsoft, você deve habilitar a propriedade [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) em seu pool de [configuração de máquina virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . Para ambientes altamente confidenciais, é recomendável habilitar a criptografia de disco temporária e evitar o armazenamento de dados confidenciais no sistema operacional e nos discos de dados.
+  * **Este mecanismo de criptografia se aplica a discos de VM em um pool do lote?** Não. Para pools de configuração do serviço de nuvem, nenhuma criptografia é aplicada ao sistema operacional e ao disco temporário. Para pools de configuração de máquina virtual, o sistema operacional e todos os discos de dados especificados serão criptografados com uma chave gerenciada da plataforma Microsoft por padrão. No momento, você não pode especificar sua própria chave para esses discos. Para criptografar o disco temporário de VMs para um pool do lote com uma chave gerenciada da plataforma Microsoft, você deve habilitar a propriedade [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) em seu pool de [configuração de máquina virtual](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . Para ambientes altamente confidenciais, é recomendável habilitar a criptografia de disco temporária e evitar o armazenamento de dados confidenciais no sistema operacional e nos discos de dados. Para obter mais informações, consulte [criar um pool com criptografia de disco habilitada](./disk-encryption.md)
   * **A identidade gerenciada atribuída pelo sistema na conta do lote está disponível nos nós de computação?** Não. Essa identidade gerenciada é atualmente usada somente para acessar o Azure Key Vault para a chave gerenciada pelo cliente.
   

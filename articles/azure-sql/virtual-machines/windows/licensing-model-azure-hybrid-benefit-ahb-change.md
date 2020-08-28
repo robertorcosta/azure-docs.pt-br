@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f02f31e0fc8943682af77ca6f506d15f36e88146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208b900de20a89a9ecc819ef1254c08fcc628f82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668892"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010208"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença para uma máquina virtual do SQL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,7 +156,9 @@ A alteração do modelo de licença:
 
 ## <a name="known-errors"></a>Erros conhecidos
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>O recurso "Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>" no grupo de recursos "\<resource-group>" não foi encontrado.
+Examine os erros comumente conhecidos e suas resoluções. 
+
+**O recurso ' Microsoft. SqlVirtualMachine/SqlVirtualMachines/ \<resource-group> ' no grupo de recursos ' \<resource-group> ' não foi encontrado.**
 
 Esse erro ocorre quando você tenta alterar o modelo de licença em uma VM do SQL Server que não foi registrada no provedor de recursos de VM do SQL:
 
@@ -165,7 +167,7 @@ Esse erro ocorre quando você tenta alterar o modelo de licença em uma VM do SQ
 Você precisará registrar sua assinatura no provedor de recursos e, em seguida, [registrar a VM do SQL Server no provedor de recursos](sql-vm-resource-provider-register.md). 
 
 
-### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>A máquina virtual "\<vmname\>" tem mais de um NIC associado
+**A máquina virtual ' \<vmname\> ' tem mais de uma NIC associada**
 
 Esse erro ocorre em máquinas virtuais que têm mais de um NIC. Remova um dos NICs antes de alterar o modelo de licenciamento. Embora seja possível adicionar o NIC de volta à VM depois de alterar o modelo de licença, as operações no portal do Azure, como backup automático e aplicação de patches, não terão mais compatibilidade. 
 

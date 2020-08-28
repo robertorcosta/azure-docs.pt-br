@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799274"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004894"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartão de visita
 
-O reconhecedor de formulários do Azure pode analisar e extrair pares chave-valor de cartões de visita usando um de seus modelos predefinidos. A API do cartão de negócios combina recursos avançados de reconhecimento de caracteres ópticos (OCR) com nosso modelo de compreensão de cartão de negócios para extrair informações importantes de cartões de visita em inglês. Ele extrai informações de contato pessoal, nome da empresa, cargo e muito mais. A API de cartão de visita predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1. 
+O reconhecedor de formulários do Azure pode analisar e extrair informações de contato de cartões de visita usando um de seus modelos predefinidos. A API do cartão de negócios combina recursos avançados de reconhecimento de caracteres ópticos (OCR) com nosso modelo de compreensão de cartão de negócios para extrair informações importantes de cartões de visita em inglês. Ele extrai informações de contato pessoal, nome da empresa, cargo e muito mais. A API de cartão de visita predefinida está publicamente disponível no formulário versão prévia do Recognizer v 2.1. 
 
 ## <a name="what-does-the-business-card-api-do"></a>O que a API do cartão de negócios faz?
 
@@ -27,10 +27,11 @@ A API do cartão de negócios extrai campos de chave de cartões de visita e os 
 
 ![Imagem do contoso discriminada da saída FOTT + JSON](./media/business-card-english.jpg)
 
-### <a name="fields-extracted"></a>Campos extraídos: 
+### <a name="fields-extracted"></a>Campos extraídos:
+
 * Nomes de contato 
-* Nome 
-* Sobrenome 
+  * Primeiros nomes
+  * Últimos nomes
 * Nomes de empresa 
 * Departments 
 * Títulos de trabalho 
@@ -43,7 +44,7 @@ A API do cartão de negócios extrai campos de chave de cartões de visita e os 
   * Telefones de trabalho 
   * Outros telefones 
 
-A API do cartão de negócios também retorna todo o texto reconhecido do cartão de visita. Essa saída de OCR é incluída na resposta JSON.  
+A API do cartão de negócios também pode retornar todo o texto reconhecido do cartão de visita. Essa saída de OCR é incluída na resposta JSON.  
 
 ### <a name="input-requirements"></a>Requisitos de entrada 
 
@@ -51,7 +52,7 @@ A API do cartão de negócios também retorna todo o texto reconhecido do cartã
 
 ## <a name="the-analyze-business-card-operation"></a>A operação analisar cartão de negócios
 
-O [cartão de visita de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) usa uma imagem ou um PDF de um cartão de visita como entrada e extrai os valores de interesse e texto. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
+O [cartão de visita de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) usa uma imagem ou um PDF de um cartão de visita como entrada e extrai os valores de interesse. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
 
 |Cabeçalho de resposta| URL do resultado |
 |:-----|:----|
@@ -63,18 +64,15 @@ A segunda etapa é chamar a operação [obter resultado do cartão de negócios 
 
 |Campo| Tipo | Valores possíveis |
 |:-----|:----:|:----|
-|status | string | não iniciado: a operação de análise não foi iniciada. |
-| |  | em execução: a operação de análise está em andamento. |
-| |  | falha: falha na operação de análise. |
-| |  | êxito: a operação de análise foi bem-sucedida. |
+|status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
 
-Quando o campo **status** tiver o valor **êxito** , a resposta JSON incluirá os resultados de reconhecimento de texto e compreensão do cartão de negócios. O resultado da compreensão do cartão de visita é organizado como um dicionário de valores de campo nomeados, em que cada valor contém o texto extraído, o valor normalizado, a caixa delimitadora, a confiança e os elementos correspondentes do Word. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com informações de texto, de caixa delimitadora e de confiança.
+Quando o campo **status** tiver o valor com **êxito** , a resposta JSON incluirá o conhecimento do cartão de visita e os resultados de reconhecimento de texto opcional, se solicitado. O resultado da compreensão do cartão de visita é organizado como um dicionário de valores de campo nomeados, em que cada valor contém o texto extraído, o valor normalizado, a caixa delimitadora, a confiança e os elementos correspondentes do Word. O resultado do reconhecimento de texto é organizado como uma hierarquia de linhas e palavras, com informações de texto, de caixa delimitadora e de confiança.
 
 ![saída do cartão de visita de exemplo](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Saída JSON de exemplo
 
-Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResults" contém todo o texto reconhecido. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. O nó "documentResults" contém os valores específicos do cartão de negócios que o modelo descobriu. É aí que você encontrará pares úteis de chave/valor como nome, sobrenome, nome da empresa e muito mais.
+Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResults" contém todo o texto reconhecido. O texto é organizado por página, depois por linha e, em seguida, por palavras individuais. O nó "documentResults" contém os valores específicos do cartão de negócios que o modelo descobriu. É aí que você encontrará informações úteis de contato como nome, sobrenome, nome da empresa e muito mais.
 
 ```json
 {
@@ -394,5 +392,4 @@ A API do cartão de negócios também alimenta o [recurso de processamento do ca
 - Siga o guia de início rápido para começar a [API de cartões de visita do Python início rápido](./quickstarts/python-business-cards.md)
 - Saiba mais sobre a [API REST do reconhecedor de formulário](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Saiba mais sobre o [reconhecedor de formulário](overview.md)
-
 

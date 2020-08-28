@@ -4,16 +4,16 @@ description: Neste artigo, você aprenderá a criar e gerenciar políticas de ba
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 6a045ff1653c58a3a583b6c64941fff26f480861
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4678c6aaa03d511da35d5efee2b1e75d08546781
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826385"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006254"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Criar políticas de backup de serviços de recuperação do Azure usando a API REST
 
-As etapas para criar uma política de backup para uma área segura do Azure Recovery Services são descritas no [documento da API REST da política](/rest/api/backup/protectionpolicies/createorupdate). Vamos usar este documento como referência para criar uma política para o backup de VM do Azure.
+As etapas para criar uma política de backup para uma área segura do Azure Recovery Services são descritas no [documento da API REST da política](/rest/api/backup/protectionpolicies/createorupdate). Vamos usar este documento como uma referência para criar uma política para o backup de VM do Azure.
 
 ## <a name="create-or-update-a-policy"></a>Criar ou atualizar uma política
 
@@ -31,7 +31,7 @@ Por exemplo, para criar uma política para o backup de VM do Azure, a seguir est
 
 |Nome  |Obrigatório  |Type  |Descrição  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
+|properties     |   Verdadeiro      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriedades de ProtectionPolicyResource        |
 |marcas     |         | Objeto        |  Marcações de recursos       |
 
 Para obter a lista completa de definições no corpo da solicitação, consulte o [documento da API REST da política de backup](/rest/api/backup/protectionpolicies/createorupdate).
@@ -137,7 +137,7 @@ A criação/atualização de política de backup é um [operação assíncrona](
 
 Ele retorna duas respostas: 202 (aceito) quando outra operação é criada e, em seguida, 200 (OK) quando a operação é concluída.
 
-|Nome  |Type  |Descrição  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |    [Proteção PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Aceito     |         |     Aceito    |

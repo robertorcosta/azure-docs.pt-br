@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 029c2ffa548c8c99030f630a90eb07ac8ba063a0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496994"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997261"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Para criar ou habilitar TTL em um contêiner, consulte
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Habilitar vida útil em um contêiner usando o SDK
 
-### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a>SDK DO .NET
+### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a> SDK DO .NET
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -83,7 +83,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-noexpiry"></a>SDK do Java
+### <a name="java-sdk"></a><a id="java-enable-noexpiry"></a> SDK do Java
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
@@ -116,7 +116,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 Para definir a vida útil de um contêiner, você precisará fornecer um número positivo diferente de zero que indica o período de tempo em segundos. Com base no valor de TTL configurado, todos os itens no contêiner após a última modificação do carimbo de hora do item `_ts` serão excluídos.
 
-### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a>SDK DO .NET
+### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> SDK DO .NET
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -149,7 +149,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-defaultexpiry"></a>SDK do Java
+### <a name="java-sdk"></a><a id="java-enable-defaultexpiry"></a> SDK do Java
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
@@ -269,7 +269,7 @@ const itemDefinition = {
         };
 ```
 
-### <a name="java-sdk"></a><a id="java-set-ttl-item"></a>SDK do Java
+### <a name="java-sdk"></a><a id="java-set-ttl-item"></a> SDK do Java
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
@@ -350,7 +350,7 @@ SalesOrder salesOrder = new SalesOrder(
 
 Você pode redefinir a vida útil de um item executando uma operação de gravação ou atualização no item. A operação de gravação ou atualização definirá o `_ts` como a hora atual, e a TTL até que o item expire será iniciada novamente. Se você quiser alterar a TTL de um item, poderá atualizar o campo exatamente como atualizaria qualquer outro campo.
 
-### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a>SDK DO .NET
+### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a> SDK DO .NET
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -382,7 +382,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-modifyitemexpiry"></a>SDK do Java
+### <a name="java-sdk"></a><a id="java-enable-modifyitemexpiry"></a> SDK do Java
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
@@ -424,7 +424,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 Se a vida útil foi definida em um item e você não deseja mais que esse item expire, acesse o item, remova o campo TTL e substitua o item no servidor. Quando o campo TTL for removido do item, o valor TTL padrão atribuído ao contêiner será aplicado ao item. Defina o valor de TTL como -1 para impedir que um item expire e não herde o valor de TTL do contêiner.
 
-### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a>SDK DO .NET
+### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a> SDK DO .NET
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -457,7 +457,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-itemdefaultexpiry"></a>SDK do Java
+### <a name="java-sdk"></a><a id="java-enable-itemdefaultexpiry"></a> SDK do Java
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 
@@ -499,7 +499,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 Para desabilitar a vida útil de um contêiner e interromper o processo em segundo plano de verificação de itens expirados, a `DefaultTimeToLive` no contêiner deve ser excluída. A exclusão dessa propriedade é diferente de defini-la como -1. Quando você a define como -1, novos itens adicionados ao contêiner terão vida útil eterna; no entanto, você pode substituir esse valor em itens específicos no contêiner. Quando você remover a propriedade de vida útil do contêiner, os itens nunca expirarão, mesmo se tiverem substituído explicitamente o valor de vida útil padrão anterior.
 
-### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a>SDK DO .NET
+### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a> SDK DO .NET
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -526,7 +526,7 @@ await client.GetContainer("database", "container").ReplaceContainerAsync(contain
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-disableexpiry"></a>SDK do Java
+### <a name="java-sdk"></a><a id="java-enable-disableexpiry"></a> SDK do Java
 
 # <a name="java-sdk-v4"></a>[SDK do Java v4](#tab/javav4)
 

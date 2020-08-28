@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495056"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006934"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorar Site Recovery com os logs do Azure Monitor
 
@@ -20,7 +20,7 @@ Este artigo descreve como monitorar máquinas replicadas pelo Azure [site Recove
 
 Os logs de Azure Monitor fornecem uma plataforma de dados de log que coleta logs de atividade e de recursos, juntamente com outros dados de monitoramento. Nos logs de Azure Monitor, você usa Log Analytics para gravar e testar consultas de log e para analisar interativamente os dados de log. Você pode visualizar e consultar os resultados do log e configurar alertas para executar ações com base em dados monitorados.
 
-Para Site Recovery, você pode Azure Monitor logs para ajudá-lo a fazer o seguinte:
+Por Site Recovery, você pode usar os logs de Azure Monitor para ajudá-lo a fazer o seguinte:
 
 - **Monitorar site Recovery integridade e status**. Por exemplo, você pode monitorar a integridade da replicação, o status do failover de teste, eventos de Site Recovery, RPOs (objetivos de ponto de recuperação) para computadores protegidos e taxas de alteração de disco/dados.
 - **Configure alertas para site Recovery**. Por exemplo, você pode configurar alertas para a integridade do computador, status do failover de teste ou Site Recovery status do trabalho.
@@ -62,9 +62,9 @@ Você pode capturar as informações de taxa de variação de dados e informaç�
 1. Vá para o espaço de trabalho Log Analytics e clique em **Configurações avançadas**.
 2. Clique na página **fontes conectadas** e selecione outros **servidores Windows**.
 3. Baixe o agente do Windows (64 bits) no servidor de processo. 
-4. [Obter a ID e a chave do espaço de trabalho](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+4. [Obter a ID e a chave do espaço de trabalho](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 5. [Configurar o agente para usar o TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Conclua a instalação do agente](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) fornecendo a ID e a chave do espaço de trabalho obtidas.
+6. [Conclua a instalação do agente](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) fornecendo a ID e a chave do espaço de trabalho obtidas.
 7. Quando a instalação for concluída, vá para Log Analytics espaço de trabalho e clique em **Configurações avançadas**. Vá para a página de **dados** e clique mais em **contadores de desempenho do Windows**. 
 8. Clique em **' + '** para adicionar os dois contadores a seguir com o intervalo de amostragem de 300 segundos:
 

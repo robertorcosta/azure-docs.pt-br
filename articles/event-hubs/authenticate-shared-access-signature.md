@@ -3,13 +3,13 @@ title: Autenticar o acesso aos hubs de eventos do Azure com assinaturas de acess
 description: Este artigo mostra como autenticar o acesso a recursos de hubs de eventos usando assinaturas de acesso compartilhado.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5397cd746f33fc82ee63cc7d2a1f396ba704f334
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: bf1f42020237c0907ec7656735adfa46a21370f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423092"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008311"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticar o acesso aos recursos de hubs de eventos usando SAS (assinaturas de acesso compartilhado)
 A SAS (assinatura de acesso compartilhado) oferece controle granular sobre o tipo de acesso que você concede aos clientes que têm a assinatura de acesso compartilhado. Aqui estão alguns dos controles que você pode definir em uma SAS: 
@@ -44,10 +44,10 @@ Ao usar a regra de autorização sendRuleNS, os aplicativos cliente podem enviar
 ## <a name="generate-a-shared-access-signature-token"></a>Gerar um token de Assinatura de Acesso Compartilhado 
 Qualquer cliente que tenha acesso ao nome de uma regra de autorização e a uma de suas chaves de assinatura pode gerar um token SAS. O token é gerado ao criar uma cadeia de caracteres no seguinte formato:
 
-- `se`– Instantâneo de expiração do token. Inteiro refletindo segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970 (época do UNIX) quando o token expira
-- `skn`– Nome da regra de autorização, que é o nome da chave SAS.
-- `sr`– URI do recurso que está sendo acessado.
-- `sig`Signature.
+- `se`  – Instantâneo de expiração do token. Inteiro refletindo segundos desde a época 00:00:00 UTC em 1 de janeiro de 1970 (época do UNIX) quando o token expira
+- `skn` – Nome da regra de autorização, que é o nome da chave SAS.
+- `sr` – URI do recurso que está sendo acessado.
+- `sig` Signature.
 
 A cadeia de caracteres de assinatura é o hash SHA-256 calculado sobre o URI de recurso (escopo, conforme descrito na seção anterior) e a representação de cadeia de caracteres do momento de expiração do token, separados por CRLF.
 

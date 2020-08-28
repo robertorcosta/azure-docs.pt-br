@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 14634fac5d4501572a54f80f01a37e440d69d09b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075528"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997550"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gerenciar logs para um cluster HDInsight
 
@@ -67,7 +67,7 @@ Você também pode usar o PowerShell para exibir essas informações.  Para obte
 
 * Considere como você pode coletar logs de cluster ou de mais de um cluster e agrupá-los para fins como auditoria, monitoramento, planejamento e alertas. Você pode usar uma solução personalizada para acessar e fazer o download dos arquivos de log regularmente, combiná-los e analisá-los para fornecer uma exibição de painel. Você também pode agregar recursos adicionais para alertas de segurança ou de detecção de falha. Você pode criar esses utilitários usando o PowerShell, o HDInsight SDKs ou código que acessa o modelo de implantação clássico do Azure.
 
-* Considere se uma solução ou um serviço de monitoramento seria um benefício útil. O Microsoft System Center fornece um [pacote de gerenciamento de HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Use também ferramentas de terceiros, como o Apache Chukwa e o Ganglia, para coletar e centralizar os logs. Muitas empresas oferecem serviços para monitorar soluções de Big Data baseadas em Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
+* Considere se uma solução ou um serviço de monitoramento seria um benefício útil. O Microsoft System Center fornece um [pacote de gerenciamento de HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). Use também ferramentas de terceiros, como o Apache Chukwa e o Ganglia, para coletar e centralizar os logs. Muitas empresas oferecem serviços para monitorar soluções de Big Data baseadas em Hadoop, por exemplo: Centerity, Compuware APM, Sematext SPM e Zettaset Orchestrator.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Etapa 2: gerenciar versões de serviço de cluster e exibir logs
 

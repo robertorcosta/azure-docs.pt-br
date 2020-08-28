@@ -3,7 +3,7 @@ title: Atribuir um acesso de identidade gerenciada a um recurso usando o PowerSh
 description: Instruções passo a passo para atribuir uma identidade gerenciada em um recurso, acesso a outro recurso, usando o PowerShell.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9fcca72234340a6284dbba5443ae6fb735d4a04
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 665451af58ab7648461eb749e6ea23cd0d648680
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608272"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009246"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Atribuir um acesso de identidade gerenciada a um recurso usando o PowerShell
 

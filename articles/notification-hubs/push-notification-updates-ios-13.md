@@ -8,12 +8,13 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 34b3ea9f07475affca76c8a3ff71de61abcadde8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: df8560bec3671a9f05628ee6ed8ea95c31e9b16f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529702"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998043"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Atualizações dos hubs de notificação do Azure para iOS 13
 
@@ -25,7 +26,7 @@ A Apple fez recentemente algumas alterações no serviço de envio público; as 
 
 Agora, a Apple exige que os desenvolvedores identifiquem notificações como um alerta ou notificações de segundo plano por meio do novo `apns-push-type` cabeçalho na API do APNS. De acordo com a [documentação da Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns): "o valor desse cabeçalho deve refletir com precisão o conteúdo da carga da notificação. Se houver uma incompatibilidade ou se o cabeçalho estiver ausente nos sistemas necessários, o APNs poderá retornar um erro, atrasar a entrega da notificação ou soltá-la completamente. "
 
-Os desenvolvedores agora devem definir esse cabeçalho em aplicativos que enviam notificações por meio dos hubs de notificação do Azure. Devido a uma limitação técnica, os clientes devem usar a autenticação baseada em token para credenciais de APNS com solicitações que incluem esse atributo. Se você estiver usando a autenticação baseada em certificado para suas credenciais de APNS, será necessário alternar para o uso da autenticação baseada em token.
+Os desenvolvedores agora devem definir esse cabeçalho em aplicativos que enviam notificações por meio dos hubs de notificação do Azure. Devido a uma limitação técnica, os clientes devem usar a autenticação baseada em token para credenciais de APNS com solicitações que incluem esse atributo. Se você estiver usando a autenticação baseada em certificado para suas credenciais do APNs, precisará alternar para o uso da autenticação baseada em token.
 
 Os exemplos de código a seguir mostram como definir esse atributo de cabeçalho em solicitações de notificação enviadas por meio dos hubs de notificação do Azure.
 

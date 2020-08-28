@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 464e2c14fa238160ca198b9f1c8a9808e70933f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f0aa71b34818cf373d1bb58531ee5c68c8d3d5ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560970"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004301"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Shake, Shake para um tweet -- Recuperar uma mensagem do Twitter com o Azure Functions
 
@@ -116,11 +117,11 @@ Agora a cadeia de caracteres de conexão está definida, ele verifica e carrega 
 
    ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 
-2. O Kit de Desenvolvimento reinicia e começa a execução do código.
+2. O DevKit reinicia e inicia a execução do código.
 
 Você pode obter uma mensagem de erro "Erro: AZ3166: pacote desconhecido". Esse erro ocorre quando o índice do pacote de quadro não é atualizado corretamente. Para resolver esse problema, verifique o [erro "pacote desconhecido" nas perguntas Frequentes do Kit de desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
-## <a name="test-the-project"></a>Teste do projeto
+## <a name="test-the-project"></a>Testar o projeto
 
 Após a inicialização do aplicativo, clique e solte o botão A e, em seguida, cuidadosamente agite o quadro Kit de Desenvolvimento. Essa ação recupera um tweet aleatório, que contém o hashtag especificado anteriormente. Em alguns segundos, um tweet é exibe na tela do Kit de Desenvolvimento:
 
@@ -151,7 +152,7 @@ Após a inicialização do aplicativo, clique e solte o botão A e, em seguida, 
 - Pressione o botão A novamente e agite para um novo tweet.
 - Pressione o botão B para rolar pelo restante do tweet.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 ![diagrama](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/diagram.png)
 

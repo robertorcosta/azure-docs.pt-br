@@ -3,7 +3,7 @@ title: Gerenciar identidades gerenciadas atribuídas pelo usuário usando REST-A
 description: Instruções passo a passo sobre como criar, listar e excluir uma identidade gerenciada atribuída pelo usuário para fazer chamadas à API REST.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c342359b015085804b127ef8c58aca8a4b13dcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8da142b9ee97d45b5f798e1b7db31228613cd37f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608459"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014261"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando chamadas à API REST
 
@@ -63,7 +63,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
 |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-|*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        |
+|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        |
 
 **Corpo da solicitação**
 
@@ -86,7 +86,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
 |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-|*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        |
+|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Excluir uma identidade gerenciada atribuída ao usuário
 
@@ -106,7 +106,7 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 |Cabeçalho da solicitação  |Descrição  |
 |---------|---------|
 |*Content-Type*     | Obrigatórios. Defina como `application/json`.        |
-|*Nesse*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        |
+|*Autorização*     | Obrigatórios. Defina como um `Bearer` token de acesso válido.        |
 
 ## <a name="next-steps"></a>Próximas etapas
 

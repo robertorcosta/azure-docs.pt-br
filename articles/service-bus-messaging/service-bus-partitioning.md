@@ -3,12 +3,13 @@ title: Criar tópicos e filas particionados do Barramento de Serviço | Microsof
 description: Descreve como particionar filas e tópicos do Barramento de Serviço usando vários agentes de mensagem.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c43d8d560ddede021b70b0cdc167f42052904b0b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 11cc76b0dd0125c7b54438d3f991069b7c44db59
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064852"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007954"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 

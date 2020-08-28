@@ -3,12 +3,12 @@ title: Backups consistentes com o aplicativo de VMs Linux
 description: Criar backups consistentes com o aplicativo para máquinas virtuais do Linux no Azure. Este artigo explica como configurar a estrutura de script para fazer backup de VMs Linux implantadas no Azure. Este artigo também inclui informações de solução de problemas.
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407091"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999233"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup consistente com o aplicativo de VMs Linux do Azure
 
@@ -70,7 +70,7 @@ Pré-scripts invocam APIs nativas do aplicativo, que fecham as E/Ss para novas s
 
 Adicione os logs apropriados ao escrever seu pré-script e pós-script e examine os logs de script para corrigir quaisquer problemas de script. Se você ainda tiver problemas para executar scripts, veja a tabela a seguir para obter mais informações.
 
-| Erro | Mensagem de erro | Ação recomendada |
+| Erro do | Mensagem de erro | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
 | Pre-ScriptExecutionFailed |O pré-script retornou um erro, portanto talvez o backup não seja consistente com o aplicativo.| Examine os logs de falha do script para corrigir o problema.|  
 |Post-ScriptExecutionFailed |O pós-script retornou um erro que pode afetar o estado do aplicativo. |Examine os logs de falha do script para corrigir o problema e verificar o estado do aplicativo. |

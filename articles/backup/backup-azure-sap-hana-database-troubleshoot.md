@@ -3,12 +3,12 @@ title: Solucionar erros de backup de bancos de dados SAP HANA
 description: Descreve como solucionar erros comuns que podem ocorrer ao usar o Backup do Microsoft Azure nos bancos de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 6216c39231ad17a55f0d428fe5e1f85e64cef403
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826983"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004163"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solucionar problemas de backup dos bancos de dados SAP HANA no Azure
 
@@ -22,7 +22,7 @@ Veja as seções [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites)
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Mensagem de erro**      | <span style="font-weight:normal">O backup do Azure não possui privilégios de função obrigatórios para executar backup</span>    |
+| **Mensagem de erro**      | <span style="font-weight:normal">O backup do Azure não tem os privilégios de função necessários para executar o backup</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Possíveis causas:**    | A função pode ter sido substituída.                          |
 | **Ação recomendada** | Para resolver o problema, execute o script no painel **Descobrir banco de dados** ou baixe-o [aqui](https://aka.ms/scriptforpermsonhana). Como alternativa, adicione a função 'SAP_INTERNAL_HANA_SUPPORT' ao Workload Backup User (AZUREWLBACKUPHANAUSER). |
@@ -31,7 +31,7 @@ Veja as seções [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites)
 
 | Mensagem de erro      | <span style="font-weight:normal">Falha ao conectar-se ao sistema HANA</span>                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | A instância do SAP HANA pode estar inativa.<br/>As permissões necessárias para que o backup do Azure interaja com o banco de dados HANA não foram definidas. |
+| **Possíveis causas:**    | A instância do SAP HANA pode estar inativa.<br/>As permissões necessárias para o backup do Azure interagir com o banco de dados HANA não estão definidas. |
 | **Ação recomendada** | Verifique se o banco de dados SAP HANA está ativo. Se o banco de dados estiver funcionando perfeitamente, verifique se todas as permissões necessárias foram definidas. Se alguma das permissões estiver ausente, execute o [script de pré-registro](https://aka.ms/scriptforpermsonhana) para adicionar as permissões ausentes. |
 
 ### <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid
@@ -45,14 +45,14 @@ Veja as seções [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites)
 
 | Mensagem de erro      | <span style="font-weight:normal">Não há suporte para a operação do SAP HANA especificada</span>              |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | O backup do Azure para SAP HANA não permite backup incremental e ações realizadas em clientes nativos do SAP HANA (Studio/ Cockpit/ DBA Cockpit) |
+| **Possíveis causas:**    | O backup do Azure para SAP HANA não dá suporte a backup incremental e ações executadas em clientes SAP HANA nativos (ferramenta cockpit de Studio/cockpit/DBA) |
 | **Ação recomendada** | Para obter mais informações, confira [aqui](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType
 
 | Mensagem de erro      | <span style="font-weight:normal">Esse banco de dados SAP HANA não dá suporte ao tipo de backup solicitado</span>  |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | O backup do Azure não permite backup incremental e backup que usa instantâneos |
+| **Possíveis causas:**    | O backup do Azure não dá suporte a backup incremental e backup usando instantâneos |
 | **Ação recomendada** | Para obter mais informações, confira [aqui](./sap-hana-backup-support-matrix.md#scenario-support). |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
@@ -73,7 +73,7 @@ Veja as seções [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites)
 
 | Mensagem de erro      | <span style="font-weight:normal">Configuração de backint inválida detectada</span>                       |
 | ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas:**    | Os parâmetros de backup não foram especificados corretamente para o backup do Azure |
+| **Possíveis causas:**    | Os parâmetros de backup estão especificados incorretamente para o backup do Azure |
 | **Ação recomendada** | Verifique se os seguintes parâmetros (backint) foram definidos:<br/>\* [catalog_backup_using_backint:true]<br/>\* [enable_accumulated_catalog_backup:false]<br/>\* [parallel_data_backup_backint_channels:1]<br/>\* [log_backup_timeout_s:900)]<br/>\* [backint_response_timeout:7200]<br/>Se os parâmetros baseados em backint estiverem presentes no HOST, remova-os. Se os parâmetros não estiverem presentes no nível do HOST, mas foram modificados manualmente no nível do banco de dados, reverta-os para os valores apropriados, conforme descrito anteriormente. Ou execute [Parar proteção e manter dados de backup](./sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) no portal do Azure e selecione **Retomar backup**. |
 
 ### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore

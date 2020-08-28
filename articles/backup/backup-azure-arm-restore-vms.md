@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 0607133f26113123f1c75d714c6c71f19cf2db63
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3212ba621f02740e9b27c28da854eef70dce64a6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826507"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006575"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -202,7 +202,7 @@ Há vários cenários comuns nos quais você pode precisar restaurar VMs.
 **Restauração bare-metal** | A principal diferença entre VMs do Azure e hipervisores locais é que não há nenhum console de VM disponível no Azure. Um console é necessário para determinados cenários, como a recuperação usando um backup do tipo BMR (recuperação bare-metal). No entanto, a restauração de VM do cofre é uma substituição completa para a BMR.
 **Restaurar VMs com configurações de rede especiais** | Configurações especiais de rede incluem VMs usando balanceamento de carga interno ou externo, usando vários NICS ou vários endereços IP reservados. Restaure essas VMs usando a [opção de disco de restauração](#restore-disks). Essa opção faz uma cópia dos VHDs na conta de armazenamento especificada, e você pode criar uma VM com um balanceador de carga [interno](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) ou [externo](../load-balancer/quickstart-create-standard-load-balancer-powershell.md) , [várias NICs](../virtual-machines/windows/multiple-nics.md)ou [vários endereços IP reservados](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), de acordo com sua configuração.
 **Grupo de segurança de rede (NSG) na NIC/sub-rede** | O backup de VM do Azure dá suporte a backup e restauração de informações de NSG em nível de rede virtual, sub-rede e NIC.
-**VMs fixadas pela zona** | Se você fizer backup de uma VM do Azure que está fixada em uma zona (com o backup do Azure), poderá restaurá-la na mesma zona em que ela foi fixada. [Saiba mais](../availability-zones/az-overview.md)
+**VMs fixadas pela zona** | Se você fizer backup de uma VM do Azure fixada em uma zona (com o backup do Azure), poderá restaurá-la na mesma zona em que ela foi fixada. [Saiba mais](../availability-zones/az-overview.md)
 **Restaurar a VM em qualquer conjunto de disponibilidade** | Ao restaurar uma VM do portal, não há nenhuma opção para escolher um conjunto de disponibilidade. Uma VM restaurada não tem um conjunto de disponibilidade. Se você usar a opção restaurar disco, poderá [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) ao criar uma VM a partir do disco usando o modelo ou o PowerShell fornecido.
 **Restaurar VMs especiais, como VMs do SQL** | Se você estiver fazendo backup de uma VM do SQL usando o backup de VM do Azure e, em seguida, usar a opção restaurar VM ou criar uma VM após restaurar discos, a VM recém-criada deverá ser registrada com o provedor SQL, conforme mencionado [aqui](../azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md?tabs=azure-cli%2Cbash). Isso converterá a VM restaurada em uma VM do SQL.
 
