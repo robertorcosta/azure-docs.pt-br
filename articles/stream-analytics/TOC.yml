@@ -186,6 +186,8 @@
               displayName: 'managed identity, identities, authenticate'
         - name: Criptografar seus dados
           href: data-protection.md
+        - name: Redundância geográfica
+          href: geo-redundancy.md
     - name: Compilar soluções
       items:
         - name: Análise de sentimento no Twitter

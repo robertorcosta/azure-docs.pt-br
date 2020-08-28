@@ -310,7 +310,7 @@
     - name: Guias
       items:
         - name: Arquiteturas de referência
-          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
+          href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Scripts de Implantação
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Solução de problemas
