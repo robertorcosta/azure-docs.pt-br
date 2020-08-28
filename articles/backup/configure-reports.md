@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 4e5e9258540e5cdab14e438cde96cd89aad7498d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 255f0b5f0066c0a437daba85121edb2f99ba590d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826847"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022387"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -109,7 +109,7 @@ Use essa guia para obter visibilidade de possíveis oportunidades de otimizaçã
 
 ###### <a name="inactive-resources"></a>Recursos inativos
 
-Usando essa exibição, você pode identificar os itens de backup que não tiveram um backup bem-sucedido por uma duração significativa. Isso pode significar que a máquina subjacente que está sendo submetida a backup não existe mais (e isso resulta em backups com falha), ou há algum problema com o computador que está impedindo que os backups sejam feitos de forma confiável.
+Usando essa exibição, você pode identificar os itens de backup que não tiveram um backup bem-sucedido por uma duração significativa. Isso pode significar que a máquina subjacente que está sendo submetida a backup não existe mais (e isso resulta em backups com falha) ou há algum problema com o computador que está impedindo que os backups sejam feitos de forma confiável.
 
 Para exibir recursos inativos, navegue até a guia **otimizar** e selecione o bloco **recursos inativos** . Selecionar este bloco exibe uma grade que contém detalhes de todos os recursos inativos existentes no escopo selecionado. Por padrão, a grade mostra os itens que não têm um ponto de recuperação nos últimos sete dias. Para localizar recursos inativos para um intervalo de tempo diferente, você pode ajustar o filtro de **intervalo de tempo** na parte superior da guia.
 

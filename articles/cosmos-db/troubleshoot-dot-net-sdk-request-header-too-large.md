@@ -7,12 +7,13 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a4d8a919d1881f61e490f135cc8fb1659c64cbd3
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871115"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014040"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnosticar e solucionar problemas Azure Cosmos DB mensagem "cabeçalho de solicitação muito grande"
 A mensagem "cabeçalho de solicitação muito grande" é lançada com um código de erro HTTP 400. Esse erro ocorre se o tamanho do cabeçalho da solicitação cresceu tão grande que ele excede o tamanho máximo permitido. Recomendamos que você use a versão mais recente do SDK. Use pelo menos a versão 3. x ou 2. x, pois essas versões adicionam o rastreamento de tamanho de cabeçalho à mensagem de exceção.

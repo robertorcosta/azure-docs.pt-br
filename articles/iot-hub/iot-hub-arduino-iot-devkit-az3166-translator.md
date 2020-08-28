@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: 8e840a1ae7161ea3e7b370889a1f0fb648ca120e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 412a3e78006d263858ff0e28af52cf11bf44c7bb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73953347"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004333"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Usar o Kit de Desenvolvimento da IoT AZ3166 com um Azure Functions e os Serviços Cognitivos para criar um tradutor de idiomas
 
@@ -29,7 +30,7 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
 ## <a name="create-azure-cognitive-service"></a>Criar Serviços Cognitivos do Azure
 
-1. No portal do Azure, clique em **Criar um recurso** e procure por **Fala**. Preencha o formulário para criar o Serviço de Fala.
+1. No portal do Azure, clique em **criar um recurso** e pesquise por **fala**. Preencha o formulário para criar o Serviço de Fala.
   ![Serviço de Fala](media/iot-hub-arduino-iot-devkit-az3166-translator/speech-service.png)
 
 1. Vá para o Serviço de Fala que acabou de criar, clique na seção de **Teclas** para copiar e anote o **Key1** para acessar o Kit de desenvolvimento através dele.
@@ -41,7 +42,7 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
 1. Clique em `F1` para abrir a paleta de comandos, digite e selecione **Workbench dos Dispositivos de IoT do Azure: Abrir Exemplos...** . Em seguida, selecione **Kit de Desenvolvimento de IoT** como placa.
 
-1. Na página de Exemplos do IoT Workbench, encontre **Introdução** e clique em **Abrir Exemplo**. Em seguida, selecione o caminho padrão para baixar o código de exemplo.
+1. Na página exemplos do IoT Workbench, encontre o **Tradutor devkit** e clique em **abrir exemplo**. Em seguida, selecione o caminho padrão para baixar o código de exemplo.
   ![Abrir exemplo](media/iot-hub-arduino-iot-devkit-az3166-translator/open-sample.png)
 
 ## <a name="use-speech-service-with-azure-functions"></a>Usar o Serviço de Fala com o Azure Functions
@@ -51,7 +52,7 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 1. Siga as etapas para concluir o provisionamento do Hub IoT e do Azure Functions.
    ![Provisionar passos](media/iot-hub-arduino-iot-devkit-az3166-translator/provision-steps.png)
 
-   Anote o nome de dispositivo de Hub IoT do Azure que foi criado.
+   Anote o nome do dispositivo do Hub IoT do Azure que você criou.
 
 1. Abra `Functions\DevKitTranslatorFunction.cs` e atualize as linhas de código a seguir com o nome do dispositivo e a chave do serviço de fala que você anotou.
    ```csharp
@@ -99,33 +100,33 @@ Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 1. Clique em `F1` novamente, digite e selecione **Workbench dos Dispositivos de IoT do Azure: Carregar o código de dispositivo**. Ele começa a compilar e carregar o código para o Kit de desenvolvimento.
    ![Upload de dispositivo](media/iot-hub-arduino-iot-devkit-az3166-translator/device-upload.png)
 
-## <a name="test-the-project"></a>Teste do projeto
+## <a name="test-the-project"></a>Testar o projeto
 
-Após a inicialização do aplicativo, siga as instruções da tela do Kit de Desenvolvimento. O idioma de origem padrão é o chinês.
+Após a inicialização do aplicativo, siga as instruções na tela do DevKit. O idioma de origem padrão é o chinês.
 
 Para selecionar outro idioma para tradução:
 
-1. Pressione o botão A para entrar no modo de instalação.
+1. Selecione o botão A para entrar no modo de instalação.
 
-2. Pressione o botão B para percorrer todos os idiomas de origem compatíveis.
+2. Selecione o botão B para rolar a página e ver todos os idiomas de origem compatíveis.
 
 3. Pressione o botão A para confirmar sua escolha de idioma de origem.
 
-4. Pressione e mantenha o botão B pressionado enquanto fala e, em seguida, solte o botão B para iniciar a tradução.
+4. Selecione e segure o botão B enquanto fala e solte o botão B para iniciar a tradução.
 
-5. O texto traduzido em inglês é mostrado na tela.
+5. O texto traduzido em inglês será mostrado na tela.
 
 ![Percorrer a lista para selecionar o idioma](media/iot-hub-arduino-iot-devkit-az3166-translator/select-language.jpg)
 
 ![Resultado da tradução](media/iot-hub-arduino-iot-devkit-az3166-translator/translation-result.jpg)
 
-Na tela de resultados da tradução, você pode:
+Na tela do resultado da tradução, você poderá:
 
-- Pressionar os botões A e B para percorrer a lista e selecionar o idioma de origem.
+- Selecionar os botões A e B para rolar a página e selecionar o idioma de origem.
 
-- Pressione o botão B para falar. Para enviar a voz e obter o texto de tradução, solte o botão B.
+- Selecionar o botão B para falar. Para enviar a voz e obter o texto de tradução, solte o botão B.
 
-## <a name="how-it-works"></a>Como funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 

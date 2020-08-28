@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas no backup de estado d
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824263"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022353"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Solucionar problemas de backup do estado do sistema
 
@@ -20,7 +20,7 @@ Este artigo descreve soluções para problemas que você pode chegar ao usar o b
 Recomendamos que você execute as seguintes etapas de validação antes de iniciar a solução de problemas de backup do estado do sistema:
 
 - [Verifique se o Agente de MARS (Serviços de Recuperação do Microsoft Azure) está atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Certifique-se de que há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Verifique se há conectividade de rede entre o agente MARS e o Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (no console de Serviço). Se necessário, reinicie e repita a operação
 - [Certifique-se de que há de 5 a 10% de espaço de volume livre disponível no local da pasta temporária](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Verifique se outro processo ou software antivírus está interferindo com o Backup do Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
@@ -94,9 +94,9 @@ Verifique se os serviços abaixo estão no estado executando:
 
 **Nome do Serviço** | **Tipo de inicialização**
 --- | ---
-RPC (chamada de procedimento remoto) | Automática
-Sistema de eventos COM+ (EventSystem) | Automática
-Serviço de notificação de eventos do sistema (SENS) | Automática
+RPC (chamada de procedimento remoto) | Automático
+Sistema de eventos COM+ (EventSystem) | Automático
+Serviço de notificação de eventos do sistema (SENS) | Automático
 VSS (cópia de sombra de volume) | Manual
 Provedor de cópia de sombra de software da Microsoft (SWPRV) | Manual
 

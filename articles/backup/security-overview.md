@@ -3,12 +3,12 @@ title: Visão geral de recursos de segurança
 description: Saiba mais sobre as funcionalidades de segurança no Backup do Azure que ajudam a proteger seus dados de backup e a atender às necessidades de segurança de sua empresa.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890460"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012544"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Visão geral dos recursos de segurança no Backup do Azure
 
@@ -36,7 +36,7 @@ Com o Backup do Azure, que inclui backup de máquina virtual, bem como SQL e SAP
 
 O backup de VMs do Azure requer a movimentação de dados do disco da máquina virtual para o cofre dos Serviços de Recuperação. No entanto, toda a comunicação necessária e a transferência de dados acontecem apenas na rede de backbone do Azure, sem a necessidade de acessar sua rede virtual. Portanto, o backup de VMs do Azure colocado dentro de redes seguras não exige que você permita o acesso a nenhum IP nem FQDN.
 
-## <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o Backup do Azure
+## <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
 Agora, você pode usar [Pontos de Extremidade Privados](../private-link/private-endpoint-overview.md) para fazer backup de dados de maneira segura de servidores dentro de uma rede virtual para seu cofre dos Serviços de Recuperação. O ponto de extremidade privado usa um IP do espaço de endereço de VNET para seu cofre, de modo que você não precisa expor suas redes virtuais para qualquer IPs público. Os Pontos de Extremidade Privados podem ser usados para fazer backup e restaurar os bancos de dados SQL e SAP HANA executados dentro de suas VMs do Azure. Eles também podem ser usados para servidores locais que usam o agente MARS.
 
@@ -70,7 +70,7 @@ O serviço de Backup do Azure usa o agente de MARS (Serviços de Recuperação d
 
 * Os dados de backup excluídos são retidos por mais 14 dias desde a data da exclusão. Isso garante a capacidade de recuperação de dados em um determinado período de tempo de maneira que não haja perda de dados mesmo se houver um ataque. Além disso, mais pontos de recuperação mínimos são mantidos para proteção contra dados corrompidos. [Saiba mais sobre a recuperação de dados de backup excluídos](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
-* Para backup de dados usando o agente de MARS (Serviços de Recuperação do Microsoft Azure), uma frase secreta é usada para garantir que os dados sejam criptografados antes do carregamento para o Backup do Azure e descriptografados somente após o download do Backup do Azure. Os detalhes da frase secreta estão disponíveis somente para o usuário que criou a senha e o agente que está configurado com ele. Nada é transmitido nem compartilhado com o serviço. Isso garante a segurança total de seus dados, pois todos os dados expostos inadvertidamente (como um ataque man-in-the-middle na rede) não são utilizáveis sem a frase secreta, que não é enviada na rede.
+* Para backup de dados usando o agente de MARS (Serviços de Recuperação do Microsoft Azure), uma frase secreta é usada para garantir que os dados sejam criptografados antes do carregamento para o Backup do Azure e descriptografados somente após o download do Backup do Azure. Os detalhes da frase secreta estão disponíveis somente para o usuário que criou a senha e o agente que está configurado com ele. Nada é transmitido nem compartilhado com o serviço. Isso garante a segurança total de seus dados, pois todos os dados expostos inadvertidamente (como um ataque man-in-the-Middle na rede) são inutilizáveis sem a frase secreta e a senha não é enviada pela rede.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Conformidade com requisitos de segurança padronizados
 

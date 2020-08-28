@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-javascript
-ms.openlocfilehash: afc49e959061bcd2327f1c3a4f988c9ed6e5ce11
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5f418384d4ec1272600df2488dc71d2102d6a24d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414013"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011796"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Inserir Video Indexer widgets em seus aplicativos
 
@@ -37,7 +37,7 @@ Um widget Insights cognitivos inclui todos os insights visuais que foram extraí
 |`language`|Um código de idioma curto (nome do idioma)|Controla a linguagem de informações.<br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>ou `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Um código de idioma curto | Controla o idioma da interface do usuário. O valor padrão é `en`. <br/>Exemplo: `locale=de`.|
 |`tab` | A guia selecionada padrão | Controla a guia **insights** que é renderizada por padrão. <br/>Exemplo: `tab=timeline` renderiza as informações com a guia **linha do tempo** selecionada.|
-|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` parâmetro.| 
+|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial` é o valor padrão para o `location` parâmetro.| 
 
 ### <a name="player-widget"></a>Widget do player
 
@@ -51,7 +51,7 @@ Você pode usar o widget Player para transmitir vídeo usando a taxa de bits ada
 |`type`| | Ativa uma capa de player de áudio (a parte de vídeo é removida).<br/> Exemplo: `type=audio`. |
 |`autoplay` | Um valor booliano | Indica se o Player deve começar a reproduzir o vídeo quando carregado. O valor padrão é `true`.<br/> Exemplo: `autoplay=false`. |
 |`language`/`locale` | Um código de idioma | Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`.|
-|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` parâmetro.| 
+|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial` é o valor padrão para o `location` parâmetro.| 
 
 ### <a name="editor-widget"></a>Widget do editor
 
@@ -62,7 +62,7 @@ Você pode usar o widget editor para criar novos projetos e gerenciar informaç�
 |`accessToken`<sup>*</sup> | String | Fornece acesso a vídeos que estão apenas na conta que é usada para inserir o widget.<br> O widget do editor requer o `accessToken` parâmetro. |
 |`language` | Um código de idioma | Controla o idioma do jogador. O valor padrão é `en-US`.<br/>Exemplo: `language=de-DE`. |
 |`locale` | Um código de idioma curto | Controla o idioma do insights. O valor padrão é `en`.<br/>Exemplo: `language=de`. |
-|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` parâmetro.| 
+|`location` ||O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial` é o valor padrão para o `location` parâmetro.| 
 
 <sup>*</sup>O proprietário deve fornecer `accessToken` com cuidado.
 
@@ -70,7 +70,7 @@ Você pode usar o widget editor para criar novos projetos e gerenciar informaç�
 
 Esta seção aborda a inserção de conteúdo público e privado em aplicativos.
 
-O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial`é o valor padrão para o `location` parâmetro. Por exemplo: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+O `location` parâmetro deve ser incluído nos links inseridos, consulte [como obter o nome da sua região](regions.md). Se sua conta estiver em visualização, `trial` deverá ser usada para o valor de local. `trial` é o valor padrão para o `location` parâmetro. Por exemplo: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > O compartilhamento de um link para o widget **Player** ou **insights** incluirá o token de acesso e concederá as permissões somente leitura à sua conta.
@@ -102,6 +102,17 @@ Para fornecer recursos de edição de informações em seu widget inserido, voc�
 O widget cognitiva insights pode interagir com um vídeo em seu aplicativo. Esta seção mostra como conseguir essa interação.
 
 ![Video Indexer widget do insights cognitiva](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+
+### <a name="flow-overview"></a>Visão geral do fluxo
+
+Quando você edita as transcrições, ocorre o seguinte fluxo:
+
+1. Você edita a transcrição na linha do tempo.
+1. Video Indexer obtém essas atualizações e as salva nas [edições from transcrição](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) no modelo de linguagem.
+1. As legendas são atualizadas:
+
+    * Se você estiver usando o widget Player Video Indexer, ele será atualizado automaticamente.
+    * Se você estiver usando um player externo, receberá um novo usuário de arquivo de legendas a chamada **obter legendas de vídeo** .
 
 ### <a name="cross-origin-communications"></a>Comunicações entre origens
 

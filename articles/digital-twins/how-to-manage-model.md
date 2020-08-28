@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661547"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012997"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -165,6 +165,30 @@ As chamadas à API para recuperar modelos todos os objetos de retorno `ModelData
 A `RetrieveModelWithDependencies` chamada retorna não apenas o modelo solicitado, mas também todos os modelos dos quais o modelo solicitado depende.
 
 Os modelos não são necessariamente retornados exatamente no formulário de documento em que foram carregados. O gêmeos digital do Azure só garante que o formulário de retorno será semanticamente equivalente. 
+
+### <a name="update-models"></a>Atualizar modelos
+
+Depois que um modelo é carregado em sua instância, a interface de modelo inteira é imutável. Isso significa que não há "edição" tradicional de modelos.
+
+Em vez disso, se você quiser fazer alterações em um modelo no Azure digital gêmeos, como alterar o `DisplayName` ou `Description` o, a maneira de fazer isso é carregar uma **versão mais recente** do mesmo modelo. Isso substituirá o modelo original.
+
+Para fazer isso, comece com o DTDL do modelo original. Atualize quaisquer campos que você queira alterar.
+
+Em seguida, marque-a como uma versão mais recente do modelo atualizando o `id` campo do modelo. A última seção da ID do modelo, após o `;` , representa o número do modelo. Para indicar que essa é agora uma versão mais atualizada desse modelo, aumente o número no final do `id` valor para qualquer número maior que o número de versão atual.
+
+Por exemplo, se a ID do modelo anterior tiver a seguinte aparência:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+a versão 2 desse modelo pode ter a seguinte aparência:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+Em seguida, carregue a nova versão do modelo em sua instância. Ele assumirá o lugar da versão antiga e as novas gêmeos que você criar usando esse modelo usarão a versão atualizada.
 
 ### <a name="remove-models"></a>Remover modelos
 

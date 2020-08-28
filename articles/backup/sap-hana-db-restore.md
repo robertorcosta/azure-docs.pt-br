@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SAP HANA em VMs do Azure
 description: Neste artigo, descubra como restaurar SAP HANA bancos de dados que estão em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763279"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006305"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurar bancos de dados SAP HANA em VMs do Azure
 
@@ -28,7 +28,7 @@ O Backup do Azure pode restaurar bancos de dados SAP HANA que estão em execuç�
 
 Antes de restaurar um banco de dados, observe o seguinte:
 
-* Você pode restaurar o banco de dados somente para uma instância do SAP HANA que esteja na mesma região
+* Você pode restaurar o banco de dados somente para uma instância SAP HANA que esteja na mesma região
 
 * A instância de destino precisa ser registrada no mesmo cofre da origem
 

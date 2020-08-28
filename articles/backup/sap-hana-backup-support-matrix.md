@@ -1,15 +1,15 @@
 ---
 title: Matriz de suporte de backup do SAP HANA
-description: Neste artigo, saiba mais sobre os cenários e limitações compatíveis ao usar o backup do Azure para fazer backup de bancos de dados do SAP HANA em VMs do Azure.
+description: Neste artigo, saiba mais sobre os cenários e limitações com suporte ao usar o backup do Azure para fazer backup de bancos de dados SAP HANA em VMs do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5b0d1b603e8a9c06e210083863e0ca6bfbee2399
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e3bfc5ab9a91ae3aee73d7ed24161acae60211ce
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826456"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022319"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte para backup de bancos de dados do SAP HANA em VMs do Azure
 

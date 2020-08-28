@@ -3,12 +3,12 @@ title: Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 description: Saiba como o backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892636"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022404"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 
@@ -242,7 +242,7 @@ Não, a criptografia CMK pode ser habilitada somente para novos cofres. Portanto
 
 Não, o cofre não deve ter nenhuma tentativa de proteger nenhum item para ele no passado.
 
-### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Tenho um cofre que está usando a criptografia CMK. Posteriormente, posso reverter para a criptografia usando chaves gerenciadas por plataforma mesmo se eu tiver itens de backup protegidos ao cofre?
+### <a name="i-have-a-vault-thats-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Tenho um cofre que está usando a criptografia CMK. Posteriormente, posso reverter para a criptografia usando chaves gerenciadas por plataforma mesmo se eu tiver itens de backup protegidos ao cofre?
 
 Não, depois de habilitar a criptografia CMK, ela não pode ser revertida para usar chaves gerenciadas por plataforma. Você pode alterar as chaves usadas de acordo com seus requisitos.
 
