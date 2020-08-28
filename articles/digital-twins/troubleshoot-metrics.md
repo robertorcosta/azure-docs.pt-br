@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749028"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003874"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solução de problemas do Azure digital gêmeos: métricas
 
@@ -24,7 +24,7 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do gê
 
 1. Crie uma instância de gêmeos digital do Azure. Você pode encontrar instruções sobre como configurar uma instância do gêmeos digital do Azure em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-scripted.md).
 
-2. Localize sua instância do gêmeos digital do Azure no [portal do Azure](https:/portal.azure.com) (você pode abrir a página para ela digitando seu nome na barra de pesquisa do Portal). 
+2. Localize sua instância do gêmeos digital do Azure no [portal do Azure](https://portal.azure.com) (você pode abrir a página para ela digitando seu nome na barra de pesquisa do Portal). 
 
     No menu da instância, selecione **métricas**.
    

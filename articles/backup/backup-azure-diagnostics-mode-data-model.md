@@ -3,12 +3,12 @@ title: Modelo de dados de logs do Azure Monitor
 description: Este artigo aborda detalhes de modelo de dados do Log Analytics do Azure Monitor para dados de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890256"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020942"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de dados do Log Analytics para dados de Backup do Azure
 
@@ -159,8 +159,8 @@ Esta tabela fornece detalhes sobre campos relacionados ao trabalho.
 | DataTransferredInMB_s | Número |Dados transferidos em MB para este trabalho|
 | JobUniqueId_g |Texto |ID exclusiva para identificar o trabalho |
 | RecoveryJobDestination_s |Texto | Destino de um trabalho de recuperação, em que os dados são recuperados |
-| RecoveryJobRPDateTime_s |Datetime | A data e a hora em que o ponto de recuperação que está sendo recuperado foi criado |
-| RecoveryJobRPLocation_s |Texto | O local em que o ponto de recuperação que está sendo recuperado foi armazenado|
+| RecoveryJobRPDateTime_s |Datetime | A data, a hora em que o ponto de recuperação que está sendo recuperado foi criado |
+| RecoveryJobRPLocation_s |Texto | O local onde o ponto de recuperação que está sendo recuperado foi armazenado|
 | SourceSystem |Texto |Sistema de origem dos dados atuais - Azure |
 | ResourceId |Texto |Identificador de recurso para os dados sendo coletados. Por exemplo, ID do recurso do cofre dos Serviços de Recuperação|
 | SubscriptionId |Texto |Identificador de assinatura do recurso (por exemplo Cofre dos serviços de recuperação) para o qual os dados são coletados |

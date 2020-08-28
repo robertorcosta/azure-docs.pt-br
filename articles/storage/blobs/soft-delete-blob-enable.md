@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 83827c7a39b2833ce1301e78a0bef4e6d61ec62b
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: cba56e699afed8178f93bceddf6bf32a242ed124
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185291"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020840"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Habilitar e gerenciar exclusão reversível para blobs
 
@@ -35,7 +35,7 @@ Habilite a exclusão reversível para blobs em sua conta de armazenamento usando
 1. Localize a opção **proteção de dados** em **serviço blob**.
 1. Defina a propriedade **exclusão reversível do blob** como *habilitada*.
 1. Em **políticas de retenção**, especifique por quanto tempo os blobs de exclusão reversível são retidos pelo armazenamento do Azure.
-1. Salve as alterações.
+1. Salve suas alterações.
 
 ![Captura de tela do portal do Azure com o serviço blob de proteção de dados escolhido.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 

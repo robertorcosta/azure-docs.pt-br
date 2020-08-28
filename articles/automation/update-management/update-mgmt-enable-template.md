@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/10/2020
-ms.openlocfilehash: 37f4b7208d7c8fafcd3aa1d25106a2cd5e4949c6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c4b29db8bbcb741116fcd425b4489973228066e6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449876"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021588"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Habilitar o Gerenciamento de Atualizações usando o modelo do Azure Resource Manager
 
@@ -33,7 +33,7 @@ A tabela a seguir lista as versões de API para os recursos usados neste modelo.
 
 | Recurso | Tipo de recurso | Versão da API |
 |:---|:---|:---|
-| Workspace | workspaces | 2020-03-01-visualização |
+| Workspace | workspaces | 2020-03-01-preview |
 | Conta de automação | automação | 2018-06-30 |
 | Solução | solutions | 2015-11-01-preview |
 
@@ -150,7 +150,7 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
-                    "name": "[parameters('sku')]",
+                    "name": "[parameters('sku')]"
                 },
                 "retentionInDays": "[parameters('dataRetention')]",
                 "features": {
@@ -192,7 +192,7 @@ O modelo JSON especifica um valor padrão para os outros parâmetros que provave
                 "sku": {
                     "name": "Basic"
                 }
-            },
+            }
         },
         {
             "apiVersion": "2020-03-01-preview",

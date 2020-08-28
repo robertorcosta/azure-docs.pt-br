@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529294"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022183"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core no Service Fabric do Azure Reliable Services
 
@@ -50,7 +51,7 @@ Uma instância de um serviço confiável é representada por sua classe de servi
 ![Diagrama para hospedagem de ASP.NET Core em um serviço confiável][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>Núcleo do ASP.NET ICommunicationListeners
-As `ICommunicationListener` implementações para Kestrel e HTTP.sys nos `Microsoft.ServiceFabric.AspNetCore.*` pacotes NuGet têm padrões de uso semelhantes. Mas eles executam ações um pouco diferentes específicas para cada servidor Web. 
+As `ICommunicationListener` implementações para Kestrel e HTTP.sys nos  `Microsoft.ServiceFabric.AspNetCore.*` pacotes NuGet têm padrões de uso semelhantes. Mas eles executam ações um pouco diferentes específicas para cada servidor Web. 
 
 Ambos os ouvintes de comunicação fornecem um construtor que usa os seguintes argumentos:
  - **`ServiceContext serviceContext`**: Esse é o `ServiceContext` objeto que contém informações sobre o serviço em execução.
@@ -92,7 +93,7 @@ As implementações Kestrel e HTTP.sys `ICommunicationListener` usam esse mecani
 Portanto, as implementações Kestrel e HTTP.sys `ICommunicationListener` padronizam o middleware fornecido pelo `UseServiceFabricIntegration` método de extensão. Portanto, os clientes precisam apenas executar uma ação de reresolução de ponto de extremidade de serviço em respostas HTTP 410.
 
 ## <a name="httpsys-in-reliable-services"></a>HTTP.sys em Reliable Services
-Você pode usar HTTP.sys em Reliable Services importando o pacote NuGet **Microsoft. AspNetCore. https** . Este pacote contém `HttpSysCommunicationListener` , uma implementação do `ICommunicationListener` . `HttpSysCommunicationListener`permite que você crie um Webhost ASP.NET Core dentro de um serviço confiável usando HTTP.sys como o servidor Web.
+Você pode usar HTTP.sys em Reliable Services importando o pacote NuGet **Microsoft. AspNetCore. https** . Este pacote contém `HttpSysCommunicationListener` , uma implementação do `ICommunicationListener` . `HttpSysCommunicationListener` permite que você crie um Webhost ASP.NET Core dentro de um serviço confiável usando HTTP.sys como o servidor Web.
 
 O HTTP.sys é criado na [API do servidor http do Windows](/windows/win32/http/http-api-start-page). Essa API usa o driver de kernel **HTTP.sys** para processar solicitações HTTP e roteá-las para processos que executam aplicativos Web. Isso permite que vários processos na mesma máquina física ou virtual hospedem aplicativos Web na mesma porta, sem ambigüidade por um caminho de URL exclusivo ou nome de host. Esses recursos são úteis no Service Fabric para hospedar vários sites no mesmo cluster.
 
@@ -129,7 +130,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HTTP.sys em um serviço com estado
 
-`HttpSysCommunicationListener`Não está projetado atualmente para uso em serviços com estado devido a complicações com o recurso de compartilhamento de porta **HTTP.sys** subjacente. Para obter mais informações, consulte a seção a seguir sobre alocação de porta dinâmica com HTTP.sys. Para serviços com estado, Kestrel é o servidor Web sugerido.
+`HttpSysCommunicationListener` Não está projetado atualmente para uso em serviços com estado devido a complicações com o recurso de compartilhamento de porta **HTTP.sys** subjacente. Para obter mais informações, consulte a seção a seguir sobre alocação de porta dinâmica com HTTP.sys. Para serviços com estado, Kestrel é o servidor Web sugerido.
 
 ### <a name="endpoint-configuration"></a>Configuração de ponto de extremidade
 
@@ -189,7 +190,7 @@ Para usar uma porta atribuída dinamicamente com HTTP.sys, omita a `Port` Propri
 Uma porta dinâmica alocada por uma `Endpoint` configuração fornece apenas uma porta *por processo de host*. O modelo de Hospedagem de Service Fabric atual permite que várias instâncias de serviço e/ou réplicas sejam hospedadas no mesmo processo. Isso significa que cada uma delas compartilhará a mesma porta quando alocada por meio da `Endpoint` configuração. Várias instâncias de **HTTP.sys** podem compartilhar uma porta usando o recurso de compartilhamento de porta **HTTP.sys** subjacente. Mas não há suporte para isso `HttpSysCommunicationListener` devido às complicações que ele introduz para solicitações de cliente. Para o uso de porta dinâmica, Kestrel é o servidor Web sugerido.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel em Serviços Confiáveis
-Você pode usar o Kestrel em Reliable Services importando o pacote NuGet **Microsoft. Microsoft. AspNetCore. Kestrel** . Este pacote contém `KestrelCommunicationListener` , uma implementação do `ICommunicationListener` . `KestrelCommunicationListener`permite que você crie um Webhost ASP.NET Core dentro de um serviço confiável usando o Kestrel como o servidor Web.
+Você pode usar o Kestrel em Reliable Services importando o pacote NuGet **Microsoft. Microsoft. AspNetCore. Kestrel** . Este pacote contém `KestrelCommunicationListener` , uma implementação do `ICommunicationListener` . `KestrelCommunicationListener` permite que você crie um Webhost ASP.NET Core dentro de um serviço confiável usando o Kestrel como o servidor Web.
 
 O Kestrel é um servidor Web multiplataforma para o ASP.NET Core. Ao contrário de HTTP.sys, Kestrel não usa um Gerenciador de ponto de extremidade centralizado. Além disso, ao contrário de HTTP.sys, o Kestrel não dá suporte ao compartilhamento de porta entre vários processos. Cada instância do Kestrel deve usar uma porta exclusiva. Para obter mais informações sobre Kestrel, consulte os [detalhes da implementação](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 

@@ -3,12 +3,12 @@ title: Exclusão reversível para SQL Server na VM do Azure e SAP HANA em cargas
 description: Saiba como a exclusão reversível para o SQL Server na VM do Azure e SAP HANA em cargas de trabalho de VM do Azure torna os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825164"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022285"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Exclusão reversível para SQL Server na VM do Azure e SAP HANA em cargas de trabalho de VM do Azure
 

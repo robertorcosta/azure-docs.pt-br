@@ -10,12 +10,13 @@ ms.date: 05/15/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327711"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021231"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade
 
@@ -37,7 +38,6 @@ Um Hub IoT tem um padrão de ponto de extremidade interno (**mensagens/eventos**
 
 Cada mensagem é roteada para todos os pontos de extremidade cujas consultas de roteamento ele corresponde. Em outras palavras, uma mensagem pode ser roteada para vários pontos de extremidade.
 
-
 Se seu ponto de extremidade personalizado tiver configurações de firewall, considere o uso da exceção de terceira parte confiável da Microsoft, para dar acesso ao Hub IoT ao ponto de extremidade específico- [armazenamento do Azure](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [hubs de eventos do](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) Azure e [barramento de serviço do Azure](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Isso está disponível em regiões selecionadas para hubs IoT com [identidade de serviço gerenciada](./virtual-network-support.md).
 
 O Hub IoT atualmente dá suporte aos seguintes pontos de extremidade:
@@ -47,19 +47,23 @@ O Hub IoT atualmente dá suporte aos seguintes pontos de extremidade:
  - Filas do Barramento de Serviço e Tópicos do Barramento de Serviço
  - Hubs de Eventos
 
-### <a name="built-in-endpoint"></a>Ponto de extremidade interno
+## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Ponto de extremidade interno como um ponto de extremidade de roteamento
 
 Você pode usar [SDKs e integração padrão dos Hubs de Eventos](iot-hub-devguide-messages-read-builtin.md) para receber mensagens de dispositivo para nuvem do ponto de extremidade interno (**mensagens/eventos**). Depois que uma rota é criada, os dados param de fluir para o ponto de extremidade interno, a menos que uma rota seja criada para esse ponto de extremidade.
 
-### <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage-as-a-routing-endpoint"></a>Armazenamento do Azure como um ponto de extremidade de roteamento
 
 Há dois serviços de armazenamento que o Hub IoT pode rotear mensagens para as contas-- [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md) e [Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Contas de Azure Data Lake Storage são contas de armazenamento [hierárquicas habilitadas para namespaces](../storage/blobs/data-lake-storage-namespace.md)criadas com base no armazenamento de BLOBs. Ambos usam BLOBs para seu armazenamento.
 
-O Hub IoT dá suporte à gravação de dados no armazenamento do Azure no formato [Apache Avro](https://avro.apache.org/) , bem como no formato JSON. O padrão é AVRO. O formato de codificação só pode ser definido quando o ponto de extremidade do armazenamento de BLOBs é configurado. O formato não pode ser editado para um ponto de extremidade existente. Ao usar a codificação JSON, você deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Esses dois valores não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base. Você pode selecionar o formato de codificação usando o Hub IoT criar ou atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal do Azure, o [CLI do Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). O diagrama a seguir mostra como selecionar o formato de codificação no portal do Azure.
+O Hub IoT dá suporte à gravação de dados no armazenamento do Azure no formato [Apache Avro](https://avro.apache.org/) , bem como no formato JSON. O padrão é AVRO. Ao usar a codificação JSON, você deve definir o contentType como **Application/JSON** e ContentEncoding como **UTF-8** nas [Propriedades do sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)de mensagens. Esses dois valores não diferenciam maiúsculas de minúsculas. Se a codificação de conteúdo não estiver definida, o Hub IoT gravará as mensagens no formato codificado 64 base.
+
+O formato de codificação só pode ser definido quando o ponto de extremidade do armazenamento de BLOBs é configurado; Ele não pode ser editado para um ponto de extremidade existente. Para alternar os formatos de codificação para um ponto de extremidade existente, você precisará excluir e recriar o ponto de extremidade personalizado com o formato desejado. Uma estratégia útil pode ser criar um novo ponto de extremidade personalizado com o formato de codificação desejado e adicionar uma rota paralela ao ponto de extremidade. Dessa forma, você pode verificar seus dados antes de excluir o ponto de extremidade existente.
+
+Você pode selecionar o formato de codificação usando o Hub IoT criar ou atualizar a API REST, especificamente o [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), o portal do Azure, o [CLI do Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)ou o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). A imagem a seguir mostra como selecionar o formato de codificação no portal do Azure.
 
 ![Codificação de ponto de extremidade de armazenamento de BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-O Hub IoT armazena em lotes mensagens e grava dados no armazenamento sempre que o lote atinge um determinado tamanho ou um determinado período de tempo decorrido. O Hub IoT segue a seguinte convenção de nomenclatura de arquivo padrão: 
+O Hub IoT armazena em lotes mensagens e grava dados no armazenamento sempre que o lote atinge um determinado tamanho ou um determinado período de tempo decorrido. O Hub IoT segue a seguinte convenção de nomenclatura de arquivo padrão:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -89,12 +93,11 @@ Para criar um Azure Data Lake conta de armazenamento compatível com Gen2, crie 
 
 ![Selecione Azure data Lake armazenamento Gen2](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
 
-
-### <a name="service-bus-queues-and-service-bus-topics"></a>Filas do Barramento de Serviço e Tópicos do Barramento de Serviço
+## <a name="service-bus-queues-and-service-bus-topics-as-a-routing-endpoint"></a>Filas do barramento de serviço e tópicos do barramento de serviço como um ponto de extremidade de roteamento
 
 As filas e os tópicos do Barramento de Serviço utilizados como pontos de extremidade do Hub IoT não devem ter **Sessões** nem **Detecção Duplicada** habilitadas. Se qualquer uma dessas opções estiver habilitada, o ponto de extremidade aparecerá como **Inacessível** no Portal do Azure.
 
-### <a name="event-hubs"></a>Hubs de Eventos
+## <a name="event-hubs-as-a-routing-endpoint"></a>Hubs de eventos como um ponto de extremidade de roteamento
 
 Além do ponto de extremidade compatível com os Hubs de Eventos internos, você também pode encaminhar dados para pontos de extremidade personalizados do tipo Hubs de Eventos. 
 

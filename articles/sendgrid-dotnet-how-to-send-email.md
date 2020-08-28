@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2017
 ms.reviewer: dx@sendgrid.com
-ms.openlocfilehash: 82bcc61d06ac519447307c1e92784f33794d5817
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: c8ac20378cbae9334cedb59878311f2541b40bd3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258024"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020585"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Como enviar emails usando o SendGrid com o Azure
 ## <a name="overview"></a>Visão geral
@@ -51,7 +52,7 @@ Para instalar o pacote NuGet do SendGrid no seu aplicativo, faça o seguinte:
 
 1. Clique em **Novo projeto** e selecione um **Modelo**.
 
-   ![Criar um projeto][create-new-project]
+   ![Criar um novo projeto][create-new-project]
 2. No **Gerenciador de Soluções**, clique com botão direito em **Referências**, em seguida, clique em **Gerenciar Pacotes NuGet**.
 
    ![pacote NuGet do SendGrid][SendGrid-NuGet-package]

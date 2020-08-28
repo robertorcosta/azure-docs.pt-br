@@ -3,12 +3,13 @@ title: Diagnóstico e rastreamento end-to-end de Barramento de Serviço do Azure
 description: Visão geral do diagnóstico de cliente do barramento de serviço e rastreamento de ponta a ponta (cliente por meio de todos os serviços que estão envolvidos no processamento).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9b46f85e16370d15e3a8def98cdcdf8b3878208d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340733"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021622"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Rastreamento distribuído e correlação por meio de mensagens do Barramento de Serviço
 

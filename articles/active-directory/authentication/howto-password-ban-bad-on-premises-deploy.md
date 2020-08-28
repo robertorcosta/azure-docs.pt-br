@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718944"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003534"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planejar e implantar a proteção de senha do Azure Active Directory local
 
@@ -49,6 +49,8 @@ Também é possível que uma validação de senha mais forte afete sua automaç�
 * [O rebaixamento do controlador de domínio falha devido a uma senha de administrador local fraca](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 Depois que o recurso estiver sendo executado no modo de auditoria por um período razoável, você poderá alternar a configuração de *auditoria* para *impor* para exigir senhas mais seguras. O monitoramento adicional durante esse tempo é uma boa ideia.
+
+É importante observar que a proteção de senha do Azure AD só pode validar senhas durante a alteração de senha ou as operações de definição. As senhas que foram aceitas e armazenadas no Active Directory antes da implantação da proteção de senha do Azure AD nunca serão validadas e continuarão funcionando no estado em que se encontram. Ao longo do tempo, todos os usuários e contas serão iniciados usando a proteção de senha do Azure AD senhas validadas, já que suas senhas existentes expiram normalmente. As contas configuradas com "a senha nunca expira" são isentas disso.
 
 ### <a name="multiple-forest-considerations"></a>Considerações sobre várias florestas
 

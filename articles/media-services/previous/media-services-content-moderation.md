@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 70d824522e1ae71bd49050779ff37e821d560783
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d30949327f3025c06d4c98670494809c486631a3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954694"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022200"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usar o Azure Media Content Moderator para detectar possível conteúdo adulto e erótico 
 
@@ -47,14 +48,14 @@ O JSON de saída contém os seguintes elementos:
 
 ### <a name="root-json-elements"></a>Elementos raiz JSON
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | --- | --- |
 | version |A versão do Content Moderator. |
 | escala de tempo |"Tiques" por segundo do vídeo. |
 | deslocamento |A diferença de tempo para carimbos de data/hora. Na versão 1.0 das APIs de Vídeo, este valor sempre será 0. Esse valor pode ser alterado no futuro. |
 | taxa de quadros |Quadros por segundo do vídeo. |
 | width |A largura do quadro de vídeo de saída, em pixels.|
-| height |A altura do quadro de vídeo de saída, em pixels.|
+| altura |A altura do quadro de vídeo de saída, em pixels.|
 | totalDuration |A duração do vídeo de entrada em "tiques". |
 | [fragmentos](#fragments-json-elements) |Os metadados são agrupados em segmentos diferentes, chamados fragmentos. Cada fragmento contém uma captura detectada automaticamente com início, duração, número de intervalo e evento(s). |
 
@@ -62,7 +63,7 @@ O JSON de saída contém os seguintes elementos:
 
 |Elemento|Descrição|
 |---|---|
-| iniciar |A hora de início do primeiro evento em "tiques". |
+| start |A hora de início do primeiro evento em "tiques". |
 | duration |A duração do fragmento, em “tiques”. |
 | intervalo |O intervalo de cada entrada de evento dentro do fragmento, em “tiques”. |
 | [events](#events-json-elements) |Cada evento representa um clipe e cada clipe contém quadros-chave detectados e rastreados dentro dessa duração de tempo. É uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é composta por 0 ou mais eventos que ocorreram nesse ponto no tempo.|

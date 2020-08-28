@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853019"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011337"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
 
@@ -182,7 +182,7 @@ Os destinos típicos para análise incluem:
 
 * [Associação](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) de grupo (sincronizada com o Azure ad ou criada no Azure ad ou no Office 365, incluindo o Microsoft Teams).
 
-* O [pacote do Access](/entitlement-management-overview.md) que agrupa recursos (grupos, aplicativos e sites) em um único pacote para gerenciar o acesso.
+* O [pacote do Access](/azure/active-directory/governance/entitlement-management-overview) que agrupa recursos (grupos, aplicativos e sites) em um único pacote para gerenciar o acesso.
 
 * [Funções do Azure AD e funções de recurso do Azure](../privileged-identity-management/pim-resource-roles-assign-roles.md) , conforme definido em Privileged Identity Management.
 
@@ -422,7 +422,7 @@ Para reduzir o risco de acesso obsoleto, os administradores podem habilitar revi
 | Artigos de instruções| Descrição |
 | - | - |
 | [Criar revisões de acesso](entitlement-management-access-reviews-create.md)| Habilitar revisões do pacote de acesso. |
-| [Executar revisões de acesso](/entitlement-management-access-reviews-review-access.md)| Executar revisões de acesso para outros usuários atribuídos a um pacote do Access. |
+| [Executar revisões de acesso](entitlement-management-access-reviews-review-access.md)| Executar revisões de acesso para outros usuários atribuídos a um pacote do Access. |
 | [Revisar pacote (s) de acesso atribuído por conta própria](entitlement-management-access-reviews-self-review.md)| Revisão automática de pacotes de acesso atribuídos |
 
 

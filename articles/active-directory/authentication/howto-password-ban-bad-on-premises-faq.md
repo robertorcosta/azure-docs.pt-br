@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717771"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003466"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Perguntas frequentes locais sobre a proteção por senha do Azure AD
 
@@ -38,7 +38,7 @@ O portal do AD do Azure permite a modificação da configuração de "proteção
 
 **P: como posso aplicar os benefícios da proteção de senha do Azure AD a um subconjunto de meus usuários locais?**
 
-Sem suporte. Depois de implantada e habilitada, a proteção por senha do Azure AD não discrimina, todos os usuários recebem benefícios de segurança iguais.
+Não há suporte. Depois de implantada e habilitada, a proteção por senha do Azure AD não discrimina, todos os usuários recebem benefícios de segurança iguais.
 
 **P: Qual é a diferença entre uma alteração de senha e um conjunto de senhas (ou redefinição)?**
 
@@ -47,6 +47,14 @@ Uma alteração de senha é quando um usuário escolhe uma nova senha depois de 
 Um conjunto de senhas (às vezes chamado de redefinição de senha) é quando um administrador substitui a senha em uma conta com uma nova senha, por exemplo, usando a ferramenta de gerenciamento Active Directory usuários e computadores. Essa operação requer um alto nível de privilégio (geralmente administrador de domínio) e a pessoa que executa a operação geralmente não tem conhecimento da senha antiga. Cenários de assistência técnica geralmente executam conjuntos de senhas, por exemplo, ao auxiliar um usuário que esqueceu sua senha. Você também verá eventos de definição de senha quando uma conta de usuário totalmente nova estiver sendo criada pela primeira vez com uma senha.
 
 A política de validação de senha comporta-se o mesmo, independentemente de uma alteração ou definição de senha estar sendo feita. O serviço de agente DC de proteção de senha do Azure AD registra eventos diferentes para informá-lo se uma operação de alteração ou de definição de senha foi feita.  Consulte [monitoramento e registro em log da proteção de senha do Azure ad](./howto-password-ban-bad-on-premises-monitor.md).
+
+**P: a proteção de senha do Azure AD valida as senhas existentes após a instalação?**
+
+Não-a proteção de senha do Azure AD só pode impor a política de senha em senhas de texto não criptografado durante uma alteração de senha ou uma operação de definição. Depois que uma senha é aceita pelo Active Directory, somente os hashes específicos de protocolo de autenticação dessa senha são persistidos. A senha de texto não criptografado nunca é persistida, portanto, a proteção de senha do Azure AD não pode validar as senhas existentes.
+
+Após a implantação inicial da proteção de senha do Azure AD, todos os usuários e contas começarão a usar uma senha validada de proteção de senha do Azure AD, já que suas senhas existentes expiram normalmente ao longo do tempo. Se desejar, esse processo pode ser acelerado por uma expiração manual única de senhas de conta de usuário.
+
+As contas configuradas com "a senha nunca expira" nunca serão forçadas a alterar sua senha, a menos que a expiração manual seja feita.
 
 **P: por que os eventos de rejeição de senha duplicados são registrados ao tentar definir uma senha fraca usando o snap-in de gerenciamento de usuários e computadores Active Directory?**
 
@@ -62,11 +70,11 @@ Sim. Suporte para várias dlls de filtro de senha registrada é um recurso impor
 
 **P: como posso implantar e configurar a proteção de senha do Azure AD no meu ambiente de Active Directory sem usar o Azure?**
 
-Sem suporte. A proteção de senha do Azure AD é um recurso do Azure que dá suporte a ser estendido para um ambiente local do Active Directory.
+Não há suporte. A proteção de senha do Azure AD é um recurso do Azure que dá suporte a ser estendido para um ambiente local do Active Directory.
 
 **P: como posso modificar o conteúdo da política no nível de Active Directory?**
 
-Sem suporte. A política só pode ser administrada usando o portal do AD do Azure. Confira também a pergunta anterior.
+Não há suporte. A política só pode ser administrada usando o portal do AD do Azure. Confira também a pergunta anterior.
 
 **P: por que o DFSR é necessário para a replicação de sysvol?**
 
