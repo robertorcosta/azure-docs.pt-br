@@ -10,12 +10,13 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: b6f8181568e5996bfb3c99ae25fb801fa62f3af1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904251"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011864"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -127,7 +128,7 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 Use esse parâmetro se gravações brutas ou externas contiverem ruídos de fundo. Esse parâmetro é usado para configurar o processo de indexação. É possível especificar os seguintes valores:
 
 - `AudioOnly` – Indexar e extrair insights usando apenas áudio (ignorando vídeo)
-- `VideoOnly`-Indexe e extraia informações usando somente vídeo (ignorando áudio)
+- `VideoOnly` -Indexe e extraia informações usando somente vídeo (ignorando áudio)
 - `Default` – Indexar e extrair insights usando áudio e vídeo
 - `DefaultWithNoiseReduction` – Indexar e extrair insights de áudio e vídeo durante a aplicação de algoritmos de redução de ruído no fluxo de áudio
 

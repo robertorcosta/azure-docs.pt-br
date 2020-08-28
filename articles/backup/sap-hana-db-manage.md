@@ -3,12 +3,12 @@ title: Gerenciar bancos de dados do SAP HANA com backup em VMs do Azure
 description: Neste artigo, aprenda tarefas comuns para gerenciar e monitorar bancos de dados SAP HANA que estão em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 6de1144237366806bb06c28a0777f62d69004e8b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826694"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006558"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerenciar e monitorar backup de bancos de dados do SAP HANA
 
@@ -84,7 +84,7 @@ Esses backups sob demanda também aparecerão na lista de pontos de restauraçã
 
 As restaurações disparadas de clientes nativos do HANA (usando **Backint**) para restaurar para o mesmo computador podem ser [monitoradas](#monitor-manual-backup-jobs-in-the-portal) na página **Trabalhos de backup**.
 
-### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Executar o backup do cliente nativo do SAP HANA em um banco de dados com o backup do Azure habilitado
+### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Executar SAP HANA backup de cliente nativo em um banco de dados com o backup do Azure habilitado
 
 Se você quiser fazer um backup local (usando o HANA Studio/Cockpit) de um banco de dados cujo backup está sendo feito com o Backup do Azure, faça o seguinte:
 

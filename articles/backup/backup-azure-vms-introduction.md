@@ -3,18 +3,18 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587490"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014635"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
 Este artigo descreve como o [serviço de backup do Azure](./backup-overview.md) faz backup de VMs (máquinas virtuais) do Azure.
 
-O backup do Azure fornece backups independentes e isolados para proteger contra a destruição indesejada dos dados em suas VMs. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e o dimensionamento são simples, os backups são otimizados e você pode facilmente restaurar conforme necessário.
+O Backup do Azure fornece backups independentes e isolados para proteger contra a destruição indesejada dos dados em suas VMs. Os backups são armazenados em um cofre dos Serviços de Recuperação com gerenciamento interno de pontos de recuperação. A configuração e o dimensionamento são simples, os backups são otimizados e você pode facilmente restaurar conforme necessário.
 
 Como parte do processo de backup, um [instantâneo é obtido](#snapshot-creation)e os dados são transferidos para o cofre dos serviços de recuperação sem afetar as cargas de trabalho de produção. O instantâneo fornece diferentes níveis de consistência, conforme descrito [aqui](#snapshot-consistency).
 
@@ -22,7 +22,7 @@ O backup do Azure também tem ofertas especializadas para cargas de trabalho de 
 
 ## <a name="backup-process"></a>Processo de backup
 
-Veja como o backup do Azure conclui um backup para VMs do Azure:
+Veja como o Backup do Azure conclui um backup para VMs do Azure:
 
 1. Para VMs do Azure que são selecionadas para backup, o backup do Azure inicia um trabalho de backup de acordo com o agendamento de backup especificado.
 1. Durante o primeiro backup, uma extensão de backup é instalada na VM se a VM estiver em execução.
@@ -33,9 +33,9 @@ Veja como o backup do Azure conclui um backup para VMs do Azure:
     - Se o backup não puder usar um instantâneo consistente com o aplicativo, ele usará um instantâneo consistente com o arquivo do armazenamento subjacente (porque não ocorre nenhuma gravação do aplicativo enquanto a VM está parada).
 1. Para VMs do Linux, o backup usa um backup consistente com o arquivo. Para instantâneos consistentes com o aplicativo, você precisa personalizar manualmente os scripts Pre/post.
 1. Depois que o backup faz o instantâneo, ele transfere os dados para o cofre.
-    - O backup é otimizado com o backup de cada disco de VM em paralelo.
-    - Para cada disco que está sendo submetido a backup, o backup do Azure lê os blocos no disco e identifica e transfere apenas os blocos de dados que foram alterados (o Delta) desde o backup anterior.
-    - Dados de instantâneo não podem ser imediatamente copiados no cofre. Esse processo pode levar algumas horas em horários de pico. O tempo total de backup de uma VM será menor que 24 horas para políticas de backup diárias.
+    - O backup é otimizado fazendo backup de cada disco de VM em paralelo.
+    - Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos no disco e identifica e transfere apenas os blocos de dados que foram alterados (o delta) desde o backup anterior.
+    - Os dados de instantâneo podem não ser copiados imediatamente para o cofre. Esse processo pode levar algumas horas em horários de pico. O tempo total de backup de uma VM será menor que 24 horas para políticas de backup diárias.
 1. As alterações feitas em uma VM do Windows após a habilitação do backup do Azure são:
     - Microsoft Visual C++ redistribuível 2013 (x64)-o 12.0.40660 está instalado na VM
     - O tipo de inicialização do VSS (serviço de cópias de sombra de volume) foi alterado para automático do manual

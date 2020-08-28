@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: b3a049d76f880f590060a999ddda00e3706bac94
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 1e04ed8fe9087cb06b1533887da3c0fed61259ef
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500207"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019718"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutorial: usar os aprimoramentos de mensagem do Hub IoT do Azure
 
@@ -77,7 +77,7 @@ Se você ainda não tiver feito isso, abra uma [janela de Cloud Shell](https://s
 
 Aqui estão os recursos criados pelo script. *Aprimorado* significa que o recurso é para mensagens com aprimoramentos. *Original* significa que o recurso é para mensagens que não são aprimoradas.
 
-| Name | Valor |
+| Nome | Valor |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome do contêiner | original  |
@@ -297,7 +297,7 @@ Você pode usar um modelo do Resource Manager para criar e configurar os recurso
 
    Aqui estão os recursos criados carregando o modelo. **Aprimorado** significa que o recurso é para mensagens com aprimoramentos. **Original** significa que o recurso é para mensagens que não são aprimoradas. Esses são os mesmos valores usados no script de CLI do Azure.
 
-   | Name | Valor |
+   | Nome | Valor |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome do contêiner | original  |

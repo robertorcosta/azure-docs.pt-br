@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849719"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009603"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo
 
@@ -68,6 +68,9 @@ Os cenários de uso de exemplo para a camada de acesso de arquivamento incluem:
 - Backup de longo prazo, backup secundário e conjuntos de dados de arquivamento 
 - Dados originais (brutos) que devem ser preservados, mesmo após serem processados em formato utilizável final.
 - Dados de conformidade e arquivamento que precisam ser armazenados por um longo tempo e quase nunca são acessados.
+
+> [!NOTE]
+> A camada de arquivo morto não tem suporte atualmente para contas ZRS, GZRS ou RA-GZRS.
 
 ## <a name="account-level-tiering"></a>Camadas em nível de conta
 

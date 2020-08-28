@@ -3,12 +3,12 @@ title: Exclusão reversível para o backup do Azure
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 921d04c530695ee8909fb17b216029849c4fc4a2
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a23d9d1e2ceeb767784490ba65542a5e91b6785b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892466"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004911"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Exclusão reversível para o backup do Azure
 
@@ -164,7 +164,7 @@ Sim.
 
 ### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>Como posso disparar os backups agendados novamente para um recurso excluído de forma reversível?
 
-A exclusão seguida de uma operação de retomada irá proteger o recurso novamente. A operação de retomada associa uma política de backup para disparar os backups agendados com o período de retenção selecionado. Além disso, o coletor de lixo é executado assim que a operação de retomada é concluída. Se você quiser executar uma restauração de um ponto de recuperação que ultrapassa sua data de expiração, é aconselhável fazer isso antes de disparar a operação de retomada.
+A exclusão seguida de uma operação de retomada irá proteger o recurso novamente. A operação de retomada associa uma política de backup para disparar os backups agendados com o período de retenção selecionado. Além disso, o coletor de lixo é executado assim que a operação de retomada é concluída. Se você quiser executar uma restauração de um ponto de recuperação após sua data de expiração, é aconselhável fazer isso antes de disparar a operação de retomada.
 
 ### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>Posso excluir meu cofre se houver itens com exclusão reversível no cofre?
 

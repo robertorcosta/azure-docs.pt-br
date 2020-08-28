@@ -5,12 +5,13 @@ author: motanv
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 14b2b5bd2577a10ad77a715fb5d20e10da84cf1d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8b1d4ae42fa033c03bd82ae5cee5794d98c23c65
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518972"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022166"
 ---
 # <a name="testability-actions"></a>Ações da Possibilidade de Teste
 Para simular uma infraestrutura não confiável, o Service Fabric do Azure fornece a você, o desenvolvedor, maneiras de simular várias falhas e transições de estado reais. Elas são expostas como ações de possibilidade de teste. As ações são as APIs de nível baixo que causam uma injeção de falha específica, transição de estado ou validação. Ao combinar essas ações, você pode criar cenários de teste abrangentes para seus serviços.
@@ -30,7 +31,7 @@ Para validação de melhor qualidade, execute a carga de trabalho de serviço e 
 ## <a name="testability-actions-list"></a>Lista de ações da Possibilidade de Teste
 | Ação | Descrição | API gerenciada | Cmdlet do PowerShell | Falhas normais/anormais |
 | --- | --- | --- | --- | --- |
-| CleanTestState |Remove todo o estado de teste do cluster em caso de desligamento repentino do driver de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não se aplica |
+| CleanTestState |Remove todo o estado de teste do cluster em caso de desligamento repentino do driver de teste. |CleanTestStateAsync |Remove-ServiceFabricTestState |Não aplicável |
 | InvokeDataLoss |Induz a perda de dados em uma partição de serviço. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
 | InvokeQuorumLoss |Coloca uma determinada partição de serviço com estado na perda de quórum. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |Normal |
 | MovePrimary |Move a réplica primária especificada do serviço com estado para o nó de cluster especificado. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |Normal |
@@ -40,10 +41,10 @@ Para validação de melhor qualidade, execute a carga de trabalho de serviço e 
 | RestartNode |Simula uma falha de nó de cluster da Malha de Serviço reinicializando um nó. |RestartNodeAsync |Restart-ServiceFabricNode |Anormais |
 | RestartPartition |Simula um cenário de blecaute do datacenter ou cluster reiniciando algumas ou todas as réplicas de uma partição. |RestartPartitionAsync |Restart-ServiceFabricPartition |Normal |
 | RestartReplica |Simula uma falha de réplica reiniciando uma réplica persistente em um cluster, fechando a réplica e reabrindo-a. |RestartReplicaAsync |Restart-ServiceFabricReplica |Normal |
-| StartNode |Inicia um nó em um cluster que já foi interrompido. |StartNodeAsync |Start-ServiceFabricNode |Não se aplica |
+| StartNode |Inicia um nó em um cluster que já foi interrompido. |StartNodeAsync |Start-ServiceFabricNode |Não aplicável |
 | StopNode |Simula uma falha de nó interrompendo um nó em um cluster. O nó permanecerá inativo até que StartNode seja chamado. |StopNodeAsync |Stop-ServiceFabricNode |Anormais |
-| ValidateApplication |Valida a disponibilidade e a integridade de todos os serviços da Malha de Serviço em um aplicativo, geralmente depois de induzir alguma falha no sistema. |ValidateApplicationAsync |Test-ServiceFabricApplication |Não se aplica |
-| ValidateService |Valida a disponibilidade e a integridade de um serviço da Malha de Serviço, geralmente depois de induzir alguma falha no sistema. |ValidateServiceAsync |Test-ServiceFabricService |Não se aplica |
+| ValidateApplication |Valida a disponibilidade e a integridade de todos os serviços da Malha de Serviço em um aplicativo, geralmente depois de induzir alguma falha no sistema. |ValidateApplicationAsync |Test-ServiceFabricApplication |Não aplicável |
+| ValidateService |Valida a disponibilidade e a integridade de um serviço da Malha de Serviço, geralmente depois de induzir alguma falha no sistema. |ValidateServiceAsync |Test-ServiceFabricService |Não aplicável |
 
 ## <a name="running-a-testability-action-using-powershell"></a>Executando uma ação de possibilidade de teste usando o PowerShell
 Este tutorial mostra como executar uma ação de possibilidade de teste com o PowerShell. Você aprenderá a executar uma ação da possibilidade de teste em um cluster local (one-box) ou em um cluster do Azure. Microsoft.Fabric.Powershell.dll – o módulo Service Fabric PowerShell – é instalado automaticamente quando você instala o Microsoft Service Fabric MSI. O módulo é carregado automaticamente quando você abre um prompt do PowerShell.

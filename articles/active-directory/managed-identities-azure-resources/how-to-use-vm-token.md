@@ -3,7 +3,7 @@ title: Usar identidades gerenciadas em uma máquina virtual para adquirir o toke
 description: Instruções passo a passo e exemplos para usar identidades gerenciadas para recursos do Azure em máquinas virtuais para adquirir um token de acesso OAuth.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f254bef223294661180f21019ae8c5a842015c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0bcf6d99511f744b321a7a47913b44dc376143f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608374"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016131"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como usar identidades gerenciadas para recursos do Azure em uma VM do Azure para adquirir um token de acesso 
 
@@ -364,24 +364,24 @@ Se ocorrer um erro, o corpo da resposta HTTP correspondente conterá o JSON com 
 
 | Elemento | Descrição |
 | ------- | ----------- |
-| erro   | Identificador do erro. |
+| error   | Identificador do erro. |
 | error_description | Descrição detalhada do erro. **As descrições de erro podem ser alteradas a qualquer momento. Não grave o código que ramifica com base nos valores na descrição do erro.**|
 
 ### <a name="http-response-reference"></a>Referência de resposta HTTP
 
 Esta seção documenta as possíveis respostas de erro. Um status "200 OK" é uma resposta bem-sucedida, e o token de acesso está contido no JSON do corpo de resposta, no elemento access_token.
 
-| Código de status | Erro | Descrição do erro | Solução |
+| Código de status | Erro do | Descrição do erro | Solução |
 | ----------- | ----- | ----------------- | -------- |
 | 400 Solicitação Inválida | invalid_resource | AADSTS50001: o aplicativo nomeado *\<URI\>* não foi encontrado no locatário denominado *\<TENANT-ID\>* . Isso poderá acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou aceito por qualquer usuário no locatário. Talvez você tenha enviado a solicitação de autenticação ao locatário errado.\ | (Apenas Linux) |
 | 400 Solicitação Inválida | bad_request_102 | Cabeçalho de metadados necessário não especificado | O campo de cabeçalho de solicitação `Metadata` está ausente da solicitação ou está formatado incorretamente. O valor deve ser especificado como `true`, com todas as letras minúsculas. Consulte a "Solicitação de exemplo" na seção REST anterior para obter um exemplo.|
-| 401 Não Autorizado | unknown_source | Origem desconhecida*\<URI\>* | Verifique se o URI da solicitação HTTP GET está formatado corretamente. A parte `scheme:host/resource-path` deve ser especificada como `http://localhost:50342/oauth2/token`. Consulte a "Solicitação de exemplo" na seção REST anterior para obter um exemplo.|
+| 401 Não Autorizado | unknown_source | Origem desconhecida *\<URI\>* | Verifique se o URI da solicitação HTTP GET está formatado corretamente. A parte `scheme:host/resource-path` deve ser especificada como `http://localhost:50342/oauth2/token`. Consulte a "Solicitação de exemplo" na seção REST anterior para obter um exemplo.|
 |           | invalid_request | A solicitação não tem um parâmetro obrigatório, inclui um valor de parâmetro inválido, inclui um parâmetro mais de uma vez ou está malformada. |  |
 |           | unauthorized_client | O cliente não está autorizado a solicitar um token de acesso usando este método. | Causado por uma solicitação que não usou o loopback local para chamar a extensão ou em uma VM que não tem identidades gerenciadas para recursos do Azure configurados corretamente. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md), se precisar de ajuda com a configuração da VM. |
 |           | access_denied | O proprietário do recurso ou o servidor de autorização negou a solicitação. |  |
 |           | unsupported_response_type | O servidor de autorização não dá suporte à obtenção de um token de acesso usando este método. |  |
 |           | invalid_scope | O escopo solicitado é inválido, desconhecido ou malformado. |  |
-| Erro interno do servidor 500 | unknown | Falha ao recuperar o token do Active Directory. Para obter detalhes, consulte logs em*\<file path\>* | Verifique se as identidades gerenciadas dos recursos do Azure foram habilitadas na VM. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md), se precisar de ajuda com a configuração da VM.<br><br>Verifique também se seu URI de solicitação GET HTTP foi formatado corretamente, principalmente o URI do recurso especificado na cadeia de caracteres de consulta. Consulte a "Solicitação de amostra" na seção REST anterior para obter um exemplo ou [Serviços do Azure que dão suporte para autenticação do Azure AD](services-support-msi.md) para obter uma lista de serviços e seus respectivos IDs de recurso.
+| Erro interno do servidor 500 | unknown | Falha ao recuperar o token do Active Directory. Para obter detalhes, consulte logs em *\<file path\>* | Verifique se as identidades gerenciadas dos recursos do Azure foram habilitadas na VM. Consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM usando o portal do Azure](qs-configure-portal-windows-vm.md), se precisar de ajuda com a configuração da VM.<br><br>Verifique também se seu URI de solicitação GET HTTP foi formatado corretamente, principalmente o URI do recurso especificado na cadeia de caracteres de consulta. Consulte a "Solicitação de amostra" na seção REST anterior para obter um exemplo ou [Serviços do Azure que dão suporte para autenticação do Azure AD](services-support-msi.md) para obter uma lista de serviços e seus respectivos IDs de recurso.
 
 ## <a name="retry-guidance"></a>Repita a orientação 
 

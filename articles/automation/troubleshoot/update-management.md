@@ -5,12 +5,12 @@ services: automation
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: cb598f9a9b8d078c86e9911fa64d872788f47b4b
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447686"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003347"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -103,7 +103,7 @@ Esse problema pode ser causado por problemas de configuração local ou pela con
 
 1. Execute a solução de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux](update-agent-issues-linux.md#troubleshoot-offline), dependendo do sistema operacional.
 
-2. Verificar se seu computador envia relatórios para o espaço de trabalho correto. Para obter orientação sobre como verificar esse aspecto, consulte [Verificar a conectividade do agente para Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Verifique também se esse espaço de trabalho está vinculado à sua conta de automação do Azure. Para confirmar, acesse sua conta de automação e selecione **Espaço de trabalho vinculado** em **Recursos relacionados**.
+2. Verificar se seu computador envia relatórios para o espaço de trabalho correto. Para obter orientação sobre como verificar esse aspecto, consulte [verificar a conectividade do agente para Azure monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Verifique também se esse espaço de trabalho está vinculado à sua conta de automação do Azure. Para confirmar, acesse sua conta de automação e selecione **Espaço de trabalho vinculado** em **Recursos relacionados**.
 
 3. Verifique se as máquinas aparecem no espaço de trabalho Log Analytics vinculado à sua conta de automação. Execute a consulta a seguir do espaço de trabalho do Log Analytics.
 
