@@ -3,13 +3,13 @@ title: 'Criar seu primeiro aplicativo Service Fabric em C #'
 description: Introdução à criação de um aplicativo do Service Fabric do Microsoft Azure com serviços com e sem estado.
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.custom: sfrev
-ms.openlocfilehash: 201131f774632e1130c6be6a0dbcb950b96ec508
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: sfrev, devx-track-csharp
+ms.openlocfilehash: 1de77f870bce5766ab704249034d6d7b6c8b098e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260475"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012731"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 
@@ -197,7 +197,7 @@ As coleções confiáveis têm muitas das mesmas operações que suas `System.Co
 
 As operações de Coleção Confiável são *transacionais*, de modo que você pode manter o estado consistente entre várias Coleções Confiáveis e operações. Por exemplo, você pode remover um item de trabalho de uma Fila Confiável, executar uma operação nele e salvar o resultado em um Dicionário Confiável, tudo em uma única transação. Trata-se de uma operação atômica e ela garante que toda a operação seja bem-sucedida ou revertida. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
 
-## <a name="run-the-application"></a>Execute o aplicativo
+## <a name="run-the-application"></a>Executar o aplicativo
 Agora retornamos ao aplicativo *HelloWorld* . Agora você pode criar e implantar seus serviços. Quando você pressionar **F5**, seu aplicativo será criado e implantado no cluster local.
 
 Depois que os serviços começaram a ser executados, você poderá exibir os eventos ETW (Rastreamento de Eventos para Windows) gerados em uma janela **Eventos de Diagnóstico** . Observe que os eventos exibidos são dos serviços sem e com estado do aplicativo. Você pode pausar o fluxo clicando no botão **Pausar** . Assim, você pode examinar os detalhes de uma mensagem expandindo-a.

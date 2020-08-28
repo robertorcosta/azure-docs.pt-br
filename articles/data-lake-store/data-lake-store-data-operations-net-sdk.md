@@ -6,12 +6,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: eb950f6029511cf834791c161e6a730bcadcabcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 1044af94df43e61ae8c0032041bc80a356331f1a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515668"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022455"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operações do sistema de arquivos em Data Lake Storage Gen1 usando o SDK do .NET
 
@@ -48,8 +49,8 @@ O exemplo de código disponível [no GitHub](https://github.com/Azure-Samples/da
    1. Na guia **Gerenciador de pacotes NuGet** , verifique se a **origem do pacote** está definida como **NuGet.org**. Além disso, verifique se a caixa de seleção **incluir pré-lançamento** está marcada.
    1. Procure e instale os seguintes pacotes NuGet:
 
-      * `Microsoft.Azure.DataLake.Store`-Este artigo usa a versão v 1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`-Este artigo usa a v 2.3.1.
+      * `Microsoft.Azure.DataLake.Store` -Este artigo usa a versão v 1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Este artigo usa a v 2.3.1.
 
       Feche o **Gerenciador de pacotes NuGet**.
 
@@ -198,7 +199,7 @@ Aqui estão alguns exemplos que mostram como usar o SDK do sistema de arquivos D
 * [Exemplo básico no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Exemplo avançado no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 * [Referência de SDK do .NET do Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)

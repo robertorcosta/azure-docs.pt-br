@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509273"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014584"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -34,6 +34,14 @@ Verifique se os firewalls (no dispositivo, dentro de roteadores etc.) não bloqu
 Verifique se sua GPU é compatível com a decodificação de vídeo por hardware. Confira [PC de Desenvolvimento](../overview/system-requirements.md#development-pc).
 
 Se você estiver trabalhando em um laptop com duas GPUs, é possível que a GPU em que você está executando por padrão não forneça a funcionalidade de decodificação de vídeo por hardware. Se esse for o caso, tente forçar seu aplicativo a usar a outra GPU. Isso geralmente é possível nas configurações do driver da GPU.
+
+## <a name="retrieve-sessionconversion-status-fails"></a>Falha ao recuperar sessão/status de conversão
+
+O envio de comandos da API REST com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. O código de status HTTP no caso de limitação é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5-10 segundos entre as chamadas subsequentes**.
+
+Observe que esse limite não afeta apenas as chamadas da API REST quando chamado diretamente, mas também suas contrapartes do C#/C + +, como `Session.GetPropertiesAsync` , `Session.RenewAsync` ou `Frontend.GetAssetConversionStatusAsync` .
+
+Se você tiver uma limitação do lado do servidor, altere o código para fazer as chamadas com menos frequência. O servidor redefinirá o estado de limitação a cada minuto, portanto, é seguro executar novamente o código após um minuto.
 
 ## <a name="h265-codec-not-available"></a>Codec H265 não disponível
 

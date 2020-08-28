@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f202a9d616809d1f14366350d8d60ef2bc06b96b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 069e0f2d14dafe0de208ac69d2d652361a11ee34
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934507"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012425"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -192,33 +192,38 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > O ajuste dos estilos de fala só funcionará com vozes neurais.
 
-Por padrão, o serviço de conversão de texto em fala sintetiza o texto usando um estilo de fala neutro para vozes padrão e neural. Com as vozes neurais, você pode ajustar o estilo de fala para expressar emoções diferentes, como cheerfulness, empatia e calmo, ou otimizar a voz para cenários diferentes, como serviço personalizado, newscasting e o assistente de voz, usando o  `mstts:express-as`   elemento. Esse é um elemento opcional exclusivo para o serviço de fala.
+Por padrão, o serviço de conversão de texto em fala sintetiza o texto usando um estilo de fala neutro para vozes padrão e neural. Com as vozes neurais, você pode ajustar o estilo de fala para expressar emoções diferentes, como cheerfulness, empatia e calmo, ou otimizar a voz para cenários diferentes, como o atendimento ao cliente, o newscasting e o assistente de voz, usando o `mstts:express-as` elemento. Esse é um elemento opcional exclusivo para o serviço de fala.
 
 Atualmente, os ajustes de estilo de fala têm suporte para essas vozes neurais:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
-As alterações são aplicadas no nível da frase e o estilo varia de acordo com a voz. Se não houver suporte para um estilo, o serviço retornará a voz no estilo de fala neutro padrão.
+As alterações são aplicadas no nível da frase e os estilos variam de acordo com a voz. Se não houver suporte para um estilo, o serviço retornará a voz no estilo de fala neutro padrão. Você pode consultar os estilos com suporte para cada voz por meio da [API de lista de voz](rest-text-to-speech.md#get-a-list-of-voices).
+
+Para o XiaoxiaoNeural de voz chinês, a intensidade do estilo de fala pode ser alterada para melhor se ajustar ao seu caso de uso. Você pode especificar um estilo mais forte ou mais flexível com `styledegree` o para tornar a fala mais expressiva ou subdued.
 
 **Sintaxe**
 
 ```xml
-<mstts:express-as style="string"></mstts:express-as>
+<mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+> [!NOTE]
+> No momento, o `styledegree` só dá suporte a XiaoxiaoNeural. 
 
 **Atributos**
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
 | `style` | Especifica o estilo de fala. Atualmente, os estilos de fala são específicos de voz. | Obrigatório se estiver ajustando o estilo de fala para uma voz neural. Se estiver usando `mstts:express-as` , o estilo deverá ser fornecido. Se um valor inválido for fornecido, esse elemento será ignorado. |
+| `styledegree` | Especifica a intensidade do estilo de fala. **Valores aceitos**: 0, 1 a 2 inclusive. O valor padrão é 1, o que significa a intensidade do estilo predefinido. A unidade mínima é 0, 1, o que resulta em um pouco de tendência para o estilo de destino. Um valor 2 resulta no dobro da intensidade do estilo padrão.  | Opcional (no momento, `styledegree` só dá suporte a XiaoxiaoNeural.)|
 
 Use esta tabela para determinar quais estilos de fala têm suporte para cada voz neural.
 
 | Voz                   | Estilo                     | Descrição                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast-formal"` | Um tom formal, confiável e autoritativo para entrega de notícias|
-|                         | `style="newscast-casual"` | Um tom versátil e casual para entrega de notícias geral       |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiável e autoritativo para entrega de notícias |
+|                         | `style="newscast-casual"` | Expressa um tom versátil e casual para entrega de notícias geral        |
 |                         | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  |
 |                         | `style="chat"`            | Expressa um tom casual e relaxado                         |
 |                         | `style="cheerful"`        | Expressa um tom positivo e feliz                         |
@@ -226,6 +231,15 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expressa um tom formal e profissional para notícias de narração |
 |                         | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  |
 |                         | `style="assistant"`       | Expressa um tom quente e relaxado para assistentes digitais    |
+|                         | `style="chat"`            | Expressa um tom casual e relaxado para Chit-Chat           |
+|                         | `style="calm"`            | Expressa uma atitude fria, coletada e composta durante a fala. Tom, pitch, Prosody é muito mais uniforme em comparação com outros tipos de fala.                                |
+|                         | `style="cheerful"`        | Expressa um tom de pulsação e entusiasmado, com mais densidade e energia vocal                         |
+|                         | `style="sad"`             | Expressa um tom de sorrowful, com mais densidade, menos intensidade e menor energia de voz. Indicadores comuns dessa emoção seriam whimpers ou chorando durante a fala.            |
+|                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
+|                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
+|                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
+|                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.          | |                         | `style="affectionate"`    | Expressa um tom quente e affectionate, com densidade mais alta e energia vocal. O palestrante está em um estado de atrair a atenção do ouvinte. A "personalidade" do orador muitas vezes é muito prequerida por natureza.          |     
+|                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
 |                         | `style="lyrical"`         | Expressa emoções de uma maneira Melodic e tem valor sentimental         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  | 
 
@@ -239,6 +253,18 @@ Este trecho de SSML ilustra como o `<mstts:express-as>` elemento é usado para a
     <voice name="en-US-AriaNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+Este trecho de SSML ilustra como o `styledegree` atributo é usado para alterar a intensidade do estilo de fala para XiaoxiaoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaoxiaoNeural">
+        <mstts:express-as style="sad" styledegree="2">
+            快走吧，路上一定要注意安全，早去早回。
         </mstts:express-as>
     </voice>
 </speak>
@@ -265,7 +291,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 | `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e `500` | Opcional |
 
-| Segurança                      | DESCRIÇÃO |
+| Segurança                      | Descrição |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor for fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |

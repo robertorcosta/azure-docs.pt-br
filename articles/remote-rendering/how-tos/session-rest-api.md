@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 4e65655f1809c6badc50e39a2a5e932516ef99d2
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509834"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012374"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usar a API REST de gerenciamento de sessão
 
@@ -79,7 +79,7 @@ Este comando cria uma sessão. Ele retorna a ID da nova sessão. Você precisa d
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 202 | -sessionId: GUID | Sucesso |
+| 202 | -sessionId: GUID | Êxito |
 
 ### <a name="example-script-create-a-session"></a>Script de exemplo: criar uma sessão
 
@@ -117,7 +117,14 @@ A resposta da solicitação acima inclui uma **SessionID**, que você precisa pa
 $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 ```
 
-## <a name="update-a-session"></a>Atualizar uma sessão
+## <a name="modify-and-query-session-properties"></a>Propriedades de modificar e consultar sessão
+
+Há alguns comandos para consultar ou modificar os parâmetros de sessões existentes.
+
+> [!CAUTION]
+Para todas as chamadas REST, o envio desses comandos com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. Nesse caso, o código de status é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5-10 segundos entre as chamadas subsequentes**.
+
+### <a name="update-session-parameters"></a>Atualizar parâmetros de sessão
 
 Esse comando atualiza os parâmetros de uma sessão. No momento, você só pode estender o tempo de concessão de uma sessão.
 
@@ -138,7 +145,7 @@ Esse comando atualiza os parâmetros de uma sessão. No momento, você só pode 
 |-----------|:-----------|:-----------|
 | 200 | | Sucesso |
 
-### <a name="example-script-update-a-session"></a>Script de exemplo: atualizar uma sessão
+#### <a name="example-script-update-a-session"></a>Script de exemplo: atualizar uma sessão
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId" -Method Patch -ContentType "application/json" -Body "{ 'maxLeaseTime': '5:0:0' }" -Headers @{ Authorization = "Bearer $token" }
@@ -160,7 +167,7 @@ Headers           : {[MS-CV, Fe+yXCJumky82wuoedzDTA.0], [Content-Length, 0], [Da
 RawContentLength  : 0
 ```
 
-## <a name="get-active-sessions"></a>Obter sessões ativas
+### <a name="get-active-sessions"></a>Obter sessões ativas
 
 Esse comando retorna uma lista de sessões ativas.
 
@@ -174,7 +181,7 @@ Esse comando retorna uma lista de sessões ativas.
 |-----------|:-----------|:-----------|
 | 200 | -Sessions: matriz de propriedades de sessão | consulte a seção "obter propriedades da sessão" para obter uma descrição das propriedades da sessão |
 
-### <a name="example-script-query-active-sessions"></a>Script de exemplo: consultar sessões ativas
+#### <a name="example-script-query-active-sessions"></a>Script de exemplo: consultar sessões ativas
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -203,7 +210,7 @@ ParsedHtml        : mshtml.HTMLDocumentClass
 RawContentLength  : 2
 ```
 
-## <a name="get-sessions-properties"></a>Propriedades de obter sessões
+### <a name="get-sessions-properties"></a>Propriedades de obter sessões
 
 Esse comando retorna informações sobre uma sessão, como seu nome de host de VM.
 
@@ -217,7 +224,7 @@ Esse comando retorna informações sobre uma sessão, como seu nome de host de V
 |-----------|:-----------|:-----------|
 | 200 | -Message: cadeia de caracteres<br/>-sessionElapsedTime: TimeSpan<br/>-sessionHostname: cadeia de caracteres<br/>-sessionId: cadeia de caracteres<br/>-sessionMaxLeaseTime: TimeSpan<br/>-Sessions: enumeração<br/>-sessionStatus: enumeração | enum sessionStatus {iniciando, pronto, parando, parado, expirado, erro}<br/>Se o status for ' erro ' ou ' expirado ', a mensagem conterá mais informações |
 
-### <a name="example-script-get-session-properties"></a>Script de exemplo: obter propriedades de sessão
+#### <a name="example-script-get-session-properties"></a>Script de exemplo: obter propriedades de sessão
 
 ```PowerShell
 Invoke-WebRequest -Uri "$endPoint/v1/accounts/$accountId/sessions/$sessionId/properties" -Method Get -Headers @{ Authorization = "Bearer $token" }
@@ -258,7 +265,7 @@ Esse comando para uma sessão. A VM alocada será recuperada logo após.
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 204 | | Sucesso |
+| 204 | | Êxito |
 
 ### <a name="example-script-stop-a-session"></a>Script de exemplo: parar uma sessão
 

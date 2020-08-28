@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c51b5c4d9cd7362aeda0a0998d8031d0ba358ce1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050691"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012340"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de suporte para o Serviço de Kubernetes do Azure
 
@@ -20,7 +20,7 @@ Este artigo fornece detalhes sobre as políticas de suporte técnico e as limita
 ## <a name="service-updates-and-releases"></a>Atualizações de serviço e versões
 
 * Para obter informações de versão, confira as [Notas sobre a versão do AKS](https://github.com/Azure/AKS/releases).
-* Para obter informações sobre os recursos na versão prévia, confira [Versões prévias dos recursos do AKS e os projetos relacionados](https://github.com/Azure/AKS/blob/master/previews.md).
+* Para obter informações sobre os recursos na versão prévia, confira [Versões prévias dos recursos do AKS e os projetos relacionados](https://awesomeopensource.com/projects/aks?categoryPage=11).
 
 ## <a name="managed-features-in-aks"></a>Recursos gerenciados no AKS
 
@@ -149,7 +149,7 @@ O AKS dá suporte apenas a recursos estáveis no projeto upstream do Kubernetes.
 Em dois cenários, os recursos alfa ou beta podem ser distribuídos antes de estarem em disponibilidade geral:
 
 * Os clientes se reuniram com as equipes de produtos, suporte ou engenharia do AKS e precisarão experimentar esses novos recursos.
-* Esses recursos foram [habilitados por um sinalizador de recurso](https://github.com/Azure/AKS/blob/master/previews.md). Os clientes devem aceitar explicitamente o uso desses recursos.
+* Esses recursos foram [habilitados por um sinalizador de recurso](https://awesomeopensource.com/projects/aks?categoryPage=11). Os clientes devem aceitar explicitamente o uso desses recursos.
 
 ## <a name="preview-features-or-feature-flags"></a>Versões prévias dos recursos ou sinalizadores de recurso
 

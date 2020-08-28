@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5ec5db2b2fefeba3bffb7e30a77850b30dccf95e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246547"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005625"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrever um Cluster Service Fabric usando o Gerenciador de recursos de cluster
 O recurso Gerenciador de recursos de cluster do Azure Service Fabric fornece vários mecanismos para descrever um cluster:
@@ -375,7 +376,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Verificações condicionais para a criação de instruções específicas:
 
-  | de | Syntax |
+  | de | Sintaxe |
   | --- |:---:|
   | "igual a" | "==" |
   | "diferente de" | "!=" |
@@ -386,7 +387,7 @@ O valor especificado na propriedade node pode ser uma cadeia de caracteres, um b
 
 * Instruções booleanas para Agrupamento e operações lógicas:
 
-  | de | Syntax |
+  | de | Sintaxe |
   | --- |:---:|
   | "e" | "&&" |
   | "ou" | "&#124;&#124;" |
