@@ -4,19 +4,19 @@ description: Saiba como configurar seu banco de dados no banco de dados SQL do A
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 90bfe3f6e8d5ed19380ab2b48aa38e598c3f109a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bdc03d93654fdb0ae90600f8dad279f0fc8efbe9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501603"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070812"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: implementar um banco de dados distribuído geograficamente (banco de dados SQL do Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
-- [Azure PowerShell](/powershell/azure/)
+- [PowerShell do Azure](/powershell/azure/)
 - Um banco de dados individual no banco de dados SQL do Azure. Para criar um, use
   - [O portal do Azure](single-database-create-quickstart.md)
   - [A CLI do Azure](az-cli-script-samples-content-guide.md)

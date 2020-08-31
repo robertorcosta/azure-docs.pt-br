@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 105d867b4eafe37ca6555e3f6b54dc521a7264fe
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226998"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89143726"
 ---
 # <a name="data-encryption-models"></a>Modelos de criptografia de dados
 
@@ -159,12 +159,12 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Tradução de Texto                  | Sim                | Sim                | -                  |
 | Power BI                         | Sim                | Versão prévia, RSA de 2048 bits | -                  |
 | **Análise**                    |                    |                    |                    |
-| Stream Analytics do Azure           | Sim                | N/D\*            | -                  |
-| Hubs de Eventos                       | Sim                | Sim, todos os comprimentos RSA. | -                  |
-| Funções                        | Sim                | Sim, todos os comprimentos RSA. | -                  |
+| Stream Analytics do Azure           | Sim                | N/D\*              | -                  |
+| Hubs de Eventos                       | Sim                | Sim                | -                  |
+| Funções                        | Sim                | Sim                | -                  |
 | Azure Analysis Services          | Sim                | -                  | -                  |
 | Catálogo de Dados do Azure               | Sim                | -                  | -                  |
-| Azure HDInsight                  | Sim                | Tudo                | -                  |
+| Azure HDInsight                  | Sim                | Todos                | -                  |
 | Azure Monitor Application Insights | Sim                | Sim                | -                  |
 | Azure Monitor Log Analytics      | Sim                | Sim                | -                  |
 | Azure Data Explorer              | Sim                | Sim                | -                  |
@@ -175,9 +175,9 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Instâncias de Contêiner              | Sim                | Sim                | -                  |
 | Registro de Contêiner               | Sim                | Sim                | -                  |
 | **Compute**                      |                    |                    |                    |
-| Máquinas Virtuais                 | Sim                | Sim, RSA 2048-bit  | -                  |
-| Conjunto de dimensionamento de máquinas virtuais        | Sim                | Sim, RSA 2048-bit  | -                  |
-| SAP HANA                         | Sim                | Sim, RSA 2048-bit  | -                  |
+| Máquinas Virtuais                 | Sim                | Sim                | -                  |
+| Conjunto de dimensionamento de máquinas virtuais        | Sim                | Sim                | -                  |
+| SAP HANA                         | Sim                | Sim                | -                  |
 | Serviço de Aplicativo                      | Sim                | Sim\*\*            | -                  |
 | Automação                       | Sim                | Sim\*\*            | -                  |
 | Funções do Azure                  | Sim                | Sim\*\*            | -                  |
@@ -187,13 +187,13 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Barramento de Serviço                      | Sim                | Sim                | -                  |
 | Site Recovery                    | Sim                | Sim                | -                  |
 | **Bancos de dados**                    |                    |                    |                    |
-| SQL Server em Máquinas Virtuais   | Sim                | Sim, RSA 2048-bit  | Sim                |
-| Banco de Dados SQL do Azure               | Sim                | Sim, RSA 2048-bit  | Sim                |
+| SQL Server em Máquinas Virtuais   | Sim                | Sim                | Sim                |
+| Banco de Dados SQL do Azure               | Sim                | Sim, RSA 3072 bits  | Sim                |
 | Banco de dados SQL do Azure para MariaDB   | Sim                | -                  | -                  |
 | Banco de dados SQL do Azure para MySQL     | Sim                | Sim                | -                  |
 | Banco de dados SQL do Azure para PostgreSQL | Sim               | Sim                | -                  |
-| Azure Synapse Analytics          | Sim                | Sim, RSA 2048-bit  | -                  |
-| SQL Server Stretch Database      | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Azure Synapse Analytics          | Sim                | Sim, RSA 3072 bits  | -                  |
+| SQL Server Stretch Database      | Sim                | Sim, RSA 3072 bits  | Sim                |
 | Armazenamento de Tabelas                    | Sim                | Sim                | Sim                |
 | Azure Cosmos DB                  | Sim                | Sim                | -                  |
 | Azure Databricks                 | Sim                | Sim                | -                  |
@@ -203,7 +203,7 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Azure Repos                      | Sim                | -                  | Sim                |
 | **Identidade**                     |                    |                    |                    |
 | Azure Active Directory           | Sim                | -                  | -                  |
-| Azure Active Directory Domain Services | Sim          | Sim, RSA 2048-bit  | -                  |
+| Azure Active Directory Domain Services | Sim          | Sim                | -                  |
 | **Integração**                  |                    |                    |                    |
 | Barramento de Serviço                      | Sim                | Sim                | Sim                |
 | Grade de Eventos                       | Sim                | -                  | -                  |
@@ -220,20 +220,20 @@ Os serviços do Azure que oferecem suporte a cada modelo de criptografia:
 | Central de Segurança do Azure para IoT    | Sim                | Sim                | -                  |
 | Azure Sentinel                   | Sim                | Sim                | -                  |
 | **Storage**                      |                    |                    |                    |
-| Armazenamento de Blobs                     | Sim                | Sim, RSA 2048-bit  | Sim                |
-| Armazenamento de blob Premium             | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Armazenamento de Blobs                     | Sim                | Sim                | Sim                |
+| Armazenamento de blob Premium             | Sim                | Sim                | Sim                |
 | Armazenamento em Disco                     | Sim                | Sim                | -                  |
 | Ultra Armazenamento em Disco               | Sim                | Sim                | -                  |
 | Armazenamento em Disco gerenciados             | Sim                | Sim                | -                  |
-| Armazenamento de Arquivos                     | Sim                | Sim, RSA 2048-bit  | -                  |
-| Armazenamento Premium de arquivo             | Sim                | Sim, RSA 2048-bit  | -                  |
-| Sincronização de Arquivos                        | Sim                | Sim, RSA 2048-bit  | -                  |
+| Armazenamento de Arquivos                     | Sim                | Sim                | -                  |
+| Armazenamento Premium de arquivo             | Sim                | Sim                | -                  |
+| Sincronização de Arquivos                        | Sim                | Sim                | -                  |
 | Armazenamento de Filas                    | Sim                | Sim                | Sim                |
 | Avere vFXT                       | Sim                | -                  | -                  |
-| Cache do Azure para Redis            | Sim                | N/D\*              | -                  |
+| Cache Redis do Azure            | Sim                | N/D\*              | -                  |
 | Azure NetApp Files               | Sim                | Sim                | -                  |
-| Armazenamento de Arquivos                  | Sim                | Sim, RSA 2048-bit  | -                  |
-| StorSimple                       | Sim                | Sim, RSA 2048-bit  | Sim                |
+| Armazenamento de Arquivos                  | Sim                | Sim                | -                  |
+| StorSimple                       | Sim                | Sim                | Sim                |
 | Serviço de Backup do Azure                     | Sim                | Sim                | Sim                |
 | Data Box                         | Sim                | -                  | Sim                |
 | Data Box Edge                    | Sim                | Sim                | -                  |

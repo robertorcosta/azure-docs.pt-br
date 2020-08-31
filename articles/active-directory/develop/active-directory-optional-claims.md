@@ -12,12 +12,12 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1384dc760edb0bca66344d8892c18fdebb54855d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853582"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068719"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -58,7 +58,7 @@ O conjunto de declarações opcionais disponíveis por padrão para uso pelos ap
 | `verified_secondary_email` | Originado de SecondaryAuthoritativeEmail do usuário   | JWT        |           |        |
 | `vnet`                     | Informações de especificador de VNET. | JWT        |           |      |
 | `fwd`                      | Endereço IP.| JWT    |   | Adiciona o endereço IPv4 original do cliente solicitante (quando dentro de uma VNET) |
-| `ctry`                     | País/região do usuário | JWT |  | O Azure AD retorna a `ctry` declaração opcional se ela estiver presente e o valor do campo for um código de país/região padrão de duas letras, como fr, JP, sz e assim por diante. |
+| `ctry`                     | País/região do usuário | JWT, SAML |  | O Azure AD retorna a `ctry` declaração opcional se ela estiver presente e o valor do campo for um código de país/região padrão de duas letras, como fr, JP, sz e assim por diante. |
 | `tenant_ctry`              | País do locatário do recurso | JWT | | O mesmo que `ctry` Except definido em um nível de locatário por um administrador.  Também deve ser um valor padrão de duas letras. |
 | `xms_pdl`             | Local dos dados preferido   | JWT | | Para locatários de várias regiões geográficas, o local de dados preferencial é o código de três letras que mostra a região geográfica em que o usuário está. Para obter mais informações, confira a [documentação do Azure AD Connect sobre o local de dados preferencial](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Por exemplo: `APC` para Pacífico Asiático. |
 | `xms_pl`                   | Idioma preferido do usuário  | JWT ||O idioma preferido do usuário, se definido. Originado de seu locatário inicial, em cenários de acesso de convidado. Tem o formato II-PP ("en-us"). |

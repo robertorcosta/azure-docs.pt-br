@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049240"
+ms.locfileid: "89068619"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Bloquear a autenticação herdada
 
@@ -37,7 +37,7 @@ As etapas a seguir ajudarão a criar uma política de Acesso Condicional para o 
 1. Em **Aplicativos ou ações de nuvem**, selecione **Todos os aplicativos de nuvem**.
    1. Selecione **Concluído**.
 1. Em **condições**  >  **aplicativos de cliente**, defina **Configurar** como **Sim**.
-   1. Marque apenas as caixas **clientes do Exchange ActiveSync** e **outros clientes**.
+   1. Marque apenas as caixas **clientes do Exchange ActiveSync** e **outros clientes**. Para implantar a política de Acesso Condicional do Exchange ActiveSync no Azure, o usuário também deve ser um Administrador Global.
    1. Selecione **Concluído**.
 1. Em **Controles de acesso** > **Conceder**, selecione **Bloquear acesso**.
    1. Selecione **Selecionar**.
@@ -46,7 +46,7 @@ As etapas a seguir ajudarão a criar uma política de Acesso Condicional para o 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Políticas comuns de Acesso Condicional ](concept-conditional-access-policy-common.md)
+[Políticas comuns de Acesso Condicional](concept-conditional-access-policy-common.md)
 
 [Determinar o impacto usando o modo somente relatório de Acesso Condicional](howto-conditional-access-insights-reporting.md)
 

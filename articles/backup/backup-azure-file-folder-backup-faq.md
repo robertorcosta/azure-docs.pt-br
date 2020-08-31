@@ -3,12 +3,12 @@ title: Agente de Serviços de Recuperação do Microsoft Azure (MARS) – pergun
 description: Aborda perguntas comuns sobre como fazer backup de arquivos e pastas com o backup do Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: ca2753e4d6da7e2e3079f234a3facac27fd5f098
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874615"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144457"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Agente de perguntas frequentes – Serviços de Recuperação do Microsoft Azure (MARS)
 
@@ -109,7 +109,7 @@ O tamanho da pasta de cache determina a quantidade de dados que você está faze
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Como verificar se a pasta de rascunho é válida e acessível?
 
-1. Por padrão, a pasta de rascunho está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+1. Por padrão, a pasta de rascunho está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verifique se o caminho do local da pasta de rascunho corresponde aos valores das entradas da chave do registro mostradas abaixo:
 
     | Caminho do registro | Chave do Registro | Valor |
@@ -123,7 +123,7 @@ O tamanho da pasta de cache determina a quantidade de dados que você está faze
 
     ```Net stop obengine```
 2. Se você tiver configurado o backup do estado do sistema, abra o gerenciamento de disco e desmonte os discos com nomes no formato `"CBSSBVol_<ID>"` .
-3. Por padrão, a pasta de rascunho está localizada em`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+3. Por padrão, a pasta de rascunho está localizada em `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copie a `\Scratch` pasta inteira para uma unidade diferente que tenha espaço suficiente. Certifique-se de que o conteúdo seja copiado, não movido.
 5. Atualize as entradas de registro a seguir com o caminho da pasta de rascunho recentemente movida.
 
@@ -199,7 +199,7 @@ Se você tiver a mesma senha (que você forneceu durante o registro) da máquina
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Meus trabalhos de backup estavam falhando ou não em execução há muito tempo. Estou além do período de retenção. Ainda posso restaurar?
 
-Como medida de segurança, o backup do Azure preservará o último ponto de recuperação, mesmo que ele esteja além do período de retenção. Quando os backups forem retomados e novos pontos de recuperação forem disponibilizados, o ponto de recuperação mais antigo será removido de acordo com a retenção especificada.
+Como medida de segurança, o backup do Azure preservará o ponto de recuperação mais recente, mesmo que ele esteja além do período de retenção. Quando os backups forem retomados e novos pontos de recuperação forem disponibilizados, o ponto de recuperação mais antigo será removido de acordo com a retenção especificada.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>O que acontecerá se eu cancelar um trabalho de restauração em andamento?
 

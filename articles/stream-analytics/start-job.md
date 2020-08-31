@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/03/2019
-ms.openlocfilehash: 0c03eb9d30d204cbfb7fcd8971dd84f2ba5a7737
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bce1f00603d9304fc544fb92d4cc5f1a429504ed
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039170"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068993"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Como iniciar um trabalho de Azure Stream Analytics
 
@@ -32,7 +33,7 @@ O primeiro evento de saída possível teria um carimbo de data/hora igual ou mai
 
 Navegue até o trabalho na portal do Azure e selecione **Iniciar** na página Visão geral. Selecione uma **hora de início de saída do trabalho** e, em seguida, selecione **Iniciar**.
 
-Escolha uma das opções de **hora de início da saída do trabalho**. As opções *agora*são *personalizado*, e, se o trabalho foi executado anteriormente, *quando foi interrompido pela última vez*. Consulte acima para obter mais informações sobre essas opções.
+Escolha uma das opções de **hora de início da saída do trabalho**. As opções *agora*são *personalizado*, e, se o trabalho foi executado anteriormente,  *quando foi interrompido pela última vez*. Consulte acima para obter mais informações sobre essas opções.
 
 ## <a name="visual-studio"></a>Visual Studio
 

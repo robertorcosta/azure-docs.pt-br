@@ -212,16 +212,10 @@
               href: application-sign-in-unexpected-user-consent-prompt.md
             - name: Erro de consentimento do usuário
               href: application-sign-in-unexpected-user-consent-error.md
-            - name: Problemas para entrar no portal personalizado
-              href: application-sign-in-other-problem-deeplink.md
-            - name: Problemas para entrar no painel de acesso
+            - name: Problemas para entrar nos Meus Aplicativos
               href: application-sign-in-other-problem-access-panel.md
             - name: Erro na página de entrada do aplicativo
               href: application-sign-in-problem-application-error.md
-            - name: Problema de logon único com senha - aplicativo inexistente na galeria
-              href: application-sign-in-problem-password-sso-non-gallery.md
-            - name: Problema de logon único com senha - aplicativo da galeria
-              href: application-sign-in-problem-password-sso-gallery.md
             - name: Problema ao entrar em um aplicativo da Microsoft
               href: application-sign-in-problem-first-party-microsoft.md
             - name: Problema com logon único federado - aplicativo inexistente na galeria
@@ -232,14 +226,12 @@
               href: application-sign-in-problem-custom-dev.md
         - name: Solucionar problemas de logon único
           items:
+            - name: Solucionar problemas no logon único baseado em senha
+              href: troubleshoot-password-based-sso.md
             - name: Problemas comuns ao configurar federados - aplicativos da galeria
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: Problemas comuns ao configurar federados - aplicativos inexistentes na galeria
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-            - name: Problemas comuns ao configurar senha - aplicativos da galeria
-              href: configure-password-single-sign-on-gallery-applications-problems.md
-            - name: Problemas comuns ao configurar senha - aplicativos inexistentes na galeria
-              href: configure-password-single-sign-on-non-gallery-applications-problems.md
         - name: Solucionar problemas de atribuição e de lista de aplicativos
           items:
             - name: Gerenciar a lista de aplicativos para seu locatário
@@ -248,16 +240,10 @@
               href: ways-users-get-assigned-to-applications.md
         - name: Solucionar problemas em Meus Aplicativos
           items:
-            - name: Gerenciar extensão do navegador
-              href: manage-access-panel-browser-extension.md
             - name: Aplicativo não aparece
               href: access-panel-troubleshoot-application-not-appearing.md
             - name: Aplicativo inesperado aparece
               href: access-panel-troubleshoot-unexpected-application.md
-            - name: Não é possível entrar
-              href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Erro ao usar o acesso ao aplicativo de autoatendimento
-              href: access-panel-troubleshoot-self-service-access.md
         - name: Solucionar problemas de aplicativos locais
           items:
             - name: Solução de problemas de Proxy de Aplicativo

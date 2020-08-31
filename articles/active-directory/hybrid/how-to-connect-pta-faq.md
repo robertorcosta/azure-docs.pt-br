@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358286"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071424"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -113,7 +113,7 @@ A comunicação entre cada Agente de Autenticação de Passagem e o Azure AD é 
 
 Enquanto um Agente de Autenticação de Passagem estiver em execução, ele permanecerá ativo e continuamente lidará com solicitações de entrada de usuários. Se você quiser desinstalar um Agente de Autenticação, acesse **Painel de Controle -> Programas -> Programas e Recursos** e desinstale os programas **Agente de Autenticação do Microsoft Azure AD Connect** e o **Atualizador do Agente do Microsoft Azure AD Connect**.
 
-Se você verificar a folha de Autenticação de Passagem no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir a etapa anterior, verá o agente de autenticação exibido como **Inativo**. Isso é _esperado_. O Agente de Autenticação será descartado automaticamente da lista depois de alguns dias.
+Se você verificar a folha de Autenticação de Passagem no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com) depois de concluir a etapa anterior, verá o agente de autenticação exibido como **Inativo**. Isso é _esperado_. O agente de autenticação é descartado automaticamente da lista após 10 dias.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Já uso o AD FS para entrar no Azure AD. Como fazer para passar dele para a Autenticação de Passagem?
 

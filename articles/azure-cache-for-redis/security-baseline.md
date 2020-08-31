@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ea46a42fa8063aaf1d67c4f5ae0d2eef3a83fd5a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e22e7c1295747725cf40f1fd1b84b49ab6d6fbb2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242688"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071186"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Linha de base de segurança do Azure para o cache do Azure para Redis
 
@@ -158,7 +158,7 @@ Apenas conexões seguras com o Cache Redis devem ser habilitadas
 
 A Proteção contra DDoS Standard deve ser habilitada
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager (ARM), controle de acesso baseado em função (RBAC) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager (ARM), controle de acesso baseado em função do Azure (RBAC do Azure) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
 
 Como configurar e gerenciar Azure Policy:
 
@@ -216,7 +216,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 **Diretrizes**: Habilite as configurações de diagnóstico do Log de Atividades do Azure e envie os logs para um workspace do Log Analytics, um hub de eventos do Azure ou uma conta de armazenamento do Azure para arquivar. Os logs de atividade fornecem informações sobre as operações que foram realizadas no cache do Azure para instâncias Redis no nível do plano de controle. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) executada no nível do plano de controle para o cache do Azure para instâncias Redis.
 
-Como habilitar as configurações de diagnóstico para o log de atividades do Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Como habilitar as configurações de diagnóstico para o log de atividades do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -228,7 +228,7 @@ Como habilitar as configurações de diagnóstico para o log de atividades do Az
 
 Embora as métricas estejam disponíveis habilitando as configurações de diagnóstico, o log de auditoria no plano de dados ainda não está disponível para o cache do Azure para Redis.
 
-Como habilitar as configurações de diagnóstico para o log de atividades do Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Como habilitar as configurações de diagnóstico para o log de atividades do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -262,9 +262,9 @@ https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#chan
 
 Observe que o log de auditoria no plano de dados ainda não está disponível para o cache do Azure para Redis.
 
-Como habilitar as configurações de diagnóstico para o log de atividades do Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Como habilitar as configurações de diagnóstico para o log de atividades do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
-Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor:https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect
+Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-collect
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -276,7 +276,7 @@ Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Lo
 
 Embora as métricas estejam disponíveis habilitando as configurações de diagnóstico, o log de auditoria no plano de dados ainda não está disponível para o cache do Azure para Redis.
 
-Como configurar alertas para o cache do Azure para Redis:https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts
+Como configurar alertas para o cache do Azure para Redis: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -314,9 +314,9 @@ Como configurar alertas para o cache do Azure para Redis:https://docs.microsoft.
 
 **Diretrizes**: o Azure Active Directory (AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-Como obter uma função de diretório no Azure AD com o PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Como obter uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-Como obter membros de uma função de diretório no Azure AD com o PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Como obter membros de uma função de diretório no Azure AD com o PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -330,7 +330,7 @@ O acesso do plano de dados ao cache do Azure para Redis é controlado por meio d
 
 Não é recomendável que você crie senhas padrão em seu aplicativo. Em vez disso, você pode armazenar suas senhas em Azure Key Vault e, em seguida, usar Azure Active Directory para recuperá-las.
 
-Como regenerar o cache do Azure para chaves de acesso Redis:https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings
+Como regenerar o cache do Azure para chaves de acesso Redis: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -348,9 +348,9 @@ Além disso, para ajudá-lo a controlar contas administrativas dedicadas, você 
 
 - As contas externas com permissões de proprietário devem ser removidas de sua assinatura
 
-Como usar a central de segurança do Azure para monitorar a identidade e o acesso (visualização):https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Como usar a central de segurança do Azure para monitorar a identidade e o acesso (visualização): https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Como usar Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Como usar Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -361,7 +361,7 @@ Como usar Azure Policy:https://docs.microsoft.com/azure/governance/policy/tutori
 
 **Diretrizes**: o cache do Azure para Redis usa chaves de acesso para autenticar usuários e não oferece suporte ao SSO (logon único) no nível do plano de dados. O acesso ao plano de controle para o cache do Azure para Redis está disponível por meio da API REST e dá suporte a SSO. Para autenticar, defina o cabeçalho de autorização para suas solicitações como um Token Web JSON que você obtém no Azure Active Directory.
 
-Entender o cache do Azure para a API REST do Redis:https://docs.microsoft.com/rest/api/redis/
+Entender o cache do Azure para a API REST do Redis: https://docs.microsoft.com/rest/api/redis/
 
 Entenda SSO com o Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
@@ -437,7 +437,7 @@ A autenticação do Azure AD não pode ser usada para acesso direto ao cache do 
 
 **Diretrizes**: o Azure Active Directory (AD) fornece logs para ajudá-lo a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo. 
 
-Entender os relatórios do Azure AD:https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Entender os relatórios do Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
 Como usar as revisões de acesso de identidade do Azure: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
@@ -453,7 +453,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 Como integrar os logs de atividades do Azure ao Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-Como integrar o Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Como integrar o Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -465,7 +465,7 @@ Como integrar o Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickst
 
 Como exibir entradas suspeitas do Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Como configurar e habilitar políticas de risco de proteção de identidade:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Como configurar e habilitar políticas de risco de proteção de identidade: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
 Como integrar o Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
@@ -535,7 +535,7 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 
 A Microsoft gerencia a infraestrutura subjacente para o cache do Azure para Redis e implementou controles estritos para evitar a perda ou a exposição dos dados do cliente.
 
-Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Entender a proteção de dados do cliente no Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -563,7 +563,7 @@ https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet
 
 Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e faz todo o esforço possível para proteger contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
-Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Entender a proteção de dados do cliente no Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -571,9 +571,9 @@ Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/az
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: usar o RBAC (controle de acesso baseado em função) Azure Active Directory (AAD) para controlar o acesso ao cache do Azure para o plano de controle Redis (ou seja, portal do Azure). 
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao cache do Azure para o plano de controle Redis (ou seja, portal do Azure). 
 
-Como configurar o RBAC do Azure: 
+Como configurar o RBAC do Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -603,11 +603,11 @@ Se estiver usando o cache do Azure para o recurso Redis "persistência de dados 
 
 Os dados no armazenamento do Azure são criptografados e descriptografados de forma transparente usando a criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2. A criptografia de armazenamento do Azure não pode ser desabilitada. Você pode contar com chaves gerenciadas pela Microsoft para a criptografia da sua conta de armazenamento ou pode gerenciar a criptografia com suas próprias chaves.
 
-Como configurar a persistência no cache do Azure para Redis:https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence
+Como configurar a persistência no cache do Azure para Redis: https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-persistence
 
-Entender a criptografia para contas de armazenamento do Azure:https://docs.microsoft.com/azure/storage/common/storage-service-encryption
+Entender a criptografia para contas de armazenamento do Azure: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
 
-Entender a proteção de dados do cliente do Azure:https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
+Entender a proteção de dados do cliente do Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -635,7 +635,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 A Microsoft executa o gerenciamento de vulnerabilidades nos sistemas subjacentes que dão suporte ao cache do Azure para Redis.
 
-Entenda as recomendações da central de segurança do Azure:https://docs.microsoft.com/azure/security-center/recommendations-reference
+Entenda as recomendações da central de segurança do Azure: https://docs.microsoft.com/azure/security-center/recommendations-reference
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -643,7 +643,7 @@ Entenda as recomendações da central de segurança do Azure:https://docs.micros
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implantar solução automatizada de gerenciamento de patch de sistema operacional
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -651,7 +651,7 @@ Entenda as recomendações da central de segurança do Azure:https://docs.micros
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implantar uma solução automatizada de gerenciamento de patch de software de terceiros
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -659,7 +659,7 @@ Entenda as recomendações da central de segurança do Azure:https://docs.micros
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Comparar verificações de vulnerabilidade consecutivas
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1087,7 +1087,7 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 **Diretrizes**: o cache do Azure para backups Redis de Redis exportação e persistência de Redis são armazenados em sua conta de armazenamento do Azure selecionada. Os dados no armazenamento do Azure são criptografados e descriptografados de forma transparente usando a criptografia AES de 256 bits, uma das codificações de bloco mais fortes disponíveis e é compatível com o FIPS 140-2. A criptografia de armazenamento do Azure não pode ser desabilitada. Você pode contar com chaves gerenciadas pela Microsoft para a criptografia da sua conta de armazenamento ou pode gerenciar a criptografia com suas próprias chaves.
 
-Entender a criptografia para contas de armazenamento do Azure:https://docs.microsoft.com/azure/storage/common/storage-service-encryption
+Entender a criptografia para contas de armazenamento do Azure: https://docs.microsoft.com/azure/storage/common/storage-service-encryption
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

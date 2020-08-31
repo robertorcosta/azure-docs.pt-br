@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120772"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068466"
 ---
 # <a name="publisher-verification-preview"></a>Verificação do editor (versão prévia)
 
@@ -42,13 +42,13 @@ Há alguns pré-requisitos para a verificação do editor, alguns dos quais já 
 
 -  Uma ID de MPN para uma conta do [Microsoft Partner Network](https://partner.microsoft.com/membership) válida que concluiu o processo de [verificação](/partner-center/verification-responses). Essa conta MPN deve ser a [PGA (Conta do Parceiro Globlal)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) da sua organização. 
 
--  Um locatário do Azure AD com o [domínio personalizado](../fundamentals/add-custom-domain.md) verificado pelo DNS. O domínio personalizado deve corresponder ao domínio do endereço de email usado durante a verificação na etapa anterior. 
+-  Um aplicativo registrado em um locatário do Azure AD, com um [domínio do Publicador](howto-configure-publisher-domain.md) configurado.
 
--  Um aplicativo registrado em um locatário do Azure AD, com um [Domínio do Editor](howto-configure-publisher-domain.md) configurado usando o mesmo domínio usado anteriormente. 
+-  O domínio do endereço de email usado durante a verificação da conta do MPN deve corresponder ao domínio do Publicador configurado no aplicativo ou a um [domínio personalizado](../fundamentals/add-custom-domain.md) verificado pelo DNS adicionado ao locatário do Azure AD. 
 
 -  O usuário que está realizando a verificação deve ser autorizado a fazer alterações no registro do aplicativo no Azure AD e na conta do MPN no Partner Center. 
 
-    -  No Azure Active Directory, esse usuário deve ser o proprietário do aplicativo ou ter uma das seguintes [funções](../users-groups-roles/directory-assign-admin-roles.md): Administrador de aplicativos, administrador de aplicativos de nuvem, administrador global. 
+    -  No Azure AD, esse usuário deve ser um membro de uma das seguintes [funções](../users-groups-roles/directory-assign-admin-roles.md): administrador de aplicativos, administrador de aplicativos de nuvem ou administrador global. 
 
     -  No Partner Center, esse usuário deve ter as seguintes [funções](/partner-center/permissions-overview): Administrador de MPN, administrador de contas ou um administrador global (essa é uma função compartilhada controlada no Azure Active Directory).
     
