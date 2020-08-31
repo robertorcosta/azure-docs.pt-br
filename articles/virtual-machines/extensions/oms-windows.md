@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 19d94c7ec08dbf2556ae72da2f0e5645fb228569
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 501681a17603fb21e073b04e48d23f1b566f8128
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020500"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067681"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Log Analytics para Windows
 
@@ -36,6 +36,7 @@ A tabela a seguir fornece um mapeamento da versão da extensão de VM do Windows
 
 | Log Analytics versão do pacote do agente do Windows | Log Analytics versão da extensão de VM do Windows | Data de lançamento | Notas sobre a versão |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18038 | 1.0.18040.2 | Agosto de 2020   | <ul><li>Resolve um problema no arco do Azure</li></ul> |
 | 10.20.18038 | 1.0.18038 | Abril de 2020   | <ul><li>Habilita a conectividade sobre o link privado usando Azure Monitor escopos de link privado</li><li>Adiciona limitação de ingestão para evitar um influxo repentino e acidental na ingestão para um espaço de trabalho</li><li>Adiciona suporte para nuvens e regiões adicionais do Azure governamental</li><li>Resolve um bug em que HealthService.exe falhou</li></ul> |
 | 10.20.18029 | 1.0.18029 | Março de 2020   | <ul><li>Adiciona suporte à assinatura de código SHA-2</li><li>Melhora a instalação e o gerenciamento da extensão de VM</li><li>Resolve um bug no Azure ARC para integração de servidores</li><li>Adiciona uma ferramenta de solução de problemas interna para atendimento ao cliente</li><li>Adiciona suporte para regiões adicionais do Azure governamental</li> |
 | 10.20.18018 | 1.0.18018 | Outubro de 2019 | <ul><li> Correções de bugs e melhorias de estabilização secundárias </li></ul> |

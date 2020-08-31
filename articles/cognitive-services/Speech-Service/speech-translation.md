@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/27/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934490"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055525"
 ---
 # <a name="what-is-speech-translation"></a>O que é tradução de fala?
 
@@ -30,25 +30,14 @@ Hoje, a Microsoft usa o NMT para tradução para as linguagens mais populares. T
 
 ## <a name="core-features"></a>Principais recursos
 
-Aqui estão os recursos disponíveis por meio do SDK de fala e APIs REST:
+* Tradução de conversão de fala em texto com resultados de reconhecimento.
+* Conversão de fala em fala.
+* Suporte para tradução para vários idiomas de destino.
+* Resultados de tradução e de reconhecimento provisórios.
 
-| Caso de uso | . | REST |
-|----------|-----|------|
-| Tradução de conversão de fala em texto com resultados de reconhecimento. | Sim | Não |
-| Conversão de fala em fala. | Sim | Não |
-| Resultados de tradução e de reconhecimento provisórios. | Sim | Não |
+## <a name="get-started"></a>Introdução 
 
-## <a name="get-started-with-speech-translation"></a>Introdução à tradução de fala
-
-Oferecemos guias de início rápido projetados para que você execute códigos em menos de 10 minutos. Esta tabela inclui uma lista de guias de início rápido de tradução de fala organizados por idioma.
-
-| Guia de Início Rápido | Plataforma | Referência de API |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Procurar](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Procurar](https://aka.ms/csspeech/javaref) |
+Consulte o guia de [início rápido](get-started-speech-translation.md) para começar a usar a tradução de fala. O serviço de tradução de fala está disponível por meio do [SDK de fala](speech-sdk.md) e da [CLI de fala](spx-overview.md).
 
 ## <a name="sample-code"></a>Código de exemplo
 
@@ -72,5 +61,6 @@ Se seus aplicativos, ferramentas ou produtos estiverem usando o [API de traduç�
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* Concluir o [início rápido](get-started-speech-translation.md) da tradução de fala
 * [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
 * [Obter o SDK de Fala](speech-sdk.md)

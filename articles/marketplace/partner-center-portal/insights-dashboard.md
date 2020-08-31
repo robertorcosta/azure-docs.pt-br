@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 1a645a333db9b24005639f4adbb2913a2b887b66
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607148"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055661"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Painel Insights do Marketplace no Partner Center
 
@@ -66,7 +66,10 @@ Veja as métricas do Marketplace comercial de várias maneiras:
 
 ## <a name="marketplace-insights-summary"></a>Resumo do Insights do Marketplace
 
-A seção de resumo do Insights do Marketplace exibe uma contagem de **Visitas à página**, **Planos de ação** e **Visitantes exclusivos** no intervalo de datas selecionado.
+A seção Resumo do Marketplace insights exibe uma contagem de **visitas à página**, **chamadas para ação**e **visitantes exclusivos** para o intervalo de datas selecionado.
+
+>[!NOTE]
+>O painel do Marketplace insights fornece dados de cliques, que não devem ser correlacionados com clientes potenciais gerados no ponto de extremidade de destino do cliente potencial.
 
 ### <a name="page-visits"></a>Visitas à página
 

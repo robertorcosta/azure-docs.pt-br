@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 73c0eeb718bb6ede8215ed3a87e246185a248ffd
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800361"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054981"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -42,8 +42,8 @@ Leste dos EUA, Oeste dos EUA 2, Oeste da Europa e Sudeste Asiático.
 
 Durante a versão de visualização, o Azure Spring Cloud tem as seguintes limitações conhecidas:
 
-* `spring.application.name`será substituído pelo nome do aplicativo usado para criar cada aplicativo.
-* `server.port`o padrão é as portas 80/443. Se qualquer outro valor for aplicado, ele será substituído para 80/443.
+* `spring.application.name` será substituído pelo nome do aplicativo usado para criar cada aplicativo.
+* `server.port` o padrão é as portas 80/443. Se qualquer outro valor for aplicado, ele será substituído para 80/443.
 * Os modelos portal do Azure e Azure Resource Manager não dão suporte ao carregamento de pacotes de aplicativos. Você pode carregar pacotes de aplicativos somente implantando o aplicativo por meio do CLI do Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Quais tipos de preço estão disponíveis? 
@@ -88,6 +88,12 @@ Sim.
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando eu excluir/mover uma instância do serviço de nuvem do Azure Spring, seus recursos de extensão também serão excluídos/movidos?
 
 Depende da lógica dos provedores de recursos que possuem os recursos de extensão. Os recursos de extensão de uma `Microsoft.AppPlatform` instância não pertencem ao mesmo namespace, portanto, o comportamento varia de acordo com o provedor de recursos. Por exemplo, a operação de exclusão/movimentação não será em cascata para os recursos de **configurações de diagnóstico** . Se uma nova instância do Azure Spring Cloud for provisionada com a mesma ID de recurso que a excluída, ou se a instância anterior do Azure Spring Cloud for movida de volta, os recursos anteriores de **configurações de diagnóstico** continuarão a estendê-la.
+
+Você pode excluir as configurações de diagnóstico da Spring Cloud usando CLI do Azure:
+
+```azurecli
+ az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
+```
 
 ## <a name="java-runtime-and-os-versions"></a>Tempo de execução Java e versões do sistema operacional
 

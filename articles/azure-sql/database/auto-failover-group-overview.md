@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.date: 08/28/2020
+ms.openlocfilehash: 68fa972d45ab0db6e5274142f550c2bd829e7917
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245563"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055576"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Além disso, os grupos de failover automático fornecem pontos de extremidade de
 
 Quando você estiver usando grupos de failover automático com a política de failover automático, qualquer interrupção que afete os bancos de dados em um servidor ou instância gerenciada resultará em failover automático. Você pode gerenciar o grupo de failover automático usando:
 
-- [Portal do Azure](geo-distributed-application-configure-tutorial.md)
+- [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [CLI do Azure: grupo de failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: grupo de failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: grupo de failover](/rest/api/sql/failovergroups).
@@ -257,7 +257,7 @@ Ao executar operações de OLTP, use `<fog-name>.zone_id.database.windows.net` c
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Usando o ouvinte somente leitura para se conectar à instância secundária
 
-Se houver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualizações de dados, você poderá usar o banco de dados secundário no aplicativo. Para se conectar diretamente ao secundário com replicação geográfica, use `server.secondary.zone_id.database.windows.net` como a URL do servidor.
+Se houver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualizações de dados, você poderá usar o banco de dados secundário no aplicativo. Para se conectar diretamente ao secundário com replicação geográfica, use `<fog-name>.zone_id.secondary.database.windows.net` como a URL do servidor.
 
 > [!NOTE]
 > Em determinadas camadas de serviço, o banco de dados SQL dá suporte ao uso de [réplicas somente leitura](read-scale-out.md) para balancear a carga de cargas de trabalho de consulta somente leitura usando a capacidade de uma réplica somente leitura e usando o `ApplicationIntent=ReadOnly` parâmetro na cadeia de conexão. Quando você tiver configurado um secundário replicado geograficamente, você pode usar essa funcionalidade para se conectar a uma réplica somente leitura na localização do primário ou na localização com replicação geográfica.

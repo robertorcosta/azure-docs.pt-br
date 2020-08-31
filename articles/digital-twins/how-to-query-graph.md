@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824943"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055627"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
@@ -24,9 +24,21 @@ O restante deste artigo fornece exemplos de como usar essas operações.
 
 ## <a name="query-syntax"></a>Sintaxe de consulta
 
-Esta seção contém consultas de exemplo que ilustram a estrutura de linguagem de consulta e executam possíveis operações de consulta.
+Esta seção contém consultas de exemplo que ilustram a estrutura de linguagem de consulta e executam operações de consulta possíveis em [gêmeos digital](concepts-twins-graph.md).
 
-Obter [gêmeos digital](concepts-twins-graph.md) por Propriedades (incluindo a ID e os metadados):
+### <a name="select-top-items"></a>Selecionar itens principais
+
+Você pode selecionar os vários itens "principais" em uma consulta usando a `Select TOP` cláusula.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE ...
+```
+
+### <a name="query-by-property"></a>Consulta por Propriedade
+
+Obter gêmeos digital por **Propriedades** (incluindo a ID e os metadados):
 ```sql
 SELECT  * 
 FROM DigitalTwins T  
@@ -38,24 +50,29 @@ AND T.Temperature = 70
 > [!TIP]
 > A ID de uma teledigital é consultada usando o campo de metadados `$dtId` .
 
-Você também pode obter gêmeos por suas propriedades de *marca* , conforme descrito em [Adicionar marcas ao gêmeos digital](how-to-use-tags.md):
+Você também pode obter gêmeos com base no **fato de uma determinada propriedade ser definida**. Aqui está uma consulta que obtém gêmeos que têm uma propriedade *Location* definida:
+
+```sql
+SELECT *
+FROM DIGITALTWINS WHERE IS_DEFINED(Location)
+```
+
+Isso pode ajudá-lo a obter gêmeos por suas propriedades de *marca* , conforme descrito em [Adicionar marcas ao gêmeos digital](how-to-use-tags.md). Aqui está uma consulta que obtém todos os gêmeos marcados com *vermelho*:
+
 ```sql
 select * from digitaltwins where is_defined(tags.red) 
 ```
 
-### <a name="select-top-items"></a>Selecionar itens principais
-
-Você pode selecionar os vários itens "principais" em uma consulta usando a `Select TOP` cláusula.
+Você também pode obter gêmeos com base no **tipo de uma propriedade**. Aqui está uma consulta que obtém gêmeos cuja propriedade de *temperatura* é um número:
 
 ```sql
-SELECT TOP (5)
-FROM DIGITALTWINS
-WHERE property = 42
+SELECT * FROM DIGITALTWINS T
+WHERE IS_NUMBER(T.Temperature)
 ```
 
 ### <a name="query-by-model"></a>Consulta por modelo
 
-O `IS_OF_MODEL` operador pode ser usado para filtrar com base no [modelo](concepts-models.md)de entrelaçamento. Ele dá suporte à herança e tem várias opções de sobrecarga.
+O `IS_OF_MODEL` operador pode ser usado para filtrar com base no [**modelo**](concepts-models.md)de entrelaçamento. Ele dá suporte à herança e tem várias opções de sobrecarga.
 
 O uso mais simples de `IS_OF_MODEL` usa apenas um `twinTypeName` parâmetro: `IS_OF_MODEL(twinTypeName)` .
 Aqui está um exemplo de consulta que passa um valor nesse parâmetro:
@@ -87,7 +104,7 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### <a name="query-based-on-relationships"></a>Consulta baseada em relações
 
-Ao consultar com base em relações de gêmeos digital, a linguagem de consulta gêmeos digital do Azure tem uma sintaxe especial.
+Ao consultar com base em **relações**de gêmeos digital, a linguagem de consulta gêmeos digital do Azure tem uma sintaxe especial.
 
 As relações são retiradas no escopo de consulta na `FROM` cláusula. Uma distinção importante das linguagens do tipo SQL "clássico" é que cada expressão nessa `FROM` cláusula não é uma tabela; em vez disso, a `FROM` cláusula expressa uma passagem de relacionamento entre entidades e é escrita com uma versão do gêmeos digital do Azure do `JOIN` . 
 
@@ -117,7 +134,8 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
 
-Da mesma forma que o gêmeos digital tem propriedades descritas por meio de DTDL, as relações também podem ter propriedades. A linguagem de consulta do gêmeos digital do Azure permite filtrar e projeção de relações, atribuindo um alias à relação dentro da `JOIN` cláusula. 
+Da mesma forma que o gêmeos digital tem propriedades descritas por meio de DTDL, as relações também podem ter propriedades. Você pode consultar gêmeos **com base nas propriedades de suas relações**.
+A linguagem de consulta do gêmeos digital do Azure permite filtrar e projeção de relações, atribuindo um alias à relação dentro da `JOIN` cláusula. 
 
 Como exemplo, considere uma relação *servicedBy* que tem uma propriedade *reportedCondition* . Na consulta abaixo, essa relação recebe um alias de ' R ' para referenciar sua propriedade.
 
@@ -142,10 +160,20 @@ SELECT LightBulb
 FROM DIGITALTWINS Room 
 JOIN LightPanel RELATED Room.contains 
 JOIN LightBulb RELATED LightPanel.contains 
-WHERE IS_OF_MODEL(LightPanel, ‘dtmi:contoso:com:lightpanel;1’) 
-AND IS_OF_MODEL(LightBulb, ‘dtmi:contoso:com:lightbulb ;1’) 
-AND Room.$dtId IN [‘room1’, ‘room2’] 
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1') 
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1') 
+AND Room.$dtId IN ['room1', 'room2'] 
 ```
+
+### <a name="other-compound-query-examples"></a>Outros exemplos de consulta composta
+
+Você pode **combinar** qualquer um dos tipos de consulta acima usando operadores de combinação para incluir mais detalhes em uma única consulta. Aqui estão alguns exemplos adicionais de consultas compostas que consultam mais de um tipo de descritor de texto ao mesmo tempo.
+
+| Descrição | Consulta |
+| --- | --- |
+| Os dispositivos que a *sala 123* tem, retornam os dispositivos MxChip que atendem à função de operador | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
+| Obtenha gêmeos que têm uma relação chamada *Contains* com outro "My" que tem uma ID de *ID1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
+| Obter todas as salas deste modelo de sala que estão contidas por *floor11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
 
 ## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada à API
 

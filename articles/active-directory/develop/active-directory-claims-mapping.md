@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853370"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068636"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como fazer: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -302,7 +302,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 | Usuário | streetaddress | Endereço |
 | Usuário | postalcode | Código postal |
 | Usuário | preferredlanguange | Idioma preferencial |
-| Usuário | onpremisesuserprincipalname | UPN local |
+| Usuário | onpremisesuserprincipalname | UPN local |*
 | Usuário | mailNickname | Apelido de email |
 | Usuário | extensionattribute1 | Atributo de extensão 1 |
 | Usuário | extensionattribute2 | Atributo de extensão 2 |
@@ -340,6 +340,8 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 - O JwtClaimType deve conter o nome da declaração a ser emitida em JWTs.
 - O SamlClaimType deve conter o URI da declaração a ser emitida em tokens SAML.
+
+* **atributo onPremisesUserPrincipalName:** Ao usar uma ID alternativa, o atributo local userPrincipalName é sincronizado com o atributo onPremisesUserPrincipalName do Azure AD. Esse atributo só estará disponível quando a ID alternativa estiver configurada, mas também estiver disponível por meio do MS Graph beta: https://graph.microsoft.com/beta/me/ .
 
 > [!NOTE]
 > Nomes e URIs de declarações no conjunto de declaração restritas não podem ser usados para os elementos de tipo de declaração. Para obter mais informações, consulte a seção "Restrições e exceções" mais adiante neste artigo.

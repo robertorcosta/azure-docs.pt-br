@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 475933bcc9219808087671d49778cc3696d8c815
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 46aae2acb1f35eb22259e1e648fb869c23f26c9c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500786"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067664"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql-single-server"></a>Linha de base de segurança do Azure para o Banco de Dados do Azure para o servidor único PostgreSQL
 
@@ -549,7 +549,7 @@ Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/az
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao banco de dados do Azure para o plano de controle PostgreSQL (por exemplo, portal do Azure). Para o acesso do plano de dados (dentro do próprio banco de dados), use consultas SQL para criar usuários e configurar permissões de usuário. O RBAC não afeta permissões de usuário no banco de dados.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao banco de dados do Azure para o plano de controle PostgreSQL (por exemplo, portal do Azure). Para o acesso do plano de dados (dentro do próprio banco de dados), use consultas SQL para criar usuários e configurar permissões de usuário. O RBAC do Azure não afeta as permissões de usuário no banco de dados.
 
 Como configurar o RBAC do Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -614,7 +614,7 @@ Cobertura de recurso para serviços de PaaS do Azure na Central de Segurança do
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implantar solução automatizada de gerenciamento de patch de sistema operacional
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -622,7 +622,7 @@ Cobertura de recurso para serviços de PaaS do Azure na Central de Segurança do
 
 ### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implantar uma solução automatizada de gerenciamento de patch de software de terceiros
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -630,7 +630,7 @@ Cobertura de recurso para serviços de PaaS do Azure na Central de Segurança do
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Comparar verificações de vulnerabilidade consecutivas
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -936,7 +936,7 @@ Como configurar o verificador de credenciais: https://secdevtools.azurewebsites.
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usar software antimalware gerenciado centralmente
 
-**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável; esta recomendação destina-se a recursos de computação.
 
 O antimalware da Microsoft está habilitado no host subjacente que oferece suporte aos serviços do Azure (por exemplo, Serviço de Aplicativo do Azure), mas não é executado no conteúdo do cliente.
 

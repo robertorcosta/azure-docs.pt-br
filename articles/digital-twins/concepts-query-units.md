@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5334a1196ac8044c56e615cf8894b44646b48fb4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88615100"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067698"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unidades de consulta no gêmeos digital do Azure 
 
@@ -20,7 +20,9 @@ Uma **t (unidade de consulta** gêmeos digital) do Azure é uma unidade de compu
 
 Ele abstrai os recursos do sistema, como CPU, IOPS e memória, necessários para executar operações de consulta com suporte do Azure digital gêmeos, permitindo que você acompanhe o uso em unidades de consulta.
 
-A complexidade da consulta afeta quantas QUs são consumidas para executar essa consulta. 
+A quantidade de unidades de consulta consumidas para executar uma consulta é afetada por...
+* a complexidade da consulta 
+* o tamanho do conjunto de resultados (portanto, uma consulta que retorna 10 resultados consumirá mais QUs do que uma consulta de complexidade semelhante que retorna apenas um resultado)
 
 Este artigo explica como entender as unidades de consulta e acompanhar o consumo da unidade de consulta.
 

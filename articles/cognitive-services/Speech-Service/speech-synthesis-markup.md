@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 069e0f2d14dafe0de208ac69d2d652361a11ee34
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d924c019d5ee231f3c9d66a56c4d98857bc89abc
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012425"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055542"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -238,7 +238,8 @@ Use esta tabela para determinar quais estilos de fala têm suporte para cada voz
 |                         | `style="angry"`           | Expressa um tom irritado e incomodar, com densidade inferior, intensidade mais alta e energia vocal maior. O palestrante está em um estado de ser irate, dese incomodados.       |
 |                         | `style="fearful"`         | Expressa um tom de medo e preocupados, com mais densidade, mais energia vocal e taxa mais rápida. O palestrante está em um estado de tenseness e não mais fácil.                          |
 |                         | `style="disgruntled"`     | Expressa um tom de disdainful e reclamação. A fala dessa emoção exibe o desprazer e a contentation.              |
-|                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.          | |                         | `style="affectionate"`    | Expressa um tom quente e affectionate, com densidade mais alta e energia vocal. O palestrante está em um estado de atrair a atenção do ouvinte. A "personalidade" do orador muitas vezes é muito prequerida por natureza.          |     
+|                         | `style="serious"`         | Expressa um tom estrito e de comando. O palestrante geralmente parece mais rígido e muito menos relaxado com a cadência da empresa.          |
+|                         | `style="affectionate"`    | Expressa um tom quente e affectionate, com densidade mais alta e energia vocal. O palestrante está em um estado de atrair a atenção do ouvinte. A "personalidade" do orador muitas vezes é muito prequerida por natureza.          |     
 |                         | `style="gentle"`          | Expressa um tom leve, educado e agradável, com densidade mais baixa e energia vocal         |   
 |                         | `style="lyrical"`         | Expressa emoções de uma maneira Melodic e tem valor sentimental         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Expressa um tom amigável e útil para o atendimento ao cliente  | 

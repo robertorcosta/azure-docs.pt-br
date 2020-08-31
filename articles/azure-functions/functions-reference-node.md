@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3e5431481cba0d2d806d60ba5d7a291d1b2b69
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810109"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055321"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -20,7 +20,7 @@ Como um Express.js, Node.js ou desenvolvedor de JavaScript, se você for novo no
 
 | Introdução | Conceitos| Aprendizagem orientada |
 | -- | -- | -- | 
-| <ul><li>[Node.js função usando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[FunçãoNode.js com terminal/prompt de comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js função usando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[ FunçãoNode.js com terminal/prompt de comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Noções básicas da função JavaScript
 
@@ -183,15 +183,38 @@ Para definir o tipo de dados para uma associação de entrada, use a propriedade
 As opções para `dataType` são: `binary`, `stream` e `string`.
 
 ## <a name="context-object"></a>objeto de contexto
-O runtime usa um objeto `context` para passar dados de/para sua função e permitir que você se comunique com o runtime. O objeto de contexto pode ser usado para ler e definir os dados de associações, gravar logs e usando o `context.done` retorno de chamada quando a função exportada é síncrona.
 
-O `context` objeto é sempre o primeiro parâmetro para uma função. Deve ser incluído porque tem métodos importantes, como `context.done` e `context.log`. Você pode nomear o objeto de acordo com a sua preferência (por exemplo, `ctx` ou `c`).
+O tempo de execução usa um `context` objeto para passar dados de e para sua função e o tempo de execução. Usado para ler e definir dados de associações e para gravar em logs, o `context` objeto é sempre o primeiro parâmetro passado para uma função.
+
+Para funções que apresentam código síncrono, o objeto de contexto inclui o retorno de chamada `done` que você chama quando a função é feita no processamento. Chamar explicitamente `done` é desnecessário ao escrever código assíncrono; o retorno de chamada `done` é chamado implicitamente.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(ctx) {
-    // function logic goes here :)
-    ctx.done();
+module.exports = (context) => {
+
+    // function logic goes here
+
+    context.log("The function has executed.");
+
+    context.done();
+};
+```
+
+O contexto passado para sua função expõe uma `executionContext` propriedade, que é um objeto com as seguintes propriedades:
+
+| Nome da propriedade  | Type  | Descrição |
+|---------|---------|---------|
+| `invocationId` | String | Fornece um identificador exclusivo para a invocação de função específica. |
+| `functionName` | Cadeia de caracteres | Fornece o nome da função em execução |
+| `functionDirectory` | Cadeia de caracteres | Fornece o diretório de aplicativos do functions. |
+
+O exemplo a seguir mostra como retornar o `invocationId` .
+
+```javascript
+module.exports = (context, req) => {
+    context.res = {
+        body: context.executionContext.invocationId
+    };
+    context.done();
 };
 ```
 
@@ -201,7 +224,7 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Retorna um objeto nomeado que é usado para ler ou atribuir dados de associação. Dados de associação de entrada e gatilho podem ser acessados lendo propriedades em `context.bindings` . Os dados de associação de saída podem ser atribuídos adicionando dados a`context.bindings`
+Retorna um objeto nomeado que é usado para ler ou atribuir dados de associação. Dados de associação de entrada e gatilho podem ser acessados lendo propriedades em `context.bindings` . Os dados de associação de saída podem ser atribuídos adicionando dados a `context.bindings`
 
 Por exemplo, as seguintes definições de ligação em sua função.json permitem acessar o conteúdo de uma fila de `context.bindings.myInput`e atribuir saídas a uma fila usando`context.bindings.myOutput`.
 
@@ -436,7 +459,7 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 
 Veja versão atual que o runtime está usando verificando a configuração de aplicativo acima ou imprimindo `process.version` de qualquer função. Direcione a versão no Azure definindo a configuração do [aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION como uma versão do LTS com suporte, como `~10` .
 
-## <a name="dependency-management"></a>Gerenciamento de dependências
+## <a name="dependency-management"></a>Gerenciamento de dependência
 Para usar as bibliotecas da comunidade no código JavaScript, como é mostrado no exemplo abaixo, você precisa garantir que todas as dependências sejam instaladas no aplicativo de funções no Azure.
 
 ```javascript
@@ -464,7 +487,7 @@ Há duas maneiras de instalar pacotes no aplicativo de funções:
 
 
 ### <a name="using-kudu"></a>Usando o Kudu
-1. Acesse `https://<function_app_name>.scm.azurewebsites.net`.
+1. Ir para `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Clique em **console de depuração**  >  **cmd**.
 
@@ -647,7 +670,7 @@ No desenvolvimento de Azure Functions no modelo de hospedagem sem servidor, as i
 
 Quando você usa um cliente específico do serviço em um aplicativo Azure Functions, não crie um novo cliente com cada invocação de função. Em vez disso, crie um único cliente estático no escopo global. Para obter mais informações, consulte [Managing Connections in Azure Functions](manage-connections.md).
 
-### <a name="use-async-and-await"></a>Usar `async` e`await`
+### <a name="use-async-and-await"></a>Usar `async` e `await`
 
 Ao escrever Azure Functions em JavaScript, você deve escrever código usando as `async` `await` palavras-chave e. Escrever código usando `async` e `await` em vez de retornos de chamada ou `.then` `.catch` com promessas ajuda a evitar dois problemas comuns:
  - Lançar exceções não capturadas que [falham no processo de Node.js](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potencialmente afetando a execução de outras funções.
