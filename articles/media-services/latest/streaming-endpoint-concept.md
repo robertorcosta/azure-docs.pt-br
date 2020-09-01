@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Saiba mais sobre os pontos de extremidade de streaming (origem), um serviço de empacotamento dinâmico e streaming que fornece conteúdo diretamente a um aplicativo de player de cliente ou a uma CDN (rede de distribuição de conteúdo).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.author: inhenkel
+ms.openlocfilehash: aa54bc6b8b0912158a5dcd369b12801d51ca7141
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446216"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256490"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Pontos de extremidade de streaming (origem) nos serviços de mídia do Azure
 
@@ -51,7 +51,7 @@ O limite máximo de unidades de streaming é, em geral, 10. Entre em contato con
 
 A tabela descreve os tipos:
 
-|Tipo|Unidades de escala|Description|
+|Tipo|Unidades de escala|Descrição|
 |--------|--------|--------|  
 |**Standard**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
 |**Premium**|>0|**Premium** Os pontos de extremidade de streaming são adequados para cargas de trabalho avançadas e para fornecer capacidade de largura de banda dedicada e escalonável. Você passa para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium** , cada unidade habilitada fornece capacidade de largura de banda adicional para o aplicativo. |
@@ -65,7 +65,7 @@ Para obter informações de SLA, consulte [preços e SLA](https://azure.microsof
 
 Recurso|Standard|Premium
 ---|---|---
-Taxa de transferência |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
+Produtividade |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
 CDN|CDN do Azure, CDN de terceiros ou nenhuma CDN.|CDN do Azure, CDN de terceiros ou nenhuma CDN.
 A cobrança é rateada| Diariamente|Diariamente
 Criptografia dinâmica|Sim|Sim
@@ -122,7 +122,7 @@ Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremi
 
     Atualmente, os Serviços de Mídia não são compatíveis com o TLS com domínios personalizados.
 
-- `maxCacheAge`-Substitui o cabeçalho de controle de cache HTTP Max-age padrão definido pelo ponto de extremidade de streaming em fragmentos de mídia e manifestos sob demanda. O valor é definido em segundos.
+- `maxCacheAge` -Substitui o cabeçalho de controle de cache HTTP Max-age padrão definido pelo ponto de extremidade de streaming em fragmentos de mídia e manifestos sob demanda. O valor é definido em segundos.
 - `resourceState` -
 
     - Stopped: o estado inicial de um ponto de extremidade de streaming após a criação

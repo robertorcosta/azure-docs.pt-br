@@ -1,5 +1,5 @@
 ---
-title: Implantar o aplicativo de livro de visitas do PHP em Arc habilitado kubernetes no dispositivo de borda Azure Stack | Microsoft Docs
+title: Implantar o aplicativo de livro de visitas do PHP no Arc habilitado kubernetes no dispositivo de GPU de borda Azure Stack | Microsoft Docs
 description: Descreve como implantar um aplicativo sem monitoração de estado do livro de visitas do PHP com Redis usando o GitOps em um cluster de kubernetes habilitado para Arc do seu dispositivo Azure Stack Edge.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 46cef291a447a7c243ee9ef66ee64e9c6264ad23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082954"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254212"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge"></a>Implantar um aplicativo sem estado do livro de visitas do PHP com o Redis em um cluster kubernetes habilitado para Arc no Azure Stack Edge
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Implantar um aplicativo sem estado do livro de visitas do PHP com o Redis em um cluster kubernetes habilitado para Arc na GPU de borda Azure Stack
 
 Este artigo mostra como criar e implantar um aplicativo Web simples de várias camadas usando o kubernetes e o Arc do Azure. Este exemplo consiste nos seguintes componentes:
 
@@ -132,7 +132,7 @@ A implantação por meio da configuração GitOps cria um `demotestguestbook` na
     [10.128.44.240]: PS>
     ```  
 
-1. Neste exemplo, o serviço de front-end foi implantado como tipo: Balancer. Você precisará encontrar o endereço IP desse serviço para exibir o livro de visitas. Execute o comando a seguir.
+1. Neste exemplo, o serviço de front-end foi implantado como tipo: Balancer. Você precisará encontrar o endereço IP desse serviço para exibir o livro de visitas. Execute o seguinte comando.
 
     `kubectl get service -n <your-namespace>`
     

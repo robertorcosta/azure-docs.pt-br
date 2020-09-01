@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e5ccb87a215d6d29d1545fc99a052795ef3f9556
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 51f6b40fc4cafad16ef6f6ca92fafa7ba1378c4a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005761"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255929"
 ---
-# <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET 
+# <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)

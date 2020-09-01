@@ -16,14 +16,16 @@ ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 39cbfebcf34ef47ae93972a11be44ef3bcec0d66
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5665357474b392a413d2b70f9c321b5da3e0bfe5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008923"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256439"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexando arquivos de mídia com o Indexador de Mídia do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > O processador de mídia **Azure Media indexer** será desativado. Para ver as datas de desativação, consulte o tópico de [componentes herdados](legacy-components.md). Os [serviços de mídia do Azure Video indexer](../video-indexer/index.yml) substituem esse processador de mídia herdado. Para obter mais informações, confira [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para o Video Indexer dos Serviços de Mídia do Azure](migrate-indexer-v1-v2.md).

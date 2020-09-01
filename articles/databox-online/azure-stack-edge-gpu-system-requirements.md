@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 207afe4117e0ab843a35ceadd021c2a201bc5de3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7754c57563ec5acb9028c2ace217f318fea5e959
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082865"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256252"
 ---
 # <a name="system-requirements-for-azure-stack-edge-with-gpu"></a>Requisitos do sistema para Azure Stack Edge com GPU 
 
@@ -71,7 +71,7 @@ O Azure IoT Edge permite a comunicação de saíde de um dispositivo do Edge loc
 
 Use a tabela a seguir para a configuração de porta dos servidores que hospedam o runtime do Azure IoT Edge:
 
-| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Diretrizes |
+| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Orientação |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 

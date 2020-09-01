@@ -1,23 +1,23 @@
 ---
-title: Implantar o módulo GPU em seu dispositivo Microsoft Azure Stack Edge | Microsoft Docs
+title: Implantar o módulo GPU em seu Azure Stack dispositivo de GPU de borda | Microsoft Docs
 description: Descreve como habilitar a computação e tornar seu Azure Stack o dispositivo de borda pronto para computação por meio da interface do usuário local.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 68badb1524c869309a0e2d96eaf6c9e490111bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5af86001d46bf194c9b61f325052a4cde0d86d5e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082961"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254552"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-device"></a>Implantar um módulo IoT habilitado para GPU no dispositivo Azure Stack Edge
+# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-gpu-device"></a>Implantar um módulo IoT habilitado para GPU em Azure Stack dispositivo de GPU de borda
 
-Este artigo descreve como implantar um módulo de IoT Edge habilitado para GPU em seu dispositivo Azure Stack Edge. 
+Este artigo descreve como implantar um módulo de IoT Edge habilitado para GPU em seu dispositivo de GPU Azure Stack Edge. 
 
 Neste artigo, você aprenderá como:
   - Prepare Azure Stack Edge para executar um módulo de GPU.

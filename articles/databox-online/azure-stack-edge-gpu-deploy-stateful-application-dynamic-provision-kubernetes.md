@@ -1,6 +1,6 @@
 ---
-title: Use kubectl para implantar o aplicativo com estado kubernetes por meio do compartilhamento provisionado dinamicamente no dispositivo Azure Stack Edge | Microsoft Docs
-description: Descreve como criar e gerenciar uma implantação de aplicativo com estado kubernetes por meio de um compartilhamento provisionado dinamicamente usando o kubectl em um dispositivo Microsoft Azure Stack Edge.
+title: Use o kubectl para implantar o aplicativo com estado kubernetes por meio do compartilhamento provisionado dinamicamente no dispositivo de GPU Azure Stack borda | Microsoft Docs
+description: Descreve como criar e gerenciar uma implantação de aplicativo com estado kubernetes por meio de um compartilhamento provisionado dinamicamente usando o kubectl em um dispositivo de GPU Microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: e83b2b1cb7013b9d72bd2c2de8c7636d5c9d8773
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082944"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254314"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-device"></a>Use kubectl para executar um aplicativo com estado kubernetes com StorageClass em seu dispositivo Azure Stack Edge
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Use kubectl para executar um aplicativo com estado kubernetes com StorageClass em seu dispositivo de GPU do Azure Stack Edge
 
 Este artigo mostra como implantar um aplicativo com estado de instância única no kubernetes usando um StorageClass para provisionar dinamicamente o armazenamento e uma implantação. A implantação usa `kubectl` comandos em um cluster kubernetes existente e implanta o aplicativo MySQL. 
 

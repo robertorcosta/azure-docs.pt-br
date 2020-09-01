@@ -6,17 +6,19 @@ keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 04/16/2020
+ms.date: 08/31/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 67c26cbad2a723fa21fbe1719c6e43d3d63f2547
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b246833b5a6ea38c70afe49f8b2d0421943a3a02
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87030658"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256779"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificadores de streaming ao vivo no local verificados
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Nos Serviços de Mídia do Azure, um [Evento ao vivo](/rest/api/media/liveevents) (canal) representa um pipeline para processamento de conteúdo de streaming dinâmico. O Evento ao vivo recebe fluxos de entrada dinâmicos em uma de duas maneiras.
 

@@ -12,23 +12,25 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 65b0b276dcda58810f44494c14f06dd412d633f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: aa5c9178bc84983b7e577cd63cf5b8d9fb9a8436
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719284"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254654"
 ---
 # <a name="create-an-asset"></a>Criar um ativo
 
-Este artigo mostra como criar um ativo de serviços de mídia.  Você usará um ativo para manter o conteúdo de mídia para codificação e streaming.  Para saber mais sobre os ativos dos serviços de mídia, leia [ativos nos serviços de mídia do Azure v3](assets-concept.md)
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+Este artigo mostra como criar um ativo dos Serviços de Mídia.  Você usará um ativo para armazenar o conteúdo de mídia para codificação e streaming.  Para saber mais sobre os ativos dos Serviços de Mídia, leia [Ativos dos Serviços de Mídia do Azure v3](assets-concept.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Siga as etapas em [criar uma conta dos serviços de mídia](./create-account-howto.md) para criar a conta dos serviços de mídia e o grupo de recursos necessários para criar um ativo.
+Siga as etapas descritas em [Criar uma conta dos Serviços de Mídia](./create-account-howto.md) para criar a conta dos Serviços de Mídia e o grupo de recursos necessários para criar um ativo.
 
 ## <a name="methods"></a>Métodos
 

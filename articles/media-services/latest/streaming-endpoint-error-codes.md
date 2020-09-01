@@ -1,7 +1,7 @@
 ---
 title: Erros de empacotamento e origem dos serviços de mídia do Azure | Microsoft Docs
 description: Este tópico descreve os erros que você pode receber do serviço de ponto de extremidade de streaming dos serviços de mídia do Azure (Orgin).
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
-ms.author: juliako
-ms.openlocfilehash: 1fc201cc1f3d4d26ca7b9e949d2917688e6fea8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: inhenkel
+ms.openlocfilehash: 8f4e0d9a6781e35c1ed6197dd32181511506d145
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091973"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256473"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Erros de ponto de extremidade de streaming (origem) 
 
@@ -28,7 +28,7 @@ Este tópico descreve os erros que você pode receber do [serviço de ponto de e
 
 A solicitação contém informações inválidas e é rejeitada com esses códigos de erro e devido a um dos seguintes motivos:
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_BAD_URL_SYNTAX |0x80890201|Uma sintaxe de URL ou um erro de formato. Os exemplos incluem solicitações para um tipo inválido, um fragmento inválido ou uma faixa inválida. |
 |MPE_ENC_ENCRYPTION_NOT_SPECIFIED_IN_URL |0x8088024C|A solicitação não tem nenhuma marca de criptografia na URL. Solicitações CMAF exigem uma marca de criptografia na URL. Outros protocolos configurados com mais de um tipo de criptografia também exigem a marca de criptografia para desambiguidade. |
@@ -38,7 +38,7 @@ A solicitação contém informações inválidas e é rejeitada com esses códig
 
 A solicitação não foi permitida devido a um dos seguintes motivos:
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_STORAGE_AUTHENTICATION_FAILED |0x808900EA|A solicitação de armazenamento para atender à solicitação falhou com uma falha de autenticação. Isso pode acontecer se as chaves de armazenamento fossem giradas e o serviço não conseguir sincronizar as chaves de armazenamento. <br/><br/>Entre em contato com o suporte do Azure acessando [ajuda + suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) na portal do Azure.|
 |MPE_STORAGE_INSUFFICIENT_ACCOUNT_PERMISSIONS |0x808900EB |Erro de operação de armazenamento, o acesso falhou devido a permissões de conta insuficientes. |
@@ -52,7 +52,7 @@ A solicitação não foi permitida devido a um dos seguintes motivos:
 
 A operação está tentando atuar em um recurso que não existe mais. Por exemplo, o recurso pode já ter sido excluído.
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_EGRESS_TRACK_NOT_FOUND |0x80890209 |A faixa solicitada não foi encontrada. |
 |MPE_RESOURCE_NOT_FOUND |0x808901F9 |O recurso solicitado não foi encontrado. |
@@ -70,13 +70,13 @@ A operação está tentando atuar em um recurso que não existe mais. Por exempl
 
 A ID fornecida para um recurso em uma `PUT` operação ou foi `POST` usada por um recurso existente. Use outra ID para o recurso para resolver esse problema.
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_STORAGE_CONFLICT  |0x808900EE  |Erro de operação de armazenamento, erro de conflito.  |
 
 ## <a name="410"></a>410
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_FILTER_FORCE_END_LEFT_EDGE_CROSSED_DVR_WINDOW|0x80890263|Para transmissão ao vivo, quando o filtro que tem forceEndTimestamp definido como true, o carimbo de data/hora de início ou término está fora da janela DVR atual.|
 
@@ -84,7 +84,7 @@ A ID fornecida para um recurso em uma `PUT` operação ou foi `POST` usada por u
 
 A operação especificou uma eTag que é diferente da versão disponível no servidor, ou seja, um erro de simultaneidade otimista. Repita a solicitação depois de ler a versão mais recente do recurso e atualizar o eTag na solicitação.
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_FRAGMENT_NOT_READY |0x80890200 |O fragmento solicitado não está pronto.|
 |MPE_STORAGE_PRECONDITION_FAILED| 0x808900EF|Erro de operação de armazenamento, uma falha de pré-condição.|
@@ -93,7 +93,7 @@ A operação especificou uma eTag que é diferente da versão disponível no ser
 
 O formato de carga enviado pelo cliente está em um formato sem suporte.
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_ENC_ALREADY_ENCRYPTED| 0x8088021F| Não deve aplicar a criptografia no conteúdo já criptografado.|
 |MPE_ENC_INVALID_INPUT_ENCRYPTION_FORMAT|0x8088021D |A criptografia é inválida para o formato de entrada.|
@@ -165,7 +165,7 @@ Para obter artigos e exemplos ao vivo, consulte:
 
 ## <a name="416-range-not-satisfiable"></a>416 Intervalo não satisfatório
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_STORAGE_INVALID_RANGE|0x808900F1|Erro de operação de armazenamento, retornou erro http 416, intervalo inválido.|
 
@@ -173,7 +173,7 @@ Para obter artigos e exemplos ao vivo, consulte:
 
 Durante o processamento da solicitação, os Serviços de Mídia encontram algum erro que impede o processamento de continuar.  
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_STORAGE_SOCKET_TIMEOUT|0x808900F4|Recebido e convertido do código de erro WinHTTP de ERROR_WINHTTP_TIMEOUT (0x00002ee2).|
 |MPE_STORAGE_SOCKET_CONNECTION_ERROR|0x808900F5|Recebido e convertido do código de erro WinHTTP de ERROR_WINHTTP_CONNECTION_ERROR (0x00002efe).|
@@ -190,7 +190,7 @@ Atualmente, o servidor não pode receber solicitações. Esse erro pode ter sido
 > Verifique a mensagem de erro e a cadeia de caracteres do código de erro para obter informações mais detalhadas sobre o motivo pelo qual você obteve o erro 503. Esse erro nem sempre significa limitação.
 > 
 
-|Código do erro|Valor hexadecimal |Descrição do erro|
+|Código de erro|Valor hexadecimal |Descrição do erro|
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Erro de operação de armazenamento, erro de servidor HTTP ocupado 503.|
 

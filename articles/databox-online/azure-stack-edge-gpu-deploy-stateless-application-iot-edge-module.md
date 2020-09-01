@@ -1,6 +1,6 @@
 ---
-title: Gerenciar rede de computação na borda do Azure Stack para acessar módulos | Microsoft Docs
-description: Descreve como estender a rede de computação em seu Azure Stack Edge para acessar módulos por meio de um IP externo.
+title: Implantar um aplicativo sem estado kubernetes na GPU de borda Azure Stack por meio do módulo IoT Edge | Microsoft Docs
+description: Descreve como implantar um aplicativo sem monitoração de estado do kubernetes em seu dispositivo de GPU do Azure Stack Edge usando um módulo IoT Edge que é acessado por meio de um IP externo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 8de3dbd754cd0cbef947d2cde44542f9f3f77a08
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082935"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254161"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Use IoT Edge módulo para executar um aplicativo sem monitoração de estado kubernetes em seu dispositivo Azure Stack Edge
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>Usar IoT Edge módulo para executar um aplicativo sem monitoração de estado kubernetes em seu dispositivo de GPU Azure Stack Edge
 
 Este artigo descreve como você pode usar um módulo IoT Edge para implantar um aplicativo sem estado em seu dispositivo Azure Stack Edge.
 

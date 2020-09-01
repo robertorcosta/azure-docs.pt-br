@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0309579a674533ebd056c8493b149cc78beef607
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896011"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254044"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usar Media Encoder Standard para gerar automaticamente uma escada de taxa de bits
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## <a name="overview"></a>Visão geral
 
@@ -194,7 +196,7 @@ Fonte com altura "720" e taxa de quadros "23.970" produz cinco camadas de vídeo
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>Exemplo 3
+### <a name="example-3"></a>Exemplo 3:
 Fonte com altura "360" e taxa de quadros "29.970" produz três camadas de vídeo:
 
 |Camada|Altura|Largura|Taxa de bits (Kbps)|

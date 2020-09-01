@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484292"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254484"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e práticas recomendadas para Azure Active Directory B2C
 
@@ -44,6 +44,7 @@ Defina a arquitetura do aplicativo e do serviço, os sistemas atuais de inventá
 | Usabilidade versus segurança | Sua solução deve ser o equilíbrio certo entre a usabilidade do aplicativo e o nível aceitável de risco da sua organização. |
 | Mover dependências locais para a nuvem | Para ajudar a garantir uma solução resiliente, considere mover dependências de aplicativo existentes para a nuvem. |
 | Migrar aplicativos existentes para o b2clogin.com | A substituição de login.microsoftonline.com entrará em vigor para todos os locatários de Azure AD B2C em 04 de dezembro de 2020. [Saiba mais](b2clogin.md). |
+| Usar a proteção de identidade e o acesso condicional | Use esses recursos para ter um controle significativamente maior sobre autenticações e políticas de acesso arriscadas. Azure AD B2C Premium P2 é necessário. [Saiba mais](conditional-access-identity-protection-overview.md). |
 
 ## <a name="implementation"></a>Implementação
 
