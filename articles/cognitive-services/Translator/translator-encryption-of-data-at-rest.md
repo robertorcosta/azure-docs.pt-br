@@ -1,20 +1,20 @@
 ---
 title: Criptografia do tradutor de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Criptografia do tradutor de dados em repouso.
+description: A Microsoft permite que você gerencie suas assinaturas de serviços cognitivas com suas próprias chaves, chamadas de CMK (chaves gerenciadas pelo cliente). Este artigo aborda a criptografia de dados em repouso para o tradutor e como habilitar e gerenciar o CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310828"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079193"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Criptografia do tradutor de dados em repouso
 
@@ -22,7 +22,7 @@ O Translator criptografa automaticamente os dados, que você carrega para criar 
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a criptografia de serviços cognitivas
 
-Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Os dados são seguros por padrão e você não precisa modificar seu código ou aplicativos para tirar proveito da criptografia.
+Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Como os dados são protegidos por padrão, você não precisa modificar seu código ou seus aplicativos para aproveitar a criptografia.
 
 ## <a name="about-encryption-key-management"></a>Sobre o gerenciamento de chaves de criptografia
 
@@ -34,7 +34,7 @@ Para assinaturas que dão suporte apenas a chaves de criptografia gerenciadas pe
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves gerenciadas pelo cliente com o Azure Key Vault
 
-Também há uma opção para gerenciar sua assinatura com suas próprias chaves. As chaves gerenciadas pelo cliente (CMK), também conhecidas como traga sua própria chave (BYOK), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
+Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Também há a opção de gerenciar sua assinatura com suas próprias chaves chamadas CMK (chaves gerenciadas pelo cliente). O CMK oferece maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados. Se o CMK estiver configurado para sua assinatura, a criptografia dupla será fornecida, que oferece uma segunda camada de proteção, permitindo que você controle a chave de criptografia por meio de seu Azure Key Vault.
 
 > [!IMPORTANT]
 > As chaves gerenciadas pelo cliente estão disponíveis para todos os tipos de preço do serviço do tradutor. Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [formulário de solicitação de chave gerenciada pelo cliente do tradutor](https://aka.ms/cogsvc-cmk) , será necessário cerca de 3-5 dias úteis para o retorno do status de sua solicitação. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com o serviço de tradutor, você precisará criar um novo recurso de tradutor. Depois que o recurso do tradutor for criado, você poderá usar Azure Key Vault para configurar sua identidade gerenciada.
@@ -44,8 +44,6 @@ Siga estas etapas para habilitar chaves gerenciadas pelo cliente para o Tradutor
 1. Crie seu novo tradutor regional ou recurso de serviços de cognitiva regional. Isso não funcionará com um recurso global.
 2. Habilitou a identidade gerenciada no portal do Azure e adicione as informações de chave gerenciada pelo cliente.
 3. Crie um novo espaço de trabalho no Tradutor personalizado e associe essas informações de assinatura.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
 
@@ -76,7 +74,7 @@ Somente chaves RSA de tamanho 2048 têm suporte com a criptografia de serviços 
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Revogar o acesso a chaves gerenciadas pelo cliente
 
-Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou CLI do Azure. Para obter mais informações, consulte [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) ou [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os dados no recurso de serviços cognitivas e seus modelos serão desimplantados, pois a chave de criptografia fica inacessível por serviços cognitivas. Todos os dados carregados também serão excluídos do tradutor personalizado.
+Para revogar o acesso às chaves gerenciadas pelo cliente, use o PowerShell ou CLI do Azure. Para obter mais informações, confira [PowerShell do Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault//) ou [CLI do Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). Revogar o acesso efetivamente bloqueia o acesso a todos os dados no recurso de serviços cognitivas e seus modelos serão desimplantados, pois a chave de criptografia fica inacessível por serviços cognitivas. Todos os dados carregados também serão excluídos do tradutor personalizado.
 
 
 ## <a name="next-steps"></a>Próximas etapas

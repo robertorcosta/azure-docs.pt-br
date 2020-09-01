@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: charwen
-ms.openlocfilehash: 3d094f614cbaf75158c38b86345fd5f925310d6b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1e1096fcb0f1175df67f47d4ca6c8caf4dc1a0e4
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039303"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079686"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Mover os circuitos do ExpressRoute do modelo de implantação clássico para o do Resource Manager usando o PowerShell
 
@@ -34,7 +35,7 @@ Para usar um circuito do ExpressRoute para os modelos de implantação clássico
 
 Entre no ambiente clássico do Azure e obtenha a chave de serviço.
 
-1. Entre na sua conta do Azure.
+1. Entre em sua conta do Azure.
 
    ```powershell
    Add-AzureAccount

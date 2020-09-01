@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f5c81897f74163191de4b167ffa56225ca0698ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f84c73f3fbefddd2972f077826fe1e2a8738ad5a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079050"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079142"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de base de segurança do Azure para ExpressRoute
 
@@ -240,13 +240,13 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 **Diretrizes**: Mantenha um inventário das contas de usuário que têm acesso administrativo ao plano de controle (por exemplo, portal do Azure) dos recursos do Azure ExpressRoute.
 
-Você pode usar o painel IAM (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o RBAC (controle de acesso baseado em função). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory.
+Você pode usar o painel IAM (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o controle de acesso baseado em função do Azure (RBAC do Azure). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory.
 
 Além disso, os parceiros que usam a API do Gerenciador de recursos de parceiros ExpressRoute podem aplicar o controle de acesso baseado em função ao recurso expressRouteCrossConnection. Esses controles podem definir permissões para as quais as contas de usuários podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/excluir configurações de emparelhamento.
 
-* [Entender o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Aproveitar o RBAC na API do Gerenciador de recursos de parceiro do ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Aproveitar o RBAC do Azure na API do Gerenciador de recursos de parceiro do ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -437,7 +437,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 * [Como configurar o IPSEC site a site por meio do ExpressRoute](https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering)
 
-Como configurar o IPSEC site a site por meio do ExpressRoute:https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
+Como configurar o IPSEC site a site por meio do ExpressRoute: https://docs.microsoft.com/azure/expressroute/site-to-site-vpn-over-microsoft-peering
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -453,17 +453,17 @@ Como configurar o IPSEC site a site por meio do ExpressRoute:https://docs.micros
 
 **Responsabilidade**: Não aplicável
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: você pode usar o painel iam (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o RBAC (controle de acesso baseado em função). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos.
+**Orientação**: você pode usar o painel iam (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o controle de acesso baseado em função do Azure (RBAC do Azure). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos.
 
 O Azure ExpressRoute também tem funções de usuário de circuito e proprietário do circuito. Usuários do circuito são proprietários de gateways de rede virtual que não estão na mesma assinatura que o circuito do ExpressRoute. O proprietário do circuito tem a capacidade de modificar e revogar autorizações a qualquer momento. Revogar uma autorização faz com que todas as conexões de links sejam excluídas da assinatura cujo acesso foi revogado. Usuários do circuito podem resgatar autorizações (uma autorização por rede virtual).
 
 Além disso, os parceiros que usam a API do Gerenciador de recursos de parceiros ExpressRoute podem aplicar o controle de acesso baseado em função ao recurso expressRouteCrossConnection. Esses controles podem definir permissões para as quais as contas de usuários podem modificar o recurso expressRouteCrossConnection e adicionar/atualizar/excluir configurações de emparelhamento.
 
-* [Entender o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* [Aproveitar o RBAC na API do Gerenciador de recursos de parceiro do ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+* [Aproveitar o RBAC do Azure na API do Gerenciador de recursos de parceiro do ExpressRoute](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
 
 * [Entender as funções de administração no ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager#connect-a-vnet-to-a-circuit---different-subscription)
 
@@ -629,7 +629,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

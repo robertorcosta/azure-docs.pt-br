@@ -129,6 +129,8 @@
       href: security-hardened-vm-host-image.md
     - name: Visão geral de Diagnóstico do Serviço de Kubernetes do Azure
       href: concepts-diagnostics.md
+    - name: Engenharia de software sustentável
+      href: concepts-sustainable-software-engineering.md
 - name: Guias de instruções
   items:
     - name: Operações de cluster

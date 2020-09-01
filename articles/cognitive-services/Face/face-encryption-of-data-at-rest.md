@@ -1,20 +1,20 @@
 ---
 title: Criptografia de serviço de face de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Criptografia de serviço de face de dados em repouso.
+description: A Microsoft oferece chaves de criptografia gerenciadas pela Microsoft e também permite que você gerencie suas assinaturas de serviços cognitivas com suas próprias chaves, chamadas CMK (chaves gerenciadas pelo cliente). Este artigo aborda a criptografia de dados em repouso para o rosto e como habilitar e gerenciar CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 33495dd5b092cb51b3421e7204f3b529077d63b3
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: eab90fc2cb30ae8e9f1c19bdbefc6fbc88c32f76
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309026"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079261"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>Criptografia de serviço de face de dados em repouso
 
@@ -24,15 +24,6 @@ O serviço de face criptografa automaticamente seus dados quando persistidos na 
 
 > [!IMPORTANT]
 > As chaves gerenciadas pelo cliente estão disponíveis somente no tipo de preço E0. Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [formulário de solicitação de chave gerenciada pelo cliente do serviço de rosto](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com o serviço de face, você precisará criar um novo recurso de face e selecionar E0 como o tipo de preço. Depois que o recurso de rosto com o tipo de preço E0 for criado, você poderá usar Azure Key Vault para configurar sua identidade gerenciada.
-
-## <a name="regional-availability"></a>Disponibilidade regional
-
-Atualmente, as chaves gerenciadas pelo cliente estão disponíveis nestas regiões:
-
-* Centro-Sul dos EUA
-* Oeste dos EUA 2
-* Leste dos EUA
-* Gov. dos EUA – Virgínia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

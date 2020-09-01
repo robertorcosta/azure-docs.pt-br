@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7dc0913ab206c6b9152d7d6155642c28b430d6f2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2e3b6845b66978b4892303549dabca4034a870b2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836319"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079635"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança do Azure para aplicativos lógicos
 
@@ -182,7 +182,7 @@ Os logs de diagnóstico nos Aplicativos Lógicos devem ser habilitados
 
 A Proteção contra DDoS Standard deve ser habilitada
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala empacotando artefatos de ambiente-chave, como modelos de Azure Resource Manager, RBAC (controle de acesso baseado em função) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controle de acesso baseado em função do Azure (RBAC do Azure) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -641,7 +641,7 @@ A Microsoft gerencia a infraestrutura subjacente para os aplicativos lógicos do
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
 **Orientação**: você pode permitir que somente usuários ou grupos específicos executem tarefas específicas, como gerenciar, editar e exibir aplicativos lógicos. Para controlar suas permissões, use o controle de acesso baseado em função do Azure (RBAC do Azure) para que você possa atribuir funções personalizadas ou internas aos membros em sua assinatura do Azure:
 - Colaborador de Aplicativo Lógico: Permite o gerenciamento de aplicativos lógicos, mas você não pode alterar o acesso a eles.
@@ -877,7 +877,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: recursos relacionados aos seus aplicativos lógicos que são necessários para operações de negócios, mas podem incorrer em um risco maior para a organização, devem ser isolados em sua própria máquina virtual e/ou rede virtual e protegidos suficientemente com um firewall do Azure ou grupo de segurança de rede.
 
-Aplicativos lógicos que são necessários para operações de negócios, mas podem incorrer em um risco maior para a organização, devem ser isolados sempre que possível por meio de grupos de recursos separados com permissões específicas e limites de RBAC.
+Aplicativos lógicos que são necessários para operações de negócios, mas podem incorrer em um risco maior para a organização, devem ser isolados sempre que possível por meio de grupos de recursos separados com permissões específicas e limites de RBAC do Azure.
 
 * [Como criar uma rede virtual](../virtual-network/quick-create-portal.md)
 
@@ -885,7 +885,7 @@ Aplicativos lógicos que são necessários para operações de negócios, mas po
 
 * [Como criar Grupos de Gerenciamento](../governance/management-groups/create.md)
 
-* [Como proteger o acesso a aplicativos lógicos via RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Como proteger o acesso a aplicativos lógicos por meio do RBAC do Azure](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitoramento da Central de Segurança do Azure**: N/D
 

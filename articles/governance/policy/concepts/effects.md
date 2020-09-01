@@ -3,12 +3,12 @@ title: Entender como funcionam os efeitos
 description: As definições do Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958755"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079652"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -488,7 +488,7 @@ As seguintes operações são suportadas pela modificação:
 - Adicionar ou substituir o valor do tipo de identidade gerenciada ( `identity.type` ) de máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais.
 - Adicionar ou substituir os valores de determinados aliases (versão prévia).
   - Use `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`.
-    em Azure PowerShell para obter uma lista de aliases que podem ser usados com Modify.
+    no Azure PowerShell **4.6.0** ou superior para obter uma lista de aliases que podem ser usados com Modify.
 
 > [!IMPORTANT]
 > Se você estiver gerenciando marcas, é recomendável usar modificar em vez de acrescentar como modificar fornece tipos de operação adicionais e a capacidade de corrigir recursos existentes. No entanto, Append é recomendado se você não conseguir criar uma identidade gerenciada ou Modify ainda não oferecer suporte ao alias para a propriedade de recurso.

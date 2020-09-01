@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012997"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079769"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -170,9 +170,9 @@ Os modelos não são necessariamente retornados exatamente no formulário de doc
 
 Depois que um modelo é carregado em sua instância, a interface de modelo inteira é imutável. Isso significa que não há "edição" tradicional de modelos.
 
-Em vez disso, se você quiser fazer alterações em um modelo no Azure digital gêmeos, como alterar o `DisplayName` ou `Description` o, a maneira de fazer isso é carregar uma **versão mais recente** do mesmo modelo. Isso substituirá o modelo original.
+Em vez disso, se você quiser fazer alterações em um modelo no Azure digital gêmeos, a maneira de fazer isso é carregar uma **versão mais recente** do mesmo modelo. Durante a visualização, o progresso de uma versão de modelo só permitirá que você remova os campos, e não adicione novos (para adicionar novos campos, basta [criar um modelo totalmente novo](#create-models)).
 
-Para fazer isso, comece com o DTDL do modelo original. Atualize quaisquer campos que você queira alterar.
+Para criar uma nova versão de um modelo existente, comece com o DTDL do modelo original. Atualize os campos que você deseja alterar.
 
 Em seguida, marque-a como uma versão mais recente do modelo atualizando o `id` campo do modelo. A última seção da ID do modelo, após o `;` , representa o número do modelo. Para indicar que essa é agora uma versão mais atualizada desse modelo, aumente o número no final do `id` valor para qualquer número maior que o número de versão atual.
 

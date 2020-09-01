@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045528"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078989"
 ---
 # <a name="security-control-data-protection"></a>Controle de segurança: proteção de dados
 
@@ -84,15 +84,15 @@ Use a proteção de informações do SQL do Azure para auxiliar na classificaç�
 
 - [Entender a proteção de dados do cliente no Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
 | 4.6 | 14,6 | Cliente |
 
-Use o RBAC do Azure AD para controlar o acesso a dados e recursos, caso contrário, use métodos de controle de acesso específicos de serviço.
+Use o Azure RBAC (controle de acesso baseado em função) para controlar o acesso a dados e recursos, caso contrário use métodos de controle de acesso específicos de serviço.
 
-- [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usar a prevenção contra perda de dados baseada em host para impor controle de acesso
 
@@ -122,7 +122,7 @@ Use a criptografia em repouso em todos os recursos do Azure. A Microsoft recomen
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 4,9 | 14,9 | Cliente |
+| 4.9 | 14,9 | Cliente |
 
 Use Azure Monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para os recursos críticos do Azure.
 
@@ -131,4 +131,4 @@ Use Azure Monitor com o log de atividades do Azure para criar alertas para quand
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o próximo controle de segurança: [Gerenciamento de vulnerabilidades](security-control-vulnerability-management.md)
+- Consulte o próximo controle de segurança:  [Gerenciamento de vulnerabilidades](security-control-vulnerability-management.md)

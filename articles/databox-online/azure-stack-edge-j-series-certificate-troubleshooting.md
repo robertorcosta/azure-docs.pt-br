@@ -1,0 +1,61 @@
+---
+title: Solução de problemas de certificados com o Azure Stack Edge | Microsoft Docs
+description: Descreve a solução de problemas de erros de certificado com Azure Stack dispositivo de borda.
+services: Azure Stack Edge
+author: alkohli
+ms.service: databox
+ms.subservice: edge
+ms.topic: article
+ms.date: 02/25/2020
+ms.author: alkohli
+ms.openlocfilehash: 2614928985070e47fa8c4b77a3068d480d362093
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89082843"
+---
+# <a name="troubleshooting-certificate-errors"></a>Solucionando problemas de erros de certificado
+
+O artigo fornece a solução de problemas de erros de certificado comuns ao instalar certificados no dispositivo Azure Stack Edge.
+
+## <a name="common-certificate-errors"></a>Erros comuns de certificado
+
+A tabela a seguir mostra os erros de certificado comuns e informações detalhadas sobre esses erros e as possíveis soluções:
+
+> [!NOTE]
+> Ocorrências de &#8220;{0} , {1} ,..., {n} &#8221; indicam parâmetros posicionais. Os parâmetros posicionais terão valores, dependendo dos certificados que você estiver usando.
+
+| Código do Erro | Descrição |
+|---|---|
+| CertificateManagement_UntrustedCertificate | O certificado com o nome da entidade {0} tem uma cadeia de certificados quebrada. Carregue o certificado da cadeia de assinatura antes de carregar esse certificado.|
+| CertificateManagement_DeviceNotRegistered| Seu dispositivo não está ativado. Você pode carregar um certificado de suporte somente após a ativação.|
+| CertificateManagement_EmptySAN | O certificado com o nome da entidade {0} não tem um nome alternativo da entidade. Verifique as propriedades do certificado e traga um novo certificado.|
+| CertificateManagement_ExpiredCertificate | O certificado com o tipo {0} expirou ou expira em breve. Verifique a expiração do certificado e, se necessário, traga um novo certificado.|
+| CertificateManagement_FormatMismatch | Não há suporte para o formato de certificado. Verifique o formato do certificado e, se necessário, traga um novo certificado.  Esperado {0} , encontrado {1} . |
+| CertificateManagement_GenericError | Não foi possível executar a operação de gerenciamento de certificados. Repita essa operação em alguns minutos. Se o problema persistir, contate o Suporte da Microsoft. |
+| CertificateManagement_HttpsBindingFailure | O certificado com o nome da entidade {0} não pôde criar um canal https seguro. Verifique o certificado que você carregou e, se necessário, traga um novo certificado. Esse erro ocorre com o certificado do nó do dispositivo.|
+| CertificateManagement_IncorrectKeyCertSignKeyUsage | O certificado com o nome da entidade {0} não deve ter assinatura de certificado de uso de chave. Verifique o uso da chave do certificado e, se necessário, traga um novo certificado. Esse erro ocorre com o certificado de cadeia de assinatura. |
+| CertificateManagement_IncorrectKeyNumber | O certificado com o nome da entidade {0} tem um número de chave incorreto {1} . Verifique o número de chave do certificado e, se necessário, traga um novo certificado.|
+| CertificateManagement_InvalidP7b | O arquivo de certificado carregado não é válido.  Verifique o formato do certificado e, se necessário, traga um novo certificado.|
+| CertificateManagement_KeyAlgorithmNotRSA | Esse certificado não usa o algoritmo de chave RSA. Somente os certificados RSA têm suporte. |
+| CertificateManagement_KeySizeNotSufficient | O certificado com o nome da entidade não {0} tem tamanho de chave suficiente {1} . O tamanho mínimo da chave é 4096.|
+| CertificateManagement_MissingClientOid | O certificado com o nome da entidade {0} não tem OID de autenticação de cliente. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
+| CertificateManagement_MissingDigitalSignatureKeyUsage | O certificado com {0} o nome da entidade não tem uma assinatura digital no uso da chave. Verifique as propriedades do certificado e, se necessário, traga um novo certificado. |
+| CertificateManagement_MissingEntryInSAN | O certificado com o nome {0} da entidade não tem uma entrada de nome de entidade no nome alternativo da entidade. Verifique as propriedades do certificado e traga um novo certificado. |
+| CertificateManagement_MissingKeyCertSignKeyUsage | O certificado com {0} o nome da entidade não tem uma assinatura de certificado no uso da chave. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
+| CertificateManagement_MissingKeyEnciphermentKeyUsage | O certificado com {0} o nome da entidade não tem codificação de chave no uso da chave. Verifique as propriedades do certificado e, se necessário, traga um novo certificado. |
+| CertificateManagement_MissingServerOid | O certificado com o nome da entidade {0} não tem OID de autenticação de servidor. Verifique as propriedades do certificado e, se necessário, traga um novo certificado.|
+| CertificateManagement_NameMismatch | Incompatibilidade de tipo de certificado. Escopo esperado: {0} , encontrado {1} . Carregue o certificado apropriado.|
+| CertificateManagement_NoPrivateKeyPresent | O certificado com o nome da entidade {0} não tem uma chave privada presente. Carregue um certificado. pfx com uma chave privada.|
+| CertificateManagement_NotSelfSignedCertificate | O certificado com o nome da entidade {0} não é assinado automaticamente. Os certificados raiz devem ser autoassinados |
+| CertificateManagement_NotSupportedOnVirtualAppliance | Não há suporte para esta operação no dispositivo virtual. Esse erro indica que a assinatura só ocorrerá com Gateway do Data Box em execução no dispositivo de nuvem tático. Esse erro ocorre durante o gerenciamento do dispositivo por meio do Windows PowerShell.|
+| CertificateManagement_SelfSignedCertificate | O certificado com o nome da entidade {0} é auto-assinado. Carregue um certificado que esteja assinado corretamente.|
+| CertificateManagement_SignatureAlgorithmSha1 | O certificado com o nome da entidade {0} tem um algoritmo de assinatura sem suporte. SHA1-RSA não é suportado. |
+| CertificateManagement_SubjectNamesInvalid | O certificado com {0} o nome da entidade não tem o nome da entidade ou nomes alternativos da entidade corretos para o {1} certificado. Verifique o certificado que você carregou e, se necessário, traga um novo certificado. Você também deve verificar o nome DNS para coincidir com os nomes dos SANS.|
+| CertificateManagement_UnreadableCertificate | Não foi possível ler o certificado com o tipo {0} . Esse erro ocorre quando o certificado está ilegível ou corrompido. Traga um novo certificado.|
+| CertificateSubjectNotFound | Não foi possível encontrar o certificado com o nome da entidade {0} . Traga um novo certificado.|
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Requisitos de certificado](azure-stack-edge-j-series-certificate-requirements.md)

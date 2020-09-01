@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 6e46d1a923eec5244bf77c201ff0b3189699c9ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339715"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079788"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Gerenciar o acesso, a energia e o modo de conectividade para seu Azure Stack Edge
 
@@ -95,7 +95,7 @@ Para Azure Stack dispositivo de borda, `Microsoft.DataBoxEdge` deve ser registra
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
 ```
 
-Para obter mais informações sobre como registrar um provedor de recursos, consulte [resolver erros de registro do provedor de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors).
+Para obter mais informações sobre como registrar um provedor de recursos, consulte [resolver erros de registro do provedor de recursos](../azure-resource-manager/templates/error-register-resource-provider.md).
 
 ## <a name="manage-connectivity-mode"></a>Gerenciar o modo de conectividade
 
@@ -120,7 +120,7 @@ Para alterar o modo de dispositivo, siga estas etapas:
  
 ## <a name="manage-power"></a>Gerenciar potência
 
-Você pode desligar ou reiniciar o dispositivo físico usando a interface do usuário da Web local. É recomendável que, antes de reiniciar, coloque os compartilhamentos offline no servidor de dados e, em seguida, no dispositivo. Essa ação minimiza a possibilidade de corrupção de dados.
+Você pode desligar ou reiniciar o dispositivo físico usando a IU da Web local. Nós recomendamos que antes de reiniciar, você coloque os compartilhamentos offline no servidor de dados e, em seguida, no dispositivo. Essa ação minimiza a possibilidade de corrupção de dados.
 
 1. Na interface do usuário de web local, vá para **manutenção > configurações de energia**.
 2. Selecione **desligar** ou **reiniciar** , dependendo do que você pretende fazer.

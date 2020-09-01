@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: f9bc0cd229888d952821509ced6cc5410000ee52
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543360"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078717"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Use a rede do kubenet com seus próprios intervalos de endereços IP no Serviço de Kubernetes do Azure (AKS)
 
@@ -25,7 +25,7 @@ Este artigo mostra como usar a rede *kubenet* para criar e usar uma sub-rede da 
 * A rede virtual do cluster do AKS deve permitir conectividade com a Internet de saída.
 * Não crie mais de um cluster do AKS na mesma sub-rede.
 * Os clusters AKs não podem usar `169.254.0.0/16` ,, `172.30.0.0/16` `172.31.0.0/16` ou `192.0.2.0/24` para o intervalo de endereços do serviço kubernetes.
-* A entidade de serviço usada pelo cluster AKS deve ter pelo menos a função de [colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede em sua rede virtual. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de Colaborador de Rede interna, as seguintes permissões serão necessárias:
+* A entidade de serviço usada pelo cluster AKS deve ter pelo menos a função de [colaborador de rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede em sua rede virtual. Você também deve ter as permissões apropriadas, como o proprietário da assinatura, para criar uma entidade de serviço e atribuir permissões a ela. Se você quiser definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de usar a função de Colaborador de Rede interna, as seguintes permissões serão necessárias:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
