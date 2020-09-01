@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482576"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258428"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Active Directory B2C
 
@@ -119,7 +119,7 @@ O cabeçalho do token contém informações sobre o método de criptografia e a 
 }
 ```
 
-O valor da declaração **alg** é o algoritmo que foi usado para assinar o token. O valor da declaração **kid** é a chave pública que foi usada para assinar o token. A qualquer momento, o Azure AD B2C pode assinar um token usando qualquer opção de um conjunto de pares de chaves públicas-privadas. O Azure AD B2C alterna o possível conjunto de chaves periodicamente. Seu aplicativo deve ser gravado para tratar dessas alterações de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo Azure AD B2C é a cada 24 horas.
+O valor da declaração **alg** é o algoritmo que foi usado para assinar o token. O valor da declaração **kid** é a chave pública que foi usada para assinar o token. A qualquer momento, o Azure AD B2C pode assinar um token usando qualquer opção de um conjunto de pares de chaves públicas-privadas. O Azure AD B2C alterna o possível conjunto de chaves periodicamente. Seu aplicativo deve ser gravado para tratar dessas alterações de chave automaticamente. Uma frequência razoável para verificar se há atualizações para as chaves públicas usadas pelo Azure AD B2C é a cada 24 horas. Para lidar com alterações de chave inesperadas, seu aplicativo deve ser gravado para recuperar as chaves públicas novamente caso receba um valor de **criança** inesperado.
 
 O Azure AD B2C tem um ponto de extremidade de metadados OpenID Connect. Usando esse ponto de extremidade, os aplicativos podem solicitar informações sobre o Azure AD B2C em tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. Seu locatário do Azure AD B2C contém um documento de metadados JSON para cada política. O documento de metadados é um objeto JSON que contém várias informações úteis. Os metadados contêm **jwks_uri**, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. Esse local é fornecido aqui, mas é melhor buscar o local dinamicamente usando o documento de metadados e analisando **jwks_uri**:
 

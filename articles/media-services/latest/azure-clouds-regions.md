@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9da87f3b5f7cb513b4b5d51c93a59d1703d401d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001342"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258649"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões em que os Serviços de Mídia do Azure v3 existem
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os Serviços de Mídia do Azure v3 estão disponíveis por meio do manifesto do Azure Resource Manager no Azure global, no Azure Governamental, no Azure na Alemanha e no Azure China 21Vianet. No entanto, nem todos os recursos dos Serviços de Mídia estão disponíveis em todas as nuvens do Azure. Este documento descreve as disponibilidades dos principais componentes do Serviços de Mídia v3.
 
@@ -80,7 +82,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="global-azure"></a>Azure Global
 
-| Serviço | Ponto de extremidade |
+| Serviço | Ponto de Extremidade |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Autenticação | `https://login.microsoftonline.com/` |
@@ -88,7 +90,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="azure-government"></a>Azure Government
 
-| Serviço | Ponto de extremidade |
+| Serviço | Ponto de Extremidade |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Autenticação | `https://login.microsoftonline.us/` |
@@ -96,7 +98,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="azure-germany"></a>Azure Alemanha
 
-| Serviço | Ponto de extremidade |
+| Serviço | Ponto de Extremidade |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Autenticação | `https://login.microsoftonline.de/` |
@@ -104,7 +106,7 @@ Por exemplo, para a região Oeste dos EUA 2 (exibida abaixo) do Azure, você usa
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
-| Serviço | Ponto de extremidade |
+| Serviço | Ponto de Extremidade |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autenticação | `https://login.chinacloudapi.cn/` |

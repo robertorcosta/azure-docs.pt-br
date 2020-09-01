@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604386"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259346"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
 
@@ -56,7 +56,7 @@ Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente 
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
 | Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
-|   | Gerenciado | Atual do Windows | Persistente | Não |
+|   | Gerenciados | Atual do Windows | Persistente | Não |
 |   |   |   | Não persistente | Não |
 | Registrado no Azure AD | Federado/gerenciado | Nível inferior do Windows/atual | Persistente/não persistente | Não Aplicável |
 
@@ -68,7 +68,7 @@ Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente 
 
 <sup>4</sup> um ambiente de infraestrutura de identidade **gerenciada** representa um ambiente com o Azure ad como o provedor de identidade implantado com o [PHS (sincronização de hash de senha)](../hybrid/whatis-phs.md) ou [PTA (autenticação de passagem)](../hybrid/how-to-connect-pta.md) com [logon único contínuo](../hybrid/how-to-connect-sso.md).
 
-<sup>5</sup> o **suporte de não persistência para o Windows atual** requer considerações adicionais, conforme documentado abaixo na seção de diretrizes.
+<sup>5</sup> o **suporte de não persistência para o Windows atual** requer considerações adicionais, conforme documentado abaixo na seção de diretrizes. Este cenário requer o Windows 10 1803, o Windows Server 2019 ou o Windows Server (canal semestral) iniciando a versão 1803
 
 <sup>6</sup> o **suporte de não persistência para o Windows de nível inferior** requer considerações adicionais, conforme documentado abaixo na seção de diretrizes.
 

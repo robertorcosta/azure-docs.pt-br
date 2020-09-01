@@ -10,7 +10,7 @@
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriais
   items:
-    - name: 1. Criar um pool de host com o portal do Azure
+    - name: 1. Criar um pool de hosts com o portal do Azure
       href: create-host-pools-azure-marketplace.md
     - name: 2. Gerenciar grupos de aplicativos
       href: manage-app-groups.md
@@ -46,7 +46,7 @@
           href: expand-existing-host-pool.md
         - name: Gerenciar grupos de aplicativos com o PowerShell
           href: manage-app-groups-powershell.md
-    - name: Excluir um pool de host
+    - name: Excluir um pool de hosts
       href: delete-host-pool.md
     - name: Criar um contêiner de perfil
       items:
@@ -94,6 +94,8 @@
       href: configure-automatic-updates.md
     - name: Instalar pacote de idiomas
       href: language-packs.md
+    - name: Usar o Assistente do Azure
+      href: azure-advisor.md
     - name: Resolver recomendações
       href: azure-advisor-recommendations.md
 - name: Conceitos

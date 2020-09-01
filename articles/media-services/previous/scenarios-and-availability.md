@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 81d1c86bc5130d616712d022efd4b111b8b939dd
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542371"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259171"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade de recursos dos Serviços de Mídia em datacenters
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
@@ -111,7 +113,7 @@ Para obter informações sobre a disponibilidade nos datacenters, consulte a se�
 3. Visualize seu stream ao vivo.
 4. Entregue o conteúdo por meio de protocolos de streaming comuns (por exemplo, MPEG DASH, Smooth, HLS) diretamente aos seus clientes ou a uma CDN (Rede de Distribuição de Conteúdo) para uma distribuição posterior.
 
-    -ou-
+    - ou -
 
     Registre e armazene o conteúdo incluído para uma transmissão posterior (Vídeo sob Demanda).
 
@@ -179,8 +181,8 @@ Os clientes dos Serviços de Mídia podem escolher um ponto de extremidade de st
 
 |Nome|Status|Datacenters
 |---|---|---|
-|Standard|GA|Tudo|
-|Premium|GA|Tudo|
+|Standard|GA|Todos|
+|Premium|GA|Todos|
 
 ### <a name="live-encoding"></a>Codificação ativa
 
@@ -196,7 +198,7 @@ A AMS oferece dois codificadores de sob demanda **Media Encoder Standard** e **F
 
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
-|Media Encoder Standard|GA|Tudo|
+|Media Encoder Standard|GA|Todos|
 |Fluxo de trabalho do Media Encoder Premium|GA|Todos, exceto China|
 
 ### <a name="analytics-media-processors"></a>Processadores de mídia da Análise
@@ -211,10 +213,10 @@ A Análise de Mídia é uma coleção de componentes de fala e pesquisa visual q
 |Nome do processador de mídia|Status|Datacenters
 |---|---|---|
 |Detector de Rostos em Mídias do Azure|Visualização|Todos|
-|Indexador de Mídia do Azure|GA|Tudo|
+|Indexador de Mídia do Azure|GA|Todos|
 |Detector de Movimento em Mídias do Azure|Visualização|Todos|
 |OCR de Mídia do Azure|Visualização|Todos|
-|Azure Media Redactor|GA|Tudo|
+|Azure Media Redactor|GA|Todos|
 |Miniaturas de Vídeo de Mídia do Azure|Visualização|Todos|
 
 ### <a name="protection"></a>Proteção
@@ -225,10 +227,10 @@ Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o mom
 
 |Criptografia|Status|Datacenters|
 |---|---|---| 
-|Armazenamento|GA|Tudo|
-|Chaves AES-128|GA|Tudo|
-|FairPlay|GA|Tudo|
-|PlayReady|GA|Tudo|
+|Armazenamento|GA|Todos|
+|Chaves AES-128|GA|Todos|
+|FairPlay|GA|Todos|
+|PlayReady|GA|Todos|
 |Widevine|GA|Todos, exceto Alemanha, Governo Federal e China.
 
 ### <a name="reserved-units-rus"></a>Unidades Reservadas (URs)
@@ -251,7 +253,7 @@ Para obter mais informações, consulte a seção sobre [dimensionamento](#scali
 
 |Nome do tipo de UR|Status|Datacenters
 |---|---|---|
-|S1|GA|Tudo|
+|S1|GA|Todos|
 |S2|GA|Todos, exceto sul do Brasil e Oeste da Índia|
 |S3|GA|Todos, exceto Oeste da Índia|
 

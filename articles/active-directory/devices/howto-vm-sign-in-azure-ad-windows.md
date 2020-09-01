@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180330"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259363"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -191,9 +191,9 @@ az role assignment create \
 
 Para obter mais informações sobre como usar o RBAC do Azure para gerenciar o acesso aos recursos de sua assinatura do Azure, consulte os seguintes artigos:
 
-- [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Usando o acesso condicional
 
@@ -339,7 +339,7 @@ Se você vir a seguinte mensagem de erro ao iniciar uma conexão de área de tra
 
 ![Suas credenciais não funcionaram](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Verifique se o computador Windows 10 que você está usando para iniciar a conexão de área de trabalho remota é um que seja ingressado no Azure AD ou que o Azure AD híbrido ingressou no mesmo diretório do Azure AD em que sua VM está unida. Para obter mais informações sobre a identidade do dispositivo, consulte o artigo [o que é uma identidade de dispositivo](/azure/active-directory/devices/overview).
+Verifique se o computador Windows 10 que você está usando para iniciar a conexão de área de trabalho remota é um que seja ingressado no Azure AD ou que o Azure AD híbrido ingressou no mesmo diretório do Azure AD em que sua VM está unida. Para obter mais informações sobre a identidade do dispositivo, consulte o artigo [o que é uma identidade de dispositivo](./overview.md).
 
 > [!NOTE]
 > O Windows 10 Build 20H1 adicionou suporte para um PC registrado do Azure AD para iniciar a conexão RDP com sua VM. Ao usar um computador de registro do Azure AD (não ingressado no Azure ad ou ingressado no Azure AD híbrido) como o cliente RDP para iniciar conexões com sua VM, você deve inserir as credenciais no formato AzureAD\UPn (por exemplo, AzureAD\john@contoso.com ).
@@ -367,4 +367,4 @@ Compartilhe seus comentários sobre este recurso de visualização ou relate pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+Para obter mais informações sobre o Azure Active Directory, confira [O que é o Azure Active Directory](../fundamentals/active-directory-whatis.md)

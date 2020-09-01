@@ -3,7 +3,7 @@ title: Codificar vídeos com o Codificador Padrão nos Serviços de Mídia - Azu
 description: Este tópico mostra como usar o codificador padrão nos Serviços de Mídia para codificar uma entrada de vídeo com uma escada de taxa de bits gerada automaticamente, com base na resolução de entrada e na taxa de bits.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c5fb04597ec274eaf2b4a4e7a5e2b96f1816f1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60733310"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258819"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificar com uma escada de taxa de bits gerada automaticamente
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Visão geral
 
@@ -60,7 +62,7 @@ Fonte com altura "720" e taxa de quadros "23.970" produz cinco camadas de vídeo
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>Exemplo 3
+### <a name="example-3"></a>Exemplo 3:
 Fonte com altura "360" e taxa de quadros "29.970" produz três camadas de vídeo:
 
 |Camada|Altura|Largura|Taxa de bits (kbps)|

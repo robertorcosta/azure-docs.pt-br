@@ -3,21 +3,21 @@ title: Localizadores de Transmissão nos Serviços de Mídia do Azure | Microsof
 description: Este artigo fornece uma explicação sobre o que são os Localizadores de Transmissão e como eles são usados pelos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b4ba1bf63c1b8ebe6b7e294f416eb528ce444c5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fe448ea5a4d9610ff82beb7cfa1071d2e8249dfd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005778"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257612"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
 
