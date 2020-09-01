@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 622f14beabb1f2f109dff5d28c1591ffdd5aa000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35f79702b7aad51b764ce2edb37c3c76d1fe98e8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74901444"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261505"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema do Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Este artigo descreve alguns dos elementos e tipos do esquema XML nos quais as [predefinições do Media Encoder Standard](media-services-mes-presets-overview.md) se baseiam. O artigo fornece uma explicação sobre os elementos e seus valores válidos.  
 
 ## <a name="preset-root-element"></a><a name="Preset"></a> Predefinição (elemento raiz)
@@ -40,7 +43,7 @@ Define uma predefinição de codificação.
 | --- | --- | --- |
 | **Versão**<br/><br/> Obrigatório |**xs: decimal** |A versão predefinida. As seguintes restrições se aplicam: xs:fractionDigits value="1" e xs:minInclusive value="1" Por exemplo, **version="1.0"**. |
 
-## <a name="encoding"></a><a name="Encoding"></a>Mecanismo
+## <a name="encoding"></a><a name="Encoding"></a> Mecanismo
 Contém uma sequência dos elementos a seguir:  
 
 ### <a name="elements"></a>Elementos
@@ -53,7 +56,7 @@ Contém uma sequência dos elementos a seguir:
 | **PngImage** |[PngImage](media-services-mes-schema.md#PngImage) |Configurações de imagem Png. |
 | **JpgImage** |[JpgImage](media-services-mes-schema.md#JpgImage) |Configurações de imagem Jpg. |
 
-## <a name="h264video"></a><a name="H264Video"></a>H264Video
+## <a name="h264video"></a><a name="H264Video"></a> H264Video
 ### <a name="elements"></a>Elementos
 
 | Nome | Tipo | Descrição |
@@ -71,7 +74,7 @@ Contém uma sequência dos elementos a seguir:
 | --- | --- | --- |
 | **Condição** |**xs:string** | Quando a entrada não tiver vídeo, talvez você queira forçar o codificador a inserir uma faixa de vídeo monocromática. Para fazer isso, use Condition = "InsertBlackIfNoVideoBottomLayerOnly" (para inserir um vídeo somente na taxa de bits mais baixa) ou Condition = "InsertBlackIfNoVideo" (para inserir um vídeo em todas as taxas de bits de saída). Para saber mais, confira [este artigo](media-services-advanced-encoding-with-mes.md#no_video).|
 
-## <a name="h264layers"></a><a name="H264Layers"></a>H264Layers
+## <a name="h264layers"></a><a name="H264Layers"></a> H264Layers
 
 Por padrão, se você enviar uma entrada para o codificador que contém apenas áudio e sem vídeo, o ativo de saída conterá apenas arquivos com dados de áudio. Alguns reprodutores podem não ser capazes de lidar com tais fluxos de saída. É possível utilizar a configuração de atributo **InsertBlackIfNoVideo** do H264Video para forçar o codificador a adicionar uma faixa de vídeo para a saída nesse cenário. Para saber mais, confira [este artigo](media-services-advanced-encoding-with-mes.md#no_video).
               
@@ -103,7 +106,7 @@ Por padrão, se você enviar uma entrada para o codificador que contém apenas �
 | **EntropyMode**<br/><br/> minOccurs="0"<br/><br/> default=”Cabac” |**xs: string** |Poderia ser um dos seguintes valores: **Cabac** e **Cavlc**. |
 | **FrameRate**<br/><br/> minOccurs="0" |número racional |Determina a taxa de quadros de vídeo de saída. Use o padrão de "0/1" para permitir que o codificador use a mesma taxa de quadros que o vídeo de entrada. Os valores permitidos devem ser taxas de quadros de vídeo comuns. No entanto, qualquer valor racional é permitido. Por exemplo, 1/1 seria 1 fps e é válido.<br/><br/> -12/1 (12 fps)<br/><br/> -15/1 (15 fps)<br/><br/> -24/1 (24 fps)<br/><br/> -24.000/1.001 (23.976 fps)<br/><br/> - 25/1 (25 fps)<br/><br/>  - 30/1 (30 fps)<br/><br/> - 30.000/1.001 (29,97 fps) <br/> <br/>**Observação** se estiver criando uma predefinição personalizada para codificação de múltiplas taxas de bits, todas as camadas da predefinição **deverão** usar o mesmo valor de FrameRate.|
 | **AdaptiveBFrame**<br/><br/> minOccurs="0" |**xs: boolean** |Cópia do Codificador de Mídia do Azure |
-| **Slices**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determina em quantas fatias um quadro é dividido. É recomendável usar o padrão. |
+| **Fatias**<br/><br/> minOccurs="0"<br/><br/> default="0" |**xs:int** |Determina em quantas fatias um quadro é dividido. É recomendável usar o padrão. |
 
 ## <a name="aacaudio"></a><a name="AACAudio"></a> AACAudio
  Contém uma sequência dos elementos e grupos a seguir.  
@@ -128,14 +131,14 @@ Por padrão, se você enviar uma entrada para o codificador que contém apenas �
 | --- | --- |
 | [AudioGroup](media-services-mes-schema.md#AudioGroup)<br/><br/> minOccurs="0" |Veja a descrição de [AudioGroup](media-services-mes-schema.md#AudioGroup) para saber o número apropriado de canais, a taxa de amostragem e a taxa de bits que podem ser definidas para cada perfil. |
 
-## <a name="audiogroup"></a><a name="AudioGroup"></a>MyAudio
+## <a name="audiogroup"></a><a name="AudioGroup"></a> MyAudio
 Para obter detalhes sobre quais valores são válidos para cada perfil, veja a tabela "Detalhes de codec de áudio" a seguir.  
 
 ### <a name="elements"></a>Elementos
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Channels**<br/><br/> minOccurs="0" |**xs: int** |O número de canais de áudio codificados. A seguir estão as opções válidas: 1, 2, 5, 6, 8.<br/><br/> Padrão: 2. |
+| **Canais**<br/><br/> minOccurs="0" |**xs: int** |O número de canais de áudio codificados. A seguir estão as opções válidas: 1, 2, 5, 6, 8.<br/><br/> Padrão: 2. |
 | **SamplingRate**<br/><br/> minOccurs="0" |**xs: int** |A taxa de amostragem de áudio, especificada em Hz. |
 | **720p**<br/><br/> minOccurs="0" |**xs: int** |A taxa de bits usada durante a codificação de áudio, especificada em kbps. |
 
@@ -147,7 +150,7 @@ Codec de áudio|Detalhes
 **HEAACV1** |1:<br/><br/> - 22050: taxa de bits = 8<br/><br/> - 24000: 8 &lt;= taxa de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= taxa de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= taxa de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= taxa de bits &lt;= 64<br/><br/> - 88200: taxa de bits = 64<br/><br/> 2:<br/><br/> - 32000: 16 &lt;= taxa de bits &lt;= 128<br/><br/> - 44100: 16 &lt;= taxa de bits &lt;= 128<br/><br/> - 48000: 16 &lt;= taxa de bits &lt;= 128<br/><br/> - 88200 : 96 &lt;= taxa de bits &lt;= 128<br/><br/> - 96000: 96 &lt;= taxa de bits &lt;= 128<br/><br/> 5/6:<br/><br/> - 32000 : 64 &lt;= taxa de bits &lt;= 320<br/><br/> - 44100: 64 &lt;= taxa de bits &lt;= 320<br/><br/> - 48000: 64 &lt;= taxa de bits &lt;= 320<br/><br/> - 88200 : 256 &lt;= taxa de bits &lt;= 320<br/><br/> - 96000: 256 &lt;= taxa de bits &lt;= 320<br/><br/> 8:<br/><br/> - 32000: 96 &lt;= taxa de bits &lt;= 448<br/><br/> - 44100: 96 &lt;= taxa de bits &lt;= 448<br/><br/> - 48000: 96 &lt;= taxa de bits &lt;= 448<br/><br/> - 88200: 384 &lt;= taxa de bits &lt;= 448<br/><br/> - 96000: 384 &lt;= taxa de bits &lt;= 448  
 **HEAACV2** |2:<br/><br/> - 22050: 8 &lt;= taxa de bits &lt;= 10<br/><br/> - 24000: 8 &lt;= taxa de bits &lt;= 10<br/><br/> - 32000: 12 &lt;= taxa de bits &lt;= 64<br/><br/> - 44100: 20 &lt;= taxa de bits &lt;= 64<br/><br/> - 48000: 20 &lt;= taxa de bits &lt;= 64<br/><br/> - 88200: 64 &lt;= taxa de bits &lt;= 64  
   
-## <a name="clip"></a><a name="Clip"></a>Clipe
+## <a name="clip"></a><a name="Clip"></a> Clipe
 ### <a name="attributes"></a>Atributos
 
 | Nome | Tipo | Descrição |
@@ -155,7 +158,7 @@ Codec de áudio|Detalhes
 | **StartTime** |**xs:duration** |Especifica a hora de início de uma apresentação. O valor da StartTime precisa corresponder aos carimbos de hora absolutos do vídeo de entrada. Por exemplo, se o primeiro quadro de vídeo de entrada tem um carimbo de data/hora de 12:00:10.000, então, a StartTime deve ser pelo menos 12:00:10.000 ou maior. |
 | **Duration** |**xs:duration** |Especifica a duração de uma apresentação (por exemplo, a aparência de uma sobreposição no vídeo). |
 
-## <a name="output"></a><a name="Output"></a>Der
+## <a name="output"></a><a name="Output"></a> Output
 ### <a name="attributes"></a>Atributos
 
 | Nome | Tipo | Descrição |
@@ -180,7 +183,7 @@ Codec de áudio|Detalhes
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| **Início** |**xs:string** | |
+| **Iniciar** |**xs:string** | |
 | **Step** |**xs:string** | |
 | **Range** |**xs:string** | |
 | **PreserveResolutionAfterRotation** |**xs:boolean** |Para obter explicações detalhadas, consulte a seção a seguir: [PreserveResolutionAfterRotation](media-services-mes-schema.md#PreserveResolutionAfterRotation) |
@@ -223,7 +226,7 @@ Como alternativa, você pode fazer uso do sinalizador **PreserveResolutionAfterR
 | --- | --- | --- |
 | **Condição** |**xs:string** | |
 
-## <a name="pnglayer"></a><a name="PngLayer"></a>PngLayer
+## <a name="pnglayer"></a><a name="PngLayer"></a> PngLayer
 ### <a name="element"></a>Elemento
 
 | Nome | Tipo | Descrição |
@@ -237,14 +240,14 @@ Como alternativa, você pode fazer uso do sinalizador **PreserveResolutionAfterR
 | --- | --- | --- |
 | **Condição** |**xs:string** | |
 
-## <a name="jpglayer"></a><a name="JpgLayer"></a>JpgLayer
+## <a name="jpglayer"></a><a name="JpgLayer"></a> JpgLayer
 ### <a name="element"></a>Elemento
 
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
 | **Largura**<br/><br/> minOccurs="0" |**xs:int** | |
 | **Altura**<br/><br/> minOccurs="0" |**xs:int** | |
-| **Quality**<br/><br/> minOccurs="0" |**xs:int** |Valores válidos: 1 (pior) – 100 (melhor) |
+| **Qualidade**<br/><br/> minOccurs="0" |**xs:int** |Valores válidos: 1 (pior) – 100 (melhor) |
 
 ### <a name="attributes"></a>Atributos
 
@@ -252,7 +255,7 @@ Como alternativa, você pode fazer uso do sinalizador **PreserveResolutionAfterR
 | --- | --- | --- |
 | **Condição** |**xs:string** | |
 
-## <a name="pnglayers"></a><a name="PngLayers"></a>PngLayers
+## <a name="pnglayers"></a><a name="PngLayers"></a> PngLayers
 ### <a name="elements"></a>Elementos
 
 | Nome | Tipo | Descrição |

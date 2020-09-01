@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: cda22c63a70c5121e6a6972c66bdc0a4bb5158fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d47311385848f96a12a50c1dcf8b8284869c71d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089457"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260349"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Cotas e planos de serviço para o Azure Spring Cloud
 
@@ -27,9 +27,6 @@ Memória | 2 GB por instância de serviço | 8 GB por instância de serviço
 Instâncias de serviço do Azure Spring Cloud por região por assinatura | 10 | 10
 Instâncias totais de aplicativo por instância de serviço do Azure Spring Cloud | 25 | 500
 Volumes persistentes | aplicativos de 1 GB/aplicativo x 10 | 50 GB/aplicativo x 10 aplicativos
-
-
-Durante o período de visualização, o Azure Spring Cloud oferece apenas uma camada de serviço. Quando atingir um limite, você receberá um erro 400 que lê: "a cota excede o limite para *a assinatura da sua assinatura* na região da região *onde o serviço de nuvem do Azure Spring é criado*.
 
 ## <a name="next-steps"></a>Próximas etapas
 

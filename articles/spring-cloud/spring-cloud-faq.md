@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 73c0eeb718bb6ede8215ed3a87e246185a248ffd
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: fcd9f0759ae885199347cc23d93e8f1c00251387
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89054981"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260519"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ do Azure Spring Cloud
 
@@ -40,10 +40,10 @@ Leste dos EUA, Oeste dos EUA 2, Oeste da Europa e Sudeste Asiático.
 
 ### <a name="what-are-the-known-limitations-of-azure-spring-cloud"></a>Quais são as limitações conhecidas do Azure Spring Cloud?
 
-Durante a versão de visualização, o Azure Spring Cloud tem as seguintes limitações conhecidas:
-
+O Azure Spring Cloud tem as seguintes limitações conhecidas:
+    
 * `spring.application.name` será substituído pelo nome do aplicativo usado para criar cada aplicativo.
-* `server.port` o padrão é as portas 80/443. Se qualquer outro valor for aplicado, ele será substituído para 80/443.
+* `server.port` o padrão é a porta 1025. Se qualquer outro valor for aplicado, ele será substituído para 1025.
 * Os modelos portal do Azure e Azure Resource Manager não dão suporte ao carregamento de pacotes de aplicativos. Você pode carregar pacotes de aplicativos somente implantando o aplicativo por meio do CLI do Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Quais tipos de preço estão disponíveis? 
