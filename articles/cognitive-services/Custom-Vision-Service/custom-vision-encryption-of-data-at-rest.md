@@ -1,20 +1,20 @@
 ---
 title: Visão Personalizada criptografia de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Visão Personalizada criptografia de dados em repouso.
+description: A Microsoft oferece chaves de criptografia gerenciadas pela Microsoft e também permite que você gerencie suas assinaturas de serviços cognitivas com suas próprias chaves, chamadas CMK (chaves gerenciadas pelo cliente). Este artigo aborda a criptografia de dados em repouso para Visão Personalizada e como habilitar e gerenciar CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 85cf251db69d33f02e928eaea6a848f20ae7d923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 39257419f179bdce8c94f2ddb3a7cd8f5ac2d34f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310284"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077748"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Visão Personalizada criptografia de dados em repouso
 

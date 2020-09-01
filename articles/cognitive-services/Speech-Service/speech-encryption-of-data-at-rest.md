@@ -1,20 +1,20 @@
 ---
 title: Criptografia do serviço de fala de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Criptografia do serviço de fala de dados em repouso.
+description: A Microsoft oferece chaves de criptografia gerenciadas pela Microsoft e também permite que você gerencie suas assinaturas de serviços cognitivas com suas próprias chaves, chamadas CMK (chaves gerenciadas pelo cliente). Este artigo aborda a criptografia de dados em repouso para o serviço de fala.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198663"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078088"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Criptografia do serviço de fala de dados em repouso
 
@@ -22,7 +22,7 @@ O serviço de fala criptografa automaticamente os dados quando eles são persist
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a criptografia de serviços cognitivas
 
-Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Os dados são seguros por padrão e você não precisa modificar seu código ou aplicativos para tirar proveito da criptografia.
+Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Como os dados são protegidos por padrão, você não precisa modificar seu código ou seus aplicativos para aproveitar a criptografia.
 
 ## <a name="about-encryption-key-management"></a>Sobre o gerenciamento de chaves de criptografia
 

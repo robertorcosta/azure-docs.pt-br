@@ -1,20 +1,20 @@
 ---
 title: Criptografia do serviço de Reconhecimento vocal de dados em repouso
 titleSuffix: Azure Cognitive Services
-description: Reconhecimento vocal criptografia do serviço de dados em repouso.
+description: A Microsoft oferece chaves de criptografia gerenciadas pela Microsoft e também permite que você gerencie suas assinaturas de serviços cognitivas com suas próprias chaves, chamadas CMK (chaves gerenciadas pelo cliente). Este artigo aborda a criptografia de dados em repouso para Reconhecimento vocal (LUIS) e como habilitar e gerenciar o CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052691"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078122"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Criptografia do serviço de Reconhecimento vocal de dados em repouso
 
@@ -22,11 +22,11 @@ O serviço de Reconhecimento vocal criptografa automaticamente os dados quando e
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a criptografia de serviços cognitivas
 
-Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Os dados são seguros por padrão e você não precisa modificar seu código ou aplicativos para tirar proveito da criptografia.
+Os dados são criptografados e descriptografados usando [a criptografia AES de 256 bits em](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conformidade com [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . A criptografia e a descriptografia são transparentes, o que significa que a criptografia e o acesso são gerenciados para você. Como os dados são protegidos por padrão, você não precisa modificar seu código ou seus aplicativos para aproveitar a criptografia.
 
 ## <a name="about-encryption-key-management"></a>Sobre o gerenciamento de chaves de criptografia
 
-Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Também há uma opção para gerenciar sua assinatura com suas próprias chaves. As chaves gerenciadas pelo cliente (CMK) oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
+Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Também há a opção de gerenciar sua assinatura com suas próprias chaves chamadas CMK (chaves gerenciadas pelo cliente). O CMK oferece maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chaves gerenciadas pelo cliente com o Azure Key Vault
 
@@ -39,10 +39,6 @@ Você deve usar Azure Key Vault para armazenar as chaves gerenciadas pelo client
 Para solicitar a capacidade de usar chaves gerenciadas pelo cliente, preencha e envie o [formulário de solicitação de chave gerenciada pelo cliente do serviço Luis](https://aka.ms/cogsvc-cmk). Levará aproximadamente 3-5 dias úteis para que o status da solicitação seja reproduzido. Dependendo da demanda, você pode ser colocado em uma fila e aprovado, pois o espaço se torna disponível. Depois de aprovado para usar o CMK com LUIS, você precisará criar um novo recurso de Reconhecimento vocal da portal do Azure e selecionar E0 como o tipo de preço. O novo SKU funcionará da mesma forma que a SKU F0 que já está disponível, exceto para CMK. Os usuários não poderão atualizar do F0 para o novo SKU E0.
 
 ![Imagem de assinatura do LUIS](../media/cognitive-services-encryption/luis-subscription.png)
-
-### <a name="regional-availability"></a>Disponibilidade regional
-
-As chaves gerenciadas pelo cliente estão disponíveis em todas as [regiões de criação](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Limitações
 

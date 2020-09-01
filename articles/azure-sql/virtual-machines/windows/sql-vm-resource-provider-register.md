@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c52275735a6558a625e2118761d7ba98509dbe1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 3f1a9a2756d81765d82938651672e5a83edc48ed
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497062"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078673"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registrar uma VM SQL Server no Azure com o provedor de recursos de VM do SQL (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -398,9 +398,9 @@ O modo de gerenciamento SQL padrão ao registrar-se com o provedor de recursos d
 
 **O registro com o provedor de recursos da VM do SQL instalará um agente em minha VM?**
 
-Não. O registro com o provedor de recursos da VM do SQL criará apenas um recurso de metadados. Ele não instalará um agente na VM.
+Sim, o registro com o provedor de recursos da VM do SQL instalará um agente na VM.
 
-A extensão de IaaS do SQL Server é necessária apenas para habilitar a capacidade de gerenciamento total. A atualização do modo de gerenciamento leve para o completo instalará a extensão de IaaS do SQL Server e reiniciará o SQL Server.
+A extensão SQL Server IaaS depende do agente para consultar os metadados de SQL Server. A única vez em que um agente não está instalado é quando o provedor de recursos de VM do SQL é regsitered no modo noagent
 
 **Será registrado com a reinicialização do provedor de recursos da VM do SQL SQL Server em minha VM?**
 
@@ -466,6 +466,6 @@ Os dois nomes de serviço são:
 Para obter mais informações, consulte os seguintes artigos: 
 
 * [Visão geral do SQL Server em uma VM do Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Perguntas frequentes sobre o SQL Server em uma VM do Windows](frequently-asked-questions-faq.md)
+* [Perguntas frequentes sobre o SQL Server em uma VM do Windows](frequently-asked-questions-faq.md)  
 * [Diretrizes de preço para o SQL Server em uma VM do Windows](pricing-guidance.md)
 * [Notas sobre a versão do SQL Server em uma VM do Windows](../../database/doc-changes-updates-release-notes.md)

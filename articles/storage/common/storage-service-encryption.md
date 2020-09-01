@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e949c3db6d8c0cafab8556dbfde367e6e49273e9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814443"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078190"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Criptografia do Armazenamento do Azure para dados em repouso
 
@@ -46,7 +46,7 @@ A tabela a seguir compara as principais opções de gerenciamento de criptografi
 | Parâmetro de gerenciamento de chaves | Chaves gerenciadas pela Microsoft | Chaves gerenciadas pelo cliente | Chaves fornecidas pelo cliente |
 |--|--|--|--|
 | Operações de criptografia/descriptografia | Azure | Azure | Azure |
-| Serviços de armazenamento do Azure com suporte | Tudo | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de Blobs |
+| Serviços de armazenamento do Azure com suporte | Todos | Armazenamento de BLOBs, arquivos do Azure<sup>1, 2</sup> | Armazenamento de blob |
 | Armazenamento de chave | Repositório de chaves da Microsoft | Cofre de Chave do Azure | Repositório de chaves próprio do cliente |
 | Responsabilidade de rotação de chave | Microsoft | Cliente | Cliente |
 | Controle de chave | Microsoft | Cliente | Cliente |
@@ -69,6 +69,8 @@ Depois de criar um escopo de criptografia, você pode especificar esse escopo de
 
 > [!NOTE]
 > Não há suporte para escopos de criptografia com o armazenamento com redundância geográfica com acesso de leitura (RA-GRS) e contas de armazenamento com redundância de acesso de leitura (RA-GZRS) durante a visualização.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!IMPORTANT]
 > A visualização dos escopos de criptografia é destinada somente ao uso de não produção. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.

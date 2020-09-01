@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 996793f2851949f7474312a18ccff04e88db2232
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b43635c637f10b6ace8a744ceb3046c4ce3b9bd4
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259163"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078071"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança do Azure para instâncias de contêiner
 
@@ -155,7 +155,7 @@ Você também pode usar grupos de segurança de aplicativo para ajudar a simplif
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: manter configurações de segurança padrão para dispositivos de rede
 
-**Orientação**: você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos do Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico a novas assinaturas e ajustar o controle e o gerenciamento por meio da versão. 
+**Orientação**: você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos do Azure Resource Manager, controles RBAC do Azure e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico a novas assinaturas e ajustar o controle e o gerenciamento por meio da versão. 
 
 * [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -557,9 +557,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o RBAC do Azure ad para controlar o acesso a dados e recursos de instâncias de contêiner do Azure. 
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso a dados e recursos de instâncias de contêiner do Azure. 
 
-* [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
+* [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -923,13 +923,13 @@ Use uma solução personalizada ou de terceiros para corrigir imagens de contêi
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: armazenar imagens personalizadas do sistema operacional com segurança
 
-**Diretrizes**: armazene imagens de contêiner no registro de contêiner do Azure e aproveite o RBAC para garantir que somente usuários autorizados possam acessar as imagens.
+**Orientação**: armazene imagens de contêiner no registro de contêiner do Azure e aproveite o RBAC do Azure para garantir que somente usuários autorizados possam acessar as imagens.
 
-* [Entender o RBAC no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Entender o RBAC do Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Entender o RBAC para registro de contêiner](../container-registry/container-registry-roles.md)
+* [Entender o RBAC do Azure para registro de contêiner](../container-registry/container-registry-roles.md)
 
-* [Como configurar o RBAC no Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Como configurar o RBAC do Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 04a984a2dfa473502fd9e534e52b60b33be52757
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: d086f8f3a2f4939012691d5bd03cc92a50ac4613
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88704953"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078309"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Recursos de transação do marketplace comercial
 
@@ -143,6 +143,8 @@ Nesse cenário, a Microsoft cobra US$ 100,00 pela sua licença de software e pag
 |---------|---------|
 |A Microsoft paga para você 80% do seu custo de licença <br> \* A Microsoft paga 90% do seu custo de licença para qualquer aplicativo SaaS qualificado   |   US $80,00 por mês <br> \* US $90,00 por mês    |
 |A Microsoft mantém 20% do seu custo de licença <br> \* A Microsoft mantém 10% do seu custo de licença para qualquer aplicativo SaaS qualificado.  |  US $20,00 por mês <br> \* US $10,00     |
+
+### <a name="reduced-service-fee"></a>Taxa de serviço reduzida
 
 Para determinadas ofertas que você publica no mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no [contrato do Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)) para 10%. Para que suas ofertas sejam qualificadas, suas ofertas devem ter sido designadas pela Microsoft como o IP do Azure co-vender incentivados. A qualificação deve ser atendida pelo menos cinco dias úteis antes do término de cada mês do calendário para receber a taxa de serviço do Marketplace reduzida para o mês. A taxa reduzida de serviço do Marketplace se aplica ao IP do Azure covenda de incentivados SaaS, VMs, aplicativos gerenciados e qualquer outra oferta de IaaS transactável qualificada disponibilizada por meio do Marketplace comercial.
 

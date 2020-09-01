@@ -9,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: seo-lt-2019
+ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: a092ec3d211ed3fafadd73c37b3e58c353b618d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e83f69b2a46b54f92bbfe35ac96f870edf5cb807
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253402"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078020"
 ---
 # <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrar um banco de dados SQL Server para o banco de dados SQL do Azure usando Azure PowerShell
 
@@ -26,7 +26,7 @@ Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado par
 Neste artigo, você aprenderá como:
 > [!div class="checklist"]
 >
-> * Crie um grupos de recursos.
+> * Crie um grupo de recursos.
 > * Criar uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Crie um projeto de migração em uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Executar a migração.
@@ -69,7 +69,7 @@ Crie uma nova instância do Serviço de Migração de Banco de Dados do Azure us
 
 * *Nome do grupo de recursos do Azure*. Você pode usar o comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) para criar o grupo de recursos do Azure como mostrado anteriormente e fornecer seu nome como um parâmetro.
 * *Nome do serviço*. Cadeia de caracteres que corresponde ao nome de serviço exclusivo desejado para o Serviço de Migração de Banco de Dados do Azure 
-* *Local*. Especifica o local do serviço. Especifique um local de data center do Azure, como Oeste dos EUA ou Sudeste Asiático
+* *Localização*. Especifica o local do serviço. Especifique um local de data center do Azure, como Oeste dos EUA ou Sudeste Asiático
 * *SKU*. Esse parâmetro corresponde ao nome do SKU do DMS. É o nome da Sku com suporte no momento *GeneralPurpose_4vCores*.
 * *Identificador de Sub-rede Virtual*. Você pode usar o cmdlet [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) para criar uma sub-rede. 
 

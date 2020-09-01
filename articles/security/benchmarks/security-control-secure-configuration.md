@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e3d43239dabe75bc2b25319945c2c6b08d726d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac538d71f854643cb59390447be360bc541142ac
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82193098"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077221"
 ---
 # <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
 
@@ -22,7 +22,7 @@ Estabeleça, implemente e gerencie ativamente (acompanhe, relate e corrija) a co
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7.1 | 5.1 | Cliente |
+| 7.1 | 5,1 | Cliente |
 
 Use aliases de Azure Policy para criar políticas personalizadas para auditar ou impor a configuração dos recursos do Azure. Você também pode usar definições de Azure Policy internas.
 
@@ -42,7 +42,7 @@ Você também pode usar recomendações da central de segurança do Azure como u
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7.2 | 5.1 | Cliente |
+| 7.2 | 5,1 | Cliente |
 
 Use as recomendações da central de segurança do Azure para manter as configurações de segurança em todos os recursos de computação.  Além disso, você pode usar imagens personalizadas do sistema operacional ou a configuração de estado da automação do Azure para estabelecer a configuração de segurança do sistema operacional exigido por sua organização.
 
@@ -74,7 +74,7 @@ Use Azure Policy [Deny] e [implantar se não existir] para impor configurações
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7.4 | 5.2 | Compartilhado |
+| 7,4 | 5.2 | Compartilhado |
 
 Siga as recomendações da central de segurança do Azure sobre como executar avaliações de vulnerabilidade em seus recursos de computação do Azure.  Além disso, você pode usar modelos de Azure Resource Manager, imagens do sistema operacional personalizado ou configuração de estado da automação do Azure para manter a configuração de segurança do sistema operacional exigido pela sua organização.   Os modelos de máquina virtual da Microsoft combinados com a configuração de estado desejado da automação do Azure podem ajudar a atender e a manter os requisitos de segurança. 
 
@@ -110,13 +110,13 @@ Use o Azure DevOps para armazenar e gerenciar com segurança seu código, como p
 |--|--|--|
 | 7.6 | 5,3 | Cliente |
 
-Se você estiver usando imagens personalizadas, use o RBAC (controle de acesso baseado em função) para garantir que somente usuários autorizados possam acessar as imagens. Usando uma Galeria de Imagens Compartilhadas, é possível compartilhar suas imagens com diferentes usuários, entidades de serviço ou grupos do AD dentro de sua organização.  Para imagens de contêiner, armazene-as no registro de contêiner do Azure e aproveite o RBAC para garantir que somente usuários autorizados possam acessar as imagens.  
+Se usar imagens personalizadas, use o controle de acesso baseado em função do Azure (RBAC do Azure) para garantir que somente usuários autorizados possam acessar as imagens. Usando uma Galeria de Imagens Compartilhadas, é possível compartilhar suas imagens com diferentes usuários, entidades de serviço ou grupos do AD dentro de sua organização.  Para imagens de contêiner, armazene-as no registro de contêiner do Azure e aproveite o RBAC do Azure para garantir que somente usuários autorizados possam acessar as imagens.  
 
-- [Entender o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-- [Entender o RBAC para registro de contêiner](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- [Entender o RBAC do Azure para registro de contêiner](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-- [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 - [Visão geral da galeria de imagens compartilhadas](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries)
 
@@ -136,7 +136,7 @@ Defina e implemente configurações de segurança padrão para recursos do Azure
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7.8 | 5.4 | Cliente |
+| 7,8 | 5.4 | Cliente |
 
 A configuração de estado de automação do Azure é um serviço de gerenciamento de configuração para nós de DSC (configuração de estado desejado) em qualquer datacenter local ou na nuvem. Você pode, facilmente, integrar máquinas, atribuir a elas configurações declarativas e exibir relatórios que mostram a conformidade de cada computador com o estado desejado especificado. 
 
@@ -146,7 +146,7 @@ A configuração de estado de automação do Azure é um serviço de gerenciamen
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7,9 | 5.5 | Cliente |
+| 7.9 | 5.5 | Cliente |
 
 Use a central de segurança do Azure para executar verificações de linha de base para os recursos do Azure.  Além disso, use Azure Policy para alertar e auditar configurações de recursos do Azure.
 
@@ -156,7 +156,7 @@ Use a central de segurança do Azure para executar verificações de linha de ba
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7,10 | 5.5 | Cliente |
+| 7.10 | 5.5 | Cliente |
 
 Use a central de segurança do Azure para executar verificações de linha de base para configurações do sistema operacional e do Docker para contêineres.
 
@@ -199,4 +199,4 @@ Implemente o verificador de credenciais para identificar as credenciais no códi
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o próximo controle de segurança: [defesa contra malware](security-control-malware-defense.md)
+- Consulte o próximo controle de segurança:  [defesa contra malware](security-control-malware-defense.md)
