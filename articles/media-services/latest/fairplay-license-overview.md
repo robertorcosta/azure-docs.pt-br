@@ -1,7 +1,7 @@
 ---
 title: Suporte de licença do Apple FairPlay e Serviços de Mídia - Azure | Microsoft Docs
 description: Este tópico fornece uma visão geral de uma configuração e dos requisitos de licença do Apple FairPlay.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 0c2a699a57ce43b4d0b6f02c850dbda8082fbaea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cded51fa1cc1a1411f59915382f3c310660f8b19
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009722"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269294"
 ---
-# <a name="apple-fairplay-license-requirements-and-configuration"></a>Requisitos e configuração de licença do Apple FairPlay 
+# <a name="apple-fairplay-license-requirements-and-configuration"></a>Requisitos e configuração de licença do Apple FairPlay
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os Serviços de Mídia do Azure permitem criptografar o conteúdo HLS com **Apple FairPlay** (AES-128 CBC). Os Serviços de Mídia do Azure também fornecem um serviço para fornecer licenças do FairPlay. Quando um player tenta reproduzir o conteúdo protegido pelo FairPlay, uma solicitação é enviada ao serviço de entrega de licenças para obter uma licença. Se o serviço de licença aprovar a solicitação, ele emite a licença que é enviada ao cliente e é usada para descriptografar e reproduzir o conteúdo especificado.
 

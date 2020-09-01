@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2020
 ms.author: juliako
-ms.openlocfilehash: d8d961ab58e900a6d619ec64297c783abdb7b6ce
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1c3e50fd64c113aafd2d70cc76c7f789e080ad23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091684"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269515"
 ---
 # <a name="azure-media-services-legacy-components"></a>Componentes herdados dos serviços de mídia do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Com o tempo, houve aprimoramentos e aprimoramentos contínuos nos componentes do serviço de mídia. Como resultado, alguns componentes herdados foram desativados. Você pode encontrar as instruções sobre como migrar seu aplicativo do componente herdado para um componente atual nos artigos a seguir.
  

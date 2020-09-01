@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180075"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269668"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -27,7 +27,7 @@ Usando o Azure Active Directory (Azure AD), você pode designar administradores 
 
 ## <a name="limit-use-of-global-administrator"></a>Uso limitado do Administrador global
 
-Os usuários atribuídos à função de Administrador global podem ler e modificar todas as configurações administrativa em sua organização do Azure AD. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador global para a organização do Azure AD. Apenas Administradores globais e Administradores de funções com privilégios podem delegar funções de administrador. Para reduzir o risco da sua empresa, recomendamos que você atribua essa função ao menor número possível de pessoas na sua organização.
+Os usuários atribuídos à função de Administrador global podem ler e modificar todas as configurações administrativa em sua organização do Azure AD. Por padrão, quando um usuário se inscreve em um serviço de nuvem da Microsoft, um locatário do Azure AD é criado e o usuário se torna membro da função de administradores globais. Quando você adiciona uma assinatura a um locatário existente, não é atribuída à função de administrador global. Apenas Administradores globais e Administradores de funções com privilégios podem delegar funções de administrador. Para reduzir o risco da sua empresa, recomendamos que você atribua essa função ao menor número possível de pessoas na sua organização.
 
 Como uma melhor prática, recomendamos que você atribua essa função a menos de cinco pessoas em sua organização. Caso você tenha mais de cinco administradores atribuídos à função de Administrador global em sua organização, aqui estão algumas maneiras de reduzir seu uso.
 

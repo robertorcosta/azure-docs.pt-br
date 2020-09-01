@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: ef558b9339fe1d4525156cf58efe5056862de0a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c98d265f2d21c1e16ca787d4055eb4c2b1a89133
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052749"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269073"
 ---
-# <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de mídia sob demanda do Azure 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de mídia sob demanda do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
@@ -60,7 +62,7 @@ Os metadados de entrada dos codificadores estão descritos [aqui](media-services
 Os metadados de saída dos codificadores estão descritos [aqui](media-services-output-metadata-schema.md).
 
 ### <a name="generate-thumbnails"></a>Gerar miniaturas
-Para obter informações, veja [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#thumbnails).
+Para obter informações, veja [Como gerar miniaturas usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md).
 
 ### <a name="trim-videos-clipping"></a>Cortar vídeos (recorte)
 Para obter informações, veja [Como cortar vídeos usando o Codificador de Mídia Padrão](media-services-advanced-encoding-with-mes.md#trim_video).

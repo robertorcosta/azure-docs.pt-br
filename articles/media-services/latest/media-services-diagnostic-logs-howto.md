@@ -3,7 +3,7 @@ title: Monitorar logs de diagnóstico dos serviços de mídia via Azure Monitor 
 description: Este artigo demonstra como rotear e exibir logs de diagnóstico por meio de Azure Monitor.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15c8cd3eff7b0eb64e1a512282de129f606a33ce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 837113c11f24eda91a62cc68fdc68180951eee16
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501228"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269447"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorar logs de diagnóstico dos serviços de mídia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Azure monitor](../../azure-monitor/overview.md) permite que você monitore as métricas e os logs de diagnóstico que ajudam a entender como seus aplicativos estão sendo executados. Para obter uma descrição detalhada desse recurso e ver por que você desejaria usar os logs de diagnóstico e as métricas dos serviços de mídia do Azure, consulte [monitorar as métricas dos serviços de mídia e os logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
@@ -30,7 +32,7 @@ Este artigo mostra como rotear dados para a conta de armazenamento e exibir os d
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
-- Revise [monitorar métricas de serviços de mídia e logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
+- Revise  [monitorar métricas de serviços de mídia e logs de diagnóstico](media-services-metrics-diagnostic-logs.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Rotear dados para a conta de armazenamento usando o portal
 
@@ -179,7 +181,7 @@ Talvez seja necessário aguardar até cinco minutos antes que o evento seja exib
 
 * O Widevine é um serviço fornecido pela Google Inc. e está sujeito aos termos de serviço e à política de privacidade da Google, Inc.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Métricas do Azure Monitor](../../azure-monitor/platform/data-platform.md)
 * [Azure Monitor logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md)

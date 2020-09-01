@@ -1,7 +1,7 @@
 ---
 title: Visão geral dos serviços de mídia do Azure v3 com Widevine
 description: Este tópico fornece uma visão geral de um modelo de licença do Widevine usado para configurar as licenças do Widevine.
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 173fa5a598a929ff77ce573cc429ed9488a5bd9b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f5a1140510bbfa09c807021212884836af43a861
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018766"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269243"
 ---
 # <a name="media-services-v3-with-widevine-license-template-overview"></a>Visão geral do modelo de licença do Media Services V3 com Widevine
 

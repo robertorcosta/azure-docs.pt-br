@@ -10,16 +10,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: af9f1f745f58e9d51ff7c5755d24b819ed9443f7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147337"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269719"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformidade regulatória dos serviços de mídia
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os serviços de mídia atendem aos requisitos exigentes do FedRAMP (programa de gerenciamento de autorização) de & risco Federal dos EUA e do departamento de defesa dos EUA, desde os níveis de impacto de informações de 2 a 5. Ao implantar serviços protegidos, incluindo o Azure governamental, o governo dos EUA do Office 365 e as agências governamentais, federais e de defesa do Dynamics 365 podem usar uma ampla gama de serviços em conformidade.
 

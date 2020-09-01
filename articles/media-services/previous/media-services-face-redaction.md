@@ -14,14 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7cdacabcc97d37c144b498ea9a05ccc9d6bffc04
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a562e31a26cc6cf7188dd635273bd9fa8c57213
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019854"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269458"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics 
+# <a name="redact-faces-with-azure-media-analytics"></a>Edição facial com o Azure Media Analytics
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Visão geral
 **Azure Media Redactor** é um MP (processador de mídia) do [Azure Media Analytics](media-services-analytics-overview.md) que oferece edição facial escalonável na nuvem. A edição facial permite que você modifique seu vídeo para desfocar rostos de pessoas selecionadas. Você pode querer usar o serviço de edição facial em cenários de segurança pública e de notícias veiculadas. Alguns minutos de vídeo com vários rostos podem levar horas para serem editados manualmente, mas, com esse serviço, o processo de edição facial exigirá apenas algumas etapas simples. Para obter mais informações, consulte [este](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 

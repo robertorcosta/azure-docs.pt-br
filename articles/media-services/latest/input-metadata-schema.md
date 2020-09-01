@@ -1,7 +1,7 @@
 ---
 title: Esquema de metadados de entrada dos serviços de mídia do Azure v3
 description: Este artigo fornece uma visão geral do esquema de metadados de entrada dos serviços de mídia do Azure v3.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2020
-ms.author: juliako
-ms.openlocfilehash: 40e61061878c8aec6bad353bfd0c5f2f4178ce14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095541"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269141"
 ---
-# <a name="input-metadata"></a>Metadados de entrada 
+# <a name="input-metadata"></a>Metadados de entrada
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Um trabalho de codificação é associado um ativo (ou ativos) de entrada no qual você deseja executar algumas tarefas de codificação.  Após a conclusão de uma tarefa, um ativo de saída é produzido. O ativo de saída contém vídeo, áudio, miniaturas, manifesto e outros arquivos. 
 
@@ -94,7 +96,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 | --- | --- | 
 | **SampleFormat** |Formato de exemplo. <br /><br />Exemplo: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |Layout do canal. <br /><br />Exemplo: `"ChannelLayout": "stereo"`|
-| **Channels**<br />Obrigatório |Número (0 ou mais) de canais de áudio. <br /><br />Exemplo: `"Channels": 2`|
+| **Canais**<br />Obrigatório |Número (0 ou mais) de canais de áudio. <br /><br />Exemplo: `"Channels": 2`|
 | **SamplingRate**<br />Obrigatório |Taxa de amostragem de áudio em amostras/s ou Hz. <br /><br />Exemplo: `"SamplingRate": 48000`|
 | **720p** |Taxa média de bits de áudio em bits por segundo, calculada com base no arquivo de ativo. Apenas a carga de fluxo elementar é contada, e a sobrecarga de empacotamento não está incluída nesta contagem. <br /><br />Exemplo: `"Bitrate": 192080`|
 | **Metadados** |As cadeias de caracteres de chave/valor genéricas que podem ser usadas para armazenar uma variedade de informações.  <br />Consulte o exemplo completo no final do artigo. |

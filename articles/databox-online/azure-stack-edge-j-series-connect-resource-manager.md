@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c7f571489a9e565fac8c23db4c08321be6f551d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: cf57d81c2ef56662abbd529a5de90e03c00e091a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146191"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269804"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-device"></a>Conectar-se a Azure Resource Manager em seu dispositivo do Azure Stack Edge
 
@@ -102,7 +102,7 @@ Para uso somente de teste e desenvolvimento, você pode usar o Windows PowerShel
     |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de Blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 Para obter mais informações sobre certificados, acesse como [gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md).

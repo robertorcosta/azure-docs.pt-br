@@ -5,18 +5,18 @@ ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: 3899fdb84e2263ea78aa70669a5fde88088b6fc5
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: f9d9b995f8e78ec91bd26c31dde16b97188f0371
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342809"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269175"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Início rápido: Obtenha respostas para uma pergunta de uma base de dados de conhecimento com go
 
 Este início rápido o orienta a obter programaticamente uma resposta de uma base de dados de conhecimento publicada do QnA Maker. A base de conhecimento contém perguntas e respostas de [fontes de dados](../Concepts/knowledge-base.md), como perguntas frequentes. A [pergunta](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) é enviada para o serviço QnA Maker. A [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) inclui a resposta prevista na parte superior.
 
-[Documentação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime)  |  de referência [Exemplo](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/get-answer/get-answer.go) de
+[Documentação de referência](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Amostra](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/get-answer/get-answer.go)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,19 +45,13 @@ func main() {
 
 Acima da função `main`, na parte superior do arquivo `get-answer.go`, adicione as dependências necessárias ao projeto:
 
-[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=3-9 "Add the required dependencies")]
-
-## <a name="add-the-required-constants"></a>Adicionar as constantes necessárias
-
-Na parte superior da função `main`, adicione as constantes necessárias para acessar o QnA Maker. Esses valores ficam na página **Publicar** após a publicação da base de dados de conhecimento.
-
-[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=17-33 "Add the required constants")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/query-kb.go" id="dependencies":::
 
 ## <a name="add-a-post-request-to-send-question-and-get-answer"></a>Adicionar uma solicitação POST para enviar perguntas e obter uma resposta
 
 O código a seguir faz uma solicitação HTTPS à API de QnA Maker para enviar a pergunta à base de dados de conhecimento e recebe a resposta:
 
-[!code-go[Add a POST request to send question to knowledge base](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to send question to knowledge base")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/query-kb.go" id="main":::
 
 O valor do cabeçalho de `Authorization` inclui a cadeia de caracteres `EndpointKey`.
 

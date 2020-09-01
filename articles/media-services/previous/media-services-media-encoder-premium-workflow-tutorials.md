@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 55d9d9191dc62d7397c5de944985d5653eff4e13
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057459"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269821"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriais avançados do fluxo de trabalho do Codificador de Mídia Premium
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Visão geral
 Este documento contém instruções passo a passo que mostram como personalizar fluxos de trabalho com o **Designer de Fluxo de Trabalho**. Encontre os arquivos de fluxo de trabalho [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
@@ -462,7 +465,7 @@ Diferente do nossos vídeos MP4, o componente do Codificador de JPG produz mais 
 
 *Apresentação do Gravador de arquivo JPG de Pesquisa de cena*
 
-Configure a propriedade caminho da pasta de saída com a expressão:`${ROOT_outputWriteDirectory}`
+Configure a propriedade caminho da pasta de saída com a expressão: `${ROOT_outputWriteDirectory}`
 
 e a propriedade Prefixo de nome de arquivo com:
 

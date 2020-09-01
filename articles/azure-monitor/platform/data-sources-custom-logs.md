@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111993"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269481"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados de atividades no Azure Monitor
 
@@ -62,10 +62,10 @@ Inicie carregando um exemplo de log personalizado.  O assistente analisará e ex
 Se um delimitador de carimbo de data/hora for usado, a propriedade TimeGenerated de cada registro armazenado no Azure Monitor será preenchido com a data/hora especificada para essa entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Azure Monitor coletou a entrada.
 
 1. Clique em **Procurar** e navegue até um arquivo de exemplo.  Observe que esse botão pode ser rotulado como **Escolher Arquivo** em alguns navegadores.
-2. Clique em **Próximo**.
+2. Clique em **Avançar**.
 3. O Custom Log Wizard (Assistente de Log Personalizado) carregará o arquivo e listará os registros que identificar.
 4. Altere o delimitador usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
-5. Clique em **Próximo**.
+5. Clique em **Avançar**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
 Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
@@ -158,7 +158,7 @@ Usamos uma consulta simples de *MyApp_CL* para retornar todos os registros do lo
 
 
 ## <a name="alternatives-to-custom-logs"></a>Alternativas para logs personalizados
-Embora os logs personalizados sejam úteis se os dados atendem aos critérios listados, há casos como os seguintes em que você precisa de outra estratégia:
+Embora os logs personalizados sejam úteis se seus dados se ajustarem aos critérios listados acima, há casos como os seguintes, onde você precisa de outra estratégia:
 
 - Os dados não se ajustam à estrutura necessária, como ter o carimbo de data/hora em um formato diferente.
 - O arquivo de log não está de acordo com os requisitos como a codificação do arquivo ou uma estrutura de pastas sem suporte.
