@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere,asteen
-ms.openlocfilehash: c789a5fdd2aed7a904dc71065340b3c921ac9abb
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0cd20d7a11bcffe9937537e3681199757a52bee5
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146599"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181707"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Como usar o acesso de aplicativo de autoatendimento
 
@@ -28,7 +28,7 @@ Para saber mais sobre como usar meus aplicativos de uma perspectiva do usuário 
 
 Usando esse recurso, você pode:
 
--   Permitir que os usuários descubram aplicativos por conta própria no [Painel de Acesso do Aplicativo](https://myapps.microsoft.com/) sem incomodar o grupo de TI.
+-   Permitir que os usuários autodescubram aplicativos de [meus aplicativos](https://myapps.microsoft.com/) sem incomodar o grupo de ti.
 -   Adicione esses usuários a um grupo pré-configurado para que você possa ver quem solicitou acesso, remover o acesso e gerenciar as funções atribuídas a eles.
 -   Opcionalmente, permita que alguém aprove as solicitações de acesso do aplicativo para que o grupo de ti não precise fazê-lo.
 -   Também é possível configurar até 10 pessoas que podem aprovar o acesso a esse aplicativo.
@@ -57,14 +57,14 @@ Para habilitar o acesso de aplicativos de autoatendimento a um aplicativo, siga 
 13. **Opcional:** **para aplicativos que expõem funções**, se você quiser atribuir usuários aprovados por autoatendimento a uma função, selecione o seletor ao lado do **a qual função os usuários devem ser atribuídos neste aplicativo?** para selecionar a função à qual esses usuários devem ser atribuídos.
 14. Selecione o botão **salvar** na parte superior para concluir.
 
-Depois de concluir a configuração de aplicativo de autoatendimento, os usuários podem navegar até o [painel de acesso do aplicativo](https://myapps.microsoft.com/) e selecionar o botão **+ Adicionar** para localizar os aplicativos aos quais você habilitou o acesso de autoatendimento. Aprovadores de negócios também recebem uma notificação em seu [Painel de Acesso do Aplicativo](https://myapps.microsoft.com/). Você pode habilitar um email que notifica a eles quando um usuário solicitar acesso a um aplicativo que requer sua aprovação. 
+Depois de concluir a configuração de aplicativo de autoatendimento, os usuários podem navegar para [meus aplicativos](https://myapps.microsoft.com/) e selecionar o botão **+ Adicionar** para localizar os aplicativos aos quais você habilitou o acesso de autoatendimento. Os aprovadores de negócios também veem uma notificação na página [meus aplicativos](https://myapps.microsoft.com/) . Você pode habilitar um email que notifica a eles quando um usuário solicitar acesso a um aplicativo que requer sua aprovação. 
 
 Essas aprovações dão suporte a fluxos de trabalho de aprovação únicos, o que significa que, se você especificar vários aprovadores, qualquer aprovador individual poderá aprovar o acesso ao aplicativo.
 
 ## <a name="things-to-check-if-self-service-isnt-working"></a>Coisas para verificar se o autoatendimento não está funcionando
 -   Verifique se o usuário ou o grupo foi habilitado para solicitar acesso de aplicativos de autoatendimento.
--   Verifique se o usuário está visitando o local correto para acesso de aplicativos de autoatendimento. os usuários podem navegar até o [painel de acesso do aplicativo](https://myapps.microsoft.com/) e selecionar o botão **+ Adicionar** para localizar os aplicativos aos quais você habilitou o acesso de autoatendimento.
--   Se o acesso ao aplicativo de autoatendimento foi configurado recentemente, tente entrar e sair novamente no painel de acesso do usuário após alguns minutos para ver se as alterações de acesso de autoatendimento foram exibidas.
+-   Verifique se o usuário está visitando o local correto para acesso de aplicativos de autoatendimento. os usuários podem navegar até a página [meus aplicativos](https://myapps.microsoft.com/) e selecionar o botão **+ Adicionar** para localizar os aplicativos aos quais você habilitou o acesso de autoatendimento.
+-   Se o acesso ao aplicativo de autoatendimento foi configurado recentemente, tente entrar e sair novamente nos meus aplicativos do usuário após alguns minutos para ver se as alterações de acesso de autoatendimento foram exibidas.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configuração do Azure Active Directory para gerenciamento de grupo de autoatendimento](../users-groups-roles/groups-self-service-management.md)

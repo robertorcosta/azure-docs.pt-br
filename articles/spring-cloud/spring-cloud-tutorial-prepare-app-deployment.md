@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1261e36c782068844712908e62a72b77d34ba5af
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ff797f8b6fd375a940f77b4e0400bcb7a74450c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046724"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179752"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
 
@@ -21,8 +21,8 @@ Este tópico mostra como preparar um aplicativo Java Spring existente para impla
 Antes de executar este exemplo, você pode experimentar o [início rápido básico](spring-cloud-quickstart.md).
 
 Outros exemplos explicam como implantar um aplicativo no Azure Spring Cloud quando o arquivo POM é configurado. 
-* [Iniciar o aplicativo usando o portal do Azure](spring-cloud-quickstart-launch-app-portal.md)
-* [Iniciar o aplicativo usando a CLI do Azure](spring-cloud-quickstart-launch-app-cli.md)
+* [Iniciar seu primeiro aplicativo](spring-cloud-quickstart.md)
+* [Criar e executar microsserviços](spring-cloud-quickstart-sample-app-introduction.md)
 
 Este artigo explica as dependências necessárias e como adicioná-las ao arquivo POM.
 

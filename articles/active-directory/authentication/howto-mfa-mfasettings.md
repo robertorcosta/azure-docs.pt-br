@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027692"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179396"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -195,7 +195,7 @@ Os scripts de exemplo a seguir podem ser usados para criar suas próprias mensag
 
 | Nome da mensagem | Script |
 | --- | --- |
-| Autenticação bem-sucedida | Suas credenciais foram verificadas com êxito. Até logo. |
+| Autenticação bem-sucedida | Sua entrada foi verificada com êxito. Até logo. |
 | Prompt de ramal | Obrigado por usar o sistema de verificação de credenciais da Microsoft. Pressione a tecla # para continuar. |
 | Confirmação de fraude | Um alerta de fraude foi enviado. Para desbloquear sua conta, entre em contato com o suporte técnico de TI da sua empresa. |
 | Saudação de fraude (Padrão) | Obrigado por usar o sistema de verificação de credenciais da Microsoft. Pressione a tecla # para concluir sua verificação. Se você não iniciou essa verificação, alguém pode estar tentando acessar sua conta. Pressione 0 # para enviar um alerta de fraude. Isso avisará a equipe de TI da sua empresa para bloquear novas tentativas de verificação. |
@@ -220,7 +220,7 @@ Para usar suas próprias mensagens personalizadas, conclua as seguintes etapas:
 
 1. Navegue para **Azure Active Directory** > **Segurança** > **MFA** > **Configurações de chamada telefônica**.
 1. Selecione **Adicionar saudação**.
-1. Escolha o **tipo** de saudação, como *saudação (padrão)* ou *autenticação bem-sucedida*.
+1. Escolha o **tipo** de saudação, como *saudação (padrão)* ou  *autenticação bem-sucedida*.
 1. Selecione o **idioma**, com base na seção anterior sobre o [comportamento da linguagem de mensagem personalizada](#custom-message-language-behavior).
 1. Procure e selecione um arquivo de som *. mp3* ou *. wav* para carregar.
 1. Quando estiver pronto, selecione **Adicionar**e **salvar**.
@@ -242,12 +242,9 @@ O recurso _IPs confiáveis_ da autenticação multifator do Azure ignora os prom
 
 Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos locais, o endereço IP de origem sempre parecerá ser o servidor NPS que passa pela tentativa de autenticação.
 
-| Tipo de locatário do Azure AD | Opções de recurso de IP confiável |
-|:--- |:--- |
-| Gerenciada |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
-| Federado |**Todos os usuários federados**: todos os usuários federados que se conectam de dentro da organização tem permissão para ignorar a verificação em duas etapas. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que tem permissão para ignorar a verificação em duas etapas de usuários que se conectam pela intranet da empresa. |
+| Tipo de locatário do Azure AD | Opções de recurso de IP confiável | |:---|:---| duas etapas | Gerenciado | **Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis. | | Federado | **Todos os usuários federados**: todos os usuários federados que entram de dentro da organização podem ignorar a autenticação multifator. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. |
 
-O bypass de IP confiável funciona somente de dentro da intranet da empresa. Se você selecionar a opção **Todos os usuários federados** e um usuário se conectar de fora da intranet da empresa, ele deverá se autenticar usando a verificação em duas etapas. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS.
+O bypass de IP confiável funciona somente de dentro da intranet da empresa. Se você selecionar a opção **todos os usuários federados** e um usuário entrar de fora da intranet da empresa, o usuário precisará se autenticar usando a autenticação multifator. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS.
 
 ### <a name="end-user-experience-inside-of-corpnet"></a>Experiência do usuário final dentro da rede corporativa
 
@@ -278,14 +275,14 @@ Para habilitar IPs confiáveis usando políticas de acesso condicional, conclua 
 1. Selecione **Configurar IPs confiáveis de MFA**.
 1. Na página **Configuração do Serviço**, em **IPs Confiáveis**, escolha uma das duas opções a seguir:
 
-   * **Para solicitações de usuários federados originárias da minha intranet**: Para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectarem pela rede corporativa ignorarão a verificação em duas etapas usando uma declaração que é emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:
+   * **Para solicitações de usuários federados originárias da minha intranet**: Para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectam da rede corporativa ignoram a autenticação multifator usando uma declaração emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Para solicitações de um intervalo específico de IPs públicos**: para escolher essa opção, insira os endereços IP na caixa de texto usando a notação CIDR.
       * Para endereços IP que estejam no intervalo xxx.xxx.xxx.1 até xxx.xxx.xxx.254, use a notação como **xxx.xxx.xxx.0/24**.
       * Para um único endereço IP, use a notação como **xxx.xxx.xxx.xxx/32**.
-      * Você pode inserir até 50 intervalos de endereço IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
+      * Você pode inserir até 50 intervalos de endereço IP. Os usuários que se conectam a partir desses endereços IP ignoram a autenticação multifator.
 
 1. Clique em **Salvar**.
 
@@ -298,20 +295,20 @@ Se você não quiser usar políticas de acesso condicional para habilitar IPs co
 1. Em Autenticação Multifator do Microsoft Azure, selecione **configurações de serviço**.
 1. Na página **Configuração do Serviço**, em **IPs Confiáveis**, escolha uma das duas opções a seguir (ou ambas):
 
-   * **Para solicitações de usuários federados na minha intranet**: Para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectarem pela rede corporativa ignorarão a verificação em duas etapas usando uma declaração que é emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:
+   * **Para solicitações de usuários federados na minha intranet**: Para escolher essa opção, marque a caixa de seleção. Todos os usuários federados que se conectam da rede corporativa ignoram a autenticação multifator usando uma declaração emitida pelo AD FS. Verifique se o AD FS tem uma regra para adicionar a declaração de intranet ao tráfego apropriado. Se a regra não existir, crie a seguinte regra no AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Para solicitações de um intervalo específico de sub-redes de endereços IP**: para escolher essa opção, insira os endereços IP na caixa de texto usando a notação CIDR.
       * Para endereços IP que estejam no intervalo xxx.xxx.xxx.1 até xxx.xxx.xxx.254, use a notação como **xxx.xxx.xxx.0/24**.
       * Para um único endereço IP, use a notação como **xxx.xxx.xxx.xxx/32**.
-      * Você pode inserir até 50 intervalos de endereço IP. Os usuários que acessam desses endereços IP ignoram verificação em duas etapas.
+      * Você pode inserir até 50 intervalos de endereço IP. Os usuários que se conectam a partir desses endereços IP ignoram a autenticação multifator.
 
 1. Clique em **Salvar**.
 
 ## <a name="verification-methods"></a>Métodos de verificação
 
-Você pode escolher os métodos de verificação que estão disponíveis para seus usuários no portal de configurações de serviço. Quando os usuários registram suas contas na Autenticação Multifator do Azure, eles escolhem o método de verificação preferido nas opções que você habilitou. As diretrizes para o processo de registro são fornecidas em [Configurar minha conta para verificação em duas etapas](../user-help/multi-factor-authentication-end-user-first-time.md).
+Você pode escolher os métodos de verificação que estão disponíveis para seus usuários no portal de configurações de serviço. Quando os usuários registram suas contas na Autenticação Multifator do Azure, eles escolhem o método de verificação preferido nas opções que você habilitou. As diretrizes para o processo de registro de usuário são fornecidas em [configurar minha conta para autenticação multifator](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 Os seguintes métodos de verificação estão disponíveis:
 
@@ -336,25 +333,25 @@ Para habilitar ou desabilitar os métodos de verificação, conclua as seguintes
 
 ## <a name="remember-multi-factor-authentication"></a>Lembre-se da Autenticação Multifator
 
-O recurso _lembrar a autenticação multifator_ permite que os usuários ignorem as verificações subsequentes por um número especificado de dias, depois de entrarem com êxito em um dispositivo usando a autenticação multifator. O recurso melhora a usabilidade ao minimizar o número de vezes que um usuário tem de executar MFA no mesmo dispositivo.
+O recurso _lembrar a autenticação multifator_ permite que os usuários ignorem as verificações subsequentes por um número especificado de dias, depois de entrarem com êxito em um dispositivo usando a autenticação multifator. Para aumentar a usabilidade e minimizar o número de vezes que um usuário tem de executar a MFA no mesmo dispositivo, selecione uma duração de 90 dias ou mais.
 
 > [!IMPORTANT]
 > Se um dispositivo ou uma conta for comprometida, a lembrança da Autenticação Multifator para dispositivos confiáveis poderá afetar a segurança. Se uma conta corporativa for comprometida ou um dispositivo confiável for perdido, você deverá [Revogar sessões MFA](howto-mfa-userdevicesettings.md).
 >
-> A ação de restaurar revoga o status de confiável de todos os dispositivos, e o usuário precisará executar a verificação em duas etapas novamente. Você também pode instruir seus usuários a restaurar a autenticação multifator em seus próprios dispositivos, conforme observado em [gerenciar suas configurações para a verificação em duas etapas](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> A ação de restauração revoga o status confiável de todos os dispositivos e o usuário precisa executar a autenticação multifator novamente. Você também pode instruir seus usuários a restaurar a autenticação multifator em seus próprios dispositivos, conforme observado em [gerenciar suas configurações para autenticação multifator](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Como o recurso funciona
 
 O recurso Lembrar a Autenticação Multifator define um cookie persistente no navegador quando um usuário seleciona a opção **Não perguntar novamente durante X dias** ao entrar. O usuário não será solicitado novamente a realizar a Autenticação Multifator nesse mesmo navegador até que o cookie se expire. Caso o usuário abra um navegador diferente no mesmo dispositivo ou limpe os cookies, ele será solicitado a verificar novamente.
 
-A opção **Não perguntar novamente durante X dias** não é mostrada em aplicativos sem navegador, independentemente se o aplicativo é compatível com a autenticação moderna. Esses aplicativos usam _tokens de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, o Azure AD verifica se a última verificação em duas etapas ocorreu dentro do número especificado de dias.
+A opção **Não perguntar novamente durante X dias** não é mostrada em aplicativos sem navegador, independentemente se o aplicativo é compatível com a autenticação moderna. Esses aplicativos usam _tokens de atualização_ que fornecem novos tokens de acesso a cada hora. Quando um token de atualização é validado, o Azure AD verifica se a última autenticação multifator ocorreu dentro do número de dias especificado.
 
-O recurso reduz o número de autenticações em aplicativos Web, que normalmente solicitam todas as vezes. O recurso aumenta o número de autenticações de clientes de autenticação moderna, que normalmente solicitam a cada 90 dias. Também é possível aumentar o número de autenticações quando combinado com políticas de acesso condicional.
+O recurso reduz o número de autenticações em aplicativos Web, que normalmente solicitam todas as vezes. O recurso pode aumentar o número de autenticações para clientes de autenticação modernos que normalmente solicitam a cada 90 dias, se uma duração menor for configurada. Também é possível aumentar o número de autenticações quando combinado com políticas de acesso condicional.
 
 > [!IMPORTANT]
-> O recurso **lembrar a autenticação multifator** não é compatível com o recurso **manter-me conectado** do AD FS, quando os usuários executam a verificação em duas etapas para AD FS por meio do Azure servidor de autenticação multifator ou uma solução de autenticação multifator de terceiros.
+> O recurso **lembrar a autenticação multifator** não é compatível com o recurso **manter-me conectado** do AD FS, quando os usuários executam a autenticação multifator para AD FS por meio do Azure servidor de autenticação multifator ou uma solução de autenticação multifator de terceiros.
 >
-> Se os usuários selecionarem **Mantenha-me conectado** no AD FS e também marcarem seus dispositivos como confiáveis para a Autenticação Multifator, eles não serão verificados automaticamente após o fim do número de dias da **Lembrar a Autenticação Multifator**. O Azure AD solicitará uma nova verificação em duas etapas, mas o AD FS retornará um token com a declaração e a data originais da Autenticação Multifator em vez de realizar a verificação em duas etapas novamente. **Essa reação dá início a um loop de verificação entre o Microsoft Azure Active Directory e o AD FS.**
+> Se os usuários selecionarem **Mantenha-me conectado** no AD FS e também marcarem seus dispositivos como confiáveis para a Autenticação Multifator, eles não serão verificados automaticamente após o fim do número de dias da **Lembrar a Autenticação Multifator**. O Azure AD solicita uma nova autenticação multifator, mas AD FS retorna um token com a declaração e a data originais da autenticação multifator, em vez de executar novamente a autenticação multifator. **Essa reação dá início a um loop de verificação entre o Microsoft Azure Active Directory e o AD FS.**
 >
 > O recurso **Lembrar Autenticação Multifator** não é compatível com usuários B2B e não será visível para eles ao entrarem nos locatários convidados.
 >
@@ -366,8 +363,8 @@ Para habilitar e configurar a opção para os usuários lembrarem seus status de
 1. Na portal do Azure, procure e selecione **Azure Active Directory**e, em seguida, escolha **usuários**.
 1. Selecione **Autenticação Multifator**.
 1. Em Autenticação Multifator do Microsoft Azure, selecione **configurações de serviço**.
-1. Na página **Configurações do Serviço**, **Gerenciar Lembrar a Autenticação Multifator**, selecione a opção **Permite aos usuários lembrar a autenticação multifator em dispositivos que eles confiam**.
-1. Defina o número de dias a permitir que os dispositivos confiáveis ignorem a verificação em duas etapas. O padrão é 14 dias.
+1. Na página **configurações de serviço** , em **lembrar autenticação multifator**, selecione a opção **permitir que os usuários se lembrem da autenticação multifator em dispositivos que confiam** .
+1. Defina o número de dias para permitir que os dispositivos confiáveis ignorem a autenticação multifator. Para obter a melhor experiência do usuário, estenda a duração para *90* ou mais dias.
 1. Clique em **Salvar**.
 
 ### <a name="mark-a-device-as-trusted"></a>Marcar um dispositivo como confiável

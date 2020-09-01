@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/03/2020
-ms.openlocfilehash: 49cfc4899379698cab78a5e22fcffacb60636052
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/18/2020
+ms.openlocfilehash: b2a356f8ee6c8e3d11548a3c7c17a868e4c057c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223628"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179174"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do coletor no fluxo de dados de mapeamento
 
@@ -36,7 +36,7 @@ Para usar um conjunto de linhas embutido, selecione o formato desejado no seleto
 
 ![Conjunto de linhas embutido](media/data-flow/inline-selector.png "Conjunto de linhas embutido")
 
-##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>Tipos de coletor com suporte
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Tipos de coletor com suporte
 
 O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, transformação (ELT) e funciona com conjuntos de dados de *preparo* que estão todos no Azure. Atualmente, os seguintes conjuntos de valores podem ser usados em uma transformação de origem:
 
@@ -48,8 +48,9 @@ O mapeamento de fluxo de dados segue uma abordagem de extração, carregamento, 
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Banco de Dados SQL do Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [CosmosDB do Azure (API do SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-As configurações específicas para esses conectores estão localizadas na guia **configurações** . exemplos de script de fluxo de dados e informações nessas configurações estão localizados na documentação do conector. 
+As configurações específicas para esses conectores estão localizadas na guia **configurações** . Exemplos de script de fluxo de dados e informações nessas configurações estão localizados na documentação do conector. 
 
 O Azure Data Factory tem acesso a aproximadamente [90 conectores nativos](connector-overview.md). Para gravar dados para essas outras fontes do fluxo de dados, use a atividade de cópia para carregar esses dados de um coletor com suporte.
 

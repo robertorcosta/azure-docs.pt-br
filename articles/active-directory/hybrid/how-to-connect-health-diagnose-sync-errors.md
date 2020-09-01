@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d48483697970333c542f140567ca6a6d3fcf7d2
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359085"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179140"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
 
@@ -58,7 +58,7 @@ O recurso de diagnóstico suporta objetos do usuário com os seguintes atributos
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> Para acessar esse recurso, é necessária a permissão ** Administração Global ** ou a permissão ** Colaborador** das configurações do RBAC.
+> Para acessar esse recurso, a permissão de **administrador global** ou a permissão de **colaborador** do RBAC do Azure é necessária.
 >
 
 Siga as etapas do portal do Azure para restringir os detalhes do erro de sincronização e fornecer soluções mais específicas:
@@ -148,7 +148,7 @@ O usuário baseado em nuvem no Azure AD não deve ter uma âncora de origem. Nes
 
 
 **P.:** Qual permissão o usuário precisa para aplicar a correção?  
-**R.:** ** Global Admin ** ou ** Contributor ** das configurações do RBAC, tem permissão para acessar o processo de diagnóstico e solução de problemas.
+**R.:** O **administrador global**ou **colaborador** do RBAC do Azure tem permissão para acessar o processo de diagnóstico e solução de problemas.
 
 
 **P.:** Preciso configurar o Azure AD Connect ou atualizar o agente de integridade do Azure AD Connect para esse recurso?  

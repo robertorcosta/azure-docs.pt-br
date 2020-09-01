@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3c7e4887610f30113b81421396500416d04c5e5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 17e39a7b94384827af19b2362d478456cde8f167
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078471"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181452"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
 
@@ -118,7 +118,7 @@ Em seguida, você carregará esse arquivo para Cloud Shell. Na janela Cloud Shel
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção carregar":::
 Navegue até o *manifest.jsem* que você acabou de criar e pressione "abrir".
 
-Em seguida, execute o seguinte comando para criar um registro de aplicativo (substituindo espaços reservados, conforme necessário):
+Em seguida, execute o seguinte comando para criar um registro de aplicativo, com uma URL de resposta *cliente público/nativo (mobile & Desktop)* de `http://localhost` . Substitua os espaços reservados conforme necessário:
 
 ```azurecli
 az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost

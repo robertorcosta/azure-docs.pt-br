@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519211"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180840"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -35,10 +35,7 @@ Atualmente, as soluções de segurança integradas incluem a avaliação de vuln
 > [!NOTE]
 > A central de segurança não instala o agente de Log Analytics em dispositivos virtuais de parceiros, pois a maioria dos fornecedores de segurança proíbe agentes externos em execução em seus dispositivos.
 
-Para saber mais sobre a integração das ferramentas de verificação de vulnerabilidade do Qualys, incluindo um scanner interno disponível para clientes da camada Standard, consulte: 
-
-- [Verificador de vulnerabilidades integrada para máquinas virtuais](built-in-vulnerability-assessment.md).
-- [Implantando uma solução de verificação de vulnerabilidade de parceiro](partner-vulnerability-assessment.md).
+Para saber mais sobre a integração das ferramentas de verificação de vulnerabilidade do Qualys, incluindo um scanner interno disponível para clientes da camada Standard, consulte [avaliações de vulnerabilidade para suas máquinas virtuais do Azure](deploy-vulnerability-assessment-vm.md).
 
 A Central de Segurança também oferece análise de vulnerabilidades para:
 
@@ -81,7 +78,7 @@ Selecione **Exibir** para obter informações adicionais e opções, como:
    - **Console de solução** – abre a experiência de gerenciamento para esta solução.
    - **Vincular VM** – abre a página vincular aplicativos. Nela, você pode conectar recursos à solução de parceiro.
    - **Excluir solução**
-   - **Configurar**
+   - **Configure**
 
    ![Detalhes da solução de parceiro](./media/security-center-partner-integration/partner-solutions-detail.png)
 

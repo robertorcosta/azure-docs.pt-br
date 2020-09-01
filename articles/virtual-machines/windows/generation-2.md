@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 1204435a5f1d7a48fceb654df10b8394d6f5df50
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: db3bfddd3376a013cc8921f9e0b94bd30bfe041f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146633"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181520"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 
@@ -29,7 +29,8 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure (exceto p
 
 * [Série B](../sizes-b-series-burstable.md)
 * [Série DCsv2](../dcv2-series.md)
-* [Série DSv2](../dv2-dsv2-series.md) e [série Dsv3](../dv3-dsv3-series.md)
+* [Série DSv2](../dv2-dsv2-series.md) 
+* [Dsv3-series](../dv3-dsv3-series.md)
 * [Série Dsv4](../dv4-dsv4-series.md)
 * [Série Ddsv4](../ddv4-ddsv4-series.md)
 * [Série Dasv4](../dav4-dasv4-series.md)
@@ -39,10 +40,12 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure (exceto p
 * [Série GS](../sizes-previous-gen.md#gs-series)
 * [Série HB](../hb-series.md)
 * [Série HC](../hc-series.md)
-* [Série Ls](../sizes-previous-gen.md#ls-series) e [série Lsv2](../lsv2-series.md)
+* [Série ls](../sizes-previous-gen.md#ls-series) 
+* [Lsv2-series](../lsv2-series.md)
 * [Série M](../m-series.md)
 * [Série Mv2](../mv2-series.md)<sup>1</sup>
-* [Série NCv2](../ncv2-series.md) e [série NCv3](../ncv3-series.md)
+* [Série NCv2](../ncv2-series.md) 
+* [Série NCv3](../ncv3-series.md)
 * [Série ND](../nd-series.md)
 * [Série NVv3](../nvv3-series.md)
 
@@ -84,7 +87,7 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 |---------|--------------|--------------|
 | Inicialização             | PCAT                      | UEFI                               |
 | Controladores de disco | IDE                       | SCSI                               |
-| Tamanhos de VM         | Todos os tamanhos de VM | Somente VMs que dão suporte ao armazenamento Premium |
+| Tamanhos de VM         | Todos os tamanhos de VM | [Ver tamanhos disponíveis](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Recursos da geração 1 versus geração 2
 

@@ -3,16 +3,16 @@ title: Fazer backup de arquivos em VMs Azure Stack
 description: Use o Backup do Azure para fazer backup e recuperar aplicativos e arquivos no ambiente do Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: caac247b5a972c515b4350f1b0c79792bbf75537
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825793"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180976"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Fazer backup de arquivos e aplicativos no Azure Stack
 
-É possível usar o Backup do Azure para proteger (ou fazer backup) de arquivos e aplicativos no Azure Stack. Para fazer backup de arquivos e aplicativos, instale o Servidor de Backup do Microsoft Azure como uma máquina virtual em execução no Azure Stack. Você pode proteger os arquivos no servidor do Azure Stack na mesma rede virtual. Após instalar o Servidor de Backup do Azure, adicione os discos do Azure para aumentar o armazenamento local disponível para dados de backup de curto prazo. O Servidor de Backup do Azure usa o armazenamento do Azure para retenção de longo prazo.
+É possível usar o Backup do Azure para proteger (ou fazer backup) de arquivos e aplicativos no Azure Stack. Para fazer backup de arquivos e aplicativos, instale o Servidor de Backup do Microsoft Azure como uma máquina virtual em execução no Azure Stack. Você pode proteger os arquivos no servidor do Azure Stack na mesma rede virtual. Depois de instalar o Servidor de Backup do Azure, adicione discos do Azure para aumentar o armazenamento local disponível para dados de backup de curto prazo. O Servidor de Backup do Azure usa o armazenamento do Azure para retenção de longo prazo.
 
 > [!NOTE]
 > Embora Servidor de Backup do Azure e o System Center Data Protection Manager (DPM) sejam semelhantes, o DPM não tem suporte para uso com Azure Stack.
@@ -66,18 +66,18 @@ Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais d
 
 6. Na tela **Examinar alocação do disco**, examine o espaço em disco do pool de armazenamento alocado para o grupo de proteção.
 
-    **Tamanho total dos dados** é o tamanho dos dados de que você deseja fazer backup e **Espaço em disco a ser provisionado** no Servidor de Backup do Azure é o espaço recomendado para o grupo de proteção. O Servidor de Backup do Azure escolhe o volume de backup ideal com base nas configurações. No entanto, você pode editar as opções de volume de backup nos Detalhes de alocação de disco. Para as cargas de trabalho, no menu suspenso, selecione o armazenamento preferido. Suas edições alteram os valores de Armazenamento Total e Armazenamento Gratuito no painel de Armazenamento em Disco Disponível. Espaço sem provisionamento é a quantidade de armazenamento que o Servidor de Backup do Azure recomenda que você adicione ao volume, para garantir backups estáveis no futuro.
+    **Tamanho total dos dados** é o tamanho dos dados de que você deseja fazer backup e **Espaço em disco a ser provisionado** no Servidor de Backup do Azure é o espaço recomendado para o grupo de proteção. O Servidor de Backup do Azure escolhe o volume de backup ideal com base nas configurações. No entanto, você pode editar as opções de volume de backup nos Detalhes de alocação de disco. Para as cargas de trabalho, selecione o armazenamento preferido no menu suspenso. Suas edições alteram os valores de Armazenamento Total e Armazenamento Gratuito no painel de Armazenamento em Disco Disponível. Espaço sem provisionamento é a quantidade de armazenamento que o Servidor de Backup do Azure recomenda que você adicione ao volume, para garantir backups estáveis no futuro.
 
 7. Em **Escolher método de criação de réplica**, selecione como você deseja controlar a replicação inicial de dados completo. Caso decida replicar pela rede, o Azure recomenda que você escolha um horário de menos movimento. Para grandes quantidades de dados ou condições de rede abaixo do ideal, considere a possibilidade de replicar os dados usando mídia removível.
 
-8. Em **Opções de verificação de consistência**, selecione como e quando automatizar as verificações de consistência. Habilite verificações de consistência para serem executadas apenas quando a replicação de dados se tornar inconsistente, ou de acordo com uma agenda. Se você não deseja configurar a verificação de consistência automática, execute uma verificação manual a qualquer momento deste modo:
+8. Em **Escolher opções de verificação de consistência**, selecione como você deseja automatizar as verificações de consistência. Habilite verificações de consistência para serem executadas apenas quando a replicação de dados se tornar inconsistente, ou de acordo com uma agenda. Se você não deseja configurar a verificação de consistência automática, execute uma verificação manual a qualquer momento deste modo:
     * Na área **Proteção** do console do Servidor de Backup do Azure, clique com o botão direito do mouse no grupo de proteção e selecione **Executar Verificação de Consistência**.
 
 9. Se optar por fazer backup para o Azure, na página **Especificar dados de proteção online**, verifique se as cargas de trabalho das quais você deseja fazer backup para o Azure estão selecionadas.
 
 10. Em **Especificar agendamento de backup online**, selecione quando os backups incrementais para o Azure devem ocorrer.
 
-    Você pode agendar backups para executar a cada dia/semana/mês/ano e também a data/hora em que eles devem ser executados. Backups podem ocorrer até duas vezes por dia. Cada vez que um trabalho de backup é executado, um ponto de recuperação de dados é criado no Azure da cópia dos dados de backup armazenados no disco do Servidor de Backup do Azure.
+    Você pode agendar para que os backups sejam executados a cada dia/semana/mês/ano e a data/hora em que eles deverão acontecer. Os backups poderão ocorrer até duas vezes por dia. Cada vez que um trabalho de backup é executado, um ponto de recuperação de dados é criado no Azure da cópia dos dados de backup armazenados no disco do Servidor de Backup do Azure.
 
 11. Em **Especificar política de retenção online**, especifique como os pontos de recuperação criados dos backups diários, semanais, mensais e anuais são mantidos no Azure.
 

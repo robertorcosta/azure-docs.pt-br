@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587962"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181367"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -55,7 +55,7 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
     * Para a instância: um nome de *grupo de recursos* . Você pode usar um grupo de recursos existente ou inserir um novo nome de um para criar.
     * Para a instância: um *nome* para sua instância de gêmeos digital do Azure. O nome da nova instância deve ser exclusivo na região da sua assinatura (ou seja, se sua assinatura tiver outra instância de gêmeos digital do Azure na região que já está usando o nome que você escolher, será solicitado que você escolha um nome diferente).
     * Para o registro do aplicativo: um *nome de exibição do aplicativo do Azure ad* a ser associado ao registro. Esse registro de aplicativo é onde você configura permissões de acesso para as [APIs do Azure digital gêmeos](how-to-use-apis-sdks.md). Posteriormente, o aplicativo cliente será autenticado no registro do aplicativo e, como resultado, receberá as permissões de acesso configuradas para as APIs.
-    * Para o registro do aplicativo: uma *URL de resposta do aplicativo do Azure ad* para o aplicativo do Azure AD. Você pode usar o `http://localhost` .
+    * Para o registro do aplicativo: uma *URL de resposta do aplicativo do Azure ad* para o aplicativo do Azure AD. Use `http://localhost`. O script irá configurar um URI de *cliente público/nativo (mobile & Desktop)* para ele.
 
 O script criará uma instância de gêmeos digital do Azure, atribuirá ao usuário do Azure a função de *proprietário do gêmeos digital do Azure (versão prévia)* na instância e configurará um registro de aplicativo do Azure ad para o aplicativo cliente usar.
 

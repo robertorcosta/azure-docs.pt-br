@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 255f0b5f0066c0a437daba85121edb2f99ba590d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0ede2c8507032811eda26cfcb4d90f18578f3700
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022387"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180279"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -113,7 +113,7 @@ Usando essa exibição, você pode identificar os itens de backup que não tiver
 
 Para exibir recursos inativos, navegue até a guia **otimizar** e selecione o bloco **recursos inativos** . Selecionar este bloco exibe uma grade que contém detalhes de todos os recursos inativos existentes no escopo selecionado. Por padrão, a grade mostra os itens que não têm um ponto de recuperação nos últimos sete dias. Para localizar recursos inativos para um intervalo de tempo diferente, você pode ajustar o filtro de **intervalo de tempo** na parte superior da guia.
 
-Depois de identificar um recurso inativo, você pode investigar o problema ainda mais navegando até o painel do item de backup ou o painel de recursos do Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, você pode optar por interromper o backup do computador (se ele não existir mais) e excluir backups desnecessários, o que economiza custos, ou você pode corrigir problemas no computador para garantir que os backups sejam feitos de forma confiável.
+Depois de identificar um recurso inativo, você pode investigar ainda mais o problema navegando até o painel do item de backup ou o painel de recursos do Azure para esse recurso (sempre que aplicável). Dependendo do seu cenário, você pode optar por interromper o backup do computador (se ele não existir mais) e excluir backups desnecessários, o que economiza custos, ou você pode corrigir problemas no computador para garantir que os backups sejam feitos de forma confiável.
 
 ![Otimizar recursos inativos de guia](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 

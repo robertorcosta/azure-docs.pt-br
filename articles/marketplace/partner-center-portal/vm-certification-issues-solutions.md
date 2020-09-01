@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225353"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181435"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquina virtual 
 
@@ -43,7 +43,7 @@ Para habilitar as extensões de VM, faça o seguinte:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    ![Habilitar o monitoramento no nível do convidado](./media/vm-certification-issues-solutions-1.png)
 
@@ -63,7 +63,7 @@ Verifique se você seguiu rigorosamente o processo de provisionamento da VM ante
 
 Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro|Motivo|Solução|
+|Cenário|Erro do|Motivo|Solução|
 |---|---|---|---|
 |1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
 |2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
@@ -84,7 +84,7 @@ Se você estiver tentando instalar o Visual Studio ou qualquer produto licenciad
 
 Para obter mais informações sobre como selecionar uma base aprovada, consulte [criar seus ativos técnicos de máquina virtual do Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Falha na execução do caso de teste do kit de ferramentas
+## <a name="tool-kit-test-case-execution-failed"></a>Falha na execução do caso de teste do kit de ferramentas 
 
 O Microsoft Certification Toolkit pode ajudá-lo a executar casos de teste e verificar se o VHD ou a imagem é compatível com o ambiente do Azure.
 
@@ -113,7 +113,7 @@ A tabela a seguir lista os erros comuns encontrados durante a execução dos cas
  
 |Cenário|Caso de teste|Erro|Solução|
 |---|---|---|---|
-|1|Caso de teste de versão do agente Linux|A versão mínima do agente do Linux é 2,241 ou posterior. Esse requisito foi obrigatório desde 1º de maio de 2020.|A imagem deve ser atualizada com a versão necessária para [enviar a solicitação](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|1|Caso de teste de versão do agente Linux|A versão mínima do agente do Linux é 2.2.41 ou posterior. Esse requisito foi obrigatório desde 1º de maio de 2020.|Atualize a versão do agente do Linux e ele deve ser 2,241 ou posterior. Para obter mais informações, você pode visitar a [página de atualização da versão do agente do Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Caso de teste do histórico de bash|Você verá um erro se o tamanho do histórico de bash em sua imagem enviada tiver mais de 1 kilobyte (KB). O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente confidencial não seja capturada em seu arquivo de histórico bash.|Para resolver esse problema, monte o VHD em qualquer outra VM de trabalho e faça as alterações desejadas (por exemplo, exclua os arquivos de histórico *. bash* ) para reduzir o tamanho para menor ou igual a 1 KB.|
 |3|Caso de teste do parâmetro do kernel necessário|Você receberá esse erro quando o valor do **console** não estiver definido como **ttyS0**. Verifique executando o seguinte comando:<br>`cat /proc/cmdline`|Defina o valor do **console** para **ttyS0**e envie a solicitação novamente.|
 |4|Caso de teste de intervalo ClientAlive|Se o resultado do kit de ferramentas fornecer um resultado com falha para esse caso de teste, haverá um valor inadequado para **ClientAliveInterval**.|Defina o valor de **ClientAliveInterval** como menor ou igual a 235 e envie a solicitação novamente.|
@@ -261,7 +261,7 @@ Verifique se o acesso adequado está habilitado para a conta na qual os casos de
     
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM usando uma URL de assinatura de acesso compartilhado (SAS).
 
-|Cenário|Erro|Motivo|Solução|
+|Cenário|Erro do|Motivo|Solução|
 |---|---|---|---|
 |1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
 |2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa usando uma URL SAS.|
@@ -304,7 +304,7 @@ Para obter mais informações sobre essa ferramenta, consulte [visão geral do S
 
 Para obter soluções para erros relacionados ao disco de dados, use a seguinte tabela:
 
-|Erro|Motivo|Solução|
+|Erro do|Motivo|Solução|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Esse erro pode ocorrer devido a um número inválido especificado para o LUN (número de unidade lógica) quando a oferta é enviada.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
 |`DataDisk- NotFound:`|Esse erro pode ocorrer devido a um disco de dados não estar localizado em uma URL SAS especificada.|Verifique se o disco de dados está localizado na URL SAS especificada na solicitação.|
@@ -363,7 +363,8 @@ Os editores devem entrar em contato com o suporte ao [Editor do Marketplace](htt
    4.    Versão – a versão da oferta de VM para a qual a exceção é solicitada
    5.   Tipo de exceção – testes, VM bloqueada, modelos personalizados
    6.   Motivo da solicitação – motivo para essa exceção e informações sobre os testes a serem isentos 
-   7.   Anexo-anexe qualquer documento de evidência de importância. Para VMs bloqueadas, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como anexo. Falha ao anexar o relatório para VMs bloqueadas e o modelo ARM personalizado para modelos personalizados resultará em negação de solicitação
+   7. Linha do tempo-data até a qual esta exceção foi solicitada 
+   8.   Anexo-anexe qualquer documento de evidência de importância. Para VMs bloqueadas, anexe o relatório de teste e os modelos personalizados, forneça o modelo ARM personalizado como anexo. Falha ao anexar o relatório para VMs bloqueadas e o modelo ARM personalizado para modelos personalizados resultará em negação de solicitação
 
 
 ## <a name="next-steps"></a>Próximas etapas

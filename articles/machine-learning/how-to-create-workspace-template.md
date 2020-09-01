@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: b1c257c206c58f62c1ea82eb3b04ff5830cfbd8d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 674baaaec4e11c5e4e750ccd14bbe5762dcbc09a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071645"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181062"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -272,7 +272,7 @@ Ao definir o `vnetOption` valor do parâmetro como `new` ou `existing` , você p
 Se os recursos associados não estiverem atrás de uma rede virtual, você poderá definir o parâmetro **privateEndpointType** como `AutoAproval` ou `ManualApproval` para implantar o espaço de trabalho por trás de um ponto de extremidade privado. Isso pode ser feito para espaços de trabalho novos e existentes. Ao atualizar um espaço de trabalho existente, preencha os parâmetros do modelo com as informações do espaço de trabalho existente.
 
 > [!IMPORTANT]
-> Usar o link privado do Azure para criar um ponto de extremidade privado para Azure Machine Learning espaço de trabalho está atualmente em visualização pública. Essa funcionalidade só está disponível nas regiões **leste dos EUA** e **oeste dos EUA 2** . Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Usar o link privado do Azure para criar um ponto de extremidade privado para Azure Machine Learning espaço de trabalho está atualmente em visualização pública. Essa funcionalidade só está disponível nas regiões **leste dos EUA**, **Centro-Sul dos**EUA e **oeste dos EUA 2** . Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87bb20d23f773997addd170da09ca8f20d2a8ce7
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949976"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180075"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -1980,6 +1980,6 @@ Ingresso no Dispositivo no Local de Trabalho | Preterido | [Documentação de fu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como atribuir um usuário como um administrador de uma assinatura do Azure, veja [Gerenciar o acesso usando funções do Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* Para saber mais sobre como atribuir um usuário como administrador de uma assinatura do Azure, consulte [Adicionar ou remover atribuições de função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, consulte [Noções básicas sobre funções diferentes](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD, ou para obter instruções para associar ou adicionar uma assinatura, consulte [associar ou adicionar uma assinatura do Azure ao seu locatário de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

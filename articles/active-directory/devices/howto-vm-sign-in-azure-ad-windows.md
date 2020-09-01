@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005030"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180330"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
 As organizações agora podem utilizar a autenticação Azure Active Directory (AD) para suas VMs (máquinas virtuais) do Azure que executam o **Windows Server 2019 Datacenter Edition** ou o **Windows 10 1809** e posterior. Usar o Azure AD para autenticar em VMs fornece uma maneira de controlar e impor políticas de forma centralizada. Ferramentas como o Azure RBAC (controle de acesso baseado em função) e o acesso condicional do Azure AD permitem que você controle quem pode acessar uma VM. Este artigo mostra como criar e configurar uma VM do Windows Server 2019 para usar a autenticação do Azure AD.
 
 > [!NOTE]
-> A entrada do Azure AD para VMs do Windows do Azure é um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A entrada do Azure AD para VMs do Windows do Azure é um recurso de visualização pública do Azure Active Directory. Para obter mais informações sobre visualizações, consulte  [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em VMs do Windows no Azure, incluindo:
 
@@ -274,7 +274,7 @@ Esse código de saída é convertido para DSREG_E_MSI_TENANTID_UNAVAILABLE porqu
 
    - RDP para a VM como um administrador local e verificar se o ponto de extremidade retorna uma ID de locatário válida executando esse comando de uma linha de comando elevada na VM:
       
-      - Metadados de ondulação-H: verdadeirohttp://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - Metadados de ondulação-H: verdadeiro http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
 
 1. O administrador da VM tenta instalar a extensão AADLoginForWindows, mas uma identidade gerenciada atribuída ao sistema não habilitou a VM primeiro. Navegue até a folha identidade da VM. Na guia atribuído pelo sistema, verifique se status está alternado para ativado.
 
@@ -329,7 +329,7 @@ Se você vir a seguinte mensagem de erro ao iniciar uma conexão de área de tra
 
 ![Sua conta está configurada para impedir que você use este dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verifique se você [configurou as políticas de RBAC](../../virtual-machines/linux/login-using-aad.md) para a VM que concede ao usuário o logon de administrador da máquina virtual ou a função de logon de usuário da máquina virtual:
+Verifique se você [configurou as políticas RBAC do Azure](../../virtual-machines/linux/login-using-aad.md) para a VM que concede ao usuário o logon de administrador da máquina virtual ou a função de logon de usuário da máquina virtual:
  
 #### <a name="unauthorized-client"></a>Cliente não autorizado
 

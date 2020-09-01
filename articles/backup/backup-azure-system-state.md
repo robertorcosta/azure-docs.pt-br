@@ -3,12 +3,12 @@ title: Fazer backup de estado do sistema para o Windows Azure
 description: Saiba como fazer backup do estado do sistema de computadores Windows Server no Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: b3e4e5451d40d7b0e600875b73e4810d5818d168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013428"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181622"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
 
@@ -80,7 +80,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![O instalador do MARS foi concluído](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    Você não precisa instalar o agente ainda. Você poderá instalar o agente depois de baixar as credenciais do cofre.
+    Você não precisa instalar o agente ainda. Você pode instalar o agente depois de baixar as credenciais do cofre.
 
 6. No painel **preparar infraestrutura** , selecione **baixar**.
 

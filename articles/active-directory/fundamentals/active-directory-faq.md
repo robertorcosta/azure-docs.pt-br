@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c119b56d33908dbc0e53d588f3ac4ea155c8de
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: d88873dafd5a3ffac3f0135d877ff407427ffd6f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799078"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179854"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -51,7 +51,7 @@ Serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam o
 
 **R:** Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. Um proprietário pode usar uma conta da Microsoft ou uma conta corporativa ou de estudante do diretório ao qual a assinatura do Azure está associada.  Essa função está autorizada a gerenciar serviços no portal do Azure.
 
-Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você pode atribuí-los à [função interna apropriada](../../role-based-access-control/built-in-roles.md). Para obter mais informações, consulte [gerenciar o acesso usando o portal do Azure e o RBAC](../../role-based-access-control/role-assignments-portal.md).
+Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você pode atribuí-los à [função interna apropriada](../../role-based-access-control/built-in-roles.md). Para obter informações adicionais, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. O Administrador Global tem acesso a todos os recursos de diretório do Microsoft Azure Active Directory. O Microsoft Azure Active Directory tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade. Esses administradores terão acesso a vários recursos no portal do Azure. A função do administrador determina o que eles podem fazer, como criar ou editar usuários, atribuir funções administrativas a outros usuários, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre os administradores de diretório do Microsoft Azure Active Directory e suas funções, consulte [atribuir um usuário a funções de administrador no Microsoft Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [atribuindo funções de administrador no Microsoft Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 

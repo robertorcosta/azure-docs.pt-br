@@ -9,12 +9,12 @@ ms.date: 08/08/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: af7cb87f8caf0176505c8af864ae8d3cb0c312a0
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 860f9b0e49423b5d144d56ecd965153f7a362d87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585688"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180908"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -54,7 +54,7 @@ Para aplicativos .NET, a maneira mais simples de trabalhar com uma identidade ge
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-A classe `AzureServiceTokenProvider` armazena em cache o token na memória e recupera-o do Azure AD logo antes da expiração. Portanto, você não precisa mais verificar a expiração antes de chamar o `GetAccessTokenAsync` método. Basta chamar o método quando desejar usar o token.
+Você não precisa verificar a expiração do token antes de chamar o `GetAccessTokenAsync` método, pois `AzureServiceTokenProvider` o armazena em cache o token na memória e o recupera do Azure ad logo antes da expiração. 
 
 O método `GetAccessTokenAsync` exige um identificador de recurso. Para saber mais sobre os serviços de Microsoft Azure, confira [o que são identidades gerenciadas para recursos do Azure](../../active-directory/msi-overview.md).
 
@@ -170,7 +170,7 @@ Há três métodos principais de usar uma entidade de serviço para executar seu
 
     Substitua *{AppId}*, *{TenantId}* e *{Thumbprint}* pelos valores gerados na Etapa 1. Substitua *{CertificateStore}* por *LocalMachine*' ou *CurrentUser*, com base no seu plano de implantação.
 
-1. Executar o aplicativo.
+1. Execute o aplicativo.
 
 ### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>Usar uma credencial de segredo compartilhado para entrar no Azure AD
 
@@ -188,7 +188,7 @@ Há três métodos principais de usar uma entidade de serviço para executar seu
 
     Substitua _{AppId}_, _{TenantId}_ e _{ClientSecret}_ pelos valores gerados na Etapa 1.
 
-1. Executar o aplicativo.
+1. Execute o aplicativo.
 
 Depois que tudo estiver configurado corretamente, nenhuma alteração de código adicional será necessária. O `AzureServiceTokenProvider` usa a variável de ambiente e o certificado para se autenticar no Azure AD.
 
