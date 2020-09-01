@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084357"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070574"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao log de fluxo dos grupos de segurança da rede
 
@@ -56,13 +56,13 @@ Os logs de fluxo são a fonte de verdade para todas as atividades de rede em seu
 > [!NOTE]
 > A retenção estará disponível somente se você usar [contas de armazenamento v2 de uso geral (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
-**Conceitos básicos**
+**Conceitos principais**
 
 - Redes definidas por software são organizadas em redes virtuais (VNETs) e sub-redes. A segurança dessas VNets e sub-redes pode ser gerenciada usando um NSG.
 - Um NSG (grupo de segurança de rede) contém uma lista de _regras de segurança_ que permitem ou negam o tráfego de rede em recursos aos quais ele está conectado. NSGs pode ser associado a sub-redes, VMs individuais ou adaptadores de rede (NIC) individuais conectados às VMs (Gerenciador de recursos). Para obter mais informações, confira [Visão geral do Grupo de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
 - Todos os fluxos de tráfego em sua rede são avaliados usando as regras no NSG aplicável.
 - O resultado dessas avaliações são os logs de fluxo NSG. Os logs de fluxo são coletados por meio da plataforma Azure e não exigem nenhuma alteração nos recursos do cliente.
-- Observação: as regras são de dois tipos – terminando & não terminando, cada um com comportamentos de log diferentes.
+- Observação: as regras são de dois tipos – terminando & não terminando, cada um com diferentes comportamentos de log.
 - - As regras de negação NSG estão sendo encerradas. O NSG que nega o tráfego o registrará em logs de fluxo e o processamento, nesse caso, será interrompido depois que qualquer NSG negar tráfego. 
 - - As regras de NSG permitem que não sejam encerradas, o que significa que, mesmo se uma NSG permitir, o processamento continuará para o próximo NSG. O último NSG que permite o tráfego registrará o tráfego em logs de fluxo.
 - Os logs de fluxo NSG são gravados em contas de armazenamento de onde podem ser acessados.
@@ -294,7 +294,7 @@ O texto que segue é um exemplo de um log de fluxo. Como você pode ver, há vá
 ```
 **Tupla de log explicada**
 
-![visão geral dos logs de fluxo](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![tupla de logs de fluxo](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Cálculo de largura de banda de exemplo**
 
@@ -365,7 +365,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Habilitar em VNETs/sub-redes críticas**: os logs de fluxo devem ser habilitados em todas as VNETs/sub-redes críticas em sua assinatura como uma prática recomendada de auditoria e de segurança. 
 
-**Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, é recomendável Habilitar logs de fluxo de NSG em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) em grupos de segurança de rede.
+**Habilitar o log de fluxo de NSG em todos os NSGs anexados a um recurso**: o log de fluxo no Azure está configurado no recurso NSG. Um fluxo só será associado a uma regra de NSG. Em cenários em que vários NSGs são utilizados, é recomendável Habilitar logs de fluxo de NSG em todos os NSGs aplicados à sub-rede ou interface de rede de um recurso para garantir que todo o tráfego seja registrado. Para obter mais informações, consulte [como o tráfego é avaliado](../virtual-network/network-security-group-how-it-works.md) em grupos de segurança de rede.
 
 **Provisionamento de armazenamento**: o armazenamento deve ser provisionado em sintonia com o volume de log de fluxo esperado.
 
@@ -406,8 +406,8 @@ Os dados de logs de fluxo são coletados fora do caminho do tráfego de rede e, 
 Para usar uma conta de armazenamento por trás de um firewall, você precisa fornecer uma exceção para que os serviços confiáveis da Microsoft acessem sua conta de armazenamento:
 
 - Navegue até a conta de armazenamento digitando o nome da conta de armazenamento na pesquisa global no portal ou na [página contas de armazenamento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-- Na seção **configurações** , selecione **firewalls e redes virtuais**
-- Em **permitir acesso de**, selecione **redes selecionadas**. Em **exceções**, marque a caixa ao lado de * * * * permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento * * * *
+- Na seção  **configurações**  , selecione  **firewalls e redes virtuais**
+- Em **permitir acesso de**, selecione  **redes selecionadas**. Em  **exceções**, marque a caixa ao lado de * * * * permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento * * * *
 - Se já estiver selecionada, nenhuma alteração será necessária.
 - Localize o NSG de destino na [página de visão geral dos logs de fluxo do NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) e habilite os logs de fluxo do NSG com a conta de armazenamento acima selecionada.
 

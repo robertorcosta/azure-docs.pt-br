@@ -3,14 +3,14 @@ title: Referência do desenvolvedor do PowerShell para Azure Functions
 description: Entenda como desenvolver funções usando o PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 8af1e52477cf047bbbec46884717166ec014fc6c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933487"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071152"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell do Azure Functions
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Veja a seguir os parâmetros válidos para chamar `Push-OutputBinding` :
 
-| Nome | Type | Posição | Descrição |
+| Nome | Tipo | Posição | Descrição |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | String | 1 | O nome da Associação de saída que você deseja definir. |
 | **`-Value`** | Objeto | 2 | O valor da Associação de saída que você deseja definir, que é aceita do pipeline ByValue. |
@@ -233,7 +233,7 @@ O registro em log nas funções do PowerShell funciona como log normal do PowerS
 
 | Nível de log de funções | Cmdlet de registro em log |
 | ------------- | -------------- |
-| Erro do | **`Write-Error`** |
+| Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informação | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informação | Grava no log do nível de _informações_ . |
 | Depurar | **`Write-Debug`** |

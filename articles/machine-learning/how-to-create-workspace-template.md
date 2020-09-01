@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 1d405aff5233f38aee2031220fd119693da64abb
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b1c257c206c58f62c1ea82eb3b04ff5830cfbd8d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892857"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071645"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -84,7 +84,7 @@ Consulte a seção [portal do Azure](#use-the-azure-portal) se preferir usar a i
 az group create --name "examplegroup" --location "eastus"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name "examplegroup" -Location "eastus"
@@ -104,7 +104,7 @@ az deployment group create \
     --parameters workspaceName="exampleworkspace" location="eastus"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -135,7 +135,7 @@ az deployment group create \
       storageAccountName="existingstorageaccountname"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -179,7 +179,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
     az keyvault show --name <keyvault-name> --query 'id' --output tsv   
     ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell) 
 
     ```azurepowershell  
     Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
@@ -196,7 +196,7 @@ __Para obter os valores__ para a `cmk_keyvault` (ID do Key Vault) e os parâmetr
     az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv  
     ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell) 
 
     ```azurepowershell  
     Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>' 
@@ -228,7 +228,7 @@ az deployment group create \
       resource_cmk_uri="https://mykeyvault.vault.azure.net/keys/mykey/{guid}" \
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -286,7 +286,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -319,7 +319,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -357,7 +357,7 @@ az deployment group create \
       privateEndpointType="AutoApproval"
 ```
 
-# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -433,7 +433,7 @@ Para implantar um espaço de trabalho com recursos associados existentes, você 
     az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
 
     ```azurepowershell
     Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
@@ -467,7 +467,7 @@ Para implantar um espaço de trabalho com recursos associados existentes, você 
       privateEndpointType="AutoApproval"
     ```
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azpowershell)
     ```azurepowershell
     New-AzResourceGroupDeployment `
       -Name "exampledeployment" `

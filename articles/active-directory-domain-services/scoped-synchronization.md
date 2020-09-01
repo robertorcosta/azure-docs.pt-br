@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: iainfou
-ms.openlocfilehash: 97c561b2ae919799343abe844b57239d04c26d90
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fe373b9aa08d6999a9c57dd0008a207071e1dddd
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283122"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068891"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Configurar a sincronização com escopo do Azure AD para Azure Active Directory Domain Services usando o portal do Azure
 
@@ -56,7 +57,7 @@ Para saber mais sobre o processo de sincronização, consulte [entender a sincro
 
 Para habilitar a sincronização com escopo no portal do Azure, conclua as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado, como *aaddscontoso.com*.
+1. No portal do Azure, pesquise e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado, como *aaddscontoso.com*.
 1. Selecione **sincronização** no menu do lado esquerdo.
 1. Para o *tipo de sincronização*, selecione com **escopo**.
 1. Escolha **Selecionar grupos**, procure e escolha os grupos a serem adicionados.
@@ -68,7 +69,7 @@ Alterar o escopo da sincronização faz com que o domínio gerenciado sincronize
 
 Para modificar a lista de grupos cujos usuários devem ser sincronizados com o domínio gerenciado, conclua as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado, como *aaddscontoso.com*.
+1. No portal do Azure, pesquise e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado, como *aaddscontoso.com*.
 1. Selecione **sincronização** no menu do lado esquerdo.
 1. Para adicionar um grupo, escolha **+ Selecionar grupos** na parte superior e, em seguida, escolha os grupos a serem adicionados.
 1. Para remover um grupo do escopo de sincronização, selecione-o na lista de grupos sincronizados no momento e escolha **remover grupos**.
@@ -80,7 +81,7 @@ Alterar o escopo da sincronização faz com que o domínio gerenciado sincronize
 
 Para desabilitar a sincronização com escopo baseado em grupo para um domínio gerenciado, conclua as seguintes etapas:
 
-1. Na portal do Azure, procure e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado, como *aaddscontoso.com*.
+1. No portal do Azure, pesquise e selecione **Azure AD Domain Services**. Escolha o domínio gerenciado, como *aaddscontoso.com*.
 1. Selecione **sincronização** no menu do lado esquerdo.
 1. Altere o *tipo de sincronização* de **escopo** para **todos**e selecione **salvar escopo de sincronização**.
 

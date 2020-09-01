@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a3641994098834b47412598b25b3effb2be7d276
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6e620502deb67c7fe79341bc1a45cb1ce33fa52f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836710"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071458"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança do Azure para Service Fabric
 
@@ -546,7 +546,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
 **Diretriz**: Não aplicável. Esta recomendação destina-se a recursos que não são de computação e projetados para armazenar dados.
 
@@ -868,13 +868,13 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: armazenar imagens personalizadas do sistema operacional com segurança
 
-**Orientação**: se estiver usando imagens personalizadas, use o RBAC para garantir que somente usuários autorizados possam acessar as imagens. Para imagens de contêiner, armazene-as no registro de contêiner do Azure e aproveite o RBAC para garantir que somente usuários autorizados possam acessar as imagens.
+**Orientação**: se estiver usando imagens personalizadas, use o Azure RBAC (controle de acesso baseado em função) para garantir que somente usuários autorizados possam acessar as imagens. Para imagens de contêiner, armazene-as no registro de contêiner do Azure e aproveite o RBAC do Azure para garantir que somente usuários autorizados possam acessar as imagens.
 
-* [Entender o RBAC no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Entender o RBAC do Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Entender o RBAC para registro de contêiner](../container-registry/container-registry-roles.md)
+* [Entender o RBAC do Azure para registro de contêiner](../container-registry/container-registry-roles.md)
 
-* [Como configurar o RBAC no Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Como configurar o RBAC do Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

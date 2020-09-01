@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7871099e3e05613bec29a4bfc0824dd9647431e7
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 909d423b31bb76d8d6aaed994d1c9f7372cbc01f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937480"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069775"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Linha de base de segurança do Azure Policy para o benchmark de segurança do Azure
 
-Essa linha de base de segurança aplica diretrizes do [benchmark de segurança do Azure](../../../security/benchmarks/overview.md) para Azure Policy. O benchmark de segurança do Azure fornece recomendações sobre como você pode proteger suas soluções de nuvem no Azure. O conteúdo é agrupado pelos **domínios de conformidade** e pelos **controles de segurança** definidos pelo benchmark de segurança do Azure e pelas diretrizes relacionadas aplicáveis ao Azure Policy. **Controles** não aplicáveis a Azure Policy foram excluídos. Para ver como Azure Policy é completamente mapeado para o benchmark de segurança do Azure, consulte o [arquivo completo de mapeamento de linha de base de segurança Azure Policy](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Essa linha de base de segurança aplica diretrizes do [benchmark de segurança do Azure](../../../security/benchmarks/overview.md) para Azure Policy. O Azure Security Benchmark fornece recomendações sobre como você pode proteger suas soluções de nuvem no Azure. O conteúdo é agrupado pelos **domínios de conformidade** e pelos **controles de segurança** definidos pelo benchmark de segurança do Azure e pelas diretrizes relacionadas aplicáveis ao Azure Policy. **Controles** não aplicáveis a Azure Policy foram excluídos. Para ver como Azure Policy é completamente mapeado para o benchmark de segurança do Azure, consulte o [arquivo completo de mapeamento de linha de base de segurança Azure Policy](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 Para um mapeamento dos controles de benchmark de segurança do Azure para definições de política internas por meio da iniciativa interna, consulte [conformidade regulatória: benchmark de segurança do Azure](../samples/azure-security-benchmark.md).
 
@@ -72,13 +72,13 @@ Você também pode habilitar uma solução de acesso just-in-time/apenas o sufic
 
 *Para saber mais, confira [Controle de segurança: Proteção de dados](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use Azure Active Directory controle de acesso baseado em função (RBAC) para controlar o acesso a Azure Policy.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso a Azure Policy.
 
-* [Permissões de RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
+* [Permissões do RBAC do Azure no Azure Policy](../overview.md#rbac-permissions-in-azure-policy)
 
-* [Como configurar o RBAC no Azure](../../../role-based-access-control/role-assignments-portal.md)
+* [Como configurar o RBAC do Azure](../../../role-based-access-control/role-assignments-portal.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento

@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 636efe27ec82fa870267d2cf69d5cdf990fd509a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501348"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069809"
 ---
-# <a name="create-an-azure-storage-account"></a>Criar uma conta do Armazenamento do Azure
+# <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
 Uma conta de armazenamento do Azure contém todos os seus objetos de dados do Armazenamento do Azure: blobs, arquivos, filas, tabelas e discos. A conta de armazenamento fornece um namespace exclusivo para os dados do armazenamento do Azure que podem ser acessados de qualquer lugar do mundo por HTTP ou HTTPS. Os dados em sua conta de armazenamento do Azure são duráveis e altamente disponíveis, seguros e amplamente escalonáveis.
 

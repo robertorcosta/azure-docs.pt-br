@@ -89,13 +89,13 @@
             - name: Criar um disco gerenciado com base em um instantâneo
               href: ../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Copiar um disco gerenciado para a mesma assinatura ou outra assinatura
-              href: ../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Exportar um instantâneo como VHD para uma conta de armazenamento
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Exportar o VHD de um disco gerenciado para uma conta de armazenamento
               href: ../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Copiar um instantâneo para a mesma assinatura ou outra assinatura
-              href: ../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Máquinas virtuais de rede
           items:
             - name: Proteger o tráfego de rede entre máquinas virtuais
@@ -143,13 +143,13 @@
             - name: Criar um instantâneo de um VHD
               href: ../scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Copiar um instantâneo para a mesma ou para uma assinatura diferente
-              href: ../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Monitorar máquinas virtuais
           items:
             - name: Monitorar uma VM com logs do Azure Monitor
               href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Copiar um disco gerenciado para a mesma ou para uma assinatura diferente
-              href: ../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Coletar detalhes sobre todas as VMs em uma assinatura com o PowerShell
               href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Itens internos do Azure Policy
@@ -239,7 +239,7 @@
             - name: Série Mv2
               href: ../mv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: VCPUs restritas
-              href: ../constrained-vcpu.md
+              href: ../constrained-vcpu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Otimizado para armazenamento
           items:
             - name: Visão geral
@@ -294,7 +294,7 @@
             - name: O que são as reservas do Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md?toc=/azure/virtual-machines/linux/toc.json
             - name: Flexibilidade do tamanho da instância
-              href: ../reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: VMs do Spot
           displayName: 'pre-empt, preempt'
           href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -317,7 +317,7 @@
             - name: O que são as reservas do Azure?
               href: ../../cost-management-billing/reservations/save-compute-costs-reservations.md
             - name: Flexibilidade do tamanho da instância
-              href: ../reserved-vm-instance-size-flexibility.md
+              href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Pontuações de parâmetro de comparação
           href: compute-benchmark-scores.md
     - name: Distribuições endossadas
@@ -329,21 +329,21 @@
     - name: Armazenamento em disco
       items:
         - name: Introdução aos discos gerenciados
-          href: ../managed-disks-overview.md
+          href: ../managed-disks-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Selecione um tipo de disco para VMs IaaS
-          href: ../disks-types.md
+          href: ../disks-types.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Criptografia
           href: disk-encryption.md
         - name: Reservas de Armazenamento em Disco
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Projetando para alto desempenho
-          href: ../premium-storage-performance.md
+          href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Intermitência de disco
           href: disk-bursting.md
         - name: Metas da escalabilidade para os discos
           href: disk-scalability-targets.md
         - name: Backup e recuperação de desastres para discos
-          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md
+          href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Discos compartilhados
           href: disks-shared.md
         - name: Discos do SO Efêmero
@@ -357,7 +357,7 @@
     - name: Segurança
       items:
         - name: Segurança e política
-          href: ../security-policy.md
+          href: ../security-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
         - name: Controles de segurança do Azure Policy
@@ -370,7 +370,7 @@
         - name: Bastion
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Estados e ciclo de vida
-      href: ../states-lifecycle.md
+      href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Monitoramento
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Diagnóstico de inicialização
@@ -418,7 +418,7 @@
         - name: Visão geral da migração
           href: migration-classic-resource-manager-overview.md
         - name: Aprofunde-se na migração
-          href: ../migration-classic-resource-manager-deep-dive.md
+          href: ../migration-classic-resource-manager-deep-dive.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Planejar a migração
           href: migration-classic-resource-manager-plan.md
         - name: Migrar usando a CLI
@@ -428,7 +428,7 @@
         - name: Ferramentas da comunidade para a migração
           href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Perguntas frequentes
-          href: ../migration-classic-resource-manager-faq.md
+          href: ../migration-classic-resource-manager-faq.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Como usar imagens
       displayName: 'SIG, AMI, image'
       items:
@@ -474,7 +474,7 @@
               href: cloudinit-bash-script.md
             - name: Preparar a máquina virtual existente para uma inicialização de nuvem
               href: cloudinit-prepare-custom-image.md
-        - name: Criar imagens sem um
+        - name: Criar imagens sem um agente de provisionamento
           href: no-agent.md
         - name: Desabilitar provisionamento de Agente do Linux
           href: disable-provisioning.md
@@ -956,9 +956,9 @@
           href: detach-disk.md
         - name: Implantar discos com modelo ARM
           displayName: 'Azure Resource Manager, ARM'
-          href: ../using-managed-disks-template-deployments.md
+          href: ../using-managed-disks-template-deployments.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Habilitar discos compartilhados
-          href: ../disks-shared-enable.md
+          href: ../disks-shared-enable.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Carregar um vhd para um disco – CLI
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Importar/exportar com segurança um disco – CLI
@@ -968,11 +968,11 @@
         - name: Redimensionar um disco
           href: expand-disks.md
         - name: Usar Gerenciador de Armazenamento para gerenciar discos
-          href: ../disks-use-storage-explorer-managed-disks.md
+          href: ../disks-use-storage-explorer-managed-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Instantâneo de um disco
           href: snapshot-copy-managed-disk.md
         - name: Reservar Armazenamento em Disco
-          href: ../disks-reserved-capacity.md
+          href: ../disks-reserved-capacity.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Criar um instantâneo incremental – CLI
           href: disks-incremental-snapshots.md
         - name: Criar um instantâneo incremental – Portal
@@ -1006,9 +1006,9 @@
         - name: Desempenho
           items:
             - name: Usando o acelerador de gravação
-              href: ../how-to-enable-write-accelerator.md
+              href: ../how-to-enable-write-accelerator.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Usando Discos Ultra
-              href: ../disks-enable-ultra-ssd.md
+              href: ../disks-enable-ultra-ssd.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Submeter um disco a benchmark
               href: disks-benchmarks.md
             - name: Otimizando o desempenho

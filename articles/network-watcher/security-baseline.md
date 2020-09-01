@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a4cba847610ab7d6119c04f9e3b1c32a192d6c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f50310b8494b65ff8e9170d333d7c3e70c82ded
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255712"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071509"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Linha de base de segurança do Azure para observador de rede
 
@@ -234,9 +234,9 @@ O Observador de Rede deve ser habilitado
 
 **Diretrizes**: Mantenha um inventário das contas de usuário que têm acesso administrativo ao plano de controle (por exemplo, portal do Azure) do observador de rede do Azure. Para usar os recursos do observador de rede, a conta que você faz logon no Azure, deve ser atribuída às funções internas de proprietário, colaborador ou colaborador de rede ou atribuída a uma função personalizada que é atribuída às ações listadas para recursos específicos do observador de rede.
 
-Você pode usar o painel IAM (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o RBAC (controle de acesso baseado em função). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory.
+Você pode usar o painel IAM (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o controle de acesso baseado em função do Azure (RBAC do Azure). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory.
 
-* [Entender o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Entender o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [As permissões de controle de acesso baseadas em função são necessárias para usar os recursos do Observador de Rede.](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
@@ -443,15 +443,15 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Responsabilidade**: Não aplicável
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: você pode usar o painel iam (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o RBAC (controle de acesso baseado em função). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos.
+**Orientação**: você pode usar o painel iam (controle de acesso e identidade) no portal do Azure para sua assinatura para configurar o controle de acesso baseado em função do Azure (RBAC do Azure). As funções são aplicadas a usuários, grupos, entidades de serviço e identidades gerenciadas no Active Directory. Você pode usar funções internas ou funções personalizadas para indivíduos e grupos.
 
 Para usar os recursos do observador de rede, a conta que você faz logon no Azure, deve ser atribuída às funções internas de proprietário, colaborador ou colaborador de rede ou atribuída a uma função personalizada que é atribuída às ações listadas para recursos específicos do observador de rede.
 
-* [Como configurar o RBAC no Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
-* [Entender as permissões de RBAC no observador de rede](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
+* [Entender as permissões do RBAC do Azure no observador de rede](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -609,7 +609,7 @@ Use o grafo de recursos do Azure para consultar e descobrir recursos em suas ass
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicativos de software não aprovados do Azure
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

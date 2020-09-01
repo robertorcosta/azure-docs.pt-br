@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 76312a55262d316c679bde2a69e8b98844addcb0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 59b795462ff6e033e299c15f4099b7bfd3874451
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963862"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069386"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança do Azure para lote
 
@@ -596,13 +596,13 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: usar o RBAC (controle de acesso baseado em função) Azure Active Directory (AAD) para controlar o acesso ao plano de gerenciamento de recursos do Azure, incluindo conta do lote, pools do lote e contas de armazenamento.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao plano de gerenciamento de recursos do Azure, incluindo conta do lote, pools do lote e contas de armazenamento.
 
 Entenda o RBAC do Azure: 
 
 https://docs.microsoft.com/azure/role-based-access-control/overview
 
-Como configurar o RBAC do Azure: 
+Como configurar o RBAC do Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
@@ -881,7 +881,7 @@ Como exibir os aliases do Azure Policy disponíveis:
 
 https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
-Como configurar e gerenciar Azure Policy:
+Como configurar e gerenciar o Azure Policy: 
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -942,13 +942,13 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: armazenar com segurança imagens personalizadas do sistema operacional
 
-**Diretrizes**: se você estiver usando imagens personalizadas para seus pools do lote do Azure, use o RBAC (controle de acesso baseado em função) para garantir que somente usuários autorizados possam acessar as imagens.
+**Orientação**: se você estiver usando imagens personalizadas para seus pools do lote do Azure, use o controle de acesso baseado em função do Azure (RBAC do Azure) para garantir que somente usuários autorizados possam acessar as imagens.
 
-Entender o RBAC no Azure:
+Entenda o RBAC do Azure: 
 
 https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-Como configurar o RBAC do Azure: 
+Como configurar o RBAC do Azure:
 
 https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 

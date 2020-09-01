@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611162"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069384"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implantar e configurar o Firewall do Azure em uma rede híbrida usando o Azure PowerShell
 
@@ -31,17 +31,16 @@ Para este artigo, você cria três redes virtuais:
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Declarar as variáveis
-> * Criar a rede virtual do hub de firewall
-> * Criar a rede virtual spoke
-> * Criar a rede virtual local
-> * Configurar e implantar o firewall
-> * Criar e conectar os gateways de VPN
-> * Emparelhar as redes virtuais hub e spoke
-> * Criar as rotas
-> * Criar as máquinas virtuais
-> * Testar o firewall
+* Declarar as variáveis
+* Criar a rede virtual do hub de firewall
+* Criar a rede virtual spoke
+* Criar a rede virtual local
+* Configurar e implantar o firewall
+* Criar e conectar os gateways de VPN
+* Emparelhar as redes virtuais hub e spoke
+* Criar as rotas
+* Criar as máquinas virtuais
+* Testar o firewall
 
 Se você quiser usar portal do Azure em vez de concluir este tutorial, consulte [tutorial: implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure](tutorial-hybrid-portal.md).
 
@@ -71,7 +70,7 @@ Consulte a seção [criar rotas](#create-the-routes) neste artigo para ver como 
 
 Para examinar a documentação de referência do Azure PowerShell relacionada, consulte a [Referência do Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="declare-the-variables"></a>Declarar as variáveis
 

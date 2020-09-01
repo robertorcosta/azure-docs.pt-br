@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e73f53fe983c1ebe77044993a281847ad362a840
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c8aca69c709743afb468657d1d7534ab308fcd29
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496766"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071560"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Linha de base de segurança do Azure para o Banco de Dados do Azure para MySQL
 
@@ -547,7 +547,7 @@ Entenda a proteção de dados do cliente no Azure: https://docs.microsoft.com/az
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao banco de dados do Azure para o plano de controle do MySQL (por exemplo, portal do Azure). Para o acesso do plano de dados (dentro do próprio banco de dados), use consultas SQL para criar usuários e configurar permissões de usuário. O RBAC não afeta permissões de usuário no banco de dados.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao banco de dados do Azure para o plano de controle do MySQL (por exemplo, portal do Azure). Para o acesso do plano de dados (dentro do próprio banco de dados), use consultas SQL para criar usuários e configurar permissões de usuário. O RBAC do Azure não afeta as permissões de usuário no banco de dados.
 
 Como configurar o RBAC do Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: bde1ff4003ba69a4c5449996f4e18d646e6ecff6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7c6f115597b5b95cd1004f67adec53727736c377
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498337"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072019"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Linha de base de segurança do Azure para serviços cognitivas
 
@@ -28,7 +28,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteger os recursos do Azure em redes virtuais
 
-**Diretrizes**: os serviços cognitivas do Azure fornecem um modelo de segurança em camadas. Esse modelo permite que você assegure suas contas de Serviços Cognitivos a um subconjunto específico de redes. Quando as regras de rede são configuradas, somente os aplicativos que solicitam dados no conjunto especificado de redes podem acessar a conta. Você pode limitar o acesso a seus recursos com filtragem de solicitações, permitindo apenas solicitações originadas de endereços IP especificados, intervalos de IP ou de uma lista de sub-redes em redes virtuais do Azure.
+**Diretrizes**: os serviços cognitivas do Azure fornecem um modelo de segurança em camadas. Esse modelo permite que você assegure suas contas de Serviços Cognitivos a um subconjunto específico de redes. Quando as regras de rede são configuradas, somente dados de solicitação de aplicativos do conjunto especificado de redes podem acessar a conta. Você pode limitar o acesso a seus recursos com filtragem de solicitações, permitindo apenas solicitações originadas de endereços IP especificados, intervalos de IP ou de uma lista de sub-redes em redes virtuais do Azure.
 
 O suporte a rede virtual e ponto de extremidade de serviço para serviços cognitivas é limitado a um conjunto específico de regiões.
 
@@ -151,7 +151,7 @@ Você também pode usar ASG (grupos de segurança de aplicativo) para ajudar a s
 
 **Diretrizes**: defina e implemente configurações de segurança padrão para recursos de rede relacionados ao contêiner de serviços cognitivas do Azure com Azure Policy. Use aliases de Azure Policy nos namespaces "Microsoft. Cognitivaservices" e "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de rede do cache do Azure para instâncias Redis.
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala empacotando artefatos de ambiente-chave, como modelos de Azure Resource Manager, RBAC (controle de acesso baseado em função) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos de Azure Resource Manager, controle de acesso baseado em função do Azure (RBAC do Azure) e políticas, em uma única definição de Blueprint. Aplique facilmente o blueprint a novas assinaturas e ambientes e ajuste o controle e o gerenciamento por meio do controle de versão.
 
 * [Como configurar e gerenciar o Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
 
@@ -532,9 +532,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use o RBAC (controle de acesso baseado em função) do Azure Active Directory (Azure AD) para controlar o acesso ao plano de controle de serviços cognitivas do Azure (ou seja, portal do Azure).
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao plano de controle de serviços cognitivas do Azure (ou seja, portal do Azure).
 
 * [Como configurar o RBAC do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
@@ -590,7 +590,7 @@ Você também pode usar Azure Key Vault para armazenar as chaves gerenciadas pel
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implantar solução automatizada de gerenciamento de patch de sistema operacional
 
-**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
+**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -908,7 +908,7 @@ Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade 
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Usar software antimalware gerenciado centralmente
 
-**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação.
+**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação.
 
 O antimalware da Microsoft está habilitado no host subjacente que dá suporte aos serviços do Azure (por exemplo, serviços cognitivas do Azure), no entanto, ele não é executado no conteúdo do cliente.
 

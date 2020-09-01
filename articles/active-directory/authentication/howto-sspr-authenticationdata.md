@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22037468c47de45513351e1d6126d3f3e5fccadc
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6fa1c14509a558c1f91d07bf9a73a4ecc39e1413
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717788"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068670"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Preencher previamente as informações de contato de autenticação de usuário para Azure Active Directory redefinição de senha de autoatendimento (SSPR)
 
@@ -38,7 +39,7 @@ Os números de telefone devem estar no formato *+ CountryCode PhoneNumber*, como
 
 Se você usar as configurações padrão no Azure AD Connect, os seguintes mapeamentos serão feitos para popular as informações de contato de autenticação para SSPR:
 
-| Active Directory local | AD do Azure     |
+| Active Directory local | Azure AD     |
 |------------------------------|--------------|
 | telephoneNumber              | Telefone comercial |
 | Serviço Móvel                       | Telefone celular |

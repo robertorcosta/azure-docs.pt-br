@@ -10,14 +10,15 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 6c6774fb462a21e721b19ae53d1d018d780b28ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85517313"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070710"
 ---
-# <a name="azure-sql-managed-instance-connection-types"></a>Tipos de conexão do SQL Instância Gerenciada do Azure
+# <a name="azure-sql-managed-instance-connection-types"></a>Tipos de conexão da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo explica como os clientes se conectam ao SQL do Azure Instância Gerenciada dependendo do tipo de conexão. Exemplos de script para alterar tipos de conexão são fornecidos abaixo, juntamente com considerações relacionadas à alteração das configurações de conectividade padrão.

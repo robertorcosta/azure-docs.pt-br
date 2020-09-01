@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 869c6590146561f6f2f50694c5cc3f79530dad25
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 9b5cc1cdae31039fe3f94bc49fadf848032cfd86
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854205"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069282"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Linha de base de segurança do Azure para o Firewall do Azure
 
@@ -74,7 +74,7 @@ Observe que você não pode criar sua própria marca de serviço nem especificar
 
 **Diretrizes**: a política do Azure ainda não tem suporte total para o Firewall do Azure. O Gerenciador de firewall do Azure pode ser usado para obter a padronização das configurações de segurança.
 
-Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos do Azure Resource Manager, controles RBAC e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico a novas assinaturas e ajustar o controle e o gerenciamento por meio da versão.
+Você também pode usar plantas do Azure para simplificar implantações do Azure de grande escala ao empacotar artefatos de ambiente-chave, como modelos do Azure Resource Manager, controles RBAC do Azure e políticas, em uma única definição de Blueprint. Você pode aplicar o plano gráfico a novas assinaturas e ajustar o controle e o gerenciamento por meio da versão.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -132,7 +132,7 @@ Observação: ambos os logs podem ser salvos em uma conta de armazenamento, tran
 
 Lista de ações de recursos em logs de atividades: Azure Resource Manager operações do provedor de recursos
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor ](../azure-monitor/platform/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -416,11 +416,11 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 **Responsabilidade**: Compartilhado
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usar o controle de acesso baseado em função para controlar o acesso aos recursos
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usar o RBAC do Azure para controlar o acesso a recursos
 
-**Orientação**: Use Azure Active Directory controle de acesso baseado em função (RBAC) para controlar o acesso ao firewall do Azure e aos recursos relacionados.
+**Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso ao firewall do Azure e aos recursos relacionados.
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
