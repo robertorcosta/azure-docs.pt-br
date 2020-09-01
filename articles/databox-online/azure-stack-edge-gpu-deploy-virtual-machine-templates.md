@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 330186b12efcc31e9f99d7c4bdbff3e081311c23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082908"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268152"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-device-via-templates"></a>Implantar VMs em seu dispositivo de Azure Stack Edge por meio de modelos
+# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Implantar VMs em seu Azure Stack dispositivo de GPU de borda por meio de modelos
 
 Este tutorial descreve como criar e gerenciar uma VM em seu dispositivo Azure Stack Edge usando modelos. Esses modelos são arquivos JavaScript Object Notation (JSON) que definem a infraestrutura e a configuração da sua VM. Nesses modelos, você especifica os recursos a serem implantados e as propriedades desses recursos.
 
@@ -167,7 +167,7 @@ Copie as imagens de disco a serem usadas em blobs de páginas na conta de armaze
 
     ![Importar certificado de ponto de extremidade de armazenamento de BLOB](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/import-blob-storage-endpoint-certificate-1.png)
 
-    - Se você estiver usando certificados gerados pelo dispositivo, baixe e converta o certificado do ponto de extremidade do armazenamento de BLOBs `.cer` em um `.pem` formato. Execute o comando a seguir. 
+    - Se você estiver usando certificados gerados pelo dispositivo, baixe e converta o certificado do ponto de extremidade do armazenamento de BLOBs `.cer` em um `.pem` formato. Execute o seguinte comando. 
     
         ```powershell
         PS C:\windows\system32> Certutil -encode 'C:\myasegpu1_Blob storage (1).cer' .\blobstoragecert.pem
@@ -340,7 +340,7 @@ Implante o modelo `CreateImageAndVnet.json` . Este modelo implanta os recursos d
 > [!NOTE]
 > Ao implantar o modelo, se você receber um erro de autenticação, suas credenciais do Azure para esta sessão poderão ter expirado. Execute `login-AzureRM` novamente o comando para se conectar ao Azure Resource Manager em seu dispositivo do Azure Stack Edge novamente.
 
-1. Execute o comando a seguir: 
+1. Execute o seguinte comando: 
     
     ```powershell
     $templateFile = "Path to CreateImageAndVnet.json"
@@ -494,7 +494,7 @@ Atribua parâmetros apropriados no `CreateVM.parameters.json` para seu dispositi
 
 Implante o modelo de criação de VM `CreateVM.json` . Este modelo cria uma interface de rede a partir da VNet existente e cria a VM a partir da imagem implantada.
 
-1. Execute o comando a seguir: 
+1. Execute o seguinte comando: 
     
     ```powershell
     Command:
@@ -548,7 +548,7 @@ Implante o modelo de criação de VM `CreateVM.json` . Este modelo cria uma inte
         PS C:\07-30-2020>
     ```   
  
-7. Verifique se a VM foi provisionada com êxito. Execute o comando a seguir:
+7. Verifique se a VM foi provisionada com êxito. Execute o seguinte comando:
 
     `Get-AzureRmVm`
 

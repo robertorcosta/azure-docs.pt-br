@@ -3,23 +3,25 @@ title: Sinalizar faixas de áudio descritivas com os serviços de mídia do Azur
 description: Siga as etapas deste tutorial para carregar um arquivo, codificar o vídeo, adicionar faixas de áudio descritivas e transmitir seu conteúdo com os serviços de mídia v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.date: 09/25/2019
-ms.author: juliako
-ms.openlocfilehash: cce2dfe943519f39fbe0660338babf782fee4336
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1a8986dcba9dc64eb77d8bc8c6e77704fa212abb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006645"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267421"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Sinalizar faixas de áudio descritivas
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Você pode adicionar uma faixa de narração ao seu vídeo para ajudar clientes com deficiência visual a seguir a gravação do vídeo ouvindo a narração. Nos serviços de mídia v3, você sinaliza faixas de áudio descritivas anotando a faixa de áudio no arquivo de manifesto.
 

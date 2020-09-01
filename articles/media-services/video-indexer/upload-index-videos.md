@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011864"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268818"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -167,7 +167,7 @@ Se o `videoUrl` não for especificado, o Indexador de Vídeo espera que você pa
 
 O seguinte snippet de código em C# demonstra o uso de todas as APIs do indexador de vídeo juntos.
 
-#### <a name="instructions-for-running-this-code-sample"></a>Instruções para executar este exemplo de código
+**Instruções para executar o exemplo de código a seguir**
 
 Depois de copiar esse código em sua plataforma de desenvolvimento, você precisará fornecer dois parâmetros: chave de autenticação do gerenciamento de API e URL de vídeo.
 
@@ -176,7 +176,7 @@ Depois de copiar esse código em sua plataforma de desenvolvimento, você precis
     Para obter sua chave de API, percorra este fluxo:
 
     * Navegue até https://api-portal.videoindexer.ai/
-    * Logon
+    * Fazer logon
     * Acesse **produtos**  ->  **autorização autorização**  ->  **assinatura**
     * Copiar a **chave primária**
 * URL de vídeo – uma URL do arquivo de vídeo/áudio a ser indexada. O URL deve apontar para um arquivo de mídia (as páginas HTML não são suportadas). O arquivo pode ser protegido por um token de acesso fornecido como parte do URI e o terminal que atende ao arquivo deve ser protegido com o TLS 1.2 ou superior. A URL deve ser codificado.

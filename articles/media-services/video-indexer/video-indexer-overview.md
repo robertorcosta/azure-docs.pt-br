@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/12/2020
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b4d629351ae7b6154b332a1b1f99374de1187518
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744599"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267863"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Mídia do Azure?
 
 O Video Indexer (VI) é a solução de IA dos Serviços de Mídia do Azure e faz parte da marca Serviços Cognitivos da Azure. O Video Indexer oferece a capacidade de extrair insights aprofundados (sem necessidade de análise de dados ou habilidades de codificação) usando modelos de machine learning baseados em vários canais (voz, vocais, visuais). Você pode personalizar e treinar os modelos ainda mais. O serviço permite pesquisa avançada, reduz custos operacionais, oferece novas oportunidades de monetização e cria novas experiências de usuário em grandes arquivos de vídeos (com poucas barreiras de entrada).
 
 Para começar a extrair informações com o Video Indexer, você precisa criar uma conta e carregar vídeos. Ao carregar seus vídeos para o Video Indexer, ele executa modelos de IA diferentes para analisar os elementos visuais e de áudio. À medida que o Video Indexer analisa o vídeo, modelos de IA extraem os insights.
+
+Quando você cria uma conta de Video Indexer e a conecta aos serviços de mídia, os arquivos de mídia e metadados são armazenados na conta de armazenamento do Azure associada a essa conta dos serviços de mídia. Para obter mais informações, consulte [criar uma conta de video indexer conectada ao Azure](connect-to-azure.md).
 
 O diagrama a seguir é ilustrativo e não uma explicação técnica do funcionamento de back-end do Video Indexer.
 

@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: f2bd0b8c222b9f9643d53da33619af438c121a2f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145953"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268852"
 ---
-# <a name="run-and-manage-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Executar e gerenciar um aplicativo sem monitoração de estado kubernetes em seu dispositivo de borda Azure Stack
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Implantar um aplicativo sem monitoração de estado kubernetes por meio do kubectl em seu dispositivo de GPU do Azure Stack Edge
 
 Este artigo descreve como implantar um aplicativo sem estado usando comandos kubectl em um cluster kubernetes existente. Este artigo também orienta você pelo processo de criação e configuração de pods em seu aplicativo sem estado.
 

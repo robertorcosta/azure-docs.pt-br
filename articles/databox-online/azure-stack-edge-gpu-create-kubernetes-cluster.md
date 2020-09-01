@@ -1,21 +1,21 @@
 ---
-title: Criar e gerenciar um cluster kubernetes no dispositivo Microsoft Azure Stack Edge | Microsoft Docs
-description: Descreve como criar e gerenciar um cluster kubernetes no dispositivo Microsoft Azure Stack Edge por meio da interface do Windows PowerShell.
+title: Criar e gerenciar um cluster kubernetes no dispositivo de GPU de Azure Stack borda | Microsoft Docs
+description: Descreve como criar e gerenciar um cluster kubernetes em Azure Stack dispositivo de GPU de borda por meio da interface do Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 74f86ed48f363031fcab5d9d89046c349a1c3667
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 95663553bc68d34eebd90be0d4032ee53900479b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181385"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267951"
 ---
-# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-device"></a>Conectar e gerenciar um cluster kubernetes por meio do kubectl em seu dispositivo Azure Stack Edge
+# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Conectar e gerenciar um cluster do kubernetes por meio do kubectl em seu dispositivo de GPU do Azure Stack Edge
 
 No dispositivo Azure Stack Edge, um cluster kubernetes é criado quando você configura a função de computação. Depois que o cluster kubernetes for criado, você poderá se conectar e gerenciar o cluster localmente de um computador cliente por meio de uma ferramenta nativa, como *kubectl*.
 

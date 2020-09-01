@@ -3,22 +3,24 @@ title: Perguntas frequentes sobre os Serviços de Mídia do Azure v3 | Microsoft
 description: Este artigo fornece respostas para perguntas frequentes sobre os serviços de mídia do Azure v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/07/2020
-ms.author: juliako
-ms.openlocfilehash: 70499ad354e2fafaac99fe46c1838a0be2813943
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: d34b5aaaa12a3d296f92e0d7be34ae76931d8506
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011678"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268478"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo fornece respostas para perguntas frequentes sobre os serviços de mídia do Azure v3.
 

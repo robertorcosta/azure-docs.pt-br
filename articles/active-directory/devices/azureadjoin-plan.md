@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555025"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268220"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
 
@@ -26,7 +26,7 @@ Esse artigo fornece as informações necessárias para começar com as APIs de r
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo presume que você esteja familiarizado com o [Introdução ao gerenciamento de dispositivos no Active Directory do Azure](../device-management-introduction.md).
+Este artigo presume que você esteja familiarizado com o [Introdução ao gerenciamento de dispositivos no Active Directory do Azure](./overview.md).
 
 ## <a name="plan-your-implementation"></a>Planejar sua implementação
 
@@ -58,7 +58,7 @@ O ingresso no Azure AD funciona com os ambientes, gerenciados e federados.
 
 ### <a name="managed-environment"></a>Ambiente de leitura
 
-Um ambiente gerenciado pode ser implantado por meio da [Sincronização de Hash de senha](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ou [Autenticação de passagem](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) com logon único contínuo.
+Um ambiente gerenciado pode ser implantado por meio da [Sincronização de Hash de senha](../hybrid/how-to-connect-password-hash-synchronization.md) ou [Autenticação de passagem](../hybrid/how-to-connect-pta-quick-start.md) com logon único contínuo.
 
 Esses cenários não exigem que você configure um servidor de federação para autenticação.
 
@@ -90,7 +90,7 @@ Se seu provedor de identidade não oferece suporte a esses protocolos, o ingress
 
 Se você criar usuários no seu:
 
-- **Active Directory local**, você precisa sincronizá-los com o Azure AD usando o [Azure Active Directory Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Active Directory local**, você precisa sincronizá-los com o Azure AD usando o [Azure Active Directory Connect](../hybrid/how-to-connect-sync-whatis.md). 
 - **Azure AD**, nenhuma configuração adicional é necessária.
 
 UPNs locais que são diferentes de UPNs do Azure AD não têm suporte em dispositivos ingressados no Azure AD. Se os usuários usarem um UPN local, você deverá planejar passar a usar seus UPNs primários do Azure AD.
@@ -162,7 +162,7 @@ Se você usar o AD FS, consulte [Verificar e gerenciar logon único com o AD FS]
 
 Os usuários obtêm SSO dos dispositivos Azure Active Directory ingressado se o dispositivo tiver acesso ao controlador de domínio. 
 
-**Recomendação:** implantar o [proxy de Aplicativo do Azure Active Directory](/azure/active-directory/manage-apps/application-proxy) para habilitar o acesso seguro para esses aplicativos.
+**Recomendação:** implantar o [proxy de Aplicativo do Azure Active Directory](../manage-apps/application-proxy.md) para habilitar o acesso seguro para esses aplicativos.
 
 ### <a name="on-premises-network-shares"></a>Compartilhamento de rede local
 
@@ -190,7 +190,7 @@ Iniciando a atualização do Windows 10 2004, os usuários podem Alo usar a áre
 
 Você pode provisionar o ingresso no Azure Active Directory usando as seguintes abordagens:
 
-- **Autoatendimento nas configurações doOOBE/** – no modo autoatendimento, os usuários vão por meio do ingresso no Azure Active Directory seja durante fora do Windows Out of Box Experience (OOBE) ou Configurações do Windows. Para obter mais informações, consulte [ingressar seu dispositivo de trabalho para a rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Autoatendimento nas configurações doOOBE/** – no modo autoatendimento, os usuários vão por meio do ingresso no Azure Active Directory seja durante fora do Windows Out of Box Experience (OOBE) ou Configurações do Windows. Para obter mais informações, consulte [ingressar seu dispositivo de trabalho para a rede da sua organização](../user-help/user-help-join-device-on-network.md). 
 - **Windows Autopilot** - Windows Autopilot permite a configuração prévia de dispositivos para uma experiência mais suave em OOBE para realizar uma junção do Azure Active Directory. Para saber mais, confira a página [visão geral do Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Registro em massa** - o registro em massa permite que um administrador de ingresso no Azure Active Directory usando uma ferramenta de provisionamento em massa para configurar os dispositivos. Para obter mais informações, consulte [Registro em massa para dispositivos Windows](/intune/windows-bulk-enroll).
  
@@ -200,7 +200,7 @@ Aqui está uma comparação dessas três abordagens
 | --- | --- | --- | --- |
 | Requer interação do usuário para configurar | Sim | Sim | Não |
 | Requer trabalho de TI | Não | Sim | Sim |
-| Fluxos aplicáveis | OOBE e Configurações | OOBE somente | OOBE somente |
+| Fluxos aplicáveis | OOBE e Configurações | Somente OOBE | Somente OOBE |
 | Direitos de administrador local para o usuário primário | Sim, por padrão | Configurável | Não |
 | Precisar de suporte do OEM | Não | Sim | Não |
 | Versões com suporte | 1511+ | 1709+ | 1703+ |
@@ -220,11 +220,11 @@ Escolha sua abordagem de implantação ou abordagens examinando a tabela acima e
 
 O portal do Azure permite você a controlar a implantação dos dispositivo Azure Active Directory em sua organização. Para definir as configurações relacionadas, sobre a **página do Azure Active Directory**, selecione `Devices > Device settings`.
 
-### <a name="users-may-join-devices-to-azure-ad"></a>Os usuários podem ingressar no Azure Active Directory com seus dispositivos
+### <a name="users-may-join-devices-to-azure-ad"></a>Os usuários podem ingressar dispositivos no Azure AD
 
 Defina essa opção como **Todos** ou **Selecionados** com base no escopo de sua implantação e o dispositivo que você deseja permitir a instalação do Azure Active Directory ingressado. 
 
-![Os usuários podem ingressar no Azure Active Directory com seus dispositivos](./media/azureadjoin-plan/01.png)
+![Os usuários podem ingressar dispositivos no Azure AD](./media/azureadjoin-plan/01.png)
 
 ### <a name="additional-local-administrators-on-azure-ad-joined-devices"></a>Administradores locais adicionais nos dispositivos ingressados do Azure AD
 
@@ -297,7 +297,7 @@ Você pode usar essa implementação para [exigir dispositivos gerenciados para 
 
 > [!div class="nextstepaction"]
 > [Ingressar em um novo dispositivo Windows 10 com o Azure ad durante uma primeira execução](azuread-joined-devices-frx.md) 
->  [Ingresse seu dispositivo de trabalho na rede da sua organização](/azure/active-directory/user-help/user-help-join-device-on-network)
+>  [Ingresse seu dispositivo de trabalho na rede da sua organização](../user-help/user-help-join-device-on-network.md)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

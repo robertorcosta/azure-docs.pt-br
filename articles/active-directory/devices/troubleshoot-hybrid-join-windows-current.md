@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611306"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268767"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos
 
@@ -28,8 +28,8 @@ Para outros clientes do Windows, consulte o artigo [solução de problemas de Az
 Este artigo pressupõe que você tenha [dispositivos configurados e ingressados no Azure Active Directory híbrido](hybrid-azuread-join-plan.md) para dar suporte aos seguintes cenários:
 
 - Acesso Condicional baseado no dispositivo
-- [Roaming corporativo de configurações](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
+- [Roaming corporativo de configurações](./enterprise-state-roaming-overview.md)
+- [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Este documento fornece diretrizes de solução de problemas para resolver possíveis problemas.
 
@@ -170,7 +170,7 @@ Possíveis motivos para a falha:
 - **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607)
    - Motivo: falha de descoberta genérica. Falha ao obter os metadados de descoberta do DRS.
    - Resolução: Localize o suberro abaixo para investigar mais.
-- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
+- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
    - Motivo: o tempo limite da operação foi atingido ao executar a descoberta.
    - Resolução: Verifique se `https://enterpriseregistration.windows.net` o está acessível no contexto do sistema. Para obter mais informações, consulte a seção [requisitos de conectividade de rede](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
@@ -387,7 +387,7 @@ Use logs de Visualizador de Eventos para localizar a fase e ErrorCode para as fa
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Etapa 5: coletar logs e contatar Suporte da Microsoft
 
-Baixar o arquivo Auth.zip de[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Baixar o arquivo Auth.zip de [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
 1. Descompacte os arquivos e renomeie os arquivos incluídos **start-auth.txt** e **stop-auth.txt** para **Start-auth. cmd** e **Stop-auth. cmd**.
 1. Em um prompt de comandos com privilégios elevados, execute **Start-auth. cmd**.

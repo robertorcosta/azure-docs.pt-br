@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689037"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266775"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -62,7 +62,7 @@ Apenas os dispositivos a seguir estão listados sob os **dispositivos do usuári
 - O usuário desabilita o dispositivo do portal meus aplicativos. 
 - Um administrador (ou usuário) exclui ou desabilita o dispositivo no portal do Azure ou usando o PowerShell
 - Somente ingressado no Azure AD híbrido: um administrador remove a UO dos dispositivos fora do escopo de sincronização, resultando na exclusão dos dispositivos do Azure AD
-- Atualizando o Azure AD Connect para a versão 1.4. XX. x. [Entendendo Azure ad Connect 1.4. XX. x e desaparecem o dispositivo](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Atualizando o Azure AD Connect para a versão 1.4. XX. x. [Entendendo Azure ad Connect 1.4. XX. x e desaparecem o dispositivo](../hybrid/reference-connect-device-disappearance.md).
 
 
 Veja abaixo como essas ações podem ser corrigidas.
@@ -312,7 +312,7 @@ Há suporte para alterações de UPN com a atualização do Windows 10 2004. Os 
 **R:** Execute as seguintes etapas:
 
 1.    [Criar uma política de conformidade](/intune/compliance-policy-create-mac-os)
-1.    [Definir uma política de acesso condicional para dispositivos macOS](../active-directory-conditional-access-azure-portal.md) 
+1.    [Definir uma política de acesso condicional para dispositivos macOS](../conditional-access/overview.md) 
 
 **Comentários**
 

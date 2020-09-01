@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d05e73bc9aa51bf20121790de94b1b6d0e26615
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61229043"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268563"
 ---
-# <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite de miniatura  
+# <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite de miniatura
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Você pode usar o Media Encoder Standard para gerar um sprite de miniatura, que é um arquivo JPEG que contém várias miniaturas de resolução pequena reunidas em uma única imagem (grande), junto com um arquivo VTT. Esse arquivo VTT especifica o intervalo de tempo no vídeo de entrada que representa cada miniatura, junto com o tamanho e as coordenadas da miniatura dentro do arquivo JPEG grande. Players de vídeo usam o arquivo VTT e a imagem de sprite para mostrar uma barra de pesquisa “visual”, fornecendo um visualizador com feedback visual ao arrastar a linha do tempo do vídeo para frente e para trás.
 
@@ -66,7 +68,7 @@ Veja um exemplo:
 }
 ```
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas Conhecidos
 
 1.  Não é possível gerar uma imagem de sprite com uma única linha de imagens (SpriteColumn = 1 resulta em uma imagem com uma única coluna).
 2.  Ainda não há compatibilidade com o agrupamento de imagens de sprite em imagens JPEG de tamanho moderado. Portanto, é preciso ter cuidado para limitar o número de miniaturas e o tamanho delas, para que o sprite de miniatura costurado resultante seja cerca de 8M pixels ou menos.

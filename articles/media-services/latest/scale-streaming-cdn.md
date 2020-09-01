@@ -10,16 +10,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/13/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: abf4b8dffc69cfee9332d18e59d0a2852fa7617e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: cd2b9848ef1358c1aeaaed43e55d9914ac701564
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226141"
+ms.locfileid: "89267098"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Transmitir conteúdo com integração CDN
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 A CDN oferece aos desenvolvedores uma solução global de fornecimento rápido de conteúdo de alta largura de banda para usuários armazenando em cache o conteúdo em nós físicos estrategicamente posicionados em todo o mundo.  
 

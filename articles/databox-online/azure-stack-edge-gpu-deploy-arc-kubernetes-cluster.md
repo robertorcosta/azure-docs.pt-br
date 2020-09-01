@@ -1,6 +1,6 @@
 ---
-title: Habilitar o arco do Azure em kubernetes no dispositivo de borda Azure Stack | Microsoft Docs
-description: Descreve como habilitar o arco do Azure em um cluster kubernetes existente em seu dispositivo Azure Stack Edge.
+title: Habilitar o arco do Azure no kubernetes no dispositivo de GPU de borda Azure Stack | Microsoft Docs
+description: Descreve como habilitar o arco do Azure em um cluster kubernetes existente em seu Azure Stack dispositivo de GPU de borda.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 03bf2a01ad4c1d5d017d881bf171806fa33e8799
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89083020"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268186"
 ---
-# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-device"></a>Habilitar o arco do Azure no cluster kubernetes em seu dispositivo Azure Stack Edge
+# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Habilitar o arco do Azure no cluster kubernetes no dispositivo de GPU do Azure Stack Edge
 
 Este artigo mostra como habilitar o arco do Azure em um cluster kubernetes existente em seu dispositivo Azure Stack Edge. 
 
@@ -132,7 +132,7 @@ Você também pode registrar provedores de recursos por meio do `az cli` . Para 
     Para obter mais informações sobre como criar uma entidade de serviço e executar a atribuição de função, consulte as etapas em [criar uma entidade de serviço de integração habilitada para Arc do Azure](https://docs.microsoft.com/azure/azure-arc/kubernetes/create-onboarding-service-principal).
 
 
-## <a name="enable-arc-on-kubernetes-cluster"></a>Habilitar arco no cluster kubernetes
+## <a name="enable-arc-on-kubernetes-cluster"></a>Habilitar o Arc no cluster do Kubernetes
 
 Siga estas etapas para configurar o cluster kubernetes para o gerenciamento de arco do Azure:
 

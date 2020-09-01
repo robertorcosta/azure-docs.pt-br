@@ -3,7 +3,7 @@ title: Migrar dos serviços de mídia do Azure v2 para v3
 description: Este artigo descreve as alterações introduzidas nos Serviços de Mídia do Azure v3 e mostra as diferenças entre as duas versões.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -13,16 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
-ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: be0c12eacae9bb13a475de4634746e9d38d35e43
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448384"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267557"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de mídia v2 versus v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo descreve as alterações introduzidas nos Serviços de Mídia do Azure v3 e mostra as diferenças entre as duas versões.
 
@@ -93,22 +95,22 @@ A tabela a seguir mostra como as propriedades do [ativo](/rest/api/media/assets/
 
 |Propriedades v3|Propriedades de v2|
 |---|---|
-|`id`-(exclusivo) o caminho de Azure Resource Manager completo, consulte os exemplos no [ativo](/rest/api/media/assets/createorupdate)||
-|`name`-(exclusivo) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
+|`id` -(exclusivo) o caminho de Azure Resource Manager completo, consulte os exemplos no [ativo](/rest/api/media/assets/createorupdate)||
+|`name` -(exclusivo) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
-|`assetId`|`Id`-o valor (exclusivo) começa com o `nb:cid:UUID:` prefixo.|
+|`assetId`|`Id` -o valor (exclusivo) começa com o `nb:cid:UUID:` prefixo.|
 |`created`|`Created`|
 |`description`|`Name`|
 |`lastModified`|`LastModified`|
 |`storageAccountName`|`StorageAccountName`|
-|`storageEncryptionFormat`| `Options`(opções de criação)|
+|`storageEncryptionFormat`| `Options` (opções de criação)|
 |`type`||
 
 ### <a name="storage-side-encryption"></a>Criptografia do armazenamento
 
 Para proteger os Ativos em repouso, os ativos devem ser criptografados pela criptografia do armazenamento. A tabela a seguir mostra como a criptografia do armazenamento funciona nos Serviços de Mídia:
 
-|Opção de criptografia|Description|Serviços de Mídia v2|Serviços de Mídia v3|
+|Opção de criptografia|Descrição|Serviços de Mídia v2|Serviços de Mídia v3|
 |---|---|---|---|
 |Criptografia do Armazenamento dos Serviços de Mídia|Criptografia AES-256, chave gerenciada pelos serviços de mídia.|Com suporte<sup>(1)</sup>|Sem suporte<sup>(2)</sup>|
 |[Criptografia do Serviço de Armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Criptografia do lado do servidor oferecida pelo armazenamento do Azure, chave gerenciada pelo Azure ou por cliente.|Com suporte|Com suporte|

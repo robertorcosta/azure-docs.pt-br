@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182047"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268016"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Gerenciamento de carga de trabalho kubernetes em seu dispositivo Azure Stack Edge
 
@@ -47,11 +47,11 @@ Há três maneiras principais de implantar suas cargas de trabalho. Cada uma des
 
 ![Implantação de carga de trabalho kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Implantação local**: essa é por meio da ferramenta de acesso de linha de comando, como a `kubectl` que permite implantar K8 `yamls` . Você se conecta ao cluster K8 em seu Azure Stack Edge que você cria usando o `kubeconfig` arquivo. Para obter mais informações, acesse [acessar um cluster kubernetes por meio de kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Implantação local**: essa é por meio da ferramenta de acesso de linha de comando, como a `kubectl` que permite implantar kubernetes `yamls` . Você se conecta ao cluster kubernetes em seu Azure Stack Edge que você cria usando o `kubeconfig` arquivo. Para obter mais informações, acesse [acessar um cluster kubernetes por meio de kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
-- **Implantação de IOT Edge**: isso ocorre por meio de IOT Edge, que se conecta ao Hub IOT do Azure. Você se conecta ao cluster K8 em seu dispositivo Azure Stack Edge por meio do `iotedge` namespace. Os agentes de IoT Edge implantados nesse namespace são responsáveis pela conectividade com o Azure. Você aplica a `IoT Edge deployment.json` configuração usando o CI/CD do DevOps do Azure. O namespace e o gerenciamento de IoT Edge são feitos por meio do operador de nuvem.
+- **Implantação de IOT Edge**: isso ocorre por meio de IOT Edge, que se conecta ao Hub IOT do Azure. Você se conecta ao cluster kubernetes em seu dispositivo Azure Stack Edge por meio do `iotedge` namespace. Os agentes de IoT Edge implantados nesse namespace são responsáveis pela conectividade com o Azure. Você aplica a `IoT Edge deployment.json` configuração usando o CI/CD do DevOps do Azure. O namespace e o gerenciamento de IoT Edge são feitos por meio do operador de nuvem.
 
-- **Implantação do Azure/Arc**: o arco do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters K8. Você conecta o cluster K8 em seu dispositivo Azure Stack Edge por meio do `azure-arc namespace` . Os agentes são implantados neste namespace que são responsáveis pela conectividade com o Azure. Você aplica a configuração de implantação usando o gerenciamento de configuração baseado em GitOps. O arco do Azure também permitirá que você use Azure Monitor para contêineres para exibir e monitorar seus clusters. Para obter mais informações, acesse [o que é o Azure-Arc habilitado kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Implantação do Azure/Arc**: o arco do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters kubernetes. Você conecta o cluster kubernetes em seu dispositivo Azure Stack Edge por meio do `azure-arc namespace` . Os agentes são implantados neste namespace que são responsáveis pela conectividade com o Azure. Você aplica a configuração de implantação usando o gerenciamento de configuração baseado em GitOps. O arco do Azure também permitirá que você use Azure Monitor para contêineres para exibir e monitorar seus clusters. Para obter mais informações, acesse [o que é o Azure-Arc habilitado kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## <a name="choose-the-deployment-type"></a>Escolher o tipo de implantação
 

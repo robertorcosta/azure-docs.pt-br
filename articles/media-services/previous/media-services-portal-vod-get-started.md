@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 62754c455ec6aad4a3990bf4af749dcdcd425e55
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 223779dfba5faa77e38221d6f6f4e26dbc44b0cc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060223"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268376"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução ao fornecimento de conteúdo sob demanda usando o portal do Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
@@ -61,7 +63,7 @@ Para iniciar o ponto de extremidade de streaming:
 Para transmitir vídeos usando os Serviços de Mídia do Azure, carregue os vídeos de origem, codifique-os em várias taxas de bits e publique o resultado. A primeira etapa é abordada nesta seção. 
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Selecione **configurações**  >  **ativos**. Em seguida, selecione o botão **Carregar**.
+2. Selecione **Configurações** > **Ativos**. Em seguida, selecione o botão **Carregar**.
    
     ![Carregar arquivos](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -84,7 +86,7 @@ Para aproveitar o empacotamento dinâmico, você deve codificar o arquivo de ori
 Para codificar o conteúdo usando o Media Encoder Standard no portal do Azure:
 
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Selecione **configurações**  >  **ativos**. Selecione o ativo que você deseja codificar.
+2. Selecione **Configurações** > **Ativos**. Selecione o ativo que você deseja codificar.
 3. Selecione o botão **Codificar**.
 4. No painel **Codificar um ativo** , selecione o processador **Media Encoder Standard** e uma predefinição. Para saber mais sobre as predefinições, confira [Gerar automaticamente uma escada de taxa de bits](media-services-autogen-bitrate-ladder-with-mes.md) e [Predefinições de tarefa para Media Encoder Standard](media-services-mes-presets-overview.md). É importante escolher a predefinição que funcione melhor para o vídeo de entrada. Por exemplo, se você souber que o vídeo de entrada tem uma resolução de 1920 x 1080 pixels, poderá usar a predefinição **H264 Taxas de Bits Múltiplas 1080p**. Se você tiver um vídeo de resolução baixa (640 x 360), você não deverá usar a predefinição **H264 Taxas de Bits Múltiplas 1080p**.
    
@@ -132,7 +134,7 @@ Para atualizar uma data de validade em um localizador, você pode usar uma [API 
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para usar o portal para publicar um ativo
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
-2. Selecione **configurações**  >  **ativos**. Selecione o ativo que você deseja publicar.
+2. Selecione **Configurações** > **Ativos**. Selecione o ativo que você deseja publicar.
 3. Clique no botão **Publicar**.
 4. Selecione o tipo de localizador.
 5. Selecione **Adicionar**.

@@ -1,22 +1,23 @@
 ---
 title: Instalar atualização no dispositivo de GPU Azure Stack Edge | Microsoft Docs
-description: Descreve como aplicar atualizações usando o portal do Azure e a interface do usuário da Web local para Azure Stack dispositivo GPU de borda
+description: Descreve como aplicar atualizações usando o portal do Azure e a interface do usuário da Web local para Azure Stack dispositivo de GPU de borda e o cluster kubernetes no dispositivo
 services: databox
 author: alkohli
 ms.service: databox
-ms.topic: article
-ms.date: 06/12/2020
+ms.subservice: edge
+ms.topic: how-to
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e973e41493b8e84f31a82d5379a01a0e851a48d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6bafeeeda686dafadc3f5104240f8d018de83aeb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082898"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268237"
 ---
 # <a name="update-your-azure-stack-edge-with-gpu"></a>Atualizar sua borda de Azure Stack com GPU 
 
-Este artigo descreve as etapas necessárias para instalar a atualização em seu Azure Stack Edge com GPU por meio da interface do usuário da Web local e por meio do portal do Azure. Aplique as atualizações de software ou hotfixes para manter seu Azure Stack dispositivo de borda atualizado. 
+Este artigo descreve as etapas necessárias para instalar a atualização em seu Azure Stack Edge com GPU por meio da interface do usuário da Web local e por meio do portal do Azure. Aplique as atualizações de software ou hotfixes para manter seu Azure Stack dispositivo de borda e o cluaster de kubernetes associado no dispositivo atualizado. 
 
 > [!IMPORTANT]
 > - A atualização **2008** corresponde à versão do **2.1.1328.1904** software em seu dispositivo. Para obter informações sobre essa atualização, acesse [notas de versão](azure-stack-edge-gpu-2008-release-notes.md).
@@ -43,7 +44,7 @@ Cada uma dessas etapas é descrita nas seções a seguir.
     
     Para obter mais informações, acesse [Windows Server Update Services (WSUS)](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus)
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Recomendamos que você instale as atualizações por meio do portal do Azure. O dispositivo verifica automaticamente se há atualizações uma vez por dia. Depois que as atualizações estiverem disponíveis, você verá uma notificação no Portal. Em seguida, você pode baixar e instalar as atualizações. 
 

@@ -1,21 +1,21 @@
 ---
-title: Lista de verificação de pré-implantação para implantar Azure Stack dispositivo de borda | Microsoft Docs
-description: Este artigo descreve as informações que podem ser coletadas antes da implantação do dispositivo Azure Stack Edge.
+title: Lista de verificação de pré-implantação para implantar Azure Stack dispositivo de GPU de borda | Microsoft Docs
+description: Este artigo descreve as informações que podem ser coletadas antes da implantação do Azure Stack dispositivo de GPU de borda.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/29/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: e1233e17dfe2a56e6ea995190b243ed9c64b8945
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d7b3388b7e3a31c23b34b21017f012d40e9f849
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181350"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268135"
 ---
-# <a name="deployment-checklist-for-your-azure-stack-edge-device"></a>Lista de verificação de implantação para seu dispositivo de Azure Stack Edge  
+# <a name="deployment-checklist-for-your-azure-stack-edge-gpu-device"></a>Lista de verificação de implantação para seu dispositivo de GPU do Azure Stack Edge  
 
 Este artigo descreve as informações que podem ser coletadas à frente da implantação real do seu dispositivo de Azure Stack Edge. 
 

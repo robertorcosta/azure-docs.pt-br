@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 703e67b4829413776dc8d98843888fbd67906baa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 697c686b61a86cb01327364ad73f30f88e2e151d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182183"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268067"
 ---
-# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-device"></a>Controle de acesso baseado em função do kubernetes em seu dispositivo Azure Stack Edge
+# <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-gpu-device"></a>Controle de acesso baseado em função do kubernetes em seu dispositivo de GPU do Azure Stack Edge
 
 
 No dispositivo Azure Stack Edge, quando você configura a função de computação, um cluster kubernetes é criado. Você pode usar o RBAC (controle de acesso baseado em função) kubernetes para limitar o acesso aos recursos de cluster em seu dispositivo.
