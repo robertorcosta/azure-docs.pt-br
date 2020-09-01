@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: cbc1286b6c434d1c7a110c75dd5085de2043012d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825014"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179089"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma assinatura do Azure ao seu locatário do Azure Active Directory
 
@@ -44,15 +44,16 @@ Para poder associar ou adicionar sua assinatura, execute as seguintes tarefas:
 
 - Examine a seguinte lista de alterações que ocorrerão depois que você associar ou adicionar sua assinatura e como você pode ser afetado:
 
-  - Os usuários aos quais foram atribuídas funções usando o RBAC perderão seu acesso
+  - Usuários aos quais foram atribuídas funções usando o RBAC do Azure perderão seu acesso
   - O administrador de serviços e coadministradores perderão o acesso
   - Se você tiver cofres de chaves, eles ficarão inacessíveis e você precisará corrigi-los após a associação
   - Se você tiver identidades gerenciadas para recursos como máquinas virtuais ou aplicativos lógicos, será necessário reabilitá-los ou recriá-los após a associação
   - Se você tiver um Azure Stack registrado, será necessário registrá-lo novamente após a associação
+  - Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](../../role-based-access-control/transfer-subscription.md).
 
 - Entre usando uma conta que:
 
-  - Tem uma atribuição de função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura. Para obter informações sobre como atribuir a função de proprietário, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+  - Tem uma atribuição de função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura. Para obter informações sobre como atribuir a função de proprietário, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
   - Existe no diretório atual e no novo diretório. O diretório atual está associado à assinatura. Você associará o novo diretório à assinatura. Para obter mais informações sobre como obter acesso a outro diretório, consulte [adicionar Azure Active Directory usuários de colaboração B2B no portal do Azure](../b2b/add-users-administrator.md).
 
 - Verifique se você não está usando uma assinatura de Provedor de Serviços de Nuvem do Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), uma assinatura Interna da Microsoft (MS-AZR-0015P) ou Assinatura do Microsoft Imagine (MS-AZR-0144P).
@@ -90,6 +91,8 @@ Depois de associar uma assinatura a um diretório diferente, talvez seja necess�
 - Se você usou identidades gerenciadas atribuídas pelo sistema para recursos, você deve reabilitar essas identidades. Se você usou identidades gerenciadas atribuídas pelo usuário, deverá recriar essas identidades. Depois de habilitar novamente ou recriar as identidades gerenciadas, você deve restabelecer as permissões atribuídas a essas identidades. Para saber mais, confira [O que são identidades gerenciadas para recursos do Azure?](../managed-identities-azure-resources/overview.md).
 
 - Se você tiver registrado um Azure Stack usando essa assinatura, deverá registrar novamente. Para obter mais informações, consulte [registrar Azure Stack com o Azure](/azure-stack/operator/azure-stack-registration).
+
+- Para obter mais informações, confira [Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

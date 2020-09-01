@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ddf4336015ad172cdf13e224b10ca2536e8f6a25
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3c7bb19f93bc5b6d345930eb1928ca620e391bb0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018069"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144066"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning
 
@@ -111,7 +111,8 @@ output_data1 = PipelineData(
 
 ## <a name="set-up-a-compute-target"></a>Configurar um destino de computação
 
-No Azure Machine Learning, o termo __computação__ (ou __destino de computação__) refere-se a computadores ou clusters que executam as etapas computacionais no pipeline de aprendizado de máquina. Consulte [configurar e usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md) para obter uma lista completa de destinos de computação e como criá-los e anexá-los ao seu espaço de trabalho. O processo para criar e ou anexar um destino de computação é o mesmo se você estiver treinando um modelo ou executando uma etapa de pipeline. Depois de criar e anexar seu destino de computação, use o objeto `ComputeTarget` em na [etapa do pipeline](#steps).
+
+No Azure Machine Learning, o termo __computação__ (ou __destino de computação__) refere-se a computadores ou clusters que executam as etapas computacionais no pipeline de aprendizado de máquina.   Consulte [destinos de computação para treinamento de modelo](concept-compute-target.md#train) para obter uma lista completa de destinos de computação e [criar destinos de computação](how-to-create-attach-compute-sdk.md) para saber como criá-los e anexá-los ao seu espaço de trabalho.   O processo para criar e ou anexar um destino de computação é o mesmo se você estiver treinando um modelo ou executando uma etapa de pipeline. Depois de criar e anexar seu destino de computação, use o objeto `ComputeTarget` em na [etapa do pipeline](#steps).
 
 > [!IMPORTANT]
 > Não há suporte para operações de gerenciamento em destinos de computação de dentro de trabalhos remotos. Como os pipelines de aprendizado de máquina são enviados como um trabalho remoto, não use operações de gerenciamento em destinos de computação de dentro do pipeline.

@@ -8,22 +8,18 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 00d79f8058d7d478f7fe97ba9677e47098b70e1b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513053"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145919"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Como configurar um roteamento de hub virtual
 
 Um hub virtual pode conter vários gateways, como um gateway de VPN site a site, gateway de ExpressRoute, gateway de ponto a site e firewall do Azure. Os recursos de roteamento no Hub virtual são fornecidos por um roteador que gerencia todo o roteamento, incluindo o roteamento de trânsito, entre os gateways usando Border Gateway Protocol (BGP). Esse roteador também fornece conectividade de trânsito entre redes virtuais que se conectam a um hub virtual e podem dar suporte a uma taxa de transferência agregada de 50 Gbps. Esses recursos de roteamento se aplicam aos clientes de WAN virtual padrão.
 
 Para obter mais informações, consulte [sobre roteamento de Hub virtual](about-virtual-hub-routing.md).
-
-> [!NOTE]
-> Algumas dessas funcionalidades ainda podem ser distribuídas. Espera-se que isso seja concluído até 17 de agosto.
->
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Criar uma tabela de rotas
 

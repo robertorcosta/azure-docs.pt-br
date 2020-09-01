@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 343063c74912b234268757c36384ea876c068c21
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824195"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146804"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Isolamento de rede durante o treinamento & inferência com redes virtuais privadas
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -438,7 +438,7 @@ except ComputeTargetException:
     cpu_cluster.wait_for_completion(show_output=True)
 ```
 
-Após concluir o processo de criação, você treina seu modelo usando o cluster em um experimento. Para obter mais informações, consulte [Selecionar e usar um destino de computação para treinamento](how-to-set-up-training-targets.md).
+Após concluir o processo de criação, você treina seu modelo usando o cluster em um experimento. Para obter mais informações, consulte [usar um destino de computação para treinamento](how-to-set-up-training-targets.md).
 
 [!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
@@ -667,7 +667,7 @@ Para obter informações sobre como usar o Azure Machine Learning com o Firewall
 > * Sua região de espaço de trabalho do Azure Machine Learning deve ser uma [região habilitada para link privado](https://docs.microsoft.com/azure/private-link/private-link-overview#availability). 
 > * Seu Registro de Contêiner do Azure deve ser a versão Premium. Para obter mais informações sobre atualização, consulte [Como alterar SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 > * Seu Registro de Contêiner do Azure deve estar na mesma rede virtual e sub-rede que a conta de armazenamento e os destinos de computação usados para treinamento ou inferência.
-> * Seu workspace do Azure Machine Learning deve conter um [cluster de cálculo do Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute).
+> * Seu workspace do Azure Machine Learning deve conter um [cluster de cálculo do Azure Machine Learning](how-to-create-attach-compute-sdk.md#amlcompute).
 >
 >     Quando o ACR está atrás de uma rede virtual, o Azure Machine Learning não pode usá-lo para criar imagens do Docker diretamente. Em vez disso, o cluster de cálculo é usado para compilar as imagens.
 
@@ -828,14 +828,15 @@ Para usar uma máquina virtual ou cluster do Azure HDInsight em uma rede virtual
 
     Mantenha as regras de saída padrão para o grupo de segurança de rede. Para obter mais informações, consulte as regras de segurança padrão em [Grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
+
     Se você não quiser usar as regras de saída padrão e quiser limitar o acesso de saída da sua rede virtual, consulte a seção [Limitar a conectividade de saída da rede virtual](#limiting-outbound-from-vnet).
 
-1. Anexe o cluster da VM ou do HDInsight ao seu workspace do Azure Machine Learning. Para obter mais informações, consulte [Configurar destinos de computação para treinamento do modelo](how-to-set-up-training-targets.md).
+1. Anexe o cluster da VM ou do HDInsight ao seu workspace do Azure Machine Learning. Para obter mais informações, consulte [usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar ambientes de treinamento](how-to-set-up-training-targets.md)
+* [Usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md)
 * [Configurar pontos de extremidade privados](how-to-configure-private-link.md)
 * [Onde implantar modelos](how-to-deploy-and-where.md)
 * [Use o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)

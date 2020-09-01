@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145264"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146412"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usar Azure Pipelines para compilar e implantar soluções de HPC
 
@@ -28,8 +28,8 @@ Neste exemplo, criaremos um pipeline de build e lançamento para implantar uma i
 
 Para seguir as etapas neste artigo, você precisa de um projeto de equipe e uma organização do Azure DevOps.
 
-* [Criar uma organização do Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Criar um projeto no Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Criar uma organização do Azure DevOps](/azure/devops/organizations/accounts/create-organization)
+* [Criar um projeto no Azure DevOps](/azure/devops/organizations/projects/create-projects)
 
 ### <a name="source-control-for-your-environment"></a>Controle do código-fonte do seu ambiente
 
@@ -48,7 +48,7 @@ A estrutura de base de código usada neste exemplo é semelhante à seguinte:
 
 Esta seção pressupõe que você esteja familiarizado com o controle de versão e a criação de modelos do Resource Manager. Se você não estiver familiarizado com esses conceitos, confira as páginas a seguir para saber mais.
 
-* [O que é controle do código-fonte?](/azure/devops/user-guide/source-control?view=azure-devops)
+* [O que é controle do código-fonte?](/azure/devops/user-guide/source-control)
 * [Noções básicas de estrutura e sintaxe dos modelos do Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
@@ -309,7 +309,7 @@ Agora que o código-fonte está configurado, podemos iniciar o primeiro build.
 
 ## <a name="continuous-integration"></a>Integração contínua
 
-O [Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), no Azure DevOps Services, ajuda a implementar um pipeline de build, teste e implantação para seus aplicativos.
+O [Azure Pipelines](/azure/devops/pipelines/get-started/), no Azure DevOps Services, ajuda a implementar um pipeline de build, teste e implantação para seus aplicativos.
 
 Nesse estágio do pipeline, os testes são normalmente executados para validar o código e compilar as partes apropriadas do software. O número e os tipos de testes e as tarefas adicionais que você executar dependerão da sua estratégia de build e lançamento mais ampla.
 
@@ -323,9 +323,9 @@ Neste exemplo, iremos nos concentrar na pasta **hpc-application**. A pasta **hpc
 
 1. Você tem duas opções para criar um Pipeline de build:
 
-    a. [Como usar o Designer Visual](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). Para fazer isso, clique em "Usar o designer visual" na página **Novo pipeline**.
+    a. [Como usar o Designer Visual](/azure/devops/pipelines/get-started-designer). Para fazer isso, clique em "Usar o designer visual" na página **Novo pipeline**.
 
-    b. [Como usar builds do YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). Você pode criar um novo pipeline do YAML clicando na opção Azure Repos ou GitHub na página Novo pipeline. Como alternativa, você pode armazenar o exemplo abaixo no controle do código-fonte e fazer referência a um arquivo YAML existente clicando no Designer Visual e, em seguida, usando o modelo YAML.
+    b. [Como usar builds do YAML](/azure/devops/pipelines/get-started-yamls). Você pode criar um novo pipeline do YAML clicando na opção Azure Repos ou GitHub na página Novo pipeline. Como alternativa, você pode armazenar o exemplo abaixo no controle do código-fonte e fazer referência a um arquivo YAML existente clicando no Designer Visual e, em seguida, usando o modelo YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,7 +357,7 @@ Neste exemplo, iremos nos concentrar na pasta **hpc-application**. A pasta **hpc
     ![Exibir as saídas dinâmicas do build](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Se você usar um aplicativo cliente para executar o Aplicativo do Lote HPC, será necessário criar uma definição de build separada para esse aplicativo. Você pode encontrar vários guias de instruções na documentação do [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops).
+> Se você usar um aplicativo cliente para executar o Aplicativo do Lote HPC, será necessário criar uma definição de build separada para esse aplicativo. Você pode encontrar vários guias de instruções na documentação do [Azure Pipelines](/azure/devops/pipelines/get-started/index).
 
 ## <a name="continuous-deployment"></a>Implantação contínua
 

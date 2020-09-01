@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as melhores práticas e dicas úteis para desenvolver sua solução de Lote do Azure.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191805"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146531"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -29,12 +29,12 @@ Os [pools](nodes-and-pools.md#pools) são os recursos de computação para execu
     Não há garantia de que os nós individuais estejam sempre disponíveis. Embora não sejam comuns, falhas de hardware, atualizações de sistema operacional e outros problemas podem fazer com que nós individuais fiquem offline. Se a carga de trabalho do Lote exigir um progresso determinístico e garantido, você deverá alocar pools com vários nós.
 
 - **Não reutilize nomes de recursos.**
-    Os recursos do Lote (trabalhos, pools etc.) geralmente entram e saem ao longo do tempo. Por exemplo, você pode criar um pool na segunda-feira, excluí-lo na terça-feira e, em seguida, criar outro pool na quinta-feira. Os novos recursos criados devem receber um nome exclusivo que você não usou antes. Isso pode ser feito usando um GUID (como o nome do recurso inteiro ou como parte dele) ou inserindo a hora em que o recurso foi criado no nome do recurso. O Lote permite [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), que pode ser usado para atribuir a um recurso um nome fácil, mesmo que a ID de recurso real seja algo amigável para as pessoas. Se você usar nomes exclusivos, isso facilita diferenciar um recurso específico que fez algo em logs e métricas. Ele também removerá a ambiguidade se você precisar arquivar um caso de suporte para um recurso.
+    Os recursos do Lote (trabalhos, pools etc.) geralmente entram e saem ao longo do tempo. Por exemplo, você pode criar um pool na segunda-feira, excluí-lo na terça-feira e, em seguida, criar outro pool na quinta-feira. Os novos recursos criados devem receber um nome exclusivo que você não usou antes. Isso pode ser feito usando um GUID (como o nome do recurso inteiro ou como parte dele) ou inserindo a hora em que o recurso foi criado no nome do recurso. O Lote permite [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), que pode ser usado para atribuir a um recurso um nome fácil, mesmo que a ID de recurso real seja algo amigável para as pessoas. Se você usar nomes exclusivos, isso facilita diferenciar um recurso específico que fez algo em logs e métricas. Ele também removerá a ambiguidade se você precisar arquivar um caso de suporte para um recurso.
 
 - **Continuidade durante a manutenção e a falha do pool.**
     É melhor fazer com que seus trabalhos usem pools dinamicamente. Se seus trabalhos usarem o mesmo pool para tudo, haverá a chance de que seus trabalhos não sejam executados se algo der errado com o pool. Isso é especialmente importante para cargas de trabalho com detecção de hora. Para corrigir isso, selecione ou crie um pool dinamicamente ao agendar cada trabalho ou tenha uma maneira de substituir o nome do pool para que você possa ignorar um pool não íntegro.
 
-- **Continuidade dos negócios durante a manutenção e a falha do pool** Há muitas causas possíveis que podem impedir que um pool aumente para o tamanho necessário que você deseja, como erros internos, restrições de capacidade etc. Por esse motivo, você deve estar pronto para redirecionar os trabalhos em um pool diferente (possivelmente com um tamanho de VM diferente; o Lote dá suporte a isso por meio de [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)), se necessário. Evite usar uma ID de pool estático com a expectativa de que ela nunca seja excluída e nunca seja alterada.
+- **Continuidade dos negócios durante a manutenção e a falha do pool** Há muitas causas possíveis que podem impedir que um pool aumente para o tamanho necessário que você deseja, como erros internos, restrições de capacidade etc. Por esse motivo, você deve estar pronto para redirecionar os trabalhos em um pool diferente (possivelmente com um tamanho de VM diferente; o Lote dá suporte a isso por meio de [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)), se necessário. Evite usar uma ID de pool estático com a expectativa de que ela nunca seja excluída e nunca seja alterada.
 
 ### <a name="pool-lifetime-and-billing"></a>Tempo de vida e cobrança do pool
 
@@ -63,7 +63,7 @@ Ao criar um pool no Lote do Azure usando a Configuração de Máquina Virtual, v
 
 ### <a name="third-party-images"></a>Imagens de terceiros
 
-Os pools podem ser criados usando imagens de terceiros publicadas no Azure Marketplace. Com as contas do lote do modo de assinatura do usuário, você pode ver o erro "falha na alocação devido à verificação da qualificação de compra do Marketplace" ao criar um pool com determinadas imagens de terceiros. Para resolver esse erro, aceite os termos definidos pelo editor da imagem. Você pode fazer isso usando o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
+Os pools podem ser criados usando imagens de terceiros publicadas no Azure Marketplace. Com as contas do lote do modo de assinatura do usuário, você pode ver o erro "falha na alocação devido à verificação da qualificação de compra do Marketplace" ao criar um pool com determinadas imagens de terceiros. Para resolver esse erro, aceite os termos definidos pelo editor da imagem. Você pode fazer isso usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Dependência da região do Azure
 
@@ -83,7 +83,7 @@ Por isso, certifique-se de não criar uma solução de Lote que exija milhares d
 
 Um trabalho em Lotes tem um tempo de vida indefinido até que seja excluído do sistema. Seu estado designa se ele pode aceitar mais tarefas para agendamento ou não.
 
-Um trabalho não é movido automaticamente para o estado concluído, a menos que seja explicitamente encerrado. Isso pode ser disparado automaticamente por meio da propriedade [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) ou [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
+Um trabalho não é movido automaticamente para o estado concluído, a menos que seja explicitamente encerrado. Isso pode ser disparado automaticamente por meio da propriedade [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete) ou [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
 
 Há uma [cota de trabalho ativo padrão e agendamento de trabalho](batch-quota-limit.md#resource-quotas). Trabalhos e agendamentos de trabalho no estado concluído não contam nesta cota.
 
@@ -99,7 +99,7 @@ O Lote tem suporte integrado ao Armazenamento do Azure para carregar dados por m
 
 ### <a name="manage-task-lifetime"></a>Gerenciar tempo de vida da tarefa
 
-Exclua tarefas quando elas não forem mais necessárias ou defina uma restrição de tarefa [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet). Se um `retentionTime` estiver definido, o Lote limpará automaticamente o espaço em disco usado pela tarefa quando o `retentionTime` expirar.
+Exclua tarefas quando elas não forem mais necessárias ou defina uma restrição de tarefa [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime). Se um `retentionTime` estiver definido, o Lote limpará automaticamente o espaço em disco usado pela tarefa quando o `retentionTime` expirar.
 
 A exclusão de tarefas realiza duas coisas. Ela garante que você não tenha uma compilação de tarefas no trabalho, o que pode dificultar a consulta/localização da tarefa em que você está interessado (porque será necessário filtrar as tarefas concluídas). Ela também limpa os dados de tarefa correspondentes no nó (desde que o `retentionTime` ainda não tenha sido atingido). Isso ajuda a garantir que os nós não sejam preenchidos com os dados da tarefa e fique sem espaço em disco.
 
@@ -113,7 +113,7 @@ O Lote permite tarefas de substituição em nós (a execução de mais tarefas e
 
 ### <a name="design-for-retries-and-re-execution"></a>Design para novas tentativas e nova execução
 
-As tarefas podem ser repetidas automaticamente pelo Lote. Há dois tipos de tentativas: controlado pelo usuário e interno. As novas tentativas controladas pelo usuário são especificadas pelo [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet) da tarefa. Quando um programa especificado na tarefa é encerrado com um código de saída diferente de zero, a tarefa é repetida até o valor da `maxTaskRetryCount`.
+As tarefas podem ser repetidas automaticamente pelo Lote. Há dois tipos de tentativas: controlado pelo usuário e interno. As novas tentativas controladas pelo usuário são especificadas pelo [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount) da tarefa. Quando um programa especificado na tarefa é encerrado com um código de saída diferente de zero, a tarefa é repetida até o valor da `maxTaskRetryCount`.
 
 Embora seja raro, uma tarefa pode ser repetida internamente devido a falhas no nó de computação, como não ser capaz de atualizar o estado interno ou uma falha no nó enquanto a tarefa está em execução. A tarefa será repetida no mesmo nó de computação, se possível, até um limite interno antes de desistir da tarefa e adiá-la para ser reagendada pelo Lote, potencialmente em um nó de computação diferente.
 
@@ -192,7 +192,7 @@ Se suas solicitações receberem respostas HTTP de nível 5xx e houver um cabeç
 
 ### <a name="retry-requests-automatically"></a>Solicitações de repetição automaticamente
 
-Verifique se os clientes do serviço do Lote têm políticas de repetição apropriadas em vigor para repetir automaticamente suas solicitações, mesmo durante a operação normal e não exclusivamente durante os períodos de tempo de manutenção do serviço. Essas políticas de repetição devem abranger um intervalo de pelo menos 5 minutos. Os recursos de repetição automática são fornecidos com vários SDKs do Lote, como a [classe .NET RetryPolicyProvider](/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+Verifique se os clientes do serviço do Lote têm políticas de repetição apropriadas em vigor para repetir automaticamente suas solicitações, mesmo durante a operação normal e não exclusivamente durante os períodos de tempo de manutenção do serviço. Essas políticas de repetição devem abranger um intervalo de pelo menos 5 minutos. Os recursos de repetição automática são fornecidos com vários SDKs do Lote, como a [classe .NET RetryPolicyProvider](/dotnet/api/microsoft.azure.batch.retrypolicyprovider).
 
 ### <a name="static-public-ip-addresses"></a>Endereços IP públicos estáticos
 

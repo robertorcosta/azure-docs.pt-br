@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de 
 description: Descreve como fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826303"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145647"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -155,7 +155,7 @@ Concluído | Falhou | Concluído com aviso
 Falhou | Falhou | Falhou
 
 Agora, com esse recurso, dois backups podem ser executados em paralelo para a mesma VM, porém, em qualquer fase (instantâneo, transferir dados para o cofre), apenas uma subtarefa pode estar em execução. Assim, em cenários em que um trabalho de backup em andamento resultou no backup do dia seguinte para falhar, ele será evitado com essa funcionalidade de desacoplamento. Os backups de dias subsequentes podem ter o instantâneo concluído, enquanto a **transferência de dados para o cofre** é ignorada se o trabalho de backup de um dia anterior estiver em estado de andamento.
-O ponto de recuperação incremental criado no cofre capturará toda a rotatividade do último ponto de recuperação criado no cofre. Não há impacto no custo do usuário.
+O ponto de recuperação incremental criado no cofre irá capturar toda a rotatividade do ponto de recuperação mais recente criado no cofre. Não há impacto no custo do usuário.
 
 ## <a name="optional-steps"></a>Etapas opcionais
 

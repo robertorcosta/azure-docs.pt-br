@@ -4,12 +4,12 @@ description: Use o recurso de pacotes de aplicativos do Lote do Azure para geren
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 8d0ab6227e232728818afbbc58ca6521d9a417df
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d847dd926d157e455a6ef4e0c58c9dd204a1ecc7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921997"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146447"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
@@ -334,8 +334,8 @@ Com os pacotes de aplicativos, você pode fornecer ajudar seus clientes a escolh
 * A [API REST do Lote][api_rest] também dá suporte ao trabalho com pacotes de aplicativos. Por exemplo, confira o elemento [applicationPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar os pacotes a instalar usando a API REST. Confira [Aplicativos][rest_applications] para obter detalhes sobre como obter informações do aplicativo usando a API REST do Lote.
 * Aprenda a [gerenciar de modo programático as contas e as cotas do Lote do Azure com o .NET de Gerenciamento do Lote](batch-management-dotnet.md). A biblioteca [.NET de Gerenciamento do Lote][api_net_mgmt] pode permitir os recursos de criação e exclusão de conta para seu aplicativo ou serviço do Lote.
 
-[api_net]: /dotnet/api/overview/azure/batch/client?view=azure-dotnet
-[api_net_mgmt]: /dotnet/api/overview/azure/batch/management?view=azure-dotnet
+[api_net]: /dotnet/api/overview/azure/batch/client
+[api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_rest]: /rest/api/batchservice/
 [batch_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
 [github_samples]: https://github.com/Azure/azure-batch-samples

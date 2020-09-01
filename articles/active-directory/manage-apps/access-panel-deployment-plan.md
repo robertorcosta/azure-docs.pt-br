@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017712"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146616"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planejar uma implantação do Azure Active Directory meus aplicativos
 
@@ -55,11 +55,8 @@ Os meus aplicativos do Azure AD beneficiam as empresas das seguintes maneiras:
 Meus aplicativos é gratuito e não requer licenças para usar em um nível básico. No entanto, o número de objetos em seu diretório e os recursos adicionais que você deseja implantar podem exigir licenças adicionais. Alguns cenários comuns do AD do Azure que têm requisitos de licenciamento incluem os seguintes recursos de segurança:
 
 * [Autenticação Multifator do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Associação baseada em grupo](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Redefinição de senha de autoatendimento](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 Consulte o [Guia de licenciamento completo do Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -69,7 +66,6 @@ Consulte o [Guia de licenciamento completo do Azure ad](https://azure.microsoft.
 Conclua os seguintes pré-requisitos antes de iniciar este projeto:
 
 * [Integrar SSO de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Gerenciar a infraestrutura de usuário e grupo do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Planejar a implantação de meus aplicativos do Azure AD
@@ -139,7 +135,6 @@ Os usuários ou administradores devem consentir os termos de uso e as políticas
 Para usar o consentimento do administrador, você deve ser um administrador global da organização e os aplicativos devem ser:
 
 * Registrado em sua organização
-
 * Registrado em outra organização do Azure AD e consentiu anteriormente por pelo menos um usuário
 
 Para obter mais informações, consulte [Configurar a maneira como os usuários finais concordam com um aplicativo no Azure Active Directory](configure-user-consent.md).
@@ -180,9 +175,7 @@ Quando os usuários entram em aplicativos de SSO baseados em senha, eles precisa
 Se você precisar integrar aplicativos SSO baseados em senha, defina um mecanismo para implantar a extensão em escala com os [navegadores com suporte](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). As opções incluem:
 
 * [Política de Grupo para o Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager para o Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [Download e configuração controlados pelo usuário para Chrome, Firefox, Microsoft Edge ou IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Os usuários que não usam aplicativos SSO baseados em senha também se beneficiam da extensão. Esses benefícios incluem a capacidade de iniciar qualquer aplicativo de sua barra de pesquisa, localizar acesso a aplicativos usados recentemente e ter um link para a página meus aplicativos.
@@ -294,7 +287,6 @@ Os testes a seguir devem ser conduzidos com dispositivos de propriedade corporat
 
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Exemplos de casos de teste de recursos de autoatendimento do aplicativo
 
-
 | Caso comercial| Resultado esperado |
 | - | - |
 | O usuário pode gerenciar a associação ao aplicativo| O usuário pode adicionar/remover membros que têm acesso ao aplicativo |
@@ -319,22 +311,5 @@ Use a função menos privilegiada para realizar uma tarefa necessária dentro do
 
 Você pode usar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para gerenciar suas funções para fornecer auditoria adicional, controle e revisão de acesso para usuários com permissões de diretório.
 
-### <a name="troubleshoot-my-apps-issues"></a>Solucionar problemas de meus aplicativos
-
-Crie guias de solução de problemas para sua organização de suporte com cenários comuns, que apontam para a documentação da Microsoft em suas resoluções. Talvez você queira criar guias que interrompem o suporte nas camadas usadas pela sua organização.
-
-Consulte estes guias de solução de problemas para referência:
-
-[Aplicativos não aparecendo](access-panel-troubleshoot-application-not-appearing.md)
-
-[Aplicativos inesperados aparecem](access-panel-troubleshoot-unexpected-application.md)
-
-[O usuário não pode entrar em meus aplicativos](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problemas ao usar o acesso de aplicativo de autoatendimento](access-panel-troubleshoot-self-service-access.md)
-
-[Problemas com a extensão do navegador](manage-access-panel-browser-extension.md)
-
 ## <a name="next-steps"></a>Próximas etapas
-
 [Planejar uma implantação da autenticação multifator do Azure](https://aka.ms/deploymentplans/mfa)

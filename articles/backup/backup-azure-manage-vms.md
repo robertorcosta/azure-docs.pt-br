@@ -3,12 +3,12 @@ title: Gerenciar e monitorar backups de VM do Azure
 description: Saiba como gerenciar e monitorar backups de VM do Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 707558b8ad28f7a8a17e24e57f97fda064d0f238
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999335"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145426"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerenciar backups de VM do Azure com o serviço de backup do Azure
 
@@ -121,7 +121,7 @@ Há duas maneiras de interromper a proteção de uma VM:
 * **Interrompa a proteção e exclua os dados de backup**. Esta opção impedirá que todos os trabalhos de backup futuros protejam sua VM e exclua todos os pontos de recuperação. Você não poderá restaurar a VM nem usar a opção *retomar backup* .
 
 >[!NOTE]
->Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas um último ponto de recuperação será sempre mantido até que você interrompa os backups e exclua os dados.
+>Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão. Os pontos de recuperação antigos expirarão de acordo com a política, mas o ponto de recuperação mais recente sempre será mantido até que você interrompa os backups e exclua os dados.
 >
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Interromper a proteção e manter os dados de backup
@@ -187,8 +187,8 @@ Para proteger seus dados, o backup do Azure inclui o recurso de exclusão revers
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Item de backup em que a fonte de dados primária não existe mais
 
 * Se as VMs do Azure configuradas para o backup do Azure forem excluídas ou movidas sem interromper a proteção, os trabalhos de backup agendados e os trabalhos de backup sob demanda (ad-hoc) falharão com o erro UserErrorVmNotFoundV2. A pré-verificação de backup será exibida como crítica somente para trabalhos de backup sob demanda com falha (os trabalhos agendados com falha não são exibidos).
-* Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o último ponto de recuperação) são limpos de acordo com o período de retenção definido na política de backup.
-* É recomendável excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o último ponto de recuperação é mantido para sempre e o usuário é cobrado de acordo com o preço de backup aplicável.
+* Esses itens de backup permanecem ativos no sistema que aderem à política de backup e retenção definida pelo usuário. Os dados de backup para essas VMs do Azure serão mantidos de acordo com a política de retenção. Os pontos de recuperação expirados (exceto o ponto de recuperação mais recente) são limpos de acordo com o período de retenção definido na política de backup.
+* É recomendável excluir os itens de backup em que a fonte de dados primária não existe mais para evitar custos adicionais, se o item/dados de backup dos recursos de exclusão não for mais necessário, pois o ponto de recuperação mais recente é mantido para sempre e o usuário é cobrado de acordo com o preço de backup aplicável.
 
 ## <a name="next-steps"></a>Próximas etapas
 

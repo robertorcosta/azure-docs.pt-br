@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723955"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177237"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -82,7 +82,7 @@ Quando as vulnerabilidades são encontradas, a central de segurança fornece uma
 
 Para garantir uma experiência consistente para todos os usuários, independentemente do tipo de verificador que estão usando, nós unificamos quatro recomendações nos seguintes dois:
 
-|Recomendação unificada|Descrição da alteração|
+|Recomendação unificada|Descrição das alterações|
 |----|:----|
 |**Uma solução de avaliação de vulnerabilidade deve ser habilitada em suas máquinas virtuais**|O substitui as duas seguintes recomendações:<br> **•** Habilitar a solução de avaliação de vulnerabilidades interna em máquinas virtuais (da plataforma Qualys (agora preterido) (incluído com a camada Standard)<br> **•** A solução de avaliação de vulnerabilidade deve ser instalada em suas máquinas virtuais (agora preteridas) (camadas padrão e gratuita)|
 |**Vulnerabilidades em suas máquinas virtuais devem ser corrigidas**|O substitui as duas seguintes recomendações:<br>**•** Corrigir vulnerabilidades encontradas em suas máquinas virtuais (de plataforma Qualys) (agora preteridas)<br>**•** As vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidade (agora preterida)|
@@ -159,11 +159,11 @@ Ao implantar uma solução de avaliação de vulnerabilidade, a central de segur
 
 A partir dessa atualização, a verificação foi removida e agora você pode implantar ferramentas de avaliação de vulnerabilidade em computadores Windows e Linux "personalizados". As imagens personalizadas são aquelas que você modificou dos padrões do Marketplace.
 
-Embora você possa implantar a extensão de avaliação de vulnerabilidade integrada (da plataforma de Qualys) em muitos outros computadores, o suporte estará disponível apenas se você estiver usando um sistema operacional listado em [implantando o scanner de vulnerabilidade interno do Qualys](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+Embora você possa implantar a extensão de avaliação de vulnerabilidade integrada (da plataforma Qualys) em muitos outros computadores, o suporte estará disponível apenas se você estiver usando um sistema operacional listado em [implantar o scanner de vulnerabilidade integrada para VMs da camada Standard](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms)
 
-Saiba mais sobre o [Verificador de vulnerabilidades integrada para máquinas virtuais (somente na camada Standard)](built-in-vulnerability-assessment.md).
+Saiba mais sobre o [Verificador de vulnerabilidades integrada para máquinas virtuais (somente na camada Standard)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Saiba mais sobre como usar sua própria solução de avaliação de vulnerabilidade de licença privada do Qualys ou do Rapid7 em [implantando uma solução de verificação de vulnerabilidade de parceiro](partner-vulnerability-assessment.md).
+Saiba mais sobre como usar sua própria solução de avaliação de vulnerabilidade de licença privada do Qualys ou do Rapid7 em [implantando uma solução de verificação de vulnerabilidade de parceiro](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Proteção contra ameaças para o armazenamento do Azure expandida para incluir arquivos e Azure Data Lake Storage Gen2 do Azure (versão prévia)
@@ -236,7 +236,7 @@ O recurso de controles de aplicativo adaptáveis recebeu duas atualizações sig
 
     * Usando um curinga no final de um caminho para permitir todos os executáveis dentro desta pasta e subpastas
 
-    * Usando um caractere curinga no meio de um caminho para habilitar um nome executável conhecido com um nome de pasta de alteração (por exemplo, pastas de usuário pessoais com um executável conhecido, nomes de pastas gerados automaticamente, etc.).
+    * Usando um caractere curinga no meio de um caminho para habilitar um nome executável conhecido com um nome de pasta de alteração (por exemplo, pastas de usuário pessoais com um executável conhecido, nomes de pasta gerados automaticamente, etc.).
 
 
 [Saiba mais sobre controles de aplicativo adaptáveis](security-center-adaptive-application.md).
@@ -415,7 +415,7 @@ Para implantar a solução, use a nova recomendação de segurança:
 
 "Habilitar a solução de avaliação de vulnerabilidades interna nas máquinas virtuais (da plataforma Qualys)"
 
-Saiba mais sobre [avaliação de vulnerabilidade integrada da Central de Segurança para máquinas virtuais](built-in-vulnerability-assessment.md).
+Saiba mais sobre [avaliação de vulnerabilidade integrada da Central de Segurança para máquinas virtuais](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
 
 

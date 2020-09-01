@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f9adf6ce4559234eec74c92f09aa752eb1f9ab51
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386055"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177322"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modelo de cobrança para Azure Active Directory B2C
 
@@ -132,11 +133,24 @@ O gerenciamento do Azure AD B2C usando o controle de acesso baseado em função 
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Alterar a assinatura de cobrança de locatário Azure AD B2C
 
-Azure AD B2C locatários podem ser movidos para outra assinatura se as assinaturas de origem e de destino existirem dentro do mesmo locatário Azure Active Directory.
+### <a name="move-using-azure-resource-manager"></a>Mover usando Azure Resource Manager
+
+Azure AD B2C locatários podem ser movidos para outra assinatura usando Azure Resource Manager se as assinaturas de origem e de destino existirem dentro do mesmo locatário Azure Active Directory.
 
 Para saber como mover os recursos do Azure como seu locatário de Azure AD B2C para outra assinatura, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Antes de iniciar a movimentação, lembre-se de ler todo o artigo para entender totalmente as limitações e os requisitos para tal movimentação. Além de instruções para mover recursos, ele inclui informações críticas, como uma lista de verificação de pré-movimentação e como validar a operação de movimentação.
+
+### <a name="move-by-un-linking-and-re-linking"></a>Mover por desvinculação e revinculação
+
+Se as assinaturas de origem e de destino estiverem associadas a locatários Azure Active Directory diferentes, você não poderá realizar a movimentação por meio de Azure Resource Manager, conforme explicado acima. No entanto, você ainda pode obter o mesmo resultado final ao cancelar a vinculação do locatário Azure AD B2C da assinatura de origem e vinculá-lo novamente à assinatura de destino. Esse método é seguro porque o único objeto que você exclui é o *link de cobrança*, não o próprio locatário Azure ad B2C. Nenhum dos usuários, aplicativos, fluxos de usuário, etc. será afetado.
+
+1. No próprio diretório Azure AD B2C, [convide um usuário convidado](user-overview.md#guest-user) do locatário do Azure AD de destino (aquele ao qual a assinatura do Azure de destino está vinculada) e verifique se esse usuário tem a função de **administrador global** no Azure ad B2C.
+1. Navegue até o *recurso do Azure* que representa Azure ad B2C na sua assinatura de origem do Azure, conforme explicado na seção [gerenciar seus recursos de locatário do Azure ad B2C](#manage-your-azure-ad-b2c-tenant-resources) acima. Não mude para o locatário de Azure AD B2C real.
+1. Clique no botão **excluir** na página **visão geral** . Isso *não* exclui os usuários ou aplicativos de Azure ad B2C do locatário relacionados. Ele simplesmente remove o link de cobrança da assinatura de origem.
+1. Entre no portal do Azure com a conta de usuário que foi adicionada como administrador no Azure AD B2C na etapa 1. Em seguida, navegue até a assinatura de destino do Azure, que está vinculada ao locatário de Azure Active Directory de destino. 
+1. Restabeleça o link de cobrança na assinatura de destino seguindo o procedimento [criar o link](#create-the-link) acima.
+1. Seu recurso de Azure AD B2C agora foi movido para a assinatura de destino do Azure (vinculada ao Azure Active Directory de destino) e será cobrado por essa assinatura no futuro.
 
 ## <a name="next-steps"></a>Próximas etapas
 

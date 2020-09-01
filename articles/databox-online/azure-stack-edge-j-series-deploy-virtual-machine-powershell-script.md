@@ -1,19 +1,19 @@
 ---
-title: Implantar VMs em seu dispositivo de Azure Stack Edge via Azure PowerShell
+title: Implantar VMs em seu dispositivo de GPU do Azure Stack Edge via Azure PowerShell
 description: Descreve como criar e gerenciar máquinas virtuais (VMs) em um dispositivo Azure Stack Edge usando Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 113f81c2c4209b851f2029bad2202fbb8bbfe103
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6e776b6dfc233ffb12d3597a0e6bc203f1674abd
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082812"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147058"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell-script"></a>Implantar VMs em seu dispositivo de Azure Stack Edge via script Azure PowerShell
 

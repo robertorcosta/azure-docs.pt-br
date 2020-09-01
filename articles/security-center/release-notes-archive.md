@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: cebc2c3d364cdb93c4b528c186dcef79c58ac6ea
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d7ac2777ffd500082bd0b8a9700d53bffd9d6931
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167004"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177305"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivos de novidades na Central de Segurança do Azure?
 
@@ -141,7 +141,7 @@ Os novos recursos dessa versão preliminar pública incluem:
 
 Os aplicativos instalados em máquinas virtuais geralmente podem ter vulnerabilidades que poderiam levar a uma violação da máquina virtual. Estamos anunciando que a camada Standard da central de segurança inclui a avaliação de vulnerabilidades interna para máquinas virtuais sem nenhuma taxa adicional. A avaliação de vulnerabilidade, fornecida pela Qualys na versão preliminar pública, permitirá que você examine continuamente todos os aplicativos instalados em uma máquina virtual para encontrar aplicativos vulneráveis e apresente as descobertas na experiência do portal da Central de Segurança. A Central de Segurança cuida de todas as operações de implantação para que não seja necessário nenhum trabalho extra do usuário. No futuro, estamos planejando fornecer opções de avaliação de vulnerabilidade para dar suporte às necessidades de negócios únicas de nossos clientes.
 
-[Saiba mais sobre avaliações de vulnerabilidades para suas máquinas virtuais do Azure](security-center-vulnerability-assessment-recommendations.md).
+[Saiba mais sobre avaliações de vulnerabilidades para suas máquinas virtuais do Azure](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Segurança de Dados Avançada para o SQL Server em Máquinas Virtuais do Microsoft Azure (versão preliminar)

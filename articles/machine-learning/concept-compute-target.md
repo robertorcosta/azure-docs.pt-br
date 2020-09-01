@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141918"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146718"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -27,13 +27,13 @@ Em um ciclo de vida típico de desenvolvimento de modelos, você pode:
 
 Os recursos de computação que você usa para seus destinos de computação são anexados a um [espaço de trabalho](concept-workspace.md). Recursos de computação diferentes do computador local são compartilhados por usuários do espaço de trabalho.
 
-## <a name="training-compute-targets"></a><a name="train"></a>Treinamento de destinos de computação
+## <a name="training-compute-targets"></a><a name="train"></a> Treinamento de destinos de computação
 
 Azure Machine Learning tem suporte variado em diferentes recursos de computação.  Você também pode anexar seu próprio recurso de computação, embora o suporte para vários cenários possa variar.
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Saiba mais sobre como [configurar e usar um destino de computação para treinamento de modelo](how-to-set-up-training-targets.md).
+Saiba mais sobre como [usar um destino de computação para treinamento de modelo](how-to-set-up-training-targets.md).
 
 ## <a name="deployment-targets"></a><a name="deploy"></a>Destino de implantação
 
@@ -46,10 +46,10 @@ Saiba [onde e como implantar seu modelo em um destino de computação](how-to-de
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Computação Azure Machine Learning (gerenciada)
 
-Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning clusters de computação e [instâncias de computação](concept-compute-instance.md) são as únicas computações gerenciadas. Recursos de computação gerenciados adicionais podem ser adicionados no futuro.
+Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine Learning. Essa computação é otimizada para cargas de trabalho de Machine Learning. Azure Machine Learning clusters de computação e [instâncias de computação](concept-compute-instance.md) são as únicas computações gerenciadas. 
 
 Você pode criar Azure Machine Learning instâncias de computação ou clusters de computação de:
-* Azure Machine Learning Studio
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Portal do Azure
 * Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) do SDK do Python
 * [SDK do R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (visualização)
@@ -68,7 +68,7 @@ Quando criados, esses recursos de computação são automaticamente parte do seu
 
 
 > [!NOTE]
-> Quando um cluster de computação está ocioso, ele é dimensionado em escala para 0 nós, portanto, você não paga quando não está em uso.  Uma *instância*de computação, no entanto, é sempre ativada e não faz dimensionamento automático.  Você deve [interromper a instância de computação](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando não a estiver usando para evitar custo extra.
+> Quando um cluster de computação está ocioso, ele é dimensionado em escala para 0 nós, portanto, você não paga quando não está em uso.  Uma *instância*de computação, no entanto, é sempre ativada e não faz dimensionamento automático.  Você deve [interromper a instância de computação](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando não a estiver usando para evitar custo extra. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos de VM com suporte
 
@@ -107,5 +107,5 @@ Um destino de computação *não gerenciado não* é gerenciado pelo Azure Machi
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como:
-* [Configurar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md)
+* [Usar um destino de computação para treinar seu modelo](how-to-set-up-training-targets.md)
 * [Implantar seu modelo em um destino de computação](how-to-deploy-and-where.md)

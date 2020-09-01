@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e4564ba2b6109296a7383fb4b056c2f4b1890fda
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892398"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178124"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -474,7 +474,7 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Restaurar discos gerenciados
 
 > [!NOTE]
-> Se a VM da qual foi feito backup tem discos gerenciados e você deseja restaurá-los como discos gerenciados, introduzimos a funcionalidade do módulo do Azure PowerShell RM v6.7.0. em diante
+> Se a VM com suporte tiver discos gerenciados e você quiser restaurá-los como discos gerenciados, apresentamos a capacidade de Azure PowerShell módulo do RM v 6.7.0. em diante.
 >
 >
 

@@ -1,19 +1,19 @@
 ---
-title: Usar certificados com o Azure Stack Edge | Microsoft Docs
-description: Descreve o uso de certificados com Azure Stack dispositivo de borda, incluindo por que usar, quais tipos e como carregar certificados em seu dispositivo.
+title: Usar certificados com GPU de borda de Azure Stack | Microsoft Docs
+description: Descreve o uso de certificados com Azure Stack dispositivo de GPU de borda, incluindo por que usar, quais tipos e como carregar certificados em seu dispositivo.
 services: Azure Stack Edge
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/11/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e257ecbcc608dfc6ecb9aedae69eeef083395836
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7742d036857525ce6be64a53234f7aa717d4bdca
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89083222"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89147075"
 ---
 # <a name="use-certificates-with-azure-stack-edge-series"></a>Usar certificados com Azure Stack série de borda 
 

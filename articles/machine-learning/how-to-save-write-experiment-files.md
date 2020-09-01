@@ -12,19 +12,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319568"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144024"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde salvar e gravar arquivos para experimentos Azure Machine Learnings
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprende onde salvar arquivos de entrada e onde gravar arquivos de saída de seus experimentos para evitar erros de limite de armazenamento e latência de experimento.
 
-Ao iniciar o treinamento é executado em um [destino de computação](how-to-set-up-training-targets.md), eles são isolados de ambientes externos. A finalidade desse design é garantir a reprodução e a portabilidade do experimento. Se você executar o mesmo script duas vezes, no mesmo destino de computação ou em outro, você receberá os mesmos resultados. Com esse design, você pode tratar destinos de computação como recursos de computação sem monitoração de estado, cada um sem afinidade com os trabalhos em execução após a conclusão.
+Ao iniciar o treinamento é executado em um [destino de computação](concept-compute-target.md), eles são isolados de ambientes externos. A finalidade desse design é garantir a reprodução e a portabilidade do experimento. Se você executar o mesmo script duas vezes, no mesmo destino de computação ou em outro, você receberá os mesmos resultados. Com esse design, você pode tratar destinos de computação como recursos de computação sem monitoração de estado, cada um sem afinidade com os trabalhos em execução após a conclusão.
 
 ## <a name="where-to-save-input-files"></a>Onde salvar arquivos de entrada
 
@@ -79,4 +79,4 @@ Se você não precisar de um repositório de armazenamento, grave arquivos na `.
 
 * Saiba mais sobre como [acessar os dados de seus armazenamentos](how-to-access-data.md).
 
-* Saiba mais sobre [como configurar metas de treinamento](how-to-set-up-training-targets.md).
+* Saiba mais sobre como criar destinos de computação com o [SDK do Python](how-to-create-attach-compute-sdk.md) ou usando o [estúdio](how-to-create-attach-compute-studio.md).

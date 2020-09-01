@@ -4,12 +4,12 @@ description: Saiba como gerenciar e monitorar backups de agente MARS (Serviços 
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893061"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145562"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gerenciar backups de agente MARS (Serviços de Recuperação do Microsoft Azure) usando o serviço de backup do Azure
 
@@ -173,7 +173,7 @@ Uma frase secreta é usada para criptografar e descriptografar dados durante o b
 
 Esta seção discute um cenário em que o computador de origem que foi protegido com MARS não está mais disponível porque foi excluído, corrompido, infectado com malware/ransomware ou encerrado.
 
-Para esses computadores, o serviço de backup do Azure garante que o último ponto de recuperação não expire (ou seja, não seja removido) de acordo com as regras de retenção especificadas na política de backup. Portanto, você pode restaurar o computador com segurança.  Considere os seguintes cenários que você pode executar nos dados de backup:
+Para esses computadores, o serviço de backup do Azure garante que o ponto de recuperação mais recente não expire (ou seja, não seja removido) de acordo com as regras de retenção especificadas na política de backup. Portanto, você pode restaurar o computador com segurança.  Considere os seguintes cenários que você pode executar nos dados de backup:
 
 ### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Cenário 1: o computador de origem está indisponível e você não precisa mais manter os dados de backup
 

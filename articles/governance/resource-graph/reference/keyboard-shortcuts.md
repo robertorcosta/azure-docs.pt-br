@@ -4,12 +4,12 @@ description: O Gerenciador de grafo de recursos do Azure no portal do Azure dá 
 ms.date: 08/25/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: f5995498f2b95828a7c03dbcd5669491e62de2e7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88848726"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146429"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Atalhos de teclado para o Gerenciador de gráficos de recursos do Azure
 
@@ -22,7 +22,6 @@ Este artigo lista os atalhos de teclado que funcionam na página do Gerenciador 
 |Inserir/remover comentário |<kbd>TECLAS</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Diminuir recuo |<kbd>Ctrl</kbd> + <kbd>[</kbd> |<kbd>Cmd</kbd> + <kbd>[</kbd> |
 |Aumentar recuo |<kbd>Ctrl</kbd> + <kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
-|Selecionar tudo |<kbd>Ctrl</kbd> + <kbd>Um</kbd> |<kbd>Cmd</kbd> + <kbd>Um</kbd> |
 |Mover a linha para baixo |<kbd>ALT</kbd> + <kbd>↓</kbd> |<kbd>Opção</kbd> + <kbd>↓</kbd> |
 |Mover a linha para cima |<kbd>ALT</kbd> + <kbd>↑</kbd> |<kbd>Opção</kbd> + <kbd>↑</kbd> |
 |Substitua |<kbd>Ctrl</kbd> + <kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |

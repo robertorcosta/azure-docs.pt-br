@@ -1,19 +1,19 @@
 ---
-title: Executar e gerenciar uma implantação de aplicativo sem monitoração de kubernetes em um dispositivo de borda Microsoft Azure Stack usando kubectl | Microsoft Docs
+title: Implantar aplicativo sem monitoração de kubernetes em Azure Stack dispositivo de GPU de borda usando kubectl | Microsoft Docs
 description: Descreve como criar e gerenciar uma implantação de aplicativo sem estado do kubernetes usando o kubectl em um dispositivo Microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/21/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: be93e2806e499e3a9331493c16c8a87195a98600
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2bd0b8c222b9f9643d53da33619af438c121a2f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082819"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145953"
 ---
 # <a name="run-and-manage-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Executar e gerenciar um aplicativo sem monitoração de estado kubernetes em seu dispositivo de borda Azure Stack
 

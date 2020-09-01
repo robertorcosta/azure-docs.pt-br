@@ -4,12 +4,12 @@ description: Este artigo mostra como mover tópicos personalizados da grade de e
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: f33636f7033495a1e437715cc89c492889e4dfe0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89083048"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145325"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Mover tópicos personalizados da grade de eventos do Azure para outra região
 Talvez você queira mover seus recursos para outra região por vários motivos. Por exemplo, para aproveitar uma nova região do Azure, para atender aos requisitos internos de políticas e governança, ou em resposta aos requisitos de planejamento de capacidade. 
@@ -80,6 +80,8 @@ Implante o modelo para criar um tópico personalizado na região de destino.
 ## <a name="verify"></a>Verificar
 
 1. Depois que a implantação for realizada com sucesso, selecione **ir para o recurso**. 
+
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Acessar recurso":::
 1. Confirme que você vê a página de **tópico da grade de eventos** para o tópico personalizado.   
 1. Siga as etapas em [rotear eventos personalizados para um ponto de extremidade da Web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) para enviar eventos para o tópico. Verifique se o manipulador de eventos de webhook é invocado. 
 

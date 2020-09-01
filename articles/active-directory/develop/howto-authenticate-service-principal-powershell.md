@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 63d3bd0ec321dbcba8e50aed68b972a2e1987bfc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5d9bf672aae3cf55ae7cf22aa1437f01ced99901
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068714"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178800"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como usar o Azure PowerShell para criar uma entidade de serviço com um certificado
 
@@ -43,7 +43,7 @@ Para concluir este artigo, você deve ter permissões suficientes no seu Azure A
 A maneira mais fácil de verificar se a sua conta tem as permissões adequadas é por meio do portal. Consulte [Verificar permissão necessária](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="assign-the-application-to-a-role"></a>Atribuir o aplicativo a uma função
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, confira [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função *leitor* para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém. Para permitir que o aplicativo execute ações como reinicializar, iniciar e parar instâncias, selecione a função *colaborador* .
 

@@ -41,6 +41,8 @@
       href: location-condition.md
     - name: Ferramenta condicional
       href: what-if-tool.md
+    - name: Avaliação contínua de acesso
+      href: concept-continuous-access-evaluation.md
     - name: Controles personalizados
       href: controls.md
     - name: Migrações de políticas clássicas

@@ -3,12 +3,12 @@ title: Backup offline com Azure Data Box para o DPM e o MABS
 description: Você pode usar Azure Data Box para propagar dados de backup inicial offline do DPM e do MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 5a8fbf3869794b6a5ef78e78177f130e4e009795
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017593"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177679"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagação offline usando Azure Data Box para o DPM e MABS (visualização)
 
@@ -26,7 +26,7 @@ O backup offline baseado no Azure Data Box fornece duas vantagens distintas em r
 
 - O Backup do Azure (Agente MARS) pode gravar dados de backup diretamente nos SKUs compatíveis do Azure Data Box. Essa funcionalidade elimina a necessidade de provisionar um local de preparo para os dados do backup inicial. Também não é necessário usar utilitários para formatar e copiar esses dados nos discos.
 
-## <a name="supported-platforms"></a>Plataformas compatíveis
+## <a name="supported-platforms"></a>Plataformas com suporte
 
 As seguintes plataformas são compatíveis:
 
@@ -73,7 +73,7 @@ Verifique se os dispositivos de Data Box necessários estão no estado *entregue
 
 ## <a name="setup-azure-data-box-devices"></a>Configurar dispositivos Azure Data Box
 
-Depois de receber o dispositivo de Azure Data Box, dependendo do SKU de Azure Data Box que você solicitou, execute as etapas nas seções apropriadas abaixo para configurar e preparar os dispositivos Data Box para o servidor DPM/MABS para identificar e transferir os dados de backup inicial.
+Depois de receber o dispositivo Azure Data Box, dependendo do SKU Azure Data Box que você solicitou, execute as etapas nas seções apropriadas abaixo para configurar e preparar os dispositivos Data Box para o servidor DPM/MABS para identificar e transferir os dados de backup iniciais.
 
 ### <a name="setup-azure-data-box-disk"></a>Configurar o Azure Data Box Disk
 
@@ -149,7 +149,7 @@ Especifique uma fonte alternativa: *WIM:D:\Sources\Install.wim:4*
           - Azure.Storage       *4.6.1*<br>
      >  - O aplicativo do Azure AD será registrado como *AzureOfflineBackup_\<object GUID of the user>* .
 
-13. Selecione a solicitação correta do Data Box na qual você desempacotou, conectou e desbloqueou o Data Box Disk. Selecione **Avançar**.
+13. Selecione a ordem de caixa de dados correta para a qual você desempacotau, conectou e desbloqueou o disco Data Box. Selecione **Avançar**.
 
     ![Selecionar o Data Box](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 

@@ -1,19 +1,19 @@
 ---
-title: Gerenciamento de conta de armazenamento do Azure Stack Edge | Microsoft Docs
+title: Gerenciamento de conta de armazenamento da GPU do Edge Azure Stack | Microsoft Docs
 description: Descreve como usar o portal do Azure para gerenciar a conta de armazenamento em seu Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/11/2019
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 01148fabd6fb5df791ac09090304feee8c72a2d1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 549fa8a01455d45c959db60bc5df31c13b4da984
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89083267"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146361"
 ---
 # <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Use o portal do Azure para gerenciar contas de armazenamento de borda no seu Azure Stack Edge
 

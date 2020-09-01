@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117219"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178936"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -55,7 +55,7 @@ Para verificar suas permissões de assinatura:
 
 1. Pesquise e selecione **assinaturas**, ou selecione **assinaturas** na **Home** Page do.
 
-   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a assinatura na qual você deseja criar a entidade de serviço.
 
@@ -87,7 +87,7 @@ Você criou o aplicativo e a entidade de serviço do Azure AD.
 
 ## <a name="assign-a-role-to-the-application"></a>Atribuir uma função ao aplicativo
 
-Para acessar recursos em sua assinatura, você deve atribuir uma função ao aplicativo. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, consulte [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
+Para acessar recursos em sua assinatura, você deve atribuir uma função ao aplicativo. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, confira [funções internas do Azure](../../role-based-access-control/built-in-roles.md).
 
 Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissão são herdadas para níveis inferiores do escopo. Por exemplo, adicionar um aplicativo à função *leitor* para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém.
 

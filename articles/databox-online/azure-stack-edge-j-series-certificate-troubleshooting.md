@@ -1,19 +1,19 @@
 ---
-title: Solução de problemas de certificados com o Azure Stack Edge | Microsoft Docs
-description: Descreve a solução de problemas de erros de certificado com Azure Stack dispositivo de borda.
-services: Azure Stack Edge
+title: Solução de problemas de certificados com o Azure Stack Edge com GPU | Microsoft Docs
+description: Descreve a solução de problemas de erros de certificado com Azure Stack dispositivo de GPU de borda.
+services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 2614928985070e47fa8c4b77a3068d480d362093
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e16121005a34f67ba4ce940e08cb632c1206ad6a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082843"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146208"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Solucionando problemas de erros de certificado
 

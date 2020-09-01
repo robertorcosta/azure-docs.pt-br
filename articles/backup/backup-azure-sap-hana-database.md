@@ -3,12 +3,12 @@ title: Fazer backup de um banco de dados SAP HANA no Azure com o Backup do Azure
 description: Neste artigo, saiba como fazer backup de um banco de dados SAP HANA em máquinas virtuais do Azure com o serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c1db5bb8cd49fb45f1d34b5748d820a16724372e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 07b82e166b0ec6f0d3a29de50584158b67750e8e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892483"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146548"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer backup de bancos de dados do SAP HANA em VMs do Azure
 
@@ -192,7 +192,9 @@ Os backups são executados de acordo com o agendamento da política. Você pode 
 1. No menu do cofre, clique em **Itens de backup**.
 2. Em **Itens de Backup**, selecione a VM que executa o banco de dados do SAP HANA e clique em **Fazer Backup Agora**.
 3. Em **fazer backup agora**, escolha o tipo de backup que você deseja executar. Em seguida, clique em **OK**. Esse backup será mantido de acordo com a política associada a este item de backup.
-4. Monitorar as notificações do portal. Você pode monitorar o andamento do trabalho no painel do cofre > **Trabalhos de Backup** > **Em Andamento**. Dependendo do tamanho do banco de dados, a criação do backup inicial pode demorar um pouco.
+4. Monitorar as notificações do portal. Você pode monitorar o andamento do trabalho no painel do cofre > **Trabalhos de Backup** > **Em Andamento**. Dependendo do tamanho do banco dados, a criação do backup inicial pode demorar um pouco.
+
+Por padrão, a retenção de backups sob demanda é de 45 dias.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Executar o backup do SAP HANA Studio em um banco de dados com o Backup do Azure habilitado
 

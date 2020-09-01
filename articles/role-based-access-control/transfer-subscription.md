@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055644"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177271"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)
 
@@ -29,14 +29,14 @@ As organizações podem ter várias assinaturas do Azure. Cada assinatura é ass
 Este artigo descreve as etapas básicas que você pode seguir para transferir uma assinatura para um diretório diferente do Azure AD e recriar alguns dos recursos após a transferência.
 
 > [!NOTE]
-> Para as assinaturas do Azure CSP, não há suporte para a alteração do diretório do Azure AD para a assinatura.
+> Para assinaturas do CSP (provedores de serviços de nuvem) do Azure, não há suporte para a alteração do diretório do Azure AD para a assinatura.
 
 ## <a name="overview"></a>Visão geral
 
 A transferência de uma assinatura do Azure para um diretório diferente do Azure AD é um processo complexo que deve ser cuidadosamente planejado e executado. Muitos serviços do Azure exigem entidades de segurança (identidades) para operar normalmente ou até mesmo gerenciar outros recursos do Azure. Este artigo tenta abranger a maioria dos serviços do Azure que dependem muito das entidades de segurança, mas não é abrangente.
 
 > [!IMPORTANT]
-> Em alguns cenários, a transferência de uma assinatura pode exigir tempo de inatividade para concluir o processo. Um planejamento cuidadoso é necessário para avaliar se o tempo de inatividade será necessário para sua migração.
+> Em alguns cenários, a transferência de uma assinatura pode exigir tempo de inatividade para concluir o processo. Um planejamento cuidadoso é necessário para avaliar se o tempo de inatividade será necessário para sua transferência.
 
 O diagrama a seguir mostra as etapas básicas que você deve seguir ao transferir uma assinatura para um diretório diferente.
 
@@ -73,7 +73,7 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 | Funções personalizadas | Sim | Sim | [Listar funções personalizadas](#save-custom-roles) | Todas as funções personalizadas são excluídas permanentemente. Você deve recriar as funções personalizadas e quaisquer atribuições de função. |
 | Identidades gerenciadas atribuídas pelo sistema | Sim | Sim | [Listar identidades gerenciadas](#list-role-assignments-for-managed-identities) | Você deve desabilitar e reabilitar as identidades gerenciadas. Você deve recriar as atribuições de função. |
 | Identidades gerenciadas atribuídas pelo usuário | Sim | Sim | [Listar identidades gerenciadas](#list-role-assignments-for-managed-identities) | Você deve excluir, recriar e anexar as identidades gerenciadas ao recurso apropriado. Você deve recriar as atribuições de função. |
-| Cofre de Chave do Azure | Sim | Sim | [Listar políticas de acesso Key Vault](#list-other-known-resources) | Você deve atualizar a ID de locatário associada aos cofres de chaves. Você deve remover e adicionar novas políticas de acesso. |
+| Cofre de Chave do Azure | Sim | Sim | [Listar políticas de acesso Key Vault](#list-key-vaults) | Você deve atualizar a ID de locatário associada aos cofres de chaves. Você deve remover e adicionar novas políticas de acesso. |
 | Bancos de dados SQL do Azure com a integração de autenticação do Azure AD habilitada | Sim | Não | [Verificar bancos de dados SQL do Azure com autenticação do Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Armazenamento e Azure Data Lake Storage Gen2 do Azure | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
 | Azure Data Lake Storage Gen1 | Sim | Sim |  | Você deve recriar quaisquer ACLs. |
@@ -84,8 +84,8 @@ Vários recursos do Azure têm uma dependência em uma assinatura ou em um diret
 | Azure Active Directory Domain Services | Sim | Não |  |  |
 | Registros de aplicativo | Sim | Sim |  |  |
 
-> [!IMPORTANT]
-> Se você usar a criptografia em repouso para um recurso como uma conta de armazenamento ou um banco de dados SQL e o recurso tiver uma dependência em um cofre de chaves que *não* está na assinatura que está sendo transferida, você poderá obter um erro irrecuperável. Nessa situação, use um cofre de chaves diferente ou desabilite temporariamente as chaves gerenciadas pelo cliente para evitar um erro irrecuperável.
+> [!WARNING]
+> Se você estiver usando a criptografia em repouso para um recurso, como uma conta de armazenamento ou um banco de dados SQL, que tenha uma dependência em um cofre de chaves que **não** esteja na mesma assinatura que está sendo transferida, isso poderá levar a um cenário irrecuperável. Se você tiver essa situação, deverá executar etapas para usar um cofre de chaves diferente ou desabilitar temporariamente as chaves gerenciadas pelo cliente para evitar esse cenário irrecuperável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -221,8 +221,8 @@ Identidades gerenciadas não são atualizadas quando uma assinatura é transferi
 
 Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de locatário de Azure Active Directory padrão para a assinatura na qual ele é criado. Todas as entradas de política de acesso também são vinculadas a essa ID de locatário. Para obter mais informações, consulte [movendo um Azure Key Vault para outra assinatura](../key-vault/general/move-subscription.md).
 
-> [!IMPORTANT]
-> Se você usar a criptografia em repouso para um recurso como uma conta de armazenamento ou um banco de dados SQL e o recurso tiver uma dependência em um cofre de chaves que *não* está na assinatura que está sendo transferida, você poderá obter um erro irrecuperável. Nessa situação, use um cofre de chaves diferente ou desabilite temporariamente as chaves gerenciadas pelo cliente para evitar um erro irrecuperável.
+> [!WARNING]
+> Se você estiver usando a criptografia em repouso para um recurso, como uma conta de armazenamento ou um banco de dados SQL, que tenha uma dependência em um cofre de chaves que **não** esteja na mesma assinatura que está sendo transferida, isso poderá levar a um cenário irrecuperável. Se você tiver essa situação, deverá executar etapas para usar um cofre de chaves diferente ou desabilitar temporariamente as chaves gerenciadas pelo cliente para evitar esse cenário irrecuperável.
 
 - Se você tiver um cofre de chaves, use [AZ keyvault show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) para listar as políticas de acesso. Para obter mais informações, consulte [fornecer Key Vault autenticação com uma política de controle de acesso](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -232,7 +232,7 @@ Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de 
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Listar bancos de dados SQL do Azure com autenticação do Azure AD
 
-- Use [AZ SQL Server ad-admin List](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension para ver se você está usando bancos de dados SQL do Azure com a autenticação do Azure AD. Para obter mais informações, consulte [configurar e gerenciar a autenticação de Azure Active Directory com o SQL](../azure-sql/database/authentication-aad-configure.md).
+- Use [AZ SQL Server ad-admin List](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension para ver se você está usando bancos de dados SQL do Azure com a integração de autenticação do Azure ad habilitada. Para obter mais informações, consulte [configurar e gerenciar a autenticação de Azure Active Directory com o SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -262,16 +262,21 @@ Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de 
     --subscriptions $subscriptionId --output table
     ```
 
-## <a name="step-2-transfer-billing-ownership"></a>Etapa 2: transferir a propriedade de cobrança
+## <a name="step-2-transfer-the-subscription"></a>Etapa 2: transferir a assinatura
 
-Nesta etapa, você transfere a propriedade de cobrança da assinatura do diretório de origem para o diretório de destino.
+Nesta etapa, você transfere a assinatura do diretório de origem para o diretório de destino. As etapas serão diferentes dependendo se você também quiser transferir a propriedade de cobrança.
 
 > [!WARNING]
-> Quando você transfere a propriedade de cobrança da assinatura, todas as atribuições de função no diretório de origem são excluídas **permanentemente** e não podem ser restauradas. Você não pode voltar depois de transferir a propriedade de cobrança da assinatura. Certifique-se de concluir as etapas anteriores antes de executar esta etapa.
+> Quando você transfere a assinatura, todas as atribuições de função no diretório de origem são excluídas **permanentemente** e não podem ser restauradas. Você não pode voltar depois de transferir a assinatura. Certifique-se de concluir as etapas anteriores antes de executar esta etapa.
 
-1. Siga as etapas em [transferir a propriedade de cobrança de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md). Para transferir a assinatura para um diretório diferente do Azure AD, você deve marcar a caixa de seleção **assinatura do Azure ad locatário** .
+1. Determine se você também deseja transferir a propriedade de cobrança.
 
-1. Depois de terminar de transferir a propriedade, volte para este artigo para recriar os recursos no diretório de destino.
+1. Transfira a assinatura para um diretório diferente.
+
+    - Se você quiser manter a propriedade de cobrança atual, siga as etapas em [associar ou adicionar uma assinatura do Azure ao seu locatário Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - Se você também quiser transferir a propriedade de cobrança, siga as etapas em [transferir a propriedade de cobrança de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md). Para transferir a assinatura para um diretório diferente, você deve marcar a caixa de seleção **assinatura do locatário do Azure ad** .
+
+1. Depois de concluir a transferência da assinatura, volte para este artigo para recriar os recursos no diretório de destino.
 
 ## <a name="step-3-re-create-resources"></a>Etapa 3: recriar recursos
 

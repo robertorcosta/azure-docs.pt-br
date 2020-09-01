@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8682342d23c37d527528de0b525dbdd49a52676e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8a0853d4a863f6b7677f665513bdac9ca8e6b673
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853391"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144098"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usar o pacote de interpretação para explicar os modelos de ML & previsões no Python (versão prévia)
 
@@ -73,8 +73,8 @@ O exemplo a seguir mostra como usar o pacote de interpretação em seu computado
    * Para tornar suas explicações e visualizações mais informativas, você pode optar por passar nomes de recursos e nomes de classe de saída se estiver fazendo a classificação.
 
    Os blocos de código a seguir mostram como criar uma instância de um objeto de explicador com `TabularExplainer` , `MimicExplainer` e `PFIExplainer` localmente.
-   * `TabularExplainer`chama um dos três explicadores SHAP abaixo ( `TreeExplainer` , `DeepExplainer` , ou `KernelExplainer` ).
-   * `TabularExplainer`o seleciona automaticamente o mais apropriado para seu caso de uso, mas você pode chamar cada um dos seus três explicadores subjacentes diretamente.
+   * `TabularExplainer` chama um dos três explicadores SHAP abaixo ( `TreeExplainer` , `DeepExplainer` , ou `KernelExplainer` ).
+   * `TabularExplainer` o seleciona automaticamente o mais apropriado para seu caso de uso, mas você pode chamar cada um dos seus três explicadores subjacentes diretamente.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -86,7 +86,7 @@ O exemplo a seguir mostra como usar o pacote de interpretação em seu computado
                                  classes=classes)
     ```
 
-    ou o
+    ou
 
     ```python
 
@@ -112,7 +112,7 @@ O exemplo a seguir mostra como usar o pacote de interpretação em seu computado
                                classes=classes)
     ```
 
-    ou o
+    ou
 
     ```python
     from interpret.ext.blackbox import PFIExplainer
@@ -147,7 +147,7 @@ global_explanation.get_feature_importance_dict()
 ### <a name="explain-an-individual-prediction-local-explanation"></a>Explicar uma previsão individual (explicação local)
 Obtenha os valores de importância de um recurso individual de diferentes pontos de extremidade chamando explicações para uma instância individual ou um grupo de instâncias.
 > [!NOTE]
-> `PFIExplainer`não oferece suporte a explicações locais.
+> `PFIExplainer` não oferece suporte a explicações locais.
 
 ```python
 # get explanation for the first data point in the test set
@@ -275,7 +275,7 @@ O exemplo a seguir mostra como você pode usar a `ExplanationClient` classe para
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Configure um Azure Machine Learning computação como seu destino de computação e envie sua execução de treinamento. Consulte [Configurando destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md#amlcompute) para obter instruções. Você também pode encontrar os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) úteis.
+1. Configure um Azure Machine Learning computação como seu destino de computação e envie sua execução de treinamento. Consulte [criar destinos de computação com o SDK do Python](how-to-create-attach-compute-sdk.md#amlcompute) para obter instruções. Você também pode encontrar os [blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) úteis.
 
 1. Baixe a explicação em seu notebook Jupyter local.
 

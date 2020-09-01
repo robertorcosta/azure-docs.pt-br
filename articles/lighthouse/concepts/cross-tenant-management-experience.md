@@ -3,12 +3,12 @@ title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ad1c0944076f24363961da21ee347dbd7c0239c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 41e93f2a6a9fb21720dd2348dd611160b05b65c0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163502"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146905"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -35,7 +35,7 @@ Você pode executar tarefas de gerenciamento em recursos delegados diretamente n
 
 O [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) mostra os `HomeTenantId` `ManagedByTenantIds` atributos e para cada assinatura, permitindo que você identifique se uma assinatura retornada pertence a um locatário gerenciado ou ao seu locatário de gerenciamento.
 
-Da mesma forma, CLI do Azure comandos como a [lista de contas AZ](/cli/azure/account?view=azure-cli-latest#az-account-list) mostram os `homeTenantId` `managedByTenants` atributos e.
+Da mesma forma, CLI do Azure comandos como a [lista de contas AZ](/cli/azure/account#az-account-list) mostram os `homeTenantId` `managedByTenants` atributos e.
 
 > [!TIP]
 > Se você não vir esses valores ao usar a CLI do Azure, tente limpar o cache executando `az account clear` seguido por `az login --identity`.

@@ -3,12 +3,12 @@ title: Criar um pool com endereços IP públicos especificados
 description: Saiba como criar um pool do lote que usa seus próprios endereços IP públicos.
 ms.topic: how-to
 ms.date: 07/20/2020
-ms.openlocfilehash: 630da3ff9c1f2318c7ed4da0e8f4b5ee8212f389
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 158facaf1fd5052c3626f065a69bfbd134ca4c3e
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023748"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146480"
 ---
 # <a name="create-an-azure-batch-pool-with-specified-public-ip-addresses"></a>Criar um pool do lote do Azure com endereços IP públicos especificados
 
@@ -24,7 +24,7 @@ Para obter informações sobre como criar pools sem endereços IP públicos, lei
 
 - **Uma rede virtual do Azure**. Você deve usar uma [rede virtual](batch-virtual-network.md) da mesma assinatura do Azure na qual está criando o pool e seus endereços IP. Somente VNets com base em Azure Resource Manager podem ser usados. Certifique-se de que a VNet atenda a todos os [requisitos gerais](batch-virtual-network.md#vnet-requirements).
 
-- **Pelo menos um endereço IP público do Azure**. Para criar um ou mais endereços IP públicos, você pode usar o [portal do Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), a [CLI (interface de linha de comando) do Azure](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)ou [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Certifique-se de seguir os requisitos listados abaixo.
+- **Pelo menos um endereço IP público do Azure**. Para criar um ou mais endereços IP públicos, você pode usar o [portal do Azure](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address), a [CLI (interface de linha de comando) do Azure](/cli/azure/network/public-ip#az-network-public-ip-create)ou [Azure PowerShell](/powershell/module/az.network/new-azpublicipaddress). Certifique-se de seguir os requisitos listados abaixo.
 
 > [!NOTE]
 > O lote aloca automaticamente recursos de rede adicionais no grupo de recursos que contém os endereços IP públicos. Para cada um dos nós dedicados de 100, o lote geralmente aloca um NSG (grupo de segurança de rede) e um balanceador de carga. Esses recursos são limitados pelas cotas de recursos da assinatura. Ao usar pools maiores, talvez seja necessário [solicitar um aumento de cota](batch-quota-limit.md#increase-a-quota) para um ou mais desses recursos.

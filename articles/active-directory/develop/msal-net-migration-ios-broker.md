@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ed29752e0b5f2ee9acf0382ef96e1b685f9cc886
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b4eff5910ff5230902d497b55b2afbe6d605365a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068500"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177424"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrar aplicativos iOS que usam Microsoft Authenticator de ADAL.NET para MSAL.NET
 
@@ -239,6 +239,19 @@ Exemplo:
 </table>
 
 Para obter mais informações sobre como registrar o URI de redirecionamento no portal do Azure, consulte [etapa 7: adicionar um URI de redirecionamento ao registro do aplicativo](msal-net-use-brokers-with-xamarin-apps.md#step-7-add-a-redirect-uri-to-your-app-registration).
+
+### <a name="step-7-set-the-entitlementsplist"></a>**Etapa 7: definir os direitos. plist**
+
+Habilite o acesso ao conjunto de chaves no arquivo de *direitos. plist* :
+
+```xml
+ <key>keychain-access-groups</key>
+    <array>
+      <string>$(AppIdentifierPrefix)com.microsoft.adalcache</string>
+    </array>
+```
+
+Para obter mais informações sobre como habilitar o acesso ao conjunto de chaves, consulte [habilitar o acesso](msal-net-xamarin-ios-considerations.md#enable-keychain-access)ao conjunto de chaves.
 
 ## <a name="next-steps"></a>Próximas etapas
 
