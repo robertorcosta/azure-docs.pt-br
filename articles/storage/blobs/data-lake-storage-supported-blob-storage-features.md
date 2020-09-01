@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 55a4f06b93aafbd1e94a3bf6573ba39dc25022b5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f84298c2c43afbb9e0379516be1e83002a7e3926
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077000"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228674"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento de blobs no Azure Data Lake Storage Gen2
 
@@ -45,7 +45,6 @@ Esta tabela lista os recursos de armazenamento de blobs que você pode usar com 
 |Instantâneos|Visualização|Ainda não compatível|[Instantâneos de BLOB](snapshots-overview.md)|
 |Sites estáticos|Visualização|Ainda não compatível|[Hospedagem de site estático no Armazenamento do Azure](storage-blob-static-website.md)|
 |Armazenamento imutável|Visualização|Ainda não compatível|[Armazenar dados de blob comercialmente críticos com armazenamento imutável](storage-blob-immutable-storage.md)|
-|Políticas de gerenciamento do ciclo de vida|Visualização|Ainda não compatível|[Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](storage-lifecycle-management-concepts.md)|
 |Exclusão reversível do contêiner|Visualização|Visualização|[Exclusão reversível para contêineres (visualização)](soft-delete-container-overview.md)|
 |Exclusão reversível de BLOB|Ainda não compatível|Ainda não compatível|[Exclusão reversível para blobs](storage-blob-soft-delete.md)|
 |Blobfuse|Visualização|Ainda não compatível|[Como montar o Armazenamento de Blobs como um sistema de arquivos com blobfuse](storage-how-to-mount-container-linux.md)|

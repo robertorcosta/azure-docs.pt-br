@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: fd49ddcb59e0d0f3a706f566cf0c011116b1501a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856821"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229218"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters do HDInsight com o Gen1 do Azure Data Lake Storage usando o portal do Azure
 
@@ -31,7 +31,7 @@ Antes de começar, verifique se você atende aos seguintes requisitos:
 
 * **Uma assinatura do Azure**. Acesse [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Data Lake Storage Gen1**. Siga as instruções do [Introdução ao Azure Data Lake armazenamento Gen1, usando o portal do Azure](data-lake-store-get-started-portal.md). Você também deve criar uma pasta raiz na conta.  Neste artigo, é usada uma pasta raiz chamada __/clusters__ .
-* **Uma entidade de serviço do Azure Active Directory**. Este guia de instrução fornece instruções sobre como criar uma entidade de serviço no Azure Active Directory (AD do Azure). No entanto, para criar uma entidade de serviço, você deve ser um administrador do Azure AD. Se você for um administrador, poderá ignorar esse pré-requisito e continuar.
+* **Uma entidade de serviço Azure Active Directory**. Este guia de instrução fornece instruções sobre como criar uma entidade de serviço no Azure Active Directory (AD do Azure). No entanto, para criar uma entidade de serviço, você deve ser um administrador do Azure AD. Se você for um administrador, poderá ignorar esse pré-requisito e continuar.
 
 >[!NOTE]
 >Você poderá criar uma entidade de serviço somente se você for um administrador do Azure AD. O administrador do AD do Azure AD deve criar uma entidade de serviço antes de criar um cluster do HDInsight com o Data Lake Storage Gen1. Além disso, a entidade de serviço deve ser criada com um certificado, conforme descrito em [Criar uma entidade de serviço com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
@@ -85,18 +85,11 @@ Nesta seção, você configura o acesso do Data Lake Storage Gen1 a partir de cl
 No portal do Azure, você pode usar uma entidade de serviço existente ou criar uma nova.
 
 Para criar uma entidade de serviço do portal do Azure:
-
-1. Selecione **Data Lake Store acesso** na folha armazenamento.
-1. Na folha **acesso data Lake Storage Gen1** , selecione **criar novo**.
-1. Selecione **entidade de serviço**e siga as instruções para criar uma entidade de serviço.
-1. Baixe o certificado se você optar por usá-lo novamente no futuro. É útil baixar o certificado se você desejar usar a mesma entidade de serviço ao criar clusters HDInsight adicionais.
-
-    ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Adicionar entidade de serviço no cluster HDInsight")
-
-1. Selecione **acesso** para configurar o acesso à pasta.  Consulte [Configurar permissões de arquivo](#configure-file-permissions).
+1. Consulte [criar entidade de serviço e certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) usando Azure Active Directory.
 
 Para usar uma entidade de serviço existente do portal do Azure:
 
+1. A entidade de serviço deve ter permissões de proprietário na conta de armazenamento. Consulte [configurar permissões para a entidade de serviço ser proprietário na conta de armazenamento](#configure-serviceprincipal-permissions)
 1. Selecione **acesso a data Lake Store**.
 1. Na folha **acesso data Lake Storage Gen1** , selecione **usar existente**.
 1. Selecione **entidade de serviço**e, em seguida, selecione uma entidade de serviço.
@@ -105,6 +98,10 @@ Para usar uma entidade de serviço existente do portal do Azure:
     ![Adicionar entidade de serviço no cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Adicionar entidade de serviço no cluster HDInsight")
 
 1. Selecione **acesso** para configurar o acesso à pasta.  Consulte [Configurar permissões de arquivo](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Configurar permissões para a entidade de serviço ser proprietária na conta de armazenamento
+1. Na folha controle de acesso (IAM) da conta de armazenamento, clique em adicionar uma atribuição de função. 
+2. Na folha adicionar uma atribuição de função, selecione função como ' proprietário ' e selecione o SPN e clique em salvar.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configurar permissões de arquivo
 
@@ -197,7 +194,7 @@ Você pode usar um cluster do Spark para executar trabalhos do Spark em dados ar
 
 Você pode usar a conta Data Lake Storage Gen1 para gravar dados de uma topologia do Storm. Para obter instruções sobre como alcançar esse cenário, consulte [Usar o armazenamento de dados do Windows Azure Gen1 com o Apache Storm com o HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [Usar Data Lake Storage Gen1 com clusters HDInsight do Azure](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: crie um cluster do HDInsight para usar o Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)

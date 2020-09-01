@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 3c7bb19f93bc5b6d345930eb1928ca620e391bb0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 0d917ea686c2003bf46b6fca872ef67fb0363107
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144066"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228896"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning
 
@@ -56,10 +56,8 @@ Crie os recursos necessários para executar um pipeline de ML:
 * Configure um `Dataset` objeto para apontar para dados persistentes que residem no, ou que podem ser acessados em um datastore. Configure um `PipelineData` objeto para dados temporários passados entre etapas de pipeline. 
 
     > [!TIP]
-    > Uma experiência aprimorada para passar dados temporários entre etapas de pipeline está disponível na classe de visualização pública,  `OutputFileDatasetConfig` .  Essa classe é um recurso de visualização experimental e pode mudar a qualquer momento.
-    > 
-    >Para obter mais informações sobre recursos experimentais, consulte https://aka.ms/azuremlexperimental .
-    
+    > Uma experiência aprimorada para passar dados temporários entre etapas de pipeline está disponível na classe de visualização pública,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) .  Essa classe é um recurso de visualização [experimental](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento.
+
 * Configure os [destinos de computação](concept-azure-machine-learning-architecture.md#compute-targets) em que suas etapas de pipeline serão executadas.
 
 ### <a name="set-up-a-datastore"></a>Configurar um repositório de dados

@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846969"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229915"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
@@ -34,8 +34,8 @@ A arquitetura de relatórios consiste nos seguintes componentes:
     - **Entradas** – O [relatório de entradas](concept-sign-ins.md) fornece informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
     - **Logs de auditoria** – Permitem o rastreio de todas as alterações feitas por vários recursos no Azure AD por meio de logs. Exemplos de logs de auditoria incluem alterações feitas em quaisquer recursos no Azure AD, como adicionar ou remover usuários, aplicativos, grupos, funções e políticas.
 - **Segurança** 
-    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário. 
-    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
+    - **Entradas arriscadas** -uma [entrada arriscada](../identity-protection/overview-identity-protection.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário. 
+    - **Usuários sinalizados para risco** – um [usuário arriscado](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
 Este artigo fornece uma visão geral do relatório de auditoria.
  
@@ -89,14 +89,14 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
-- Tudo
+- Todos
 - UX de gerenciamento do AAD
 - Revisões de acesso
 - Provisionamento de conta de usuário
 - Proxy do Aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso Condicional
+- Acesso condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Autenticação híbrida
@@ -111,7 +111,7 @@ O filtro de **serviço** permite que você selecione em uma lista suspensa dos s
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
-- Tudo
+- Todos
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
@@ -125,7 +125,7 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 - KerberosDomain
 - KeyManagement
 - Rotular
-- Outros
+- Outro
 - PermissionGrantPolicy
 - Política
 - ResourceManagement
@@ -134,11 +134,11 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
 O filtro de **atividade** é baseado na categoria e na seleção do tipo de recurso de atividade que você faz. Você pode selecionar uma atividade específica que deseja exibir ou escolher todas. 
 
-Você pode obter a lista de todas as atividades de auditoria usando o API do Graph:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Você pode obter a lista de todas as atividades de auditoria usando o API do Graph: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
-- Tudo
+- Todos
 - Sucesso
 - Falha
 
@@ -210,9 +210,9 @@ Se você quiser revisar os dados de auditoria relacionados aos aplicativos, pode
 
 ## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
 
-Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os logs de atividades do Azure AD compartilhem muitos recursos de diretório, somente o Microsoft 365 centro de administração fornece uma visão completa dos logs de atividade do Office 365. 
+Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os logs de atividades do Azure AD compartilhem muitos recursos de diretório, somente o Microsoft 365 centro de administração fornece uma visão completa dos logs de atividade do Office 365. 
 
-Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 

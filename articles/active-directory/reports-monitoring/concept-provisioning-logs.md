@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826864"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229864"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -34,8 +34,8 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
     - **Logs de provisionamento** – forneça a atividade do sistema sobre usuário, grupos e funções que são provisionadas pelo serviço de provisionamento do Azure AD. 
 
 - **Segurança** 
-    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário.
-    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
+    - **Entradas arriscadas** -uma [entrada arriscada](../identity-protection/overview-identity-protection.md) é um indicador de uma tentativa de entrada que pode ter sido executada por alguém que não seja o proprietário legítimo de uma conta de usuário.
+    - **Usuários sinalizados para risco** – um [usuário arriscado](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
 Este tópico fornece uma visão geral do relatório de provisionamento.
 
@@ -118,7 +118,7 @@ Ao selecionar um período de tempo personalizado, você pode configurar uma data
 
 O filtro **Status** permite que você selecione:
 
-- Tudo
+- Todos
 - Sucesso
 - Falha
 - Ignorado
@@ -218,7 +218,7 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 - No momento, não há suporte para o log Analytics.
 
-- Quando você acessa os logs de provisionamento do contexto de um aplicativo, ele não filtra automaticamente os eventos para o aplicativo específico, como faz os logs de auditoria.
+- Você pode ver eventos ignorados para usuários que não estão no escopo. Isso é esperado, especialmente quando o escopo de sincronização é definido como todos os usuários e grupos. Nosso serviço avaliará todos os objetos no locatário, mesmo aqueles que estão fora do escopo. 
 
 ## <a name="error-codes"></a>Códigos de erro
 
@@ -226,28 +226,26 @@ Use a tabela a seguir para entender melhor como resolver erros que podem ser enc
 
 |Código do Erro|Descrição|
 |---|---|
-|Conflito, EntryConflict|Corrija os valores de atributo conflitantes no Azure AD ou no aplicativo ou revise a configuração de atributo correspondente se a conta de usuário conflitante deveria ser correspondida e assumida. Examine a [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) a seguir para obter mais informações sobre como configurar atributos correspondentes.|
+|Conflito, EntryConflict|Corrija os valores de atributo conflitantes no Azure AD ou no aplicativo ou revise a configuração de atributo correspondente se a conta de usuário conflitante deveria ser correspondida e assumida. Examine a [documentação](../app-provisioning/customize-application-attributes.md) a seguir para obter mais informações sobre como configurar atributos correspondentes.|
 |TooManyRequests|O aplicativo de destino rejeitou essa tentativa de atualizar o usuário porque ele está sobrecarregado e recebendo muitas solicitações. Não há nada a fazer. Essa tentativa será desativada automaticamente. A Microsoft também foi notificada desse problema.|
 |InternalServerError |O aplicativo de destino retornou um erro inesperado. Pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Essa tentativa será desativada automaticamente em 40 minutos.|
-|InsufficientRights, MethodNotAllowed, não permitido, não autorizado| O Azure AD foi capaz de autenticar com o aplicativo de destino, mas não foi autorizado a executar a atualização. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicativo.|
+|InsufficientRights, MethodNotAllowed, não permitido, não autorizado| O Azure AD foi capaz de autenticar com o aplicativo de destino, mas não foi autorizado a executar a atualização. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](../saas-apps/tutorial-list.md)de aplicativo.|
 |UnprocessableEntity|O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo de destino pode não estar correta, ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione.|
 |WebExceptionProtocolError |Ocorreu um erro de protocolo HTTP durante a conexão com o aplicativo de destino. Não há nada a fazer. Essa tentativa será desativada automaticamente em 40 minutos.|
-|InvalidAnchor|Um usuário que foi criado ou correspondido anteriormente pelo serviço de provisionamento não existe mais. Verifique se o usuário existe. Para forçar uma nova correspondência de todos os usuários, use o MS API do Graph para [reiniciar o trabalho](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Observe que a reinicialização do provisionamento disparará um ciclo inicial, o que pode levar tempo para ser concluído. Ele também exclui o cache que o serviço de provisionamento usa para operar, o que significa que todos os usuários e grupos no locatário terão que ser avaliados novamente e determinados eventos de provisionamento poderão ser descartados.|
-|NotImplemented | O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo pode não estar correta ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)de aplicativo. |
-|MandatoryFieldsMissing, MissingValues |Não foi possível criar o usuário porque os valores necessários estão ausentes. Corrija os valores de atributo ausentes no registro de origem ou examine a configuração de atributo correspondente para garantir que os campos obrigatórios não sejam omitidos. [Saiba mais](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre como configurar atributos correspondentes.|
-|SchemaAttributeNotFound |Não foi possível executar a operação porque foi especificado um atributo que não existe no aplicativo de destino. Consulte a [documentação](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sobre personalização de atributo e verifique se a configuração está correta.|
+|InvalidAnchor|Um usuário que foi criado ou correspondido anteriormente pelo serviço de provisionamento não existe mais. Verifique se o usuário existe. Para forçar uma nova correspondência de todos os usuários, use o MS API do Graph para [reiniciar o trabalho](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Observe que a reinicialização do provisionamento disparará um ciclo inicial, o que pode levar tempo para ser concluído. Ele também exclui o cache que o serviço de provisionamento usa para operar, o que significa que todos os usuários e grupos no locatário terão que ser avaliados novamente e determinados eventos de provisionamento poderão ser descartados.|
+|NotImplemented | O aplicativo de destino retornou uma resposta inesperada. A configuração do aplicativo pode não estar correta ou pode haver um problema de serviço com o aplicativo de destino que está impedindo que isso funcione. Examine todas as instruções fornecidas pelo aplicativo de destino, bem como o respectivo [tutorial](../saas-apps/tutorial-list.md)de aplicativo. |
+|MandatoryFieldsMissing, MissingValues |Não foi possível criar o usuário porque os valores necessários estão ausentes. Corrija os valores de atributo ausentes no registro de origem ou examine a configuração de atributo correspondente para garantir que os campos obrigatórios não sejam omitidos. [Saiba mais](../app-provisioning/customize-application-attributes.md) sobre como configurar atributos correspondentes.|
+|SchemaAttributeNotFound |Não foi possível executar a operação porque foi especificado um atributo que não existe no aplicativo de destino. Consulte a [documentação](../app-provisioning/customize-application-attributes.md) sobre personalização de atributo e verifique se a configuração está correta.|
 |InternalError |Ocorreu um erro de serviço interno no serviço de provisionamento do Azure AD. Não há nada a fazer. Essa tentativa será repetida automaticamente em 40 minutos.|
 |InvalidDomain |A operação não pôde ser executada devido a um valor de atributo que contém um nome de domínio inválido. Atualize o nome de domínio no usuário ou adicione-o à lista de permitidos no aplicativo de destino. |
 |Tempo limite |A operação não pôde ser concluída porque o aplicativo de destino demorou muito tempo para responder. Não há nada a fazer. Essa tentativa será repetida automaticamente em 40 minutos.|
 |LicenseLimitExceeded|Não foi possível criar o usuário no aplicativo de destino porque não há licenças disponíveis para esse usuário. Adquira licenças adicionais para o aplicativo de destino ou examine as atribuições de usuário e a configuração de mapeamento de atributo para garantir que os usuários corretos sejam atribuídos com os atributos corretos.|
-|DuplicateTargetEntries  |A operação não pôde ser concluída porque mais de um usuário no aplicativo de destino foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado do aplicativo de destino ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
-|DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um usuário foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateTargetEntries  |A operação não pôde ser concluída porque mais de um usuário no aplicativo de destino foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado do aplicativo de destino ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](../app-provisioning/customize-application-attributes.md).|
+|DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um usuário foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando cada usuário é avaliado, tentamos importar o usuário do sistema de origem. Esse erro geralmente ocorre quando o usuário que está sendo importado não tem a propriedade correspondente definida em seus mapeamentos de atributo. Sem um valor presente no objeto de usuário para o atributo correspondente, não podemos avaliar as alterações de escopo, correspondência ou exportação. Observação: a presença desse erro não indica que o usuário está no escopo, pois ainda não avaliamos o escopo do usuário.|
 |EntrySynchronizationSkipped | O serviço de provisionamento consultou com êxito o sistema de origem e identificou o usuário. Nenhuma ação adicional foi realizada no usuário e elas foram ignoradas. O Skip pode ser devido ao usuário estar fora do escopo ou ao usuário já existente no sistema de destino sem nenhuma alteração adicional necessária.|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Verificar o status do provisionamento do usuário](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
-* [Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
-
-
+* [Verificar o status do provisionamento do usuário](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
+* [Problema na configuração do provisionamento do usuário para um aplicativo de galeria do Azure AD](../app-provisioning/application-provisioning-config-problem.md)

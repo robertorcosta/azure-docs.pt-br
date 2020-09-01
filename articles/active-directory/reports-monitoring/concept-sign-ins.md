@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816075"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228759"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -32,8 +32,8 @@ A arquitetura de relatórios no Azure AD (Azure Active Directory) consiste nos s
     - **Entradas** – Informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
     - **Logs**  -  de auditoria [Os logs de auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
 - **Segurança** 
-    - **Entradas arriscadas** -uma [entrada arriscada](concept-risky-sign-ins.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
-    - **Usuários sinalizados para risco** – um [usuário arriscado](concept-user-at-risk.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
+    - **Entradas arriscadas** -uma [entrada arriscada](../identity-protection/overview-identity-protection.md) é um indicador para uma tentativa de entrada por alguém que não seja o proprietário legítimo de uma conta de usuário.
+    - **Usuários sinalizados para risco** – um [usuário arriscado](../identity-protection/overview-identity-protection.md) é um indicador para uma conta de usuário que pode ter sido comprometida.
 
 Este artigo fornece uma visão geral do relatório de entradas.
 
@@ -149,7 +149,7 @@ O **local** -o local do qual a conexão foi iniciada:
 |Exchange ActiveSync| |Esse filtro mostra todas as tentativas de entrada nas quais o protocolo EAS foi tentado.|
 |Navegador|![Verificação](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários usando navegadores da Web|
 |Exchange ActiveSync| | Mostra todas as tentativas de entrada de usuários com aplicativos cliente usando o Exchange ActiceSync para se conectar ao Exchange Online|
-|PowerShell do Exchange Online| |Usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, confira [Conectar ao Exchange Online PowerShell usando a autenticação multifator](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|PowerShell do Exchange Online| |Usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, confira [Conectar ao Exchange Online PowerShell usando a autenticação multifator](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Serviços Web do Exchange| |Uma interface de programação usada pelo Outlook, pelo Outlook para Mac e por aplicativos de terceiros.|
 |IMAP4| |Um cliente de email herdado usando IMAP para recuperar email.|
 |MAPI sobre HTTP| |Usado pelo Outlook 2010 e posterior.|
@@ -232,7 +232,7 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Location
+- Localização
 - Endereço IP
 - Data
 - MFA obrigatório
@@ -271,13 +271,12 @@ A opção **Entradas** oferece uma visão geral completa de todos os eventos de 
 
 ## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
 
-Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Considere o ponto que, a atividade do Office 365 e os logs de atividade do Azure AD compartilham um número significativo de recursos de diretório. Somente o centro de administração Microsoft 365 fornece uma visão completa dos logs de atividades do Office 365. 
+Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Considere o ponto que, a atividade do Office 365 e os logs de atividade do Azure AD compartilham um número significativo de recursos de diretório. Somente o centro de administração Microsoft 365 fornece uma visão completa dos logs de atividades do Office 365. 
 
-Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Códigos de erro do relatório de atividade de entrada](reference-sign-ins-error-codes.md)
 * [Políticas de retenção de dados do Azure AD](reference-reports-data-retention.md)
 * [Latências do relatório do Azure AD](reference-reports-latencies.md)
-

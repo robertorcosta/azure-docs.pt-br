@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854536"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228623"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Exclusão reversível para contêineres (visualização)
 
@@ -25,7 +25,7 @@ Para proteção de ponta a ponta para seus dados de BLOB, a Microsoft recomenda 
 
 - Exclusão reversível de contêiner, para proteger contra exclusão acidental ou substituição de um contêiner. Para saber como habilitar a exclusão reversível de contêiner, consulte [habilitar e gerenciar a exclusão reversível para contêineres](soft-delete-container-enable.md).
 - Exclusão reversível de BLOB, para proteger contra exclusão acidental ou substituição de um blob individual. Para saber como habilitar a exclusão reversível de BLOB, consulte [exclusão reversível para BLOBs](soft-delete-blob-overview.md).
-- Controle de versão de BLOB (visualização) para manter automaticamente as versões anteriores de um blob. Quando o controle de versão de blob estiver habilitado, você poderá restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente. Para saber como habilitar o controle de versão de BLOB, consulte [habilitar e gerenciar o controle de versão de blob](versioning-enable.md).
+- Controle de versão de BLOB, para manter automaticamente as versões anteriores de um blob. Quando o controle de versão de blob estiver habilitado, você poderá restaurar uma versão anterior de um blob para recuperar seus dados se eles forem modificados ou excluídos erroneamente. Para saber como habilitar o controle de versão de BLOB, consulte [habilitar e gerenciar o controle de versão de blob](versioning-enable.md).
 
 > [!WARNING]
 > Não é possível desfazer a exclusão de uma conta de armazenamento. A exclusão reversível não protege contra a exclusão de uma conta de armazenamento. Para evitar a exclusão acidental de uma conta de armazenamento, configure um bloqueio **CannotDelete** no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear recursos do Azure, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
@@ -123,4 +123,4 @@ Não há nenhum custo adicional para habilitar a exclusão reversível de contê
 
 - [Configurar exclusão reversível de contêiner](soft-delete-container-enable.md)
 - [Exclusão reversível para blobs](soft-delete-blob-overview.md)
-- [Controle de versão de blob (versão prévia)](versioning-overview.md)
+- [Controle de versão de BLOB](versioning-overview.md)

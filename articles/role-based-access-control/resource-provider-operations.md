@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/16/2020
+ms.date: 08/31/2020
 ms.custom: generated
-ms.openlocfilehash: 5809a2325b825bde74c7a8859c3a96f94c05b170
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 685fdf8180f54c87fe6677268bd289ee00912c96
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272036"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227756"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -22,7 +22,7 @@ Esta seção lista as operações para provedores de recursos do Azure, que são
 
 Clique no nome do provedor de recursos na tabela a seguir para ver a lista de operações.
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 | Geral |
 | --- |
@@ -797,6 +797,7 @@ Serviço do Azure: [Gateway de aplicativo](../application-gateway/index.yml), [b
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Read | Obter conexões PrivateEndpoint do gateway de aplicativo |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Write | Atualiza a conexão PrivateEndpoint do gateway de aplicativo |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Delete | Exclui a conexão PrivateEndpoint do gateway de aplicativo |
+> | Microsoft. Network/applicationGateways/privateLinkConfigurations/Read | Obter configurações de link privado do gateway de aplicativo |
 > | Microsoft. Network/applicationGateways/privateLinkResources/Read | Obtém recursos do ApplicationGateway PrivateLink |
 > | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Read | Obter uma política de WAF do gateway de aplicativo |
 > | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Write | Cria uma política de WAF do gateway de aplicativo ou atualiza uma política de WAF do gateway de aplicativo |
@@ -880,6 +881,9 @@ Serviço do Azure: [Gateway de aplicativo](../application-gateway/index.yml), [b
 > | Microsoft.Network/dnszones/TXT/read | Obter o conjunto de registros do tipo ' TXT ' no formato JSON. O conjunto de registros contém uma lista de registros, o TTL, as marcações e as etags. |
 > | Microsoft.Network/dnszones/TXT/write | Criar ou atualizar um conjunto de registros do tipo ' TXT ' em uma zona DNS. Os registros especificados substituirão os registros atuais no conjunto de registros. |
 > | Microsoft.Network/dnszones/TXT/delete | Remova o conjunto de registros de um determinado nome e digite ' TXT ' de uma zona DNS. |
+> | Microsoft. Network/dscpConfiguration/Write | Operação para colocar a configuração de DSCP |
+> | Microsoft. Network/dscpConfiguration/Read | Operação para colocar a configuração de DSCP |
+> | Microsoft. Network/dscpConfiguration/junção/ação | Une a configuração de DSCP |
 > | Microsoft.Network/expressRouteCircuits/read | Obter um ExpressRouteCircuit |
 > | Microsoft.Network/expressRouteCircuits/write | Criar ou atualizar um ExpressRouteCircuit existente |
 > | Microsoft.Network/expressRouteCircuits/join/action | Une um circuito de rota expressa. Não é possível alertá-lo. |
@@ -916,6 +920,7 @@ Serviço do Azure: [Gateway de aplicativo](../application-gateway/index.yml), [b
 > | Microsoft.Network/expressRoutePorts/write | Cria ou atualiza o ExpressRoutePorts |
 > | Microsoft.Network/expressRoutePorts/join/action | Une portas de rota expressa. Não é possível alertá-lo. |
 > | Microsoft.Network/expressRoutePorts/delete | Exclui ExpressRoutePorts |
+> | Microsoft. Network/expressRoutePorts/generateloa/Action | Gera LOA para ExpressRoutePorts |
 > | Microsoft.Network/expressRoutePorts/links/read | Obtém ExpressRouteLink |
 > | Microsoft.Network/expressRoutePortsLocations/read | Obter Localizações de Porta do ExpressRoute |
 > | Microsoft.Network/expressRouteServiceProviders/read | Obter os provedores de serviços do ExpressRoute |
@@ -2041,6 +2046,10 @@ Serviço do Azure: [Azure Search](../search/index.yml)
 > | Microsoft. Search/SearchServices/privateEndpointConnectionProxies/Write | Cria um proxy de conexão de ponto de extremidade privado com os parâmetros especificados ou atualiza as propriedades ou marcas para o proxy de conexão de ponto de extremidade particular especificado |
 > | Microsoft. Search/SearchServices/privateEndpointConnectionProxies/Read | Retorna a lista de proxies de conexão de ponto de extremidade privado ou obtém as propriedades para o proxy de conexão de ponto de extremidade particular especificado |
 > | Microsoft. Search/SearchServices/privateEndpointConnectionProxies/Delete | Exclui um proxy de conexão de ponto de extremidade privado existente |
+> | Microsoft. Search/SearchServices/sharedPrivateLinkResources/Write | Cria um novo recurso de link privado compartilhado com os parâmetros especificados ou atualiza as propriedades do recurso de link particular compartilhado especificado |
+> | Microsoft. Search/SearchServices/sharedPrivateLinkResources/Read | Retorna a lista de recursos de vínculo privado compartilhado ou obtém as propriedades do recurso de link particular compartilhado especificado |
+> | Microsoft. Search/SearchServices/sharedPrivateLinkResources/Delete | Exclui um recurso de link privado compartilhado existente |
+> | Microsoft. Search/SearchServices/sharedPrivateLinkResources/operationStatuses/Read | Obter os detalhes de uma operação de recurso de link privado compartilhado de execução longa |
 
 ### <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
@@ -2075,9 +2084,18 @@ Serviço do Azure: [serviço de signaler do Azure](../azure-signalr/index.yml)
 > | Microsoft. SignalRService/Signalr/privateEndpointConnections/Read | Ler uma conexão de ponto de extremidade particular |
 > | Microsoft. SignalRService/Signalr/privateLinkResources/Read | Listar todos os recursos de link privado do Signalr |
 > | **DataAction** | **Descrição** |
-> | Microsoft. SignalRService/Signalr/serverConnection/Write | Inicie uma conexão de servidor. |
+> | Microsoft. SignalRService/Signalr/serverConnection/Action | Inicie uma conexão de servidor. |
+> | Microsoft. SignalRService/Signalr/clientConnection/Action | Adicionar/remover conexões de cliente de grupos ou fechar uma conexão de cliente. |
+> | Microsoft. SignalRService/Signalr/usuário/ação | Adicionar/remover usuários de grupos. |
+> | Microsoft. SignalRService/Signalr/clientConnection/Read | Verifique a existência da conexão. |
+> | Microsoft. SignalRService/Signalr/clientConnection/Write | Enviar mensagens diretamente para uma conexão de cliente. |
+> | Microsoft. SignalRService/Signalr/Group/Read | Verifique a existência do grupo. |
+> | Microsoft. SignalRService/Signalr/Group/Write | Transmita mensagens para conexões de cliente em um grupo/alguns grupos. |
+> | Microsoft. SignalRService/Signalr/Hub/gravação | Transmita mensagens para todas as conexões de cliente anexadas a este Hub. |
 > | Microsoft. SignalRService/Signalr/Service/accessKey/Action | Obtenha um AccessKey temporário para assinar ClientTokens. |
 > | Microsoft. SignalRService/Signalr/Service/clientToken/Action | Obtenha um ClientToken para iniciar uma conexão de cliente. |
+> | Microsoft. SignalRService/Signalr/User/Read | Verifique a existência do usuário e se ele estava em um grupo. |
+> | Microsoft. SignalRService/Signalr/User/Write | Enviar mensagens a um usuário, que pode ter várias conexões de cliente. |
 
 ### <a name="microsoftweb"></a>microsoft.web
 
@@ -4386,6 +4404,12 @@ Serviço do Azure: [hubs de eventos](../event-hubs/index.yml)
 > | Microsoft. EventHub/namespaces/privateEndpointConnectionProxies/Read | Obter proxy de conexão de ponto de extremidade privado |
 > | Microsoft. EventHub/namespaces/privateEndpointConnectionProxies/Write | Criar proxy de conexão de ponto de extremidade privado |
 > | Microsoft. EventHub/namespaces/privateEndpointConnectionProxies/Delete | Excluir proxy de conexão de ponto de extremidade privado |
+> | Microsoft. EventHub/namespaces/privateEndpointConnectionProxies/OperationStatus/Read | Obter o status de uma operação de ponto de extremidade privada assíncrona |
+> | Microsoft. EventHub/namespaces/privateEndpointConnections/Read | Obter conexão de ponto de extremidade privado |
+> | Microsoft. EventHub/namespaces/privateEndpointConnections/Write | Criar ou atualizar uma conexão de ponto de extremidade privada |
+> | Microsoft. EventHub/namespaces/privateEndpointConnections/Delete | Remove a conexão de ponto de extremidade particular |
+> | Microsoft. EventHub/namespaces/privateEndpointConnections/OperationStatus/Read | Obter o status de uma operação de ponto de extremidade privada assíncrona |
+> | Microsoft. EventHub/namespaces/privateLinkResources/Read | Obtém os tipos de recursos que dão suporte a conexões de ponto de extremidade privadas |
 > | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
 > | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
 > | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obter lista de descrições do recurso de log do namespace |
@@ -5082,6 +5106,15 @@ Serviço do Azure: [serviço de Machine Learning](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/espaços de trabalho/experimentos/execuções/leitura | É executado em Serviços de Machine Learning espaços de trabalho |
 > | Microsoft. MachineLearningServices/Workspaces/experimentos/execuções/gravação | Cria ou atualiza execuções em Serviços de Machine Learning espaço (s) de trabalho |
 > | Microsoft. MachineLearningServices/espaços de trabalho/recursos/leitura | Obtém todos os recursos habilitados para um espaço de trabalho Serviços de Machine Learning |
+> | Microsoft. MachineLearningServices/Workspaces/inferenceEndpoints/Read | Obtém pontos de extremidade de inferência em Serviços de Machine Learning espaço (s) de trabalho |
+> | Microsoft. MachineLearningServices/Workspaces/inferenceEndpoints/Write | Cria ou atualiza o ponto de extremidade de inferência em Serviços de Machine Learning espaços de trabalho |
+> | Microsoft. MachineLearningServices/espaços de trabalho/inferenceEndpoints/Delete | Exclui o ponto de extremidade de inferência em Serviços de Machine Learning espaço de trabalho |
+> | Microsoft. MachineLearningServices/Workspaces/inferenceEndpoints/checkNameAvailability/Read | Verifica o nome do ponto de extremidade de inferência em Serviços de Machine Learning espaço de trabalho |
+> | Microsoft. MachineLearningServices/Workspaces/inferenceEndpoints/implantações/leitura | Obtém implantações no ponto de extremidade de inferência em Serviços de Machine Learning espaços de trabalho |
+> | Microsoft. MachineLearningServices/Workspaces/inferenceEndpoints/implantações/gravação | Cria ou atualiza a implantação no ponto de extremidade de inferência em Serviços de Machine Learning espaços de trabalho |
+> | Microsoft. MachineLearningServices/Workspaces/inferenceEndpoints/implantações/excluir | Exclui a implantação no ponto de extremidade de inferência em Serviços de Machine Learning espaço de trabalho |
+> | Microsoft. MachineLearningServices/Workspaces/inferenceEndpoints/Implantations/checkNameAvailability/Read | Verifica o nome da implantação no ponto de extremidade de inferência em Serviços de Machine Learning espaço (s) |
+> | Microsoft. MachineLearningServices/Workspaces/inferenceEndpoints/implantações/SKUs/Read | Obtém as configurações de SKU de escala para implantação no ponto de extremidade de inferência em Serviços de Machine Learning espaço de trabalho |
 > | Microsoft. MachineLearningServices/espaços de trabalho/rotulamento/exportação/ação | Exportar rótulos de projetos de rotulagem em Serviços de Machine Learning espaços de trabalho |
 > | Microsoft. MachineLearningServices/espaços de trabalho/rotulamento/rótulos/leitura | Obtém rótulos de rotulagem de projetos em Serviços de Machine Learning espaço (s) de trabalho |
 > | Microsoft. MachineLearningServices/espaços de trabalho/rotulamento/rótulos/gravação | Cria rótulos de rotulagem de projetos em Serviços de Machine Learning espaço (s) de trabalho |
@@ -5307,6 +5340,9 @@ Serviço do Azure: [hubs de notificação](../notification-hubs/index.yml)
 > | Microsoft.NotificationHubs/Namespaces/authorizationRules/delete | Excluir regra de autorização de namespace. A regra de autorização do namespace padrão não pode ser excluída.  |
 > | Microsoft.NotificationHubs/Namespaces/authorizationRules/listkeys/action | Obter a cadeia de conexão para o namespace |
 > | Microsoft.NotificationHubs/Namespaces/authorizationRules/regenerateKeys/action | Regra de autorização de namespace regenera chave primária/secundária; especifique a chave que precisa ser regenerada |
+> | Microsoft. NotificationHubs/namespaces/diagnosticSettings/Read | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
+> | Microsoft. NotificationHubs/namespaces/diagnosticSettings/Write | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
+> | Microsoft. NotificationHubs/namespaces/logDefinitions/Read | Obter lista de descrições do recurso de log do namespace |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/write | Criar um Hub de notificação e atualizar suas propriedades. Suas propriedades incluem principalmente as credenciais PNS. Tempo de vida útil e regras de autorização |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/read | Obter lista de descrições de recursos do Hub de notificação |
 > | Microsoft.NotificationHubs/Namespaces/NotificationHubs/Delete | Excluir recurso de Hub de notificação |
@@ -6006,6 +6042,12 @@ Serviço do Azure: [retransmissão do Azure](../service-bus-relay/relay-what-is-
 > | Microsoft. Relay/namespaces/privateEndpointConnectionProxies/Read | Obter proxy de conexão de ponto de extremidade privado |
 > | Microsoft. Relay/namespaces/privateEndpointConnectionProxies/Write | Criar proxy de conexão de ponto de extremidade privado |
 > | Microsoft. Relay/namespaces/privateEndpointConnectionProxies/Delete | Excluir proxy de conexão de ponto de extremidade privado |
+> | Microsoft. Relay/namespaces/privateEndpointConnectionProxies/OperationStatus/Read | Obter o status de uma operação de ponto de extremidade privada assíncrona |
+> | Microsoft. Relay/namespaces/privateEndpointConnections/Read | Obter conexão de ponto de extremidade privado |
+> | Microsoft. Relay/namespaces/privateEndpointConnections/Write | Criar ou atualizar uma conexão de ponto de extremidade privada |
+> | Microsoft. Relay/namespaces/privateEndpointConnections/Delete | Remove a conexão de ponto de extremidade particular |
+> | Microsoft. Relay/namespaces/privateEndpointConnections/OperationStatus/Read | Obter o status de uma operação de ponto de extremidade privada assíncrona |
+> | Microsoft. Relay/namespaces/privateLinkResources/Read | Obtém os tipos de recursos que dão suporte a conexões de ponto de extremidade privadas |
 > | Microsoft. Relay/namespaces/Providers/Microsoft. insights/diagnosticSettings/Read | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
 > | Microsoft. Relay/namespaces/Providers/Microsoft. insights/diagnosticSettings/Write | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
 > | Microsoft. Relay/namespaces/Providers/Microsoft. insights/logDefinitions/Read | Obter lista de descrições do recurso de log do namespace |
@@ -6077,6 +6119,12 @@ Serviço do Azure: [barramento de serviço](../service-bus/index.md)
 > | Microsoft. ServiceBus/namespaces/privateEndpointConnectionProxies/Read | Obter proxy de conexão de ponto de extremidade privado |
 > | Microsoft. ServiceBus/namespaces/privateEndpointConnectionProxies/Write | Criar proxy de conexão de ponto de extremidade privado |
 > | Microsoft. ServiceBus/namespaces/privateEndpointConnectionProxies/Delete | Excluir proxy de conexão de ponto de extremidade privado |
+> | Microsoft. ServiceBus/namespaces/privateEndpointConnectionProxies/OperationStatus/Read | Obter o status de uma operação de ponto de extremidade privada assíncrona |
+> | Microsoft. ServiceBus/namespaces/privateEndpointConnections/Read | Obter conexão de ponto de extremidade privado |
+> | Microsoft. ServiceBus/namespaces/privateEndpointConnections/Write | Criar ou atualizar uma conexão de ponto de extremidade privada |
+> | Microsoft. ServiceBus/namespaces/privateEndpointConnections/Delete | Remove a conexão de ponto de extremidade particular |
+> | Microsoft. ServiceBus/namespaces/privateEndpointConnections/OperationStatus/Read | Obter o status de uma operação de ponto de extremidade privada assíncrona |
+> | Microsoft. ServiceBus/namespaces/privateLinkResources/Read | Obtém os tipos de recursos que dão suporte a conexões de ponto de extremidade privadas |
 > | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
 > | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obter lista de descrições de recurso de configurações de diagnóstico do namespace |
 > | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obter lista de descrições do recurso de log do namespace |
@@ -6511,6 +6559,9 @@ Serviço do Azure: [Sentinela do Azure](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/threatintelligence/métricas/ação | Coletar métricas de inteligência contra ameaças |
 > | Microsoft. SecurityInsights/threatintelligence/bulkDelete/Action | Inteligência contra ameaças de exclusão em massa |
 > | Microsoft. SecurityInsights/threatintelligence/bulkTag/Action | Inteligência contra ameaças de marcas em massa |
+> | Microsoft. SecurityInsights/Watchlists/Read | Obtém Watchlists |
+> | Microsoft. SecurityInsights/Watchlists/Write | Criar Watchlists |
+> | Microsoft. SecurityInsights/Watchlists/Delete | Exclui Watchlists |
 
 ## <a name="devops"></a>DevOps
 
@@ -7213,14 +7264,85 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/LogProfiles/Delete | Excluir um perfil do Log de Atividades |
 > | Microsoft.Insights/LogProfiles/Read | Ler um perfil do Log de Atividades |
 > | Microsoft.Insights/Logs/Read | Lendo dados de todos os seus logs |
+> | Microsoft. insights/logs/AADDomainServicesAccountLogon/leitura | Ler dados da tabela AADDomainServicesAccountLogon |
+> | Microsoft. insights/logs/AADDomainServicesAccountManagement/leitura | Ler dados da tabela AADDomainServicesAccountManagement |
+> | Microsoft. insights/logs/AADDomainServicesDirectoryServiceAccess/leitura | Ler dados da tabela AADDomainServicesDirectoryServiceAccess |
+> | Microsoft. insights/logs/AADDomainServicesLogonLogoff/leitura | Ler dados da tabela AADDomainServicesLogonLogoff |
+> | Microsoft. insights/logs/AADDomainServicesPolicyChange/leitura | Ler dados da tabela AADDomainServicesPolicyChange |
+> | Microsoft. insights/logs/AADDomainServicesPrivilegeUse/leitura | Ler dados da tabela AADDomainServicesPrivilegeUse |
+> | Microsoft. insights/logs/AADDomainServicesSystemSecurity/leitura | Ler dados da tabela AADDomainServicesSystemSecurity |
+> | Microsoft. insights/logs/AADManagedIdentitySignInLogs/leitura | Ler dados da tabela AADManagedIdentitySignInLogs |
+> | Microsoft. insights/logs/AADNonInteractiveUserSignInLogs/leitura | Ler dados da tabela AADNonInteractiveUserSignInLogs |
+> | Microsoft. insights/logs/AADServicePrincipalSignInLogs/leitura | Ler dados da tabela AADServicePrincipalSignInLogs |
 > | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | Lê dados da tabela ADAssessmentRecommendation |
+> | Microsoft. insights/logs/AddonAzureBackupAlerts/leitura | Ler dados da tabela AddonAzureBackupAlerts |
+> | Microsoft. insights/logs/AddonAzureBackupJobs/leitura | Ler dados da tabela AddonAzureBackupJobs |
+> | Microsoft. insights/logs/AddonAzureBackupPolicy/leitura | Ler dados da tabela AddonAzureBackupPolicy |
+> | Microsoft. insights/logs/AddonAzureBackupProtectedInstance/leitura | Ler dados da tabela AddonAzureBackupProtectedInstance |
+> | Microsoft. insights/logs/AddonAzureBackupStorage/leitura | Ler dados da tabela AddonAzureBackupStorage |
+> | Microsoft. insights/logs/ADFActivityRun/leitura | Ler dados da tabela ADFActivityRun |
+> | Microsoft. insights/logs/ADFPipelineRun/leitura | Ler dados da tabela ADFPipelineRun |
+> | Microsoft. insights/logs/ADFSSISIntegrationRuntimeLogs/leitura | Ler dados da tabela ADFSSISIntegrationRuntimeLogs |
+> | Microsoft. insights/logs/ADFSSISPackageEventMessageContext/leitura | Ler dados da tabela ADFSSISPackageEventMessageContext |
+> | Microsoft. insights/logs/ADFSSISPackageEventMessages/leitura | Ler dados da tabela ADFSSISPackageEventMessages |
+> | Microsoft. insights/logs/ADFSSISPackageExecutableStatistics/leitura | Ler dados da tabela ADFSSISPackageExecutableStatistics |
+> | Microsoft. insights/logs/ADFSSISPackageExecutionComponentPhases/leitura | Ler dados da tabela ADFSSISPackageExecutionComponentPhases |
+> | Microsoft. insights/logs/ADFSSISPackageExecutionDataStatistics/leitura | Ler dados da tabela ADFSSISPackageExecutionDataStatistics |
+> | Microsoft. insights/logs/ADFTriggerRun/leitura | Ler dados da tabela ADFTriggerRun |
 > | Microsoft.Insights/Logs/ADReplicationResult/Read | Lê dados da tabela ADReplicationResult |
 > | Microsoft.Insights/Logs/ADSecurityAssessmentRecommendation/Read | Lê dados da tabela ADSecurityAssessmentRecommendation |
+> | Microsoft. insights/logs/ADTDigitalTwinsOperation/leitura | Ler dados da tabela ADTDigitalTwinsOperation |
+> | Microsoft. insights/logs/ADTEventRoutesOperation/leitura | Ler dados da tabela ADTEventRoutesOperation |
+> | Microsoft. insights/logs/ADTModelsOperation/leitura | Ler dados da tabela ADTModelsOperation |
+> | Microsoft. insights/logs/ADTQueryOperation/leitura | Ler dados da tabela ADTQueryOperation |
+> | Microsoft. insights/logs/AegDeliveryFailureLogs/leitura | Ler dados da tabela AegDeliveryFailureLogs |
+> | Microsoft. insights/logs/AegPublishFailureLogs/leitura | Ler dados da tabela AegPublishFailureLogs |
 > | Microsoft.Insights/Logs/Alert/Read | Lê dados da tabela de Alertas |
 > | Microsoft.Insights/Logs/AlertHistory/Read | Lê dados da tabela AlertHistory |
+> | Microsoft. insights/logs/AmlComputeClusterEvent/leitura | Ler dados da tabela AmlComputeClusterEvent |
+> | Microsoft. insights/logs/AmlComputeClusterNodeEvent/leitura | Ler dados da tabela AmlComputeClusterNodeEvent |
+> | Microsoft. insights/logs/AmlComputeCpuGpuUtilization/leitura | Ler dados da tabela AmlComputeCpuGpuUtilization |
+> | Microsoft. insights/logs/AmlComputeJobEvent/leitura | Ler dados da tabela AmlComputeJobEvent |
+> | Microsoft. insights/logs/AmlRunStatusChangedEvent/leitura | Ler dados da tabela AmlRunStatusChangedEvent |
+> | Microsoft. insights/logs/ApiManagementGatewayLogs/leitura | Ler dados da tabela ApiManagementGatewayLogs |
+> | Microsoft. insights/logs/AppAvailabilityResults/leitura | Ler dados da tabela AppAvailabilityResults |
+> | Microsoft. insights/logs/AppBrowserTimings/leitura | Ler dados da tabela AppBrowserTimings |
+> | Microsoft. insights/logs/AppCenterError/leitura | Ler dados da tabela AppCenterError |
+> | Microsoft. insights/logs/AppDependencies/leitura | Ler dados da tabela AppDependencies |
+> | Microsoft. insights/logs/AppEvents/leitura | Ler dados da tabela AppEvents |
+> | Microsoft. insights/logs/AppExceptions/leitura | Ler dados da tabela AppExceptions |
 > | Microsoft.Insights/Logs/ApplicationInsights/Read | Lê dados da tabela ApplicationInsights |
+> | Microsoft. insights/logs/AppMetrics/leitura | Ler dados da tabela AppMetrics |
+> | Microsoft. insights/logs/AppPageViews/leitura | Ler dados da tabela AppPageViews |
+> | Microsoft. insights/logs/AppPerformanceCounters/leitura | Ler dados da tabela AppPerformanceCounters |
+> | Microsoft. insights/logs/AppPlatformLogsforSpring/leitura | Ler dados da tabela AppPlatformLogsforSpring |
+> | Microsoft. insights/logs/AppPlatformSystemLogs/leitura | Ler dados da tabela AppPlatformSystemLogs |
+> | Microsoft. insights/logs/AppRequests/leitura | Ler dados da tabela AppRequests |
+> | Microsoft. insights/logs/AppServiceAntivirusScanLogs/leitura | Ler dados da tabela AppServiceAntivirusScanLogs |
+> | Microsoft. insights/logs/AppServiceAppLogs/leitura | Ler dados da tabela AppServiceAppLogs |
+> | Microsoft. insights/logs/AppServiceAuditLogs/leitura | Ler dados da tabela AppServiceAuditLogs |
+> | Microsoft. insights/logs/AppServiceConsoleLogs/leitura | Ler dados da tabela AppServiceConsoleLogs |
+> | Microsoft. insights/logs/AppServiceEnvironmentPlatformLogs/leitura | Ler dados da tabela AppServiceEnvironmentPlatformLogs |
+> | Microsoft. insights/logs/AppServiceFileAuditLogs/leitura | Ler dados da tabela AppServiceFileAuditLogs |
+> | Microsoft. insights/logs/AppServiceHTTPLogs/leitura | Ler dados da tabela AppServiceHTTPLogs |
+> | Microsoft. insights/logs/AppServicePlatformLogs/leitura | Ler dados da tabela AppServicePlatformLogs |
+> | Microsoft. insights/logs/AppSystemEvents/leitura | Ler dados da tabela AppSystemEvents |
+> | Microsoft. insights/logs/AppTraces/leitura | Ler dados da tabela AppTraces |
+> | Microsoft. insights/logs/AuditLogs/leitura | Ler dados da tabela AuditLogs |
+> | Microsoft. insights/logs/AutoscaleEvaluationsLog/leitura | Ler dados da tabela AutoscaleEvaluationsLog |
+> | Microsoft. insights/logs/AutoscaleScaleActionsLog/leitura | Ler dados da tabela AutoscaleScaleActionsLog |
+> | Microsoft. insights/logs/AWSCloudTrail/leitura | Ler dados da tabela AWSCloudTrail |
 > | Microsoft.Insights/Logs/AzureActivity/Read | Lê dados da tabela AzureActivity |
+> | Microsoft. insights/logs/AzureAssessmentRecommendation/leitura | Ler dados da tabela AzureAssessmentRecommendation |
+> | Microsoft. insights/logs/AzureDevOpsAuditing/leitura | Ler dados da tabela AzureDevOpsAuditing |
+> | Microsoft. insights/logs/AzureDiagnostics/leitura | Ler dados da tabela AzureDiagnostics |
 > | Microsoft.Insights/Logs/AzureMetrics/Read | Lê dados da tabela AzureMetrics |
+> | Microsoft. insights/logs/BaiClusterEvent/leitura | Ler dados da tabela BaiClusterEvent |
+> | Microsoft. insights/logs/BaiClusterNodeEvent/leitura | Ler dados da tabela BaiClusterNodeEvent |
+> | Microsoft. insights/logs/BaiJobEvent/leitura | Ler dados da tabela BaiJobEvent |
+> | Microsoft. insights/logs/BehaviorAnalytics/leitura | Ler dados da tabela BehaviorAnalytics |
+> | Microsoft. insights/logs/BlockchainApplicationLog/leitura | Ler dados da tabela BlockchainApplicationLog |
+> | Microsoft. insights/logs/BlockchainProxyLog/leitura | Ler dados da tabela BlockchainProxyLog |
 > | Microsoft.Insights/Logs/BoundPort/Read | Lê dados da tabela BoundPort |
 > | Microsoft.Insights/Logs/CommonSecurityLog/Read | Lê dados da tabela CommonSecurityLog |
 > | Microsoft.Insights/Logs/ComputerGroup/Read | Lê dados da tabela ComputerGroup |
@@ -7229,7 +7351,22 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/ContainerImageInventory/Read | Lê dados da tabela ContainerImageInventory |
 > | Microsoft.Insights/Logs/ContainerInventory/Read | Lê dados da tabela ContainerInventory |
 > | Microsoft.Insights/Logs/ContainerLog/Read | Lê dados da tabela ContainerLog |
+> | Microsoft. insights/logs/ContainerNodeInventory/leitura | Ler dados da tabela ContainerNodeInventory |
+> | Microsoft. insights/logs/ContainerRegistryLoginEvents/leitura | Ler dados da tabela ContainerRegistryLoginEvents |
+> | Microsoft. insights/logs/ContainerRegistryRepositoryEvents/leitura | Ler dados da tabela ContainerRegistryRepositoryEvents |
 > | Microsoft.Insights/Logs/ContainerServiceLog/Read | Lê dados da tabela ContainerServiceLog |
+> | Microsoft. insights/logs/CoreAzureBackup/leitura | Ler dados da tabela CoreAzureBackup |
+> | Microsoft. insights/logs/DatabricksAccounts/leitura | Ler dados da tabela DatabricksAccounts |
+> | Microsoft. insights/logs/DatabricksClusters/leitura | Ler dados da tabela DatabricksClusters |
+> | Microsoft. insights/logs/DatabricksDBFS/leitura | Ler dados da tabela DatabricksDBFS |
+> | Microsoft. insights/logs/DatabricksInstancePools/leitura | Ler dados da tabela DatabricksInstancePools |
+> | Microsoft. insights/logs/DatabricksJobs/leitura | Ler dados da tabela DatabricksJobs |
+> | Microsoft. insights/logs/DatabricksNotebook/leitura | Ler dados da tabela DatabricksNotebook |
+> | Microsoft. insights/logs/DatabricksSecrets/leitura | Ler dados da tabela DatabricksSecrets |
+> | Microsoft. insights/logs/DatabricksSQLPermissions/leitura | Ler dados da tabela DatabricksSQLPermissions |
+> | Microsoft. insights/logs/DatabricksSSH/leitura | Ler dados da tabela DatabricksSSH |
+> | Microsoft. insights/logs/DatabricksTables/leitura | Ler dados da tabela DatabricksTables |
+> | Microsoft. insights/logs/DatabricksWorkspace/leitura | Ler dados da tabela DatabricksWorkspace |
 > | Microsoft.Insights/Logs/DeviceAppCrash/Read | Lê dados da tabela DeviceAppCrash |
 > | Microsoft.Insights/Logs/DeviceAppLaunch/Read | Lê dados da tabela DeviceAppLaunch |
 > | Microsoft.Insights/Logs/DeviceCalendar/Read | Lê dados da tabela DeviceCalendar |
@@ -7244,6 +7381,7 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/DeviceSleepState/Read | Lê dados da tabela DeviceSleepState |
 > | Microsoft.Insights/Logs/DHAppFailure/Read | Lê dados da tabela DHAppFailure |
 > | Microsoft.Insights/Logs/DHAppReliability/Read | Lê dados da tabela DHAppReliability |
+> | Microsoft. insights/logs/DHCPActivity/leitura | Ler dados da tabela DHCPActivity |
 > | Microsoft.Insights/Logs/DHDriverReliability/Read | Lê dados da tabela DHDriverReliability |
 > | Microsoft.Insights/Logs/DHLogonFailures/Read | Lê dados da tabela DHLogonFailures |
 > | Microsoft.Insights/Logs/DHLogonMetrics/Read | Lê dados da tabela DHLogonMetrics |
@@ -7252,15 +7390,28 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/DHWipAppLearning/Read | Lê dados da tabela DHWipAppLearning |
 > | Microsoft.Insights/Logs/DnsEvents/Read | Lê dados da tabela DnsEvents |
 > | Microsoft.Insights/Logs/DnsInventory/Read | Lê dados da tabela DnsInventory |
+> | Microsoft. insights/logs/Dynamics365Activity/leitura | Ler dados da tabela Dynamics365Activity |
 > | Microsoft.Insights/Logs/ETWEvent/Read | Lê dados da tabela ETWEvent |
 > | Microsoft.Insights/Logs/Event/Read | Lê dados da tabela Event |
 > | Microsoft.Insights/Logs/ExchangeAssessmentRecommendation/Read | Lê dados da tabela ExchangeAssessmentRecommendation |
 > | Microsoft.Insights/Logs/ExchangeOnlineAssessmentRecommendation/Read | Ler os dados da tabela ExchangeOnlineAssessmentRecommendation |
+> | Microsoft. insights/logs/FailedIngestion/leitura | Ler dados da tabela FailedIngestion |
+> | Microsoft. insights/logs/FunctionAppLogs/leitura | Ler dados da tabela FunctionAppLogs |
 > | Microsoft.Insights/Logs/Heartbeat/Read | Lê dados da tabela Heartbeat |
+> | Microsoft. insights/logs/HuntingBookmark/leitura | Ler dados da tabela HuntingBookmark |
 > | Microsoft.Insights/Logs/IISAssessmentRecommendation/Read | Lê dados da tabela IISAssessmentRecommendation |
 > | Microsoft.Insights/Logs/InboundConnection/Read | Lê dados da tabela InboundConnection |
+> | Microsoft. insights/logs/InsightsMetrics/leitura | Ler dados da tabela InsightsMetrics |
+> | Microsoft. insights/logs/IntuneAuditLogs/leitura | Lê dados da tabela IntuneAuditLogs |
+> | Microsoft. insights/logs/IntuneDeviceComplianceOrg/leitura | Ler dados da tabela IntuneDeviceComplianceOrg |
+> | Microsoft. insights/logs/IntuneOperationalLogs/leitura | Lê dados da tabela IntuneOperationalLogs |
+> | Microsoft. insights/logs/IoTHubDistributedTracing/leitura | Ler dados da tabela IoTHubDistributedTracing |
+> | Microsoft. insights/logs/KubeEvents/leitura | Ler dados da tabela KubeEvents |
+> | Microsoft. insights/logs/KubeHealth/leitura | Ler dados da tabela KubeHealth |
+> | Microsoft. insights/logs/KubeMonAgentEvents/leitura | Ler dados da tabela KubeMonAgentEvents |
 > | Microsoft.Insights/Logs/KubeNodeInventory/Read | Lê dados da tabela KubeNodeInventory |
 > | Microsoft.Insights/Logs/KubePodInventory/Read | Lê dados da tabela KubePodInventory |
+> | Microsoft. insights/logs/KubeServices/leitura | Ler dados da tabela KubeEvents |
 > | Microsoft.Insights/Logs/LinuxAuditLog/Read | Lê dados da tabela LinuxAuditLog |
 > | Microsoft.Insights/Logs/MAApplication/Read | Lê dados da tabela MAApplication |
 > | Microsoft.Insights/Logs/MAApplicationHealth/Read | Lê dados da tabela MAApplicationHealth |
@@ -7271,6 +7422,8 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/MAApplicationReadiness/Read | Lê dados da tabela MAApplicationReadiness |
 > | Microsoft.Insights/Logs/MADeploymentPlan/Read | Lê dados da tabela MADeploymentPlan |
 > | Microsoft.Insights/Logs/MADevice/Read | Lê dados da tabela MADevice |
+> | Microsoft. insights/logs/MADeviceNotEnrolled/leitura | Ler dados da tabela MADeviceNotEnrolled |
+> | Microsoft. insights/logs/MADeviceNRT/leitura | Ler dados da tabela MADeviceNRT |
 > | Microsoft.Insights/Logs/MADevicePnPHealth/Read | Ler dados da tabela MADevicePnPHealth |
 > | Microsoft.Insights/Logs/MADevicePnPHealthAlternativeVersions/Read | Ler dados da tabela MADevicePnPHealthAlternativeVersions |
 > | Microsoft.Insights/Logs/MADevicePnPHealthIssues/Read | Ler dados da tabela MADevicePnPHealthIssues |
@@ -7278,19 +7431,27 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/MADriverInstanceReadiness/Read | Ler dados da tabela MADriverInstanceReadiness |
 > | Microsoft.Insights/Logs/MADriverReadiness/Read | Lê dados da tabela MADriverReadiness |
 > | Microsoft.Insights/Logs/MAOfficeAddin/Read | Lê dados da tabela MAOfficeAddin |
+> | Microsoft. insights/logs/MAOfficeAddinEntityHealth/leitura | Ler dados da tabela MAOfficeAddinEntityHealth |
 > | Microsoft.Insights/Logs/MAOfficeAddinHealth/Read | Lê dados da tabela MAOfficeAddinHealth |
+> | Microsoft. insights/logs/MAOfficeAddinHealthEventNRT/leitura | Ler dados da tabela MAOfficeAddinHealthEventNRT |
 > | Microsoft.Insights/Logs/MAOfficeAddinHealthIssues/Read | Ler dados da tabela MAOfficeAddinHealthIssues |
 > | Microsoft.Insights/Logs/MAOfficeAddinInstance/Read | Lê dados da tabela MAOfficeAddinInstance |
 > | Microsoft.Insights/Logs/MAOfficeAddinInstanceReadiness/Read | Ler dados da tabela MAOfficeAddinInstanceReadiness |
 > | Microsoft.Insights/Logs/MAOfficeAddinReadiness/Read | Lê dados da tabela MAOfficeAddinReadiness |
 > | Microsoft.Insights/Logs/MAOfficeApp/Read | Lê dados da tabela MAOfficeApp |
+> | Microsoft. insights/logs/MAOfficeAppCrashesNRT/leitura | Ler dados da tabela MAOfficeAppCrashesNRT |
 > | Microsoft.Insights/Logs/MAOfficeAppHealth/Read | Lê dados da tabela MAOfficeAppHealth |
 > | Microsoft.Insights/Logs/MAOfficeAppInstance/Read | Lê dados da tabela MAOfficeAppInstance |
+> | Microsoft. insights/logs/MAOfficeAppInstanceHealth/leitura | Ler dados da tabela MAOfficeAppInstanceHealth |
 > | Microsoft.Insights/Logs/MAOfficeAppReadiness/Read | Lê dados da tabela MAOfficeAppReadiness |
+> | Microsoft. insights/logs/MAOfficeAppSessionsNRT/leitura | Ler dados da tabela MAOfficeAppSessionsNRT |
 > | Microsoft.Insights/Logs/MAOfficeBuildInfo/Read | Lê dados da tabela MAOfficeBuildInfo |
 > | Microsoft.Insights/Logs/MAOfficeCurrencyAssessment/Read | Lê dados da tabela MAOfficeCurrencyAssessment |
 > | Microsoft.Insights/Logs/MAOfficeCurrencyAssessmentDailyCounts/Read | Lê dados da tabela MAOfficeCurrencyAssessmentDailyCounts |
 > | Microsoft.Insights/Logs/MAOfficeDeploymentStatus/Read | Lê dados da tabela MAOfficeDeploymentStatus |
+> | Microsoft. insights/logs/MAOfficeDeploymentStatusNRT/leitura | Ler dados da tabela MAOfficeDeploymentStatusNRT |
+> | Microsoft. insights/logs/MAOfficeMacroErrorNRT/leitura | Ler dados da tabela MAOfficeMacroErrorNRT |
+> | Microsoft. insights/logs/MAOfficeMacroGlobalHealth/leitura | Ler dados da tabela MAOfficeMacroGlobalHealth |
 > | Microsoft.Insights/Logs/MAOfficeMacroHealth/Read | Ler dados da tabela MAOfficeMacroHealth |
 > | Microsoft.Insights/Logs/MAOfficeMacroHealthIssues/Read | Ler dados da tabela MAOfficeMacroHealthIssues |
 > | Microsoft.Insights/Logs/MAOfficeMacroIssueInstanceReadiness/Read | Ler dados da tabela MAOfficeMacroIssueInstanceReadiness |
@@ -7303,7 +7464,16 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/MAWindowsCurrencyAssessment/Read | Lê dados da tabela MAWindowsCurrencyAssessment |
 > | Microsoft.Insights/Logs/MAWindowsCurrencyAssessmentDailyCounts/Read | Lê dados da tabela MAWindowsCurrencyAssessmentDailyCounts |
 > | Microsoft.Insights/Logs/MAWindowsDeploymentStatus/Read | Lê dados da tabela MAWindowsDeploymentStatus |
+> | Microsoft. insights/logs/MAWindowsDeploymentStatusNRT/leitura | Ler dados da tabela MAWindowsDeploymentStatusNRT |
 > | Microsoft.Insights/Logs/MAWindowsSysReqInstanceReadiness/Read | Ler dados da tabela MAWindowsSysReqInstanceReadiness |
+> | Microsoft. insights/logs/McasShadowItReporting/leitura | Ler dados da tabela McasShadowItReporting |
+> | Microsoft. insights/logs/MicrosoftAzureBastionAuditLogs/leitura | Ler dados da tabela MicrosoftAzureBastionAuditLogs |
+> | Microsoft. insights/logs/MicrosoftDataShareReceivedSnapshotLog/leitura | Ler dados da tabela MicrosoftDataShareReceivedSnapshotLog |
+> | Microsoft. insights/logs/MicrosoftDataShareSentSnapshotLog/leitura | Ler dados da tabela MicrosoftDataShareSentSnapshotLog |
+> | Microsoft. insights/logs/MicrosoftDataShareShareLog/leitura | Ler dados da tabela MicrosoftDataShareShareLog |
+> | Microsoft. insights/logs/MicrosoftDynamicsTelemetryPerformanceLogs/leitura | Ler dados da tabela MicrosoftDynamicsTelemetryPerformanceLogs |
+> | Microsoft. insights/logs/MicrosoftDynamicsTelemetrySystemMetricsLogs/leitura | Ler dados da tabela MicrosoftDynamicsTelemetrySystemMetricsLogs |
+> | Microsoft. insights/logs/MicrosoftHealthcareApisAuditLogs/leitura | Ler dados da tabela MicrosoftHealthcareApisAuditLogs |
 > | Microsoft.Insights/Logs/NetworkMonitoring/Read | Lê dados da tabela NetworkMonitoring |
 > | Microsoft.Insights/Logs/OfficeActivity/Read | Lê dados da tabela OfficeActivity |
 > | Microsoft.Insights/Logs/Operation/Read | Lê dados da tabela Operation |
@@ -7319,18 +7489,33 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | Lê dados da tabela SecurityBaselineSummary |
 > | Microsoft.Insights/Logs/SecurityDetection/Read | Lê dados da tabela SecurityDetection |
 > | Microsoft.Insights/Logs/SecurityEvent/Read | Lê dados da tabela SecurityEvent |
+> | Microsoft. insights/logs/SecurityIncident/leitura | Ler dados da tabela SecurityIncident |
+> | Microsoft. insights/logs/SecurityIoTRawEvent/leitura | Ler dados da tabela SecurityIoTRawEvent |
+> | Microsoft. insights/logs/SecurityNestedRecommendation/leitura | Ler dados da tabela SecurityNestedRecommendation |
+> | Microsoft. insights/logs/SecurityRecommendation/leitura | Ler dados da tabela SecurityRecommendation |
 > | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | Lê dados da tabela ServiceFabricOperationalEvent |
 > | Microsoft.Insights/Logs/ServiceFabricReliableActorEvent/Read | Lê dados da tabela ServiceFabricReliableActorEvent |
 > | Microsoft.Insights/Logs/ServiceFabricReliableServiceEvent/Read | Lê dados da tabela ServiceFabricReliableServiceEvent |
 > | Microsoft.Insights/Logs/SfBAssessmentRecommendation/Read | Lê dados da tabela SfBAssessmentRecommendation |
 > | Microsoft.Insights/Logs/SfBOnlineAssessmentRecommendation/Read | Ler os dados da tabela SfBOnlineAssessmentRecommendation |
 > | Microsoft.Insights/Logs/SharePointOnlineAssessmentRecommendation/Read | Ler os dados da tabela SharePointOnlineAssessmentRecommendation |
+> | Microsoft. insights/logs/SignalRServiceDiagnosticLogs/leitura | Ler dados da tabela SignalRServiceDiagnosticLogs |
+> | Microsoft. insights/logs/SigninLogs/leitura | Ler dados da tabela SigninLogs |
 > | Microsoft.Insights/Logs/SPAssessmentRecommendation/Read | Lê dados da tabela SPAssessmentRecommendation |
 > | Microsoft.Insights/Logs/SQLAssessmentRecommendation/Read | Lê dados da tabela SQLAssessmentRecommendation |
+> | Microsoft. insights/logs/SqlDataClassification/leitura | Ler dados da tabela SqlDataClassification |
 > | Microsoft.Insights/Logs/SQLQueryPerformance/Read | Lê dados da tabela SQLQueryPerformance |
+> | Microsoft. insights/logs/SqlVulnerabilityAssessmentResult/leitura | Ler dados da tabela SqlVulnerabilityAssessmentResult |
+> | Microsoft. insights/logs/StorageBlobLogs/leitura | Ler dados da tabela StorageBlobLogs |
+> | Microsoft. insights/logs/StorageFileLogs/leitura | Ler dados da tabela StorageFileLogs |
+> | Microsoft. insights/logs/StorageQueueLogs/leitura | Ler dados da tabela StorageQueueLogs |
+> | Microsoft. insights/logs/StorageTableLogs/leitura | Ler dados da tabela StorageTableLogs |
+> | Microsoft. insights/logs/SucceededIngestion/leitura | Ler dados da tabela SucceededIngestion |
 > | Microsoft.Insights/Logs/Syslog/Read | Lê dados da tabela Syslog |
 > | Microsoft.Insights/Logs/SysmonEvent/Read | Lê dados da tabela SysmonEvent |
 > | Microsoft. insights/logs/tabelas. personalizado/lido | Lê dados de qualquer log personalizado |
+> | Microsoft. insights/logs/ThreatIntelligenceIndicator/leitura | Ler dados da tabela ThreatIntelligenceIndicator |
+> | Microsoft. insights/logs/TSIIngress/leitura | Ler dados da tabela TSIIngress |
 > | Microsoft.Insights/Logs/UAApp/Read | Lê dados da tabela UAApp |
 > | Microsoft.Insights/Logs/UAComputer/Read | Lê dados da tabela UAComputer |
 > | Microsoft.Insights/Logs/UAComputerRank/Read | Lê dados da tabela UAComputerRank |
@@ -7347,6 +7532,12 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/UpdateRunProgress/Read | Lê dados da tabela UpdateRunProgress |
 > | Microsoft.Insights/Logs/UpdateSummary/Read | Lê dados da tabela UpdateSummary |
 > | Microsoft.Insights/Logs/Usage/Read | Lê dados da tabela Usage |
+> | Microsoft. insights/logs/UserAccessAnalytics/leitura | Ler dados da tabela UserAccessAnalytics |
+> | Microsoft. insights/logs/UserPeerAnalytics/leitura | Ler dados da tabela UserPeerAnalytics |
+> | Microsoft. insights/logs/VMBoundPort/leitura | Lê dados da tabela VMBoundPort |
+> | Microsoft. insights/logs/VMComputer/leitura | Ler dados da tabela VMComputer |
+> | Microsoft. insights/logs/VMConnection/leitura | Lê dados da tabela VMConnection |
+> | Microsoft. insights/logs/VMProcess/leitura | Ler dados da tabela VMProcess |
 > | Microsoft.Insights/Logs/W3CIISLog/Read | Lê dados da tabela W3CIISLog |
 > | Microsoft.Insights/Logs/WaaSDeploymentStatus/Read | Lê dados da tabela WaaSDeploymentStatus |
 > | Microsoft.Insights/Logs/WaaSInsiderStatus/Read | Lê dados da tabela WaaSInsiderStatus |
@@ -7354,11 +7545,19 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.Insights/Logs/WDAVStatus/Read | Lê dados da tabela WDAVStatus |
 > | Microsoft.Insights/Logs/WDAVThreat/Read | Lê dados da tabela WDAVThreat |
 > | Microsoft.Insights/Logs/WindowsClientAssessmentRecommendation/Read | Lê dados da tabela WindowsClientAssessmentRecommendation |
+> | Microsoft. insights/logs/WindowsEvent/leitura | Ler dados da tabela WindowsEvent |
 > | Microsoft.Insights/Logs/WindowsFirewall/Read | Lê dados da tabela WindowsFirewall |
 > | Microsoft.Insights/Logs/WindowsServerAssessmentRecommendation/Read | Lê dados da tabela WindowsServerAssessmentRecommendation |
 > | Microsoft.Insights/Logs/WireData/Read | Lê dados da tabela WireData |
+> | Microsoft. insights/logs/WorkloadMonitoringPerf/leitura | Dados de leitura da tabela WorkloadMonitoringPerf |
 > | Microsoft.Insights/Logs/WUDOAggregatedStatus/Read | Lê dados da tabela WUDOAggregatedStatus |
 > | Microsoft.Insights/Logs/WUDOStatus/Read | Lê dados da tabela WUDOStatus |
+> | Microsoft. insights/logs/WVDCheckpoints/leitura | Ler dados da tabela WVDCheckpoints |
+> | Microsoft. insights/logs/WVDConnections/leitura | Ler dados da tabela WVDConnections |
+> | Microsoft. insights/logs/WVDErrors/leitura | Ler dados da tabela WVDErrors |
+> | Microsoft. insights/logs/WVDFeeds/leitura | Ler dados da tabela WVDFeeds |
+> | Microsoft. insights/logs/WVDHostRegistrations/leitura | Ler dados da tabela WVDHostRegistrations |
+> | Microsoft. insights/logs/WVDManagement/leitura | Ler dados da tabela WVDManagement |
 > | Microsoft.Insights/MetricAlerts/Write | Criar ou atualizar um alerta de métrica |
 > | Microsoft.Insights/MetricAlerts/Delete | Excluir um alerta de métrica |
 > | Microsoft.Insights/MetricAlerts/Read | Ler um alerta de métrica |
@@ -7576,9 +7775,18 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | Lê dados da tabela DeviceCleanup |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | Lê dados da tabela DeviceConnectSession |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceEtw/read | Lê dados da tabela DeviceEtw |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceEvents/Read | Ler dados da tabela DeviceEvents |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceFileEvents/Read | Ler dados da tabela DeviceFileEvents |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceHardwareHealth/read | Lê dados da tabela DeviceHardwareHealth |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceHealth/read | Lê dados da tabela DeviceHealth |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceHeartbeat/read | Lê dados da tabela DeviceHeartbeat |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceImageLoadEvents/Read | Ler dados da tabela DeviceImageLoadEvents |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceInfo/Read | Ler dados da tabela DeviceInfo |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceLogonEvents/Read | Ler dados da tabela DeviceLogonEvents |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceNetworkEvents/Read | Ler dados da tabela DeviceNetworkEvents |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceNetworkInfo/Read | Ler dados da tabela DeviceNetworkInfo |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceProcessEvents/Read | Ler dados da tabela DeviceProcessEvents |
+> | Microsoft. OperationalInsights/Workspaces/Query/DeviceRegistryEvents/Read | Ler dados da tabela DeviceRegistryEvents |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | Lê dados da tabela DeviceSkypeHeartbeat |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | Lê dados da tabela DeviceSkypeSignIn |
 > | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | Lê dados da tabela DeviceSleepState |
@@ -7629,6 +7837,7 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/HDInsightStormLogs/Read | Ler dados da tabela HDInsightStormLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/HDInsightStormMetrics/Read | Ler dados da tabela HDInsightStormMetrics |
 > | Microsoft. OperationalInsights/Workspaces/Query/HDInsightStormTopologyMetrics/Read | Ler dados da tabela HDInsightStormTopologyMetrics |
+> | Microsoft. OperationalInsights/Workspaces/Query/HealthStateChangeEvent/Read | Ler dados da tabela HealthStateChangeEvent |
 > | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Lê dados da tabela Heartbeat |
 > | Microsoft. OperationalInsights/Workspaces/Query/HuntingBookmark/Read | Ler dados da tabela HuntingBookmark |
 > | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Lê dados da tabela IISAssessmentRecommendation |
@@ -7712,6 +7921,8 @@ Serviço do Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/query/Operation/read | Lê dados da tabela Operation |
 > | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | Lê dados da tabela OutboundConnection |
 > | Microsoft.OperationalInsights/workspaces/query/Perf/read | Lê dados da tabela Perf |
+> | Microsoft. OperationalInsights/Workspaces/Query/PowerBIDatasetsTenantPreview/Read | Ler dados da tabela PowerBIDatasetsTenantPreview |
+> | Microsoft. OperationalInsights/Workspaces/Query/PowerBIDatasetsWorkspacePreview/Read | Ler dados da tabela PowerBIDatasetsWorkspacePreview |
 > | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | Lê dados da tabela ProtectionStatus |
 > | Microsoft. OperationalInsights/Workspaces/consulta/solicitações/leitura | Ler dados da tabela de solicitações |
 > | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | Lê dados da tabela SCCMAssessmentRecommendation |
@@ -7919,9 +8130,6 @@ Serviço do Azure: [Azure Policy](../governance/policy/overview.md), [RBAC do Az
 > | Microsoft.Authorization/policyDefinitions/read | Obter informações sobre uma definição de política. |
 > | Microsoft.Authorization/policyDefinitions/write | Criar uma definição de política personalizada. |
 > | Microsoft.Authorization/policyDefinitions/delete | Excluir uma definição de política. |
-> | Microsoft. Authorization/policyExemptions/Read | Obter informações sobre uma isenção de política. |
-> | Microsoft. Authorization/policyExemptions/Write | Crie uma isenção de política no escopo especificado. |
-> | Microsoft. Authorization/policyExemptions/Delete | Excluir uma isenção de política no escopo especificado. |
 > | Microsoft.Authorization/policySetDefinitions/read | Obter informações sobre uma definição de conjunto de políticas. |
 > | Microsoft.Authorization/policySetDefinitions/write | Criar uma definição de conjunto de políticas personalizada. |
 > | Microsoft.Authorization/policySetDefinitions/delete | Excluir uma definição de conjunto de políticas. |
@@ -9076,12 +9284,14 @@ Serviço do Azure: núcleo
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
 > | --- | --- |
-> | Microsoft.Subscription/CreateSubscription/action | Cria uma assinatura do Azure |
-> | Microsoft.Subscription/register/action | Registra a Assinatura no provedor de recursos Microsoft.Subscription |
 > | Microsoft. Subscription/cancelamento/ação | Cancela a assinatura |
 > | Microsoft. Subscription/renomear/ação | Renomeia a assinatura |
-> | Microsoft.Subscription/SubscriptionDefinitions/read | Obter uma definição de assinatura do Azure em um grupo de gerenciamento. |
-> | Microsoft.Subscription/SubscriptionDefinitions/write | Criar uma definição de assinatura do Azure |
+> | Microsoft. Subscription/habilitar/ação | Habilita a assinatura |
+> | Microsoft.Subscription/CreateSubscription/action | Cria uma assinatura do Azure |
+> | Microsoft.Subscription/register/action | Registra a Assinatura no provedor de recursos Microsoft.Subscription |
+> | Microsoft. Subscription/updateTenant/Action | Atualizar o locatário da assinatura |
+> | Microsoft. Subscription/aliases/gravação | Criar alias de assinatura |
+> | Microsoft. Subscription/assinaturas/gravação | Criar ou atualizar assinatura |
 
 ## <a name="intune"></a>Intune
 

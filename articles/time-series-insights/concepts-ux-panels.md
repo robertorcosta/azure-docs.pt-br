@@ -1,6 +1,6 @@
 ---
-title: Visualizar dados no Gen2 Explorer-Azure Time Series Insights Gen2 | Microsoft Docs
-description: Saiba mais sobre os recursos e as opções disponíveis no Azure Time Series Insights Explorer do Gen2.
+title: Visualizar dados no Gerenciador do TSI-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Saiba mais sobre os recursos e as opções disponíveis no Azure Time Series Insights Explorer.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,22 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164148"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227042"
 ---
-# <a name="azure-time-series-insights-gen2-explorer"></a>Azure Time Series Insights Explorer do Gen2
+# <a name="azure-time-series-insights-explorer"></a>Gerenciador do Azure Time Series Insights
 
 Este artigo descreve os vários recursos e opções disponíveis no [ambiente de demonstração](https://insights.timeseries.azure.com/preview/demo)do Azure Time Series insights Gen2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar a usar o Azure Time Series Insights Gen2 Explorer, você deve:
+Para começar a usar o Azure Time Series Insights Explorer, você deve:
 
 * Ter um ambiente de Azure Time Series Insights Gen2 provisionado. Saiba mais sobre como provisionar uma instância lendo o tutorial [Azure Time Series insights Gen2](./time-series-insights-update-create-environment.md) .
 * [Forneça acesso a dados](./time-series-insights-data-access.md) para o ambiente de Azure Time Series insights Gen2 que você criou para a conta. Você pode fornecer acesso a outras pessoas, bem como para si mesmo.
@@ -31,11 +31,11 @@ Para começar a usar o Azure Time Series Insights Gen2 Explorer, você deve:
   * Saiba [como se conectar a um hub de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Saiba [como se conectar a um hub IOT](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
-## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Explore o Azure Time Series Insights Explorer do Gen2
+## <a name="explore-the-azure-time-series-insights-explorer"></a>Explorar o Azure Time Series Insights Explorer
 
-O Azure Time Series Insights Gen2 Explorer consiste nos seguintes sete elementos:
+O Azure Time Series Insights Explorer consiste nos seguintes sete elementos:
 
-[![Visão geral do Azure Time Series Insights Explorer do Gen2](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Visão geral do Azure Time Series Insights Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Painel de ambiente](#1-environment-panel): exibe todos os seus ambientes de Azure Time Series insights Gen2.
 1. [Barra de navegação](#2-navigation-bar): permite alternar entre as páginas **analisar** e **modelo** .
@@ -193,7 +193,7 @@ Para selecionar um novo tema, selecione o ícone de perfil localizado no canto s
 > [!TIP]
 > A seleção de idioma também está disponível selecionando o ícone de perfil.
 
-Azure Time Series Insights o Gen2 Explorer dá suporte a dois temas:
+O Azure Time Series Insights Explorer dá suporte a dois temas:
 
 * **Tema claro**: o tema padrão mostrado em todo este documento.
 * **Tema escuro**: renderiza o Gerenciador como mostrado aqui:
@@ -204,7 +204,7 @@ Azure Time Series Insights o Gen2 Explorer dá suporte a dois temas:
 
 ### <a name="gen2-terms-panel"></a>Painel de termos do Gen2
 
-Esta seção se aplica somente a ambientes Gen 1 existentes que tentam usar o Gerenciador na interface do usuário atualizada. Talvez você queira usar o produto Gen 1 e o produto Gen2 em combinação. Adicionamos algumas funcionalidades da interface do usuário existente ao Gerenciador atualizado, mas você pode obter a experiência de interface do usuário completa para um ambiente Gen 1 no novo Azure Time Series Insights Explorer Gen2.
+Esta seção se aplica somente a ambientes Gen 1 existentes que tentam usar o Gerenciador na interface do usuário atualizada. Talvez você queira usar o produto Gen 1 e o produto Gen2 em combinação. Adicionamos algumas funcionalidades da interface do usuário existente ao Gerenciador atualizado, mas você pode obter a experiência de interface do usuário completa para um ambiente Gen 1 no novo Azure Time Series Insights Explorer.
 
 Em vez da hierarquia, o painel Azure Time Series Insights termos Gen2 é exibido. O painel de termos permite que você defina consultas em seu ambiente. Use-o para filtrar também os dados com base em um predicado.
 

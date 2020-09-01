@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177271"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227025"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)
 
@@ -42,7 +42,7 @@ O diagrama a seguir mostra as etapas básicas que você deve seguir ao transferi
 
 1. Preparar para a transferência
 
-1. Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
+1. Transferir a assinatura do Azure para um diretório diferente
 
 1. Recriar recursos no diretório de destino, como atribuições de função, funções personalizadas e identidades gerenciadas
 
@@ -264,12 +264,12 @@ Quando você cria um cofre de chaves, ele é automaticamente vinculado à ID de 
 
 ## <a name="step-2-transfer-the-subscription"></a>Etapa 2: transferir a assinatura
 
-Nesta etapa, você transfere a assinatura do diretório de origem para o diretório de destino. As etapas serão diferentes dependendo se você também quiser transferir a propriedade de cobrança.
+Nesta etapa, você transfere a assinatura do diretório de origem para o diretório de destino. As etapas serão diferentes dependendo se você deseja também transferir a propriedade de cobrança.
 
 > [!WARNING]
 > Quando você transfere a assinatura, todas as atribuições de função no diretório de origem são excluídas **permanentemente** e não podem ser restauradas. Você não pode voltar depois de transferir a assinatura. Certifique-se de concluir as etapas anteriores antes de executar esta etapa.
 
-1. Determine se você também deseja transferir a propriedade de cobrança.
+1. Determine se você também deseja transferir a propriedade de cobrança para outra conta.
 
 1. Transfira a assinatura para um diretório diferente.
 

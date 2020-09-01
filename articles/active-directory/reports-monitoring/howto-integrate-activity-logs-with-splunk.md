@@ -17,12 +17,12 @@ ms.date: 03/10/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a17f0a0c9c6a6c8bd466114e98b2b8c6ee5e9f8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61cae487c588c7649de638d9ea6d3111bfbe9e1a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608153"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229677"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Como integrar logs de Azure Active Directory com o Splunk usando Azure Monitor
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a integrar os logs do Azure Active Directory (Mic
 
 Para usar esse recurso, você precisa de:
 
-- Um hub de eventos do azure contendo logs de atividades do Microsoft Azure AD. Saiba como [enviar seus logs de atividades para um hub de eventos](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
+- Um hub de eventos do azure contendo logs de atividades do Microsoft Azure AD. Saiba como [enviar seus logs de atividades para um hub de eventos](./tutorial-azure-monitor-stream-logs-to-event-hub.md). 
 
 -  O [Microsoft Azure adicionar on para Splunk](https://splunkbase.splunk.com/app/3757/). 
 
@@ -48,7 +48,7 @@ Para usar esse recurso, você precisa de:
 
     Você verá que os logs de atividade do Azure Active Directory são mostrados na figura a seguir:
 
-    ![Logs de atividade](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
+    ![Logs de atividades](./media/howto-integrate-activity-logs-with-splunk/activitylogs.png)
 
 > [!NOTE]
 > Se você não puder instalar um complemento em sua instância do Splunk (por exemplo, se estiver usando um proxy ou em execução no Splunk Cloud), poderá encaminhar esses eventos para o Coletor de Eventos HTTP. Para fazer isso, use esta [função do Azure](https://github.com/Microsoft/AzureFunctionforSplunkVS), que é disparada por novas mensagens no hub de eventos. 
