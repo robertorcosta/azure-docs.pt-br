@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056526"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074526"
 ---
 # <a name="blob-versioning-preview"></a>Controle de versão de blob (versão prévia)
 
@@ -29,6 +29,8 @@ Para saber como habilitar o controle de versão de BLOB, consulte [habilitar e g
 
 > [!IMPORTANT]
 > O controle de versão de BLOB não pode ajudá-lo a se recuperar da exclusão acidental de uma conta de armazenamento ou contêiner. Para evitar a exclusão acidental da conta de armazenamento, configure um bloqueio **CannotDelete** no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear recursos do Azure, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-versioning-works"></a>Como funciona o controle de versão de BLOB
 
@@ -163,7 +165,7 @@ Quando você tira um instantâneo de um blob com versão, uma nova versão é cr
 
 O diagrama a seguir mostra o que acontece quando você tira um instantâneo de um blob com versão. No diagrama, as versões de BLOB e os instantâneos com a ID de versão 2 e 3 contêm dados idênticos.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando instantâneos de um blob com versão":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando instantâneos de um blob com versão ":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autorizar operações em versões de BLOB
 
@@ -320,7 +322,7 @@ No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum do
 
 ![Recursos de Armazenamento do Azure](./media/versioning-overview/versions-billing-scenario-4.png)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - [Habilitar controle de versão de blob](versioning-enable.md)
 - [Criando um instantâneo de um blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 097b3c71b01a8ad0e930d7aa0d7be46a1e835e1a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: edbce017b1090a029d49c9f2f8812e7e65133fcb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495158"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073124"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicação de objeto para blobs de blocos (versão prévia)
 
@@ -31,6 +31,8 @@ O diagrama a seguir mostra como a replicação de objeto replica blobs de blocos
 :::image type="content" source="media/object-replication-overview/object-replication-diagram.svg" alt-text="Diagrama mostrando como funciona a replicação de objeto":::
 
 Para saber como configurar a replicação de objeto, consulte [Configurar a replicação de objeto (versão prévia)](object-replication-configure.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="object-replication-policies-and-rules"></a>Políticas e regras da replicação de objeto
 
@@ -77,7 +79,7 @@ Durante a versão prévia, não há custos adicionais associados à replicação
 ### <a name="prerequisites-for-object-replication"></a>Pré-requisitos para replicação do objeto
 
 A replicação de objeto exige que os seguintes recursos de Armazenamento do Azure estejam habilitados: 
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Feed de alteração](storage-blob-change-feed.md)
 - [Controle de versão](versioning-overview.md)
 
 Antes de configurar a replicação de objeto, habilite seus pré-requisitos. O feed de alterações deve ser habilitado na conta de origem, e o controle de versão do blob deve ser habilitado na conta de origem e de destino. Para saber mais sobre como habilitar esses recursos, confira estes artigos:

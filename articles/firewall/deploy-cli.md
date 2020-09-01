@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 3087b01e849aaa4d1f3c2b6b4060cf202927f55f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602611"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075419"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implantar e configurar o Firewall do Azure usando o CLI do Azure
 
@@ -35,13 +35,12 @@ Para este artigo, você cria uma VNet única simplificada com três sub-redes pa
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar um ambiente de rede de teste
-> * Implantar um firewall
-> * Criar uma rota padrão
-> * Configure uma regra de aplicativo para permitir acesso a www.google.com
-> * Configurar uma regra de rede para permitir o acesso a servidores DNS externos
-> * Testar o firewall
+* Configurar um ambiente de rede de teste
+* Implantar um firewall
+* Criar uma rota padrão
+* Configure uma regra de aplicativo para permitir acesso a www.google.com
+* Configurar uma regra de rede para permitir o acesso a servidores DNS externos
+* Testar o firewall
 
 Se preferir, você pode concluir este procedimento usando o [portal do Azure](tutorial-firewall-deploy-portal.md) ou [Azure PowerShell](deploy-ps.md).
 

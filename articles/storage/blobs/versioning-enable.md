@@ -10,12 +10,12 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001052"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074399"
 ---
 # <a name="enable-and-manage-blob-versioning-preview"></a>Habilitar e gerenciar o controle de versão de BLOB (visualização)
 
@@ -25,9 +25,11 @@ Este artigo mostra como habilitar ou desabilitar o controle de versão de BLOB p
 
 Você deve se registrar para a visualização antes de habilitar o controle de versão de BLOB. Para saber mais sobre o controle de versão de BLOB, incluindo como registrar-se para a versão prévia, consulte [versionamento de BLOB (visualização)](versioning-overview.md).
 
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
+
 ## <a name="enable-blob-versioning"></a>Habilitar controle de versão de blob
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para habilitar o controle de versão de blob no portal do Azure:
 

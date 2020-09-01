@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: ff7cb3c03edf9b421347815311796896caaffd70
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086595"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075300"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Usar o agente de ID (versão prévia) para o gerenciamento de credenciais
 
@@ -46,7 +46,7 @@ O recurso do agente de ID adicionará uma VM extra ao cluster. Essa VM é o nó 
 
 ![Opção para habilitar o agente de ID](./media/identity-broker/identity-broker-enable.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Usando modelos do Gerenciador de Recursos do Azure
+### <a name="using-azure-resource-manager-templates"></a>Usar modelos do Azure Resource Manager
 Se você adicionar uma nova função chamada `idbrokernode` com os seguintes atributos ao perfil de computação do modelo, o cluster será criado com o nó do agente de ID habilitado:
 
 ```json
@@ -98,13 +98,21 @@ Depois que o agente de ID estiver habilitado, você ainda precisará de um hash 
 
 A autenticação SSH requer que o hash esteja disponível no Azure AD DS. Se você quiser usar o SSH somente para cenários administrativos, poderá criar uma conta somente em nuvem e usá-la para SSH para o cluster. Outros usuários ainda podem usar as ferramentas Ambari ou HDInsight (como o plug-in IntelliJ) sem ter o hash de senha disponível no Azure AD DS.
 
+Para solucionar problemas de autenticação, confira este [guia](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+
 ## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Clientes que usam o OAuth para se conectar ao gateway do HDInsight com a instalação do agente de ID
 
 Na instalação do agente de ID, os aplicativos personalizados e clientes que se conectam ao gateway podem ser atualizados para adquirir o token OAuth necessário primeiro. Você pode seguir as etapas neste [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) para adquirir o token com as seguintes informações:
 
-*   URI do recurso OAuth:`https://hib.azurehdinsight.net` 
+*   URI do recurso OAuth: `https://hib.azurehdinsight.net` 
 * AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a
 *   Permissão: (nome: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+
+Depois de obtenção o token OAuth, você pode usá-lo no cabeçalho Authorization para a solicitação HTTP para o gateway de cluster (por exemplo <clustername> ,-int.azurehdinsight.net). Por exemplo, um exemplo de comando de ondulação para API Livy pode ser assim:
+    
+```bash
+curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+``` 
 
 ## <a name="next-steps"></a>Próximas etapas
 

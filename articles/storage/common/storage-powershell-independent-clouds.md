@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ccacef6f9557bdcf683973c2ad5141b6066347b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904302"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072937"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gerenciamento do Armazenamento nas nuvens independentes do Azure usando o PowerShell
 
@@ -155,7 +156,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 Agora você pode usar o PowerShell para gerenciar suas contas de armazenamento e acessar dados de BLOB, fila, arquivo e tabela. Para obter mais informações, consulte [AZ. Storage](/powershell/module/az.storage).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você criou um novo grupo de recursos e uma conta de armazenamento para este exercício, você pode remover ambos os ativos excluindo o grupo de recursos. A exclusão do grupo de recursos exclui todos os recursos contidos nele.
 

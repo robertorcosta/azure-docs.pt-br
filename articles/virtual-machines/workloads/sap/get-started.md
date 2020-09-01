@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 08/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 704d4c1b4e4e4229f35526748494aaac2e351f99
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 0f26c83f87811acc5853f1bff5303cd37092b33f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871370"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075946"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 
@@ -88,6 +88,7 @@ Para obter informações sobre a integração dos serviços do Azure em componen
 
 ## <a name="change-log"></a>Log de alterações
 
+- 08/28/2020: alteração na [ha para SAP NW em VMs do Azure no SLES com seja](./high-availability-guide-suse-netapp-files.md) para corrigir erros de digitação
 - 08/25/2020: alteração no [Guia de ha para SAP ASCS/SCS com WSFC e disco compartilhado](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare a infraestrutura do Azure para SAP ASCS/SCS com WSFC e disco compartilhado](./sap-high-availability-infrastructure-wsfc-shared-disk.md) e [Instale o SAP NW ha com WSFC e disco compartilhado](./sap-high-availability-guide-wsfc-shared-disk.md) para introduzir a opção de usar disco compartilhado do Azure e documentar a arquitetura SAP ERS2
 - 08/25/2020: versão do [Guia de alta disponibilidade de vários SIDs para SAP ASCS/SCS com WSFC e disco compartilhado do Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
 - 08/25/2020: alteração no [Guia de ha para SAP ASCS/SCS com WSFC e Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md), [preparar a infraestrutura do Azure para SAP ASCS/SCS com WSFC e compartilhamento de arquivos](./sap-high-availability-infrastructure-wsfc-file-share.md), [Guia de alta disponibilidade multisid para SAP ASCS/SCS com WSFC e disco compartilhado](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) e [Guia de alta disponibilidade multisid para SAP ASCS/SCS com compartilhamento de arquivos WSFC e SOFS](./sap-ascs-ha-multi-sid-wsfc-file-share.md) como resultado das atualizações de conteúdo e da reestruturação nos guias de alta disponibilidade para SAP ASCS/SCS com WFC e disco compartilhado 

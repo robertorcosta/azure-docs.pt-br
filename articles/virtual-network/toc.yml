@@ -97,7 +97,11 @@
     - name: Segurança
       items:
         - name: Grupos de segurança de rede
-          href: security-overview.md
+          items:
+            - name: Visão geral
+              href: security-overview.md
+            - name: Como ele funciona
+              href: network-security-group-how-it-works.md
         - name: Grupos de segurança do aplicativo
           href: application-security-groups.md
         - name: Marcas de serviço
