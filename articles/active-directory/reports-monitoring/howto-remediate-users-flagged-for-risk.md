@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608918"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231156"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Corrigir usuários sinalizados como de risco no portal do Azure Active Directory
 
@@ -40,7 +40,7 @@ Usuários sinalizados como risco, você pode executar as seguintes ações para 
 - Exigir que o usuário redefina a senha de forma segura na próxima vez que ele se conectar
 - Ignorar o risco de usuário sem realizar nenhuma ação de correção.
 
-Para obter mais informações, consulte [Usuários sinalizados para o relatório de segurança de risco](concept-user-at-risk.md).
+Para obter mais informações, consulte [Usuários sinalizados para o relatório de segurança de risco](../identity-protection/overview-identity-protection.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Assinatura do Azure AD para clientes do Office 365
 
@@ -75,7 +75,7 @@ Execute as seguintes ações para ajudar a corrigir as contas afetadas e protege
 
     f. Definir a complexidade da senha na conta como alta.
 
-    (por exemplo, Habilitar auditoria na caixa de correio.
+    g. Habilitar auditoria na caixa de correio.
 
     h. Produza um log de auditoria para o administrador revisar.
 
@@ -91,5 +91,5 @@ Além disso, você deve:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Usuários sinalizados por risco](concept-user-at-risk.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
+* [Usuários sinalizados por risco](../identity-protection/overview-identity-protection.md)

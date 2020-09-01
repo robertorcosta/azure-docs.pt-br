@@ -1,44 +1,39 @@
 ---
-title: Chamar, disparar ou aninhar aplicativos lógicos
-description: Configurar pontos de extremidade HTTPS para chamar, disparar ou aninhar fluxos de trabalho de aplicativo lógico nos aplicativos lógicos do Azure
+title: Chamar, disparar ou aninhar aplicativos lógicos usando gatilhos de solicitação
+description: Configurar pontos de extremidade HTTPS para chamar, disparar ou aninhar fluxos de trabalho de aplicativo lógico em aplicativos lógicos do Azure
 services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078670"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230799"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar aplicativos lógicos usando pontos de extremidade HTTPS em aplicativos lógicos do Azure
 
-Para tornar seu aplicativo lógico chamável por meio de uma URL para que seu aplicativo lógico possa receber solicitações de entrada de outros serviços, você pode expor nativamente um ponto de extremidade HTTPS síncrono como um gatilho nesse aplicativo lógico. Ao configurar esse recurso, você também pode aninhar seu aplicativo lógico dentro de outros aplicativos lógicos, o que permite criar um padrão de pontos de extremidade que podem ser chamados.
-
-Para configurar um ponto de extremidade chamável, você pode usar qualquer um desses tipos de gatilho, o que permite que os aplicativos lógicos recebam solicitações de entrada:
+Para tornar seu aplicativo lógico chamável por meio de uma URL e ser capaz de receber solicitações de entrada de outros serviços, você pode expor nativamente um ponto de extremidade HTTPS síncrono usando um gatilho baseado em solicitação em seu aplicativo lógico. Com esse recurso, você pode chamar seu aplicativo lógico de outros aplicativos lógicos e criar um padrão de pontos de extremidade que podem ser chamados. Para configurar um ponto de extremidade que possa ser chamado para manipular chamadas de entrada, você pode usar qualquer um desses tipos de gatilho:
 
 * [Solicitação](../connectors/connectors-native-reqres.md)
 * [Webhook HTTP](../connectors/connectors-native-webhook.md)
 * Gatilhos de conector gerenciado que têm o [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber solicitações HTTPS de entrada
 
-> [!NOTE]
-> Esses exemplos usam o gatilho de solicitação, mas você pode usar qualquer gatilho baseado em solicitação HTTPS que esteja na lista anterior. Todos os princípios se aplicam de forma idêntica a esses outros tipos de gatilho.
+Este artigo mostra como criar um ponto de extremidade que possa ser chamado em seu aplicativo lógico usando o gatilho de solicitação e chamar esse ponto de extremidade de outro aplicativo lógico. Todos os princípios se aplicam de forma idêntica aos outros tipos de gatilho que você pode usar para receber solicitações de entrada.
 
-Se você for novo em aplicativos lógicos, consulte [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) [: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para obter informações sobre criptografia, segurança e autorização para chamadas de entrada para seu aplicativo lógico, como [TLS (segurança de camada de transporte)](https://en.wikipedia.org/wiki/Transport_Layer_Security), anteriormente conhecido como protocolo SSL (SSL) ou [Azure Active Directory autenticação aberta (OAuth do Azure AD)](../active-directory/develop/index.yml), consulte [acesso seguro e acesso a dados para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
+* Uma conta e uma assinatura do Azure. Se você não tem uma assinatura, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* O aplicativo lógico no qual você deseja usar o gatilho para criar o ponto de extremidade que possa ser chamado. Você pode começar com um aplicativo lógico em branco ou um aplicativo lógico existente no qual você deseja substituir o gatilho atual. Este exemplo começa com um aplicativo lógico em branco.
+* O aplicativo lógico no qual você deseja usar o gatilho para criar o ponto de extremidade que possa ser chamado. Você pode começar com um aplicativo lógico em branco ou um aplicativo lógico existente, onde você pode substituir o gatilho atual. Este exemplo começa com um aplicativo lógico em branco. Se você for novo em aplicativos lógicos, consulte [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) [: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-callable-endpoint"></a>Criar um ponto de extremidade que possa ser chamado
 
 1. Entre no [portal do Azure](https://portal.azure.com). Crie e abra um aplicativo lógico em branco no designer de aplicativo lógico.
-
-   Este exemplo usa o gatilho Request, mas você pode usar qualquer gatilho que possa receber solicitações HTTPS de entrada. Todos os princípios se aplicam de forma idêntica a esses gatilhos. Para obter mais informações sobre o gatilho de solicitação, consulte [receber e responder a chamadas HTTPS de entrada usando o aplicativo lógico do Azure](../connectors/connectors-native-reqres.md).
 
 1. Na caixa de pesquisa, selecione **interno**. Na caixa de pesquisa, insira `request` como o filtro. Na lista de gatilhos, selecione **quando uma solicitação HTTP é recebida**.
 
@@ -200,7 +195,7 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   O navegador retorna uma resposta com este texto:`Postal Code: 123456`
+   O navegador retorna uma resposta com este texto: `Postal Code: 123456`
 
    ![Resposta de envio de solicitação para URL de retorno de chamada](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
@@ -210,12 +205,12 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
    Este exemplo mostra a URL de retorno de chamada com o nome do parâmetro de exemplo e o valor `postalCode=123456` em posições diferentes dentro da URL:
 
-   * 1ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * 1ª posição: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   * 2ª posição:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * 2ª posição: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 > [!NOTE]
-> Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI, use esta versão codificada em vez disso:`%25%23`
+> Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI, use esta versão codificada em vez disso: `%25%23`
 
 <a name="relative-path"></a>
 
@@ -257,12 +252,12 @@ Quando você quiser aceitar valores de parâmetro por meio da URL do ponto de ex
 
 1. Para testar seu ponto de extremidade chamável, copie a URL de retorno de chamada atualizada do gatilho de solicitação, Cole a URL em outra janela do navegador, substitua `{postalCode}` na URL por `123456` e pressione Enter.
 
-   O navegador retorna uma resposta com este texto:`Postal Code: 123456`
+   O navegador retorna uma resposta com este texto: `Postal Code: 123456`
 
    ![Resposta de envio de solicitação para URL de retorno de chamada](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
 > [!NOTE]
-> Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI, use esta versão codificada em vez disso:`%25%23`
+> Se você quiser incluir o hash ou símbolo de libra ( **#** ) no URI, use esta versão codificada em vez disso: `%25%23`
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Chamar aplicativo lógico por meio da URL do ponto de extremidade
 
@@ -384,7 +379,7 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 }
 ```
 
-## <a name="q--a"></a>Perguntas e respostas
+## <a name="q--a"></a>Perguntas e Respostas
 
 #### <a name="q-what-about-url-security"></a>P: O que dizer sobre a segurança de URL?
 
@@ -408,3 +403,4 @@ Para exibir a definição de JSON para a ação de resposta e a definição JSON
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure](../connectors/connectors-native-reqres.md)
+* [Proteger o acesso e os dados em aplicativos lógicos do Azure-acesso-acesso para chamadas de entrada para gatilhos baseados em solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998927"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230459"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o agente de Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em computadores Linux usando os seguintes métodos:
@@ -51,11 +51,19 @@ Começando com versões lançadas depois de agosto de 2018, estamos fazendo as s
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-O executável python2 deve ter um alias para "Python" usando o seguinte comando:
+O executável python2 deve ter um alias para *Python*. A seguir, um método que você pode usar para definir este alias:
 
-```
-alternatives --set python `which python2`
-```
+1. Execute o comando a seguir para remover todos os aliases existentes.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Execute o comando a seguir para criar o alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## <a name="supported-linux-hardening"></a>Proteção do Linux com suporte
 O agente do OMS tem suporte limitado para personalização para Linux. 
@@ -64,7 +72,8 @@ No momento, há suporte para os seguintes:
 - FIPs
 
 Os itens a seguir estão planejados, mas ainda não têm suporte:
-- CIS-SELINUX
+- ICS
+- SELINUX
 
 Outros métodos de proteção e personalização não são suportados nem planejados para o agente do OMS.  
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066654"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230068"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitar e gerenciar a exclusão reversível para contêineres (visualização)
 
@@ -22,7 +22,7 @@ A exclusão reversível de contêiner (versão prévia) protege seus dados contr
 
 Se houver uma possibilidade de que seus dados possam ser acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, a Microsoft recomenda ativar a exclusão reversível de contêiner. Este artigo mostra como habilitar a exclusão reversível para contêineres. Para obter mais detalhes sobre exclusão reversível de contêiner, incluindo como registrar-se para a versão prévia, consulte [exclusão reversível para contêineres (versão prévia)](soft-delete-container-overview.md).
 
-Para proteção de dados de ponta a ponta, a Microsoft recomenda que você também habilite a exclusão reversível para BLOBs e controle de versão de BLOB (visualização). Para saber como habilitar também a exclusão reversível para BLOBs, consulte [habilitar e gerenciar a exclusão reversível para BLOBs](soft-delete-blob-enable.md). Para saber como habilitar o controle de versão de BLOB, consulte [controle de versão de BLOB (visualização)](versioning-overview.md).
+Para proteção de dados de ponta a ponta, a Microsoft recomenda que você também habilite a exclusão reversível para BLOBs e controle de versão de BLOB. Para saber como habilitar também a exclusão reversível para BLOBs, consulte [habilitar e gerenciar a exclusão reversível para BLOBs](soft-delete-blob-enable.md). Para saber como habilitar o controle de versão de BLOB, consulte [controle de versão de blob](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Habilitar exclusão reversível de contêiner
 
@@ -100,5 +100,5 @@ Você pode restaurar um contêiner excluído de maneira reversível e seu conte�
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Exclusão reversível para contêineres (visualização)](soft-delete-container-overview.md)
-- [Exclusão reversível para BLOBs](soft-delete-blob-overview.md)
-- [Controle de versão de blob (versão prévia)](versioning-overview.md)
+- [Exclusão reversível para blobs](soft-delete-blob-overview.md)
+- [Controle de versão de BLOB](versioning-overview.md)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427b488fe6673bef505fccdaa7185d69437bceaf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656547"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231309"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Criar um ambiente do serviço de integração (ISE) usando a API REST de Aplicativos Lógicos
 
@@ -58,7 +58,7 @@ No cabeçalho da solicitação, inclua estas propriedades:
 
 ## <a name="request-body"></a>Corpo da solicitação
 
-Aqui está a sintaxe do corpo da solicitação, que descreve as propriedades a serem usadas ao criar o ISE. Para criar um ISE que permita o uso de um certificado autoassinado instalado no `TrustedRoot` local, inclua o `certificates` objeto dentro da seção da definição do ISE `properties` . Para um ISE existente, você pode enviar uma solicitação de PATCH somente para o `certificates` objeto. Para obter mais informações sobre o uso de certificados autoassinados, consulte também [certificados autoassinados do conector http](../connectors/connectors-native-http.md#self-signed).
+Aqui está a sintaxe do corpo da solicitação, que descreve as propriedades a serem usadas ao criar o ISE. Para criar um ISE que permita o uso de um certificado autoassinado instalado no `TrustedRoot` local, inclua o `certificates` objeto dentro da seção da definição do ISE `properties` . Para um ISE existente, você pode enviar uma solicitação de PATCH somente para o `certificates` objeto. Para obter mais informações sobre o uso de certificados autoassinados, consulte [acesso seguro e acesso a dados para chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ```json
 {

@@ -3,12 +3,12 @@ title: Tipos de recurso com suporte por meio do Azure Resource Health | Microsof
 description: Tipos de recurso com suporte por meio do Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611935"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230153"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
@@ -22,6 +22,11 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |Verificações executadas|
 |---|
 |<ul><li>O serviço de Gerenciamento de Api está ativo e em funcionamento?</li></ul>|
+
+## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
+|Verificações executadas|
+|---|
+|<ul><li>A instância do Azure Spring Cloud está disponível?</li></ul>|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |Verificações executadas|
@@ -56,12 +61,17 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
 |Verificações executadas|
 |---|
-|<ul><li>O host está funcionando</li><li>O hardware do host está degradado?</li><li>O host está desalocado?</li><li>O serviço de hardware do host foi reparado para hardware diferente?</li></ul>|
+|<ul><li>O host está em funcionamento?</li><li>O hardware do host está degradado?</li><li>O host está desalocado?</li><li>O serviço de hardware do host foi reparado para hardware diferente?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Verificações executadas|
 |---|
 |<ul><li>O servidor que hospeda a máquina virtual está em funcionamento?</li><li>A inicialização do SO host foi concluída?</li><li>O contêiner da máquina virtual está provisionado e ligado?</li><li>Há conectividade de rede entre o host e a conta de armazenamento?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host foi degradado e previsto para falhar em breve?</li></ul>|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+|Verificações executadas|
+|---|
+|<ul><li>O cluster está em funcionamento?</li><li>Os serviços principais estão disponíveis no cluster?</li><li>Todos os nós de cluster estão prontos?</li><li>A entidade de serviço é atual e válida?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Verificações executadas|
@@ -124,10 +134,20 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |---|
 |<ul><li>Os serviços principais estão disponíveis no cluster HDInsight?</li><li>O cluster HDInsight consegue acessar a chave de criptografia de BYOK em repouso?</li></ul>|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
+|Verificações executadas|
+|---|
+|<ul><li>O aplicativo IoT Central está disponível?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Verificações executadas|
 |---|
 |<ul><li>As solicitações para a falha do cofre de chave são decorrentes dos problemas da plataforma Azure KeyVault?</li><li>As solicitações para o cofre de chave estão sendo limitadas devido a muitas solicitações feitas pelo cliente?</li></ul>|
+
+## <a name="microsoftkustoclusters"></a>Microsoft. Kusto/clusters
+|Verificações executadas|
+|---|
+|<ul><li>O cluster está apresentando baixas taxas de êxito de ingestão?</li><li>O cluster está apresentando alta latência de ingestão?</li><li>O cluster está apresentando um grande número de falhas de consulta?</li></ul>|
 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |Verificações executadas|
@@ -164,6 +184,11 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |---|
 |<ul><li>Os pontos de extremidade do balanceamento de carga estão disponíveis?</li></ul>|
 
+## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft. Network/trafficmanagerprofiles
+|Verificações executadas|
+|---|
+|<ul><li>Há algum problema afetando o perfil do Gerenciador de tráfego?</li></ul>|
+
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Verificações executadas|
 |---|
@@ -183,11 +208,6 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 |Verificações executadas|
 |---|
 |<ul><li>O recurso de capacidade está funcionando?</li><li>Todas as cargas de trabalho estão funcionando?</li></ul>|
-
-## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
-|Verificações executadas|
-|---|
-|<ul><li>O SO host está em funcionamento?</li><li>O workspaceCollection pode ser acessado de fora do datacenter?</li><li>O provedor de recursos do Power BI está disponível?</li><li>O serviço do Power BI está disponível na região apropriada?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Verificações executadas|

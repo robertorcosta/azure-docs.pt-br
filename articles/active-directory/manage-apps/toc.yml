@@ -238,12 +238,6 @@
               href: application-types.md
             - name: Usuário inesperado atribuído
               href: ways-users-get-assigned-to-applications.md
-        - name: Solucionar problemas em Meus Aplicativos
-          items:
-            - name: Aplicativo não aparece
-              href: access-panel-troubleshoot-application-not-appearing.md
-            - name: Aplicativo inesperado aparece
-              href: access-panel-troubleshoot-unexpected-application.md
         - name: Solucionar problemas de aplicativos locais
           items:
             - name: Solução de problemas de Proxy de Aplicativo

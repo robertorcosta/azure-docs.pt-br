@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9dd407ce2727582039089c0abe31b68bfe5d0f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070319"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231173"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solucionar problemas ao entrar em um aplicativo do Azure AD meus aplicativos
 
@@ -27,10 +27,16 @@ Para saber mais sobre como usar o Azure AD como um provedor de identidade para u
 Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O aplicativo deve ser configurado corretamente e atribuído ao usuário ou a um grupo do qual o usuário é membro para ver o aplicativo em meus aplicativos. 
 
 Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a seguir:
--   Aplicativos do Office 365
+-   Aplicativos Microsoft 365 e Office 365
 -   Aplicativos da Microsoft e de terceiros configurados com o SSO baseado em federação
 -   Aplicativos de SSO baseadas em senhas
 -   Aplicativos com soluções de SSO existentes
+
+Aqui estão algumas coisas para verificar se um aplicativo está aparecendo ou não aparecendo.
+- Certifique-se de que o aplicativo seja adicionado ao Azure AD e verifique se o usuário está atribuído. Para saber mais, confira a [série de guias de início rápido sobre gerenciamento de aplicativos](view-applications-portal.md).
+- Se um aplicativo foi adicionado recentemente, faça com que o usuário saia e entre novamente. 
+- Se o aplicativo exigir uma licença, como o Office, verifique se o usuário está atribuído à licença apropriada.
+- O tempo necessário para as alterações de licenciamento pode variar dependendo do tamanho e da complexidade do grupo.
 
 ## <a name="general-issues-to-check-first"></a>Problemas gerais para verificar primeiro
 

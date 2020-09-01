@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: e9c4d70bcd0b991d90c68d310f94b21757fe2437
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: d939c03aef8d155d83d20c7d8211e04fae26c228
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830206"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230272"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança do Azure para o Key Vault
 
@@ -69,9 +69,9 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 **Orientação**: habilitar a proteção contra DDoS do Azure Standard nas redes virtuais do Azure associadas às suas instâncias de Key Vault para proteção contra ataques de negação de serviço distribuídos. Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados.
 
  
-Gerenciar a proteção contra DDoS do Azure Standard usando o portal do Azure:https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
+Gerenciar a proteção contra DDoS do Azure Standard usando o portal do Azure: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
-Detecção de ameaças para a camada de serviço do Azure na central de segurança do Azure:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Detecção de ameaças para a camada de serviço do Azure na central de segurança do Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -86,7 +86,7 @@ Integre o Key Vault com o link privado do Azure:
 
 https://docs.microsoft.com/azure/key-vault/private-link-service
 
-Log de Azure Key Vault:https://docs.microsoft.com/azure/key-vault/key-vault-logging
+Log de Azure Key Vault: https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 
 
@@ -123,7 +123,7 @@ https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-
 
 **Orientação**: para obter recursos que precisam de acesso às suas instâncias de Azure Key Vault, use as marcas de serviço do Azure para a Azure Key Vault definir os controles de acesso à rede em grupos de segurança de rede ou no firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, ApiManagement) no campo correto de origem ou destino de uma regra, você poderá permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
-Visão geral das marcas de serviço do Azure:https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Visão geral das marcas de serviço do Azure: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -243,7 +243,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 **Diretrizes**: em Azure monitor, para o espaço de trabalho log Analytics que está sendo usado para manter seus logs de Azure Key Vault, defina o período de retenção de acordo com os regulamentos de conformidade de sua organização. Use contas de Armazenamento do Microsoft Azure para armazenamentos de longo prazo/arquivamento.
 
-Alterar o período de retenção de dados:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Alterar o período de retenção de dados: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -399,9 +399,9 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 **Orientação**: Use uma Paw (estação de trabalho com acesso privilegiado) com o MFA (autenticação multifator) do Azure configurada para fazer logon e configurar Key Vault recursos habilitados. 
 
-Estações de trabalho com acesso privilegiado:https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
+Estações de trabalho com acesso privilegiado: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations 
 
-Planejando uma implantação da autenticação multifator do Azure baseada em nuvem:https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+Planejando uma implantação da autenticação multifator do Azure baseada em nuvem: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 
@@ -415,15 +415,15 @@ Planejando uma implantação da autenticação multifator do Azure baseada em nu
 
 Habilite a ATP (proteção avançada contra ameaças) para Azure Key Vault gerar alertas para atividades suspeitas.
 
-Azure AD Privileged Identity Management de implantação (PIM):https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
+Azure AD Privileged Identity Management de implantação (PIM): https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan
 
-Configurar a proteção avançada contra ameaças para Azure Key Vault (versão prévia):https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
+Configurar a proteção avançada contra ameaças para Azure Key Vault (versão prévia): https://docs.microsoft.com/azure/security-center/advanced-threat-protection-key-vault
 
-Alertas para Azure Key Vault (versão prévia):https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurekv
+Alertas para Azure Key Vault (versão prévia): https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurekv
 
-Azure Active Directory de detecções de risco:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
+Azure Active Directory de detecções de risco: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
-Crie e gerencie grupos de ações no portal do Azure:https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
+Crie e gerencie grupos de ações no portal do Azure: https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 
 
@@ -435,7 +435,7 @@ Crie e gerencie grupos de ações no portal do Azure:https://docs.microsoft.com/
 
 **Diretrizes**: Configure a condição de local de uma política de acesso condicional e gerencie seus locais nomeados. Com os locais nomeados, você pode criar agrupamentos lógicos de intervalos de endereços IP ou países e regiões. Você pode restringir o acesso a recursos confidenciais, como seus segredos de Key Vault, aos seus locais nomeados configurados.
 
-Qual é a condição de local em Azure Active Directory acesso condicional?:https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
+Qual é a condição de local em Azure Active Directory acesso condicional?: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
 
 
@@ -479,9 +479,9 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 **Diretrizes**: habilite as configurações de diagnóstico para Azure Key Vault e Azure Active Directory, enviando todos os logs para um espaço de trabalho log Analytics. Configure os alertas desejados (como tentativas de acessar segredos desabilitados) em Log Analytics.
 
-Integre logs do Azure AD a logs de Azure Monitor:https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
+Integre logs do Azure AD a logs de Azure Monitor: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-Migrando da antiga solução de Key Vault:https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution
+Migrando da antiga solução de Key Vault: https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault#migrating-from-the-old-key-vault-solution
 
 
 
@@ -493,11 +493,11 @@ Migrando da antiga solução de Key Vault:https://docs.microsoft.com/azure/azure
 
 **Diretrizes**: Use a proteção de identidade e os recursos de detecção de risco do Azure Active Directory para configurar respostas automatizadas para ações suspeitas detectadas relacionadas aos seus Azure Key Vault recursos protegidos. Você deve habilitar respostas automatizadas por meio do Azure Sentinel para implementar as respostas de segurança da sua organização. 
 
-Relatório de entradas arriscadas no portal de Azure Active Directory:https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins 
+Relatório de entradas arriscadas no portal de Azure Active Directory: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins 
 
-Como: configurar e habilitar políticas de risco:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Como: configurar e habilitar políticas de risco: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
-Como carregar o Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickstart-onboard
+Como carregar o Azure Sentinel:  https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
@@ -508,7 +508,7 @@ Como carregar o Azure Sentinel:https://docs.microsoft.com/azure/sentinel/quickst
 
 **Orientação**: não aplicável; Não há suporte para Sistema de Proteção de Dados do Cliente para Azure Key Vault.
 
-Serviços e cenários com suporte em disponibilidade geral:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Serviços e cenários com suporte em disponibilidade geral: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 
 
@@ -524,7 +524,7 @@ Serviços e cenários com suporte em disponibilidade geral:https://docs.microsof
 
 **Diretrizes**: use marcas para auxiliar no rastreamento de recursos do Azure que armazenam ou processam informações confidenciais sobre Azure Key Vault recursos habilitados. 
 
-Use marcas para organizar os recursos do Azure:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Use marcas para organizar os recursos do Azure: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
 
@@ -538,9 +538,9 @@ Use marcas para organizar os recursos do Azure:https://docs.microsoft.com/azure/
 
 Depois que as regras de firewall estiverem em vigor, você só poderá executar Azure Key Vault operações do plano de dados quando sua solicitação for originada de sub-redes permitidas ou intervalos de endereços IP. Isso também se aplica a Azure Key Vault acesso no portal do Azure. Embora você possa navegar até um cofre de chaves do portal do Azure, talvez não seja possível listar chaves, segredos ou certificados se o computador cliente não estiver na lista de permissões. Isso também afeta o seletor de Azure Key Vault e outros serviços do Azure. Você poderá ver listas de cofres de chaves, mas não as chaves de lista, se as regras de firewall impedirem que o computador cliente faça isso.
 
-Configure Azure Key Vault firewalls e redes virtuais:https://docs.microsoft.com/azure/key-vault/key-vault-network-security
+Configure Azure Key Vault firewalls e redes virtuais: https://docs.microsoft.com/azure/key-vault/key-vault-network-security
 
-Pontos de extremidade de serviço de rede virtual para Azure Key Vault:https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints
+Pontos de extremidade de serviço de rede virtual para Azure Key Vault: https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints
 
 
 
@@ -552,11 +552,11 @@ Pontos de extremidade de serviço de rede virtual para Azure Key Vault:https://d
 
 **Orientação**: todos os dados armazenados em Azure Key Vault são considerados confidenciais. Use Azure Key Vault controles de acesso do plano de dados para controlar o acesso aos segredos Azure Key Vault. Você também pode usar o firewall interno do Key Vault para controlar o acesso na camada de rede. Para monitorar o acesso a Azure Key Vault, habilite Key Vault configurações de diagnóstico e envie logs para uma conta de armazenamento do Azure ou Log Analytics espaço de trabalho.
 
-Proteger o acesso a um cofre de chaves:https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
+Proteger o acesso a um cofre de chaves: https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
-Configure Azure Key Vault firewalls e redes virtuais:https://docs.microsoft.com/azure/key-vault/key-vault-network-security
+Configure Azure Key Vault firewalls e redes virtuais: https://docs.microsoft.com/azure/key-vault/key-vault-network-security
 
-Log de Azure Key Vault:https://docs.microsoft.com/azure/key-vault/key-vault-logging
+Log de Azure Key Vault: https://docs.microsoft.com/azure/key-vault/key-vault-logging
 
 
 
@@ -568,7 +568,7 @@ Log de Azure Key Vault:https://docs.microsoft.com/azure/key-vault/key-vault-logg
 
 **Orientação**: todo o tráfego para Azure Key Vault para autenticação, gerenciamento e acesso ao plano de dados, é criptografado e passa por https: porta 443. (No entanto, ocasionalmente haverá tráfego HTTP [porta 80] para CRL.) 
 
-Acesse Azure Key Vault por trás de um firewall:https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
+Acesse Azure Key Vault por trás de um firewall: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 
 
 
@@ -741,7 +741,7 @@ Crie grupos de gerenciamento para organização e gerenciamento de recursos:
 
 https://docs.microsoft.com/azure/governance/management-groups/create
 
-Use marcas para organizar os recursos do Azure:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Use marcas para organizar os recursos do Azure: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -766,9 +766,9 @@ Use marcas para organizar os recursos do Azure:https://docs.microsoft.com/azure/
 
 Além disso, use o Azure Resource Graph para consultar/descobrir recursos em sua(s) assinatura(s).
 
-Tutorial: criar e gerenciar políticas para impor a conformidade:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Tutorial: criar e gerenciar políticas para impor a conformidade: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure:https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+Início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 
 
@@ -811,9 +811,9 @@ Início rápido: executar sua primeira consulta de grafo de recursos usando o Ge
 
 - Tipos de recursos permitidos
 
-Tutorial: criar e gerenciar políticas para impor a conformidade:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Tutorial: criar e gerenciar políticas para impor a conformidade: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Exemplos de Azure Policy:https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Exemplos de Azure Policy: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 
 
@@ -1056,7 +1056,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: usar software antimalware gerenciado centralmente
 
-**Diretriz**: Não aplicável. Esta recomendação destina-se a recursos de computação. A Microsoft lida com o anti-malware para a plataforma subjacente.
+**Diretriz**: não aplicável; essa recomendação destina-se a recursos de computação. A Microsoft lida com o anti-malware para a plataforma subjacente.
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
@@ -1069,7 +1069,7 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
 Examine previamente qualquer conteúdo que esteja sendo carregado ou enviado para recursos não computados do Azure, como Azure Key Vault. A Microsoft não pode acessar seus dados nessas instâncias.
 
-Entenda o Microsoft antimalware para os serviços de nuvem do Azure e máquinas virtuais:https://docs.microsoft.com/azure/security/fundamentals/antimalware
+Entenda o Microsoft antimalware para os serviços de nuvem do Azure e máquinas virtuais: https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -1102,15 +1102,15 @@ Entenda o Microsoft antimalware para os serviços de nuvem do Azure e máquinas 
 
 Opcionalmente, você pode armazenar seus backups de Key Vault no backup do Azure.
 
-Como fazer backup de Key Vault certificados:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
+Como fazer backup de Key Vault certificados: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
 
 Como fazer backup de chaves do cofre de chaves: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
-Como fazer backup Key Vault contas de armazenamento gerenciadas:https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
+Como fazer backup Key Vault contas de armazenamento gerenciadas: https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
 
-Como fazer backup de Key Vault segredos:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
+Como fazer backup de Key Vault segredos: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
-Como habilitar o backup do Azure:https://docs.microsoft.com/azure/backup
+Como habilitar o backup do Azure: https://docs.microsoft.com/azure/backup
 
 
 
@@ -1132,15 +1132,15 @@ Como habilitar o backup do Azure:https://docs.microsoft.com/azure/backup
 
 Opcionalmente, você pode armazenar seus backups de Key Vault no backup do Azure.
 
-Como fazer backup de Key Vault certificados:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
+Como fazer backup de Key Vault certificados: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate
 
 Como fazer backup de chaves do cofre de chaves: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
-Como fazer backup Key Vault contas de armazenamento gerenciadas:https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
+Como fazer backup Key Vault contas de armazenamento gerenciadas: https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount
 
-Como fazer backup de Key Vault segredos:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
+Como fazer backup de Key Vault segredos: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
-Como habilitar o backup do Azure:https://docs.microsoft.com/azure/backup
+Como habilitar o backup do Azure: https://docs.microsoft.com/azure/backup
 
 
 
@@ -1160,13 +1160,13 @@ Como habilitar o backup do Azure:https://docs.microsoft.com/azure/backup
 
 - Restore-AzKeyVaultSecret
 
-Como restaurar Key Vault certificados:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
+Como restaurar Key Vault certificados:  https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0
 
-Como restaurar chaves de Key Vault:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0 
+Como restaurar chaves de Key Vault: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0 
 
-Como restaurar Key Vault contas de armazenamento gerenciadas:https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount
+Como restaurar Key Vault contas de armazenamento gerenciadas: https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount
 
-Como restaurar Key Vault segredos:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
+Como restaurar Key Vault segredos: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0
 
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável

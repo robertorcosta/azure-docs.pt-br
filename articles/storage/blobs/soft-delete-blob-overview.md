@@ -1,5 +1,5 @@
 ---
-title: Exclusão reversível para BLOBs
+title: Exclusão reversível para blobs
 titleSuffix: Azure Storage
 description: A exclusão reversível para BLOBs protege seus dados para que você possa recuperar seus dados com mais facilidade quando eles forem modificados ou excluídos erroneamente por um aplicativo ou por outro usuário da conta de armazenamento.
 services: storage
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2e390c9d5d2fa7c6551ed661c6c25096732eefd5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057138"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230102"
 ---
-# <a name="soft-delete-for-blobs"></a>Exclusão reversível para BLOBs
+# <a name="soft-delete-for-blobs"></a>Exclusão reversível para blobs
 
-A exclusão reversível para BLOBs protege seus dados contra acidentalmente ou excluídos de maneira acidental ou excluída. Quando a exclusão reversível para BLOBs está habilitada para uma conta de armazenamento, os BLOBs, as versões de BLOB (versão prévia) e os instantâneos na conta de armazenamento podem ser recuperados após serem excluídos, dentro de um período de retenção especificado por você.
+A exclusão reversível para BLOBs protege seus dados contra acidentalmente ou excluídos de maneira acidental ou excluída. Quando a exclusão reversível para BLOBs está habilitada para uma conta de armazenamento, BLOBs, versões de BLOB e instantâneos nessa conta de armazenamento podem ser recuperados após serem excluídos, dentro de um período de retenção especificado por você.
 
 Se houver uma possibilidade de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário de conta de armazenamento, é recomendável ativar a exclusão reversível. Para obter mais informações sobre como habilitar a exclusão reversível, consulte [habilitar e gerenciar a exclusão reversível para BLOBs](soft-delete-enable.md).
 
@@ -28,7 +28,7 @@ Se houver uma possibilidade de que seus dados sejam acidentalmente modificados o
 
 Quando a exclusão reversível de BLOBs está habilitada em uma conta de armazenamento, você pode recuperar objetos depois que eles tiverem sido excluídos, dentro do período de retenção de dados especificado. Essa proteção se estende a qualquer BLOB (BLOBs de blocos, blobs de acréscimo ou BLOBs de páginas) que são apagados como resultado de uma substituição.
 
-Se os dados em um BLOB ou instantâneo existente forem excluídos enquanto a exclusão reversível de blob estiver habilitada, mas o controle de versão do blob (visualização) não estiver habilitado, um instantâneo com exclusão reversível será gerado para salvar o estado dos dados substituídos. Depois que o período de retenção especificado tiver expirado, o objeto será excluído permanentemente.
+Se os dados em um BLOB ou instantâneo existente forem excluídos enquanto a exclusão reversível de blob estiver habilitada, mas o controle de versão do BLOB não estiver habilitado, um instantâneo com exclusão reversível será gerado para salvar o estado dos dados substituídos. Depois que o período de retenção especificado tiver expirado, o objeto será excluído permanentemente.
 
 Se o controle de versão do blob e a exclusão reversível do blob estiverem habilitados na conta de armazenamento, a exclusão de um blob criará uma nova versão em vez de um instantâneo excluído por software. A nova versão não é excluída de maneira reversível e não é removida quando o período de retenção de exclusão reversível expira. As versões com exclusão reversível de um blob podem ser restauradas dentro do período de retenção chamando a operação [restaurar blob](/rest/api/storageservices/undelete-blob) . O blob pode ser restaurado subsequentemente de uma de suas versões chamando a operação de [cópia de blob](/rest/api/storageservices/copy-blob) . Para obter mais informações sobre como usar o controle de versão de BLOB e a exclusão reversível em conjunto, consulte [controle de versão e exclusão reversível](versioning-overview.md#blob-versioning-and-soft-delete)do blob.
 
@@ -194,4 +194,4 @@ Uma máquina virtual do Azure grava em um disco não gerenciado usando chamadas 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Habilitar exclusão reversível para blobs](soft-delete-enable.md)
-- [Controle de versão de blob (versão prévia)](versioning-overview.md)
+- [Controle de versão de BLOB](versioning-overview.md)

@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608204"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230612"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
@@ -52,7 +52,7 @@ Você pode usar a filtragem avançada no relatório de auditoria para acessar um
 
 As categorias incluem:
 
-- Tudo
+- Todos
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
@@ -63,7 +63,7 @@ As categorias incluem:
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Outros
+- Outro
 - Política
 - ResourceManagement
 - RoleManagement
@@ -73,13 +73,13 @@ Você também pode filtrar em um serviço específico usando o filtro suspenso d
 
 Os serviços incluem:
 
-- Tudo
+- Todos
 - Revisões de acesso
 - Provisionamento de conta de usuário 
 - SSO de aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso Condicional
+- Acesso condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Identity Protection
@@ -114,7 +114,7 @@ Para acessar o relatório de entradas:
 
 Os relatórios de atividade anômala fornecem informações sobre as detecções de riscos relacionadas à segurança que o Azure AD pode detectar e relatar.
 
-A tabela a seguir lista os relatórios de segurança da atividade anômala do Azure AD e os tipos de detecção de risco correspondentes no portal do Azure. Para obter mais informações, confira [Detecções de risco do Azure Active Directory](concept-risk-events.md).  
+A tabela a seguir lista os relatórios de segurança da atividade anômala do Azure AD e os tipos de detecção de risco correspondentes no portal do Azure. Para obter mais informações, confira [Detecções de risco do Azure Active Directory](../identity-protection/overview-identity-protection.md).  
 
 
 | Relatório de atividades anômalas do Azure AD |  Tipo de detecção de risco de proteção de identidade|
@@ -136,8 +136,8 @@ Os seguintes relatórios de segurança de atividade anômala do Azure AD não es
 
 Você pode acessar relatórios sobre as detecções de risco detectadas na seção **segurança** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). As detecções de risco detectadas são controladas nos seguintes relatórios:   
 
-- [Usuários em risco](concept-user-at-risk.md)
-- [Entradas de risco](concept-risky-sign-ins.md)
+- [Usuários em risco](../identity-protection/overview-identity-protection.md)
+- [Entradas de risco](../identity-protection/overview-identity-protection.md)
 
     ![Relatórios de segurança](./media/howto-find-activity-reports/04.png "Relatórios de segurança")
 
@@ -228,4 +228,4 @@ Você tem duas opções para manter os dados por mais de 30 dias. Você pode usa
 
 * [Visão geral de logs de auditoria](concept-audit-logs.md)
 * [Visão geral de entradas](concept-sign-ins.md)
-* [Visão geral de eventos de risco](concept-risk-events.md)
+* [Visão geral de eventos de risco](../identity-protection/overview-identity-protection.md)

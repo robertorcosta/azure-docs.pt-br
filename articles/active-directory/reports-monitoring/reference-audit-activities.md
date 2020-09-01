@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86a0e0b3c64554e00a5ba7734af28dc136df643f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f9976faf2a803e747bce8b851a3555e6d746b0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80891502"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231139"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência das atividades de auditoria do Azure AD
 
@@ -35,8 +35,8 @@ A arquitetura de relatório no Azure AD consiste nos seguintes componentes:
     - [Logs de auditoria](concept-audit-logs.md) – Permitem o rastreio de todas as alterações feitas por vários recursos no Azure AD por meio de logs. 
     
 - **Relatórios de segurança** 
-    - [Entradas arriscadas](concept-risky-sign-ins.md) - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
-    - [Usuários sinalizados para riscos](concept-user-at-risk.md) - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
+    - [Entradas arriscadas](../identity-protection/overview-identity-protection.md) - uma entrada arriscada é um indicador para uma tentativa de logon que pode ter sido realizada por alguém que não é o proprietário legítimo de uma conta de usuário. 
+    - [Usuários sinalizados para riscos](../identity-protection/overview-identity-protection.md) - um usuário arriscado é um indicador de uma conta de usuário que pode ter sido comprometida. 
 
 Este artigo lista as atividades de auditoria que podem ser registradas nos logs de auditoria.
 
@@ -267,8 +267,8 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Chave|Excluir configurações da empresa|
 |Chave|Rebaixar parceiro|
 |Chave|Diretório excluído|
-|Outros|Diretório excluído permanentemente|
-|Outros|Diretório agendado para exclusão|
+|Outro|Diretório excluído permanentemente|
+|Outro|Diretório agendado para exclusão|
 |Recurso|Promover empresa à condição de parceira|
 |Recurso|Limpar propriedades de gerenciamento de direitos|
 |Recurso|Remover parceiro da empresa|
@@ -507,11 +507,11 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 |Gerenciamento de diretórios|Elevate|
 |Gerenciamento de diretórios|Removido|
 |Gerenciamento de diretórios|Alterações na configuração de função|
-|Outros|ScanAlertsNow|
-|Outros|Inscrever-se|
-|Outros|Unelevate|
-|Outros|UpdateAlertSettings|
-|Outros|UpdateCurrentState|
+|Outro|ScanAlertsNow|
+|Outro|Inscrever-se|
+|Outro|Unelevate|
+|Outro|UpdateAlertSettings|
+|Outro|UpdateCurrentState|
 |Gerenciamento de política|Revisão de acesso encerrada|
 |Gerenciamento de política|Adicionar aprovador para a aprovação de solicitação|
 |Gerenciamento de política|Adicionar revisor para a revisão de acesso|
@@ -523,8 +523,8 @@ Este artigo lista as atividades de auditoria que podem ser registradas nos logs 
 
 |Auditar categoria|Atividade|
 |---|---|
-|Outros|Criar solicitação de aprovação|
-|Outros|Excluir revisão de acesso|
+|Outro|Criar solicitação de aprovação|
+|Outro|Excluir revisão de acesso|
 |Gerenciamento de Usuários|Remover revisor da revisão de acesso|
 |Gerenciamento de Usuários|Solicitar aplicação dos resultados da análise|
 |Gerenciamento de Usuários|Solicitar interrupção da análise|

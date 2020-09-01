@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 7315ef68b3562a28ee2515077c1e7d2f23c3803f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041312"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230425"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança do Azure para HDInsight
 
@@ -32,9 +32,9 @@ Para obter mais informações, consulte [Visão geral sobre linhas de base de se
 
 Para reduzir o risco de perda de dados por meio de vazamento, restrinja o tráfego de rede de saída para clusters do Azure HDInsight usando o Firewall do Azure.
 
-Como implantar o Azure HDInsight em uma rede virtual e proteger com um grupo de segurança de rede:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Como implantar o Azure HDInsight em uma rede virtual e proteger com um grupo de segurança de rede: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Como restringir o tráfego de saída para clusters do Azure HDInsight com o Firewall do Azure:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Como restringir o tráfego de saída para clusters do Azure HDInsight com o Firewall do Azure: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -108,11 +108,11 @@ Há várias dependências para o Azure HDInsight que exigem tráfego de entrada.
 
 Para reduzir o risco de perda de dados por meio de vazamento, restrinja o tráfego de rede de saída para clusters do Azure HDInsight usando o Firewall do Azure.
 
-Como implantar o HDInsight em uma rede virtual e proteger com um grupo de segurança de rede:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Como implantar o HDInsight em uma rede virtual e proteger com um grupo de segurança de rede: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Entenda as dependências do HDInsight e o uso do firewall:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Entenda as dependências do HDInsight e o uso do firewall: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
-Endereços IP de gerenciamento do HDInsight:https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
+Endereços IP de gerenciamento do HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -1290,7 +1290,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-Você pode encontrar mais informações sobre a estratégia e a execução da Microsoft de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos da nuvem gerenciada da Microsoft, aqui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+Você pode encontrar mais informações sobre a estratégia e a execução da Microsoft de equipes vermelhas e testes de penetração de sites ativos em infraestrutura, serviços e aplicativos da nuvem gerenciada da Microsoft, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

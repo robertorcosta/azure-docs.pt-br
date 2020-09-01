@@ -17,12 +17,12 @@ ms.date: 04/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92f6f32298dcccca4eba08fd25de0504416e5560
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608136"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89244714"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Como: Gerenciar contas de usuários inativos no Azure AD
 
@@ -58,7 +58,7 @@ Esta seção explica o que você precisa saber sobre a propriedade lastSignInDat
 
 ### <a name="how-can-i-access-this-property"></a>Como posso acessar essa propriedade?
 
-A propriedade **lastSignInDateTime** é exposta pelo [tipo de recurso signInActivity](https://docs.microsoft.com/graph/api/resources/signinactivity?view=graph-rest-beta) da [API REST do Microsoft Graph](https://docs.microsoft.com/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+A propriedade **lastSignInDateTime** é exposta pelo [tipo de recurso signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta) da [API REST do Microsoft Graph](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>A propriedade lastSignInDateTime está disponível por meio do cmdlet Get-AzureAdUser?
 
@@ -91,5 +91,5 @@ Para gerar um carimbo de data/hora lastSignInDateTime, você precisa de uma entr
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obter dados usando a API de Relatório do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
-* [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Referência da API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Referência da API de auditoria](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Referência da API de relatório de atividade de entrada](/graph/api/resources/signin?view=graph-rest-beta)

@@ -3,12 +3,12 @@ title: Criar e usar arquivos de recurso
 description: Saiba como criar arquivos de recurso do Lote a partir de várias fontes de entrada. Este artigo aborda alguns métodos comuns sobre como criar e colocar arquivos de recursos em uma VM.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: e1bf7520774a0f4143aadd2298f300b3ac5c75a3
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146293"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230935"
 ---
 # <a name="creating-and-using-resource-files"></a>Criar e usar arquivos de recurso
 
@@ -99,7 +99,7 @@ Se cada tarefa tiver muitos arquivos exclusivos para essa tarefa, os arquivos de
 
 Se houver várias centenas de arquivos de recurso especificados em uma tarefa, o Lote poderá rejeitar a tarefa por ser muito grande. É melhor manter suas tarefas em tamanho pequeno, minimizando o número de arquivos de recurso na própria tarefa.
 
-Se não houver como reduzir o número de arquivos de que sua tarefa precisa, você poderá otimizar a tarefa criando um único arquivo de recurso que faça referência a um contêiner de armazenamento de arquivos de recurso. Para isso, coloque os arquivos de recurso em um contêiner de Armazenamento do Azure e use os [métodos](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods) de "contêiner" para os arquivos de recurso. Use as opções de prefixo de blob a fim de especificar coleções de arquivos a serem baixadas para suas tarefas.
+Se não houver como reduzir o número de arquivos de que sua tarefa precisa, você poderá otimizar a tarefa criando um único arquivo de recurso que faça referência a um contêiner de armazenamento de arquivos de recurso. Para isso, coloque os arquivos de recurso em um contêiner de Armazenamento do Azure e use os [métodos](/dotnet/api/microsoft.azure.batch.resourcefile#methods) de "contêiner" para os arquivos de recurso. Use as opções de prefixo de blob a fim de especificar coleções de arquivos a serem baixadas para suas tarefas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4fe353467a11e9581db76ec495194878414f4dfb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034644"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230680"
 ---
 # <a name="storage-account-overview"></a>Visão geral da conta de armazenamento
 
@@ -129,10 +129,10 @@ Uma conta de armazenamento fornece um namespace exclusivo no Azure para seus dad
 
 Por exemplo, se a conta de armazenamento para uso geral chamar *mystorageaccount*, os pontos de extremidade padrão da conta serão:
 
-- Armazenamento de BLOBs:`https://*mystorageaccount*.blob.core.windows.net`
-- Armazenamento de tabelas:`https://*mystorageaccount*.table.core.windows.net`
-- Armazenamento de filas:`https://*mystorageaccount*.queue.core.windows.net`
-- Arquivos do Azure:`https://*mystorageaccount*.file.core.windows.net`
+- Armazenamento de BLOBs: `https://*mystorageaccount*.blob.core.windows.net`
+- Armazenamento de tabelas: `https://*mystorageaccount*.table.core.windows.net`
+- Armazenamento de filas: `https://*mystorageaccount*.queue.core.windows.net`
+- Arquivos do Azure: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
 > O bloco BLOB e as contas de armazenamento de blob expõem apenas o ponto de extremidade do serviço BLOB.
