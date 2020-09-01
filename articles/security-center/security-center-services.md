@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ebc921e319b5ac16cb39001b5ffba5de48727d84
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607134"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181928"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -35,7 +35,7 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |[Alertas de segurança de arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Alertas de segurança baseados em rede](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Avaliação de vulnerabilidades nativas](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
@@ -45,9 +45,9 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
 |Avaliação de incorretas de segurança|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
 |[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
-|Avaliação de criptografia de disco|✔|✔|-|Gratuito|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuito|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
+|Avaliação de criptografia de disco|✔|✔|-|Gratuita|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
 
 
 ### <a name="linux-machines"></a>[**Máquinas do Linux**](#tab/features-linux)
@@ -59,7 +59,7 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |[Alertas de segurança de arquivo](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Alertas de segurança baseados em rede](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Avaliação de vulnerabilidades nativas](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
+|[Avaliação de vulnerabilidades nativas](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
 |[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
@@ -68,10 +68,10 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|✔|✔|✔|Standard|
 |Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
 |Avaliação de incorretas de segurança|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Standard|
-|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuito|
-|Avaliação de criptografia de disco|✔|✔|-|Gratuito|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuito|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
+|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuita|
+|Avaliação de criptografia de disco|✔|✔|-|Gratuita|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
 
 --- 
 

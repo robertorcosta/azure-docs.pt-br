@@ -4,16 +4,16 @@ description: Aprenda a restringir o tráfego da web com um firewall do aplicativ
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 50aaf4f2639f48e5536e6eeaba5edbc246b2bba7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: faa46b3ad96e9555a08a662f205a0a130c28bac2
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501058"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225162"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Habilitar firewall do aplicativo Web usando a CLI do Azure
 
@@ -21,11 +21,10 @@ Você pode restringir tráfego em um gateway de aplicativo com um [Firewall de A
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicativo com o WAF habilitado
-> * Criar um conjunto de dimensionamento de máquinas virtuais
-> * Criar uma conta de armazenamento e configurar diagnósticos
+ * Configurar a rede
+ * Criar um gateway de aplicativo com o WAF habilitado
+ * Criar um conjunto de dimensionamento de máquinas virtuais
+ * Criar uma conta de armazenamento e configurar diagnósticos
 
 ![Exemplo de Firewall do aplicativo Web](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 

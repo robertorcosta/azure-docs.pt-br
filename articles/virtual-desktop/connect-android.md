@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79d88d218d04d00def19bdd2aa98f76d2f128de1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ebf91f68e45148d9a609ff671ffa4683bd74c82c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007753"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226107"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Conectar-se à área de trabalho virtual do Windows com o cliente Android
 
 > Aplica-se a: Android 4,1 e posterior, Chromebooks com ChromeOS 53 e posterior.
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-android-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-android-2019.md).
 
 Você pode acessar os recursos da área de trabalho virtual do Windows em seu dispositivo Android com nosso cliente baixável. Você também pode usar o cliente Android em dispositivos Chromebook que dão suporte ao Google Play Store. Este guia lhe dirá como configurar o cliente Android.
 
@@ -36,6 +36,7 @@ Para assinar um feed:
 2. Insira a URL do feed no campo **URL do feed** . A URL do feed pode ser uma URL ou um endereço de email.
    - Se você usar uma URL, use aquela que o administrador lhe forneceu, normalmente <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
    - Para usar email, insira seu endereço de email. O cliente pesquisará uma URL associada ao seu endereço de email se o administrador configurou o servidor dessa maneira.
+   - Para se conectar por meio do portal de US Gov, use <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Toque em **AVANÇAR**.
 4. Forneça suas credenciais quando solicitado.
    - Para **nome de usuário**, dê ao nome de usuário permissão para acessar recursos.

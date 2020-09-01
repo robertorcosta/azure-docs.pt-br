@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722b3fcb2bc533e396a35feb4c755de99c375b10
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
-ms.translationtype: HT
+ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201850"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226566"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributo no Azure Active Directory
 Quando você configura um provisionamento de nuvem, um dos tipos de mapeamentos de atributos que você pode especificar é o mapeamento de expressão. 
@@ -253,7 +253,7 @@ se o atributo accountName não estiver presente, gere um erro no objeto.
    | Nome | Obrigatório/repetição | Type | Observações |
    | --- | --- | --- | --- |
    | **origem** |Obrigatório |String |Normalmente o nome do atributo do objeto de source. |
-   | **inputFormat** |Obrigatório |String |Formato esperado do valor de source. Para formatos com suporte, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **inputFormat** |Obrigatório |String |Formato esperado do valor de source. Para formatos com suporte, consulte [/dotnet/Standard/base-Types/Custom-Date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Obrigatório |String |Formato da data de saída. |
 
 ---

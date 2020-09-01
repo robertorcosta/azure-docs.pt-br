@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dbfca54227895de53b984dcf5c7a1f8c5fbf51d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cf2e3f98bd96c09fe741a24a1332443c876e2e61
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647403"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225903"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução à API de relatórios do Microsoft Azure Active Directory
 
@@ -32,7 +32,7 @@ Usando a API do Graph para relatórios do Azure AD, você pode obter acesso prog
 
 Este artigo fornece uma visão geral da API de relatórios, incluindo formas de acessá-lo.
 
-Se houver problemas, consulte [Como obter suporte para o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
+Se houver problemas, consulte [Como obter suporte para o Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,9 +47,9 @@ Para obter instruções detalhadas, consulte, [pré-requisitos para acessar a AP
 
 ## <a name="api-endpoints"></a>Pontos de extremidade de API 
 
-O ponto de extremidade da API do Graph para logs de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto de extremidade da API do Microsoft Graph para logins é `https://graph.microsoft.com/v1.0/auditLogs/signIns`. Para obter mais informações, consulte a [referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/directoryaudit) e a [referência da API de login](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/signIn).
+O ponto de extremidade da API do Graph para logs de auditoria é `https://graph.microsoft.com/v1.0/auditLogs/directoryAudits` e o ponto de extremidade da API do Microsoft Graph para logins é `https://graph.microsoft.com/v1.0/auditLogs/signIns`. Para obter mais informações, consulte a [referência da API de auditoria](/graph/api/resources/directoryaudit?view=graph-rest-1.0) e a [referência da API de login](/graph/api/resources/signIn?view=graph-rest-1.0).
 
-Além disso, você pode usar o [API de detecções de risco do Identity Protection](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) para obter acesso programático a detecções de segurança usando o Microsoft Graph. Para obter mais informações, consulte [Introdução ao Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/graph-get-started.md). 
+Além disso, você pode usar o [API de detecções de risco do Identity Protection](/graph/api/resources/identityriskevent?view=graph-rest-beta) para obter acesso programático a detecções de segurança usando o Microsoft Graph. Para obter mais informações, consulte [Introdução ao Azure Active Directory Identity Protection e Microsoft Graph](../identity-protection/howto-identity-protection-graph-api.md). 
   
 ## <a name="apis-with-microsoft-graph-explorer"></a>APIs com o Microsoft Graph Explorer
 
@@ -70,5 +70,3 @@ Para obter instruções detalhadas, consulte [Obter dados usando a API de relat�
  * [Pré-requisitos para acessar a API de relatório](howto-configure-prerequisites-for-reporting-api.md) 
  * [Obtenha dados usando a API de relatórios do Microsoft Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
  * [Solucionar problemas de erros no relatório de API do Azure AD](troubleshoot-graph-api.md)
-
-

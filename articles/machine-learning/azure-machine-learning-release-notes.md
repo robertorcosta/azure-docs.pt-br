@@ -9,18 +9,63 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: b6a060f4487bed5b820126d7a886cf68fa76868a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 648a1ab7eac05e42a2d3ae292cccef8c0833a84d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652059"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226804"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) .
 
 Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender sobre erros e soluções conhecidas.
+
+## <a name="2020-08-31"></a>2020-08-31
+
+### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Azure Machine Learning SDK para Python v 1.13.0
++ **Recursos de visualização**
+  + **azureml-core**
+  
+    Com a nova funcionalidade de conjuntos de novos de saída, você pode fazer write-back para o armazenamento em nuvem, incluindo BLOB, ADLS Gen 1, ADLS Gen 2 e FileShare. Você pode configurar o local de saída de dados, como gerar dados de saída (via montagem ou carregamento), se deseja registrar os dados de saída para futura reutilização e compartilhamento e passar dados intermediários entre as etapas do pipeline diretamente. Isso permite que o reprodução, o compartilhamento, impeça a duplicação de dados e resulte em eficiência de custo e ganhos de produtividade. [Saiba como usá-lo](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py)
+    
++ **Correções de bugs e melhorias**
+  + **azureml-automl-core**
+    + Foi adicionado validated_ arquivo {Platform} _requirements.txt para fixar todas as dependências de Pip para AutoML.
+    + Esta versão dá suporte a modelos maiores que 4 GB.
+    + Dependências de AutoML atualizadas: `scikit-learn` (agora 0.22.1), `pandas` (agora 0.25.1), `numpy` (agora 1.18.2).
+  + **azureml-automl-runtime**
+    + Defina horovod para Text DNNS para sempre usar a compactação FP16.
+    + Esta versão dá suporte a modelos maiores que 4 GB.
+    + Corrigido o problema em que AutoML falha com ImportError: não é possível importar o nome `RollingOriginValidator` .
+    + Dependências de AutoML atualizadas: `scikit-learn` (agora 0.22.1), `pandas` (agora 0.25.1), `numpy` (agora 1.18.2).
+  + **azureml-contrib-automl-DNN-previsão**
+    + Dependências de AutoML atualizadas: `scikit-learn` (agora 0.22.1), `pandas` (agora 0.25.1), `numpy` (agora 1.18.2).
+  + **azureml-contrib-fairness**
+    + Forneça uma breve descrição para o azureml-contrib-imparciality.
+  + **azureml-contrib-pipeline-steps**
+    + Mensagem adicionada indicando que este pacote foi preterido e o usuário deve usar o azureml-pipeline-Steps em vez disso.
+  + **azureml-core**
+    + Adicionado comando de chave de lista para o espaço de trabalho.
+    + Adicionar parâmetro de marcas no SDK do espaço de trabalho e na CLI.
+    + Corrigido o bug em que o envio de uma execução filho com o conjunto de um falhará devido a `TypeError: can't pickle _thread.RLock objects` .
+    + Adicionando page_count padrão/documentação da lista de modelos ().
+    + Modifique o SDK do&da CLI para obter o parâmetro adbworkspace e adicione o executor de ADB de espaço de trabalho/DESlink Runner.
+    + Corrija o bug no DataSet. Update, o que causou a atualização da versão mais recente do conjunto de atualizações, não a versão da atualização do conjunto de entrada foi chamada em. 
+    + Corrija o bug no conjunto de informações. get_by_name que mostraria as marcas para a versão mais recente do conjunto de informações mesmo quando uma versão específica anterior foi realmente recuperada.
+  + **azureml-interpretar**
+    + Saídas de probabilidade adicionadas aos explicadores de Pontuação shap no azureml-interpretam com base no parâmetro shap_values_output do explicador original.
+  + **azureml-pipeline-core**
+    + Documentação aprimorada `PipelineOutputAbstractDataset.register` .
+  + **azureml-train-automl-client**
+    + Dependências de AutoML atualizadas: `scikit-learn` (agora 0.22.1), `pandas` (agora 0.25.1), `numpy` (agora 1.18.2).
+  + **azureml-train-automl-runtime**
+    + Dependências de AutoML atualizadas: `scikit-learn` (agora 0.22.1), `pandas` (agora 0.25.1), `numpy` (agora 1.18.2).
+  + **azureml-train-core**
+    + Agora, os usuários devem fornecer um ARG hyperparameter_sampling válido ao criar um HyperDriveConfig. Além disso, a documentação do HyperDriveRunConfig foi editada para informar os usuários sobre a reprovação do HyperDriveRunConfig.
+    + Revertendo a versão padrão do PyTorch para 1,4.
+    + Adicionando PyTorch 1,6 & Tensorflow 2,2 imagens e ambiente organizado.
 
 ## <a name="2020-08-17"></a>2020-08-17
 
@@ -206,7 +251,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + A limpeza de balanceamento de classe não será mais habilitada se o usuário desabilitar personalização.  
   + **azureml-contrib-ITP**
     + Há suporte para o tipo de computação CmAks. Você pode anexar seu próprio cluster AKS ao espaço de trabalho para o trabalho de treinamento.
-  + **azureml-contrib-Notebook**
+  + **azureml-contrib-notebook**
     + Melhorias de documentos no pacote azureml-contrib-notebook.
   + **azureml-contrib-pipeline-steps**
     + Aprimoramentos de documentos para o azureml-contrib--pacote de etapas de pipeline.
@@ -229,7 +274,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
   + **azureml-dataprep**
     + Carregar um conjunto de to_spark_dataframe de arquivos parquet agora é mais rápido e dá suporte a todos os tipos de dataparquet e Spark SQL.
     + Melhor manipulação de memória no caso de um problema de OutOfMemory para to_pandas_dataframe.
-  + **azureml-interpretar**
+  + **azureml-interpret**
     + Atualização do azureml-interprete para usar a interpretação-Community versão 0,12. *
   + **azureml-mlflow**
     + Aprimoramentos do doc para o azureml-mlflow.
@@ -490,7 +535,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Melhore o tratamento de ambientes Python restritos de gravação ao garantir as dependências do .NET necessárias para a entrega de dados.
     + Correção da criação de fluxo de arquivos no arquivo com registros vazios à esquerda.
     + Adicionadas opções de tratamento de erros para `to_partition_iterator` semelhantes a `to_pandas_dataframe` .
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Redução dos limites de tamanho de caminho de explicação para reduzir a probabilidade de passar pelo limite do Windows
     + Bugfix explicações esparsas criadas com o explicador de imitação usando um modelo substituto linear.
   + **azureml-opendatasets**
@@ -533,7 +578,7 @@ Agora você pode criar, editar e compartilhar arquivos e blocos de anotações d
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     
-| Ferramenta baseada na Web  |     Descrição  | Edition | 
+| Ferramenta baseada na Web  |     Descrição  | Edição | 
 |---|---|---|
 | Blocos de anotações do Azure ML Studio   |     Primeira criação na classe para arquivos de bloco de anotações e suporte a todas as operações disponíveis no SDK do Python do Azure ML. | Básico & Enterprise  |   
 
@@ -556,7 +601,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Documentação aprimorada para o `grant_workspace_msi` parâmetro para `Datastore.register_azure_blob_store` .
     + Corrigido o bug com `datastore.upload` para dar suporte ao `src_dir` argumento que termina com um `/` ou `\` .
     + Mensagem de erro acionável adicionada ao tentar carregar em um armazenamento de blob do Azure que não tem uma chave de acesso ou token SAS.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Adição do limite superior ao tamanho do arquivo para os dados de visualização nas explicações carregadas.
   + **azureml-train-automl-client**
     + Verificando explicitamente label_column_name & parâmetros weight_column_name para que AutoMLConfig seja do tipo cadeia de caracteres.
@@ -564,7 +609,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + ParallelRunStep agora dá suporte a DataSet como parâmetro de pipeline. O usuário pode construir o pipeline com o conjunto de dados de exemplo e pode alterar o conjunto de dados de entrada do mesmo tipo (arquivo ou tabular) para a nova execução do pipeline.
 
   
-## <a name="2020-04-13"></a>2020-04-13
+## <a name="2020-04-13"></a>13/04/2020
 
 ### <a name="azure-machine-learning-sdk-for-python-v130"></a>Azure Machine Learning SDK para Python v 1.3.0
 
@@ -707,7 +752,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Corrigido o bug em que letras maiúsculas não podem ser usadas como nome de entrada do conjunto de dados.
   + **azureml-padrões**
     + `azureml-dataprep` Agora será instalado como parte do `azureml-defaults` . Não é mais necessário instalar o data Prep [fusível] manualmente em destinos de computação para montar conjuntos de dados.
-  + **azureml-interpretar**
+  + **azureml-interpret**
     + Atualizado o azureml-interpretar para interpretar-Community 0,6. *
     + Atualizado o azureml-interpretar para depender do 0.5.0 da comunidade de interpretação
     + Exceções do estilo do azureml adicionadas ao azureml-interpret
@@ -824,7 +869,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Correção da verificação de frequência durante a pontuação, agora nas tarefas de previsão, não exigimos equivalência de frequência estrita entre o treinamento e o conjunto de teste.
   + **azureml-core**
     + Agora, o usuário pode especificar um valor para a chave de autenticação ao regenerar chaves para WebServices.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + Atualizado o azureml-interpretar para depender do 0.5.0 da comunidade de interpretação
   + **azureml-pipeline-core**
     + Correção de um bug em que os resultados de PythonScriptStep podem ser reutilizados incorretamente apesar de alterar a lista de argumentos
@@ -969,7 +1014,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Foi adicionada a capacidade de registrar o armazenamento de dados do Azure SQL usando o nome de usuário e a autenticação de senha
     + Correção para carregar RunConfigurations de caminhos relativos.
     + Ao chamar `keep_columns` ou `drop_columns` que resulta em uma coluna de série temporal sendo removida, os recursos correspondentes também serão descartados para o conjunto de resultados.
-  + **azureml-interpret**
+  + **azureml-interpretar**
     + versão atualizada da interpretação-Community para 0.2.0
   + **azureml-pipeline-steps**
     + Valores com suporte documentados para `runconfig_pipeline_params` as etapas de pipeline do Azure Machine Learning.
@@ -1045,7 +1090,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Descrição | Edition |
+| Ferramenta baseada na Web | Descrição | Edição |
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | Básico & Enterprise |
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | Enterprise |
@@ -1510,10 +1555,6 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
   + Habilitado `TabularDataset` para ser consumido pelo AutomatedML. Para saber mais sobre o `TabularDataset` , visite https://aka.ms/azureml/howto/createdatasets .
 
 + **Correções de bugs e melhorias**
-  + **automl-Client-Core-nativeClient**
-    + O erro foi corrigido, gerado quando os rótulos de treinamento e/ou de validação (y e y_valid) são fornecidos na forma de dataframe do pandas, mas não como matriz numpy.
-    + Interface atualizada para criar um `RawDataContext` para exigir apenas os dados e o `AutoMLBaseSettings` objeto.
-    +  Permitir que os usuários do AutoML descartam a série de treinamento que não são longas o suficiente ao prever. -Permitir que usuários do AutoML removam granulares do conjunto de teste que não existe no conjunto de treinamento ao prever.
   + **azure-cli-ml**
     + Agora você pode atualizar o certificado TLS/SSL para o ponto de extremidade de Pontuação implantado no cluster AKS para o Microsoft generated e o certificado do cliente.
   + **azureml-automl-core**
@@ -1581,9 +1622,9 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
 ### <a name="azure-portal"></a>Portal do Azure
 + **Recurso de visualização**
   + O streaming do arquivo de log e saída agora está disponível para páginas de detalhes de execução. Os arquivos transmitirão atualizações em tempo real quando a alternância de visualização estiver ativada.
-  + A capacidade de definir a cota em um nível de espaço de trabalho é liberada na versão prévia. As cotas de AmlCompute são alocadas no nível da assinatura, mas agora podemos distribuir essa cota entre espaços de trabalho e alocá-la para compartilhamento e governança justas. Basta clicar na folha **usos + cotas** na barra de navegação à esquerda do espaço de trabalho e selecionar a guia **configurar cotas** . Observe que você deve ser um administrador de assinatura para poder definir cotas no nível do espaço de trabalho, uma vez que essa é uma operação entre espaços de trabalho.
+  + A capacidade de definir a cota em um nível de espaço de trabalho é liberada na versão prévia. As cotas de AmlCompute são alocadas no nível da assinatura, mas agora podemos distribuir essa cota entre espaços de trabalho e alocá-la para compartilhamento e governança justas. Basta clicar na folha **usos + cotas** na barra de navegação à esquerda do espaço de trabalho e selecionar a guia **configurar cotas** . Observe que você deve ser um administrador de assinatura para poder definir cotas no nível do espaço de trabalho, pois essa é uma operação entre espaços de trabalho.
 
-## <a name="2019-08-05"></a>2019-08-05
+## <a name="2019-08-05"></a>05/08/2019
 
 ### <a name="azure-machine-learning-sdk-for-python-v1055"></a>Azure Machine Learning SDK para Python v 1.0.55
 
@@ -1650,9 +1691,6 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
     + Saiba como [usar os estimadores para retomar o treinamento de uma execução anterior](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Correções de bugs e melhorias**
-  + **automl-Client-Core-nativeClient**
-    + Corrigir o bug sobre os tipos de colunas perder após a transformação (bug vinculado);
-    + Permitir que y_query seja um tipo de objeto que contenha nenhum (s) no início (#459519).
   + **azure-cli-ml**
     + Os comandos da CLI "implantação de modelo" e "atualização de serviço" agora aceitam parâmetros, arquivos de configuração ou uma combinação dos dois. Parâmetros têm precedência sobre atributos em arquivos.
     + A descrição do modelo agora pode ser atualizada após o registro
@@ -1813,7 +1851,7 @@ No momento desta versão, há suporte para os seguintes navegadores: Chrome, Fir
   + Implantar o contêiner em um dispositivo de servidor [Azure data Box Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview)
   + Pontuar seus dados com o ponto de extremidade gRPC com este [exemplo](https://github.com/Azure-Samples/aml-hardware-accelerated-models)
 
-### <a name="automated-machine-learning"></a>Aprendizado de máquina automatizado
+### <a name="automated-machine-learning"></a>Automatizado de Machine Learning
 
 + Limpeza de recursos para permitir a adição dinâmica :::no-loc text="featurizers"::: para otimização de desempenho. Novo :::no-loc text="featurizers"::: : incorporações de trabalho, peso de evidência, codificações de destino, codificação de destino de texto, distância do cluster
 + Smart currículo para lidar com as divisões de treinamento/válidas dentro do ML automatizado

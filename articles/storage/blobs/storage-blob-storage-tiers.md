@@ -3,17 +3,17 @@ title: Camadas de acesso quentes, frias e de arquivo para BLOBs-armazenamento do
 description: Leia sobre as camadas de acesso frequente, fria e de arquivo para o armazenamento de BLOBs do Azure. Examine as contas de armazenamento que dão suporte a camadas. Compare as opções de armazenamento de blobs de blocos.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009603"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226175"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo
 
@@ -156,7 +156,7 @@ Nesta seção, os cenários a seguir são demonstrados usando o portal do Azure 
 
 1. Clique em **salvar** na parte superior.
 
-![Alterar a camada da conta de armazenamento](media/storage-tiers/account-tier.png)
+![Alterar a camada de conta padrão no portal do Azure](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 O script do PowerShell a seguir pode ser usado para alterar a camada de conta. A variável `$rgName` deve ser inicializada com o nome do grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da conta de armazenamento. 
@@ -186,7 +186,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Selecione **Salvar** na parte inferior.
 
-![Alterar a camada da conta de armazenamento](media/storage-tiers/blob-access-tier.png)
+![Alterar camada de blob no portal do Azure](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 O script do PowerShell a seguir pode ser usado para alterar a camada de BLOB. A variável `$rgName` deve ser inicializada com o nome do grupo de recursos. A variável `$accountName` deve ser inicializada com o nome da conta de armazenamento. A variável `$containerName` deve ser inicializada com o nome do contêiner. A variável `$blobName` deve ser inicializada com o nome do blob. 
@@ -219,6 +219,8 @@ Todas as contas de armazenamento usam um modelo de preços para armazenamento de
 - **Custos de transferência de dados de replicação geográfica**: isso só se aplica a contas com replicação geográfica configurada, incluindo GRS e RA-GRS. A transferência de dados de replicação geográfica acarreta um encargo por gigabyte.
 - **Custos de transferência de dados de saída**: transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) acarretam a cobrança por uso de largura de banda por gigabyte, de forma consistente com as contas de armazenamento de finalidade geral.
 - **Alterar a camada de acesso**: alterar a camada de acesso da conta resultará em encargos de alteração de camada para BLOBs de _camada de acesso inferidos_ armazenados na conta que não têm um conjunto de camadas explícito. Para obter informações sobre como alterar a camada de acesso de um único BLOB, consulte [cobrança em camadas no nível do blob](#blob-level-tiering-billing).
+
+    Alterar a camada de acesso de um blob quando o controle de versão está habilitado ou se o blob tem instantâneos, pode resultar em encargos adicionais. Para obter mais informações sobre como você é cobrado quando o controle de versão do blob está habilitado e você altera explicitamente a camada de um blob, consulte [preços e cobrança](versioning-overview.md#pricing-and-billing) na documentação para obter o controle de versão de BLOB. Para obter mais informações sobre como você é cobrado quando um blob tem instantâneos e você altera explicitamente a camada do blob, consulte [preços e cobrança](snapshots-overview.md#pricing-and-billing) na documentação para obter instantâneos de BLOB.
 
 > [!NOTE]
 > Para obter mais informações sobre os preços para BLOBs de blocos, consulte a página de [preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) . Para saber mais informações sobre os encargos de transferência de dados de saída, confira a página [Detalhes de preços de transferências de dados](https://azure.microsoft.com/pricing/details/data-transfers/).

@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fff90777c63820b54a1cb37156021c894de19c8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78299322"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226923"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Entender o esquema do AD do Azure
 Um objeto no Azure Active Directory (Azure AD), como qualquer diretório, é uma construção de dados de alto nível programática que representa itens como usuários, grupos e contatos. Ao criar um novo usuário ou contato no Azure AD, você está criando uma nova instância desse objeto. Essas instâncias podem ser diferenciadas com base em suas propriedades.
@@ -51,7 +51,7 @@ Por exemplo, se você tivesse o atributo de email " john.smith@contoso.com " e n
 * **INPUT** (mail): "john.smith@contoso.com"
 * **Saída**: "John. Smith"
 
-Para obter mais informações sobre como escrever expressões personalizadas e a sintaxe, consulte [escrevendo expressões para mapeamentos de atributo em Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Para obter mais informações sobre como escrever expressões personalizadas e a sintaxe, consulte [escrevendo expressões para mapeamentos de atributo em Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 
 A tabela a seguir lista os atributos comuns e como eles são sincronizados com o Azure AD.
 
@@ -245,7 +245,7 @@ Para exibir o esquema e verificá-lo, siga estas etapas.
  
     Exemplo: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
-   Substitua `{Service Principal Id}` e `{AD2ADD Provisioning Id}` pelos seus valores.
+   Substitua `{Service Principal Id}` e `{AD2ADD Provisioning Id}` por seus valores.
 
 1. Essa consulta retorna o esquema.
 

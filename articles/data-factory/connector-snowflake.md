@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de e para floco de neve
-description: Saiba como copiar dados de e para o floco de neve usando Azure Data Factory.
+title: Copiar e transformar dados em floco de neve
+description: Saiba como copiar e transformar dados em floco de neve usando Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,30 +11,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048169"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181877"
 ---
-# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiar dados de e para floco de neve usando Azure Data Factory
+# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copie e transforme dados em floco de neve usando Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para floco de neve. Para obter mais informações sobre Data Factory, consulte o [artigo introdutório](introduction.md).
+Este artigo descreve como usar a atividade de cópia em Azure Data Factory para copiar dados de e para floco de neve e usar o fluxo de dados para transformar dados em floco de neve. Para obter mais informações sobre Data Factory, consulte o [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
 Este conector do floco de neve tem suporte para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com uma tabela de [matriz de origem/coletor com suporte](copy-activity-overview.md)
+- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
 
 Para a atividade de cópia, este conector de floco de neve dá suporte às seguintes funções:
 
 - Copie dados do floco de neve que utiliza a cópia do floco de neve [no comando [Location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) para obter o melhor desempenho.
-- Copie dados para flocos de neve que aproveitam a cópia do floco de neve [no comando [Table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) para obter o melhor desempenho. Ele dá suporte a flocos de neve no Azure.
+- Copie dados para flocos de neve que aproveitam a cópia do floco de neve [no comando [Table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) para obter o melhor desempenho. Ele dá suporte a flocos de neve no Azure. 
+
+Floco de neve como coletor não tem suporte quando você usa o espaço de trabalho do Azure Synapse Analytics.
 
 ## <a name="get-started"></a>Introdução
 
@@ -105,8 +108,8 @@ As propriedades a seguir têm suporte para o conjunto de itens floco de neve.
 | Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | A propriedade Type do conjunto de conjuntos deve ser definida como **floco de neve**. | Sim                         |
-| esquema | Nome do esquema. |Não para fonte, sim para coletor  |
-| tabela | Nome da tabela/exibição. |Não para fonte, sim para coletor  |
+| esquema | Nome do esquema. Observe que o nome do esquema diferencia maiúsculas de minúsculas no ADF. |Não para fonte, sim para coletor  |
+| tabela | Nome da tabela/exibição. Observe que o nome da tabela diferencia maiúsculas de minúsculas no ADF. |Não para fonte, sim para coletor  |
 
 **Exemplo:**
 
@@ -143,12 +146,12 @@ Para copiar dados do floco de neve, as propriedades a seguir têm suporte na se�
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | A propriedade Type da fonte da atividade de cópia deve ser definida como **floco de neve**. | Sim      |
-| Consulta          | Especifica a consulta SQL para ler dados do floco de neve.<br>Não há suporte para a execução do procedimento armazenado. | No       |
-| exportSettings | Configurações avançadas usadas para recuperar dados do floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | No       |
+| Consulta          | Especifica a consulta SQL para ler dados do floco de neve. Se os nomes do esquema, tabela e colunas contiverem letras minúsculas, citar o identificador de objeto na consulta, por exemplo, `select * from "schema"."myTable"` .<br>Não há suporte para a execução do procedimento armazenado. | Não       |
+| exportSettings | Configurações avançadas usadas para recuperar dados do floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | Não       |
 | ***Em `exportSettings` :*** |  |  |
-| tipo | O tipo de comando de exportação, definido como **SnowflakeExportCopyCommand**. | Yes |
-| additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: MAX_FILE_SIZE, substituir. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
-| additionalFormatOptions | Opções de formato de arquivo adicionais que são fornecidas para copiar comando como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
+| tipo | O tipo de comando de exportação, definido como **SnowflakeExportCopyCommand**. | Sim |
+| additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: MAX_FILE_SIZE, substituir. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Não |
+| additionalFormatOptions | Opções de formato de arquivo adicionais que são fornecidas para copiar comando como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Não |
 
 #### <a name="direct-copy-from-snowflake"></a>Cópia direta do floco de neve
 
@@ -194,7 +197,7 @@ Se o armazenamento e o formato de dados do coletor atenderem aos critérios desc
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -273,13 +276,13 @@ Para copiar dados para floco de neve, as propriedades a seguir têm suporte na s
 
 | Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| type              | A propriedade Type do coletor da atividade de cópia, definida como **SnowflakeSink**. | Yes                                           |
+| type              | A propriedade Type do coletor da atividade de cópia, definida como **SnowflakeSink**. | Sim                                           |
 | preCopyScript     | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados em floco de neve em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não                                            |
-| importSettings | Configurações avançadas usadas para gravar dados em floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | No |
+| importSettings | Configurações avançadas usadas para gravar dados em floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | Não |
 | ***Em `importSettings` :*** |                                                              |  |
-| tipo | O tipo de comando de importação, definido como **SnowflakeImportCopyCommand**. | Yes |
-| additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: ON_ERROR, FORCE LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
-| additionalFormatOptions | Opções de formato de arquivo adicionais fornecidas para o comando de cópia, fornecidas como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
+| tipo | O tipo de comando de importação, definido como **SnowflakeImportCopyCommand**. | Sim |
+| additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: ON_ERROR, FORCE LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Não |
+| additionalFormatOptions | Opções de formato de arquivo adicionais fornecidas para o comando de cópia, fornecidas como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Não |
 
 #### <a name="direct-copy-to-snowflake"></a>Cópia direta para floco de neve
 
@@ -396,6 +399,83 @@ Para usar esse recurso, crie um [serviço vinculado do armazenamento de BLOBs do
 ]
 ```
 
+## <a name="mapping-data-flow-properties"></a>Propriedades do fluxo de dados de mapeamento
+
+Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar em tabelas em floco de neve. Para obter mais informações, confira [transformação de origem](data-flow-source.md) e [transformação do coletor](data-flow-sink.md) nos fluxos de dados de mapeamento. Você pode optar por usar um conjunto de linhas de floco de neve ou um conjunto de uma [embutido](data-flow-source.md#inline-datasets) como fonte e tipo de coletor.
+
+### <a name="source-transformation"></a>Transformação de origem
+
+A tabela abaixo lista as propriedades com suporte pela fonte floco de neve. Você pode editar essas propriedades na guia **Opções de origem** . O conector utiliza a [transferência de dados interna](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)de floco de neve.
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabela | Se você selecionar tabela como entrada, o fluxo de dados irá buscar todos os dados da tabela especificada no conjunto de informações do floco de neve ou nas opções de origem ao usar o conjunto de dados embutido. | Não | String | *(somente para conjunto de linhas embutido)*<br>tableName<br>schemaName |
+| Consulta | Se você selecionar consulta como entrada, insira uma consulta para buscar dados do floco de neve. Essa configuração substitui qualquer tabela que você escolheu no conjunto de um.<br>Se os nomes do esquema, tabela e colunas contiverem letras minúsculas, citar o identificador de objeto na consulta, por exemplo, `select * from "schema"."myTable"` . | Não | String | Consulta |
+
+#### <a name="snowflake-source-script-examples"></a>Exemplos de script de origem de floco de neve
+
+Quando você usa o conjunto de dados de floco de neve como um tipo de origem, o script de fluxo associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SnowflakeSource
+```
+
+Se você usar o conjunto de dados embutido, o script de fluxo do data associado será:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'select * from MYTABLE',
+    store: 'snowflake') ~> SnowflakeSource
+```
+
+### <a name="sink-transformation"></a>Transformação de coletor
+
+A tabela abaixo lista as propriedades com suporte pelo coletor de floco de neve. Você pode editar essas propriedades na guia **configurações** . Ao usar o conjunto de linhas embutido, você verá configurações adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores. O conector utiliza a [transferência de dados interna](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)de floco de neve.
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Método Update | Especifique quais operações são permitidas em seu destino de floco de neve.<br>Para atualizar, upsertr ou excluir linhas, uma [transformação ALTER Row](data-flow-alter-row.md) é necessária para marcar linhas para essas ações. | Sim | `true` ou `false` | pode ser excluído <br/>Insertable <br/>atualizável <br/>upsertable |
+| Colunas de chaves | Para atualizações, upserts e exclusões, é necessário selecionar uma coluna de chave ou colunas para determinar qual linha alterar. | Não | Array | chaves |
+| Ação tabela | Determina se deve-se recriar ou remover todas as linhas da tabela de destino antes da gravação.<br>- **Nenhum**: nenhuma ação será feita para a tabela.<br>- **Recriar**: a tabela será descartada e recriada. Necessário ao criar uma tabela dinamicamente.<br>- **Truncar**: todas as linhas da tabela de destino serão removidas. | Não | `true` ou `false` | recriar<br/>truncate |
+
+#### <a name="snowflake-sink-script-examples"></a>Exemplos de script de coletor de floco de neve
+
+Quando você usa o conjunto de dados de floco de neve como tipo de coletor, o script de fluxo associado é:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:false,
+    keys:['movieId'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
+
+Se você usar o conjunto de dados embutido, o script de fluxo do data associado será:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    tableName: 'table',
+    schemaName: 'schema',
+    deletable: true,
+    insertable: true,
+    updateable: true,
+    upsertable: false,
+    store: 'snowflake',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
 
 ## <a name="lookup-activity-properties"></a>Pesquisar propriedades de atividade
 

@@ -1,27 +1,27 @@
 ---
 title: Criar e gerenciar um instantâneo de blob no .NET
 titleSuffix: Azure Storage
-description: Saiba como criar um instantâneo somente leitura de um blob para fazer backup de dados de BLOB em um determinado momento.
+description: Saiba como usar a biblioteca de cliente .NET para criar um instantâneo somente leitura de um blob para fazer backup de dados de BLOB em um determinado momento.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d50357a648d63984ae70a32e0fdd7260a86d6a6a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fb57e7260a056afe023455149f610ff492c98c12
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020806"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226124"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Criar e gerenciar um instantâneo de blob no .NET
 
 Um instantâneo é uma versão somente leitura de um blob capturada em um momento no tempo. Este artigo mostra como criar e gerenciar instantâneos de BLOB usando a [biblioteca de cliente de armazenamento do Azure para .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Para obter mais informações sobre instantâneos de blob no armazenamento do Azure, consulte [criar e gerenciar um instantâneo de blob no .net](snapshots-overview.md).
+Para obter mais informações sobre instantâneos de blob no armazenamento do Azure, consulte [instantâneos de blob](snapshots-overview.md).
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
 
@@ -162,5 +162,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Instantâneos de BLOB](snapshots-overview.md)
-- [Versões de BLOB (versão prévia)](versioning-overview.md)
+- [Versões de BLOB](versioning-overview.md)
 - [Exclusão reversível para blobs](storage-blob-soft-delete.md)

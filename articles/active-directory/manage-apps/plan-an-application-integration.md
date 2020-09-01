@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d49c23e5968b0fe1b2d4838978fe1b23931e5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763084"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182319"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
 
@@ -45,7 +45,7 @@ Antes de ir para a integração de aplicativos com o Azure AD, é importante sab
   * Azure AD
   * Em um banco de dados de aplicativo separado que você possui
   * Em aplicativos não autorizados
-  * Todos os itens acima
+  * Todas as anteriores
 * Quais permissões e atribuições de função os usuários individuais têm atualmente? Você precisa examinar seu acesso ou tem certeza de que o acesso do usuário e as atribuições de função são apropriadas agora?
 * Os grupos já estão estabelecidos em seu Active Directory local?
   * Como os grupos são organizados?
@@ -54,7 +54,7 @@ Antes de ir para a integração de aplicativos com o Azure AD, é importante sab
 * Você precisará limpar os bancos de dados de usuários/grupos antes da integração?  (Essa é uma pergunta muito importante. Entrada e saída de lixo.)
 
 ### <a name="access-management-inventory"></a>Inventário de gerenciamento de acesso
-* Atualmente, como você gerencia o acesso do usuário aos aplicativos? Isso precisa ser alterado?  Você considerou outras maneiras de gerenciar o acesso, como com o [RBAC](../../role-based-access-control/role-assignments-portal.md) , por exemplo?
+* Atualmente, como você gerencia o acesso do usuário aos aplicativos? Isso precisa ser alterado?  Você considerou outras maneiras de gerenciar o acesso, como com o [RBAC do Azure](../../role-based-access-control/role-assignments-portal.md) , por exemplo?
 * Quem precisa de acesso ao quê?
 
 Talvez você não tenha as respostas a todas essas perguntas com antecedência, mas tudo bem.  Este guia pode ajudá-lo a responder a algumas dessas perguntas e tomar algumas decisões informadas.

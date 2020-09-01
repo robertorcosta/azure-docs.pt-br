@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ec492466e107eb6f4821f0e6d2caed9daa141a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608943"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226974"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory
 
@@ -42,13 +42,13 @@ Você deseja:
 
 - Tenha uma ideia mais aprofundada sobre consultas de log de entrada, os relatórios da pasta de trabalho sobre quantos usuários tiveram o acesso concedido ou negado, bem como quantos usuários contornaram as políticas de acesso condicional ao acessar recursos.
 
-- Para ajudar você a tirar essas dúvidas, o Azure Active Directory fornece pastas de trabalho para monitoramento. As [pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) combinam texto, consultas analíticas, métricas e parâmetros em relatórios interativos avançados.
+- Para ajudar você a tirar essas dúvidas, o Azure Active Directory fornece pastas de trabalho para monitoramento. As [pastas de trabalho do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) combinam texto, consultas analíticas, métricas e parâmetros em relatórios interativos avançados.
 
 
 
 Este artigo:
 
-- Pressupõe que você já saiba [criar relatórios interativos usando as pastas de trabalho do Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+- Pressupõe que você já saiba [criar relatórios interativos usando as pastas de trabalho do Monitor](../../azure-monitor/platform/workbooks-overview.md).
 
 - Explica como usar pastas de trabalho do Monitor para entender o efeito das políticas de acesso condicional, solucionar problemas de falhas de entrada e identificar autenticações herdadas.
  
@@ -58,11 +58,11 @@ Este artigo:
 
 Para usar pastas de trabalho do Monitor, você precisa de:
 
-- Um locatário do Azure Active Directory com uma licença premium (P1 ou P2). Saiba como [obter uma licença premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Um locatário do Azure Active Directory com uma licença premium (P1 ou P2). Saiba como [obter uma licença premium](../fundamentals/active-directory-get-started-premium.md).
 
-- Um [workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- Um [workspace do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 
-- [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao workspace do Log Analytics
+- [Acesso](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) ao workspace do Log Analytics
 - As funções a seguir no Azure Active Directory (se você estiver acessando o Log Analytics por meio do portal do Azure Active Directory)
     - Administrador de segurança
     - Leitor de segurança
@@ -70,7 +70,7 @@ Para usar pastas de trabalho do Monitor, você precisa de:
     - Administrador global
 
 ## <a name="roles"></a>Funções
-Você deve ter uma das funções a seguir, bem como [acesso ao workspace do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions), para gerenciar as pastas de trabalho:
+Você deve ter uma das funções a seguir, bem como [acesso ao workspace do Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions), para gerenciar as pastas de trabalho:
 -   Administrador global
 -   Administrador de segurança
 -   Leitor de segurança
@@ -302,4 +302,4 @@ Para ajudar você a solucionar problemas de entrada, o Azure Monitor oferece um 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Criar relatórios usando pastas de trabalho do Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+[Criar relatórios usando pastas de trabalho do Monitor](../../azure-monitor/platform/workbooks-overview.md).

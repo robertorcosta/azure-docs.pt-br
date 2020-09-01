@@ -7,16 +7,24 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: e2ba5d909a3aa43921f52295d2f7216aac76bc32
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: aca41edeb159a65b27ecbbc27ae568f8bc94cebe
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067079"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181860"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de inicialização do Azure
 
 O diagnóstico de inicialização é um recurso de depuração para VMs (máquinas virtuais) do Azure que permite o diagnóstico de falhas de inicialização da VM. O diagnóstico de inicialização permite que um usuário observe o estado de sua VM durante a inicialização coletando informações de log serial e capturas de tela.
+
+## <a name="boot-diagnostics-storage-account"></a>Conta de armazenamento de diagnóstico de inicialização
+Ao criar uma VM no portal do Azure, o diagnóstico de inicialização é habilitado por padrão. A experiência de diagnóstico de inicialização recomendada é usar uma conta de armazenamento gerenciada, pois ela gera melhorias significativas no desempenho no momento da criação de uma VM do Azure. Isso ocorre porque uma conta de armazenamento gerenciado do Azure será usada, removendo o tempo necessário para criar uma nova conta de armazenamento de usuário para armazenar os dados de diagnóstico de inicialização.
+
+Uma experiência de diagnóstico de inicialização alternativa é usar uma conta de armazenamento gerenciada pelo usuário. Um usuário pode criar uma nova conta de armazenamento ou usar uma existente.
+
+> [!IMPORTANT]
+> Os clientes do Azure não serão cobrados pelos custos de armazenamento associted com o diagnóstico de inicialização usando uma conta de armazenamento gerenciada até 2020 de outubro.
 
 ## <a name="boot-diagnostics-view"></a>Exibição de diagnóstico de inicialização
 Localizado na folha máquina virtual, a opção diagnóstico de inicialização está na seção *suporte e solução de problemas* no portal do Azure. A seleção de diagnósticos de inicialização exibirá uma captura de tela e informações de log serial. O log serial contém mensagens de kernel e a captura de tela é um instantâneo do estado atual de suas VMs. Com base em se a VM que está executando o Windows ou Linux determinar a aparência esperada da captura de tela. Para o Windows, os usuários verão um plano de fundo de área de trabalho e para Linux, os usuários verão um prompt de logon.

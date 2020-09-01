@@ -17,18 +17,18 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608255"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226957"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
-As [APIs de relatório do Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) fornecem acesso programático aos dados através de um conjunto de APIs baseadas em REST. Você pode chamar essas APIs de ferramentas e linguagens de programação.
+As [APIs de relatório do Azure AD](./concept-reporting-api.md) fornecem acesso programático aos dados através de um conjunto de APIs baseadas em REST. Você pode chamar essas APIs de ferramentas e linguagens de programação.
 
-A API de relatório usa [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) para autorizar o acesso às APIs da Web.
+A API de relatório usa [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) para autorizar o acesso às APIs da Web.
 
 Para preparar seu acesso à API de relatório, você precisa:
 
@@ -200,7 +200,7 @@ Esta seção lista as mensagens de erro comuns que você pode encontrar ao acess
 
  Entre em sua conta usando os botões de entrada na interface do usuário do Graph Explorer para evitar obter um erro ao tentar entrar usando o explorador do Graph. 
 
-![Explorador do Graph](./media/troubleshoot-graph-api/graph-explorer.png)
+![Explorador de gráficos](./media/troubleshoot-graph-api/graph-explorer.png)
 
 ### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Erro: falha ao fazer a verificação de licença Premium de Microsoft Graph 
 
@@ -225,5 +225,5 @@ Siga as etapas em [pré-requisitos para acessar a API de relatório de Azure Act
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obter dados usando a API de Relatório do Azure Active Directory com certificados](tutorial-access-api-with-certificates.md)
-* [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Referência da API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Referência da API de auditoria](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Referência da API de relatório de atividade de entrada](/graph/api/resources/signin?view=graph-rest-beta)

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 310fde15a850214aa1741c9cb587c0edcf570a37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 703e67b4829413776dc8d98843888fbd67906baa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082890"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182183"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-device"></a>Controle de acesso baseado em função do kubernetes em seu dispositivo Azure Stack Edge
 
@@ -26,9 +26,43 @@ Este artigo fornece uma visão geral do sistema RBAC fornecido pelo kubernetes e
 
 O RBAC kubernetes permite atribuir usuários ou grupos de usuários, permissão para tarefas como criar ou modificar recursos ou exibir logs da execução de cargas de trabalho do aplicativo. Essas permissões podem ser delimitadas para um único namespace ou concedidas em todo o cluster. 
 
-Quando você configura o cluster kubernetes, um único usuário é criado correspondente a esse cluster e é chamado de usuário administrador do cluster.  Um `kubeconfig` arquivo é associado ao usuário administrador do cluster. O `kubeconfig` arquivo é um arquivo de texto que contém todas as informações de configuração necessárias para se conectar ao cluster para autenticar o usuário. 
+Quando você configura o cluster kubernetes, um único usuário é criado correspondente a esse cluster e é chamado de usuário administrador do cluster.  Um `kubeconfig` arquivo é associado ao usuário administrador do cluster. O `kubeconfig` arquivo é um arquivo de texto que contém todas as informações de configuração necessárias para se conectar ao cluster para autenticar o usuário.
 
-### <a name="namespaces-and-users"></a>Namespaces e usuários
+## <a name="namespaces-types"></a>Tipos de namespaces
+
+Recursos de kubernetes, como pods e implantações, são agrupados logicamente em um namespace. Esses agrupamentos fornecem uma maneira de dividir logicamente um cluster kubernetes e restringir o acesso para criar, exibir ou gerenciar recursos. Os usuários podem interagir apenas com recursos dentro de seus namespaces atribuídos.
+
+Os namespaces são destinados ao uso em ambientes com muitos usuários espalhados por várias equipes ou projetos. Para clusters com alguns a dezenas de usuários, não é necessário criar nem pensar em namespaces. Comece a usar namespaces quando precisar dos recursos que eles fornecem.
+
+Para obter mais informações, consulte [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+
+
+O dispositivo do Azure Stack Edge tem os seguintes namespaces:
+
+- **Namespace do sistema** – esse namespace é onde os principais recursos existem, como recursos de rede, como DNS e proxy, ou o painel do kubernetes. Normalmente, você não implantar seus próprios aplicativos para esse namespace. Use esse namespace para depurar qualquer problema de cluster kubernetes. 
+
+    Há vários namespaces de sistema em seu dispositivo e os nomes correspondentes a esses namespaces de sistema são reservados. Aqui está uma lista dos namespaces de sistema reservados: 
+    - Kube-sistema
+    - metallb-sistema
+    - DBE-namespace
+    - default
+    - kubernetes-painel
+    - default
+    - Kube-concessão de nó
+    - Kube – público
+    - iotedge
+    - Azure-arco
+
+    Certifique-se de não usar nenhum nome reservado para namespaces de usuário que você criar. 
+<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
+
+- **Namespace de usuário** – esses são os namespaces que você pode criar por meio do **kubectl** para implantar aplicativos localmente.
+ 
+- **IOT Edge namespace** -você se conecta a esse `iotedge` namespace para implantar aplicativos via IOT Edge.
+
+- **Namespace Arc do Azure** -você se conecta a este `azure-arc` namespace para implantar aplicativos por meio do Azure Arc. 
+
+## <a name="namespaces-and-users"></a>Namespaces e usuários
 
 No mundo real, é importante dividir o cluster em vários namespaces. 
 
@@ -43,7 +77,6 @@ Kubernetes tem o conceito de função e Associação de função que permite con
 - **RoleBindings**: depois de definir as funções, você pode usar **RoleBindings** para atribuir funções para um namespace específico. 
 
 Essa abordagem permite separar logicamente um único cluster kubernetes, com os usuários capazes de acessar somente os recursos do aplicativo em seu namespace atribuído. 
-
 
 ## <a name="rbac-on-azure-stack-edge"></a>RBAC na borda Azure Stack
 
@@ -92,14 +125,6 @@ Ao trabalhar com namespaces e usuários em seus dispositivos Azure Stack Edge, a
 - Você não tem permissão para criar nenhum namespace de usuário com nomes que já estão em uso por outros namespaces de usuário. Por exemplo, se você tiver um `test-ns` que você criou, não poderá criar outro `test-ns` namespace.
 - Você não tem permissão para criar usuários com nomes que já estão reservados. Por exemplo, `aseuser` é um administrador de cluster reservado e não pode ser usado.
 
-Para obter mais informações sobre Azure Stack namespaces de borda, consulte [tipos de namespace](azure-stack-edge-gpu-kubernetes-workload-management.md#namespaces-types).
-
-
-<!--To deploy applications on an Azure Stack Edge device, use the following :
- 
-- First, you will use the PowerShell runspace to create a user, create a namespace, and grant user access to that namespace.
-- Next, you will use the Azure Stack Edge resource in the Azure portal to create persistent volumes using either static or dynamic provisioning for the stateful applications that you will deploy.
-- Finally, you will use the services to expose applications externally and within the Kubernetes cluster.-->
 
 ## <a name="next-steps"></a>Próximas etapas
 

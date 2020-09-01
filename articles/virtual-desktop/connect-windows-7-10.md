@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85e0c1b146cfba0cb95a6612f33e42a465bfd20b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0e4f41cb23ec4a9463b983049f5f37d09d1b8c71
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008739"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226702"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Conectar-se ao Cliente de Área de Trabalho do Windows
 
 > Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 
 Você pode acessar os recursos da área de trabalho virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise usando o cliente de área de trabalho do Windows. O cliente não dá suporte à janela 8 ou Windows 8.1.
 
@@ -61,8 +61,9 @@ Há duas maneiras de assinar um workspace. O cliente pode tentar descobrir os re
 1. Na página principal do cliente, selecione **assinar com a URL**.
 2. Insira a URL do workspace ou o endereço de email:
    - Se você usar a **URL do workspace**, use aquela que o administrador lhe forneceu. Se estiver acessando recursos da Área de Trabalho Virtual do Windows, será possível usar uma das seguintes URLs:
-     - Área de trabalho virtual do Windows (clássica):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Área de trabalho virtual do Windows:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Área de Trabalho Virtual do Windows (clássica): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Área de Trabalho Virtual do Windows: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Área de trabalho virtual do Windows (US Gov): `https://rdweb.wvd.azure.us/api/arm/feeddiscovery`
    - Se você estiver usando o campo **email** , insira seu endereço de email. Isso instrui o cliente a procurar uma URL associada ao seu endereço de email se seu administrador tiver configurado a [descoberta de email](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Selecione **Avançar**.
 4. Entre com sua conta quando solicitado.

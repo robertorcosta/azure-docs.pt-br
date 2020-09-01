@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 21845b51fdd108221d5e1bce50e953b79084d17d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89082886"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182047"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Gerenciamento de carga de trabalho kubernetes em seu dispositivo Azure Stack Edge
 
@@ -33,40 +33,13 @@ Os dois tipos comuns de cargas de trabalho que você pode implantar em seu Azure
 
     Você pode criar uma implantação do kubernetes para implantar um aplicativo com estado. 
 
-## <a name="namespaces-types"></a>Tipos de namespaces
+## <a name="deployment-flow"></a>Fluxo de implantação
 
-Recursos de kubernetes, como pods e implantações, são agrupados logicamente em um namespace. Esses agrupamentos fornecem uma maneira de dividir logicamente um cluster kubernetes e restringir o acesso para criar, exibir ou gerenciar recursos. Os usuários podem interagir apenas com recursos dentro de seus namespaces atribuídos.
-
-Os namespaces são destinados ao uso em ambientes com muitos usuários espalhados por várias equipes ou projetos. Para clusters com alguns a dezenas de usuários, não é necessário criar nem pensar em namespaces. Comece a usar namespaces quando precisar dos recursos que eles fornecem.
-
-Para obter mais informações, consulte [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-
-
-O dispositivo do Azure Stack Edge tem os seguintes namespaces:
-
-- **Namespace do sistema** – esse namespace é onde os principais recursos existem, como recursos de rede, como DNS e proxy, ou o painel do kubernetes. Normalmente, você não implantar seus próprios aplicativos para esse namespace. Use esse namespace para depurar qualquer problema de cluster kubernetes. 
-
-    Há vários namespaces de sistema em seu dispositivo e os nomes correspondentes a esses namespaces de sistema são reservados. Aqui está uma lista dos namespaces de sistema reservados: 
-    - Kube-sistema
-    - metallb-sistema
-    - DBE-namespace
-    - default
-    - kubernetes-painel
-    - default
-    - Kube-concessão de nó
-    - Kube – público
-    - iotedge
-    - Azure-arco
-
-    Certifique-se de não usar nenhum nome reservado para namespaces de usuário que você criar. 
-<!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
-
-- **Namespace de usuário** – esses são os namespaces que você pode criar por meio do **kubectl** para implantar aplicativos localmente.
+Para implantar aplicativos em um dispositivo Azure Stack Edge, você seguirá estas etapas: 
  
-- **IOT Edge namespace** -você se conecta a esse `iotedge` namespace para implantar aplicativos via IOT Edge.
-
-- **Namespace Arc do Azure** -você se conecta a este `azure-arc` namespace para implantar aplicativos por meio do Azure Arc.
-
+1. **Configurar o acesso**: primeiro, você usará o runspace do PowerShell para criar um usuário, criar um namespace e conceder acesso ao usuário para esse namespace.
+2. **Configurar o armazenamento**: em seguida, você usará o Azure Stack recurso do Edge no portal do Azure para criar volumes persistentes usando o provisionamento estático ou dinâmico para os aplicativos com estado que serão implantados.
+3. **Configurar a rede**: por fim, você usará os serviços para expor aplicativos externamente e dentro do cluster kubernetes.
  
 ## <a name="deployment-types"></a>Tipos de implantação
 
@@ -78,7 +51,7 @@ Há três maneiras principais de implantar suas cargas de trabalho. Cada uma des
 
 - **Implantação de IOT Edge**: isso ocorre por meio de IOT Edge, que se conecta ao Hub IOT do Azure. Você se conecta ao cluster K8 em seu dispositivo Azure Stack Edge por meio do `iotedge` namespace. Os agentes de IoT Edge implantados nesse namespace são responsáveis pela conectividade com o Azure. Você aplica a `IoT Edge deployment.json` configuração usando o CI/CD do DevOps do Azure. O namespace e o gerenciamento de IoT Edge são feitos por meio do operador de nuvem.
 
-- **Implantação do Azure/Arc**: o arco do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters K8. Você conecta o cluster K8 em seu dispositivo Azure Stack Edge por meio do `azure-arc namespace` .  Os agentes são implantados neste namespace que são responsáveis pela conectividade com o Azure. Você aplica a configuração de implantação usando o gerenciamento de configuração baseado em GitOps. O arco do Azure também permitirá que você use Azure Monitor para contêineres para exibir e monitorar seus clusters. Para obter mais informações, acesse [o que é o Azure-Arc habilitado kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Implantação do Azure/Arc**: o arco do Azure é uma ferramenta de gerenciamento híbrido que permitirá que você implante aplicativos em seus clusters K8. Você conecta o cluster K8 em seu dispositivo Azure Stack Edge por meio do `azure-arc namespace` . Os agentes são implantados neste namespace que são responsáveis pela conectividade com o Azure. Você aplica a configuração de implantação usando o gerenciamento de configuração baseado em GitOps. O arco do Azure também permitirá que você use Azure Monitor para contêineres para exibir e monitorar seus clusters. Para obter mais informações, acesse [o que é o Azure-Arc habilitado kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## <a name="choose-the-deployment-type"></a>Escolher o tipo de implantação
 

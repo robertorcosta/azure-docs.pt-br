@@ -1,7 +1,7 @@
 ---
 title: Diretrizes de marca para aplicativos | Azure
 titleSuffix: Microsoft identity platform
-description: Um guia abrangente para recursos para desenvolvedores do Azure Active Directory
+description: Saiba mais sobre as diretrizes de identidade visual do aplicativo para a plataforma de identidade da Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/31/2020
 ms.author: ryanwi
-ms.reviewer: arielgo
+ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: cf72a8863976d8a678fbdfb6d369c0423b59acf2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117287"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226634"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
-Ao desenvolver aplicativos com o Azure AD (Azure Active Directory), você precisará direcionar os clientes quando eles quiserem usar sua conta corporativa ou de estudante (gerenciada no Azure AD) ou a conta pessoal para inscrição e conexão no seu aplicativo.
+Ao desenvolver aplicativos com a plataforma de identidade da Microsoft, você precisará direcionar seus clientes quando quiserem usar sua conta corporativa ou de estudante (gerenciada no Azure AD) ou sua conta pessoal para inscrição e entrada em seu aplicativo.
 
 Neste artigo, você irá:
 
 - Saber sobre os dois tipos de contas de usuário gerenciadas pela Microsoft e como fazer referência às contas do Azure AD em seu aplicativo
-- Descobrir o que você precisa fazer para adicionar o logotipo da Microsoft para uso em seu aplicativo
+- Descubra o que você precisa fazer para adicionar o logotipo da Microsoft para uso em seu aplicativo
 - Baixar as imagens oficiais de **Entrar** ou **Entrar com a conta da Microsoft** a serem usadas em seu aplicativo
 - Saber sobre as regras de identidade visual e navegação
 
@@ -38,7 +38,7 @@ A Microsoft gerencia dois tipos de contas de usuário:
 - **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Essas contas representam a relação entre usuários *individuais* e a Microsoft e são usadas para acessar serviços e dispositivos do cliente da Microsoft. Essas contas são destinadas a uso pessoal.
 - **Contas corporativas ou de estudante.**  Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
 
-As contas comerciais ou de estudante da Microsoft  normalmente são atribuídas aos usuários finais (funcionários, estudantes e funcionários federais) por suas organizações (empresa, escola, órgão do governo). Essas contas são dominadas diretamente na nuvem (na plataforma do Azure AD) ou sincronizadas para o Azure AD de um diretório local, como o Active Directory do Windows Server. A Microsoft tem a *custódia* das contas comerciais ou de estudante, mas as contas são de propriedade e controladas pela organização.
+As contas comerciais ou de estudante da Microsoft  normalmente são atribuídas aos usuários finais (funcionários, estudantes e funcionários federais) por suas organizações (empresa, escola, órgão do governo). Essas contas são modeladas diretamente na nuvem (na plataforma do Azure AD) ou sincronizadas com o Azure AD de um diretório local, como o Windows Server Active Directory. A Microsoft tem a *custódia* das contas comerciais ou de estudante, mas as contas são de propriedade e controladas pela organização.
 
 ## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Fazendo referência às contas do Azure AD em seu aplicativo
 

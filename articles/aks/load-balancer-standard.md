@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056805"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182115"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um Standard Load Balancer público no AKS (serviço kubernetes do Azure)
 
@@ -267,16 +267,15 @@ Se você espera ter várias conexões de curta duração e nenhuma conexão long
 *outboundIPs* \* 64.000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
 Por exemplo, se você tiver três *nodeVMs* e 50 mil *desiredAllocatedOutboundPorts*, precisará ter pelo menos três *outboundIPs*. É recomendável incorporar a capacidade de IP de saída adicional além da que você precisa. Além disso, você precisa considerar o dimensionador automático do cluster e a possibilidade de atualizações do pool de nós ao calcular a capacidade do IP de saída. Para o dimensionador automático do cluster, examine a contagem de nós atual e a contagem máxima de nós e use o valor mais alto. Para atualizar, considere uma VM de nó adicional para cada pool de nós que permite a atualização.
- 
+
 - Ao definir *IdleTimeoutInMinutes* como um valor diferente do padrão de 30 minutos, considere por quanto tempo suas cargas de trabalho precisarão de uma conexão de saída. Considere também que o valor do tempo limite padrão para um balanceador de carga de SKU *Standard* usado fora do AKS é de 4 minutos. Um valor *IdleTimeoutInMinutes* que reflete com mais precisão sua carga de trabalho do AKS específica pode ajudar a diminuir o esgotamento de SNAT causado pela associação de conexões que não são mais usadas.
 
 > [!WARNING]
 > Alterar os valores de *AllocatedOutboundPorts* e *IdleTimeoutInMinutes* pode alterar significativamente o comportamento da regra de saída para o balanceador de carga e não deve ser feito levemente, sem compreender as compensações e os padrões de conexão do aplicativo, verificar a seção de solução de [problemas de SNAT abaixo][troubleshoot-snat] e examinar as [Load Balancer regras de saída][azure-lb-outbound-rules-overview] e [conexões de saída no Azure][azure-lb-outbound-connections] antes de atualizar esses valores para entender totalmente o impacto de suas alterações
 
-
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>Restringir o tráfego de entrada para intervalos de IP específicos
 
-Por padrão, o NSG (Grupo de Segurança de Rede) associado à rede virtual do balanceador de carga tem uma regra para permitir todo o tráfego externo de saída. Você pode atualizar essa regra para somente permitir intervalos de IP específicos para o tráfego de entrada. O seguinte manifesto usa *loadBalancerSourceRanges* para especificar um novo intervalo de IP para o tráfego externo de entrada:
+O seguinte manifesto usa *loadBalancerSourceRanges* para especificar um novo intervalo de IP para o tráfego externo de entrada:
 
 ```yaml
 apiVersion: v1
@@ -292,6 +291,9 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+> [!NOTE]
+> Entrada, o tráfego externo flui do balanceador de carga para a rede virtual para o cluster AKS. A rede virtual tem um NSG (grupo de segurança de rede) que permite todo o tráfego de entrada do balanceador de carga. Este NSG usa uma [marca de serviço][service-tags] do tipo Balancer para permitir o tráfego do balanceador de carga. *LoadBalancer*
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Manter o IP do cliente em conexões de entrada
 
@@ -322,7 +324,7 @@ Abaixo está uma lista de anotações com suporte para serviços kubernetes com 
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nome do rótulo DNS em IPs públicos   | Especifique o nome do rótulo DNS para o serviço **público** . Se estiver definido como uma cadeia de caracteres vazia, a entrada DNS no IP público não será usada.
 | `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` ou `false`                     | Especifique que o serviço deve ser exposto usando uma regra de segurança do Azure que pode ser compartilhada com outro serviço, que é uma determinada especificação de regras para um aumento no número de serviços que podem ser expostos. Esta anotação depende do recurso de [regras de segurança aumentadas](../virtual-network/security-overview.md#augmented-security-rules) do Azure de grupos de segurança de rede. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nome do grupo de recursos            | Especifique o grupo de recursos de IPs públicos do Load Balancer que não estão no mesmo grupo de recursos que a infraestrutura de cluster (grupo de recursos de nó).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de marcas de serviço permitidas          | Especifique uma lista de [marcas de serviço](../virtual-network/security-overview.md#service-tags) permitidas separadas por vírgula.
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Lista de marcas de serviço permitidas          | Especifique uma lista de [marcas de serviço][service-tags] permitidas separadas por vírgula.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Tempos limite de ociosidade de TCP em minutos          | Especifique o tempo, em minutos, para que os tempos limite de ociosidade de conexão TCP ocorram no balanceador de carga. O valor padrão e mínimo é 4. O valor máximo é 30. Deve ser um inteiro.
 |`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Desabilitar `enableTcpReset` para SLB
 
@@ -424,3 +426,4 @@ Saiba mais sobre como usar o Load Balancer interno para o tráfego de entrada na
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
+[service-tags]: ../virtual-network/security-overview.md#service-tags

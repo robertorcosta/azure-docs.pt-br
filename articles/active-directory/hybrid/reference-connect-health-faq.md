@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 9a725831efe6b92ba522900fac67b317e42bc959
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718536"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182370"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -137,7 +137,7 @@ O agente de integridade não conseguirá registrar devido a motivos possíveis:
 
 * O agente não pode se comunicar com os pontos de extremidade necessários porque um firewall está bloqueando o tráfego. Isso é especialmente comum em servidores proxy de aplicativo Web. Cerifique de ter permitido a comunicação de saída para as portas e os pontos de extremidade necessários. Consulte a [seção requisitos](how-to-connect-health-agent-install.md#requirements) para obter detalhes.
 * A comunicação de saída está sujeita a uma inspeção de TLS pela camada de rede. Isso faz com que o certificado usado pelo agente seja substituído por entidade/servidor de inspeção e ocorre falha nas etapas necessárias para concluir o registro do agente.
-* O usuário não tem acesso para executar o registro do agente. Por padrão, os administradores globais têm acesso. Você pode usar o [controle de acesso baseado em função do Azure (RBAC do Azure)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) para delegar acesso a outros usuários.
+* O usuário não tem acesso para executar o registro do agente. Por padrão, os administradores globais têm acesso. Você pode usar o [controle de acesso baseado em função do Azure (RBAC do Azure)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) para delegar acesso a outros usuários.
 
 **P: Estou recebendo um alerta de que "Serviço de Integridade dados não estão atualizados". Como fazer solucionar o problema?**
 

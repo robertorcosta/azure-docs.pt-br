@@ -3,12 +3,12 @@ title: Fazer backup de compartilhamentos de arquivos do Azure com CLI do Azure
 description: Saiba como usar CLI do Azure para fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 54852112591b5f5eec1ecbac34b836b4cb0f4f1f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cc4422a7d20dbd231729922bd013549d5276deb1
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012017"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182200"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Fazer backup de compartilhamentos de arquivos do Azure com a CLI
 

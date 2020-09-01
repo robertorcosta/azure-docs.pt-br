@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 08/16/2020
+ms.date: 08/31/2020
 ms.custom: generated
-ms.openlocfilehash: 44b4134404d5af3a8dde7028ffa1b43258df7558
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: b58316cf5a56eae46c81056a78446dc6c3d10764
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271984"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226753"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -24,7 +24,7 @@ Este artigo lista as funções internas do Azure, que estão sempre em evoluçã
 
 A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 > [!div class="mx-tableFixed"]
 > | Função interna | Descrição | ID |
@@ -153,7 +153,15 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Colaborador do Azure Sentinel](#azure-sentinel-contributor) | Colaborador do Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Leitor do Azure Sentinel](#azure-sentinel-reader) | Leitor do Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Respondente do Azure Sentinel](#azure-sentinel-responder) | Respondente do Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
-> | [Colaborador do Key Vault](#key-vault-contributor) | Permite gerenciar cofres de chaves, mas não acessá-los. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [Key Vault administrador (versão prévia)](#key-vault-administrator-preview) | Execute todas as operações de plano de dados em um cofre de chaves e todos os objetos nela, incluindo certificados, chaves e segredos. Não é possível gerenciar os recursos do cofre de chaves nem gerenciar atribuições de função. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+> | [Key Vault o responsável por certificados (versão prévia)](#key-vault-certificates-officer-preview) | Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+> | [Colaborador do Key Vault](#key-vault-contributor) | Gerencie cofres de chaves, mas não permite que você atribua funções no RBAC do Azure e não permite que você acesse segredos, chaves ou certificados. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [Key Vault de criptografia (versão prévia)](#key-vault-crypto-officer-preview) | Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+> | [Criptografia do serviço de criptografia Key Vault (visualização)](#key-vault-crypto-service-encryption-preview) | Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+> | [Key Vault usuário de criptografia (visualização)](#key-vault-crypto-user-preview) | Executar operações criptográficas usando chaves. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+> | [Leitor de Key Vault (versão prévia)](#key-vault-reader-preview) | Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não é possível ler valores confidenciais, como conteúdo secreto ou material de chave. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+> | [Diretor de segredos Key Vault (versão prévia)](#key-vault-secrets-officer-preview) | Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+> | [Usuário Key Vault segredos (visualização)](#key-vault-secrets-user-preview) | Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '. | 4633458b-17de-408a-b874-0445c86b69e6 |
 > | [Administrador de Segurança](#security-admin) | Visualiza e atualiza permissões para a Central de Segurança. Mesmas permissões que a função de leitor de segurança e também podem atualizar a política de segurança e ignorar alertas e recomendações. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Colaborador de avaliação de segurança](#security-assessment-contributor) | Permite enviar avaliações por push para a Central de Segurança | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Gerenciador de Segurança (Herdado)](#security-manager-legacy) | Esta é uma função herdada. Em vez disso, use o Administrador de Segurança. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
@@ -6276,9 +6284,129 @@ Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
 }
 ```
 
+### <a name="key-vault-administrator-preview"></a>Key Vault administrador (versão prévia)
+
+Execute todas as operações de plano de dados em um cofre de chaves e todos os objetos nela, incluindo certificados, chaves e segredos. Não é possível gerenciar os recursos do cofre de chaves nem gerenciar atribuições de função. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read | Verificar se um nome de chave do cofre é válido e não está em uso |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read | Exibir as propriedades de cofres de chaves com exclusão reversível |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Locations/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Operations/Read | Lista as operações disponíveis no provedor de recursos Microsoft.KeyVault |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on certificates, keys and secrets of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/00482a5a-887f-4fb3-b363-3b7fe8e74483",
+  "name": "00482a5a-887f-4fb3-b363-3b7fe8e74483",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Administrator (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-certificates-officer-preview"></a>Key Vault o responsável por certificados (versão prévia)
+
+Execute qualquer ação nos certificados de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read | Verificar se um nome de chave do cofre é válido e não está em uso |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read | Exibir as propriedades de cofres de chaves com exclusão reversível |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Locations/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Operations/Read | Lista as operações disponíveis no provedor de recursos Microsoft.KeyVault |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/certificatecas/* |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Certificates/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the certificates of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/a4417e6f-fecd-4de8-b567-7b0420556985",
+  "name": "a4417e6f-fecd-4de8-b567-7b0420556985",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/certificatecas/*",
+        "Microsoft.KeyVault/vaults/certificates/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Certificates Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="key-vault-contributor"></a>Colaborador do Key Vault
 
-Permite gerenciar cofres de chaves, mas não acessá-los. [Saiba mais](../key-vault/general/secure-your-key-vault.md)
+Gerencie cofres de chaves, mas não permite que você atribua funções no RBAC do Azure e não permite que você acesse segredos, chaves ou certificados. [Saiba mais](../key-vault/general/secure-your-key-vault.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6324,6 +6452,324 @@ Permite gerenciar cofres de chaves, mas não acessá-los. [Saiba mais](../key-va
     }
   ],
   "roleName": "Key Vault Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-officer-preview"></a>Key Vault de criptografia (versão prévia)
+
+Execute qualquer ação nas chaves de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read | Verificar se um nome de chave do cofre é válido e não está em uso |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read | Exibir as propriedades de cofres de chaves com exclusão reversível |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Locations/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Operations/Read | Lista as operações disponíveis no provedor de recursos Microsoft.KeyVault |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the keys of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
+  "name": "14b46e9e-c2b7-41b4-b07b-48a6ebf60603",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-service-encryption-preview"></a>Criptografia do serviço de criptografia Key Vault (visualização)
+
+Ler metadados de chaves e executar operações de encapsulamento/desencapsulamento. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Read | Listar chaves no cofre especificado ou ler propriedades e material público de uma chave. Para chaves assimétricas, essa operação expõe a chave pública e inclui a capacidade de executar algoritmos de chave pública, como criptografar e verificar assinatura. Chaves privadas e chaves simétricas nunca são expostas. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Wrap/Action | Encapsular uma chave simétrica com uma chave de Key Vault. Observe que, se a chave de Key Vault for assimétrica, essa operação poderá ser executada com acesso de leitura. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Unwrap/Action | Desenvolva uma chave simétrica com uma chave de Key Vault. |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read metadata of keys and perform wrap/unwrap operations.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e147488a-f6f5-4113-8e2d-b22465e65bf6",
+  "name": "e147488a-f6f5-4113-8e2d-b22465e65bf6",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/read",
+        "Microsoft.KeyVault/vaults/keys/wrap/action",
+        "Microsoft.KeyVault/vaults/keys/unwrap/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto Service Encryption (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-crypto-user-preview"></a>Key Vault usuário de criptografia (visualização)
+
+Executar operações criptográficas usando chaves. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Read | Listar chaves no cofre especificado ou ler propriedades e material público de uma chave. Para chaves assimétricas, essa operação expõe a chave pública e inclui a capacidade de executar algoritmos de chave pública, como criptografar e verificar assinatura. Chaves privadas e chaves simétricas nunca são expostas. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/UPDATE/Action | Atualiza os atributos especificados associados à chave especificada. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/backup/Action | Crie o arquivo de backup de uma chave. O arquivo pode ser usado para restaurar a chave em um Key Vault da mesma assinatura. Restrições podem ser aplicadas. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Encrypt/Action | Criptografe o texto não criptografado com uma chave. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Decrypt/Action | Descriptografe o texto cifrado com uma chave. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Wrap/Action | Encapsular uma chave simétrica com uma chave de Key Vault. Observe que, se a chave de Key Vault for assimétrica, essa operação poderá ser executada com acesso de leitura. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Unwrap/Action | Desenvolva uma chave simétrica com uma chave de Key Vault. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Sign/Action | Assinar um hash com uma chave. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Keys/Verify/Action | Verifique um hash. Observe que, se a chave for assimétrica, essa operação poderá ser executada por entidades de segurança com acesso de leitura. |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform cryptographic operations on keys and certificates.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/12338af0-0e69-4776-bea7-57ae8d297424",
+  "name": "12338af0-0e69-4776-bea7-57ae8d297424",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/keys/read",
+        "Microsoft.KeyVault/vaults/keys/update/action",
+        "Microsoft.KeyVault/vaults/keys/backup/action",
+        "Microsoft.KeyVault/vaults/keys/encrypt/action",
+        "Microsoft.KeyVault/vaults/keys/decrypt/action",
+        "Microsoft.KeyVault/vaults/keys/wrap/action",
+        "Microsoft.KeyVault/vaults/keys/unwrap/action",
+        "Microsoft.KeyVault/vaults/keys/sign/action",
+        "Microsoft.KeyVault/vaults/keys/verify/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Crypto User (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-reader-preview"></a>Leitor de Key Vault (versão prévia)
+
+Ler metadados de cofres de chaves e seus certificados, chaves e segredos. Não é possível ler valores confidenciais, como conteúdo secreto ou material de chave. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read | Verificar se um nome de chave do cofre é válido e não está em uso |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read | Exibir as propriedades de cofres de chaves com exclusão reversível |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Locations/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Operations/Read | Lista as operações disponíveis no provedor de recursos Microsoft.KeyVault |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/readMetadata/Action | Listar ou exibir as propriedades de um segredo, mas não seu valor. |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read metadata of key vaults and its certificates, keys and secrets. Cannot read sensitive values such as secret contents or key material.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/21090545-7ca7-4776-b22c-e363652d74d2",
+  "name": "21090545-7ca7-4776-b22c-e363652d74d2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/vaults/secrets/readMetadata/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Reader (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-secrets-officer-preview"></a>Diretor de segredos Key Vault (versão prévia)
+
+Execute qualquer ação nos segredos de um cofre de chaves, exceto gerenciar permissões. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
+> | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
+> | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
+> | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/checkNameAvailability/Read | Verificar se um nome de chave do cofre é válido e não está em uso |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/deletedVaults/Read | Exibir as propriedades de cofres de chaves com exclusão reversível |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Locations/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/*/Read |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Operations/Read | Lista as operações disponíveis no provedor de recursos Microsoft.KeyVault |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform any action on the secrets of a key vault, except manage permissions.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+  "name": "b86a8fe4-44ce-4948-aee5-eccb2c155cd7",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.KeyVault/deletedVaults/read",
+        "Microsoft.KeyVault/locations/*/read",
+        "Microsoft.KeyVault/vaults/*/read",
+        "Microsoft.KeyVault/operations/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/secrets/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Secrets Officer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="key-vault-secrets-user-preview"></a>Usuário Key Vault segredos (visualização)
+
+Ler conteúdo secreto. Funciona somente para cofres de chaves que usam o modelo de permissão ' controle de acesso baseado em função do Azure '.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/getSecret/Action | Obter o valor de um segredo. |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Vaults/Secrets/readMetadata/Action | Listar ou exibir as propriedades de um segredo, mas não seu valor. |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read secret contents.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/4633458b-17de-408a-b874-0445c86b69e6",
+  "name": "4633458b-17de-408a-b874-0445c86b69e6",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.KeyVault/vaults/secrets/getSecret/action",
+        "Microsoft.KeyVault/vaults/secrets/readMetadata/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Key Vault Secrets User (preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

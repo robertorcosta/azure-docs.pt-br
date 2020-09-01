@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 254732630dcf28b90413a1269a34d3aa388cb06c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997856"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226736"
 ---
 # <a name="supported-data-types"></a>Tipos de dados com suporte
 
@@ -34,9 +34,10 @@ A tabela a seguir lista os tipos de dados com suporte pelo Azure Time Series Ins
 
 > [!NOTE]
 > O tipo de **cadeia de caracteres** não permite valor nulo:
->   * Uma [expressão de série temporal (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) expressa em uma [consulta de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) que compara o valor de uma cadeia de caracteres vazia (**' '**) com **NULL** se comportará da mesma maneira: `$event.siteid.String = NULL` é equivalente a `$event.siteid.String = ''` .
->   * A API pode retornar valores **nulos** mesmo se os eventos originais contivessem cadeias de caracteres vazias.
->   * Não assuma a dependência de valores **nulos** em colunas de **cadeia de caracteres** para fazer comparações ou avaliações, tratá-los da mesma maneira que as cadeias de caracteres vazias.
+>
+> * Uma [expressão de série temporal (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) expressa em uma [consulta de série temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) que compara o valor de uma cadeia de caracteres vazia (**' '**) com **NULL** se comportará da mesma maneira: `$event.siteid.String = NULL` é equivalente a `$event.siteid.String = ''` .
+> * A API pode retornar valores **nulos** mesmo se os eventos originais contivessem cadeias de caracteres vazias.
+> * Não assuma a dependência de valores **nulos** em colunas de **cadeia de caracteres** para fazer comparações ou avaliações, tratá-los da mesma maneira que as cadeias de caracteres vazias.
 
 ## <a name="sending-mixed-data-types"></a>Enviando tipos de dados mistos
 
