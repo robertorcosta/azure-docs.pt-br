@@ -3,15 +3,15 @@ title: O que é a Área de Trabalho Virtual do Windows? - Azure
 description: Uma visão geral da Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002378"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661105"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows?
 
@@ -46,7 +46,7 @@ Com a Área de Trabalho Virtual do Windows, você pode configurar um ambiente es
 
 Você pode implantar e gerenciar áreas de trabalho virtuais:
 
-* Use as interfaces REST e PowerShell da Área de Trabalho Virtual do Windows para configurar os pools de host, criar grupos de aplicativos, atribuir usuários e publicar recursos.
+* Use o portal do Azure, as interfaces REST e do PowerShell da Área de Trabalho Virtual do Windows para configurar os pools de host, criar grupos de aplicativos, atribuir usuários e publicar recursos.
 * Publique aplicativos remotos completos de área de trabalho ou individuais por meio de um único pool de hosts, crie grupos de aplicativos individuais para diferentes conjuntos de usuários ou, até mesmo, atribua usuários a vários grupos de aplicativos para reduzir o número de imagens.
 * Enquanto gerencia seu ambiente, use o acesso delegado interno para atribuir funções e coletar diagnóstico para compreender os vários erros de configuração ou de usuário.
 * Use o novo serviço de Diagnóstico para solucionar problemas de erros.
@@ -61,7 +61,7 @@ Você também pode atribuir e conectar os usuários às áreas de trabalho virtu
 
 Há alguns itens necessários para configurar a Área de Trabalho Virtual do Windows e conectar com êxito os usuários aos aplicativos e às áreas de trabalho do Windows.
 
-Planejamos adicionar suporte aos sistemas operacionais a seguir, então verifique se você tem as [licenças apropriadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para os usuários com base na área de trabalho e nos aplicativos que você pretende implantar:
+Damos suporte aos seguintes sistemas operacionais; portanto, verifique se você tem as [licenças apropriadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para os usuários com base na área de trabalho e nos aplicativos que pretende implantar:
 
 |Sistema operacional|Licença necessária|
 |---|---|
@@ -71,11 +71,17 @@ Planejamos adicionar suporte aos sistemas operacionais a seguir, então verifiqu
 
 A infraestrutura precisa dos seguintes itens para dar suporte à Área de Trabalho Virtual do Windows:
 
-* Um [Azure Active Directory](/azure/active-directory/)
-* Um Windows Server Active Directory em sincronia com o Azure Active Directory. Você pode configurar isso com um dos seguintes:
-  * Azure AD Connect (para organizações híbridas)
-  * Azure AD Domain Services (para organizações híbridas ou na nuvem)
-* Uma assinatura do Azure que contém uma rede virtual que contenha o Windows Server Active Directory ou que esteja conectada a ele
+* Um [Azure Active Directory](/azure/active-directory/).
+* Um Windows Server Active Directory em sincronia com o Azure Active Directory. Configure isso usando o Azure AD Connect (para organizações híbridas) ou o Azure AD Domain Services (para organizações híbridas ou de nuvem).
+  * Um Windows Server AD em sincronia com o Azure Active Directory. O usuário é originado do Windows Server AD, e a VM da Área de Trabalho Virtual do Windows é ingressada no domínio do Windows Server AD.
+  * Um Windows Server AD em sincronia com o Azure Active Directory. O usuário é originado do Windows Server AD, e a VM da Área de Trabalho Virtual do Windows é ingressada no domínio do Azure AD Domain Services.
+  * Um domínio do Azure AD Domain Services. O usuário é originado do Azure Active Directory, e a VM da Área de Trabalho Virtual do Windows é ingressada no domínio do Azure AD Domain Services.
+* Uma assinatura do Azure, com o pai no mesmo locatário do Azure AD, contendo uma rede virtual que contenha a instância do Windows Server Active Directory ou do Azure AD DS ou que esteja conectada a ela.
+
+Requisitos do usuário para se conectar à Área de Trabalho Virtual do Windows:
+
+* O usuário precisa ser originado do mesmo Active Directory que está conectado ao Azure AD. A Área de Trabalho Virtual do Windows não dá suporte a contas B2B nem MSA.
+* O UPN usado para assinar a Área de Trabalho Virtual do Windows precisa existir no domínio do Active Directory no qual a VM foi ingressada.
 
 As máquinas virtuais do Azure criadas para a Área de Trabalho Virtual do Windows precisam ser:
 
@@ -91,7 +97,7 @@ A Área de Trabalho Virtual do Windows é composta por áreas de trabalho e apli
 
 Para otimizar o desempenho, verifique se a rede atende aos seguintes requisitos:
 
-* A latência RTT (viagem de ida e volta) da rede do cliente para a região do Azure em que os pools de host foram implantados deve ser inferior a 150 ms.
+* A latência RTT (viagem de ida e volta) da rede do cliente para a região do Azure em que os pools de host foram implantados deve ser inferior a 150 ms. Use o [avaliador de experiência](https://azure.microsoft.com/services/virtual-desktop/assessment) para ver a integridade da sua conexão e a região recomendada do Azure.
 * O tráfego de rede poderá fluir para fora das fronteiras do país/região quando as VMs que hospedam os aplicativos e as áreas de trabalho se conectarem ao serviço de gerenciamento.
 * Para otimizar o desempenho da rede, recomendamos que as VMs do host da sessão sejam colocadas na mesma região do Azure do serviço de gerenciamento.
 
@@ -111,7 +117,7 @@ Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área 
 > [!IMPORTANT]
 > No momento, a Área de Trabalho Virtual do Windows não dá suporte ao cliente da Área de Trabalho Remota da Microsoft Store. O suporte para esse cliente será adicionado em uma versão futura.
 
-Para saber mais sobre as URLs que você precisa desbloquear para usar os Clientes Remotos, confira a [Lista de URLs seguras](safe-url-list.md).
+Para saber mais sobre as URLs que você precisa desbloquear para usar os clientes, confira a [Lista de URLs seguras](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>Imagens compatíveis do sistema operacional da máquina virtual
 
@@ -130,10 +136,10 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 
 |Sistema operacional|Galeria de Imagens do Azure|Implantação manual de VM|Integração de modelos do Azure Resource Manager|Provisionar pools de hosts no Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Várias sessões do Windows 10, versão 1903|Sim|Sim|Sim|Sim|
-|Várias sessões do Windows 10, versão 1809|Sim|Sim|Não|Não|
-|Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|
-|Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|
+|Windows 10 Enterprise (multissessão), versão 2004|Sim|Sim|Sim|Sim|
+|Windows 10 Enterprise (multissessão), versão 1909|Sim|Sim|Sim|Sim|
+|Windows 10 Enterprise (multissessão), versão 1903|Sim|Sim|Não|Não|
+|Windows 10 Enterprise (multissessão), versão 1809|Sim|Sim|Não|Não|
 |Windows 7 Enterprise|Sim|Sim|Não|Não|
 |Windows Server 2019|Sim|Sim|Não|Não|
 |Windows Server 2016|Sim|Sim|Sim|Sim|

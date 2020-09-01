@@ -11,12 +11,12 @@ ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 9b6759fedab8d72b883698b9d04c0e2b7df2fdcc
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: eb44456815642989a6f2b36cb15e159318018644
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505386"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723326"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Início Rápido: Usar a biblioteca de clientes do Reconhecimento de Formulários
 
@@ -29,6 +29,10 @@ Use a biblioteca de clientes do Reconhecimento de Formulários para:
 * [Treinar um modelo personalizado](#train-a-custom-model)
 * [Analisar formulários com um modelo personalizado](#analyze-forms-with-a-custom-model)
 * [Gerenciar seus modelos personalizados](#manage-your-custom-models)
+
+> [!NOTE]
+> As bibliotecas de clientes dão suporte à última versão do Reconhecimento de Formulários em disponibilidade geral, v2.0. 
+
 
 ::: zone pivot="programming-language-csharp"
 

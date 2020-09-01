@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
+ms.date: 08/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: c80b4e57c94737778d8e6f63804d95f4d1b35fb0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b437bfa205833594c9e76c6f0d8ff1923f51f117
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501790"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762684"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um balanceador de carga público para balancear cargas de VMs usando a CLI do Azure
 
@@ -52,118 +52,10 @@ Crie um grupo de recursos com [az group create](https://docs.microsoft.com/cli/a
 ```
 ---
 
-# <a name="option-1-default-create-a-load-balancer-standard-sku"></a>[Opção 1 (padrão): Criar um balanceador de carga (SKU Standard)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**SKU Standard**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção. Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
-
-
-## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
-
-Para acessar seu aplicativo Web na Internet, você precisará de um endereço IP público para o balanceador de carga. 
-
-Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para:
-
-* Criar um endereço IP público com redundância de zona padrão chamado **myPublicIP**.
-* Em **myResourceGroupLB**.
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myPublicIP \
-    --sku Standard
-```
-
-Para criar um endereço IP público com redundância zonal na Zona 1:
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myPublicIP \
-    --sku Standard \
-    --zone 1
-```
-
-## <a name="create-standard-load-balancer"></a>Criar Standard Load Balancer
-
-Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
-
-  * Um pool de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
-  * Um pool de IPs de back-end ao qual o pool de front-end envia o tráfego de rede com a carga balanceada.
-  * Uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
-  * Uma regra de balanceador de carga que define como o tráfego é distribuído para as VMs.
-
-### <a name="create-the-load-balancer-resource"></a>Criar o recurso do balanceador de carga
-
-Crie um balanceador de carga público com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
-
-* Chamado **myLoadBalancer**.
-* Um pool de front-end chamado **myFrontEnd**.
-* Um pool de back-end chamado **myBackEndPool**.
-* Associado ao endereço IP público **myPublicIP** criado na etapa anterior. 
-
-```azurecli-interactive
-  az network lb create \
-    --resource-group myResourceGroupLB \
-    --name myLoadBalancer \
-    --sku Standard \
-    --public-ip-address myPublicIP \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
-```
-
-### <a name="create-the-health-probe"></a>Criar a investigação de integridade
-
-Uma investigação de integridade verifica todas as instâncias da máquina virtual para garantir que elas possam enviar tráfego de rede. 
-
-Uma máquina virtual com uma verificação de investigação com falha é removida do balanceador de carga. A máquina virtual será adicionada novamente ao balanceador de carga quando a falha for resolvida.
-
-Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
-
-* Monitora a integridade das máquinas virtuais.
-* Chamado **myHealthProbe**.
-* Protocolo **TCP**.
-* Monitorando a **Porta 80**.
-
-```azurecli-interactive
-  az network lb probe create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
-    --protocol tcp \
-    --port 80   
-```
-
-### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
-
-Uma regra de balanceador de carga define:
-
-* A configuração do IP de front-end para o tráfego de entrada.
-* O pool de IPs de back-end para receber o tráfego.
-* As portas de origem e de destino necessárias. 
-
-Crie uma regra de balanceador de carga com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
-
-* Chamada **myHTTPRule**
-* Escutando na **Porta 80** no pool de front-end **myFrontEnd**.
-* Enviando tráfego de rede com balanceamento de carga para o pool de endereços de back-end **myBackEndPool** usando a **Porta 80**. 
-* Usando a investigação de integridade **myHealthProbe**.
-* Protocolo **TCP**.
-* Habilite a SNAT (conversão de endereços de rede de origem) de saída usando o endereço IP de front-end.
-
-```azurecli-interactive
-  az network lb rule create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe \
-    --disable-outbound-snat true 
-```
 
 ## <a name="configure-virtual-network"></a>Configurar rede virtual
 
@@ -174,7 +66,9 @@ Antes de implantar VMs e testar o balanceador de carga, crie os recursos da rede
 Crie uma rede virtual usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
 
 * Chamada **myVNet**.
+* Prefixo de endereço **10.1.0.0/16**.
 * Sub-rede chamada **myBackendSubnet**.
+* Prefixo de sub-rede **10.1.0.0/24**.
 * No grupo de recursos **myResourceGroupLB**.
 * Localização de **eastus**.
 
@@ -183,7 +77,9 @@ Crie uma rede virtual usando [az network vnet create](https://docs.microsoft.com
     --resource-group myResourceGroupLB \
     --location eastus \
     --name myVNet \
-    --subnet-name myBackendSubnet
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
@@ -208,7 +104,7 @@ Crie uma regra de grupo de segurança de rede usando [az network nsg create](htt
 * Chamada **myNSGRuleHTTP**.
 * No grupo de segurança de rede criado na etapa anterior, **myNSG**.
 * No grupo de recursos **myResourceGroupLB**.
-* Protocolo **TCP**.
+* Protocolo **(*)** .
 * Direção de **Entrada**.
 * Origem **(*)** .
 * Destino **(*)** .
@@ -221,7 +117,7 @@ Crie uma regra de grupo de segurança de rede usando [az network nsg create](htt
     --resource-group myResourceGroupLB \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
-    --protocol tcp \
+    --protocol '*' \
     --direction inbound \
     --source-address-prefix '*' \
     --source-port-range '*' \
@@ -242,7 +138,6 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
 * Na rede virtual **myVNet**.
 * Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG**.
-* Anexada ao balanceador de carga **myLoadBalancer** em **myBackEndPool**.
 
 ```azurecli-interactive
 
@@ -251,9 +146,7 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm2"></a>VM2
 
@@ -261,8 +154,6 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
 * No grupo de recursos **myResourceGroupLB**.
 * Na rede virtual **myVNet**.
 * Na sub-rede **myBackendSubnet**.
-* No grupo de segurança de rede **myNSG**.
-* Anexada ao balanceador de carga **myLoadBalancer** em **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
@@ -270,9 +161,7 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
     --name myNicVM2 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm3"></a>VM3
 
@@ -281,7 +170,6 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
 * Na rede virtual **myVNet**.
 * Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG**.
-* Anexada ao balanceador de carga **myLoadBalancer** em **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
@@ -289,9 +177,7 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
     --name myNicVM3 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
@@ -413,7 +299,162 @@ Crie as máquinas virtuais com [az vm create](https://docs.microsoft.com/cli/azu
 ```
 Pode levar alguns minutos para que as VMs sejam implantadas.
 
-## <a name="create-outbound-rule-configuration"></a>Criar configuração de regra de saída
+## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
+
+Para acessar seu aplicativo Web na Internet, você precisará de um endereço IP público para o balanceador de carga. 
+
+Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para:
+
+* Criar um endereço IP público com redundância de zona padrão chamado **myPublicIP**.
+* Em **myResourceGroupLB**.
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku Standard
+```
+
+Para criar um endereço IP público com redundância zonal na Zona 1:
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku Standard \
+    --zone 1
+```
+
+## <a name="create-standard-load-balancer"></a>Criar Standard Load Balancer
+
+Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
+
+  * Um pool de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
+  * Um pool de IPs de back-end ao qual o pool de front-end envia o tráfego de rede com a carga balanceada.
+  * Uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
+  * Uma regra de balanceador de carga que define como o tráfego é distribuído para as VMs.
+
+### <a name="create-the-load-balancer-resource"></a>Criar o recurso do balanceador de carga
+
+Crie um balanceador de carga público com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+
+* Chamado **myLoadBalancer**.
+* Um pool de front-end chamado **myFrontEnd**.
+* Um pool de back-end chamado **myBackEndPool**.
+* Associado ao endereço IP público **myPublicIP** criado na etapa anterior. 
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --sku Standard \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool       
+```
+
+### <a name="create-the-health-probe"></a>Criar a investigação de integridade
+
+Uma investigação de integridade verifica todas as instâncias da máquina virtual para garantir que elas possam enviar tráfego de rede. 
+
+Uma máquina virtual com uma verificação de investigação com falha é removida do balanceador de carga. A máquina virtual será adicionada novamente ao balanceador de carga quando a falha for resolvida.
+
+Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
+
+* Monitora a integridade das máquinas virtuais.
+* Chamado **myHealthProbe**.
+* Protocolo **TCP**.
+* Monitorando a **Porta 80**.
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
+
+Uma regra de balanceador de carga define:
+
+* A configuração do IP de front-end para o tráfego de entrada.
+* O pool de IPs de back-end para receber o tráfego.
+* As portas de origem e de destino necessárias. 
+
+Crie uma regra de balanceador de carga com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+
+* Chamada **myHTTPRule**
+* Escutando na **Porta 80** no pool de front-end **myFrontEnd**.
+* Enviando tráfego de rede com balanceamento de carga para o pool de endereços de back-end **myBackEndPool** usando a **Porta 80**. 
+* Usando a investigação de integridade **myHealthProbe**.
+* Protocolo **TCP**.
+* Habilite a SNAT (conversão de endereços de rede de origem) de saída usando o endereço IP de front-end.
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe \
+    --disable-outbound-snat true 
+```
+### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Adicionar máquinas virtuais ao pool de back-end do balanceador de carga
+
+Adicione as máquinas virtuais ao pool de back-end com [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+
+#### <a name="vm1"></a>VM1
+* No pool de endereços de back-end **myBackEndPool**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associada ao adaptador de rede **myNicVM1** e a **ipconfig1**.
+* Associada ao balanceador de carga **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm2"></a>VM2
+* No pool de endereços de back-end **myBackEndPool**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associada ao adaptador de rede **myNicVM2** e a **ipconfig1**.
+* Associada ao balanceador de carga **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm3"></a>VM3
+* No pool de endereços de back-end **myBackEndPool**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associada ao adaptador de rede **myNicVM3** e a **ipconfig1**.
+* Associada ao balanceador de carga **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM3 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+## <a name="create-outbound-rule-configuration"></a>Criar configurações de regra de saída
 As regras de saída do balanceador de carga configuram o SNAT de saída para as VMs no pool de back-end. 
 
 Para saber mais sobre as conexões de saída, confira [Conexões de saída no Azure](load-balancer-outbound-connections.md).
@@ -593,106 +634,10 @@ Adicione as máquinas virtuais ao pool de saída com [az network nic ip-config a
    --lb-name myLoadBalancer
 ```
 
-# <a name="option-2-create-a-load-balancer-basic-sku"></a>[Opção 2: Criar um balanceador de carga (SKU Básico)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**SKU Básico**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >O balanceador de carga de SKU Standard é recomendado para cargas de trabalho de produção. Para obter mais informações sobre SKUs, confira **[SKUs do Azure Load Balancer](skus.md)** .
-
-
-## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
-
-Para acessar seu aplicativo Web na Internet, você precisará de um endereço IP público para o balanceador de carga. 
-
-Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para:
-
-* Criar um endereço IP público com redundância de zona padrão chamado **myPublicIP**.
-* Em **myResourceGroupLB**.
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myPublicIP \
-    --sku Basic
-```
-
-## <a name="create-basic-load-balancer"></a>Criar o balanceador de carga básico
-
-Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
-
-  * Um pool de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
-  * Um pool de IPs de back-end ao qual o pool de front-end envia o tráfego de rede com a carga balanceada.
-  * Uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
-  * Uma regra de balanceador de carga que define como o tráfego é distribuído para as VMs.
-
-### <a name="create-the-load-balancer-resource"></a>Criar o recurso do balanceador de carga
-
-Crie um balanceador de carga público com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
-
-* Chamado **myLoadBalancer**.
-* Um pool de front-end chamado **myFrontEnd**.
-* Um pool de back-end chamado **myBackEndPool**.
-* Associado ao endereço IP público **myPublicIP** criado na etapa anterior. 
-
-```azurecli-interactive
-  az network lb create \
-    --resource-group myResourceGroupLB \
-    --name myLoadBalancer \
-    --sku Basic \
-    --public-ip-address myPublicIP \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
-```
-
-### <a name="create-the-health-probe"></a>Criar a investigação de integridade
-
-Uma investigação de integridade verifica todas as instâncias da máquina virtual para garantir que elas possam enviar tráfego de rede. 
-
-Uma máquina virtual com uma verificação de investigação com falha é removida do balanceador de carga. A máquina virtual será adicionada novamente ao balanceador de carga quando a falha for resolvida.
-
-Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
-
-* Monitora a integridade das máquinas virtuais.
-* Chamado **myHealthProbe**.
-* Protocolo **TCP**.
-* Monitorando a **Porta 80**.
-
-```azurecli-interactive
-  az network lb probe create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
-    --protocol tcp \
-    --port 80   
-```
-
-### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
-
-Uma regra de balanceador de carga define:
-
-* A configuração do IP de front-end para o tráfego de entrada.
-* O pool de IPs de back-end para receber o tráfego.
-* As portas de origem e de destino necessárias. 
-
-Crie uma regra de balanceador de carga com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
-
-* Chamada **myHTTPRule**
-* Escutando na **Porta 80** no pool de front-end **myFrontEnd**.
-* Enviando tráfego de rede com balanceamento de carga para o pool de endereços de back-end **myBackEndPool** usando a **Porta 80**. 
-* Usando a investigação de integridade **myHealthProbe**.
-* Protocolo **TCP**.
-
-```azurecli-interactive
-  az network lb rule create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe
-```
 
 ## <a name="configure-virtual-network"></a>Configurar rede virtual
 
@@ -703,7 +648,9 @@ Antes de implantar VMs e testar o balanceador de carga, crie os recursos da rede
 Crie uma rede virtual usando [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
 
 * Chamada **myVNet**.
+* Prefixo de endereço **10.1.0.0/16**.
 * Sub-rede chamada **myBackendSubnet**.
+* Prefixo de sub-rede **10.1.0.0/24**.
 * No grupo de recursos **myResourceGroupLB**.
 * Localização de **eastus**.
 
@@ -712,7 +659,9 @@ Crie uma rede virtual usando [az network vnet create](https://docs.microsoft.com
     --resource-group myResourceGroupLB \
     --location eastus \
     --name myVNet \
-    --subnet-name myBackendSubnet
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ### <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
@@ -737,7 +686,7 @@ Crie uma regra de grupo de segurança de rede usando [az network nsg create](htt
 * Chamada **myNSGRuleHTTP**.
 * No grupo de segurança de rede criado na etapa anterior, **myNSG**.
 * No grupo de recursos **myResourceGroupLB**.
-* Protocolo **TCP**.
+* Protocolo **(*)** .
 * Direção de **Entrada**.
 * Origem **(*)** .
 * Destino **(*)** .
@@ -750,7 +699,7 @@ Crie uma regra de grupo de segurança de rede usando [az network nsg create](htt
     --resource-group myResourceGroupLB \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
-    --protocol tcp \
+    --protocol '*' \
     --direction inbound \
     --source-address-prefix '*' \
     --source-port-range '*' \
@@ -771,7 +720,6 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
 * Na rede virtual **myVNet**.
 * Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG**.
-* Anexada ao balanceador de carga **myLoadBalancer** em **myBackEndPool**.
 
 ```azurecli-interactive
 
@@ -780,9 +728,7 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm2"></a>VM2
 
@@ -791,17 +737,14 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
 * Na rede virtual **myVNet**.
 * Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG**.
-* Anexada ao balanceador de carga **myLoadBalancer** em **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
     --resource-group myResourceGroupLB \
     --name myNicVM2 \
-    --vnet-name myVnet \
+    --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm3"></a>VM3
 
@@ -810,17 +753,14 @@ Crie três interfaces de rede com [az network nic create](https://docs.microsoft
 * Na rede virtual **myVNet**.
 * Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG**.
-* Anexada ao balanceador de carga **myLoadBalancer** em **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
     --resource-group myResourceGroupLB \
     --name myNicVM3 \
-    --vnet-name myVnet \
+    --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
@@ -918,8 +858,7 @@ Crie as máquinas virtuais com [az vm create](https://docs.microsoft.com/cli/azu
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
     --availability-set myAvSet \
-    --no-wait
-    
+    --no-wait 
 ```
 #### <a name="vm2"></a>VM2
 * Chamada **myVM2**.
@@ -962,6 +901,151 @@ Crie as máquinas virtuais com [az vm create](https://docs.microsoft.com/cli/azu
 ```
 Pode levar alguns minutos para que as VMs sejam implantadas.
 
+
+## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
+
+Para acessar seu aplicativo Web na Internet, você precisará de um endereço IP público para o balanceador de carga. 
+
+Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para:
+
+* Criar um endereço IP público com redundância de zona padrão chamado **myPublicIP**.
+* Em **myResourceGroupLB**.
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku Basic
+```
+
+## <a name="create-basic-load-balancer"></a>Criar o balanceador de carga básico
+
+Esta seção fornece detalhes sobre como criar e configurar os componentes do balanceador de carga abaixo:
+
+  * Um pool de IPs de front-end que recebe o tráfego de rede de entrada no balanceador de carga.
+  * Um pool de IPs de back-end ao qual o pool de front-end envia o tráfego de rede com a carga balanceada.
+  * Uma investigação de integridade que determina a integridade das instâncias de VM de back-end.
+  * Uma regra de balanceador de carga que define como o tráfego é distribuído para as VMs.
+
+### <a name="create-the-load-balancer-resource"></a>Criar o recurso do balanceador de carga
+
+Crie um balanceador de carga público com [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+
+* Chamado **myLoadBalancer**.
+* Um pool de front-end chamado **myFrontEnd**.
+* Um pool de back-end chamado **myBackEndPool**.
+* Associado ao endereço IP público **myPublicIP** criado na etapa anterior. 
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --sku Basic \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool       
+```
+
+### <a name="create-the-health-probe"></a>Criar a investigação de integridade
+
+Uma investigação de integridade verifica todas as instâncias da máquina virtual para garantir que elas possam enviar tráfego de rede. 
+
+Uma máquina virtual com uma verificação de investigação com falha é removida do balanceador de carga. A máquina virtual será adicionada novamente ao balanceador de carga quando a falha for resolvida.
+
+Crie uma investigação de integridade com [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
+
+* Monitora a integridade das máquinas virtuais.
+* Chamado **myHealthProbe**.
+* Protocolo **TCP**.
+* Monitorando a **Porta 80**.
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### <a name="create-the-load-balancer-rule"></a>Criar a regra de balanceador de carga
+
+Uma regra de balanceador de carga define:
+
+* A configuração do IP de front-end para o tráfego de entrada.
+* O pool de IPs de back-end para receber o tráfego.
+* As portas de origem e de destino necessárias. 
+
+Crie uma regra de balanceador de carga com [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+
+* Chamada **myHTTPRule**
+* Escutando na **Porta 80** no pool de front-end **myFrontEnd**.
+* Enviando tráfego de rede com balanceamento de carga para o pool de endereços de back-end **myBackEndPool** usando a **Porta 80**. 
+* Usando a investigação de integridade **myHealthProbe**.
+* Protocolo **TCP**.
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe
+```
+
+### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Adicionar máquinas virtuais ao pool de back-end do balanceador de carga
+
+Adicione as máquinas virtuais ao pool de back-end com [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+
+
+#### <a name="vm1"></a>VM1
+* No pool de endereços de back-end **myBackEndPool**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associada ao adaptador de rede **myNicVM1** e a **ipconfig1**.
+* Associada ao balanceador de carga **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm2"></a>VM2
+* No pool de endereços de back-end **myBackEndPool**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associada ao adaptador de rede **myNicVM2** e a **ipconfig1**.
+* Associada ao balanceador de carga **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm3"></a>VM3
+* No pool de endereços de back-end **myBackEndPool**.
+* No grupo de recursos **myResourceGroupLB**.
+* Associada ao adaptador de rede **myNicVM3** e a **ipconfig1**.
+* Associada ao balanceador de carga **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM3 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
 ---
 
 ## <a name="test-the-load-balancer"></a>Testar o balanceador de carga

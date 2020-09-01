@@ -7,26 +7,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 54fe33750b08b5da85b30d876a32daf33d8b4bc2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 91050311e5e0604af44731f7bf6e1a818ec464cc
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517907"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852737"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
 Neste início rápido, você usará a API REST do Reconhecimento de Formulários com a ferramenta de rotulagem de exemplo para treinar um modelo personalizado usando dados rotulados manualmente. Confira a seção [Treinar com rótulos](../overview.md#train-with-labels) da visão geral para saber mais sobre esse recurso.
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, é necessário ter:
 
-- Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de blobs em uma conta de Armazenamento do Azure de camada de desempenho padrão.
+* Assinatura do Azure – [Criar uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
+* Depois de ter sua assinatura do Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Criar um recurso do Reconhecimento de Formulários"  target="_blank">crie um Reconhecimento de Formulários <span class="docon docon-navigate-external x-hidden-focus"></span></a> no portal do Azure para obter a chave e o ponto de extremidade. Após a implantação, clique em **Ir para o recurso**.
+    * Você precisará da chave e do ponto de extremidade do recurso criado para conectar seu aplicativo à API do Reconhecimento de Formulários. Cole a chave e o ponto de extremidade no código abaixo mais adiante no guia de início rápido.
+    * Use o tipo de preço gratuito (`F0`) para experimentar o serviço e atualizar mais tarde para um nível pago para produção.
+* Um conjunto com pelo menos seis formulários do mesmo tipo. Você usará esses dados para treinar o modelo e testar um formulário. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Carregue os arquivos de treinamento na raiz de um contêiner de armazenamento de blobs em uma conta de Armazenamento do Azure de camada de desempenho padrão.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
@@ -52,14 +56,35 @@ Você usará o mecanismo do Docker para executar a ferramenta de rotulagem de ex
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
+
+
+
+
 1. Obtenha o contêiner de ferramentas de rotulagem de exemplo com o comando `docker pull`.
+
+    # <a name="v20"></a>[v2.0](#tab/v2-0)    
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
+    # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)    
+    ```
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    ```
+
+    ---
+
 1. Agora você está pronto para executar o contêiner com `docker run`.
+
+    # <a name="v20"></a>[v2.0](#tab/v2-0)    
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
+    # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)    
+    ```
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview    
+    ```
+
+    --- 
 
    Esse comando disponibilizará a ferramenta de rotulagem de exemplo por meio de um navegador da Web. Ir para `http://localhost:3000`.
 
@@ -97,7 +122,8 @@ Preencha os campos com os valores a seguir:
 * **Descrição** – a descrição do seu projeto.
 * **URL SAS** – a SAS (Assinatura de Acesso Compartilhado) do seu contêiner do Armazenamento de Blobs do Azure. Para recuperar a URL de SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no seu contêiner e selecione **Obter assinatura de acesso compartilhado**. Defina o tempo de expiração para algum tempo depois de você ter usado o serviço. Verifique se as permissões de **Leitura**, **Gravação**, **Exclusão** e **Lista** estão marcadas e clique em **Criar**. Em seguida, copie o valor na seção **URL**. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-![Configurações de conexão da ferramenta de rotulagem de exemplo](../media/label-tool/connections.png)
+:::image type="content" source="../media/label-tool/connections.png" alt-text="Configurações de conexão da ferramenta de rotulagem de exemplo.":::
+
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
@@ -111,7 +137,7 @@ Na ferramenta de rótulo de exemplo, os projetos armazenam as suas configuraçõ
 * **Chave de API** – sua chave de assinatura do Reconhecimento de Formulários.
 * **Descrição** (opcional) – descrição do projeto
 
-![Página Novo projeto na ferramenta de rotulagem de exemplo](../media/label-tool/new-project.png)
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Página Novo projeto na ferramenta de rotulagem de exemplo.":::
 
 ## <a name="label-your-forms"></a>Rotular seus formulários
 
@@ -125,10 +151,15 @@ Quando você cria ou abre um projeto, a janela principal do editor de marcas é 
 
 Clique em **Executar o OCR em todos os arquivos** no painel esquerdo para obter as informações de layout de texto de cada documento. A ferramenta de rotulagem desenhará caixas delimitadoras em volta de cada elemento de texto.
 
+Ela também mostrará quais tabelas foram extraídas automaticamente. Clique no ícone de tabela/grade à esquerda do documento para ver a tabela extraída. Neste guia de início rápido, como o conteúdo da tabela é extraído automaticamente, não rotularemos o conteúdo da tabela; em vez disso, dependeremos da extração automatizada.
+
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualização de tabela na ferramenta de rotulagem de exemplo.":::
+
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos ao texto
 
 Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de texto que você deseja que o modelo reconheça.
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
 1. Primeiro, use o painel editor de marcas para criar as marcas que você deseja identificar.
    1. Clique em **+** para criar uma marca.
    1. Insira o nome da marca.
@@ -146,7 +177,30 @@ Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de text
     > * Use os botões à direita do **+** para pesquisar, renomear, reordenar e excluir as marcas.
     > * Para remover uma marca aplicada sem excluir a marca em si, selecione o retângulo marcado na exibição de documento e selecione a tecla Delete.
 
-![Janela principal do editor da ferramenta de rótulo de exemplo](../media/label-tool/main-editor.png)
+
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1) 
+1. Primeiro, use o painel editor de marcas para criar as marcas que você deseja identificar.
+   1. Clique em **+** para criar uma marca.
+   1. Insira o nome da marca.
+   1. Pressione Enter para salvar a marca.
+1. No editor principal, clique para selecionar as palavras dos elementos de texto realçados. Na _versão prévia v2.1_, você também pode clicar para selecionar _Marcas de Seleção_ como botões de opção e caixas de seleção como pares chave-valor. O Reconhecimento de Formulários identificará se a marca de seleção está "selecionada" ou "desmarcada" como o valor.
+1. Clique na marca que você deseja aplicar ou pressione a tecla correspondente no teclado. As chaves de número são atribuídas como teclas de atalho para as 10 primeiras marcas. Você pode reordenar suas marcas usando os ícones de seta para cima e para baixo no painel do editor de marcas.
+    > [!Tip]
+    > Lembre-se das dicas a seguir quando estiver rotulando seus formulários.
+    > * Você só pode aplicar uma marca a cada elemento de texto selecionado.
+    > * Cada marca só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes no mesmo formulário, crie marcas diferentes para cada instância. Por exemplo: "fatura n º 1", "fatura n º 2" e assim por diante.
+    > * As marcas não podem se estender por páginas.
+    > * Valores de rótulo como aparecem no formulário. Não tente dividir um valor em duas partes com duas marcas diferentes. Por exemplo, um campo de endereço deve ser rotulado com uma só marca, mesmo que abranja várias linhas.
+    > * Não inclua chaves nos campos marcados &mdash; apenas os valores.
+    > * Os dados da tabela devem ser detectados automaticamente e estarão disponíveis no arquivo JSON de saída final. No entanto, se o modelo não detectar todos os dados da tabela, você também poderá marcar esses campos manualmente. Marque cada célula na tabela com um rótulo diferente. Se os formulários tiverem tabelas com números variados de linhas, marque pelo menos um formulário com a maior tabela possível.
+    > * Use os botões à direita do **+** para pesquisar, renomear, reordenar e excluir as marcas.
+    > * Para remover uma marca aplicada sem excluir a marca em si, selecione o retângulo marcado na exibição de documento e selecione a tecla Delete.
+
+
+---
+
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Janela principal do editor da ferramenta de rótulo de exemplo.":::
+
 
 Siga as etapas acima para rotular pelo menos cinco de seus formulários.
 
@@ -166,6 +220,7 @@ Os tipos de valor e as variações a seguir são compatíveis no momento:
     * padrão, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+* `selectionMark` – _Novidade na v2.1-preview.1!_
 
 > [!NOTE]
 > Confira estas regras para a formatação de data:
@@ -196,14 +251,31 @@ Clique no ícone Treinar no painel esquerdo para abrir a página Treinamento. Em
 * **Precisão Média** – a precisão média do modelo. Você pode aprimorar a precisão do modelo rotulando formulários adicionais e treinando novamente para criar outro modelo. É recomendável começar rotulando cinco formulários e adicionando mais formulários conforme necessário.
 * A lista de marcas e a precisão estimada por marca.
 
-![exibição de treinamento](../media/label-tool/train-screen.png)
+
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Exibição de treinamento.":::
 
 Após a conclusão do treinamento, examine o valor de **Precisão Média**. Se ele estiver baixo, você deverá adicionar mais documentos de entrada e repetir as etapas acima. Os documentos que você já rotulou permanecerão no índice do projeto.
 
 > [!TIP]
 > Você também pode executar o processo de treinamento com uma chamada à API REST. Para saber como fazer isso, confira [treinar com rótulos usando o Python](./python-labeled-data.md).
 
-## <a name="analyze-a-form"></a>Analisar um formulário
+## <a name="compose-trained-models"></a>Compor modelos treinados
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
+
+Este recurso está disponível atualmente na versão prévia v2.1. 
+
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1) 
+
+Com o Model Compose, você pode compor até 100 modelos para uma ID de modelo. Quando você chamar Analisar com a ID de modelo composto, primeiro o Reconhecimento de Formulários classificará o formulário enviado, fazendo a correspondência dele com o melhor modelo e retornará resultados para ele. Isso é útil quando formulários de entrada possam pertencer a um dos vários modelos.
+
+Para compor modelos na ferramenta de rotulagem de exemplo, clique no ícone Model Compose (setas se mesclando) à esquerda. À esquerda, selecione os modelos que deseja compor juntos. Modelos com o ícone de setas já são modelos compostos. Clique no botão "Redigir". No pop-up, dê um nome ao seu novo modelo composto e clique em "Redigir". Quando a operação for concluída, o novo modelo composto deverá aparecer na lista. 
+
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Exibição da experiência do usuário do Model Compose.":::
+
+---
+
+## <a name="analyze-a-form"></a>Analisar um formulário 
 
 Clique no ícone Prever (lâmpada) à esquerda para testar seu modelo. Carregue um documento de formulário que você não usou no processo de treinamento. Em seguida, clique no botão **Prever** à direita para obter previsões de chave-valor para o formulário. A ferramenta aplicará marcas nas caixas delimitadoras e relatará o nível de confiança de cada marca.
 
@@ -228,7 +300,7 @@ Quando desejar retomar seu projeto, primeiro você precisará criar uma conexão
 
 ### <a name="resume-a-project"></a>Retomar um projeto
 
-Por fim, vá para a página principal (ícone da casa) e clique em Abrir Projeto de Nuvem. Em seguida, selecione a conexão de armazenamento de blobs e selecione o arquivo *.vott* do seu projeto. O aplicativo carregará todas as configurações do projeto, porque ele tem o token de segurança.
+Por fim, vá para a página principal (ícone da casa) e clique em Abrir Projeto de Nuvem. Em seguida, selecione a conexão de armazenamento de blobs e o arquivo *.fott* do seu projeto. O aplicativo carregará todas as configurações do projeto, porque ele tem o token de segurança.
 
 ## <a name="next-steps"></a>Próximas etapas
 

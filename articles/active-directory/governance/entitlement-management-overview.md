@@ -12,22 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/25/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: contperfq1
+ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034395"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871200"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
 O gerenciamento de direitos do Azure Active Directory (Azure AD) é um recurso de [governança de identidade](identity-governance-overview.md) que permite que as organizações gerenciem o ciclo de vida de identidade e acesso em escala, automatizando fluxos de trabalho de solicitação de acesso, atribuições de acesso, revisões e expiração.
 
-Os funcionários em organizações precisam acessar vários grupos, aplicativos e sites para executar seu trabalho. O gerenciamento desse acesso é desafiador, conforme os requisitos mudam: novos aplicativos são adicionados ou os usuários precisam de direitos de acesso adicionais.  Esse cenário fica mais complicado quando você colabora com organizações externas – talvez você não saiba quem na outra organização precisa de acesso aos recursos da sua organização e eles não saberão quais aplicativos, grupos ou sites sua organização está usando.
+Os funcionários em organizações precisam acessar vários grupos, aplicativos e sites para executar seu trabalho. O gerenciamento desse acesso é desafiador, conforme os requisitos mudam: novos aplicativos são adicionados ou os usuários precisam de direitos de acesso adicionais.  Esse cenário fica mais complicado quando você colabora com organizações externas. Talvez você não saiba quem na outra organização precisa de acesso aos recursos da sua organização, e eles não saberão quais aplicativos, grupos ou sites sua organização está usando.
 
 O gerenciamento de direitos do Azure AD pode ajudá-lo a gerenciar com mais eficiência o acesso a grupos, aplicativos e sites do SharePoint Online para usuários internos e também para usuários de fora da sua organização que precisam de acesso a esses recursos.
 
@@ -54,7 +55,10 @@ Aqui estão alguns recursos de gerenciamento de direitos:
 - Delegar a não administradores a capacidade de criar pacotes de acesso. Esses pacotes de acesso contêm recursos que os usuários podem solicitar e os gerenciadores de pacotes de acesso delegados podem definir políticas com regras de quais usuários podem solicitar, quem deve aprovar o acesso e quando o acesso se expira.
 - Selecionar as organizações conectadas cujos usuários podem solicitar acesso.  Quando um usuário que ainda não está em seu diretório solicita acesso e é aprovado, ele é automaticamente convidado para seu diretório e recebe acesso.  Quando o acesso expirar, se o usuário não tiver nenhuma outra atribuição de pacote de acesso, a conta B2B do seu diretório poderá ser automaticamente removida.
 
-Você pode começar com nosso [tutorial para criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md). Você também pode ler os [cenários comuns](entitlement-management-scenarios.md) ou assistir a vídeos, incluindo
+>[!NOTE]
+>Se você estiver pronto para experimentar o Gerenciamento de direitos, poderá começar com nosso [tutorial para criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md).
+
+Você também pode ler os [cenários comuns](entitlement-management-scenarios.md) ou assistir a vídeos, incluindo
 
 - [Como implantar o gerenciamento de direitos do Azure AD em sua organização](https://www.youtube.com/watch?v=zaaKvaaYwI4)
 - [Como monitorar e dimensionar o uso do gerenciamento de direitos do Azure AD](https://www.youtube.com/watch?v=omtNJ7ySjS0)
@@ -99,10 +103,10 @@ O diagrama a seguir mostra um exemplo dos diferentes elementos no gerenciamento 
 
 ## <a name="when-should-i-use-access-packages"></a>Quando devo usar pacotes de acesso?
 
-Os pacotes de acesso não substituem outros mecanismos para atribuição de acesso.  Eles são mais adequados em situações como as seguintes:
+Os pacotes de acesso não substituem outros mecanismos para atribuição de acesso.  Eles são mais adequados em situações como:
 
-- Os funcionários precisam de acesso limitado por tempo para uma determinada tarefa.  Por exemplo, você pode usar o licenciamento baseado em grupo e um grupo dinâmico para garantir que todos os funcionários tenham uma caixa de correio do Exchange Online. Depois, use pacotes de acesso para situações em que os funcionários precisam de acesso adicional, como para ler recursos departamentais de outro departamento.
-- O acesso precisa ser aprovado pelo gerente de um funcionário ou por outros indivíduos designados.
+- Os funcionários precisam de acesso limitado por tempo para uma determinada tarefa.  Por exemplo, você pode usar o licenciamento baseado em grupo e um grupo dinâmico para verificar se todos os funcionários têm uma caixa de correio do Exchange Online. Depois, use pacotes de acesso para situações em que os funcionários precisam de acesso adicional, como para ler recursos departamentais de outro departamento.
+- O acesso precisa da aprovação do gerente de um funcionário ou de outros indivíduos designados.
 - Os departamentos desejam gerenciar as próprias políticas de acesso para seus recursos sem envolvimento de TI.  
 - Duas ou mais organizações estão colaborando em um projeto e, como resultado, vários usuários de uma organização precisarão ser incluídos por meio do B2B do Azure AD para acessar os recursos de outra organização.
 
@@ -149,7 +153,7 @@ As licenças do Azure AD Premium P2 **não** são necessárias para as seguintes
 - Nenhuma licença é necessária para os usuários a quem foram delegadas tarefas administrativas, como criador de catálogos, proprietário do catálogo e gerenciador de pacotes de acesso.
 - Nenhuma licença é necessária para convidados que **podem** solicitar pacotes de acesso, mas **não** solicitam um pacote de acesso.
 
-Para cada licença paga do Azure AD Premium P2 adquirida para seus usuários membros (funcionários), você pode usar o B2B do Azure AD para convidar até 5 usuários convidados. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, confira [Diretrizes de licenciamento de colaboração B2B do Azure AD](../b2b/licensing-guidance.md).
+Para cada licença paga do Azure AD Premium P2 adquirida para seus usuários membros (funcionários), você pode usar o B2B do Azure AD para convidar até cinco usuários convidados. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, confira [Diretrizes de licenciamento de colaboração B2B do Azure AD](../external-identities/licensing-guidance.md).
 
 Para obter mais informações sobre licenças, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 

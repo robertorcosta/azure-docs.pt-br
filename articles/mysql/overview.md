@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: c5758fa367ac17ceb687212b4073fd2c1a5c18f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206410"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763653"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é o Banco de Dados do Azure para MySQL?
 
@@ -37,6 +37,9 @@ Este artigo é uma introdução aos principais conceitos e recursos do Banco de 
 Para ver diversos exemplos da CLI do Azure, consulte:
 
 - [Exemplos da CLI do Azure para o Banco de Dados do Azure para MySQL](sample-scripts-azure-cli.md)
+
+## <a name="automated-patching"></a>Aplicação de patch automatizada
+O serviço executa a aplicação automatizada de patch do hardware, do sistema operacional e do mecanismo de banco de dados subjacentes. A aplicação de patch inclui atualizações de segurança e software para o hardware, o sistema operacional e o mecanismo de banco de dados subjacentes. Para o mecanismo MySQL, as atualizações de versão secundária são automáticas e incluídas como parte da versão com aplicação de patch. Quando a comunidade libera uma versão secundária, ela é automaticamente integrada como parte do ciclo de testes do serviço. Os testes da versão secundária são executados em algumas das cargas de trabalho canônicas para MySQL. A versão das versões secundária do mecanismo MySQL é avaliada quanto à confiabilidade (sem falhas), disponibilidade, segurança e desempenho. Nem toda versão secundária é liberada para produção no serviço, mas é avaliada com base na importância das correções de bug e no novo valor incremental. Isso ocorre para encontrar o equilíbrio certo entre o novo valor incremental e a minimização das variáveis no sistema para estabilidade. Não há nenhuma ação do usuário nem definições de configuração necessárias para a aplicação de patch. A frequência de aplicação de patch é gerenciada pelo serviço com base na importância do conteúdo. No geral, o serviço segue a agenda de lançamento mensal como parte do lançamento e da integração contínua. Os usuários podem assinar a [notificação de manutenção planejada](concepts-monitoring.md) para receber a notificação das próximas 72 horas de manutenção antes do evento.
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar o desempenho e a escala em segundos
 O serviço Banco de Dados do Azure para MySQL oferece várias camadas de serviço: Básico, Uso Geral e Otimizado para Memória. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja  [Tipos de preço](concepts-service-tiers.md) para obter detalhes.

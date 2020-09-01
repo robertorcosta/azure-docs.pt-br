@@ -10,15 +10,27 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 6223a45c9bc61d7349ec62fa8aa37f907b2cf3b7
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 182cf54f58b4fbb8b80fb4ff9d7c1a9c1e353470
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538371"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723904"
 ---
 # <a name="language-support-for-form-recognizer"></a>Suporte a idiomas para o Reconhecimento de Formulários
 
 Este artigo lista os idiomas humanos compatíveis com o serviço de Reconhecimento de Formulários (Versão Prévia).
 
-* Inglês
+
+|Linguagem| Código de idioma | Reconhecimento de Formulários v2.0 | Reconhecimento de Formulários v2.1 versão prévia pública*|
+|:-----|:----:|:-----:|:---:|:---:|
+|Chinês (Simplificado) | `zh-Hans`| | ✔ |
+|Holandês | `nl` | |✔ |
+|Inglês | `en` |✔ |
+|Francês | `fr` | |✔ |
+|Alemão | `de` | |✔ |
+|Italiano | `it` | |✔ |
+|Português | `pt` | |✔ |
+|Espanhol | `es` | |✔ |
+
+* A versão prévia pública do Reconhecimento de Formulários v2.1 dá suporte a essas linguagens para as operações `Analyze Layout` e `Train Custom Model` (_Treinar com Rótulos_ e _Treinar sem Rótulos_). Só há suporte para `Analyze Receipt` e `Analyze Business Card` em inglês.

@@ -3,16 +3,17 @@ title: Gerenciar os custos do Azure com automação
 description: Este artigo explica como você pode gerenciar os custos do Azure com automação.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 08/19/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 0727f98b917944f3721c6c6758fde05c2efd8773
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: a5ab84794884cc0c87bd766be7a0fa2fe4c52aa9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449824"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684398"
 ---
 # <a name="manage-costs-with-automation"></a>Gerenciar os custos com a automação
 
@@ -79,11 +80,181 @@ GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDe
 
 ## <a name="retrieve-large-cost-datasets-recurringly-with-exports"></a>Recuperar grandes conjuntos de dados de custo de modo recorrente com Exportações
 
-O recurso Exportações é uma solução para agendar despejos de dados de custo regularmente. É a maneira recomendada de recuperar dados de custo não agregados para organizações cujos arquivos de uso podem ser muito grandes para chamar e baixar de modo confiável dados usando a API de Detalhes de Uso. Os dados são colocados em uma conta de Armazenamento do Azure de sua escolha. Então você pode carregá-los em seus próprios sistemas e analisá-los conforme necessário por suas equipes. Para configurar as exportações no portal do Azure, confira [Exportar dados](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data).
+Você pode exportar regularmente grandes volumes de dados com exportações do Gerenciamento de Custos. A exportação é a maneira recomendada para recuperar dados de custos não agregados. Especialmente quando os arquivos de uso são muito grandes para serem chamados e baixados de maneira confiável usando a API de Detalhes de Uso. Os dados exportados serão colocados na conta do Armazenamento do Azure que você escolher. Nela, você poderá carregá-los nos próprios sistemas e analisá-los conforme necessário. Para configurar as exportações no portal do Azure, confira [Exportar dados](tutorial-export-acm-data.md).
+
+Caso você deseje automatizar as exportações em vários escopos, a solicitação de API de exemplo da próxima seção será um bom ponto de partida. Use a API de Exportações para criar exportações automáticas como parte da configuração de ambiente geral. As exportações automáticas ajudam a garantir que você tenha os dados de que precisa. Use-os nos próprios sistemas da organização conforme expandir o seu uso do Azure.
+
+### <a name="common-export-configurations"></a>Configurações comuns de exportação
+
+Antes de criar sua primeira exportação, considere seu cenário e as opções de configuração necessárias para habilitá-lo. Considere as seguintes opções de exportação:
+
+- **Recorrência**: determina com que frequência o trabalho de exportação é executado e quando um arquivo é colocado na sua conta do Armazenamento do Azure. Escolha entre as opções Diária, Semanal e Mensal. Tente configurar sua recorrência para que corresponda aos trabalhos de importação de dados usados pelo sistema interno da sua organização.
+- **Período de Recorrência**: determina por quanto tempo a exportação permanecerá válida. Os arquivos são exportados somente durante o período de recorrência.
+- **Período**: determina o volume de dados gerado pela exportação em determinada execução. As opções comuns são MonthToDate e WeekToDate.
+- **StartDate**: configura quando você deseja que a agenda de exportação seja iniciada. Uma exportação é criada na StartDate e, posteriormente, com base na Recorrência.
+- **Tipo**: há três tipos de exportação:
+  - ActualCost: mostra o uso total e os custos para o período especificado, conforme eles são acumulados e mostrados na sua fatura.
+  - AmortizedCost: mostra o uso total e os custos para o período especificado, com amortização aplicada aos custos de compra de reserva aplicáveis.
+  - Usage: todas as exportações criadas antes de 20 de julho de 2020 são do tipo Usage. Atualize todas as exportações agendadas como ActualCost ou AmortizedCost.
+- **Colunas**: define os campos de dados que você deseja incluir no arquivo de exportação. Elas correspondem aos campos disponíveis na API de Detalhes de Uso. Para obter mais informações, confira [API de Detalhes de Uso](/rest/api/consumption/usagedetails/list).
+
+### <a name="create-a-daily-month-to-date-export-for-a-subscription"></a>Criar uma exportação diária do mês atual para uma assinatura
+
+URL da solicitação: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}?api-version=2020-06-01`
+
+```json
+{
+  "properties": {
+    "schedule": {
+      "status": "Active",
+      "recurrence": "Daily",
+      "recurrencePeriod": {
+        "from": "2020-06-01T00:00:00Z",
+        "to": "2020-10-31T00:00:00Z"
+      }
+    },
+    "format": "Csv",
+    "deliveryInfo": {
+      "destination": {
+        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Storage/storageAccounts/{yourStorageAccount} ",
+        "container": "{yourContainer}",
+        "rootFolderPath": "{yourDirectory}"
+      }
+    },
+    "definition": {
+      "type": "ActualCost",
+      "timeframe": "MonthToDate",
+      "dataSet": {
+        "granularity": "Daily",
+        "configuration": {
+          "columns": [
+            "Date",
+            "MeterId",
+            "ResourceId",
+            "ResourceLocation",
+            "Quantity"
+          ]
+        }
+      }
+    }
+}
+```
+
+### <a name="automate-alerts-and-actions-with-budgets"></a>Automatizar alertas e ações com orçamentos
+
+Há dois componentes críticos para maximizar o valor do seu investimento na nuvem. Um deles é a criação automática de orçamento. O outro é a configuração da orquestração baseada em custo em resposta aos alertas de orçamento. Há diferentes maneiras de automatizar a criação do orçamento do Azure. Várias respostas de alerta ocorrem quando os limites de alerta configurados são excedidos.
+
+As seções a seguir abordam as opções disponíveis e fornecem exemplos de solicitações de API para você começar a usar a automação de orçamento.
+
+#### <a name="how-costs-are-evaluated-against-your-budget-threshold"></a>Como os custos são avaliados em relação ao limite de orçamento
+
+Seus custos são avaliados em relação ao limite de orçamento uma vez por dia. Quando você cria um orçamento ou no dia de redefinição do orçamento, os custos comparados com o limite são zero/nulos, pois a avaliação pode não ter ocorrido.
+
+Quando o Azure detecta que os custos excederam o limite, uma notificação é disparada dentro da hora do período de detecção.
+
+#### <a name="view-your-current-cost"></a>Ver os custos atuais
+
+Para ver os custos atuais, você precisa fazer uma chamada GET usando a [API de Consulta](/rest/api/cost-management/query).
+
+Uma chamada GET à API de Orçamentos não retornará os custos atuais mostrados na análise de custo. Em vez disso, a chamada retorna o último custo avaliado.
+
+### <a name="automate-budget-creation"></a>Automatizar a criação de orçamento
+
+Você pode automatizar a criação de orçamento usando a [API de Orçamentos](/rest/api/consumption/budgets). Você também pode criar um orçamento com um [modelo de orçamento](quick-create-budget-template.md). Os modelos são uma forma fácil de padronizar as implantações do Azure, garantindo que o controle de custos seja configurado e imposto corretamente.
+
+#### <a name="common-budgets-api-configurations"></a>Configurações comuns da API de Orçamentos
+
+Há várias maneiras de configurar um orçamento no seu ambiente do Azure. Considere seu cenário primeiro e identifique as opções de configuração que o habilitam. Examine as seguintes opções:
+
+- **Intervalo de agregação**: representa o período recorrente usado pelo orçamento para acumular e avaliar os custos. As opções mais comuns são Mensal, Trimestral e Anual.
+- **Período**: representa por quanto tempo o orçamento será válido. O orçamento monitora e alerta você ativamente apenas enquanto ele permanece válido.
+- **Notificações**
+  - Emails de Contato: os endereços de email recebem alertas quando um orçamento acumula custos e excede os limites definidos.
+  - Funções de Contato: todos os usuários que têm uma função RBAC do Azure correspondente no escopo fornecido recebem alertas de email com essa opção. Por exemplo, os Proprietários da Assinatura podem receber um alerta para um orçamento criado no escopo da assinatura.
+  - Grupos de Contatos: o orçamento chama os grupos de ações configurados quando um limite de alerta é excedido.
+- **Filtros de dimensão de custo**: a mesma filtragem que você pode fazer na análise de custo ou na API de Consulta também pode ser feita no seu orçamento. Use esse filtro para reduzir o intervalo de custos que você está monitorando com o orçamento.
+
+Depois de identificar as opções de criação de orçamento que atendem às suas necessidades, crie o orçamento usando a API. O exemplo abaixo ajuda você a começar com uma configuração comum de orçamento.
+
+**Criar um orçamento filtrado para vários recursos e várias marcas**
+
+URL da solicitação: `PUT https://management.azure.com/subscriptions/{SubscriptionId} /providers/Microsoft.Consumption/budgets/{BudgetName}/?api-version=2019-10-01`
+
+```json
+{
+  "eTag": "\"1d34d016a593709\"",
+  "properties": {
+    "category": "Cost",
+    "amount": 100.65,
+    "timeGrain": "Monthly",
+    "timePeriod": {
+      "startDate": "2017-10-01T00:00:00Z",
+      "endDate": "2018-10-31T00:00:00Z"
+    },
+    "filter": {
+      "and": [
+        {
+          "dimensions": {
+            "name": "ResourceId",
+            "operator": "In",
+            "values": [
+              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{meterName}",
+              "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{meterName}"
+            ]
+          }
+        },
+        {
+          "tags": {
+            "name": "category",
+            "operator": "In",
+            "values": [
+              "Dev",
+              "Prod"
+            ]
+          }
+        },
+        {
+          "tags": {
+            "name": "department",
+            "operator": "In",
+            "values": [
+              "engineering",
+              "sales"
+            ]
+          }
+        }
+      ]
+    },
+    "notifications": {
+      "Actual_GreaterThan_80_Percent": {
+        "enabled": true,
+        "operator": "GreaterThan",
+        "threshold": 80,
+        "contactEmails": [
+          "user1@contoso.com",
+          "user2@contoso.com"
+        ],
+        "contactRoles": [
+          "Contributor",
+          "Reader"
+        ],
+        "contactGroups": [
+          "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/actionGroups/{actionGroupName}
+        ],
+        "thresholdType": "Actual"
+      }
+    }
+  }
+}
+```
+
+### <a name="configure-cost-based-orchestration-for-budget-alerts"></a>Configurar a orquestração baseada em custo para alertas de orçamento
+
+Você pode configurar orçamentos para iniciar ações automatizadas usando grupos de ações do Azure. Para saber mais sobre como automatizar ações usando orçamentos, confira [Automação com orçamentos do Azure](../manage/cost-management-budget-scenario.md).
 
 ## <a name="data-latency-and-rate-limits"></a>Latência de dados e limites de taxa
 
-Recomendamos que você chame as APIs não mais do que uma vez por dia. Os dados de gerenciamento de custos são atualizados a cada quatro horas à medida que novos dados de uso são recebidos dos provedores de recursos do Azure. Chamar com mais frequência não fornecerá dados adicionais. Em vez disso, criará uma carga maior. Para saber mais sobre a frequência com que os dados são alterados e como a latência de dados é manipulada, confira [Entender dados de gerenciamento de custos](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data).
+Recomendamos que você chame as APIs não mais do que uma vez por dia. Os dados de gerenciamento de custos são atualizados a cada quatro horas à medida que novos dados de uso são recebidos dos provedores de recursos do Azure. Chamar com mais frequência não fornecerá dados adicionais. Em vez disso, criará uma carga maior. Para saber mais sobre a frequência com que os dados são alterados e como a latência de dados é manipulada, confira [Entender dados de gerenciamento de custos](understand-cost-mgt-data.md).
 
 ### <a name="error-code-429---call-count-has-exceeded-rate-limits"></a>Código de erro 429 – a contagem de chamadas excedeu os limites de taxa
 

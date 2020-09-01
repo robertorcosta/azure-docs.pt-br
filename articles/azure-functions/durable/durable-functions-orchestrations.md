@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033635"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750193"
 ---
 # <a name="durable-orchestrations"></a>Orquestrações Duráveis
 
@@ -51,7 +51,7 @@ Quando uma função de orquestração recebe mais trabalho a fazer (por exemplo,
 > Para que o padrão de reprodução funcione corretamente e de forma confiável, o código de função funções de orquestrador deve ser *determinístico*. Para obter mais informações sobre restrições de código para funções de orquestrador, confira o tópico [restrições de código de função funções de orquestrador](durable-functions-code-constraints.md).
 
 > [!NOTE]
-> Se uma função de orquestrador emitir mensagens de log, o comportamento da reprodução poderá causar mensagens de erro duplicadas a serem emitidas. Confira o tópico [Registro em log](durable-functions-diagnostics.md#logging) para saber mais sobre por que esse comportamento ocorre e como contorná-lo.
+> Se uma função de orquestrador emitir mensagens de log, o comportamento da reprodução poderá causar mensagens de erro duplicadas a serem emitidas. Confira o tópico [Log](durable-functions-diagnostics.md#app-logging) para saber mais sobre por que esse comportamento ocorre e como resolvê-lo.
 
 ## <a name="orchestration-history"></a>Histórico de orquestração
 

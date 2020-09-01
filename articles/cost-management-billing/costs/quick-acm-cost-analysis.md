@@ -3,17 +3,18 @@ title: Início Rápido – Explorar os custos do Azure com a análise de custo
 description: Este início rápido ajuda você a usar a análise de custo para explorar e analisar os custos organizacionais do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2020
+ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 72c0b55e1ffc300b42181075247ed3efafe2793a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8ca9eaeeb8d484c9aeae6646e6f4814afbaed577
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560576"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718519"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início Rápido: Explorar e analisar os custos com a análise de custo
 
@@ -161,6 +162,10 @@ Para saber mais sobre como conceder acesso aos custos para cada escopo com supor
 
 Se você precisar do conjunto de dados completo não agregado, baixe-o da conta de cobrança. Em seguida, na lista de serviços no painel de navegação esquerdo do portal, acesse **Gerenciamento de Custos + Cobrança**. Selecione a conta de cobrança, se aplicável. Acesse **Uso + encargos** e selecione o ícone **Baixar** do período de cobrança desejado.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+- Se você fixou uma exibição personalizada para análise de custo e não precisa mais dela, acesse o painel em que a fixou e exclua a exibição fixada.
+- Se você baixou os arquivos de dados de uso e não precisa mais deles, lembre-se de excluí-los.
 
 ## <a name="next-steps"></a>Próximas etapas
 

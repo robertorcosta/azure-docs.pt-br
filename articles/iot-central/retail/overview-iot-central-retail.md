@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032275"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719199"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Como criar soluções de varejo com o Azure IoT Central
 
@@ -160,20 +160,20 @@ O aplicativo de análise de vídeo usa um módulo [LVA (análise dinâmica de v�
 
 O modelo de aplicativo inclui quatro painéis de aplicativo:
 
-* **Instalação** fornece informações sobre o design do aplicativo e permite adicionar e excluir câmeras.
-* **Gerenciar** permite que você gerencie suas câmeras. Por exemplo, você pode configurar as câmeras, exibir informações de status e iniciar câmeras em execução.
-* **Câmeras reais** permite que você exiba informações de suas câmeras reais, como contagens de detecção e eventos de câmera.
-* **Monitor** permite exibir informações detalhadas de todas as suas câmeras.
+* A seção **Introdução** fornece links para recursos a fim de ajudar você a começar a usar o modelo de aplicativo.
+* O **Painel de Demonstração** fornece uma ilustração dos tipos de informações que você pode ver nas câmeras conectadas.
+* O **(Exemplo) Gerenciamento de Câmeras Reais** usa câmeras simuladas para mostrar como você pode gerenciar suas câmeras no aplicativo.
+* O **(Exemplo) Monitor de Câmeras Reais** usa câmeras simuladas para mostrar como você pode monitorar suas câmeras no aplicativo.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análise de vídeo – detecção de objetos e de movimento":::
 
 Para saber mais sobre a arquitetura da solução, confira [Arquitetura de aplicativo de análise de vídeo](architecture-video-analytics.md).
 
-Para saber como implantar a solução, confira o tutorial [Criar um aplicativo de análise de vídeo no Azure IoT Central](tutorial-video-analytics-create-app.md).
+Para saber como implantar a solução, confira o tutorial [Criar um aplicativo de análise de vídeo no Azure IoT Central](tutorial-video-analytics-deploy.md).
 
 ### <a name="live-video-analytics"></a>Análise dinâmica de vídeo
 
-A análise dinâmica de vídeo fornece uma plataforma para criar aplicativos de vídeo inteligentes que abrangem a borda e a nuvem. A plataforma permite capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser vídeos ou análises de vídeo, para os serviços do Azure. Os serviços do Azure podem estar em execução na nuvem ou na borda. Você pode usar a plataforma para aprimorar soluções de IoT com análise de vídeo.
+A [Análise Dinâmica de Vídeo](https://github.com/Azure/live-video-analytics) fornece uma plataforma para criar aplicativos de vídeo inteligentes que abrangem a borda e a nuvem. A plataforma permite capturar, gravar, analisar vídeos ao vivo e publicar os resultados, que podem ser vídeos ou análises de vídeo, para os serviços do Azure. Os serviços do Azure podem estar em execução na nuvem ou na borda. Você pode usar a plataforma para aprimorar soluções de IoT com análise de vídeo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -184,4 +184,5 @@ Para começar a criar uma solução de varejo:
 * [Implantar e usar um modelo de aplicativo do centro de distribuição digital](./tutorial-iot-central-digital-distribution-center.md).
 * [Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente](./tutorial-iot-central-smart-inventory-management.md).
 * [Implantar e seguir passo a passo o modelo de aplicativo da microcentral de atendimento](./tutorial-micro-fulfillment-center.md).
+* [Implantar e seguir o passo a passo do modelo de aplicativo de análise de vídeo](./tutorial-video-analytics-deploy.md).
 * Saiba mais sobre o IoT Central na [Visão geral do IoT Central](../preview/overview-iot-central.md).

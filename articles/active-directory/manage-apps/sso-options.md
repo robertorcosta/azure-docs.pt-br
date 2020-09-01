@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3c3d6529b3513a9f82313675b8240cf41b44f12f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: c380642cd4297a753b113bdbfdfb46060656269e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170117"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642088"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções de logon único no Azure AD
 
-O logon único fornece muitos benefícios em relação aos métodos de logon tradicionais.
+O logon único oferece muitos benefícios em relação aos métodos de logon tradicionais.
 
-- **Com o logon único**, os usuários entram uma vez com uma conta para acessar os dispositivos ingressados no domínio, recursos da empresa, aplicativos de SaaS (software como serviço) e aplicativos Web. Depois de entrar, o usuário pode iniciar os aplicativos no portal do Office 365 ou no painel de acesso MyApps do Azure AD. Os administradores podem centralizar o gerenciamento da conta de usuário e automaticamente adicionar ou remover o acesso de usuário para aplicativos com base na associação de grupo.
+- **Com o logon único**, os usuários entram uma vez com uma conta para acessar os dispositivos ingressados no domínio, recursos da empresa, aplicativos de SaaS (software como serviço) e aplicativos Web. Depois de se conectar, o usuário pode iniciar os aplicativos no portal do Office 365 ou em Meus Aplicativos. Os administradores podem centralizar o gerenciamento da conta de usuário e automaticamente adicionar ou remover o acesso de usuário para aplicativos com base na associação de grupo.
 
 - **Sem o logon único**, os usuários devem se lembrar de senhas específicas do aplicativo e entrar em cada aplicativo. A equipe de TI precisa criar e atualizar as contas de usuário para cada aplicativo, como o Office 365, o Box e o Salesforce. Os usuários precisam se lembrar de suas senhas, além de gastar tempo para entrar em cada aplicativo.
 
@@ -123,7 +123,7 @@ As senhas de cada aplicativo podem ser gerenciadas pelo administrador do Azure A
 
 Quando o administrador do Azure AD gerencia as credenciais:  
 
-- O usuário não precisa redefinir ou lembrar o nome de usuário e senha. O usuário pode acessar o aplicativo clicando no seu painel de acesso ou por meio de um link fornecido.
+- O usuário não precisa redefinir ou lembrar o nome de usuário e senha. O usuário pode acessar o aplicativo clicando nele em Meus Aplicativos ou por meio de um link fornecido.
 - O administrador pode realizar tarefas de gerenciamento nas credenciais. Por exemplo, o administrador pode atualizar o acesso de aplicativo de acordo com as associações de grupo do usuário e o status do funcionário.
 - O administrador pode usar as credenciais administrativas para fornecer acesso aos aplicativos compartilhados entre vários usuários. Por exemplo, o administrador pode permitir que qualquer pessoa que pode acessar um aplicativo tenha acesso a uma mídia social ou o aplicativo de compartilhamento de documentos.
 

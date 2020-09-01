@@ -1,6 +1,6 @@
 ---
 title: Visão geral da criação de imagens do Linux para o Azure
-description: Visão geral de como trazer suas imagens de VM do Linux ou criar imagens para serem usadas no Azure.
+description: Como trazer suas imagens de VM do Linux ou criar imagens para uso no Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502173"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815293"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens do Linux no Azure
 
@@ -25,7 +25,7 @@ Este artigo percorrerá os pontos e requisitos de decisão de imagem e explicar�
 ## <a name="difference-between-managed-disks-and-images"></a>Diferença entre discos gerenciados e imagens
 
 
-O Azure permite que você coloque um VHD na plataforma ou use como um [Disco Gerenciado](../windows/faq-for-disks.md#managed-disks) ou como uma origem para uma imagem. 
+O Azure permite que você coloque um VHD na plataforma ou use como um [Disco Gerenciado](../faq-for-disks.md#managed-disks) ou como uma origem para uma imagem. 
 
 Os discos gerenciados do Azure são VHDs únicos. É possível usar um VHD existente e criar um disco gerenciado com base nele ou criar um disco gerenciado vazio do zero. É possível criar VMs com base em discos gerenciados anexando o disco à VM, mas você só pode usar um VHD com uma VM. Não é possível modificar nenhuma propriedade do sistema operacional; o Azure tentará ligar a VM e inicializar usando esse disco. 
 

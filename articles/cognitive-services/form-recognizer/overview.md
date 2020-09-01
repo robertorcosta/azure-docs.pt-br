@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836897"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723547"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -24,7 +24,7 @@ O Reconhecimento de Formulários do Azure é um serviço cognitivo que usa a tec
 
 O Reconhecimento de Formulários é composto pelos seguintes serviços:
 * **Modelos personalizados** – extraia pares de chave/valor e dados de tabela de formulários. Esses modelos são treinados usando dados próprios e, portanto, são adaptados para seus formulários.
-* **Modelo de recebimento predefinido** – extraia dados de recibos de vendas dos EUA usando um modelo predefinido.
+* **Modelos predefinidos**: extraia dados de tipos de formulário exclusivos usando modelos predefinidos. Os modelos predefinidos estão atualmente disponíveis para recibos de vendas e cartões de visita em inglês.
 * **API de layout** – extraia de documentos estruturas de texto e tabela juntamente com suas coordenadas de caixa delimitadora.
 
 <!-- add diagram -->
@@ -45,9 +45,18 @@ Quando você treina os dados rotulados, o modelo supervisiona o aprendizado para
 
 O Reconhecimento de Formulários usa a [API de layout](#layout-api) para aprender os tamanhos e as posições esperados de elementos de texto impressos e manuscritos. Em seguida, ele usa rótulos especificados pelo usuário para aprender as associações de chave/valor nos documentos. Recomendamos que você use cinco formulários rotulados manualmente do mesmo tipo para começar ao treinar um novo modelo e adicionar mais dados rotulados conforme necessário para aprimorar a precisão do modelo.
 
-## <a name="prebuilt-receipt-model"></a>Modelo de recebimento predefinido
+## <a name="prebuilt-models"></a>Modelos predefinidos
 
-O Reconhecimento de Formulários também inclui um modelo para ler os recibos de vendas em inglês do Estados Unidos&mdash;o tipo usado por restaurantes, companhias de gás, varejo etc. ([exemplo de recibo](./media/contoso-receipt-small.png)). Esse modelo extrai informações importantes, como a data e a hora da transação, informações de comerciantes, valores de impostos e totais e muito mais. Além disso, o modelo de recibo predefinido é treinado para reconhecer e retornar todo o texto de um recibo.
+O Reconhecimento de Formulários também inclui modelos predefinidos para tipos de formulário exclusivos.
+### <a name="prebuilt-receipt-model"></a>Modelo de Recibo Predefinido
+O modelo de Recibo Predefinido é usado para a leitura de recibos de vendas em inglês da Austrália, do Canadá, da Grã-Bretanha, da Índia e dos Estados Unidos: o tipo usado por restaurantes, postos de gasolina, varejo etc. Esse modelo extrai informações essenciais, como data e hora da transação, informações do comerciante, valores de impostos, itens de linha, totais, entre outros. Além disso, o modelo de recibo predefinido é treinado para reconhecer e retornar todo o texto de um recibo. 
+
+![exemplo de recibo](./media/contoso-receipt-small.png)
+
+### <a name="prebuilt-business-cards-model"></a>Modelo de Cartões de Visita Predefinidos
+O modelo de Cartões de Visita permite que você extraia informações, como nome da pessoa, cargo, endereço, email, empresa e números de telefone de cartões de visita em inglês. 
+
+![exemplo de cartão de visita](./media/business-card-english.jpg)
 
 ## <a name="layout-api"></a>API de layout
 
@@ -90,7 +99,7 @@ Explore a [documentação de referência da API REST](https://westus2.dev.cognit
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### <a name="prebuilt-receipt-model"></a>Modelo de recebimento predefinido
+### <a name="prebuilt"></a>Predefinida
 
 Os requisitos de entrada para o modelo de recebimento são um pouco diferentes.
 

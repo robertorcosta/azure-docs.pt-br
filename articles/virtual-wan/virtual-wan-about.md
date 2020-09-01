@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 2d8ac3775021c574d3c03e44b06d6b5e689070e7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604675"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852674"
 ---
 # <a name="what-is-azure-virtual-wan"></a>O que é a WAN Virtual do Azure?
 
@@ -124,15 +124,15 @@ Para obter informações de localização, consulte o artigo [Parceiros e locali
 
 As tabelas de rotas agora têm recursos para associação e propagação. Uma tabela de rotas preexistente é uma tabela de rotas que não tem esses recursos. Se você tiver rotas preexistentes no roteamento de hub e quiser usar as novas funcionalidades, considere o seguinte:
 
-* **Clientes de WAN Virtual Standard com rotas preexistentes no hub virtual**: Para usar as novas funcionalidades da tabela de rotas, aguarde até a semana de 17 de agosto para que a implantação seja concluída no Azure. Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois tentar criar tabelas de rotas (disponíveis na seção Tabelas de Rotas do hub no portal do Azure).
+* **Clientes de WAN Virtual Standard com rotas preexistentes no hub virtual**: Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois tentar criar tabelas de rotas (disponíveis na seção Tabelas de Rotas do hub no portal do Azure).
 
-* **Clientes de WAN Virtual Básica com rotas preexistentes no hub virtual**: Para usar as novas funcionalidades da tabela de rotas, aguarde até a semana de 17 de agosto para que a implantação seja concluída no Azure. Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois **atualizar** sua WAN Virtual Básica para a WAN Virtual Standard. Confira [Atualizar uma WAN Virtual de Básica para Standard](upgrade-virtual-wan.md).
+* **Clientes de WAN Virtual Básica com rotas preexistentes no hub virtual**: Se você tiver rotas pré-existentes da seção Roteamento para o hub no portal do Azure, precisará primeiro excluí-las e depois **atualizar** sua WAN Virtual Básica para a WAN Virtual Standard. Confira [Atualizar uma WAN Virtual de Básica para Standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>Perguntas frequentes
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="view-the-latest-feature-updates"></a><a name="new"></a>Exibir as atualizações de recursos mais recentes
+## <a name="whats-new"></a><a name="new"></a>Novidades
 
 Assine o RSS feed e veja as atualizações mais recentes dos recursos de WAN Virtual na página [Atualizações do Azure](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN).
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509103"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815174"
 ---
 # <a name="what-is-identity-protection"></a>O que é proteção de identidade?
 
@@ -52,9 +52,10 @@ O Identity Protection identifica riscos nas seguintes classificações:
 | Viagem atípica | Entrada proveniente de uma localização atípica com base nas conexões recentes do usuário. |
 | Endereço IP anônimo | Entrada de um endereço IP anônimo (por exemplo: navegador Tor, VPNs para anonimato). |
 | Propriedades de entrada desconhecidas | Entrada com propriedades que não vimos recentemente para o usuário especificado. |
-| Endereço IP vinculado a malware | Entrada de um endereço IP vinculado a malware |
-| Credenciais vazadas | Essa detecção de risco indica que as credenciais válidas do usuário foram vazadas |
-| Inteligência contra ameaças do Azure AD | As fontes internas e externas de inteligência contra ameaças da Microsoft identificaram um padrão de ataque conhecido |
+| Endereço IP vinculado a malware | Entrada de um endereço IP vinculado a malware. |
+| Credenciais vazadas | Essa detecção de risco indica que as credenciais válidas do usuário foram vazadas. |
+| Pulverização de senha | Indica que vários nomes de usuário estão sendo atacados por meio de senhas comuns de maneira unificada por força bruta. |
+| Inteligência contra ameaças do Azure AD | As fontes internas e externas de inteligência contra ameaças da Microsoft identificaram um padrão de ataque conhecido. |
 
 Mais detalhes sobre esses riscos e como/quando são calculados podem ser encontrados no artigo, [O que é risco](concept-identity-protection-risks.md).
 

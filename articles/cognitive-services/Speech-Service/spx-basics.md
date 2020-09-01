@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 2f5a1d190c6e63056c2377641446f617edaa1bd3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590210"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854893"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos da CLI de Fala
 
@@ -31,10 +31,18 @@ Esta seção mostra alguns comandos de SPX básicos que geralmente são úteis p
 spx
 ```
 
-Observe os tópicos de ajuda do tipo **confira também** listados à direita dos parâmetros do comando. Você também pode pesquisar os tópicos por palavra-chave. Por exemplo, digite o seguinte comando para ver uma lista de tópicos de ajuda sobre exemplos da CLI de Fala:
+Observe os tópicos de ajuda do tipo **confira:** listados à direita dos parâmetros do comando. Você pode inserir esses comandos para obter ajuda detalhada sobre os subcomandos.
+
+Você pode pesquisar os tópicos de ajuda por palavra-chave. Por exemplo, digite o seguinte comando para ver uma lista de exemplos de uso da CLI de Fala:
 
 ```shell
 spx help find --topics "examples"
+```
+
+Insira o seguinte comando para ver opções do comando Recognize:
+
+```shell
+spx help recognize
 ```
 
 Agora, use o serviço de Fala para executar um reconhecimento de fala usando o microfone padrão, executando o comando a seguir.

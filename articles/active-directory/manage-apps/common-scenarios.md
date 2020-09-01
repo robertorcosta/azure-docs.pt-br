@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 8ce3819ff1f9b0c61f7738f90ff17c2798fe888b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763628"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642105"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizar o gerenciamento de aplicativos com o Azure AD
 
@@ -43,7 +43,7 @@ Chega de gerenciar senhas. Acesse com segurança todos os recursos de que você 
 |Recurso  | Descrição | Recomendação |
 |---------|---------|---------|
 |SSO|SSO federado baseado em padrões usando padrões confiáveis do setor.|Sempre use [SAML/OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) para habilitar o SSO quando seu aplicativo for compatível.|
-|Painel de acesso|Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Possibilite que eles sejam mais produtivos com os recursos de autoatendimento, como a solicitação de acesso a novos aplicativos e grupos ou o gerenciamento do acesso a recursos em nome de outras pessoas.| Implante o [painel de acesso](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) em sua organização depois de ter integrado os aplicativos com o Azure AD para SSO.|
+|Meus aplicativos|Oferece a seus usuários um hub simples para descobrir e acessar todos os seus aplicativos. Possibilite que eles sejam mais produtivos com os recursos de autoatendimento, como a solicitação de acesso a novos aplicativos e grupos ou o gerenciamento do acesso a recursos em nome de outras pessoas.| Implante [Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) na sua organização depois de integrar seus aplicativos ao Azure AD para SSO.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Cenário 2: Automatizar o provisionamento e o desprovisionamento 
 

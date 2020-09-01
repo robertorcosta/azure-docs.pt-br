@@ -4,12 +4,12 @@ description: Aprenda rapidamente a executar um trabalho do Lote com a CLI do Azu
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: c59e8891678d9fc1af7c4fe78e4ee2d267ec99b4
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 606862b31ba4921e39e693735507fca39282091c
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511381"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642394"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-arm-template"></a>Início Rápido: Criar uma conta do Lote usando um modelo do Resource Manager
 
@@ -31,7 +31,7 @@ Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o 
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-batchaccount-with-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json" range="1-80" highlight="36-69":::
+:::code language="json" source="~/quickstart-templates/101-batchaccount-with-storage/azuredeploy.json":::
 
 Há dois recursos do Azure definidos no modelo:
 
@@ -54,7 +54,7 @@ Há dois recursos do Azure definidos no modelo:
    - **Nome da Conta do Lote**: Mantenha o valor padrão.
    - **Accountsku do Armazenamento**: selecione um tipo de conta de armazenamento. Por exemplo, **Standard_LRS**.
    - **Localização**: deixe o padrão para que os recursos fiquem no mesmo local que seu grupo de recursos.
-   - Concordo com os termos e condições declarados acima: **Selecione**.
+   - Concordo com os termos e as condições acima: **Selecione**.
 
 1. Selecione **Comprar**.
 

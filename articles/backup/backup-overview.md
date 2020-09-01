@@ -4,12 +4,12 @@ description: Fornece uma visão geral do serviço de Backup do Azure e como impl
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 70fcbc432c3a3584047fe5ac39f217981a73df71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: da4f9b4814e93a964105a7ed3ea4addaecd43864
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513516"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611221"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de Backup do Azure?
 
@@ -19,7 +19,7 @@ O serviço de Backup do Azure fornece soluções simples, seguras e econômicas 
 
 ## <a name="what-can-i-back-up"></a>Do que é possível fazer backup?
 
-- **Local** – faça backup de arquivos, de pastas e do estado do sistema usando o [agente MARS (Serviços de Recuperação do Microsoft Azure)](backup-support-matrix-mars-agent.md). Ou, então, use o agente do DPM ou do MABS (Servidor de Backup do Azure) para proteger as VMs locais ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) e [VMWare](backup-azure-backup-server-vmware.md)) e outras [cargas de trabalho locais](backup-mabs-protection-matrix.md)
+- **Local** – faça backup de arquivos, de pastas e do estado do sistema usando o [agente MARS (Serviços de Recuperação do Microsoft Azure)](backup-support-matrix-mars-agent.md). Ou, então, use o Agente do DPM ou do MABS (Servidor de Backup do Azure) para proteger as VMs locais ([Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) e [VMware](backup-azure-backup-server-vmware.md)) e outras [cargas de trabalho locais](backup-mabs-protection-matrix.md)
 - **VMs do Azure** - [Faça backup de VMs do Windows/Linux inteiras](backup-azure-vms-introduction.md) (usando extensões de backup) ou faça backup de arquivos, de pastas e do estado do sistema usando o [agente MARS](backup-azure-manage-mars.md).
 - **Compartilhamentos dos Arquivos do Azure** - [Faça backup de compartilhamentos dos Arquivos do Azure para uma conta de armazenamento](backup-afs.md)
 - **SQL Server em VMs do Azure** -  [Faça backup de bancos de dados do SQL Server em execução nas VMs do Azure](backup-azure-sql-database.md)

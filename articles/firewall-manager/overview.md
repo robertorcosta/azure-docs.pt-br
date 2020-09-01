@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: b4ef35f2892925919ca9c8eda37a9b0e0d11835e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ae220a1b70be7178c4c2fea01103991c8729ae79
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590397"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855044"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
@@ -86,7 +86,7 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 |Tráfego de branch a branch com a filtragem de tráfego privado habilitada|Não há suporte para o tráfego de branch para branch quando a filtragem de tráfego privado está habilitada. |Em investigação.<br><br>Não proteja o tráfego privado se a conectividade de branch a branch for crítica.|
 |Todos os Hubs Virtuais Seguros que compartilham a mesma WAN virtual devem estar no mesmo grupo de recursos.|Esse comportamento está alinhado aos Hubs da WAN Virtual hoje.|Crie várias WANs Virtuais para permitir que os Hubs Virtuais Seguros sejam criados em diferentes grupos de recursos.|
 |Falha na adição de endereço IP em massa|O firewall do hub seguro entrará em um estado de falha se você adicionar vários endereços IP públicos.|Adicione incrementos menores de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
-|As regras de aplicativo falham em um hub seguro com DNS personalizado (versão prévia) configurado.|O proxy DNS/DNS personalizado (versão prévia) não funciona em cenários em que uma NIC de gerenciamento de firewall está configurada. Isso inclui implantações do hub seguro e casos em que o túnel forçado está habilitado.|Correção sob investigação.|
+|As regras de aplicativo falham em um hub seguro com DNS personalizado (versão prévia) configurado.|O DNS personalizado (versão prévia) não funciona em implantações de hub seguro e implantações de rede virtual de hub em que o túnel forçado está habilitado.|Correção sob investigação.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,18 +4,18 @@ description: Habilite Links Privados para seus discos gerenciados com o portal d
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135837"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815854"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Portal do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
+# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Usar o portal do Azure para restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
 
 O suporte dos Links Privados para discos gerenciados está na versão prévia e permite que você restrinja a exportação e a importação de discos gerenciados para que elas ocorram somente dentro de sua rede virtual do Azure. Gere um URI de SAS (Assinatura de Acesso Compartilhado) com limite de tempo para discos gerenciados e instantâneos desanexados a fim de exportar os dados para outra região para expansão regional, recuperação de desastre e a fim de ler os dados para análise forense. Use também o URI de SAS para carregar diretamente o VHD em um disco vazio do local. O tráfego de rede entre os clientes na rede virtual e os discos gerenciados atravessa somente a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição à Internet pública.
 
@@ -100,5 +100,5 @@ Agora você concluiu a configuração de Links Privados que podem ser usados ao 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Perguntas frequentes sobre os Links Privados](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Perguntas frequentes sobre os Links Privados](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exportar/copiar instantâneos gerenciados como VHD para uma conta de armazenamento em outa região com o PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)

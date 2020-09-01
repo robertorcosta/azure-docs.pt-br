@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: afcb676f68e7be9d3ebef11ea2c6876a86bbd062
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a955f035933955b88200e49e343f7dd0c257c89b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80281775"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816347"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Início Rápido: Configurar a Máquina Virtual de Ciência de Dados para Windows
 
@@ -69,6 +69,5 @@ Também é possível anexar uma DSVM ao Azure Notebooks para executar os Jupyter
 
 * Explore as ferramentas na DSVM abrindo o menu **Iniciar**.
 * Para saber mais sobre o Azure Machine Learning, leia [O que é o Azure Machine Learning?](../overview-what-is-azure-ml.md) e teste os [tutoriais](../index.yml).
-* Leia o artigo [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](https://aka.ms/dsvmtenthings).
-* Visite a [Galeria de IA do Azure](https://gallery.cortanaintelligence.com) para obter exemplos de Machine Learning e de análise de dados que usam o Azure Machine Learning e os serviços de dados relacionados no Azure. Também fornecemos um ícone para essa galeria no menu **Iniciar** e na área de trabalho da máquina virtual.
+* Leia o artigo [Ciência de dados com uma Máquina Virtual de Ciência de Dados do Windows no Azure](./vm-do-ten-things.md)
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 06/25/2020
+ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 82099172a933496f015ae8fc575c1919a879e1f9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167735"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825335"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -24,7 +24,7 @@ O serviço de Fala é a unificação da conversão de fala em texto, da convers�
 > [!IMPORTANT]
 > O serviço de Fala substituiu a API de Fala do Bing e a Tradução de Fala. Confira _Guias de instruções > Migração_ para obter instruções de migração.
 
-Esses recursos compõem o serviço de Fala. Use os links nesta tabela para saber mais sobre os casos de uso comuns de cada recurso ou navegue pela referência de API.
+Os recursos a seguir fazem parte do serviço de Fala. Use os links nesta tabela para saber mais sobre os casos de uso comuns de cada recurso ou navegue pela referência de API.
 
 | Serviço | Recurso | Descrição | . | REST |
 |---------|---------|-------------|-----|------|
@@ -42,20 +42,61 @@ Esses recursos compõem o serviço de Fala. Use os links nesta tabela para saber
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="try-the-speech-service"></a>Experimentar o serviço de Fala
+## <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
 
-Nós oferecemos guias de início rápido nas linguagens de programação mais populares, todos eles desenvolvidos para que você executar o código em menos de 10 minutos. Esta tabela contém os guias de início rápido mais populares de cada recurso. Use o painel de navegação esquerdo para explorar plataformas e linguagens adicionais.
+Nas etapas a seguir, você precisará de uma conta Microsoft e de uma conta do Azure. Se você não tiver uma conta Microsoft, poderá inscrever-se em uma gratuitamente no [portal da conta Microsoft](https://account.microsoft.com/account). Selecione **Entrar com a conta da Microsoft** e, quando solicitado a entrar, clique em **Criar uma conta Microsoft**. Siga as etapas para criar e confirmar sua nova conta Microsoft.
 
-| Conversão de fala em texto (SDK) | Conversão de texto em fala (SDK) | Tradução (SDK) |
-|----------------------|----------------------|-------------------|
-| [Reconhecer uma fala de um arquivo de áudio](quickstarts/speech-to-text-from-file.md) | [Sintetizar fala em um arquivo de áudio](quickstarts/text-to-speech-audio-file.md) | [Converter fala em texto](quickstarts/translate-speech-to-text.md) |
-| [Reconhecer fala com um microfone](quickstarts/speech-to-text-from-microphone.md) | [Sintetizar fala para um locutor](quickstarts/text-to-speech.md) | [Traduzir fala para vários idiomas de destino](quickstarts/translate-speech-to-text-multiple-languages.md) |
-| [Reconhecer uma fala armazenada no Armazenamento de Blobs](quickstarts/from-blob.md) | [Sintetização assíncrona para áudio de fala contínua](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Traduzir fala em fala](quickstarts/translate-speech-to-speech.md) |
+Depois de ter uma conta Microsoft, acesse a [página de inscrição do Azure](https://azure.microsoft.com/free/ai/), selecione **Iniciar gratuitamente** e crie uma conta do Azure usando uma conta Microsoft.
 
 > [!NOTE]
-> A conversão de fala em texto e de texto em fala também tem pontos de extremidade REST e inícios rápidos associados.
+> O serviço de Fala tem duas camadas de serviço: gratuita e assinatura, que têm diferentes limitações e benefícios. Quando você inscreve-se em uma conta gratuita do Azure, ela vem com US$ 200 em crédito de serviço que podem ser aplicados a uma assinatura paga do serviço de Fala, válidos por até 30 dias.
+>
+> Se você usar a camada de serviço de fala gratuita e de baixo volume, poderá manter essa assinatura gratuita mesmo após a expiração da avaliação gratuita ou do crédito de serviço.
+>
+> Para obter mais informações, confira [Preço dos Serviços Cognitivos – serviço de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Após ter tido a chance de usar o serviço de Fala, experimente os tutoriais que ensinam como abordar diferentes cenários.
+### <a name="create-the-azure-resource"></a>Criar o recurso do Azure
+
+Para adicionar um recurso de serviço de Fala (camada gratuita ou paga) à sua conta do Azure:
+
+1. Entre no [portal do Azure](https://portal.azure.com/) usando sua conta Microsoft.
+
+1. Selecione **Criar um recurso** na parte superior esquerda do portal. Caso não veja **Criar um recurso**, você sempre pode encontrá-lo selecionando o menu recolhido no canto superior esquerdo da tela.
+
+1. Na janela **Novo**, digite "fala" na caixa de pesquisa e pressione ENTER.
+
+1. Nos resultados da pesquisa, selecione **Fala**.
+
+   ![resultados da pesquisa de fala](media/index/speech-search.png)
+
+1. Selecione **Criar** e:
+
+   - Dê um nome exclusivo ao seu novo recurso. O nome ajuda a distinguir entre várias assinaturas associadas ao mesmo serviço.
+   - Escolha a assinatura do Azure a qual o novo recurso está associado para determinar como os valores serão cobrados.
+   - Escolha a [região](regions.md) em que o recurso será usado.
+   - Escolha um tipo de preço gratuito (F0) ou pago (S0). Para obter informações completas sobre preços e cotas de uso para cada camada, selecione **Exibir detalhes de preço completos**.
+   - Crie um grupo de recursos para esta assinatura de Fala ou atribua a assinatura a um grupo de recursos existente. Os grupos de recurso ajudam você a manter suas diversas assinaturas do Azure organizadas.
+   - Selecione **Criar**. Isso direcionará você à visão geral de implantação e exibirá mensagens sobre o progresso da implantação.
+
+> [!NOTE]
+> Você pode criar um número ilimitado de assinaturas da camada Standard em uma ou várias regiões. No entanto, você só pode criar uma assinatura da camada gratuita. As implantações de modelo na camada gratuita que permanecerem inutilizadas por 7 dias serão desativadas automaticamente.
+
+São necessários alguns instantes para a implantação do novo recurso de Fala. Após a conclusão da implantação, selecione **Ir para recurso** e, no painel de navegação esquerdo, selecione **Chaves** para exibir as chaves de assinatura do serviço de Fala. Cada assinatura tem duas chaves; você pode usar uma das chaves em seu aplicativo. Para copiar/colar rapidamente uma chave no editor de código ou em outra localização, selecione o botão copiar ao lado de cada chave, alterne as janelas para colar o conteúdo da área de transferência na localização desejada.
+
+> [!IMPORTANT]
+> Essas chaves de assinatura são usadas para acessar sua API do Serviço Cognitivo. Não compartilhe suas chaves. Armazene-as com segurança – por exemplo, usando o Azure Key Vault. Recomendamos a regeneração regular dessas chaves. Apenas uma chave é necessária para fazer uma chamada à API. Ao regenerar a primeira chave, você pode usar a segunda chave para obter acesso contínuo ao serviço.
+
+## <a name="complete-a-quickstart"></a>Concluir um guia de início rápido
+
+Oferecemos guias de início rápido nas linguagens de programação mais populares, todos eles desenvolvidos para ensinar padrões de design básicos e para você executar seu código em menos de 10 minutos. Confira a lista a seguir para obter o guia de início rápido para cada recurso.
+
+* [Início rápido de conversão de fala em texto](speech-to-text-basics.md)
+* [Início rápido da conversão de texto em fala](get-started-text-to-speech.md)
+* [Início rápido da tradução de fala](speech-translation-basics.md)
+* [Início rápido do reconhecimento de intenção](quickstarts/intent-recognition.md)
+* [Início rápido do reconhecimento de locutor](speaker-recognition-basics.md)
+
+Após ter tido a chance de começar a usar o serviço de Fala, experimente os tutoriais que mostram como abordar diferentes cenários.
 
 - [Tutorial: Reconhecer intenções de fala com o SDK de Fala e o LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Tutorial: Habilitar por voz o bot com o SDK de Fala, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
@@ -74,6 +115,8 @@ Há um código de exemplo disponível no GitHub para o serviço de Fala. Esses e
 
 O serviço de Fala funciona bem com modelos internos, no entanto, pode ser interessante personalizar e ajustar ainda mais a experiência para seu ambiente ou produto. As opções de personalização vão do ajuste do modelo acústico a fontes de voz exclusivas para sua marca.
 
+Outros produtos oferecem modelos de fala ajustados para fins específicos, como serviços de saúde ou seguros, mas estão disponíveis para todas as pessoas igualmente. A personalização na Fala do Azure se torna parte da sua *única* vantagem competitiva que não está disponível para nenhum outro usuário ou cliente. Em outras palavras, seus modelos são privados e personalizados para seu caso de uso.
+
 | Serviço de Fala | Plataforma | Descrição |
 | -------------- | -------- | ----------- |
 | Conversão de fala em texto | [Fala Personalizada](https://aka.ms/customspeech) | Personalize modelos de reconhecimento de fala de acordo com suas necessidades e com os dados disponíveis. Supere as barreiras do reconhecimento de fala, como estilo de fala, vocabulário e ruído de fundo. |
@@ -90,4 +133,5 @@ O serviço de Fala funciona bem com modelos internos, no entanto, pode ser inter
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+> [Introdução à conversão de fala em texto](speech-to-text-basics.md)
+> [Introdução à conversão de texto em fala](get-started-text-to-speech.md)

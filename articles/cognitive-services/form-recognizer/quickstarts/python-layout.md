@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 1777d4d09dfb12f490245f726715aed4eefd6227
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e6c18df2d90f8d6efc9425f2d9fdff057e06ad51
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88517788"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719087"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Início Rápido: Extrair informações de texto e de layout usando a API REST do Reconhecimento de Formulários com Python
 
@@ -45,9 +45,10 @@ Para começar a analisar o layout, você chama a API **[Analisar Layout](https:/
 1. Substitua `<path to your form>` pelo caminho para o documento de formulário local.
 1. Substitua `<subscription key>` pela chave de assinatura que você copiou na etapa anterior.
 
+    # <a name="v20"></a>[v2.0](#tab/v2-0) 
     ```python
     ########### Python Form Recognizer Async Layout #############
-
+    
     import json
     import time
     from requests import get, post
@@ -76,7 +77,44 @@ Para começar a analisar o layout, você chama a API **[Analisar Layout](https:/
     except Exception as e:
         print("POST analyze failed:\n%s" % str(e))
         quit()
-    ```
+    ```   
+    # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)  
+    ```python
+    ########### Python Form Recognizer Async Layout #############
+    
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<Endpoint>"
+    apim_key = "<Subscription Key>"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.1/Layout/analyze"
+    source = r"<path to your form>"
+    
+    headers = {
+        # Request headers
+        'Content-Type': 'application/json',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        quit()
+    ```  
+    
+    
+      ---
+
 
 1. Salve o código como um arquivo com uma extensão .py. Por exemplo, *form-recognizer-layout.py*.
 1. Abra una janela de prompt de comando.
@@ -84,9 +122,19 @@ Para começar a analisar o layout, você chama a API **[Analisar Layout](https:/
 
 Você receberá uma resposta `202 (Success)` que inclui um cabeçalho **Operation-Location**, que será impresso pelo script no console. Esse cabeçalho contém uma ID da operação que você pode usar para consultar o status da operação assíncrona e obter os resultados. No seguinte valor de exemplo, a cadeia de caracteres após `operations/` é a ID da operação.
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```console
 https://cognitiveservice/formrecognizer/v2.0/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
-```
+``` 
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)  
+```console
+https://cognitiveservice/formrecognizer/v2.1-preview.1/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+```  
+
+---
+    
+
+
 
 ## <a name="get-the-layout-results"></a>Obter os resultados do layout
 
@@ -124,159 +172,237 @@ while n_try < n_tries:
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
-O script imprimirá as respostas no console até que a operação **Analisar Layout** seja concluída. Em seguida, ele imprimirá os dados extraídos no formato JSON. O nó `"readResults"` contém cada linha de texto com seu respectivo posicionamento de caixa delimitadora na página. O campo `"pageResults"` mostra cada trecho de texto nas tabelas, cada um com sua respectiva coordenada de linha-coluna.
+O script imprimirá as respostas no console até que a operação **Analisar Layout** seja concluída. Em seguida, ele imprimirá os dados extraídos no formato JSON. O nó `"readResults"` contém cada linha de texto com seu respectivo posicionamento de caixa delimitadora na página. O nó `"selectionMarks"` (na versão prévia da v2.1) mostra cada marca de seleção (caixa de seleção, marca de opção) e indica se o status é "marcado" ou "não marcado". O campo `"pageResults"` mostra cada trecho de texto nas tabelas, cada um com sua respectiva coordenada de linha-coluna.
 
 Confira a imagem da fatura a seguir e a respectiva saída em JSON correspondente. A saída foi reduzida para maior simplicidade.
 
-> [!div class="mx-imgBorder"]
-> ![Documento de fatura da Contoso com uma tabela](../media/contoso-invoice.png)
+:::image type="content" source="../media/contoso-invoice.png" alt-text="Documento de declaração de projeto da Contoso com uma tabela.":::
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)    
 ```json
-{ 
-  "status":"succeeded",
-  "createdDateTime":"2019-11-12T19:55:36Z",
-  "lastUpdatedDateTime":"2019-11-12T19:55:43Z",
-  "analyzeResult":{ 
-    "version":"2.0.0",
-    "readResults":[ 
-      { 
-        "page":1,
-        "language":"en",
-        "angle":0,
-        "width":8.5,
-        "height":11,
-        "unit":"inch",
-        "lines":[ 
-          { 
-            "language":"en",
-            "boundingBox":[ 
-              0.5384,
-              1.1583,
-              1.4466,
-              1.1583,
-              1.4466,
-              1.3534,
-              0.5384,
-              1.3534
-            ],
-            "text":"Contoso",
-            "words":[ 
-              { 
-                "boundingBox":[ 
-                  0.5384,
-                  1.1583,
-                  1.4466,
-                  1.1583,
-                  1.4466,
-                  1.3534,
-                  0.5384,
-                  1.3534
-                ],
-                "text":"Contoso",
-                "confidence":1
-              }
-            ]
-          },
-          { 
-            "language":"en",
-            "boundingBox":[ 
-              0.7994,
-              1.5143,
-              1.3836,
-              1.5143,
-              1.3836,
-              1.6154,
-              0.7994,
-              1.6154
-            ],
-            "text":"Address:",
-            "words":[ 
-              { 
-                "boundingBox":[ 
-                  0.7994,
-                  1.5143,
-                  1.3836,
-                  1.5143,
-                  1.3836,
-                  1.6154,
-                  0.7994,
-                  1.6154
-                ],
-                "text":"Address:",
-                "confidence":1
-              }
-            ]
-          },
-          ...
-          { 
-            "language":"en",
-            "boundingBox":[ 
-              6.2285,
-              3.4114,
-              6.3919,
-              3.4114,
-              6.3919,
-              3.5119,
-              6.2285,
-              3.5119
-            ],
-            "text":"PT",
-            "words":[ 
-              { 
-                "boundingBox":[ 
-                  6.2285,
-                  3.4114,
-                  6.3919,
-                  3.4114,
-                  6.3919,
-                  3.5119,
-                  6.2285,
-                  3.5119
-                ],
-                "text":"PT",
-                "confidence":1
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "pageResults":[ 
-      { 
-        "page":1,
-        "tables":[ 
-          { 
-            "rows":2,
-            "columns":6,
-            "cells":[ 
-              { 
-                "rowIndex":0,
-                "columnIndex":0,
-                "text":"Invoice Number",
-                "boundingBox":[ 
-                  0.5075,
-                  2.8088,
-                  1.9061,
-                  2.8088,
-                  1.9061,
-                  3.3219,
-                  0.5075,
-                  3.3219
-                ],
-                "elements":[ 
-                  "#/readResults/0/lines/8/words/0",
-                  "#/readResults/0/lines/8/words/1"
+{
+    "status": "succeeded",
+    "createdDateTime": "2020-08-20T20:36:52Z",
+    "lastUpdatedDateTime": "2020-08-20T20:36:58Z",
+    "analyzeResult": {
+        "version": "2.0.0",
+        "readResults": [
+            {
+                "page": 1,
+                "language": "en",
+                "angle": 0,
+                "width": 8.5,
+                "height": 11,
+                "unit": "inch",
+                "lines": [
+                    {
+                        "boundingBox": [
+                            0.5826,
+                            0.4411,
+                            2.3387,
+                            0.4411,
+                            2.3387,
+                            0.7969,
+                            0.5826,
+                            0.7969
+                        ],
+                        "text": "Contoso, Ltd.",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    0.5826,
+                                    0.4411,
+                                    1.744,
+                                    0.4411,
+                                    1.744,
+                                    0.7969,
+                                    0.5826,
+                                    0.7969
+                                ],
+                                "text": "Contoso,",
+                                "confidence": 1
+                            },
+                            {
+                                "boundingBox": [
+                                    1.8448,
+                                    0.4446,
+                                    2.3387,
+                                    0.4446,
+                                    2.3387,
+                                    0.7631,
+                                    1.8448,
+                                    0.7631
+                                ],
+                                "text": "Ltd.",
+                                "confidence": 1
+                            }
+                        ]
+                    },
+                    ...
                 ]
-              },
-              ...
-            ]
-          }
+            }
+        ],
+        "pageResults": [
+            {
+                "page": 1,
+                "tables": [
+                    {
+                        "rows": 5,
+                        "columns": 5,
+                        "cells": [
+                            {
+                                "rowIndex": 0,
+                                "columnIndex": 0,
+                                "text": "Training Date",
+                                "boundingBox": [
+                                    0.5133,
+                                    4.2167,
+                                    1.7567,
+                                    4.2167,
+                                    1.7567,
+                                    4.4492,
+                                    0.5133,
+                                    4.4492
+                                ],
+                                "elements": [
+                                    "#/readResults/0/lines/14/words/0",
+                                    "#/readResults/0/lines/14/words/1"
+                                ]
+                            },
+                            ...
+                        ]
+                    },
+                    ...
+                ]
+            }
         ]
-      }
-    ]
-  }
+    }
 }
 ```
+
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)   
+```json
+{
+    "status": "succeeded",
+    "createdDateTime": "2020-08-20T20:40:50Z",
+    "lastUpdatedDateTime": "2020-08-20T20:40:55Z",
+    "analyzeResult": {
+        "version": "2.1.0",
+        "readResults": [
+            {
+                "page": 1,
+                "angle": 0,
+                "width": 8.5,
+                "height": 11,
+                "unit": "inch",
+                "lines": [
+                    {
+                        "boundingBox": [
+                            0.5826,
+                            0.4411,
+                            2.3387,
+                            0.4411,
+                            2.3387,
+                            0.7969,
+                            0.5826,
+                            0.7969
+                        ],
+                        "text": "Contoso, Ltd.",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    0.5826,
+                                    0.4411,
+                                    1.744,
+                                    0.4411,
+                                    1.744,
+                                    0.7969,
+                                    0.5826,
+                                    0.7969
+                                ],
+                                "text": "Contoso,",
+                                "confidence": 1
+                            },
+                            {
+                                "boundingBox": [
+                                    1.8448,
+                                    0.4446,
+                                    2.3387,
+                                    0.4446,
+                                    2.3387,
+                                    0.7631,
+                                    1.8448,
+                                    0.7631
+                                ],
+                                "text": "Ltd.",
+                                "confidence": 1
+                            }
+                        ]
+                    },
+                    ...
+                        ]
+                    }
+                ],
+                "selectionMarks": [
+                    {
+                        "boundingBox": [
+                            3.9737,
+                            3.7475,
+                            4.1693,
+                            3.7475,
+                            4.1693,
+                            3.9428,
+                            3.9737,
+                            3.9428
+                        ],
+                        "confidence": 0.989,
+                        "state": "selected"
+                    },
+                    ...
+                ]
+            }
+        ],
+        "pageResults": [
+            {
+                "page": 1,
+                "tables": [
+                    {
+                        "rows": 5,
+                        "columns": 5,
+                        "cells": [
+                            {
+                                "rowIndex": 0,
+                                "columnIndex": 0,
+                                "text": "Training Date",
+                                "boundingBox": [
+                                    0.5133,
+                                    4.2167,
+                                    1.7567,
+                                    4.2167,
+                                    1.7567,
+                                    4.4492,
+                                    0.5133,
+                                    4.4492
+                                ],
+                                "elements": [
+                                    "#/readResults/0/lines/12/words/0",
+                                    "#/readResults/0/lines/12/words/1"
+                                ]
+                            },
+                            ...
+                        ]
+                    },
+                    ...
+                ]
+            }
+        ]
+    }
+}
+``` 
+
+---
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

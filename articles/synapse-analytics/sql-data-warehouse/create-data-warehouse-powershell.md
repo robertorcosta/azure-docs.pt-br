@@ -1,5 +1,5 @@
 ---
-title: Criar e consultar um pool de SQL Synapse com o Azure PowerShell
+title: Criar um pool de SQL do Synapse com o Azure PowerShell
 description: Crie rapidamente um pool de SQL do Synapse com uma regra de firewall no nível do servidor usando o Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,14 +11,14 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 21ca3968065df2575b101efa7735d56f87683938
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e6683746e2a8f274f7260a3d5bb60e956d49d30a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211061"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751911"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Início Rápido: Criar e consultar um pool de SQL Synapse com o Azure PowerShell
+# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Início Rápido: Criar um pool de SQL do Synapse com o Azure PowerShell
 
 Crie um pool de SQL do Synapse (data warehouse) no Azure Synapse Analytics usando o Azure PowerShell.
 
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora você criou um pool de SQL, criou uma regra de firewall, conectou-se a seu pool de SQL e executou algumas consultas. Para saber mais, prossiga para o artigo [Carregar dados para o pool de SQL](load-data-from-azure-blob-storage-using-polybase.md).
+Você acabou de criar um pool de SQL, criar uma regra de firewall e se conectar ao pool de SQL. Para saber mais, prossiga para o artigo [Carregar dados para o pool de SQL](load-data-from-azure-blob-storage-using-polybase.md).
