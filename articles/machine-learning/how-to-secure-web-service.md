@@ -5,18 +5,18 @@ description: Saiba como habilitar o HTTPS para proteger um serviço Web que é i
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: cb766a81cda822377eeda09cab75d19111523bef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 0afb7906e102e4f0fb49245949b08618da1693ec
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432863"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265670"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Use o TLS para proteger um serviço Web por meio do Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Você usa [https](https://en.wikipedia.org/wiki/HTTPS) para restringir o acesso 
 > [!TIP]
 > O SDK do Azure Machine Learning usa o termo "SSL" para propriedades relacionadas a comunicações seguras. Isso não significa que o serviço Web não usa *TLS*. SSL é apenas um termo mais reconhecido.
 >
-> Especificamente, os serviços Web implantados por meio do Azure Machine Learning só oferecem suporte a TLS versão 1,2.
+> Especificamente, os serviços Web implantados por meio do Azure Machine Learning só oferecem suporte a TLS versão 1,1
 
 O TLS e o SSL dependem de *certificados digitais*, que ajudam com a criptografia e a verificação de identidade. Para obter mais informações sobre como os certificados digitais funcionam, consulte o tópico da Wikipédia [infraestrutura de chave pública](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
@@ -71,7 +71,7 @@ Ao solicitar um certificado, você deve fornecer o FQDN do endereço que planeja
 > [!WARNING]
 > Use certificados *autoassinados* somente para desenvolvimento. Não os use em ambientes de produção. Certificados autoassinados podem causar problemas nos aplicativos clientes. Para obter mais informações, consulte a documentação das bibliotecas de rede que seu aplicativo cliente usa.
 
-## <a name="enable-tls-and-deploy"></a><a id="enable"></a>Habilitar TLS e implantar
+## <a name="enable-tls-and-deploy"></a><a id="enable"></a> Habilitar TLS e implantar
 
 Para implantar (ou reimplantar) o serviço com TLS habilitado, defina o parâmetro *ssl_enabled* como "true", onde quer que ele seja aplicável. Defina o parâmetro *ssl_certificate* como o valor do arquivo de *certificado* . Defina o *ssl_key* como o valor do arquivo de *chave* .
 

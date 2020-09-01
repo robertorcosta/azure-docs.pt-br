@@ -3,7 +3,7 @@ title: Tipos de LiveEvent do Azure Media Services | Microsoft Docs
 description: Nos serviços de mídia do Azure, um evento ao vivo pode ser definido como uma *codificação ativa*ou de *passagem* . Este artigo mostra uma tabela detalhada que compara os tipos de eventos ao vivo.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
-ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 41df31cde95ae7ed1d05dac572718622067194c9
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090052"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265245"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de Eventos ao Vivo
 
-Nos serviços de mídia do Azure, um [evento ao vivo](/rest/api/media/liveevents) pode ser definido como uma *passagem* (um codificador ao vivo local envia um fluxo de taxa de bits múltipla) ou *codificação ativa* (um codificador ao vivo local envia um fluxo de taxa de bits única). 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+Nos serviços de mídia do Azure, um  [evento ao vivo](/rest/api/media/liveevents) pode ser definido como uma *passagem* (um codificador ao vivo local envia um fluxo de taxa de bits múltipla) ou *codificação ativa* (um codificador ao vivo local envia um fluxo de taxa de bits única). 
 
 Este artigo compara os recursos dos tipos de evento ao vivo.
 

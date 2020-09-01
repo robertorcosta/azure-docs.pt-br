@@ -3,7 +3,7 @@ title: Configurações de baixa latência do LiveEvent nos serviços de mídia d
 description: Este tópico fornece uma visão geral das configurações de baixa latência do LiveEvent e mostra como definir a baixa latência.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/22/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e454ce84049f0f7c90da45ed77532f9ba2d90fd4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7f874491f392f320a6cdf833864c7b3eddc2f5e2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018698"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265305"
 ---
 # <a name="live-event-low-latency-settings"></a>Configurações de baixa latência de evento ao vivo
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo mostra como definir baixa latência em um [Evento ao Vivo](/rest/api/media/liveevents). Esta seção também discute os resultados comuns que você vê ao usar as configurações de baixa latência e de vários players. Os resultados variam com base na latência de rede e da CDN.
 

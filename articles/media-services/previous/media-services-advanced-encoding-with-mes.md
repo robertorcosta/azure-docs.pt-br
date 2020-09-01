@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32b3207fc86f9aab7194d63a0e57eea459fd7eac
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018018"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264803"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Executar a codificação avançada personalizando predefinições de MES
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Visão geral
 
@@ -51,7 +53,7 @@ Ao gerar miniaturas, você não precisa sempre especificar a largura e a altura 
 <Height>100%</Height>
 ```
 
-## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Gerar miniaturas
+## <a name="generate-thumbnails"></a>Gerar miniaturas
 
 Essa seção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como você deseja codificar seu arquivo, bem como as informações necessárias para gerar miniaturas. Você pode usar qualquer uma das predefinições de MES documentadas [nesta](media-services-mes-presets-overview.md) seção e adicionar o código que gera miniaturas.  
 
@@ -64,7 +66,7 @@ Para obter informações sobre o esquema, consulte [este](media-services-mes-sch
 
 Certifique-se de examinar a seção [Considerações](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>Predefinição JSON
+### <a name="json-preset"></a>Predefinição JSON
 
 ```json
 {
@@ -166,7 +168,7 @@ Certifique-se de examinar a seção [Considerações](#considerations) .
 }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>Predefinição XML
+### <a name="xml-preset"></a>Predefinição XML
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

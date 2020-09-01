@@ -7,19 +7,16 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 07e7b8db3bf7e1131ec8892a69223eaf4505e8de
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 10f3856a7c0c0a98ab8b23e20342d745b1966b9b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037739"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263188"
 ---
 # <a name="az-spring-cloud"></a>AZ Spring-Cloud
 
 ## <a name="manage-azure-spring-cloud-using-the-azure-cli"></a>Gerenciar a nuvem Spring do Azure usando o CLI do Azure
-
->[!Note]
-> No momento, o Azure Spring Cloud está em versão prévia.  Esses comandos podem ser alterados ou removidos em uma versão futura.
 
 | AZ Spring-Cloud | Comandos |
 |------|------:|
@@ -93,11 +90,11 @@ az spring-cloud create  --name -n
 | Parâmetros Exigidos | Descrição |
 | --- | :--- |
 | --Name-n | Nome para esta instância do Azure Spring Cloud. |
-| --resource-group -g | Especifica o grupo de recursos para este aplicativo.  Configurar o grupo padrão usando`az configure --defaults group=<name>` |
+| --resource-group -g | Especifica o grupo de recursos para este aplicativo.  Configurar o grupo padrão usando `az configure --defaults group=<name>` |
 
 | Parâmetros Opcionais | Descrição |
 | --- | :--- |
-| --location -l | Especifica o local do servidor para este aplicativo.  Localizar locais válidos usando`az account list-locations` |
+| --location -l | Especifica o local do servidor para este aplicativo.  Localizar locais válidos usando `az account list-locations` |
 | --no-wait | Não para concluir operações de longa execução.
 
 ### <a name="examples"></a>Exemplos
@@ -254,7 +251,7 @@ az spring cloud app deploy  --name -n
 | --env | Variáveis de ambiente separadas por espaços no formato ' Key [= value] '. |
 | --instance-count | Número de instâncias. |
 | --jar-caminho | Se fornecido, implante o JAR do caminho fornecido. Caso contrário, implante a pasta atual como um tar. |
-| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | --memory | Número de GB de memória por instância. |
 | --no-wait | Não aguarde até que as operações de longa execução sejam concluídas. |
 | --versão de tempo de execução | Versão de tempo de execução do idioma usado no aplicativo.  Valores permitidos: `Java_11` , `Java_8` . |
@@ -504,7 +501,7 @@ az spring-cloud app update --name -n
 | --Habilitar-armazenamento persistente | Booliano.  Se for true, monte um disco de 50 GB com o caminho padrão. |
 | --env | Variáveis de ambiente separadas por espaços no formato ' Key [= value] '. |
 | --é-público | Booliano.  Se for true, atribua um domínio público ao aplicativo. |
-| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | --no-wait | Não aguarde a conclusão das operações de execução longa. |
 | --versão de tempo de execução | Versão de tempo de execução do idioma usado no aplicativo.  Valores permitidos: `Java_11` , `Java_8` . |
 
@@ -739,7 +736,7 @@ Para implantar o código ou atualizar as configurações para uma implantação 
 | --env | Variáveis de ambiente separadas por espaços no formato ' Key [= value] '. |
 | --instance-count | Número de instâncias. Padrão: 1. |
 | --jar-caminho | Se fornecido, implante jar.  Caso contrário, implante a pasta atual como um tar. |
-| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo, `--jvm-options='-Xms1024m -Xmx2048m` . |
+| --JVM-opções | Uma cadeia de caracteres que contém opções de JVM.  Use ' = ' em vez de ' ' para evitar erros de análise de Shell. Por exemplo,  `--jvm-options='-Xms1024m -Xmx2048m` . |
 | --memory | Número de GB de memória por instância. |
 | --no-wait | Não aguarde até que as operações de longa execução sejam concluídas. |
 | --versão de tempo de execução | Versão de tempo de execução do idioma usado no aplicativo.  Valores permitidos: `Java_11` , `Java_8` . |

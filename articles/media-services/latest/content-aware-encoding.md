@@ -3,23 +3,25 @@ title: Uma predefinição para codificação com reconhecimento de conteúdo-ser
 description: Este artigo discute a codificação com reconhecimento de conteúdo no Serviços de Mídia do Microsoft Azure v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c29909d70b0fd55e4b680c79928cdc5d05b494fa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 853381dbccea5374806fbeadb1d29632f0525fdb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003721"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265602"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usar a predefinição de codificação com reconhecimento de conteúdo para localizar o valor de taxa de bits ideal para uma determinada resolução
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Para preparar o conteúdo para entrega por [streaming de taxa de bits adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), o vídeo precisa ser codificado em taxas de bits múltiplas (alta para baixa). Isso garante uma degradação normal da qualidade, pois a taxa de bits é reduzida, portanto, é a resolução do vídeo. Essa codificação de taxa de bits múltipla usa uma chamada de escada de codificação – uma tabela de resoluções e taxas de bits, consulte as [predefinições de codificação interna](/rest/api/media/transforms/createorupdate#encodernamedpreset)dos serviços de mídia.
 

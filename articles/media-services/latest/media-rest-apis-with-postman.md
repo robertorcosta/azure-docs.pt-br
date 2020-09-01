@@ -3,7 +3,7 @@ title: Configurar o postmaster para chamadas da API REST dos serviços de mídia
 description: Este artigo mostra como configurar o Postman para que ele possa ser usado para chamar APIs REST do Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2019
-ms.author: juliako
-ms.openlocfilehash: e35a5fe2243c3a9880359900c63f74c6dc90e586
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1232c47040a5577731121ee0bb17eb264240e765
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654354"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264871"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este artigo mostra como configurar o **Postman** para que ele possa ser usado para chamar APIs REST do Azure Media Services (AMS). O artigo mostra como importar arquivos de ambiente e coleção para **Postman**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs de REST dos Serviços de Mídia do Azure (AMS). O arquivo de ambiente contém variáveis que são usadas pela coleção.
 
@@ -47,7 +49,7 @@ Clone um repositório GitHub que contenha os arquivos do ambiente e coleção Po
 
 ## <a name="configure-postman"></a>Configurar Postman
 
-### <a name="configure-the-environment"></a>Configure o ambiente 
+### <a name="configure-the-environment"></a>Configurar o ambiente 
 
 1. Abra o aplicativo do **postmaster** .
 2. À direita da tela, selecione a opção **Gerenciar ambiente**.
@@ -97,7 +99,7 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 * Se seu aplicativo falhar com "HTTP 504: tempo limite do gateway", verifique se a variável de local não foi definida explicitamente com um valor diferente do local esperado da conta dos serviços de mídia. 
 * Se você receber um erro "conta não encontrada", verifique também se a propriedade local na mensagem JSON do corpo está definida como o local em que a conta dos serviços de mídia está. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Criar filtros com os Serviços de Mídia – REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST baseada no Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)

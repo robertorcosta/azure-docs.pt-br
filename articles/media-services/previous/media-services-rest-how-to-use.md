@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000033"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264276"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia 
+# <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](../latest/index.yml). Além disso, consulte s [diretrizes de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
@@ -83,15 +85,15 @@ Este é um conjunto de cabeçalhos opcional:
 | Conjunto de caracteres aceito |Tipo de conjunto de caracteres como "UTF-8" |Padrão é UTF-8. |
 | Método X-HTTP |Método HTTP |Permite que os clientes ou firewalls que não suportam métodos HTTP como PUT ou DELETE usem esses métodos, desviados via uma chamada GET. |
 | Tipo de conteúdo |Tipo de conteúdo |Tipo de conteúdo do corpo da solicitação em solicitações PUT ou POST. |
-| ID da solicitação de cliente |Cadeia de caracteres |Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K). |
+| ID da solicitação de cliente |String |Um valor definido pelo chamador que identifica a solicitação em questão. Se especificado, esse valor será incluído na mensagem de resposta como uma maneira de mapear a solicitação. <p><p>**Importante**<p>Os valores devem ser limitados a 2096b (2K). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Cabeçalhos de resposta HTTP padrão suportados pelos serviços de mídia
 Este é um conjunto de cabeçalhos que podem ser retornados para você, dependendo do recurso que você solicitou e da ação que você pretende executar.
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| ID da solicitação |Cadeia de caracteres |Um identificador exclusivo para a operação atual, serviço gerado. |
-| ID da solicitação de cliente |Cadeia de caracteres |Um identificador especificado pelo chamador na solicitação original, se presente. |
+| ID da solicitação |String |Um identificador exclusivo para a operação atual, serviço gerado. |
+| ID da solicitação de cliente |String |Um identificador especificado pelo chamador na solicitação original, se presente. |
 | Data |Data do RFC 1123 |A data/hora em que a solicitação foi processada. |
 | Tipo de conteúdo |Varia |O tipo de conteúdo do corpo da resposta. |
 | Codificação de conteúdo |Varia |Gzip ou deflate, conforme apropriado. |
@@ -104,7 +106,7 @@ A seguir está uma lista completa de verbos HTTP que podem ser usados quando faz
 | GET |Retorna o valor atual de um objeto. |
 | POST |Cria um objeto com base nos dados fornecidos ou envia um comando. |
 | PUT |Substitui um objeto ou cria um objeto nomeado (quando aplicável). |
-| DELETE |Exclui um objeto. |
+| Delete (excluir) |Exclui um objeto. |
 | MESCLAR |Atualiza um objeto existente com alterações de propriedade nomeada. |
 | HEAD |Retorna metadados de um objeto para uma resposta GET. |
 
