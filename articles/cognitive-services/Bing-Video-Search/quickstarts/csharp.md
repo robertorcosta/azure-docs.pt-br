@@ -10,12 +10,13 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: d9d69d4550a5cd4a162795261b7ab3d8b59b7297
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c69fec46a6d1c8b177e5602ae24a6cbf0654dc20
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848933"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929203"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Início Rápido: Pesquisar vídeos usando a API de Pesquisa de Vídeo do Bing e C#
 
@@ -26,7 +27,7 @@ O código-fonte para deste exemplo está disponível [no GitHub](https://github.
 ## <a name="prerequisites"></a>Pré-requisitos
 * Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 * A estrutura [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote do NuGet.
-* Se você estiver usando Linux/MacOS, poderá executar este aplicativo usando o [Mono](https://www.mono-project.com/).
+* Se você estiver usando Linux/MacOS, poderá executar usando o [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 

@@ -11,12 +11,12 @@ ms.date: 01/08/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e60c35a32152d4adec72fb507becc0db535036f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a30aa4d553910c52a7dde89719450baf9037ce
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80631717"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278829"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -26,7 +26,7 @@ O Azure AD Connect é a ferramenta da Microsoft criada para atender e atingir su
 - [Autenticação de passagem](how-to-connect-pta.md) – um método de entrada que permite que os usuários usem a mesma senha localmente e na nuvem, mas não exige a infraestrutura adicional de um ambiente federado.
 - [Integração de federação](how-to-connect-fed-whatis.md) – a federação é uma parte opcional do Azure AD Connect e pode ser usada para configurar um ambiente híbrido usando uma infraestrutura do AD FS local. Ela também fornece recursos de gerenciamento do AD FS, como renovação de certificado e implantações adicionais de servidor do AD FS.
 - [Sincronização](how-to-connect-sync-whatis.md) – responsável pela criação de usuários, grupos e outros objetos.  Também é responsável por garantir que as informações de identidade dos usuários e grupos locais correspondam às da nuvem.  Essa sincronização também inclui os hashes de senha.
-- [Monitoramento de Integridade](whatis-hybrid-identity-health.md) – o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. 
+- [Monitoramento de Integridade]() – o Azure AD Connect Health pode fornecer monitoramento robusto e fornecer um local central no portal do Azure para exibir essa atividade. 
 
 
 ![O que é o Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
@@ -76,4 +76,4 @@ Principais benefícios e melhores práticas:
 - [Pré-requisitos e hardware](how-to-connect-install-prerequisites.md) 
 - [Configurações Expressas](how-to-connect-install-express.md)
 - [Configurações personalizadas](how-to-connect-install-custom.md)
-- [Instalar agentes do Azure AD Connect Health](how-to-connect-health-agent-install.md) 
+- [Instalar agentes do Azure AD Connect Health](how-to-connect-health-agent-install.md)

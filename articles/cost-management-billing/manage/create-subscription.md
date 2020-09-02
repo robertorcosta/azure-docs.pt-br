@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: df303801daba0509177e48565b3ddbe7674013e8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: aa8cf0d2a48c75b71895eb75db362c4ec4e291c5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689959"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925038"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Criar uma assinatura adicional do Azure
 
@@ -73,7 +73,7 @@ Você precisa das seguintes permissões para criar assinaturas:
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>Criar uma assinatura adicional do Azure de forma programática
 
-Você também pode criar assinaturas adicionais programaticamente. Para obter mais informações, confira [Criar assinaturas do Azure de forma programática](../../azure-resource-manager/management/programmatically-create-subscription.md).
+Você também pode criar assinaturas adicionais programaticamente. Para obter mais informações, confira [Criar assinaturas do Azure de forma programática](programmatically-create-subscription.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

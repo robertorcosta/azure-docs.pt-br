@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2cec55b7c9450070d2e692fae50eff9ea880c54e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519755"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013734"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Início Rápido: Integrar computadores Windows à Central de Segurança do Azure
 Depois de integrar suas assinaturas do Azure, habilite a Central de Segurança para os recursos executados fora do Azure, por exemplo, no local ou em outras nuvens, por meio do provisionamento do agente do Log Analytics.
@@ -74,7 +74,7 @@ Agora você deve instalar o arquivo baixado no computador de destino.
 
 Após a conclusão, o **agente do Log Analytics** será exibido no **Painel de Controle**. Você pode revisar sua configuração e verificar se o agente está conectado.
 
-Para obter mais informações sobre como instalar e configurar o agente, consulte [Conectar computadores com Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Para obter mais informações sobre como instalar e configurar o agente, consulte [Conectar computadores com Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Agora você pode monitorar suas VMs do Azure e computadores não Azure em um único lugar. Em **Computação**, você tem uma visão geral de todas as VMs e computadores juntamente com recomendações. Cada coluna representa um conjunto de recomendações. A cor representa o estado de segurança atual da VM ou do computador para essa recomendação. A Central de Segurança também revela quaisquer detecções para esses computadores em alertas de segurança.
 

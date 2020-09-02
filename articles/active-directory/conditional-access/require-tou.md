@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039816"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948854"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Início Rápido: Exigir a aceitação dos termos de uso antes de acessar os aplicativos de nuvem
 
@@ -25,7 +25,7 @@ Antes de acessar determinados aplicativos de nuvem em seu ambiente, talvez você
 - Um método simples para configurar os termos de uso
 - A opção de exigir a aceitar os termos de uso por meio de uma política de Acesso Condicional  
 
-Este início rápido mostra como configurar uma [política de Acesso Condicional do Azure AD](../active-directory-conditional-access-azure-portal.md) que requer um termo de uso ser aceito para um aplicativo de nuvem selecionado em seu ambiente.
+Este início rápido mostra como configurar uma [política de Acesso Condicional do Azure AD](./overview.md) que requer um termo de uso ser aceito para um aplicativo de nuvem selecionado em seu ambiente.
 
 ![Criar política](./media/require-tou/5555.png)
 
@@ -209,4 +209,4 @@ Quando não for mais necessário, exclua o usuário de teste e a política de ac
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Exigir MFA para aplicativos específicos](app-based-mfa.md)
+> [Exigir MFA para aplicativos específicos](../authentication/tutorial-enable-azure-mfa.md)

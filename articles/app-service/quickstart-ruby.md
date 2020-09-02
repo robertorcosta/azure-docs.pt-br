@@ -6,19 +6,19 @@ ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 875649d2405aa5542a7b66e247cc50d4b2cba20d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 49f2100386af21cee8f76403d7a2d2e4ac6b8f63
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083293"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961322"
 ---
 # <a name="create-a-ruby-on-rails-app-in-app-service"></a>Criar um aplicativo Ruby on Rails no Serviço de Aplicativo
 
-O [Serviço de Aplicativo do Azure no Linux](overview.md#app-service-on-linux) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo Ruby on Rails no Serviço de Aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+O [Serviço de Aplicativo do Azure no Linux](overview.md#app-service-on-linux) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo Ruby on Rails no Serviço de Aplicativo no Linux usando o [Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
-> A pilha de desenvolvimento Ruby só dá suporte ao Ruby on Rails no momento. Se prefere usar outra plataforma, como o Sinatra, ou uma versão do Ruby sem suporte, você precisa [executá-lo em um contêiner personalizado](containers/quickstart-docker-go.md).
+> A pilha de desenvolvimento Ruby só dá suporte ao Ruby on Rails no momento. Se prefere usar outra plataforma, como o Sinatra, ou uma versão do Ruby sem suporte, você precisa [executá-lo em um contêiner personalizado](./quickstart-custom-container.md?pivots=platform-linux%3fpivots%3dplatform-linux).
 
 ![Olá, Mundo](./media/quickstart-ruby/hello-world-configured.png)
 

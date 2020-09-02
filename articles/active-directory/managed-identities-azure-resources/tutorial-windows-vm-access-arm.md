@@ -3,7 +3,7 @@ title: Tutorial`:` Usar uma identidade gerenciada para acessar o Azure Resource 
 description: Um tutorial que o conduz pelo processo de usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6edd926c0a91519f4c75228d8230c71ff7b96442
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 646be410cceb214efad19757378c74f086e58578
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018818"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263054"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Resource Manager
 
@@ -51,7 +51,7 @@ Usando a identidades gerenciadas para recursos do Azure, seu código pode obter 
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>Obter um token de acesso usando a identidade gerenciada atribuída pelo sistema da VM e usá-lo para chamar o Azure Resource Manager 
 
-Você precisará usar o **PowerShell** nesta parte.  Se você não tiver o **PowerShell** instalado, baixe-o [aqui](https://docs.microsoft.com/powershell/azure/). 
+Você precisará usar o **PowerShell** nesta parte.  Se você não tiver o **PowerShell** instalado, baixe-o [aqui](/powershell/azure/). 
 
 1.  No portal, navegue até **Máquinas Virtuais** e vá para a máquina virtual do Windows e em **Visão geral**, clique em **Conectar**. 
 2.  Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
@@ -95,5 +95,4 @@ Você precisará usar o **PowerShell** nesta parte.  Se você não tiver o **Pow
 Neste início rápido, você aprendeu a usar uma identidade gerenciada atribuída pelo sistema para acessar a API do Azure Resource Manager.  Para saber mais sobre o Azure Resource Manager, confira:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

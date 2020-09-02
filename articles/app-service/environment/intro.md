@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 08a97f0f7b1a6a65feb7a2ec041001f2199ffdf7
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e9bd97dc4afe0937ebd0553117640e008a72722e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770641"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961740"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introdução aos Ambientes de Serviço de Aplicativo #
  
@@ -61,13 +61,13 @@ Existe uma taxa mensal fixa para um ASE que paga pela infraestrutura e não alte
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual ##
 
-O recurso ASE é uma implantação do Serviço de Aplicativo Azure diretamente na rede virtual do Azure Resource Manager. Para saber mais sobre redes virtuais do Azure, consulte [Perguntas frequentes sobre redes virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Um ASE sempre existe em uma rede virtual e mais precisamente, dentro de uma sub-rede de uma rede virtual. Você pode usar os recursos de segurança de redes virtuais para controlar as comunicações de rede de entrada e de saída para seus aplicativos.
+O recurso ASE é uma implantação do Serviço de Aplicativo Azure diretamente na rede virtual do Azure Resource Manager. Para saber mais sobre redes virtuais do Azure, consulte [Perguntas frequentes sobre redes virtuais do Azure](../../virtual-network/virtual-networks-faq.md). Um ASE sempre existe em uma rede virtual e mais precisamente, dentro de uma sub-rede de uma rede virtual. Você pode usar os recursos de segurança de redes virtuais para controlar as comunicações de rede de entrada e de saída para seus aplicativos.
 
 Um ASE pode ser voltado para a Internet com um endereço IP público ou voltado para o interior com apenas um endereço de ILB (balanceador de carga Interno) do Azure.
 
 [Grupos de Segurança de Rede][NSGs] restringem a comunicação da rede de entrada com a sub-rede na qual um ASE reside. Você pode usar NSGs para executar aplicativos por trás de dispositivos e serviços upstream, tais como WAFs e provedores SaaS de rede.
 
-Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Se você implantar o ASE em uma rede virtual que tem uma conexão VPN à rede local, os aplicativos no ASE poderão acessar os recursos locais. Essa capacidade é verdadeira independentemente de a VPN ser uma VPN [Site a Site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) ou [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Se você implantar o ASE em uma rede virtual que tem uma conexão VPN à rede local, os aplicativos no ASE poderão acessar os recursos locais. Essa capacidade é verdadeira independentemente de a VPN ser uma VPN [Site a Site](../../vpn-gateway/vpn-gateway-multi-site.md) ou [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Para obter mais informações sobre o funcionamento dos ASEs com redes virtuais e redes locais, confira [Considerações de rede do Ambiente do Serviço de Aplicativo][ASENetwork].
 
@@ -95,12 +95,12 @@ O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cad
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/waf-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4d025057cf8992e1dc54a0fd4a07814c7cbb13d3
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 71e6d159a7bb69e5aab28752f5ecf1eacaebd624
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88748859"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321817"
 ---
 <a name="HOLTop"></a>
 
@@ -255,5 +255,5 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 > [!div class="nextstepaction"]
 >[Referência da API da Pesquisa Visual Computacional (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
-* [O que é a Pesquisa Visual Computacional?](../../Home.md)
+* [O que é a Pesquisa Visual Computacional?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).

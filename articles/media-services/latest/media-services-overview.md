@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Visão geral de alto nível dos Serviços de Mídia do Microsoft Azure v3 com links para guias de início rápido, tutoriais e exemplos de código.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -14,17 +14,19 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: d5f54d65fcfd8a124b30a785697d53ad120fbf9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000918"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267574"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos Serviços de Mídia do Azure v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Os Serviços de Mídia do Azure são uma plataforma baseada em nuvem que permite a criação de soluções que apresentem uma transmissão de vídeo com qualidade de difusão, aumentem a acessibilidade e a distribuição, analisem o conteúdo e muito mais. Se você é desenvolvedor de aplicativos, call center, órgão governamental ou empresa de entretenimento, os Serviços de Mídia podem ajudar a criar aplicativos que oferecem experiências de mídia de qualidade superior para um público amplo, nos dispositivos móveis e navegadores mais populares da atualidade.
 

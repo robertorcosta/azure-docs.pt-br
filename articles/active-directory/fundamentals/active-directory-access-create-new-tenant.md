@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f658b5670c42ab03770a3082f8eca740f6869dc3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 5d6341aeb6db89d43ef887a3ae50c4439e3867e6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797637"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318600"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Início Rápido: Crie um novo locatário no Azure Active Directory
 É possível realizar todas as tarefas administrativas usando o portal do Azure AD (Azure Active Directory), incluindo a criação de um novo locatário para a organização. 
@@ -72,6 +72,6 @@ Se você não quiser continuar usando este aplicativo, poderá excluir o locatá
 
 - Para adicionar grupos e membros, confira [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
-- Saiba mais sobre o [acesso baseado em função usando o Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) e o [Acesso Condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerenciar o acesso a aplicativos e recursos da organização.
+- Saiba mais sobre o [acesso baseado em função usando o Privileged Identity Management](../../role-based-access-control/best-practices.md) e o [Acesso Condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerenciar o acesso a aplicativos e recursos da organização.
 
 - Saiba mais sobre o Azure AD, incluindo [informações básicas de licenciamento, terminologia e recursos associados](active-directory-whatis.md).

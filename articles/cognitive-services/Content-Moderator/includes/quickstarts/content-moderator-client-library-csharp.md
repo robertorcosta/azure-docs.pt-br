@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: b064f6515c8ff4b3be4219cc6516ef25dabf0679
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 65465c97f4457756fb376219caeb9cb066a2ec77
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510074"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929102"
 ---
 Introdução à biblioteca de clientes do Content Moderator para .NET. Siga essas etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Content Moderator é um serviço cognitivo que verifica conteúdo de textos, imagens e vídeos para verificar material que possa ser ofensivo, de risco ou, de alguma maneira, indesejável. Quando tal material é encontrado, o serviço aplica rótulos (sinalizadores) apropriados ao conteúdo. Seu aplicativo pode tratar de conteúdo sinalizado para cumprir as normas ou manter o ambiente desejado para os usuários.
 
