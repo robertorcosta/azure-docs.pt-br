@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7469d60095026c8a016fc1ecaa1a4f92361800f3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084000"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019371"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Início Rápido: Integrar suas máquinas virtuais do Azure Stack à Central de Segurança
 Após integrar sua assinatura do Azure, será possível permitir que a Central de Segurança proteja suas máquinas virtuais em execução no Azure Stack adicionando a extensão da máquina virtual **Gerenciamento de Configuração, de Atualização e do Azure Monitor** no marketplace do Azure Stack.
@@ -72,7 +72,7 @@ Agora é necessário adicionar a extensão da máquina virtual **Gerenciamento d
 7. Quando terminar de fornecer as definições de configuração necessárias, clique em **OK**.
 8. Depois que a instalação da extensão for concluída, seu status será mostrado como **Provisionamento bem-sucedido**. Pode levar até uma hora para que a máquina virtual seja exibida no portal da Central de Segurança.
 
-Para saber mais sobre como instalar e configurar o agente para Windows, confira [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) (Conectar computadores com Windows).
+Para saber mais sobre como instalar e configurar o agente para Windows, confira [Connect Windows computers](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) (Conectar computadores com Windows).
 
 Para solução de problemas de agente do Linux, confira [Troubleshoot Azure Log Analytics Linux Agent](../azure-monitor/platform/agent-linux-troubleshoot.md) (Solucionar problemas do agente do Linux do Azure Log Analytics).
 

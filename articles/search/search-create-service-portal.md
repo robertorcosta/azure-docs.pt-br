@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 6813db0b7416695fb9433a701114f2684dd0e122
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554015"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927112"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início Rápido: Criar um serviço da Pesquisa Cognitiva do Azure no portal
 
@@ -96,7 +96,7 @@ O Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 
  Se estiver usando o enriquecimento de IA, crie o serviço de pesquisa na mesma região dos Serviços Cognitivos. *A colocalização da Pesquisa Cognitiva do Azure e dos Serviços Cognitivos na mesma região é um requisito do enriquecimento de IA*.
 
- Os clientes com requisitos de BCDR (continuidade dos negócios e recuperação de desastres) devem criar os serviços deles em [pares regionais](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Por exemplo, se você estiver operando na América do Norte, poderá escolher Leste dos EUA e Oeste dos EUA ou Centro-Norte dos EUA e Centro-Sul dos EUA para cada serviço.
+ Os clientes com requisitos de BCDR (continuidade dos negócios e recuperação de desastres) devem criar os serviços deles em [pares regionais](../best-practices-availability-paired-regions.md#azure-regional-pairs). Por exemplo, se você estiver operando na América do Norte, poderá escolher Leste dos EUA e Oeste dos EUA ou Centro-Norte dos EUA e Centro-Sul dos EUA para cada serviço.
 
 ### <a name="recommendations"></a>Recomendações
 
@@ -160,7 +160,7 @@ A maioria dos clientes usa apenas um serviço provisionado em uma camada que for
 
 Embora a maioria dos clientes use apenas um serviço, a redundância de serviço poderá ser necessária se os requisitos operacionais incluírem o seguinte:
 
-+ [BCDR (continuidade dos negócios e recuperação de desastres)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). A Pesquisa Cognitiva do Azure não fornece failover instantâneo caso ocorra uma interrupção.
++ [BCDR (continuidade dos negócios e recuperação de desastres)](../best-practices-availability-paired-regions.md). A Pesquisa Cognitiva do Azure não fornece failover instantâneo caso ocorra uma interrupção.
 
 + [Arquiteturas multilocatários](search-modeling-multitenant-saas-applications.md), às vezes, chamam dois ou mais serviços.
 

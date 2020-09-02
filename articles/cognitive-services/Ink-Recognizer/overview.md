@@ -8,17 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 7bcda79403e021384fc987a67865441dd8732885
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 6c1a720e7e9bd9c71f925f104ca7fc70a1a5ef59
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927446"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051059"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>O que é a API de Reconhecimento de Tinta Digital?
 
+[!INCLUDE [ink-recognizer-deprecation](includes/deprecation-note.md)]
 
 O Serviço Cognitivo do Reconhecimento de Tinta Digital fornece uma API REST baseada em nuvem para analisar e reconhecer o conteúdo de tinta digital. Ao contrário dos serviços que usam o OCR (reconhecimento óptico de caracteres), a API exige dados de traço de tinta digital como entrada. Os traços de tinta digital são conjuntos ordenados por tempo de pontos 2D (coordenadas X e Y) que representam o movimento das ferramentas de entrada, como canetas digitais ou dedos. Em seguida, ela reconhece as formas e o conteúdo manuscrito da entrada e retorna uma resposta JSON contendo todas as entidades reconhecidas.
 
