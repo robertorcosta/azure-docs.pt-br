@@ -4,14 +4,17 @@
   items:
     - name: O que é o Gerenciador de Tráfego?
       href: traffic-manager-overview.md
-- name: Guia de Início Rápido
+- name: Início rápido
   items:
-    - name: Criar um perfil do Gerenciador de Tráfego – portal
+    - name: Criar um perfil do Gerenciador de Tráfego – Portal
       href: quickstart-create-traffic-manager-profile.md
     - name: Criar um perfil do Gerenciador de Tráfego – PowerShell
       href: quickstart-create-traffic-manager-profile-powershell.md
     - name: Criar um perfil do Gerenciador de Tráfego – CLI do Azure
       href: quickstart-create-traffic-manager-profile-cli.md
+    - name: Criar um perfil do Gerenciador de Tráfego – Modelo ARM
+      href: quickstart-create-traffic-manager-profile-template.md
+  expanded: true
 - name: Tutoriais
   items:
     - name: Rotear tráfego de baixa latência
@@ -59,7 +62,7 @@
       href: traffic-manager-how-it-works.md
     - name: Perguntas frequentes
       href: traffic-manager-FAQs.md
-- name: Instruções
+- name: Guias de instruções
   items:
     - name: Configurar roteamento de desempenho no Gerenciador de Tráfego
       href: traffic-manager-configure-performance-routing-method.md
@@ -132,7 +135,7 @@
     - name: Calculadora de preço
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Limites de Serviço
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
     - name: Contrato de Nível de Serviço

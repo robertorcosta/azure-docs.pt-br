@@ -46,6 +46,8 @@
       href: disable-private-link-service-network-policy.md
     - name: Gerenciar pontos de extremidade privados
       href: manage-private-endpoint.md
+    - name: Inspecionar o tráfego com o Firewall do Azure
+      href: inspect-traffic-with-azure-firewall.md
     - name: Solucionar problemas
       items:
         - name: Solucionar problemas de conectividade de ponto de extremidade privado

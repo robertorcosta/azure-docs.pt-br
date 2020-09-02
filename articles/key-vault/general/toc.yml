@@ -39,9 +39,6 @@
   items:
     - name: Exemplos de código do Key Vault
       href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Conceitos
   items:
     - name: Conceitos básicos
@@ -90,6 +87,8 @@
           href: managed-identity.md
         - name: Usar uma política de controle de acesso
           href: group-permissions-for-apps.md
+        - name: Usar um controle de acesso baseado em função do Azure (versão prévia)
+          href: rbac-guide.md
         - name: Solução de problemas de acesso
           href: troubleshooting-access-issues.md
     - name: Desenvolver
@@ -163,6 +162,9 @@
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

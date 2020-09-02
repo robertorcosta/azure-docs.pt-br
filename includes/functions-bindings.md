@@ -5,29 +5,24 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 819eed1eb4e32469bf0572a6548f5a2a44091ef0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 392b74d74c22d16d9f0577b813521a12502ee8ae
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77279515"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89238021"
 ---
-Esta tabela mostra as associações com suporte nas versões principais do tempo de execução de Azure Functions:
+Esta tabela mostra as associações que são compatíveis com as versões principais do Azure Functions Runtime:
 
 
-| Type | 1.x | 2. x e superior<sup>1</sup> | Gatilho | Entrada | Saída |
+| Tipo | 1.x | 2.x e posterior<sup>1</sup> | Gatilho | Entrada | Saída |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|
 | [Grade de Eventos](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Hubs de Evento](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
-| [WebHooks de & de HTTP](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
+| [HTTP e webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
 | [Hub IoT](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
-| [Microsoft Graph<br/>Tabelas do Excel](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
-| [Microsoft Graph<br/>Arquivos do OneDrive](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
-| [Microsoft Graph<br/>Email do Outlook](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|
-| [Eventos de Microsoft Graph <br/>](../articles/azure-functions/functions-bindings-microsoft-graph.md)         ||✔|✔|✔|✔|
-| [Microsoft Graph<br/>Tokens de autenticação](../articles/azure-functions/functions-bindings-microsoft-graph.md)    ||✔| |✔| |
 | [Aplicativos Móveis](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Hubs de Notificação](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Armazenamento de filas](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|
@@ -38,4 +33,4 @@ Esta tabela mostra as associações com suporte nas versões principais do tempo
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> a partir do tempo de execução da versão 2. x, todas as associações, exceto http e Timer, devem ser registradas. Confira [Registrar as extensões de associação](../articles/azure-functions/functions-bindings-register.md).
+<sup>1</sup> A partir de runtimes de versão 2.x e posteriores, todas as associações, exceto HTTP e Timer, precisam ser registradas. Confira [Registrar as extensões de associação](../articles/azure-functions/functions-bindings-register.md).

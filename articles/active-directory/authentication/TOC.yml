@@ -116,6 +116,10 @@
               href: howto-authentication-passwordless-security-key-windows.md
             - name: Recursos de SSO a locais
               href: howto-authentication-passwordless-security-key-on-premises.md
+            - name: Perguntas frequentes do híbrido
+              href: howto-authentication-passwordless-faqs.md
+            - name: Solucionar problemas do híbrido
+              href: howto-authentication-passwordless-troubleshoot.md
         - name: Entrada por telefone sem senha
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello for Business
@@ -209,7 +213,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Solucionar problemas
       items:
-        - name: SSP de solução de problemas
+        - name: SSPR
           href: active-directory-passwords-troubleshoot.md
         - name: PERGUNTAS FREQUENTES SOBRE O SSPR
           href: active-directory-passwords-faq.md

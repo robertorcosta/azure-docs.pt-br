@@ -657,6 +657,8 @@
           href: instance-metadata-service.md
         - name: Habilitar a virtualização aninhada
           href: nested-virtualization.md
+        - name: Aplicação de patch automática de convidado de VM (versão prévia)
+          href: automatic-vm-guest-patching.md
     - name: Manutenção da plataforma
       items:
         - name: Notificações de manutenção

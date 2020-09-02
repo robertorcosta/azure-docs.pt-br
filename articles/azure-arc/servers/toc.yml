@@ -4,6 +4,8 @@
   items:
     - name: Sobre servidores habilitados para o Azure Arc
       href: overview.md
+    - name: Novidades no agente Connected Machine
+      href: agent-release-notes.md
 - name: Inícios rápidos
   items:
     - name: Habilitar o agente de servidores habilitados para Arc
@@ -14,12 +16,6 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Monitorar o computador
       href: ./learn/tutorial-enable-vm-insights.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      items:
-        - name: Servidores habilitados para Arc
-          href: policy-samples.md
 - name: Conceitos
   items:
     - name: Segurança
@@ -55,3 +51,6 @@
           href: data-residency.md
         - name: REST
           href: /rest/api/hybridcompute
+        - name: Itens internos do Azure Policy
+          displayName: 'samples, policies, definitions'
+          href: policy-reference.md

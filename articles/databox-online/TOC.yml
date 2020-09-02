@@ -71,17 +71,17 @@
           items:
             - name: Por meio de kubectl
               items:
-                - name: Acessar o cluster do Kubernetes
+                - name: Acesso ao cluster do Kubernetes
                   href: azure-stack-edge-gpu-create-kubernetes-cluster.md
-                - name: Expor aplicativo sem estado
+                - name: Aplicativo sem estado
                   href: azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md
-                - name: Implantar aplicativo com estado (provisionado estático)
+                - name: Aplicativo com estado provisionado estático
                   href: azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md
-                - name: Implantar aplicativo com estado (provisionado dinâmico)
+                - name: Aplicativo com estado provisionado dinâmico
                   href: azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md
             - name: Via IoT Edge
               items:
-                - name: Expor aplicativo sem estado
+                - name: Aplicativo sem estado
                   href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md
             - name: Por meio do Azure Arc
               items:
@@ -119,8 +119,8 @@
               href: azure-stack-edge-j-series-create-certificates-tool.md
             - name: Solucionar erros de certificado
               href: azure-stack-edge-j-series-certificate-troubleshooting.md
-            - name: Desenvolver um módulo C#
-              href: azure-stack-edge-j-series-create-iot-edge-module.md
+        - name: Desenvolver um módulo C#
+          href: azure-stack-edge-j-series-create-iot-edge-module.md
         - name: Gerenciar a computação de borda
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Gerenciar o gateway de armazenamento
