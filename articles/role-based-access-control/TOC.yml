@@ -26,11 +26,6 @@
       href: tutorial-custom-role-powershell.md
     - name: Criar uma função personalizada - CLI
       href: tutorial-custom-role-cli.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Práticas recomendadas
@@ -131,6 +126,9 @@
           href: /azure/templates/microsoft.authorization/roleassignments
         - name: Definições de Funções
           href: /azure/templates/microsoft.authorization/roledefinitions
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

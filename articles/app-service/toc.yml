@@ -79,9 +79,6 @@
       href: samples-powershell.md
     - name: Modelos do Gerenciador de Recursos
       href: samples-resource-manager-templates.md
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
     - name: Terraform
       href: samples-terraform.md
 - name: Conceitos
@@ -285,6 +282,9 @@
       href: /rest/api/appservice/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.web/allversions
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Blog do Serviço de Aplicativo

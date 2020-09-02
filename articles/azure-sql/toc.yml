@@ -633,9 +633,6 @@
           href: database/powershell-script-content-guide.md?tabs=single-database
         - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=single-database
-        - name: Itens internos do Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ./database/policy-samples.md
         - name: Exemplos de código
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Instância Gerenciada de SQL (MI de SQL)
@@ -911,9 +908,6 @@
           href: database/powershell-script-content-guide.md?tabs=managed-instance
         - name: Azure Resource Manager
           href: database/arm-templates-content-guide.md?tabs=managed-instance
-        - name: Itens internos do Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: ./database/policy-samples.md
         - name: Exemplos de código
           href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: SQL Server na VM do Azure
@@ -1080,6 +1074,9 @@
               href: 'https://docs.microsoft.com/sql/connect/sql-connection-libraries'
             - name: REST
               href: /rest/api/
+            - name: Itens internos do Azure Policy
+              displayName: 'samples, policies, definitions'
+              href: ./database/policy-reference.md
         - name: Recursos
           items:
             - name: Perguntas frequentes
@@ -1180,6 +1177,9 @@
           href: /sql/connect/python/python-driver-for-sql-server
         - name: Ruby
           href: /sql/connect/ruby/ruby-driver-for-sql-server
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./database/policy-reference.md
 - name: Recursos
   items:
     - name: Desenvolva suas habilidades com o Microsoft Learn

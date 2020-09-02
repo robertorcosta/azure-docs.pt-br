@@ -40,9 +40,6 @@
   items:
     - name: Exemplos de código
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Escolher uma tecnologia de análise de streaming
@@ -655,6 +652,9 @@
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: CLI do Azure
       href: /cli/azure/ext/stream-analytics/stream-analytics
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Versões prévias do Stream Analytics

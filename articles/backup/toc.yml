@@ -44,11 +44,6 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: Gerenciar bancos de dados do SAP HANA com backup – CLI
           href: tutorial-sap-hana-manage-cli.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Matrizes de suporte
@@ -428,6 +423,9 @@
       href: /rest/api/recoveryservices/
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.recoveryservices/allversions
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Conformidade

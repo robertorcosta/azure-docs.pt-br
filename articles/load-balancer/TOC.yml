@@ -47,8 +47,6 @@
       href: powershell-samples.md
 - name: Conceitos
   items:
-    - name: Novidades
-      href: whats-new.md
     - name: Componentes
       href: components.md
     - name: Conceitos
