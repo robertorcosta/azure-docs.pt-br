@@ -11,18 +11,18 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6572f2e71b794f9f147278970b3f5f29fceb29d7
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081580"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962682"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Início Rápido: Criar um banco de dados individual do Banco de Dados SQL do Azure
 
 Neste início rápido, você usará o portal do Azure, um script do PowerShell ou um script da CLI do Azure para criar um banco de dados individual no Banco de Dados SQL do Azure. Em seguida, você consultará o banco de dados usando o **Editor de consultas** no portal do Azure.
 
-Um [banco de dados individual](single-database-overview.md) é a opção mais rápida e simples do Banco de Dados SQL do Azure. Você gerencia um banco de dados individual dentro de um [servidor](logical-servers.md), que está dentro de um [grupo de recursos do Azure](../../active-directory-b2c/overview.md) em uma região especificada do Azure. Neste início rápido, você criará um grupo de recursos e um servidor para o novo banco de dados.
+Um [banco de dados individual](single-database-overview.md) é a opção mais rápida e simples do Banco de Dados SQL do Azure. Você gerencia um banco de dados individual dentro de um [servidor](logical-servers.md), que está dentro de um [grupo de recursos do Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md) em uma região especificada do Azure. Neste início rápido, você criará um grupo de recursos e um servidor para o novo banco de dados.
 
 Você poderá criar um banco de dados individual na camada de computação *provisionada* ou *sem servidor*. É pré-alocada a um banco de dados provisionado uma quantidade fixa de recursos de computação, incluindo CPU e memória, e esse banco de dados usa um dos dois [modelos de compra](purchasing-models.md). Este início rápido cria um banco de dados provisionado usando o modelo de compra [baseado em vCore](service-tiers-vcore.md), mas você também pode escolher um modelo [baseado em DTU](service-tiers-dtu.md).
 

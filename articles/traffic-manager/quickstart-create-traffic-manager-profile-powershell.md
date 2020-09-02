@@ -2,7 +2,7 @@
 title: 'Início Rápido: Criar um perfil para alta disponibilidade de aplicativos – Azure PowerShell – Gerenciador de Tráfego do Azure'
 description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos Web altamente disponíveis.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 mnager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2019
-ms.author: rohink
-ms.openlocfilehash: 0ab7392b4fa6e248d51392706fedaed156344a99
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.date: 08/25/2020
+ms.author: duau
+ms.openlocfilehash: f3ecdfb03a6e6d1aab355edf7c370b29240e0543
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76934811"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929509"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego para um aplicativo Web de alta disponibilidade usando o Azure PowerShell
 

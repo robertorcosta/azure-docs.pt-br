@@ -3,7 +3,7 @@ title: Configurar identidades gerenciadas no conjunto de dimensionamento de máq
 description: Instruções passo a passo para configurar um sistema e identidades gerenciadas atribuídas pelo usuário em um conjunto de dimensionamento de máquinas virtuais do Azure usando CURL para fazer chamadas à API REST.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf514480f0ca247606ffbc50148556eeed007c8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 09a66f45fe3e20bedf5ff99ee924ac267b4fd869
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921496"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266792"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades gerenciadas para recursos do Azure em um conjunto de dimensionamento de máquinas virtuais usando chamadas à API REST
 
@@ -42,11 +42,11 @@ Neste artigo, usando CURL para fazer chamadas ao ponto de extremidade de REST do
     > [!NOTE]
     > Não são necessárias atribuições de função do diretório adicionais do Azure AD.
 
-    - [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquinas virtuais e habilitar e remover identidade gerenciada atribuída ao usuário e/ou sistema de um conjunto de dimensionamento de máquinas virtuais.
-    - [Função de Contratada de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
-    - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade atribuída ao usuário de e para um conjunto de dimensionamento de máquinas virtuais.
-- Se você estiver usando o Windows, instale o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou use o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
-- Se você usa o [subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about) ou um [SO de distribuição do Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli).
+    - [Colaborador da Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para criar um conjunto de dimensionamento de máquinas virtuais e habilitar e remover identidade gerenciada atribuída ao usuário e/ou sistema de um conjunto de dimensionamento de máquinas virtuais.
+    - [Função de Contratada de Identidade Gerenciada](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para criar uma identidade gerenciada atribuída pelo usuário.
+    - Função de [Operador de Identidade Gerenciada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para atribuir e remover uma identidade atribuída ao usuário de e para um conjunto de dimensionamento de máquinas virtuais.
+- Se você estiver usando o Windows, instale o [subsistema do Windows para Linux](/windows/wsl/about) ou use o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
+- Se você usa o [subsistema do Windows para Linux](/windows/wsl/about) ou um [SO de distribuição do Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [instale o console local da CLI do Azure](/cli/azure/install-azure-cli).
 - Se você estiver usando o console local do Azure CLI, faça logon no Azure usando `az login` com uma conta associada à assinatura do Azure que deseja gerenciar as identidades gerenciadas pelo sistema ou pelo usuário.
 
 

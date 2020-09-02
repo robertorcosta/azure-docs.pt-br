@@ -4,12 +4,12 @@ description: Neste início rápido, você segue as etapas para habilitar a exten
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8132cfb60009739fc2f5fd518ef2a112fea93c4a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 7d55aaae30176b3f0246dd254496465fb89b0e99
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056441"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050976"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Início Rápido: Execute a primeira consulta ao Resource Graph usando a CLI do Azure
 
@@ -27,7 +27,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 Para habilitar a CLI do Azure para consultar o Azure Resource Graph, é necessário adicionar a extensão. Essa extensão funcionará sempre que a CLI do Azure puder ser usada, incluindo no [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (tanto autônomo quanto dentro do portal), na [imagem do Docker da CLI do Azure](https://hub.docker.com/r/microsoft/azure-cli/) ou instalada localmente.
 
-1. Verifique se a CLI do Azure mais recente está instalada (pelo menos a versão **2.0.76**). Se ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Verifique se a CLI do Azure mais recente está instalada (pelo menos a versão **2.0.76**). Se ainda não estiver instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows).
 
 1. Em seu ambiente da CLI do Azure preferido, importe-a com o seguinte comando:
 

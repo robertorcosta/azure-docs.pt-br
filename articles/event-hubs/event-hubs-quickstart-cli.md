@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: acdeb1e176be1676bd531eca33faf1e0e18f3ecd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: efb00d35d2b12e6b6a577483257debf4e797c0a0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502334"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934031"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Início Rápido: criar um hub de eventos usando a CLI do Azure
 
@@ -71,10 +71,10 @@ Parabéns! Você usou a CLI do Azure para criar um namespace de Hubs de Eventos 
 
 Neste artigo, você criou um grupo de recursos, um namespace de Hubs de Eventos e um hub de eventos. Para obter instruções passo a passo sobre como enviar eventos (ou) receber eventos de um hub de eventos, confira os tutoriais para **Enviar e receber eventos**: 
 
-- [.NET Core](get-started-dotnet-standard-send-v2.md)
-- [Java](get-started-java-send-v2.md)
-- [Python](get-started-python-send-v2.md)
-- [JavaScript](get-started-node-send-v2.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [JavaScript](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (somente enviar)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (somente receber)](event-hubs-storm-getstarted-receive.md)

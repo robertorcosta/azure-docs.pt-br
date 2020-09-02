@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/26/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-csharp
 ms.author: aahi
-ms.openlocfilehash: 37c750f32e45f811930d046c8d55a0d23469cf17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5ac80cad20e89a7870c26960aedb58f34fa21380
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374892"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934390"
 ---
 Use este início rápido para começar a obter insights de imagens do serviço de Pesquisa Visual do Bing, usando a biblioteca de clientes Java. Embora a Pesquisa Visual do Bing tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca de clientes oferece uma forma fácil de integrar o serviço aos seus aplicativos. O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch).
 

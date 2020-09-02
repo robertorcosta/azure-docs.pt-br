@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: 91a6ae308faf31b3d3eb0c9f287dd5bd791f628e
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 6cf9dddbfa6eb6f754c529981307f8ee80cfe7d1
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557527"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376988"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao Azure Cosmos DB: API de Tabela
 
@@ -36,7 +36,7 @@ Caso utilize o Armazenamento de Tabelas do Azure neste momento, você receberá 
 | --- | --- | --- |
 | Latency | Rápido, mas não há limites superiores de latência. | Latência de milissegundo de dígito único para leituras e gravações, com suporte latência de leituras e gravações de <10 ms no 99º percentil, em qualquer escala, em qualquer lugar do mundo. |
 | Produtividade | Modelo de taxa de transferência variável. As tabelas têm um limite de escalabilidade de 20.000 operações/s. | Altamente escalonável com [taxa de transferência reservada dedicada por tabela](request-units.md), que é respaldada por SLAs. As contas não têm nenhum limite superior na taxa de transferência e dão suporte para >10 milhões de operações/s por tabela. |
-| Distribuição global | Região única com uma região secundária legível opcional para alta disponibilidade. Você não pode iniciar o failover. | [Distribuição global turnkey](distribute-data-globally.md) de um a qualquer número de regiões. Suporte para [failovers automáticos e manuais](high-availability.md) a qualquer momento, em qualquer lugar no mundo. Funcionalidade de vários mestres para permitir que qualquer região aceite operações de gravação. |
+| Distribuição global | Região única com uma região secundária legível opcional para alta disponibilidade. | [Distribuição global turnkey](distribute-data-globally.md) de um a qualquer número de regiões. Suporte para [failovers automáticos e manuais](high-availability.md) a qualquer momento, em qualquer lugar no mundo. Funcionalidade de vários mestres para permitir que qualquer região aceite operações de gravação. |
 | Indexação | Somente índice primário em PartitionKey e RowKey. Nenhum índice secundário. | Indexação automática e completa em todas as propriedades, por padrão, sem gerenciamento de índice. |
 | Consulta | A execução de consulta usa o índice para chave primária. Caso contrário, realiza a verificação. | As consultas podem aproveitar a indexação automática em propriedades para tempos rápidos de consulta. |
 | Consistência | Forte na região primária. Eventual na região secundária. | [Cinco níveis de consistência bem definidos](consistency-levels.md) para compensar a disponibilidade, latência, taxa de transferência e consistência com base nas necessidades do seu aplicativo. |

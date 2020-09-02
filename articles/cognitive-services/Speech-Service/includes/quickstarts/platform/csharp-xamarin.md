@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: f8ba4ef590b3becd9259230246555d6c74b0078b
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 0920c4e98527640875a236bbea8693bfa8ab0942
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "78924804"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926623"
 ---
 Este guia mostra como instalar o [SDK de Fala](~/articles/cognitive-services/speech-service/speech-sdk.md) para [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), uma plataforma de open-source para a criação de aplicativos modernos e de alto desempenho para iOS, Android e Windows com .NET. Se quiser apenas o nome do pacote para começar por conta própria, execute `Install-Package Microsoft.CognitiveServices.Speech` no console do NuGet.
 
