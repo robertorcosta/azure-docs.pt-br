@@ -76,9 +76,6 @@
   items:
     - name: CLI do Azure
       href: cli-samples.md
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Chaves e valores
@@ -151,6 +148,9 @@
       items:
         - name: API REST
           href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Recursos
   items:
     - name: Preços
@@ -165,7 +165,7 @@
           href: 'https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210'
         - name: Configuração de Aplicativos do Azure na apresentação nativa de nuvem
           href: 'https://www.youtube.com/watch?v=DJqmA5PcfzE'
-        - name: Filtragem de recursos no Azure Friday
-          url: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
+        - name: Implementar novos recursos
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
     - name: Fornecer comentários sobre o produto
       href: 'https://github.com/Azure/AppConfiguration/issues'

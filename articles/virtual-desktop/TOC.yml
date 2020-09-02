@@ -10,7 +10,7 @@
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriais
   items:
-    - name: 1. Criar um pool de hosts com o portal do Azure
+    - name: 1. Criar um pool de host com o portal do Azure
       href: create-host-pools-azure-marketplace.md
     - name: 2. Gerenciar grupos de aplicativos
       href: manage-app-groups.md
@@ -46,7 +46,7 @@
           href: expand-existing-host-pool.md
         - name: Gerenciar grupos de aplicativos com o PowerShell
           href: manage-app-groups-powershell.md
-    - name: Excluir um pool de hosts
+    - name: Excluir um pool de host
       href: delete-host-pool.md
     - name: Criar um contêiner de perfil
       items:
@@ -166,6 +166,8 @@
       href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
     - name: Cenários de exemplo do Azure
       href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+    - name: Descoberta de email
+      href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Recursos
   items:
     - name: PowerShell

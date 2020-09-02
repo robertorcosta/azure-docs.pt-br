@@ -81,6 +81,8 @@
       href: user-profile-attributes.md
     - name: Sessões de SSO
       href: session-overview.md
+    - name: Proteção de Identidade e Acesso Condicional
+      href: conditional-access-identity-protection-overview.md
 - name: Guias de instruções
   items:
     - name: Integração de aplicativo
@@ -111,6 +113,8 @@
               href: configure-ropc.md
             - name: Configurar redefinição de senha de autoatendimento
               href: user-flow-self-service-password-reset.md
+        - name: Adicionar Acesso Condicional
+          href: conditional-access-user-flow.md
         - name: Personalização de experiência do usuário
           items:
             - name: Personalizar a interface do usuário
@@ -164,6 +168,8 @@
           href: user-flow-custom-attributes.md
         - name: Passagem de token IdP externo
           href: idp-pass-through-user-flow.md
+    - name: Proteção de Identidade e Acesso Condicional
+      href: conditional-access-identity-protection-setup.md
     - name: Política personalizada
       items:
         - name: Criar uma política
@@ -333,6 +339,9 @@
                       href: aad-sspr-technical-profile.md
                     - name: Transformação de declarações
                       href: claims-transformation-technical-profile.md
+                    - name: Perfil técnico de Acesso Condicional
+                      href: conditional-access-technical-profile.md
+                      displayName: ca
                     - name: Emissor do token JWT
                       href: jwt-issuer-technical-profile.md
                     - name: OAuth1
