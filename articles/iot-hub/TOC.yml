@@ -84,11 +84,6 @@
       href: tutorial-firmware-update.md
     - name: Testar conectividade do dispositivo
       href: tutorial-connectivity.md
-- name: Exemplos
-  items:
-    - name: Itens internos do Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Conceitos
   items:
     - name: Compatível com TLS
@@ -461,6 +456,9 @@
       href: 'https://docs.microsoft.com/rest/api/iothub/certificates'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.devices/iothub-allversions
+    - name: Itens internos do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Recurso e desativação de API
       items:
         - name: Monitoramento de operações
