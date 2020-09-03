@@ -3,7 +3,7 @@ title: Tutorial`:` Usar uma identidade gerenciada para acessar o Armazenamento d
 description: Um tutorial que o conduz pelo processo de usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9b61d3ed21d053fc7166b47c94a9ec61e355d199
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971926"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263154"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure 
 
@@ -44,7 +44,7 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 Para executar os exemplos de script CLI neste tutorial, você tem duas opções:
 
 - Usar o [Azure Cloud Shell](~/articles/cloud-shell/overview.md), seja pelo Portal do Azure ou por meio do botão **Experimentar**, localizado no canto superior direito de cada bloco de código.
-- [Instale a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir usar um console local da CLI.
+- [Instale a versão mais recente da CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir usar um console local da CLI.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
@@ -95,7 +95,7 @@ Você pode usar a identidade gerenciada da VM para recuperar os dados no Azure S
 
 O Armazenamento do Azure tem suporte nativo para autenticação do Azure AD, de modo que ele pode aceitar diretamente os tokens de acesso obtidos por meio da Identidade Gerenciada. Isso faz parte da integração do Armazenamento do Azure com o Azure AD, e é diferente de fornecer as credenciais na cadeia de conexão.
 
-Para concluir as etapas a seguir, você precisará trabalhar da VM criada anteriormente e precisará de um cliente SSH para se conectar a ela. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+Para concluir as etapas a seguir, você precisará trabalhar da VM criada anteriormente e precisará de um cliente SSH para se conectar a ela. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](/windows/wsl/about). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. No portal do Azure, navegue até **Máquinas Virtuais**, vá para a máquina virtual do Linux e na página **Visão geral**, clique em **Conectar**. Copie a cadeia de caracteres para conectar-se à VM.
 2. **Conecte-se** à VM com um cliente SSH de sua escolha. 
@@ -121,4 +121,4 @@ Para concluir as etapas a seguir, você precisará trabalhar da VM criada anteri
 Neste tutorial, você aprendeu a habilitar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure.  Para saber mais sobre o Armazenamento do Azure, confira:
 
 > [!div class="nextstepaction"]
-> [Armazenamento do Azure](/azure/storage/common/storage-introduction)
+> [Armazenamento do Azure](../../storage/common/storage-introduction.md)

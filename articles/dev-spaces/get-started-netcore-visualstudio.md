@@ -1,18 +1,18 @@
 ---
 title: 'Criar um espaço de desenvolvimento do Kubernetes: Visual Studio e .NET Core'
 services: azure-dev-spaces
-ms.custom: vs-azure, devx-track-azurecli
+ms.custom: vs-azure, devx-track-azurecli, devx-track-csharp
 ms.workload: azure-vs
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Este tutorial mostra como usar o Azure Dev Spaces e o Visual Studio para depurar e iterar rapidamente um aplicativo .NET Core no Serviço de Kubernetes do Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 436ef1b83bd23c78aed6e793e237423110ca6bc6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 78ad3c643b839d2a0901ac2c1d930d73b718cd8d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077696"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999250"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Criar um espaço de desenvolvimento do Kubernetes: Visual Studio e .NET Core com o Azure Dev Spaces
 

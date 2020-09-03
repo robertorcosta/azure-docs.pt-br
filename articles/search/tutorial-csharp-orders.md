@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9819615039a6dd6aceec796a3ec1c7338f6f3968
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420627"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998519"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Ordenar os resultados da pesquisa usando o SDK do .NET
 
@@ -462,8 +462,8 @@ Para exibir os resultados conforme a distância geográfica, são necessárias v
 
 4. Agora você precisa unir esses conceitos. No entanto, nosso tutorial vai até esses snippets de código, criar um aplicativo baseado em mapa fica como um exercício para o leitor. Para aprofundar este exemplo, considere inserir um nome de cidade com um raio ou localizar um ponto em um mapa e selecionar um raio. Para investigar melhor essas opções, confira os seguintes recursos:
 
-* [Documentação dos Mapas do Azure](https://docs.microsoft.com/azure/azure-maps/)
-* [Localizar um endereço usando o serviço de pesquisa do Azure Mapas](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Documentação dos Mapas do Azure](../azure-maps/index.yml)
+* [Localizar um endereço usando o serviço de pesquisa do Azure Mapas](../azure-maps/how-to-search-for-address.md)
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Ordenar os resultados conforme um perfil de pontuação
 
@@ -959,7 +959,7 @@ Vejamos três exemplos de perfis de pontuação e considere como cada um _deve_ 
 
 ### <a name="resources"></a>Recursos
 
-Para obter mais informações, confira [Adicionar perfis de pontuação a um índice da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles) a seguir.
+Para obter mais informações, confira [Adicionar perfis de pontuação a um índice da Pesquisa Cognitiva do Azure](/azure/search/index-add-scoring-profiles) a seguir.
 
 ## <a name="takeaways"></a>Observações
 
@@ -975,4 +975,4 @@ Considere as principais conclusões deste projeto:
 
 Você concluiu esta série de tutoriais de C# e deve ter adquirido conhecimentos valiosos sobre as APIs da Pesquisa Cognitiva do Azure.
 
-Para obter mais referências e tutoriais, navegue pelo [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) ou por outros tutoriais na [Documentação da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/).
+Para obter mais referências e tutoriais, navegue pelo [Microsoft Learn](/learn/browse/?products=azure) ou por outros tutoriais na [Documentação da Pesquisa Cognitiva do Azure](./index.yml).
