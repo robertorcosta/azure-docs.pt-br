@@ -3,7 +3,7 @@ title: 'Tutorial: Usar uma identidade gerenciada para acessar o Azure Cosmos DB 
 description: Um tutorial que orienta você pelo processo de usar uma identidade gerenciada atribuída pelo sistema em uma VM do Windows para acessar o Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b7f8eeb94fb2d6f197af2d40b120c5f74d6128
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583068"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263052"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Windows para acessar o Azure Cosmos DB
 
@@ -84,7 +84,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 Esta seção mostra como chamar o Azure Resource Manager usando um token de acesso para a identidade gerenciada atribuída pelo sistema da VM do Windows. Para o restante do tutorial, trabalharemos na VM criada anteriormente. 
 
-Você precisa instalar a versão mais recente da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) em sua VM do Windows.
+Você precisa instalar a versão mais recente da [CLI do Azure](/cli/azure/install-azure-cli) em sua VM do Windows.
 
 
 
@@ -204,6 +204,4 @@ Esse comando de CLI retorna detalhes sobre a coleção:
 Neste tutorial, você aprendeu a usar uma identidade atribuída pelo sistema da VM do Windows para acessar o Cosmos DB.  Para saber mais sobre o Cosmos DB, confira:
 
 > [!div class="nextstepaction"]
->[Visão geral do Azure Cosmos DB](/azure/cosmos-db/introduction)
-
-
+>[Visão geral do Azure Cosmos DB](../../cosmos-db/introduction.md)

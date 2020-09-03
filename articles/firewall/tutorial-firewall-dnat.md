@@ -1,19 +1,19 @@
 ---
-title: Filtrar o tráfego da Internet de entrada com o DNAT do Firewall do Azure usando o portal
+title: 'Tutorial: Filtrar o tráfego da Internet de entrada com o DNAT do Firewall do Azure usando o portal'
 description: Neste tutorial, você aprenderá a implantar e configurar o DNAT do Firewall do Azure usando o portal do Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251500"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069265"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego da Internet de entrada com o DNAT do Firewall do Azure usando o portal do Azure
 
@@ -28,12 +28,11 @@ Neste tutorial, você aprenderá como:
 > * Configurar uma regra de DNAT
 > * Testar o firewall
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-Neste tutorial, você criará duas redes virtuais emparelhadas:
 
-- **VN-Hub** - o firewall está nessa rede virtual.
-- **VN-Spoke** - o servidor de carga de trabalho está nessa rede virtual.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -45,6 +44,11 @@ Neste tutorial, você criará duas redes virtuais emparelhadas:
 6. Selecione **Criar**.
 
 ## <a name="set-up-the-network-environment"></a>Configurar o ambiente de rede
+
+Neste tutorial, você criará duas redes virtuais emparelhadas:
+
+- **VN-Hub** - o firewall está nessa rede virtual.
+- **VN-Spoke** - o servidor de carga de trabalho está nessa rede virtual.
 
 Primeiro, crie as redes virtuais e, em seguida, emparelhe-as.
 

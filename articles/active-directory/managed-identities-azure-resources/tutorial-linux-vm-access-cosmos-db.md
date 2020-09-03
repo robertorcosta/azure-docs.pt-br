@@ -3,7 +3,7 @@ title: Tutorial`:`Usar uma identidade gerenciada para acessar o Azure Cosmos DB 
 description: Um tutorial que o conduz pelo processo de usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f15a269656f205b0acb6a49740dd4c625c0bdd41
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2006c44d68d9570af0bfa410cc7fe908502d2ba5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78248277"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267982"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Azure Cosmos DB 
 
@@ -44,7 +44,7 @@ Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema
 Para executar os exemplos de script CLI neste tutorial, você tem duas opções:
 
 - Usar o [Azure Cloud Shell](~/articles/cloud-shell/overview.md), seja pelo Portal do Azure ou por meio do botão **Experimentar**, localizado no canto superior direito de cada bloco de código.
-- [Instale a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir usar um console local da CLI.
+- [Instale a versão mais recente da CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir usar um console local da CLI.
 
 ## <a name="create-a-cosmos-db-account"></a>Criar uma conta do BD Cosmos 
 
@@ -114,7 +114,7 @@ A resposta inclui os detalhes da atribuição de função criada:
 
 Para o restante do tutorial, trabalhe na VM criada anteriormente.
 
-Para concluir essas etapas, você precisará do cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Para concluir essas etapas, você precisará do cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](/windows/wsl/install-win10). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. No portal do Azure, navegue até **Máquinas Virtuais**, vá para a máquina virtual do Linux e na página **Visão geral**, clique em **Conectar** na parte superior. Copie a cadeia de caracteres para conectar-se à VM. 
 2. Conecte-se à VM usando um cliente SSH.  
@@ -228,5 +228,4 @@ Esse comando de CLI retorna detalhes sobre a coleção:
 Neste tutorial, você aprendeu a usar uma Identidade gerenciada atribuída por serviço em uma máquina virtual do Linux para acessar o Cosmos DB.  Para saber mais sobre o Cosmos DB, confira:
 
 > [!div class="nextstepaction"]
->[Visão geral do Azure Cosmos DB](/azure/cosmos-db/introduction)
-
+>[Visão geral do Azure Cosmos DB](../../cosmos-db/introduction.md)

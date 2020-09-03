@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 08/11/2020
-ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c1527161948a6312fc0877748b2818b3ccc2143e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067844"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322612"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Mapeamento de tutoriais em vídeo de fluxo de dados
 
@@ -107,8 +107,6 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Linhagem de dados](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Dicas de otimização](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [Iterar arquivos com parâmetros](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Diminuir tempos de inicialização](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -121,7 +119,7 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Otimizar os horários de inicialização do fluxo de dados](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-[Azure Integration Runtimes para fluxos de dados](https://mssqldude.wordpress.com/)
+[Azure Integration Runtimes para fluxos de dados](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## <a name="mapping-data-flow-scenarios"></a>Cenários de fluxo de dados de mapeamento
 
@@ -131,7 +129,7 @@ Veja a seguir uma lista de tutoriais em vídeo sobre o fluxo de dados de mapeame
 
 [Padrão de endereços limpos](https://youtu.be/axEYbuU3lmw)
 
-[Eliminação de duplicação](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Eliminação de duplicação](https://youtu.be/QOi26ETtPTw)
 
 [Mesclar arquivos](http://youtu.be/WbDTBAyYte8)
 
