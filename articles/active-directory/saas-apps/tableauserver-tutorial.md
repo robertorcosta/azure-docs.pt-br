@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-ms.openlocfilehash: a074b3f0accf0e0cf800f6b06ce8466e984f8693
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cb052f4ce962b1757f47f64e3f26fa5db2a731fa
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546575"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999577"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Tableau Server
 
@@ -141,7 +141,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     b. Selecione a caixa de seleção **Habilitar a autenticação SAML para o servidor**.
 
-    c. URL de retorno do Tableau Server — a URL que os usuários do Tableau Server acessarão, por exemplo <http://tableau_server>. Usar `http://localhost` não é recomendado. Não há suporte para usar uma URL com uma barra à direita (por exemplo, `http://tableau_server/`). Copie **URL de retorno do Tableau Server** e cole-o na caixa de texto **URL de Logon** na seção **Configuração Básica de SAML** no portal do Azure
+    c. URL de retorno do Tableau Server — a URL que os usuários do Tableau Server acessarão, por exemplo `http://tableau_server`. Usar `http://localhost` não é recomendado. Não há suporte para usar uma URL com uma barra à direita (por exemplo, `http://tableau_server/`). Copie **URL de retorno do Tableau Server** e cole-o na caixa de texto **URL de Logon** na seção **Configuração Básica de SAML** no portal do Azure
 
     d. ID de entidade SAML - a ID de entidade identifica com exclusividade sua instalação do Tableau Server para o IdP. Você pode digitar a URL do Tableau Server novamente aqui, se desejar, mas ela não precisa ser sua URL do Tableau Server. Copie **ID da entidade SAML** e cole-a na caixa de texto **Identificador** na seção **Configuração Básicas de SAML** no portal do Azure
 

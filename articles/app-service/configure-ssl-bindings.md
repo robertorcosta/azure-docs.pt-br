@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078624"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962631"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure
 
-Este artigo mostra como proteger o [domínio personalizado](app-service-web-tutorial-custom-domain.md) em seu [aplicativo do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/) ou no [aplicativo de funções](https://docs.microsoft.com/azure/azure-functions/) criando uma associação de certificado. Quando tiver terminado, você poderá acessar seu aplicativo do Serviço de Aplicativo no ponto de extremidade `https://` para seu nome DNS personalizado (por exemplo, `https://www.contoso.com`). 
+Este artigo mostra como proteger o [domínio personalizado](app-service-web-tutorial-custom-domain.md) em seu [aplicativo do Serviço de Aplicativo](./index.yml) ou no [aplicativo de funções](../azure-functions/index.yml) criando uma associação de certificado. Quando tiver terminado, você poderá acessar seu aplicativo do Serviço de Aplicativo no ponto de extremidade `https://` para seu nome DNS personalizado (por exemplo, `https://www.contoso.com`). 
 
 ![Aplicativo Web com certificado TLS/SSL personalizado](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 Para seguir este guia de instruções, é necessário ter:
 
-- [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/)
+- [Crie um aplicativo do Serviço de Aplicativo](./index.yml)
 - [Mapear um nome de domínio para seu aplicativo](app-service-web-tutorial-custom-domain.md) ou [comprar e configurá-lo no Azure](manage-custom-dns-buy-domain.md)
 - [Adicionar um certificado particular ao seu aplicativo](configure-ssl-certificate.md)
 
@@ -168,4 +168,4 @@ Os guias de configuração específicos da linguagem, como o guia de [configura�
 ## <a name="more-resources"></a>Mais recursos
 
 * [Usar um certificado TLS/SSL no seu código no Serviço de Aplicativo do Azure](configure-ssl-certificate-in-code.md)
-* [Perguntas frequentes: Certificados do Serviço de Aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Perguntas frequentes: Certificados do Serviço de Aplicativo](./faq-configuration-and-management.md)
