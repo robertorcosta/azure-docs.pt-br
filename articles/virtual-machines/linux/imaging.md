@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 781cc10895f3a77afe71d508c1194b425010ec41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815293"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319535"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Trazer e criar imagens do Linux no Azure
 
@@ -46,7 +46,7 @@ O Azure oferece dois tipos de imagem principais: generalizados e especializados.
 
 ### <a name="generalized-images"></a>Imagens generalizada
 
-Uma imagem generalizada é uma imagem que requer que a instalação seja concluída na primeira inicialização. Por exemplo, na primeira inicialização, você define o nome do host, o usuário administrador e outras configurações específicas da VM. Isso é útil quando você deseja que a imagem seja reutilizada várias vezes e quando você deseja passar parâmetros durante a criação. Se a imagem generalizada contiver o agente do Azure, o agente processará os parâmetros e informará à plataforma que a configuração inicial foi concluída. Esse processo chama-se **provisionamento**. 
+Uma imagem generalizada é uma imagem que requer que a instalação seja concluída na primeira inicialização. Por exemplo, na primeira inicialização, você define o nome do host, o usuário administrador e outras configurações específicas da VM. Isso é útil quando você deseja que a imagem seja reutilizada várias vezes e quando você deseja passar parâmetros durante a criação. Se a imagem generalizada contiver o agente do Azure, o agente processará os parâmetros e informará à plataforma que a configuração inicial foi concluída. Esse processo chama-se [provisionamento](https://docs.microsoft.com/azure/virtual-machines/linux/provisioning). 
 
 O provisionamento requer que um provisionador esteja incluído na imagem. Há dois provisionadores:
 - [Agente Linux do Azure](../extensions/agent-linux.md)

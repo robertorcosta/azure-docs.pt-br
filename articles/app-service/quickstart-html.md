@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: bd1e44aefed310826465dbf44dee1324f5a085b3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d624d332fa35bf458e9158e00aaf83ce495b9061
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083348"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961326"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Criar um aplicativo Web HTML estático no Azure
 
-O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este início rápido mostra como implantar um site HTML+CSS básico no Serviço de Aplicativo do Azure. Você concluirá este início rápido no [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), mas também pode executar esses comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli).
+O [Serviço de Aplicativo do Azure](overview.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches. Este início rápido mostra como implantar um site HTML+CSS básico no Serviço de Aplicativo do Azure. Você concluirá este início rápido no [Cloud Shell](../cloud-shell/overview.md), mas também pode executar esses comandos localmente com a [CLI do Azure](/cli/azure/install-azure-cli).
 
 ![Home page do aplicativo de exemplo](media/quickstart-html/hello-world-in-browser-az.png)
 
@@ -58,7 +58,7 @@ O comando `az webapp up` realiza as seguintes ações:
 
 - Criar um aplicativo com o nome especificado.
 
-- Arquivos [de implantação zip](https://docs.microsoft.com/azure/app-service/deploy-zip) do diretório de trabalho atual para o aplicativo Web.
+- Arquivos [de implantação zip](./deploy-zip.md) do diretório de trabalho atual para o aplicativo Web.
 
 Esse comando pode demorar um pouco para ser executado. Na execução, ele exibe informações semelhantes ao seguinte exemplo:
 

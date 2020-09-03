@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
 ms.custom: devx-track-python
-ms.openlocfilehash: 1a044569c39ae2667c83ac881f1908b1d7b27cab
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d7d893d3de5541bf1108a9182dfee6ad995e061b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848357"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050600"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Início Rápido: Criar uma sala de chat com o Azure Functions e o Serviço do SignalR usando Python
 
@@ -31,13 +31,21 @@ O Azure Functions requer o [Python 3.6 ou 3.7](https://www.python.org/downloads/
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[Está com problemas? Fale conosco.](https://aka.ms/asrs/qspython)
+
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
 Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
 
+[Está com problemas? Fale conosco.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Está com problemas? Fale conosco.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Está com problemas? Fale conosco.](https://aka.ms/asrs/qspython)
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurar e executar o aplicativo do Azure Functions
 
@@ -91,10 +99,16 @@ Entre no portal do Azure em <https://portal.azure.com/> com sua conta do Azure.
     ```
 
     ![Executar o aplicativo de função](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
+    
+[Está com problemas? Fale conosco.](https://aka.ms/asrs/qspython)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Está com problemas? Fale conosco.](https://aka.ms/asrs/qspython)
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Está com problemas? Fale conosco.](https://aka.ms/asrs/qspython)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -102,3 +116,5 @@ Neste início rápido, você criou e executou um aplicativo sem servidor em temp
 
 > [!div class="nextstepaction"]
 > [Implantar o Azure Functions com o VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+
+[Está com problemas? Fale conosco.](https://aka.ms/asrs/qspython)

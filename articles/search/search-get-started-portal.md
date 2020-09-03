@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083552"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935306"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Início Rápido: Criar um índice da Pesquisa Cognitiva do Azure no portal do Azure
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Para entender claramente o que é possível editar ou não durante o design de �
 
 Agora você terá um índice de pesquisa que está pronto para consulta na página de consulta interna [**Gerenciador de pesquisa**](search-explorer.md). Ele fornece uma caixa de pesquisa para que você possa testar cadeias de caracteres de consulta arbitrárias.
 
-O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mas aceita a sintaxe de [consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e [completa do analisador de consulta Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações da [API REST de pesquisa de documento](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
+O **Gerenciador de pesquisa** só é capaz de lidar com [Solicitações da API REST](/rest/api/searchservice/search-documents), mas aceita a sintaxe de [consulta simples](/rest/api/searchservice/simple-query-syntax-in-azure-search) e [completa do analisador de consulta Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search), além de todos os parâmetros de pesquisa disponíveis nas operações da [API REST de pesquisa de documento](/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > As etapas a seguir são demonstradas no momento 6m08s do [vídeo Visão geral da Pesquisa Cognitiva do Azure](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -188,7 +188,7 @@ Os filtros são incluídos nas solicitações de pesquisa quando você acrescent
 
 * O parâmetro **$filter** retorna resultados que correspondem aos critérios fornecidos. Nesse caso, classificações maiores que 4.
 
-* A sintaxe de filtro é uma construção de OData. Para saber mais, confira [Sintaxe de filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+* A sintaxe de filtro é uma construção de OData. Para saber mais, confira [Sintaxe de filtro OData](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> Facetar a consulta
 
@@ -207,7 +207,7 @@ Os filtros de faceta estão incluídos em solicitações de pesquisa. Você pode
 
 * Somente campos filtráveis podem ser facetados. Somente os campos recuperáveis podem ser retornados nos resultados.
 
-* O campo *Classificação* é um ponto flutuante de precisão dupla e o agrupamento será pelo valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "classificações de 3 estrelas," "classificações de 4 estrelas" etc.), confira [Como implementar a navegação facetada na Pesquisa Cognitiva do Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* O campo *Classificação* é um ponto flutuante de precisão dupla e o agrupamento será pelo valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "classificações de 3 estrelas," "classificações de 4 estrelas" etc.), confira [Como implementar a navegação facetada na Pesquisa Cognitiva do Azure](./search-faceted-navigation.md#filter-based-on-a-range).
 
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Realçar resultados da pesquisa
@@ -240,11 +240,11 @@ Quando **queryType** for especificado, o analisador de consulta simples padrão 
 
 A pesquisa difusa e a pesquisa curinga têm implicações nos resultados da pesquisa. A análise linguística não é executada nesses formatos de consulta. Antes de usar pesquisas difusa e curinga, reveja [Como a pesquisa de texto completa funciona na Pesquisa Cognitiva do Azure](search-lucene-query-architecture.md#stage-2-lexical-analysis) e procure a seção sobre exceções à análise léxica.
 
-Para saber mais sobre cenários de consulta habilitados pelo analisador de consulta completo, confira [Sintaxe de consulta Lucene na Pesquisa Cognitiva do Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Para saber mais sobre cenários de consulta habilitados pelo analisador de consulta completo, confira [Sintaxe de consulta Lucene na Pesquisa Cognitiva do Azure](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="try-geospatial-search"></a><a name="geo-search"></a> Experimentar a pesquisa geoespacial
 
-A pesquisa geográfica tem suporte pelo [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em um campo que contém coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+A pesquisa geográfica tem suporte pelo [tipo de dados edm.GeographyPoint](/rest/api/searchservice/supported-data-types) em um campo que contém coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 #### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Exemplo (filtros de coordenadas geográficas): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -256,7 +256,7 @@ A pesquisa geográfica é útil se seu aplicativo de pesquisa tem um recurso de 
 
 Este tutorial forneceu uma rápida introdução à Pesquisa Cognitiva do Azure usando o portal do Azure.
 
-Você aprendeu a criar um índice de pesquisa usando o assistente **Importar dados**. Você aprendeu sobre [indexadores](search-indexer-overview.md) e sobre o fluxo de trabalho básico para criar índices, incluindo [modificações com suporte em um índice publicado](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Você aprendeu a criar um índice de pesquisa usando o assistente **Importar dados**. Você aprendeu sobre [indexadores](search-indexer-overview.md) e sobre o fluxo de trabalho básico para criar índices, incluindo [modificações com suporte em um índice publicado](/rest/api/searchservice/update-index).
 
 Usando o **explorador do Search** no portal do Azure, você aprendeu algumas sintaxes de consulta básicas por meio de exemplos práticos que demonstraram os recursos principais, como filtros, realce de ocorrência, pesquisa difusa e pesquisa geográfica.
 
@@ -280,4 +280,4 @@ Use um assistente do portal para gerar um aplicativo Web pronto para uso executa
 Deseja otimizar e reduzir seus gastos com a nuvem?
 
 > [!div class="nextstepaction"]
-> [Comece a analisar os custos com o Gerenciamento de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comece a analisar os custos com o Gerenciamento de Custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

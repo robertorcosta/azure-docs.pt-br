@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76712545"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228232"
 ---
 # <a name="what-is-identity-provisioning"></a>O que é provisionamento de identidade?
 
@@ -50,7 +50,7 @@ O cenário mais comum seria quando um novo funcionário ingressasse na sua empre
 
 ![provisionamento em nuvem](media/what-is-provisioning/cloud3.png)
 
-No Azure AD (Azure Active Directory), o termo **[provisionamento de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** refere-se à criação automática de identidades e funções de usuário nos aplicativos de nuvem aos quais os usuários precisam ter acesso. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), entre outros.
+No Azure AD (Azure Active Directory), o termo **[provisionamento de aplicativo](../app-provisioning/user-provisioning.md)** refere-se à criação automática de identidades e funções de usuário nos aplicativos de nuvem aos quais os usuários precisam ter acesso. Além de criar identidades de usuário, o provisionamento automático inclui a manutenção e a remoção de identidades de usuário à medida que o status ou as funções mudam. Os cenários comuns incluem o provisionamento de um usuário do Azure AD em aplicativos como [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md), entre outros.
 
 ## <a name="directory-provisioning"></a>Provisionamento de diretório
 

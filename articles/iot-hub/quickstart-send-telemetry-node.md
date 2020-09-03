@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-javascript
 ms.date: 06/21/2019
-ms.openlocfilehash: ea15c0d810f0ce51a52bc883ee44a4a90391b1d3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 16eb4e516581a2190fdb0a4aa1fdb829597a0005
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420933"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073413"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Início Rápido: Enviar a telemetria de um dispositivo para um hub IoT e lê-la com um back-end (Node.js)
 
@@ -79,7 +79,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
    **YourIoTHubName**: substitua o espaço reservado abaixo pelo nome escolhido para o hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
     ```
 
     Tome nota da cadeia de conexão do dispositivo, que se parece com:
