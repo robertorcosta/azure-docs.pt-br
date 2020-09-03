@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "64919002"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278999"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial:  Configurando o PHS como backup para o AD FS no Azure AD Connect
 
@@ -33,7 +33,7 @@ O tutorial a seguir orientará você pela configuração da sincronização de h
 Esse tutorial é baseado no [Tutorial: Federar um ambiente com uma única floresta do AD na nuvem](tutorial-federation.md) e é um pré-requisito antes de tentar realizar este tutorial.  Se você não tiver concluído este tutorial, faça isso antes de tentar realizar as etapas neste documento.
 
 >[!IMPORTANT]
->Antes de mudar para o PHS, você deve criar um backup do seu ambiente do AD FS.  Isso pode ser feito usando a [Ferramenta de Restauração Rápida do AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
+>Antes de mudar para o PHS, você deve criar um backup do seu ambiente do AD FS.  Isso pode ser feito usando a [Ferramenta de Restauração Rápida do AD FS](/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool#how-to-use-the-tool).
 
 ## <a name="enable-phs-in-azure-ad-connect"></a>Habilitar o PHS no Azure AD Connect
 A primeira etapa, agora que temos um ambiente do Azure AD Connect que está usando a federação, é ativar a sincronização de hash de senha e permitir que o Azure AD Connect sincronize os hashes.

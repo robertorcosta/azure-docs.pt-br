@@ -2,7 +2,7 @@
 title: 'Tutorial: Melhorar a resposta de site com o Gerenciador de Tráfego do Azure'
 description: Este artigo de tutorial descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos web altamente disponíveis.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
-ms.author: rohink
-ms.openlocfilehash: f7778b60a5e84f5d8900b8e37bfa655a7915d403
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.author: duau
+ms.openlocfilehash: e79dde0178c74965bde14956203e31e82e80d93e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77136396"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398402"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta de site usando o Gerenciador de Tráfego
 

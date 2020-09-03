@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: 722e4d6b25e20914b3aedf59ebb531b05af0e6cc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8bd56db368fd42373450d435d2de913363c9d90e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495549"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960710"
 ---
 # <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>Criar um aplicativo do Serviço de Aplicativo com a implantação por meio do GitHub usando a CLI do Azure
 
@@ -45,6 +45,6 @@ Este script usa os comandos a seguir. Cada comando da tabela é vinculado à doc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
+Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](/cli/azure).
 
 Os exemplos de script da CLI do Serviço de Aplicativo adicionais podem ser encontrados na [documentação do Serviço de Aplicativo do Azure](../samples-cli.md).

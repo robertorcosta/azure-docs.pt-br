@@ -10,16 +10,17 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: f350aae32909de2b9be4384d921f7507a158f6ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f14bcc1b0576a5ad2f4dbbf30311f613607d3ee5
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243846"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322323"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Use a Pesquisa Visual Computacional para gerar metadados de imagem no Armazenamento do Azure
 
-Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens carregadas. Isso é útil para cenários de [DAM (gerenciamento de ativos digitais)](../Home.md#computer-vision-for-digital-asset-management), assim como quando uma empresa deseja gerar rapidamente legendas descritivas ou palavras-chave pesquisáveis para todas as suas imagens.
+Neste tutorial, você aprenderá a integrar o serviço de Pesquisa Visual Computacional do Azure a um aplicativo Web para gerar metadados para imagens carregadas. Isso é útil para cenários de [DAM (gerenciamento de ativos digitais)](../overview.md#computer-vision-for-digital-asset-management), assim como quando uma empresa deseja gerar rapidamente legendas descritivas ou palavras-chave pesquisáveis para todas as suas imagens.
 
 Um guia de aplicativo completo pode ser encontrado no [Laboratório do Armazenamento do Azure e dos Serviços Cognitivos](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) no GitHub; este tutorial aborda essencialmente o Exercício 5 do laboratório. Pode ser interessante criar o aplicativo completo seguindo cada etapa, mas se você quiser apenas saber como integrar a Pesquisa Visual Computacional a um aplicativo Web existente, leia aqui.
 
