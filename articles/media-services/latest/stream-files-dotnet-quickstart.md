@@ -3,7 +3,7 @@ title: Transmitir arquivos de vídeo com os Serviços de Mídia do Azure - .NET 
 description: Execute as etapas deste tutorial para criar uma nova conta dos Serviços de Mídia do Azure, codificar um arquivo e transmiti-lo para o Player de Mídia do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: serviços de mídia do azure, stream
@@ -11,16 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0ba272d76cade53529b198876f0ad06c4ae79649
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: ec60f775fbeb176f9442aff11117c85c5028a81f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074522"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267081"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Este tutorial mostra como é fácil codificar e iniciar a transmissão de vídeos por streaming em vários navegadores e dispositivos usando os Serviços de Mídia do Azure. Um conteúdo de entrada pode ser especificado usando URLs HTTPS, URLs SAS ou caminhos para arquivos localizados no Armazenamento de Blobs do Azure.
 O exemplo neste tópico codifica o conteúdo disponibilizado por meio de uma URL HTTPS. Observe que, no momento, o AMS v3 não dá suporte à codificação de transferência em partes sobre URLs HTTPS.

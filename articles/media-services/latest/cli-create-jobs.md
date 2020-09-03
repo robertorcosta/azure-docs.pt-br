@@ -3,26 +3,28 @@ title: Exemplo de script da CLI do Azure - Criar e enviar um trabalho | Microsof
 description: O script da CLI do Azure neste tópico mostra como enviar um trabalho para uma Transformação de codificação simples usando a URL HTTPs.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c89fe37bb443dbdbb312f2c930a4df8a708bb597
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0f2e1d901e674c3fecf957bd10314e51195f8b84
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500684"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295981"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Exemplo da CLI: criar e enviar um trabalho
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Nos Serviços de Mídia v3, ao enviar Trabalhos para processar seus vídeos, você precisa informar os Serviços de Mídia onde encontrar o vídeo de entrada. Uma das opções é especificar uma URL HTTP como uma entrada de trabalho (conforme mostrado neste exemplo). 
 

@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: edbb3c1b2ed3e696c304f72c7b40fa926cae2c54
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c3c660c5e301081ee82a12275b6e9125f0fc781b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021181"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289810"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Dimensionar um aplicativo no Azure Spring Cloud
 
@@ -27,7 +27,7 @@ Quando terminar, você saberá como fazer alterações manuais rápidas em cada 
 Para seguir estes procedimentos, você precisará:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
-* Uma instância de serviço do Azure Spring Cloud implantada.  Seguir o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](spring-cloud-quickstart-launch-app-cli.md) para obter uma introdução.
+* Uma instância de serviço do Azure Spring Cloud implantada.  Seguir o [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](spring-cloud-quickstart.md) para obter uma introdução.
 * Pelo menos um aplicativo já criado na instância de serviço.
 
 ## <a name="navigate-to-the-scale-page-in-the-azure-portal"></a>Navegue até a página Dimensionar no portal do Azure

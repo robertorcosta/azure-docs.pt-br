@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 76c45e586ea7101015cb878d198cab73ed32498e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887449"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018239"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instalar software e configurar recursos para o tutorial
 
@@ -30,7 +30,7 @@ Neste tutorial de três partes, você criará um modelo de machine learning para
 4. Instalar o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
 5. Abra o Azure Data Studio e configure o Python para notebooks. Para obter detalhes, consulte [Configurar Python para notebooks](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Esta etapa pode levar vários minutos.
 6. Instale a [versão mais recente](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020) da CLI do Azure. Os scripts a seguir exigem que o PowerShell do AZ seja da versão mais recente (3.5.0, fevereiro de 2020).
-7. Baixe os [arquivos de imagem do Docker AMD/ARM](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) e [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) que serão utilizados no tutorial.
+7. Baixe os [arquivos de imagem do Docker AMD/ARM](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) e [DACPAC](https://www.docker.com/blog/multi-arch-images/) que serão utilizados no tutorial.
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Implantar os recursos do Azure usando o script do PowerShell
 

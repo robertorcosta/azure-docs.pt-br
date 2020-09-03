@@ -3,7 +3,7 @@ title: 'Tutorial: Acessar o Armazenamento do Azure usando uma credencial SAS –
 description: Um tutorial que mostra como usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure, usando uma credencial SAS em vez de uma chave de acesso à conta de armazenamento.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a173fe36c20e9f13f1b1c1f27efc36821c8264a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266297"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260230"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Usar uma identidade atribuída pelo sistema da VM do Linux para acessar o Armazenamento do Azure por meio de uma credencial SAS
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema de uma VM (máquina virtual) do Linux para obter uma credencial SAS (Assinatura de Acesso Compartilhado) de armazenamento. Especificamente, uma [credencial SAS de serviço](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Este tutorial mostra como usar uma identidade gerenciada atribuída pelo sistema de uma VM (máquina virtual) do Linux para obter uma credencial SAS (Assinatura de Acesso Compartilhado) de armazenamento. Especificamente, uma [credencial SAS de serviço](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
 > A chave SAS gerada neste tutorial não será restrita/limitada à VM.  
@@ -86,7 +86,7 @@ O Armazenamento do Azure não dá suporte nativo a autenticação do Azure AD.  
 
 Para o restante do tutorial, trabalharemos na VM criada anteriormente.
 
-Para concluir essas etapas, você precisará de cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Para concluir essas etapas, você precisará de cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](/windows/wsl/install-win10). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. No portal do Azure, navegue até **Máquinas Virtuais**, vá para a máquina virtual do Linux e na página **Visão geral**, clique em **Conectar** na parte superior. Copie a cadeia de caracteres para conectar-se à VM. 
 2. Conecte-se à VM usando um cliente SSH.  
@@ -152,7 +152,7 @@ Crie um arquivo de blob de exemplo para carregar o contêiner de armazenamento d
 echo "This is a test file." > test.txt
 ```
 
-Em seguida, autentique com o comando `az storage` da CLI usando a credencial SAS e carregue o arquivo para o contêiner de blob. Nesta etapa, você precisará [instalar a CLI do Azure mais recente](https://docs.microsoft.com/cli/azure/install-azure-cli) na sua VM, se ainda não o fez.
+Em seguida, autentique com o comando `az storage` da CLI usando a credencial SAS e carregue o arquivo para o contêiner de blob. Nesta etapa, você precisará [instalar a CLI do Azure mais recente](/cli/azure/install-azure-cli) na sua VM, se ainda não o fez.
 
 ```azurecli-interactive
  az storage blob upload --container-name 
@@ -231,4 +231,4 @@ Resposta:
 Neste tutorial, você aprendeu a usar a identidade gerenciada atribuída pelo sistema de uma VM do Linux para acessar o Armazenamento do Azure usando uma credencial SAS.  Para saber mais sobre SAS de Armazenamento do Azure, confira:
 
 > [!div class="nextstepaction"]
->[Como usar SAS (assinaturas de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[Como usar SAS (assinaturas de acesso compartilhado)](../../storage/common/storage-sas-overview.md)
