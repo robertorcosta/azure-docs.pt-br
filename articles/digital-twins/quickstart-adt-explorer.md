@@ -56,7 +56,7 @@ Em seguida, prepare a instância dos Gêmeos Digitais do Azure que você criou p
 
 Selecione *Autenticação* no menu do registro e clique em *+ Adicionar uma plataforma*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Página do portal do Azure dos Detalhes de autenticação para um registro de aplicativo. Há um realce ao redor de um botão "Adicionar uma plataforma"" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Página do portal do Azure dos Detalhes de autenticação para um registro de aplicativo. Há um realce ao redor de um botão Adicionar uma plataforma" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
 Na página *Configurar plataformas* que se segue, selecione *Web*.
 Preencha os detalhes de configuração da seguinte maneira:
@@ -137,14 +137,14 @@ Na caixa *EXIBIÇÃO DE MODELO*, clique no ícone *Carregar um Modelo*.
 3. Siga a caixa de diálogo pop-up solicitando que você entre na sua conta do Azure.
 
 >[!NOTE]
->Se você vir a seguinte mensagem de erro: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Uma pop-up informando "Erro: erro ao buscar os modelos: ClientAuthError: erro ao abrir a janela pop-up. Isso poderá acontecer se você estiver usando o IE ou se os pop-ups estiverem bloqueados no navegador com um botão Fechar na parte inferior" border="false"::: 
+>Se você vir a seguinte mensagem de erro: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Uma pop-up informando Erro: erro ao buscar os modelos: ClientAuthError: erro ao abrir a janela pop-up. Isso poderá acontecer se você estiver usando o IE ou se os pop-ups estiverem bloqueados no navegador com um botão Fechar na parte inferior" border="false"::: 
 > Tente desabilitar o bloqueador de pop-ups ou usar um navegador diferente.
 
 Agora, o ADT Explorer carregará esses arquivos de modelo na instância dos Gêmeos Digitais do Azure. Eles devem aparecer na caixa *EXIBIÇÃO DE MODELO*, exibindo os nomes amigáveis e as IDs de modelo completo. Você pode clicar nas bolhas de informações do *Modelo de Exibição* para ver o código DTDL por trás deles.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Uma exibição da caixa "Exibição de Modelo" com duas definições de modelo listadas, Andar (dtmi:example:Floor;1) e Cômodo (dtmi:example:Room;1). O ícone " Exibir modelo" mostrando uma letra "i" em um círculo é realçado para cada modelo." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Uma exibição da caixa Exibição de Modelo com duas definições de modelo listadas, Andar (dtmi:example:Floor;1) e Cômodo (dtmi:example:Room;1). O ícone  Exibir modelo mostrando uma letra i em um círculo é realçado para cada modelo." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -188,7 +188,7 @@ O ADT Explorer agora usará o arquivo carregado para criar os gêmeos e as rela�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Caixa de diálogo indicando êxito na importação de grafo. Ela contém a mensagem "Importação bem-sucedida. 49 gêmeos importados. 50 relações importadas."" lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Caixa de diálogo indicando êxito na importação de grafo. Ela contém a mensagem Importação bem-sucedida. 49 gêmeos importados. 50 relações importadas." lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -198,7 +198,7 @@ O ADT Explorer agora usará o arquivo carregado para criar os gêmeos e as rela�
 
 O grafo agora foi carregado para o ADT Explorer. Para ver o grafo, clique no botão *Executar Consulta* na caixa *GERENCIADOR DE GRAFOS*, próximo à parte superior da janela do ADT Explorer. 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Um botão com a mensagem "Executar Consulta" próxima à parte superior da janela está realçado" lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Um botão com a mensagem Executar Consulta próxima à parte superior da janela está realçado" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 Isso executará a consulta padrão para selecionar e exibir todos os gêmeos digitais. O ADT Explorer recuperará todos os gêmeos e relações do serviço e desenhará o grafo definido por eles na caixa *EXIBIÇÃO DE GRAFO*.
 
@@ -206,7 +206,7 @@ Isso executará a consulta padrão para selecionar e exibir todos os gêmeos dig
 
 Agora, você pode ver o grafo carregado do cenário de exemplo:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Exibição da caixa "Exibição de Grafo" com um grafo. Um círculo rotulado como "floor1" está conectado por uma seta rotulada como "contains" a um círculo rotulado como "room1"; um círculo rotulado como "floor0" está conectado por uma seta rotulada como "contains" a um círculo rotulado como "room0".":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Exibição da caixa Exibição de Grafo com um grafo. Um círculo rotulado como floor1 está conectado por uma seta rotulada como contains a um círculo rotulado como room1; um círculo rotulado como floor0 está conectado por uma seta rotulada como contains a um círculo rotulado como room0.":::
 
 Os círculos ("nós" de grafo) representam gêmeos digitais e as linhas representam relações. Você verá que o gêmeo *Floor0* contém *Room0* e que o gêmeo *Floor1* contém *Room1*.
 
@@ -220,7 +220,7 @@ Aqui estão as propriedades de *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Realce em torno da caixa "Gerenciador de Propriedades" mostrando as propriedades de Room0, incluindo, entre outros, um campo $dtId de "Room0", um campo Temperatura de 70 e um campo Umidade de 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Realce em torno da caixa Gerenciador de Propriedades mostrando as propriedades de Room0, incluindo, entre outros, um campo $dtId de Room0, um campo Temperatura de 70 e um campo Umidade de 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -232,7 +232,7 @@ Aqui estão as propriedades de *Room1*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Realce em torno da caixa "Gerenciador de Propriedades" mostrando as propriedades de Room1, incluindo, entre outros, um campo $dtId de "Room1", um campo Temperatura de 80 e um campo Umidade de 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Realce em torno da caixa Gerenciador de Propriedades mostrando as propriedades de Room1, incluindo, entre outros, um campo $dtId de Room1, um campo Temperatura de 80 e um campo Umidade de 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -271,7 +271,7 @@ As propriedades nessa lista são editáveis. Selecione o valor de temperatura de
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="A caixa "Gerenciador de Propriedades" mostrando as propriedades de Room0. O valor de temperatura é uma caixa editável exibindo 76 e há um realce ao redor do ícone Salvar." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="A caixa Gerenciador de Propriedades mostrando as propriedades de Room0. O valor de temperatura é uma caixa editável exibindo 76 e há um realce ao redor do ícone Salvar." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
