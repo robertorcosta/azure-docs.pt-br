@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a17eb7fdde6840ce04fb0cbce13ec3f1a121e0
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3a68c3719ea742a5c02f8be167fc1989ae4683c0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80673697"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279186"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um ambiente com uma única floresta do AD na nuvem
 
@@ -29,9 +29,9 @@ O tutorial a seguir irá guiá-lo na criação de um ambiente de identidade híb
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A seguir estão os pré-requisitos necessários para concluir este tutorial
-- Um computador com [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  É recomendável fazer isso em um computador [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou um computador [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- Um computador com [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) instalado.  É recomendável fazer isso em um computador [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) ou um computador [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Uma [assinatura do Azure](https://azure.microsoft.com/free)
-- - Um [adaptador de rede externa](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique-se com a Internet.
+- - Um [adaptador de rede externa](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) para permitir que a máquina virtual comunique-se com a Internet.
 - Uma cópia do Windows Server 2016
 - Um [domínio personalizado](../../active-directory/fundamentals/add-custom-domain.md) que pode ser verificado
 
@@ -140,7 +140,7 @@ Agora que temos a VM criada e ela foi renomeada e tem um endereço IP estático,
 $DatabasePath = "c:\windows\NTDS"
 $DomainMode = "WinThreshold"
 $DomainName = "contoso.com"
-$DomaninNetBIOSName = "CONTOSO"
+$DomainNetBIOSName = "CONTOSO"
 $ForestMode = "WinThreshold"
 $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
@@ -292,4 +292,3 @@ Agora você configurou com êxito um ambiente de identidade híbrida que pode se
 - [Pré-requisitos e hardware](how-to-connect-install-prerequisites.md) 
 - [Configurações personalizadas](how-to-connect-install-custom.md)
 - [Azure AD Connect e federação](how-to-connect-fed-whatis.md)
-

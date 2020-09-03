@@ -7,14 +7,14 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: e4364c3c5bcba1a04837f3f9e7a0576579211c72
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 35814f34550ac7bf4ad85a96d0838df62fe63be6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796588"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073175"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de Chaves do Azure
 
@@ -32,8 +32,6 @@ Há algumas advertências que você deve conhecer:
 
 * No caso de um failover de região, pode levar alguns minutos para o serviço executar failover. As solicitações feitas durante esse período antes do failover podem falhar.
 * Durante o failover, o cofre de chaves estará no modo somente leitura. As solicitações permitidas nesse modo são:
-  * Listar cofres de chave
-  * Obter propriedades de cofres de chave
   * Listar certificados
   * Obter certificados
   * Listar segredos
