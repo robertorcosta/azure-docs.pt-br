@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: serviço de aplicativo do azure, aplicativo Web, linux, windows, docker, contêiner
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212938"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958449"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrar software personalizado para o Serviço de Aplicativo do Azure usando um contêiner personalizado
 
 ::: zone pivot="container-windows"  
 
-[O Serviço de Aplicativo do Azure](overview.md) fornece pilhas de aplicativos predefinidos em Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente do Windows pré-configurado impede o acesso administrativo, as instalações de software, as alterações do cache global e outras funções pelo sistema operacional (confira [Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure](operating-system-functionality.md)). No entanto, usar um contêiner do Windows personalizado no Serviço de Aplicativo (versão prévia) permite que você faça alterações no sistema operacional de que seu aplicativo precisa, portanto, é fácil migrar aplicativos locais que exigem configurações de software e sistema operacional personalizadas. Este tutorial demonstra como migrar para o Serviço de Aplicativo um aplicativo ASP.NET que usa fontes personalizadas instaladas na biblioteca de fontes do Windows. Implante uma imagem do Windows configurada de forma personalizada do Visual Studio para o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) e, em seguida, execute-o no Serviço de Aplicativo.
+[O Serviço de Aplicativo do Azure](overview.md) fornece pilhas de aplicativos predefinidos em Windows, como ASP.NET ou Node.js, em execução no IIS. O ambiente do Windows pré-configurado impede o acesso administrativo, as instalações de software, as alterações do cache global e outras funções pelo sistema operacional (confira [Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure](operating-system-functionality.md)). No entanto, usar um contêiner do Windows personalizado no Serviço de Aplicativo (versão prévia) permite que você faça alterações no sistema operacional de que seu aplicativo precisa, portanto, é fácil migrar aplicativos locais que exigem configurações de software e sistema operacional personalizadas. Este tutorial demonstra como migrar para o Serviço de Aplicativo um aplicativo ASP.NET que usa fontes personalizadas instaladas na biblioteca de fontes do Windows. Implante uma imagem do Windows configurada de forma personalizada do Visual Studio para o [Registro de Contêiner do Azure](../container-registry/index.yml) e, em seguida, execute-o no Serviço de Aplicativo.
 
 ![Mostra o aplicativo Web em execução em um contêiner do Windows.](media/tutorial-custom-container/app-running.png)
 
@@ -92,7 +92,7 @@ Você pode encontrar _InstallFont.ps1_ no projeto **CustomFontSample**. É um sc
 
 ## <a name="publish-to-azure-container-registry"></a>Publicar no Registro de Contêiner do Azure
 
-O [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) pode armazenar suas imagens para implantações de contêiner. É possível configurar o Serviço de Aplicativo para usar imagens hospedadas no Registro de Contêiner do Azure.
+O [Registro de Contêiner do Azure](../container-registry/index.yml) pode armazenar suas imagens para implantações de contêiner. É possível configurar o Serviço de Aplicativo para usar imagens hospedadas no Registro de Contêiner do Azure.
 
 ### <a name="open-publish-wizard"></a>Abrir o assistente de publicação
 
@@ -439,7 +439,7 @@ Para implantar um contêiner no Serviço de Aplicativo do Azure, primeiro crie u
     
     Para obter mais informações sobre essa variável de ambiente, confira o [Leiame no repositório GitHub de exemplo](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Habilite a [identidade gerenciada](/azure/app-service/overview-managed-identity) para o aplicativo Web usando o comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign):
+1. Habilite a [identidade gerenciada](./overview-managed-identity.md) para o aplicativo Web usando o comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign):
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -466,7 +466,7 @@ Para implantar um contêiner no Serviço de Aplicativo do Azure, primeiro crie u
     - `<registry-name>` com o nome do seu registro de contêiner
     - `<subscription-id>` com a ID de assinatura recuperada do comando `az account show`
 
-Para obter mais informações sobre essas permissões, confira [O que é o controle de acesso baseado em função do Azure?](/azure/role-based-access-control/overview) e 
+Para obter mais informações sobre essas permissões, confira [O que é o controle de acesso baseado em função do Azure?](../role-based-access-control/overview.md) e 
 
 ## <a name="deploy-the-image-and-test-the-app"></a>Implantar a imagem e testar o aplicativo
 

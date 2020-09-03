@@ -3,12 +3,13 @@ title: Recuperação de desastre para tópicos personalizados na Grade de Evento
 description: Este tutorial orientará você ao longo do processo de configurar sua arquitetura de eventos a ser recuperada se o serviço da Grade de Eventos passar a ser não íntegro em uma região.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461673"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004537"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar sua própria recuperação de desastre para tópicos personalizados na Grade de Eventos
 A recuperação de desastre tem como foco a recuperação após uma perda grave de funcionalidade do aplicativo. Este tutorial o orientará pelo processo de configurar sua arquitetura de eventos a ser recuperada se o serviço de Grade de Eventos se tornar não íntegro em uma região específica.

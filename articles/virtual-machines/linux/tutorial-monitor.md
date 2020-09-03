@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: dc4c348315dce59d5eaf58046c9a8d8f7f2e3725
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c8d7b13f9e35a41a414a44c908997cfcc550af41
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313669"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011728"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar uma máquina virtual do Linux no Azure
 
@@ -192,4 +192,4 @@ Neste tutorial, você configurou e exibiu o desempenho de sua VM. Você aprendeu
 Avance para o próximo tutorial para saber mais sobre a Central de Segurança do Azure.
 
 > [!div class="nextstepaction"]
-> [Gerenciar a segurança da VM](../../security/fundamentals/overview.md)
+> [Gerenciar a segurança da VM](tutorial-azure-security.md)

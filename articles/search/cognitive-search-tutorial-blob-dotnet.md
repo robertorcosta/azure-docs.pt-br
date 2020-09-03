@@ -8,18 +8,19 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
-ms.openlocfilehash: 693a7006a9f5742341a11af23b64bcd8c501618f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 09273cf901830e850acca05c57c0b110ffd7e28a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705887"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002855"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Conteúdo pesquisável gerado por IA de Blobs do Azure usando o SDK do .NET
 
 Se você tiver um texto não estruturado ou imagens no Armazenamento de Blobs do Azure, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá extrair informações e criar um conteúdo que seja útil para cenários de pesquisa de texto completo ou mineração de conhecimento. Neste tutorial do C#, aplique o OCR (reconhecimento óptico de caracteres) em imagens e execute o processamento em idioma natural para criar campos que possam ser aproveitados em consultas, facetas e filtros.
 
-Este tutorial usa o C# e o [SDK do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) para executar as seguintes tarefas:
+Este tutorial usa o C# e o [SDK do .NET](/dotnet/api/overview/azure/search) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com arquivos de aplicativo e imagens no Armazenamento de Blobs do Azure.
@@ -127,7 +128,7 @@ Comece abrindo o Visual Studio e criando um novo projeto de aplicativo de consol
 
 ### <a name="install-nuget-packages"></a>Instalar os pacotes NuGet
 
-O [SDK do .NET da Pesquisa Cognitiva do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search) consiste em algumas bibliotecas de clientes que permitem que você gerencie seus índices, fontes de dados, indexadores e conjuntos de qualificações, carregue e gerencie documentos e execute consultas, sem a necessidade de lidar com os detalhes de HTTP e JSON. Essas bibliotecas de cliente são distribuídas como pacotes NuGet.
+O [SDK do .NET da Pesquisa Cognitiva do Azure](/dotnet/api/overview/azure/search) consiste em algumas bibliotecas de clientes que permitem que você gerencie seus índices, fontes de dados, indexadores e conjuntos de qualificações, carregue e gerencie documentos e execute consultas, sem a necessidade de lidar com os detalhes de HTTP e JSON. Essas bibliotecas de cliente são distribuídas como pacotes NuGet.
 
 Para este projeto, instale a versão 9 ou posterior do pacote NuGet `Microsoft.Azure.Search`.
 
@@ -680,7 +681,7 @@ Adicione a instrução using a seguir para resolver a referência de desambigua�
 using Index = Microsoft.Azure.Search.Models.Index;
 ```
 
-Para saber mais sobre como definir um índice, consulte [Criar Índice (API REST da Pesquisa Cognitiva do Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para saber mais sobre como definir um índice, consulte [Criar Índice (API REST da Pesquisa Cognitiva do Azure)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Etapa 4: Criar e executar um indexador
 
@@ -905,7 +906,7 @@ catch (Exception e)
 }
 ```
 
-Repita para campos adicionais: conteúdo, idioma, frases-chave e organizações neste exercício. Você pode retornar vários campos por meio da propriedade [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) usando uma lista delimitada por vírgula.
+Repita para campos adicionais: conteúdo, idioma, frases-chave e organizações neste exercício. Você pode retornar vários campos por meio da propriedade [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) usando uma lista delimitada por vírgula.
 
 <a name="reset"></a>
 

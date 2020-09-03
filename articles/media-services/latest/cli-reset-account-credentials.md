@@ -3,26 +3,28 @@ title: Exemplo de Script da CLI do Azure - Redefinir as credenciais de sua conta
 description: Use o script da CLI do Azure para redefinir as credenciais de sua conta e recuperar as configurações do app.config.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: troubleshooting
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/20/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 16eaf5ab9b0af97e18a7253d132516a16003d25b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: da997ec71655231876749d9f3aa65ba06fd3a1f8
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489972"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295828"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Exemplo da CLI do Azure: Redefinir as credenciais da conta
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 O script da CLI do Azure neste artigo mostra como redefinir as credenciais da sua conta e recuperar as configurações de app.config.
 
