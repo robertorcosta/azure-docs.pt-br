@@ -3,7 +3,7 @@ title: Tutorial`:` Usar uma identidade gerenciada para acessar o Azure Resource 
 description: Um tutorial que orienta você durante o processo de uso de uma identidade gerenciada atribuída pelo usuário em uma VM do Windows para acessar o Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec9956f0c5d834633646938da19f03e5467a9f6d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 030f2b893cd429bfdb451d24e799689fdb8a3cf8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977846"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255690"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo usuário em uma VM do Windows para acessar o Azure Resource Manager
 
@@ -45,9 +45,9 @@ Você aprenderá como:
 
 - [Entrar no portal do Azure](https://portal.azure.com)
 
-- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
+- [Criar uma máquina virtual do Windows](../../virtual-machines/windows/quick-create-portal.md)
 
-- Para executar as etapas necessárias de criação de recursos e gerenciamento de funções neste tutorial, sua conta precisa das permissões de "Proprietário" no escopo apropriado (sua assinatura ou grupo de recursos). Caso você precise de ajuda com a atribuição de função, consulte [Usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de assinatura do Azure](/azure/role-based-access-control/role-assignments-portal).
+- Para executar as etapas necessárias de criação de recursos e gerenciamento de funções neste tutorial, sua conta precisa das permissões de "Proprietário" no escopo apropriado (sua assinatura ou grupo de recursos). Caso você precise de ajuda com a atribuição de função, consulte [Usar o controle de acesso baseado em função para gerenciar o acesso aos recursos de assinatura do Azure](../../role-based-access-control/role-assignments-portal.md).
 - [Instale a versão mais recente do módulo do Azure PowerShell](/powershell/azure/install-az-ps). 
 - Execute `Connect-AzAccount` para criar uma conexão com o Azure.
 - Instale a [versão mais recente do PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
@@ -163,4 +163,4 @@ A resposta contém as informações de grupo de recursos específicas, semelhant
 Neste tutorial, você aprendeu a criar uma identidade atribuída pelo usuário e a anexá-la a uma Máquina Virtual do Azure para acessar a API do Azure Resource Manager.  Para saber mais sobre o Azure Resource Manager, confira:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

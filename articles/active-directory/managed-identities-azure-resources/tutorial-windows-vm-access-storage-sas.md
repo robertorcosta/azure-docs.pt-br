@@ -3,7 +3,7 @@ title: Tutorial`:` Usar uma identidade gerenciada para acessar o Armazenamento d
 description: Um tutorial que mostra como usar uma identidade gerenciada atribuída pelo sistema VM do Windows para acessar o Armazenamento do Azure, usando uma credencial SAS em vez de uma chave de acesso à conta de armazenamento.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/24/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ca5ec32e1f88572812b19cf08d4c6f9dc70af6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa04247aca777612c05a7531dc5b36e7af40e60e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018563"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255810"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Use uma identidade gerenciada atribuída pelo sistema VM do Windows para acessar o Armazenamento do Microsoft Azure por meio de uma credencial SAS
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma máquina virtual do Windows (VM) para obter uma credencial SAS (Storage Access Signature) de armazenamento. Especificamente, uma [credencial SAS de serviço](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma máquina virtual do Windows (VM) para obter uma credencial SAS (Storage Access Signature) de armazenamento. Especificamente, uma [credencial SAS de serviço](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 Uma SAS de Serviço permite conceder acesso limitado a objetos em uma conta de armazenamento por tempo limitado e para um serviço específico (em nosso caso, o serviço blob) sem expor uma chave de acesso de conta. Você pode usar a credencial SAS normalmente ao realizar operações de armazenamento, por exemplo, ao usar o SDK de Armazenamento. Para este tutorial, vamos demonstrar o upload e o download de um blob usando o PowerShell do Armazenamento do Azure. Você saberá como:
 
@@ -83,7 +83,7 @@ O Armazenamento do Azure não dá suporte nativo a autenticação do Azure AD.  
 
 Para o restante do tutorial, trabalharemos na VM criada anteriormente.
 
-Você precisará usar os cmdlets do PowerShell do Azure Resource Manager nesta parte.  Se ele não estiver instalado, [baixe a versão mais recente](https://docs.microsoft.com/powershell/azure/) antes de continuar.
+Você precisará usar os cmdlets do PowerShell do Azure Resource Manager nesta parte.  Se ele não estiver instalado, [baixe a versão mais recente](/powershell/azure/) antes de continuar.
 
 1. No portal do Azure, navegue até **Máquinas Virtuais**, vá para a Máquina Virtual do Windows e, na página **Visão geral**, clique em **Conectar** na parte superior.
 2. Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
@@ -205,6 +205,4 @@ Name              : testblob
 Neste tutorial, você aprendeu a usar a identidade gerenciada atribuída pelo sistema de uma VM do Windows para acessar o Armazenamento do Azure usando uma credencial SAS.  Para saber mais sobre SAS de Armazenamento do Azure, confira:
 
 > [!div class="nextstepaction"]
->[Como usar SAS (assinaturas de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-
-
+>[Como usar SAS (assinaturas de acesso compartilhado)](../../storage/common/storage-sas-overview.md)

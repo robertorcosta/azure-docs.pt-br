@@ -10,18 +10,18 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/12/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5dfa105b7af146086da6b72dd55f6fe679832f44
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845044"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936020"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use o Python e a IA para gerar conteúdo pesquisável em blobs do Azure
 
 Se você tiver um texto não estruturado ou imagens no Armazenamento de Blobs do Azure, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá extrair informações e criar um conteúdo que seja útil para cenários de pesquisa de texto completo ou mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial do Python concentra-se no texto, aplicando detecção de idioma e processamento de idioma natural para criar campos que você pode usar em consultas, facetas e filtros.
 
-Este tutorial usa o Python e as [APIs REST de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/) para executar as seguintes tarefas:
+Este tutorial usa o Python e as [APIs REST de Pesquisa](/rest/api/searchservice/) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com documentos inteiros (texto não estruturado), como PDF, HTML, DOCX e PPTX no Armazenamento de Blobs do Azure.
@@ -163,7 +163,7 @@ Na Pesquisa Cognitiva do Azure, o processamento de IA ocorre durante a indexaç�
 
 ### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
 
-Um [objeto de fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) fornece a cadeia de conexão ao contêiner de blob que contém os arquivos.
+Um [objeto de fonte de dados](/rest/api/searchservice/create-data-source) fornece a cadeia de conexão ao contêiner de blob que contém os arquivos.
 
 No script a seguir, substitua o espaço reservado YOUR-BLOB-RESOURCE-CONNECTION-STRING pela cadeia de conexão do blob que você criou na etapa anterior. Substitua o texto do espaço reservado do contêiner. Em seguida, execute o script para criar uma fonte de dados chamada `cogsrch-py-datasource`.
 
@@ -375,11 +375,11 @@ print(r.status_code)
 
 A solicitação deve retornar um código de status 201 que confirma o êxito.
 
-Para saber mais sobre como definir um índice, consulte [Criar Índice (API REST da Pesquisa Cognitiva do Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Para saber mais sobre como definir um índice, consulte [Criar Índice (API REST da Pesquisa Cognitiva do Azure)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Etapa 4: Criar e executar um indexador
 
-Um [Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) conduz o pipeline. Os três componentes que você criou até o momento (fonte de dados, conjunto de habilidades e índice) são entradas para um indexador. A criação do indexador na Pesquisa Cognitiva do Azure é o evento que coloca todo o pipeline em movimento. 
+Um [Indexador](/rest/api/searchservice/create-indexer) conduz o pipeline. Os três componentes que você criou até o momento (fonte de dados, conjunto de habilidades e índice) são entradas para um indexador. A criação do indexador na Pesquisa Cognitiva do Azure é o evento que coloca todo o pipeline em movimento. 
 
 Para formar um indexador com esses objetos, você deve definir mapeamentos de campo.
 
@@ -512,7 +512,7 @@ O resultado deve ser semelhante ao exemplo a seguir. A captura de tela mostra ap
 
 Repita para os campos adicionais: `content`, `languageCode`, `keyPhrases` e `organizations` neste exercício. Você pode retornar vários campos via `$select` usando uma lista delimitada por vírgulas.
 
-Você pode usar GET ou POST, dependendo do tamanho e complexidade de cadeia de caracteres de consulta. Para obter mais informações, consulte a [Consulta usando a API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Você pode usar GET ou POST, dependendo do tamanho e complexidade de cadeia de caracteres de consulta. Para obter mais informações, consulte a [Consulta usando a API REST](/rest/api/searchservice/search-documents).
 
 <a name="reset"></a>
 

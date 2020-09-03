@@ -3,7 +3,7 @@ title: Tutorial`:` Usar uma identidade gerenciada para acessar o Azure Key Vault
 description: Um tutorial que o conduz pelo processo de usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdccabf701d4603b8c78f7e23ec1890171603273
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 6756d66f176314ad5abd0c94f7bdf96c42a460a4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74232179"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255302"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Azure Key Vault 
 
@@ -66,7 +66,7 @@ Em seguida, adicione um segredo ao Key Vault, para que posteriormente você poss
  
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtenha um token de acesso usando a identidade da VM e use-o para recuperar o segredo do Key Vault  
 
-Para concluir essas etapas, você precisará do cliente SSH.  Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Para concluir essas etapas, você precisará do cliente SSH.  Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](/windows/wsl/about). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
  
 1. No portal, navegue até a VM do Linux e em **Visão geral**, clique em **Conectar**. 
 2. **Conecte-se** à VM com um cliente SSH de sua escolha. 
@@ -110,8 +110,4 @@ Depois de recuperar o segredo do Key Vault, você pode usá-lo para autenticar u
 Neste tutorial, você aprendeu a usar uma identidade gerenciada atribuída pelo sistema da VM do Linux para acessar o Azure Key Vault.  Para saber mais sobre o Azure Key Vault, confira:
 
 > [!div class="nextstepaction"]
->[Cofre da Chave do Azure](/azure/key-vault/key-vault-overview)
-
-
-
-
+>[Cofre da Chave do Azure](../../key-vault/general/overview.md)

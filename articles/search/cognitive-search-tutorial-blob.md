@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: ba30584ca40e7d093ecd9090b82b977d71fc1e0e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503295"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936003"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Use o REST e a IA para gerar conteúdo pesquisável em blobs do Azure
 
 Se você tiver um texto não estruturado ou imagens no Armazenamento de Blobs do Azure, um [pipeline de enriquecimento de IA](cognitive-search-concept-intro.md) poderá extrair informações e criar um conteúdo que seja útil para cenários de pesquisa de texto completo ou mineração de conhecimento. Embora um pipeline possa processar imagens, este tutorial do REST concentra-se no texto, aplicando detecção de idioma e processamento de idioma natural para criar campos que você pode usar em consultas, facetas e filtros.
 
-Este tutorial usa o Postman e as [APIs REST de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/) para executar as seguintes tarefas:
+Este tutorial usa o Postman e as [APIs REST de Pesquisa](/rest/api/searchservice/) para executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Comece com documentos inteiros (texto não estruturado), como PDF, HTML, DOCX e PPTX no Armazenamento de Blobs do Azure.
@@ -135,7 +135,7 @@ Na Pesquisa Cognitiva do Azure, o processamento de IA ocorre durante a indexaç�
 
 ### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
 
-Um [objeto de fonte de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) fornece a cadeia de conexão ao contêiner de blob que contém os arquivos.
+Um [objeto de fonte de dados](/rest/api/searchservice/create-data-source) fornece a cadeia de conexão ao contêiner de blob que contém os arquivos.
 
 1. Use **POST** e a URL a seguir, substituindo NOME-DO-SERVIÇO pelo nome real do serviço.
 
@@ -165,7 +165,7 @@ Se você receber um erro 403 ou 404, verifique a construção da solicitação: 
 
 ### <a name="step-2-create-a-skillset"></a>Etapa 2: Criar um conjunto de habilidades
 
-Um [objeto de conjunto de habilidades](https://docs.microsoft.com/rest/api/searchservice/create-skillset) é um conjunto de etapas de enriquecimento aplicado ao conteúdo. 
+Um [objeto de conjunto de habilidades](/rest/api/searchservice/create-skillset) é um conjunto de etapas de enriquecimento aplicado ao conteúdo. 
 
 1. Use **PUT** e a URL a seguir, substituindo NOME-DO-SERVIÇO pelo nome real do serviço.
 
@@ -250,7 +250,7 @@ Um [objeto de conjunto de habilidades](https://docs.microsoft.com/rest/api/searc
 
 ### <a name="step-3-create-an-index"></a>Etapa 3: Crie um índice
 
-Um [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) fornece o esquema usado para criar a expressão física do conteúdo em índices invertidos e outros constructos na Pesquisa Cognitiva do Azure. O maior componente de um índice é a coleção de campos, em que o tipo de dados e os atributos determinam o conteúdo e os comportamentos na Pesquisa Cognitiva do Azure.
+Um [índice](/rest/api/searchservice/create-index) fornece o esquema usado para criar a expressão física do conteúdo em índices invertidos e outros constructos na Pesquisa Cognitiva do Azure. O maior componente de um índice é a coleção de campos, em que o tipo de dados e os atributos determinam o conteúdo e os comportamentos na Pesquisa Cognitiva do Azure.
 
 1. Use **PUT** e a URL a seguir, substituindo NOME-DO-SERVIÇO pelo nome real do serviço, para nomear o índice.
 
@@ -334,7 +334,7 @@ Um [índice](https://docs.microsoft.com/rest/api/searchservice/create-index) for
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Etapa 4: Criar e executar um indexador
 
-Um [Indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer) conduz o pipeline. Os três componentes que você criou até o momento (fonte de dados, conjunto de habilidades e índice) são entradas para um indexador. A criação do indexador na Pesquisa Cognitiva do Azure é o evento que coloca todo o pipeline em movimento. 
+Um [Indexador](/rest/api/searchservice/create-indexer) conduz o pipeline. Os três componentes que você criou até o momento (fonte de dados, conjunto de habilidades e índice) são entradas para um indexador. A criação do indexador na Pesquisa Cognitiva do Azure é o evento que coloca todo o pipeline em movimento. 
 
 1. Use **PUT** e a URL a seguir, substituindo NOME-DO-SERVIÇO pelo nome real do serviço, para nomear o indexador.
 
@@ -486,7 +486,7 @@ Lembre-se de que começamos com o conteúdo do blob, em que todo o documento é 
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
-Essas consultas ilustram algumas das maneiras pelas quais você pode trabalhar com a sintaxe de consulta e os filtros em campos criados pela pesquisa cognitiva. Para obter mais exemplos de consulta, confira [Exemplos em documentos de pesquisa da API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Exemplos de consulta de sintaxe simples](search-query-simple-examples.md) e [Exemplos de consulta completas do Lucene](search-query-lucene-examples.md).
+Essas consultas ilustram algumas das maneiras pelas quais você pode trabalhar com a sintaxe de consulta e os filtros em campos criados pela pesquisa cognitiva. Para obter mais exemplos de consulta, confira [Exemplos em documentos de pesquisa da API REST](/rest/api/searchservice/search-documents#bkmk_examples), [Exemplos de consulta de sintaxe simples](search-query-simple-examples.md) e [Exemplos de consulta completas do Lucene](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 
