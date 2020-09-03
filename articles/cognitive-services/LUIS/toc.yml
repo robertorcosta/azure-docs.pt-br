@@ -22,7 +22,7 @@
     - name: Usar o navegador
       href: luis-get-started-get-intent-from-browser.md
     - name: Usar o SDK
-      href: quickstart-sdk.md
+      href: azure-sdk-quickstart.md
     - name: Usar APIs REST
       items:
         - name: Obter a intenção

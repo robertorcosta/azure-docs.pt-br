@@ -85,15 +85,15 @@
         - name: Gerenciamento do armazenamento
           items:
             - name: Criar disco gerenciado com base em um VHD
-              href: ../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Criar um disco gerenciado com base em um instantâneo
-              href: ../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Copiar um disco gerenciado para a mesma assinatura ou outra assinatura
               href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Exportar um instantâneo como VHD para uma conta de armazenamento
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Exportar o VHD de um disco gerenciado para uma conta de armazenamento
-              href: ../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Copiar um instantâneo para a mesma assinatura ou outra assinatura
               href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Máquinas virtuais de rede
@@ -127,21 +127,21 @@
             - name: Criar uma VM com WordPress instalado
               href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Criar VM por meio de um disco do sistema operacional gerenciado
-              href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ./../scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Criar uma VM com base em um instantâneo
               href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Gerenciamento do armazenamento
           items:
             - name: Crie um disco gerenciado com base em um VHD na mesma ou em uma assinatura diferente
-              href: ../scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Criar um disco gerenciado com base em um instantâneo
-              href: ../scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Exportar um instantâneo como um VHD para uma conta de armazenamento
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Exportar o VHD de um disco gerenciado para uma conta de armazenamento
-              href: ../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Criar um instantâneo de um VHD
-              href: ../scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+              href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Copiar um instantâneo para a mesma ou para uma assinatura diferente
               href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Monitorar máquinas virtuais
@@ -189,7 +189,7 @@
         - name: Tamanhos de VM
           href: ../sizes.md
         - name: VM geração 2
-          href: generation-2.md
+          href: ../generation-2.md
         - name: Propósito geral
           items:
             - name: Visão geral
@@ -674,7 +674,7 @@
     - name: Gerenciar VMs
       items:
         - name: Uso de VM
-          href: vm-usage.md
+          href: ../vm-usage.md
         - name: Tarefas comuns de CLI
           href: cli-manage.md
         - name: Como alterar o tamanho da VM
