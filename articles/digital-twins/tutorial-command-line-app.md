@@ -1,5 +1,5 @@
 ---
-title: Explorar os conceitos básicos com um aplicativo cliente de exemplo
+title: 'Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo'
 titleSuffix: Azure Digital Twins
 description: Tutorial para explorar os SDKs dos Gêmeos Digitais do Azure usando um aplicativo de linha de comando de exemplo
 author: baanders
@@ -7,23 +7,24 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986264"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022506"
 ---
-# <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
+# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
 Este tutorial apresenta um aplicativo de exemplo que implementa um aplicativo cliente de linha de comando para interagir com uma instância dos Gêmeos Digitais do Azure. O aplicativo cliente é semelhante ao escrito no [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md).
 
 Você pode usar este exemplo para executar ações essenciais dos Gêmeos Digitais do Azure, como carregar modelos, criar e modificar gêmeos e criar relações. Você também pode examinar o código do exemplo para saber mais sobre as APIs dos Gêmeos Digitais do Azure, bem como praticar a implementação de seus próprios comandos modificando o projeto de exemplo como preferir.
 
 Neste tutorial, você vai...
-1. Configurar uma instância dos Gêmeos Digitais do Azure
-2. Configurar o aplicativo de linha de comando de exemplo para interagir com a instância
-3. Usar o aplicativo de linha de comando para explorar os Gêmeos Digitais do Azure, incluindo **modelos**, **gêmeos digitais**, **relações** e **consultas**
+> [!div class="checklist"]
+> * Configurar uma instância dos Gêmeos Digitais do Azure
+> * Configurar o aplicativo de linha de comando de exemplo para interagir com a instância
+> * Usar o aplicativo de linha de comando para explorar os Gêmeos Digitais do Azure, incluindo **modelos**, **gêmeos digitais**, **relações** e **consultas**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -288,24 +289,7 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 O projeto deste tutorial forma a base para o próximo tutorial, [*Tutorial: Conectar uma solução de ponta a ponta*](tutorial-end-to-end.md). Caso planeje prosseguir para o próximo tutorial, você pode manter os recursos configurados aqui para continuar usando essa instância dos Gêmeos Digitais do Azure e o aplicativo de exemplo configurado.
 * Nesse caso, você pode usar os comandos `DeleteAllTwins` e `DeleteAllModels` do aplicativo de exemplo para limpar os gêmeos e os modelos em sua instância, respectivamente. Isso lhe dará uma imagem fixa em branco para o próximo tutorial.
 
-Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los.
-
-Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Isso removerá o grupo de recursos e a instância dos Gêmeos Digitais do Azure.
-
-> [!IMPORTANT]
-> A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
-
-Abra um Azure Cloud Shell e execute o comando a seguir para excluir o grupo de recursos e tudo o que ele contém.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Em seguida, exclua o registro de aplicativo do Azure Active Directory criado para o aplicativo cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Por fim, exclua a pasta de exemplo do projeto que você baixou para o computador local.
 
@@ -314,12 +298,5 @@ Por fim, exclua a pasta de exemplo do projeto que você baixou para o computador
 Neste tutorial, você teve uma introdução aos Gêmeos Digitais do Azure, configurando uma instância e um aplicativo cliente para interagir com a instância. Você usou o aplicativo cliente para explorar os Gêmeos Digitais do Azure, criar modelos, gêmeos digitais e relações. Você também executou algumas consultas na solução para ter uma ideia de quais tipos de perguntas os Gêmeos Digitais do Azure podem responder sobre um ambiente.
 
 Continue para o próximo tutorial para usar o aplicativo de linha de comando de exemplo em combinação com outros serviços do Azure para concluir um cenário de ponta a ponta orientado por dados:
-
 > [!div class="nextstepaction"]
 > [*Tutorial: Conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)
-
-Ou comece a examinar a documentação de conceito para saber mais sobre os elementos com os quais você trabalhou no tutorial:
-* [*Conceitos: modelos personalizados*](concepts-models.md)
-
-Você também pode aprofundar-se com relação aos processos neste tutorial iniciando os artigos de instruções:
-* [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)

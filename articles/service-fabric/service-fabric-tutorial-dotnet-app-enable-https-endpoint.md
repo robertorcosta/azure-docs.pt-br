@@ -3,13 +3,13 @@ title: Adicionar um ponto de extremidade HTTPS usando o Kestrel
 description: Neste tutorial, você aprenderá a adicionar um ponto de extremidade HTTPS a um serviço Web de front-end do ASP.NET Core usando Kestrel e a implantar o aplicativo em um cluster.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: b9e1800d07d418ff385f2c5e7af112b170e3fd44
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 6b8587982a8cbe496427960495055adbd68a07a7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "82780191"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997278"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando o Kestrel
 
