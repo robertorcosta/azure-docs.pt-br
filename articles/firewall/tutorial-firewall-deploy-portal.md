@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536911"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069316"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -47,6 +47,8 @@ Neste tutorial, você aprenderá como:
 > * Testar o firewall
 
 Se preferir, você pode concluir este tutorial usando o [Azure PowerShell](deploy-ps.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -133,7 +135,7 @@ Implante o firewall na VNET.
    |Configuração  |Valor  |
    |---------|---------|
    |Subscription     |\<your subscription\>|
-   |Grupo de recursos     |**Test-FW-RG** |
+   |Resource group     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
    |Location     |Selecionar o mesmo local usado anteriormente|
    |Escolher uma rede virtual     |**Usar existente**: **Test-FW-VN**|

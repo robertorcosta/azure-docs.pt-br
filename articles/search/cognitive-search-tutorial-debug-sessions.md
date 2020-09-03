@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b6164ef955ac92a7ef8776e560ea4d3a92abaf8d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290670"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935969"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e confirmar alterações no conjunto de habilidades
 
@@ -39,7 +39,7 @@ Este tutorial usa o Azure Cognitive Search e os serviços de Armazenamento do Az
 
 * [Baixe dados de exemplo](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) compostos por 19 arquivos.
 
-* [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [localizar uma conta](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+* [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [localizar uma conta](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    Escolha a mesma região do Azure Cognitive Search para evitar preços de largura de banda.
    
@@ -258,5 +258,5 @@ Se você estiver usando um serviço gratuito, estará limitado a três índices,
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre os conjuntos de habilidades](https://docs.microsoft.com/azure/search/cognitive-search-working-with-skillsets)
-> [Saiba mais sobre o enriquecimento e o cache incrementais](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)
+> [Saiba mais sobre os conjuntos de habilidades](./cognitive-search-working-with-skillsets.md)
+> [Saiba mais sobre o enriquecimento e o cache incrementais](./cognitive-search-incremental-indexing-conceptual.md)
