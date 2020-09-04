@@ -138,7 +138,7 @@
           href: data-lake-store-power-bi.md
         - name: Usar com Catálogo de Dados
           href: data-lake-store-with-data-catalog.md
-        - name: Usar com o PolyBase no SQL Data Warehouse
+        - name: Usar com o PolyBase no Azure Synapse Analytics
           href: ../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md
         - name: Usar com o SQL Server Integration Services
           href: 'https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager'

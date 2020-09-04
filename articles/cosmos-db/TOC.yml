@@ -661,6 +661,14 @@
               href: cassandra-secondary-index.md
         - name: Guias de instruções
           items:
+            - name: Migrar para a API do Cassandra
+              items:
+                - name: Migrar – Oracle DB para API do Cassandra usando o Striim
+                  href: cosmosdb-cassandra-api-migrate-data-striim.md
+                - name: Migrar – Oracle DB para API do Cassandra usando o Blitzz
+                  href: oracle-migrate-cosmos-db-blitzz.md
+                - name: Migrar – Apache Cassandra para API do Cassandra usando o Blitzz
+                  href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Feed de alteração
               href: cassandra-change-feed.md
             - name: Armazenar e gerenciar dados do Spring
@@ -736,12 +744,9 @@
                       href: tutorial-develop-mongodb-nodejs-part6.md
                 - name: Aplicativo Node.js e React
                   href: tutorial-develop-mongodb-react.md
-            - name: 2 - Migrar dados
-              displayName: import
-              href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-            - name: 3 - Consultar dados
+            - name: 2 – Consultar dados
               href: tutorial-query-mongodb.md
-            - name: 4- Distribuir dados globalmente
+            - name: 3 – Distribuir dados globalmente
               href: tutorial-global-distribution-mongodb.md
         - name: Conceitos
           items:
@@ -753,10 +758,16 @@
               href: mongodb-api-faq.md
         - name: Guias de instruções
           items:
-            - name: Guia pré-migração
-              href: mongodb-pre-migration.md
-            - name: Guia pós-migração
-              href: mongodb-post-migration.md
+            - name: Migrar para a API do MongoDB
+              items:
+                - name: Guia pré-migração
+                  href: mongodb-pre-migration.md
+                - name: Serviço de Migração de Banco de Dados (online)
+                  href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+                - name: Serviço de Migração de Banco de Dados (offline)
+                  href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+                - name: Guia pós-migração
+                  href: mongodb-post-migration.md
             - name: Obtenha a cadeia de conexão
               href: connect-mongodb-account.md
             - name: Conectar usando Studio 3T
@@ -1235,12 +1246,6 @@
           href: cosmosdb-migrationchoices.md
         - name: Migrar para a API do SQL usando o Striim
           href: cosmosdb-sql-api-migrate-data-striim.md
-        - name: Migrar para a API do Cassandra usando o Striim
-          href: cosmosdb-cassandra-api-migrate-data-striim.md
-        - name: Migrar – Oracle DB para API do Cassandra usando o Blitzz
-          href: oracle-migrate-cosmos-db-blitzz.md
-        - name: Migrar – Apache Cassandra para API do Cassandra usando o Blitzz
-          href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Migrar centenas de terabytes de dados para o Azure Cosmos DB
           href: migrate-cosmosdb-data.md
         - name: Migrar dados relacionais de um para poucos

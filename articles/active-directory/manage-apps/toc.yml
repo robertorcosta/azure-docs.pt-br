@@ -39,6 +39,10 @@
       href: application-management-fundamentals.md
     - name: Cenários comuns de gerenciamento de aplicativos
       href: common-scenarios.md
+    - name: Como exibir aplicativos no seu locatário
+      href: application-types.md
+    - name: Como atribuir usuários a aplicativos
+      href: ways-users-get-assigned-to-applications.md
     - name: Como planejar uma integração de aplicativos de nuvem
       items:
         - name: Introdução à integração de aplicativos
@@ -114,7 +118,7 @@
           href: grant-admin-consent.md
         - name: Configurar o fluxo de trabalho de consentimento do administrador (versão prévia)
           href: configure-admin-consent-workflow.md
-        - name: Atribuir um usuário ou um grupo a um aplicativo
+        - name: Gerenciar a atribuição de usuário para um aplicativo
           href: assign-user-or-group-access-portal.md
         - name: Examinar permissões concedidas a aplicativos
           href: manage-application-permissions.md
@@ -124,8 +128,6 @@
           href: access-panel-manage-self-service-access.md
         - name: Métodos para remover o acesso de um usuário a um aplicativo
           href: methods-for-removing-user-access.md
-        - name: Remover o acesso de usuário ou grupo
-          href: remove-user-or-group-access-portal.md
         - name: Ocultar o aplicativo de um usuário
           href: hide-application-from-user-portal.md
         - name: Desabilitar a entrada de usuário
@@ -203,11 +205,7 @@
     - name: Solucionar problemas
       items:
         - name: Solucionar problemas de adição de aplicativos
-          items:
-            - name: Problemas comuns - aplicativos da galeria
-              href: adding-gallery-app-common-problems.md
-            - name: Problemas comuns - aplicativos inexistentes na galeria
-              href: adding-non-gallery-app-common-problems.md
+          href: troubleshoot-adding-apps.md
         - name: Solucionar problemas de entrada de usuário
           items:
             - name: Solicitação de consentimento inesperada
@@ -234,12 +232,6 @@
               href: configure-federated-single-sign-on-gallery-applications-problems.md
             - name: Problemas comuns ao configurar federados - aplicativos inexistentes na galeria
               href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Solucionar problemas de atribuição e de lista de aplicativos
-          items:
-            - name: Gerenciar a lista de aplicativos para seu locatário
-              href: application-types.md
-            - name: Usuário inesperado atribuído
-              href: ways-users-get-assigned-to-applications.md
         - name: Solucionar problemas de aplicativos locais
           items:
             - name: Solução de problemas de Proxy de Aplicativo
