@@ -93,6 +93,9 @@
     - name: Avaliar o impacto de uma nova política
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Políticas recomendadas
+      displayName: 'VMs, virtual machines'
+      href: ./concepts/recommended-policies.md
     - name: Conformidade normativa
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
