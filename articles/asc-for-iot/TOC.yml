@@ -94,6 +94,6 @@
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 'Blog Segurança, Privacidade e Conformidade do Azure'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'

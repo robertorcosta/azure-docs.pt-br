@@ -109,8 +109,6 @@
           href: credential-access-key-vault.md
         - name: Usando certificados com o Lote
           href: batch-certificates.md
-    - name: Como usar pacotes de aplicativos
-      href: batch-application-packages.md
     - name: Copiar arquivos e aplicativos para nós de pool
       items:
         - name: Copiar aplicativos e dados para nós de pool

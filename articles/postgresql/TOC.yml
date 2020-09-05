@@ -117,6 +117,9 @@
               href: concepts-data-encryption-postgresql.md
             - name: Criptografia dupla de infraestrutura
               href: concepts-infrastructure-double-encryption.md
+            - name: Controles de segurança do Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
             - name: Linha de base de segurança para o Azure Security Benchmark
               href: security-baseline.md
         - name: Continuidade de negócios
