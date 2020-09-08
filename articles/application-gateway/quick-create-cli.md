@@ -1,20 +1,20 @@
 ---
 title: 'Início Rápido: Direcionar o tráfego da Web usando a CLI'
 titleSuffix: Azure Application Gateway
-description: Saiba como usar a CLI do Azure para criar um Gateway de Aplicativo do Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
+description: Neste guia de início rápido, você aprenderá a usar a CLI do Azure para criar um Gateway de Aplicativo do Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: d79f51e32fa62527140ccf19cfc3573339d22fab
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499119"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961730"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – CLI do Azure
 
@@ -24,12 +24,14 @@ O gateway de aplicativo direciona o tráfego da Web do aplicativo para recursos 
 
 Conclua também este início rápido usando o [Azure PowerShell](quick-create-powershell.md) ou o [portal do Azure](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [CLI do Azure versão 2.0.4 ou posterior](/cli/azure/install-azure-cli) (se você executar a CLI do Azure localmente).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 

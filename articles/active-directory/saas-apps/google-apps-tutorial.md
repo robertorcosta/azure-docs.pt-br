@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ff34b967e2ba42c01c904b8854ecfa04c394e17
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551508"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017491"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Google Cloud (G Suite) Connector
 
@@ -225,15 +225,18 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
     b. No campo **URL da página de entrada** no Google Cloud (G Suite) Connector, cole o valor da **URL de logon** que você copiou do portal do Azure.
 
-    c. No campo **URL da página de logoff** no Google Cloud (G Suite) Connector, cole o valor da **URL de logoff** que você copiou do portal do Azure.
+    c. No campo **URL da página de saída** no Google Cloud (G Suite) Connector, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
-    d. No campo **URL de Alteração de Senha** do Google Cloud (G Suite) Connector, cole o valor de **URL de alteração de senha** copiado do portal do Azure.
+    > [!NOTE]
+    > O Google Cloud (G Suite) é baseado no protocolo de Logoff do SAML. Portanto, no campo **URL da página de saída**, precisamos usar a URL de Logoff do SAML, ou seja, a URL de logon como o valor para o mesmo.
 
-    e. No Google Cloud (G Suite) Connector, para o **Certificado de verificação**, carregue o certificado baixado no portal do Azure.
+    d. No Google Cloud (G Suite) Connector, para o **Certificado de verificação**, carregue o certificado baixado no portal do Azure.   
 
-    f. Marque/desmarque a opção **Usar um emissor específico a um domínio** de acordo com a observação mencionada na seção **Configuração Básica do SAML** anterior no Azure AD.
+    e. Marque/desmarque a opção **Usar um emissor específico a um domínio** de acordo com a observação mencionada na seção **Configuração Básica do SAML** anterior no Azure AD.
 
-    g. Clique em **Salvar Alterações**.
+    f. No campo **URL de Alteração de Senha** do Google Cloud (G Suite) Connector, cole o valor de **URL de alteração de senha** copiado do portal do Azure.
+
+    g. Clique em **Save** (Salvar).
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Criar usuário de teste do Google Cloud (G Suite) Connector
 

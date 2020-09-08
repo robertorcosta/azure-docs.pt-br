@@ -10,16 +10,17 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b61ba7f160d012cc3d9ad9f477e969a626fdc38e
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541412"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378008"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
-A melhor maneira de se autenticar nos serviços do Azure é usando uma [identidade gerenciada](../general/managed-identity.md), mas há alguns cenários em que essa não é uma opção. Nesses casos, são usadas chaves de acesso ou segredos. Você deve realizar periodicamente a rotação de chaves de acesso ou segredos.
+A melhor maneira de se autenticar nos serviços do Azure é usando uma [identidade gerenciada](../general/authentication.md), mas há alguns cenários em que essa não é uma opção. Nesses casos, são usadas chaves de acesso ou segredos. Você deve realizar periodicamente a rotação de chaves de acesso ou segredos.
 
 Este tutorial mostra como automatizar a rotação periódica de segredos para bancos de dados e serviços que usam um conjunto de credenciais de autenticação. Especificamente, este tutorial realiza a rotação das senhas do SQL Server armazenadas no Azure Key Vault usando uma função disparada pela notificação da Grade de Eventos do Azure:
 
@@ -112,7 +113,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.Web/sites
 akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/components
 ```
 
-Para obter informações sobre como criar um aplicativo de funções e usar a identidade gerenciada para acessar o Key Vault, confira [Criar um aplicativo de funções no portal do Azure](../../azure-functions/functions-create-function-app-portal.md) e [Fornecer autenticação de Key Vault com uma identidade gerenciada](../general/managed-identity.md).
+Para obter informações sobre como criar um aplicativo de funções e usar a identidade gerenciada para acessar o Key Vault, confira [Criar um aplicativo de funções no portal do Azure](/azure/azure-functions/functions-create-function-app-portal), [Como usar identidades gerenciadas para o Serviço de Aplicativo e o Azure Functions](/azure/app-service/overview-managed-identity) e [Atribuir uma política de acesso do Key Vault usando o portal do Azure](../general/assign-access-policy-portal.md).
 
 ### <a name="rotation-function"></a>Função de rotação
 A função implantada na etapa anterior usa um evento para disparar a rotação de um segredo atualizando o Key Vault e o Banco de Dados SQL. 

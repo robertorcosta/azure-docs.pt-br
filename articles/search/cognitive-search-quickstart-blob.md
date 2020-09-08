@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8fba7245475c9873a3e2d3abeda4806d1376e7ca
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488946"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300027"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de habilidades cognitivas da Pesquisa Cognitiva do Azure no portal do Azure
 
@@ -29,7 +29,7 @@ Antes de começar, você deverá ter o seguinte:
 
 + Um serviço do Azure Cognitive Search. [Crie um serviço](search-create-service-portal.md) ou [localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na assinatura atual. É possível usar um serviço gratuito para este início rápido. 
 
-+ Uma conta de Armazenamento do Azure com o [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/).
++ Uma conta de Armazenamento do Azure com o [Armazenamento de blobs](../storage/blobs/index.yml).
 
 > [!NOTE]
 > Este guia de início rápido também usa os [Serviços Cognitivos do Azure](https://azure.microsoft.com/services/cognitive-services/) para a IA. Como a carga de trabalho é muito pequena, os Serviços Cognitivos são acionados nos bastidores para fornecer processamento gratuito para até 20 transações. Isso significa que você pode concluir este exercício sem precisar criar um recurso adicional dos Serviços Cognitivos.
@@ -40,7 +40,7 @@ Nas etapas a seguir, configure um contêiner de blobs no Armazenamento do Azure 
 
 1. [Fazer o download de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste em um conjunto de pequenos arquivos de tipos diferentes. Descompacte os arquivos.
 
-1. [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [localizar uma conta](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou [localizar uma conta](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Escolha a mesma região do Azure Cognitive Search para evitar preços de largura de banda. 
 
@@ -76,7 +76,7 @@ Em seguida, configure o enriquecimento de IA para invocar o OCR, a análise de i
 
 1. Para este início rápido, estamos usando o recurso **gratuito** dos Serviços Cognitivos. Os dados de exemplo consistem em 14 arquivos e, portanto, a alocação gratuita de 20 transações nos Serviços Cognitivos é suficiente para este início rápido. 
 
-   ![Anexar Serviços Cognitivos](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Anexar Serviços Cognitivos, anexar serviço base](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 1. Expanda **Adicionar enriquecimentos** e faça quatro seleções. 
 
@@ -86,7 +86,7 @@ Em seguida, configure o enriquecimento de IA para invocar o OCR, a análise de i
 
    Escolha reconhecimento de entidade (pessoas, organizações, localizações) e habilidades de análise de imagem.
 
-   ![Anexar Serviços Cognitivos](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Anexar Serviços Cognitivos, selecionar serviços para o conjunto de habilidades](media/cognitive-search-quickstart-blob/skillset.png)
 
    Continue para a próxima página.
 
@@ -169,7 +169,7 @@ Outro conceito importante é que as habilidades operam sobre tipos de conteúdo 
 
 A saída é direcionada para um índice de pesquisa e há um mapeamento entre pares nome-valor criados durante a indexação e campos individuais no índice. Internamente, o portal configura [anotações](cognitive-search-concept-annotations-syntax.md) e define uma [conjunto de qualificações](cognitive-search-defining-skillset.md), estabelecendo a ordem das operações e o fluxo geral. Essas etapas estão ocultos no portal, mas quando você começar a escrever código, esses conceitos tornam-se importantes.
 
-Por fim, você aprendeu que pode verificar o conteúdo consultando o índice. No final, o que a Pesquisa Cognitiva do Azure fornece é um índice pesquisável, que pode ser consultado usando a [sintaxe de consulta totalmente estendida](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ou [simples](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Um índice que contém campos enriquecidos é como qualquer outro. Se quiser incorporar [analisadores personalizados](search-analyzers.md) ou padrão, [perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [sinônimos](search-synonyms.md), [filtros facetados](search-filters-facets.md), pesquisa geográfica ou qualquer outro recurso da Pesquisa Cognitiva do Azure, você certamente poderá fazê-lo.
+Por fim, você aprendeu que pode verificar o conteúdo consultando o índice. No final, o que a Pesquisa Cognitiva do Azure fornece é um índice pesquisável, que pode ser consultado usando a [sintaxe de consulta totalmente estendida](/rest/api/searchservice/simple-query-syntax-in-azure-search) ou [simples](/rest/api/searchservice/lucene-query-syntax-in-azure-search). Um índice que contém campos enriquecidos é como qualquer outro. Se quiser incorporar [analisadores personalizados](search-analyzers.md) ou padrão, [perfis de pontuação](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [sinônimos](search-synonyms.md), [filtros facetados](search-filters-facets.md), pesquisa geográfica ou qualquer outro recurso da Pesquisa Cognitiva do Azure, você certamente poderá fazê-lo.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

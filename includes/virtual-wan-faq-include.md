@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604679"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304051"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O usuário precisa ter hub e spoke com dispositivos SD-WAN/VPN para usar a WAN virtual do Azure?
 
@@ -249,9 +249,12 @@ Quando um circuito do ExpressRoute é conectado ao hub virtual, os roteadores de
 
 O comportamento atual é dar preferência ao caminho do circuito do ExpressRoute em vez da conectividade hub a hub ou VNet a VNet. No entanto, isso não é incentivado em uma configuração de WAN virtual. A equipe da WAN Virtual está trabalhando em uma correção para permitir a preferência de hub a hub em vez do caminho do ExpressRoute. A recomendação é para que vários circuitos do ExpressRoute (provedores diferentes) se conectem a um hub e usem a conectividade hub a hub fornecida pela WAN Virtual para fluxos de tráfego inter-regional.
 
+### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>Os hubs podem ser criados em diferentes grupos de recursos na WAN Virtual?
+Sim. Atualmente, essa opção só está disponível por meio do PowerShell. O portal da WAN Virtual exige que os hubs estejam no mesmo grupo de recursos do recurso da WAN Virtual propriamente dito.
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Há suporte para IPv6 na WAN Virtual?
 
-O IPv6 não é compatível com o hub da WAN Virtual e seus gateways. Se você tem uma VNet compatível com IPv6 e deseja conectar a VNet à WAN Virtual, esse cenário não tem suporte atualmente.
+O IPv6 não é compatível com o hub da WAN Virtual e seus gateways. Se você tem uma VNet compatível com IPv4 e IPv6 e deseja conectá-la à WAN Virtual, atualmente, não há suporte para esse cenário. 
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Qual é a versão de API recomendada a ser usada por scripts que automatizam várias funcionalidades da WAN Virtual?
 

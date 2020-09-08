@@ -52,6 +52,8 @@
           href: users-sharing-accounts.md
         - name: Atribuir usuários a funções de administrador
           href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+        - name: Aprimoramentos de gerenciamento de usuários
+          href: users-search-enhanced.md
         - name: Exclusão de usuários em massa
           href: users-bulk-delete.md
         - name: Restaurar um usuário excluído

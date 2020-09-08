@@ -36,12 +36,6 @@
       href: concepts-security.md
 - name: Guias de instruções
   items:
-    - name: Desenvolver
-      items:
-        - name: Usar as APIs e os SDKs
-          href: how-to-use-apis-sdks.md
-        - name: Criar SDKs personalizados com o AutoRest
-          href: how-to-create-custom-sdks.md
     - name: Implantar
       items:
         - name: Usar a CLI dos Gêmeos Digitais do Azure
@@ -78,6 +72,14 @@
           href: how-to-create-azure-function.md
         - name: Consultar o grafo de gêmeos
           href: how-to-query-graph.md
+    - name: Desenvolver aplicativos clientes
+      items:
+        - name: Usar as APIs e os SDKs
+          href: how-to-use-apis-sdks.md
+        - name: Criar SDKs personalizados com o AutoRest
+          href: how-to-create-custom-sdks.md
+        - name: Integração com o Serviço do Azure SignalR
+          href: how-to-integrate-azure-signalr.md
     - name: Conectar entrada
       items:
         - name: Ingerir telemetria do Hub IoT
@@ -188,6 +190,8 @@
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/'
         - name: Swaggers personalizados dos Gêmeos Digitais do Azure
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/'
+        - name: Exemplo de integração do SignalR
+          href: 'https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/'
     - name: Ferramentas do Azure
       items:
         - name: Azure Cloud Shell

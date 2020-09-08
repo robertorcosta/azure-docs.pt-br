@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: bb75405a1cd1e282023936673aa73be25556e0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c42009f5e02180dc5e4c5e3e4b43f00277d7bf58
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529345"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177813"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -63,39 +63,36 @@ A Central de Segurança do Azure permite que você fortaleça sua postura de seg
 
 É um fundamento de segurança conhecer e verificar se suas cargas de trabalho estão seguras e isso começa com estabelecer políticas de segurança sob medida. Como todas as políticas na Central de Segurança são criadas sobre controles do Azure Policy, você está obtendo a toda a gama e a flexibilidade de uma **solução de política de alto nível**. Na Central de Segurança, você pode definir suas políticas a serem executadas nos grupos de gerenciamento, entre assinaturas e até mesmo para um locatário inteiro.
 
-![Painel da Central de Segurança](media/security-center-intro/sc-dashboard.png)
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Página Gerenciamento de políticas":::
 
 A Central de Segurança o ajuda a **identificar as assinaturas de TI sombra**. Examinando as assinaturas rotuladas como **não cobertas** no seu painel, você pode saber imediatamente quando há assinaturas criadas recentemente e garantir que elas sejam cobertas pelas suas políticas e protegidas pela Central de Segurança do Azure.
 
-![Painel de política da Central de Segurança](media/security-center-intro/sc-policy-dashboard.png)
-
-Os recursos avançados de monitoramento na Central de Segurança também permitem que você **acompanhe e gerencie a conformidade e a governança ao longo do tempo**. A **conformidade geral** fornece uma medida de quanto das suas assinaturas estão em conformidade com as políticas associadas à sua carga de trabalho. 
-
-![Política da Central de Segurança ao longo do tempo](media/security-center-intro/sc-policy-time.png)
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Painel de política da Central de Segurança":::
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
 A Central de Segurança descobre novos recursos que estão sendo implantados em suas cargas de trabalho e avalia se estão configurados de acordo com as práticas recomendadas de segurança, caso contrário, são sinalizados e você obtém uma lista priorizada de recomendações do que você precisará consertar continuamente para de proteger seus computadores.
 
+Para ajudar você a entender a importância de cada recomendação para sua postura de segurança geral, a Central de Segurança agrupa as recomendações em controles de segurança e adiciona um valor de **classificação de segurança** a cada controle. Isso é fundamental para permitir que você **priorize seu trabalho de segurança**.
+
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Classificação de segurança da Central de Segurança":::
+
+### <a name="network-map"></a>Mapa de rede
+
 Uma das ferramentas mais avançadas que a Central de Segurança oferece para monitoramento contínuo do status de segurança da sua rede é o **Mapa de rede**. O mapa permite que você veja a topologia de suas cargas de trabalho para que você possa ver se cada nó está configurado corretamente. Você pode ver como os nós estão conectados, o que ajuda a bloquear conexões indesejadas que poderiam potencialmente tornar mais fácil para um invasor entrar na sua rede.
 
-![Mapa de rede da Central de Segurança](media/security-center-intro/sc-net-map.png)
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa de rede da Central de Segurança":::
 
-A Central de Segurança facilita a redução de seus alertas de segurança uma etapa adicionando uma **classificação de segurança**. As classificações de segurança agora são associadas a cada recomendação que você recebe para ajudá-lo a entender a importância de cada recomendação para sua postura de segurança geral. Isso é fundamental para permitir que você **priorize seu trabalho de segurança**.
-
-![Classificação de Segurança da Central de Segurança](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimizar e melhorar a segurança configurando controles recomendados
 
 O cerne do valor da Central de Segurança do Azure está em suas recomendações. As recomendações são personalizadas conforme as preocupações de segurança específicas encontradas em suas cargas de trabalho e a Central de Segurança faz o trabalho de administração de segurança para você, não apenas encontrando suas vulnerabilidades, como fornecendo instruções específicas sobre como eliminá-las.
 
-![Recomendações da Central de Segurança](media/security-center-intro/sc-recommendations.png)
-
 Dessa forma, a Central de Segurança permite que você não apenas defina políticas de segurança, como aplique padrões de configuração segura em todos os seus recursos.
 
 As recomendações ajudam a reduzir a superfície de ataque em cada um de seus recursos. Isso inclui máquinas virtuais do Azure, servidores não Azure e serviços de PaaS do Azure, como SQL e contas de Armazenamento e mais – em que cada tipo de recurso é avaliado de maneira diferente e tem seus próprios padrões.
 
-![Exemplo de recomendação da Central de Segurança](media/security-center-intro/sc-recommendation-example.png)
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemplo de recomendação da Central de Segurança":::
 
 ## <a name="protect-against-threats"></a>Proteção contra ameaças
 
@@ -103,9 +100,7 @@ A proteção contra ameaças da Central de Segurança permite que você detecte 
 
 A proteção contra ameaças da Central de Segurança inclui análise de cadeia de eliminação de fusão, que correlaciona automaticamente alertas em seu ambiente com base na análise de cadeia de eliminação de cibernéticos para ajudá-lo a entender melhor a história completa de uma campanha de ataque, o ponto de partida e que tipo de impacto causou aos seus recursos.
 
-
-
-![Recomendação de ataque da Central de Segurança](media/security-center-intro/sc-attack-recommendation.png)
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de segurança":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integração à proteção avançada contra ameaças do Microsoft Defender
 
@@ -120,8 +115,6 @@ A Central de Segurança ajuda a detectar ameaças em todos os serviços de PaaS 
 ### <a name="block-brute-force-attacks"></a>Bloquear ataques de força bruta
 
 A Central de Segurança ajuda a limitar a exposição a ataques de força bruta. Ao reduzir o acesso às portas de máquina virtual, usando o acesso de VM Just-In-Time, você pode proteger sua rede, impedindo acesso desnecessário. Você pode definir políticas de acesso seguro em portas selecionadas somente para usuários autorizados, endereços IP ou intervalos de endereços IP de origem permitida por um tempo limitado.
-
-![Força bruta da Central de Segurança](media/security-center-intro/sc-brute-force.png)
 
 ### <a name="protect-data-services"></a>Proteger serviços de dados
 

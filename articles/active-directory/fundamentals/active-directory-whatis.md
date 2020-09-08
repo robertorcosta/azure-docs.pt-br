@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91e89f274615e75fec818ec9e3ecf785aa6e804f
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: db14e4e47cce1822404561d33bd8e0d3f224e037
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262951"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321099"
 ---
 # <a name="what-is-azure-active-directory"></a>O que é o Active Directory do Azure?
 
@@ -26,7 +26,7 @@ O Azure AD (Active Directory) é o serviço de gerenciamento de identidade e de 
 
 - Recursos internos, como aplicativos em sua rede corporativa e intranet, juntamente com outros aplicativos de nuvem desenvolvidos por sua organização. Para obter mais informações sobre como criar um locatário para sua organização, confira [Início Rápido: Criar um locatário no Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Para saber a diferença entre o Azure AD e o Active Directory Domain Services, confira [Comparar o Active Directory com o Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Você também pode usar os vários cartazes da [Série Microsoft Cloud for Enterprise Architects](https://docs.microsoft.com/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os principais serviços de identidade no Azure, no Azure AD e no Office 365.
+Para saber a diferença entre o Azure AD e o Active Directory Domain Services, confira [Comparar o Active Directory com o Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). Você também pode usar os vários cartazes da [Série Microsoft Cloud for Enterprise Architects](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) para entender melhor os principais serviços de identidade no Azure, no Azure AD e no Office 365.
 
 ## <a name="who-uses-azure-ad"></a>Quem usa o Azure AD?
 
@@ -68,7 +68,7 @@ Depois de escolher sua licença do Azure AD, você obterá acesso a alguns ou a 
 |Gerenciamento de aplicativos|Gerencie seus aplicativos de nuvem e locais usando o Proxy de Aplicativo, o logon único, o portal Meus aplicativos (também conhecido como Painel de acesso) e aplicativos SaaS (software como serviço). Para saber mais, confira [Como fornecer acesso remoto seguro a aplicativos locais](../manage-apps/application-proxy.md) e a [Documentação sobre gerenciamento de aplicativo](../manage-apps/index.yml).|
 |Autenticação|Gerencie a redefinição de senha por autoatendimento do Azure Active Directory, a Autenticação Multifator, a lista personalizada de senhas banidas e o bloqueio inteligente. Para saber mais, confira a [Documentação sobre a autenticação do Azure AD](../authentication/index.yml).|
 |Azure Active Directory para desenvolvedores|Crie aplicativos que aceitam todas as identidades da Microsoft, obtenha tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou APIs personalizadas. Para saber mais, confira a [Plataforma de identidade da Microsoft (Azure Active Directory para desenvolvedores)](../develop/index.yml).|
-|B2B (Entre empresas)|Gerencie usuários convidados e parceiros externos enquanto mantém o controle sobre seus próprios dados corporativos. Para saber mais, confira a [Documentação sobre o Azure Active Directory B2B](../b2b/index.yml).|
+|B2B (Entre empresas)|Gerencie usuários convidados e parceiros externos enquanto mantém o controle sobre seus próprios dados corporativos. Para saber mais, confira a [Documentação sobre o Azure Active Directory B2B](../external-identities/index.yml).|
 |B2C (Entre empresa e consumidor)|Personalize e controle como os usuários se inscrevem, entram e gerenciam seus perfis ao usar os aplicativos. Para saber mais, confira a [Documentação sobre o Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Acesso Condicional|Gerencie o acesso a seus aplicativos de nuvem. Para saber mais, confira a [Documentação sobre Acesso condicional do Azure AD](../conditional-access/index.yml).|
 |Gerenciamento de dispositivo|Gerencie como os dispositivos de nuvem ou locais acessam seus dados corporativos. Para saber mais, confira a [Documentação sobre gerenciamento de dispositivo do Azure AD](../devices/index.yml).|
@@ -92,7 +92,7 @@ Para entender melhor o Azure AD e sua documentação, recomendamos ler os termos
 |Conta do AD do Azure| Uma identidade criada no Azure AD ou por outro serviço de nuvem da Microsoft, como o Office 365. As identidades são armazenadas no Azure AD e podem ser acessadas pelas assinaturas do serviço de nuvem da organização. Às vezes, essa conta é chamada de conta corporativa ou de estudante.|
 |Administrador de conta|Essa função clássica de administrador de assinatura é, conceitualmente, o proprietário para cobrança de uma assinatura. Essa função tem acesso ao [Centro de Contas do Azure](https://account.azure.com/Subscriptions) e permite que você gerencie todas as assinaturas em uma conta. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador de serviços|Essa função clássica de administrador de assinatura permite que você gerencie todos os recursos do Azure, incluindo o acesso. Essa função tem o acesso equivalente ao de um usuário que recebe a função de Proprietário no escopo da assinatura. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Proprietário|Essa função ajuda você a gerenciar todos os recursos do Azure, incluindo o acesso. Essa função está inserida em um sistema de autorização mais recente, chamado de RBAC (controle de acesso baseado em função), que fornece gerenciamento de acesso refinado aos recursos do Azure. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Proprietário|Essa função ajuda você a gerenciar todos os recursos do Azure, incluindo o acesso. Essa função está inserida em um sistema de autorização mais recente chamado de RBAC (controle de acesso baseado em função) do Azure, que fornece gerenciamento de acesso refinado aos recursos do Azure. Para obter mais informações, confira [Funções clássicas de administrador da assinatura, funções do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrador Global do Azure AD|Essa função de administrador é automaticamente atribuída a quem criou o locatário do Azure AD. Os Administradores globais podem executar todas as funções administrativas do Azure AD e de todos serviços federados ao Azure AD, como o Exchange Online, o SharePoint Online e o Skype for Business Online. Você pode ter vários administradores globais, mas somente os administradores globais podem atribuir funções de administrador (incluindo a atribuição de outros administradores globais) aos usuários. Observe que essa função Administrador é chamada de Administrador global no portal do Azure, mas é chamada de **Administrador da empresa** na API do Microsoft Graph e no Azure AD PowerShell. Para obter mais informações sobre as várias funções Administrador, confira [Permissões de função Administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Assinatura do Azure| Usada para pagar pelos serviços de nuvem do Azure. Você pode ter várias assinaturas, e elas estarão vinculadas a um cartão de crédito.|
 |Locatário do Azure| Uma instância dedicada e confiável do Azure AD criada automaticamente quando sua organização se inscreve em uma assinatura do serviço de nuvem da Microsoft, como do Microsoft Azure, do Microsoft Intune ou do Office 365. Um locatário do Azure representa uma única organização.|

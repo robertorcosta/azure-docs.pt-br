@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 7dd81afb3189055c194b8a94b4bcbdf48f85d6f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658324"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269634"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Início Rápido: Compartilhar dados usando o Azure Data Share no portal do Azure
 
@@ -47,7 +47,7 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
 1. Depois que a implantação estiver concluída, selecione **Ir para o recurso**.
 
-## <a name="create-a-data-share"></a>Criar um Data Share
+## <a name="create-a-share"></a>Criar um compartilhamento
 
 1. Navegue até sua página de Visão Geral do Data Share.
 
@@ -57,15 +57,15 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
 1. Selecione **Criar**.
 
-1. Preencha os detalhes para seu Data Share. Especifique um nome, um tipo de compartilhamento, uma descrição do conteúdo de compartilhamento e os termos de uso (opcional). 
+1. Preencha os detalhes do seu compartilhamento. Especifique um nome, um tipo de compartilhamento, uma descrição do conteúdo de compartilhamento e os termos de uso (opcional). 
 
    ![EnterShareDetails](./media/enter-share-details.png "Inserir detalhes do Compartilhamento") 
 
 1. Selecione **Continuar**.
 
-1. Para adicionar Conjuntos de Dados a seu Data Share, selecione **Adicionar Conjuntos de Dados**. 
+1. Para adicionar conjuntos de dados ao compartilhamento, selecione **Adicionar Conjuntos de Dados**. 
 
-   ![Conjunto de dados](./media/datasets.png "Conjunto de dados")
+   ![Adicionar conjuntos de dados ao compartilhamento](./media/datasets.png "Conjunto de dados")
 
 1. Selecione o tipo de conjunto de dados que você deseja adicionar. Você verá uma lista diferente de tipos de conjuntos de dados, dependendo do tipo de compartilhamento (instantâneo ou in-loco) que você selecionou na etapa anterior. Se estiver compartilhando de um Banco de Dados SQL do Azure ou de um SQL Data Warehouse do Azure, você será solicitado a fornecer algumas credenciais do SQL. Autentique usando o usuário criado como parte dos pré-requisitos.
 

@@ -1,20 +1,20 @@
 ---
 title: 'Início Rápido: Direcionar o tráfego da Web usando o PowerShell'
 titleSuffix: Azure Application Gateway
-description: Saiba como usar o Azure PowerShell para criar um Gateway de Aplicativo do Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
+description: Neste guia de início rápido, você aprenderá como usar o Azure PowerShell para criar um Gateway de Aplicativo do Azure que direciona o tráfego da Web para máquinas virtuais em um pool de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3e1ca14d967b0e88ea7eb559fd9962a3824ff9b0
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 115f01bffc4664798682923cb83a99a23a8ce274
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81406219"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958305"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure usando o Azure PowerShell
 
@@ -24,14 +24,14 @@ O gateway de aplicativo direciona o tráfego da Web do aplicativo para recursos 
 
 Conclua também este início rápido usando a [CLI do Azure](quick-create-cli.md) ou o [portal do Azure](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure PowerShell versão 1.0.0 ou posterior](/powershell/azure/install-az-ps) (se você executar o Azure PowerShell localmente).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-azure"></a>Conectar-se ao Azure
 

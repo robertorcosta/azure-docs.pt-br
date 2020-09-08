@@ -3,13 +3,13 @@ title: 'Tutorial: Vários backups de VM do Azure com o PowerShell'
 description: Este tutorial oferece detalhes de como fazer backups de várias VMs do Azure para um cofre dos Serviços de Recuperação usando o Microsoft Azure PowerShell.
 ms.topic: tutorial
 ms.date: 03/05/2019
-ms.custom: mvc
-ms.openlocfilehash: a0f6bd2bebb0961388d4f81663167d9e579958a2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513193"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181724"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer backup de VMs do Azure com o PowerShell
 
@@ -58,7 +58,7 @@ Crie um cofre conforme a seguir:
     New-AzRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
     ```
 
-2. Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, pode ser útil armazenar o objeto do cofre dos Serviços de Recuperação de backup em uma variável.
+2. Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, é conveniente armazenar o objeto de backup do cofre dos Serviços de Recuperação em uma variável.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault –Name myRSVault

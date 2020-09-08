@@ -3,16 +3,17 @@ title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/07/2020
+ms.date: 09/02/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
-ms.openlocfilehash: 8663fc3f016fadcd4f4c99acd800cd0ccf8844f8
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.custom: references_regions
+ms.openlocfilehash: d698470f450f6fe903ab68334764e0918d659d7f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003537"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319807"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -24,6 +25,31 @@ A Área de Trabalho Virtual do Windows é atualizada regularmente. Neste artigo,
 - Correções de bug
 
 Este artigo é atualizado mensalmente. Volte a consultá-lo com frequência para acompanhar as atualizações.
+
+## <a name="august-2020"></a>Agosto de 2020
+
+Estas foram as alterações de agosto de 2020:
+
+- Aprimoramos o desempenho para reduzir a latência de conexão nas seguintes regiões do Azure: 
+
+    - Reino Unido
+    - França
+    - Noruega
+    - Coreia do Sul
+
+   Você pode usar o [avaliador de experiência](https://azure.microsoft.com/services/virtual-desktop/assessment/) para ter uma ideia geral de como essas alterações afetarão os usuários.
+
+- O Cliente de Área de Trabalho Remota da Microsoft Store (v10.2.1522 e posterior) já está em disponibilidade geral. Esta versão do Cliente de Área de Trabalho Remota da Microsoft Store é compatível com a Área de Trabalho Virtual do Windows. Também introduzimos fluxos de interface do usuário atualizados para proporcionar experiências aprimoradas para os usuários. Essa atualização inclui os modos de Fluent Design, claro e escuro e muitas outras alterações interessantes. Também reescrevemos o cliente para que ele use o mesmo mecanismo subjacente do protocolo RDP dos clientes iOS, macOS e Android. Isso nos permite fornecer novos recursos com maior velocidade em todas as plataformas. [Baixe o cliente](https://www.microsoft.com/p/microsoft-remote-desktop/9wzdncrfj3ps?rtc=1&activetab=pivot:overviewtab) e experimente-o.
+
+- Corrigimos um problema no cliente do Teams Desktop (versão 1.3.00.21759) em que o cliente só mostrava o fuso horário UTC no chat, nos canais e no calendário. O cliente atualizado agora mostra o fuso horário da sessão remota.
+
+- O Assistente do Azure agora faz parte da Área de Trabalho Virtual do Windows. Ao acessar a Área de Trabalho Virtual do Windows por meio do portal do Azure, você poderá ver recomendações para otimizar o ambiente da Área de Trabalho Virtual do Windows. Saiba mais em [Assistente do Azure](azure-advisor.md).
+
+- A CLI do Azure agora dá suporte à Área de Trabalho Virtual do Windows (`az desktopvirtualization`) para ajudar você a automatizar suas implantações da Área de Trabalho Virtual do Windows. Confira [desktopvirtualization](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) para obter uma lista de comandos de extensão.
+
+- Atualizamos nossos modelos de implantação para torná-los totalmente compatíveis com as interfaces do Azure Resource Manager na Área de Trabalho Virtual do Windows. Encontre os modelos no [GitHub](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates).
+
+- O portal de US Gov da Área de Trabalho Virtual do Windows já está em versão prévia pública. Para saber mais, confira [nossos comunicados](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-available-in-the-azure-government-cloud-in-preview/).
 
 ## <a name="july-2020"></a>Julho de 2020  
 
@@ -105,9 +131,7 @@ Fizemos algumas melhorias ao Microsoft Teams para Área de Trabalho Virtual do W
 
 Para saber mais, confira [nossa postagem no blog](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
 
-## <a name="next-steps"></a>Próximas etapas
-
-Saiba mais sobre os planos futuros no [roteiro da Área de Trabalho Virtual do Windows no Microsoft 365](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+## <a name="client-updates"></a>Atualizações do cliente
 
 Confira estes artigos para saber mais sobre as atualizações para nossos clientes para Área de Trabalho Virtual do Windows e Serviços de Área de Trabalho Remota:
 
@@ -116,3 +140,8 @@ Confira estes artigos para saber mais sobre as atualizações para nossos client
 - [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
 - [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
 - [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="next-steps"></a>Próximas etapas
+
+Saiba mais sobre os planos futuros no [roteiro da Área de Trabalho Virtual do Windows no Microsoft 365](https://www.microsoft.com/microsoft-365/roadmap?filters=Windows%20Virtual%20Desktop).
+

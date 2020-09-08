@@ -10,24 +10,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 07/01/2020
+ms.date: 08/08/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c85f273a0b245d54b966a43d7a69abe761a2dcaf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a4a081bc5a8040fa3ccd0599341eb2671bbe2d4d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023900"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047812"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
-O PIM (Privileged Identity Management) do Azure AD (Azure Active Directory) é um serviço que permite gerenciar, controlar e monitorar o acesso a importantes recursos em sua organização. Esses recursos incluem os recursos no Azure AD, no Azure e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.
+ O PIM (Privileged Identity Management) é um serviço no Azure AD (Azure Active Directory) que permite gerenciar, controlar e monitorar o acesso a importantes recursos na sua organização. Esses recursos incluem os recursos no Azure AD, no Azure e em outros Microsoft Online Services, como o Office 365 ou o Microsoft Intune.
 
 ## <a name="reasons-to-use"></a>Motivos para usá-lo
 
-As empresas desejam minimizar o número de pessoas que têm acesso a informações seguras ou recursos, porque isso reduz a chance de um ator mal-intencionado obter esse tipo de acesso ou um usuário autorizado afetar acidentalmente um recurso confidencial. No entanto, os usuários ainda precisam executar operações privilegiadas em aplicativos do Azure AD, Azure, Office 365 ou SaaS. As organizações podem proporcionar aos usuários acesso privilegiado JIT (Just-In-Time) aos recursos do Azure e ao Azure AD. É preciso supervisionar o que esses usuários estão fazendo com seus privilégios de administrador.
+As empresas desejam minimizar o número de pessoas que têm acesso a informações seguras ou recursos, porque isso reduz a chance de um ator mal-intencionado obter esse tipo de acesso ou um usuário autorizado afetar acidentalmente um recurso confidencial. No entanto, os usuários ainda precisam executar operações privilegiadas em aplicativos do Azure AD, Azure, Office 365 ou SaaS. As organizações podem proporcionar aos usuários acesso privilegiado Just-In-Time aos recursos do Azure e ao Azure AD. É preciso supervisionar o que esses usuários estão fazendo com seus privilégios de administrador.
 
 ## <a name="what-does-it-do"></a>O que ela faz?
 
@@ -44,7 +44,7 @@ O Privileged Identity Management fornece ativação de função baseada em tempo
 
 ## <a name="what-can-i-do-with-it"></a>O que posso fazer com ele?
 
-Depois de configurar o Privileged Identity Management, você verá as opções **Tarefas**, **Gerenciar** e **Atividade** no menu de navegação à esquerda. Como administrador, você poderá escolher entre gerenciar **funções do Azure AD** e funções de **recursos do Azure**. Quando você escolhe o tipo de funções a ser gerenciado, você vê um conjunto semelhante de opções para esse tipo de função.
+Depois de configurar o Privileged Identity Management, você verá as opções **Tarefas**, **Gerenciar** e **Atividade** no menu de navegação à esquerda. Como administrador, você escolherá entre opções como gerenciar **funções do Azure AD**, gerenciar funções do **recurso do Azure** ou grupos de acesso privilegiado. Ao escolher o que você deseja gerenciar, você verá o conjunto apropriado de opções para essa opção.
 
 ![Captura de tela do Privileged Identity Management no portal do Azure](./media/pim-configure/pim-quickstart.png)
 

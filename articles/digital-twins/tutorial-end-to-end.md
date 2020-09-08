@@ -1,5 +1,5 @@
 ---
-title: Conectar uma solução de ponta a ponta
+title: 'Tutorial: Conectar uma solução de ponta a ponta'
 titleSuffix: Azure Digital Twins
 description: Tutorial para criar uma solução de ponta a ponta dos Gêmeos Digitais do Azure controlada por dados do dispositivo.
 author: baanders
@@ -7,22 +7,23 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827296"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401768"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Criar uma solução de ponta a ponta
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
 Para configurar uma solução de ponta a ponta completa baseada em dados dinâmicos de seu ambiente, você pode conectar sua instância dos Gêmeos Digitais do Azure a outros serviços do Azure para o gerenciamento de dispositivos e de dados.
 
 Neste tutorial, você vai...
-* Configurar uma instância dos Gêmeos Digitais do Azure
-* Aprender sobre o cenário de criação de exemplo e criar instâncias dos componentes pré-gravados
-* Usar um aplicativo do [Azure Functions](../azure-functions/functions-overview.md) para rotear a telemetria simulada de um dispositivo do [Hub IoT](../iot-hub/about-iot-hub.md) para propriedades dos gêmeos digitais
-* Propagar alterações por meio do **gráfico gêmeo**, processando notificações dos gêmeos digitais com o Azure Functions, pontos de extremidade e rotas
+> [!div class="checklist"]
+> * Configurar uma instância dos Gêmeos Digitais do Azure
+> * Aprender sobre o cenário de criação de exemplo e criar instâncias dos componentes pré-gravados
+> * Usar um aplicativo do [Azure Functions](../azure-functions/functions-overview.md) para rotear a telemetria simulada de um dispositivo do [Hub IoT](../iot-hub/about-iot-hub.md) para propriedades dos gêmeos digitais
+> * Propagar alterações por meio do **gráfico gêmeo**, processando notificações dos gêmeos digitais com o Azure Functions, pontos de extremidade e rotas
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -365,6 +366,8 @@ Salve os nomes que você atribuiu ao tópico da grade de eventos e ao ponto de e
 
 Em seguida, crie uma rota dos Gêmeos Digitais do Azure que envia eventos para o ponto de extremidade dos Gêmeos Digitais do Azure que você acabou de criar.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
@@ -433,7 +436,7 @@ Aqui, temos uma revisão do cenário que você criou neste tutorial.
 
 Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los. 
 
-Usando o Azure Cloud Shell, exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Isso remove o grupo de recursos; a instância dos Gêmeos Digitais do Azure; o Hub IoT e o registro do dispositivo de hub; o tópico da grade de eventos e as assinaturas associadas e os dois aplicativos do Azure Functions, incluindo os recursos associados, como o armazenamento.
+Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Isso remove o grupo de recursos, a instância dos Gêmeos Digitais do Azure, o hub IoT e o registro do dispositivo de hub, os aplicativos do Azure Functions, o tópico da Grade de Eventos e as assinaturas associadas, incluindo ambas as funções e os recursos associados, como o armazenamento.
 
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
@@ -448,14 +451,13 @@ Em seguida, exclua o registro de aplicativo do Azure AD criado para o aplicativo
 az ad app delete --id <your-application-ID>
 ```
 
-Por fim, exclua a pasta de exemplo do projeto que você baixou do computador local.
+Por fim, exclua a pasta de exemplo do projeto que você baixou para o computador local.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você criou um cenário de ponta a ponta que mostra os Gêmeos Digitais do Azure controlados por dados dinâmicos do dispositivo.
 
 Em seguida, comece a examinar a documentação de conceito para saber mais sobre os elementos com os quais você trabalhou no tutorial:
-* [*Conceitos: modelos personalizados*](concepts-models.md)
 
-Ou aprofunde-se com relação aos processos neste tutorial iniciando os artigos de instruções:
-* [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Conceitos: modelos personalizados*](concepts-models.md)

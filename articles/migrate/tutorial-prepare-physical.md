@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de servidores 
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: aba1608c9219e7e8dffe66344b04fa3f085b06f3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420780"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927367"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparar para a avaliação e a migração de servidores físicos para o Azure
 
@@ -40,6 +40,7 @@ Configure o Azure para trabalhar com as Migrações para Azure.
 **Criar um projeto de Migrações para Azure** | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário para criar um projeto. 
 **Registrar provedores de recursos (somente avaliação)** | As Migrações para Azure usam um dispositivo leve de Migrações para Azure para descobrir e avaliar computadores com a avaliação de servidor das Migrações para Azure.<br/><br/> Durante o registro do dispositivo, os provedores de recursos são registrados com a assinatura escolhida no dispositivo. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Para registrar os provedores de recursos, você precisa de uma função de Colaborador ou Proprietário na assinatura.
 **Criar aplicativo do Azure AD (somente avaliação)** | Ao registrar o dispositivo, o recurso Migrações para Azure cria um aplicativo do Azure AD (Azure Active Directory) que é usado para a comunicação entre os agentes em execução no dispositivo com seus respectivos serviços em execução no Azure. [Saiba mais](migrate-appliance-architecture.md#appliance-registration).<br/><br/> Você precisa de permissões para criar uma função de aplicativos do Azure AD (disponíveis na função de desenvolvedor de aplicativos).
+**Criar um cofre de chaves** | O Key Vault é criado como parte do registro do dispositivo e é usado para o gerenciamento do certificado baixado no dispositivo durante a configuração dele.<br/><br/>Para permitir que as Migrações para Azure criem o Key Vault, sua conta do Azure precisa de permissões de Colaborador no grupo de recursos no qual o projeto das Migrações para Azure reside.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar o projeto 

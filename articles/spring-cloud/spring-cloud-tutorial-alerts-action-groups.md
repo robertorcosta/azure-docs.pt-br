@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c31c52d278c1e40b18b3308ca154b934d060d403
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071168"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299219"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Como monitorar recursos do Spring Cloud usando alertas e grupos de ações
 
@@ -24,7 +24,7 @@ Há duas etapas para configurar um pipeline de alerta:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Além dos requisitos do Azure Spring, os procedimentos neste tutorial funcionam com uma instância do Azure Spring Cloud implantada.  Siga nosso [início rápido](spring-cloud-quickstart-launch-app-cli.md) para começar.
+Além dos requisitos do Azure Spring, os procedimentos neste tutorial funcionam com uma instância do Azure Spring Cloud implantada.  Siga nosso [início rápido](spring-cloud-quickstart.md) para começar.
 
 Os procedimentos a seguir inicializam **Grupo de Ações** e **Alerta**, começando pela opção **Alertas** no painel de navegação esquerdo de uma instância do Spring Cloud. (O procedimento também pode ser iniciado na página **Visão Geral do Monitor** do portal do Azure.) 
 
@@ -76,11 +76,11 @@ Para configurar um **Alerta**, navegue de volta para a página **Alertas** e cli
 
 1. Selecione uma condição. Esse exemplo usa **Percentual de uso da CPU do sistema**.
 
-   ![Captura de tela de nova regra de alerta no portal](media/alerts-action-groups/alerts-3-1.png)
+   ![Captura de tela de nova regra de alerta no portal 2](media/alerts-action-groups/alerts-3-1.png)
 
 1. Role para baixo o painel **Configurar lógica do sinal** para definir o **valor limite** a monitorar.
 
-   ![Captura de tela de nova regra de alerta no portal](media/alerts-action-groups/alerts-3-2.png)
+   ![Captura de tela de nova regra de alerta no portal 3](media/alerts-action-groups/alerts-3-2.png)
 
 1. Clique em **Concluído**.
 
@@ -88,7 +88,7 @@ Para obter detalhes sobre as condições disponíveis para monitorar, consulte a
 
  Em **AÇÕES**, clique em **Selecionar grupo de ações**. No painel **AÇÕES**, selecione o **Grupo de Ações** definido anteriormente.
 
-   ![Captura de tela de nova regra de alerta no portal](media/alerts-action-groups/alerts-3-3.png) 
+   ![Captura de tela de nova regra de alerta no portal 4](media/alerts-action-groups/alerts-3-3.png) 
 
 1. Role para baixo e, em **DETALHES DO ALERTA**, dê um nome à regra de alerta.
 
@@ -96,15 +96,15 @@ Para obter detalhes sobre as condições disponíveis para monitorar, consulte a
 
 1. Clique em **Criar regra de alerta**.
 
-   ![Captura de tela de nova regra de alerta no portal](media/alerts-action-groups/alerts-3-4.png)
+   ![Captura de tela de nova regra de alerta no portal 5](media/alerts-action-groups/alerts-3-4.png)
 
 Verifique se a nova regra de alerta está habilitada.
 
-   ![Captura de tela de nova regra de alerta no portal](media/alerts-action-groups/alerts-4.png)
+   ![Captura de tela de nova regra de alerta no portal 6](media/alerts-action-groups/alerts-4.png)
 
 Uma regra também pode ser criada usando a página **Métricas**:
 
-   ![Captura de tela de nova regra de alerta no portal](media/alerts-action-groups/alerts-5.png)
+   ![Captura de tela de nova regra de alerta no portal 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 08/27/2020
 ms.author: aahi
-ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141850"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000950"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -82,26 +82,7 @@ Esta seção foi movida para um artigo separado para melhor capacidade de descob
 
 ## <a name="data-limits"></a>Limites de dados
 
-Todos os pontos de extremidade da API de Análise de Texto aceitam dados de texto brutos. O limite atual é de 5.120 caracteres para cada documento; se precisar analisar documentos maiores, divida-os em partes menores.
-
-| Limite | Valor |
-|------------------------|---------------|
-| Tamanho máximo de um único documento | 5\.120 caracteres, conforme medido por [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Tamanho máximo de toda a solicitação | 1 MB |
-| Número máximo de documentos em uma solicitação | Até mil documentos ([varia de acordo com cada recurso](concepts/data-limits.md)) |
-
-O limite de taxa varia de acordo com o tipo de preço.
-
-| Camada          | Solicitações por segundo | Solicitações por minuto |
-|---------------|---------------------|---------------------|
-| S/Vários serviços | 1000                | 1000                |
-| S0/F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1000                | 1000                |
-
-As solicitações são calculadas separadamente para cada recurso de Análise de Texto. Por exemplo, você pode enviar o número máximo de solicitações para o tipo de preço para cada recurso, ao mesmo tempo.      
+Todos os pontos de extremidade da API de Análise de Texto aceitam dados de texto brutos. Confira o artigo [Limites de dados](concepts/data-limits.md) para obter mais informações.
 
 ## <a name="unicode-encoding"></a>Codificação Unicode
 

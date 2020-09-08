@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318820"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812930"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Pipelines e conjuntos de dados de exemplo para o designer do Azure Machine Learning (versão prévia)
 
@@ -55,9 +55,9 @@ Veja como usar um exemplo de designer:
 
 1. Depois que a execução do pipeline for concluída, você poderá examinar o pipeline e exibir a saída de cada módulo para saber mais. Use as seguintes etapas para exibir as saídas do módulo:
 
-   1. Selecione um módulo na tela.
+   1. Clique com o botão direito do mouse no módulo na tela cuja saída você gostaria de ver.
+   1. Selecione **Visualizar**.
 
-   1. No painel de detalhes do módulo à direita da tela, selecione **Saídas + logs**. Selecione o ícone de grafo ![ícone de visualizar](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) para ver os resultados de cada módulo. 
 
    Use os exemplos como pontos de partida para alguns dos cenários de aprendizado de máquina mais comuns.
 

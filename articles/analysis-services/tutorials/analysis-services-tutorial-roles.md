@@ -1,18 +1,18 @@
 ---
 title: Tutorial – Configurar funções do Azure Analysis Services | Microsoft Docs
-description: Saiba como configurar as funções de administrador e usuário do Azure Analysis Services usuário usando o portal do Azure ou o SQL Server Management Studio.
+description: Neste tutorial, aprenda a configurar as funções de administrador e usuário do Azure Analysis Services usuário usando o portal do Azure ou o SQL Server Management Studio.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 0a19a0ed359cae61778866303d864d60e0e7606e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84016382"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229354"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de administrador do servidor e usuário
 
@@ -63,7 +63,7 @@ Para as tarefas restantes, será utilizado o SSMS para conectar e gerenciar o se
 
 3. Em **Pesquisador de Objetos**, expanda para ver os objetos do servidor. Clique com o botão direito do mouse para ver as propriedades do servidor.
    
-    ![Conectar-se no SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
+    ![Pesquisador de Objetos no SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Adicionar uma conta de usuário à função de administrador do servidor
 

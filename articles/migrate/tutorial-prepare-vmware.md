@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de VMs VMware 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8d4d6ac1149c397442a8ca7dd01f46f04ffc89b4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109567"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927299"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparar VMs do VMware para avaliação e migração para o Azure
 
@@ -36,8 +36,8 @@ A tabela resume as tarefas que você precisa concluir no Azure. Há instruções
 --- | --- | ---
 **Criar um projeto de Migrações para Azure** | Um projeto das Migrações para Azure fornece um local central para orquestrar e gerenciar avaliações e migrações com as ferramentas das Migrações para Azure, ferramentas da Microsoft e ofertas de terceiros. | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário no grupo de recursos no qual o projeto reside.
 **Registrar dispositivo** | As Migrações para Azure usam um dispositivo leve de Migrações para Azure a fim de descobrir VMs, avaliá-las com a ferramenta de Avaliação de Servidor e migrá-las usando a migração sem agente com a ferramenta de Migração de Servidor. [Saiba mais](migrate-appliance-architecture.md#appliance-registration) sobre o registro. | Para registrar o dispositivo, sua conta do Azure precisa de permissões de Colaborador ou de Proprietário na assinatura do Azure.
-**Criar aplicativos do Azure AD** | Ao registrar um dispositivo, as Migrações para Azure criam aplicativos do Azure AD (Azure Active Directory). <br/><br/> – O primeiro aplicativo é usado para comunicação entre os agentes em execução no dispositivo e nas Migrações para Azure. <br/><br/> – O segundo aplicativo é usado exclusivamente para acessar o KeyVault criado na assinatura do usuário para a migração de uma VM VMware sem agente.   | Sua conta do Azure precisa de permissões para criar aplicativos do Azure AD.
-**Criar um Key Vault** | Para migrar VMs VMware usando a migração sem agente, as Migrações para Azure criam um cofre de chaves para gerenciar chaves de acesso para a conta de replicação em sua assinatura. | Para permitir que as Migrações para Azure criem o Key Vault, você define as permissões (Proprietário ou Colaborador e Administrador de Acesso de Usuários) no grupo de recursos no qual o projeto de Migrações para Azure reside.
+**Criar aplicativos do Azure AD** | Ao registrar um dispositivo, as Migrações para Azure criam dois aplicativos do Azure AD (Azure Active Directory). <br/><br/> – O primeiro aplicativo é usado para comunicação entre os agentes em execução no dispositivo e nas Migrações para Azure. <br/><br/> – O segundo aplicativo é usado exclusivamente para acessar o KeyVault criado na assinatura do usuário para a migração de uma VM VMware sem agente.   | Sua conta do Azure precisa dessas [permissões](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps) para criar aplicativos do Azure AD.
+**Criar um Key Vault** | – O primeiro Key Vault é criado como parte do registro do dispositivo e é usado para o gerenciamento do certificado baixado no dispositivo durante a configuração dele. <br/><br/> – Para migrar VMs VMware usando a migração sem agente, as Migrações para Azure criam outro Key Vault para gerenciar chaves de acesso para a conta de replicação em sua assinatura.| Para permitir que as Migrações para Azure criem o Key Vault, você define as permissões (Proprietário ou Colaborador e Administrador de Acesso de Usuários) no grupo de recursos no qual o projeto de Migrações para Azure reside.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Atribuir permissões para criar o projeto

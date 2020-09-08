@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: c9787a88cba051dcfaa58a188bf43fb03cafe70a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a12fe837bfd9606d07c7be71851880d2cebb9d61
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325161"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055474"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
@@ -104,7 +104,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 Quando você terminar de testar, poderá excluir o grupo de recursos e todos os recursos relacionados. Para isso, siga as etapas abaixo.
 
 > [!NOTE]
-> Se você tiver usado um grupo de recursos existente, as instruções abaixo não funcionarão e você precisará apenas excluir o recurso individual do Application Insights. Saiba que sempre que você excluir um grupo de recursos, todos os recursos subjacentes que são membros desse grupo serão excluídos.
+> Se você tiver usado um grupo de recursos existente, as instruções abaixo não funcionarão e você precisará apenas excluir o recurso individual do Application Insights. Lembre-se de que sempre que você excluir um grupo de recursos, todos os recursos subjacentes que são membros desse grupo serão excluídos.
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e clique em **myResourceGroup**.
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite **myResourceGroup** na caixa de texto e clique **Excluir**.

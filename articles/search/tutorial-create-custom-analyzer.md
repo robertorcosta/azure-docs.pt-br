@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021878"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290303"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Tutorial: Criar um analisador personalizado para números de telefone
 
@@ -21,7 +21,7 @@ Os [analisadores](search-analyzers.md) são um componente fundamental de qualque
 
 Em alguns casos, como com um campo de texto livre, basta selecionar o [analisador de idioma](index-add-language-analyzers.md) correto para aprimorar os resultados da pesquisa. No entanto, alguns cenários, como pesquisar de modo preciso números de telefone, URLs ou emails, podem exigir o uso de analisadores personalizados.
 
-Este tutorial usa o Postman e as APIs REST do [Azure Cognitive Search](https://docs.microsoft.com/rest/api/searchservice/) para:
+Este tutorial usa o Postman e as APIs REST do [Azure Cognitive Search](/rest/api/searchservice/) para:
 
 > [!div class="checklist"]
 > * Explicar como funcionam os analisadores
@@ -225,7 +225,7 @@ Se você considera esses resultados confusos, não está sozinho. Na próxima se
 
 ## <a name="4---debug-search-results"></a>4 – Depurar resultados da pesquisa
 
-Para entender esses resultados da pesquisa, é importante entender primeiro como funcionam os analisadores. Então podemos testar o analisador padrão usando a API [Analisar Texto](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) e criar um analisador que atenda às nossas necessidades.
+Para entender esses resultados da pesquisa, é importante entender primeiro como funcionam os analisadores. Então podemos testar o analisador padrão usando a API [Analisar Texto](/rest/api/searchservice/test-analyzer) e criar um analisador que atenda às nossas necessidades.
 
 ### <a name="how-analyzers-work"></a>Como funcionam os analisadores
 
@@ -239,7 +239,7 @@ Os analisadores consistem em três componentes:
 
 No seguinte diagrama, você pode ver como esses três componentes funcionam em conjunto para indexar uma sentença:
 
-  ![Diagrama do processo do Analisador](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  ![Diagrama do processo do analisador para criar tokens para uma sentença](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
 Esses tokens são então armazenados em um índice invertido, que permite pesquisas rápidas de texto completo.  Um índice invertido permite a pesquisa de texto completo mapeando todos os termos exclusivos extraídos durante a análise lexical para os documentos em que eles ocorrem. Você pode ver um exemplo no diagrama abaixo:
 
@@ -251,7 +251,7 @@ Toda a pesquisa fica inativa para pesquisar os termos armazenados no índice inv
 1. O índice invertido é então examinado em busca de documentos com termos correspondentes.
 1. Por fim, os documentos recuperados são classificados pelo [algoritmo de similaridade](index-ranking-similarity.md).
 
-  ![Diagrama do processo do Analisador](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  ![Similaridade de classificação do diagrama do processo do Analisador](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 Se os termos da consulta não corresponderem aos termos no índice invertido, os resultados não serão retornados. Para saber mais sobre como funcionam as consultas, confira este artigo sobre [pesquisa de texto completo](search-lucene-query-architecture.md).
 
@@ -260,7 +260,7 @@ Se os termos da consulta não corresponderem aos termos no índice invertido, os
 
 ### <a name="test-analyzer-using-the-analyze-text-api"></a>Analisador de testes usando a API de Análise de Texto
 
-O Azure Cognitive Search fornece uma [API de Análise de Texto](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) que permite testar analisadores para entender como eles processam o texto.
+O Azure Cognitive Search fornece uma [API de Análise de Texto](/rest/api/searchservice/test-analyzer) que permite testar analisadores para entender como eles processam o texto.
 
 A API de Análise de Texto é chamada usando a seguinte solicitação:
 

@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 86ce2b95cce82bd6d6877f83c3bc0b0496804c83
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d0d1ed2b082abe5930f358a2551a967dd158aa41
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875329"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376580"
 ---
 # <a name="quickstart-azure-key-vault-certificates-client-library-for-python"></a>Início Rápido: Biblioteca de clientes de certificados do Azure Key Vault para Python
 
@@ -68,7 +68,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-A maneira mais simples de autenticar um aplicativo .NET baseado em nuvem é com uma identidade gerenciada; confira [Usar uma identidade gerenciada do Serviço de Aplicativo para acessar o Azure Key Vault](../general/managed-identity.md) para obter detalhes.
+A maneira mais simples de autenticar um aplicativo baseado em nuvem é com uma identidade gerenciada; confira [Autenticar-se no Key Vault](../general/authentication.md) para obter detalhes.
 
 Para simplificar, no entanto, este início rápido cria um aplicativo de área de trabalho, que requer o uso de uma entidade de serviço e uma política de controle de acesso. Sua entidade de serviço requer um nome exclusivo no formato "http://&lt;my-unique-service-principal-name&gt;".
 
@@ -237,8 +237,8 @@ print(" done.")
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você criou um cofre de chaves, bem como armazenou e recuperou um certificado. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
+Neste guia de início rápido, você criou um cofre de chaves e armazenou e recuperou um certificado. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
 
-- Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
-- Confira o [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
-- Examine as [Melhores práticas do Azure Key Vault](../general/best-practices.md)
+- [Visão geral da o Cofre da Chave do Azure](../general/overview.md)
+- [Guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
+- [Melhores práticas do Azure Key Vault](../general/best-practices.md)

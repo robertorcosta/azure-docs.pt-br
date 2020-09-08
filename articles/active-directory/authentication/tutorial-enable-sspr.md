@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718842"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399966"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
@@ -37,7 +37,8 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, você precisará dos seguintes recursos e privilégios:
 
-* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Premium P1 do Azure AD habilitada.
+* Um locatário do Azure AD em funcionamento com pelo menos uma licença de avaliação ou Gratuita do Azure AD habilitada. Na camada Gratuita, o SSPR funciona apenas para usuários de nuvem no Azure AD.
+    * Para os tutoriais posteriores desta série, uma licença Premium P1 ou de avaliação do Azure AD é necessária para o write-back de senha local.
     * Se necessário, [crie um gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Uma conta com privilégios de *Administrador Global*.
 * Um usuário que não seja administrador com uma senha que você conheça, como *testuser*. Você testa a experiência de SSPR do usuário final usando essa conta neste tutorial.

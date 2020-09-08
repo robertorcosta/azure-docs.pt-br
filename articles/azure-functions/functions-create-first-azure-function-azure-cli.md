@@ -3,14 +3,14 @@ title: Criar uma função no Azure que responda a solicitações HTTP
 description: Saiba como criar uma função na linha de comando e, em seguida, publicar o projeto local na hospedagem sem servidor no Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: d63ae61dbaf969c021b0f1744e716068de88e4f8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b299f0bb13bb25fbc192f3d117be11ca1ce26586
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547368"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145545"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Início Rápido: Criar uma função no Azure que responda a solicitações HTTP
 
@@ -82,7 +82,7 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-Em uma pasta vazia, execute o seguinte comando para gerar o projeto do Functions a partir de um [arquétipo Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` caso deseje implantar funções Java 11. Para saber mais, confira [Versões do Java](functions-reference-java.md#java-versions). 
+Em uma pasta vazia, execute o seguinte comando para gerar o projeto do Functions a partir de um [arquétipo Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` se desejar que as funções sejam executadas no Java 11. Para saber mais, confira [Versões Java](functions-reference-java.md#java-versions). 
 
 # <a name="bash"></a>[Bash](#tab/bash)
 ```bash

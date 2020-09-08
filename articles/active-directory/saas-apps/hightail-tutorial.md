@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b3f279b28bf78114556623865a9f132174c6e41
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0348e5c773f37606a3975a8e62e556bef291a758
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550530"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297222"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hightail"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Hightail
 
@@ -109,7 +109,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> Antes de configurar o logon único no aplicativo Hightail, coloque seu domínio de email na lista de permissões com a equipe do Hightail para que todos os usuários que usam esse domínio possam utilizar a funcionalidade de Logon Único.
+> Antes de configurar o logon único no aplicativo Hightail, adicione seu domínio de email à lista de permissões com a equipe do Hightail para que todos os usuários que usam esse domínio possam utilizar a funcionalidade de Logon Único.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 

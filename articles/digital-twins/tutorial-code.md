@@ -1,5 +1,5 @@
 ---
-title: Codificar um aplicativo cliente
+title: 'Tutorial: Codificar um aplicativo cliente'
 titleSuffix: Azure Digital Twins
 description: Tutorial para escrever o código mínimo de um aplicativo cliente usando o SDK do .NET (C#).
 author: baanders
@@ -7,16 +7,23 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 52a22dd215769208b60f180b576ae5763d67eade
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723462"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923697"
 ---
-# <a name="coding-with-the-azure-digital-twins-apis"></a>Codificação com as APIs dos Gêmeos Digitais do Azure
+# <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs dos Gêmeos Digitais do Azure
 
 É comum que os desenvolvedores que trabalham com os Gêmeos Digitais do Azure escrevam um aplicativo cliente para interagir com a instância do serviço Gêmeos Digitais do Azure. Este tutorial voltado para o desenvolvedor fornece uma introdução à programação no serviço Gêmeos Digitais do Azure usando a [biblioteca de clientes dos Gêmeos Digitais do IoT do Azure para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Ele mostra como escrever um aplicativo cliente de console C# passo a passo do zero.
+
+> [!div class="checklist"]
+> * Configurar o projeto
+> * Introdução ao código do projeto   
+> * Exemplo de código completo
+> * Limpar os recursos
+> * Próximas etapas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +55,7 @@ Em seguida, adicione duas dependências necessárias para trabalhar com os Gême
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity
 ```
 
 A primeira dependência é a [biblioteca de clientes dos Gêmeos Digitais de IoT do Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). A segunda dependência fornece ferramentas para ajudar com a autenticação no Azure.
@@ -419,7 +426,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -532,24 +538,7 @@ namespace minimal
  
 A instância usada neste tutorial pode ser reutilizada no próximo tutorial, [*Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). Se você pretende prosseguir para o próximo tutorial, mantenha a instância dos Gêmeos Digitais do Azure configurada aqui.
  
-Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los.
-
-Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Isso removerá o grupo de recursos e a instância dos Gêmeos Digitais do Azure.
-
-> [!IMPORTANT]
-> A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
-
-Abra um Azure Cloud Shell e execute o comando a seguir para excluir o grupo de recursos e tudo o que ele contém.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Em seguida, exclua o registro de aplicativo do Azure Active Directory criado para o aplicativo cliente com este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Por fim, exclua a pasta do projeto criada no computador local.
 
@@ -561,7 +550,3 @@ Prossiga para o próximo tutorial e explore as coisas que você pode fazer com u
 
 > [!div class="nextstepaction"]
 > [*Tutorial: Explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md)
-
-Incremente também o código que você escreveu neste tutorial aprendendo mais operações de gerenciamento nos artigos de instruções ou comece examinando a documentação dos conceitos para saber mais sobre os elementos com os quais você trabalhou no tutorial.
-* [*Como gerenciar modelos personalizados*](how-to-manage-model.md)
-* [*Conceitos: modelos personalizados*](concepts-models.md)

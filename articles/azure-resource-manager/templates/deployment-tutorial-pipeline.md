@@ -1,15 +1,15 @@
 ---
 title: Integração contínua com o Azure Pipelines
 description: Saiba como criar, testar e implantar continuamente modelos do Azure Resource Manager.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118912"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892670"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua dos modelos do Azure Resource Manager com o Azure Pipelines
 
@@ -175,8 +175,8 @@ Para criar um pipeline com uma etapa para implantar um modelo:
     * **Localização**: selecione um local para o grupo de recursos, por exemplo, **EUA Central**.
     * **Local do modelo**: selecione **Artefato vinculado**, que significa que a tarefa pesquisa o arquivo de modelo diretamente do repositório conectado.
     * **Modelo**: digite **CreateWebApp/azuredeploy.json**. Se você tiver alterado o nome da pasta e o nome do arquivo, precisará alterar esse valor.
-    * **Parâmetros de modelo**: Deixe este campo em branco. Você especificará os valores de parâmetro em *Substituir parâmetros de modelo.
-    * **overrideParameters**: digite **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** . Substitua o nome do projeto e a URL do modelo vinculado. A URL do modelo vinculado é o que você anotou ao final de [Criar um repositório GitHub](#create-a-github-repository).
+    * **Parâmetros de modelo**: Deixe este campo em branco. Você especificará os valores de parâmetro em **Substituir parâmetros de modelo**.
+    * **Substituir parâmetros de modelo**: digite **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** . Substitua o nome do projeto e a URL do modelo vinculado. A URL do modelo vinculado é o que você anotou ao final de [Criar um repositório GitHub](#create-a-github-repository). Começa com **https://raw.githubusercontent.com** .
     * **Modo de implantação**: selecione **Incremental**.
     * **Nome da implantação**: digite **DeployPipelineTemplate**. Selecione **Avançado** antes de poder ver o **Nome da implantação**.
 

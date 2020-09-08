@@ -1,24 +1,24 @@
 ---
-title: 'Início Rápido: Criar um perfil para HA de aplicativos – CLI do Azure – Gerenciador de Tráfego do Microsoft Azure'
+title: 'Início Rápido: Criar um perfil para HA de aplicativos – CLI do Azure – Gerenciador de Tráfego do Azure'
 description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos Web altamente disponíveis.
 services: traffic-manager
-author: rohinkoul
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: rohink
+ms.date: 08/26/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1de651d5321fa3a0dea4da33c5d41839e67ad9dc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 429d107a68c8631983bf791108f5091f31a480c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491180"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178073"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego para um aplicativo Web de alta disponibilidade usando a CLI do Azure
 
@@ -112,12 +112,12 @@ az webapp create \
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos de extremidade do Gerenciador de Tráfego
 Adicione os dois aplicativos Web como pontos de extremidade do Gerenciador de Tráfego usando [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) ao perfil do Gerenciador de Tráfego, da seguinte maneira:
 
-- Determine a ID do aplicativo Web e adicione o aplicativo Web localizado na região do Azure *Leste dos EUA* como o ponto de extremidade principal para rotear todo o tráfego do usuário. 
-- Determine a ID do aplicativo Web e adicione o aplicativo Web localizado na região do Azure *Oeste da Europa* como o ponto de extremidade de failover. 
+- Determine a ID do Aplicativo Web e adicione o Aplicativo Web localizado na região do Azure *Leste dos EUA* como o ponto de extremidade primário para rotear todo o tráfego do usuário. 
+- Determine a ID do Aplicativo Web e adicione o Aplicativo Web localizado na região do Azure *Oeste da Europa* como o ponto de extremidade de failover. 
 
 Quando o ponto de extremidade primário estiver indisponível, o tráfego será encaminhado automaticamente para o ponto de extremidade de failover.
 
-No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicativo criados para cada região na seção anterior, substitua **<appspname_eastus>** e **<appspname_westeurope>** pelo nome usado para criar os planos do Serviço de Aplicativo na seção anterior e substitua **<profile_name>** pelo nome do perfil usado na seção anterior. 
+No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicativos criados para cada região na seção anterior. Em seguida, substitua **<profile_name>** pelo nome do perfil usado na seção anterior. 
 
 **Ponto de extremidade do Leste dos EUA**
 
@@ -130,7 +130,7 @@ az webapp show \
 
 ```
 
-Anote a ID exibida na saída e use-a no comando a seguir para adicionar o ponto de extremidade:
+Anote a ID exibida na saída e use-a no seguinte comando para adicionar o ponto de extremidade:
 
 ```azurecli-interactive
 
@@ -155,7 +155,7 @@ az webapp show \
 
 ```
 
-Anote a ID exibida na saída e use-a no comando a seguir para adicionar o ponto de extremidade:
+Anote a ID exibida na saída e use-a no seguinte comando para adicionar o ponto de extremidade:
 
 ```azurecli-interactive
 
@@ -174,7 +174,7 @@ az network traffic-manager endpoint create \
 
 Nesta seção, você verificará o nome de domínio do seu perfil do Gerenciador de Tráfego. Você também configurará o ponto de extremidade primário para ficar indisponível. Por fim, você poderá ver que o aplicativo Web ainda está disponível. É porque o Gerenciador de Tráfego envia o tráfego para o ponto de extremidade de failover.
 
-No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicativo criados para cada região na seção anterior, substitua **<appspname_eastus>** e **<appspname_westeurope>** pelo nome usado para criar os planos do Serviço de Aplicativo na seção anterior e substitua **<profile_name>** pelo nome do perfil usado na seção anterior.
+No exemplo a seguir, substitua **<app1name_eastus>** e **<app2name_westeurope>** pelos Nomes de Aplicativos criados para cada região na seção anterior. Em seguida, substitua **<profile_name>** pelo nome do perfil usado na seção anterior.
 
 ### <a name="determine-the-dns-name"></a>Determinar o nome DNS
 

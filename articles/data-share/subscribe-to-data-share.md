@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258670"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268886"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados usando o Azure Data Share  
 
@@ -38,7 +38,7 @@ Cumpra todos os pré-requisitos antes de aceitar um convite de compartilhamento 
 * Permissão para gravar na conta de armazenamento, que está presente em *Microsoft.Storage/storageAccounts/write*. Essa permissão existe na função Colaborador. 
 * Permissão para adicionar uma atribuição de função à conta de armazenamento, que está presente em *Microsoft.Authorization/role assignments/write*. Essa permissão existe na função Proprietário.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Receber dados em uma fonte baseada em SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Receber dados em um destino baseado em SQL:
 
 * Permissão para gravar nos bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função Colaborador. 
 * Permissão para a identidade gerenciada do recurso do compartilhamento de dados acessar o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure. Isso pode ser feito executando as seguintes etapas: 
@@ -78,7 +78,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
    Para abrir o convite diretamente do portal do Azure, pesquise por **Convites do Data Share** no portal do Azure. Isso levará você à lista de convites do Data Share.
 
-   ![Convites](./media/invitations.png "Lista de convites") 
+   ![Lista de convites](./media/invitations.png "Lista de convites") 
 
 1. Selecione o compartilhamento que você deseja exibir. 
 

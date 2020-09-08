@@ -55,6 +55,8 @@
           href: check-status-user-account-provisioning.md
         - name: Exportar e importar sua configuração
           href: export-import-provisioning-configuration.md
+        - name: Provisionamento de relatórios
+          href: ../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: Solucionar problemas de provisionamento de aplicativos
       items:
         - name: Problemas conhecidos

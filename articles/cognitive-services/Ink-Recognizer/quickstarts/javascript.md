@@ -1,24 +1,26 @@
 ---
 title: 'Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o Node.js'
 titleSuffix: Azure Cognitive Services
-description: Use a API de Reconhecimento de Tinta Digital para começar a reconhecer traços de tinta digital neste início rápido.
+description: Use a API de Reconhecimento de Tinta Digital e o JavaScript para começar a reconhecer traços de tinta digital neste guia de início rápido.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 59cd4711ec3604779e57434af72460534b378af4
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: b8d8464fb9defb64c039ef9026812de89436091c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407040"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050890"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e JavaScript
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Use este início rápido para começar a usar a API de Reconhecimento de Tinta Digital em traços de tinta digital. Este aplicativo JavaScript envia uma solicitação de API que contém dados do traço de tinta formatados em JSON e exibe a resposta.
 

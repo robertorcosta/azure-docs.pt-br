@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bdea7fc3c295016204a80772bdf367dda7e194fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546297"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: integração do Azure Active Directory ao XaitPorter
 
@@ -112,7 +112,7 @@ Para configurar o logon único do Azure AD com o XaitPorter, execute as seguinte
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
-6. Forneça o **endereço IP** ou a **URL de Metadados de Federação de Aplicativos** para a [Equipe de suporte do SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), de modo que o XaitPorter possa garantir que o endereço IP seja acessível a partir da instância do XaitPorter, configurando a lista de permissões dele. 
+6. Forneça o **endereço IP** ou a **URL de Metadados de Federação de Aplicativos** para a [Equipe de suporte do SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), de modo que o XaitPorter possa garantir que o endereço IP seja acessível da instância do XaitPorter, configurando a lista de permissões no lado dessa equipe. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configurar o logon único do XaitPorter
 
@@ -213,4 +213,3 @@ Ao clicar no bloco do XaitPorter no Painel de Acesso, você deverá ser conectad
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

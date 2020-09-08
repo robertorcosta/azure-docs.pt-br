@@ -7,15 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 77b105fd5bbc6cc88411379e79522562ebce3677
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 587b26d821b9701df435b9ee0a1c5f9ba5602fc0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083745"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050923"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Usar o IntelliJ para implantar aplicativos do Azure Spring Cloud
 O plug-in IntelliJ para o Azure Spring Cloud é compatível com a implantação de aplicativos da IntelliJ IDEA.  
+
+Antes de executar este exemplo, experimente o [guia de início rápido básico](spring-cloud-quickstart.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [JDK 8 Azul Zulu](https://docs.microsoft.com/java/azure/jdk/java-jdk-install?view=azure-java-stable)

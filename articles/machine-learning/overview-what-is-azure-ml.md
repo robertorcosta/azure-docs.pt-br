@@ -9,18 +9,18 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 53ccd610c6f0f36d4ab04efbada2070a22975023
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650104"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145885"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
 Neste artigo, você aprenderá sobre o Azure Machine Learning, um ambiente baseado em nuvem que pode ser usado para treinar, implantar, automatizar, gerenciar e rastrear modelos de ML. 
 
-O Azure Machine Learning pode ser usado para qualquer tipo de aprendizado de máquina, desde ML clássico até aprendizado profundo, aprendizado supervisionado e não supervisionado. Se você preferir escrever código Python ou R ou opções de código zero/código baixo, como o [designer](tutorial-designer-automobile-price-train-score.md), poderá criar, treinar e rastrear modelos de machine learning e aprendizado profundo altamente precisos em um Workspace do Azure Machine Learning. 
+O Azure Machine Learning pode ser usado para qualquer tipo de aprendizado de máquina, desde ML clássico até aprendizado profundo, aprendizado supervisionado e não supervisionado. Se você preferir escrever o código Python ou R com o SDK ou trabalhar com as opções sem código/com pouco código no [estúdio](#build-ml-models-in-the-studio), poderá criar, treinar e acompanhar modelos de machine learning e aprendizado profundo em um Workspace do Azure Machine Learning. 
 
 Inicie o treinamento do seu computador local e escale horizontalmente para a nuvem. 
 
@@ -63,27 +63,31 @@ Você pode até mesmo usar [MLflow para controlar as métricas e implantar model
 
 Inicie o treinamento em seu computador local usando o <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK de Python</a> ou o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK de R</a> do Azure Machine Learning. Em seguida, você pode escalar horizontalmente para a nuvem. 
 
-Com muitos [destinos de computação](how-to-set-up-training-targets.md) disponíveis, como a Computação do Azure Machine Learning e o [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), além de [serviços avançados de ajuste de hiperparâmetro](how-to-tune-hyperparameters.md), você pode criar modelos melhores com mais rapidez usando o poder da nuvem.
+Com muitos [destinos de computação](how-to-create-attach-compute-sdk.md) disponíveis, como a Computação do Azure Machine Learning e o [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), além de [serviços avançados de ajuste de hiperparâmetro](how-to-tune-hyperparameters.md), você pode criar modelos melhores com mais rapidez usando o poder da nuvem.
 
 Também é possível [automatizar o treinamento e o ajuste do modelo](tutorial-auto-train-models.md) usando o SDK.
 
-## <a name="build-ml-models-with-no-code-tools"></a>Criar modelos de ML com ferramentas sem código
+## <a name="build-ml-models-in-the-studio"></a>Criar modelos de ML no estúdio
 
-Para treinamento e implantação sem código ou com pouco código, experimente:
+O [estúdio do Azure Machine Learning](https://www.ml.azure.com) é um portal da Web no Azure Machine Learning para opções sem código e com pouco código para treinamento de modelo, implantação e gerenciamento de ativos. O estúdio integra-se ao SDK do Azure Machine Learning para proporcionar uma experiência perfeita. Para obter mais informações, confira [O que é o estúdio do Azure Machine Learning](overview-what-is-machine-learning-studio.md).
 
 + **Azure Machine Learning Designer (versão prévia)**
 
-  Use o designer para preparar dados, treinar, testar, implantar, gerenciar e rastrear modelos de aprendizado de máquina sem escrever nenhum código. Não há necessidade de programação; conecte visualmente os conjuntos de dados e módulos para construir seu modelo. Experimente o [tutorial do designer](tutorial-designer-automobile-price-train-score.md).
+  Use [o designer](concept-designer.md) para treinar e implantar modelos de machine learning sem nenhuma codificação. Experimente o [tutorial do designer](tutorial-designer-automobile-price-train-score.md) para começar a usá-lo. 
 
-  Saiba mais no [artigo de visão geral do Azure Machine Learning Designer](concept-designer.md). 
+  ![GIF animado da interface do tipo "arrastar e soltar" do designer do Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
 
-  ![Exemplo do Azure Machine Learning Designer](./media/overview-what-is-azure-ml/designer-drag-and-drop.gif)
++ **Acompanhar experimentos**
 
-+ **Interface do usuário de machine learning automatizado**
+  Saiba como [acompanhar e visualizar experimentos de ciência de dados](tutorial-first-experiment-automated-ml.md) no estúdio. 
 
-  Como criar [experimentos de machine learning automatizado](tutorial-first-experiment-automated-ml.md) na interface fácil de usar. 
+    ![Detalhes da execução no estúdio do Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
 
-  [![Painel de navegação do Azure Machine Learning Studio](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
++ **E muito mais...**
+
+  Acesse o estúdio do Azure Machine Learning em [ml.azure.com](https://www.ml.azure.com). 
+
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Gerenciamento de implantação e ciclo de vida
 Quando você tem o modelo certo, é possível usá-lo facilmente em um serviço Web, em um dispositivo IoT ou do Power BI. Para obter mais informações, confira o artigo [Como e onde implantar](how-to-deploy-and-where.md).

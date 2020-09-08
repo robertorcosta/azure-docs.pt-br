@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4f2c0a51f7c8d2441c9ddff2520dae2f5cc13565
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40f820a32c7848b5370cb664d706e9f20928bc5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495328"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296474"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Início Rápido: Criar um Banco de Dados do Azure para MySQL usando um comando de CLI do Azure simples - az postgres up (versão prévia)
 
@@ -75,7 +75,7 @@ admin-password | Gerada pelo sistema | A senha do usuário administrador.
 
 Depois que o servidor é criado, ele vem com as seguintes configurações:
 
-- É criada uma regra de firewall denominada “devbox”. A CLI do Azure tenta detectar o endereço IP do computador, o comando `az mysql up` é executado a partir daí e coloca esse endereço IP.
+- É criada uma regra de firewall denominada “devbox”. A CLI do Azure tenta detectar o endereço IP do computador no qual o comando `az mysql up` é executado e permite esse endereço IP.
 - “Permitir acesso aos Serviços do Azure” está definido como ATIVADO. Isso configura o firewall do servidor para aceitar conexões de todos os recursos do Azure, incluindo os recursos que não estão na sua assinatura.
 - O `wait_timeout` parâmetro é definido como 8 horas
 - É criado um banco de dados vazio chamado "sampledb"

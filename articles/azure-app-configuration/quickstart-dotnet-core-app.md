@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 5925d80f23052324e5512908241ed573c681d835
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 57202752a965ad0405a04b2eba4cdf42070c94bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590244"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319484"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Core com a Configuração de Aplicativo
 
@@ -44,7 +44,7 @@ Você usará a [CLI (interface de linha de comando) do .NET Core](https://docs.m
 
 1. Crie uma nova pasta para o seu projeto.
 
-2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicativo do console do ASP.NET Core:
+2. Na nova pasta, execute o seguinte comando para criar um projeto de aplicativo de console .NET Core:
 
     ```dotnetcli
     dotnet new console

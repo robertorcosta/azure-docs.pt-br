@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 08f5829eb624f13be44bba633f3188d8d9876058
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547453"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891582"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft
 
@@ -37,7 +37,7 @@ Use sua conta do Microsoft Azure Active Directory com o servidor do Atlassian JI
 Para configurar a integração do Azure AD ao SSO do SAML para o JIRA da Microsoft, você precisa dos seguintes itens:
 
 - Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
-- O JIRA Core e o Software 6.4 a 8.11.0 ou o JIRA Service Desk 3.0 a 4.8.0 devem ser instalados e configurados na versão de 64 bits do Windows
+- O JIRA Core e o Software 6.4 a 8.11.0 ou o JIRA Service Desk 3.0 a 4.11.1 devem ser instalados e configurados na versão de 64 bits do Windows
 - O servidor do JIRA é habilitado para HTTPS
 - Observe que as versões com suporte no Plug-in do JIRA são mencionadas na seção abaixo.
 - O servidor do JIRA é acessível pela Internet, especialmente na página de Logon do Azure AD para autenticação e deve conseguir receber o token do Azure AD
@@ -59,7 +59,7 @@ Para começar, você precisará dos seguintes itens:
 ## <a name="supported-versions-of-jira"></a>Versões com suporte do JIRA
 
 * JIRA Core e Software: 6.4 a 8.11.0
-* JIRA Service Desk 3.0.0 a 4.8.0
+* JIRA Service Desk 3.0.0 a 4.11.1
 * O JIRA também fornece suporte para 5.2. Para obter mais detalhes, clique em [Logon único do Microsoft Azure Active Directory para JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 46c94ec64cd0b82a191c63069a8619bb3dc62908
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 428aa25bc40b556ffd7ca6e59948fc79c8bef1c5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88864811"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89237945"
 ---
 > [!IMPORTANT]
 > * No momento, o SDK do Reconhecimento de Formulários direciona a v2.0 do serviço de Reconhecimento de Formulários.
@@ -124,7 +124,7 @@ Estes snippets de códigos mostram como realizar as seguintes tarefas com a bibl
 Embaixo de `Main()`, crie um método chamado `AuthenticateClient`. Você usará isso em tarefas futuras para autenticar suas solicitações para o serviço de Reconhecimento de Formulários. Esse método usa o objeto `AzureKeyCredential`, portanto, se necessário, você pode atualizar a chave de API sem criar objetos de cliente.
 
 > [!IMPORTANT]
-> Acesse o portal do Azure. Se o recurso do Reconhecimento de Formulários que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para o Recurso** em **Próximas etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
+> Obtenha a chave e o ponto de extremidade no portal do Azure. Se o recurso do Reconhecimento de Formulários que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para o Recurso** em **Próximas etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
 >
 > Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
@@ -143,6 +143,7 @@ static private FormRecognizerClient AuthenticateClient(){
 Os snippets de código deste guia usam formulários remotos acessados por URLs. Caso deseje processar documentos de formulário local, confira os métodos relacionados na [documentação de referência](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) e nas [amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
 Você também precisará adicionar referências às URLs para os dados de treinamento e teste.
+
 * Para recuperar a URL de SAS para os dados de treinamento do modelo personalizado, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **Obter Assinatura de Acesso Compartilhado**. Verifique se as permissões de **Leitura** e **Lista** estão marcadas e clique em **Criar**. Em seguida, copie o valor na seção **URL**. Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Use as imagens de exemplo e de recibo incluídas nos exemplos abaixo (também disponíveis no [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms) ou use as etapas acima para obter a URL SAS de um documento individual no Armazenamento de Blobs. 
 

@@ -4,12 +4,12 @@ description: Saiba como se preparar para a avaliação/migração de VMs do Hype
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8ecb886b5d5cd9d6811788043b924880b4c366c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109613"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928914"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparar para a avaliação e a migração de VMs do Hyper-V para o Azure
 
@@ -38,6 +38,7 @@ A tabela resume as tarefas que você precisa concluir no Azure. Você encontrar�
 **Criar um projeto de Migrações para Azure** | Um projeto das Migrações para Azure fornece um local central para orquestrar e gerenciar avaliações e migrações com as ferramentas das Migrações para Azure, ferramentas da Microsoft e ofertas de terceiros. | Sua conta do Azure precisa de permissões de Colaborador ou de Proprietário no grupo de recursos no qual o projeto reside.
 **Registrar dispositivo** | As Migrações para Azure usam um dispositivo leve de Migrações para Azure para descobrir e avaliar VMs do Hyper-V. [Saiba mais](migrate-appliance-architecture.md#appliance-registration). | Para registrar o dispositivo, sua conta do Azure precisa de permissões de Colaborador ou de Proprietário na assinatura do Azure.
 **Criar um aplicativo do Azure AD** | Ao registrar o dispositivo, o recurso Migrações para Azure cria um aplicativo do Azure AD (Azure Active Directory) que é usado para a comunicação entre os agentes em execução no dispositivo e as Migrações para Azure. | Sua conta do Azure precisa de permissões para criar aplicativos do Azure AD.
+**Criar um Key Vault** | O Key Vault é criado como parte do registro do dispositivo e é usado para o gerenciamento do certificado baixado no dispositivo durante a configuração dele.| Para permitir que as Migrações para Azure criem o Key Vault, sua conta do Azure precisa de permissões de Colaborador no grupo de recursos no qual o projeto das Migrações para Azure reside.
 **Criar uma máquina virtual** | Você precisa de permissões para criar uma VM no grupo de recursos e na rede virtual e para gravar em um disco gerenciado do Azure. | Sua conta do Azure precisa da função Colaborador da Máquina Virtual.
 
 
@@ -81,6 +82,7 @@ O locatário/administrador global pode conceder permissões da seguinte maneira:
 #### <a name="assign-application-developer-role"></a>Atribuir função de Desenvolvedor de Aplicativos
 
 O locatário/administrador global pode atribuir a função de Desenvolvedor de Aplicativos a uma conta. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 
 ### <a name="assign-azure-account-permissions"></a>Atribuir permissões de conta do Azure
 

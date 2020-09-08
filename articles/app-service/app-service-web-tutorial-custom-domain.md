@@ -5,14 +5,14 @@ keywords: serviço do aplicativo, serviço do aplicativo do azure, mapeamento de
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1496f46eb29831dfb858f061ccc00c9e3dbc2e75
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 4a2c65e2685dada6412adf8c8ad9c63f472b91e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782304"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962274"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial:
 
-* [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/) ou use um aplicativo que você criou para outro tutorial.
+* [Crie um aplicativo do Serviço de Aplicativo](./index.yml) ou use um aplicativo que você criou para outro tutorial.
 * Compre um nome de domínio e verifique se você tem acesso ao registro DNS do provedor de domínio (como o GoDaddy).
 
   Por exemplo, para adicionar entradas DNS a `contoso.com` e `www.contoso.com`, você deve poder definir as configurações de DNS do domínio raiz de `contoso.com`.
@@ -138,38 +138,34 @@ Depois de adicionar os registros CNAME e TXT, a página de registros DNS será p
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>Habilitar o mapeamento de registro CNAME no Azure
 
-No painel de navegação à esquerda da página do aplicativo no portal do Azure, selecione **Domínios personalizados**.
+1. No painel de navegação à esquerda da página do aplicativo no portal do Azure, selecione **Domínios personalizados**.
 
-![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na página **Domínios personalizados** do aplicativo, adicione o nome DNS personalizado totalmente qualificado (`www.contoso.com`) à lista.
+1. Na página **Domínios personalizados** do aplicativo, adicione o nome DNS personalizado totalmente qualificado (`www.contoso.com`) à lista.
 
-Selecione o ícone **+** ao lado de **Adicionar domínio personalizado**.
+1. Selecione **Adicionar domínio personalizado**.
 
-![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digite o nome de domínio totalmente qualificado ao qual você adicionou um registro CNAME, como `www.contoso.com`.
+1. Digite o nome de domínio totalmente qualificado ao qual você adicionou um registro CNAME, como `www.contoso.com`.
 
-Selecione **Validar**.
+1. Selecione **Validar**. A página **Adicionar domínio personalizado** é exibida.
 
-A página **Adicionar domínio personalizado** é exibida.
+1. Certifique-se de que **Tipo de registro do nome do host** esteja definido como **CNAME (www\.exemplo.com ou qualquer subdomínio)** . Selecione **Adicionar domínio personalizado**.
 
-Certifique-se de que **Tipo de registro do nome do host** esteja definido como **CNAME (www\.exemplo.com ou qualquer subdomínio)** .
+    ![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Selecione **Adicionar domínio personalizado**.
+    Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
 
-![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
+    > [!NOTE]
+    > Um rótulo de aviso para o domínio personalizado significa que ele ainda não está associado a um certificado TLS/SSL e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de TLS, confira [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
 
-![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+    Se você perdeu uma etapa ou cometeu um erro de digitação em algum lugar anteriormente, você verá um erro de verificação na parte inferior da página.
 
-> [!NOTE]
-> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado TLS/SSL e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de TLS, confira [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
-
-Se você perdeu uma etapa ou cometeu um erro de digitação em algum lugar anteriormente, você verá um erro de verificação na parte inferior da página.
-
-![Erro de verificação](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
+    ![Erro de verificação](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a" aria-hidden="true"></a>
 
@@ -223,33 +219,29 @@ Quando os registros são adicionados, a página de registros DNS fica parecida c
 
 De volta à página **Domínios personalizados** do aplicativo no portal do Azure, adicione o nome DNS personalizado totalmente qualificado (por exemplo, `contoso.com`) à lista.
 
-Selecione o ícone **+** ao lado de **Adicionar domínio personalizado**.
+1. Selecione **Adicionar domínio personalizado**.
 
-![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digite o nome de domínio totalmente qualificado para o qual você configurou o registro A, como `contoso.com`.
+1. Digite o nome de domínio totalmente qualificado para o qual você configurou o registro A, como `contoso.com`. 
 
-Selecione **Validar**.
+1. Selecione **Validar**. A página **Adicionar domínio personalizado** é exibida.
 
-A página **Adicionar domínio personalizado** é exibida.
+1. Verifique se **Tipo de registro de nome de host** está definido como **Registro A (example.com)** . Selecione **Adicionar domínio personalizado**.
 
-Verifique se **Tipo de registro de nome de host** está definido como **Registro A (example.com)** .
+    ![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-Selecione **Adicionar domínio personalizado**.
+    Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
 
-![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
+    ![Registro A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
-Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
-
-![Registro A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
-
-> [!NOTE]
-> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado TLS/SSL e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de TLS, confira [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
-
-Se você perdeu uma etapa ou cometeu um erro de digitação em algum lugar anteriormente, você verá um erro de verificação na parte inferior da página.
-
-![Erro de verificação](./media/app-service-web-tutorial-custom-domain/verification-error.png)
-
+    > [!NOTE]
+    > Um rótulo de aviso para o domínio personalizado significa que ele ainda não está associado a um certificado TLS/SSL e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de TLS, confira [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
+    
+    Se você perdeu uma etapa ou cometeu um erro de digitação em algum lugar anteriormente, você verá um erro de verificação na parte inferior da página.
+    
+    ![Erro de verificação](./media/app-service-web-tutorial-custom-domain/verification-error.png)
+    
 <a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Mapear um domínio curinga
@@ -279,33 +271,31 @@ Quando o CNAME é adicionado, a página de registros DNS fica parecida com o seg
 
 Agora você pode adicionar qualquer subdomínio que corresponda o nome curinga ao aplicativo (por exemplo, `sub1.contoso.com`, `sub2.contoso.com` e `*.contoso.com` correspondem a `*.contoso.com`).
 
-No painel de navegação à esquerda da página do aplicativo no portal do Azure, selecione **Domínios personalizados**.
+1. No painel de navegação à esquerda da página do aplicativo no portal do Azure, selecione **Domínios personalizados**.
 
-![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Selecione o ícone **+** ao lado de **Adicionar domínio personalizado**.
+1. Selecione **Adicionar domínio personalizado**.
 
-![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Adicionar nome do host](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digite um nome de domínio totalmente qualificado que corresponde ao domínio curinga (por exemplo, `sub1.contoso.com`) e, em seguida, selecione **Validar**.
+1. Digite um nome de domínio totalmente qualificado que corresponde ao domínio curinga (por exemplo, `sub1.contoso.com`) e, em seguida, selecione **Validar**.
 
-O botão **Adicionar domínio personalizado** está ativado.
+    O botão **Adicionar domínio personalizado** está ativado.
 
-Certifique-se de que **Tipo de registro do nome do host** esteja definido como **registro CNAME (www\.exemplo.com ou qualquer subdomínio)** .
+1. Certifique-se de que **Tipo de registro do nome do host** esteja definido como **registro CNAME (www\.exemplo.com ou qualquer subdomínio)** . Selecione **Adicionar domínio personalizado**.
 
-Selecione **Adicionar domínio personalizado**.
+    ![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-![Adicionar nome DNS para o aplicativo](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
+    Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
 
-Pode levar algum tempo para que o novo domínio personalizado seja refletido na página **Domínios personalizados** do aplicativo. Tente atualizar o navegador para atualizar os dados.
+1. Selecione o ícone **+** novamente para adicionar outro domínio personalizado que corresponde ao domínio curinga. Por exemplo, adicione `sub2.contoso.com`.
 
-Selecione o ícone **+** novamente para adicionar outro domínio personalizado que corresponde ao domínio curinga. Por exemplo, adicione `sub2.contoso.com`.
+    ![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard-2.png)
 
-![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
-
-> [!NOTE]
-> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado TLS/SSL e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de TLS, confira [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
-
+    > [!NOTE]
+    > Um rótulo de aviso para o domínio personalizado significa que ele ainda não está associado a um certificado TLS/SSL e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação de TLS, confira [Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure](configure-ssl-bindings.md).
+    
 ## <a name="test-in-browser"></a>Testar no navegador
 
 Navegue para os nomes DNS que você configurou anteriormente (por exemplo, `contoso.com`, `www.contoso.com`, `sub1.contoso.com` e `sub2.contoso.com`).

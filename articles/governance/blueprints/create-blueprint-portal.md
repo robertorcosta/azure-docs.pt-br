@@ -1,14 +1,14 @@
 ---
 title: 'Início Rápido: Criar um blueprint no portal'
 description: Neste início rápido, você usa o Azure Blueprints para criar, definir e implantar artefatos por meio do portal do Azure.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045205"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051515"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início Rápido: Definir e atribuir um blueprint no portal
 
@@ -61,7 +61,7 @@ A primeira etapa na definição de um modelo padrão para conformidade é compor
 
    1. Altere **tipo** para **interno**. Na **pesquisa**, insira **marca**.
 
-   1. Clique fora da **pesquisa** para a filtragem ocorra. Selecione **Acrescentar a tag e seu valor padrão aos grupos de recursos**.
+   1. Altere o foco de **Pesquisa** para que a filtragem ocorra. Selecione **Acrescentar a tag e seu valor padrão aos grupos de recursos**.
 
    1. Clique em **Adicionar** para adicionar este artefato ao blueprint.
 

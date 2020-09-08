@@ -4,41 +4,32 @@ description: Conheça as novidades e as atualizações recentes no serviço Migr
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e32c7433649cc6716a57a6aa2384c1e2d266e102
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85556926"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927163"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades nas Migrações para Azure
 
 As [Migrações para Azure](migrate-services-overview.md) ajudam a descobrir, avaliar e migrar servidores, aplicativos e dados para a nuvem do Microsoft Azure. Este artigo resume novas versões e novos recursos nas Migrações para Azure.
+
+## <a name="update-august-2020"></a>Atualização (agosto de 2020)
+
+- Experiência de integração aprimorada na qual uma chave de projeto das Migrações para Azure é gerada no portal e é usada para concluir o registro do dispositivo.
+- Opção para baixar os arquivos OVA/VHD ou os scripts do instalador do portal para configurar os dispositivos VMware e Hyper-V, respectivamente.
+- Gerenciador de configuração de dispositivo atualizado com experiência de usuário aprimorada.
+- Suporte a várias credenciais para descoberta de VMs do Hyper-V.
+- Funcionalidades de pesquisa, classificação e filtragem aprimoradas para credenciais adicionadas e fontes de descoberta.
+- Entrada de item único, entrada de vários itens e opções de CSV de importação de para que o usuário adicione fontes de descoberta para hosts/clusters do Hyper-V e servidores físicos.
+- Experiência de erro aprimorada com atualizações de status para operações de validação e descoberta em cada origem adicionada na tabela. 
 
 ## <a name="update-june-2020"></a>Atualização (junho de 2020)
 
 - Agora há suporte às avaliações para migrar as VMs locais do VMware para a [AVS (Solução VMware no Azure)](https://go.microsoft.com/fwlink/?linkid=2132637). [Saiba mais](how-to-create-azure-vmware-solution-assessment.md)
 - Suporte para várias credenciais no dispositivo para descoberta de servidor físico.
 - Suporte para permitir o logon do Azure no dispositivo para o locatário em que a restrição de locatário foi configurada.
-- Novas versões do dispositivo das Migrações para Azure, conforme listado abaixo.
-
-### <a name="azure-public-cloud"></a>Nuvem pública do Azure
-
-**Cenário** | **Download** | **SHA256**
---- | --- | ---
-Hyper-V (8,93 GB) | [Última versão](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
-VMware (10,9 GB) | [Última versão](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
-Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
-
-
-### <a name="azure-government"></a>Azure Government
-
-**Cenário** | **Download** | **SHA256**
---- | --- | ---
-Hyper-V (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
-VMware (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
-Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
-
 
 
 ## <a name="update-april-2020"></a>Atualização (abril de 2020)

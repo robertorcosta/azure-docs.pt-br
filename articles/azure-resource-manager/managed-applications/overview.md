@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391572"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377005"
 ---
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
@@ -71,13 +71,13 @@ O consumidor tem acesso total ao grupo de recursos e o utiliza para gerenciar o 
 
 Este grupo de recursos contém todos os recursos necessários ao aplicativo gerenciado. Por exemplo, esse grupo de recursos contém as máquinas virtuais, contas de armazenamento e redes virtuais para a solução. O consumidor tem acesso limitado a esse grupo de recursos, pois não gerencia os recursos individuais do aplicativo gerenciado. O acesso do fornecedor a este grupo de recursos corresponde à função especificada na definição do aplicativo gerenciado. Por exemplo, o fornecedor pode solicitar a função de Proprietário ou Colaborador para este grupo de recursos. O acesso é permanente ou limitado a uma hora específica.
 
-Ao publicar o [aplicativo gerenciado no marketplace](publish-marketplace-app.md), o editor pode conceder aos consumidores a capacidade de executar ações específicas em recursos no grupo de recursos gerenciados. Por exemplo, o editor pode especificar que os consumidores podem reiniciar as máquinas virtuais. Todas as outras ações além das ações de leitura ainda são negadas.
+Ao publicar o [aplicativo gerenciado no marketplace](publish-marketplace-app.md), o editor pode conceder aos consumidores a capacidade de executar ações específicas em recursos no grupo de recursos gerenciados. Por exemplo, o editor pode especificar que os consumidores podem reiniciar as máquinas virtuais. Todas as outras ações além das ações de leitura ainda são negadas. As alterações nos recursos em um grupo de recursos gerenciados realizadas por um consumidor com ações concedidas estão sujeitas às atribuições do [Azure Policy](../../governance/policy/overview.md) no locatário dos consumidores com escopo para incluir o grupo de recursos gerenciados.
 
 Quando o consumidor exclui o aplicativo gerenciado, o grupo de recursos gerenciado também é excluído.
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Você pode aplicar uma [política do Azure](../../governance/policy/overview.md) ao seu aplicativo gerenciado. Aplique políticas para garantir que instâncias implantadas de seu aplicativo gerenciado atendam requisitos de segurança e de dados. Se o aplicativo interage com os dados confidenciais, verifique se você avaliou como eles devem ser protegidos. Por exemplo, se seu aplicativo interage com os dados do Office 365, aplique uma política para garantir que a criptografia de dados esteja habilitada.
+Você pode aplicar um [Azure Policy](../../governance/policy/overview.md) para fazer auditoria do seu aplicativo gerenciado. Aplique definições de política para que as instâncias implantadas do seu aplicativo gerenciado atendam aos requisitos de segurança e de dados. Se o aplicativo interage com os dados confidenciais, verifique se você avaliou como eles devem ser protegidos. Por exemplo, se o aplicativo interage com os dados do Office 365, aplique uma definição de política para que a criptografia de dados esteja habilitada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

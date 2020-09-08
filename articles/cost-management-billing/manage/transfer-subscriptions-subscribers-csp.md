@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ffb72b4b06b8925cae57989a171d7efbd88c3866
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686598"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997567"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir assinaturas do Azure entre assinantes e CSPs
 
@@ -24,6 +24,9 @@ Este artigo fornece as etapas de alto nível usadas para transferir assinaturas 
 Os parceiros CSP de cobrança direta certificados como um [Provedor de Serviços Gerenciados (MSP) Especialista em Azure](https://partner.microsoft.com/membership/azure-expert-msp) podem solicitar a transferência de assinaturas do Azure para seus clientes que têm um EA (Contrato Enterprise) direto. Transferências de assinatura são permitidas somente para clientes que aceitaram um MCA (Contrato de Cliente da Microsoft) e compraram um plano do Azure.
 
 Quando a solicitação é aprovada, o CSP pode fornecer uma fatura combinada para seus clientes. Para saber mais sobre a transferência de assinaturas por CSPs, confira [Obter a propriedade de cobrança das assinaturas do Azure para sua conta do MPA](mpa-request-ownership.md).
+
+>[!IMPORTANT]
+> Depois de transferir uma assinatura do EA para um parceiro CSP, qualquer aumento na cota aplicado anteriormente à assinatura do EA será redefinido para o valor padrão. Se uma cota adicional for necessária após a transferência da assinatura, peça ao provedor do CSP para enviar uma solicitação de [aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Outras transferências de assinatura para um parceiro CSP
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795891"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376376"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gerenciamento de unidades administrativas no Azure Active Directory (versão prévia)
 
@@ -27,7 +27,7 @@ Este artigo descreve como criar unidades administrativas no Azure AD (Azure Acti
 
 Unidades administrativas permitem que você conceda permissões de administrador restritas a um departamento, uma região ou outro segmento de sua organização que você define. Você pode usar unidades administrativas para delegar permissões a administradores regionais ou definir uma política em um nível granular. Por exemplo, um administrador de conta de usuário poderia atualizar as informações do perfil, redefinir senhas e atribuir licenças para usuários apenas na unidade administrativa dele.
 
- Por exemplo, delegando a especialistas de suporte regional a função de [Administrador da assistência técnica](directory-assign-admin-roles.md#helpdesk-administrator) restrita ao gerenciamento de apenas usuários na região à qual eles dão suporte.
+Por exemplo, delegando a especialistas de suporte regional a função de [Administrador da assistência técnica](directory-assign-admin-roles.md#helpdesk-administrator) restrita ao gerenciamento de apenas usuários na região à qual eles dão suporte.
 
 ## <a name="deployment-scenario"></a>Cenário de implantação
 
@@ -54,7 +54,7 @@ Nesta versão prévia, você pode gerenciar unidades administrativas usando o po
 
 As unidades administrativas podem ser usadas para agrupar logicamente recursos do Azure AD. Por exemplo, para uma organização cujo departamento de TI está globalmente disperso, pode fazer sentido criar unidades administrativas que definem esses limites geográficos. Em outro cenário em que uma organização multinacional tem diferentes “suborganizações”, que são semiautônomas em operações, cada uma delas pode ser representada por uma unidade administrativa.
 
-Os critérios em que as unidades administrativas são criadas serão guiados pelos requisitos exclusivos de uma organização. As Unidades Administrativas são uma forma comum de definir a estrutura nos serviços M365. Recomendamos que você prepare suas unidades administrativas considerando o uso delas nos serviços M365. Você pode obter o valor máximo das unidades administrativas quando pode associar recursos comuns no M365 em uma unidade administrativa.
+Os critérios em que as unidades administrativas são criadas serão guiados pelos requisitos exclusivos de uma organização. As Unidades Administrativas são uma forma comum de definir a estrutura nos serviços Microsoft 365. Recomendamos que você prepare suas unidades administrativas considerando o uso delas nos serviços Microsoft 365. Você pode obter o valor máximo das unidades administrativas quando pode associar recursos comuns no Microsoft 365 em uma unidade administrativa.
 
 Você pode esperar que a criação de unidades administrativas na organização passe pelas seguintes fases:
 
@@ -64,7 +64,7 @@ Você pode esperar que a criação de unidades administrativas na organização 
 
 ## <a name="currently-supported-scenarios"></a>Cenários com suporte no momento
 
-Os Administradores globais ou os Administradores de funções com privilégios podem usar o portal do Azure AD para criar unidades administrativas, adicionar usuários como membros de unidades administrativas e atribuir a equipe de TI a funções de administrador no escopo da unidade administrativa. Os administradores no escopo da unidade administrativa podem usar o portal do Office 365 para gerenciamento básico de usuários nas unidades administrativas deles.
+Os Administradores globais ou os Administradores de funções com privilégios podem usar o portal do Azure AD para criar unidades administrativas, adicionar usuários como membros de unidades administrativas e atribuir a equipe de TI a funções de administrador no escopo da unidade administrativa. Os administradores no escopo da unidade administrativa podem usar o Centro de administração do Microsoft 365 para o gerenciamento básico de usuários nas unidades administrativas deles.
 
 Além disso, os grupos podem ser adicionados como membros da unidade administrativa, e um administrador de grupo no escopo da unidade administrativa pode gerenciá-los usando o PowerShell, o Microsoft Graph e o portal do Azure AD.
 
@@ -99,7 +99,7 @@ gerenciamento de licenciamento de grupo no escopo da unidade administrativa   | 
 >
 > Os administradores com um escopo de unidade administrativa não podem gerenciar regras de associação de grupo dinâmica.
 
-As unidades administrativas aplicam o escopo somente às permissões de gerenciamento. Elas não impedem os membros ou administradores de usar as [permissões de usuário padrão](../fundamentals/users-default-permissions.md) para procurar outros usuários, grupos ou recursos fora da unidade administrativa. No portal do Office 365, os usuários fora de unidades administrativas do administrador com escopo são filtrados, mas você pode procurar outros usuários no portal do Azure AD, no PowerShell e em outros serviços da Microsoft.
+As unidades administrativas aplicam o escopo somente às permissões de gerenciamento. Elas não impedem os membros ou administradores de usar as [permissões de usuário padrão](../fundamentals/users-default-permissions.md) para procurar outros usuários, grupos ou recursos fora da unidade administrativa. No Centro de administração do Microsoft 365, os usuários fora de unidades administrativas do administrador com escopo são filtrados, mas você pode procurar outros usuários no portal do Azure AD, no PowerShell e em outros serviços da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

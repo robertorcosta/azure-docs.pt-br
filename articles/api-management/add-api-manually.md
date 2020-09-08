@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 644e29c3b5e37cd95280cfd2261e644b20bbda98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6b8b7c0dbdce160a19b5bb5ecb67bf2fb0a204ee
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203243"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295254"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
@@ -45,7 +45,7 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
 Agora você não tem nenhuma operação no Gerenciamento de API mapeada para as operações em sua API de back-end. Se você chamar uma operação que é exposta por meio de back-end, mas não por meio do Gerenciamento de API, receberá um **404**.
 
 >[!NOTE] 
-> Por padrão, quando você adiciona uma API, mesmo se ela estiver conectada a algum serviço de back-end, o APIM não exporá nenhuma operação até que você as coloque na lista de permissões. Para adicionar uma operação do serviço de back-end à lista de permissões, crie uma operação de APIM que mapeia para a operação de back-end.
+> Por padrão, quando você adicionar uma API, mesmo se ela estiver conectada a algum serviço de back-end, o APIM não vai expor nenhuma operação até que você as coloque na lista de permissões. Para permitir uma operação do serviço de back-end, crie uma operação de APIM que mapeia para a operação de back-end.
 
 ## <a name="add-and-test-an-operation"></a>Adicionar e testar uma operação
 

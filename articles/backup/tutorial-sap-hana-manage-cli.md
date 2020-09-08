@@ -4,12 +4,12 @@ description: Neste tutorial, saiba como gerenciar bancos de dados SAP HANA subme
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3051eb9a6f0c395f8ec06d92d6501296ec39c768
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757346"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007291"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Gerenciar bancos de dados SAP HANA em uma VM do Azure usando a CLI do Azure
 
@@ -35,7 +35,7 @@ Se você usou [Fazer backup de um banco de dados SAP HANA no Azure usando a CLI]
 * um banco de dados/um item submetido a backup chamado *saphanadatabase;hxe;hxe*
 * recursos na região *westus2*
 
-A CLI do Azure facilita o gerenciamento de um banco de dados SAP HANA em execução em uma VM do Azure que é submetida a backup usando o Backup do Azure. Este tutorial detalha cada uma das operações de gerenciamento.
+A CLI do Azure facilita o gerenciamento de um banco de dados SAP HANA em execução em uma VM do Azure cujo backup é feito usando o Backup do Azure. Este tutorial detalha cada uma das operações de gerenciamento.
 
 ## <a name="monitor-backup-and-restore-jobs"></a>Monitorar tarefas de backup e restauração
 
@@ -119,7 +119,7 @@ Você pode interromper a proteção de um banco de dados SAP HANA de algumas man
 
 Se você optar por deixar os pontos de recuperação, tenha em mente estes detalhes:
 
-* Todos os pontos de recuperação permanecerão intactos para sempre, toda a remoção será interrompida ao parar a proteção com os dados de retenção.
+* Todos os pontos de recuperação permanecerão intactos para sempre e toda a remoção será interrompida ao parar a proteção com os dados de retenção.
 * Você será cobrado pela instância protegida e pelo armazenamento consumido.
 * Se você excluir uma fonte de dados sem interromper os backups, os novos backups falharão.
 

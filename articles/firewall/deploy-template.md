@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar um Firewall do Azure com o Zonas de Disponibilidade – modelo do Resource Manager'
-description: Implantar Firewall do Azure usando um modelo. A rede virtual tem uma VNet com três sub-redes. Duas máquinas virtuais do Windows Server são implantadas; uma jump box e um servidor.
+description: Neste guia de início rápido, implante o Firewall do Azure usando um modelo. A rede virtual tem uma VNet com três sub-redes. Duas máquinas virtuais do Windows Server são implantadas; uma jump box e um servidor.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 104e2e9f6593d95caf77c0796f8b9465eebcfcee
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: c8b4102968e4b6b633216e29d5e993a1c98fa1c6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705122"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071713"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>Início Rápido: Implantar o Firewall do Azure com as Zonas de Disponibilidade – Modelo do ARM
 

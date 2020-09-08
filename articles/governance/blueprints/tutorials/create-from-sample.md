@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Amostra do blueprint para o novo ambiente'
 description: Neste tutorial, você usa um exemplo de blueprint para criar uma definição dele que configure dois grupos de recursos e uma atribuição de função para cada grupo.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677086"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048725"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente com base em um exemplo de blueprint
 
@@ -122,7 +122,7 @@ A atribuição de blueprint cria e controla os artefatos definidos na definiçã
 
 1. Selecione a página **Blueprints atribuídos** à esquerda. Use os filtros para localizar a atribuição de blueprint _Assignment-two-rgs-with-role-assignments_ e, em seguida, selecione-o.
 
-   Nessa página, podemos ver que a atribuição foi bem-sucedida e a lista de recursos criados juntamente com o respectivo estado de bloqueio do blueprint. Se a atribuição for atualizada, a lista suspensa **Operação de atribuição** mostrará detalhes sobre a implantação de cada versão de definição. Cada recurso listado que foi criado pode ser clicado, abrindo a página de propriedades desses recursos.
+   Nessa página, podemos ver que a atribuição foi bem-sucedida e a lista de recursos criados juntamente com o respectivo estado de bloqueio do blueprint. Se a atribuição for atualizada, a lista suspensa **Operação de atribuição** mostrará detalhes sobre a implantação de cada versão de definição. Cada recurso listado que foi criado pode ser selecionado e abre a página de propriedades desses recursos.
 
 1. Selecione o grupo de recursos **ProductionRG**.
 

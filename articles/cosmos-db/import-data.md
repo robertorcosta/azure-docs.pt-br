@@ -4,14 +4,14 @@ description: 'Tutorial: Saiba como usar as ferramentas de migração de dados de
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 5c9eb2409b67d71882406c21728fbf2429eb16a9
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9992d6f1f9f1d0aad6f451d6a974f4df9f655881
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118756"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255980"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Usar a ferramenta de migração de dados para migrar seus dados para o Azure Cosmos DB
 
@@ -40,6 +40,9 @@ Antes de seguir as instruções deste artigo, realize as seguintes etapas:
 * **Aumentar a taxa de transferência:** A duração da sua migração de dados depende da taxa de transferência que você configurar para uma coleção individual ou um conjunto de coleções. Certifique-se de aumentar a taxa de transferência para migrações de dados maiores. Depois de concluir a migração, diminua a taxa de transferência para economizar custos. Para obter mais informações sobre como aumentar a produtividade no portal do Azure, confira [níveis de desempenho](performance-levels.md) e [tipos de preço](https://azure.microsoft.com/pricing/details/cosmos-db/) no Azure Cosmos DB.
 
 * **Criar recursos do Azure Cosmos DB:** Antes de começar a migrar dados, crie previamente todas as suas coleções no portal do Azure. Para migrar para uma conta do Azure Cosmos DB que tenha produtividade de nível de banco de dados, forneça uma chave de partição ao criar os contêineres do Azure Cosmos.
+
+> [!IMPORTANT]
+> Para garantir que a ferramenta de Migração de dados use o protocolo TLS 1.2 ao se conectar às contas do Azure Cosmos, use a versão 4.7 do .NET Framework ou siga as instruções [neste artigo](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 
 ## <a name="overview"></a><a id="Overviewl"></a>Visão geral
 

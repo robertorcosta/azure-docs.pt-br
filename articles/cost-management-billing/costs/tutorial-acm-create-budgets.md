@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 739d300faf77564891b2b783a3eb1cca50373015
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718345"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322272"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
 Orçamentos no Gerenciamento de Custos ajudam você a planejar e promover responsabilidade organizacional. Com orçamentos, você pode considerar os serviços do Azure que consome ou assina durante um período específico. Eles ajudam você a informar outras pessoas sobre seus gastos para gerenciar proativamente os custos e monitorar como os gastos evoluem ao longo do tempo. Quando os limites de orçamento que você criou são excedidos, apenas notificações são disparadas. Nenhum de seus recursos é afetado e seu consumo não é interrompido. Você pode usar os orçamentos para comparar e controlar como analisar os custos de gastos.
 
-Os dados de custo e de uso geralmente ficam disponíveis em 20 horas e os orçamentos são avaliados em relação a esses custos a cada 12 a 14 horas. Quando um limite de orçamento é atingido, as notificações por email são enviadas normalmente em até uma hora da avaliação.
+Os dados de custo e de uso geralmente ficam disponíveis no prazo de 8 a 24 horas e os orçamentos são avaliados em relação a esses custos entre 12 e 14 horas. Familiarize-se com os aspectos específicos das [Atualizações de dados de custo e de uso](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Quando um limite de orçamento é atingido, as notificações por email são enviadas normalmente em até uma hora da avaliação.
 
 Os orçamentos são redefinidos automaticamente no final de um período (mensal, trimestral ou anual) para o mesmo valor de orçamento quando você seleciona uma data de expiração no futuro. Uma vez que redefinidos com o mesmo valor de orçamento, você precisará criar orçamentos separados quando os valores monetários orçados forem diferentes para períodos futuros.
 

@@ -114,6 +114,8 @@
         - name: Controles de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Como proteger recursos do indexador
+          href: search-indexer-securing-resources.md
 - name: Guias de instruções
   items:
     - name: Criar índices e constructos
@@ -354,6 +356,14 @@
               href: search-security-trimming-for-azure-search.md
             - name: Filtrar por identidades de usuário
               href: search-security-trimming-for-azure-search-with-aad.md
+        - name: Segurança de saída (indexadores)
+          items:
+            - name: Acesso em um intervalo de IP
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: Acesso por meio de exceção de serviço confiável
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: Acesso por meio de pontos de extremidade privados
+              href: search-indexer-howto-access-private.md
     - name: Gerenciar
       items:
         - name: Portal
@@ -392,14 +402,14 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: REST
       items:
-        - name: Pesquisar 2020-06-30
+        - name: API de pesquisa (estável)
           href: /rest/api/searchservice
-        - name: Pesquisar 2020-06-30-Preview
+        - name: API de pesquisa (versão prévia)
           href: /rest/api/searchservice/index-preview
-        - name: Gerenciamento 2020-03-13
+        - name: API de gerenciamento (estável)
           href: /rest/api/searchmanagement
-        - name: Gerenciamento 2019-10-01-Preview
-          href: /rest/api/searchmanagement/index-2019-10-01-preview
+        - name: API de gerenciamento (versão prévia)
+          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: API de Pesquisa
@@ -526,5 +536,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

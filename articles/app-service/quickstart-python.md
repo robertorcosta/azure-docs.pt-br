@@ -4,12 +4,12 @@ description: Comece a usar o Serviço de Aplicativo do Azure implantando seu pri
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: 5463b23a4c19681515197f7d0cf880235ef6c0f2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3bfe927b2c9dc16de8712f6c1793e850df92c201
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121537"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078445"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
@@ -158,6 +158,7 @@ az webapp up --sku F1 -n <app-name>
 - Substitua `<app_name>` por um nome que seja exclusivo em todo o Azure (*os caracteres válidos são `a-z`, `0-9` e `-`* ). Um bom padrão é usar uma combinação do nome da empresa e um identificador de aplicativo.
 - O argumento `--sku F1` cria o aplicativo Web no tipo de preço Gratuito. Omita esse argumento para usar um nível Premium mais rápido, o que incorre em um custo por hora.
 - Também existe a opção de incluir o argumento `-l <location-name>` em que `<location_name>` é uma região do Azure como **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** e assim por diante. Você pode recuperar uma lista de regiões permitidas para sua conta do Azure executando o comando [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations).
+- Caso veja o erro "Não foi possível detectar automaticamente a pilha de runtime do seu aplicativo", verifique se você está executando o comando na pasta *python-docs-hello-world* que contém o arquivo *requirements.txt*. (Confira [Solução de problemas na detecção automática com az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).)
 
 O comando pode demorar um pouco para ser concluído. Durante a execução, ele fornece mensagens sobre como criar o grupo de recursos, o plano do Serviço de Aplicativo e o aplicativo de hospedagem, configurar o registro em log e executar a implantação ZIP. Em seguida, ele fornece a mensagem "Você pode iniciar o aplicativo em http://&lt;nome-do-aplicativo&gt;.azurewebsites.net", que é a URL do aplicativo no Azure.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121231"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299296"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configurar um limite geográfico usando o Azure Mapas
 
@@ -258,15 +258,15 @@ Siga as etapas abaixo para criar uma assinatura de evento para eventos de entrad
 
 5. Repita as etapas 1 a 4 para o ponto de extremidade de Saída do Aplicativo Lógico criado na seção anterior. Na etapa 3, certifique-se de escolher `Geofence Exited` como o tipo de evento.
 
-## <a name="use-search-geofence-get-api"></a>Usar a Pesquisa de API de GET de Cerca Geográfica
+## <a name="use-spatial-geofence-get-api"></a>Usar a API de Obtenção de Cerca Geográfica Espacial
 
-Agora, usaremos a [Pesquisa de API de GET de Cerca Geográfica](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificações por email para o Operations Manager quando um equipamento entrar ou sair das cercas geográficas.
+Agora, usaremos a [API de Obtenção de Cerca Geográfica Espacial](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificações por email para o Operations Manager quando um equipamento entrar ou sair das cercas geográficas.
 
 Cada equipamento tem um `deviceId`. Neste tutorial, vamos acompanhar um só equipamento, cuja ID exclusiva é `device_1`.
 
 Para maior clareza, o diagrama a seguir mostra os cinco localizações do equipamento ao longo do tempo, começando na localização de *Início*, que está em algum lugar do lado de fora das cercas geográficas. Neste tutorial, a localização de *Início* é indefinida, já que não consultamos o dispositivo nessa localização.
 
-Se consultarmos a [Pesquisa de API de GET de Cerca Geográfica](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) com uma localização de equipamento que indica a entrada ou saída de cerca geográfica inicial, a Grade de Eventos chamará o ponto de extremidade do Aplicativo Lógico apropriado para enviar uma notificação por email para o Operations Manager.
+Se consultarmos a [API de Obtenção de Cerca Geográfica Espacial](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) com uma localização de equipamento que indica a entrada inicial em uma cerca geográfica ou a saída dela, a Grade de Eventos chamará o ponto de extremidade do Aplicativo Lógico apropriado para enviar uma notificação por email para o Operations Manager.
 
 Cada uma das sessões a seguir fazem as solicitações de API de Delimitação Geográfica de HTTP GET usando as cinco diferentes coordenadas de localização dos equipamentos.
 

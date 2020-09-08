@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: c41fb7426cf740b5861b0b571cf7ce5c54d681ef
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b0060c0aff8293ca5748cf8c055ebb2bbfb596e2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757601"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017440"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer backup de uma máquina virtual no Azure
 
@@ -39,7 +39,7 @@ Um cofre dos Serviços de Recuperação é um contêiner lógico que armazena os
 
     ![Habilitar o backup de VM no portal do Azure](./media/quick-backup-vm-portal/enable-backup.png)
 
-    Por padrão, o cofre é definido para o armazenamento com redundância geográfica. Para proteger ainda mais seus dados, esse nível de redundância de armazenamento garante que os dados de backup sejam replicados para uma região secundária do Azure a centenas de milhas de distância da região primária.
+    Por padrão, o cofre é definido para o armazenamento com redundância geográfica. Para proteger ainda mais os seus dados, esse nível de redundância de armazenamento garante que os dados de backup sejam replicados para uma região secundária do Azure a centenas de quilômetros de distância da região primária.
 
     Criar e usar políticas para definir quando um trabalho de backup é executado e por quanto tempo os pontos de recuperação serão armazenados. A política de proteção padrão executa um trabalho de backup a cada dia e retém pontos de recuperação por 30 dias. Você pode usar esses valores de política padrão para proteger rapidamente sua VM.
 

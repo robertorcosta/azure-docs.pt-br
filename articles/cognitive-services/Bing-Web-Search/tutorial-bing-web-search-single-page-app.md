@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6d958cd2fa95cd3c3747afc80b47c17f55e4248a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 251dbf6897f7efe56d968122c2ccad7093d39e44
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405527"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300044"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar um aplicativo de página única usando a API de Pesquisa na Web do Bing
 
@@ -443,7 +443,7 @@ As políticas de segurança do navegador, como CORS (Compartilhamento de Recurso
 > [!NOTE]
 > Em um aplicativo Web de produção, você deve executar a solicitação do lado do servidor de qualquer maneira. Caso contrário, a chave de assinatura da API de Pesquisa do Bing deverá ser incluída na página da Web, em que estará disponível para qualquer pessoa que exibir a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
 
-Para fins de desenvolvimento, é possível fazer uma solicitação por meio de um proxy CORS. A resposta desse tipo de proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
+Para fins de desenvolvimento, é possível fazer uma solicitação por meio de um proxy CORS. A resposta desse tipo de proxy tem um cabeçalho `Access-Control-Expose-Headers` que filtra os cabeçalhos de resposta e disponibiliza-os para o JavaScript.
 
 É fácil instalar um proxy CORS para permitir que o aplicativo de exemplo acesse o cabeçalho da ID do cliente. Execute este comando:
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 08/24/2020
+ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367097"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292972"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Visão geral da segurança empresarial no Azure HDInsight
 
@@ -59,7 +59,7 @@ Para acessar os logs de auditoria do Apache Ranger e do Ambari, bem como os logs
 
 A proteção de dados é importante para atender aos requisitos de segurança e conformidade da organização. Além de restringir o acesso a dados de funcionários não autorizados, você deve criptografá-lo.
 
-O armazenamento do Azure e o Data Lake Storage Gen1/Gen2 são compatíveis com [criptografia de dados](../../storage/common/storage-service-encryption.md) em repouso transparente no lado do servidor. A proteção de clusters HDInsight funcionará perfeitamente com essa criptografia do lado do servidor de dados em repouso.
+O HDInsight dá suporte à criptografia de dados em repouso com as [chaves gerenciadas pelo cliente](../disk-encryption.md) e gerenciadas pela plataforma. A criptografia de dados em trânsito é processada com o TLS e o IPSec. Confira [Criptografia em trânsito do Azure HDInsight](encryption-in-transit.md) para obter mais informações.
 
 ### <a name="compliance"></a>Conformidade
 
@@ -79,7 +79,7 @@ A tabela a seguir fornece links para recursos para cada tipo de solução de seg
 |  | Habilitar a propriedade ["Transferência segura obrigatória"](../../storage/common/storage-require-secure-transfer.md) nas contas de armazenamento. | Cliente |
 |  | Configurar redes virtuais e [firewalls do Armazenamento do Azure](../../storage/common/storage-network-security.md) | Cliente |
 |  | Configurar [pontos de extremidade de serviço de rede virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) para Cosmos DB e [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Cliente |
-|  | Verificar se a [criptografia TLS](../../storage/common/storage-security-tls.md) está habilitada para os dados em trânsito. | Cliente |
+|  | Verifique se o recurso [Criptografia em trânsito](./encryption-in-transit.md) está habilitado para usar o TLS e o IPSec para a comunicação dentro do cluster. | Cliente |
 |  | Configurar as [chaves gerenciadas pelo cliente](../../storage/common/storage-encryption-keys-portal.md) para a criptografia do Armazenamento do Azure | Cliente |
 |  | Controlar o acesso aos seus dados pelo Suporte do Azure usando o [Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Cliente |
 | Segurança de aplicativo e middleware | Fazer a integração ao AAD-DS e [configurar a autenticação](apache-domain-joined-configure-using-azure-adds.md) | Cliente |
