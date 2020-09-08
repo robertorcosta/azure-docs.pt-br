@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433049"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462166"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implantar seu aplicativo em máquinas virtuais do Linux no Azure usando o Azure DevOps Services e o Azure Pipelines
 
@@ -84,9 +84,10 @@ Siga as etapas adicionais descritas abaixo com base na pilha de runtime usada pa
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Para implantar aplicativos baseados em Java Spring Boot e Spring Cloud, crie uma VM do Linux no Azure usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo, que fornece um runtime baseado em OpenJDK totalmente compatível.
-- Para implantar Servlets Java no servidor Tomcat, crie uma VM do Linux com o Java 8 usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modelo do Azure e [configure o Tomcat 9.x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Para implantar o aplicativo baseado em Java EE, use um modelo do Azure para criar uma [VM do Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou [uma VM do Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou uma [VM do Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14 
+- Para implantar aplicativos baseados em Java Spring Boot e Spring Cloud, crie uma VM do Linux no Azure usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) modelo, que fornece um runtime baseado em OpenJDK totalmente compatível.
+- Para implantar Servlets Java no servidor Tomcat, crie uma VM do Linux com o Java 8 usando [este](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) modelo do Azure e [configure o Tomcat 9.x como um serviço](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Para implantar o aplicativo baseado em Java EE, use um modelo do Azure para criar uma [VM do Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90) ou [uma VM do Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou uma [VM do Linux + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) + WildFly/JBoss 14 
+
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 

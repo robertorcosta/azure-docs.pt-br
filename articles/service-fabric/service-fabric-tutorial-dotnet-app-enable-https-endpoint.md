@@ -4,12 +4,12 @@ description: Neste tutorial, você aprenderá a adicionar um ponto de extremidad
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6b8587982a8cbe496427960495055adbd68a07a7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997278"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441520"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando o Kestrel
 
@@ -238,7 +238,7 @@ No Gerenciador de Soluções, abra *VotingWeb/PackageRoot/ServiceManifest.xml*. 
 
 Para executar o PowerShell do ponto **SetupEntryPoint**, execute PowerShell.exe em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione o arquivo em lotes ao projeto de serviço.  No Gerenciador de Soluções, clique com o botão direito do mouse em **VotingWeb**, selecione **Adicionar**->**Novo Item** e adicione um novo arquivo denominado "Setup.bat".  Edite o arquivo *Setup.bat* e adicione o comando a seguir:
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
