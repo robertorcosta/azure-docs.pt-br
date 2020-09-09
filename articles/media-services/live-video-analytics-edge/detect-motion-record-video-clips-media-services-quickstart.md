@@ -3,12 +3,12 @@ title: Detectar movimento, gravar vídeo nos Serviços de Mídia do Azure
 description: Este guia de início rápido mostra como usar a Análise de Vídeo ao vivo no IoT Edge para detectar o movimento em uma transmissão de vídeo ao vivo e gravar clipes de vídeo nos Serviços de Mídia do Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 972b85c00aa29cc39dafd03b9945e489680dd9a5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067640"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568992"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Início Rápido: Detectar movimento e gravar vídeo em Serviços de Mídia
 
@@ -33,7 +33,8 @@ Use um aplicativo como o [VLC Player](https://www.videolan.org/vlc/), inicie-o, 
 
 Ao concluir as etapas abaixo, você terá usado a Análise de Vídeo ao vivo no IoT Edge para detectar esse movimento do carro e gravar um clipe de vídeo começando na marca de cerca de 5 segundos. O diagrama a seguir é a representação visual do fluxo geral.
 
-![Gravação de vídeo baseada em evento em Ativos baseados em eventos em movimento](./media/quickstarts/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/topology.svg" alt-text="Gravação de vídeo baseada em evento em Ativos baseados em eventos em movimento":::
 
 ## <a name="use-direct-method-calls"></a>Usar chamadas de método direto
 

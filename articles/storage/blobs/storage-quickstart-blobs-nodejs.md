@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8798808741fe5d659ed7afe96f415964296d356f
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c4343012c7d0abb7c8b8a22da687dc5ac668dc19
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429136"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514367"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v12-sdk-in-nodejs"></a>Início Rápido: Gerenciar blobs com o SDK do JavaScript v12 no Node.js
 
@@ -97,7 +97,7 @@ No diretório do projeto:
 
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
-    const uuidv1 = require('uuid/v1');
+    const { v1: uuid} = require('uuid');
 
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');

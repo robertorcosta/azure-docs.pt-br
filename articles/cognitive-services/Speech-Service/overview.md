@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 57577c840c93888b2b96971994724f085ad44ebe
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825335"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569298"
 ---
 # <a name="what-is-the-speech-service"></a>O que é Serviço de fala?
 
@@ -90,7 +90,7 @@ São necessários alguns instantes para a implantação do novo recurso de Fala.
 
 Oferecemos guias de início rápido nas linguagens de programação mais populares, todos eles desenvolvidos para ensinar padrões de design básicos e para você executar seu código em menos de 10 minutos. Confira a lista a seguir para obter o guia de início rápido para cada recurso.
 
-* [Início rápido de conversão de fala em texto](speech-to-text-basics.md)
+* [Início rápido de conversão de fala em texto](get-started-speech-to-text.md)
 * [Início rápido da conversão de texto em fala](get-started-text-to-speech.md)
 * [Início rápido da tradução de fala](speech-translation-basics.md)
 * [Início rápido do reconhecimento de intenção](quickstarts/intent-recognition.md)

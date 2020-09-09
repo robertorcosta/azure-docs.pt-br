@@ -3,19 +3,19 @@ title: Início rápido da biblioteca de clientes do C# para Leitura Avançada
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você cria um aplicativo Web do zero e adiciona a funcionalidade da API de Leitura Avançada.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
-ms.author: pasta
+ms.author: nitinme
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: ae0ed771bc00b2541db721af54bf277ff36042f9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f3d694a1e1eb368a97d994ebe9885c279ff44463
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921760"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505363"
 ---
 A [Leitura Avançada](https://www.onenote.com/learningtools) é uma ferramenta projetada de forma inclusiva que implementa técnicas comprovadas para melhorar a compreensão da leitura.
 

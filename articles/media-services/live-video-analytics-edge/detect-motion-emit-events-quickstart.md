@@ -4,18 +4,18 @@ description: Este guia de início rápido mostra como usar a Análise de Vídeo 
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 45595e8e6aa53b41d6d8b0d9d11457468dc47013
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4d8b91529eaf5a9ee93cff28153b28b26fb7e685
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690877"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566885"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Início Rápido: Detectar movimento e emitir eventos
 
 Este guia de início rápido orienta você pelas etapas para começar a usar a Análise de Vídeo ao vivo no IoT Edge. Ele usa uma VM do Azure como dispositivo IoT Edge e uma transmissão de vídeo ao vivo simulada. Depois de concluir as etapas de instalação, você poderá executar um fluxo de vídeo ao vivo simulado por meio de um grafo de mídia que detecta e relata qualquer movimento nesse fluxo. O diagrama a seguir mostra uma representação gráfica desse grafo de mídia.
 
-![Análise de Vídeo ao Vivo com base na detecção de movimento](./media/analyze-live-video/motion-detection.png) 
+![Análise de Vídeo ao Vivo com base na detecção de movimento](./media/analyze-live-video/motion-detection.svg) 
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [header](includes/detect-motion-emit-events-quickstart/csharp/header.md)]

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: dce42f1b8bfe58e4d147ba1c982cb770590dfa92
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1a9dc47888110836239c59f6a7542f71f753dd3a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845112"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568176"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Python v12
 
@@ -82,10 +82,10 @@ No diretório do projeto:
 
     ```python
     import os, uuid
-    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+    from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
 
     try:
-        print("Azure Blob storage v12 - Python quickstart sample")
+        print("Azure Blob storage v" + __version__ + " - Python quickstart sample")
         # Quick start code goes here
     except Exception as ex:
         print('Exception:')
@@ -292,5 +292,5 @@ Para ver os aplicativos de exemplo de armazenamento de blobs, acesse:
 > [!div class="nextstepaction"]
 > [Exemplos do SDK do Armazenamento de Blobs do Azure v12 Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* Para saber mais, confira as [bibliotecas de cliente do Armazenamento do Azure para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12).
+* Para saber mais, confira as [bibliotecas de cliente do Armazenamento do Azure para Python](/azure/developer/python/sdk/storage/overview).
 * Para acessar tutoriais, exemplos, inícios rápidos e outras documentações, acesse [Azure para Desenvolvedores de Python](/azure/python/).
