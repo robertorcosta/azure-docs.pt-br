@@ -4,12 +4,12 @@ description: Descreve como avaliar as VMs locais do VMware para migração para 
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: dd00f800003724b3a5c15d265a5428272e1762fb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8c2784e999e751972883b6c9ffba2485bb9fe9e1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290220"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950078"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Avaliar VMs do VMware com a Avaliação do Servidor
 
@@ -66,19 +66,30 @@ Configure um novo projeto das Migrações para Azure, conforme descrito a seguir
 
 O recurso Migrações para Azure: Avaliação do Servidor usa um dispositivo leve de Migrações para Azure. O dispositivo executa a descoberta de VM e envia os metadados de VM e os dados de desempenho para as Migrações para Azure. O dispositivo pode ser configurado de várias maneiras.
 
-- Configurar em uma VM do VMware usando um modelo OVA baixado. Esse é o método usado neste tutorial.
+- Configurar em uma VM do VMware usando um modelo OVA baixado. **Esse é o método usado neste tutorial.**
 - Configurar em uma VM do VMware ou computador físico com um script do instalador do PowerShell. [Esse método](deploy-appliance-script.md) deverá ser usado se você não puder configurar uma VM usando um modelo OVA ou se você estiver no Azure Government.
 
 Depois de criar o dispositivo, você verifica se é possível conectá-lo ao Migrações para Azure: Avaliação do Servidor, configurá-lo pela primeira vez e registrá-lo com o projeto de Migrações para Azure.
 
 
-### <a name="download-the-ova-template"></a>Baixar o modelo OVA
+### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
 
 1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
 2. Em **Descobrir computadores** > **As suas máquinas são virtualizadas?** , selecione **Sim, com o hipervisor do VMware vSphere**.
-3. Selecione **Baixar** para baixar o arquivo de modelo OVA.
+3. Em **1: Gerar chave de projeto das Migrações para Azure**, forneça um nome para o dispositivo das Migrações para Azure que você vai configurar para a descoberta das VMs VMware. O nome deverá conter até 14 caracteres alfanuméricos.
+1. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir computadores durante a criação de recursos.
+1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
+1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
-   ![Seleções para baixar um arquivo OVA](./media/tutorial-assess-vmware/download-ova.png)
+### <a name="download-the-ova-template"></a>Baixar o modelo OVA
+Em **2: Baixar o dispositivo das Migrações para Azure**, selecione o arquivo .OVA e clique em **Baixar**. 
+
+
+   ![Seleções para Descobrir computadores](./media/tutorial-assess-vmware/servers-discover.png)
+
+
+   ![Seleções para Gerar Chave](./media/tutorial-assess-vmware/generate-key-vmware.png)
+
 
 ### <a name="verify-security"></a>Verificar a segurança
 
@@ -97,13 +108,13 @@ Verifique se o arquivo OVA é seguro antes de implantá-lo:
     
         **Algoritmo** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (10,9 GB) | [Última versão](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+        VMware (11,6 GB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
 
     - Para o Azure Government:
     
         **Algoritmo** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+        VMware (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140337) | 7dab9445a89b47302994d6de4caddaa092c1c582c8f3c1fc5b9c4908c7d2f9f7
 
 
 ### <a name="create-the-appliance-vm"></a>Criar a VM do dispositivo
@@ -138,49 +149,49 @@ Configure o dispositivo pela primeira vez.
 3. Abra um navegador em qualquer computador que possa se conectar à VM e abra a URL do aplicativo Web do dispositivo: **https://*nome do dispositivo ou endereço IP*: 44368**.
 
    Como alternativa, você pode abrir o aplicativo na área de trabalho do dispositivo selecionando o atalho do aplicativo.
+1. Aceite os **termos de licença** e leia as informações de terceiros.
 1. No aplicativo Web > **Configurar os pré-requisitos**, faça o seguinte:
-   - **Licença**: Aceite os termos de licença e leia as informações de terceiros.
    - **Conectividade**: o aplicativo verifica se a VM tem acesso à Internet. Se a VM usar um proxy:
-     - Selecione **Configurações de proxy** e especifique o endereço proxy e a porta de escuta, no formato http://ProxyIPAddress ou http://ProxyFQDN.
+     - Clique em **Configurar proxy** para especificar o endereço de proxy (na forma http://ProxyIPAddress ou http://ProxyFQDN) e na porta de escuta).
      - Especifique as credenciais caso o proxy exija autenticação.
      - Há suporte apenas para o proxy HTTP.
+     - Se você tiver adicionado detalhes de proxy ou desabilitado o proxy e/ou a autenticação, clique em **Salvar** para disparar a verificação de conectividade novamente.
    - **Sincronização do horário**: O horário no dispositivo deve ser sincronizado com o horário na Internet para que a descoberta funcione corretamente.
-   - **Instalar as atualizações**: O dispositivo garante que as atualizações mais recentes serão instaladas.
-   - **Instalar o VDDK**: o dispositivo verifica se o VDDK (Kit de Desenvolvimento de Disco Virtual) do VMware vSphere está instalado. Se ele não estiver instalado, baixe o VDDK 6.7 da VMware e extraia o conteúdo do zip baixado para a localização especificada no dispositivo.
+   - **Instalar as atualizações**: O dispositivo garante que as atualizações mais recentes serão instaladas. Após a conclusão da verificação, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos componentes em execução no dispositivo.
+   - **Instalar o VDDK**: o dispositivo verifica se o VDDK (Kit de Desenvolvimento de Disco Virtual) do VMware vSphere está instalado. Se ele não estiver instalado, baixe o VDDK 6.7 do VMware e extraia o conteúdo do zip baixado para a localização especificada no dispositivo, conforme fornecido nas **Instruções de instalação**.
 
-     A Migração de Servidor de Migrações para Azure usa o VDDK para replicar computadores durante a migração para o Azure.       
+     A Migração de Servidor de Migrações para Azure usa o VDDK para replicar computadores durante a migração para o Azure. 
+1. Se desejar, você poderá **executar os pré-requisitos novamente** a qualquer momento durante a configuração do dispositivo para verificar se ele atende a todos os pré-requisitos.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
-1. Selecione **Fazer logon**. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-2. Na nova guia, entre usando seu nome de usuário e senha do Azure.
+1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
+1. Clique em **Fazer logon**. Será aberto um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
+1. Na nova guia, entre usando seu nome de usuário e senha do Azure.
    
    Não há suporte para a entrada com um PIN.
-3. Depois de entrar com êxito, volte para o aplicativo Web.
-4. Selecione a assinatura na qual o projeto das Migrações para Azure foi criado e, em seguida, selecione o projeto.
-5. Especifique um nome para o dispositivo. O nome deve ser alfanumérico com 14 caracteres ou menos.
-6. Selecione **Registrar**.
+3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
+4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](tutorial-prepare-vmware.md#prepare-azure) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
+1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 
 
 ## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
 O dispositivo precisa se conectar ao vCenter Server para descobrir a configuração e os dados de desempenho das VMs.
 
-### <a name="specify-vcenter-server-details"></a>Especificar detalhes do vCenter Server
-1. Em **Especificar detalhes do vCenter Server**, especifique o nome (FQDN) ou o endereço IP da instância do vCenter Server. Você pode manter a porta padrão ou especificar uma porta personalizada na qual o vCenter Server escutará.
-2. Em **Nome de usuário** e **Senha**, especifique as credenciais de conta do vCenter Server que o dispositivo usará para descobrir VMs na instância do vCenter Server. 
-
+1. Na **Etapa 1: Fornecer as credenciais do vCenter Server**, clique em **Adicionar credenciais** para especificar um nome amigável para as credenciais, adicionar o **Nome de usuário** e a **Senha** para a conta do vCenter Server que o dispositivo usará para descobrir as VMs na instância do vCenter Server.
     - Você deve ter configurado uma conta com as permissões necessárias no [tutorial anterior](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - Se você quiser definir o escopo da descoberta para objetos específicos do VMware (data centers, clusters, uma pasta de clusters, hosts, uma pasta de hosts ou VMs individuais do vCenter Server), examine as instruções [neste artigo](set-discovery-scope.md) para restringir a conta usada por Migrações para Azure.
-
-3. Selecione **Validar conexão** para garantir que o dispositivo possa se conectar ao vCenter Server.
-4. Em **Descobrir aplicativos e dependências de VMs**, opcionalmente, clique em **Adicionar credenciais** e especifique o sistema operacional para o qual as credenciais são relevantes e o nome de usuário e a senha das credenciais. Clique em **Adicionar**.
+1. Na **Etapa 2: Fornecer detalhes do vCenter Server**, clique em **Adicionar origem da descoberta** para selecionar o nome amigável de credenciais na lista suspensa e especifique o **Endereço IP/FQDN** da instância do vCenter Server. Você pode deixar a **Porta** como padrão (443) ou especificar uma porta personalizada na qual o vCenter Server escuta e clique em **Salvar**.
+1. Quando você clicar em Salvar, o dispositivo tentará validar a conexão com o vCenter Server com as credenciais fornecidas e mostrará o **Status de validação** na tabela com relação ao endereço IP/FQDN do vCenter Server.
+1. Você pode **revalidar** a conectividade com o vCenter Server a qualquer momento antes de iniciar a descoberta.
+1. Na **Etapa 3: Fornecer as credenciais da VM para descobrir os aplicativos instalados e executar o mapeamento de dependência sem agente**, clique em **Adicionar credenciais** e especifique o sistema operacional para o qual as credenciais são fornecidas, o nome amigável para as credenciais e o **Nome de usuário** e a **Senha**. Em seguida, clique em **Salvar**.
 
     - Opcionalmente, adicione credenciais aqui se você tiver criado uma conta a ser usada para o [recurso de descoberta de aplicativo](how-to-discover-applications.md) ou o [recurso de análise de dependência sem agente](how-to-create-group-machine-dependencies-agentless.md).
-    - Se você não estiver usando esses recursos, poderá ignorar essa configuração.
-    - Examine as credenciais necessárias para [descoberta do aplicativo](migrate-support-matrix-vmware.md#application-discovery-requirements) ou para [análise sem agente](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
+    - Se você não desejar usar esses recursos, poderá clicar no controle deslizante para ignorar a etapa. Você poderá reverter a intenção a qualquer momento posterior.
+    - Examine as credenciais necessárias para a [descoberta do aplicativo](migrate-support-matrix-vmware.md#application-discovery-requirements) ou para a [análise de dependência sem agente](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
-5. **Salve e inicie a descoberta** para iniciar a descoberta de VM.
+5. Clique em **Iniciar descoberta** para iniciar a descoberta da VM. Depois que a descoberta for iniciada com êxito, você poderá verificar o status da descoberta com relação ao endereço IP/FQDN do vCenter Server na tabela.
 
 A descoberta funciona da seguinte maneira:
 - São necessários cerca de 15 minutos para que os metadados das VMs descobertas sejam exibidos no portal.

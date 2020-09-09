@@ -2,17 +2,17 @@
 title: Tutorial – Criar e modificar um circuito com o ExpressRoute
 description: Neste tutorial, saiba como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/20/2018
-ms.author: cherylmc
-ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 09/01/2020
+ms.author: duau
+ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74813156"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322085"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Tutorial: Criar e modificar um circuito do ExpressRoute
 
@@ -25,7 +25,15 @@ ms.locfileid: "74813156"
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
 
-Este artigo ajuda você a criar um circuito do ExpressRoute usando o portal do Azure e o modelo de implantação do Azure Resource Manager. Você também pode verificar o status, atualizar, excluir ou desprovisionar um circuito.
+Este tutorial mostra como criar um circuito do ExpressRoute usando o portal do Azure e o modelo de implantação do Azure Resource Manager. Você também pode verificar o status, atualizar, excluir ou desprovisionar um circuito.
+
+Neste tutorial, você aprenderá a:
+
+> [!div class="checklist"]
+> * Criar um circuito do ExpressRoute
+> * Obter o status atual de um circuito
+> * Modificar um circuito
+> * Desprovisionar e excluir um circuito
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -47,38 +55,51 @@ Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre co
 
 Você pode criar um circuito do ExpressRoute selecionando a opção de criar um novo recurso. 
 
-1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**. Clique em **Rede** > **ExpressRoute**, conforme mostrado na seguinte imagem:
+1. No menu do portal do Azure, selecione **Criar um recurso**. Clique em **Rede** > **ExpressRoute**, conforme mostrado na seguinte imagem:
 
-   ![Criar um circuito do ExpressRoute](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/create-expressroute-circuit-menu.png" alt-text="Criar um circuito do ExpressRoute":::
 
-2. Após clicar em **ExpressRoute**, você verá a página **Criar circuito do ExpressRoute**. Ao preencher os valores nessa página, especifique a camada de SKU (Standard ou Premium) e o modelos de cobrança de medição de dados (Limitado ou Ilimitado) corretos.
+2. Após clicar em **ExpressRoute**, você verá a página **Criar circuito do ExpressRoute**. Forneça o **Grupo de Recursos**, a **Região** e o **Nome** do circuito. Em seguida, clique em **Próximo: Configuração >** .
 
-   ![Configurar a camada da SKU e a medição de dados](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-basic.png" alt-text="Configurar o grupo de recursos e a região":::
 
-   * **camada** determina se um complemento padrão ou premium do ExpressRoute está habilitado. Você pode especificar **Standard** para obter o SKU padrão ou **Premium** para o complemento premium.
-   * **medição de dados** determina o tipo de cobrança. Você pode especificar **Limitado** para um plano de dados limitado e **Ilimitado** para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de **Limitada** para **Ilimitada**.
+3. Ao preencher os valores nessa página, especifique a camada de SKU (Local, Standard ou Premium) e o modelos de cobrança de medição de dados (Limitado ou Ilimitado) corretos.
 
-     > [!IMPORTANT]
-     > Você não pode alterar o tipo de **Ilimitada** para **Limitada**.
+    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-create-configuration.png" alt-text="Configurar o circuito":::
+    
+    * O **Tipo de Porta** determina se você está se conectando a um provedor de serviços ou diretamente à rede global da Microsoft em uma localização de emparelhamento.
+    * **Criar ou importar do clássico** determina se um circuito está sendo criado ou se você está migrando um circuito clássico para o ARM.
+    * O **Provedor** é o provedor de serviços de Internet de quem você solicitará o serviço.
+    * **Local de Emparelhamento** é o local físico em que você está realizando o emparelhamento com a Microsoft.
 
-   * **Local de Emparelhamento** é o local físico em que você está realizando o emparelhamento com a Microsoft.
+    > [!IMPORTANT]
+    > O Local de Emparelhamento indica o [local físico](expressroute-locations.md) em que você está realizando o emparelhamento com a Microsoft. Isso **não** tem vínculo à propriedade "Local", que se refere à posição geográfica na qual o Provedor de Recursos de Rede do Azure está localizado. Embora eles não estejam relacionados, é uma boa prática escolher um provedor de recursos de rede geograficamente próximo do Local de Emparelhamento do circuito.
 
-     > [!IMPORTANT]
-     > O Local de Emparelhamento indica o [local físico](expressroute-locations.md) em que você está realizando o emparelhamento com a Microsoft. Isso **não** tem vínculo à propriedade "Local", que se refere à posição geográfica na qual o Provedor de Recursos de Rede do Azure está localizado. Embora eles não estejam relacionados, é uma boa prática escolher um provedor de recursos de rede geograficamente próximo do Local de Emparelhamento do circuito.
+    * **SKU** determina se um complemento Local, Standard ou Premium do ExpressRoute está habilitado. Você pode especificar **Local** para obter o SKU local, **Standard** para obter o SKU Standard ou **Premium** para obter o complemento premium.
+    * O **Modelo de cobrança** determina o tipo de cobrança. Você pode especificar **Limitado** para um plano de dados limitado e **Ilimitado** para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de **Limitada** para **Ilimitada**.
+
+    > [!IMPORTANT]
+    > Não é possível alterar o tipo de **Ilimitada** para **Limitada**.
+
+    * **Permitir operação clássica** permitirá que redes virtuais clássicas sejam vinculadas ao circuito.
 
 ### <a name="3-view-the-circuits-and-properties"></a>3. Exibir os circuitos e as propriedades
 
 **Exibir todos os circuitos**
 
-Você pode exibir todos os circuitos que criou selecionando **Todos os recursos** no menu do lado esquerdo.
+Você pode ver todos os circuitos que criou selecionando **Todos os serviços > Rede > ExpressRoute** no menu à esquerda.
 
-![Exibir circuitos](./media/expressroute-howto-circuit-portal-resource-manager/listresource.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-menu.png" alt-text="Menu de circuito do ExpressRoute":::
+
+Todos os circuitos do ExpressRoute criados na assinatura serão mostrados aqui.
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-list.png" alt-text="Lista de circuitos do ExpressRoute":::
 
 **Exibir as propriedades**
 
-Selecione o circuito para exibir as propriedades dele. Na página **Visão geral** do circuito, a chave de serviço é exibida no campo de chave de serviço. É preciso copiar a chave de serviço do circuito e passá-la para o provedor de serviços para concluir o processo de provisionamento. A chave de serviço do circuito é específica para o circuito.
+Selecione o circuito para exibir as propriedades dele. Na página **Visão geral** do circuito, a chave de serviço é exibida no campo de chave de serviço. Confira a chave de serviço do circuito e forneça-a para o provedor de serviços para concluir o processo de provisionamento. A chave de serviço é específica para o circuito.
 
-![Exibir propriedades](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview.png" alt-text="Exibir propriedades":::
 
 ### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
 
@@ -86,26 +107,26 @@ Nessa página, **Status do provedor** fornece informações sobre o estado de pr
 
 Quando você cria um novo circuito do ExpressRoute, ele está no seguinte estado:
 
-Status do provedor: Não provisionado<BR>
-Status do circuito: habilitado
+Status do provedor: **Não provisionado**<BR>
+Status do circuito: **Enabled**
 
-![Iniciar o processo de provisionamento](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-overview-provisioning-state.png" alt-text="Iniciar o processo de provisionamento":::
 
 O circuito assumirá o seguinte o estado quando o provedor de conectividade estiver habilitando-o para você:
 
-Status do provedor: Provisionamento<BR>
-Status do circuito: habilitado
+Status do provedor: **Provisionamento**<BR>
+Status do circuito: **Enabled**
 
 Para que você consiga usar um circuito do ExpressRoute, ele deverá estar no seguinte estado:
 
-Status do provedor: Provisionado<BR>
-Status do circuito: habilitado
+Status do provedor: **Provisionado**<BR>
+Status do circuito: **Enabled**
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. Verifique periodicamente o status e o estado da chave do circuito
 
 Você pode exibir as propriedades do circuito de seu interesse selecionando-o. Verifique o **Status do provedor** e se ele mudou para **Provisionado** antes de continuar.
 
-![Status do circuito e do provedor](./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/provisioned.png" alt-text="Status do circuito e do provedor":::
 
 ### <a name="6-create-your-routing-configuration"></a>6. Criar sua configuração de roteamento
 
@@ -137,7 +158,7 @@ Você pode modificar certas propriedades de um circuito do ExpressRoute sem afet
 * Alterar o plano de medição de *Dados Limitados* para *Dados Ilimitados*.
 
   > [!IMPORTANT]
-  > Não há suporte para alteração do plano de medição de Dados Ilimitados para Dados Limitados.
+  > Não há suporte para a alteração do plano de medição de **Dados Ilimitados** para **Dados Limitados**.
 
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
   > [!IMPORTANT]
@@ -149,15 +170,19 @@ Você pode modificar certas propriedades de um circuito do ExpressRoute sem afet
 
 Para modificar um circuito do ExpressRoute, clique em **Configuração**.
 
-![Modificar o circuito](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-configuration.png" alt-text="Modificar o circuito":::
 
 ## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a><a name="delete"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
 
-Você pode excluir seu circuito do ExpressRoute selecionando o ícone **Excluir** . Observe as seguintes informações:
+Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 
-* Você deve desvincular todas as redes virtuais do circuito do ExpressRoute. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
-* Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
-* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interrompe a cobrança pelo circuito.
+> [!NOTE]
+>* Você precisa desvincular *todas as redes virtuais* do circuito do ExpressRoute antes do desprovisionamento. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
+>* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interrompe a cobrança pelo circuito.
+
+Você pode excluir seu circuito do ExpressRoute selecionando o ícone **Excluir**. 
+
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Excluir circuito":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

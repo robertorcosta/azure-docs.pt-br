@@ -4,12 +4,12 @@ description: Este artigo descreve como migrar VMs AWS para o Azure com as Migra�
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 386f5cbefe8ad6a375437eea7fea75b5fb5a7f65
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762412"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048526"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Descubra, avalie e migre as VMs AWS (Amazon Web Services) para o Azure
 
@@ -20,6 +20,7 @@ Este tutorial mostra como descobrir, avaliar e migrar VMs (máquinas virtuais) d
 
 Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
+>
 > * Verificar os pré-requisitos para a migração.
 > * Preparar recursos do Azure com as Migrações para Azure: Migração de Servidor. Configurar permissões para sua conta do Azure e recursos para trabalhar com as Migrações para Azure.
 > * Preparar instâncias do AWS EC2 para migração.
@@ -57,7 +58,7 @@ Embora seja recomendável experimentar uma avaliação, executar uma avaliação
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-- Verifique se as VMs AWS que você quer migrar estão executando uma versão de sistema operacional compatível. As VMs AWS são tratadas como computadores físicos para fins de migração. Examine os [sistemas operacionais compatíveis](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) com o fluxo de trabalho de migração do servidor físico. Recomendamos que você execute uma migração de teste (failover de teste) para validar se a VM funciona conforme o esperado antes de prosseguir com a migração propriamente dita.
+- Verifique se as VMs AWS que você quer migrar estão executando uma versão de sistema operacional compatível. As VMs AWS são tratadas como computadores físicos para fins de migração. Examine os [sistemas operacionais e as versões de kernel com suporte](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) para o fluxo de trabalho de migração do servidor físico. Você pode usar comandos padrão como *hostnamectl* ou *uname -a* para verificar as versões do sistema operacional e do kernel para suas VMs do Linux.  Recomendamos que você execute uma migração de teste (failover de teste) para validar se a VM funciona conforme o esperado antes de prosseguir com a migração propriamente dita.
 - Verifique se as suas VMs AWS estão em conformidade com as [configurações compatíveis](./migrate-support-matrix-physical-migration.md#physical-server-requirements) com a migração para o Azure.
 - Verifique se as VMs AWS que você replica para o Azure estão em conformidade com os [requisitos de VM do Azure.](./migrate-support-matrix-physical-migration.md#azure-vm-requirements)
 - É necessário fazer algumas alterações às VMs antes de migrá-las para o Azure.
@@ -252,7 +253,7 @@ Um agente do serviço Mobilidade deve ser instalado nas VMs AWS de origem a sere
 4. Em **Servidor de Processo**, selecione o nome do dispositivo de replicação. 
 5. Em **Credenciais de convidado**, selecione a conta fictícia criada anteriormente durante a [configuração do instalador de replicação](#download-the-replication-appliance-installer) para instalar o serviço Mobilidade manualmente (a instalação por push não é compatível). Em seguida, clique em **Próximo: Máquinas virtuais**.   
  
-    ![Replicar VMs](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
+    ![Replicar configurações](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 6. Em **Máquinas Virtuais**, em **Importar configurações de migração de uma avaliação?** , deixe a configuração padrão, **Não, vou especificar as configurações de migração manualmente**.
 7. Verifique cada VM que você deseja migrar. Em seguida, clique em **Próximo: configurações de destino**.
 
@@ -381,11 +382,23 @@ Depois de verificar se a migração de teste funciona conforme o esperado, você
 **Pergunta:** estou recebendo o erro "Falha ao recuperar o GUID da BIOS" ao tentar descobrir minhas VMs AWS   
 **Resposta:** sempre use o logon raiz para autenticação e não qualquer pseudousuário. Além disso, examine os sistemas operacionais compatíveis para VMs da AWS.  
 
-**Pergunta:** o status da minha replicação não está avançando    
+**Pergunta:** o status da minha replicação não está avançando   
 **Resposta:** verifique se o dispositivo de replicação atende aos requisitos. Verifique se você habilitou as portas necessárias em seu dispositivo de replicação (porta TCP 9443 e HTTPS 443) para o transporte de dados. Verifique se não há versões duplicadas obsoletas do dispositivo de replicação conectadas ao mesmo projeto.   
 
 **Pergunta:** não consigo descobrir instâncias da AWS usando as Migrações para Azure devido ao código de status HTTP 504 do serviço de gerenciamento remoto do Windows    
-**Resposta:** examine os requisitos de dispositivo para as Migrações para Azure e as necessidades de acesso à URL. Verifique se nenhuma configuração de proxy está bloqueando o registro do dispositivo.   
+**Resposta:** examine os requisitos de dispositivo para as Migrações para Azure e as necessidades de acesso à URL. Verifique se nenhuma configuração de proxy está bloqueando o registro do dispositivo.
+
+**Pergunta:** Preciso fazer alterações antes de migrar minhas VMs da AWS para o Azure   
+**Resposta:** Talvez seja necessário fazer essas alterações antes de migrar suas VMs EC2 para o Azure:
+
+- Se você estiver usando cloud-init para o provisionamento de VM, desabilite o cloud-init na VM antes de replicá-la no Azure. As etapas de provisionamento executadas por cloud-init na VM podem ser específicas da AWS e não serão válidas após a migração para o Azure. 
+- Se a VM for uma VM PV (paravirtualizada), e não uma VM HVM, talvez você não consiga executá-la no estado em que se encontra no Azure, pois as VMs paravirtualizadas usam uma sequência de inicialização personalizada na AWS. Talvez seja possível superar esse desafio desinstalando os drivers PV antes de executar uma migração para o Azure.  
+- Sempre recomendamos que você execute uma migração de teste antes da migração final.  
+
+
+**Pergunta:** Posso migrar VMs da AWS que executam o sistema operacional Amazon Linux  
+**Resposta:** As VMs que executam o Amazon Linux não podem ser migradas no estado em que se encontram porque o sistema operacional Amazon Linux só tem suporte na AWS.
+Para migrar cargas de trabalho em execução no Amazon Linux, você pode criar uma VM CentOS/RHEL no Azure e migrar a carga de trabalho em execução no computador Linux da AWS usando uma abordagem de migração de carga de trabalho relevante. Por exemplo, dependendo da carga de trabalho, pode haver ferramentas específicas de carga de trabalho para ajudar a migração – como para bancos de dados ou ferramentas de implantação no caso de servidores Web.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
-ms.translationtype: MT
+ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81007880"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864905"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gerar o arquivo de solicitação de assinatura de certificado
 
@@ -95,7 +95,7 @@ A abordagem mais recente tem vários benefícios (em comparação ao uso de cert
     A tela **Criar um novo Certificado** é exibida.
 
     > [!NOTE]
-    > Este tutorial usa um certificado de desenvolvimento. O mesmo processo é usado para registrar um certificado de produção. Use o mesmo tipo de certificado ao enviar notificações.
+    > Este tutorial usa um certificado de desenvolvimento, que seu aplicativo usa para gerar um token de dispositivo exclusivo. O mesmo processo é usado para registrar um certificado de produção. Use o mesmo tipo de certificado ao enviar notificações.
 
 3. Selecione **Escolher Arquivo**, navegue até o local em que salvou o arquivo CSR da primeira tarefa e clique duas vezes no nome do certificado para carregá-lo. Depois selecione **Continuar**.
 
@@ -211,7 +211,7 @@ Nesta seção, você cria um hub de notificação e configura a autenticação c
 Em **Serviços de Notificação**, selecione **Apple (APNS)** e siga as etapas apropriadas com base na abordagem que você selecionou antes na seção [Criar um certificado para os Hubs de Notificação](#creating-a-certificate-for-notification-hubs).  
 
 > [!NOTE]
-> Use **Produção** no **Modo de Aplicativo** somente caso queira enviar notificações por push aos usuários que tenham comprado seu aplicativo da loja.
+> Se você criar seu aplicativo com a App Store ou o perfil de distribuição ad hoc, use **Produção** para o **Modo de Aplicativo**. Isso permitirá que seu dispositivo envie notificações por push a usuários que compraram seu aplicativo da loja.
 
 ### <a name="option-1-using-a-p12-push-certificate"></a>OPÇÃO UM: Usando um certificado push .p12
 

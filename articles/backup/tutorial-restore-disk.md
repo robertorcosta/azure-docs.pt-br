@@ -4,12 +4,12 @@ description: Saiba como restaurar um disco e criar uma VM de recuperação no Az
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d93f3d24762f4b9a3da4a9e725d28810f6700fe0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141339"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890657"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Restaurar uma VM com a CLI do Azure
 
@@ -59,7 +59,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Restaurar um disco de VM
 
 > [!IMPORTANT]
-> É altamente recomendável usar a CLI do Azure versão 2.0.74 ou posterior para obter todos os benefícios de uma restauração rápida, incluindo a restauração de disco gerenciado. É melhor que o usuário sempre use a versão mais recente.
+> É altamente recomendável usar a CLI do Az versão 2.0.74 ou posterior para obter todos os benefícios de uma restauração rápida, incluindo a restauração de disco gerenciado. Será melhor se você sempre usar a versão mais recente.
 
 ### <a name="managed-disk-restore"></a>Restauração de disco gerenciado
 
@@ -88,7 +88,7 @@ Se a VM cujo backup foi realizado tiver discos gerenciados e se a intenção for
     ```
 
     > [!WARNING]
-    > Se o grupo de recursos de destino não for fornecido, os discos gerenciados serão restaurados como discos não gerenciados para a conta de armazenamento informada. Isso terá consequências significativas no tempo de restauração, pois o tempo necessário para restaurar os discos depende totalmente da conta de armazenamento fornecida. Os clientes terão o benefício da restauração instantânea somente quando o parâmetro target-resource-group for fornecido. Se a intenção for restaurar discos gerenciados como não gerenciados, não forneça o parâmetro target-resource-group, fornecendo em vez disso o parâmetro restore-as-unmanaged-disk, conforme mostrado abaixo. Esse parâmetro está disponível no az 3.4.0 e em versões posteriores.
+    > Se o **target-resource-group** não for fornecido, os discos gerenciados serão restaurados como discos não gerenciados para a conta de armazenamento informada. Isso terá consequências significativas no tempo de restauração, pois o tempo necessário para restaurar os discos depende totalmente da conta de armazenamento fornecida. Você terá o benefício da restauração instantânea somente quando o parâmetro target-resource-group for fornecido. Se a intenção for restaurar discos gerenciados como não gerenciados, não forneça o parâmetro **target-resource-group**; forneça, em vez disso, o parâmetro **restore-as-unmanaged-disk**, conforme mostrado abaixo. Esse parâmetro está disponível no az 3.4.0 e em versões posteriores.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -101,11 +101,11 @@ Se a VM cujo backup foi realizado tiver discos gerenciados e se a intenção for
     --restore-as-unmanaged-disk
     ```
 
-Isso vai restaurar os discos gerenciados como discos não gerenciados na conta de armazenamento fornecida e não aproveitará a funcionalidade de restauração "instantânea". Em versões futuras da CLI, será obrigatório fornecer o parâmetro "target-resource-group" ou o parâmetro "restore-as-unmanaged-disk".
+Isso vai restaurar os discos gerenciados como discos não gerenciados na conta de armazenamento fornecida e não aproveitará a funcionalidade de restauração "instantânea". Em versões futuras da CLI, será obrigatório fornecer o parâmetro **target-resource-group** ou o parâmetro **restore-as-unmanaged-disk**.
 
 ### <a name="unmanaged-disks-restore"></a>Restauração de discos não gerenciados
 
-Se a VM cujo backup foi realizado tiver discos não gerenciados e se a intenção for restaurar discos no ponto de recuperação, você primeiro fornecerá uma conta de armazenamento do Azure. Essa conta de armazenamento é usada para armazenar a configuração da VM e o modelo de implantação, que pode ser usado posteriormente para implantar a VM dos discos restaurados. Por padrão, os discos não gerenciados serão restaurados para as respectivas contas de armazenamento originais. Se o usuário quiser restaurar todos os discos não gerenciados para um único local, a conta de armazenamento fornecida também poderá ser usada como um local de preparo para esses discos.
+Se a VM cujo backup foi realizado tiver discos não gerenciados e se a intenção for restaurar discos no ponto de recuperação, você primeiro fornecerá uma conta de armazenamento do Azure. Essa conta de armazenamento é usada para armazenar a configuração da VM e o modelo de implantação, que pode ser usado posteriormente para implantar a VM dos discos restaurados. Por padrão, os discos não gerenciados serão restaurados para as respectivas contas de armazenamento originais. Se você quiser restaurar todos os discos não gerenciados para um só local, a conta de armazenamento fornecida também poderá ser usada como um local de preparo para esses discos.
 
 Nas etapas adicionais, o disco restaurado é usado para criar uma VM.
 

@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1b6fdbdfaef601751961d022858545d731fe62a8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829672"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856024"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar painéis de KPI personalizados usando o Azure Application Insights
 
@@ -40,6 +40,9 @@ Para concluir este tutorial:
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Crie um novo painel
+> [!WARNING]
+> Se você mover o recurso do Application Insights para um grupo de recursos ou uma assinatura diferente, será necessário atualizar manualmente o painel removendo os blocos antigos e fixando novos blocos do mesmo recurso do Application Insights na nova localização. 
+
 Um único painel pode conter recursos de vários aplicativos, grupos de recursos e assinaturas.  Inicie o tutorial criando um novo painel para seu aplicativo.  
 
 1. No painel, selecione **Novo painel**.

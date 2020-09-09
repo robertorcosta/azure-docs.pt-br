@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 217c564a6bdb340ec15262c1eaf54a75bbffc833
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585008"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300282"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Usar a configuração dinâmica em um aplicativo ASP.NET Core
 
@@ -53,13 +53,11 @@ Antes de continuar, conclua [Criar um aplicativo ASP.NET Core com a Configuraç�
 Uma *chave sentinela* é uma chave especial usada para sinalizar quando a configuração foi alterada. Seu aplicativo monitora a chave sentinela em busca de alterações. Quando uma alteração é detectada, você atualiza todos os valores de configuração. Essa abordagem reduz o número total de solicitações feitas pelo aplicativo à Configuração de Aplicativos em comparação ao monitoramento de todas as chaves quanto a alterações.
 
 1. No portal do Azure, selecione **Explorador de Configuração > Criar > Valor de chave**.
-
 1. Para **Chave**, insira *TestApp:Settings:Sentinel*. Para **Valor**, insira "1". Deixe **Rótulo** e **Tipo de conteúdo** em branco.
-
 1. Escolha **Aplicar**.
 
-    > [!NOTE]
-    > Se você não estiver usando uma chave Sentinel, será necessário registrar manualmente todas as chaves que deseja inspecionar.
+> [!NOTE]
+> Se você não estiver usando uma chave Sentinel, será necessário registrar manualmente todas as chaves que quiser inspecionar.
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar os dados da Configuração de Aplicativo
 
@@ -162,9 +160,8 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     }
     ```
     ---
-
-    > [!TIP]
-    > Para saber mais sobre o padrão de opções ao ler valores de configuração, confira  [Padrões de opções no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > [!Tip]
+    > Para saber mais sobre o padrão de opções ao ler valores de configuração, confira [Padrões de Opções no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Atualize o método `Configure`, adicionando o middleware `UseAzureAppConfiguration` para permitir que as definições de configuração registradas para atualização sejam atualizadas enquanto o aplicativo Web ASP.NET Core continua a receber solicitações.
 
@@ -316,15 +313,15 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
 1. Para criar o aplicativo usando a CLI do .NET Core, execute o seguinte comando no shell de comando:
 
-```console
+    ```console
         dotnet build
-```
+    ```
 
 1. Depois que a construção for concluída com êxito, execute o seguinte comando para executar o aplicativo Web localmente:
 
-```console
+    ```console
         dotnet run
-```
+    ```
 
 1. Abra uma janela do navegador e vá para a URL mostrada na saída `dotnet run`.
 

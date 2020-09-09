@@ -3,12 +3,12 @@ title: Avaliar servidores físicos para migração para o Azure com a avaliaçã
 description: Descreve como avaliar servidores físicos para a migração para o Azure usando a Avaliação de Servidor das Migrações para Azure.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b4d5241e4236d4c11f2e2a5a8feb7c73258cba0
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 21ffc425ff7d04bbb1bc0c3a550133ae5374b1e9
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171382"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950095"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com as Migrações para Azure: Avaliação de Servidor
 
@@ -70,7 +70,7 @@ Configure um novo projeto das Migrações para Azure, conforme descrito a seguir
 11. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. Você será levado para a página do projeto. Caso não veja o projeto, acesse-o em **Servidores** no painel das Migrações para Azure.
 
 
-## <a name="set-up-the-appliance"></a>Configurar o dispositivo
+## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o dispositivo das Migrações para Azure
 
 Migrações para Azure: A Avaliação de Servidor executa um dispositivo leve.
 
@@ -82,15 +82,23 @@ Migrações para Azure: A Avaliação de Servidor executa um dispositivo leve.
     - Configure o dispositivo pela primeira vez e registre-o com o projeto de Migrações para Azure.
 - Você pode configurar vários dispositivos para um único projeto das Migrações para Azure. Em todos os dispositivos, você pode descobrir qualquer número de servidores físicos. Um máximo de 1.000 servidores pode ser descoberto por dispositivo.
 
+### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
+
+1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
+2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Físico ou outro (AWS, GCP, Xen etc.)** .
+3. Em **1: Gerar chave de projeto das Migrações para Azure**, forneça um nome para o dispositivo das Migrações para Azure que você vai configurar para a descoberta de servidores físicos ou virtuais. O nome deverá conter até 14 caracteres alfanuméricos.
+1. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir computadores durante a criação de recursos.
+1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
+1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
+
 ### <a name="download-the-installer-script"></a>Baixe o script do instalador.
 
-Baixe o arquivo compactado para o dispositivo.
+Em **2: Baixar o dispositivo das Migrações para Azure**, clique em **Baixar**.
 
-1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique em **Descobrir**.
-2. Em **Descobrir computadores** > **São seus computadores virtualizados?** , clique em **Não virtualizado/outro.**
-3. Clique em **Download** para baixar o arquivo compactado.
+   ![Seleções para Descobrir computadores](./media/tutorial-assess-physical/servers-discover.png)
 
-    ![Baixe o instalador](./media/tutorial-assess-physical/download-appliance.png)
+
+   ![Seleções para Gerar Chave](./media/tutorial-assess-physical/generate-key-physical.png)
 
 
 ### <a name="verify-security"></a>Verificar a segurança
@@ -100,20 +108,20 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
 2. Execute o seguinte comando para gerar o hash para o arquivo zip:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo de uso da nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
+    - Exemplo de uso da nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - Exemplo de uso da nuvem governamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  Verifique as versões mais recentes do dispositivo e os valores de hash:
     - Para a nuvem pública:
 
         **Cenário** | **Baixar*** | **Valor de hash**
         --- | --- | ---
-        Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
+        Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce03fdfac93b5c27274945577bd8a359d598cf3777b24
 
     - Para o Azure Government:
 
         **Cenário** | **Baixar*** | **Valor de hash**
         --- | --- | ---
-        Físico (63,1 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+        Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
 
@@ -129,13 +137,17 @@ O script do instalador faz o seguinte:
 
 Crie o script da seguinte maneira:
 
-1. Extraia o arquivo compactado para uma pasta no servidor que hospedará o dispositivo.  Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
+1. Extraia o arquivo .zip para uma pasta no servidor que hospedará o dispositivo.  Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
 2. Inicie o PowerShell no servidor acima com privilégio administrativo (elevado).
 3. Altere o diretório do PowerShell para a pasta em que o conteúdo foi extraído do arquivo compactado baixado.
 4. Execute o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
 
-    - Para a nuvem pública: ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
-    - Para o Azure Government: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+    - Para a nuvem pública: 
+    
+        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
+    - Para o Azure Government: 
+    
+        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
 
     O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito.
 
@@ -153,42 +165,51 @@ Configure o dispositivo pela primeira vez.
 1. Abra um navegador em qualquer computador que possa se conectar ao dispositivo e abra a URL do aplicativo Web do dispositivo: **https://*nome do dispositivo ou endereço IP*: 44368**.
 
    Como alternativa, você pode abrir o aplicativo na área de trabalho clicando no atalho do aplicativo.
-2. No aplicativo Web > **Configurar os pré-requisitos**, faça o seguinte:
-    - **Licença**: Aceite os termos de licença e leia as informações de terceiros.
+2. Aceite os **termos de licença** e leia as informações de terceiros.
+1. No aplicativo Web > **Configurar os pré-requisitos**, faça o seguinte:
     - **Conectividade**: O aplicativo verifica se o servidor tem acesso à Internet. Se o servidor usar um proxy:
-        - Clique em **Configurações de proxy** e especifique o endereço proxy e a porta de escuta, no formato http://ProxyIPAddress ou http://ProxyFQDN.
+        - Clique em **Configurar proxy** e especifique o endereço de proxy (na forma http://ProxyIPAddress ou http://ProxyFQDN) e na porta de escuta.
         - Especifique as credenciais caso o proxy exija autenticação.
         - Há suporte apenas para o proxy HTTP.
+        - Se você tiver adicionado detalhes de proxy ou desabilitado o proxy e/ou a autenticação, clique em **Salvar** para disparar a verificação de conectividade novamente.
     - **Sincronização do horário**: o horário é verificado. O horário no dispositivo deve ser sincronizado com o horário na Internet para que a descoberta do servidor funcione corretamente.
-    - **Instalar as atualizações**: a Avaliação de Servidor das Migrações para Azure verifica se o dispositivo tem as atualizações mais recentes instaladas.
+    - **Instalar as atualizações**: A avaliação do servidor das Migrações para Azure verifica se o dispositivo tem as últimas atualizações instaladas. Depois que a verificação for concluída, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos componentes em execução no dispositivo.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
-1. Clique em **Fazer Logon**. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-2. Na nova guia, entre usando suas credenciais do Azure.
-    - Entre com seu nome de usuário e sua senha.
-    - Não há suporte para a entrada com um PIN.
-3. Depois de entrar com êxito, volte para o aplicativo Web.
-4. Selecione a assinatura na qual o projeto das Migrações para Azure foi criado. Em seguida, selecione o projeto.
-5. Especifique um nome para o dispositivo. O nome deve ser alfanumérico com 14 caracteres ou menos.
-6. Clique em **Registrar**.
+1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
+1. Clique em **Fazer logon**. Será aberto um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
+1. Na nova guia, entre usando seu nome de usuário e senha do Azure.
+   
+   Não há suporte para a entrada com um PIN.
+3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
+4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](tutorial-prepare-physical.md) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
+1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 
 
 ## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
 Agora, conecte-se do dispositivo aos servidores físicos a serem descobertos e inicie a descoberta.
 
-1. Em **Adicionar credenciais**, especifique as credenciais de conta que o dispositivo usará para descobriros servidores.  
-2. Entre usando seu nome de usuário e sua senha. Não há suporte para entrar com uma chave. Além disso, o usuário deve ser um logon raiz ou deve fazer parte do grupo de administradores local.
-3. Especifique o **Sistema operacional**, um nome amigável para as credenciais, o nome de usuário e a senha. Clique em **Adicionar**.
-Adicione várias credenciais para servidores Windows e Linux.
-4. Clique em **Adicionar servidor**e especifique detalhes do servidor – endereço FQDN/IP e nome amigável das credenciais (uma entrada por linha) para se conectar ao servidor.
-5. Clique em **Validar**. Após a validação, a lista de servidores que podem ser descobertos é mostrada.
-    - Se a validação falhar para um servidor, examine o erro passando o ponteiro do mouse sobre o ícone na coluna **Status**. Corrija os problemas e valide novamente.
-    - Para remover um servidor, selecione > **Excluir**.
-6. Após a validação, clique em **Salvar e iniciar descoberta** para iniciar o processo de descoberta.
+1. Na **Etapa 1: Fornecer credenciais para descoberta de servidores físicos ou virtuais do Windows e Linux**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicione **Nome de usuário** e **Senha** para um servidor Windows ou Linux. Clique em **Save**.
+1. Se desejar adicionar várias credenciais ao mesmo tempo, clique em **Adicionar mais** para salvar e adicionar mais credenciais. Há suporte para várias credenciais para descoberta de servidores físicos.
+1. Na **Etapa 2: Fornecer detalhes do servidor virtual ou físico**, clique em **Adicionar origem da descoberta** para especificar o **endereço IP/FQDN** do servidor e o nome amigável para as credenciais se conectarem ao servidor.
+1. Você pode **Adicionar um item** de cada vez ou **Adicionar vários itens** em um só lugar. Também há uma opção de fornecer detalhes do servidor por meio de **Importar CSV**.
 
-Isso iniciará a descoberta. São necessários cerca de 1,5 minutos por servidor para que os metadados dos servidores descobertos sejam exibidos no portal do Azure.
+    ![Seleções para adicionar a origem da descoberta](./media/tutorial-assess-physical/add-discovery-source-physical.png)
+
+    - Se você escolher **Adicionar um item**, poderá escolher o tipo de sistema operacional, especificar o nome amigável para as credenciais, adicionar **endereço IP/FQDN** do servidor e clicar em **Salvar**.
+    - Se você escolher **Adicionar vários itens**, poderá adicionar vários registros de uma vez especificando o **endereço IP/FQDN** do servidor com o nome amigável para as credenciais na caixa de texto. **Verifique** os registros adicionados e clique em **Salvar**.
+    - Se você escolher **Importar CSV** _(selecionado por padrão)_ , poderá baixar um arquivo de modelo CSV, preencher o arquivo com o **endereço IP/FQDN** do servidor e o nome amigável para as credenciais. Em seguida, importe o arquivo para o dispositivo, **verifique** os registros no arquivo e clique em **Salvar**.
+
+1. Quando você clicar em Salvar, o dispositivo tentará validar a conexão com os servidores adicionados e mostrará o **Status de validação** na tabela em cada servidor.
+    - Se a validação falhar para um servidor, examine o erro clicando em **Falha na validação** na coluna Status da tabela. Corrija o problema e valide novamente.
+    - Para remover um servidor, clique em **Excluir**.
+1. Você pode **revalidar** a conectividade com os servidores a qualquer momento antes de iniciar a descoberta.
+1. Clique em **Iniciar descoberta** para iniciar a descoberta dos servidores validados com êxito. Depois que a descoberta for iniciada com êxito, você poderá verificar o status da descoberta em cada servidor na tabela.
+
+
+Isso iniciará a descoberta. São necessários aproximadamente 2 minutos por servidor para que os metadados dos servidores descobertos sejam exibidos no portal do Azure.
 
 ### <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
 

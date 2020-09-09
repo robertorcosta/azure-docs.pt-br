@@ -3,12 +3,12 @@ title: Controles de amostra de blueprint do SWIFT CSP-CSCF v2020
 description: Mapeamento de controle da amostra de blueprint da SWIFT CSP-CSCF v2020. Cada controle é mapeado para uma ou mais Políticas do Azure que auxiliam na avaliação.
 ms.date: 08/18/2020
 ms.topic: sample
-ms.openlocfilehash: ee9ba86c41f37aac8eba3dbf973d2853a493547a
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 06a334ff05db1cfc7ad1fb09e370963486ee1515
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612734"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297410"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapeamento de controle da amostra de blueprint SWIFT CSP-CSCF v2020
 
@@ -121,19 +121,19 @@ Este blueprint ajuda você a garantir que os eventos do sistema sejam registrado
 
 ## <a name="11-least-functionality--prevent-program-execution"></a>1.1 Funcionalidade Mínima | Impedir a Execução do Programa
 
-O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de softwares específicos em suas máquinas virtuais. O controle de aplicativos pode ser executado no modo de imposição, que proíbe a execução de aplicativos não aprovados. Esse blueprint atribui uma definição do Azure Policy que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de filtragem inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de programas de software específicos em suas máquinas virtuais. O controle de aplicativos pode ser executado no modo de imposição, que proíbe a execução de aplicativos não aprovados. Esse blueprint atribui uma definição do Azure Policy que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
 - Os controles de aplicativos adaptáveis para definir aplicativos seguros devem ser habilitados nos computadores
 
 ## <a name="11-least-functionality--authorized-software--whitelisting"></a>1.1 Funcionalidade Mínima | Software Autorizado/Inclusão na Lista de Permissões
 
-O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de softwares específicos em suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de filtragem inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de programas de software específicos em suas máquinas virtuais. O controle de aplicativo ajuda a criar listas de aplicativos aprovados para suas máquinas virtuais. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
 - Os controles de aplicativos adaptáveis para definir aplicativos seguros devem ser habilitados nos computadores
 
 ## <a name="11-user-installed-software"></a>1.1 Software Instalado pelo Usuário
 
-O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de lista de permissões inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de softwares específicos em suas máquinas virtuais. O controle de aplicativos pode ajudar a impor e a monitorar a conformidade com políticas de restrição de software. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar máquinas virtuais em que uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
+O controle de aplicativos adaptável na Central de Segurança do Azure é uma solução de filtragem inteligente, automatizada e de ponta a ponta que pode bloquear ou impedir a execução de programas de software específicos em suas máquinas virtuais. O controle de aplicativos pode ajudar a impor e a monitorar a conformidade com políticas de restrição de software. Esse blueprint atribui uma definição do [Azure Policy](../../../policy/overview.md) que ajuda você a monitorar as máquinas virtuais nas quais uma lista de permissões de aplicativos é recomendada, mas ainda não foi configurada.
 
 - Os controles de aplicativos adaptáveis para definir aplicativos seguros devem ser habilitados nos computadores
 - As máquinas virtuais devem ser migradas para os novos recursos do Azure Resource Manager

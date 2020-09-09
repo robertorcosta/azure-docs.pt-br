@@ -8,39 +8,17 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: b4d48dcc8f09ae8e2ec3bb198f8864de1c945682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093181"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255011"
 ---
 # <a name="create-a-synapse-workspace"></a>Criar um workspace do Synapse
 
 Neste tutorial, você aprenderá a criar um workspace do Synapse, um pool de SQL e um Pool do Apache Spark. 
-
-## <a name="prepare-a-storage-account"></a>Preparar uma conta de armazenamento
-
-1. Abra o [Portal do Azure](https://portal.azure.com).
-1. Crie uma conta de armazenamento que tenha as seguintes configurações:
-
-    |Tab|Configuração | Valor sugerido | Descrição |
-    |---|---|---|---|
-    |Noções básicas|**Nome da conta de armazenamento**| Escolha qualquer nome.| Neste documento, usaremos o nome **contosolake**.|
-    |Noções básicas|**Tipo de conta**| **StorageV2** ||
-    |Noções básicas|**Localidade**|Escolha qualquer localização.| É recomendável que seu workspace do Azure Synapse Analytics e a conta do Azure Data Lake Storage Gen2 estejam na mesma região.|
-    |Avançado|**Data Lake Storage Gen2**|**Habilitado**| O Azure Synapse só funciona com contas de armazenamento que têm essa configuração habilitada.|
-    |||||
-
-1. Depois de criar a conta de armazenamento, selecione **Controle de acesso (IAM)** no painel esquerdo. Depois, atribua as seguintes funções ou verifique se elas já estão atribuídas:
-    * Atribua-se à função de **Proprietário**.
-    * Atribua-se à função de **Proprietário de Dados do Storage Blob**.
-1. No painel esquerdo, selecione **Contêineres** e crie um contêiner.
-1. Você pode dar qualquer nome ao contêiner. Neste documento, chamaremos o contêiner de **usuários**.
-1. Aceite a configuração padrão **Nível de acesso público** e, em seguida, selecione **Criar**.
-
-Na etapa a seguir, você vai configurar seu workspace do Azure Synapse para usar essa conta de armazenamento como a conta de armazenamento "primária" e o contêiner para armazenar dados do workspace. O workspace armazena dados em tabelas do Apache Spark. Ele armazena logs de aplicativo do Spark em uma pasta chamada **/synapse/nomedoworkspace**.
 
 ## <a name="create-a-synapse-workspace"></a>Criar um workspace do Synapse
 
@@ -53,20 +31,14 @@ Na etapa a seguir, você vai configurar seu workspace do Azure Synapse para usar
     |Noções básicas|**Nome do workspace**|Você pode nomeá-lo como quiser.| Neste documento, usaremos o **myworkspace**.|
     |Noções básicas|**Região**|Faça a correspondência com a região da conta de armazenamento.|
 
-1. Em **Selecionar Data Lake Storage Gen 2**, selecione a conta e o contêiner que você criou anteriormente.
+1. Você precisa de uma conta do ADLSGEN2 para criar um workspace. A opção mais simples é criar uma conta. Se você quiser reutilizar uma existente, será necessário executar algumas configurações adicionais. 
+1. OPÇÃO 1 Criação de uma conta do ADLSGEN2 
+    1. Em **Selecione Data Lake Storage Gen 2**, clique em **Criar** e nomeie-a **contosolake**.
+    1. Em **Selecione Data Lake Storage Gen 2**, clique em **Sistema de Arquivos** e nomeie-a **usuários**.
+1. OPÇÃO 2 Confira as instruções **Preparar uma Conta de Armazenamento** na parte inferior deste documento.
+1. Seu workspace do Azure Synapse usará essa conta de armazenamento como a conta de armazenamento "primária" e o contêiner para armazenar dados do workspace. O workspace armazena dados em tabelas do Apache Spark. Ele armazena logs de aplicativo do Spark em uma pasta chamada **/synapse/nomedoworkspace**.
 1. Selecione **Examinar + criar** > **Criar**. Seu workspace fica pronto em alguns minutos.
 
-## <a name="verify-access-to-the-storage-account"></a>Verificar o acesso à conta de armazenamento
-
-Identidades gerenciadas para seu workspace do Azure Synapse talvez já tenham acesso à conta de armazenamento. Siga estas etapas para se certificar:
-
-1. Abra o [portal do Azure](https://portal.azure.com) e a conta de armazenamento primária escolhida para seu workspace.
-1. Selecione **Controle de acesso (IAM)** no painel esquerdo.
-1. Atribua as funções a seguir ou verifique se elas já estão atribuídas. Usamos o mesmo nome para a identidade do workspace e o nome do workspace.
-    * Para a função de **Colaborador de Dados do Storage Blob** na conta de armazenamento, atribua **myworkspace** como a identidade do workspace.
-    * Atribua **myworkspace** como o nome do workspace.
-
-1. Clique em **Salvar**.
 
 ## <a name="open-synapse-studio"></a>Abrir o Synapse Studio
 
@@ -121,6 +93,38 @@ Ao contrário dos outros tipos de pools, a cobrança pelo SQL sob demanda baseia
 
 * O SQL sob demanda tem seus próprios bancos de dados sob demanda do SQL que existem independentemente de qualquer pool do SQL sob demanda.
 * Um workspace sempre tem exatamente um pool do SQL sob demanda chamado **SQL sob demanda**.
+
+## <a name="prepare-a-storage-account"></a>Preparar uma conta de armazenamento
+
+1. Abra o [Portal do Azure](https://portal.azure.com).
+1. Crie uma conta de armazenamento que tenha as seguintes configurações:
+
+    |Tab|Configuração | Valor sugerido | Descrição |
+    |---|---|---|---|
+    |Noções básicas|**Nome da conta de armazenamento**| Escolha qualquer nome.| Neste documento, usaremos o nome **contosolake**.|
+    |Noções básicas|**Tipo de conta**| **StorageV2** ||
+    |Noções básicas|**Localidade**|Escolha qualquer localização.| É recomendável que seu workspace do Azure Synapse Analytics e a conta do Azure Data Lake Storage Gen2 estejam na mesma região.|
+    |Avançado|**Data Lake Storage Gen2**|**Habilitado**| O Azure Synapse só funciona com contas de armazenamento que têm essa configuração habilitada.|
+    |||||
+
+1. Depois de criar a conta de armazenamento, selecione **Controle de acesso (IAM)** no painel esquerdo. Depois, atribua as seguintes funções ou verifique se elas já estão atribuídas:
+    * Atribua-se à função de **Proprietário**.
+    * Atribua-se à função de **Proprietário de Dados do Storage Blob**.
+1. No painel esquerdo, selecione **Contêineres** e crie um contêiner.
+1. Você pode dar qualquer nome ao contêiner. Neste documento, chamaremos o contêiner de **usuários**.
+1. Aceite a configuração padrão **Nível de acesso público** e, em seguida, selecione **Criar**.
+
+### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configurar o acesso à conta de armazenamento em seu workspace
+
+Identidades gerenciadas para seu workspace do Azure Synapse talvez já tenham acesso à conta de armazenamento. Siga estas etapas para se certificar:
+
+1. Abra o [portal do Azure](https://portal.azure.com) e a conta de armazenamento primária escolhida para seu workspace.
+1. Selecione **Controle de acesso (IAM)** no painel esquerdo.
+1. Atribua as funções a seguir ou verifique se elas já estão atribuídas. Usamos o mesmo nome para a identidade do workspace e o nome do workspace.
+    * Para a função de **Colaborador de Dados do Storage Blob** na conta de armazenamento, atribua **myworkspace** como a identidade do workspace.
+    * Atribua **myworkspace** como o nome do workspace.
+
+1. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
