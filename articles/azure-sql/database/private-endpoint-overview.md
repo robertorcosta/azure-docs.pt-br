@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213376"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442591"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Link Privado do Azure para o Banco de Dados SQL do Azure e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "88213376"
 O Link Privado permite que você se conecte a vários serviços de PaaS no Azure por meio de um **ponto de extremidade privado**. Para obter uma lista dos serviços de PaaS que dão suporte à funcionalidade de Link Privado, acesse a página [Documentação do Link Privado](../../private-link/index.yml). Um ponto de extremidade privado é um endereço IP privado em uma [VNet](../../virtual-network/virtual-networks-overview.md) e sub-rede específicas.
 
 > [!IMPORTANT]
-> Este artigo se aplica ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics (anteriormente, SQL Data Warehouse do Azure). Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**.
+> Este artigo se aplica ao Banco de Dados SQL do Azure e ao Azure Synapse Analytics (anteriormente, SQL Data Warehouse). Para simplificar, o termo "banco de dados" se refere aos bancos de dados no Banco de Dados SQL do Azure e no Azure Synapse Analytics. Da mesma forma, as referências a "servidor" se referem ao [servidor SQL lógico](logical-servers.md) que hospeda o Banco de Dados SQL do Azure e o Azure Synapse Analytics. Este artigo *não* se aplica à **Instância Gerenciada de SQL do Azure**.
 
 ## <a name="data-exfiltration-prevention"></a>Prevenção contra exportação de dados
 

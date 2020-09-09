@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145885"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462455"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -69,7 +69,7 @@ Também é possível [automatizar o treinamento e o ajuste do modelo](tutorial-a
 
 ## <a name="build-ml-models-in-the-studio"></a>Criar modelos de ML no estúdio
 
-O [estúdio do Azure Machine Learning](https://www.ml.azure.com) é um portal da Web no Azure Machine Learning para opções sem código e com pouco código para treinamento de modelo, implantação e gerenciamento de ativos. O estúdio integra-se ao SDK do Azure Machine Learning para proporcionar uma experiência perfeita. Para obter mais informações, confira [O que é o estúdio do Azure Machine Learning](overview-what-is-machine-learning-studio.md).
+O [estúdio do Azure Machine Learning](https://studio.azureml.net) é um portal da Web no Azure Machine Learning para opções sem código e com pouco código para treinamento de modelo, implantação e gerenciamento de ativos. O estúdio integra-se ao SDK do Azure Machine Learning para proporcionar uma experiência perfeita. Para obter mais informações, confira [O que é o estúdio do Azure Machine Learning](overview-what-is-machine-learning-studio.md).
 
 + **Azure Machine Learning Designer (versão prévia)**
 
@@ -86,7 +86,7 @@ O [estúdio do Azure Machine Learning](https://www.ml.azure.com) é um portal da
 
 + **E muito mais...**
 
-  Acesse o estúdio do Azure Machine Learning em [ml.azure.com](https://www.ml.azure.com). 
+  Acesse o estúdio do Azure Machine Learning em [ml.azure.com](https://studio.azureml.net). 
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Gerenciamento de implantação e ciclo de vida

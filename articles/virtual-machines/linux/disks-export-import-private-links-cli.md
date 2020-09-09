@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 2c9c63956144c6438dc0900fa9fdd06ce7d30f60
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 5c846bc126d6a6a8b0a8ed4a599c6d43a4d83616
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322051"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421213"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>CLI do Azure – Restringir o acesso de importação/exportação aos discos gerenciados com Links Privados
 
@@ -56,19 +56,17 @@ az account set --subscription $subscriptionId
 ```
 
 ## <a name="create-a-disk-access-using-azure-cli"></a>Criar um acesso a disco usando a CLI do Azure
-```azurecli-interactive
-az deployment group create -g $resourceGroupName \
---template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDiskAccess.json" \
---parameters "region=$region" "diskAccessName=$diskAccessName"
+```azurecli
+az disk-access create -n $diskAccessName -g $resourceGroupName -l $region
 
-diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
+diskAccessId=$(az disk-access show -n $diskAccessName -g $resourceGroupName --query [id] -o tsv)
 ```
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 Não há suporte para políticas de rede, como NSG (grupos de segurança de rede), em pontos de extremidade privados. Para implantar um ponto de extremidade privado em determinada sub-rede, uma configuração de desabilitação explícita é necessária nessa sub-rede. 
 
-```azurecli-interactive
+```azurecli
 az network vnet create --resource-group $resourceGroupName \
     --name $vnetName \
     --subnet-name $subnetName
@@ -77,7 +75,7 @@ az network vnet create --resource-group $resourceGroupName \
 
 O Azure implanta recursos em uma sub-rede dentro de uma rede virtual. Portanto, você precisa atualizar a sub-rede para desabilitar as políticas de rede do ponto de extremidade privado. 
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet update --resource-group $resourceGroupName \
     --name $subnetName  \
     --vnet-name $vnetName \
@@ -85,7 +83,7 @@ az network vnet subnet update --resource-group $resourceGroupName \
 ```
 ## <a name="create-a-private-endpoint-for-the-disk-access-object"></a>Criar um ponto de extremidade privado para o objeto de acesso a disco
 
-```azurecli-interactive
+```azurecli
 az network private-endpoint create --resource-group $resourceGroupName \
     --name $privateEndPointName \
     --vnet-name $vnetName  \
@@ -99,7 +97,7 @@ az network private-endpoint create --resource-group $resourceGroupName \
 
 Crie uma Zona DNS Privada para o domínio do blob de armazenamento, crie um link de associação com a Rede Virtual e crie um Grupo de Zona DNS para associar o ponto de extremidade privado à Zona DNS Privada. 
 
-```azurecli-interactive
+```azurecli
 az network private-dns zone create --resource-group $resourceGroupName \
     --name "privatelink.blob.core.windows.net"
 
@@ -128,14 +126,13 @@ diskSizeGB=128
 
 diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
 
-az deployment group create -g $resourceGroupName \
-   --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateDisksWithExportViaPrivateLink.json" \
-   --parameters "diskName=$diskName" \
-   "diskSkuName=$diskSkuName" \
-   "diskSizeGB=$diskSizeGB" \
-   "diskAccessId=$diskAccessId" \
-   "region=$region" \
-   "networkAccessPolicy=AllowPrivate"
+az disk create -n $diskName \
+-g $resourceGroupName \
+-l $region \
+--size-gb $diskSizeGB \
+--sku $diskSkuName \
+--network-access-policy AllowPrivate \
+--disk-access $diskAccessId 
 ```
 
 ## <a name="create-a-snapshot-of-a-disk-protected-with-private-links"></a>Criar um instantâneo de um disco protegido com Links Privados
@@ -150,13 +147,12 @@ diskId=$(az disk show -n $sourceDiskName -g $resourceGroupName --query [id] -o t
 
 diskAccessId=$(az resource show -n $diskAccessName -g $resourceGroupName --namespace Microsoft.Compute --resource-type diskAccesses --query [id] -o tsv)
 
-az deployment group create -g $resourceGroupName \
-   --template-uri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/privatelinks/CreateSnapshotWithExportViaPrivateLink.json" \
-   --parameters "snapshotName=$snapshotNameSecuredWithPL" \
-   "sourceResourceId=$diskId" \
-   "diskAccessId=$diskAccessId" \
-   "region=$region" \
-   "networkAccessPolicy=AllowPrivate" 
+az snapshot create -n $snapshotNameSecuredWithPL \
+-g $resourceGroupName \
+-l $region \
+--source $diskId \
+--network-access-policy AllowPrivate \
+--disk-access $diskAccessId 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

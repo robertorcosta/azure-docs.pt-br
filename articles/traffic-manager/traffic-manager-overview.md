@@ -2,7 +2,7 @@
 title: Gerenciador de Tráfego do Azure| Microsoft Docs
 description: Este artigo fornece uma visão geral do Gerenciador de Tráfego do Azure. Descubra se ele é a escolha certa para balancear a carga do tráfego de usuário para seu aplicativo.
 services: traffic-manager
-author: rohinkoul
+author: duongau
 manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
-ms.author: rohink
-ms.openlocfilehash: 6eb1ce18f3bc6674efd5343306fff617bc9cd1f7
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.author: duau
+ms.openlocfilehash: 830700fb4a5ac57405877364e9cc4828e5d1a5a4
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "80060798"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392537"
 ---
 # <a name="what-is-traffic-manager"></a>O que é o Gerenciador de Tráfego?
 O Gerenciador de tráfego do Azure é um balanceador de carga de tráfego baseado em DNS que permite que você distribua o tráfego de maneira ideal para serviços em todas as regiões globais do Azure, fornecendo alta disponibilidade e capacidade de resposta.

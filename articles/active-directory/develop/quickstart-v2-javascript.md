@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 1e537c6f61a7c461b2a9edb4097fba95f5c66a6f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ed94b44972ffc8c53ce96c0240f11ad44535531b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120517"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434598"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início Rápido: Conectar usuários e obter um token de acesso em um JavaScript SPA
 
@@ -151,7 +151,7 @@ Neste início rápido, você usará um exemplo de código para aprender como um 
 Execute o projeto com um servidor Web usando o [Node.js](https://nodejs.org/en/download/):
 
 1. Para iniciar o servidor, execute o seguinte comando no diretório do projeto:
-    ```batch
+    ```cmd
     npm install
     npm start
     ```
@@ -179,7 +179,7 @@ A biblioteca MSAL conecta usuários e solicita os tokens que são usados para ac
 
 Como alternativa, se tiver instalado o Node.js, você poderá baixar a versão mais recente por meio do npm (Gerenciador de Pacotes do Node.js):
 
-```batch
+```cmd
 npm install msal
 ```
 

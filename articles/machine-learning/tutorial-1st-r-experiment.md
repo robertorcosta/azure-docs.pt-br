@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 887b2da46fdcd6ad275f18913fd7ba675700ad3b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d5a8555b2bd57dc024318464e38f042469beb4b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015978"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458664"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Usar o R para criar um modelo de machine learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,7 +72,7 @@ Clone o repositório GitHub https://github.com/azure/azureml-sdk-for-r para obte
 
 1. No RStudio, navegue até a guia "Terminal" e o cd no diretório em que você gostaria de clonar o repositório.
 
-1. Execute "git clone https://github.com/Azure/azureml-sdk-for-r.git" no terminal para clonar o repositório.
+1. Execute "git clone https://github.com/Azure/azureml-sdk-for-r" no terminal para clonar o repositório.
 
 1. No RStudio, navegue até a pasta *vinhetas* da pasta clonada *azureml-sdk-for-r*.  Em *vinhetas*, selecione o arquivo *train-and-deploy-first-model.Rmd* para localizar a vinheta usada neste tutorial. Os arquivos adicionais usados para a vinheta estão localizados na subpasta *train-and-deploy-first-model*. Depois de abrir a vinheta, defina o diretório de trabalho como o local do arquivo por meio de **Sessão > Definir Diretório de Trabalho > Como o Local do Arquivo de Origem**. 
 

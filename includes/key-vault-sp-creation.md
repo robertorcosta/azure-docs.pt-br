@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
-ms.openlocfilehash: 6dbdebb1a9fc31e225349cc7fca8366e8b8ed004
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: deb2eb877743d533c5daeee8b6636edd62418fe0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378535"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494299"
 ---
 A maneira mais simples de autenticar um aplicativo baseado em nuvem é com uma identidade gerenciada; confira [Autenticar-se no Key Vault](/azure/key-vault/general/authentication) para obter detalhes.
 
@@ -18,7 +18,7 @@ Para simplificar, no entanto, este início rápido cria um aplicativo de área d
 Crie uma entidade de serviço usando o comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) da CLI do Azure:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://<my-unique-service-principal-name>" --sdk-auth
+az ad sp create-for-rbac --skip-assignment -n "http://<my-unique-service-principal-name>" --sdk-auth
 ```
 
 Essa operação retornará uma série de pares de chave/valor.

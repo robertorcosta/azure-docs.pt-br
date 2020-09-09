@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9a60683b8dbf809bc3e91ffd8720b545db4c361d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008668"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458325"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para Armazenamento de tabela
 
@@ -197,7 +197,7 @@ Esta seção lista diversas configurações rápidas que você pode usar para fa
 
 Começando na versão 2013-08-15 do serviço de armazenamento, o serviço Tabela dá suporte ao uso de JSON, em vez do formato AtomPub baseado em XML para transferir dados de tabela. Usar JSON pode reduzir o tamanho do conteúdo em até 75% e melhorar consideravelmente o desempenho do seu aplicativo.
 
-Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e [Formato de carga para operações do serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para saber mais, veja a postagem [Tabelas do Microsoft Azure: introdução ao JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) e [Formato de carga para operações do serviço Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 ### <a name="disable-nagle"></a>Desabilitar o Nagle
 
