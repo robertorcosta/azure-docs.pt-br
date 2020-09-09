@@ -4,14 +4,6 @@
   items:
     - name: O que é o Firewall do Azure?
       href: overview.md
-- name: Tutoriais
-  items:
-    - name: Implantar e configurar
-      href: tutorial-firewall-deploy-portal.md
-    - name: Implantar em rede híbrida
-      href: tutorial-hybrid-portal.md
-    - name: Filtrar o tráfego de entrada com DNAT
-      href: tutorial-firewall-dnat.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -24,6 +16,14 @@
     - name: Implantar com Zonas de Disponibilidade – modelo do ARM
       displayName: Resource Manager
       href: deploy-template.md
+- name: Tutoriais
+  items:
+    - name: Implantar e configurar
+      href: tutorial-firewall-deploy-portal.md
+    - name: Implantar em rede híbrida
+      href: tutorial-hybrid-portal.md
+    - name: Filtrar o tráfego de entrada com DNAT
+      href: tutorial-firewall-dnat.md
 - name: Exemplos
   items:
     - name: Azure PowerShell
