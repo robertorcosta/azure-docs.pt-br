@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d416c6fdef85b83d91ca0e341659f87618d268e0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504510"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536048"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
-Este guia fornece instruções passo a passo para configurar redes virtuais e firewalls do Azure Key Vault para restringir acesso ao cofre de chaves. Os [pontos de extremidade de serviço de rede virtual para Key Vault](overview-vnet-service-endpoints.md) permitem restringir o acesso a uma rede virtual especificada e um conjunto de intervalos de endereços IPv4 (protocolo de Internet versão 4).
+Este guia fornece instruções passo a passo para configurar redes virtuais e firewalls do Azure Key Vault para restringir acesso ao cofre de chaves. Os [pontos de extremidade de serviço de rede virtual para Key Vault](overview-vnet-service-endpoints.md) permitem restringir o acesso a uma rede virtual especificada e um conjunto de intervalos de endereços IPv4 (protocolo de internet versão 4).
 
 > [!IMPORTANT]
 > Depois que as regras de firewall estiverem ativas, os usuários podem realizar apenas operações de [plano de dados](secure-your-key-vault.md#data-plane-access-control) do Key Vault quando as solicitações deles originarem-se de redes virtuais ou intervalos de endereços IPv4 permitidos. Isso também aplica-se ao acessar o Key Vault a partir do portal do Azure. Embora os usuários possam navegar em um cofre de chaves a partir do portal do Azure, eles talvez não consigam listar chaves, segredos ou certificados se o computador cliente deles não estiver na lista permitida. Isso também afeta o Seletor do Cofre de Chaves de outros serviços do Azure. Os usuários poderão ver a lista de cofres de chaves, mas não listar chaves, se as regras de firewall impedirem o computador cliente.
