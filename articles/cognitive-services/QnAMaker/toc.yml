@@ -24,6 +24,8 @@
   items:
     - name: Integrar-se ao Power Virtual Agent
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - name: Criar um bot de perguntas frequentes com o Serviço de Bot do Azure
+      href: Tutorials/create-faq-bot-with-azure-bot-service.md
     - name: Testar com arquivo em lotes
       href: Quickstarts/batch-testing.md
 - name: Conceitos
@@ -91,7 +93,7 @@
         - name: Migrar para nova base de dados de conhecimento
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Teste
+        - name: Base de dados de conhecimento de teste
           href: How-To/test-knowledge-base.md
     - name: Gerenciar pares do QnA
       items:

@@ -52,8 +52,20 @@
           href: how-application-gateway-works.md
         - name: Componentes do Gateway de Aplicativo
           href: application-gateway-components.md
-        - name: Visão geral de configuração
-          href: configuration-overview.md
+        - name: Configuração
+          items:
+            - name: Visão geral
+              href: configuration-overview.md
+            - name: Infraestrutura
+              href: configuration-infrastructure.md
+            - name: Endereço IP de front-end
+              href: configuration-front-end-ip.md
+            - name: Ouvintes
+              href: configuration-listeners.md
+            - name: Regras de roteamento de solicitação
+              href: configuration-request-routing-rules.md
+            - name: Configurações de HTTP
+              href: configuration-http-settings.md
     - name: Suporte a alto tráfego
       href: high-traffic-support.md
     - name: SKU de dimensionamento automático v2
