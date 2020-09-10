@@ -114,6 +114,8 @@
           href: understand/mca-overview.md
         - name: Contas de cobrança do Contrato de Parceiro da Microsoft
           href: understand/mpa-overview.md
+        - name: Transferir assinaturas entre parceiros (versão prévia)
+          href: manage/azure-plan-subscription-transfer-partners.md
 - name: Guias de instruções
   items:
     - name: Configurar Gerenciamento de Custos + Cobrança
