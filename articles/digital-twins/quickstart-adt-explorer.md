@@ -60,7 +60,7 @@ Em seguida, prepare a instância dos Gêmeos Digitais do Azure que você criou p
 
 Selecione *Autenticação* no menu do registro e clique em *+ Adicionar uma plataforma*.
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Página do portal do Azure dos Detalhes de autenticação para um registro de aplicativo. Há um realce ao redor de um botão "Adicionar uma plataforma"" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Página do portal do Azure dos Detalhes de autenticação para um registro de aplicativo. Há um realce ao redor de um botão Adicionar uma plataforma" lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
 Na página *Configurar plataformas* que se segue, selecione *Web*.
 Preencha os detalhes de configuração da seguinte maneira:
