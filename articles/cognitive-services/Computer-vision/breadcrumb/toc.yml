@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /DocsLegal/
+  topicHref: /azure/index
+  items:
+    - name: Pesquisa Visual Computacional
+      tocHref: /DocsLegal/computer-vision
+      topicHref: /azure/cognitive-services/Computer-vision/index
+      items:
+        - name: Análise espacial de Pesquisa Visual Computacional
+          tocHref: /DocsLegal/cognitive-services/computer-vision/
+          topicHref: /azure/cognitive-services/Computer-vision/index

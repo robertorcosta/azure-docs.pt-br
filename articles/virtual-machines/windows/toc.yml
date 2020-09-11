@@ -317,6 +317,8 @@
           href: disk-encryption.md
         - name: Reservas de Armazenamento em Disco
           href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+        - name: Desempenho de máquina virtual e disco
+          href: disk-performance-windows.md
         - name: Projetando para alto desempenho
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Intermitência de disco

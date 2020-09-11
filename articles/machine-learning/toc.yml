@@ -166,9 +166,21 @@
               href: how-to-use-azure-ad-identity.md
         - name: Segurança de rede
           items:
-            - name: Usar redes virtuais
+            - name: Visão geral da rede virtual
               displayName: 'vnet, blob'
-              href: how-to-enable-virtual-network.md
+              href: how-to-network-security-overview.md
+            - name: Recursos de workspace seguro
+              displayName: 'vnet, workspace, container instance, container registry'
+              href: how-to-secure-workspace-vnet.md
+            - name: Ambiente de treinamento seguro
+              displayName: vnet
+              href: how-to-secure-training-vnet.md
+            - name: Ambiente de inferência seguro
+              displayName: vnet
+              href: how-to-secure-inferencing-vnet.md
+            - name: Usar estúdio em uma rede virtual
+              displayName: vnet
+              href: how-to-enable-studio-virtual-network.md
             - name: Usar o Link Privado
               displayName: private endpoint
               href: how-to-configure-private-link.md
@@ -307,6 +319,9 @@
             - name: Ajustar hiperparâmetros
               displayName: parameter
               href: how-to-tune-hyperparameters.md
+        - name: Trabalhar com o MLflow
+          displayName: 'log, monitor, deploy, metrics, Databricks, model registry, register'
+          href: how-to-use-mlflow.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -328,9 +343,6 @@
             - name: Exibir logs
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-monitor-view-training-logs.md
-            - name: Acompanhar experimentos com o MLflow
-              displayName: 'log, monitor, metrics, Databricks'
-              href: how-to-use-mlflow.md
             - name: Visualizar execuções com o TensorBoard
               displayName: 'log, monitor, metrics'
               href: how-to-monitor-tensorboard.md
