@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760083"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661759"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do mecanismo de regras Standard para a CDN do Azure
 
@@ -59,7 +59,7 @@ Um sinal de porcentagem é usado para indicar a codificação de URL (por exempl
 
 ### <a name="wildcard-values"></a>Valores de caractere curinga
 
-Atualmente, damos suporte ao caractere curinga na **condição de correspondência UrlPath** no mecanismo de regras padrão. O \* caractere é um asterisco que representa um ou mais caracteres. 
+Atualmente, damos suporte ao caractere curinga na **condição de correspondência UrlPath** no mecanismo de regras padrão. O \* caractere é um caractere curinga que representa um ou mais caracteres. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

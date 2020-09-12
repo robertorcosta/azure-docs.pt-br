@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 06/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2d6e026f87211260a2cf45c0623806cc024b44e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cb804b21d6f5312c13bfdbf7b0fc0404961ba1e3
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530659"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005727"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerenciar uma conta Executar como da Automação do Azure
 
@@ -26,16 +26,16 @@ A automação do Azure usa dois tipos de contas Executar como:
 >[!NOTE]
 >As assinaturas do CSP (Provedor de Soluções de Nuvem) do Azure são compatíveis apenas com o modelo do Azure Resource Manager. Serviços que não pertencem ao Azure Resource Manager não estão disponíveis no programa. Quando você estiver usando uma assinatura do CSP, a conta Executar como Clássica do Azure não será criada, mas a conta Executar como do Azure será criada. Para saber mais sobre assinaturas de CSP, consulte [Serviços disponíveis em assinaturas do CSP](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
-A entidade de serviço para uma conta Executar como não tem permissões para ler o Azure AD por padrão. Se desejar adicionar permissões para ler ou gerenciar o Azure AD, você precisará conceder as permissões na entidade de serviço em **permissões de API**. Para saber mais, consulte [Adicionar permissões para acessar APIs Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+A entidade de serviço para uma conta Executar como não tem permissões para ler o Azure AD por padrão. Se desejar adicionar permissões para ler ou gerenciar o Azure AD, você precisará conceder as permissões na entidade de serviço em **permissões de API**. Para saber mais, consulte [adicionar permissões para acessar sua API Web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
 
 ### <a name="run-as-account"></a>Conta Executar como
 
 A conta Executar como gerencia recursos do [Modelo de implantação do Resource Manager](../azure-resource-manager/management/deployment-models.md). Ela segue as seguintes etapas.
 
 * Cria um aplicativo do Azure AD com um certificado autoassinado, cria uma conta de entidade de serviço para o aplicativo no Azure AD e atribui a função de Colaborador à conta na assinatura atual. Você pode alterar a configuração de certificado para Proprietário ou qualquer outra função. Para obter mais informações, confira [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
-  
+
 * Cria um ativo de certificado de Automação chamado `AzureRunAsCertificate` na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado que é usada pelo aplicativo do Azure AD.
-  
+
 * Cria um ativo de conexão de Automação chamado `AzureRunAsConnection` na conta de Automação especificada. O ativo de conexão contém a ID do aplicativo, a ID do locatário, a ID da assinatura e a impressão digital do certificado.
 
 ### <a name="azure-classic-run-as-account"></a>Conta Executar como do Azure Clássico
@@ -80,7 +80,7 @@ Para verificar se a situação que produz a mensagem de erro foi remediada:
 
 1. No painel do Azure Active Directory no portal do Azure, selecione **Usuários e grupos**.
 2. Selecione **Todos os usuários**.
-3. Escolha seu nome e, em seguida, selecione **Perfil**. 
+3. Escolha seu nome e, em seguida, selecione **Perfil**.
 4. Verifique se o valor do atributo **Tipo de usuário** no perfil do usuário não está definido como **Convidado**.
 
 ### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Obter permissões para configurar contas Executar como Clássicas
@@ -99,7 +99,7 @@ Execute as seguintes etapas para atualizar sua conta de Automação do Azure no 
 
 4. No painel do lado esquerdo, selecione **Contas Executar como** na seção Configurações de conta.
 
-5. Dependendo da conta de que você precisa, selecione **Conta Executar como do Azure** ou **Conta Executar como Clássica do Azure**. 
+5. Dependendo da conta de que você precisa, selecione **Conta Executar como do Azure** ou **Conta Executar como Clássica do Azure**.
 
 6. Dependendo da conta de interesse, use o painel **Adicionar Executar como do Azure** ou **Adicionar a conta Executar como Clássica do Azure**. Depois de examinar as informações de visão geral, clique em **Criar**.
 
@@ -113,7 +113,7 @@ Esta seção descreve como excluir uma conta Executar como ou Executar como Clá
 
 2. No painel do lado esquerdo, selecione **Contas Executar como** na seção Configurações de conta.
 
-3. Na página de propriedades de Contas Executar como, selecione a conta Executar como ou a conta Executar como Clássica que você deseja excluir. 
+3. Na página de propriedades de Contas Executar como, selecione a conta Executar como ou a conta Executar como Clássica que você deseja excluir.
 
 4. No painel Propriedades da conta selecionada, clique em **Excluir**.
 
@@ -127,7 +127,7 @@ Esta seção descreve como excluir uma conta Executar como ou Executar como Clá
 
 ## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Renovar um certificado autoassinado
 
-O certificado autoassinado que você criou para a conta Executar como expira um ano a contar da data de criação. Antes da conta Executar como expirar, você deverá renovar o certificado. Você pode renová-lo a qualquer momento antes que ele expire. 
+O certificado autoassinado que você criou para a conta Executar como expira um ano a contar da data de criação. Antes da conta Executar como expirar, você deverá renovar o certificado. Você pode renová-lo a qualquer momento antes que ele expire.
 
 Ao renovar o certificado autoassinado, o certificado válido atual é retido para garantir que todos os runbooks colocados na fila ou em execução ativa e autenticados com a conta Executar como não sejam afetados negativamente. O certificado permanece válido até a data de expiração.
 
@@ -168,10 +168,10 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzRoleDefinition
 ```
 
-Você pode determinar se a entidade de serviço usada pela sua conta Executar como está na definição da função colaborador ou em uma personalizada. 
+Você pode determinar se a entidade de serviço usada pela sua conta Executar como está na definição da função colaborador ou em uma personalizada.
 
 1. Acesse sua conta de Automação e selecione **Contas Executar como** na seção de configurações de conta.
-2. Selecione **Conta Executar como do Azure**. 
+2. Selecione **Conta Executar como do Azure**.
 3. Selecione **Função** para localizar a definição de função que está sendo usada.
 
 :::image type="content" source="media/manage-runas-account/verify-role.png" alt-text="Verifique a função da conta Executar como." lightbox="media/manage-runas-account/verify-role-expanded.png":::
@@ -186,7 +186,7 @@ Você pode permitir que a Automação do Azure verifique se Key Vault e sua enti
 * Conceder permissões a um Key Vault.
 * Definir a política de acesso.
 
-Você pode usar o script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) no Galeria do PowerShell para conceder permissões de conta Executar como para Key Vault. Consulte [Conceder aos aplicativos acesso a um key vault](../key-vault/general/group-permissions-for-apps.md) para obter mais detalhes sobre como definir permissões no Key Vault.
+Você pode usar o script [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault.ps1](https://aka.ms/AA5hugb) no Galeria do PowerShell para conceder permissões de conta Executar como para Key Vault. Consulte [atribuir uma política de acesso Key Vault](/azure/key-vault/general/assign-access-policy-powershell) para obter mais detalhes sobre como definir permissões em Key Vault.
 
 ## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Resolver problemas de configuração incorreta para contas Executar como
 
@@ -207,7 +207,7 @@ Quando você selecionar a conta Executar como, o painel Propriedades da conta ex
 The Run As account is incomplete. Either one of these was deleted or not created - Azure Active Directory Application, Service Principal, Role, Automation Certificate asset, Automation Connect asset - or the Thumbprint is not identical between Certificate and Connection. Please delete and then re-create the Run As Account.
 ```
 
-Você pode resolver rapidamente esses problemas de conta Executar como excluindo e recriando a conta.
+Você pode resolver rapidamente esses problemas de conta Executar como excluindo e recriando a conta Executar como.
 
 ## <a name="next-steps"></a>Próximas etapas
 

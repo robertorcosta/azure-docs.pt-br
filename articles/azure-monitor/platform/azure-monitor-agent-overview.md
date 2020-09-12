@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: ff70beef89f6db240db244de1e11e54193858be0
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 0fc9139e9456a62bf3586fb358046e7c868b834a
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705768"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005217"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente de Azure Monitor (versão prévia)
 O agente de Azure Monitor (AMA) coleta dados de monitoramento do sistema operacional convidado de máquinas virtuais e as entrega ao Azure Monitor. Este artigo fornece uma visão geral do agente de Azure Monitor, incluindo como instalá-lo e como configurar a coleta de dados.
@@ -68,14 +68,14 @@ A tabela a seguir lista os tipos de dados que você pode coletar atualmente com 
 
 O agente de Azure Monitor envia dados para Azure Monitor métricas ou um espaço de trabalho Log Analytics que oferece suporte a logs de Azure Monitor.
 
-| Fonte de dados | Destinos | Descrição |
+| fonte de dados | Destinos | Descrição |
 |:---|:---|:---|
 | Desempenho        | Métricas do Azure Monitor<br>Workspace do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
 | Log de eventos do Windows | Workspace do Log Analytics | Informações enviadas ao sistema de registro de evento do Windows. |
 | syslog             | Workspace do Log Analytics | Informações enviadas ao sistema de registro de evento do Linux. |
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 Os sistemas operacionais a seguir têm suporte no momento pelo agente de Azure Monitor.
 
 ### <a name="windows"></a>Windows 
@@ -88,12 +88,12 @@ Os sistemas operacionais a seguir têm suporte no momento pelo agente de Azure M
   - CentOS 6<sup>1</sup>, 7
   - Debian 9, 10
   - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7, 8
+  - RHEL 6<sup>1</sup>, 7
   - SLES 11, 12, 15
   - Ubuntu 14, 4 LTS, 16, 4 LTS, 18, 4 LTS
 
 > [!IMPORTANT]
-> <sup>1</sup> Para que essas distribuições enviem dados syslog, você deve remover o rsyslog e instalar o syslog-ng.
+> <sup>1</sup> Para que essas distribuições enviem dados syslog, você deve reiniciar o serviço rsyslog uma vez após a instalação do agente.
 
 
 ## <a name="security"></a>Segurança
@@ -105,9 +105,9 @@ O agente de Azure Monitor é implementado como uma [extensão de VM do Azure](..
 
 | Propriedade | Windows | Linux |
 |:---|:---|:---|
-| Publicador | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
+| Publisher | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| TypeHandlerVersion  | 1,0 | 1.5 |
 
 Instale o agente de Azure Monitor usando qualquer um dos métodos para instalar agentes de máquina virtual, incluindo o seguinte usando o PowerShell ou a CLI. Como alternativa, você pode instalar o agente e configurar a coleta de dados em máquinas virtuais em sua assinatura do Azure usando o portal com o procedimento descrito em [Configurar coleta de dados para o agente de Azure monitor (versão prévia)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 

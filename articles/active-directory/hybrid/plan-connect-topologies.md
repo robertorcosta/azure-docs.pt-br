@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509069"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658516"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias para o Azure AD Connect
 Este artigo descreve várias topologias locais e do Azure Active Directory (Azure AD) que usam a sincronização do Azure AD Connect como solução de integração principal. Este artigo inclui configurações com e sem suporte.
@@ -37,7 +37,7 @@ Aqui está a legenda para imagens neste artigo:
 | “Modo de preparo” do servidor de sincronização do Azure AD Connect |![“Modo de preparo” do servidor de sincronização do Azure AD Connect](./media/plan-connect-topologies/LegendSync2.png) |
 | GALSync com o Forefront Identity Manager (FIM) 2010 ou o Microsoft Identity Manager (MIM) 2016 |![GALSync com o FIM 2010 ou MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
 | Servidor do Azure AD Connect Sync detalhado |![Servidor do Azure AD Connect Sync detalhado](./media/plan-connect-topologies/LegendSync4.png) |
-| AD do Azure |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
+| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
 | Cenário sem suporte |![Cenário sem suporte](./media/plan-connect-topologies/LegendUnsupported.png) |
 
 
@@ -117,15 +117,15 @@ Em uma topologia de floresta de recursos de conta, você tem uma ou mais florest
 
 Nesse cenário, uma (ou mais) floresta de recursos confia em todas as florestas de conta. Essa floresta de recurso normalmente tem um esquema do Active Directory estendido com o Exchange e o Lync. Todos os serviços do Exchange e do Lync, bem como outros serviços compartilhados, estão localizados nessa floresta. Os usuários têm uma conta de usuário desabilitada nesta floresta e a caixa de correio está vinculada à floresta da conta.
 
-## <a name="office-365-and-topology-considerations"></a>Office 365 e considerações de topologia
-Algumas cargas de trabalho do Office 365 têm certas restrições em topologias com suporte:
+## <a name="microsoft-365-and-topology-considerations"></a>Considerações sobre Microsoft 365 e topologia
+Algumas cargas de trabalho Microsoft 365 têm determinadas restrições em topologias com suporte:
 
 | Carga de trabalho | Restrições |
 | --------- | --------- |
-| Exchange Online | Para obter mais informações sobre topologias híbridas com suporte pelo Exchange Online, consulte [Implantações híbridas com várias florestas do Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Para obter mais informações, confira [Requisitos ambientais para Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Para obter mais informações sobre topologias híbridas com suporte pelo Exchange Online, consulte [Implantações híbridas com várias florestas do Active Directory](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
+| Skype for Business | Ao usar várias florestas locais, somente a topologia de floresta conta-recurso terá suporte. Para obter mais informações, confira [Requisitos ambientais para Skype for Business Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
-Se tiver uma organização maior, então considere usar o recurso [Localização Preferencia de Dados do Office 365](how-to-connect-sync-feature-preferreddatalocation.md). Ele permite que você defina em qual região do datacenter estão localizados os recursos do usuário.
+Se você for uma organização maior, considere usar o recurso de [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) . Ele permite que você defina em qual região do datacenter estão localizados os recursos do usuário.
 
 ## <a name="staging-server"></a>Servidor de preparo
 ![Servidor de preparo em uma topologia](./media/plan-connect-topologies/MultiForestStaging.png)

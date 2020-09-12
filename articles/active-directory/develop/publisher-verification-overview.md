@@ -1,6 +1,6 @@
 ---
 title: Visão geral da verificação do editor – Plataforma de identidade da Microsoft | Azure
-description: Fornece uma visão geral do programa de verificação do editor (versão prévia) para a plataforma de identidade da Microsoft. Lista os benefícios, os requisitos do programa e as perguntas frequentes. Quando um aplicativo é marcado como verificado pelo editor, isso significa que o editor verificou sua identidade usando uma conta do Microsoft Partner Network que concluiu o processo de verificação e associou essa conta do MPN ao registro de aplicativo.
+description: Fornece uma visão geral do programa de verificação do editor para a plataforma Microsoft Identity. Lista os benefícios, os requisitos do programa e as perguntas frequentes. Quando um aplicativo é marcado como verificado pelo editor, isso significa que o editor verificou sua identidade usando uma conta do Microsoft Partner Network que concluiu o processo de verificação e associou essa conta do MPN ao registro de aplicativo.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068466"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005784"
 ---
-# <a name="publisher-verification-preview"></a>Verificação do editor (versão prévia)
+# <a name="publisher-verification"></a>Verificação do Publicador
 
-A verificação do editor (versão prévia) ajuda administradores e usuários finais a entender a autenticidade dos desenvolvedores de aplicativos que se integram com a plataforma de identidade da Microsoft. Quando um aplicativo é marcado como verificado pelo editor, isso significa que o editor verificou sua identidade usando uma conta do [Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu a [verificação](/partner-center/verification-responses). 
+A verificação do editor ajuda administradores e usuários finais a entender a autenticidade dos desenvolvedores de aplicativos que se integram com a plataforma de identidade da Microsoft. Quando um aplicativo é marcado como verificado pelo editor, isso significa que o editor verificou sua identidade usando uma conta do [Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu a [verificação](/partner-center/verification-responses). 
 
 Um selo azul "verificado" aparece na solicitação de consentimento do Azure AD e em outras telas: ![Solicitação de consentimento](./media/publisher-verification-overview/consent-prompt.png)
 

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/21/2020
-ms.openlocfilehash: 6eb4aee1cfe62b09210f62d016028485594a9474
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/02/2020
+ms.openlocfilehash: 2a0c95e45dc529d779d6b06e1e5bdb32ba80b241
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000780"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007529"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -135,7 +135,7 @@ Considere o seguinte ao usar o Dependency Agent:
 A extensão de Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md) instala o agente de log Analytics em máquinas virtuais do Azure. A extensão de dependência Azure Monitor para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) instala o Dependency Agent em máquinas virtuais do Azure. Esses são os mesmos agentes descritos acima, mas permitem que você os gerencie por meio de [extensões de máquina virtual](../../virtual-machines/extensions/overview.md). Você deve usar extensões para instalar e gerenciar os agentes sempre que possível.
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes de Azure Monitor. Consulte a documentação de cada agente para obter considerações exclusivas e sobre o processo de instalação. Consulte a documentação do Telegraf para seus sistemas operacionais com suporte. Todos os sistemas operacionais são considerados x64. Não há suporte para x86 em nenhum sistema operacional.
 
 ### <a name="windows"></a>Windows
@@ -148,7 +148,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(incluindo várias sessões) e pro  |   | X | X | X |
+| Windows 10 Enterprise<br>(incluindo várias sessões) e pro  | X | X | X | X |
 | Windows 8 Enterprise e Pro                             |   | X | X |   |
 | Windows 7 SP1                                            |   | X | X |   |
 
@@ -159,6 +159,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                     |   | X |   |   |
 | CentOS Linux 7                                           | X | X |   | X |
+| CentOS Linux 7,8                                         | X | X | X | X |
 | CentOS Linux 7,6                                         | X | X | X | X |
 | CentOS Linux 6                                           | X | X |   |   |
 | CentOS Linux 6.5 +                                        | X | X |   | X |
@@ -170,11 +171,11 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Oracle Linux 7                                           | X | X |   | X |
 | Oracle Linux 6                                           | X | X |   |   |
 | Oracle Linux 6.4+                                        | X | X |   | X |
-| Red Hat Enterprise Linux Server 8                        | X | X |   |   |
+| Red Hat Enterprise Linux Server 8                        |   | X |   |   |
 | Red Hat Enterprise Linux Server 7                        | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                        | X | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 +                     | X | X | X | X |
-| SUSE Linux Enterprise Server 15                          | X | X | X |   |
+| SUSE Linux Enterprise Server 15                          | X | X |   |   |
 | SUSE Linux Enterprise Server 12                          | X | X | X | X |
 | Ubuntu 18.04 LTS                                         | X | X | X | X |
 | Ubuntu 16.04 LTS                                         | X | X | X | X |
@@ -188,7 +189,7 @@ Como o Dependency Agent funciona no nível do kernel, o suporte também depende 
 |:---|:---|:---|
 |  Red Hat Linux 7   | 7.6     | 3.10.0-957  |
 |                    | 7.5     | 3.10.0-862  |
-|                    | 7,4     | 3.10.0-693  |
+|                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
 | CentOSPlus         | 6.10    | 2.6.32-754.3.5<br>2.6.32-696.30.1 |

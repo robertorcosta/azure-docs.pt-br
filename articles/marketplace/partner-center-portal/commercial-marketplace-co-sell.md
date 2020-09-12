@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ca1a1bd1f07bf30fd7e5cd57b617a823120e85ea
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104224"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017363"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta na Central de Parceiros
 
@@ -20,7 +20,7 @@ Fornecer informações sobre a guia de venda é totalmente opcional. É necessá
 
 A opção de venda conjunta no Partner Center está disponível no momento para alguns tipos de oferta. O suporte para tipos de oferta adicionais será disponibilizado ao longo do tempo.
 
-| **Tipo de oferta** | **Página de co-venda disponível no Partner Center** |
+| **Tipo de Oferta** | **Página de co-venda disponível no Partner Center** |
 |    -----------------------    |    -----------------------------  |
 | SaaS (software como serviço) |      Disponível agora      |
 | Dynamics 365 para compromisso com o cliente & PowerApps      |     Disponível agora      |
@@ -62,7 +62,7 @@ Você pode adicionar até três áreas de solução para sua oferta. Para cada �
 
 ## <a name="documents"></a>Documentos
 
-Você pode fornecer um material de apoio para a Microsoft usar para avaliar suas necessidades de clientes.
+Você tem a opção de fornecer documentos de material de apoio que a Microsoft usará para saber mais sobre sua oferta e avaliar seu ajuste para suas necessidades de cliente. Todos os documentos listados na tabela abaixo são opcionais.
 
 | **Documentos**    | **Descrição**  |
 | :------------------- | :-------------------|
@@ -79,14 +79,14 @@ Você pode fornecer um material de apoio para a Microsoft usar para avaliar suas
 
 Suas informações de contato permitem que as equipes de vendas da Microsoft e os revendedores de canal solicitem informações adicionais do recurso apropriado em sua organização. As informações de contato estão disponíveis para todas as equipes de vendas da Microsoft. Se você optar por tornar sua oferta disponível no programa CSP, essas informações de contato também estarão disponíveis para revendedores de canal.
 
-Este documento fornece orientação sobre as diferentes funções para parceiros e como escolher entre elas. Você pode fornecer seus contatos baixando o modelo CSV do Partner Center, preenchendo cada linha com informações sobre o contato e importando esse arquivo CSV. A importação de um arquivo CSV substituirá os contatos existentes.
+Você pode fornecer seus contatos baixando o modelo CSV do Partner Center, preenchendo cada linha com informações sobre o contato e importando esse arquivo CSV. A importação de um arquivo CSV substituirá os contatos existentes.
 
 Você também pode exportar sua lista existente de contatos de uma oferta e, em seguida, fazer alterações nesse arquivo.
 
 * *Nome (obrigatório)*: o nome do contato.
 * *Endereço de email (obrigatório)*: o endereço de email do contato.
 * Cargo *(obrigatório)*: título do trabalho.
-* *Função (obrigatório)*: Use uma das funções a seguir neste campo no modelo.
+* *Função (obrigatório)*: Use qualquer uma das funções a seguir.
 
     | **Função**    | **Descrição**  |
     | :------------------- | :-------------------|
