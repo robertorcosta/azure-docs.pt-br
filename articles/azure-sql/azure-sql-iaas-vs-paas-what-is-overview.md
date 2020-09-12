@@ -1,6 +1,5 @@
 ---
 title: O que é o SQL Azure?
-titleSuffix: " "
 description: 'Saiba mais sobre as diferentes opções na família de serviços do Azure SQL: banco de dados SQL do Azure, Azure SQL Instância Gerenciada e SQL Server na VM do Azure.'
 services: sql-database
 ms.service: sql-database
@@ -13,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/27/2020
-ms.openlocfilehash: ff8dd9d10bf5970a5a96080beb51e2c111d481e3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 344e52da8ef41e26ab0bfa7ef8e09a31f5d135ca
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280844"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611827"
 ---
 # <a name="what-is-azure-sql"></a>O que é o SQL Azure? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -32,6 +31,11 @@ O SQL do Azure é uma família de produtos gerenciados, seguros e inteligentes q
 O Azure SQL é criado sobre o conhecido mecanismo de SQL Server, para que você possa migrar aplicativos com facilidade e continuar a usar as ferramentas, os idiomas e os recursos com os quais você está familiarizado. Suas habilidades e sua experiência são transferidas para a nuvem, para que você possa fazer ainda mais com o que já tem. 
 
 Saiba como cada produto se encaixa na plataforma de dados SQL do Microsoft Azure para corresponder à opção certa para seus requisitos de negócios. Se você priorizar a economia de custos ou a administração mínima, este artigo poderá ajudá-lo a decidir qual abordagem é proporcionada aos requisitos de negócios mais importantes para você.
+
+
+Se você for novo no Azure SQL, confira o *que é* o vídeo SQL do Azure de nossa série detalhada de [vídeos SQL do Azure](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
+
 
 
 ## <a name="overview"></a>Visão geral
@@ -115,7 +119,7 @@ Em geral, o banco de dados SQL e o SQL Instância Gerenciada podem aumentar dras
 | O aplicativo local pode acessar os dados no Azure SQL Database. | [Implementação de rede virtual nativa](managed-instance/vnet-existing-add-subnet.md) e conectividade com seu ambiente local usando o gateway de VPN ou a rota expressa do Azure. | Com as máquinas virtuais do SQL, você pode ter aplicativos que são executados parcialmente na nuvem e parcialmente locais. Por exemplo, você pode estender sua rede local e o Domínio do Active Directory para a nuvem por meio da [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Para obter mais informações sobre soluções de nuvem híbrida, veja [Estendendo soluções de dados locais para a nuvem](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 
 Quer você seja uma inicialização que seja strapped por dinheiro ou uma equipe em uma empresa estabelecida que opere sob restrições de orçamento rígidas, o financiamento limitado geralmente é o principal driver ao decidir como hospedar seus bancos de dados. Nesta seção, você aprenderá sobre as noções básicas de cobrança e licenciamento no Azure associadas à família de serviços do Azure SQL.  Você também aprenderá sobre como calcular o custo total do aplicativo.
 

@@ -4,14 +4,14 @@ description: Como criar uma instância do Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092483"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612069"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar um Azure HPC Cache
 
@@ -29,7 +29,7 @@ Clique na imagem abaixo para assistir a uma [demonstração em vídeo](https://a
 
 ![captura de tela da página de detalhes do projeto no portal do Azure](media/hpc-cache-create-basics.png)
 
-Em **Detalhes do Projeto**, selecione a assinatura e o grupo de recursos que hospedarão o cache. Verifique se a assinatura está na lista de [acesso](hpc-cache-prerequisites.md#azure-subscription).
+Em **Detalhes do Projeto**, selecione a assinatura e o grupo de recursos que hospedarão o cache.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
 
 Em **Detalhes do Serviço**, defina o nome do cache e estes outros atributos:
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Tamanho do cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sim         | não          | não          |
-  | 6144 GB    | sim         | sim         | não          |
+  | 3072 GB    | sim         | no          | no          |
+  | 6144 GB    | sim         | sim         | no          |
   | 12288 GB   | sim         | sim         | sim         |
-  | 24576 GB   | não          | sim         | sim         |
-  | 49152 GB   | não          | não          | sim         |
+  | 24576 GB   | no          | sim         | sim         |
+  | 49152 GB   | no          | no          | sim         |
 
   Leia a seção **definir capacidade de cache** na guia instruções do portal para obter informações importantes sobre preços, taxa de transferência e como dimensionar o cache adequadamente para seu fluxo de trabalho.
 

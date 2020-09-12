@@ -2,13 +2,13 @@
 title: Tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure
 description: Descreve como você pode usar tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: c573f7ee088fe1d88f832623891377d4fd50bd4b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/03/2020
+ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105686"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440789"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Barramento de Serviço do Azure** é um deles. 
@@ -62,9 +62,9 @@ Se você usar um **tópico ou uma fila do Barramento de Serviço** como um manip
 | aeg-data-version | <p>Versão de dados do evento.</p><p>Exemplo: "1".</p><p>Para o **esquema de evento da Grade de Eventos**, essa propriedade representa a versão dos dados e para o **esquema de evento da nuvem**, ela não se aplica.</p> |
 
 ## <a name="message-headers"></a>Cabeçalhos de mensagem
-Ao enviar um evento para uma fila ou um tópico do Barramento de Serviço como uma mensagem agenciada, o `messageid` da mensagem agenciada é a **ID do evento**.
+Ao enviar um evento para uma fila ou um tópico do barramento de serviço como uma mensagem orientada, o `messageid` da mensagem orientada é uma ID interna do sistema.
 
-A ID do evento será mantida na nova entrega do evento para que você possa evitar entregas duplicadas ativando a **detecção de duplicidades** na entidade do barramento de serviço. Recomendamos que você habilite a duração da detecção de duplicidades na entidade do Barramento de Serviço como TTL (tempo de vida) do evento ou duração máxima de repetição, o que for maior.
+A ID do sistema interno da mensagem será mantida na entrega do evento para que você possa evitar entregas duplicadas ativando a detecção de **duplicidades** na entidade do barramento de serviço. Recomendamos que você habilite a duração da detecção de duplicidades na entidade do Barramento de Serviço como TTL (tempo de vida) do evento ou duração máxima de repetição, o que for maior.
 
 ## <a name="rest-examples-for-put"></a>Exemplos de REST (para PUT)
 

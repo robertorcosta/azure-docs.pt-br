@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d68323bb72779ec5978c721b5258d4c8a8d4940d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163944"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650803"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrando para novas Azure Time Series Insights versões da API do Gen2
 
@@ -39,7 +39,7 @@ Para ajudar os usuários a migrar suas [variáveis de modelo de série temporal]
 
 1. Você será solicitado pelo Explorer para atualizar a sintaxe usada pelas suas variáveis de modelo de série temporal e consultas salvas.
 
-    [![Aviso](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
+    [![Prompt](media/api-migration/ux-prompt.png)](media/v2-update-overview/overview-one.png#lightbox)
 
     Se você fechar acidentalmente a notificação, ela poderá ser encontrada no painel de notificação.
 
@@ -56,7 +56,7 @@ Para ajudar os usuários a migrar suas [variáveis de modelo de série temporal]
 
     [![Atualizar variáveis](media/api-migration/ux-migration-tool-downloaded-types.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-1. Clique em **Atualizar consultas salvas**. A ferramenta o notificará quando as variáveis tiverem sido atualizadas.
+1. Clique em **Atualizar consultas salvas**. A ferramenta irá notificá-lo quando as consultas salvas forem atualizadas.
 
     [![Atualizar consultas salvas](media/api-migration/ux-migration-tool-updated-variables.png)](media/v2-update-overview/overview-one.png#lightbox)
 
@@ -86,7 +86,7 @@ Se seu aplicativo personalizado estiver fazendo chamadas para os seguintes ponto
   - APIs da instância
     - [Todas as operações de lote](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
-    - [Pesquisar](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
+    - [Pesquisa](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
     - [Sugerir](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
   - APIs de hierarquia
     - [Todas as operações de lote](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)

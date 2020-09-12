@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo em notas de versão IoT Edge – Azure
 description: Este tópico fornece notas de versão de análise de vídeo ao vivo sobre versões IoT Edge, melhorias, correções de bugs e problemas conhecidos.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 23c2362d46a0b9bfe2fc2fbe31e00d0a42f80cfa
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: feab7755dea69a932fe40df59e0dd35f3f826553
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055440"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645818"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Análise de vídeo ao vivo em notas de versão IoT Edge
 
@@ -32,7 +32,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > Nos guias de início rápido e tutoriais, os manifestos de implantação usam uma marca de 1 (Live-Video-Analytics: 1). Portanto, simplesmente reimplantar esses manifestos deve atualizar o módulo em seus dispositivos de > de borda.
 
-## <a name="new-features"></a>Novos recursos 
+### <a name="new-features"></a>Novos recursos 
 
 * Agora você pode obter alto desempenho de transferência de conteúdo de dados entre a análise de vídeo ao vivo no IoT Edge e sua extensão personalizada usando a estrutura gRPC. Consulte [isso](analyze-live-video-use-your-grpc-model-quickstart.md) para começar.
 * Implantação regional mais ampla da análise de vídeo ao vivo e apenas o serviço de nuvem foi atualizado.  
@@ -40,7 +40,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 * A [configuração](https://aka.ms/lva-edge/setup-resources-for-samples) para início rápido foi atualizada também com novas regiões com suporte.
     * Não há nenhuma chamada para ação para qualquer pessoa que já tenha os recursos configurados
 
-## <a name="bug-fixes"></a>Correções de bug 
+### <a name="bug-fixes"></a>Correções de bug 
 
 * Remover o uso de uma extensão do Azure preterida no script de configuração
 

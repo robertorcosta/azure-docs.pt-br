@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 18c7e5b3a1401540d7a94186fda647d413d562c0
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723836"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650629"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Habilitar o registro em log nas execuções de treinamento do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,17 +37,17 @@ Os logs podem ajudá-lo a diagnosticar erros e avisos ou rastrear métricas de d
 
 ## <a name="data-types"></a>Tipos de dados
 
-Você pode registrar vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios e muito mais. Para obter mais informações e exemplos de código do Python para diferentes tipos de dados, consulte a [página de referência de classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
+Você pode registrar vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios e muito mais. Para obter mais informações e exemplos de código do Python para diferentes tipos de dados, consulte a [página de referência de classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
 
 ## <a name="interactive-logging-session"></a>Sessão de log interativa
 
-As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [experimento. start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) inicia uma sessão de log interativa. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento. O método [Execute. Complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) encerra as sessões e marca a execução como concluída.
+As sessões de log interativo normalmente são usadas em ambientes de notebook. O método [experimento. start_logging ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) inicia uma sessão de log interativa. Todas as métricas registradas durante a sessão são adicionadas ao registro de execução no experimento. O método [Execute. Complete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) encerra as sessões e marca a execução como concluída.
 
 ## <a name="scriptrunconfig-logs"></a>Logs do ScriptRunConfig
 
-Nesta seção, você aprenderá a adicionar o código de registro em log dentro de execuções do ScriptConfig. Você pode usar a classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) para encapsular scripts e ambientes para execuções repetíveis. Você também pode usar essa opção para mostrar um widget Visual Jupyter notebooks para monitoramento.
+Nesta seção, você aprenderá a adicionar o código de registro em log dentro de execuções do ScriptConfig. Você pode usar a classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para encapsular scripts e ambientes para execuções repetíveis. Você também pode usar essa opção para mostrar um widget Visual Jupyter notebooks para monitoramento.
 
-Este exemplo executa um parâmetro de limpeza em valores Alfa e captura os resultados usando o método [Run. log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#log-name--value--description----) .
+Este exemplo executa um parâmetro de limpeza em valores Alfa e captura os resultados usando o método [Run. log ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----) .
 
 1. Crie um script de treinamento que inclua a lógica de log, `train.py` .
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: f3aeccd30a9c89c2a43dfb85d4a57274037ec05f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177237"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569247"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -28,6 +28,104 @@ A segurança do Azure está em desenvolvimento ativo e recebe aprimoramentos con
 - Funcionalidades preteridas
 
 Esta página é atualizada regularmente, então visite-a com frequência. Se você estiver procurando itens que têm mais de seis meses, poderá encontrá-los nos [Arquivos de O que há de novo na Central de Segurança do Azure](release-notes-archive.md).
+
+
+## <a name="september-2020"></a>Setembro de 2020
+
+As atualizações em setembro incluem:
+
+- [As descobertas da avaliação de vulnerabilidade agora estão disponíveis em exportação contínua](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [Impedir configurações incorretas de segurança impondo recomendações ao criar novos recursos](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
+- [Recomendações de grupo de segurança de rede aprimoradas](#network-security-group-recommendations-improved)
+- [Recomendações de AKS de visualização preteridas "as políticas de segurança Pod devem ser definidas nos serviços Kubernetess"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
+- [Notificações por email da central de segurança do Azure aprimoradas](#email-notifications-from-azure-security-center-improved)
+- [A pontuação segura não inclui recomendações de visualização](#secure-score-doesnt-include-preview-recommendations)
+- [As recomendações agora incluem um indicador de severidade e o intervalo de atualização](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
+
+### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>As descobertas da avaliação de vulnerabilidade agora estão disponíveis em exportação contínua
+
+Use a exportação contínua para transmitir seus alertas e recomendações em tempo real para os hubs de eventos do Azure, Log Analytics espaços de trabalho ou Azure Monitor. A partir daí, você pode integrar esses dados com SIEMs (como o Azure Sentinel, Power BI, Data Explorer do Azure e muito mais.
+
+As ferramentas de avaliação de vulnerabilidade integradas da central de segurança retornam conclusões sobre seus recursos, pois recomendações acionáveis dentro de uma recomendação "pai", como "vulnerabilidades em suas máquinas virtuais devem ser corrigidas". 
+
+As conclusões de segurança agora estão disponíveis para exportação por meio de exportação contínua quando você seleciona recomendações e habilita a opção **incluir conclusões de segurança** .
+
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir a alternância de conclusões de segurança na configuração de exportação contínua" :::
+
+Páginas relacionadas:
+
+- [Solução de avaliação de vulnerabilidade integrada da central de segurança para máquinas virtuais do Azure](deploy-vulnerability-assessment-vm.md)
+- [Solução de avaliação de vulnerabilidade integrada da central de segurança para imagens do registro de contêiner do Azure](monitor-container-security.md)
+- [Exportação contínua](continuous-export.md)
+
+### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>Impedir configurações incorretas de segurança impondo recomendações ao criar novos recursos
+
+As configurações incorretas de segurança são uma grande causa de incidentes de segurança. A central de segurança agora tem a capacidade de ajudar a *evitar* configurações incorretas de novos recursos em relação a recomendações específicas. 
+
+Esse recurso pode ajudar a manter suas cargas de trabalho seguras e estabilizar sua pontuação segura.
+
+A imposição de uma configuração segura, com base em uma recomendação específica, é oferecida em dois modos:
+
+- Usando o efeito de **negação** de Azure Policy, você pode interromper a criação de recursos não íntegros
+
+- Usando a opção **impor** , você pode aproveitar o efeito de **DeployIfNotExist** da política do Azure e corrigir automaticamente os recursos sem conformidade após a criação
+ 
+Isso está disponível para as recomendações de segurança selecionadas e pode ser encontrado na parte superior da página de detalhes do recurso.
+
+Saiba mais em [evitar configurações incorretas com recomendações de aplicação/negação](prevent-misconfigurations.md).
+
+###  <a name="network-security-group-recommendations-improved"></a>Recomendações de grupo de segurança de rede aprimoradas
+
+As recomendações de segurança a seguir relacionadas aos grupos de segurança de rede foram aprimoradas para reduzir algumas instâncias de falsos positivos.
+
+- Todas as portas de rede devem ser restritas no NSG associado à sua VM
+- Portas de gerenciamento devem ser fechadas nas máquinas virtuais
+- As máquinas virtuais para a Internet devem ser protegidas com Grupos de Segurança de Rede
+- As sub-redes devem ser associadas a um Grupo de Segurança de Rede
+
+
+### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>Recomendações de AKS de visualização preteridas "as políticas de segurança Pod devem ser definidas nos serviços Kubernetess"
+
+A recomendação de visualização "políticas de segurança Pod devem ser definidas nos serviços Kubernetess" está sendo preterida conforme descrito na documentação do [serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/use-pod-security-policies) .
+
+O recurso de política de segurança de Pod (versão prévia) está definido para substituição e não estará mais disponível após 15 de outubro de 2020 em favor de Azure Policy para AKS.
+
+Depois que a política de segurança Pod (versão prévia) for preterida, você deverá desabilitar o recurso em todos os clusters existentes usando o recurso preterido para executar futuras atualizações de cluster e permanecer dentro do suporte do Azure.
+
+
+### <a name="email-notifications-from-azure-security-center-improved"></a>Notificações por email da central de segurança do Azure aprimoradas
+
+As seguintes áreas dos emails relacionados a alertas de segurança foram aprimoradas: 
+
+- Adicionada a capacidade de enviar notificações por email sobre alertas para todos os níveis de severidade
+- Adicionada a capacidade de notificar os usuários com funções RBAC diferentes na assinatura
+- Estamos notificando proativamente os proprietários da assinatura por padrão em alertas de alta gravidade (que têm uma alta probabilidade de serem violações autênticas)
+- Removemos o campo de número de telefone da página de configuração de notificações de email
+
+Saiba mais em [configurar notificações por email para alertas de segurança](security-center-provide-security-contact-details.md).
+
+
+### <a name="secure-score-doesnt-include-preview-recommendations"></a>A pontuação segura não inclui recomendações de visualização 
+
+A Central de Segurança avalia continuamente seus recursos, suas assinaturas e a organização em busca de problemas de segurança. Em seguida, ele agrega todas as conclusões em uma única pontuação para que você possa ver, rapidamente, sua situação de segurança atual: quanto maior a pontuação, menor o nível de risco identificado.
+
+À medida que novas ameaças são descobertas, novos conselhos de segurança são disponibilizados na central de segurança por meio de novas recomendações. Para evitar alterações de surpresa na sua pontuação de segurança e para fornecer um período de carência no qual você possa explorar novas recomendações antes que elas afetem suas pontuações, as recomendações sinalizadas como **Visualização** não são mais incluídas nos cálculos da sua pontuação segura. Eles ainda devem ser corrigidos sempre que possível, para que, quando o período de visualização terminar, eles contribuam para a sua pontuação.
+
+Além disso, as recomendações de **Visualização** não processam um recurso "não íntegro".
+
+Um exemplo de uma recomendação de visualização:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com o sinalizador de visualização":::
+
+[Saiba mais sobre a pontuação segura](secure-score-security-controls.md).
+
+
+### <a name="recommendations-now-include-a-severity-indicator-and-the-freshness-interval"></a>As recomendações agora incluem um indicador de severidade e o intervalo de atualização
+
+A página de detalhes de recomendações agora inclui um indicador de intervalo de atualização (sempre relevante) e uma exibição clara da severidade da recomendação.
+
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Página de recomendação mostrando a atualização e a gravidade":::
+
 
 
 ## <a name="august-2020"></a>Agosto de 2020
@@ -489,7 +587,7 @@ Crie uma iniciativa personalizada no Azure Policy, adicione políticas a ela, in
 
 Agora também adicionamos a opção para editar os metadados de recomendação personalizados. As opções de metadados incluem severidade, etapas de correção, informações sobre ameaças e muito mais.  
 
-Saiba mais sobre [como aprimorar as recomendações personalizadas com informações detalhadas](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+Saiba mais sobre [como aprimorar as recomendações personalizadas com informações detalhadas](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
 
 
 
@@ -550,79 +648,3 @@ Se você tiver assinaturas no tipo de preço gratuito, suas classificações de 
 Saiba mais sobre [recomendações de identidade e acesso](recommendations-reference.md#recs-identity).
 
 Saiba mais sobre o [monitoramento de identidade e acesso](security-center-identity-access.md).
-
-
-## <a name="march-2020"></a>Março de 2020
-
-As atualizações em março incluem:
-- [A automação do fluxo de trabalho já está em disponibilidade geral](#workflow-automation-is-now-generally-available)
-- [Integração da Central de Segurança do Azure ao Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)
-- [Proteção para o Serviço de Kubernetes do Azure](#protection-for-azure-kubernetes-service)
-- [Experiência Just-In-Time aprimorada](#improved-just-in-time-experience)
-- [Duas recomendações de segurança para aplicativos Web preteridas](#two-security-recommendations-for-web-applications-deprecated)
-
-
-### <a name="workflow-automation-is-now-generally-available"></a>A automação do fluxo de trabalho já está em disponibilidade geral
-
-O recurso de automação de fluxo de trabalho da Central de Segurança do Azure agora está em disponibilidade geral. Use-o para disparar automaticamente Aplicativos Lógicos em alertas de segurança e recomendações. Além disso, os gatilhos manuais estão disponíveis para alertas e todas as recomendações que têm a opção de correção rápida disponível.
-
-Cada programa de segurança inclui vários fluxos de trabalho para resposta a incidentes. Esses processos podem incluir a notificação de stakeholders relevantes, a inicialização de um processo de gerenciamento de alterações e a aplicação de etapas de correção específicas. Os especialistas em segurança recomendam que você automatize o máximo possível de etapas desses procedimentos. A automação reduz a sobrecarga e pode aprimorar sua segurança, garantindo que as etapas do processo sejam feitas de maneira rápida, consistente e de acordo com seus requisitos predefinidos.
-
-Para obter mais informações sobre as funcionalidades automáticas e manuais da Central de Segurança do Azure para executar seus fluxos de trabalho, confira [automação de fluxo de trabalho](workflow-automation.md).
-
-Saiba mais sobre a [criação de Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
-
-
-### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integração da Central de Segurança do Azure ao Windows Admin Center
-
-Agora é possível mover seus servidores Windows locais do Windows Admin Center diretamente para a Central de Segurança do Azure. A Central de Segurança se torna seu único painel de controle para ver informações de segurança para todos os seus recursos do Windows Admin Center, incluindo servidores locais, máquinas virtuais e cargas de trabalho de PaaS adicionais.
-
-Depois de mover um servidor do Windows Admin Center para a Central de Segurança do Azure, você poderá:
-
-- Exibir alertas de segurança e recomendações na extensão da Central de Segurança do Windows Admin Center.
-- Exibir a postura de segurança e recuperar informações detalhadas adicionais dos servidores gerenciados do Windows Admin Center na Central de Segurança dentro do portal do Azure (ou por meio de uma API).
-
-Saiba mais sobre [como integrar a Central de Segurança do Azure ao Windows Admin Center](windows-admin-center-integration.md).
-
-
-### <a name="protection-for-azure-kubernetes-service"></a>Proteção para o Serviço de Kubernetes do Azure
-
-A Central de Segurança do Azure está expandindo os respectivos recursos de segurança de contêiner para proteger o AKS (Serviço de Kubernetes do Azure).
-
-A popular plataforma de software livre do Kubernetes foi adotada tão amplamente que ela agora é um padrão do setor para orquestração de contêineres. Apesar dessa implementação generalizada, ainda há uma falta de compreensão sobre como proteger um ambiente do Kubernetes. A defesa das superfícies de ataque de um aplicativo em contêineres exige experiência para garantir que a infraestrutura seja configurada de modo seguro e constante para possíveis ameaças.
-
-A defesa da Central de Segurança inclui:
-
-- **Descoberta e visibilidade** – descoberta contínua de instâncias gerenciadas do AKS nas assinaturas registradas na Central de Segurança.
-- **Recomendações de segurança** – recomendações acionáveis para ajudá-lo a manter a conformidade com as melhores práticas de segurança para o AKS. Essas recomendações estão incluídas na sua classificação de segurança para garantir que elas sejam exibidas como parte da postura de segurança de sua organização. Um exemplo de uma recomendação relacionada ao AKS que você pode ver é "O controle de acesso baseado em função deve ser usado para restringir o acesso a um cluster do serviço de Kubernetes".
-- **Proteção contra ameaças** – por meio da análise contínua de sua implantação do AKS, a Central de Segurança alerta você sobre ameaças e atividades mal-intencionadas detectadas no nível de cluster do host e do AKS.
-
-Saiba mais sobre a [Integração do Serviço de Kubernetes do Azure à Central de Segurança](azure-kubernetes-service-integration.md).
-
-Saiba mais sobre os [recursos de segurança de contêiner na Central de Segurança](container-security.md).
-
-
-### <a name="improved-just-in-time-experience"></a>Experiência Just-In-Time aprimorada
-
-Os recursos, a operação e a interface do usuário das ferramentas Just-In-Time da Central de Segurança do Azure que protegem suas portas de gerenciamento foram aprimoradas da seguinte maneira: 
-
-- **Campo de justificativa** – ao solicitar acesso a uma VM (máquina virtual) por meio da página Just-In-Time do portal do Azure, um novo campo opcional estará disponível para inserir uma justificativa para a solicitação. As informações inseridas nesse campo podem ser acompanhadas no log de atividades. 
-- **Limpeza automática de regras JIT (Just-In-Time) redundantes** – sempre que você atualiza uma política JIT, uma ferramenta de limpeza é executada automaticamente para verificar a validade de todo o conjunto de regras. A ferramenta procura incompatibilidades entre as regras em sua política e as regras no NSG. Se a ferramenta de limpeza encontrar uma incompatibilidade, ela determinará a causa e, quando for seguro, removerá as regras internas que não forem mais necessárias. O limpador nunca exclui regras que você criou. 
-
-Saiba mais sobre o [recurso de acesso JIT](security-center-just-in-time.md).
-
-
-### <a name="two-security-recommendations-for-web-applications-deprecated"></a>Duas recomendações de segurança para aplicativos Web preteridas
-
-Duas recomendações de segurança relacionadas a aplicativos Web estão sendo preteridas: 
-
-- As regras para aplicativos Web nos NSGs da IaaS devem ser fortalecidas.
-    (Política relacionada: as regras de NSGs para aplicativos Web em IaaS devem ser fortalecidas)
-
-- O acesso aos Serviços de Aplicativos deve ser restrito.
-    (Política relacionada: o acesso aos Serviços de Aplicativos deve ser restrito [Versão Prévia])
-
-Essas recomendações não serão mais exibidas na lista de recomendações da Central de Segurança. As políticas relacionadas não serão mais incluídas na iniciativa denominada "Padrão da Central de Segurança".
-
-Saiba mais sobre [recomendações de segurança](recommendations-reference.md).
-

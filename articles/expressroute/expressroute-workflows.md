@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: fluxo de trabalho de configuração de circuito'
 description: Esta página mostra o fluxo de trabalho para configurar circuitos e emparelhamentos do ExpressRoute
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.author: cherylmc
+ms.author: duau
 ms.custom: contperfq1
-ms.openlocfilehash: 229b7c145fa38443d2bc5f99005078ffa7f77065
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814069"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565916"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para provisionamento e estados do circuito
 
@@ -86,7 +86,7 @@ Habilite o emparelhamento privado para se conectar a VMs e serviços de nuvem im
 
 #### <a name="for-microsoft-peering"></a>Para emparelhamento da Microsoft
 
-Habilite isso para acessar o Microsoft serviços online, como o Office 365. Além disso, todos os serviços de PaaS do Azure são acessíveis através do emparelhamento da Microsoft. Você deve garantir que use um proxy/borda separado para se conectar à Microsoft do que o que você usa para a Internet. Usar a mesma borda para o ExpressRoute e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
+Habilite isso para acessar o Microsoft serviços online, como Microsoft 365. Além disso, todos os serviços de PaaS do Azure são acessíveis através do emparelhamento da Microsoft. Você deve garantir que use um proxy/borda separado para se conectar à Microsoft do que o que você usa para a Internet. Usar a mesma borda para o ExpressRoute e para a Internet causará o roteamento assimétrico e falhas de conectividade em sua rede.
 
 * Sub-rede de emparelhamento para o caminho 1 (/30)-deve ser o IP público
 * A sub-rede de emparelhamento para o caminho 2 (/30)-deve ser o IP público

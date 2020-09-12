@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 900d5cd435a913c0859c862d176fd30130e0a079
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321489"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650736"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurar divisões de dados e validação cruzada no Machine Learning automatizado
 
@@ -24,7 +24,7 @@ Neste artigo, você aprende as diferentes opções para configurar as divisões 
 
 Em Azure Machine Learning, quando você usa AutoML para criar vários modelos de ML, cada execução filho precisa validar o modelo relacionado calculando as métricas de qualidade para esse modelo, como exatidão ou AUC ponderado. Essas métricas são calculadas comparando as previsões feitas com cada modelo com rótulos reais das observações anteriores nos dados de validação. 
 
-Os experimentos de AutoML executam automaticamente a validação de modelo. As seções a seguir descrevem como você pode personalizar ainda mais as configurações de validação com o [SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+Os experimentos de AutoML executam automaticamente a validação de modelo. As seções a seguir descrevem como você pode personalizar ainda mais as configurações de validação com o [SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 Para uma experiência de baixo código ou sem código, confira [criar experiências automatizadas de aprendizado de máquina no Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ Para este artigo, você precisa,
 
 ## <a name="default--data-splits-and-cross-validation"></a>Divisões de dados padrão e validação cruzada
 
-Use o objeto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) para definir suas configurações de teste e treinamento. No trecho de código a seguir, observe que apenas os parâmetros necessários são definidos, que são os parâmetros `n_cross_validation` para `validation_ data` ou **não** estão incluídos.
+Use o objeto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) para definir suas configurações de teste e treinamento. No trecho de código a seguir, observe que apenas os parâmetros necessários são definidos, que são os parâmetros `n_cross_validation` para `validation_ data` ou **não** estão incluídos.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -93,7 +93,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>Fornecer tamanho do conjunto de validação
 
-Nesse caso, apenas um único conjunto de um é fornecido para o experimento. Ou seja, o `validation_data` parâmetro **não** é especificado e o conjunto de e fornecido é atribuído ao `training_data` parâmetro.  Em seu `AutoMLConfig` objeto, você pode definir o `validation_size` parâmetro para manter uma parte dos dados de treinamento para validação. Isso significa que o conjunto de validação será dividido por AutoML do inicial `training_data` fornecido. Esse valor deve estar entre 0,0 e 1,0 não inclusivo (por exemplo, 0,2 significa que 20% dos dados são mantidos para dados de validação).
+Nesse caso, apenas um único conjunto de um é fornecido para o experimento. Ou seja, o `validation_data` parâmetro **não** é especificado e o conjunto de e fornecido é atribuído ao  `training_data` parâmetro.  Em seu `AutoMLConfig` objeto, você pode definir o `validation_size` parâmetro para manter uma parte dos dados de treinamento para validação. Isso significa que o conjunto de validação será dividido por AutoML do inicial `training_data` fornecido. Esse valor deve estar entre 0,0 e 1,0 não inclusivo (por exemplo, 0,2 significa que 20% dos dados são mantidos para dados de validação).
 
 Consulte o exemplo de código a seguir:
 

@@ -6,16 +6,16 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: be7736d0c90d1c384e15e8c7dee29d016b052dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559432"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514230"
 ---
 # <a name="upstream-settings"></a>Configurações de upstream
 
-Upstream é um recurso que permite que o serviço de sinalizador do Azure envie mensagens e eventos de conexão para um conjunto de pontos de extremidade no modo sem servidor. Você pode usar upstream para invocar um método de Hub de clientes no modo sem servidor e deixar que os pontos de extremidade sejam notificados quando as conexões do cliente forem conectadas ou desconectadas.
+Upstream é um recurso de visualização que permite que o serviço de sinalizador do Azure envie mensagens e eventos de conexão para um conjunto de pontos de extremidade no modo sem servidor. Você pode usar upstream para invocar um método de Hub de clientes no modo sem servidor e deixar que os pontos de extremidade sejam notificados quando as conexões do cliente forem conectadas ou desconectadas.
 
 > [!NOTE]
 > Somente o modo sem servidor pode definir configurações de upstream.
@@ -60,6 +60,10 @@ Você pode definir regras para *regras de Hub*, *regras de categoria*e *regras d
 - Use uma vírgula (,) para unir vários eventos. Por exemplo, `connected, disconnected` corresponde aos eventos conectados e desconectados.
 - Use o nome do evento completo para corresponder ao evento. Por exemplo, `connected` corresponde ao evento conectado.
 
+> [!NOTE]
+> Se você estiver usando Azure Functions e o [disparador de sinalização](../azure-functions/functions-bindings-signalr-service-trigger.md), o gatilho do signalr irá expor um único ponto de extremidade no seguinte formato: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` .
+> Você pode apenas configurar o modelo de URL para essa URL.
+
 ### <a name="authentication-settings"></a>Configurações de autenticação
 
 Você pode configurar a autenticação para cada item de configuração upstream separadamente. Quando você configura a autenticação, um token é definido no `Authentication` cabeçalho da mensagem de upstream. Atualmente, o serviço de Signaler do Azure dá suporte aos seguintes tipos de autenticação:
@@ -78,7 +82,7 @@ Ao selecionar `ManagedIdentity` , você deve habilitar uma identidade gerenciada
 3. Adicione URLs sob o **padrão de URL upstream**. Em seguida, as configurações como **regras de Hub** mostrarão o valor padrão.
 4. Para definir configurações para **regras de Hub**, **regras de evento**, **regras de categoria**e autenticação de **upstream**, selecione o valor de **regras de Hub**. É exibida uma página que permite que você edite as configurações:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Configurações de upstream":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Detalhes da configuração upstream":::
 
 5. Para definir a **autenticação upstream**, verifique se você habilitou uma identidade gerenciada primeiro. Em seguida, selecione **usar identidade gerenciada**. De acordo com suas necessidades, você pode escolher qualquer opção em **ID do recurso de autenticação**. Consulte [identidades gerenciadas para o serviço de signaler do Azure](howto-use-managed-identity.md) para obter detalhes.
 
@@ -139,17 +143,17 @@ Content-Type: application/json
 
 #### <a name="disconnected"></a>Desconectado
 
-Tipo de conteúdo:`application/json`
+Tipo de conteúdo: `application/json`
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |Erro |string |A mensagem de erro de uma conexão fechada. Vazio quando as conexões fecham sem erros.|
 
 #### <a name="invocation-message"></a>Mensagem de invocação
 
-Tipo de conteúdo: `application/json` ou`application/x-msgpack`
+Tipo de conteúdo: `application/json` ou `application/x-msgpack`
 
-|Nome  |Tipo  |Descrição  |
+|Nome  |Type  |Descrição  |
 |---------|---------|---------|
 |InvocationId |string | Uma cadeia de caracteres opcional que representa uma mensagem de invocação. Encontre detalhes em [invocações](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
 |Destino |string | O mesmo que o evento e o mesmo que o destino em uma [mensagem de invocação](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |

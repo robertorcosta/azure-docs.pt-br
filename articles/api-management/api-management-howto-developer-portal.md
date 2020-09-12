@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852150"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614060"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Visão Geral do portal do desenvolvedor do Gerenciamento de API do Azure
 
@@ -31,9 +31,9 @@ Este artigo descreve as diferenças entre as versões autohospedadas e gerenciad
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 > [!NOTE]
-> <a name="migrate-from-legacy"></a>O novo portal do desenvolvedor é incompatível com o portal do desenvolvedor herdado e a migração automatizada não é possível. Você precisa recriar manualmente o conteúdo (páginas, texto, arquivos de mídia) e personalizar a aparência do novo Portal. Consulte [o tutorial portal do desenvolvedor](api-management-howto-developer-portal-customize.md) para obter diretrizes.
+> <a name="migrate-from-legacy"></a> O novo portal do desenvolvedor é incompatível com o portal do desenvolvedor herdado e a migração automatizada não é possível. Você precisa recriar manualmente o conteúdo (páginas, texto, arquivos de mídia) e personalizar a aparência do novo Portal. Consulte [o tutorial portal do desenvolvedor](api-management-howto-developer-portal-customize.md) para obter diretrizes.
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Versões gerenciadas e auto-hospedadas
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Versões gerenciadas e auto-hospedadas
 
 Você pode criar seu portal do desenvolvedor de duas maneiras:
 
@@ -71,23 +71,23 @@ O portal é baseado em uma bifurcação adaptada da [estrutura Paperbits](https:
 
 Nesta seção, respondemos a perguntas comuns sobre o portal do desenvolvedor, que são de natureza geral. Para perguntas específicas para a versão hospedada internamente, consulte [a seção wiki do repositório do GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Como posso migrar da versão de visualização do portal?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> Como posso migrar da versão de visualização do portal?
 
-Usando a versão de visualização do portal do desenvolvedor, você provisionou o conteúdo de visualização em seu serviço de gerenciamento de API. O conteúdo padrão foi modificado significativamente na versão disponível para melhor experiência do usuário. Ele também inclui novos widgets.
+Quando você iniciou pela primeira vez a versão de visualização do portal do desenvolvedor, provisionou a versão de visualização de seu conteúdo padrão no serviço de gerenciamento de API. O conteúdo padrão foi significativamente modificado na versão disponível para o público geral. Por exemplo, a versão de visualização do conteúdo padrão não inclui botões do OAuth nas páginas de logon, ele usa widgets diferentes para exibir APIs e depende de recursos limitados para estruturar páginas do portal do desenvolvedor. Mesmo que haja diferenças no conteúdo, o mecanismo do portal (incluindo widgets subjacentes) é atualizado automaticamente toda vez que você publica o portal do desenvolvedor.
 
-Se você estiver usando a versão gerenciada, redefina o conteúdo do portal clicando em **Redefinir Conteúdo** na seção do menu **operações** . A confirmação dessa operação removerá todo o conteúdo do portal e provisionar o novo conteúdo padrão. O mecanismo do portal foi atualizado automaticamente no serviço de gerenciamento de API.
+Se você tiver personalizado bastante seu portal com base na versão de visualização do conteúdo, poderá continuar a usá-lo como está e posicionar novos widgets manualmente nas páginas do Portal. Caso contrário, é recomendável substituir o conteúdo do portal pelo novo conteúdo padrão.
+
+Para redefinir o conteúdo em um portal gerenciado, clique em **Redefinir Conteúdo** na seção do menu **operações** . Esta operação removerá todo o conteúdo do portal e provisionar o novo conteúdo padrão. Você perderá todas as personalizações e alterações do portal do desenvolvedor. **Não é possível desfazer esta ação**.
 
 ![Redefinir o conteúdo do portal](media/api-management-howto-developer-portal/reset-content.png)
 
-Se você estiver usando a versão hospedada internamente, use o `scripts/cleanup.bat` e o `scripts/generate.bat` do repositório do GitHub para remover o conteúdo existente e provisionar novo conteúdo. Certifique-se de atualizar o código do portal para a versão mais recente do repositório do GitHub com antecedência.
+Se você estiver usando a versão hospedada automaticamente, execute `scripts.v2/cleanup.bat` e `scripts.v2/generate.bat` scripts do repositório GitHub para remover o conteúdo existente e provisionar novo conteúdo. Certifique-se de atualizar o código do portal para a versão mais recente do repositório do GitHub com antecedência.
 
-Se não quiser redefinir o conteúdo do portal, você pode considerar o uso de widgets disponíveis recentemente em todas as páginas. Os widgets existentes foram atualizados automaticamente para as versões mais recentes.
-
-Se o portal foi provisionado após o comunicado de disponibilidade geral, ele já deve apresentar o novo conteúdo padrão. Nenhuma ação é necessária do seu lado.
+Se você tiver acessado o portal pela primeira vez após o anúncio de disponibilidade geral em novembro de 2019, ele já deverá apresentar o novo conteúdo padrão e nenhuma ação adicional será necessária.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>O portal tem todos os recursos do portal herdado?
 
-O portal do desenvolvedor não dá mais suporte a *aplicativos* e *problemas*.
+O portal do desenvolvedor não dá mais suporte a *aplicativos*, *problemas*e à integração direta com o Facebook, Microsoft, Twitter e Google como provedores de identidade (você pode usar Azure ad B2C em vez disso).
 
 ### <a name="has-the-legacy-portal-been-deprecated"></a>O portal herdado foi preterido?
 
@@ -145,7 +145,7 @@ Depois de configurar a delegação, você precisará [republicar o portal](api-m
 
 A maioria das alterações de configuração (por exemplo, VNet, entrada e termos do produto) requer [a republicação do portal](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Estou recebendo um erro de CORS ao usar o console interativo
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> Estou recebendo um erro de CORS ao usar o console interativo
 
 O console interativo faz uma solicitação de API do lado do cliente do navegador. Resolva o problema de CORS adicionando [uma política de CORS](api-management-cross-domain-policies.md#CORS) em suas API (s).
 

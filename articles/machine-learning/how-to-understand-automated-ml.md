@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 89fe1d80fb7282a72bde6bcafa070f2d7461b02f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0a41aa062cf4804587b97ce224f80c0bc4bf2b3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320826"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650568"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Entender os resultados automatizados do Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,9 +59,9 @@ Depois de executar um experimento de aprendizado de máquina automatizado, um hi
 
    [![Modelo do experimento](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-Você também vê esses mesmos resultados durante uma execução quando usa o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
+Você também vê esses mesmos resultados durante uma execução quando usa o `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
 
-## <a name="classification-results"></a><a name="classification"></a>Resultados da classificação
+## <a name="classification-results"></a><a name="classification"></a> Resultados da classificação
 
 Três as métricas e os gráficos a seguir estão disponíveis para cada modelo de classificação que você cria usando os recursos de aprendizado de máquina automatizados do Azure Machine Learning
 
@@ -211,7 +211,7 @@ Um modelo bem calibrado se alinha com a linha y = x, na qual ele prevê corretam
 ##### <a name="example-2-an-over-confident-model"></a>Exemplo 2: um modelo mais confiável
 ![Um modelo mais confiável](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
-## <a name="regression-results"></a><a name="regression"></a>Resultados da regressão
+## <a name="regression-results"></a><a name="regression"></a> Resultados da regressão
 
 Três as métricas e os gráficos a seguir estão disponíveis para cada modelo de regressão que você cria usando os recursos de aprendizado de máquina automatizados do Azure Machine Learning
 
@@ -220,7 +220,7 @@ Três as métricas e os gráficos a seguir estão disponíveis para cada modelo 
 + [Histograma de resíduos](#histo)
 
 
-### <a name="regression-metrics"></a><a name="reg-metrics"></a>Métricas de regressão
+### <a name="regression-metrics"></a><a name="reg-metrics"></a> Métricas de regressão
 
 As métricas a seguir são salvas em cada iteração de execução para uma tarefa de regressão ou de previsão.
 
@@ -238,7 +238,7 @@ normalized_root_mean_squared_error|A raiz do erro quadrático médio normalizado
 root_mean_squared_log_error|A raiz do erro de log quadrático médio é a raiz quadrada do erro logarítmico quadrático esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhum|
 normalized_root_mean_squared_log_error|A raiz do erro de log quadrático médio normalizada é a raiz do erro de log quadrático médio dividida pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Dividir pelo intervalo dos dados|
 
-### <a name="predicted-vs-true-chart"></a><a name="pvt"></a>Gráfico previsto versus verdadeiro
+### <a name="predicted-vs-true-chart"></a><a name="pvt"></a> Gráfico previsto versus verdadeiro
 #### <a name="what-is-a-predicted-vs-true-chart"></a>O que é um gráfico previsto versus verdadeiro?
 Previsto versus verdadeiro mostra a relação entre um valor previsto e seu valor verdadeiro correlacionado para um problema de regressão. Esse gráfico pode ser usado para medir o desempenho de um modelo que, quanto mais próximos à linha y=x linha estiverem seus valores previstos, melhor será a precisão de um modelo de previsão.
 
@@ -254,7 +254,7 @@ Após cada execução, você pode ver um gráfico comparando os dados previstos 
 
 
 
-### <a name="histogram-of-residuals-chart"></a><a name="histo"></a>Histograma do gráfico de resíduos
+### <a name="histogram-of-residuals-chart"></a><a name="histo"></a> Histograma do gráfico de resíduos
 #### <a name="what-is-a-residuals-chart"></a>O que é um gráfico de resíduos?
 Um resíduo é a diferença entre a previsão e o valor real ( `y_pred - y_true` ). Para mostrar uma margem de erro com baixo desvio, o histograma de resíduos deve ter a forma de uma curva de sino, centralizada em torno do 0. 
 #### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>O que o ML automatizado faz com o gráfico de resíduos?
@@ -268,7 +268,7 @@ Um bom modelo normalmente terá resíduos totalmente centralizados em volta de z
 ##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Exemplo 2: um modelo de regressão com uma distribuição mais uniforme de erros
 ![Um modelo de regressão com uma distribuição mais uniforme de erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
-## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a>Importância da interpretação do modelo e do recurso
+## <a name="model-interpretability-and-feature-importance"></a><a name="explain-model"></a> Importância da interpretação do modelo e do recurso
 O ML automatizado fornece um painel de interpretação de aprendizado de máquina para suas execuções.
 Para obter mais informações sobre como habilitar recursos de interpretação, consulte [como](how-to-machine-learning-interpretability-automl.md) habilitar a interpretabilidade em experimentos de ml automatizados.
 

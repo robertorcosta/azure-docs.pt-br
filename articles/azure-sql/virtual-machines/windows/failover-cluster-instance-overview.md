@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6d77855f095c59b47156af735f4581076ce5a09c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653266"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611621"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com SQL Server em máquinas virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -66,7 +66,7 @@ Os [discos compartilhados do Azure](../../../virtual-machines/windows/disks-shar
 **Benefícios**: 
 - Útil para aplicativos que procuram migrar para o Azure mantendo sua arquitetura de alta disponibilidade e de recuperação de desastres (HADR) como está. 
 - O pode migrar aplicativos clusterizados para o Azure como ocorre devido ao suporte de reservas persistentes de SCSI (RP). 
-- Dá suporte ao Azure SSD Premium compartilhado para todas as versões do SQL Server e do Azure ultra Armazenamento em Disco compartilhado para SQL Server 2019. 
+- Dá suporte ao Azure SSD Premium compartilhado e ao armazenamento de ultra disco do Azure.
 - Pode usar um único disco compartilhado ou distribuir vários discos compartilhados para criar um pool de armazenamento compartilhado. 
 - Dá suporte a FileStream.
 
@@ -118,7 +118,7 @@ Os [compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to
 
 Para começar, consulte [SQL Server instância de cluster de failover com compartilhamento de arquivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md). 
 
-### <a name="partner"></a>Partner (parceiro)
+### <a name="partner"></a>Parceiro
 
 Há soluções de clustering de parceiros com armazenamento com suporte. 
 
@@ -153,10 +153,11 @@ Neste momento, SQL Server instâncias de cluster de failover em máquinas virtua
 
 A extensão completa dá suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do portal. Esses recursos não funcionarão para VMs SQL Server depois que o agente for reinstalado no modo de gerenciamento leve.
 
-### <a name="msdtc"></a>MSDTC   
-As máquinas virtuais do Azure dão suporte ao MSDTC no Windows Server 2019 com armazenamento em CSV (volumes compartilhados clusterizados) e [Standard Load Balancer do Azure](../../../load-balancer/load-balancer-standard-overview.md).
+### <a name="msdtc"></a>MSDTC 
 
-Em máquinas virtuais do Azure, o MSDTC não tem suporte para o Windows Server 2016 ou anterior porque:
+As máquinas virtuais do Azure dão suporte ao Microsoft Coordenador de Transações Distribuídas (MSDTC) no Windows Server 2019 com armazenamento em CSV (volumes compartilhados clusterizados) e no [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) ou em VMs SQL Server que estão usando discos compartilhados do Azure. 
+
+Em máquinas virtuais do Azure, o MSDTC não tem suporte para o Windows Server 2016 ou anterior com volumes compartilhados clusterizados porque:
 
 - O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. No Windows Server 2016, se você criar um recurso MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo se o armazenamento estiver disponível. Esse problema foi corrigido no Windows Server 2019.
 - O balanceador de carga básico não lida com portas RPC.

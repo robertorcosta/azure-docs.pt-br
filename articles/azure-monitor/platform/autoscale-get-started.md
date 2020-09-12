@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de n
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 710d4e1aa77f8ab3153dafc77a72eec2192cf205
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d37b1bad397e6170e2a7992a0a9671d6ca9c25ef
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794536"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651722"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -119,9 +119,13 @@ Quando você é escalado horizontalmente para várias instâncias, o serviço de
 
 ### <a name="health-check-path"></a>Caminho de verificação de integridade
 
-O caminho deve responder dentro de dois minutos com um código de status entre 200 e 299 (inclusivo). Se o caminho não responder dentro de dois minutos ou retornar um código de status fora do intervalo, a instância será considerada "não íntegra". A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo, o sistema alcançará o ponto de extremidade mesmo se esses recursos do secuity estiverem habilitados. Se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir acesso anônimo. Se o site tiver HTTP**s** habilitado, o HealthCheck honrará o http**s** e enviará a solicitação usando esse protocolo.
+O caminho deve responder dentro de dois minutos com um código de status entre 200 e 299 (inclusivo). Se o caminho não responder dentro de dois minutos ou retornar um código de status fora do intervalo, a instância será considerada "não íntegra". A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo, o sistema alcançará o ponto de extremidade mesmo se esses recursos do secuity estiverem habilitados. Se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir acesso anônimo. Se o site tiver HTTP**S** habilitado, o HealthCheck atingirá o ponto de extremidade http primeiro e, em seguida, honrará o redirecionamento http 307 para o ponto de extremidade HTTPS.
 
 O caminho de verificação de integridade deve verificar os componentes críticos do seu aplicativo. Por exemplo, se seu aplicativo depende de um banco de dados e um sistema de mensagens, o ponto de extremidade de verificação de integridade deve se conectar a esses componentes. Se o aplicativo não puder se conectar a um componente crítico, o caminho deverá retornar um código de resposta de nível 500 para indicar que o aplicativo não está íntegro.
+
+#### <a name="security"></a>Segurança 
+
+As equipes de desenvolvimento em grandes empresas geralmente precisam aderir aos requisitos de segurança para suas APIs expostas. Para proteger o ponto de extremidade HealthCheck, você deve primeiro usar recursos como [restrições de IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), certificados de [cliente](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)ou uma rede virtual para restringir o acesso ao aplicativo. Você pode proteger o ponto de extremidade HealthCheck em si, exigindo que o `User-Agent` da solicitação de entrada seja correspondente `ReadyForRequest/1.0` . O agente do usuário não pode ser falsificado, pois a solicitação já foi protegida pelos recursos de segurança anteriores.
 
 ### <a name="behavior"></a>Comportamento
 

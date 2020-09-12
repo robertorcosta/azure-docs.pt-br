@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 13ee8c5166e3b31ec186ca9aa2702d15de36e09f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522390"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440721"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de valores no Azure Data Factory (versão 1)
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -32,7 +32,7 @@ Este artigo descreve o que são conjuntos de dados, como eles são definidos no 
 > Se estiver conhecendo o Azure Data Factory agora, consulte [Introdução ao Azure Data Factory](data-factory-introduction.md) para obter uma visão geral. Caso não tenha experiência prática com a criação de data factories, obtenha um melhor entendimento lendo o [tutorial de transformação de dados](data-factory-build-your-first-pipeline.md) e o [tutorial de movimentação de dados](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Visão geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um banco de dado SQL Server para o armazenamento de BLOBs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, poderá usar uma segunda atividade de cópia para copiar os dados de saída para o SQL Data Warehouse do Azure, no qual as soluções de relatório de BI (business intelligence) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [pipelines e atividades em Azure data Factory](data-factory-create-pipelines.md).
+Uma fábrica de dados pode ter um ou mais pipelines. Um **pipeline** é um agrupamento lógico de **atividades** que juntas executam uma tarefa. As atividades em um pipeline definem ações para executar em seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de um banco de dado SQL Server para o armazenamento de BLOBs do Azure. Em seguida, poderá usar uma atividade do Hive que executa um script Hive em um cluster HDInsight do Azure a fim de processar dados do armazenamento de Blobs para gerar dados de saída. Por fim, você pode usar uma segunda atividade de cópia para copiar os dados de saída para o Azure Synapse Analytics (anteriormente SQL Data Warehouse), sobre quais soluções de relatório de business intelligence (BI) são criadas. Para obter mais informações sobre pipelines e atividades, consulte [pipelines e atividades em Azure data Factory](data-factory-create-pipelines.md).
 
 Uma atividade pode usar zero ou mais **conjuntos**de dados de entrada e produzir um ou mais conjuntos de resultados de saída. Um conjunto de dados de entrada representa a entrada de uma atividade no pipeline e um conjunto de dados de saída representa a saída da atividade. Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Por exemplo, um conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta no armazenamento de Blobs dos quais o pipeline deve ler os dados.
 
@@ -77,7 +77,7 @@ Um conjunto de dados no Data Factory é definido no formato JSON da seguinte man
 
 A tabela a seguir descreve as propriedades no JSON acima:
 
-| Propriedade | Descrição | Necessária | Padrão |
+| Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
 | name |Nome do conjunto de dados. Confira [Azure Data Factory - Regras de nomenclatura](data-factory-naming-rules.md) para ver as regras de nomenclatura. |Sim |NA |
 | type |Tipo de conjunto de dados. Especifique um dos tipos compatíveis com o Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipo de conjunto](#Type)de informações. |Sim |NA |
@@ -109,7 +109,7 @@ No exemplo a seguir, o DataSet representa uma tabela chamada **MyTable** em um b
 }
 ```
 
-Observe os seguintes pontos:
+Observe o seguinte:
 
 * **Type** é definido como AzureSqlTable.
 * a propriedade do tipo **TableName** (específica ao tipo AzureSqlTable) é definida como MyTable.
@@ -141,7 +141,7 @@ Como você pode ver, o serviço vinculado define como se conectar a um banco de 
 > [!IMPORTANT]
 > A menos que um conjunto de dados seja produzido pela pipeline, ele deverá ser marcado como **externo**. Essa configuração geralmente se aplica às entradas da primeira atividade em um pipeline.
 
-## <a name="dataset-type"></a><a name="Type"></a>Tipo de conjunto de texto
+## <a name="dataset-type"></a><a name="Type"></a> Tipo de conjunto de texto
 O tipo do conjunto de dados depende do armazenamento de dados que você usa. Consulte a tabela a seguir para obter uma lista de armazenamentos de dados com suporte pelo Data Factory. Clique em um armazenamento de dados para saber como criar um serviço vinculado e um conjunto de dados para esse armazenamento de dados.
 
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
@@ -231,7 +231,7 @@ O conjunto de dados de saída é gerado de hora em hora, dentro dos horários de
 
 A tabela a seguir descreve as propriedades que você pode usar na seção de disponibilidade:
 
-| Propriedade | Descrição | Necessária | Padrão |
+| Propriedade | Descrição | Obrigatório | Padrão |
 | --- | --- | --- | --- |
 | frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência com suporte</b>: Minuto, Hora, Dia, Semana, Mês |Sim |NA |
 | intervalo |Especifica um multiplicador para a frequência.<br/><br/>“Frequência x intervalo” determina a frequência com que a fatia é gerada. Por exemplo, se você precisa que o conjunto de dados seja dividido por hora, defina <b>frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/>Observe que, caso você especifique a **frequência** como **Minuto**, deverá definir o intervalo como não inferior a 15. |Sim |NA |
@@ -278,7 +278,7 @@ O seguinte conjunto de dados é mensal e é gerado no terceiro de cada mês às 
 A seção **política** na definição do conjunto de dados define os critérios ou a condição que as divisões de conjunto de dados devem atender.
 
 ### <a name="validation-policies"></a>Políticas de validação
-| Nome de política | Descrição | Aplicado a | Necessária | Padrão |
+| Nome de política | Descrição | Aplicado a | Obrigatório | Padrão |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Valida se os dados em um **armazenamento de Blobs do Azure** atendem aos requisitos de tamanho mínimo (em megabytes). |Armazenamento de Blobs do Azure |Não |NA |
 | minimumRows |Valida que os dados em um **Banco de Dados SQL do Azure** ou uma **tabela do Azure** contêm o número mínimo de linhas. |<ul><li>Banco de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |NA |

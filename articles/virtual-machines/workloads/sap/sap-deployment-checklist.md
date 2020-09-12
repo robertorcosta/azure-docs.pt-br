@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651719"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650694"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Cargas de trabalho do SAP no Azure: lista de verificação de planejamento e implantação
 
@@ -213,7 +213,7 @@ Durante essa fase, normalmente você implanta sistemas de desenvolvimento, siste
 12. À medida que a carga de trabalho se aplica, registre o consumo de recursos dos sistemas no Azure. Compare esse consumo com registros de sua plataforma antiga. Ajuste o dimensionamento de VM de implantações futuras se você vir que tem grandes diferenças. Tenha em mente que, quando você diminuir, o armazenamento e as larguras de banda de rede das VMs também serão reduzidas.
     - [Tamanhos das máquinas virtuais do Windows no Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Tamanhos das máquinas virtuais do Linux no Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
-13. Experimente a funcionalidade de cópia do sistema e os processos. O objetivo é facilitar a cópia de um sistema de desenvolvimento ou de um sistema de teste, portanto, as equipes de projeto podem obter novos sistemas rapidamente. Considere o uso do [SAP lama](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) para essas tarefas.
+13. Experimente a funcionalidade de cópia do sistema e os processos. O objetivo é facilitar a cópia de um sistema de desenvolvimento ou de um sistema de teste, portanto, as equipes de projeto podem obter novos sistemas rapidamente. 
 14. Otimize e aprimore o acesso, as permissões e os processos baseados em função do Azure da sua equipe para verificar se você tem separação de tarefas. Ao mesmo tempo, verifique se todas as equipes podem executar suas tarefas na infraestrutura do Azure.
 15. Execute, teste e documente os procedimentos de alta disponibilidade e recuperação de desastres para permitir que sua equipe executar essas tarefas. Identifique deficiências e adapte novas funcionalidades do Azure que você está integrando às suas implantações.
 

@@ -2,18 +2,18 @@
 title: 'Solucionar problemas de desempenho de link de rede: Azure'
 description: Esta página fornece um método padronizado de teste de desempenho de link de rede do Azure.
 services: expressroute
-author: tracsman
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521659"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566068"
 ---
 # <a name="troubleshooting-network-performance"></a>Solução de problemas de desempenho de rede
 ## <a name="overview"></a>Visão geral
@@ -121,7 +121,7 @@ Se você não tem certeza de onde realmente está borda da nuvem, isolar os comp
 ![2][2]
 
 >[!NOTE]
-> Observe que o MSEE não está na nuvem do Azure. Na verdade, o ExpressRoute está na borda da rede da Microsoft e não no Azure. Ao conectar o ExpressRoute a um MSEE, você está conectado à rede da Microsoft; daí você pode acessar qualquer um dos serviços de nuvem, como o Office 365 (com o Emparelhamento da Microsoft) ou o Azure (com Emparelhamento privado e/ou da Microsoft).
+> Observe que o MSEE não está na nuvem do Azure. Na verdade, o ExpressRoute está na borda da rede da Microsoft e não no Azure. Quando estiver conectado com o ExpressRoute a um MSEE, você estará conectado à rede da Microsoft, daí você poderá ir para qualquer um dos serviços de nuvem, como Microsoft 365 (com o emparelhamento da Microsoft) ou o Azure (com emparelhamento privado e/ou da Microsoft).
 >
 >
 
@@ -177,15 +177,15 @@ Configuração do teste:
 >
 >
 
-| ExpressRoute<br/>Localização|Azure<br/>Região | Estimada (km)<br/>Distância | Latência|Sessão 1<br/>Largura de banda | Máximo<br/>Largura de banda |
+| ExpressRoute<br/>Local|Azure<br/>Região | Estimada (km)<br/>Distância | Latency|Sessão 1<br/>Largura de banda | Máximo<br/>Largura de banda |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | Oeste dos EUA 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | Oeste dos EUA          |  1.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | Centro dos EUA       |  2.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
-| Seattle | South Central US |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
+| Seattle | Centro-Sul dos Estados Unidos |  2.877 km |  51 ms |  30,6 Mbits/s |  2,49 Gbits/s |
 | Seattle | Centro-Norte dos EUA |  2.792 km |  55 ms |  27,7 Mbits/s |  2,19 Gbits/s |
 | Seattle | Leste dos EUA 2        |  3.769 km |  73 ms |  21,3 Mbits/s |  1,79 Gbits/s |
-| Seattle | East US          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
+| Seattle | Leste dos EUA          |  3.699 km |  74 ms |  21,1 Mbits/s |  1,78 Gbits/s |
 | Seattle | Japan East       |  7.705 km | 106 ms |  14,6 Mbits/s |  1,22 Gbits/s |
 | Seattle | Sul do Reino Unido         |  7.708 km | 146 ms |  10,6 Mbits/s |   896 Mbits/s |
 | Seattle | Europa Ocidental      |  7.834 km | 153 ms |  10,2 Mbits/s |   761 Mbits/s |
@@ -197,7 +197,7 @@ Configuração do teste:
 \* A latência até o Brasil é um bom exemplo em que a distância em linha reta difere significativamente da distância que a fibra percorre. Eu esperava que a latência seria de cerca de 160 ms, mas é de 189 ms na realidade. Essa diferença em relação a minha expectativa poderia indicar um problema de rede em algum lugar, mas é mais provável que o caminho da fibra não vá até o Brasil em uma linha reta e tenha cerca de 1.000 km a mais para chegar até o Brasil, partindo de Seattle.
 
 ## <a name="next-steps"></a>Próximas etapas
-1. Baixe o kit de ferramentas de conectividade do Azure do GitHub em[https://aka.ms/AzCT][ACT]
+1. Baixe o kit de ferramentas de conectividade do Azure do GitHub em [https://aka.ms/AzCT][ACT]
 2. Siga as instruções para [teste de desempenho de link][Performance Doc]
 
 <!--Image References-->

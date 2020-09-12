@@ -4,21 +4,21 @@ description: Saiba como fazer a transição de métricas de Análise de Armazena
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 09/04/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: c8eae70b88aa454e5d712b3c5b7930b12d169912
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f0357c153a068b1f857e4595fa17a9ac6bc22104
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078241"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500259"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Azure Monitor
 
-Em **31 de agosto de 2023** análise de armazenamento métricas, também conhecidas como *métricas clássicas* serão desativadas. Se você usar métricas clássicas, certifique-se de fazer a transição para métricas em Azure Monitor antes dessa data. Este artigo ajuda você a fazer a transição.
+Em **31 de agosto de 2023** análise de armazenamento métricas, também conhecidas como *métricas clássicas* serão desativadas. Para obter mais informações, consulte o [comunicado oficial](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/). Se você usar métricas clássicas, certifique-se de fazer a transição para métricas em Azure Monitor antes dessa data. Este artigo ajuda você a fazer a transição. 
 
 ## <a name="steps-to-complete-the-transition"></a>Etapas para concluir a transição
 

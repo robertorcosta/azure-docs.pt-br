@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047445"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89457984"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas sobre a versão do Azure Synapse Analytics
 
@@ -35,7 +35,7 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
@@ -51,7 +51,7 @@ Para melhorias de ferramentas, a versão instalada correta deve estar especifica
 
 | Melhorias nos serviços | Detalhes |
 | --- | --- |
-|**Criptografia em nível de coluna (visualização pública)**|Proteja informações confidenciais em seu data warehouse SQL Synapse aplicando criptografia simétrica a uma coluna de dados usando o Transact-SQL. A criptografia em nível de coluna tem funções internas que você pode usar para criptografar dados usando chaves simétricas que estão ainda mais protegidas com um certificado, senha, chave simétrica ou chave assimétrica. Para obter mais informações, visite [criptografar uma coluna de dados](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Criptografia em nível de coluna (visualização pública)**|Proteja informações confidenciais em sua análise de Synapse do Azure aplicando criptografia simétrica a uma coluna de dados usando o Transact-SQL. A criptografia em nível de coluna tem funções internas que você pode usar para criptografar dados usando chaves simétricas que estão ainda mais protegidas com um certificado, senha, chave simétrica ou chave assimétrica. Para obter mais informações, visite [criptografar uma coluna de dados](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Suporte de nível de compatibilidade (GA)**|Agora, com essa versão, os usuários podem definir o nível de compatibilidade de um banco de dados para obter a linguagem Transact-SQL e os comportamentos de processamento de consulta de uma versão específica do mecanismo SQL do Synapse. Para obter mais informações, consulte [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [Alterar a configuração no escopo do banco de dados](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Segurança em Nível de Linha**|Esta versão inclui uma melhoria para operações de atualização e exclusão em linhas com RLS imposta nelas. Com esta versão, as operações de atualização e exclusão com funções intrínsecas como ' is_rolemember ' terão sucesso se o intrínseco não fizer referência a nenhuma coluna na tabela de destino DML. Antes dessa melhoria, essas operações falharam devido à limitação nas operações DML subjacentes.|
 |**DBCC SHRINKDATABASE (GA)**|Agora você pode reduzir o tamanho dos arquivos de dados e de log no banco de dado especificado. Para obter mais informações, consulte a [documentação](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15).|

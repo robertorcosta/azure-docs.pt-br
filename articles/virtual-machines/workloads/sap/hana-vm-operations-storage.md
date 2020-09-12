@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2020
+ms.date: 09/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650461"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440687"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento de máquina virtual do SAP HANA no Azure
 
@@ -88,7 +88,7 @@ As recomendações de cache para os discos Premium do Azure abaixo estão supond
 **Recomendação: como resultado desses padrões de e/s observados por SAP HANA, o cache para os diferentes volumes usando o armazenamento Premium do Azure deve ser definido como:**
 
 - **/Hana/data** -sem cache ou cache de leitura
-- **/hana/log** – sem cache – exceção para a série M e Mv2 em que Acelerador de Gravação deve ser habilitado sem cache de leitura. 
+- **/Hana/log** -sem cache-exceção para VMs de série M e Mv2 em que o Azure acelerador de gravação deve ser habilitado 
 - **hana/shared** - ler o cache
 - **Disco do sistema operacional** -não altere o cache padrão definido pelo Azure no momento da criação da VM
 
@@ -153,9 +153,9 @@ Configuração do volume do SAP **/Hana/data** :
 | M128s | 2\.000 GiB | 2.000 MBps | 4 x P20 | 680 MBps | 9.200| 14.000 | 
 | M128ms | 3\.800 GiB | 2.000 MBps | 4 x P30 | 800 MBps (provisionado) | 20.000 | sem intermitência | 
 | M208s_v2 | 2\.850 GiB | 1\.000 MBps | 4 x P30 | 800 MBps (provisionado) | 20.000| sem intermitência | 
-| M208ms_v2 | 5\.700 GiB | 1\.000 MBps | 4 x P40 | 1.000 MBps (provisionado) | 25.000 | sem intermitência |
-| M416s_v2 | 5\.700 GiB | 2.000 MBps | 4 x P40 | 1.000 MBps (provisionado) | 25.000 | sem intermitência |
-| M416ms_v2 | 11.400 GiB | 2.000 MBps | 4 x P50 | 2.000 MBps (provisionado) | 25.000 | sem intermitência |
+| M208ms_v2 | 5\.700 GiB | 1\.000 MBps | 4 x P40 | 1.000 MBps (provisionado) | 25,000 | sem intermitência |
+| M416s_v2 | 5\.700 GiB | 2.000 MBps | 4 x P40 | 1.000 MBps (provisionado) | 25,000 | sem intermitência |
+| M416ms_v2 | 11.400 GiB | 2.000 MBps | 4 x P50 | 2.000 MBps (provisionado) | 25,000 | sem intermitência |
 
 
 Para o volume **/Hana/log** . a configuração teria a seguinte aparência:
@@ -236,6 +236,10 @@ Nessa configuração, você mantém os volumes **/Hana/data** e **/Hana/log** se
 
 As recomendações geralmente estão excedendo os requisitos mínimos do SAP, conforme mencionado anteriormente neste artigo. As recomendações listadas são um comprometimento entre as recomendações de tamanho do SAP e a taxa de transferência de armazenamento máxima que os diferentes tipos de VM fornecem.
 
+> [!NOTE]
+> O ultra Disk do Azure está impondo um mínimo de 2 IOPS por capacidade de Gigabyte de um disco
+
+
 | SKU da VM | RAM | Máx. VM E/S<br /> Produtividade | Volume /hana/data | Taxa de transferência de E/S /hana/data | IOPS /hana/data | Volume /hana/log | Taxa de transferência de E/S /hana/log | IOPS /hana/log |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | 160 GiB | 480 MB/s | 200 GB | 400 MBps | 2\.500 | 80 GB | 250 MB | 1.800 |
@@ -249,11 +253,11 @@ As recomendações geralmente estão excedendo os requisitos mínimos do SAP, co
 | M64s | 1\.000 GiB | 1\.000 MB/s |  1\.200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2\.500 |
 | M64ms | 1\.750 GiB | 1\.000 MB/s | 2\.100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2\.500 |
 | M128s | 2\.000 GiB | 2\.000 MB/s |2\.400 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
-| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 750 MBps |7.000 | 512 GB | 250 MBps  | 2\.500 | 
+| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 750 MBps |9.600 | 512 GB | 250 MBps  | 2\.500 | 
 | M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 3\.500 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
-| M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 7\.200 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
-| M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 7\.200 GB | 1\.000 MBps | 9\.000 | 512 GB | 400 MBps  | 4.000 | 
-| M416ms_v2 | 11.400 GiB | 2\.000 MB/s | 14.400 GB | 1\.500 MBps | 9\.000 | 512 GB | 400 MBps  | 4.000 |   
+| M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 7\.200 GB | 750 MBps | 14.400 | 512 GB | 250 MBps  | 2\.500 | 
+| M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 7\.200 GB | 1\.000 MBps | 14.400 | 512 GB | 400 MBps  | 4.000 | 
+| M416ms_v2 | 11.400 GiB | 2\.000 MB/s | 14.400 GB | 1\.500 MBps | 28.800 | 512 GB | 400 MBps  | 4.000 |   
 
 **Os valores listados se destinam a ser um ponto de partida e precisam ser avaliados em relação às demandas reais.** A vantagem com o Disco Ultra do Azure é que os valores de IOPS e taxa de transferência podem ser adaptados sem a necessidade de desligar a VM ou de interromper a carga de trabalho aplicada ao sistema.   
 

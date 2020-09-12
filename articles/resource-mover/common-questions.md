@@ -1,0 +1,84 @@
+---
+title: Perguntas comuns sobre o Azure Resource mover?
+description: Obtenha respostas para perguntas comuns sobre o Azure Resource mover
+author: rayne-wiselman
+manager: evansma
+ms.service: resource-move
+ms.topic: conceptual
+ms.date: 09/07/2020
+ms.author: raynew
+ms.openlocfilehash: 520c2d4fd258bfab5a5a1e0abf890d58bb98fbdc
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652796"
+---
+# <a name="common-questions"></a>Perguntas comuns
+
+Este artigo responde a perguntas comuns sobre o [Azure Resource mover](overview.md).
+
+## <a name="general"></a>Geral
+
+### <a name="is-resource-mover-generally-available"></a>O Resource mover está disponível para o público geral?
+
+O movimentador de recursos está atualmente em visualização pública. Há suporte para cargas de trabalho de produção.
+
+## <a name="region-move"></a>Movimentação de região
+
+### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Quais recursos posso mover entre regiões usando o Resource mover?
+
+Usando o Resource mover, atualmente, você pode mover os seguintes recursos entre regiões:
+
+- VMs do Azure e discos associados
+- NICs
+- Conjuntos de disponibilidade 
+- Redes virtuais do Azure 
+- Endereços IP públicos grupos de segurança de rede (NSGs)
+- Balanceadores de carga internos e públicos 
+- Bancos de dados SQL do Azure e pools elásticos
+
+### <a name="where-is-the-metadata-about-a-region-move-stored"></a>Onde os metadados sobre uma região se movem são armazenados?
+
+Ele é armazenado em um banco de dados [Cosmos do Azure](../cosmos-db/database-encryption-at-rest.md) e no [armazenamento de BLOBs do Azure](../storage/common/storage-service-encryption.md), em uma assinatura da Microsoft.
+
+### <a name="is-the-collected-metadata-encrypted"></a>Os metadados coletados são criptografados?
+
+Sim, em trânsito e em repouso.
+- Durante o trânsito, os metadados são enviados com segurança para o serviço de movimentação de recursos pela Internet usando HTTPS.
+- No armazenamento, os metadados são criptografados.
+
+### <a name="how-is-managed-identity-used-in-resource-mover"></a>Como a identidade gerenciada é usada no movimentador de recursos?
+
+A [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conhecida como identidade de serviço gerenciada (MIS)) fornece aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD.
+- O Resource mover usa identidade gerenciada para que possa acessar assinaturas do Azure para mover recursos entre regiões.
+- Uma coleção de movimentação precisa de uma identidade atribuída pelo sistema, com acesso à assinatura que contém os recursos que você está movendo.
+
+- Se você mover recursos entre regiões no portal, esse processo ocorrerá automaticamente.
+- Se você mover recursos usando o PowerShell, execute os cmdlets para atribuir uma identidade atribuída pelo sistema à coleção e, em seguida, atribua uma função com as permissões de assinatura corretas para a entidade de identidade. 
+
+### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Para quais permissões de identidade gerenciada o movimentador de recursos precisa?
+
+A identidade gerenciada do Azure Resource mover precisa de pelo menos estas permissões: 
+
+- Permissão para gravar/criar recursos na assinatura do usuário, disponível com a função *colaborador* . 
+- Permissão para criar atribuições de função. Normalmente, disponível com as funções de *administrador de acesso de usuário* ou *proprietário* , ou com uma função personalizada que tenha a *permissão Microsoft. Authorization/role assignments/Write* atribuída. Essa permissão não será necessária se a identidade gerenciada do recurso de compartilhamento de dados já tiver acesso concedido ao armazenamento de dados do Azure. 
+ 
+Quando você adiciona recursos no Hub do movimentador de recursos no portal, as permissões são manipuladas automaticamente, desde que o usuário tenha as permissões descritas acima. Se você adicionar recursos com o PowerShell, atribua permissões manualmente.
+
+> [!IMPORTANT]
+> É altamente recomendável que você não modifique ou remova as atribuições de função de identidade. 
+
+### <a name="what-should-i-do-if-i-dont-have-permissions-to-assign-role-identity"></a>O que devo fazer se não tiver permissões para atribuir a identidade da função?
+
+**Causa possível** | **Recomendação**
+--- | ---
+Você não é um *colaborador* e *administrador de acesso do usuário* (ou *proprietário*) ao adicionar um recurso pela primeira vez. | Use uma conta com permissões de *colaborador* e *administrador de acesso do usuário* (ou *proprietário*) para a assinatura.
+A identidade gerenciada do Resource mover não tem a função necessária. | Adicione as funções ' colaborador ' e ' administrador de acesso do usuário '.
+A identidade gerenciada do Resource mover foi redefinida para *nenhuma*. | Reabilitar uma identidade atribuída pelo sistema na coleção de movimentação > **identidade**. Como alternativa, adicione o recurso novamente em **Adicionar recursos**, o que faz a mesma coisa.  
+A assinatura foi movida para um locatário diferente. | Desabilite e habilite a identidade gerenciada para a coleção de movimentação.
+
+
+## <a name="next-steps"></a>Próximas etapas
+
+[Saiba mais](about-move-process.md) sobre os componentes do Resource mover e o processo de movimentação.

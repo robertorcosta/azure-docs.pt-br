@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 09/03/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94d5b0cac332cf777f9393104861ee766ef2488c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022421"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458290"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Usar a API do Video Indexer
 
@@ -36,7 +36,6 @@ Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Inde
    > * Você deve usar o mesmo provedor usado quando se inscreveu no Video Indexer.
    > * As contas pessoais Google e Microsoft (Outlook/Live) só podem ser usadas para contas de avaliação gratuita. Contas conectadas ao Azure exigem o Azure AD.
    > * Só é permitida apenas uma conta ativa por email. Se um usuário tenta entrar com a conta user@gmail.com no LinkedIn e, em seguida, com a conta user@gmail.com no Google, este último exibirá uma página de erro, informando que o usuário já existe.
-
 2. Inscrever-se.
 
     Selecione a guia [Produtos](https://api-portal.videoindexer.ai/products). Em seguida, selecione a autorização e inscrever-se.
@@ -46,7 +45,7 @@ Este artigo mostra como os desenvolvedores podem aproveitar a [API do Video Inde
     > [!NOTE]
     > Novos usuários são automaticamente inscritos na Autorização.
     
-    Depois de assinar, você verá sua assinatura e suas chaves primária e secundária. As chaves devem ser protegidas. As chaves só devem ser usadas pelo seu código do servidor. Elas não devem estar disponíveis no lado do cliente (.js, .html, e assim por diante).
+    Depois de assinar, você pode encontrar sua assinatura em **produtos**  ->  **autorização**. Na página assinatura, você encontrará as chaves primária e secundária. As chaves devem ser protegidas. As chaves só devem ser usadas pelo seu código do servidor. Elas não devem estar disponíveis no lado do cliente (.js, .html, e assim por diante).
 
     ![Assinatura e chaves no Portal do Desenvolvedor do Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
 

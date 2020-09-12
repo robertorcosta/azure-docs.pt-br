@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020347"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645644"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
@@ -147,7 +147,8 @@ Isso pode acontecer se o servidor físico tiver a virtualização do Hyper-V hab
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualização de dependência no Azure governamental
 
-As migrações para Azure dependem Mapa do Serviço para a funcionalidade de visualização de dependência. Como Mapa do Serviço não está disponível no Azure governamental no momento, essa funcionalidade não está disponível no Azure governamental.
+Não há suporte para a análise de dependência baseada em agente no Azure governamental. Use a análise de dependência sem agente.
+
 
 ## <a name="dependencies-dont-show-after-agent-install"></a>As dependências não são mostradas após a instalação do agente
 
@@ -160,9 +161,9 @@ Para VMs do Windows:
 
     ![Status do MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o Dependency Agent tenham êxito.
+Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o Dependency Agent tenham êxito. Consulte mais diretrizes para solução de problemas [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 - **Agente MMS**: examine os sistemas operacionais [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) com suporte.
 - **Agente de dependência**: os sistemas operacionais [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) com suporte.
@@ -181,7 +182,6 @@ Na avaliação do servidor de migrações para Azure, com a análise de dependê
 ## <a name="machines-show-install-agent"></a>Computadores mostram "instalar agente"
 
 Após a migração de computadores com a visualização de dependência habilitada para o Azure, as máquinas podem mostrar a ação "instalar agente" em vez de "Exibir dependências" devido ao seguinte comportamento:
-
 
 - Após a migração para o Azure, as máquinas locais são desativadas e as VMs equivalentes são giradas no Azure. Essas máquinas adquirem um endereço MAC diferente.
 - Os computadores também podem ter um endereço IP diferente, dependendo se você manteve o endereço IP local ou não.

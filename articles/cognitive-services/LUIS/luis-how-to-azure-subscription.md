@@ -3,14 +3,14 @@ title: Como usar as chaves de criação e tempo de execução-LUIS
 description: Ao usar o Reconhecimento vocal (LUIS) pela primeira vez, você não precisa criar uma chave de criação. Quando você pretende publicar o aplicativo, use o ponto de extremidade do tempo de execução, você precisa criar e atribuir a chave de tempo de execução ao aplicativo.
 services: cognitive-services
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6bd8cc807a393d6c8027f5990b9897d93f2b78d2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 99f73399c410641be352111302b1d4999d1ebc1b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496892"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565898"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
@@ -25,14 +25,18 @@ Os recursos de tempo de execução de previsão de criação e consulta fornecem
 
 O LUIS permite três tipos de recursos do Azure e um recurso não Azure:
 
-|Chave|Finalidade|Serviço cognitiva`kind`|Serviço cognitiva`type`|
+|Recurso|Finalidade|Serviço cognitiva `kind`|Serviço cognitiva `type`|
 |--|--|--|--|
-|Chave de criação|Acesse e gerencie dados de aplicativos com criação, treinamento, publicação e teste. Crie uma chave de criação do LUIS se você pretende criar aplicativos LUIS programaticamente.<br><br>A finalidade da `LUIS.Authoring` chave é permitir que você:<br>* gerenciar programaticamente aplicativos e modelos Reconhecimento vocal, incluindo treinamento e publicação<br> * controle permissões para o recurso de criação atribuindo pessoas à [função colaborador](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
-|Chave de previsão de consulta| Solicitações de ponto de extremidade de previsão de consulta. Crie uma chave de previsão LUIS antes que seu aplicativo cliente solicite previsões além das 1.000 solicitações fornecidas pelo recurso de início. |`LUIS`|`Cognitive Services`|
+|Recurso de criação|Permite criar, gerenciar, treinar, testar e publicar seus aplicativos. [Crie um recurso de criação do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-luis-resources-in-azure-portal) se você pretende criar Luis aplicativos programtically ou no portal do Luis. Primeiro, você precisa [migrar sua conta do Luis](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) para poder vincular seus recursos do Authroring do Azure ao seu aplicativo. Você pode controlar as permissões para o recurso de criação atribuindo pessoas à [função colaborador](#contributions-from-other-authors). <br><br> Há um disponíveis de camada para o recurso de criação de LUIS:<br> * **F0 criação de recurso** que fornece a você 1 milhão de transações de criação gratuitas e 1000 solicitações de ponto de extremidade de previsão gratuitas mensais. |`LUIS.Authoring`|`Cognitive Services`|
+|Recurso de previsão| Depois de publicar o aplicativo LUIS, use o recurso/chave de previsão para consultar solicitações de ponto de extremidade de previsão. Crie um recurso de previsão LUIS antes que seu aplicativo cliente solicite previsões além das 1.000 solicitações fornecidas pela criação ou pelo recurso de início. <br><br> Há duas camadas avialble para o recurso de previsão:<br> * O **recurso de previsão F0** que fornece a você 10.000 solicitações de ponto de extremidade gratuitas de previsão mensais<br> * **Recurso de previsão S0** , que é a camada paga. [Saiba mais sobre os detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Recurso de avaliação/inicialização|Permite criar, gerenciar, treinar, testar e publicar seus aplicativos. Isso é criado por padrão se você escolher a opção de recurso de início ao se inscrever na primeira vez o TP LUIS. No entanto, a chave inicial será eventualmente preterida e todos os usuários do LUIS precisarão [migrar suas contas](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) e vincular seus aplicativos Luis a um recurso de criação. Esse recurso não lhe dá permissões para controle de acesso baseado em função, como o recurso de criação. <br><br> Assim como o recurso de criação, o recurso de início fornece a você 1 milhão de transações de criação gratuitas e 1000 de solicitações de ponto de previsão gratuitas.|-|Não é um recurso do Azure|
 |[Chave de recurso de vários serviços cognitivas do serviço](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Solicitações de ponto de extremidade de previsão de consulta compartilhadas com LUIS e outros serviços cognitivas com suporte.|`CognitiveServices`|`Cognitive Services`|
-|Inicial|Criação gratuita (sem controle de acesso baseado em função) por meio do portal LUIS ou de APIs (incluindo SDKs), solicitações gratuitas de ponto de extremidade 1.000 de previsão por mês por meio de um navegador, API ou SDKs|-|Não é um recurso do Azure|
 
-Quando o processo de criação de recursos do Azure for concluído, [atribua a chave](#assign-a-resource-to-an-app) ao aplicativo no portal do Luis.
+
+> [!Note]
+> Há dois tipos de recursos F0 (camada gratuita) que o LUIS fornece. Uma para criar transações e outra para transações de previsão. Se você estiver ficando sem cota livre para transações de previsão, certifique-se de que você está na verdade usando o recurso de previsão F0 que fornece a você as 10.000 transações gratuitas mensais e não o recurso de criação que oferece a você 1000 transações de previsão mensalmente.
+
+Quando o processo de criação de recursos do Azure for concluído, [atribua o recurso](#assign-a-resource-to-an-app) ao aplicativo no portal do Luis.
 
 É importante criar aplicativos LUIS em [regiões](luis-reference-regions.md#publishing-regions) em que você deseja publicar e consultar.
 
@@ -173,8 +177,8 @@ Use o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view
 
 Recurso `kind` :
 
-* Criação`LUIS.Authoring`
-* Previsão`LUIS`
+* Criação `LUIS.Authoring`
+* Previsão `LUIS`
 
 1. Entre no CLI do Azure:
 
@@ -211,15 +215,19 @@ Você pode atribuir um recurso de criação para um único aplicativo ou para to
 
 ## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
 
-Você pode atribuir um a um aplicativo com o procedimento a seguir.
+Observe que, se você não tiver uma assinatura do Azure, não poderá atribuir ou criar um novo recurso. Você precisará primeiro ir e criar uma [avaliação gratuita do Azure](https://azure.microsoft.com/en-us/free/) e retornar ao Luis para criar um novo recurso no Portal.
 
-1. Entre no portal do [Luis](https://www.luis.ai)e selecione um aplicativo na lista **meus aplicativos** .
-1. Navegue até a página **gerenciar > recursos do Azure** .
+Você pode atribuir ou criar uma criação ou um recurso de previsão para um aplicativo com o seguinte procedimento:
+
+1. Entre no portal do [Luis](https://www.luis.ai)e selecione um aplicativo na lista **meus aplicativos**
+1. Navegue até a página **gerenciar > recursos do Azure**
 
     ![Selecione Gerenciar-> recursos do Azure no portal do LUIS para atribuir um recurso ao aplicativo.](./media/luis-how-to-azure-subscription/manage-azure-resources-prediction.png)
 
-1. Selecione a guia Previsão ou recurso de criação e, em seguida, selecione o botão **Adicionar recurso de previsão** ou **Adicionar recurso de criação** .
-1. Selecione os campos no formulário para localizar o recurso correto e, em seguida, selecione **salvar**.
+1. Selecione a guia recurso de previsão ou criação e, em seguida, selecione o botão **Adicionar recurso de previsão** ou **Adicionar recurso de criação**
+1. Selecione os campos no formulário para localizar o recurso correto e, em seguida, selecione **salvar**
+1. Se você não tiver um recurso existente, poderá criar um selecionando "criar um novo recurso LUIS?" na parte inferior da janela
+
 
 ### <a name="assign-query-prediction-runtime-resource-without-using-luis-portal"></a>Atribuir recurso de tempo de execução de previsão de consulta sem usar o portal do LUIS
 
@@ -244,7 +252,7 @@ Para fins de automação, como um pipeline de CI/CD, talvez você queira automat
 
     Essa API POST requer as seguintes configurações:
 
-    |Tipo|Configuração|Valor|
+    |Type|Setting|Valor|
     |--|--|--|
     |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. Observe que o valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
     |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|

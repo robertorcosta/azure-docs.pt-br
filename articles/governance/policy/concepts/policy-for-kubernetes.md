@@ -3,12 +3,12 @@ title: Versão Prévia – Conhecer o Azure Policy para Kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente. Esta é uma versão prévia do recurso.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509868"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645595"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Entender o Azure Policy para clusters Kubernetes (versão prévia)
 
@@ -57,13 +57,13 @@ Antes de instalar o complemento do Azure Policy ou habilitar um dos recursos de 
 
      1. Registre os provedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights**. Para obter as etapas, confira [Provedores e tipos de recurso](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-     1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
+     1. Inicie o serviço de Azure Policy no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **política**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Pesquisar Política em Todos os Serviços" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Captura de tela da pesquisa de política em todos os serviços." border="false":::
 
      1. Selecione **Ingressar na Versão Prévia** no lado esquerdo da página Azure Policy.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Ingressar na política da versão prévia do AKS" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Captura de tela do nó "visualização de junção" na página de política." border="false":::
 
      1. Selecione a linha da assinatura que você deseja adicionar à versão prévia.
 
@@ -120,17 +120,17 @@ Depois que as etapas de pré-requisito acima forem concluídas, instale o comple
 
 - Portal do Azure
 
-  1. Inicie o serviço AKS no portal do Azure clicando em **Todos os serviços**, pesquisando e selecionando **Serviços de Kubernetes**.
+  1. Inicie o serviço AKS no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **Serviços Kubernetess**.
 
   1. Selecione um dos clusters do AKS.
 
   1. Selecione **Policies (versão prévia)** no lado esquerdo da página do serviço de Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definições do Policy no cluster do AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Captura de tela do nó ' Policies (Preview) ' na página do serviço kubernetes." border="false":::
 
   1. Na página principal, selecione o botão **Habilitar complemento**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Habilitar o Azure Policy para complemento do AKS":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Captura de tela do botão ' habilitar complemento ' na página ' carregar para Azure Policy para os serviços Kubernetess do Azure (A K S).":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -460,17 +460,17 @@ Para remover o complemento do Azure Policy que está no cluster do AKS, use o po
 
 - Portal do Azure
 
-  1. Inicie o serviço AKS no portal do Azure clicando em **Todos os serviços**, pesquisando e selecionando **Serviços de Kubernetes**.
+  1. Inicie o serviço AKS no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **Serviços Kubernetess**.
 
   1. Selecione o cluster do AKS no qual você deseja desabilitar o complemento do Azure Policy.
 
   1. Selecione **Policies (versão prévia)** no lado esquerdo da página do serviço de Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definições do Policy no cluster do AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Captura de tela do nó ' Policies (Preview) ' na página do serviço kubernetes." border="false":::
 
   1. Na página principal, selecione o botão **Desabilitar complemento**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Desabilitar complemento do Azure Policy para AKS" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Captura de tela do botão ' desabilitar complemento ' na página ' carregar para Azure Policy para os serviços Kubernetess do Azure (A K S)." border="false":::
 
 - CLI do Azure
 

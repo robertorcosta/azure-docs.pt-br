@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a59905c1d410ae0ffd4520f3b61fd37e649012e7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386445"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650908"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks em seu workspace
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Para criar um notebook:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Criar arquivo":::
 
 1. Dê um nome ao arquivo. 
-1. Para arquivos do Jupyter Notebook, selecione **Python Notebook** como o tipo de arquivo.
+1. Para Jupyter Notebook arquivos, selecione **bloco de anotações** como o tipo de arquivo.
 1. Selecione um diretório de arquivos.
 1. Selecione **Criar**.
 
@@ -77,12 +77,12 @@ Para acessar o terminal:
 1. Abra seu workspace no [Azure Machine Learning Studio](https://ml.azure.com).
 1. No lado esquerdo, selecione **Notebooks**.
 1. Selecione qualquer notebook localizado na seção **Arquivos do usuário** no lado esquerdo.  Se você não tiver nenhum notebook, primeiro [crie um notebook](#create)
-1. Selecione um destino de **Computação** ou crie um e aguarde até que ele esteja em execução.
+1. Selecione um destino de **computação** ou crie um novo e aguarde até que ele esteja em execução.
 1. Selecione o ícone **Abrir terminal**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Abra o terminal":::
 
-1. Se você não vir o ícone, selecione **...** à direita do destino de computação e, em seguida, selecione **Abrir terminal**.
+1. Se você não vir o ícone, selecione o **...** à direita do destino de computação e, em seguida, selecione **abrir terminal**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Abrir terminal de...":::
 
@@ -92,7 +92,7 @@ Saiba mais sobre [clonar repositórios Git em seu sistema de arquivos do workspa
 
 ### <a name="share-notebooks-and-other-files"></a>Compartilhar notebooks e outros arquivos
 
-Copie e cole o URL para compartilhar um notebook ou arquivo.  Somente outros usuários do workspace poderão acessar essa URL.  Saiba mais sobre [conceder acesso ao seu workspace](how-to-assign-roles.md).
+Copie e cole o URL para compartilhar um notebook ou arquivo.  Somente outros usuários do espaço de trabalho podem acessar essa URL.  Saiba mais sobre [conceder acesso ao seu workspace](how-to-assign-roles.md).
 
 ## <a name="edit-a-notebook"></a>Editar um notebook
 
@@ -109,6 +109,22 @@ Você também pode iniciar o Jupyter ou o JupyterLab na barra de ferramentas Not
 O [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) é um recurso de conclusão de código que inclui uma série de recursos: membros da lista, informações de parâmetro, informações rápidas e palavra completa. Essas funcionalidades ajudam você a aprender mais sobre o código que está usando, a manter o acompanhamento dos parâmetros que está digitando e a adicionar chamadas a métodos e propriedades pressionando apenas algumas teclas.  
 
 Ao digitar o código, use Ctrl + espaço para disparar o IntelliSense.
+
+### <a name="clean-your-notebook-preview"></a>Limpar o bloco de anotações (visualização)
+
+> [!IMPORTANT]
+> O recurso de coleta está atualmente em visualização pública.
+> A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Ao longo da criação de um notebook, você normalmente acaba com as células usadas para a exploração ou a depuração de dados. O recurso de *coleta* ajudará você a produzir um notebook limpo sem essas células estranhas.
+
+1. Execute todas as células do bloco de anotações.
+1. Selecione a célula que contém o código que você deseja que o novo bloco de anotações execute. Por exemplo, o código que envia um experimento ou talvez o código que registra um modelo.
+1. Selecione o ícone de **coleta** que aparece na barra de ferramentas da célula.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Captura de tela: selecione o ícone reunir":::
+1. Insira o nome para o novo bloco de anotações "reunido".  
+
+O novo bloco de anotações contém apenas células de código, com todas as células necessárias para produzir os mesmos resultados que a célula que você selecionou para coleta.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Salvar e ponto de verificação de um notebook
 
@@ -157,7 +173,7 @@ Somente você pode ver e usar as instâncias de computação que criar.  Seus **
 
 ### <a name="view-logs-and-output"></a>Exibir logs e saída
 
-Use [Widgets do Notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) para ver o progresso da execução e dos logs. Um widget é assíncrono e fornece atualizações até que o treinamento seja concluído. Os widgets do Azure Machine Learning também têm suporte no Jupyter e no JupterLab.
+Use [Widgets do Notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) para ver o progresso da execução e dos logs. Um widget é assíncrono e fornece atualizações até que o treinamento seja concluído. Os widgets do Azure Machine Learning também têm suporte no Jupyter e no JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Alterar o ambiente do notebook
 

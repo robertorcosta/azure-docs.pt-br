@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343244"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612090"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é o Banco de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,9 @@ Com o banco de dados SQL do Azure, você pode criar uma camada de armazenamento 
 O banco de dados SQL do Azure é baseado na versão estável mais recente do [mecanismo de banco de dados Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). Você pode usar recursos avançados de processamento de consulta, como [tecnologias de alto desempenho na memória](../in-memory-oltp-overview.md) e [processamento de consulta inteligente](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). Na verdade, os recursos mais recentes de SQL Server são liberados primeiro para o banco de dados SQL e, em seguida, para SQL Server si mesmo. Você Obtém os recursos de SQL Server mais recentes sem sobrecarga para aplicação de patch ou atualização, testados em milhões de bancos de dados. 
 
 O banco de dados SQL permite que você defina e dimensione facilmente o desempenho em dois modelos de compra diferentes: um [modelo de compra baseado em vCore](service-tiers-vcore.md) e um [modelo de compra baseado em DTU](service-tiers-dtu.md). O banco de dados SQL é um serviço totalmente gerenciado que tem alta disponibilidade interna, backups e outras operações de manutenção comuns. A Microsoft trata de todas as correções e atualizações do código do sistema operacional e do SQL. Você não precisa gerenciar a infraestrutura subjacente.
+
+Se você for novo no banco de dados SQL do Azure, confira o vídeo *visão geral do banco de dados SQL do Azure* de nossa série detalhada de [vídeos SQL do Azure](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
 ## <a name="deployment-models"></a>Modelos de implantação
 
@@ -169,18 +172,18 @@ A Segurança de Dados Avançada do SQL é um pacote unificado de funcionalidades
   Esse recurso fornece recursos incorporados ao banco de dados SQL do Azure para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos. Ele fornece visibilidade sobre o estado de classificação do banco de dados e controla o acesso a dados confidenciais no banco e além de suas bordas.
 - [Avaliação de vulnerabilidade](sql-vulnerability-assessment.md):
 
-  Esse serviço pode descobrir, controlar e ajudá-lo a corrigir possíveis vulnerabilidades de banco de dados. Fornece visibilidade sobre o estado de segurança e inclui etapas acionáveis para resolver problemas de segurança e aperfeiçoar as fprtificações do banco de dados.
+  Esse serviço pode descobrir, controlar e ajudá-lo a corrigir possíveis vulnerabilidades de banco de dados. Fornece visibilidade sobre o estado de segurança e inclui etapas de ação para resolver problemas de segurança e aperfeiçoar as fortificações do banco de dados.
 - [Detecção de ameaças](threat-detection-configure.md):
 
-  Esse recurso detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar seu banco de dados. Monitora continuamente o banco de dados com relação a atividades suspeitas e fornece alertas de segurança imediata sobre vulnerabilidades potenciais, ataques de injeção de SQL e padrões de acesso anormal do banco de dados. Os alertas de detecção de ameaças fornecem detalhes da atividade suspeita e recomendam ações sobre como investigar e mitigar a ameaça.
+  Esse recurso detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar seu banco de dados. Monitora continuamente o banco de dados com relação a atividades suspeitas e fornece alertas de segurança imediatos sobre possíveis vulnerabilidades, ataques de injeção de SQL e padrões de acesso anormal do banco de dados. Os alertas da proteção contra ameaças fornecem detalhes de atividades suspeitas e recomendam ações para investigar e atenuar a ameaça.
 
 ### <a name="auditing-for-compliance-and-security"></a>Auditoria de segurança e conformidade
 
-A [Auditoria](../../azure-sql/database/auditing-overview.md) acompanha eventos do banco de dados e os grava em um log de auditoria na sua conta de armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
+A [auditoria](../../azure-sql/database/auditing-overview.md) rastreia eventos de banco de dados e os grava em um log de auditoria em sua conta de armazenamento do Azure. A auditoria pode ajudar você a manter uma conformidade regulatória, a entender a atividade do banco de dados e a obter informações sobre discrepâncias e anomalias que poderiam indicar preocupações de negócios ou suspeitas de violações de segurança.
 
 ### <a name="data-encryption"></a>Criptografia de dados
 
-O banco de dados SQL ajuda a proteger os seus dados fornecendo criptografia. Para dados em movimento, ele usa a [segurança da camada de transporte](https://support.microsoft.com/kb/3135244). Para dados em repouso, ele usa a [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Para dados em uso, ele usa [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
+O Banco de Dados SQL ajuda a proteger seus dados com criptografia. Para dados em movimento, ele usa a [segurança da camada de transporte](https://support.microsoft.com/kb/3135244). Para dados em repouso, ele usa a [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Para dados em uso, ele usa [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e autenticação multifator
 
@@ -196,7 +199,7 @@ O Banco de Dados SQL torna a compilação e o gerenciamento de aplicativos mais 
 |[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de banco de dados de plataforma cruzada que é executada no Windows, no MacOS e no Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Um aplicativo cliente gratuito e que pode ser baixado para gerenciar qualquer infraestrutura do SQL, de SQL Server para o banco de dados SQL.|
 |[SQL Server Data Tools no Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Um aplicativo cliente gratuito e que pode ser baixado para o desenvolvimento de SQL Server bancos de dados relacionais, bancos de dados no banco de dados SQL do Azure, pacotes de Integration Services, modelos de Analysis Services data e relatórios de Reporting Services.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código aberto gratuito, que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o SQL Data Warehouse.|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código aberto gratuito, que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão MSSQL](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, banco de dados SQL do Azure e análise de Synapse do Azure Azure (anteriormente SQL data warehouse).|
 
 O banco de dados SQL dá suporte à criação de aplicativos com Python, Java, Node.js, PHP, Ruby e .NET no macOS, Linux e Windows. O Banco de Dados SQL dá suporte às mesmas [bibliotecas de conexão](connect-query-content-reference-guide.md#libraries) do SQL Server.
 

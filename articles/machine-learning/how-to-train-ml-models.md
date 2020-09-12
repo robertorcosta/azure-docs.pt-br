@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 70e965e26d3b82cdc63a3c0e147919b8b40585af
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 69987210d69855b0fcaa676e406ec6a1c02a4d85
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146582"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650610"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Treinar modelos com o Azure Machine Learning usando o estimador
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "89146582"
 Com o Azure Machine Learning, é possível enviar facilmente seu script de treinamento para [vários destinos de computação](how-to-set-up-training-targets.md), usando um [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) e um [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Esse padrão oferece a você muita flexibilidade e o máximo controle.
 
 
-A classe de avaliador torna mais fácil treinar modelos com aprendizado profundo e aprendizado por reforço. Ele fornece uma abstração de alto nível que permite que você crie facilmente a configuração de execução. É possível criar e usar um [Avaliador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico para enviar o script de treinamento usando qualquer estrutura de aprendizado que você escolher (como scikit-learn) em qualquer destino de computação, seja ele seu computador local, uma única VM no Azure ou um cluster GPU no Azure. Para tarefas de PyTorch, TensorFlow, Chainer e tarefas de aprendizagem por reforço, o Azure Machine Learning também oferece os respectivos avaliadores de [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) e [aprendizagem por reforço](how-to-use-reinforcement-learning.md) para simplificar o uso dessas estruturas.
+A classe de avaliador torna mais fácil treinar modelos com aprendizado profundo e aprendizado por reforço. Ele fornece uma abstração de alto nível que permite que você crie facilmente a configuração de execução. É possível criar e usar um [Avaliador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) genérico para enviar o script de treinamento usando qualquer estrutura de aprendizado que você escolher (como scikit-learn) em qualquer destino de computação, seja ele seu computador local, uma única VM no Azure ou um cluster GPU no Azure. Para tarefas de PyTorch, TensorFlow, Chainer e tarefas de aprendizagem por reforço, o Azure Machine Learning também oferece os respectivos avaliadores de [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py&preserve-view=true), [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) e [aprendizagem por reforço](how-to-use-reinforcement-learning.md) para simplificar o uso dessas estruturas.
 
 ## <a name="train-with-an-estimator"></a>Treinar com um estimador
 
@@ -116,7 +116,7 @@ Parâmetro | Descrição | Padrão
 `custom_docker_image`| O nome da imagem que você deseja usar. Fornece somente as imagens disponíveis em repositórios do docker público (no Hub do Docker neste caso). Para usar uma imagem de um repositório privado do docker, use o parâmetro `environment_definition` do construtor em vez disso.| `None`
 `node_count`| O número de nós a serem usados no seu trabalho de treinamento. | `1`
 `process_count_per_node`| Número de processos (ou "trabalhos") a serem executado em cada nó. Nesse caso, você usa o `2` GPUs disponíveis em cada nó.| `1`
-`distributed_training`| Objeto [MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) para iniciar o treinamento distribuído usando o back-end de MPI.  | `None`
+`distributed_training`| Objeto [MPIConfiguration ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) para iniciar o treinamento distribuído usando o back-end de MPI.  | `None`
 
 
 Por fim, envie o trabalho de treinamento:
@@ -129,7 +129,7 @@ print(run.get_portal_url())
 
 Depois de treinar o modelo, você poderá salvá-lo e registrá-lo em seu workspace. O registro de modelo permite que você armazene e versione os modelos no workspace para simplificar o [gerenciamento e a implantação de modelos](concept-model-management-and-deployment.md).
 
-Executar o código a seguir registrará o modelo em seu workspace e o disponibilizará para referência por nome em contextos de computação remota ou scripts de implantação. Confira [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) nos documentos de referência para obter mais informações e parâmetros adicionais.
+Executar o código a seguir registrará o modelo em seu workspace e o disponibilizará para referência por nome em contextos de computação remota ou scripts de implantação. Confira [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueregister-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) nos documentos de referência para obter mais informações e parâmetros adicionais.
 
 ```python
 model = run.register_model(model_name='sklearn-sample', model_path=None)

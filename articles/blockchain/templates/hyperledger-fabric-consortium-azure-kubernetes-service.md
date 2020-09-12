@@ -1,17 +1,17 @@
 ---
-title: O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
+title: Implantar o consórcio do Fabric do kubernetes no serviço do Azure
 description: Como implantar e configurar uma rede do consórcio de malha de multirazão no serviço kubernetes do Azure
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d23a0120aafb4dc3e6952b40959a20f9a3456614
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226856"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651554"
 ---
-# <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>O consórcio de malha de hiperrazãos no serviço de kubernetes do Azure (AKS)
+# <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implantar o consórcio do Fabric do kubernetes no serviço do Azure
 
 Você pode usar o modelo de malha do AKS (serviço de kubernetes do Azure) para implantar e configurar uma rede do consórcio de malha de multirazão no Azure.
 
@@ -391,7 +391,7 @@ Se você estiver usando *azhlfTool* para instalar o chaincode, passe quaisquer n
 
 Passe o nome da função de consulta e a lista de argumentos separados por espaços no  `<queryFunction>`   e,  `<queryFuncArgs>`   respectivamente. Novamente, levando chaincode_example02. go chaincode como uma referência, para consultar o valor de "a" no estado mundial, defina  `<queryFunction>`   como  `query` e  `<queryArgs>` como `"a"` .  
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 Execute os comandos a seguir para localizar a versão de sua implantação de modelo.
 

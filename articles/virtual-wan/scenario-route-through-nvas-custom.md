@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987181"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400000"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Cenário: rotear o tráfego por meio de NVAs-personalizado (visualização)
 
@@ -40,7 +40,7 @@ A matriz de conectividade a seguir resume os fluxos com suporte neste cenário:
 | **Rede virtual DMZ** | &#8594;|       X |            X |      X    |      X       |
 | **Branches** | &#8594;|  Estático |            X |      X    |      X       |
 
-Cada uma das células na matriz de conectividade descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico) para um fluxo de tráfego específico. Vamos detalhar as diferentes linhas:
+Cada uma das células na matriz de conectividade descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida nativamente pela WAN virtual e "estática" significa que a conectividade é fornecida pela WAN virtual usando rotas estáticas. Vamos detalhar as diferentes linhas:
 
 * NVA spokes:
   * Os spokes alcançarão outros spokes diretamente sobre os hubs de WAN virtual.

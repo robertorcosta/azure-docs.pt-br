@@ -3,12 +3,12 @@ title: Melhorar o desempenho de aplicativos do Azure com o Advisor
 description: Use as recomendações de desempenho no Azure Advisor para melhorar a velocidade e a capacidade de resposta de seus aplicativos críticos para os negócios.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653300"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651585"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho de aplicativos do Azure usando o Azure Advisor
 
@@ -63,6 +63,8 @@ O Advisor identifica tabelas que não têm [Estatísticas de tabela](../synapse-
 
 A análise do Advisor pode indicar que o aplicativo que se conecta a um servidor MySQL pode não estar gerenciando conexões com eficiência. Essa condição pode levar a um consumo de recursos desnecessário e à latência geral de aplicativo superior. Para melhorar o gerenciamento, recomendamos que você reduza o número de conexões de curta duração e elimine conexões ociosas desnecessárias. Você pode fazer esses aprimoramentos Configurando um pooler de conexões do servidor, como ProxySQL.
 
+## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Atualizar sua versão atual do SDK de Gerenciamento de Computação para a versão mais recente
+O Advisor identifica assinaturas que têm operações usando versões desatualizadas do SDK de gerenciamento de computação. Isso pode afetar a segurança e o desempenho de suas cargas de trabalho e, portanto, o Advisor recomenda que você alterne para a versão mais recente do SDK de gerenciamento de computação. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Escalar verticalmente para otimizar a utilização de cache nas tabelas do Azure Synapse Analytics para aumentar o desempenho da consulta
 
@@ -165,7 +167,7 @@ Essa recomendação exibe as tabelas do Azure Data Explorer que têm um grande n
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Melhorar o desempenho com a otimização do dimensionamento da tabela temporária do MySQL
 A análise do Advisor indica que o servidor MySQL pode estar incorrendo em sobrecarga de e/s desnecessária devido a configurações de parâmetro de tabela temporária baixa. Isso pode causar transações desnecessárias no disco e redução de desempenho. Recomendamos aumentar os valores de parâmetro “tmp_table_size” e “max_heap_table_size” para reduzir o número de transações que usam o disco. [Saiba mais](https://aka.ms/azure_mysql_tmp_table)
 
-## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuir dados no grupo de servidores para distribuir a carga de trabalho entre nós
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuir os dados no grupo de servidores para distribuir a carga de trabalho entre os nós
 O Advisor identifica os grupos de servidores nos quais os dados não foram distribuídos, mas permanecem no coordenador. Com base nesse processo, o Advisor recomenda que, para os benefícios de Citus (hiperescala completa), distribua dados em nós de trabalho para seus grupos de servidores. Isso melhorará o desempenho da consulta utilizando o recurso de cada nó no grupo de servidores. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
