@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0a3665f1719c7a5f8ed9bd6acf518b642e06320d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831015"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400051"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Cenário: isolamento personalizado para VNets
 
@@ -29,7 +29,7 @@ Para descobrir quantas tabelas de rotas serão necessárias, você pode criar um
 | **VNets vermelho**  |   &#8594;|              |       X       |       X      |
 | **Branches**   |   &#8594;|     X        |       X       |       X      |
 
-Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico.
+Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico, em que um "X" significa que a conectividade é fornecida pela WAN virtual.
 
 O número de padrões de linha diferentes será o número de tabelas de rotas que será necessário neste cenário. Nesse caso, três tabelas de rota de rota que chamaremos **RT_BLUE** e **RT_RED** para as redes virtuais e o **padrão** para as ramificações. Lembre-se de que as ramificações sempre precisam ser associadas à tabela de roteamento padrão.
 

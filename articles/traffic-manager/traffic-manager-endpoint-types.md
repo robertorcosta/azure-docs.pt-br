@@ -3,32 +3,32 @@ title: Tipos de Ponto de Extremidade do Gerenciador de Tráfego | Microsoft Docs
 description: Este artigo explica os diferentes tipos de pontos de extremidade que podem ser usados com o Gerenciador de Tráfego do Azure
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: rohink
-ms.openlocfilehash: cd5c6968425c64bd670e56bbe7ae016c59662169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 692c63849bc9e92ded43db3bf22ce14384f2b68d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698658"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401275"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos de extremidade do Gerenciador de Tráfego
 
-O Gerenciador de Tráfego do Microsoft Azure permite controlar como o tráfego de rede é distribuído para implantações de aplicativos executados em diferentes datacenters. Você configurar cada implantação de aplicativo como um “ponto de extremidade” no Gerenciador de Tráfego. Quando o Gerenciador de Tráfego recebe uma solicitação DNS, ele escolhe um ponto de extremidade disponível para retornar na resposta DNS. O Gerenciador de Tráfego baseia a escolha no status atual do ponto de extremidade e o método de roteamento de tráfego. Para obter mais informações, consulte [como funciona o Gerenciador de tráfego](traffic-manager-how-it-works.md).
+O Gerenciador de Tráfego do Microsoft Azure permite controlar como o tráfego de rede é distribuído para implantações de aplicativos executados em diferentes datacenters. Configure cada implantação de aplicativo como um "ponto de extremidade" no Gerenciador de Tráfego. Quando o Gerenciador de Tráfego recebe uma solicitação DNS, ele escolhe um ponto de extremidade disponível para retornar na resposta DNS. O Gerenciador de Tráfego baseia a escolha no status atual do ponto de extremidade e o método de roteamento de tráfego. Para obter mais informações, consulte [como funciona o Gerenciador de tráfego](traffic-manager-how-it-works.md).
 
-Há três tipos de ponto de extremidade suportados pelo Gerenciador de Tráfego:
+O Gerenciador de Tráfego dá suporte a três tipos de ponto de extremidade:
 
-* **pontos de extremidade do Azure** são usados para os serviços hospedados no Azure.
+* Os **pontos de extremidade do Azure** são usados para os serviços hospedados no Azure.
 * Os **pontos de extremidade externos** são usados para os endereços IPv4/IPv6, FQDN ou para os serviços hospedados fora do Azure, que podem ser locais ou com um provedor de hospedagem diferente.
-* **Pontos de extremidade aninhados** são usados para combinar perfis do Gerenciador de tráfego para criar esquemas de roteamento de tráfego mais flexíveis para dar suporte às necessidades de implantações maiores e mais complexas.
+* Os **pontos de extremidade aninhados** são usados para combinar os perfis do Gerenciador de Tráfego para criar esquemas de roteamento de tráfego mais flexíveis para dar suporte às necessidades de implantações maiores e mais complexas.
 
-Não há nenhuma restrição sobre como os pontos de extremidade de diferentes tipos são combinados em um único perfil do Gerenciador de Tráfego. Cada perfil pode conter qualquer combinação de tipos de ponto de extremidade.
+Não há nenhuma restrição sobre como os pontos de extremidade de diferentes tipos são combinados em um só perfil do Gerenciador de Tráfego. Cada perfil pode conter qualquer combinação de tipos de ponto de extremidade.
 
 As seções a seguir descrevem cada tipo de ponto de extremidade com mais detalhes.
 

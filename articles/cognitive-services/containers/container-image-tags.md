@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 2a57c5244630c2328320d7d99eed98c892d49897
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4a98007917e95b1880661fe35bfd3f85f633e9a3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230748"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321762"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Marcas de imagem de contêiner de serviços cognitivas do Azure
 
@@ -33,7 +33,7 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 |-------------------------------|:------|
 | `latest`                      |       |
 
-## <a name="computer-vision"></a>Visual Computacional
+## <a name="computer-vision"></a>Pesquisa Visual Computacional
 
 A imagem de contêiner de OCR de [Pesquisa Visual computacional][cv-containers] leitura pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-read` . O nome da imagem de contêiner totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-read` .
 
@@ -62,7 +62,7 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |
 
-## <a name="face"></a>Face
+## <a name="face"></a>Detecção Facial
 
 A imagem de contêiner de [face][fa-containers] pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-face` . O nome da imagem de contêiner totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-face` .
 
@@ -997,6 +997,32 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 | `1.0.0-amd64-zh-cn-huihuirus-preview`       | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-HuihuiRUS` voz.       |
 | `1.0.0-amd64-zh-cn-kangkang-apollo-preview` | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-Kangkang-Apollo` voz. |
 | `1.0.0-amd64-zh-cn-yaoyao-apollo-preview`   | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-Yaoyao-Apollo` voz.   |
+
+## <a name="neural-text-to-speech"></a>Texto em fala neural
+
+A imagem de contêiner [texto em fala neural] [SP-ntts] pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-neural-text-to-speech` . O nome da imagem de contêiner totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` .
+
+Essa imagem de contêiner tem as seguintes marcas disponíveis:
+
+| Marcas de imagem                                  | Observações                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaNeural` voz.      |
+| `1.1.0-amd64-de-de-katjaneural-preview`     | Imagem de contêiner com a `de-DE` localidade e a `de-DE-KatjaNeural` voz.     |
+| `1.1.0-amd64-en-au-natashaneural-preview`   | Imagem de contêiner com a `en-AU` localidade e a `en-AU-NatashaNeural` voz.   |
+| `1.1.0-amd64-en-ca-claraneural-preview`     | Imagem de contêiner com a `en-CA` localidade e a `en-CA-ClaraNeural` voz.     |
+| `1.1.0-amd64-en-gb-libbyneural-preview`     | Imagem de contêiner com a `en-GB` localidade e a `en-GB-LibbyNeural` voz.     |
+| `1.1.0-amd64-en-gb-mianeural-preview`       | Imagem de contêiner com a `en-GB` localidade e a `en-GB-MiaNeural` voz.       |
+| `1.1.0-amd64-en-us-arianeural-preview`      | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaNeural` voz.      |
+| `1.1.0-amd64-en-us-guyneural-preview`       | Imagem de contêiner com a `en-US` localidade e a `en-US-GuyNeural` voz.       |
+| `1.1.0-amd64-es-es-elviraneural-preview`    | Imagem de contêiner com a `es-ES` localidade e a `es-ES-ElviraNeural` voz.    |
+| `1.1.0-amd64-es-mx-dalianeural-preview`     | Imagem de contêiner com a `es-MX` localidade e a `es-MX-DaliaNeural` voz.     |
+| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Imagem de contêiner com a `fr-CA` localidade e a `fr-CA-SylvieNeural` voz.    |
+| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Imagem de contêiner com a `fr-FR` localidade e a `fr-FR-DeniseNeural` voz.    |
+| `1.1.0-amd64-it-it-elsaneural-preview`      | Imagem de contêiner com a `it-IT` localidade e a `it-IT-ElsaNeural` voz.      |
+| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Imagem de contêiner com a `ja-JP` localidade e a `ja-JP-NanamiNeural` voz.    |
+| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Imagem de contêiner com a `ko-KR` localidade e a `ko-KR-SunHiNeural` voz.     |
+| `1.1.0-amd64-pt-br-franciscaneural-preview` | Imagem de contêiner com a `pt-BR` localidade e a `pt-BR-FranciscaNeural` voz. |
+| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-XiaoxiaoNeural` voz.  |
 
 ## <a name="key-phrase-extraction"></a>Extração de Frases-Chave
 

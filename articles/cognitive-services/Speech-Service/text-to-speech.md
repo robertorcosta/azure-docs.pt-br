@@ -1,27 +1,29 @@
 ---
-title: Conversão de texto em fala-serviço de fala
+title: Visão geral de conversão de texto em fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: O recurso de conversão de texto em fala no serviço de fala permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada semelhante à humana. Escolha vozes predefinidas ou crie sua própria voz personalizada.
+description: O recurso de conversão de texto em fala no serviço de fala permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada semelhante à humana. Este artigo é uma visão geral dos benefícios e capacidades do serviço de conversão de texto em fala.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: conversão de texto em fala
+ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167701"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401173"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-A conversão de texto em fala do serviço de fala permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada por meio do tipo humano. Escolha entre vozes padrão e neural ou crie uma voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em um número selecionado de idiomas e localidades. Para obter uma lista completa de vozes, idiomas e localidades com suporte, consulte [idiomas com suporte](language-support.md#text-to-speech).
+Nesta visão geral, você aprenderá sobre os benefícios e capacidades do serviço de conversão de texto em fala, que permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada pelo tipo humano. Escolha entre vozes padrão e neural ou crie uma voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em um número selecionado de idiomas e localidades. Para obter uma lista completa de vozes, idiomas e localidades com suporte, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Fala do Bing foi encerrado em 15 de outubro de 2019. Se seus aplicativos, ferramentas ou produtos estiverem usando o Fala do Bing APIs ou Fala Personalizada, criamos guias para ajudá-lo a migrar para o serviço de fala.

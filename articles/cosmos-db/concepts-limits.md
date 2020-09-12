@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605771"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400306"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -118,6 +118,7 @@ Dependendo da API que você usa, um contêiner Cosmos do Azure pode representar 
 | Número máximo de caminhos na política de indexação| 100 <sup>*</sup>|
 | Número máximo de chaves exclusivas por contêiner|10 <sup>*</sup>|
 | Número máximo de caminhos por restrição de chave exclusiva|16 <sup>*</sup>|
+| Valor de TTL máximo |2147483647|
 
 <sup>*</sup> Você pode aumentar qualquer um desses limites por contêiner entrando em contato com o Suporte do Azure.
 
@@ -136,6 +137,7 @@ Dependendo da API que você usa, um item do Azure Cosmos pode representar um doc
 | Comprimento máximo do valor da propriedade | Sem limite prático |
 | Comprimento máximo do valor da propriedade da cadeia de caracteres | Sem limite prático |
 | Comprimento máximo do valor da propriedade numérica | IEEE754 de precisão dupla de 64 bits |
+| Valor de TTL máximo |2147483647|
 
 Não há restrições sobre as cargas de item, como o número de propriedades e a profundidade de aninhamento, exceto as restrições de comprimento nos valores de ID e chave de partição e a restrição de tamanho geral de 2 MB. Talvez seja necessário configurar a política de indexação para contêineres com estruturas de item grandes ou complexas para reduzir o consumo de RU. Confira [Modelar itens no Cosmos DB](how-to-model-partition-example.md) para obter um exemplo real e padrões para gerenciar itens grandes.
 

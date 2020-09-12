@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 04/01/2020
-ms.openlocfilehash: 7dd28ab23894988a1ee193f2f8d72cb83b7aafe8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/02/2020
+ms.openlocfilehash: 44f06773eec965fad610da1a4286bdf224e3a88b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120510"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321473"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-vender códigos de estado e província no Azure Marketplace
 
@@ -53,7 +53,7 @@ Este artigo lista os códigos de estado e província disponíveis ao fornecer in
 | New Hampshire                       | US-NH     |
 | New Jersey                          | EUA-NJ     |
 | Novo México                          | US-NM     |
-| Nova Iorque                            | US-NY     |
+| Nova York                            | US-NY     |
 | Carolina do Norte                      | US-NC     |
 | Dakota do Norte                        | US-ND     |
 | Ohio                                | EUA-OH     |
@@ -78,7 +78,7 @@ Este artigo lista os códigos de estado e província disponíveis ao fornecer in
 | Ilhas Marianas do Norte            | EUA-MP     |
 | Porto Rico                         | US-PR     |
 | Territórios Insulares dos Estados Unidos | US-UM    |
-| Ilhas Virgens Americanas                 | US-VI    |
+| EUA Virgens Americanas                 | US-VI    |
 
 ## <a name="canadian-provinces-and-territories"></a>Províncias e territórios canadenses
 

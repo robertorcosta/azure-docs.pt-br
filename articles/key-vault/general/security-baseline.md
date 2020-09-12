@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d939c03aef8d155d83d20c7d8211e04fae26c228
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230272"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400459"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de base de segurança do Azure para o Key Vault
 
@@ -411,7 +411,7 @@ Planejando uma implantação da autenticação multifator do Azure baseada em nu
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: registrar e alertar sobre atividades suspeitas em contas administrativas
 
-**Orientação**: Use o Azure Active Directory (AAD) PRIVILEGED Identity Management (PIM) para a geração de logs e alertas quando uma atividade suspeita ou não segura ocorrer no ambiente. Use as detecções de risco do AAD para exibir alertas e relatórios sobre o comportamento do usuário arriscado. Para logs adicionais, envie alertas de detecção de riscos da central de segurança do Azure para Azure Monitor e configure alertas/notificações personalizados usando grupos de ação.
+**Diretrizes**: Use o PIM (Azure Active Directory do Azure ad Privileged Identity Management) para a geração de logs e alertas quando uma atividade suspeita ou não segura ocorrer no ambiente. Use as detecções de risco do Azure AD para exibir alertas e relatórios sobre o comportamento do usuário arriscado. Para logs adicionais, envie alertas de detecção de riscos da central de segurança do Azure para Azure Monitor e configure alertas/notificações personalizados usando grupos de ação.
 
 Habilite a ATP (proteção avançada contra ameaças) para Azure Key Vault gerar alertas para atividades suspeitas.
 
@@ -445,7 +445,7 @@ Qual é a condição de local em Azure Active Directory acesso condicional?: htt
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Use o Azure Active Directory Domain Services
 
-**Diretrizes**: Use o AAD (Azure Active Directory) como o sistema de autenticação e autorização central para recursos do Azure, como key Vault. Isso permite que o RBAC (controle de acesso baseado em função) para administrar recursos confidenciais.
+**Diretrizes**: Use Azure Active Directory (AD do Azure) como o sistema de autenticação e autorização central para recursos do Azure, como key Vault. Isso permite que o RBAC (controle de acesso baseado em função) para administrar recursos confidenciais.
 
  
 
@@ -460,7 +460,7 @@ https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: revisar e reconciliar regularmente o acesso do usuário
 
-**Diretrizes**: examine os logs do Azure Active Directory (AAD) para ajudar a descobrir contas obsoletas com Azure Key Vault funções administrativas. Além disso, use as revisões de acesso do AAD para gerenciar com eficiência as associações de grupo, o acesso a aplicativos corporativos que podem ser usados para acessar Azure Key Vault e atribuições de função. O acesso do usuário deve ser revisado regularmente, como a cada 90 dias, para garantir que apenas os usuários certos tenham acesso contínuo.
+**Diretrizes**: examine os logs do Azure Active Directory (Azure AD) para ajudar a descobrir contas obsoletas com Azure Key Vault funções administrativas. Além disso, use as revisões de acesso do Azure AD para gerenciar com eficiência as associações de grupo, o acesso a aplicativos corporativos que podem ser usados para acessar Azure Key Vault e atribuições de função. O acesso do usuário deve ser revisado regularmente, como a cada 90 dias, para garantir que apenas os usuários certos tenham acesso contínuo.
 
 Relatórios de Azure Active Directory e documentação de monitoramento:
 
@@ -1009,11 +1009,15 @@ https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-m
 
 Como criar um cofre de chaves: 
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer a autenticação do cofre de chaves com uma identidade gerenciada:  
+Como autenticar para o Key Vault:
 
-https://docs.microsoft.com/azure/key-vault/managed-identity
+https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Como atribuir uma política de acesso de Key Vault:
+
+https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1025,16 +1029,13 @@ https://docs.microsoft.com/azure/key-vault/managed-identity
 
   
 
-Como integrar-se às Identidades Gerenciadas do Azure:  
+* [Como integrar com identidades gerenciadas do Azure](/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity)
 
-https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity  
+* [Como criar um Key Vault](quick-create-portal.md)
 
-Como criar um cofre de chaves:  
+* [Como autenticar-se no Key Vault](authentication.md)
 
-https://docs.microsoft.com/azure/key-vault/quick-create-portal    
-
-Como fornecer a autenticação do cofre de chaves com uma identidade gerenciada:   
-https://docs.microsoft.com/azure/key-vault/managed-identity
+* [Como atribuir uma política de acesso de Key Vault](assign-access-policy-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

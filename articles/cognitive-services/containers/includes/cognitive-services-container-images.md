@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: ac8e49c85147576e489b16a3a421c75d60ad4aee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff039d6d5879e036aecc63b46359d84673f84a0e
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104395"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424626"
 ---
 ### <a name="container-repositories-and-images"></a>Repositórios e imagens de contêiner
 
@@ -58,7 +58,7 @@ Os seguintes contêineres de visualização estão disponíveis publicamente. O 
 |--|--|--|
 | [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extração de Frases-Chave | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Análise de Texto](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Detecção de Idioma | `mcr.microsoft.com/azure-cognitive-services/language` |
-| [Detector de Anomalias](../../anomaly-detector/anomaly-detector-container-howto.md) | Detector de Anomalias | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
+| [Detector de anomalias](../../anomaly-detector/anomaly-detector-container-howto.md) | Detector de Anomalias | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Visualização pública "restrita" (registro de contêiner: `containerpreview.azurecr.io` )
 
@@ -73,4 +73,5 @@ Os seguintes contêineres de visualização restringida são hospedados no regis
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=cstt) | Fala Personalizada para texto | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=tts) | Conversão de texto em fala | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=ctts) | Conversão de texto em fala personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
+| [API do Serviço de Fala](../../speech-service/speech-container-howto.md?tab=ntts) | Texto em fala neural | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` |
 | [Análise de Texto para integridade](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Análise de Texto para integridade | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

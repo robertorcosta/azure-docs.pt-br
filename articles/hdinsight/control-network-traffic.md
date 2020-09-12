@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 54a55789cf867c97cf2384b48f1e5545ee54dafc
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 09/02/2020
+ms.openlocfilehash: a33bc5816ded7cdca75737b02add0a6ca8821700
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773399"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400187"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Controle do tráfego de rede no Azure HDInsight
 
@@ -32,7 +32,11 @@ Se você pretende usar **grupos de segurança de rede** para controlar o tráfeg
 
 1. Identifique a região do Azure que você pretende usar para o HDInsight.
 
-2. Identifique as marcas de serviço exigidas pelo HDInsight para a sua região. Para obter mais informações, veja [Marcas de serviço do grupo de segurança de rede (NSG) para o Azure HDInsight](hdinsight-service-tags.md).
+2. Identifique as marcas de serviço exigidas pelo HDInsight para a sua região. Há várias maneiras de obter essas marcas de serviço:
+    1. Consulte a lista de marcas de serviço publicadas em [marcas de serviço do NSG (grupo de segurança de rede) para o Azure HDInsight](hdinsight-service-tags.md). 
+    2. Se sua região não estiver presente na lista, use a [API de descoberta de marca de serviço](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para localizar uma marca de serviço para sua região.
+    3. Se não for possível usar a API, baixe o [arquivo JSON da marca de serviço](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) e procure a região desejada.
+
 
 3. Crie ou modifique os grupos de segurança de rede da sub-rede na qual você pretende instalar o HDInsight.
 
@@ -51,10 +55,6 @@ O túnel forçado é uma configuração de roteamento definida pelo usuário em 
 Os clientes que estão interessados em configurar o túnel forçado devem usar [metastores personalizados](./hdinsight-use-external-metadata-stores.md) e configurar a conectividade apropriada a partir da sub-rede do cluster ou da rede local para esses metastores personalizados.
 
 Para ver um exemplo de configuração do UDR com o Firewall do Azure, veja [Configuração de restrição de tráfego de rede de saída para clusters do Azure HDInsight](hdinsight-restrict-outbound-traffic.md).
-
-## <a name="required-ip-addresses"></a>Endereços IP obrigatórios
-
-Se usar grupos de segurança de rede ou rotas definidas pelo usuário para controlar o tráfego, veja [Endereço IP de gerenciamento do HDInsight](hdinsight-management-ip-addresses.md).
 
 ## <a name="required-ports"></a>Portas obrigatórias
 
