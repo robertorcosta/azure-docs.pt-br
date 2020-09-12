@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9c8c4a1209b8bb5be7af87ef22aeab0ffd90b79
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021877"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023764"
 ---
 # <a name="models"></a>Modelos
 
@@ -28,7 +28,6 @@ Cada entidade pode ter [componentes](components.md) anexados. No caso mais comum
 A criação de modelos para runtime é obtida ao [converter modelos de entrada](../how-tos/conversion/model-conversion.md) a partir de formatos de arquivo, como FBX e GLTF. O processo de conversão extrai todos os recursos, como texturas, materiais e malhas, e os converte em formatos de runtime otimizados. Ele também extrairá as informações estruturais e as converterá na estrutura do grafo de entidade/componente do Application Request Routing.
 
 > [!IMPORTANT]
->
 > A [conversão de modelo](../how-tos/conversion/model-conversion.md) é a única maneira de criar [malhas](meshes.md). Embora as malhas possam ser compartilhadas entre entidades no runtime, não há outra maneira de obter uma malha no runtime, a não ser ao carregar um modelo.
 
 ## <a name="loading-models"></a>Carregar modelos
@@ -118,6 +117,13 @@ Posteriormente, é possível percorrer a hierarquia de entidade e mudar as entid
 
 > [!CAUTION]
 > Todas as funções *assíncronas* no Application Request Routing retornam objetos de operação assíncronos. É preciso armazenar uma referência a esses objetos até que a operação seja concluída. Caso contrário, o coletor de lixo do C# pode excluir a operação antecipadamente e pode nunca ser concluído. No código de exemplo acima, o uso de *await* garante que a variável local "loadOp" mantenha uma referência até que o carregamento do modelo seja concluído. No entanto, se você usar o evento *Concluído* no lugar, precisará armazenar a operação assíncrona em uma variável do membro.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [C# Remotemanager. LoadModelAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C# Remotemanager. LoadModelFromSASAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C++ Remotomanager:: LoadModelAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C++ Remotomanager:: LoadModelFromSASAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
 
 ## <a name="next-steps"></a>Próximas etapas
 

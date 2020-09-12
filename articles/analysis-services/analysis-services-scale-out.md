@@ -4,15 +4,15 @@ description: Replicar servidores Azure Analysis Services com escala horizontal. 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716921"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007665"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -41,6 +41,8 @@ Ao executar uma operação de expansão subsequente, por exemplo, aumentar o nú
 * Execute uma sincronização *antes da operação de expansão* para evitar hidratação redundantes das réplicas adicionadas. A sincronização simultânea e as operações de expansão em execução ao mesmo tempo não são permitidas.
 
 * Ao automatizar operações de processamento *e* expansão, é importante processar primeiro os dados no servidor primário, executar uma sincronização e, em seguida, executar a operação de expansão. Essa sequência garante um impacto mínimo sobre os recursos de memória e QPU.
+
+* Durante as operações de expansão, todos os servidores no pool de consultas, incluindo o servidor primário, estão temporariamente offline.
 
 * A sincronização é permitida mesmo quando não há réplicas no pool de consultas. Se você estiver expandindo de zero para uma ou mais réplicas com novos dados de uma operação de processamento no servidor primário, execute a sincronização primeiro sem réplicas no pool de consultas e, em seguida, expanda horizontalmente. A sincronização antes de escalar horizontalmente evita hidratação redundantes das réplicas adicionadas recentemente.
 
@@ -114,7 +116,7 @@ As operações de sincronização devem ser executadas manualmente ou usando a A
 
 Em **Visão Geral** > modelo > **Sincronizar modelo**.
 
-![Controle deslizante da escala horizontal](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Ícone sincronizar](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
 
@@ -137,7 +139,7 @@ Códigos de status de retorno:
 |0     | Replicating        |
 |1     |  Reidratar       |
 |2     |   Concluído       |
-|3     |   Com falha      |
+|3     |   Failed (Falha)      |
 |4     |    Finalizando     |
 |||
 
@@ -170,7 +172,7 @@ Para SSMS, Visual Studio e cadeias de conexão no PowerShell, aplicativos de fun
 
 Você pode alterar o tipo de preço em um servidor com várias réplicas. O mesmo tipo de preço se aplica a todas as réplicas. Uma operação de escala primeiro desativará todas as réplicas ao mesmo tempo e, em seguida, abrirá todas as réplicas no novo tipo de preço.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 **Problema:** Os usuários obtêm erro **não podem encontrar a \<Name of the server> instância do servidor ' ' no modo de conexão ' ReadOnly '.**
 

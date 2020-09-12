@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012374"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023747"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usar a API REST de gerenciamento de sessão
 
@@ -79,7 +79,7 @@ Este comando cria uma sessão. Ele retorna a ID da nova sessão. Você precisa d
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 202 | -sessionId: GUID | Êxito |
+| 202 | -sessionId: GUID | Sucesso |
 
 ### <a name="example-script-create-a-session"></a>Script de exemplo: criar uma sessão
 
@@ -122,7 +122,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 Há alguns comandos para consultar ou modificar os parâmetros de sessões existentes.
 
 > [!CAUTION]
-Para todas as chamadas REST, o envio desses comandos com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. Nesse caso, o código de status é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5-10 segundos entre as chamadas subsequentes**.
+> Para todas as chamadas REST, o envio desses comandos com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. Nesse caso, o código de status é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5 a 10 segundos entre as chamadas subsequentes**.
 
 ### <a name="update-session-parameters"></a>Atualizar parâmetros de sessão
 
@@ -265,7 +265,7 @@ Esse comando para uma sessão. A VM alocada será recuperada logo após.
 
 | Código de status | conteúdo JSON | Comentários |
 |-----------|:-----------|:-----------|
-| 204 | | Êxito |
+| 204 | | Sucesso |
 
 ### <a name="example-script-stop-a-session"></a>Script de exemplo: parar uma sessão
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030479"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017227"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
@@ -256,7 +256,7 @@ O umask do Azure Data Lake Storage Gen2 é um valor constante definido como 007.
 | umask.owning_group  |    0         |   `---`      | Para o grupo proprietário, copie a ACL Padrão do pai para a ACL de Acesso do filho | 
 | umask.other         |    7         |   `RWX`      | Para outros, remova todas as permissões na ACL de Acesso do filho |
 
-O valor de umask usado pelo Azure Data Lake Storage Gen2 significa efetivamente que o valor dos **outros** nunca é transmitido por padrão em novos filhos, independentemente do que a ACL Padrão indica. 
+O valor umask usado por Azure Data Lake Storage Gen2 efetivamente significa que o valor de **outro** nunca é transmitido por padrão em novos filhos, a menos que uma ACL padrão seja definida no diretório pai. Nesse caso, o umask é efetivamente ignorado e as permissões definidas pela ACL padrão são aplicadas ao item filho. 
 
 O pseudocódigo a seguir mostra como o umask é aplicado ao criar as ACLs de um item filho.
 
@@ -328,7 +328,7 @@ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 
 O OID será exibido.
 
-Quando você tiver o OID correto para a entidade de serviço, vá para a página Gerenciador de Armazenamento **gerenciar acesso** para adicionar o OID e atribuir as permissões apropriadas para o OID. Certifique-se de selecionar **salvar**.
+Quando você tiver o OID correto para a entidade de serviço, vá para a página Gerenciador de Armazenamento **gerenciar acesso** para adicionar o OID e atribuir as permissões apropriadas para o OID. É necessário que você selecione **Salvar**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>O Azure Data Lake Storage Gen2 dá suporte à herança de ACLs?
 
@@ -347,6 +347,6 @@ ACLS não herdam. Porém, as ACLs padrão pode ser usadas para definir as ACLs d
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Visão geral do Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999998"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007563"
 ---
 # <a name="features"></a>Recursos
 
@@ -98,14 +98,24 @@ Todos os tipos de parâmetro de pesquisa têm suporte.
 | Operações de pesquisa       | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | Não        | Não        | Não        |         |
-| `_sort`                 | Não        | Parcial   | Parcial        |   `_sort=_lastUpdated` é compatível       |
+| `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` é compatível       |
 | `_score`                | Não        | Não        | Não        |         |
 | `_count`                | Sim       | Sim       | Sim       |         |
 | `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` é compatível |
 | `_include`              | Não        | Sim       | Não        |         |
 | `_revinclude`           | Não        | Sim       | Não        | Os itens incluídos são limitados a 100. |
 | `_contained`            | Não        | Não        | Não        |         |
-| `_elements`             | Não        | Não        | Não        |         |
+| `_elements`             | Sim        | Sim        | Sim        |         |
+
+## <a name="extended-operations"></a>Operações estendidas
+
+Todas as operações com suporte que estendem a API RESTful.
+
+| Tipo de parâmetro de pesquisa | Com suporte-PaaS | Com suporte-OSS (SQL) | Com suporte-OSS (Cosmos DB) | Comentário |
+|-----------------------|-----------|-----------|-----------|---------|
+| $export (sistema inteiro)                | Sim       | Sim       | Sim       |         |
+| Paciente/$export         | Sim       | Sim       | Sim       |         |
+| Grupo/$export               | Sim       | Sim       | Sim       |         |
 
 ## <a name="persistence"></a>Persistência
 

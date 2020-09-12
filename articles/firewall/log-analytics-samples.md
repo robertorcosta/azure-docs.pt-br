@@ -1,20 +1,20 @@
 ---
-title: Amostras do log Analytics do firewall do Azure
+title: Logs de Azure Monitor para o Firewall do Azure
 description: Azure Monitor logs podem ser usados para analisar o Firewall do Azure. Um arquivo de exemplo é criado no designer de exibição no Azure Monitor.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705951"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023866"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Amostras do log Analytics do firewall do Azure
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Logs de Azure Monitor para o Firewall do Azure
 
 Os exemplos de logs de Azure Monitor a seguir podem ser usados para analisar os logs de firewall do Azure. O arquivo de exemplo é criado no designer de exibição no Azure Monitor, o [Designer de exibição no artigo Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) tem mais informações sobre o conceito de design de exibição.
 
@@ -30,7 +30,7 @@ Execute as seguintes etapas para adicionar o modo de exibição ao seu espaço d
 2. Abra **Designer de Exibição** abaixo de **Geral**.
 3. Clique em **Importar**.
 4. Procure e selecione o arquivo **AzureFirewall.omsview** baixado anteriormente.
-5. Clique em **Save** (Salvar).
+5. Clique em **Salvar**.
 
 Veja como é o modo de exibição para os dados de log de regra de aplicativo:
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 As seguintes amostras de log mostram os dados incluídos em uma entrada de log.
 
-![entrada de log](media/log-analytics-samples/log1.png)
+![entrada de log um](media/log-analytics-samples/log1.png)
 
-![entrada de log](media/log-analytics-samples/log2.png)
+![entrada de log dois ](media/log-analytics-samples/log2.png)
 
-![entrada de log](media/log-analytics-samples/log3.png)
+![entrada de log três](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre diagnóstico e monitoramento do Firewall do Azure, confira [Tutorial: Monitorar métricas e logs do Firewall do Azure](tutorial-diagnostics.md).

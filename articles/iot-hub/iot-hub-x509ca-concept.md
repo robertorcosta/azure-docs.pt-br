@@ -1,6 +1,6 @@
 ---
 title: Conceitos de segurança X.509 do Hub IoT do Azure | Microsoft Docs
-description: Conceito – compreender os certificados de autoridade de certificação de valor X.509 na fabricação de dispositivo IoT e autenticação.
+description: Conceito-noções básicas sobre o valor X. 509 certificados de autoridade de certificado na fabricação do dispositivo IoT e autenticação.
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61320061"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019896"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
 
@@ -28,6 +28,8 @@ Este artigo descreve:
 * Como configurar uma cadeia de fornecimento de fabricação para autenticação baseada na AC X.509
 
 * Como os dispositivos assinados com a AC X.509 se conectam ao Hub IoT
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Visão geral
 
@@ -63,13 +65,13 @@ Detalhes sobre como realizar essas etapas diferem com vários provedores de serv
 
 ### <a name="purchasing-an-x509-ca-certificate"></a>Adquirir um Certificado de Autoridade de Certificação X.509
 
-Adquirir um Certificado de Autoridade de Certificação tem a vantagem de ter uma AC raiz bem conhecida atuando como um terceiro confiável para garantir a legitimidade de dispositivos IoT quando os dispositivos se conectarem. A Empresa X poderá escolher esta opção se seu objetivo for que o Widget inteligente X interaja com produtos ou serviços de terceiros após a conexão inicial com o Hub IoT.
+Adquirir um Certificado de Autoridade de Certificação tem a vantagem de ter uma AC raiz bem conhecida atuando como um terceiro confiável para garantir a legitimidade de dispositivos IoT quando os dispositivos se conectarem. A empresa X escolheria essa opção se pretender que o widget inteligente X interaja com produtos ou serviços de terceiros após a conexão inicial ao Hub IoT.
 
 Para adquirir um Certificado de Autoridade de Certificação X.509, a Empresa X escolherá um provedor de serviços de certificados raiz. Uma pesquisa na Internet pela frase “AC raiz” produzirá ótimos clientes potenciais. A AC raiz orientará a Empresa X sobre como criar o par de chaves públicas/privadas e como gerar uma CSR (Solicitação de assinatura de certificado) para seus serviços. Uma CSR é o processo formal de se candidatar para um certificado de uma autoridade de certificação. O resultado desta aquisição é um certificado para uso como um certificado de autoridade. Por causa da ubiquidade de certificados X.509, é provável que o certificado tenha sido formatado corretamente de acordo com o padrão RFC 5280 da IETF.
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Criar um Certificado de Autoridade de Certificação X.509 autoassinado
 
-O processo para criar um Certificado de Autoridade de Certificação X.509 autoassinado é semelhante a comprar com a exceção de que envolve um assinante de terceiros, como a autoridade de certificação raiz. Em nosso exemplo, a Empresa X assinará o seu certificado de autoridade em vez de uma autoridade de certificação raiz. A Empresa X pode escolher essa opção para teste até que esteja pronta para adquirir um certificado de autoridade. A Empresa X também pode usar um Certificado de Autoridade de Certificação X.509 autoassinado na produção, se o Widget inteligente X não for destinado a se conectar a todos os serviços de terceiros de fora do Hub IoT.
+O processo para criar um certificado de autoridade de certificação X. 509 autoassinado é semelhante a comprar com a exceção de envolver um assinante de terceiros como a autoridade de certificação raiz. Em nosso exemplo, a Empresa X assinará o seu certificado de autoridade em vez de uma autoridade de certificação raiz. A Empresa X pode escolher essa opção para teste até que esteja pronta para adquirir um certificado de autoridade. A empresa-X também poderá usar um certificado de autoridade de certificação X. 509 autoassinado em produção, se o widget inteligente X não se destinar a se conectar a qualquer serviço de terceiros fora do Hub IoT.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrar o certificado X.509 no Hub IoT
 
