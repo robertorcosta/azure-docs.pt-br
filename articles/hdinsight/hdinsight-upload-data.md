@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085864"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462557"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Apache Hadoop no HDInsight
 
@@ -31,7 +31,7 @@ Observe os seguintes requisitos antes de começar:
 
 ## <a name="upload-data-to-azure-storage"></a>Carregar dados no Armazenamento do Azure
 
-### <a name="utilities"></a>Utilidades
+### <a name="utilities"></a>Utilitários
 
 A Microsoft fornece os seguintes utilitários para trabalhar com o Armazenamento do Azure:
 
@@ -68,7 +68,7 @@ ou
 
 `wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
-Para obter uma lista de outros comandos do Hadoop que funcionam com arquivos, consulte[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Para obter uma lista de outros comandos do Hadoop que funcionam com arquivos, consulte [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > Em clusters do Apache HBase, o tamanho do bloco padrão usado na gravação de dados é de 256 KB. Embora isso funcione bem com APIs HBase ou APIs REST, o uso dos comandos `hadoop` ou `hdfs dfs` para gravar dados com mais de, aproximadamente, 12 GB resultará em um erro. Para obter mais informações, consulte [exceção de armazenamento para gravação no blob](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
@@ -88,7 +88,7 @@ Também há vários aplicativos que fornecem uma interface gráfica para trabalh
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Montar o Armazenamento do Azure como uma unidade local
 
-Consulte [Montar o Armazenamento do Azure como uma unidade local](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Consulte [Montar o Armazenamento do Azure como uma unidade local](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## <a name="upload-using-services"></a>Carregar usando serviços
 

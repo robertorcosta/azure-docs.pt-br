@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655883"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596101"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração auto-hospedada
 
@@ -83,7 +83,7 @@ Use as etapas a seguir para criar um IR auto-hospedado usando Azure Data Factory
     
        ![Registrar o Integration Runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
-    1. Na página **Novo nó do Integration Runtime (auto-hospedado)**, selecione **Concluir**.
+    1. Na página **Novo nó do Integration Runtime (auto-hospedado)** , selecione **Concluir**.
 
 1. Depois que o tempo de execução de integração auto-hospedado for registrado com êxito, você verá a seguinte janela:
 
@@ -107,7 +107,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 Aqui estão os detalhes dos parâmetros e das propriedades do aplicativo: 
 
-| Property                                                    | Descrição                                                  | Obrigatório |
+| Propriedade                                                    | Descrição                                                  | Obrigatório |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada. | Não       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registre um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | Não       |
@@ -118,7 +118,7 @@ Aqui estão os detalhes dos parâmetros e das propriedades do aplicativo:
 | **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Gere um arquivo de backup para o nó atual. O arquivo de backup inclui a chave do nó e as credenciais do armazenamento de dados. | Não       |
 | **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaure o nó de um arquivo de backup.                          | Não       |
 | **Reiniciar**                                                     | Reinicie o serviço de host do Integration Runtime auto-hospedado.   | Não       |
-| **Início**                                                       | Inicie o serviço de host do Integration Runtime auto-hospedado.     | Não       |
+| **Iniciar**                                                       | Inicie o serviço de host do Integration Runtime auto-hospedado.     | Não       |
 | **Parar**                                                        | Pare o serviço de host do Integration Runtime auto-hospedado.        | Não       |
 | **StartUpgradeService**                                         | Inicie o serviço de atualização do Integration Runtime de hospedagem interna.       | Não       |
 | **StopUpgradeService**                                          | Pare o serviço de atualização do Integration Runtime de hospedagem interna.        | Não       |
@@ -320,6 +320,7 @@ No nível do firewall corporativo, é necessário configurar os seguintes domín
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 No nível do firewall do Windows ou do computador, essas portas de saída são normalmente habilitadas. Se não forem, você poderá configurar os domínios e as portas em um computador do Integration Runtime de hospedagem interna.
 
 > [!NOTE]
@@ -331,13 +332,13 @@ No nível do firewall do Windows ou do computador, essas portas de saída são n
 
 Verifique se você habilitou corretamente as regras de firewall no firewall corporativo, o Firewall do Windows do computador de tempo de execução de integração auto-hospedado e o próprio repositório de dados. Habilitar essas regras permite que o tempo de execução de integração auto-hospedado se conecte com êxito à origem e ao coletor. Habilite as regras para cada repositório de dados que esteja envolvido na operação de cópia.
 
-Por exemplo, para copiar de um armazenamento de dados local para um coletor de banco de dados SQL ou um coletor de SQL Data Warehouse do Azure, execute as seguintes etapas:
+Por exemplo, para copiar de um armazenamento de dados local para um coletor de banco de dados SQL ou um coletor do Azure Synapse Analytics (anteriormente SQL Data Warehouse), execute as seguintes etapas:
 
 1. Permita a comunicação TCP de saída na porta 1433 para o Firewall do Windows e o firewall corporativo.
 1. Defina as configurações de firewall do banco de dados SQL para adicionar o endereço IP do computador de tempo de execução de integração auto-hospedado à lista de endereços IP permitidos.
 
 > [!NOTE]
-> Se o firewall não permitir a porta de saída 1433, o Integration Runtime de hospedagem interna não poderá acessar o banco de dados SQL diretamente. Nesse caso, você pode usar uma [cópia em etapas](copy-activity-performance.md) para o banco de dados SQL e SQL data warehouse. Nesse cenário, você precisa apenas de HTTPS (porta 443) para a movimentação de dados.
+> Se o firewall não permitir a porta de saída 1433, o Integration Runtime de hospedagem interna não poderá acessar o banco de dados SQL diretamente. Nesse caso, você pode usar uma [cópia em etapas](copy-activity-performance.md) para o banco de dados SQL e o Azure Synapse Analytics. Nesse cenário, você precisa apenas de HTTPS (porta 443) para a movimentação de dados.
 
 ## <a name="proxy-server-considerations"></a>Considerações do servidor proxy
 
@@ -360,7 +361,7 @@ O serviço de host do Integration Runtime é reiniciado automaticamente depois q
 Depois de registrar o tempo de execução de integração auto-hospedado, se você quiser exibir ou atualizar as configurações de proxy, use Microsoft Integration Runtime Configuration Manager.
 
 1. Abra o **Configuration Manager do Microsoft Integration Runtime**.
-1. Selecione a guia **configurações** .
+1. Selecione a guia **Settings** (Configurações).
 1. Em **proxy http**, selecione o link **alterar** para abrir a caixa de diálogo **Definir proxy http** .
 1. Selecione **Avançar**. Em seguida, você verá um aviso que solicita sua permissão para salvar a configuração de proxy e reiniciar o serviço de host do Integration Runtime.
 

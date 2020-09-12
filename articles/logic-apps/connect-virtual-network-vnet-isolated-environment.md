@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/10/2020
+ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816653"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647552"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure, usando um ISE (Ambiente de Serviço de Integração)
 
@@ -44,7 +44,14 @@ Você também pode criar um ISE usando o [exemplo de modelo de início rápido d
   > [!IMPORTANT]
   > Os aplicativos lógicos, os gatilhos internos, as ações internas e os conectores executados no ISE usam um plano de preços diferente do plano baseado em consumo. Para saber como funcionam o preço e a cobrança nos ISEs, confira o [Modelo de preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter os valores, confira [Preços de Aplicativos Lógicos](../logic-apps/logic-apps-pricing.md).
 
-* Uma [Rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Sua rede virtual precisa ter quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos no ISE e são usadas por componentes de aplicativos lógicos internos, como conectores e cache para desempenho. Você pode criar as sub-redes com antecedência ou pode aguardar até criar o ISE para que possa criar sub-redes ao mesmo tempo. No entanto, antes de criar suas sub-redes, examine os [requisitos de sub-rede](#create-subnet).
+* Uma [Rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Sua rede virtual precisa ter quatro sub-redes *vazias* , que são necessárias para criar e implantar recursos em seu Ise e são usadas por esses componentes internos e ocultos:
+
+  * Computação de aplicativos lógicos
+  * Ambiente do Serviço de Aplicativo internos (conectores)
+  * Gerenciamento de API interno (conectores)
+  * Redis interno para cache e desempenho
+  
+  Você pode criar as sub-redes com antecedência ou pode aguardar até criar o ISE para que possa criar sub-redes ao mesmo tempo. No entanto, antes de criar suas sub-redes, examine os [requisitos de sub-rede](#create-subnet).
 
   > [!IMPORTANT]
   >

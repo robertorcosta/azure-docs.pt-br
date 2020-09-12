@@ -8,19 +8,19 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8ec06fc23b147eb3e4a5922242aa922063f4172c
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038607"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514145"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Monitorar a segurança de seus contêineres
 
 Esta página explica como usar os recursos de segurança do contêiner descritos no [artigo segurança do contêiner](container-security.md) em nossa seção de conceitos.
 
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Verificando se há vulnerabilidades nos registros de contêiner baseados em ARM 
+## <a name="scan-your-arm-based-container-registries-for-vulnerabilities"></a>Verificar se há vulnerabilidades nos registros de contêiner baseados em ARM 
 
 1. Para habilitar verificações de vulnerabilidade de suas imagens do registro de contêiner do Azure:
 
@@ -30,13 +30,13 @@ Esta página explica como usar os recursos de segurança do contêiner descritos
 
         A central de segurança agora está pronta para verificar imagens que são enviadas por push ao registro. 
 
-        >[!NOTE]
-        >Esse recurso é cobrado por imagem.
+      >[!NOTE]
+      >Esse recurso é cobrado por imagem.
 
 
 1. Para disparar a verificação de uma imagem, envie-a por push para o registro. 
 
-    Quando a verificação for concluída (normalmente após aproximadamente 2 minutos, mas pode ter até 15 minutos), as descobertas estarão disponíveis como recomendações da central de segurança como esta:
+    Quando a verificação é concluída (normalmente após aproximadamente 2 minutos, mas pode ter até 15 minutos), as descobertas estão disponíveis como recomendações da central de segurança.
 
 1. Para exibir as descobertas, vá para a página **recomendações** . Se forem encontrados problemas, você verá a seguinte recomendação:
 
@@ -86,7 +86,7 @@ Esta página explica como usar os recursos de segurança do contêiner descritos
     1. Quando tiver certeza de que a imagem atualizada foi enviada por push, verificada e não está mais aparecendo na recomendação, exclua a imagem "antiga" vulnerável do registro.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Protegendo os hosts do Docker de seus contêineres
+## <a name="harden-your-containers-docker-hosts"></a>Proteger hosts do Docker de seus contêineres
 
 A central de segurança monitora constantemente a configuração dos hosts do Docker e gera recomendações de segurança que refletem os padrões do setor.
 

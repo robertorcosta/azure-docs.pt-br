@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: df254e0766a755754aabcfb8c98a8c140b43cb20
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144024"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650849"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Onde salvar e gravar arquivos para experimentos Azure Machine Learnings
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ Ao iniciar o treinamento é executado em um [destino de computação](concept-co
 
 Antes de poder iniciar um experimento em um destino de computação ou em seu computador local, você deve garantir que os arquivos necessários estejam disponíveis para esse destino de computação, como arquivos de dependência e arquivos de dados que seu código precisa executar.
 
-Azure Machine Learning executa scripts de treinamento copiando o diretório de origem inteiro. Se você tiver dados confidenciais que não deseja carregar, use um [arquivo. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, acesse seus dados usando um [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).
+Azure Machine Learning executa scripts de treinamento copiando o diretório de origem inteiro. Se você tiver dados confidenciais que não deseja carregar, use um [arquivo. ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, acesse seus dados usando um [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
 
 O limite de armazenamento para instantâneos de teste é de 300 MB e/ou 2.000 arquivos.
 
 Por esse motivo, recomendamos:
 
-* **Armazenando seus arquivos em um [repositório](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)de Azure Machine Learning de armazenamento.** Isso evita problemas de latência de experimento e tem as vantagens de acessar dados de um destino de computação remoto, o que significa que a autenticação e a montagem são gerenciadas pelo Azure Machine Learning. Saiba mais sobre como especificar um armazenamento de dados como seu diretório de origem e carregar arquivos em seu repositório de dados no artigo [Access Data from the datastores](how-to-access-data.md) .
+* **Armazenando seus arquivos em um [repositório](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)de Azure Machine Learning de armazenamento.** Isso evita problemas de latência de experimento e tem as vantagens de acessar dados de um destino de computação remoto, o que significa que a autenticação e a montagem são gerenciadas pelo Azure Machine Learning. Saiba mais sobre como especificar um armazenamento de dados como seu diretório de origem e carregar arquivos em seu repositório de dados no artigo [Access Data from the datastores](how-to-access-data.md) .
 
 * **Se você precisar apenas de alguns arquivos de dados e scripts de dependência e não puder usar um datastore,** Coloque os arquivos no mesmo diretório de pasta que o script de treinamento. Especifique essa pasta como você está `source_directory` diretamente no seu script de treinamento ou no código que chama seu script de treinamento.
 

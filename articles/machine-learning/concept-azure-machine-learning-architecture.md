@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146769"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651257"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como o Azure Machine Learning funciona: Arquitetura e conceitos
 
@@ -110,7 +110,7 @@ Por exemplo, execute as configurações, consulte [usar um destino de computaç�
 
 ### <a name="estimators"></a>Avaliadores
 
-Para facilitar o treinamento de modelo com estruturas conhecidas, a classe avaliadora permite que você construa facilmente configurações de execução. Você pode criar e usar um [Estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) genérico de para enviar scripts de treinamento que usam qualquer estrutura de aprendizado que você escolher (como Scikit-learn).
+Para facilitar o treinamento de modelo com estruturas conhecidas, a classe avaliadora permite que você construa facilmente configurações de execução. Você pode criar e usar um [Estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) genérico de para enviar scripts de treinamento que usam qualquer estrutura de aprendizado que você escolher (como Scikit-learn).
 
 Para obter mais informações sobre os estimadores, consulte [treinar modelos de ml com estimações](how-to-train-ml-models.md).
 
@@ -121,9 +121,11 @@ Para obter mais informações sobre os estimadores, consulte [treinar modelos de
 Ao enviar uma execução, o Azure Machine Learning compacta o diretório que contém o script como um arquivo zip e o envia para o destino de computação. O arquivo zip é expandido e o script é executado lá. O Azure Machine Learning também armazena o arquivo zip como um instantâneo como parte do registro de execução. Qualquer pessoa com acesso ao workspace pode procurar um registro de execução e baixar o instantâneo.
 
 
-### <a name="logging"></a>Registro em log
+### <a name="logging"></a>Registrando em log
 
-Ao desenvolver sua solução, use o SDK do Python do Azure Machine Learning em seu script de Python para registrar métricas arbitrárias. Após a execução, consulte as métricas para determinar se a execução produziu o modelo que você deseja implantar.
+Azure Machine Learning registra automaticamente as métricas de execução padrão para você. No entanto, você também pode [usar o SDK do Python para registrar métricas arbitrárias](how-to-track-experiments.md).
+
+Há várias maneiras de exibir seus logs: status de execução de monitoramento em tempo real ou exibição de resultados após a conclusão. Para obter mais informações, consulte [monitorar e exibir os logs de execução do ml](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Se você tiver habilitado o dimensionamento automático, o Azure dimensionará a
 
 Para obter um exemplo de implantação de um modelo como um serviço web, consulte [Implantar um modelo de classificação de imagem nas Instâncias de Contêiner do Azure](tutorial-deploy-models-with-aml.md).
 
+#### <a name="real-time-endpoints"></a>Pontos de extremidade em tempo real
+
+Quando você implanta um modelo treinado no designer (versão prévia), você pode [implantar o modelo como um ponto de extremidade em tempo real](tutorial-designer-automobile-price-deploy.md). Um ponto de extremidade em tempo real geralmente recebe uma única solicitação por meio do ponto de extremidade REST e retorna uma previsão em tempo real. Isso está em contraste com o processamento em lotes, que processa vários valores de uma vez e salva os resultados após a conclusão para um repositório de armazenamento.
+
+#### <a name="pipeline-endpoints"></a>Pontos de extremidade do pipeline
+
+Os pontos de extremidade de pipeline permitem chamar seus [pipelines de ml](#ml-pipelines) programaticamente por meio de um ponto de extremidade REST. Os pontos de extremidade do pipeline permitem automatizar seus fluxos de trabalho de pipeline.
+
+Um ponto de extremidade de pipeline é uma coleção de pipelines publicados. Essa organização lógica permite que você gerencie e chame vários pipelines usando o mesmo ponto de extremidade. Cada pipeline publicado em um ponto de extremidade de pipeline tem controle de versão. Você pode selecionar um pipeline padrão para o ponto de extremidade ou especificar uma versão na chamada REST.
+ 
+
 #### <a name="iot-module-endpoints"></a>Pontos de extremidade do módulo de IoT
 
 Um ponto de extremidade do módulo de IoT implantado é um contêiner do Docker que inclui seu modelo, o script ou aplicativo associado e as dependências adicionais. Esses módulos são implantados usando o Azure IoT Edge em dispositivos de borda.
@@ -212,12 +225,13 @@ As etapas do pipeline são reutilizáveis e poderão ser executadas sem realizar
 
 ### <a name="studio"></a>Estúdio
 
-O [Azure Machine Learning Studio](https://ml.azure.com) fornece uma exibição da Web de todos os artefatos em seu espaço de trabalho.  Você pode exibir os resultados e os detalhes de seus conjuntos de informações, testes, pipelines, modelos e pontos de extremidade.  Você também pode gerenciar os recursos de computação e os repositórios de armazenamento no estúdio.
+O [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) fornece uma exibição da Web de todos os artefatos em seu espaço de trabalho.  Você pode exibir os resultados e os detalhes de seus conjuntos de informações, testes, pipelines, modelos e pontos de extremidade.  Você também pode gerenciar os recursos de computação e os repositórios de armazenamento no estúdio.
 
 O estúdio também é onde você acessa as ferramentas interativas que fazem parte do Azure Machine Learning:
 
 + [Designer de Azure Machine Learning (versão prévia)](concept-designer.md) para executar etapas de fluxo de trabalho sem escrever código
 + Experiência na Web para o [aprendizado de máquina automatizado](concept-automated-ml.md)
++ [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) para escrever e executar seu próprio código em servidores integrados do Jupyter notebook.
 + [Dados rotulando projetos](how-to-create-labeling-projects.md) para criar, gerenciar e monitorar projetos para rotular seus dados
 
 ### <a name="programming-tools"></a>Ferramentas de programação
@@ -226,7 +240,7 @@ O estúdio também é onde você acessa as ferramentas interativas que fazem par
 > As ferramentas marcadas (visualização) abaixo estão atualmente em visualização pública.
 > A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interaja com o serviço em qualquer ambiente Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++  Interaja com o serviço em qualquer ambiente Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interaja com o serviço em qualquer ambiente do R com o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (versão prévia).
 + Use [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) para automação.
 + O [Acelerador de Solução de Muitos Modelos](https://aka.ms/many-models) (versão prévia) é baseado no Azure Machine Learning e permite treinar, operar e gerenciar centenas ou até milhares de modelos de machine learning.

@@ -2,14 +2,14 @@
 title: Criptografia em repouso com uma chave gerenciada pelo cliente
 description: Saiba mais sobre a criptografia em repouso do registro de contêiner do Azure e como criptografar seu registro Premium com uma chave gerenciada pelo cliente armazenada no Azure Key Vault
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/26/2020
 ms.custom: ''
-ms.openlocfilehash: 67fb58d0e11709b3d801a81f15d856e9b3db922b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0e1810c8e3da334570dd1c4d6adb500e2cfa95e3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225879"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487225"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Criptografar o Registro usando uma chave gerenciada pelo cliente
 
@@ -22,10 +22,14 @@ Esse recurso está disponível na camada de serviço **Premium** do registro de 
 
 ## <a name="things-to-know"></a>Observações importantes
 
-* Atualmente, você pode habilitar uma chave gerenciada pelo cliente somente quando cria um Registro.
-* Depois de habilitar uma chave gerenciada pelo cliente em um Registro, você não poderá desabilitá-la.
+* Atualmente, você pode habilitar uma chave gerenciada pelo cliente somente quando cria um Registro. Ao habilitar a chave, você configura uma identidade gerenciada *atribuída pelo usuário* para acessar o cofre de chaves.
+* Depois de habilitar a criptografia com uma chave gerenciada pelo cliente em um registro, você não pode desabilitar a criptografia.  
 * Atualmente, não há suporte para a [confiança no conteúdo](container-registry-content-trust.md) em um Registro criptografado com uma chave gerenciada pelo cliente.
 * Em um Registro criptografado com uma chave gerenciada pelo cliente, os logs de execução das [Tarefas do ACR](container-registry-tasks-overview.md) são atualmente mantidos por apenas 24 horas. Caso precise manter os logs por um período mais longo, confira as diretrizes para [Exportar e armazenar os logs de execução de tarefas](container-registry-tasks-logs.md#alternative-log-storage).
+
+
+> [!NOTE]
+> Se o acesso ao seu cofre de chaves do Azure for restrito usando uma rede virtual com um [firewall Key Vault](../key-vault/general/network-security.md), serão necessárias etapas de configuração adicionais. Depois de criar o registro e habilitar a chave gerenciada pelo cliente, configure o acesso à chave usando a identidade gerenciada *atribuída pelo sistema* do registro e configure o registro para ignorar o firewall do Key Vault. Siga as etapas neste artigo primeiro para habilitar a criptografia com uma chave gerenciada pelo cliente e, em seguida, consulte as diretrizes para [cenário avançado: Key Vault firewall](#advanced-scenario-key-vault-firewall) mais adiante neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -372,7 +376,7 @@ Depois de habilitar uma chave gerenciada pelo cliente em um Registro, você pode
 
 ## <a name="rotate-key"></a>Girar a chave
 
-Gire uma chave gerenciada pelo cliente usada para criptografia do Registro para as políticas de conformidade. Crie uma chave ou atualize uma versão de chave e atualize o Registro para criptografar os dados usando a chave. Execute essas etapas usando a CLI do Azure ou no portal.
+Gire uma chave gerenciada pelo cliente usada para a criptografia do registro de acordo com suas políticas de conformidade. Crie uma chave ou atualize uma versão de chave e atualize o Registro para criptografar os dados usando a chave. Execute essas etapas usando a CLI do Azure ou no portal.
 
 Ao girar uma chave, normalmente, você especifica a mesma identidade usada ao criar o Registro. Opcionalmente, configure uma nova identidade atribuída ao usuário para o acesso à chave ou habilite e especifique a identidade atribuída ao sistema do registro.
 
@@ -439,9 +443,15 @@ az keyvault delete-policy \
 
 A revogação da chave efetivamente bloqueia o acesso a todos os dados do Registro, já que o Registro não pode acessar a chave de criptografia. Se o acesso à chave estiver habilitado ou a chave excluída for restaurada, o registro selecionará a chave para que você possa acessar novamente os dados de registro criptografados.
 
-## <a name="advanced-scenarios"></a>Cenários avançados
+## <a name="advanced-scenario-key-vault-firewall"></a>Cenário avançado: Key Vault firewall
 
-### <a name="system-assigned-identity"></a>Identidade atribuída pelo sistema
+Se o cofre de chaves do Azure for implantado em uma rede virtual com um firewall Key Vault, execute as etapas adicionais a seguir depois de habilitar a criptografia de chave gerenciada pelo cliente no registro.
+
+1. Configurar a criptografia do registro para usar a identidade atribuída pelo sistema do registro
+1. Habilitar o registro para ignorar o firewall Key Vault
+1. Girar a chave gerenciada pelo cliente
+
+### <a name="configure-system-assigned-identity"></a>Configurar identidade atribuída pelo sistema
 
 Configure a identidade gerenciada atribuída ao sistema de um Registro para acessar o cofre de chaves para as chaves de criptografia. Se você não estiver familiarizado com as diferentes identidades gerenciadas para recursos do Azure, confira a [visão geral](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -466,14 +476,18 @@ Para atualizar as configurações de criptografia do Registro para usar a identi
 1. Em **Configurações**, selecione **Criptografia** > **Alterar chave**.
 1. Em **Identidade**, selecione **Atribuído ao sistema** e **Salvar**.
 
-### <a name="key-vault-firewall"></a>Firewall do Key Vault
+### <a name="enable-key-vault-bypass"></a>Habilitar bypass do Key Vault
 
-Se o Azure Key Vault for implantado em uma rede virtual com um firewall do Key Vault, execute as seguintes etapas:
+Para acessar um cofre de chaves configurado com um firewall Key Vault, o registro deve ignorar o firewall. Configure o cofre de chaves para permitir o acesso por qualquer [serviço confiável](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). O registro de contêiner do Azure é um dos serviços confiáveis.
 
-1. Configure a criptografia do Registro para usar a identidade atribuída ao sistema do Registro. Confira a seção anterior.
-2. Configure o cofre de chaves para permitir o acesso por qualquer [serviço confiável](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
+1. No portal, navegue até o cofre de chaves.
+1. Selecione **configurações**  >  **rede**.
+1. Confirme, atualize ou adicione configurações de rede virtual. Para obter etapas detalhadas, confira [Configurar as redes virtuais e os firewalls do Azure Key Vault](../key-vault/general/network-security.md).
+1. Em **permitir que os serviços confiáveis da Microsoft ignorem esse firewall**, selecione **Sim**. 
 
-Para obter etapas detalhadas, confira [Configurar as redes virtuais e os firewalls do Azure Key Vault](../key-vault/general/network-security.md).
+### <a name="rotate-the-customer-managed-key"></a>Girar a chave gerenciada pelo cliente
+
+Depois de concluir as etapas anteriores, gire a chave para uma nova chave no cofre de chaves por trás de um firewall. Para obter as etapas, confira a [tecla girar](#rotate-key) neste artigo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

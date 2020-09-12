@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
-ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f415294c77b743996993f1f00be45e36f9d6002
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77587916"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660666"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Detecção avançada de ataques de multiestágio no Azure Sentinel
 
@@ -51,13 +51,13 @@ Os modelos de regra não são aplicáveis para a detecção avançada de ataques
 > [!NOTE]
 > Atualmente, o Azure Sentinel usa 30 dias de dados históricos para treinar os sistemas de aprendizado de máquina. Esses dados são sempre criptografados usando as chaves da Microsoft à medida que passam pelo pipeline do Machine Learning. No entanto, os dados de treinamento não serão criptografados usando [CMK (chaves gerenciadas pelo cliente)](customer-managed-keys.md) se você tiver habilitado o CMK em seu espaço de trabalho do Azure Sentinel. Para recusar a fusão, navegue até **Azure Sentinel**   \>  **Configuration**   \>  **Analytics \> regras ativas \> detecção de ataque avançado de multiestágio** e na coluna **status** , selecione **desabilitar.**
 
-## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion usando o Palo Alto Networks e o Microsoft defender ATP
+## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Fusion usando o Palo Alto Networks e o Microsoft defender for Endpoint (anteriormente Microsoft defender ATP)
 
-Esses cenários combinam dois dos logs fundamentais usados por analistas de segurança: logs de firewall de redes Palo Alto e logs de detecção de ponto de extremidade do Microsoft defender ATP. Em todos os cenários listados abaixo, uma atividade suspeita é detectada no ponto de extremidade que envolve um endereço IP externo e, em seguida, isso é seguido pelo tráfego anormal do endereço IP externo de volta para o firewall. Nos logs do Palo Alto, o Azure Sentinel se concentra nos [logs de ameaças](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando ameaças são permitidas (dados suspeitos, arquivos, inundações, pacotes, exames, spyware, URLs, vírus, vulnerabilidades, incêndio-vírus, Wildfires).
+Esses cenários combinam dois dos logs fundamentais usados por analistas de segurança: logs de firewall de redes Palo Alto e logs de detecção de ponto de extremidade do Microsoft defender para ponto de extremidade. Em todos os cenários listados abaixo, uma atividade suspeita é detectada no ponto de extremidade que envolve um endereço IP externo e, em seguida, isso é seguido pelo tráfego anormal do endereço IP externo de volta para o firewall. Nos logs do Palo Alto, o Azure Sentinel se concentra nos [logs de ameaças](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando ameaças são permitidas (dados suspeitos, arquivos, inundações, pacotes, exames, spyware, URLs, vírus, vulnerabilidades, incêndio-vírus, Wildfires).
 
 ### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Solicitação de rede para TOR o serviço de anonimato seguido pelo tráfego anormal sinalizado pelo firewall do Palo Alto Networks.
 
-Nesse cenário, o Azure Sentinel primeiro detecta um alerta que a proteção avançada contra ameaças do Microsoft defender detectou uma solicitação de rede para um serviço de anonimato TOR que leva à atividade anômala. Isso foi iniciado na conta {nome da conta} com a ID SID {Sid} às {time}. O endereço IP de saída para a conexão era {IndividualIp}.
+Nesse cenário, o Azure Sentinel primeiro detecta um alerta que o Microsoft defender para EndPoint (anteriormente Microsoft defender para ATP) detectou uma solicitação de rede para um serviço de anonimato TOR que leva à atividade anômala. Isso foi iniciado na conta {nome da conta} com a ID SID {Sid} às {time}. O endereço IP de saída para a conexão era {IndividualIp}.
 Em seguida, uma atividade incomum foi detectada pelo firewall do Palo Alto Networks em {TimeGenerated}. Isso indica que o tráfego mal-intencionado entrou na sua rede o endereço IP de destino para o tráfego de rede é {DestinationIP}.
 
 Este cenário está atualmente em visualização pública.
@@ -65,13 +65,13 @@ Este cenário está atualmente em visualização pública.
 
 ### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>O PowerShell fez uma conexão de rede suspeita seguida pelo tráfego anormal sinalizado pelo firewall do Palo Alto Networks.
 
-Nesse cenário, o Azure Sentinel primeiro detecta um alerta de que a proteção avançada contra ameaças do Microsoft defender detectou que o PowerShell fez uma conexão de rede suspeita que leva à atividade anômala que foi detectada por um firewall de rede Palo Alto. Isso foi iniciado pela conta {nome da conta} com a ID SID {Sid} às {time}. O endereço IP de saída para a conexão era {IndividualIp}. Em seguida, uma atividade incomum foi detectada pelo firewall do Palo Alto Networks em {TimeGenerated}. Isso indica que o tráfego mal-intencionado entrou na rede. O endereço IP de destino para o tráfego de rede é {DestinationIP}.
+Nesse cenário, o Azure Sentinel primeiro detecta um alerta que o Microsoft defender para EndPoint (anteriormente Microsoft defender para ATP) detectou que o PowerShell fez uma conexão de rede suspeita que levava a uma atividade anômala que foi detectada por um firewall de rede Palo Alto. Isso foi iniciado pela conta {nome da conta} com a ID SID {Sid} às {time}. O endereço IP de saída para a conexão era {IndividualIp}. Em seguida, uma atividade incomum foi detectada pelo firewall do Palo Alto Networks em {TimeGenerated}. Isso indica que o tráfego mal-intencionado entrou na rede. O endereço IP de destino para o tráfego de rede é {DestinationIP}.
 
 Este cenário está atualmente em visualização pública.
 
 ### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Conexão de saída com o IP com um histórico de tentativas de acesso não autorizado seguido pelo tráfego anormal sinalizado pelo firewall do Palo Alto Networks
 
-Nesse cenário, o Azure Sentinel detecta um alerta de que a proteção avançada contra ameaças do Microsoft defender detectou uma conexão de saída com um endereço IP com um histórico de tentativas de acesso não autorizadas que levam à atividade anômala detectada pelo firewall de redes Palo Alto. Isso foi iniciado pela conta {nome da conta} com a ID SID {Sid} às {time}. O endereço IP de saída para a conexão era {IndividualIp}. Depois disso, uma atividade incomum foi detectada pelo firewall do Palo Alto Networks em {TimeGenerated}. Isso indica que o tráfego mal-intencionado entrou na rede. O endereço IP de destino para o tráfego de rede é {DestinationIP}.
+Nesse cenário, o Azure Sentinel detecta um alerta de que o Microsoft defender para ponto de extremidade (anteriormente Microsoft defender para ATP) detectou uma conexão de saída com um endereço IP com um histórico de tentativas de acesso não autorizadas que levam à atividade anômala sendo detectada pelo firewall de redes Palo Alto. Isso foi iniciado pela conta {nome da conta} com a ID SID {Sid} às {time}. O endereço IP de saída para a conexão era {IndividualIp}. Depois disso, uma atividade incomum foi detectada pelo firewall do Palo Alto Networks em {TimeGenerated}. Isso indica que o tráfego mal-intencionado entrou na rede. O endereço IP de destino para o tráfego de rede é {DestinationIP}.
 
 Este cenário está atualmente em visualização pública.
 
@@ -97,7 +97,7 @@ Há sete possíveis incidentes do Azure Sentinel que combinam a viagem impossív
 
 - **Viagem impossível a locais atípicoss que levam ao Office 365 caixa de correio vazamento**
     
-    Esse alerta é uma indicação de um evento de entrada por \<*account name*> meio de uma viagem impossível para \<*location*> o, um local atípicos, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
+    Esse alerta é uma indicação de um evento de entrada por \<*account name*>  meio de uma viagem impossível para \<*location*> o, um local atípicos, seguido por uma regra de encaminhamento de caixa de entrada suspeita definida na caixa de entrada de um usuário.
     
     Isso pode indicar que a conta está comprometida e que a caixa de correio está sendo usada para exfiltrar informações de sua organização. O usuário \<*account name*> criou ou atualizou uma regra de encaminhamento de caixa de entrada que encaminha todo o email de entrada para o endereço externo \<*email address*> .
 

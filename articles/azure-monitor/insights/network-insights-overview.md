@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128668"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646571"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor para redes (visualização)
-O Azure Monitor para rede fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site simplesmente pesquisando o nome do site hospedado.
+O Azure Monitor para rede fornece uma visão abrangente da integridade e das métricas para todos os recursos de rede implantados sem nenhuma configuração. A capacidade de pesquisa avançada ajuda a identificar dependências de recursos que permitem cenários como identificar recursos que hospedam seu site pesquisando o nome do site hospedado.
 
 A página **visão geral** do Azure monitor for Networks fornece uma maneira fácil de visualizar o inventário de seus recursos de rede junto com os alertas e a integridade de recursos. Ele é dividido em quatro áreas funcionais principais:
 
@@ -52,11 +52,11 @@ A exibição de **dependência** ajuda a visualizar como o recurso é configurad
 
 ![Exibição do gateway de aplicativo](media/network-insights-overview/application-gateway.png)
 
-A exibição de **dependência** do gateway de aplicativo fornece uma visão simplificada de como os IPs de front-end são conectados aos ouvintes, às regras e ao pool de back-end. As bordas de conexão são codificadas por cores e fornecem detalhes adicionais com base na integridade do pool de back-end. A exibição também fornece uma exibição detalhada das métricas e métricas do gateway de aplicativo para todos os pools de back-end relacionados, como VMSS e instâncias de VM.
+A exibição de **dependência** do gateway de aplicativo fornece uma visão simplificada de como os IPs de front-end são conectados aos ouvintes, às regras e ao pool de back-end. As bordas de conexão são codificadas por cores e fornecem detalhes adicionais com base na integridade do pool de back-end. A exibição também fornece uma exibição detalhada das métricas e métricas do gateway de aplicativo para todos os pools de back-end relacionados, como o conjunto de dimensionamento de máquinas virtuais e as instâncias de máquina virtual.
 
 ![Exibição de dependência](media/network-insights-overview/dependency-view.png)
 
-O grafo de dependência permite a navegação fácil para as definições de configuração. Clique com o botão direito do mouse em um pool de back-end para acessar outras funcionalidades. Por exemplo, se o pool de back-end for uma VM, você poderá acessar diretamente as informações da VM e a conexão do observador de rede para identificar problemas de conectividade.
+O grafo de dependência permite a navegação fácil para as definições de configuração. Clique com o botão direito do mouse em um pool de back-end para acessar outras funcionalidades. Por exemplo, se o pool de back-ends for uma máquina virtual, você poderá acessar diretamente o Virtual Machine insights e a conexão do observador de rede para solucionar problemas de conectividade e identificar.
 
 ![Menu de exibição de dependência](media/network-insights-overview/dependency-view-menu.png)
 

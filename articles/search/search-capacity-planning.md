@@ -7,32 +7,48 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927197"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660316"
 ---
-# <a name="adjust-capacity-in-azure-cognitive-search"></a>Ajustar a capacidade no Azure Pesquisa Cognitiva
+# <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Ajustar a capacidade de um serviço de Pesquisa Cognitiva do Azure
 
-Antes de [provisionar um serviço de pesquisa](search-create-service-portal.md) e bloqueá-lo em um tipo de preço específico, reserve alguns minutos para entender a função de réplicas e partições em um serviço e como você pode ajustar um serviço para acomodar picos e quedas na demanda de recursos.
+Antes de [provisionar um serviço de pesquisa](search-create-service-portal.md) e bloqueá-lo em um tipo de preço específico, reserve alguns minutos para entender como a capacidade funciona e como você pode ajustar réplicas e partições para acomodar a flutuação de carga de trabalho.
 
-A capacidade é uma função da [camada escolhida](search-sku-tier.md) (camadas determinam as características de hardware) e a combinação de réplica e partição necessária para cargas de trabalho projetadas. Dependendo da camada e do tamanho do ajuste, adicionar ou reduzir a capacidade pode levar de 15 minutos a várias horas. 
+A capacidade é uma função da [camada escolhida](search-sku-tier.md) (camadas determinam as características de hardware) e a combinação de réplica e partição necessária para cargas de trabalho projetadas. Você pode aumentar ou diminuir o número de réplicas ou partições individualmente. Dependendo da camada e do tamanho do ajuste, adicionar ou reduzir a capacidade pode levar de 15 minutos a várias horas.
 
 Ao modificar a alocação de réplicas e partições, é recomendável usar o portal do Azure. O portal impõe limites para combinações permitidas que ficam abaixo dos limites máximos de uma camada. No entanto, se você precisar de uma abordagem de provisionamento baseada em script ou em código, o [Azure PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](/rest/api/searchmanagement/services) são soluções alternativas.
 
-## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e partições
+## <a name="concepts-search-units-replicas-partitions-shards"></a>Conceitos: unidades de pesquisa, réplicas, partições, fragmentos
 
-|||
-|-|-|
-|*Partições* | Fornecem armazenamento de índice e E/S para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice). Cada partição tem um compartilhamento do índice total. Se você alocar três partições, o índice será dividido em terços. |
-|*Réplicas* | Instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica é uma cópia de um índice. Se você alocar três réplicas, terá três cópias de um índice disponível para atender às solicitações de consulta.|
+A capacidade é expressa *em unidades de pesquisa* que podem ser alocadas em combinações de *partições* e *réplicas*, usando um mecanismo de *fragmentação* subjacente para dar suporte a configurações flexíveis:
+
+| Conceito  | Definição|
+|----------|-----------|
+|*Unidade de pesquisa* | Um único incremento da capacidade total disponível (36 unidades). Também é a unidade de cobrança para um serviço de Pesquisa Cognitiva do Azure. É necessário um mínimo de uma unidade para executar o serviço.|
+|*Réplica* | Instâncias do serviço de pesquisa, usadas principalmente para equilibrar a carga das operações de consulta. Cada réplica hospeda uma cópia de um índice. Se você alocar três réplicas, terá três cópias de um índice disponível para atender às solicitações de consulta.|
+|*Partição* | Armazenamento físico e e/s para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice). Cada partição tem uma fatia do índice total. Se você alocar três partições, o índice será dividido em terços. |
+|*Fragmentos* | Um bloco de um índice. O Azure Pesquisa Cognitiva divide cada índice em fragmentos para tornar o processo de adição de partições mais rápido (movendo fragmentos para novas unidades de pesquisa).|
+
+O diagrama a seguir mostra a relação entre réplicas, partições, fragmentos e unidades de pesquisa. Ele mostra um exemplo de como um único índice é estendido em quatro unidades de pesquisa em um serviço com duas réplicas e duas partições. Cada uma das quatro unidades de pesquisa armazena apenas metade dos fragmentos do índice. As unidades de pesquisa na coluna esquerda armazenam a primeira metade dos fragmentos, que compõem a primeira partição, enquanto aquelas na coluna direita armazenam a segunda metade dos fragmentos, que compõem a segunda partição. Como há duas réplicas, há duas cópias de cada fragmento de índice. As unidades de pesquisa na linha superior armazenam uma cópia, que inclui a primeira réplica, enquanto aquelas na linha inferior armazenam outra cópia, compostando a segunda réplica.
+
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Os índices de pesquisa são fragmentados entre partições.":::
+
+O diagrama acima é apenas um exemplo. Muitas combinações de partições e réplicas são possíveis, até um máximo de 36 unidades de pesquisa de total.
+
+No Pesquisa Cognitiva, o gerenciamento de fragmentos é um detalhe de implementação e não configurável, mas saber que um índice é fragmentado ajuda a entender as anomalias ocasionais em classificação e comportamentos de preenchimento automático:
+
++ A classificação de anomalias: as pontuações de pesquisa são calculadas primeiro no nível do fragmento e, em seguida, agregadas em um único conjunto de resultados. Dependendo das características do conteúdo do fragmento, as correspondências de um fragmento podem ter uma classificação maior do que as correspondências em outra. Se você observar classificações não intuitivas nos resultados da pesquisa, isso provavelmente ocorrerá devido aos efeitos da fragmentação, especialmente se os índices forem pequenos. Você pode evitar essas anomalias de classificação escolhendo [calcular pontuações globalmente em todo o índice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), mas isso incorrerá em uma penalidade de desempenho.
+
++ Anomalias de preenchimento automático: consultas de preenchimento automático, em que as correspondências são feitas nos primeiros vários caracteres de um termo parcialmente inserido, aceitam um parâmetro difuso que Forgives pequenos desvios na grafia. Para preenchimento automático, a correspondência difusa é restrita a termos dentro do fragmento atual. Por exemplo, se um fragmento contiver "Microsoft" e um termo parcial de "Micor" for inserido, o mecanismo de pesquisa corresponderá em "Microsoft" nesse fragmento, mas não em outros fragmentos que contenham as partes restantes do índice.
 
 ## <a name="when-to-add-nodes"></a>Quando adicionar nós
 
-Inicialmente, um serviço é alocado um nível mínimo de recursos que consistem em uma partição e uma réplica. 
+Inicialmente, um serviço é alocado um nível mínimo de recursos que consistem em uma partição e uma réplica.
 
 Um único serviço deve ter recursos suficientes para manipular todas as cargas de trabalho (indexação e consultas). Nenhuma carga de trabalho é executada em segundo plano. Você pode agendar a indexação para tempos em que as solicitações de consulta são naturalmente menos frequentes, mas o serviço não priorizará uma tarefa em vez de outra. Além disso, uma certa quantidade de redundância simplifica o desempenho da consulta quando os serviços ou nós são atualizados internamente.
 
@@ -59,7 +75,7 @@ Como regra geral, os aplicativos de pesquisa tendem a precisar de mais réplicas
 
    ![Adicionar réplicas e partições](media/search-capacity-planning/2-add-2-each.png "Adicionar réplicas e partições")
 
-1. Clique em **salvar** para confirmar as alterações.
+1. Selecione **salvar** para confirmar as alterações.
 
    ![Confirmar alterações de escala e cobrança](media/search-capacity-planning/3-save-confirm.png "Confirmar alterações de escala e cobrança")
 
@@ -91,7 +107,7 @@ Todos os serviços de pesquisa padrão e de armazenamento otimizados podem assum
 | **6 réplicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/D |
 | **12 réplicas** |12 SU |24 SU |36 SU |N/D |N/D |N/D |
 
-SUs, preço e capacidade são explicados detalhadamente no site do Azure. Para obter mais informações, consulte [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/).
+SUs, preço e capacidade são explicados detalhadamente no site do Azure. Para obter mais informações, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
 > O número de réplicas e partições divide de maneira uniforme em 12 (especificamente, 1, 2, 3, 4, 6 e 12). Isso ocorre porque o Azure Pesquisa Cognitiva divide cada índice em 12 fragmentos para que ele possa ser distribuído em partes iguais em todas as partições. Por exemplo, se o serviço tiver três partições e você criar um índice, cada partição conterá quatro fragmentos do índice. Como o Azure Pesquisa Cognitiva fragmenta um índice é um detalhe de implementação, sujeito a alterações em versões futuras. Embora o número seja 12 hoje, você não deve esperar que ele seja sempre 12 no futuro.

@@ -2,13 +2,13 @@
 title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086805"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535551"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -19,7 +19,9 @@ Para pequenas e médias soluções, um único modelo é mais fácil de entender 
 Para obter um tutorial, consulte [Tutorial: criar modelos vinculados do Azure Resource Manager](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> Para modelos vinculados ou aninhados, você só pode usar o modo de implantação [Incremental](deployment-modes.md).
+> Para modelos vinculados ou aninhados, você só pode definir o modo de implantação como [incremental](deployment-modes.md). No entanto, o modelo principal pode ser implantado no modo completo. Se você implantar o modelo principal no modo completo e o modelo vinculado ou aninhado tiver como alvo o mesmo grupo de recursos, os recursos implantados no modelo vinculado ou aninhado serão incluídos na avaliação para a implantação do modo completo. A coleção combinada de recursos implantados no modelo principal e em modelos vinculados ou aninhados é comparada com os recursos existentes no grupo de recursos. Todos os recursos não incluídos nessa coleção combinada são excluídos.
+>
+> Se o modelo vinculado ou aninhado tiver como alvo um grupo de recursos diferente, essa implantação usará o modo incremental.
 >
 
 ## <a name="nested-template"></a>Modelo aninhado
@@ -160,7 +162,7 @@ O modelo a seguir demonstra como as expressões de modelo são resolvidas de aco
 
 O valor de `exampleVar` alterações dependendo do valor da `scope` propriedade em `expressionEvaluationOptions` . A tabela a seguir mostra os resultados para ambos os escopos.
 
-| `expressionEvaluationOptions`com | Saída |
+| `expressionEvaluationOptions` com | Saída |
 | ----- | ------ |
 | interna | do modelo aninhado |
 | externo (ou padrão) | do modelo pai |
@@ -312,14 +314,9 @@ Ao fazer referência a um modelo vinculado, o valor de `uri` não deve ser um ar
 
 > [!NOTE]
 >
-> Você pode referenciar modelos usando parâmetros que, por fim, resolvem para algo que usa **http** ou **https**, por exemplo, usando o `_artifactsLocation` parâmetro da seguinte forma:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+> Você pode referenciar modelos usando parâmetros que, por fim, resolvem para algo que usa **http** ou **https**, por exemplo, usando o `_artifactsLocation` parâmetro da seguinte forma: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 O Resource Manager precisa ser capaz de acessar o modelo. Uma opção é colocar o modelo vinculado em uma conta de armazenamento e usar o URI do item.
-
-As [especificações de modelo](./template-specs.md) (atualmente em visualização privada) permitem que você compartilhe modelos de ARM com outros usuários em sua organização. As especificações de modelos também podem ser usadas para empacotar um modelo principal e seus modelos vinculados. Para obter mais informações, consulte:
-
-- [Tutorial: criar uma especificação de modelo com modelos vinculados](./template-specs-create-linked.md).
-- [Tutorial: implantar uma especificação de modelo como um modelo vinculado](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo vinculado
 
@@ -369,6 +366,15 @@ Para passar valores de parâmetro embutidos, use a propriedade **Parameters** .
 ```
 
 Você não pode usar os dois parâmetros inline e um link para um arquivo de parâmetros. A implementação falha com um erro quando `parametersLink` e `parameters` são especificados.
+
+## <a name="template-specs"></a>Especificações de modelo
+
+Em vez de manter seus modelos vinculados em um ponto de extremidade acessível, você pode criar uma [especificação de modelo](template-specs.md) que empacota o modelo principal e seus modelos vinculados em uma única entidade que você pode implantar. A especificação do modelo é um recurso em sua assinatura do Azure. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Você usa o RBAC (controle de acesso baseado em função) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
+
+Para obter mais informações, consulte:
+
+- [Tutorial: criar uma especificação de modelo com modelos vinculados](./template-specs-create-linked.md).
+- [Tutorial: implantar uma especificação de modelo como um modelo vinculado](./template-specs-deploy-linked-template.md).
 
 ## <a name="contentversion"></a>contentVersion
 
@@ -723,6 +729,9 @@ Embora o modelo vinculado precise estar disponível externamente, ele não preci
 O arquivo de parâmetro também pode ter o acesso limitado por meio de um token SAS.
 
 No momento, não é possível vincular a um modelo em uma conta de armazenamento que está atrás de um [Firewall de armazenamento do Azure](../../storage/common/storage-network-security.md).
+
+> [!IMPORTANT]
+> Em vez de proteger seu modelo vinculado com um token SAS, considere a criação de uma [especificação de modelo](template-specs.md). A especificação do modelo armazena com segurança o modelo principal e seus modelos vinculados como um recurso em sua assinatura do Azure. Você usa o RBAC para conceder acesso a usuários que precisam implantar o modelo.
 
 O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
 

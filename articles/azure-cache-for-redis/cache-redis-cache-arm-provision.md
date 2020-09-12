@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078411"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461231"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Criar um cache do Azure para Redis usando um modelo do Resource Manager
 
@@ -27,7 +27,7 @@ Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Assinatura do Azure**: Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Uma conta de armazenamento**: para criar uma, confira [criar uma conta de armazenamento do Azure](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). A conta de armazenamento é usada para dados de diagnóstico.
+* **Uma conta de armazenamento**: para criar uma, confira [criar uma conta de armazenamento do Azure](/azure/storage/common/storage-account-create?tabs=azure-portal). A conta de armazenamento é usada para dados de diagnóstico.
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
@@ -38,7 +38,7 @@ O modelo usado neste início rápido é proveniente dos [Modelos de Início Ráp
 Os seguintes recursos do Azure estão definidos no modelo:
 
 * [Microsoft. cache/Redis](/azure/templates/microsoft.cache/redis)
-* [Microsoft. insights/DiagnosticSettings](/azure/templates/diagnosticsettings)
+* [Microsoft. insights/DiagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 Os modelos do Resource Manager para a nova [camada Premium](cache-overview.md#service-tiers) também estão disponíveis.
 

@@ -3,12 +3,12 @@ title: Tipos de recurso com suporte por meio do Azure Resource Health | Microsof
 description: Tipos de recurso com suporte por meio do Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230153"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660649"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de integridade no Azure Resource Health
 Abaixo, temos uma lista completa de todas as verificações executadas por meio do Resource Health segundo o tipo do recurso.
@@ -51,7 +51,7 @@ Abaixo, temos uma lista completa de todas as verificações executadas por meio 
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/nome_do_domínio
 |Verificações executadas|
 |---|
-|<ul><li>A implantação do slot de produção está íntegra em todas as instâncias de função?</li><li>A função está íntegra em todas as suas instâncias de VM?</li><li>Qual é o status de integridade de cada VM em uma função de um serviço de nuvem?</li><li>O status da VM foi alterado devido à operação iniciada pela plataforma ou pelo cliente?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host foi degradado e previsto para falhar em breve?</li></ul>|
+|<ul><li>A implantação do slot de produção está íntegra em todas as instâncias de função?</li><li>A função está íntegra em todas as suas instâncias de VM?</li><li>Qual é o status de integridade de cada VM em uma função de um serviço de nuvem?</li><li>O status da VM foi alterado devido à operação iniciada pela plataforma ou pelo cliente?</li><li>A inicialização do SO convidado foi concluída?</li><li>Há manutenção planejada contínua?</li><li>O hardware do host foi degradado e previsto para falhar em breve?</li><li>[Saiba mais](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) sobre as verificações executadas</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Verificações executadas|

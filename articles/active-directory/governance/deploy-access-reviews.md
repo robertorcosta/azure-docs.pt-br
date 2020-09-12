@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011337"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461027"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
 
@@ -93,7 +93,7 @@ Para as revisões de acesso, você provavelmente incluirá os representantes das
 
 * A **Administração de ti** gerencia sua infraestrutura de ti e administra seus investimentos em nuvem e aplicativos SaaS (software como serviço). Essa equipe irá:
 
-   * Examine o acesso privilegiado a infraestrutura e aplicativos, incluindo o Office 365 e o Azure AD.
+   * Examine o acesso privilegiado a infraestrutura e aplicativos, incluindo o Microsoft 365 e o Azure AD.
 
    * Agende e execute revisões de acesso em grupos que são usados para manter listas de exceções ou projetos de piloto de ti, para manter listas de acesso atualizadas.
 
@@ -180,7 +180,7 @@ Os destinos típicos para análise incluem:
 
 * [Aplicativos integrados ao Azure ad para logon único](../manage-apps/what-is-application-management.md) (como SaaS, linha de negócios).
 
-* [Associação](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) de grupo (sincronizada com o Azure ad ou criada no Azure ad ou no Office 365, incluindo o Microsoft Teams).
+* [Associação](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) de grupo (sincronizada com o Azure ad ou criada no Azure ad ou Microsoft 365, incluindo Microsoft Teams).
 
 * O [pacote do Access](/azure/active-directory/governance/entitlement-management-overview) que agrupa recursos (grupos, aplicativos e sites) em um único pacote para gerenciar o acesso.
 
@@ -192,10 +192,10 @@ A função administrativa necessária para criar, gerenciar ou ler uma revisão 
 
 | Tipo de recurso| Criar e gerenciar revisões de acesso (criadores)| Ler resultados da revisão de acesso |
 | - | - | -|
-| Grupo ou aplicativo| Administrador global <p>Administrador de usuários| Criadores e administrador de segurança |
-| Funções com privilégios no Azure AD| Administrador global <p>Administrador de função com privilégios| Criadores <p>Leitor de segurança<p>Administrador de Segurança |
-| Funções com privilégios no Azure (recursos)| Administrador global<p>Administrador de usuários<p>Proprietário do recurso| Criadores |
-| Pacote de acesso| Administrador global<p>Criador do pacote de acesso| Somente administrador global |
+| Grupo ou aplicativo| Administrador Global <p>Administrador de usuários| Criadores e administrador de segurança |
+| Funções com privilégios no Azure AD| Administrador Global <p>Administrador de função com privilégios| Criadores <p>Leitor de segurança<p>Administrador de Segurança |
+| Funções com privilégios no Azure (recursos)| Administrador Global<p>Administrador de usuários<p>Proprietário do recurso| Criadores |
+| Pacote de acesso| Administrador Global<p>Criador do pacote de acesso| Somente administrador global |
 
 
 Para obter mais informações, consulte [Permissões da função de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
@@ -304,7 +304,7 @@ Abra a guia ciclo de vida para rolar para baixo até revisões de acesso.
 
 ## <a name="plan-access-reviews-for-groups"></a>Planejar revisões de acesso para grupos
 
-Além de pacotes de acesso, a revisão da Associação de grupo é a maneira mais eficiente de controlar o acesso. É recomendável que o acesso aos recursos seja atribuído por [grupos de segurança ou grupos do Office 365](../fundamentals/active-directory-manage-groups.md)e que os usuários sejam adicionados a esses grupos para obter acesso.
+Além de pacotes de acesso, a revisão da Associação de grupo é a maneira mais eficiente de controlar o acesso. É recomendável que o acesso aos recursos seja atribuído por [grupos de segurança ou grupos de Microsoft 365](../fundamentals/active-directory-manage-groups.md)e que os usuários sejam adicionados a esses grupos para obter acesso.
 
 Um único grupo pode receber acesso a todos os recursos apropriados. Você pode atribuir o acesso de grupo a recursos individuais ou a um pacote de acesso que agrupa aplicativos e outros recursos. Com esse método, você pode examinar o acesso ao grupo em vez do acesso de um indivíduo a cada aplicativo. 
 
@@ -322,9 +322,9 @@ A associação de grupo pode ser revisada por:
 
 Recomendamos que os proprietários do grupo examinem a associação, pois eles estão mais bem situados para saber quem precisa de acesso. A propriedade de grupos difere com o tipo de Grupo:
 
-Os grupos criados no Office 365 e no Azure AD têm um ou mais proprietários bem definidos. Na maioria dos casos, esses proprietários fazem revisores perfeitos para seus próprios grupos, pois sabem quem deve ter acesso. 
+Os grupos criados no Microsoft 365 e no Azure AD têm um ou mais proprietários bem definidos. Na maioria dos casos, esses proprietários fazem revisores perfeitos para seus próprios grupos, pois sabem quem deve ter acesso. 
 
-Por exemplo, o Microsoft Teams usa grupos do Office 365 como o modelo de autorização subjacente para conceder aos usuários acesso a recursos que estão no SharePoint, Exchange, OneNote ou outros serviços do Office 365. O criador da equipe se torna automaticamente um proprietário e deve ser responsável por atestar a associação do grupo. 
+Por exemplo, o Microsoft Teams usa grupos de Microsoft 365 como o modelo de autorização subjacente para conceder aos usuários acesso a recursos que estão no SharePoint, Exchange, OneNote ou outros serviços Microsoft 365. O criador da equipe se torna automaticamente um proprietário e deve ser responsável por atestar a associação do grupo. 
 
 Os grupos criados manualmente no portal do Azure AD ou por meio de scripts por meio de Microsoft Graph podem não necessariamente ter proprietários definidos. Recomendamos que você os defina por meio do portal do AD do Azure na seção "proprietários" do grupo ou por meio do grafo.
 
@@ -393,7 +393,7 @@ O [Privileged Identity Management (PIM)](../privileged-identity-management/pim-c
 
 As revisões de acesso permitem que os revisores atestam se os usuários ainda precisam estar em uma função. Assim como as revisões de acesso para pacotes de acesso, as revisões para funções do Azure AD e recursos do Azure são integradas à experiência do usuário de administrador do PIM. Recomendamos que você revise as seguintes atribuições de função regularmente:
 
-* Administrador global
+* Administrador Global
 
 * Administrador de usuários
 
@@ -403,7 +403,7 @@ As revisões de acesso permitem que os revisores atestam se os usuários ainda p
 
 * Administrador de Segurança
 
-* Todas as funções de administração de serviço do Office 365 e Dynamics
+* Todas as funções de administração de serviço Microsoft 365 e Dynamics
 
 As funções selecionadas aqui incluem função permanente e qualificada. 
 

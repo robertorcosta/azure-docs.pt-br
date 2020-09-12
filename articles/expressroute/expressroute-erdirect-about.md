@@ -2,17 +2,17 @@
 title: Sobre o Azure ExpressRoute Direct
 description: Saiba mais sobre os principais recursos do Azure ExpressRoute Direct e as informações necessárias para carregar o ExpressRoute Direct, como SKUs disponíveis e requisitos técnicos.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jaredro
-ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192358"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566391"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
@@ -35,7 +35,7 @@ Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatur
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute usando um provedor de serviços e ExpressRoute Direct
 
-| **ExpressRoute usando um provedor de serviços** | **ExpressRoute direto** | 
+| **ExpressRoute usando um provedor de serviços** | **ExpressRoute Direct** | 
 | --- | --- |
 | Utiliza provedores de serviços para permitir integração e conectividade rápidas na infraestrutura existente | Requer infraestrutura de 100 Gbps/10 Gbps e gerenciamento completo de todas as camadas
 | Integra-se a centenas de fornecedores, inclusive Ethernet e MPLS | Capacidade direta/dedicada para setores regulamentados e ingestão de dados em massa |
@@ -44,7 +44,7 @@ Antes de usar o ExpressRoute Direct, você deve primeiro registrar sua assinatur
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos do ExpressRoute Direct
 
-O Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure e Office 365.
+O Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Microsoft Azure e Microsoft 365.
 
 Cada localização de emparelhamento tem acesso à rede global da Microsoft e pode acessar qualquer região em uma zona geopolítica por padrão e todas as regiões globais com um circuito Premium.  
 

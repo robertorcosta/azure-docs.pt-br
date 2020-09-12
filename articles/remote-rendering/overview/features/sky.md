@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2a871e409761116182f67eb877f3727038fe0dc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013632"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613754"
 ---
 # <a name="sky-reflections"></a>Reflexos do céu
 
@@ -28,8 +28,8 @@ As imagens abaixo mostram os resultados da iluminação de superfícies diferent
 
 | Irregularidade  | 0                                        | 0,25                                          | 0.5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| Não metal  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
-| Metal      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+| Não metal  | ![Interelétrica, áspero = 0](media/dielectric-0.png)   | ![Interelétrica, áspero = 0,25](media/dielectric-0.25.png)  | ![Interelétrica, irregularidade = 0,5](media/dielectric-0.5.png)  | ![Interelétrica, áspero = 0,75](media/dielectric-0.75.png)  | ![Interelétrica, áspero = 1](media/dielectric-1.png)  |
+| Metal      | ![Metal, áspero = 0](media/metallic-0.png)  | ![Metal, áspero = 0,25](media/metallic-0.25.png)    | ![Metal, áspero = 0,5](media/metallic-0.5.png)    | ![Metal, áspero = 0,75](media/metallic-0.75.png)    | ![Metal, áspero = 1](media/metallic-1.png)    |
 
 Para mais informações sobre o modelo de iluminação, veja o capítulo de [materiais](../../concepts/materials.md).
 
@@ -84,7 +84,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
             }
             else
             {
-                printf("Texture loading failed!");
+                printf("Texture loading failed!\n");
             }
         });
 }
@@ -121,20 +121,25 @@ O Azure Remote Rendering fornece alguns mapas de ambiente integrados que estão 
 
 |Identificador                         | Descrição                                              | Ilustração                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Variedade de luzes de faixa, iluminação de base brilhante em ambientes internos    | ![Autoshop](media/autoshop.png)
-|builtin://BoilerRoom               | Configuração de luz brilhante em ambiente interno, luzes de várias janelas      | ![BoilerRoom](media/boiler-room.png)
-|builtin://ColorfulStudio           | Luzes coloridas variadas de acordo com a configuração de mídia óptica do meio  | ![ColorfulStudio](media/colorful-studio.png)
-|builtin://Hangar                   | Luz ambiente moderadamente brilhante de hall                     | ![SmallHangar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Configuração de ambiente interno tremeluzente com contraste escuro              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Luz ambiente em cômodo durante o dia, luz brilhante em área de janela     | ![Lebombo](media/lebombo.png)
-|builtin://SataraNight              | Céu de noite escura e solo com muitas luzes ao redor   | ![SataraNight](media/satara-night.png)
-|builtin://SunnyVondelpark          | Luz do sol brilhante e contraste da sombra                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Luz no céu clara com iluminação moderada no solo            | ![Syferfontein](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Sol e sombra moderadamente variados                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Luz do pôr do sol se aproximando do anoitecer                    | ![VeniceSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Tom claro, verde exuberante e tons de luz branca, solo escurecido | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | Dia com luz ambiente brilhante no solo                 | ![WinterRiver](media/winter-river.png)
-|builtin://DefaultSky               | O mesmo que TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | Variedade de luzes de faixa, iluminação de base brilhante em ambientes internos    | ![Skybox do autoshop usado para leve um objeto](media/autoshop.png)
+|builtin://BoilerRoom               | Configuração de luz brilhante em ambiente interno, luzes de várias janelas      | ![BoilerRoom Skybox costumava acender um objeto](media/boiler-room.png)
+|builtin://ColorfulStudio           | Luzes coloridas variadas de acordo com a configuração de mídia óptica do meio  | ![ColorfulStudio Skybox costumava acender um objeto](media/colorful-studio.png)
+|builtin://Hangar                   | Luz ambiente moderadamente brilhante de hall                     | ![SmallHangar Skybox costumava acender um objeto](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Configuração de ambiente interno tremeluzente com contraste escuro              | ![IndustrialPipeAndValve Skybox costumava acender um objeto](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Luz ambiente em cômodo durante o dia, luz brilhante em área de janela     | ![Lebombo Skybox costumava acender um objeto](media/lebombo.png)
+|builtin://SataraNight              | Céu de noite escura e solo com muitas luzes ao redor   | ![SataraNight Skybox costumava acender um objeto](media/satara-night.png)
+|builtin://SunnyVondelpark          | Luz do sol brilhante e contraste da sombra                      | ![SunnyVondelpark Skybox costumava acender um objeto](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Luz no céu clara com iluminação moderada no solo            | ![Syferfontein Skybox costumava acender um objeto](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Sol e sombra moderadamente variados                         | ![TearsOfSteelBridge Skybox costumava acender um objeto](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Luz do pôr do sol se aproximando do anoitecer                    | ![VeniceSunset Skybox costumava acender um objeto](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Tom claro, verde exuberante e tons de luz branca, solo escurecido | ![WhippleCreekRegionalPark Skybox costumava acender um objeto](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Dia com luz ambiente brilhante no solo                 | ![WinterRiver Skybox costumava acender um objeto](media/winter-river.png)
+|builtin://DefaultSky               | O mesmo que TearsOfSteelBridge                               | ![DefaultSky Skybox costumava acender um objeto](media/tears-of-steel-bridge.png)
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Propriedade C# Remotemanager. SkyReflectionSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [C++ Remotomanager:: SkyReflectionSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
 ## <a name="next-steps"></a>Próximas etapas
 

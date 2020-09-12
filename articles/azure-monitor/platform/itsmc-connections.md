@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 57a981f4967bc58ca39067f94abdcf64d764ab87
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035018"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536184"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](./itsmc-overview.md).
@@ -298,6 +298,10 @@ Depois que o usuário é criado com êxito, o status de **lista de verificação
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto Provance ao ITSMC no Azure.
 
+> [!NOTE]
+> 
+> A partir de 1-out-2020 Provance, a integração de ITSM com o alerta do Azure não será mais habilitada para novos clientes. Não haverá suporte para novas conexões de ITSM. 
+> Haverá suporte para conexões de ITSM existentes.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -352,6 +356,11 @@ Saiba mais: [Criar itens de trabalho de ITSM a partir de alertas do Azure](./its
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto Cherwell ao ITSMC no Azure.
 
+> [!NOTE]
+> 
+> A partir de 1-out-2020 Cherwell, a integração de ITSM com o alerta do Azure não será mais habilitada para novos clientes. Não haverá suporte para novas conexões de ITSM. 
+> Haverá suporte para conexões de ITSM existentes.
+
 ### <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se os seguintes pré-requisitos foram atendidos:
@@ -362,7 +371,7 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 
 ### <a name="connection-procedure"></a>Procedimento de Conexão
 
-Use o procedimento a seguir para criar uma conexão do Provance:
+Use o procedimento a seguir para criar uma conexão do Cherwell:
 
 1. No portal do Azure, acesse **Todos os Recursos** e procure **ServiceDesk(YourWorkspaceName)**
 

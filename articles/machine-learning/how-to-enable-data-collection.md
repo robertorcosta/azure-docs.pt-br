@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3ece750ab63c2c8e33fbfb46739eec55de4f5d07
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320180"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646063"
 ---
 # <a name="collect-data-from-models-in-production"></a>Coletar dados de modelos em produção
 
@@ -67,11 +67,11 @@ O caminho para os dados de saída no blob segue esta sintaxe:
 
 - Você precisa de um cluster AKS. Para obter informações sobre como criar um e implantá-lo, consulte [como implantar e onde](how-to-deploy-and-where.md).
 
-- [Configure seu ambiente](how-to-configure-environment.md) e instale o [SDK de monitoramento de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+- [Configure seu ambiente](how-to-configure-environment.md) e instale o [SDK de monitoramento de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 ## <a name="enable-data-collection"></a>Habilitar coleta de dados
 
-Você pode habilitar a [coleta de dados](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) independentemente do modelo implantado por meio de Azure Machine Learning ou outras ferramentas.
+Você pode habilitar a [coleta de dados](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py&preserve-view=true) independentemente do modelo implantado por meio de Azure Machine Learning ou outras ferramentas.
 
 Para habilitar a coleta de dados, você precisa:
 
@@ -149,7 +149,7 @@ Você pode escolher uma ferramenta de sua preferência para analisar os dados co
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a>Analisar dados de modelo usando Power BI
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a> Analisar dados de modelo usando Power BI
 
 1. Baixe e abra [Power bi desktop](https://www.powerbi.com).
 
@@ -185,7 +185,7 @@ Você pode escolher uma ferramenta de sua preferência para analisar os dados co
 
 1. Comece a criar relatórios personalizados em seus dados de modelo.
 
-### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a>Analisar dados de modelo usando Azure Databricks
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Analisar dados de modelo usando Azure Databricks
 
 1. Crie um [espaço de trabalho Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 

@@ -3,12 +3,12 @@ title: Configurar um contêiner personalizado do Linux
 description: Saiba como configurar um contêiner personalizado do Linux no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 2f26f1b041b2d369b68aeb11755c8e8053862b16
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9a27abe5457cf8adf2963db545c629134ae53709
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082892"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566969"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar um contêiner personalizado do Linux para o serviço Azure App
 
@@ -54,7 +54,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 O SSH permite a comunicação segura entre um contêiner e um cliente. Para que um contêiner personalizado dê suporte ao SSH, você deve adicioná-lo no próprio Dockerfile.
 
 > [!TIP]
-> Todos os contêineres internos do Linux adicionaram as instruções de SSH em seus repositórios de imagem. Você pode percorrer as instruções a seguir com o [repositórioNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como ele está habilitado lá.
+> Todos os contêineres internos do Linux adicionaram as instruções de SSH em seus repositórios de imagem. Você pode percorrer as instruções a seguir com o [ repositórioNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como ele está habilitado lá.
 
 - Use a instrução [Run](https://docs.docker.com/engine/reference/builder/#run) para instalar o servidor SSH e definir a senha da conta raiz como `"Docker!"` . Por exemplo, para uma imagem baseada em [Alpine Linux](https://hub.docker.com/_/alpine), você precisa dos seguintes comandos:
 
@@ -88,7 +88,7 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Para que 
     /usr/sbin/sshd
     ```
 
-    Para obter um exemplo, consulte como o [contêiner padrãoNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) inicia o servidor SSH.
+    Para obter um exemplo, consulte como o [ contêiner padrãoNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) inicia o servidor SSH.
 
 ## <a name="access-diagnostic-logs"></a>Acessar logs de diagnóstico
 
@@ -147,6 +147,7 @@ No momento, vários contêineres estão em versão prévia. Os seguintes recurso
 
 - Autenticação/Autorização
 - Identidades gerenciadas
+- CORS
 
 ### <a name="docker-compose-options"></a>Opções de Docker Compose
 

@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998064"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461503"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de Azure Machine Learning de conjunto de os conjuntos de valores abertos do Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,7 +111,7 @@ Você também pode criar conjuntos de dados Azure Machine Learning de conjuntos 
 
     ![Escolher conjunto de um](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Escolha um nome sob o qual registrar o conjunto de dados e, opcionalmente, filtre-os usando os filtros disponíveis. Nesse caso, para o conjunto de data de **feriados públicos** , você filtra o período de tempo para um ano e o código do país apenas para os EUA. Confira o catálogo de conjuntos de dados [abertos do Azure](https://azure.microsoft.com/services/op[en-datasets/catalog/) para obter detalhes sobre como, descrições de campos e intervalos de datas. Selecione **Criar**.
+1. Escolha um nome sob o qual registrar o conjunto de dados e, opcionalmente, filtre-os usando os filtros disponíveis. Nesse caso, para o conjunto de data de **feriados públicos** , você filtra o período de tempo para um ano e o código do país apenas para os EUA. Confira o catálogo de conjuntos de dados [abertos do Azure](https://azure.microsoft.com/services/open-datasets/catalog) para obter detalhes sobre como, descrições de campos e intervalos de datas. Selecione **Criar**.
 
     ![Definir parâmetros de conjunto de DataSet e criar conjunto de um](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

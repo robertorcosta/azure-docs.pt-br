@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343099"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567105"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 
@@ -39,9 +39,17 @@ A experiência de criação visual padrão está trabalhando diretamente com o s
 
 Para recursos de nível superior, como pipelines, conjuntos de dados e fluxos de dados, as propriedades de alto nível são editáveis no painel Propriedades, no lado direito da tela. O painel Propriedades contém nome, descrição, anotações e outras propriedades de alto nível. Os sub-recursos, como atividades de pipeline e transformações de fluxo de dados, são editados usando o painel na parte inferior da tela. 
 
-![Tela de criação](media/author-visually/properties-pane.png)
+![painel Propriedades](media/author-visually/properties-pane.png)
 
 O painel Propriedades só é aberto, por padrão, na criação de recursos. Para editá-lo, clique no ícone do painel Propriedades localizado no canto superior direito da tela.
+
+### <a name="related-resources"></a>Recursos relacionados
+
+No painel Propriedades, você pode ver quais recursos dependem do recurso selecionado selecionando a guia **relacionado** . Qualquer recurso que referencie o recurso atual será listado aqui.
+
+![Recursos relacionados](media/author-visually/related-resources.png)
+
+Por exemplo, na imagem acima, um pipeline e dois fluxos de dados usam o DataSet selecionado no momento.
 
 ## <a name="management-hub"></a>Hub de gerenciamento
 

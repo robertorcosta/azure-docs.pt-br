@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d7a2596d4f6a8aa9fb4c95dfb5a3ccab7d7206f3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75386911"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461299"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Perguntas frequentes sobre problemas de aplicativo e disponibilidade de serviço para Serviços de Nuvem do Azure
 
@@ -33,7 +33,7 @@ Aproximadamente uma vez por mês, a Microsoft libera uma nova versão do SO Conv
 
 Para obter detalhes completos sobre atualizações recentes do SO Convidado, consulte [Versões do SO Convidado do Azure e matriz de compatibilidade do SDK](cloud-services-guestos-update-matrix.md).
 
-Para obter informações úteis sobre reinicializações e ponteiros para detalhes técnicos de atualizações do SO Host e Convidado, consulte a publicação de blog do MSDN [Reinicializações de instância de função devido a atualizações do SO](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+Para obter informações úteis sobre reinicializações e ponteiros para detalhes técnicos de atualizações do SO Host e Convidado, consulte a publicação de blog do MSDN [Reinicializações de instância de função devido a atualizações do SO](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades).
 
 ## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Por que a primeira solicitação para meu serviço de nuvem depois de o serviço ter ficado ocioso por algum tempo demora mais que o normal?
 Quando o Servidor Web recebe a primeira solicitação, ele primeiro recompila o código e então processa a solicitação. É por isso que a primeira solicitação demora mais do que as outras. Por padrão, o pool de aplicativos é desligado em casos de inatividade do usuário. O pool do aplicativo também é reciclado por padrão a cada 1.740 minutos (29 horas).

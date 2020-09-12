@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: ca76ec5bef1d908ca3cea6ce0f58b1205c1676ca
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: da48b593b8f645566b2f9775fabc5d8e62e625b6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144083"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661568"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>Enviar uma execução de treinamento para um destino de computação
 
@@ -31,7 +31,7 @@ Tudo o que você precisa fazer é definir o ambiente para cada destino de comput
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje
-* O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md), `ws`
 * Um destino de computação, `my_compute_target` .  Crie um destino de computação com:
   * [SDK do Python](how-to-create-attach-compute-sdk.md) 
@@ -39,11 +39,11 @@ Tudo o que você precisa fazer é definir o ambiente para cada destino de comput
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>O que é uma configuração de execução de script?
 
-Você envia seu teste de treinamento com um objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) .  Esse objeto inclui:
+Você envia seu teste de treinamento com um objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) .  Esse objeto inclui:
 
 * **source_directory**: o diretório de origem que contém o script de treinamento
 * **script**: identificar o script de treinamento
-* **run_config**: a [configuração de execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py), que, por sua vez, define onde o treinamento ocorrerá. No `run_config` , você especifica o destino de computação e o ambiente a ser usado ao executar o script de treinamento.  
+* **run_config**: a [configuração de execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true), que, por sua vez, define onde o treinamento ocorrerá. No `run_config` , você especifica o destino de computação e o ambiente a ser usado ao executar o script de treinamento.  
 
 ## <a name="whats-an-environment"></a>O que é um ambiente?
 
@@ -167,7 +167,7 @@ Veja estes notebooks para obter exemplos de treinamento com vários destinos de 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
-* Saiba como [ajustar hiperparâmetros de modo eficiente](how-to-tune-hyperparameters.md) para criar modelos melhores.
+* Saiba como [ajustar os hiperparâmetros com eficiência](how-to-tune-hyperparameters.md) para criar modelos melhores.? View = Azure-ml-py&preserve-View = true)
 * Quando você tiver um modelo treinado, aprenda [como e em que local implantar modelos](how-to-deploy-and-where.md).
-* Exiba a referência do SKD da [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
+* Exiba a referência do SKD da [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py&preserve-view=true).
 * [Usar o Azure Machine Learning com Redes Virtuais do Azure](how-to-enable-virtual-network.md)

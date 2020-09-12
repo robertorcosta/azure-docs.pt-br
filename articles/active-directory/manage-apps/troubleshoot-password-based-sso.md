@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas de logon único baseado em senha no Azure AD
-description: Como solucionar problemas com um aplicativo do Azure AD configurado para logon único baseado em senha.
+title: Solucionar problemas de logon único baseado em senha no Azure Active Directory
+description: Solucionar problemas com um aplicativo do Azure AD configurado para logon único baseado em senha.
 author: kenwith
 manager: celestedg
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 436fbdde1283bd8406e631fd37b559bfe11e234e
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051892"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460347"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Solucionar problemas de logon único baseado em senha no Azure AD
 
@@ -87,7 +87,7 @@ Em geral, se a captura automática do campo de entrada não funcionar, tente a o
 ### <a name="automatically-capture-sign-in-fields-for-an-app"></a>Capturar automaticamente os campos de entrada para um aplicativo
 
 Para configurar o SSO baseado em senha usando a captura automática de campo de entrada, siga estas etapas:
-1. Abra o [portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
+1. Abra o [Portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
 2. No painel de navegação no lado esquerdo, selecione **todos os serviços** para abrir a extensão do Azure AD.
 3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
@@ -106,7 +106,7 @@ Para configurar o SSO baseado em senha usando a captura automática de campo de 
 Para capturar manualmente os campos de entrada, você deve ter a extensão de navegador meus aplicativos instalada. Além disso, seu navegador não pode ser executado no modo *InPrivate*, *Incognito*ou *Private* .
 
 Para configurar o SSO baseado em senha para um aplicativo usando a captura de campo de entrada manual, siga estas etapas:
-1. Abra o [portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
+1. Abra o [Portal do Azure](https://portal.azure.com/). Entre como um administrador global ou coadministrador.
 2. No painel de navegação no lado esquerdo, selecione **todos os serviços** para abrir a extensão do Azure AD.
 3. Digite **Azure Active Directory** na caixa de pesquisa de filtro e, em seguida, selecione **Azure Active Directory**.
 4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.

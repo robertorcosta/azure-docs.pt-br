@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708833"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658730"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>O que é um pool de Instância Gerenciada do Azure SQL (versão prévia)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,6 +79,7 @@ Há várias limitações de recursos em relação a pools de instância e instâ
 - Além dos limites de nível de instância, há também dois limites impostos *no nível do pool de instâncias*:
   - Tamanho total do armazenamento por pool (8 TB).
   - Número total de bancos de dados por pool (100).
+- Não é possível definir o administrador do AAD para as instâncias implantadas dentro do pool de instâncias, portanto, a autenticação do AAD não pode ser usada.
 
 A alocação de armazenamento total e o número de bancos de dados em todas as instâncias devem ser menores ou iguais aos limites expostos por pools de instância.
 
@@ -108,7 +109,7 @@ Cada instância gerenciada implantada em um pool tem uma instância separada do 
 
 Recursos opcionais ou recursos que exigem a escolha de valores específicos (como agrupamento em nível de instância, fuso horário, ponto de extremidade público para tráfego de dados, grupos de failover) são configurados no nível de instância e podem ser diferentes para cada instância em um pool.
 
-## <a name="performance-considerations"></a>Considerações sobre o desempenho
+## <a name="performance-considerations"></a>Considerações sobre desempenho
 
 Embora as instâncias gerenciadas nos pools tenham vCore e RAM dedicados, elas compartilham o disco local (para uso de tempdb) e os recursos de rede. Não é provável, mas é possível experimentar o efeito *vizinho ruidosa* se várias instâncias no pool tiverem alto consumo de recursos ao mesmo tempo. Se você observar esse comportamento, considere implantar essas instâncias em um pool maior ou como instâncias únicas.
 

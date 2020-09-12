@@ -1,5 +1,5 @@
 ---
-title: Visualizar dados no Gerenciador do TSI-Azure Time Series Insights Gen2 | Microsoft Docs
+title: Visualizar dados no Time Series Insights Explorer-Azure Time Series Insights Gen2 | Microsoft Docs
 description: Saiba mais sobre os recursos e as opções disponíveis no Azure Time Series Insights Explorer.
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0933e34e5bdd8469b827ed03c0eff51a4ecba0d5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227042"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488160"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Gerenciador do Azure Time Series Insights
 
@@ -47,7 +47,7 @@ O Azure Time Series Insights Explorer consiste nos seguintes sete elementos:
 
 ## <a name="1-environment-panel"></a>1. painel de ambiente
 
-O painel ambiente exibe todos os Azure Time Series Insights ambientes Gen2 aos quais você tem acesso. A lista inclui ambientes Gen2, bem como ambientes Gen 1. Basta selecionar o ambiente que você deseja usar para ser usado imediatamente.
+O painel ambiente exibe todos os Azure Time Series Insights ambientes Gen2 aos quais você tem acesso. A lista inclui ambientes Gen2, bem como ambientes Gen1. Basta selecionar o ambiente que você deseja usar para ser usado imediatamente.
 
 1. Selecione a seta suspensa ao lado do seu ambiente exibido.
 
@@ -200,11 +200,11 @@ O Azure Time Series Insights Explorer dá suporte a dois temas:
 
   [![Tema escuro selecionado](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## <a name="gen-1-environment-controls"></a>Controles de ambiente Gen 1
+## <a name="gen1-environment-controls"></a>Controles de ambiente Gen1
 
 ### <a name="gen2-terms-panel"></a>Painel de termos do Gen2
 
-Esta seção se aplica somente a ambientes Gen 1 existentes que tentam usar o Gerenciador na interface do usuário atualizada. Talvez você queira usar o produto Gen 1 e o produto Gen2 em combinação. Adicionamos algumas funcionalidades da interface do usuário existente ao Gerenciador atualizado, mas você pode obter a experiência de interface do usuário completa para um ambiente Gen 1 no novo Azure Time Series Insights Explorer.
+Esta seção se aplica somente a ambientes Gen1 existentes que tentam usar o Gerenciador na interface do usuário atualizada. Talvez você queira usar o produto Gen1 e o produto Gen2 em combinação. Adicionamos algumas funcionalidades da interface do usuário existente ao Gerenciador atualizado, mas você pode obter a experiência de interface do usuário completa para um ambiente Gen1 no novo Azure Time Series Insights Explorer.
 
 Em vez da hierarquia, o painel Azure Time Series Insights termos Gen2 é exibido. O painel de termos permite que você defina consultas em seu ambiente. Use-o para filtrar também os dados com base em um predicado.
 

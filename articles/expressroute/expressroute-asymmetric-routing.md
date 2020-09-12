@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: roteamento assimétrico'
 description: Este artigo aborda os problemas que você pode enfrentar com o roteamento assimétrico em uma rede que tem vários links para um destino.
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: osamam
-ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: ee96abb51e03fb1dc567b66d180cb520de299d95
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74072151"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566527"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Roteamento assimétrico com vários caminhos de rede
 Este artigo explica como o encaminhamento e o retorno do tráfego de rede podem adotar rotas diferentes quando há vários caminhos disponíveis entre a origem e o destino da rede.
@@ -64,5 +64,5 @@ Outra maneira de solucionar os problemas do roteamento assimétrico é usando a 
 ![Configuração de rede da NAT com base na origem](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>Detecção de roteamento assimétrico
-O rastreamento de rotas é a melhor maneira de garantir que o tráfego de rede está atravessando o caminho esperado. Se você espera que o tráfego do servidor SMTP local para a Microsoft tome o caminho da Internet, o rastreamento de rotas esperado é do servidor SMTP para o Office 365. O resultado valida que o tráfego realmente sai de sua rede para a Internet, não na direção do ExpressRoute.
+O rastreamento de rotas é a melhor maneira de garantir que o tráfego de rede está atravessando o caminho esperado. Se você espera o tráfego do seu servidor SMTP local para a Microsoft para pegar o caminho da Internet, os traceroute esperados são do servidor SMTP para Microsoft 365. O resultado valida que o tráfego realmente sai de sua rede para a Internet, não na direção do ExpressRoute.
 

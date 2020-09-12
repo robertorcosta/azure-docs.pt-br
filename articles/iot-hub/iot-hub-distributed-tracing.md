@@ -11,12 +11,14 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732571"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462026"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Rastrear mensagens de dispositivo para a nuvem do IoT do Azure com o rastreamento distribuído (versão prévia)
 
@@ -204,7 +206,7 @@ Para alterar a porcentagem de mensagens que serão rastreadas na nuvem, você de
 
 1. Escolha uma **taxa de amostragem** entre 0% e 100%.
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 1. Aguarde alguns segundos e pressione **Atualizar**, Em seguida, se for confirmado com sucesso pelo dispositivo, um ícone de sincronização com uma marca de seleção será exibido.
 
@@ -307,10 +309,10 @@ Uma vez habilitado, o suporte ao rastreamento distribuído para o Hub IoT seguir
 
 1. Uma mensagem é gerada no dispositivo IoT.
 1. O dispositivo IoT decide (com a ajuda da nuvem) se essa mensagem deve ser atribuída com um contexto de rastreamento.
-1. O SDK adiciona um `tracestate` à propriedade do aplicativo de mensagens, que contém o carimbo de data/hora da criação da mensagem.
+1. O SDK adiciona um `tracestate` à propriedade Message, que contém o carimbo de data/hora de criação da mensagem.
 1. O dispositivo IoT envia a mensagem ao Hub IoT.
 1. As mensagens chega no gateway do Hub IoT.
-1. O Hub IoT procura o `tracestate` nas propriedades do aplicativo de mensagens e verifica se ele tem o formato correto.
+1. O Hub IoT procura o `tracestate` nas propriedades da mensagem e verifica se ele está no formato correto.
 1. Nesse caso, o Hub IoT gera um globalmente exclusivo `trace-id` para a mensagem, um `span-id` para o "salto" e os registra em Azure monitor logs de diagnóstico na operação `DiagnosticIoTHubD2C` .
 1. Depois que o processamento da mensagem for concluído, o Hub IoT gerará outro `span-id` e o registrará junto com o existente `trace-id` na operação `DiagnosticIoTHubIngress` .
 1. Se o roteamento estiver habilitado para a mensagem, o Hub IoT o registrará no ponto de extremidade personalizado e registrará outro `span-id` com o mesmo `trace-id` na categoria `DiagnosticIoTHubEgress`.

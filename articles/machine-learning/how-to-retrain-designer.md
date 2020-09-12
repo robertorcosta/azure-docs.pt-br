@@ -5,17 +5,17 @@ description: Saiba como readaptar modelos com pipelines publicados no designer d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.custom: designer
-ms.openlocfilehash: c466684bf5c07b5e88e8052c29aa9fb0b8583a89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430063"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661602"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Readaptação de modelos com o designer do Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -35,11 +35,13 @@ Neste artigo, você aprenderá como:
 * Um workspace do Azure Machine Learning com o SKU Enterprise.
 * Conclua a parte 1 desta série de instruções, [Transformação de dados no designer](how-to-designer-transform-data.md).
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 Este artigo também pressupõe que você tenha conhecimentos básicos sobre a criação de pipelines no designer. Para obter uma introdução guiada, conclua o [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Amostra do pipeline
 
-O pipeline usado neste artigo é uma versão alterada do Exemplo 3 [: Previsão de receita](samples-designer.md#classification). O pipeline usa o módulo [Importar Dados](algorithm-module-reference/import-data.md), em vez de usar um conjunto de dados de exemplo para mostrar a você como treinar modelos usando seus próprios dados.
+O pipeline usado neste artigo é uma versão alterada de uma [previsão de renda](samples-designer.md#classification) de pipeline de exemplo na página inicial do designer. O pipeline usa o módulo [Importar Dados](algorithm-module-reference/import-data.md), em vez de usar um conjunto de dados de exemplo para mostrar a você como treinar modelos usando seus próprios dados.
 
 ![Captura de tela que mostra o pipeline de exemplo modificado com uma caixa realçando o módulo Importar Dados](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -81,7 +83,8 @@ O designer salva toda a saída do pipeline, incluindo modelos treinados, na cont
 1. Encontre o modelo em **Outras saídas** juntamente com os logs de execução.
 1. Como alternativa, selecione o ícone **Exibir saída**. A partir deste ponto, siga as instruções na caixa de diálogo para navegar diretamente até o seu armazenamento de dados. 
 
-![Captura de tela que mostra como baixar o modelo treinado](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Captura de tela que mostra como baixar o modelo treinado](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publicação de um pipeline de treinamento
 
@@ -99,9 +102,9 @@ Publique um pipeline em um ponto de extremidade de pipeline para reutilizar faci
 
 Agora que você publicou um pipeline de treinamento, use-o para readaptar seu modelo para novos dados. Envie execuções de um ponto de extremidade de pipeline do workspace do estúdio ou programaticamente.
 
-### <a name="submit-runs-by-using-the-designer"></a>Envio de execuções usando o designer
+### <a name="submit-runs-by-using-the-studio-portal"></a>Enviar execuções usando o portal do estúdio
 
-Siga as etapas a seguir para enviar uma execução de ponto de extremidade de pipeline com parâmetros a partir do designer:
+Use as etapas a seguir para enviar um ponto de extremidade de pipeline com parâmetros executado no portal do estúdio:
 
 1. Acesse a página **Pontos de extremidade** no workspace do estúdio.
 1. Selecione a guia **Pontos de extremidade de pipeline**. Em seguida, selecione o ponto de extremidade do pipeline.

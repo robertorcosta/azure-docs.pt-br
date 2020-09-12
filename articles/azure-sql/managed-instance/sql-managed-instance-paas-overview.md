@@ -11,17 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d8bf3f087592a7d629a247b1c10721237699fdc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590057"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613536"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é o Azure SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 O Azure SQL Instância Gerenciada é o serviço de banco de dados de nuvem inteligente e escalonável que combina a mais ampla compatibilidade de mecanismo de banco de dados SQL Server com todos os benefícios de uma plataforma como serviço totalmente gerenciada e verde. O SQL Instância Gerenciada tem quase 100% de compatibilidade com o mecanismo de banco de dados mais recente do SQL Server (Enterprise Edition), fornecendo uma implementação de [rede virtual nativa (VNet)](../../virtual-network/virtual-networks-overview.md) que aborda questões de segurança comuns e um [modelo de negócios](https://azure.microsoft.com/pricing/details/sql-database/) favorável para clientes existentes do SQL Server. O SQL Instância Gerenciada permite que os clientes existentes do SQL Server migrem e shiftem seus aplicativos locais para a nuvem com alterações mínimas de aplicativos e bancos de dados. Ao mesmo tempo, o SQL Instância Gerenciada preserva todos os recursos de PaaS (patches automáticos e atualizações de versão, [backups automatizados](../database/automated-backups-overview.md), [alta disponibilidade](../database/high-availability-sla.md)) que reduzem drasticamente a sobrecarga de gerenciamento e o TCO.
+
+Se você for novo no Azure SQL Instância Gerenciada, confira o vídeo *sql instância gerenciada do Azure* de nossa série detalhada de [vídeos SQL do Azure](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61/player]
 
 > [!IMPORTANT]
 > Para obter uma lista de regiões em que o SQL Instância Gerenciada está disponível no momento, consulte [regiões com suporte](resource-limits.md#supported-regions).
@@ -41,7 +44,7 @@ O SQL Instância Gerenciada combina os melhores recursos que estão disponíveis
 
 | **Benefícios de PaaS** | **Continuidade de negócios** |
 | --- | --- |
-|Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>[Alta disponibilidade](../database/high-availability-sla.md) interna <br>Dados protegidos com [backups automatizados](../database/automated-backups-overview.md) <br>Período de retenção de backup configurável pelo cliente <br>[Backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) iniciados pelo usuário <br>Recurso de [restauração pontual do banco de dados](../database/recovery-using-backups.md#point-in-time-restore) |
+|Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>[Alta disponibilidade](../database/high-availability-sla.md) interna <br>Dados protegidos com [backups automatizados](../database/automated-backups-overview.md) <br>Período de retenção de backup configurável pelo cliente <br>[Backups](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) iniciados pelo usuário <br>Recurso de [restauração pontual do banco de dados](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Segurança e conformidade** | **Gerenciamento**|
 |Ambiente isolado ([integração VNet](connectivity-architecture-overview.md), serviço de locatário único, computação dedicada e armazenamento) <br>[Transparent data encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure Active Directory (AD do Azure)](../database/authentication-aad-overview.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de segurança do servidor do Azure AD (logons)</a>  <br>Segue os padrões de conformidade iguais ao banco de dados SQL do Azure <br>[Auditoria do SQL](auditing-configure.md) <br>[Proteção Avançada contra Ameaças](threat-detection-configure.md) |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados
 
@@ -182,7 +185,7 @@ O SQL Instância Gerenciada direciona cenários de usuário com migração de ba
 
 ### <a name="backup-and-restore"></a>Backup e restauração  
 
-A abordagem de migração aproveita backups do SQL para o Armazenamento de Blobs do Azure. Os backups armazenados em um blob de armazenamento do Azure podem ser restaurados diretamente em uma instância gerenciada usando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+A abordagem de migração aproveita backups do SQL para o Armazenamento de Blobs do Azure. Os backups armazenados em um blob de armazenamento do Azure podem ser restaurados diretamente em uma instância gerenciada usando o [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - Para obter um guia de início rápido mostrando como restaurar a Wide World Importers-arquivo de backup de banco de dados padrão, consulte [restaurar um arquivo de backup para uma instância gerenciada](restore-sample-database-quickstart.md). Este guia de início rápido mostra que você precisa carregar um arquivo de backup no armazenamento de BLOBs do Azure e protegê-lo usando uma chave de assinatura de acesso compartilhado (SAS).
 - Para obter informações sobre restauração de URL, consulte [Restauração nativa de URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
@@ -202,7 +205,7 @@ O SQL Instância Gerenciada dá suporte à compatibilidade com versões anterior
   
 O diagrama a seguir descreve a compatibilidade da área de superfície no SQL Instância Gerenciada:  
 
-![Migração](./media/sql-managed-instance-paas-overview/migration.png)
+![compatibilidade da área de superfície](./media/sql-managed-instance-paas-overview/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-sql-managed-instance"></a>Principais diferenças entre SQL Server local e SQL Instância Gerenciada
 

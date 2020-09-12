@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 294652a42d3b6a2468f024ce7ebdbdfc3615f9e1
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494988"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647868"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Usar procedimentos armazenados no pool do SQL
 
@@ -62,7 +62,7 @@ Se o segundo procedimento executar algum SQL dinâmico, o nível de aninhamento 
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
-EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
+EXEC sp_executesql N'SELECT ''another nest level'''  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
@@ -78,7 +78,7 @@ O pool do SQL não permite que você consuma o conjunto de resultados de um proc
 
 Há alguns aspectos dos procedimentos armazenados Transact-SQL que não são implementados no pool do SQL.
 
-Eles são:
+Elas são:
 
 * procedimentos armazenados temporariamente
 * procedimentos armazenados numerados

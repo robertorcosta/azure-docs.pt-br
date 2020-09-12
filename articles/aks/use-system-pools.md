@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949772"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647500"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerenciar pools de nós do sistema no serviço kubernetes do Azure (AKS)
 
@@ -46,6 +46,7 @@ Os pools de nó do sistema têm as seguintes restrições:
 * Os pools de nós do sistema exigem uma SKU de VM de pelo menos 2 vCPUs e 4 GB de memória.
 * Os pools de nós do sistema devem dar suporte a pelo menos 30 pods, conforme descrito pela [fórmula de valor mínimo e máximo para pods][maximum-pods].
 * Pools de nós especiais exigem pools de nós de usuário.
+* Adicionar um pool de nós de sistema adicional ou alterar qual pool de nós é um pool de nós do sistema *não* moverá automaticamente os pods do sistema. O pods do sistema pode continuar a ser executado no mesmo pool de nós, mesmo se você alterá-lo para um pool de nós de usuário. Se você excluir ou reduzir verticalmente um pool de nós executando pods do sistema que antes era um pool de nós do sistema, esses pods de sistema serão reimplantados com o agendamento preferencial para o novo pool de nós do sistema.
 
 Você pode executar as seguintes operações com pools de nós:
 
@@ -169,7 +170,7 @@ Anteriormente, você não podia excluir o pool de nós do sistema, que era o poo
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para excluir o cluster, use o comando [AZ Group Delete][az-group-delete] para excluir o grupo de recursos AKs:
 

@@ -6,25 +6,28 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432518"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486851"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estático no Armazenamento do Microsoft Azure
 
-Você pode fornecer conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Hospedar seu conteúdo no Armazenamento do Azure permite que você use arquiteturas sem servidor que incluem [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS (plataforma como serviço).
+Você pode fornecer conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner de armazenamento denominado *$web*. Hospedar seu conteúdo no Armazenamento do Azure permite que você use arquiteturas sem servidor que incluem [Azure Functions](/azure/azure-functions/functions-overview) e outros serviços de PaaS (plataforma como serviço). A hospedagem de sites estáticos do armazenamento do Azure é uma ótima opção nos casos em que você não precisa de um servidor Web para renderizar o conteúdo.
+
+Os [aplicativos Web estáticos do serviço de aplicativo](https://azure.microsoft.com/services/app-service/static/) são uma ótima alternativa para hospedagem de sites estáticos do armazenamento do Azure e também são apropriados nos casos em que você não precisa de um servidor Web para renderizar o conteúdo. Os aplicativos Web estáticos do serviço de aplicativo fornecem um fluxo de trabalho de integração contínua e fornecimento contínuo (CI/CD) totalmente gerenciado da origem do GitHub para a implantação global.
+
+Se você precisar de um servidor Web para renderizar conteúdo, poderá usar [Azure app serviço](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> Se o seu site depende do código do servidor, use [Azure App Service](/azure/app-service/overview).
-Certifique-se de criar uma conta de armazenamento padrão de uso geral v2. Os sites estáticos não estão disponíveis em nenhum outro tipo de conta de armazenamento.
+> Certifique-se de criar uma conta de armazenamento padrão de uso geral v2. Os sites estáticos não estão disponíveis em nenhum outro tipo de conta de armazenamento.
 
 ## <a name="setting-up-a-static-website"></a>Configuração de um site estático
 
@@ -103,6 +106,11 @@ Se a conta de armazenamento estiver configurada para [exigir transferência segu
 Não há como configurar cabeçalhos como parte do recurso de site estático. No entanto, você pode usar a CDN do Azure para adicionar cabeçalhos e acrescentar (ou substituir) valores de cabeçalho. Confira [Referência do mecanismo de regras Standard para a CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
 
 Se quiser usar cabeçalhos para controlar o armazenamento em cache, confira [Controlar o comportamento de cache da CDN do Azure com regras de cache](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+
+## <a name="multi-region-website-hosting"></a>Hospedagem de site de várias regiões
+
+Se você planeja hospedar um site em várias regiões geográficas, recomendamos que você use uma [rede de distribuição de conteúdo](https://docs.microsoft.com/azure/cdn/) para o cache regional. Use a [porta frontal do Azure](https://docs.microsoft.com/azure/frontdoor/) se você quiser fornecer conteúdo diferente em cada região. Ele também fornece recursos de failover. O [Gerenciador de tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/) não é recomendado se você planeja usar um domínio personalizado. Podem surgir problemas devido a como o armazenamento do Azure verifica nomes de domínio personalizados.
+
 
 ## <a name="pricing"></a>Preços
 

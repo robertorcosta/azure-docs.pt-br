@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3ee3f729e1e2f03d7c72a72081ad2e3f0316cbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 228fa18fef0f681437fd2c0c87e3114d14977a49
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482523"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462642"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Synapse Analytics (anteriormente conhecido como SQL DW)
 
@@ -27,7 +27,7 @@ a. O Azure Synapse é um serviço de análise que reúne data warehousing e aná
 
 Q. O que aconteceu com o Azure SQL Data Warehouse?
 
-a. O Azure Synapse é um SQL Data Warehouse do Azure (SQL DW) evoluído. Nós tiramos o mesmo data warehouse líder do setor para um nível totalmente novo de desempenho e recursos. Você pode continuar executando suas cargas de trabalho de data warehouse existentes em produção com o Azure Synapse. Para obter mais informações, consulte [o que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+a. O Azure Synapse é um SQL Data Warehouse do Azure evoluído. Nós tiramos o mesmo data warehouse líder do setor para um nível totalmente novo de desempenho e recursos. Você pode continuar executando suas cargas de trabalho de data warehouse existentes em produção com o Azure Synapse. Para saber mais, confira [O que é o Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. O que é o pool do SQL Synapse?
 
@@ -47,7 +47,7 @@ a. Visite a página [Conformidade da Microsoft](https://www.microsoft.com/trustc
 
 Q. Posso conectar Power BI?
 
-a. Sim! Embora Power BI ofereça suporte à consulta direta com o Azure Synapse, ele não se destina a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar Power BI sobre o Azure Analysis Services ou o IaaS do Analysis Service.
+a. Sim. Embora Power BI ofereça suporte à consulta direta com o Azure Synapse, ele não se destina a um grande número de usuários ou dados em tempo real. Para otimizar ainda mais o desempenho do Power BI, considere usar Power BI sobre o Azure Analysis Services ou o IaaS do Analysis Service.
 
 Q. Quais são os limites de capacidade do pool SQL Synapse?
 
@@ -75,7 +75,7 @@ a. Os [Tíquetes de Suporte](sql-data-warehouse-get-started-create-support-ticke
 
 Q. Há suporte para quais tipos de dados?
 
-a. Consulte [tipos de dados](sql-data-warehouse-tables-data-types.md).
+a. Consulte  [tipos de dados](sql-data-warehouse-tables-data-types.md).
 
 Q. Para quais recursos de tabela há suporte?
 

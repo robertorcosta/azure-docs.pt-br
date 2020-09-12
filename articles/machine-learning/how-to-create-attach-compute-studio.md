@@ -1,5 +1,5 @@
 ---
-title: Criar recursos de computação no estúdio
+title: Criar treinamento & implantar computações (estúdio)
 titleSuffix: Azure Machine Learning
 description: Use o Studio para criar recursos de computação de treinamento e implantação (destinos de computação) para o aprendizado de máquina
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 2e32eb9a2a13b8e247388e8da80dd5f5967fdc6d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 37253ccfb249eb8b510af5e314c3167ddd979a87
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147341"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661968"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar destinos de computação para treinamento e implantação de modelo no Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -119,6 +119,9 @@ Durante a criação do cluster ou ao editar detalhes do cluster de cálculo, nas
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
 ### <a name="inference-clusters"></a>Clusters de inferência
+
+> [!IMPORTANT]
+> O uso do serviço kubernetes do Azure com Azure Machine Learning tem várias opções de configuração. Alguns cenários, como rede, exigem configuração e configuração adicionais. Para obter mais informações sobre como usar o AKS com o Azure ML, consulte [criar e anexar um cluster do serviço kubernetes do Azure](how-to-create-attach-kubernetes.md).
 
 Criar ou anexar um cluster AKS (serviço de kubernetes do Azure) para inferência de grande escala. Use as [etapas acima](#portal-create) para criar o cluster AKs.  Em seguida, preencha o formulário da seguinte maneira:
 

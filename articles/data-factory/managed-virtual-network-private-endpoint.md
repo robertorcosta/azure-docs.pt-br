@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225675"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594349"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -59,7 +59,7 @@ O ponto de extremidade privado usa um endereço IP privado na rede virtual geren
 > É recomendável que você crie Pontos de extremidade privados gerenciados para se conectar a todas as suas fontes de dados do Azure. 
  
 > [!WARNING]
-> Se um armazenamento de dados PaaS (BLOB, ADLS Gen2, SQL DW) tiver um ponto de extremidade privado já criado e, mesmo que ele permita acesso de todas as redes, o ADF só poderá acessá-lo usando um ponto de extremidade privado gerenciado. Certifique-se de criar um ponto de extremidade privado nesses cenários. 
+> Se um armazenamento de dados PaaS (BLOB, ADLS Gen2, Azure Synapse Analytics) tiver um ponto de extremidade privado já criado e, mesmo que ele permita acesso de todas as redes, o ADF só poderá acessá-lo usando um ponto de extremidade privado gerenciado. Certifique-se de criar um ponto de extremidade privado nesses cenários. 
 
 Uma conexão de ponto de extremidade privado é criada em um estado "pendente" quando você cria um ponto de extremidade privado gerenciado no Azure Data Factory. Um fluxo de trabalho de aprovação é iniciado. O proprietário do recurso de link privado é responsável por aprovar ou rejeitar a conexão.
 
@@ -83,6 +83,23 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - SQL CosmosDB do Azure
 - Cofre de Chave do Azure
 - Serviço de vínculo privado do Azure
+- Azure Search
+- Banco de Dados do Azure para MySQL
+- Banco de Dados do Azure para PostgreSQL
+- Banco de Dados do Azure para MariaDB
+
+### <a name="supported-regions"></a>Regiões com Suporte
+- Leste dos EUA
+- Leste dos EUA 2
+- Centro-Oeste dos EUA
+- Oeste dos EUA 2
+- Centro-Sul dos Estados Unidos
+- Centro dos EUA
+- Norte da Europa
+- Europa Ocidental
+- Sul do Reino Unido
+- Sudeste Asiático
+- Leste da Austrália
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída por meio do ponto de extremidade público da rede virtual gerenciada por ADF
 - Somente a porta 443 é aberta para comunicações de saída.

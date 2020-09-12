@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783324"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460789"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
@@ -47,7 +47,7 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 * Quando você remove um membro de uma equipe, eles são removidos do grupo de Microsoft 365 também. A remoção da funcionalidade de chat da equipe pode ser atrasada. Para obter mais informações, consulte [Associação de grupo](/microsoftteams/office-365-groups#group-membership).
 
-* Verifique se o diretório não está configurado para várias áreas geográficas. No momento, o gerenciamento de direitos não dá suporte a locais de várias áreas geográficas para o SharePoint Online. Os sites do SharePoint Online devem estar na localização geográfica padrão para serem governados com o gerenciamento de direitos. Para obter mais informações, consulte [recursos de várias regiões geográficas no onedrive e no SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Verifique se o diretório não está configurado para várias áreas geográficas. No momento, o gerenciamento de direitos não dá suporte a locais de várias áreas geográficas para o SharePoint Online. Os sites do SharePoint Online devem estar na localização geográfica padrão para serem governados com o gerenciamento de direitos. Para obter mais informações, consulte [recursos de várias regiões geográficas no onedrive e no SharePoint Online](/Microsoft 365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Pacotes de acesso
 

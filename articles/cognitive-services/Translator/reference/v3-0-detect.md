@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592280"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566629"
 ---
 # <a name="translator-30-detect"></a>Tradutor 3,0: detectar
 
@@ -49,15 +49,15 @@ Os cabeçalhos de solicitação incluem:
   <th>Descrição</th>
   <tr>
     <td>Cabeçalho (s) de autenticação</td>
-    <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
+    <td><em>Cabeçalho de solicitação necessário</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
-    <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
+    <td>*Cabeçalho de solicitação necessário*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Cabeçalho de solicitação obrigatório*.<br/>O tamanho do corpo da solicitação.</td>
+    <td>*Cabeçalho de solicitação necessário*.<br/>O tamanho do corpo da solicitação.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
@@ -67,7 +67,7 @@ Os cabeçalhos de solicitação incluem:
 
 ## <a name="request-body"></a>Corpo da solicitação
 
-O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`. A detecção de idioma é aplicada ao valor da propriedade `Text`. Um corpo de solicitação de exemplo é semelhante a:
+O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com uma propriedade de cadeia de caracteres chamada `Text`. A detecção de idioma é aplicada ao valor da propriedade `Text`. A detecção automática de idioma funciona melhor com texto de entrada mais longo. Um corpo de solicitação de exemplo é semelhante a:
 
 ```json
 [
@@ -78,7 +78,6 @@ O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objet
 As seguintes limitações se aplicam:
 
 * A matriz pode ter no máximo 100 elementos.
-* O valor de texto de um elemento de matriz não pode exceder dez mil caracteres incluindo espaços.
 * Todo o texto incluído na solicitação não pode exceder 50 mil caracteres incluindo espaços.
 
 ## <a name="response-body"></a>Corpo da resposta

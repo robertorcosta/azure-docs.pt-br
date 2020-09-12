@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589037"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658336"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: Perguntas frequentes
 
@@ -37,7 +37,7 @@ O SSO Contínuo é um recurso gratuito e você não precisa de nenhuma edição 
 
 **P: O SSO Contínuo está disponível na [nuvem do Microsoft Azure Alemanha](https://www.microsoft.de/cloud-deutschland) e na [nuvem do Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?**
 
-O SSO contínuo está disponível para a nuvem do Azure Government. Para detalhes, confira [Considerações de identidade híbrida para o Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+O SSO contínuo está disponível para a nuvem do Azure Government. Para detalhes, confira [Considerações de identidade híbrida para o Azure Government](./reference-connect-government-cloud.md).
 
 **P: Quais aplicativos aproveitam a capacidade do parâmetro `domain_hint` ou `login_hint` do SSO Contínuo?**
 
@@ -62,11 +62,11 @@ Se desejar que outros aplicativos usem nossa experiência de logon silenciosa, i
 
 **P: O SSO Contínuo dá suporte ao `Alternate ID` como o nome de usuário, em vez de `userPrincipalName`?**
 
-Sim. O SSO Contínuo dá suporte ao `Alternate ID` como o nome de usuário quando configurado no Azure AD Connect, conforme mostrado [aqui](how-to-connect-install-custom.md). Nem todos os aplicativos do Office 365 dão suporte ao `Alternate ID`. Consulte a documentação específica do aplicativo para obter o demonstrativo de suporte.
+Sim. O SSO Contínuo dá suporte ao `Alternate ID` como o nome de usuário quando configurado no Azure AD Connect, conforme mostrado [aqui](how-to-connect-install-custom.md). Não há suporte para todos os aplicativos Microsoft 365 `Alternate ID` . Consulte a documentação específica do aplicativo para obter o demonstrativo de suporte.
 
-**P: Qual é a diferença entre a experiência de logon único fornecida pelo [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) e o SSO Contínuo?**
+**P: Qual é a diferença entre a experiência de logon único fornecida pelo [Ingresso no Azure AD](../devices/overview.md) e o SSO Contínuo?**
 
-O [Ingresso no Azure AD](../active-directory-azureadjoin-overview.md) fornece o SSO aos usuários se os dispositivos deles estiverem registrados no Azure AD. Esses dispositivos não precisam, necessariamente, ser ingressados no domínio. O SSO é fornecido com o uso de *tokens de atualização primários* ou *PRTs* e não Kerberos. A experiência do usuário é melhor em dispositivos Windows 10. SSO acontece automaticamente no navegador Microsoft Edge. Ele também funciona no Chrome com o uso de uma extensão de navegador.
+O [Ingresso no Azure AD](../devices/overview.md) fornece o SSO aos usuários se os dispositivos deles estiverem registrados no Azure AD. Esses dispositivos não precisam, necessariamente, ser ingressados no domínio. O SSO é fornecido com o uso de *tokens de atualização primários* ou *PRTs* e não Kerberos. A experiência do usuário é melhor em dispositivos Windows 10. SSO acontece automaticamente no navegador Microsoft Edge. Ele também funciona no Chrome com o uso de uma extensão de navegador.
 
 Você pode usar tanto o Ingresso no Azure AD quanto o SSO Contínuo em seu locatário. Esses dois recursos são complementares. Se os dois recursos forem ativados, o SSO do Ingresso no Azure AD terá precedência sobre o SSO Contínuo.
 
@@ -85,7 +85,7 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
 
    **Etapa 1. Obter lista de florestas do AD em que o SSO Contínuo foi habilitado**
 
-   1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](/powershell/azure/active-directory/overview).
    2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
@@ -130,7 +130,7 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
 
    Siga estas etapas no servidor local em que o Azure AD Connect está sendo executado:
 
-   1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](/powershell/azure/active-directory/overview).
    2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.
@@ -145,7 +145,7 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
 
    Siga as tarefas de 1 a 4 abaixo, se você desabilitou o SSO Contínuo usando o Azure AD Connect. Se você desabilitou o SSO Contínuo usando o PowerShell, vá para a tarefa 5 abaixo.
 
-   1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Primeiro, baixe e instale o [PowerShell do Microsoft Azure AD](/powershell/azure/active-directory/overview).
    2. Navegue até a pasta `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importe o módulo do PowerShell de SSO Contínuo usando este comando: `Import-Module .\AzureADSSO.psd1`.
    4. Execute o PowerShell como um Administrador. No PowerShell, chame `New-AzureADSSOAuthenticationContext`. Esse comando deve fornecer a você um pop-up para inserir suas credenciais de Administrador Global do locatário.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928557"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89513926"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento de funções do Azure e a configuração com o serviço do Azure SignalR
 
@@ -51,7 +51,9 @@ Para saber mais sobre como criar um token autenticado, consulte [usando a autent
 
 Use a associação de *gatilho de sinalização* para lidar com mensagens enviadas do serviço signalr. Você pode ser disparado quando os clientes enviam mensagens ou os clientes são conectados ou desconectados.
 
-Para obter mais informações, consulte a referência de associação de [ *gatilho do signalr*](../azure-functions/functions-bindings-signalr-service-trigger.md)
+Para obter mais informações, consulte a referência de associação de [ *gatilho do signalr* ](../azure-functions/functions-bindings-signalr-service-trigger.md).
+
+Você também precisa configurar seu ponto de extremidade de função como um upstream para que o serviço dispare a função onde há mensagem do cliente. Para obter mais informações sobre como configurar upstream, consulte este [documento](concept-upstream.md).
 
 ### <a name="sending-messages-and-managing-group-membership"></a>Enviando mensagens e gerenciando a associação de grupo
 
@@ -69,7 +71,7 @@ O signalr tem um conceito de "hubs". Cada conexão de cliente e cada mensagem en
 
 O modelo baseado em classe é dedicado para C#. Com o modelo baseado em classe, é possível ter uma experiência consistente de programação no servidor do Signalr. Ele tem os seguintes recursos.
 
-* Menos configuração funciona: o nome da classe é usado como `HubName` , o nome do método é usado como `Event` e o `Category` é decidido automaticamente de acordo com o nome do método.
+* Menos trabalho de configuração: o nome da classe é usado como `HubName` , o nome do método é usado como `Event` e o `Category` é decidido automaticamente de acordo com o nome do método.
 * Associação automática de parâmetros: nem o `ParameterNames` atributo `[SignalRParameter]` é necessário. Os parâmetros são associados automaticamente a argumentos do método do Azure function na ordem.
 * Experiência prática de saída e negociação.
 
@@ -109,7 +111,7 @@ Todas as funções que desejam aproveitar o modelo baseado em classe precisam se
 
 ### <a name="define-hub-method"></a>Definir método de Hub
 
-Todos os métodos de Hub **devem**  ter um `[SignalRTrigger]` atributo e **devem** usar o construtor sem parâmetros. Em seguida, o **nome do método** é tratado como um **evento**de parâmetro.
+Todos os métodos de Hub **devem** ter um argumento `InvocationContext` decorado por `[SignalRTrigger]` atributo e usar um construtor sem parâmetros. Em seguida, o **nome do método** é tratado como um **evento**de parâmetro.
 
 Por padrão, `category=messages` exceto que o nome do método é um dos seguintes nomes:
 
@@ -202,7 +204,11 @@ Para obter mais informações sobre como usar o SDK de cliente do Signalr, consu
 
 ### <a name="sending-messages-from-a-client-to-the-service"></a>Enviando mensagens de um cliente para o serviço
 
-Embora o SDK do Signalr permita que os aplicativos cliente invoquem a lógica de back-end em um Hub do Signalr, essa funcionalidade ainda não é suportada quando você usa o serviço de sinalização com Azure Functions. Use solicitações HTTP para invocar Azure Functions.
+Se você tiver o [upstream](concept-upstream.md) configurado para o recurso do signalr, poderá enviar mensagens do cliente para seu Azure Functions usando qualquer cliente do signalr. Veja um exemplo em JavaScript:
+
+```javascript
+connection.send('method1', 'arg1', 'arg2');
+```
 
 ## <a name="azure-functions-configuration"></a>Configuração de Azure Functions
 

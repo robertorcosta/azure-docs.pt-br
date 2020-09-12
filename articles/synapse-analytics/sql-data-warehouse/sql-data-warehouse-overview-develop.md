@@ -1,6 +1,6 @@
 ---
 title: Recursos para o desenvolvimento de um pool SQL Synapse no Azure Synapse Analytics
-description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para SQL Data Warehouse.
+description: Conceitos de desenvolvimento, decisões de design, recomendações e técnicas de codificação para o Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a3c0d7924fb550761d050c9c404b1065c7d3cf72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f712f196c37650b52220c9e34f6cb6b50bff23
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211486"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460602"
 ---
 # <a name="design-decisions-and-coding-techniques-for-a-synapse-sql-pool-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para um pool SQL Synapse no Azure Synapse Analytics 
  Neste artigo, você encontrará recursos adicionais para ajudá-lo a entender melhor as principais decisões de design, recomendações e técnicas de codificação para um pool do SQL no Azure Synapse.
@@ -38,7 +38,7 @@ Os artigos a seguir apresentam técnicas de codificação específicas, dicas e 
 
 * [procedimentos armazenados](sql-data-warehouse-develop-stored-procedures.md)
 * [las](sql-data-warehouse-develop-label.md)
-* [modos de exibição](sql-data-warehouse-develop-views.md)
+* [modos de exibição](performance-tuning-materialized-views.md)
 * [tabelas temporárias](sql-data-warehouse-tables-temporary.md)
 * [SQL dinâmico](sql-data-warehouse-develop-dynamic-sql.md)
 * [loop](sql-data-warehouse-develop-loops.md)

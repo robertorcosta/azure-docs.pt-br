@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 08/18/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5805fe1f3fe25a1e2d7fbc5c0d0fb443586479d2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bc881b1b366a152c2d592463c8025ea1087307cf
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649604"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461954"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do IBM Db2 Azure para carga de trabalho do SAP
 
@@ -56,7 +56,8 @@ Para obter informações sobre os tipos de VM do Azure e produtos SAP com suport
 ### <a name="storage-configuration"></a>Configuração de armazenamento
 Para obter uma visão geral dos tipos de armazenamento do Azure para carga de trabalho do SAP, consulte o artigo [tipos de armazenamento do Azure para carga de trabalho do SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) todos os arquivos de banco de dados devem ser armazenados em discos montados do armazenamento de blocos do Azure (Windows: NFFS, Linux: XFS, ext4 ou ext3). Qualquer tipo de unidade de rede ou compartilhamentos remotos como os seguintes serviços do Azure **não** têm suporte para arquivos de banco de dados: 
 
-* [Serviço de arquivo Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Serviço de arquivo Microsoft Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/introducing-microsoft-azure-file-service)
+
 * [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 
 Usando discos com base no Armazenamento de Blobs de Páginas do Azure ou nos Managed Disks, as declarações feitas em [Considerações para implantação de DBMS de máquinas virtuais do Azure para a carga de trabalho SAP](dbms_guide_general.md) se aplicarão também a implantações com o DBMS do Db2.
@@ -71,7 +72,7 @@ Como alternativa, você pode usar pools de armazenamento do Windows (disponívei
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-Para os discos que contém os caminhos de armazenamento do Db2 para os sapdata e saptmp, você precisa especificar um tamanho de setor do disco físico de 512 KB. Ao usar Pools de Armazenamento do Windows, você deve criá-los manualmente por meio da interface de linha de comando usando o parâmetro `-LogicalSectorSizeDefault`. Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+Para os discos que contêm os caminhos de armazenamento do DB2 para seus `sapdata` `saptmp` diretórios e, você deve especificar um tamanho de setor de disco físico de 512 KB. Ao usar Pools de Armazenamento do Windows, você deve criá-los manualmente por meio da interface de linha de comando usando o parâmetro `-LogicalSectorSizeDefault`. Para obter mais informações, consulte <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 Para a VM da série M do Azure, a latência de gravação nos logs de transação pode ser reduzida por fatores, comparados ao desempenho do armazenamento Premium do Azure, ao usar o Acelerador de gravação do Azure. Portanto, você deve implantar o Acelerador de Gravação do Azure para os VHDs que formam o volume para os logs de transação do Db2. Detalhes podem ser lidos no documento [Acelerador de Gravação](../../how-to-enable-write-accelerator.md).
 

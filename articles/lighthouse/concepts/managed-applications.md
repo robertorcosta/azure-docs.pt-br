@@ -3,12 +3,12 @@ title: Azure Lighthouse e aplicativos gerenciados do Azure
 description: Entenda como o Azure Lighthouse e os aplicativos gerenciados do Azure podem ajudar a habilitar cenários diferentes e como eles podem ser usados juntos.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81ff61a6d1b7487d3da0643bac3987589de46c1e
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7fd8801fc714a0f0c245d27462e368602dc41eb5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163417"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483840"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e aplicativos gerenciados do Azure
 
@@ -23,7 +23,7 @@ Os aplicativos gerenciados do Azure e o Azure Lighthouse funcionam habilitando u
 
 Com o [Azure Lighthouse](../overview.md), um provedor de serviços pode executar uma ampla gama de tarefas de gerenciamento diretamente na assinatura de um cliente (ou grupo de recursos). Esse acesso é obtido por meio de uma projeção lógica, permitindo que os provedores de serviço entrem em seus próprios locatários e acessem os recursos que pertencem ao locatário do cliente. O cliente pode determinar quais assinaturas ou grupos de recursos delegar ao provedor de serviços, e o cliente mantém acesso completo a esses recursos. Eles também podem remover o acesso do provedor de serviços a qualquer momento.
 
-Para usar o Azure Lighthouse, os clientes são integrados ao [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md) [implantando modelos de ARM](../how-to/onboard-customer.md) ou por meio de uma [oferta de serviço gerenciado no Azure Marketplace](managed-services-offers.md). Você pode acompanhar seu impacto nos compromissos do cliente [vinculando sua ID de parceiro](../../cost-management-billing/manage/link-partner-id.md).
+Para usar o Azure Lighthouse, os clientes são integrados ao [Gerenciamento de recursos delegado do Azure](azure-delegated-resource-management.md) [implantando modelos de ARM](../how-to/onboard-customer.md) ou por meio de uma [oferta de serviço gerenciado no Azure Marketplace](managed-services-offers.md). Você pode acompanhar seu impacto nos compromissos do cliente e receber o crédito ganho [do parceiro vinculando sua ID de parceiro](../how-to/partner-earned-credit.md).
 
 O Azure Lighthouse normalmente é usado quando um provedor de serviços executa tarefas de gerenciamento para um cliente de forma contínua.
 

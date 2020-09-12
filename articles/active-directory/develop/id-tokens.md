@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/09/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795229"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646601"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de ID da plataforma Microsoft Identity
 
@@ -85,6 +85,8 @@ Essa lista mostra as declarações JWT que estão na maioria id_tokens por padr�
 |`unique_name` | String | Fornece um valor legível que identifica a entidade do token. Esse valor é exclusivo em qualquer momento determinado, mas como emails e outros identificadores podem ser reutilizados, esse valor pode reaparecer em outras contas e, portanto, deve ser usado somente para fins de exibição. Emitido somente no `id_tokens` v1.0. |
 |`uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Deve ser ignorado. |
 |`ver` | Cadeia de caracteres, 1.0 ou 2.0 | Indica a versão do id_token. |
+|`hasgroups`|Booliano|Se estiver presente, sempre true, denotando que o usuário está em pelo menos um grupo. Usado no lugar da declaração de grupos para JWTs em fluxos de concessão implícitos se a declaração de grupos completos estender o fragmento de URI além dos limites de comprimento da URL (atualmente, 6 ou mais grupos). Indica que o cliente deve usar a API do Microsoft Graph para determinar os grupos do usuário (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`).|
+|`groups:src1`|Objeto JSON | Para solicitações de token sem limite de tamanho (consulte `hasgroups` acima), mas ainda muito grandes para o token, será incluído um link para a lista completa de grupos do usuário. Para JWTs na forma de declaração distribuída, para SAML como uma nova declaração no lugar da declaração `groups`. <br><br>**Valor de exemplo de JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Para obter mais informações, consulte [grupos excedentes de declaração](#groups-overage-claim).|
 
 > [!NOTE]
 > Os id_token v 1.0 e v 2.0 têm diferenças na quantidade de informações que serão executadas, conforme mostrado nos exemplos acima. A versão é baseada no ponto de extremidade de onde ele foi solicitado. Embora os aplicativos existentes provavelmente usem o ponto de extremidade do Azure AD, os novos aplicativos devem usar o ponto de extremidade v 2.0 "plataforma de identidade da Microsoft".
@@ -102,6 +104,26 @@ Para armazenar corretamente as informações por usuário, use `sub` ou `oid` so
 > Não use a `idp` declaração para armazenar informações sobre um usuário em uma tentativa de correlacionar usuários entre locatários.  Ele não funcionará, pois as `oid` `sub` declarações e para um usuário mudam entre locatários, por design, para garantir que os aplicativos não possam rastrear os usuários entre locatários.  
 >
 > Os cenários de convidado, onde um usuário é hospedado em um locatário e são autenticados em outro, devem tratar o usuário como se fossem um usuário totalmente novo para o serviço.  Seus documentos e privilégios no locatário da Contoso não devem ser aplicados no locatário da Fabrikam. Isso é importante para evitar vazamento acidental de dados entre locatários.
+
+### <a name="groups-overage-claim"></a>Declaração de excedente de grupos
+Para garantir que o tamanho do token não exceda os limites de tamanho do cabeçalho HTTP, o Azure AD limita o número de IDs de objeto que ele inclui na `groups` declaração. Se um usuário for membro de mais grupos do que o limite excedente (150 para tokens SAML, 200 para tokens JWT), o Azure AD não emitirá a declaração de grupos no token. Em vez disso, ele inclui uma declaração excedente no token que indica ao aplicativo consultar a API do Microsoft Graph para recuperar a associação de grupo do usuário.
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## <a name="validating-an-id_token"></a>Validação de um id_token
 

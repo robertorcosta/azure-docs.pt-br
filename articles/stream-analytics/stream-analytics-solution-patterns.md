@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903316"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461537"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões de solução do Azure Stream Analytics
 
@@ -102,7 +102,7 @@ A maioria das atividades de ciência de dados e análise ainda ocorrem offline. 
 
 ## <a name="use-reference-data-for-enrichment"></a>Usar dados de referência para enriquecimento
 
-O enriquecimento de dados geralmente é um requisito para os mecanismos de ETL. O Azure Stream Analytics dá suporte ao enriquecimento de dados com [dados de referência](stream-analytics-use-reference-data.md) do banco do dados SQL e do armazenamento de BLOBs do Azure. O enriquecimento de dados pode ser feito para a aterrissagem de dados em Azure Data Lake e SQL Data Warehouse.
+O enriquecimento de dados geralmente é um requisito para os mecanismos de ETL. O Azure Stream Analytics dá suporte ao enriquecimento de dados com [dados de referência](stream-analytics-use-reference-data.md) do banco do dados SQL e do armazenamento de BLOBs do Azure. O enriquecimento de dados pode ser feito para a aterrissagem de dados no Azure Data Lake e no Azure Synapse Analytics.
 
 
 ![Análise offline de ASA com enriquecimento de dados](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
@@ -115,7 +115,7 @@ Se você combinar o padrão de análise offline com o padrão de aplicativo quas
 
 ## <a name="how-to-monitor-asa-jobs"></a>Como monitorar trabalhos do ASA
 
-Um trabalho de Azure Stream Analytics pode ser executado 24/7 para processar eventos de entrada continuamente em tempo real. Sua garantia de tempo de atividade é crucial para a integridade do aplicativo geral. Embora Stream Analytics seja o único serviço de análise de streaming no setor que oferece uma [garantia de disponibilidade de 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), você ainda poderá incorrer em algum nível de tempo de inatividade. Ao longo dos anos, Stream Analytics introduziu métricas, logs e Estados de trabalho para refletir a integridade dos trabalhos. Todos eles são exibidos por meio do serviço Azure Monitor e podem ser exportados para o OMS. Para obter mais informações, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
+Um trabalho de Azure Stream Analytics pode ser executado 24/7 para processar eventos de entrada continuamente em tempo real. Sua garantia de tempo de atividade é crucial para a integridade do aplicativo geral. Embora Stream Analytics seja o único serviço de análise de streaming no setor que oferece uma  [garantia de disponibilidade de 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), você ainda poderá incorrer em algum nível de tempo de inatividade. Ao longo dos anos, Stream Analytics introduziu métricas, logs e Estados de trabalho para refletir a integridade dos trabalhos. Todos eles são exibidos por meio do serviço Azure Monitor e podem ser exportados para o OMS. Para obter mais informações, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
 
 ![Monitoramento do ASA](media/stream-analytics-solution-patterns/monitoring.png)
 

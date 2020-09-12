@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213492"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461198"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Otimizando transações no SQL Synapse
 
@@ -419,4 +419,4 @@ O melhor cenário é permitir que as transações de modificação de dados em t
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira [Transações no SQL Synapse](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, confira [Práticas recomendadas para o Azure SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Confira [Transações no SQL Synapse](sql-data-warehouse-develop-transactions.md) para saber mais sobre os níveis de isolamento e limites transacionais.  Para obter uma visão geral de outras práticas recomendadas, consulte [práticas recomendadas do Azure Synapse Analytics](sql-data-warehouse-best-practices.md).

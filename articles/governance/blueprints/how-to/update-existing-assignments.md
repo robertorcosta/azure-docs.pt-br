@@ -3,12 +3,12 @@ title: Atualizar uma atribuição existente do portal
 description: Saiba mais sobre o mecanismo de atualização de uma atribuição de Blueprint existente do portal em plantas do Azure.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051416"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651372"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de blueprint existente
 
@@ -26,17 +26,17 @@ Quando um blueprint é atribuído, a atribuição pode ser atualizada. Há vári
 
 1. Na lista de plantas, selecione a atribuição Blueprint. Em seguida, use o botão **Atualizar atribuição** ou clique com o botão direito do mouse na atribuição Blueprint e selecione **Atualizar atribuição**.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Atualizar uma atribuição de Blueprint existente" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Captura de tela da página de atribuição do Blueprint com o botão ' atualizar atribuição ' realçado." border="false":::
 
 1. A página **atribuir Blueprint** é carregada previamente preenchida com todos os valores da atribuição original. Você pode alterar a **versão de definição do blueprint**, o estado **Bloquear Atribuição** e qualquer um dos parâmetros dinâmicos que existem na definição do blueprint. Selecione **atribuir** quando terminar de fazer alterações.
 
 1. Na página de detalhes de atribuição atualizada, veja o novo status. Neste exemplo, adicionamos **Bloqueio** à atribuição.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Atualizou uma atribuição de Blueprint existente – modo de bloqueio alterado" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Captura de tela de uma atribuição de plano gráfico atualizada mostrando o modo de bloqueio alterado." border="false":::
 
 1. Explore os detalhes sobre outras **operações de atribuição** usando a lista suspensa. A tabela de atualizações de **recursos gerenciados** por operação de atribuição selecionada.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Operações de atribuição de uma atribuição de Blueprint" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Captura de tela de uma atribuição de plano gráfico atualizada mostrando as operações de atribuição e seu status." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regras para atualizar atribuições
 

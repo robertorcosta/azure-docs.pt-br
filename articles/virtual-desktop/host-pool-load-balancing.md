@@ -3,15 +3,15 @@ title: Balanceamento de carga do pool de hosts da área de trabalho virtual do W
 description: Saiba mais sobre métodos de balanceamento de carga do pool de hosts para um ambiente de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 09/04/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007430"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461112"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga de pool de host
 
@@ -34,7 +34,7 @@ Cada pool de hosts só pode configurar um tipo de balanceamento de carga especí
 
 O método de balanceamento de carga da primeira amplitude permite distribuir conexões de usuário para otimizar esse cenário. Esse método é ideal para organizações que desejam fornecer a melhor experiência para os usuários que se conectam ao ambiente de área de trabalho virtual em pool.
 
-O método amplitude-First consulta primeiro os hosts de sessão que permitem novas conexões. O método seleciona o host da sessão com o menor número de sessões. Se houver um vínculo, o método selecionará o primeiro host de sessão na consulta.
+O método amplitude-First consulta primeiro os hosts de sessão que permitem novas conexões. O método seleciona um host de sessão aleatoriamente da metade do conjunto de hosts de sessão com o menor número de sessões. Por exemplo, se houver nove computadores com 11, 12, 13, 14, 15, 16, 17, 18 e 19 sessões, uma nova sessão criada não irá automaticamente para o primeiro computador. Em vez disso, ele pode ir para qualquer um dos cinco primeiros computadores com o menor número de sessões (11, 12, 13, 14, 15).
 
 ## <a name="depth-first-load-balancing-method"></a>Método de balanceamento de carga da primeira profundidade
 

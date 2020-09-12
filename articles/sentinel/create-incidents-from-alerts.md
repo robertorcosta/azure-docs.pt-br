@@ -13,18 +13,18 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 1593b96ae8412632120e8977635a4193996ca88d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4c631360417afda41b7f48a46b618e7a4328aef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025111"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660695"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Crie incidentes automaticamente com base em alertas de segurança da Microsoft
 
-Os alertas disparados nas soluções de segurança da Microsoft que estão conectadas ao Azure Sentinel, como o Microsoft Cloud App Security e a Proteção Avançada contra Ameaças do Azure, não criam incidentes automaticamente no Azure Sentinel. Por padrão, quando você conecta uma solução da Microsoft ao Azure Sentinel, qualquer alerta gerado nesse serviço será armazenado como dados brutos no Azure Sentinel, na tabela Alerta de Segurança no workspace do Azure Sentinel. É possível usar esses dados como todos os outros dados brutos que você conecta ao Sentinel.
+Alertas disparados nas soluções de segurança da Microsoft que estão conectadas ao Azure Sentinel, como Microsoft Cloud App Security e Microsoft defender for Identity (anteriormente Azure ATP), não criam automaticamente incidentes no Azure Sentinel. Por padrão, quando você conecta uma solução da Microsoft ao Azure Sentinel, qualquer alerta gerado nesse serviço será armazenado como dados brutos no Azure Sentinel, na tabela Alerta de Segurança no workspace do Azure Sentinel. É possível usar esses dados como todos os outros dados brutos que você conecta ao Sentinel.
 
 É possível configurar facilmente o Azure Sentinel para criar incidentes automaticamente toda vez que um alerta é disparado em uma solução de segurança da Microsoft conectada, seguindo as instruções neste artigo.
 
@@ -33,7 +33,7 @@ Os alertas disparados nas soluções de segurança da Microsoft que estão conec
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Usar as Regras analíticas de criação de incidentes de segurança da Microsoft
 
-Use as regras internas disponíveis no Azure Sentinel para escolher quais soluções de segurança da Microsoft conectadas devem criar incidentes do Azure Sentinel automaticamente em tempo real. Também é possível editar as regras para definir opções mais específicas para filtrar quais dos alertas gerados pela solução de segurança da Microsoft devem criar incidentes no Azure Sentinel. Por exemplo, é possível optar por criar incidentes do Azure Sentinel automaticamente somente com base em alertas da Central de Segurança do Azure de alta gravidade.
+Use as regras internas disponíveis no Azure Sentinel para escolher quais soluções de segurança da Microsoft conectadas devem criar incidentes do Azure Sentinel automaticamente em tempo real. Também é possível editar as regras para definir opções mais específicas para filtrar quais dos alertas gerados pela solução de segurança da Microsoft devem criar incidentes no Azure Sentinel. Por exemplo, você pode optar por criar incidentes do Azure Sentinel automaticamente somente de alertas de alta gravidade do Azure defender (anteriormente conhecido como central de segurança do Azure).
 
 1. No portal do Azure, no Azure Sentinel, selecione **Análise**.
 
@@ -47,7 +47,7 @@ Use as regras internas disponíveis no Azure Sentinel para escolher quais soluç
 
 1. É possível modificar os detalhes da regra e optar por filtrar os alertas que criarão incidentes por severidade do alerta ou por texto contido no nome do alerta.  
       
-    Por exemplo, se você escolher **Central de Segurança do Azure** no campo **serviço de segurança da Microsoft** e escolher **Alta** no campo **Filtrar por severidade**, apenas alertas de alta severidade da Central de Segurança do Azure criarão incidentes automaticamente no Azure Sentinel.  
+    Por exemplo, se você escolher **Azure defender** (ainda pode ser chamado de central de segurança do Azure) no campo **serviço de segurança da Microsoft** e escolher **alto** no campo **Filtrar por severidade** , somente os alertas de alta severidade do Azure defender criarão automaticamente incidentes no Azure Sentinel.  
 
     ![Criar assistente de regra](media/incidents-from-alerts/create-rule-wizard.png)
 

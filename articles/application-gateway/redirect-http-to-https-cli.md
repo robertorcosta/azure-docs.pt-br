@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 19bfaf611093f6ca178a627123d4d0f9c8ccf3ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 828012e7e41f8710dc57f1c830b81d403507d27d
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804422"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594215"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando a CLI do Azure
 
@@ -21,12 +21,11 @@ Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Crie um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicativo com o certificado
-> * Adicionar um ouvinte e uma regra de direcionamento
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
+* Crie um certificado autoassinado
+* Configurar uma rede
+* Criar um gateway de aplicativo com o certificado
+* Adicionar um ouvinte e uma regra de direcionamento
+* Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

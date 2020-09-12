@@ -2,19 +2,19 @@
 title: Habilitar o Gerenciamento de Atualizações da Automação do Azure a partir da conta de Automação
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações a partir de uma conta de Automação.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 930861c61843c5963c83d8fa6dc1efdce20853f4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449885"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669508"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Habilitar o Gerenciamento de Atualizações de uma conta de Automação
 
-Este artigo descreve como você pode usar sua conta de Automação para habilitar o recurso de [Gerenciamento de Atualizações](update-mgmt-overview.md) para VMs em seu ambiente. Para habilitar VMs do Azure em escala, você deve habilitar uma VM existente usando o Gerenciamento de Atualizações.
+Este artigo descreve como você pode usar sua conta de automação para habilitar o recurso [Gerenciamento de atualizações](update-mgmt-overview.md) para VMs em seu ambiente, incluindo computadores ou servidores registrados com [servidores habilitados para Arc do Azure](../../azure-arc/servers/overview.md) (versão prévia). Para habilitar as VMs do Azure em escala, você deve habilitar uma VM do Azure existente usando Gerenciamento de Atualizações.
 
 > [!NOTE]
 > Quando habilitamos o Gerenciamento de Atualizações, somente determinadas regiões têm suporte para a vinculação de um workspace do Log Analytics e uma conta da Automação. Para obter uma lista dos pares de mapeamento com suporte, consulte [Mapeamento de região para conta da Automação e workspace do Log Analytics](../how-to/region-mappings.md).
@@ -23,7 +23,7 @@ Este artigo descreve como você pode usar sua conta de Automação para habilita
 
 * Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Conta de automação](../index.yml) para gerenciar máquinas.
-* Uma [máquina virtual](../../virtual-machines/windows/quick-create-portal.md).
+* Uma [máquina virtual do Azure](../../virtual-machines/windows/quick-create-portal.md)ou uma VM ou um servidor registrado com servidores habilitados para Arc (versão prévia). As VMs ou servidores não Azure precisam ter o [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux instalado e o relatório para o espaço de trabalho vinculado à conta de automação gerenciamento de atualizações está habilitado no. O agente pode ser instalado em servidores habilitados para Arc implantando a [extensão de VM log Analytics do Azure](../../azure-arc/servers/manage-vm-extensions.md) com o Azure Arc.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -65,16 +65,21 @@ Máquinas ou máquinas instaladas manualmente que já estão se reportando ao se
 
     ![Pesquisas salvas](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. Para habilitar o Gerenciamento de Atualizações para todas as máquinas disponíveis, selecione **Ativar em todas as máquinas disponíveis**, na página Gerenciar máquinas. Esta ação desabilita o controle para adicionar máquinas individualmente. Esta tarefa adiciona todos os nomes dos computadores que informam sobre o workspace na consulta de pesquisa salva do grupo de computadores. Quando selecionada, esta ação desabilita o botão **Gerenciar Máquinas**.
+3. Para habilitar o Gerenciamento de Atualizações para todos os computadores disponíveis relatando para o espaço de trabalho, selecione **habilitar em todos os computadores disponíveis** na página Gerenciar computadores. Esta ação desabilita o controle para adicionar máquinas individualmente. Essa tarefa adiciona todos os nomes dos computadores que se reportam ao espaço de trabalho para a consulta de pesquisa salva do grupo de computadores `MicrosoftDefaultComputerGroup` . Quando selecionada, esta ação desabilita o botão **Gerenciar Máquinas**.
 
-4. Para ativar o recurso para todos os computadores disponíveis e futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui as pesquisas salvas e as configurações de escopo do workspace e abre o recurso para todos os computadores do Azure e não Azure que se comunicam com o workspace. Quando selecionada, essa ação desabilita o botão **Gerenciar computadores** permanentemente, pois não há configuração de escopo à esquerda.
+4. Para ativar o recurso para todos os computadores disponíveis e futuros, selecione **Habilitar em todos os computadores disponíveis e futuros**. Essa opção exclui a pesquisa salva e a configuração de escopo do espaço de trabalho e permite que o recurso inclua todos os computadores Azure e não Azure que estejam no momento ou no futuro, relate ao espaço de trabalho. Quando selecionada, essa ação desabilita o botão **gerenciar computadores** permanentemente, pois não há nenhuma configuração de escopo disponível.
 
-5. Se necessário, você pode adicionar de novo as configurações de escopo. Para isso, volte a adicionar as pesquisas salvas iniciais. Para obter mais informações, confira [Limitar o escopo de implantação do Gerenciamento de Atualizações](update-mgmt-scope-configuration.md).
+    > [!NOTE]
+    > Como essa opção exclui as pesquisas salvas e as configurações de escopo dentro de Log Analytics, é importante remover quaisquer bloqueios de exclusão no espaço de trabalho Log Analytics antes de selecionar essa opção. Se você não fizer isso, a opção falhará ao remover as configurações e você deverá removê-las manualmente.
+
+5. Se necessário, você pode adicionar as configurações de escopo novamente, adicionando novamente a consulta de pesquisa inicial salva. Para obter mais informações, confira [Limitar o escopo de implantação do Gerenciamento de Atualizações](update-mgmt-scope-configuration.md).
 
 6. Para habilitar o recurso para um ou mais computadores, selecione **habilitar em computadores selecionados** e selecione **Adicionar** ao lado de cada computador. Essa tarefa adiciona os nomes dos computadores selecionados à consulta de pesquisa salva do grupo de computadores para o recurso.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para usar Gerenciamento de Atualizações para VMs, consulte [gerenciar atualizações e patches para suas VMs](update-mgmt-manage-updates-for-vm.md).
+
+* Quando você não precisar mais gerenciar VMs ou servidores com Gerenciamento de Atualizações, consulte [remover VMs do gerenciamento de atualizações](update-mgmt-remove-vms.md).
 
 * Para solucionar problemas gerais do Gerenciamento de Atualizações, confira [Solucionar problemas do Gerenciamento de Atualizações](../troubleshoot/update-management.md).
