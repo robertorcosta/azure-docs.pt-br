@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021306"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613665"
 ---
 # <a name="pbr-materials"></a>Materiais de PBR
 
@@ -55,7 +55,7 @@ A ideia principal da renderização com base fisicamente é usar as propriedades
 
   Se um valor de metal e um mapa de metal forem fornecidos, o valor final será o produto dos dois.
 
-  ![metal e áspero](./media/metalness-roughness.png)
+  ![As várias são renderizadas com valores de metal e de irregularidades diferentes](./media/metalness-roughness.png)
 
   Na imagem acima, a esfera no canto inferior direito se parece com um material de metal real, a parte inferior esquerda é como Ceramic ou plástico. A cor albedo também é alterada de acordo com as propriedades físicas. Com o aumento da nitidez, o material perde a necessidade de reflexo.
 
@@ -63,13 +63,13 @@ A ideia principal da renderização com base fisicamente é usar as propriedades
 
 * **occlusionMap** e **aoScale:** [ambiente oclusão](https://en.wikipedia.org/wiki/Ambient_occlusion) faz com que os objetos com crevices pareçam mais realistas adicionando sombras a obstruído áreas. Oclusão valor intervalo de `0.0` a `1.0` , onde `0.0` significa a escuridão (obstruído) e `1.0` significa que não há occlusions. Se uma textura 2D for fornecida como um mapa oclusão, o efeito será habilitado e *aoScale* agirá como um multiplicador.
 
-  ![Mapa oclusão](./media/boom-box-ao2.gif)
+  ![Um objeto renderizado com e sem oclusão ambiente](./media/boom-box-ao2.gif)
 
 * **transparente:** Para materiais de PBR, há apenas uma configuração de transparência: ela está habilitada ou não. A opacidade é definida pelo canal alfa da cor albedo. Quando habilitado, um pipeline de renderização mais complexo é invocado para desenhar superfícies semitransparentes. A renderização remota do Azure implementa a OIT ( [transparência de ordem](https://en.wikipedia.org/wiki/Order-independent_transparency) verdadeira).
 
   A geometria transparente é cara para renderizar. Se você precisar apenas de buracos em uma superfície, por exemplo, para as folhas de uma árvore, será melhor usar o recorte alfa em vez disso.
 
-  ![Aviso de transparência ](./media/transparency.png) na imagem acima, como a esfera mais à direita é totalmente transparente, mas a reflexão ainda está visível.
+  ![As esferas renderizadas com zero para aviso de transparência total ](./media/transparency.png) na imagem acima, como a esfera mais à direita é totalmente transparente, mas a reflexão ainda está visível.
 
   > [!IMPORTANT]
   > Se algum material deve ser alternado de opaco para transparente no tempo de execução, o renderizador deve usar o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* . Essa limitação não se aplica aos materiais convertidos como materiais transparentes para começar.
@@ -80,6 +80,13 @@ A renderização remota do Azure usa o Torrance micro-faceta BRDF com GGX NDF, S
 
  Uma alternativa para o modelo de PBR de realce de *metal* usado na renderização remota do Azure é o modelo de PBR *de glossários de especulação* . Esse modelo pode representar uma gama mais ampla de materiais. No entanto, ele é mais caro e geralmente não funciona bem para casos em tempo real.
 Nem sempre é possível converter de glossários de *especulação* para a *irregularidade* , pois há pares de valores *(difuso, especular)* que não podem ser convertidos em *(BaseColor, metalness)*. A conversão na outra direção é mais simples e mais precisa, já que todos os pares *(BaseColor, metal)* correspondem aos pares bem definidos *(difuso, especular)* .
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Classe C# PbrMaterial](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# remotamente. creatematerial ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [Classe C++ PbrMaterial](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
+* [C++ Remotemanager:: creatematerial ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Próximas etapas
 

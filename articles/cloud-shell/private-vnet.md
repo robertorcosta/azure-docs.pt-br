@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114652"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468531"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Implantar Cloud Shell em uma rede virtual do Azure
 > [!NOTE]
@@ -52,7 +52,7 @@ Dentro da rede virtual selecionada, uma sub-rede dedicada deve ser usada para co
 Um perfil de rede é um modelo de configuração de rede para recursos do Azure que especifica determinadas propriedades de rede para o recurso.
 
 ### <a name="azure-relay"></a>Retransmissão do Azure
-Uma [retransmissão do Azure](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) permite que dois pontos de extremidade que não podem ser acessados diretamente se comuniquem. Nesse caso, ele é usado para permitir que o navegador do administrador se comunique com o contêiner na rede privada.
+Uma [retransmissão do Azure](../azure-relay/relay-what-is-it.md) permite que dois pontos de extremidade que não podem ser acessados diretamente se comuniquem. Nesse caso, ele é usado para permitir que o navegador do administrador se comunique com o contêiner na rede privada.
 
 A instância de retransmissão do Azure usada para Cloud Shell pode ser configurada para controlar quais redes podem acessar recursos de contêiner: 
 - Acessível pela Internet pública: nessa configuração, Cloud Shell fornece uma maneira de acessar recursos internos de outra forma de fora. 
@@ -66,7 +66,7 @@ Como no Cloud Shell padrão, uma conta de armazenamento é necessária ao usar C
 
 * Durante a visualização, há suporte para menos regiões para Cloud Shell em uma rede virtual. Atualmente, isso está limitado a: Westus e WestCentralUS.
 
-* A [retransmissão do Azure](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) não é um serviço gratuito, veja seus [preços](https://azure.microsoft.com/pricing/details/service-bus/). No cenário de Cloud Shell, uma conexão híbrida é usada para cada administrador enquanto estiver usando Cloud Shell. A conexão será desligada automaticamente após a conclusão da sessão de Cloud Shell.
+* A [retransmissão do Azure](../azure-relay/relay-what-is-it.md) não é um serviço gratuito, veja seus [preços](https://azure.microsoft.com/pricing/details/service-bus/). No cenário de Cloud Shell, uma conexão híbrida é usada para cada administrador enquanto estiver usando Cloud Shell. A conexão será desligada automaticamente após a conclusão da sessão de Cloud Shell.
 
 ## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 
@@ -114,4 +114,4 @@ Conecte-se ao Cloud Shell, você será avisado com a primeira experiência de ex
 ![Ilustra as Cloud Shell configurações de primeira experiência da VNET isolada.](media/private-vnet/vnet-settings.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre as redes virtuais do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+[Saiba mais sobre as redes virtuais do Azure](../virtual-network/virtual-networks-overview.md)

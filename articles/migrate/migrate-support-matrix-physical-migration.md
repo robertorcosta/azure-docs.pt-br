@@ -4,12 +4,12 @@ description: Saiba mais sobre o suporte para migração de servidor físico nas 
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 30c96b11fb15ca1783b6ffc574d9d258dff9da06
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 2e71ab5cd934f2fe931cd901d425061455cc9f0e
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051127"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535441"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidor físico
 
@@ -45,7 +45,7 @@ A tabela resume o suporte para servidores físicos que você deseja migrar usand
 **Serviço de mobilidade** | O agente do serviço de mobilidade deve ser instalado em cada computador que você deseja migrar.
 **Inicialização UEFI** | O computador migrado no Azure será convertido automaticamente em uma VM do Azure de inicialização do BIOS. Somente o servidor que executa o Windows Server 2012 e versões posteriores têm suporte.<br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
 **Inicialização segura de UEFI**         | Sem suporte para migração.
-**Disco de destino** | Os computadores só podem ser migrados para discos gerenciados (HDD padrão, SSD Premium) no Azure.
+**Disco de destino** | Os computadores só podem ser migrados para discos gerenciados (HDD padrão, SSD Standard, SSD Premium) no Azure.
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por computador.
 **Discos/volumes criptografados** |  Computadores com discos/volumes criptografados não têm suporte para migração.

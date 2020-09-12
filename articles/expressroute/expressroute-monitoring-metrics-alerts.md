@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: monitoramento, métricas e alertas'
 description: Saiba mais sobre monitoramento, métricas e alertas do Azure ExpressRoute usando o Azure Monitor, a única loja para todas as métricas, alertas e logs de diagnóstico no Azure.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
-ms.author: cherylmc
-ms.openlocfilehash: 6f3bd5392457f05caa8704e7e1de5b4155b28794
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.author: duau
+ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871320"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395427"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoramento, alertas e métricas do ExpressRoute
 
@@ -42,8 +42,8 @@ Depois que uma métrica for selecionada, a agregação padrão será aplicada. O
 |GlobalReachBitsOutPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
 |AdminState|Conectividade física|Link|ExpressRoute Direct|
 |LineProtocol|Conectividade física|Link|ExpressRoute Direct|
-|RxLightLevel|Conectividade física|<ui><li>Link</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Conectividade física|<ui><li>Link</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
+|RxLightLevel|Conectividade física|<ui><li>Criar</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
+|TxLightLevel|Conectividade física|<ui><li>Criar</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >Usar *GlobalGlobalReachBitsInPerSecond* e *GlobalGlobalReachBitsOutPerSecond* só será visível se pelo menos uma conexão alcance global for estabelecida.
 >

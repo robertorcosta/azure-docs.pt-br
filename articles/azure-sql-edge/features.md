@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/13/2020
-ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/03/2020
+ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539203"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462693"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Recursos com suporte do SQL do Azure no Edge (versão prévia) 
 
@@ -67,8 +67,8 @@ A lista a seguir inclui os SQL Server 2019 em recursos do Linux que atualmente n
 | Área | Recurso ou serviço sem suporte |
 |-----|-----|
 | **Design de banco de dados** | OLTP na memória e comandos DDL relacionados e funções Transact-SQL, exibições de catálogo e exibições de gerenciamento dinâmico. |
-| &nbsp; | `HierarchyID`tipo de dados e comandos DDL relacionados e funções Transact-SQL, exibições de catálogo e exibições de gerenciamento dinâmico. |
-| &nbsp; | `Spatial`tipo de dados e comandos DDL relacionados e funções Transact-SQL, exibições de catálogo e exibições de gerenciamento dinâmico. |
+| &nbsp; | `HierarchyID` tipo de dados e comandos DDL relacionados e funções Transact-SQL, exibições de catálogo e exibições de gerenciamento dinâmico. |
+| &nbsp; | `Spatial` tipo de dados e comandos DDL relacionados e funções Transact-SQL, exibições de catálogo e exibições de gerenciamento dinâmico. |
 | &nbsp; | Stretch DB e comandos DDL relacionados e funções Transact-SQL, exibições de catálogo e exibições de gerenciamento dinâmico. |
 | &nbsp; | Índices de texto completo e pesquisa e comandos DDL relacionados e funções Transact-SQL, exibições de catálogo e exibições de gerenciamento dinâmico.|
 | &nbsp; | `FileTable`, `FILESTREAM` , e comandos DDL relacionados e funções Transact-SQL, exibições de catálogo e exibições de gerenciamento dinâmico.|
@@ -89,6 +89,10 @@ A lista a seguir inclui os SQL Server 2019 em recursos do Linux que atualmente n
 | &nbsp; | Exibições de catálogo de data e hora dependentes do CLR, funções e cláusulas de consulta. |
 | &nbsp; | Extensão do pool de buffers. |
 | &nbsp; | Database Mail. |
+| &nbsp; | Agente de Serviço |
+| &nbsp; | Gerenciamento Baseado em Políticas |
+| &nbsp; | data warehouse de gerenciamento |
+| &nbsp; | Bancos de dados independentes |
 | **SQL Server Agent** |  Subsistemas: CmdExec, PowerShell, leitor de fila, SSIS, SSAS e SSRS. |
 | &nbsp; | Alertas. |
 | &nbsp; | Backup gerenciado. |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b185b6e7706b2049f2821400db9d810588000419
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c3a5f3a984c95af400c9e0c1543e3c1883290668
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848206"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442949"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Serviços do Azure compatíveis com o Azure Data Lake Storage Gen2
 
@@ -40,11 +40,10 @@ Esta tabela lista os serviços do Azure que você pode usar com Azure Data Lake 
 |Hub IoT |Disponível para o público geral|Não|Sim|[Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|
 |Power BI|Disponível para o público geral|Sim|Sim|[Analisar dados em Data Lake Storage Gen2 usando Power BI](https://docs.microsoft.com/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics (antigo SQL Data Warehouse)|Disponível para o público geral|Sim|Sim|[Usar com o Azure Synapse Analytics (anteriormente SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase)|
-|SQL Server Integration Services (SSIS)|Disponível para o público geral|Sim|Sim|[Gerenciador de conexões do Armazenamento do Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
+|SQL Server Integration Services (SSIS)|Disponível para o público geral|Sim|Sim|[Gerenciador de conexões do armazenamento do Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-storage-connection-manager?view=sql-server-2017)|
 |Azure Data Explorer|Disponível para o público geral|Sim|Sim|[Consultar dados em Azure Data Lake usando o Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/data-lake-query-data)|
 |Pesquisa Cognitiva do Azure|Visualização|Sim|Sim|[Indexar e Pesquisar Azure Data Lake Storage Gen2 documentos (visualização)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
 |Rede de Distribuição de Conteúdo do Azure|Ainda não compatível|Não aplicável|Não aplicável|[Indexar e Pesquisar Azure Data Lake Storage Gen2 documentos (visualização)](https://docs.microsoft.com/azure/cdn/cdn-overview)|
-
 
 ## <a name="see-also"></a>Confira também
 

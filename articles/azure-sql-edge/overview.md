@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 2c96e4b7baa2c463c42db9440cadb3cb396fde1b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 20e709db9e6992f52b04934cb0f6eb65d3dcb44c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642462"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489520"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>O que é o SQL do Azure no Edge (visualização)?
 
@@ -67,7 +67,7 @@ O SQL do Azure no Edge torna o desenvolvimento e a manutenção de aplicativos m
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms/): um aplicativo cliente livre e que pode ser baixado para gerenciar qualquer infraestrutura SQL, do SQL Server ao Banco de Dados SQL.
 - [SQL Server Data Tools no Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/): um aplicativo cliente livre que pode ser baixado para o desenvolvimento de bancos de dados relacionais do SQL Server, bancos de dados SQL, pacotes do Integration Services, modelos de dados do Analysis Services e relatórios do Reporting Services.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/): uma ferramenta gratuita e baixável de banco de dados multiplataforma para profissionais de dados que usam a família Microsoft de plataformas de dados locais e na nuvem em Windows, macOS e Linux.
-- [Visual Studio Code](https://code.visualstudio.com/docs): um editor de código gratuito de software livre que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consultar o Microsoft SQL Server, o Banco de Dados SQL do Azure e o SQL Data Warehouse.
+- [Visual Studio Code](https://code.visualstudio.com/docs): um editor de código gratuito de software livre que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão MSSQL](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, banco de dados SQL do Azure e Azure Synapse Analytics.
 
 
 ## <a name="next-steps"></a>Próximas etapas

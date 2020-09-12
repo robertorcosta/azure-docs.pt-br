@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0b1a5e36232e74caa34037efbbb0da0c39051998
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009402"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568686"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows
 
@@ -29,7 +29,7 @@ As tabelas a seguir comparam as soluções de armazenamento ofertas de armazenam
 |Serviço de plataforma|Sim, solução nativa do Azure|Sim, solução nativa do Azure|Não, autogerenciado|
 |Disponibilidade regional|Todas as regiões|[Selecionar regiões](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Todas as regiões|
 |Redundância|Localmente redundante/com redundância de zona/redundância geográfica|Localmente redundante|Localmente redundante/com redundância de zona/redundância geográfica|
-|Camadas e desempenho|Standard<br>Premium<br>Até máx. de 100 mil IOPS por compartilhamento com 5 GBps por compartilhamento em aproximadamente 3 ms de latência|Standard<br>Premium<br>Altíssima<br>Até 320K (16K) IOPS com 4,5 GBps por volume em aproximadamente 1 ms de latência|HDD Standard: até 500 de IOPS por disco limites<br>SSD Standard: até 4K IOPS por disco limites<br>SSD Premium: limites de até 20 mil IOPS por disco<br>Recomendamos discos Premium para Espaços de Armazenamento Diretos|
+|Camadas e desempenho|Standard<br>Premium<br>Até máx. de 100 mil IOPS por compartilhamento com 5 GBps por compartilhamento em aproximadamente 3 ms de latência|Standard<br>Premium<br>Ultra<br>Até 320K (16K) IOPS com 4,5 GBps por volume em aproximadamente 1 ms de latência|HDD Standard: até 500 de IOPS por disco limites<br>SSD Standard: até 4K IOPS por disco limites<br>SSD Premium: limites de até 20 mil IOPS por disco<br>Recomendamos discos Premium para Espaços de Armazenamento Diretos|
 |Capacity|100 TiB por compartilhamento|100 TiB por volume, até 12,5 PiB por assinatura|Máximo de 32 TiB por disco|
 |Infraestrutura necessária|Tamanho mínimo de compartilhamento 1 GiB|Pool mínimo de capacidade 4 TiB, tamanho mínimo de volume 100 GiB|Duas VMs no Azure IaaS (+ testemunha de nuvem) ou pelo menos três VMs sem e custos para discos|
 |Protocolos|SMB 2.1/3. e REST|NFSv3, NFSv 4.1 (visualização), SMB 3. x/2. x|NFSv3, NFSv 4.1, SMB 3,1|
@@ -51,7 +51,7 @@ Para saber mais sobre contêineres de perfil do FSLogix, discos de perfil do usu
 
 Se você estiver pronto para criar seus próprios contêineres de perfil do FSLogix, comece com um destes tutoriais:
 
-- [Introdução aos contêineres de perfil do FSLogix nos arquivos do Azure na área de trabalho virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
+- [Introdução aos contêineres de perfil do FSLogix nos arquivos do Azure na área de trabalho virtual do Windows](create-file-share.md)
 - [Criar um contêiner de perfil do FSLogix para um pool de hosts usando os arquivos do Azure NetApp](create-fslogix-profile-container.md)
 - As instruções em [implantar um servidor de arquivos de escalabilidade horizontal de dois nós espaços de armazenamento diretos para o armazenamento UPD no Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) também se aplicam quando você usa um contêiner de perfil FSLogix em vez de um disco de perfil de usuário
 

@@ -2,13 +2,13 @@
 title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002787"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468633"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos em nível de assinatura
 
@@ -115,7 +115,7 @@ O local não pode ser alterado para cada nome de implantação. Você não pode 
 
 ## <a name="deployment-scopes"></a>Escopos de implantação
 
-Ao implantar em uma assinatura, você pode direcionar a assinatura ou qualquer grupo de recursos dentro da assinatura. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
+Ao implantar em uma assinatura, você pode direcionar uma assinatura e todos os grupos de recursos dentro da assinatura. Não é possível implantar em uma assinatura diferente da assinatura de destino. O usuário que está implantando o modelo deve ter acesso ao escopo especificado.
 
 Os recursos definidos na seção de recursos do modelo são aplicados à assinatura.
 
@@ -145,7 +145,7 @@ Para direcionar um grupo de recursos dentro da assinatura, adicione uma implanta
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -154,15 +154,19 @@ Para direcionar um grupo de recursos dentro da assinatura, adicione uma implanta
 }
 ```
 
+Neste artigo, você pode encontrar modelos que mostram como implantar recursos em escopos diferentes. Para um modelo que cria um grupo de recursos e implanta uma conta de armazenamento nele, consulte [Criar grupo de recursos e recursos](#create-resource-group-and-resources). Para um modelo que cria um grupo de recursos, aplica um bloqueio a ele e atribui uma função para o grupo de recursos, consulte [controle de acesso](#access-control).
+
 ## <a name="use-template-functions"></a>Usar funções de modelo
 
 Para implantações em nível de assinatura, há algumas considerações importantes ao usar funções de modelo:
 
 * A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
 * A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
-* Use a função [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) para obter a ID do recurso para os recursos que são implantados no nível da assinatura.
+* Não use [ResourceId ()](template-functions-resource.md#resourceid) para obter a ID de recurso para recursos que são implantados no nível de assinatura.
 
-  Por exemplo, para obter a ID do recurso para uma definição de política, use:
+  Em vez disso, use a função [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
+
+  Por exemplo, para obter a ID de recurso para uma definição de política que é implantada em uma assinatura, use:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -420,7 +424,7 @@ Você pode [definir](../../governance/policy/concepts/definition-structure.md) e
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]

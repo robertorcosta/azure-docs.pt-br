@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 015feac819467cf60bfb2faab27af769fadc3cfa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522866"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484945"
 ---
 # <a name="data-access-strategies"></a>Estratégias de acesso a dados
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre os mecanismos de segurança de rede com supo
     |                              | Banco de Dados do Azure para MariaDB, MySQL, PostgreSQL       | -                | -                   | Sim             | -            | Sim                  |
     |                              | Armazenamento de Arquivos do Azure                                  | Sim              | -                   | Sim             | -            | .                    |
     |                              | Armazenamento do Azure (BLOB, ADLS Gen2)                     | Sim              | Sim (somente autenticação MSI) | Sim             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL Ml  | Sim (somente banco de BD SQL do Azure/DW)        | -                   | Sim             | -            | Sim                  |
+    |                              | BD SQL do Azure, Azure Synapse Analytics), SQL ml  | Sim (somente banco de BD SQL do Azure/DW)        | -                   | Sim             | -            | Sim                  |
     |                              | Azure Key Vault (para buscar segredos/cadeia de conexão) | sim      | Sim                 | Sim             | -            | -                    |
     | Outros armazenamentos de dados PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.    | -                | -                   | Sim             | -            | -                    |
     | Azure laaS                   | SQL Server, Oracle, etc.                          | -                | -                   | Sim             | Sim          | -                    |
@@ -73,7 +73,7 @@ Para obter mais informações sobre os mecanismos de segurança de rede com supo
     |                                | Banco de Dados do Azure para MariaDB, MySQL, PostgreSQL               | Sim       | -                   |
     |                                | Armazenamento de Arquivos do Azure                                            | Sim       | -                   |
     |                                | Armazenamento do Microsoft Azure (Blog, ADLS Gen2)                             | Sim       | Sim (somente autenticação MSI) |
-    |                                | Azure SQL DB, SQL DW (Synapse Analytics), SQL Ml          | Sim       | -                   |
+    |                                | BD SQL do Azure, Azure Synapse Analytics), SQL ml          | Sim       | -                   |
     |                                | Azure Key Vault (para buscar segredos/cadeia de conexão) | Sim       | Sim                 |
     | Outros armazenamentos de dados PaaS/SaaS | AWS S3, SalesForce, Google Cloud Storage, etc.              | Sim       | -                   |
     | Azure laaS                     | SQL Server, Oracle, etc.                                  | Sim       | -                   |

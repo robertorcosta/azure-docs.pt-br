@@ -12,16 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089695"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569077"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
 
 A central de segurança do Azure integra-se à [ATP (proteção avançada contra ameaças) do Microsoft defender](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) para fornecer recursos abrangentes de EDR (detecção de ponto de extremidade e resposta).
+
+
+## <a name="availability"></a>Disponibilidade
+
+|Aspecto|Detalhes|
+|----|:----|
+|Estado da versão:|**Disponibilidade geral**|
+|Refere|Camada padrão|
+|Computadores com suporte:|![Sim](./media/icons/yes-icon.png) Máquinas do Azure executando o Windows<br>![Sim](./media/icons/yes-icon.png) Computadores do Arc do Azure executando o Windows|
+|Funções e permissões necessárias:|Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura**ou colaborador da **assinatura**|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens públicas do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|||
+
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Recursos do Microsoft defender ATP na central de segurança
 
@@ -55,7 +68,7 @@ Quando você usa a central de segurança do Azure para monitorar servidores, um 
 Após configurar, você não pode alterar o local onde os dados são armazenados. Se você precisar mover seus dados para outro local, entre em contato com Suporte da Microsoft para redefinir o locatário.
 
 
-## <a name="onboarding-servers-to-security-center"></a>Integração de servidores à Central de Segurança 
+## <a name="onboard-servers-to-security-center"></a>Integrar servidores à central de segurança 
 
 Para integrar servidores à central de segurança, clique em **ir para a central de segurança do Azure para integrar servidores** da integração do servidor do Microsoft defender ATP.
 

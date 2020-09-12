@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783224"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569043"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da Central de Segurança do Azure para aprimorar a segurança
+
 Você pode reduzir as chances de um evento de segurança significativo configurando uma política de segurança e implementando as recomendações fornecidas pela Central de Segurança do Azure. Esse artigo mostra como usar as políticas de segurança e as recomendações da Central de Segurança para ajudar a atenuar uma violação de segurança. 
 
 A central de segurança executa verificações contínuas automaticamente para analisar o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que guiam você pelo processo de configuração dos controles de segurança necessários. A central de segurança atualiza suas recomendações dentro de 24 horas, com as seguintes exceções:
@@ -66,6 +67,11 @@ Como parte de suas atividades diárias de monitoramento, Jeff entra no Azure e a
 6. Jeff tem várias VMs voltadas para a Internet e, como suas portas são expostas, eles estão preocupados com o fato de um invasor poder ter controle sobre os servidores. Portanto, Jeff escolhe usar o [**acesso à VM just-in-time**](security-center-just-in-time.md).
 
 Jeff continua a seguir as recomendações de alta e média prioridade, tomando decisões quanto à implementação. Para cada recomendação, Jeff examina as informações detalhadas fornecidas pela central de segurança para entender quais recursos são afetados, qual é o impacto da Pontuação segura, o que cada recomendação significa e as etapas de correção para saber como atenuar cada problema.
+
+### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>Impor recomendações para impedir configurações incorretas de segurança
+
+Para garantir que os usuários não criem recursos que afetam negativamente a pontuação de Jeff, eles configuram as opções de aplicação e negação nas recomendações mais importantes para elas. Saiba mais em [evitar configurações incorretas com recomendações de aplicação/negação](prevent-misconfigurations.md).
+
 
 ## <a name="conclusion"></a>Conclusão
 Monitorar as recomendações na Central de Segurança ajuda a eliminar vulnerabilidades de segurança antes de uma violação ocorrer. Quando você corrige recomendações, sua pontuação segura e a postura de segurança de suas cargas de trabalho melhoram. A Central de Segurança detecta automaticamente os novos recursos que você implanta, os avalia em relação à sua política de segurança e fornece novas recomendações para protegê-los.

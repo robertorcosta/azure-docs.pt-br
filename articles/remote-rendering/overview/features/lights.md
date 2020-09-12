@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022139"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613647"
 ---
 # <a name="scene-lighting"></a>Iluminação de cena
 
@@ -66,9 +66,20 @@ O `DirectionalLightComponent` simula uma fonte de luz que está infinitamente di
 
 Não há nenhuma propriedade adicional.
 
-## <a name="performance-considerations"></a>Considerações sobre o desempenho
+## <a name="performance-considerations"></a>Considerações sobre desempenho
 
 Fontes de luz têm um impacto significativo no desempenho de renderização. Use-os com cuidado e apenas se exigido pelo aplicativo. Qualquer condição de iluminação global estática, incluindo um componente direcional estático, pode ser obtida com uma [textura céu personalizada](sky.md), sem custo de renderização adicional.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Classe C# LightComponentBase](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [Classe C# PointLightComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [Classe C# SpotLightComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [Classe C# DirectionalLightComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [Classe C++ LightComponentBase](https://docs.microsoft.com/cpp/api/remote-rendering/lightcomponentbase)
+* [Classe C++ PointLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/pointlightcomponent)
+* [Classe C++ SpotLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
+* [Classe C++ DirectionalLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
 
 ## <a name="next-steps"></a>Próximas etapas
 
