@@ -8,14 +8,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799558"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657948"
 ---
-# <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
+# <a name="azure-monitor-workbooks"></a>Azure Monitor pastas de trabalho
 
 As pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados dentro do portal do Azure. Eles permitem que você toque em várias fontes de dados em todo o Azure e combine-as em experiências interativas unificadas. 
 
@@ -43,12 +43,13 @@ As pastas de trabalho são atualmente compatíveis com as seguintes fontes de da
 
 As pastas de trabalho fornecem um conjunto avançado de recursos para visualizar seus dados. Para obter exemplos detalhados de cada tipo de visualização, você pode consultar os links de exemplo abaixo:
 
-* [Texto](workbooks-visualizations.md#text)
-* [Gráficos](workbooks-visualizations.md#charts)
-* [Grades](workbooks-visualizations.md#grids)
-* [Blocos](workbooks-visualizations.md#tiles)
-* [Árvores](workbooks-visualizations.md#trees)
-* [Gráficos](workbooks-visualizations.md#graphs)
+* [Text](workbooks-text-visualizations.md)
+* [Gráficos](workbooks-chart-visualizations.md)
+* [Grades](workbooks-grid-visualizations.md)
+* [Blocos](workbooks-tile-visualizations.md)
+* [Árvores](workbooks-tree-visualizations.md)
+* [Gráficos](workbooks-graph-visualizations.md)
+* [Barra de composição](workbooks-composite-bar.md)
 
 ![Exemplos de visualizações de pastas de trabalho](./media/workbooks-overview/visualizations.png)
 
@@ -86,9 +87,9 @@ No caso dessa pasta de trabalho específica, a experiência é interativa. Você
 
 ### <a name="editing-mode"></a>Modo de edição
 
-Para entender como esse modelo de pasta de trabalho é agrupado, você precisa alternar para o modo de edição selecionando **Editar**. 
+Para entender como esse modelo de pasta de trabalho é agrupado, você precisa alternar para o modo de edição selecionando **Editar**.
 
-![Captura de tela do modelo de análise de falha de aplicativo](./media/workbooks-overview/edit.png)
+![Captura de tela do botão Editar em pastas de trabalho.](./media/workbooks-overview/edit.png)
 
 Depois de alternar para o modo de edição, você observará que várias caixas de **edição** aparecem à direita correspondentes a cada aspecto individual de sua pasta de trabalho.
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194073"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005013"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de senha e restrições de conta no Azure Active Directory
 
@@ -33,7 +33,7 @@ Cada conta que entra no Azure AD deve ter um valor de atributo UPN (nome princip
 
 A tabela a seguir descreve as políticas de nome de usuário que se aplicam a contas de AD DS locais que são sincronizadas com o Azure AD e para contas de usuário somente em nuvem criadas diretamente no Azure AD:
 
-| Property | Requisitos de UserPrincipalName |
+| Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
 | Caracteres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Caracteres não permitidos |<ul> <li>Qualquer caractere "\@\" que não esteja separando o nome de usuário do domínio.</li> <li>Não pode conter um caractere de ponto "." imediatamente antes do símbolo "\@\"</li></ul> |
@@ -43,13 +43,13 @@ A tabela a seguir descreve as políticas de nome de usuário que se aplicam a co
 
 Uma política de senha é aplicada a todas as contas de usuário que são criadas e gerenciadas diretamente no Azure AD. Essa política de senha não pode ser modificada, embora você possa [Configurar senhas excluídas personalizadas para a proteção de senha do Azure ad](tutorial-configure-custom-password-protection.md).
 
-A política de senha não se aplica a contas de usuário sincronizadas de um ambiente de AD DS local usando Azure AD Connect.
+A política de senha não se aplica a contas de usuário sincronizadas de um ambiente de AD DS local usando Azure AD Connect, a menos que você habilite EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 As seguintes opções de política de senha são definidas:
 
-| Property | Requisitos |
+| Propriedade | Requisitos |
 | --- | --- |
-| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \: ',. ? / \`~ " ( ) ;</li> <li>espaço em branco</li></ul> |
+| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \: ',. ? / \` ~ " ( ) ;</li> <li>espaço em branco</li></ul> |
 | Caracteres não permitidos | Caracteres Unicode. |
 | Restrições de senha |<ul><li>Um mínimo de 8 caracteres e um máximo de 256 caracteres.</li><li>Requer três de quatro dos seguintes itens:<ul><li>Caracteres minúsculos.</li><li>Caracteres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (veja as restrições de senha acima).</li></ul></li></ul> |
 | Duração da expiração da senha (duração máxima da senha) |<ul><li>Valor padrão: **90** dias.</li><li>O valor é configurável usando o cmdlet `Set-MsolPasswordPolicy` do Módulo do Azure Active Directory para Windows PowerShell.</li></ul> |

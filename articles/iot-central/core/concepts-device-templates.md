@@ -7,12 +7,13 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: device-developer
+ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337102"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015085"
 ---
 # <a name="what-are-device-templates"></a>O que são modelos de dispositivo?
 
@@ -160,10 +161,10 @@ O exemplo a seguir mostra a definição da interface do sensor ambiental:
 
 Este exemplo mostra duas propriedades, um tipo de telemetria e dois comandos. Uma descrição mínima do campo tem um:
 
-- `@type`para especificar o tipo de recurso: `Telemetry` , `Property` ou `Command` .  Em alguns casos, o tipo inclui um tipo semântico para permitir que IoT Central faça algumas suposições sobre como lidar com o valor.
-- `name`para o valor de telemetria.
-- `schema`para especificar o tipo de dados para a telemetria ou a propriedade. Esse valor pode ser um tipo primitivo, como duplo, inteiro, booliano ou cadeia de caracteres. Também há suporte para tipos de objetos complexos, matrizes e mapas.
-- `commandType`para especificar como o comando deve ser manipulado.
+- `@type` para especificar o tipo de recurso: `Telemetry` , `Property` ou `Command` .  Em alguns casos, o tipo inclui um tipo semântico para permitir que IoT Central faça algumas suposições sobre como lidar com o valor.
+- `name` para o valor de telemetria.
+- `schema` para especificar o tipo de dados para a telemetria ou a propriedade. Esse valor pode ser um tipo primitivo, como duplo, inteiro, booliano ou cadeia de caracteres. Também há suporte para tipos de objetos complexos, matrizes e mapas.
+- `commandType` para especificar como o comando deve ser manipulado.
 
 Campos opcionais, como nome de exibição e descrição, permitem que você adicione mais detalhes à interface e aos recursos.
 
@@ -197,7 +198,7 @@ Use comandos assíncronos para operações de longa execução. O dispositivo en
  `iothub-interface-name`: o nome da instância dessa interface, por exemplo `myAssetTracker` .
 - `iothub-command-statuscode`: o código de status retornado do dispositivo, por exemplo `202` .
 
-## <a name="cloud-properties"></a>Propriedades de nuvem
+## <a name="cloud-properties"></a>Propriedades da Nuvem
 
 As propriedades de nuvem fazem parte do modelo de dispositivo, mas não fazem parte do DCM. As propriedades de nuvem permitem que o desenvolvedor da solução especifique qualquer metadado de dispositivo a ser armazenado no aplicativo IoT Central. As propriedades de nuvem não afetam o código que um desenvolvedor de dispositivo grava para implementar o DCM.
 

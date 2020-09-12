@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
-ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82856022"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650585"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Referência de dados de monitoramento do Azure Machine Learning
 
@@ -27,7 +27,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputejobevents-table"></a>Tabela AmlComputeJobEvents
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:---|
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -56,7 +56,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputeclusterevents-table"></a>Tabela AmlComputeClusterEvents
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -99,7 +99,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 ### <a name="amlcomputeclusternodeevents-table"></a>Tabela AmlComputeClusterNodeEvents
 
-| Property | Descrição |
+| Propriedade | Descrição |
 |:--- |:--- |
 | TimeGenerated | Hora em que a entrada de log foi gerada |
 | OperationName | Nome da operação associada ao evento de log |
@@ -126,7 +126,7 @@ A tabela a seguir lista as propriedades de Azure Machine Learning logs de recurs
 
 As tabelas a seguir listam as métricas de plataforma coletadas para Azure Machine Learning todas as métricas são armazenadas no namespace **Workspace do Azure Machine Learning**.
 
-**Modelo**
+**Deprecia**
 
 | Métrica | Unidade | Descrição |
 | ----- | ----- | ----- |
@@ -195,7 +195,7 @@ Veja a seguir as dimensões que podem ser usadas para filtrar as métricas de ex
 | Dimensão | Descrição |
 | ---- | ---- |
 | ComputeType | O tipo de computação usado pela execução. |
-| PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) usado na execução. |
+| PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) usado na execução. |
 | PublishedPipelineId | A ID do pipeline publicado usado na execução. |
 | RunType | O tipo de execução. |
 

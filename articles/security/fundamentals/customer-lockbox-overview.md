@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 11/04/2019
-ms.openlocfilehash: 5330c751aaa3fcbd5c7fc268e4a4de08d336d474
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/09/2020
+ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82735429"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650970"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -25,6 +25,49 @@ Sistema de Proteção de Dados do Cliente para Microsoft Azure fornece uma inter
 Este artigo aborda como Sistema de Proteção de Dados do Cliente solicitações são iniciadas, controladas e armazenadas para revisões e auditorias posteriores.
 
 O Sistema de Proteção de Dados do Cliente agora está disponível para o público geral e atualmente habilitado para acesso à área de trabalho remota a máquinas virtuais.
+
+## <a name="supported-services-and-scenarios-in-preview"></a>Serviços e cenários com suporte na visualização
+
+Os serviços a seguir agora estão atualmente em visualização para Sistema de Proteção de Dados do Cliente:
+
+- Gerenciamento de API
+- Serviço de aplicativo do Azure
+- Banco de Dados do Azure para MySQL
+- Azure Databricks
+- Azure Synapse Analytics
+- Serviços Cognitivos
+- Registro de Contêiner
+- Fábrica de dados do Azure
+- Banco de Dados do Azure para PostgreSQL
+- Serviço de Kubernetes do Azure
+- Azure Data Box
+- HDInsight
+- Funções
+- Armazenamento do Azure
+- BD SQL do Azure
+- Azure Data Explorer
+- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos gerenciados)
+- Transferências de assinatura do Azure
+
+Para habilitar Sistema de Proteção de Dados do Cliente para essas ofertas de visualização para sua organização, Inscreva-se para [sistema de proteção de dados do cliente para visualização pública do Azure](https://aka.ms/customerlockbox/insiderprogram).
+
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Serviços e cenários com suporte em disponibilidade geral
+
+Os seguintes serviços e cenários estão atualmente em disponibilidade geral para Sistema de Proteção de Dados do Cliente.
+
+### <a name="remote-desktop-access-to-virtual-machines"></a>Acesso à área de trabalho remota a máquinas virtuais
+
+O Sistema de Proteção de Dados do Cliente está habilitado no momento para solicitações de acesso à área de trabalho remota para máquinas virtuais. Há suporte para as seguintes cargas de trabalho:
+- PaaS (plataforma como serviço)-serviços de nuvem do Azure (função Web e função de trabalho)
+- IaaS (infraestrutura como serviço)-Windows e Linux (somente Azure Resource Manager)
+- Conjunto de dimensionamento de máquinas virtuais-Windows e Linux
+
+> [!NOTE]
+> As instâncias clássicas do IaaS não são suportadas pelo Sistema de Proteção de Dados do Cliente. Se você tiver cargas de trabalho em execução em instâncias clássicas de IaaS, recomendamos migrá-las dos modelos de implantação clássico para o Resource Manager. Para obter instruções, consulte [migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+
+#### <a name="detailed-audit-logs"></a>Logs de auditoria detalhados
+
+Para cenários que envolvem acesso à área de trabalho remota, você pode usar logs de eventos do Windows para examinar as ações executadas pelo engenheiro da Microsoft. Considere usar a central de segurança do Azure para coletar seus logs de eventos e copiar os dados para o espaço de trabalho para análise. Para obter mais informações, consulte [coleta de dados na central de segurança do Azure](../../security-center/security-center-enable-data-collection.md).
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -91,40 +134,9 @@ Por exemplo:
 
 ![Logs de atividades de Sistema de Proteção de Dados do Cliente do Azure](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Serviços e cenários com suporte em disponibilidade geral
+## <a name="customer-lockbox-integration-with-azure-security-benchmark"></a>Integração do Sistema de Proteção de Dados do Cliente com o benchmark de segurança do Azure
 
-Os seguintes serviços e cenários estão atualmente em disponibilidade geral para Sistema de Proteção de Dados do Cliente.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Acesso à área de trabalho remota a máquinas virtuais
-
-O Sistema de Proteção de Dados do Cliente está habilitado no momento para solicitações de acesso à área de trabalho remota para máquinas virtuais. Há suporte para as seguintes cargas de trabalho:
-- PaaS (plataforma como serviço)-serviços de nuvem do Azure (função Web e função de trabalho)
-- IaaS (infraestrutura como serviço)-Windows e Linux (somente Azure Resource Manager)
-- Conjunto de dimensionamento de máquinas virtuais-Windows e Linux
-
-> [!NOTE]
-> As instâncias clássicas do IaaS não são suportadas pelo Sistema de Proteção de Dados do Cliente. Se você tiver cargas de trabalho em execução em instâncias clássicas de IaaS, recomendamos migrá-las dos modelos de implantação clássico para o Resource Manager. Para obter instruções, consulte [migração de recursos de IaaS com suporte da plataforma do clássico para o Azure Resource Manager](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
-
-#### <a name="detailed-audit-logs"></a>Logs de auditoria detalhados
-
-Para cenários que envolvem acesso à área de trabalho remota, você pode usar logs de eventos do Windows para examinar as ações executadas pelo engenheiro da Microsoft. Considere usar a central de segurança do Azure para coletar seus logs de eventos e copiar os dados para o espaço de trabalho para análise. Para obter mais informações, consulte [coleta de dados na central de segurança do Azure](../../security-center/security-center-enable-data-collection.md).
-
-## <a name="supported-services-and-scenarios-in-preview"></a>Serviços e cenários com suporte na visualização
-
-Os serviços a seguir agora estão atualmente em visualização para Sistema de Proteção de Dados do Cliente:
-
-- Armazenamento do Azure
-
-- BD SQL do Azure
-
-- Azure Data Explorer
-
-- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos gerenciados)
-
-- Transferências de assinatura do Azure
-
-Para habilitar Sistema de Proteção de Dados do Cliente para essas ofertas de visualização para sua organização, Inscreva-se para [sistema de proteção de dados do cliente para visualização pública do Azure](https://aka.ms/customerlockbox/insiderprogram).
-
+Apresentamos um novo controle de linha de base ([3,13](../benchmarks/security-control-identity-access-control.md#313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios)) no benchmark de segurança do Azure que cobre sistema de proteção de dados do cliente aplicabilidade. Agora, os clientes podem aproveitar o parâmetro de comparação para examinar Sistema de Proteção de Dados do Cliente aplicabilidade para um serviço.
 
 ## <a name="exclusions"></a>Exclusões
 

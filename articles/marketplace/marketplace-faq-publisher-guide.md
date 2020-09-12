@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 28f8dd4be9e03af9f0b155d6e79949fe522cd7c2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607335"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007750"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
@@ -46,7 +46,7 @@ Para saber mais, assista ao vídeo em [Por que vender por meio do marketplace](h
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Há um valor de listagem para o marketplace comercial da Microsoft?
 
-Não, não há nenhum custo para publicar ofertas em nosso marketplace comercial. Retemos um pequeno percentual da venda como um valor de transação e investimos no programa Marketplace Rewards, inovação de plataforma e operações do marketplace comercial. Essa taxa de transação é reduzida para as ofertas de incentivados de [Venda de IP do Azure](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) .
+Não, não há nenhum custo para publicar ofertas em nosso marketplace comercial. Retemos um pequeno percentual da venda como um valor de transação e investimos no programa Marketplace Rewards, inovação de plataforma e operações do marketplace comercial. Essa taxa de transação é reduzida para as ofertas de incentivados de [Venda de IP do Azure](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) e para ofertas de SaaS pagas no AppSource que estão associadas a um aplicativo Microsoft Team ou pelo menos dois suplementos de Microsoft 365 (Excel, PowerPoint, Word, Outlook e SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Como faço para me inscrever como um editor no marketplace comercial da Microsoft?
 
@@ -320,7 +320,7 @@ Aqui estão alguns recursos para começar:
 Recomendamos estes recursos:
 
 - Para participar da Comunidade de Parceiros da Microsoft, confira [Microsoft AppSource e Azure Marketplace](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222).
-- Saiba mais e junte-se ao [Programa de membros do marketplace comercial da Microsoft](https://crmnamvoc1runtime.crm.dynamics.com/cbdbd59b-ab3d-47bf-8a1c-7452f8e49970/marketplaceinsiders).
+- Saiba mais e junte-se ao [Programa de membros do marketplace comercial da Microsoft](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/Commercial-Marketplace-Insiders-Program/td-p/13743).
 
 ### <a name="where-can-i-learn-more-about-partner-center"></a>Em que local posso obter mais informações sobre o Partner Center?
 

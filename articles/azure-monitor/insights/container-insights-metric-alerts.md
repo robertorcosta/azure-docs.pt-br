@@ -3,12 +3,12 @@ title: Alertas de métrica de Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo revisa os alertas de métrica recomendados disponíveis em Azure Monitor para contêineres em visualização pública.
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563357"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019879"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas de métrica recomendados (versão prévia) de Azure Monitor para contêineres
 
@@ -144,7 +144,7 @@ As etapas básicas são as seguintes:
 
 2. Para implantar um modelo personalizado por meio do portal, selecione **criar um recurso** no [portal do Azure](https://portal.azure.com).
 
-3. Procure **modelo**e, em seguida, selecione **modelo**. planta.
+3. Pesquise por **modelo**e, em seguida, selecione **implantação de modelo**.
 
 4. Selecione **Criar**.
 

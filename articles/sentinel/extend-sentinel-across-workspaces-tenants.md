@@ -1,6 +1,6 @@
 ---
 title: Estenda o Azure Sentinel entre espaços de trabalho e locatários | Microsoft Docs
-description: Como trabalhar com vários locatários para o Azure Sentinel para provedores de serviço MSSP.
+description: Como estender os recursos de análise do Sentinela do Azure entre espaços de trabalho e locatários.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9e0fe46e0a7382c0adcfa1f1f781f282e9e77942
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519006"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019318"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estender o Azure Sentinel entre workspaces e locatários
 
@@ -94,6 +94,13 @@ Uma função também pode simplificar uma União comumente usada. Por exemplo, v
 
 Em seguida, você pode escrever uma consulta em ambos os espaços de trabalho começando com `unionSecurityEvent | where ...` .
 
+#### <a name="scheduled-alerts"></a>Alertas agendados
+
+As consultas entre espaços de trabalho agora podem ser incluídas em alertas agendados em regras de análise, sujeitas às seguintes limitações:
+
+- Até 10 espaços de trabalho podem ser incluídos em uma única consulta.
+- O Azure Sentinel deve ser implantado em todos os espaços de trabalho referenciados na consulta.
+
 > [!NOTE] 
 > Consultar vários espaços de trabalho na mesma consulta pode afetar o desempenho e, portanto, é recomendado somente quando a lógica requer essa funcionalidade.
 
@@ -121,13 +128,6 @@ Os recursos de busca entre espaços de trabalho permitem que suas caçadores de 
 Para configurar e gerenciar vários espaços de trabalho do Azure Sentinel, você precisará automatizar o uso da API de gerenciamento do Sentinela do Azure. Para obter mais informações sobre como automatizar a implantação de recursos do Azure Sentinel, incluindo regras de alerta, consultas de busca, pastas de trabalho e guias estratégicos, consulte [estendendo o Azure sentinela: APIs, integração e automação de gerenciamento](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
 Consulte também [Implantando e gerenciando o Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinando o Azure Lighthouse com os recursos de DevOps do Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para uma metodologia consolidada, contribuida pela Comunidade para gerenciar o Azure Sentinel como código e para implantar e configurar recursos de um repositório GitHub privado. 
-
-
-## <a name="whats-not-supported-across-workspaces"></a>O que não tem suporte em espaços de trabalho?
-
-Os seguintes recursos não têm suporte em espaços de trabalho:
-
-- Uma regra de alerta agendada não pode ser executada em espaços de trabalho usando uma consulta entre espaços de trabalho.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gerenciando espaços de trabalho entre locatários usando o Azure Lighthouse
 

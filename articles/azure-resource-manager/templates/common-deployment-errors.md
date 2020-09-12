@@ -3,13 +3,13 @@ title: Solucionar Problemas de erros comuns de implantação
 description: Descreve como resolver erros comuns ao implantar recursos no Azure usando o Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
-ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/09/2020
+ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008161"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650952"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -25,7 +25,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | AccountPropertyCannotBeSet | Verifique as propriedades da conta de armazenamento disponível. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não é compatível com o tamanho solicitado de VM. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e alocação para Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Problemas de provisionamento e alocação para Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) e [Solucionar problemas de falhas de alocação](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
-| AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função a que sua conta pertence e seu acesso para o escopo da implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [Controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](error-register-resource-provider.md) |
+| AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função a que sua conta pertence e seu acesso para o escopo da implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](error-register-resource-provider.md) |
 | BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-location.md) |
 | Conflito | Você está solicitando uma operação não permitida no estado atual do recurso. Por exemplo, o redimensionamento do disco é permitido apenas ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActiveAndUneditable | Aguarde a conclusão da implantação simultânea nesse grupo de recursos. | |
@@ -75,7 +75,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | StorageAccountNotFound | Verifique a assinatura, o grupo de recursos e o nome da conta de armazenamento que você está tentando usar. | |
 | SubnetsNotInSameVnet | Uma máquina virtual pode ter apenas uma rede virtual. Ao implantar várias NICs, certifique-se de que elas pertencem à mesma rede virtual. | [Várias NICs](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | Uma assinatura especificada para implantação não pode ser acessada. Pode ser que a ID da assinatura esteja incorreta, o usuário que está implantando o modelo não tem as permissões adequadas para implantar na assinatura ou a ID da assinatura está no formato incorreto. Ao usar implantações aninhadas para [implantar entre escopos](cross-scope-deployment.md), forneça o GUID para a assinatura. | |
-| SubscriptionNotRegistered | Ao implantar recursos de rede, o provedor de recursos Microsoft. Network é registrado automaticamente na assinatura. Às vezes, o registro automático não é concluído no tempo. Para evitar esse erro intermitente, registre o provedor de recursos Microsoft. Network antes da implantação. | [Resolver registro](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | Ao implantar um recurso, o provedor de recursos deve ser registrado para sua assinatura. Quando você usa um modelo de Azure Resource Manager para implantação, o provedor de recursos é registrado automaticamente na assinatura. Às vezes, o registro automático não é concluído no tempo. Para evitar esse erro intermitente, registre o provedor de recursos antes da implantação. | [Resolver registro](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remova as dependências desnecessárias. | [Resolver as dependências circulares](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduza o número de grupos de recursos para uma única implantação. | [Implantação entre escopos](cross-scope-deployment.md) |
 

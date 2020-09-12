@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cc697cd78e929b62f951014f760d644552fa082c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826762"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650978"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilidade geográfica e suporte para moedas para o marketplace comercial
 
@@ -57,7 +57,7 @@ As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográ
 | Croácia                             | HR        | EUR          |
 | Curaçao                             | CW        | USD          |
 | Chipre                              | CY        | EUR          |
-| República Tcheca                      | CZ        | EUR          |
+| Tchéquia                      | CZ        | EUR          |
 | Dinamarca                             | DK        | DKK          |
 | República Dominicana                  | DO        | USD          |
 | Equador                             | EC        | USD          |
@@ -99,7 +99,6 @@ As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográ
 | Lituânia                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
 | RAE de Macau                           | MO        | USD          |
-| Macedônia do Norte                     | MK        | USD          |
 | Malásia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Maurício                           | MU        | USD          |
@@ -115,6 +114,7 @@ As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográ
 | Nova Zelândia                         | NZ        | NZD          |
 | Nicarágua                           | NI        | USD          |
 | Nigéria                             | NG        | USD          |
+| Macedônia do Norte                     | MK        | USD          |
 | Noruega                              | Não        | NOK          |
 | Omã                                | OM        | USD          |
 | Paquistão                            | PK        | USD          |
@@ -166,7 +166,7 @@ As ofertas do marketplace comercial podem ser adquiridas em 141 regiões geográ
 | Zimbábue                            | ZW        | USD          |
 |   |   |   |
 
-\* Para clientes no Brasil, o Marketplace por meio do CSP (provedores de soluções de nuvem) usa USD.
+\* Para clientes no Brasil, o commcercial Marketplace por meio de provedores de soluções de nuvem (CSP) usa USD.
 
 \** Somente imagens de VM gratuitas e BYOL.
 
@@ -177,20 +177,22 @@ Para todos os tipos de oferta paga, você tem a opção de inserir preços em US
 Para ajustar qualquer preço antes de publicar, basta exportar a planilha de preços, modificá-la e carregá-la com alterações.
 
 > [!NOTE]
-> Depois que um preço para um mercado em seu plano for publicado, ele não poderá ser alterado posteriormente. Para garantir que os preços sejam adequados antes de publicá-los, exporte a planilha de preços e examine os preços em cada mercado.
+> Depois que um preço para um mercado em seu plano é publicado, ele não pode ser alterado. Para garantir que os preços sejam adequados antes de publicá-los, exporte a planilha de preços e examine os preços em cada mercado.
 
 O preço de uma oferta sempre é mostrado aos clientes em sua moeda local. O preço selecionado no Partner Center é convertido na moeda local de clientes de acordo com a taxa de câmbio no momento em que você salvou o preço no Partner Center. O preço mostrado aos clientes nas lojas online não é alterado, a menos que você Republique sua oferta.
 
 A Microsoft recebe pagamentos de clientes em sua moeda local e paga você em sua moeda local. A Microsoft converte a moeda local do cliente em sua moeda local usando a taxa de câmbio do dia de compra.
 
 > [!NOTE]
-> A Microsoft converte preços de oferta usando a taxa de câmbio do Microsoft tesouro.
+> A Microsoft converte preços de oferta usando as taxas de câmbio do Microsoft tesouro.
+
+[![O fluxo de conversão de moeda.](media/marketplace-geo-availability-currencies/currency-exchange-flow.png)](media/marketplace-geo-availability-currencies/currency-exchange-flow.png#lightbox)
 
 ## <a name="retrieving-currency-information-by-api"></a>Recuperando informações de moeda por API
 
 Os preços individuais (que, dependendo de como foram definidos, podem ter sido influenciados pelas taxas de câmbio no dia em que foram salvos) podem ser recuperados usando uma API; Não é possível obter informações sobre a moeda.
 
-Para obter detalhes sobre como inserir o preço para tipos de oferta específicos, consulte estes artigos:
+Para obter detalhes sobre como inserir preços para tipos de oferta específicos, consulte estes artigos:
 
 - [Criar uma oferta do Aplicativo Azure](partner-center-portal/create-new-azure-apps-offer.md)
 - [Criar uma oferta de contêiner do Azure](partner-center-portal/create-azure-container-offer.md)
