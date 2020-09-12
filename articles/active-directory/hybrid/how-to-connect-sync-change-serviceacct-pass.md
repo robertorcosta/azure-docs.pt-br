@@ -17,19 +17,19 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce4c64f0be61c2fe28a102674929333235ee29c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385085"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278030"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterando a senha da conta de serviço do ADSync
 Se você alterar a senha da conta de serviço do ADSync, o serviço de sincronização não será capaz de iniciar corretamente até que você tenha abandonado a chave de criptografia e reinicializado a senha da conta de serviço do ADSync. 
 
 Azure AD Connect, como parte dos serviços de sincronização, o usa uma chave de criptografia para armazenar as senhas da conta do conector de AD DS e da conta de serviço ADSync.  Essas contas são criptografadas antes de serem armazenadas no banco de dados. 
 
-A chave de criptografia usada é protegida usando o [Data Protection do Windows (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). A DPAPI protege a chave de criptografia usando a **conta de serviço AdSync**. 
+A chave de criptografia usada é protegida usando o [Data Protection do Windows (DPAPI)](/previous-versions/ms995355(v=msdn.10)). A DPAPI protege a chave de criptografia usando a **conta de serviço AdSync**. 
 
 Se você precisar alterar a senha da conta de serviço, poderá usar os procedimentos em [abandonar a chave de criptografia da conta de serviço do AdSync](#abandoning-the-adsync-service-account-encryption-key) para fazer isso.  Estes procedimentos também deverão ser usados se você precisar abandonar a chave de criptografia por algum motivo.
 

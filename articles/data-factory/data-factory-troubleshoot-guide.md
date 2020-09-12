@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522849"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279543"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Solucionar problemas do Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -821,7 +821,7 @@ A tabela a seguir se aplica ao Lote do Azure.
 
 - **Mensagem**: `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Causa**: O nome de usuário ou a senha estão vazios.
+- **Causa**: o nome de usuário ou a senha está vazio.
 
 - **Recomendação**: Forneça as credenciais corretas para se conectar ao HDI e tente novamente.
 
@@ -1053,6 +1053,11 @@ Para usar **Fiddler** para criar uma sessão HTTP do aplicativo Web monitorado:
 1. Acesse: **Arquivo** > **Salvar** > **Todas as Sessões**.
 
 Para saber mais, confira [Introdução ao Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
+
+## <a name="general"></a>Geral
+
+### <a name="activity-stuck-issue"></a>Problema de atividade paralisada
+Quando você observa que a atividade está sendo executada muito mais do que as suas execuções normais sem mal progresso, pode acontecer de estar presa. Você pode tentar cancelá-lo e tentar novamente para ver se ele ajuda. Se for uma atividade de cópia, você pode aprender sobre o monitoramento de desempenho e solução de problemas de [desempenho da atividade de cópia](copy-activity-performance-troubleshooting.md). Se for um fluxo de dados, aprenda com o guia de desempenho e ajuste do [mapeamento de fluxos de dados](concepts-data-flow-performance.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

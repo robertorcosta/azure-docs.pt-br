@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 2d919640431ce014d34372812d9c07bb84d750b2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 19c5c5280b8ff4fb997366375b4300958d694d6c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184048"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293652"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>FAQ (perguntas frequentes) sobre a API de Pesquisa de Imagem do Bing
 
@@ -35,7 +35,7 @@ Os cabeçalhos a seguir podem ocorrer nas respostas da API de Pesquisa de Imagem
 
 No entanto, quando você chama a API de Pesquisa de Imagem do Bing a partir do JavaScript, os recursos de segurança incorporados do navegador (CORS) podem impedi-lo de acessar os valores desses cabeçalhos.
 
-Para obter acesso aos cabeçalhos, é possível fazer a solicitação da API de Pesquisa de Imagem do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
+Para obter acesso aos cabeçalhos, é possível fazer a solicitação da API de Pesquisa de Imagem do Bing por meio de um proxy CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que filtra os cabeçalhos de resposta e os torna disponíveis para o JavaScript.
 
 É fácil instalar um proxy CORS para permitir que nosso [aplicativo de tutorial](tutorial-bing-image-search-single-page-app.md) acesse os cabeçalhos opcionais do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, insira o comando a seguir em um prompt de comando.
 
@@ -66,6 +66,6 @@ Essa abordagem também protege a chave de API da exposição ao público, já qu
 
 A sua pergunta é sobre a falta de um recurso ou funcionalidade? Considere solicitar ou votar no nosso [site Voz do Usuário](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
  [Stack Overflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/bing-api)

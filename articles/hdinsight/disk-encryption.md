@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: a78b56de537cfac0da48814afe9b07d911a61af1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020739"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290830"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Criptografia dupla do Azure HDInsight para dados em repouso
 
@@ -71,7 +71,7 @@ Consulte [criar uma identidade gerenciada atribuída pelo usuário](../active-di
 
 ### <a name="create-azure-key-vault"></a>Criar Azure Key Vault
 
-Crie um cofre da chave. Consulte [criar Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para obter etapas específicas.
+Criar um cofre de chaves. Consulte [criar Azure Key Vault](../key-vault/secrets/quick-create-portal.md) para obter etapas específicas.
 
 O HDInsight é compatível apenas com o Azure Key Vault. Se você tiver seu próprio cofre de chaves, poderá importar suas chaves para o Azure Key Vault. Lembre-se de que o cofre de chaves deve ter a **exclusão reversível** habilitada. Para obter mais informações sobre como importar as chaves existentes, visite [Sobre chaves, segredos e certificados](../key-vault/about-keys-secrets-and-certificates.md).
 
@@ -463,7 +463,7 @@ O trecho de código a seguir mostra como você pode criar um novo cluster HDInsi
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
--p "HttpPassword1234!" \\
+-p "yourpass" \\
 --storage-account MyStorageAccount --encryption-at-host true
 ```
 

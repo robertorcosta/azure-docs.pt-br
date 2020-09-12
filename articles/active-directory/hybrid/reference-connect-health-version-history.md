@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abc0417fc6f97501566f03d7eae0e4274d1dbced
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182336"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279407"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: histórico de lançamento de versão
 A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e os recursos que foram lançados.  
@@ -30,7 +30,7 @@ A equipe do Active Directory do Azure atualiza regularmente o Azure AD Connect H
 > Os agentes do Connect Health são atualizados automaticamente quando a nova versão é liberada. Verifique se as configurações de atualização automática estão habilitadas em portal do Azure.
 >
 
-O Azure Active Directory Connect Health para sincronização é integrado com a instalação do Azure AD Connect. Leia mais sobre o [histórico de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) Para comentários sobre os recursos, vote em [canal Connnect Health User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+O Azure Active Directory Connect Health para sincronização é integrado com a instalação do Azure AD Connect. Leia mais sobre o [histórico de versão do Azure AD Connect](./reference-connect-version-history.md) Para comentários sobre os recursos, vote em [canal Connnect Health User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
 ## <a name="april-2020"></a>Abril de 2020
 **Atualização do agente**
@@ -260,4 +260,4 @@ O Azure Active Directory Connect Health para sincronização é integrado com a 
 * Implantação mais simples de agente usando credenciais de Administrador Global do AD do Azure.  
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](whatis-hybrid-identity-health.md).
+Saiba mais sobre [Monitorar a infraestrutura de identidade local e os serviços de sincronização na nuvem](./whatis-azure-ad-connect.md).

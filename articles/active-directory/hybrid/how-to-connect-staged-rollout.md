@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053211"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278574"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
@@ -25,7 +25,7 @@ A distribuição em etapas permite que você teste seletivamente grupos de usuá
 -  Você está usando cartões inteligentes para a autenticação. 
 -  Seu servidor atual oferece determinados recursos do tipo somente federação.
 
-Antes de experimentar esse recurso, sugerimos que você leia nosso guia sobre como escolher o método de autenticação certo. Para obter mais informações, consulte a tabela “Métodos de comparação” em [Escolher o método de autenticação correto para sua solução de identidade híbrida do Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Antes de experimentar esse recurso, sugerimos que você leia nosso guia sobre como escolher o método de autenticação certo. Para obter mais informações, consulte a tabela “Métodos de comparação” em [Escolher o método de autenticação correto para sua solução de identidade híbrida do Azure Active Directory](./choose-ad-authn.md#comparing-methods).
 
 Para obter uma visão geral do recurso, veja este vídeo chamado “Azure Active Directory: o que é distribuição em etapas?” :
 
@@ -91,7 +91,7 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
 
 Para testar a *sincronização de hash de senha*, entre usando a distribuição em etapas e siga as instruções de preparação da próxima seção.
 
-Para obter informações sobre quais cmdlets do PowerShell devem ser usados, consulte [Versão prévia do Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Para obter informações sobre quais cmdlets do PowerShell devem ser usados, consulte [Versão prévia do Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Preparação para a sincronização de hash de senha
 
@@ -225,7 +225,7 @@ Para testar a entrada com o *SSO contínuo*:
 
 1. Verifique se a entrada é exibida com êxito no [Relatório de atividade de entrada do Azure AD](../reports-monitoring/concept-sign-ins.md); para isso, filtre usando o UPN.
 
-   Para rastrear as entradas de usuário que ainda ocorrem nos AD FS (Serviços de Federação do Active Directory) para usuários de distribuição em etapas selecionadas, siga as instruções em [Solução de problemas dos AD FS: eventos e registrar em log](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consulte a documentação do fornecedor sobre como verificar isso em provedores de federação de terceiros.
+   Para rastrear as entradas de usuário que ainda ocorrem nos AD FS (Serviços de Federação do Active Directory) para usuários de distribuição em etapas selecionadas, siga as instruções em [Solução de problemas dos AD FS: eventos e registrar em log](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Consulte a documentação do fornecedor sobre como verificar isso em provedores de federação de terceiros.
 
 ## <a name="remove-a-user-from-staged-rollout"></a>Remover um usuário da distribuição em etapas
 
@@ -243,7 +243,7 @@ A: Não, esse recurso foi projetado para fazer a migração da autenticação fe
 
 **P: Posso usar o PowerShell para executar a distribuição em etapas?**
 
-A: Sim. Para saber como usar o PowerShell para executar a distribuição em etapas, consulte [Versão prévia do Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A: Sim. Para saber como usar o PowerShell para executar a distribuição em etapas, consulte [Versão prévia do Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Versão prévia do Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Versão prévia do Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

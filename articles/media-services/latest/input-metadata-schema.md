@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269141"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295539"
 ---
 # <a name="input-metadata"></a>Metadados de entrada
 
@@ -72,7 +72,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 | **Level** |Nível da faixa de vídeo. <br /><br />Exemplo: `"Level": "3.2"`|
 | **PixelFormat** |Formato de pixel da faixa de vídeo. <br /><br />Exemplo: `"PixelFormat": "yuv420p"`|
 | **Largura**<br />Obrigatório |Largura do vídeo codificado em pixels. <br /><br />Exemplo: `"Width": "1280"`|
-| **Altura**<br />Obrigatório |Altura do vídeo codificado em pixels.<br /><br />Exemplo: `"Height": "720"` |
+| **Tamanho**<br />Obrigatório |Altura do vídeo codificado em pixels.<br /><br />Exemplo: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Obrigatório |Numerador de taxa de proporção de exibição do vídeo.<br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Obrigatório |Denominador de taxa de proporção de exibição do vídeo. <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Numerador de proporção de amostra de vídeo. <br /><br />Exemplo: `"SampleAspectRatioNumerator": 1.0`|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519347"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277656"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -40,7 +40,7 @@ A central de segurança oferece as seguintes opções para trabalhar com políti
 * **Adicionar políticas de conformidade regulatória** – o painel de conformidade regulatória da central de segurança mostra o status de todas as avaliações em seu ambiente no contexto de um padrão ou regulamento específico (como o Azure CIS, NIST SP 800-53 R4, Swift CSP CSCF-v2020). Para obter mais informações, consulte [melhorar sua conformidade regulatória](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Gerenciando suas políticas de segurança
+## <a name="manage-your-security-policies"></a>Gerenciar suas políticas de segurança
 
 Para exibir suas políticas de segurança na Central de Segurança:
 
@@ -54,7 +54,7 @@ Para exibir suas políticas de segurança na Central de Segurança:
 
 1. A página política de segurança para essa assinatura ou grupo de gerenciamento é exibida. Ele mostra as políticas disponíveis e atribuídas.
 
-   ![tela de política](./media/tutorial-security-policy/security-policy-page.png)
+   ![página de política](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > Se houver um rótulo "MG herdado" junto com a política padrão, significa que a política foi atribuída a um grupo de gerenciamento e herdada pela assinatura que você está exibindo.
@@ -111,17 +111,17 @@ Para obter mais informações sobre recomendações, consulte [Gerenciando recom
 
 1. Selecione **Exibir política efetiva**.
 
-   ![desabilitar política](./media/tutorial-security-policy/view-effective-policy.png)
+   ![Exibir política](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Selecione a política atribuída.
 
-   ![desabilitar política](./media/tutorial-security-policy/security-policy.png)
+   ![selecionar política](./media/tutorial-security-policy/security-policy.png)
 
 1. Na seção **parâmetros** , procure a política que invoca a recomendação que você deseja desabilitar e, na lista suspensa, selecione **desabilitada**
 
    ![desabilitar política](./media/tutorial-security-policy/disable-policy.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    > [!NOTE]
    > As alterações de política de desabilitação podem levar até 12 horas para entrar em vigor.

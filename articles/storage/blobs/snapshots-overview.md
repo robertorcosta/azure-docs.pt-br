@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8a1c61b77ab799cead319bfaf6cfa7ebd6af431b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230325"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295386"
 ---
 # <a name="blob-snapshots"></a>Instantâneos de BLOB
 
@@ -90,25 +90,25 @@ Os cenários a seguir demonstram como as cobranças se acumulam para um blob de 
 
 No cenário 1, o blob de base não foi atualizado depois que o instantâneo foi tirado, portanto, as cobranças incorrem apenas para os blocos exclusivos 1, 2 e 3.
 
-![Diagrama 1 mostrando a cobrança de blocos exclusivos no blob de base e instantâneo](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
+![Diagrama 1 mostrando a cobrança de blocos exclusivos em blob de base e instantâneo.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Cenário 2
 
 No cenário 2, o blob de base foi atualizado, mas o instantâneo, não. O bloco 3 foi atualizado e mesmo que ele contenha os mesmos dados e a mesma ID, não é igual ao bloco 3 no instantâneo. Como resultado, a conta é cobrada por quatro blocos.
 
-![Diagrama 2 mostrando a cobrança para blocos exclusivos em blob de base e instantâneo](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
+![Diagrama 2 mostrando a cobrança para blocos exclusivos em blob de base e instantâneo.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Cenário 3
 
 No cenário 3, o blob de base foi atualizado, mas o instantâneo, não. O bloco 3 foi substituído pelo bloco 4 no blob de base, mas o instantâneo ainda reflete o bloco 3. Como resultado, a conta é cobrada por quatro blocos.
 
-![Diagrama 3 mostrando a cobrança de blocos exclusivos em blob de base e instantâneo](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
+![Diagrama 3 mostrando a cobrança de blocos exclusivos em blob de base e instantâneo.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Cenário 4
 
 No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada por todos os oito blocos exclusivos.
 
-![Diagrama 4 mostrando a cobrança para blocos exclusivos em blob de base e instantâneo](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+![Diagrama 4 mostrando a cobrança para blocos exclusivos em blob de base e instantâneo.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
 > [!TIP]
 > Evite chamar métodos que substituem todo o blob e, em vez disso, atualize blocos individuais para manter os custos baixos.
@@ -128,6 +128,10 @@ A tabela a seguir descreve o comportamento de cobrança para um BLOB ou instant�
 | Um instantâneo | O instantâneo na nova camada e o blob de base na camada original, além de quaisquer blocos exclusivos em outros instantâneos. <sup>1</sup> |
 
 <sup>1</sup> Se houver outras versões ou instantâneos anteriores que não foram movidos da camada original, essas versões ou instantâneos serão cobrados com base no número de blocos exclusivos que eles contêm, conforme descrito em [cobrança quando a camada de BLOB não tiver sido definida explicitamente](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+O diagrama a seguir ilustra como os objetos são cobrados quando um blob com instantâneos é movido para uma camada diferente.
+
+:::image type="content" source="media/snapshots-overview/snapshot-billing-tiers.png" alt-text="Diagrama mostrando como os objetos são cobrados quando um blob com instantâneos é explicitamente em camadas.":::
 
 A definição explícita da camada para um blob, versão ou instantâneo não pode ser desfeita. Se você mover um blob para uma nova camada e, em seguida, movê-lo de volta para sua camada original, você será cobrado pelo tamanho completo do conteúdo do objeto, mesmo se ele compartilhar blocos com outros objetos na camada original.
 

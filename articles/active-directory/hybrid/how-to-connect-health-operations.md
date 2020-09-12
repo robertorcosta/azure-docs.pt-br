@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdcf5ded2f2cf49048b70dedb11f25e67766e938
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 4a83d1a4bdc2496f874a963b8858192273260cc8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177611"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276262"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure AD (Azure Active Directory) Connect Health.
@@ -167,7 +167,7 @@ Você pode remover um usuário ou grupo adicionado ao Azure AD Connect Health e 
 [//]: # (Fim da seção de RBAC)
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)
 * [Usando Azure AD Connect Health para sincronização](how-to-connect-health-sync.md)

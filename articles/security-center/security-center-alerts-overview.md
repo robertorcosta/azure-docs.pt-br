@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519580"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278132"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
@@ -23,7 +23,7 @@ Na Central de Segurança do Azure, há uma variedade de alertas para vários tip
 
 Os alertas de segurança são disparados por detecções avançadas e estão disponíveis apenas na camada Standard da central de segurança do Azure. Há uma avaliação gratuita disponível. Você pode atualizar da página de **configurações de & de preços** . Saiba mais sobre os [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="responding-to-todays-threats"></a>Respondendo às ameaças atuais <a name="respond-threats"> </a>
+## <a name="respond-to-todays-threats"></a>Responder às ameaças <a name="respond-threats"> </a> atuais
 
 Houve alterações significativas no panorama de ameaças nos últimos 20 anos. Antigamente, as empresas normalmente só precisavam preocupar-se com a desfiguração do site por invasores individuais, que basicamente tinham interesse em ver “o que poderiam fazer”. Os hackers de hoje em dia são muito mais sofisticados e organizados. Eles geralmente têm objetivos estratégicos e financeiros específicos. Eles também têm mais recursos disponíveis, já que podem ser financiados por nações ou pelo crime organizado.
 

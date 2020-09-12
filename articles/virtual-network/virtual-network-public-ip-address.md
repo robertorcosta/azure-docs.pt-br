@@ -1,6 +1,7 @@
 ---
-title: Criar, alterar ou excluir um endereço IP público do Azure | Microsoft Docs
-description: Criar, alterar ou excluir um endereço IP público. Além disso, saiba como um endereço IP público é um recurso com suas próprias configurações configuráveis.
+title: Gerenciar endereços IP públicos | Microsoft Docs
+titleSuffix: Azure Virtual Network
+description: Gerenciar endereços IP públicos.  Além disso, saiba como um endereço IP público é um recurso com suas próprias configurações configuráveis.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -16,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 4c0766dc063932c5fdd41a4e21ac11befd84a0e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7beff39ed2c37eeb0f07571ba6d611d23a3221e7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265102"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292020"
 ---
-# <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou excluir um endereço IP público
+# <a name="manage-public-ip-addresses"></a>Gerenciar endereços IP públicos
 
 Saiba mais sobre um endereço IP público e como criá-lo, alterá-lo e excluí-lo. Um endereço IP público é um recurso com suas próprias definições configuráveis. A atribuição de um endereço IP público a um recurso do Azure que dá suporte a endereços IP públicos permite:
 - A comunicação de entrada da Internet com o recurso, como VMs (Máquinas Virtuais) do Azure, Gateways de Aplicativo do Azure, Balanceadores de Carga do Azure, Gateways de VPN do Azure e outros. Você ainda pode se comunicar com alguns recursos, como VMs, da Internet, se uma VM não tem um endereço IP público atribuído a ela, desde que a VM faça parte de um pool de back-end do balanceador de carga e o balanceador de carga receba um endereço IP público. Para determinar se um recurso de um serviço específico do Azure pode receber um endereço IP público, ou se ele pode ser comunicado por meio do endereço IP público de outro recurso do Azure, confira a documentação do serviço.
@@ -51,7 +52,7 @@ Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse 
 3. Em **endereço IP público**, selecione **Criar**.
 4. Insira, ou selecione os valores para as configurações a seguir em **Criar endereço IP público**, em seguida, selecione **Criar**:
 
-   |Configuração|Necessário?|Detalhes|
+   |Setting|Necessário?|Detalhes|
    |---|---|---|
    |Versão IP|Sim| Selecione IPv4 ou IPv6 ou ambos. A seleção de ambos resultará em dois endereços IP públicos sendo criados-1 endereço IPv4 e 1 endereço IPv6. Saiba mais sobre o [IPv6 no Azure VNETs](../virtual-network/ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
    |SKU|Sim|Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU **básico** . Você não pode alterar a SKU depois que o endereço IP público é criado. Uma máquina virtual autônoma, máquinas virtuais em um conjunto de disponibilidade ou conjuntos de dimensionamento de máquinas virtuais podem usar SKUs Básicos ou Standard. Não é permitido misturar SKUs entre máquinas virtuais em conjuntos de disponibilidade ou conjuntos de dimensionamento ou VMs autônomas. SKU **Básico**: se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Nenhuma* por padrão. Os IPs públicos básicos não dão suporte a zonas de disponibilidade. SKU **Standard**: um IP público de SKU Standard pode ser associado a uma máquina virtual ou a um front-end de balanceador de carga. Se você estiver criando um endereço IP público em uma região que dá suporte zonas de disponibilidade, a configuração **Zona de disponibilidade** será definida como *Com redundância de zona* por padrão. Para obter informações sobre zonas de disponibilidade, consulte configuração **Zona de disponibilidade**. O SKU padrão será necessário se você associar o endereço a um Load Balancer Standard. Para saber mais sobre os Load Balancers Standard, consulte [SKU Standard do Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.|
@@ -61,7 +62,7 @@ Os endereços IP públicos têm um encargo nominal. Para ver os preços, acesse 
    |Rótulo do nome DNS|Não|Deve ser exclusivo mo local do Azure em que você cria o nome (em todas as assinaturas e todos os clientes). O Azure registra automaticamente o nome e o endereço IP no DNS dele para que você possa se conectar a um recurso com o nome. O Azure acrescenta *localização.cloudapp.azure.com* (em que localização é a localização que você seleciona) ao nome que você fornece para criar o nome DNS totalmente qualificado. Se você optar por criar duas versões de endereço, o mesmo nome DNS será atribuído aos endereços IPv4 e IPv6. O DNS padrão do Azure contém registros de nome IPv4 e IPv6 AAAA e responde com ambos os registros quando o nome DNS é pesquisado. O cliente escolhe com qual endereço (IPv4 ou IPv6) quer se comunicar. Em vez de ou além de usar o rótulo de nome DNS com o sufixo padrão, você pode usar o serviço DNS do Azure para configurar um nome DNS com um sufixo personalizado que seja resolvido para o endereço IP público. Para obter mais informações, consulte [Usar o DNS do Azure com o endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
    |Nome (visível somente se você selecionar a versão de IP de **ambos**)|Sim, se você selecionar a versão IP de **ambos**|O nome deve ser diferente do nome que você insere para o primeiro **Nome** nessa lista. Se você optar por criar endereços IPv4 e IPv6, o portal criará dois recursos de endereço IP públicos separados, cada um com uma versão do endereço IP atribuída a ele.|
    |Atribuição de endereço IP (visível somente se você selecionar a versão de IP de **ambos**)|Sim, se você selecionar a versão IP de **ambos**|Mesmas restrições que a atribuição de endereço IP acima|
-   |Subscription|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você associará os IPs públicos.|
+   |Assinatura|Sim|Deve existir na mesma [assinatura](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso ao qual você associará os IPs públicos.|
    |Grupo de recursos|Sim|Pode existir no mesmo [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) , ou diferente, que o recurso ao qual você associará os IPs públicos.|
    |Localização|Sim|Deve existir no mesmo [local](https://azure.microsoft.com/regions), também conhecido como região, como o recurso ao qual você associará os IPs públicos.|
    |Zona de disponibilidade| Não | Essa configuração só aparecerá se você selecionar uma localização com suporte. Para obter uma lista de localizações com suporte, consulte [Visão geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você tiver selecionado o SKU **Básico**, *Nenhum* será selecionado automaticamente para você. Se você preferir garantir uma zona específica, você poderá selecionar uma. Qualquer uma dessas opções será sem redundância de zona. Se você tiver selecionado o SKU **Standard**, a opção Com redundância de zona será selecionada automaticamente para você e tornará o seu caminho de dados resiliente a falhas de zona. Se você preferir garantir uma zona específica (que não é resiliente a falhas de zona), você poderá selecionar uma.

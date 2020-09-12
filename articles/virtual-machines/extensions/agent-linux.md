@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269114"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279696"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
 
@@ -53,7 +53,7 @@ O Agente Linux do Microsoft Azure (waagent) gerencia o provisionamento de Linux 
 * **Extensão de VM**
   
   * Injete o componente criado pela Microsoft e seus Parceiros na VM do Linux (IaaS) para habilitar o software e a automação da configuração
-  * Implementação de referência de extensão de VM em[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementação de referência de extensão de VM em [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicação
 O fluxo de informações da plataforma para o agente ocorre por meio de dois canais:
@@ -92,6 +92,9 @@ O agente do Linux depende de alguns pacotes de sistema para funcionar corretamen
 * Ferramentas de processamento de texto: sed, grep
 * Ferramentas de rede: roteamento ip
 * Suporte a kernel para montar sistemas de arquivos UDF.
+
+Verifique se sua VM tem acesso ao endereço IP 168.63.129.16. Para obter mais informações, consulte [o que é o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+
 
 ## <a name="installation"></a>Instalação
 Instalação usando um RPM ou um pacote DEB do repositório de pacotes da distribuição é o método preferencial para instalar e atualizar o Azure do Agente Linux do Azure. Todos os [provedores de distribuição aprovados](../linux/endorsed-distros.md) integram o pacote do agente Linux do Azure em suas imagens e repositórios.

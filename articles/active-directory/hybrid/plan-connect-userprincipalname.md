@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c748df10e432e3bebbce0dc8cb39dd2101d52e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680036"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279594"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Preenchimento de UserPrincipalName do Azure AD
 
@@ -56,7 +56,7 @@ Ao usar o Azure AD Connect, não são necessárias etapas de configurações adi
 
 ![Domínios não verificados](./media/plan-connect-userprincipalname/altloginid.png)  
 
-Para obter mais informações, consulte [ID de logon alternativo configurar](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração de entrada do AD do Azure](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
+Para obter mais informações, consulte [ID de logon alternativo configurar](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração de entrada do AD do Azure](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## <a name="non-verified-upn-suffix"></a>Sufixo UPN não verificado
 Se o atributo local UserPrincipalName/sufixo de ID de logon alternativa não for verificado com o locatário do Azure AD, o valor do atributo UserPrincipalName do Azure AD será definido como MOERA. O Azure AD calcula o MOERA usando o atributo MailNickName do Azure AD e o domínio inicial do Azure AD como: &lt;MailNickName&gt;&#64;&lt;domínio inicial&gt;.

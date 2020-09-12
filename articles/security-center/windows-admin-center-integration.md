@@ -1,21 +1,21 @@
 ---
-title: Como integrar o centro de administração do Windows à central de segurança do Azure | Microsoft Docs
+title: Como proteger servidores do centro de administração do Windows com a central de segurança do Azure
 description: Este artigo explica como integrar a central de segurança do Azure com o centro de administração do Windows
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 9eae210818cf623078090503deefc6295dab7164
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076356"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277486"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrar a central de segurança do Azure com o centro de administração do Windows
+# <a name="protect-windows-admin-center-resources-with-security-center"></a>Proteger os recursos do centro de administração do Windows com a central de segurança
 
 O centro de administração do Windows é uma ferramenta de gerenciamento para seus servidores Windows. É um único local para que os administradores de sistema acessem a maioria das ferramentas de administração mais usadas. No centro de administração do Windows, você pode integrar diretamente seus servidores locais à central de segurança do Azure. Você pode exibir um resumo de suas recomendações de segurança e alertas diretamente na experiência do centro de administração do Windows.
 
@@ -31,7 +31,7 @@ Quando você tiver integrado com êxito um servidor do centro de administração
 
 Ao combinar essas duas ferramentas, a central de segurança se torna seu único painel para exibir todas as suas informações de segurança, qualquer que seja o recurso: proteger o centro de administração do Windows gerenciado por servidores locais, suas VMs e quaisquer cargas de trabalho adicionais de PaaS.
 
-## <a name="onboarding-windows-admin-center-managed-servers-into-security-center"></a>Integração de servidores gerenciados do centro de administração do Windows à central de segurança
+## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>Carregar servidores gerenciados do centro de administração do Windows na central de segurança
 
 1. No centro de administração do Windows, selecione um dos servidores e, no painel **ferramentas** , selecione a extensão da central de segurança do Azure:
 
@@ -54,16 +54,16 @@ Ao combinar essas duas ferramentas, a central de segurança se torna seu único 
     > Pode levar algum tempo após a integração para que as recomendações apareçam. Na verdade, dependendo da atividade do servidor, você não receberá *nenhum* alerta. Para gerar alertas de teste para testar se os alertas estão funcionando corretamente, siga as instruções no [procedimento de validação de alerta](security-center-alert-validation.md).
 
 
-## <a name="viewing-security-recommendations-and-alerts-in-windows-admin-center"></a>Exibindo recomendações e alertas de segurança no centro de administração do Windows
+## <a name="view-security-recommendations-and-alerts-in-windows-admin-center"></a>Exibir recomendações e alertas de segurança no centro de administração do Windows
 
 Uma vez integrado, você pode exibir seus alertas e recomendações diretamente na área da central de segurança do Azure do centro de administração do Windows. Clique em uma recomendação ou um alerta para exibi-los no portal do Azure. Lá, você obterá informações adicionais e aprenderá a corrigir problemas.
 
 [![Recomendações e alertas da central de segurança, como visto no centro de administração do Windows](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
-## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Exibindo recomendações de segurança e alertas para servidores gerenciados do centro de administração do Windows na central de segurança
+## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Exibir recomendações e alertas de segurança para servidores gerenciados do centro de administração do Windows na central de segurança
 Na central de segurança do Azure:
 
-* Para exibir as recomendações de segurança para todos os seus servidores do centro de administração do Windows, abra **computação & aplicativos** e clique na guia **VMs e computadores** . filtre a lista por recurso "servidor", conforme mostrado aqui:
+* Para exibir as recomendações de segurança para todos os seus servidores do centro de administração do Windows, abra **computação & aplicativos** e clique na guia **VMs e computadores** . Filtre a lista por recurso "servidor", conforme mostrado aqui:
 
     [![Exibir recomendações de segurança para servidores gerenciados do centro de administração do Windows](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
 

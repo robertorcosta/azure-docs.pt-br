@@ -16,19 +16,19 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446991"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275916"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
 Este artigo ajuda você a localizar informações de solução de problemas comuns relacionados à autenticação de passagem do Azure AD.
 
 >[!IMPORTANT]
->Se você está enfrentando problemas de conexão de usuário com a autenticação de passagem, não desabilite o recurso nem desinstale os agentes de autenticação de passagem sem ter uma conta Administrador Global somente de nuvem à qual realizar fallback. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
+>Se você está enfrentando problemas de conexão de usuário com a autenticação de passagem, não desabilite o recurso nem desinstale os agentes de autenticação de passagem sem ter uma conta Administrador Global somente de nuvem à qual realizar fallback. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../fundamentals/add-users-azure-active-directory.md). A realização dessa etapa é fundamental e garante que você não ficará bloqueado do seu locatário.
 
 ## <a name="general-issues"></a>Problemas gerais
 
@@ -72,10 +72,10 @@ Para confirmar que esse é o problema, primeiro teste se o agente de autenticaç
  ``` 
 4. Quando for solicitado que você insira as credenciais, insira o mesmo nome de usuário e senha que são usados para entrar no ( https://login.microsoftonline.com) .
 
-Se você receber o mesmo erro de nome de usuário/senha, isso significa que o agente de autenticação de passagem está funcionando corretamente e o problema pode ser que o UPN local não é roteável. Para saber mais, consulte [Configurando a ID de logon alternativa]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Se você receber o mesmo erro de nome de usuário/senha, isso significa que o agente de autenticação de passagem está funcionando corretamente e o problema pode ser que o UPN local não é roteável. Para saber mais, consulte [Configurando a ID de logon alternativa]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
 > [!IMPORTANT]
-> Se o servidor de Azure AD Connect não estiver ingressado no domínio, um requisito mencionado em [Azure ad Connect: pré-requisitos](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites), ocorrerá o problema inválido de nome de usuário/senha.
+> Se o servidor de Azure AD Connect não estiver ingressado no domínio, um requisito mencionado em [Azure ad Connect: pré-requisitos](./how-to-connect-install-prerequisites.md#installation-prerequisites), ocorrerá o problema inválido de nome de usuário/senha.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory (é necessário licença Premium)
 
@@ -98,7 +98,7 @@ Navegue até **Azure Active Directory**  ->  **entradas** no [centro de administ
 | 80011 | O Agente de Autenticação não pode recuperar a chave de descriptografia. | Se o problema puder ser reproduzido consistentemente, instale e registre um novo Agente de Autenticação. E desinstale o atual.
 
 >[!IMPORTANT]
->Os agentes de autenticação de passagem autenticam os usuários do Azure AD Validando seus nomes de usuário e senhas em relação à Active Directory chamando a [API do LogonUser do Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, se você tiver definido a configuração "logon para" no Active Directory para limitar o acesso de logon da estação de trabalho, você terá que adicionar servidores que hospedam agentes de autenticação de passagem à lista de "fazer logon em" servidores também. A falha ao fazer isso impedirá que os usuários entrem no Azure AD.
+>Os agentes de autenticação de passagem autenticam os usuários do Azure AD Validando seus nomes de usuário e senhas em relação à Active Directory chamando a [API do LogonUser do Win32](/windows/win32/api/winbase/nf-winbase-logonusera). Como resultado, se você tiver definido a configuração "logon para" no Active Directory para limitar o acesso de logon da estação de trabalho, você terá que adicionar servidores que hospedam agentes de autenticação de passagem à lista de "fazer logon em" servidores também. A falha ao fazer isso impedirá que os usuários entrem no Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalação do Agente de Autenticação
 

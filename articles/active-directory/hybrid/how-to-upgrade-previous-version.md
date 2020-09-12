@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a14249f28da15f04a214c2a1cb4bd415fb59ce9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69373e039320cd733fb859bb84e03e5493e05403
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356620"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277197"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
 Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que você se mantenha atualizado com as versões do Azure AD Connect. Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
@@ -54,7 +54,7 @@ Se você tiver feito alterações nas regras de sincronização prontas, essas r
 
 Durante a atualização in-loco, poderá haver alterações introduzidas que exijam que atividades de sincronização específicas (incluindo as etapas de importação completa e sincronização completa) sejam executadas após a conclusão da atualização. Para adiar tais atividades, consulte a seção [Como adiar a sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
 
-Se estiver usando o Azure AD Connect com um conector não padrão (por exemplo, Conector do LDAP Genérico e Conector do SQL Genérico), atualize a configuração do conector correspondente no [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização in-loco. Para obter detalhes sobre como atualizar a configuração do conector, consulte a seção do artigo [Histórico de lançamento de versão do conector – Solução de problemas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se você não atualizar a configuração, as etapas de execução de importação e exportação não funcionarão corretamente para o conector. Você receberá o seguinte erro no log de eventos do aplicativo com a mensagem *“A versão do assembly na configuração do Conector do AAD (“X.X.XXX.X”) é anterior à versão real (“X.X.XXX.X”) de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"”.*
+Se estiver usando o Azure AD Connect com um conector não padrão (por exemplo, Conector do LDAP Genérico e Conector do SQL Genérico), atualize a configuração do conector correspondente no [Synchronization Service Manager](./how-to-connect-sync-service-manager-ui-connectors.md) após a atualização in-loco. Para obter detalhes sobre como atualizar a configuração do conector, consulte a seção do artigo [Histórico de lançamento de versão do conector – Solução de problemas](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#troubleshooting). Se você não atualizar a configuração, as etapas de execução de importação e exportação não funcionarão corretamente para o conector. Você receberá o seguinte erro no log de eventos do aplicativo com a mensagem *“A versão do assembly na configuração do Conector do AAD (“X.X.XXX.X”) é anterior à versão real (“X.X.XXX.X”) de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"”.*
 
 ## <a name="swing-migration"></a>Migração swing
 Se você tiver uma implantação complexa ou muitos objetos, talvez seja impossível fazer uma atualização in-loco do sistema dinâmico. Para alguns clientes, o processo poderá levar vários dias e, durante esse tempo, nenhuma alteração delta será processada. Você também pode usar esse método quando planejar fazer alterações significativas em sua configuração e quiser experimentá-las antes de enviá-las por push para a nuvem.

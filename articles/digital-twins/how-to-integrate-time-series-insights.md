@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bda07d0e14ddc630bde4fdc9c869704154c1e6cc
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 870aded1a7b00cbfbe96aff4997561b15be4141c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236345"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290082"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrar o gêmeos digital do Azure ao Azure Time Series Insights
 
@@ -72,6 +72,11 @@ O tutorial do Azure digital gêmeos [*: conectar uma solução de ponta a ponta*
     ```
 
 5. Crie uma [rota](concepts-route-events.md#create-an-event-route) no gêmeos digital do Azure para enviar eventos de atualização de entrelaçar para seu ponto de extremidade. O filtro nessa rota permitirá que somente as mensagens de atualização de entrelaçamento sejam passadas para o ponto de extremidade.
+
+    >[!NOTE]
+    >Atualmente, há um **problema conhecido** no Cloud Shell afetando estes grupos de comandos: `az dt route`, `az dt model` e `az dt twin`.
+    >
+    >Para resolver, execute `az login` no Cloud Shell antes de executar o comando ou use a [CLI local](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) em vez do Cloud Shell. Para obter mais detalhes sobre isso, confira [*Solução de problemas: Problemas conhecidos nos Gêmeos Digitais do Azure*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
     ```azurecli
     az dt route create -n <your Azure Digital Twins instance name> --endpoint-name <Event Hub endpoint from above> --route-name <name for your route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
@@ -207,6 +212,8 @@ Em seguida, você irá configurar uma instância de Time Series Insights para re
 ## <a name="begin-sending-iot-data-to-azure-digital-twins"></a>Começar a enviar dados de IoT para o Azure digital gêmeos
 
 Para começar a enviar dados para Time Series Insights, você precisará começar a atualizar as propriedades de atualização de troca digital no Azure digital gêmeos com valores de dados em alteração. Use o comando [AZ DT myupdate](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) .
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 Se você estiver usando o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) para auxiliar na configuração do ambiente, você pode começar a enviar dados de IOT simulados executando o projeto *DeviceSimulator* do exemplo. As instruções estão na seção [*configurar e executar a simulação*](tutorial-end-to-end.md#configure-and-run-the-simulation) do tutorial.
 

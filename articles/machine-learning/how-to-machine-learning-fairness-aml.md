@@ -8,15 +8,15 @@ ms.subservice: core
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 07/09/2020
+ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a0f06c2db0a5bf196ae610efadd85ef1df8defe8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 459189c699b9c48f090d55df98f4618d9e515aaa
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691302"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279968"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Usar Azure Machine Learning com o pacote Fairlearn Open-Source para avaliar a imparcialidade dos modelos de ML (versão prévia)
 
@@ -142,7 +142,7 @@ O exemplo a seguir mostra como usar o pacote de imparcialidade para carregar inf
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
+    lr_reg_id = register_model("fairness_logistic_regression", lr_predictor)
     ```
 
 3. Métricas de imparcialidade pré-calcular.
@@ -235,7 +235,7 @@ Se você estiver interessado em comparar vários modelos e ver como suas avalia�
     ```python
     model_dict = {}
 
-    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
+    lr_reg_id = register_model("fairness_logistic_regression", lr_predictor)
     model_dict[lr_reg_id] = lr_predictor
 
     svm_reg_id = register_model("fairness_svm", svm_predictor)

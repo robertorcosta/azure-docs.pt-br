@@ -5,12 +5,12 @@ description: Saiba como instalar e configurar um controlador de entrada NGINX co
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: dbab9df3acf7de801a4e75502863fff698232458
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: be4856beac69d11de12ec764f313fa59f3b24e9f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852567"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290541"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
 
@@ -18,7 +18,7 @@ Um controlador de entrada é uma parte do software que fornece proxy reverso, ro
 
 Este artigo mostra como implantar o [controlador de ingresso NGINX][nginx-ingress] em um Cluster do Serviço de Kubernetes do Azure (AKS0) O controlador de entrada é configurado com um endereço IP público estático. O projeto [cert-manager][cert-manager] é usado para gerar e configurar automaticamente certificados [Vamos Criptografar][lets-encrypt]. Finalmente, dois aplicativos são executados no cluster do AKS, cada um dos quais é acessível em um único endereço IP.
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
@@ -50,7 +50,7 @@ az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eas
 ```
 
 > [!NOTE]
-> Os comandos acima criam um endereço IP que será excluído se você excluir o cluster AKS. Como alternativa, você pode criar um endereço IP em um grupo de recursos diferente que pode ser gerenciado separadamente do cluster AKS. Se você criar um endereço IP em um grupo de recursos diferente, certifique-se de que a entidade de serviço usada pelo cluster AKS tenha permissões delegadas para outro grupo de recursos, como *colaborador de rede*.
+> Os comandos acima criam um endereço IP que será excluído se você excluir o cluster AKS. Como alternativa, você pode criar um endereço IP em um grupo de recursos diferente que pode ser gerenciado separadamente do cluster AKS. Se você criar um endereço IP em um grupo de recursos diferente, certifique-se de que a entidade de serviço usada pelo cluster AKS tenha permissões delegadas para outro grupo de recursos, como *colaborador de rede*. Para obter mais informações, consulte [usar um endereço IP público estático e um rótulo DNS com o balanceador de carga AKs][aks-static-ip].
 
 Agora, implemente o gráfico *nginx -gresso* com o Helm. Para redundância adicional, duas réplicas dos controladores de entrada NGINX são implementadas com o parâmetro `--set controller.replicaCount`. Para se beneficiar totalmente da execução de réplicas do controlador de entrada, verifique se há mais de um nó em seu cluster AKS.
 
@@ -382,7 +382,7 @@ Agora, adicione o caminho */hello-world-two* para o FQDN, como *`https://demo-ak
 
 ![Exemplo de aplicativo dois](media/ingress/app-two.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou o Helm para instalar os componentes de ingresso, os certificados e os aplicativos de exemplo. Quando você implanta um gráfico Helm, vários recursos do Kubernetes são criados. Esses recursos incluem pods, implantações e serviços. Para limpar esses recursos, você pode excluir o namespace de exemplo inteiro ou os recursos individuais.
 
@@ -449,7 +449,7 @@ Este artigo incluído alguns componentes externos no AKS. Para saber mais sobre 
 - [Controlador de entrada NGINX ][nginx-ingress]
 - [cert-manager][cert-manager]
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
@@ -483,3 +483,4 @@ Também é possível:
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-static-ip]: static-ip.md

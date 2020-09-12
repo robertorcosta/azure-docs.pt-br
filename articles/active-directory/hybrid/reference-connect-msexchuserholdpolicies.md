@@ -14,18 +14,18 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4c637a01825616334cda8faa594efd08f29de8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74213088"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279390"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies e cloudMsExchUserHoldPolicies
 O documento de referência a seguir descreve esses atributos usados pelo Exchange e a maneira apropriada de editar as regras de sincronização padrão.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>O que são msExchUserHoldPolicies e cloudMsExchUserHoldPolicies?
-Há dois tipos de [suspensões](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um servidor Exchange: retenção de litígio e bloqueio in-loco. Quando a suspensão de litígio está habilitada, todas as caixas de correio todos os itens são colocados em espera.  Uma suspensão in-loco é usada para preservar apenas os itens que atendem aos critérios de uma consulta de pesquisa que você definiu usando a ferramenta de eDiscovery in-loco.
+Há dois tipos de [suspensões](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um servidor Exchange: retenção de litígio e bloqueio in-loco. Quando a suspensão de litígio está habilitada, todas as caixas de correio todos os itens são colocados em espera.  Uma suspensão in-loco é usada para preservar apenas os itens que atendem aos critérios de uma consulta de pesquisa que você definiu usando a ferramenta de eDiscovery in-loco.
 
 Os atributos MsExchUserHoldPolcies e cloudMsExchUserHoldPolicies permitem o AD local e o Azure AD para determinar quais usuários estão em uma suspensão, dependendo se eles estão usando o Exchange ou o Exchange Online no local.
 

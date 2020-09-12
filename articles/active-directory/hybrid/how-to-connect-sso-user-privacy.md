@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467b9b2e613e43b95007142a120d39be1272de93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa1a30c548ef60cd9b596031f4115297dd20844
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357827"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278591"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacidade do usuário e logon único contínuo do Microsoft Azure AD
 
@@ -64,7 +64,7 @@ Para saber mais sobre os requisitos do GDPR do Azure AD Connect relacionados, co
 
 ### <a name="note-about-domain-controller-logs"></a>Observação sobre os logs do Controlador de Domínio
 
-Se o log de auditoria estiver habilitado, esse produto poderá gerar logs de segurança para os Controladores de Domínio. Para saber mais sobre como configurar políticas de auditoria, leia este [artigo](https://technet.microsoft.com/library/dd277403.aspx).
+Se o log de auditoria estiver habilitado, esse produto poderá gerar logs de segurança para os Controladores de Domínio. Para saber mais sobre como configurar políticas de auditoria, leia este [artigo](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## <a name="next-steps"></a>Próximas etapas
 

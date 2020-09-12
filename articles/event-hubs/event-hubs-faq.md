@@ -3,12 +3,12 @@ title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: bec50da97bc826eb1bd26452e8f69f5c11f2d65d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537173"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89288960"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -70,8 +70,8 @@ Consulte a tabela a seguir para as portas de saída que você precisa abrir para
 | HTTP, HTTPS | 80, 443 |  |
 | Kafka | 9093 | Consulte [Usar Hubs de Eventos de aplicativos Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso colocar na lista de permissões?
-Para localizar os endereços IP corretos para a lista de permissões de suas conexões, siga estas etapas:
+### <a name="what-ip-addresses-do-i-need-to-allow"></a>Quais endereços IP preciso permitir?
+Para localizar os endereços IP corretos a serem adicionados à lista de permissões para suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando de um prompt de comando: 
 

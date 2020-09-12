@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 79bf6c50c1b0b1c8454999cbefa8c933a73eae8e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267193"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289361"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
@@ -56,7 +56,7 @@ Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas e
 | **Perfil** |Perfil H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Profile": "High"` |
 | **Level** |Nível H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Level": "3.2"`|
 | **Largura**<br />Obrigatório |Largura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Altura**<br />Obrigatório |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **Tamanho**<br />Obrigatório |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Obrigatório|Numerador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Obrigatório |Denominador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **Quadros**<br />Obrigatório |Medida de taxa de quadros de vídeo em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|

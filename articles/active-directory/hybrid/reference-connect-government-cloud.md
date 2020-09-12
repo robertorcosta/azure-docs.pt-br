@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080174"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276177"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerações de identidade híbrida para a nuvem do Azure Governamental
 
@@ -25,7 +25,7 @@ Este artigo descreve as considerações para a integração de um ambiente híbr
 > [!NOTE]
 > Para integrar um ambiente do Microsoft Azure Active Directory (Azure AD) local com a nuvem do Azure Governamental, você precisa atualizar para a versão mais recente do [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-Para obter uma lista completa dos pontos de extremidade do departamento de defesa do governo dos Estados Unidos, consulte a [documentação](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints).
+Para obter uma lista completa dos pontos de extremidade do departamento de defesa do governo dos Estados Unidos, consulte a [documentação](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
 ## <a name="azure-ad-pass-through-authentication"></a>O que é a Autenticação de Passagem do Azure AD
 

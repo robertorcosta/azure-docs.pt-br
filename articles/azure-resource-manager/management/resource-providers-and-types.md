@@ -1,15 +1,15 @@
 ---
 title: Provedores de recursos e tipos de recursos
-description: Descreve os provedores de recursos que oferecem suporte ao Gerenciador de Recursos, aos respectivos esquemas e versões de API disponíveis, bem como às regiões que podem hospedar os recursos.
+description: Descreve os provedores de recursos que dão suporte ao Azure Resource Manager. Ele descreve seus esquemas, as versões de API disponíveis e as regiões que podem hospedar os recursos.
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/01/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 581b653c6d4769f7777b0ca56f136d25443c1ae4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500003"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278846"
 ---
 # <a name="azure-resource-providers-and-types"></a>Provedores e tipos de recursos do Azure
 
@@ -30,6 +30,16 @@ Você pode executar essas etapas por meio do portal do Azure, Azure PowerShell o
 
 Para obter uma lista que mapeia os provedores de recursos para os serviços do Azure, confira [Provedores de recursos para os serviços do Azure](azure-services-resource-providers.md).
 
+## <a name="register-resource-provider"></a>Registrar provedor de recursos
+
+Antes de usar um provedor de recursos, você deve registrar o provedor de recursos para sua assinatura do Azure. Esta etapa configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos.
+
+Este artigo mostra como verificar o status de registro de um provedor de recursos e registrá-lo conforme necessário. Você deve ter permissão para realizar a `/register/action` operação para o provedor de recursos. A permissão está incluída nas funções colaborador e proprietário.
+
+O código do aplicativo não deve bloquear a criação de recursos para um provedor de recursos que esteja no estado de **registro** . Quando você registra o provedor de recursos, a operação é feita individualmente para cada região com suporte. Para criar recursos em uma região, o registro precisa ser concluído apenas nessa região. Por não bloquear o provedor de recursos no estado de registro, seu aplicativo pode continuar muito antes de esperar que todas as regiões sejam concluídas.
+
+Não é possível cancelar o registro de um provedor de recursos quando você ainda tem tipos de recursos desse provedor de recursos em sua assinatura.
+
 ## <a name="azure-portal"></a>Portal do Azure
 
 Para ver todos os provedores de recursos e o status do registro para a sua assinatura:
@@ -45,9 +55,7 @@ Para ver todos os provedores de recursos e o status do registro para a sua assin
 
     ![mostrar provedores de recursos](./media/resource-providers-and-types/show-resource-providers.png)
 
-6. O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para realizar a `/register/action` operação para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário. Para registrar um provedor de recursos, selecione **Registrar**. Na captura de tela anterior, o link **Registrar** é destacado para **Microsoft.Blueprint**.
-
-    Não é possível cancelar o registro de um provedor de recursos quando você ainda tem tipos de recursos desse provedor de recursos em sua assinatura.
+6. Para registrar um provedor de recursos, selecione **Registrar**. Na captura de tela anterior, o link **Registrar** é destacado para **Microsoft.Blueprint**.
 
 Para obter informações para um provedor de recursos específico:
 
@@ -65,7 +73,7 @@ Para obter informações para um provedor de recursos específico:
 
     ![Selecionar tipo de recurso](./media/resource-providers-and-types/select-resource-type.png)
 
-6. O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos. O Resource Explorer mostra localizações válidas para o tipo de recurso.
+6. O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações na sua assinatura que impeçam o uso de algumas regiões que dão suporte ao recurso. O Resource Explorer mostra localizações válidas para o tipo de recurso.
 
     ![Mostrar localizações](./media/resource-providers-and-types/show-locations.png)
 
@@ -95,7 +103,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para realizar a `/register/action` operação para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário.
+Para registrar um provedor de recursos, use:
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -109,8 +117,6 @@ RegistrationState : Registering
 ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
-
-Não é possível cancelar o registro de um provedor de recursos quando você ainda tem tipos de recursos desse provedor de recursos em sua assinatura.
 
 Para obter informações para um provedor de recursos específico, use:
 
@@ -162,7 +168,7 @@ Que retorna:
 2015-07-01
 ```
 
-O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos.
+O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações na sua assinatura que impeçam o uso de algumas regiões que dão suporte ao recurso.
 
 Para obter as localizações com suporte para um tipo de recurso, use.
 
@@ -200,15 +206,13 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-O registro de um provedor de recursos configura sua assinatura para trabalhar com o provedor de recursos. O escopo de registro é sempre a assinatura. Por padrão, muitos provedores de recursos são automaticamente registrados. No entanto, talvez seja necessário registrar manualmente alguns provedores de recursos. Para registrar um provedor de recursos, você deve ter permissão para realizar a `/register/action` operação para o provedor de recursos. Esta operação está incluída nas funções de Colaborador e de Proprietário.
+Para registrar um provedor de recursos, use:
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
 ```
 
 Que retorna uma mensagem de que o registro está em andamento.
-
-Não é possível cancelar o registro de um provedor de recursos quando você ainda tem tipos de recursos desse provedor de recursos em sua assinatura.
 
 Para obter informações para um provedor de recursos específico, use:
 
@@ -266,7 +270,7 @@ Result
 2015-07-01
 ```
 
-O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações em sua assinatura que impedem o uso de algumas regiões que oferecem suporte aos recursos.
+O Gerenciador de Recursos tem suporte em todas as regiões, mas os recursos que você implanta talvez não tenham suporte em todas as regiões. Além disso, pode haver limitações na sua assinatura que impeçam o uso de algumas regiões que dão suporte ao recurso.
 
 Para obter as localizações com suporte para um tipo de recurso, use.
 

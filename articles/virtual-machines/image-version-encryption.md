@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 91f485d03717ab80bac26abd16da165d7b0dead7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816483"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291918"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Visualização: Use chaves gerenciadas pelo cliente para criptografar imagens
 
@@ -149,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Para especificar uma criptografia de disco definida para uma versão de imagem, use a [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) com o parâmetro `--target-region-encryption`. O formato para `--target-region-encryption` é uma lista de chaves separadas por espaços para criptografar o sistema operacional e os discos de dados. O resultado deve ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
+Para especificar uma criptografia de disco definida para uma versão de imagem, use a [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) com o parâmetro `--target-region-encryption`. O formato de `--target-region-encryption` é uma lista separada por vírgulas de chaves para criptografar o sistema operacional e os discos de dados. O resultado deve ser assim: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 Use `--managed-image` para especificar a origem da versão da imagem se a origem do disco do sistema operacional for um disco gerenciado ou uma VM. Neste exemplo, a origem é uma imagem gerenciada que tem um disco do sistema operacional e um disco de dados no LUN 0. O disco do sistema operacional será criptografado com o DiskEncryptionSet1 e o disco de dados com o DiskEncryptionSet2.
 

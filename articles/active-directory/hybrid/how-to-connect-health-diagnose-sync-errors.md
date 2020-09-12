@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d48483697970333c542f140567ca6a6d3fcf7d2
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179140"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278676"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
 
@@ -133,7 +133,7 @@ Após as etapas anteriores, o usuário pode acessar o recurso original, que é u
 
 ## <a name="failures-and-error-messages"></a>Mensagens de erro e falhas
 **O usuário com atributo conflitante é excluído de maneira reversível no Azure Active Directory. Verifique se o usuário foi excluído de hardware antes de tentar novamente.**  
-O usuário com atributo conflitante no Azure AD deve ser excluído antes de aplicar a correção. Confira [como excluir o usuário permanentemente no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de tentar novamente a correção. O usuário também será automaticamente excluído permanentemente após 30 dias no estado excluído flexível. 
+O usuário com atributo conflitante no Azure AD deve ser excluído antes de aplicar a correção. Confira [como excluir o usuário permanentemente no Azure AD](../fundamentals/active-directory-users-restore.md) antes de tentar novamente a correção. O usuário também será automaticamente excluído permanentemente após 30 dias no estado excluído flexível. 
 
 **Não há suporte para atualizar âncora de origem para usuário baseado em nuvem no locatário.**  
 O usuário baseado em nuvem no Azure AD não deve ter uma âncora de origem. Nesse caso, não há suporte para atualizar âncora de origem. É necessária a correção manual no local. 

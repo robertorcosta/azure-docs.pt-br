@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 28b6a70297efb8d8237f085e1f5b08dbb6a09072
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 32ee0135d4d991a9afe229747f8cb66916a12e7f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522599"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277435"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Como personalizar o conjunto de padrões em seu painel de conformidade regulatória
 
@@ -46,7 +46,7 @@ Além disso, você pode adicionar o **Azure Security Benchmark**, as diretrizes 
 Outros padrões se tornarão compatíveis com o painel à medida que forem disponibilizados. 
 
 
-## <a name="adding-a-regulatory-standard-to-your-dashboard"></a>Como adicionar um padrão regulatório ao seu painel
+## <a name="add-a-regulatory-standard-to-your-dashboard"></a>Adicionar um padrão normativo ao seu painel
 
 As etapas a seguir explicam como adicionar um pacote para monitorar sua conformidade com um dos padrões regulatórios com suporte.
 

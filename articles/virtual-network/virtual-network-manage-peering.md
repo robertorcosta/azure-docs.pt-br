@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: 4f94c3e643e372d96a6e9d100773ccd8929e4c8b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87416495"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290167"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou excluir um emparelhamento da rede virtual
 
@@ -126,11 +126,12 @@ Se você deseja que as redes virtuais se comuniquem, às vezes, mas não sempre,
   - *Iniciado em:* Quando você cria o emparelhamento para a segunda rede virtual da primeira rede virtual, o status de emparelhamento é *iniciado*. 
   - *Conectado:* Quando você cria o emparelhamento da segunda rede virtual para a primeira rede virtual, seu status de emparelhamento é *conectado*. Se você exibir o status de emparelhamento para a primeira rede virtual, verá seu status alterado de *iniciado* para *conectado*. O emparelhamento não é estabelecido com êxito até que o status de emparelhamento de ambos os emparelhamentos de rede virtual esteja *conectado*.
 - Ao emparelhar duas redes virtuais criadas por meio do Resource Manager com uma rede virtual criada por meio do modelo de implantação clássico, você configura apenas um emparelhamento para a rede virtual implantada por meio do Resource Manager. Não é possível configurar o emparelhamento de uma rede virtual (clássica) ou entre duas redes virtuais implantadas por meio do modelo de implantação clássico. Quando você cria o emparelhamento de rede virtual (Resource Manager) para a rede virtual (clássica), o status de emparelhamento é *Atualizando*, em seguida altera rapidamente para *Conectado*.
-- Um emparelhamento é estabelecido entre duas redes virtuais. Os emparelhamentos não são provisórios. Se você criar emparelhamentos entre:
-  - VirtualNetwork1 e VirtualNetwork2
-  - VirtualNetwork2 e VirtualNetwork3
+- Um emparelhamento é estabelecido entre duas redes virtuais. Os emparelhamentos por si só não são transitivos. Se você criar emparelhamentos entre:
+  - VirtualNetwork1 & VirtualNetwork2-VirtualNetwork1 & VirtualNetwork2
+  - VirtualNetwork2 & VirtualNetwork3-VirtualNetwork2 & VirtualNetwork3
 
-  Não há nenhum emparelhamento entre VirtualNetwork1 e VirtualNetwork3 por meio de VirtualNetwork2. Se você quiser criar um emparelhamento de rede virtual entre VirtualNetwork1 e VirtualNetwork3, precisará criar um emparelhamento entre VirtualNetwork1 e VirtualNetwork3.
+
+  Não há nenhum emparelhamento entre VirtualNetwork1 e VirtualNetwork3 por meio de VirtualNetwork2. Se você quiser criar um emparelhamento de rede virtual entre VirtualNetwork1 e VirtualNetwork3, precisará criar um emparelhamento entre VirtualNetwork1 e VirtualNetwork3. Não há nenhum emparelhamento entre VirtualNetwork1 e VirtualNetwork3 por meio de VirtualNetwork2. Se você quiser que o VirtualNetwork1 e o VirtualNetwork3 se comuniquem diretamente, será necessário criar um emparelhamento explícito entre VirtualNetwork1 e VirtualNetwork3 ou passar por um NVA na rede de Hub.  
 - Você não pode resolver nomes em redes virtuais emparelhadas usando a resolução de nomes do Azure padrão. Para resolver nomes em outras redes virtuais, você deve usar o [DNS do Azure para domínios privados](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou um servidor DNS personalizado. Para saber como configurar seu próprio servidor DNS, consulte [Resolução de nome usando seu próprio servidor DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 - Recursos em redes virtuais emparelhadas na mesma região podem se comunicar entre si com a mesma largura de banda e latência como se estivessem na mesma rede virtual. No entanto, o tamanho de cada máquina virtual tem sua própria largura de banda de rede máxima. Para saber mais sobre a largura de banda de rede máxima para diferentes tamanhos de máquina virtual, consulte os tamanhos de máquina virtual do [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou do [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Uma rede virtual pode ser emparelhada a outra rede virtual e também estar conectada a outra rede virtual com um gateway de rede virtual do Azure. Quando as redes virtuais são conectadas por meio do emparelhamento e um gateway, fluxos de tráfego entre as redes virtuais por meio da configuração de emparelhamento, em vez do gateway.
@@ -158,7 +159,7 @@ Se sua conta não está atribuída a uma das funções anteriores, ela deve ser 
 
 - Um emparelhamento de rede virtual é criado entre redes virtuais criadas com modelos de implantação iguais ou diferentes que existem nas mesmas assinaturas ou em assinaturas diferentes. Conclua um tutorial para um dos seguintes cenários:
 
-  |Modelo de implantação do Azure             | Subscription  |
+  |Modelo de implantação do Azure             | Assinatura  |
   |---------                          |---------|
   |Ambos Resource Manager              |[Idêntico](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Diferente](create-peering-different-subscriptions.md)|

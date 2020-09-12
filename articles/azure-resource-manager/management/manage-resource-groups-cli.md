@@ -3,15 +3,15 @@ title: Gerenciar grupos de recursos-CLI do Azure
 description: Use CLI do Azure para gerenciar seus grupos de recursos por meio de Azure Resource Manager. Mostra como criar, listar e excluir grupos de recursos.
 author: mumian
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 09/01/2020
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b6abcaf7f774b576a4850cd523bca27adfec488
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c64e7166d154d8f37af7a64777e2c36181b7195b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827105"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290490"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerenciar Azure Resource Manager grupos de recursos usando CLI do Azure
 
@@ -32,14 +32,10 @@ O grupo de recursos armazena metadados sobre os recursos. Quando você especific
 
 ## <a name="create-resource-groups"></a>Criar grupos de recursos
 
-O script da CLI a seguir cria um grupo de recursos e, em seguida, mostra o grupo de recursos.
+O comando da CLI a seguir cria um grupo de recursos.
 
 ```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-echo "Enter the location (i.e. centralus):" &&
-read location &&
-az group create --name $resourceGroupName --location $location
+az group create --name demoResourceGroup --location westus
 ```
 
 ## <a name="list-resource-groups"></a>Listar os grupos de recursos

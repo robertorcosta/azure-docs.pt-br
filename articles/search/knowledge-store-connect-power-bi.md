@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5be97414a2e4270870d976a9922415b227c66e27
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924343"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289164"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar um repositório de conhecimento com o Power BI
 
@@ -68,7 +68,7 @@ Clique **Obter Modelo do Power BI** na página **Adicionar habilidades cognitiva
 
 1. Clique no ícone com setas opostas no lado superior direito da tabela para expandir o *Conteúdo*. Quando a lista de colunas for exibida, selecione todas elas e desmarque as colunas que começam com ‘metadata’. Clique em **OK** para mostrar as colunas selecionadas.
 
-   ![Editar tabelas](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expandir conteúdo")
+   ![Expandir conteúdo](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Expandir conteúdo")
 
 1. Altere o tipo de dados das seguintes colunas clicando no ícone ABC-123 na parte superior esquerda da coluna.
 
@@ -108,7 +108,7 @@ In the enrichment step of the wizard, attach a billable [Cognitive Services](../
 
   ![Create a Cognitive Services resource](media/knowledge-store-connect-power-bi/create-cognitive-service.png "Create a Cognitive Services resource") -->
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 Quando já estiver trabalhando na sua assinatura, analise se você ainda precisa dos recursos criados no fim de um projeto. Recursos deixados em execução podem custar dinheiro. Você pode excluir os recursos individualmente ou excluir o grupo de recursos para excluir todo o conjunto de recursos.
 

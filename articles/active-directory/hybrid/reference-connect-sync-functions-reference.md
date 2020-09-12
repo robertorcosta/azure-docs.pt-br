@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550184"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279764"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -98,12 +98,12 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [DNComponent](#dncomponent)
   * [DNComponentRev](#dncomponentrev)
   * [EscapeDNComponent](#escapedncomponent)
-* **Período**
+* **Evaluation**
   * [IsBitSet](#isbitset)
   * [IsDate](#isdate)
   * [IsEmpty](#isempty)
   * [IsGuid](#isguid)
-  * [Énulo](#isnull)
+  * [IsNull](#isnull)
   * [IsNullOrEmpty](#isnullorempty)
   * [IsNumeric](#isnumeric)
   * [IsPresent](#ispresent)
@@ -113,22 +113,22 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [BitOr](#bitor)
   * [RandomNum](#randomnum)
 * **Vários valores**
-  * [Terá](#contains)
+  * [Contém](#contains)
   * [Count](#count)
   * [Item](#item)
   * [ItemOrNull](#itemornull)
-  * [Join](#join)
+  * [Unir](#join)
   * [RemoveDuplicates](#removeduplicates)
-  * [Divisão](#split)
+  * [Split](#split)
 * **Fluxo do Programa**
   * [Erro](#error)
   * [IIF](#iif)
   * [Selecionar](#select)
-  * [Alternar](#switch)
-  * [Posição](#where)
+  * [Switch](#switch)
+  * [Onde](#where)
   * [Por](#with)
-* **Texto**
-  * [VOLUME](#guid)
+* **Text**
+  * [GUID](#guid)
   * [InStr](#instr)
   * [InStrRev](#instrrev)
   * [LCase](#lcase)
@@ -139,7 +139,7 @@ As funções com os tipos **mvbin**, **mvstr** e **mvref** funcionam somente nos
   * [PadLeft preenche](#padleft)
   * [PadRight](#padright)
   * [PCase](#pcase)
-  * [Substitua](#replace)
+  * [Substituir](#replace)
   * [ReplaceChars](#replacechars)
   * [Certo](#right)
   * [RTrim](#rtrim)
@@ -660,7 +660,7 @@ Se dn for "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" então
 * format: uma cadeia de caracteres que representa o formato para o qual converter.
 
 **Comentários**  
-Os valores possíveis para o formato podem ser encontrados aqui: [formatos de data e hora personalizados para a função de formato](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+Os valores possíveis para o formato podem ser encontrados aqui: [formatos de data e hora personalizados para a função de formato](/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Exemplo:**  
 
@@ -1275,7 +1275,7 @@ Retorna todos os valores no atributo de valores múltiplos otherPhone depois que
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Alternar
+### <a name="switch"></a>Comutador
 **Descrição:**  
  a função Switch é usada para retornar um único valor com base nas condições avaliadas.
 

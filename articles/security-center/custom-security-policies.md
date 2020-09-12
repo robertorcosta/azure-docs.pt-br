@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 065c6661ffc9f618a5dfd32a9f45d26569a56003
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559561"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278166"
 ---
 # <a name="using-custom-security-policies"></a>Como usar políticas de segurança personalizadas
 
@@ -69,7 +69,7 @@ Conforme discutido na [documentação do Azure Policy](https://docs.microsoft.co
 
     [![Recomendações personalizadas](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
-## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Como aprimorar as recomendações personalizadas com informações detalhadas
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Aprimore suas recomendações personalizadas com informações detalhadas
 
 As recomendações internas fornecidas com a Central de Segurança do Azure incluem detalhes como níveis de severidade e instruções de correção. Se você quiser adicionar esse tipo de informação às suas recomendações personalizadas para que elas apareçam no portal do Azure ou onde quer que você acesse suas recomendações, precisará usar a API REST. 
 

@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.subservice: ''
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2b20668ea08186f42eed89f82fb1ae8d85cf090d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c3aaba6939f9e5e3f5d7c169cd3a199cc93f527d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267693"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296759"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Alta disponibilidade com os serviços de mídia e vídeo por demanda (VOD)
 
@@ -70,7 +70,7 @@ Este diagrama de alto nível mostra a arquitetura do exemplo fornecido para ajud
     * Use o [SDK do Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (que dá suporte a eventos dos serviços de mídia nativamente).
     * Você também pode consumir eventos de grade de eventos via Azure Functions.
 
-    Para mais informações:
+    Para obter mais informações:
 
     * Consulte o [exemplo de análise de áudio](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept) que mostra como monitorar um trabalho com a grade de eventos do Azure, incluindo a adição de um fallback, caso as mensagens da grade de eventos do Azure sejam atrasadas por algum motivo.
     * Dê uma olhada nos [esquemas da grade de eventos do Azure para eventos dos serviços de mídia](https://review.docs.microsoft.com/azure/media-services/latest/media-services-event-schemas).

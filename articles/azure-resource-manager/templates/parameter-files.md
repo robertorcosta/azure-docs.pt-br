@@ -2,13 +2,13 @@
 title: Criar arquivo de parâmetros
 description: Criar arquivo de parâmetros para passar valores durante a implantação de um modelo do Azure Resource Manager
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: ff5fa74f8b4b7f0ce7dfe2164a369cfd5eedb4d9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/01/2020
+ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179616"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276636"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Criar um arquivo de parâmetro do Resource Manager
 
@@ -147,6 +147,8 @@ Por fim, examine os valores permitidos e as restrições como comprimento máxim
   }
 }
 ```
+
+O arquivo de parâmetro só pode conter valores para parâmetros definidos no modelo. Se o arquivo de parâmetro contiver parâmetros extras que não correspondem aos parâmetros no modelo, você receberá um erro.
 
 ## <a name="parameter-type-formats"></a>Formatos do tipo de parâmetro
 

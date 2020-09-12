@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359748"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279934"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras padrão modificadas no Azure AD Connect
 
@@ -89,7 +89,7 @@ Manter **filtro de escopo** vazio. Isso significa que a regra se aplica a todos 
 
 Mantenha **as regras de junção** vazias. Isso significa que essa regra usa a condição de junção definida na regra padrão standard. Essa é outra razão para não desabilitar ou excluir a regra padrão standard. Se não houver nenhuma condição de junção, o atributo não fluirá. 
 
-Adicione as transformações apropriadas para seu atributo. Você pode atribuir uma constante para criar um fluxo de valor constante para o atributo de destino. Você pode usar o mapeamento direto entre o atributo de origem ou de destino. Ou, você pode usar uma expressão para o atributo. Aqui estão várias [funções de expressão](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) que você pode usar.
+Adicione as transformações apropriadas para seu atributo. Você pode atribuir uma constante para criar um fluxo de valor constante para o atributo de destino. Você pode usar o mapeamento direto entre o atributo de origem ou de destino. Ou, você pode usar uma expressão para o atributo. Aqui estão várias [funções de expressão](./reference-connect-sync-functions-reference.md) que você pode usar.
 
 #### <a name="add-an-outbound-sync-rule"></a>Adicionar uma regra de sincronização de saída
 Para vincular o atributo ao diretório de destino, você precisa criar uma regra de saída. Isso significa que a origem é o metaverso e o destino é o sistema conectado. Para criar uma regra de saída, inicie o **Editor de regras de sincronização**, altere a **direção** para **saída**e selecione **Adicionar nova regra**. 
@@ -102,7 +102,7 @@ Assim como acontece com a regra de entrada, você pode usar sua própria conven�
 
 Mantenha o **filtro de escopo** e **as regras de junção** vazias. Preencha a transformação como constante, direta ou expressão. 
 
-Agora você sabe como criar um novo atributo para um fluxo de objeto de usuário de Active Directory para Azure Active Directory. Você pode usar estas etapas para mapear qualquer atributo de qualquer objeto para origem e destino. Para obter mais informações, consulte [criando regras de sincronização personalizadas](how-to-connect-create-custom-sync-rule.md) e [preparar para provisionar usuários](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+Agora você sabe como criar um novo atributo para um fluxo de objeto de usuário de Active Directory para Azure Active Directory. Você pode usar estas etapas para mapear qualquer atributo de qualquer objeto para origem e destino. Para obter mais informações, consulte [criando regras de sincronização personalizadas](how-to-connect-create-custom-sync-rule.md) e [preparar para provisionar usuários](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Substituir o valor de um atributo existente
 Talvez você queira substituir o valor de um atributo que já foi mapeado. Por exemplo, se você sempre quiser definir um valor nulo para um atributo no Azure AD, basta criar apenas uma regra de entrada. Torne o valor constante, `AuthoritativeNull` , fluxo para o atributo de destino. 
@@ -176,11 +176,11 @@ Selecionar **visualização...**
 
 Na janela de visualização, selecione **gerar visualização** e **importar fluxo de atributos** no painel esquerdo.
 
-![Visualização](media/how-to-connect-fix-default-rules/default14.png)
+![Versão Prévia](media/how-to-connect-fix-default-rules/default14.png)
  
 Aqui, observe que a regra recém-adicionada é executada no objeto e definiu o `cloudFiltered` atributo como true.
 
-![Visualização](media/how-to-connect-fix-default-rules/default15a.png)
+![Versão Prévia](media/how-to-connect-fix-default-rules/default15a.png)
  
 Para comparar a regra modificada com a regra padrão, exporte as duas regras separadamente, como arquivos de texto. Essas regras são exportadas como um arquivo de script do PowerShell. Você pode compará-los usando qualquer ferramenta de comparação de arquivos (por exemplo, WinDiff) para ver as alterações. 
  
@@ -194,6 +194,3 @@ Para corrigir suas regras para alterá-las de volta para as configurações padr
 - [Pré-requisitos e hardware](how-to-connect-install-prerequisites.md) 
 - [Configurações expressas](how-to-connect-install-express.md)
 - [Configurações personalizadas](how-to-connect-install-custom.md)
-
-
-

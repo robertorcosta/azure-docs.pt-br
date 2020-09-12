@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691472"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276755"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -76,7 +76,7 @@ Selecione a recomendação ou abra a página controles de aplicativo adaptáveis
     - **Recomendado** – grupos de computadores que executam consistentemente os mesmos aplicativos e não têm uma lista de permissões configurada. Recomendamos que você habilite controles de aplicativo adaptáveis para esses grupos.
     
       > [!TIP]
-      > Se você vir um nome de grupo com o prefixo "Review Group", ele conterá computadores com uma lista parcialmente consistente de aplicativos. A central de segurança não pode ver um padrão, mas recomenda revisar esse grupo para ver se _você_ pode definir manualmente algumas regras de controles de aplicativo adaptáveis, conforme descrito em [editando a regra de controles de aplicativo adaptáveis de um grupo](#editing-a-groups-adaptive-application-controls-rule).
+      > Se você vir um nome de grupo com o prefixo "Review Group", ele conterá computadores com uma lista parcialmente consistente de aplicativos. A central de segurança não pode ver um padrão, mas recomenda revisar esse grupo para ver se _você_ pode definir manualmente algumas regras de controles de aplicativo adaptáveis, conforme descrito em [editando a regra de controles de aplicativo adaptáveis de um grupo](#edit-a-groups-adaptive-application-controls-rule).
       >
       > Você também pode mover computadores deste grupo para outros grupos, conforme descrito em [mover um computador de um grupo para outro](#move-a-machine-from-one-group-to-another).
 
@@ -115,7 +115,7 @@ Selecione a recomendação ou abra a página controles de aplicativo adaptáveis
 
 
 
-## <a name="editing-a-groups-adaptive-application-controls-rule"></a>Editando a regra de controles de aplicativo adaptáveis de um grupo
+## <a name="edit-a-groups-adaptive-application-controls-rule"></a>Editar a regra de controles de aplicativo adaptáveis de um grupo
 
 Você pode optar por editar a lista de permissões para um grupo de computadores devido a alterações conhecidas em sua organização. 
 
@@ -150,7 +150,7 @@ Para editar as regras para um grupo de computadores:
 
 
 
-## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Respondendo à recomendação "as regras de Permitirlist em sua política de controle de aplicativo adaptável devem ser atualizadas"
+## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Responder à recomendação "as regras de permissão daList em sua política de controle de aplicativo adaptável devem ser atualizadas"
 
 Você verá essa recomendação quando o Machine Learning da central de segurança identificar o comportamento potencialmente legítimo que não era permitido anteriormente. A recomendação sugere novas regras para suas definições existentes para reduzir o número de alertas falsos positivos.
 
@@ -167,7 +167,7 @@ Para corrigir os problemas:
 
 
 
-## <a name="auditing-alerts-and-violations"></a>Alertas e violações de auditoria
+## <a name="audit-alerts-and-violations"></a>Alertas e violações de auditoria
 
 1. No menu da central de segurança, selecione **controles de aplicativo adaptáveis**.
 
@@ -199,7 +199,7 @@ Quando você move um computador de um grupo para outro, a política de controle 
 
 
 
-## <a name="managing-application-controls-via-the-rest-api"></a>Gerenciando controles de aplicativo por meio da API REST 
+## <a name="manage-application-controls-via-the-rest-api"></a>Gerenciar controles de aplicativo por meio da API REST 
 
 Para gerenciar seus controles de aplicativo adaptáveis de forma programática, use nossa API REST. 
 

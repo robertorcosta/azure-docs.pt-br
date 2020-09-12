@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7cd6e61b8614e4c8ff5d54232972865c81cbb3ff
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1fa464eca69f50fba7fa125212b85e0f7f63bcc9
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928863"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294774"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerenciar chaves de API para um serviço de Pesquisa Cognitiva do Azure
 
@@ -21,7 +21,7 @@ Todas as solicitações para um serviço de pesquisa precisam de uma api-key som
 
 As chaves são criadas com o serviço de pesquisa durante o provisionamento de serviços. É possível exibir e obter valores de chave no [portal do Azure](https://portal.azure.com).
 
-![Página do portal, Configurações, seção Chaves](media/search-manage/azure-search-view-keys.png)
+![Página do portal, configurações de recuperação, seção de chaves](media/search-manage/azure-search-view-keys.png)
 
 ## <a name="what-is-an-api-key"></a>O que é uma api-key
 
@@ -29,7 +29,7 @@ Uma chave de api é uma cadeia de caracteres composta de letras e números gerad
 
 Dois tipos de chaves são usados para acessar seu serviço de pesquisa: administrador (leitura-gravação) e consulta (somente leitura).
 
-|Chave|Descrição|limites|  
+|Chave|Descrição|Limites|  
 |---------|-----------------|------------|  
 |Administrador|Concede direitos totais para todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados.<br /><br /> Duas chaves de API de administrador, chamadas de chaves *primária* e *secundária* no portal, são geradas quando o serviço é criado e podem ser regeneradas individualmente sob demanda. Ter duas chaves permite que você substitua uma chave enquanto usa a segunda chave de acesso contínuo para o serviço.<br /><br /> As chaves de administrador são especificadas somente nos cabeçalhos de solicitação HTTP. Não é possível colocar uma api-key de administrador em uma URL.|Máximo de dois por serviço|  
 |Consulta|Concede acesso somente leitura a índices e documentos e normalmente são distribuídas para aplicativos cliente que emitem solicitações de pesquisa.<br /><br /> As chaves de consulta são criadas sob demanda. Você pode criá-las manualmente no portal ou programaticamente por meio da [API REST de gerenciamento](/rest/api/searchmanagement/).<br /><br /> As chaves de consulta podem ser especificadas em um cabeçalho de solicitação HTTP para pesquisa, sugestões ou operação de pesquisa. Como alternativa, você pode passar uma chave de consulta como um parâmetro em uma URL. Dependendo de como seu aplicativo cliente formula a solicitação, pode ser mais fácil passar a chave como um parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2020-06-30&api-key=[query key]`|50 por serviço|  
@@ -47,7 +47,7 @@ Você pode obter chaves de acesso no portal ou por meio da [API REST de Gerencia
 2. Liste os [serviços de pesquisa](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) para sua assinatura.
 3. Selecione o serviço e, na página Visão geral, clique em **configurações**  > **chaves** para exibir as chaves de administrador e consulta.
 
-   ![Página do portal, Configurações, seção Chaves](media/search-security-overview/settings-keys.png)
+   ![Página do portal, configurações de exibição, seção chaves](media/search-security-overview/settings-keys.png)
 
 ## <a name="create-query-keys"></a>Criar chaves de consulta
 

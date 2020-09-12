@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ce6f0e5e6e958e72ddc04608c5f207fedb18daf9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9a082270e2c113bcdf31ed6bd6db3d38a7117500
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072257"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279288"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de Conta do AD DS Connector 
 
@@ -39,12 +39,12 @@ A tabela a seguir fornece um resumo das permissões necessárias nos objetos do 
 | Sincronização de hash de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
 | Implantação híbrida do Exchange |Permissões de leitura e gravação para os atributos documentados em [Write-back híbrido do Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
 | Pasta pública do Exchange Mail |Permissões de leitura para os atributos documentados na [Pasta pública do Exchange Mail](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
-| write-back de senha |Permissões de leitura e gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
+| write-back de senha |Permissões de leitura e gravação para os atributos documentados em [Introdução ao gerenciamento de senhas](../authentication/tutorial-enable-sspr-writeback.md) para usuários. |
 | Write-back de dispositivo |Permissões de leitura e gravação para objetos de dispositivo e contêineres documentados em [write-back de dispositivo](how-to-connect-device-writeback.md). |
 | Write-back de grupo |Ler, criar, atualizar e excluir objetos de grupo para **grupos do Office 365** sincronizados.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Usando o módulo ADSyncConfig PowerShell 
-O módulo ADSyncConfig requer o [Ferramentas de Administração de Servidor Remoto (RSAT) para o AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools), pois ele depende do módulo do PowerShell do AD DS e ferramentas. Para instalar o RSAT para o AD DS, abra uma janela do Windows PowerShell com “Executar como administrador” e execute: 
+O módulo ADSyncConfig requer o [Ferramentas de Administração de Servidor Remoto (RSAT) para o AD DS](/windows-server/remote/remote-server-administration-tools), pois ele depende do módulo do PowerShell do AD DS e ferramentas. Para instalar o RSAT para o AD DS, abra uma janela do Windows PowerShell com “Executar como administrador” e execute: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -311,4 +311,3 @@ Esse cmdlet definirá as seguintes permissões:
 - Instalação expressa[Instalação expressa](how-to-connect-install-express.md)
 - [Personalização Instalada](how-to-connect-install-custom.md)
 - [Referência de ADSyncConfig](reference-connect-adsyncconfig.md)
-

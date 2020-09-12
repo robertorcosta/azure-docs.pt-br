@@ -1,7 +1,7 @@
 ---
 title: Replicação transacional
 titleSuffix: Azure SQL Managed Instance
-description: Saiba como usar SQL Server replicação transacional com o Instância Gerenciada SQL do Azure.
+description: Saiba como usar SQL Server replicação transacional com o SQL Instância Gerenciada do Azure (versão prévia).
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: data-movement
@@ -12,19 +12,19 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 04/20/2020
-ms.openlocfilehash: ec1dfa3edea5364151c543889d974944a1a1cd5a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 95fc877636fe1d3dac466dc32fc49cee56f35185
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920110"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290507"
 ---
-# <a name="transactional-replication-with-azure-sql-managed-instance"></a>Replicação transacional com o Azure SQL Instância Gerenciada
+# <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com o Azure SQL Instância Gerenciada (versão prévia)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 A replicação transacional é um recurso do Azure SQL Instância Gerenciada e SQL Server que permite replicar dados de uma tabela no Instância Gerenciada SQL do Azure ou uma instância de SQL Server para tabelas colocadas em bancos de dados remotos. Esse recurso permite que você sincronize várias tabelas em bancos de dados diferentes. 
 
-A replicação transacional está atualmente em visualização pública para SQL Instância Gerenciada. 
+A replicação transacional está atualmente em versão prévia pública para a Instância Gerenciada de SQL. 
 
 ## <a name="overview"></a>Visão geral
 
@@ -199,7 +199,7 @@ Para obter mais informações sobre como configurar a replicação transacional,
 - [Crie uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 - [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor como o assinante (por exemplo `N'azuresqldbdns.database.windows.net` , e o banco de dados no nome do banco de dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Confira também  
 
 - [Replicação com um Instância Gerenciada SQL e um grupo de failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replicação para um Banco de Dados SQL](../database/replication-to-sql-database.md)

@@ -8,15 +8,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 91e64ab524121faf6d4e363bfbfdea2d5db01941
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7c2cbaaf4866edc20f9745abe6759861db7834c3
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269651"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291323"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Gerenciar contas dos serviços de mídia do Azure v3
 
@@ -39,7 +39,7 @@ Se precisar mover uma conta dos serviços de mídia para uma nova assinatura, pr
 > [!IMPORTANT]
 > Não inicie o ponto de extremidade de streaming até que a movimentação seja concluída com êxito.
 
-### <a name="troubleshoot"></a>Solução de problemas 
+### <a name="troubleshoot"></a>Solucionar problemas 
 
 Se uma conta dos serviços de mídia ou uma conta de armazenamento do Azure associada se tornar "desconectada" após a movimentação do grupo de recursos, tente girar as chaves da conta de armazenamento. Se a rotação das chaves da conta de armazenamento não resolver o status "desconectado" da conta dos serviços de mídia, faça uma nova solicitação de suporte no menu "suporte + solução de problemas" na conta dos serviços de mídia.  
 

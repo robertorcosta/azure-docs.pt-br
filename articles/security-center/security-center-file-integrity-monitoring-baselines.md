@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d336c58971b16875d9861f85dde9529de8c734e2
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73664404"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278071"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base usando o FIM (monitoramento de integridade de arquivo)
 
@@ -41,7 +41,7 @@ Os padrões do hive do registro do FIM fornecem uma maneira conveniente de monit
 >[!NOTE]
 > Verificações recursivas se aplicam somente a hives de segurança recomendados e não a caminhos de registro personalizados.  
 
-## <a name="adding-a-custom-registry-check"></a>Adicionando uma verificação personalizada do registro
+## <a name="add-a-custom-registry-check"></a>Adicionar uma verificação personalizada do registro
 
 As linhas de base do FIM começam identificando as características de um estado válido conhecido para o sistema operacional e o aplicativo de suporte.  Para este exemplo, nos concentraremos nas configurações de política de senha para o Windows Server 2008 e superior.
 
@@ -73,14 +73,14 @@ As linhas de base do FIM começam identificando as características de um estado
 
       ![Habilitar FIM em um registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Controlando alterações em arquivos do Windows
+## <a name="track-changes-to-windows-files"></a>Controlar alterações em arquivos do Windows
 
 1. Na janela **Adicionar arquivo do Windows para controle de alterações** , na caixa de texto **Inserir caminho** , insira a pasta que contém os arquivos que você deseja acompanhar. No exemplo na figura a seguir, o **aplicativo Web contoso** reside no D:\ unidade dentro da estrutura de pastas **ContosWebApp** .  
 1. Crie uma entrada de arquivo do Windows personalizada fornecendo um nome para a classe de configuração, habilitando a recursão e especificando a pasta superior com um sufixo curinga (*).
 
     ![Habilitar FIM em um arquivo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Recuperando dados de alteração
+## <a name="retrieve-change-data"></a>Recuperar dados de alteração
 
 Os dados de monitoramento de integridade de arquivo residem no conjunto de tabelas Log Analytics/ConfigurationChange do Azure.  
 

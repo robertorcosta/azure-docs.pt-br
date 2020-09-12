@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 01d962db45a58781ca5f2ba494de16ad420b0807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e152c0227008dd12088660b2390a8d0a5f54de96
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921062"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290771"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conhecidos no Azure digital gêmeos
 
@@ -21,19 +21,28 @@ Este artigo fornece informações sobre problemas conhecidos associados ao Azure
 
 Os comandos no Cloud Shell podem falhar intermitentemente com o erro "erro de cliente 400: solicitação inadequada para URL: http://localhost:50342/oauth2/token " seguido por rastreamento de pilha completo.
 
+Para o Azure digital gêmeos especificamente, isso afeta os seguintes grupos de comandos:
+* `az dt route`
+* `az dt model`
+* `az dt twin`
+
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-Isso pode ser resolvido executando novamente o `az login` comando e concluindo as etapas de logon subsequentes.
+Isso pode ser resolvido com a reexecução do `az login` comando no Cloud Shell e a conclusão das etapas de logon subsequentes. Depois disso, você deve ser capaz de executar novamente o comando.
 
-Depois disso, você deve ser capaz de executar novamente o comando.
+Uma solução alternativa é [instalar o CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) em seu computador para que você possa executar CLI do Azure comandos localmente. A CLI local não enfrenta esse problema.
 
 ### <a name="possible-causes"></a>Possíveis causas
 
 Esse é o resultado de um problema conhecido no Cloud Shell: [*obter o token do Cloud Shell falha intermitentemente com 400 erro de cliente: solicitação inválida*](https://github.com/Azure/azure-cli/issues/11749).
 
+Isso apresenta um problema com os tokens de autenticação da instância do gêmeos digital do Azure e a autenticação baseada em [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) padrão do Cloud Shell. A etapa de solução de problemas de execução `az login` do muda de autenticação de identidade gerenciada, assim, percorrendo esse problema.
+
+Isso não afeta os comandos do Azure digital gêmeos `az dt` dos `az dt endpoint` grupos de comandos ou, pois eles usam um tipo diferente de token de autenticação (baseado em ARM), que não tem um problema com a autenticação de identidade gerenciada do Cloud Shell.
+
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Atribuição de função ausente após a instalação com script
 
-Alguns usuários podem enfrentar problemas com a parte de atribuição de função de [*como: configurar uma instância e autenticação (com script)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a função de *proprietário do Azure digital gêmeos (versão prévia)* não foi atribuída com êxito ao usuário, e isso afetará a capacidade de criar outros recursos no caminho.
+Alguns usuários podem enfrentar problemas com a parte de atribuição de função de [*como: configurar uma instância e autenticação (com script)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a função de *proprietário do Azure digital gêmeos (versão prévia)* não foi atribuída com êxito ao usuário, e esse problema afetará a capacidade de criar outros recursos no futuro.
 
 Para determinar se a atribuição de função foi configurada com êxito após a execução do script, siga as instruções na seção [*verificar atribuição de função de usuário*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) do artigo de instalação. Se o usuário não for exibido com essa função, esse problema afetará você.
 
@@ -47,7 +56,7 @@ Siga estas instruções:
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-Para usuários conectados com um [MSA (conta Microsoft pessoal)](https://account.microsoft.com/account), a ID principal do usuário que o identifica em comandos como esse pode ser diferente do email de logon do usuário, dificultando a descoberta e o uso do script para atribuir a função corretamente.
+Para usuários conectados com um [MSA (conta Microsoft pessoal)](https://account.microsoft.com/account), a ID principal do usuário que o identifica em comandos como esse pode ser diferente do email de entrada do usuário, dificultando a descoberta e o uso do script para atribuir a função corretamente.
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema com a autenticação interativa do navegador
 
@@ -64,11 +73,11 @@ O problema inclui uma resposta de erro "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-Para resolver, atualize seus aplicativos para usar o Azure. Identity versão **1.2.2**. Com esta versão da biblioteca, o navegador deve carregar e autenticar conforme o esperado.
+Para resolver, atualize seus aplicativos para usar a `Azure.Identity` versão **1.2.2**. Com esta versão da biblioteca, o navegador deve carregar e autenticar conforme o esperado.
 
 ### <a name="possible-causes"></a>Possíveis causas
 
-Isso está relacionado a um problema aberto com a versão mais recente da biblioteca do Azure. Identity (versão **1.2.0**): [*falha ao autenticar ao usar o InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
+Isso está relacionado a um problema aberto com a versão mais recente da `Azure.Identity` biblioteca (versão **1.2.0**): [*falha ao autenticar ao usar o InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
 Você verá esse problema se usar a versão **1.2.0** em seu aplicativo gêmeos digital do Azure ou se adicionar a biblioteca ao seu projeto sem especificar uma versão (como isso também usa essa versão mais recente).
 

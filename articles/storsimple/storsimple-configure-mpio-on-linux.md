@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183625"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294706"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurar o MPIO em um host do StorSimple executando o CentOS
 Este artigo explica as etapas necessárias para a configuração do Multipathing IO (MPIO) em seu servidor host do Centos 6.6. O servidor host está conectado ao dispositivo Microsoft Azure StorSimple para alta disponibilidade por meio de iniciadores iSCSI. Ele descreve detalhadamente a descoberta automática de dispositivos de vários caminhos e a configuração específica somente para volumes do StorSimple.
@@ -336,23 +336,23 @@ Esta seção fornece algumas dicas úteis se você tiver algum problema durante 
 
 Q. Não vejo as alterações no arquivo `multipath.conf` entrarem em vigor.
 
-A. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando:
+a. Se você tiver alguma alteração no arquivo `multipath.conf` , precisará reiniciar o serviço de vários caminhos. Digite o seguinte comando:
 
 `service multipathd restart`
 
 Q. Habilitei duas interfaces de rede no dispositivo StorSimple e duas interfaces de rede no host. Quando eu listo os caminhos disponíveis, vejo apenas dois caminhos. Eu esperava ver quatro caminhos disponíveis.
 
-A. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e se não forem roteáveis, você verá somente dois caminhos. Uma maneira de verificar isso é garantir que você possa acessar as interfaces de host de uma interface de rede no dispositivo StorSimple. Você precisará [contatar o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) , já que essa verificação só poderá ser feita por meio de uma sessão de suporte.
+a. Verifique se os dois caminhos estão na mesma sub-rede e se são roteáveis. Se as interfaces de rede estiverem em vLANs diferentes e se não forem roteáveis, você verá somente dois caminhos. Uma maneira de verificar isso é garantir que você possa acessar as interfaces de host de uma interface de rede no dispositivo StorSimple. Você precisará [contatar o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) , já que essa verificação só poderá ser feita por meio de uma sessão de suporte.
 
 Q. Quando eu listo os caminhos disponíveis, não vejo nenhuma saída.
 
-A. Normalmente, não ver nenhum caminho com vários caminhos sugere um problema com o daemon de vários caminhos, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
+a. Normalmente, não ver nenhum caminho com vários caminhos sugere um problema com o daemon de vários caminhos, e é mais provável que qualquer problema aqui esteja no `multipath.conf` arquivo.
 
 Também vale a pena verificar se você realmente pode ver alguns discos depois de se conectar ao destino, pois nenhuma resposta das listagens de vários caminhos também pode significar que você não tem discos.
 
 * Use o comando a seguir para examinar novamente o barramento SCSI:
   
-    `$ rescan-scsi-bus.sh`(parte do pacote sg3_utils)
+    `$ rescan-scsi-bus.sh` (parte do pacote sg3_utils)
 * Digite os seguintes comandos:
   
     `$ dmesg | grep sd*`
@@ -377,9 +377,9 @@ Repita esse comando para todas as interfaces de rede conectadas no destino iSCSI
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-Q. Não sei se meu dispositivo está na lista branca.
+Q. Não tenho certeza se meu dispositivo é permitido.
 
-A. Para verificar se seu dispositivo está na lista branca, use o seguinte comando interativo de solução de problemas:
+a. Para verificar se o dispositivo é permitido, use o seguinte comando interativo de solução de problemas:
 
 ```console
 multipathd -k
@@ -449,4 +449,3 @@ Já que você está configurando o MPIO no host Linux, talvez também seja neces
 
 * [Configurando o MPIO no CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Guia de treinamento do Linux](http://linux-training.be/linuxsys.pdf)
-

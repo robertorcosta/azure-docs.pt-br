@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356697c4843742c12aa39d82602815e38dcca74a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef1e988bef3876fafdee4f7f6f109858e85d75d0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359136"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278727"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Além disso, para obter informações sobre como monitorar Active Directory Domain Services com Azure AD Connect Health consulte [usando Azure ad Connect Health com AD DS](how-to-connect-health-adds.md).
@@ -88,7 +88,7 @@ O relatório categoriza os erros de sincronização existentes nas seguintes cat
 | Falha na validação de dados |Erros devido a dados inválidos, como caracteres sem suporte em atributos essenciais como UserPrincipalName, formate os erros que falharam na validação antes de serem gravados no Azure AD. |
 | Alteração de Domínio Federado | Erros quando as contas usam um domínio federado diferente. |
 | Atributo grande |Erros quando um ou mais atributos são maiores do que o tamanho, o comprimento ou a contagem permitidos. |
-| Outros |Todos os outros erros que não se encaixam nas categorias acima. Com base nos comentários, essa categoria será dividida em subcategorias. |
+| Outro |Todos os outros erros que não se encaixam nas categorias acima. Com base nos comentários, essa categoria será dividida em subcategorias. |
 
 ![Resumo do relatório de erro de sincronização](./media/how-to-connect-health-sync/errorreport01.png)
 ![Categorias de relatório de erro de sincronização](./media/how-to-connect-health-sync/SyncErrorByTypes.PNG)
@@ -116,7 +116,7 @@ Para o cenário de erro específico da sincronização de atributos duplicados q
 ## <a name="related-links"></a>Links relacionados
 * [Solucionando erros durante a sincronização](tshoot-connect-sync-errors.md)
 * [Duplicar resiliência de atributo](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Operações de Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Usando o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)

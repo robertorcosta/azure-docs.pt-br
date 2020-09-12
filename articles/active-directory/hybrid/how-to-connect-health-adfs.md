@@ -18,12 +18,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9401532964e984147436f664b366fd613f3f919f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aa7be140b47d389bea0e7468d1a5ac7e58c3b1b
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359374"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276279"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorar o AD FS usando o Azure AD Connect Health
 A documentação a seguir é específica para monitorar a sua infraestrutura do AD FS com o Azure AD Connect Health. Para obter informações sobre como monitorar Azure AD Connect (sincronização) com Azure AD Connect Health, consulte [usando o Azure ad Connect Health para sincronização](how-to-connect-health-sync.md). Além disso, para obter informações sobre como monitorar Active Directory Domain Services com Azure AD Connect Health, consulte [usando Azure ad Connect Health com AD DS](how-to-connect-health-adds.md).
@@ -51,7 +51,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 
 |Group By | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
-| Tudo | Mostra a contagem do número total de solicitações processadas por todos os servidores AD FS.|
+| Todos | Mostra a contagem do número total de solicitações processadas por todos os servidores AD FS.|
 | Aplicativo | Agrupa o total de solicitações com base na terceira parte confiável de destino. Esse agrupamento é útil para entender qual aplicativo está recebendo o percentual do tráfego total. |
 |  Servidor |Agrupa o total de solicitações com base no servidor que processa a solicitação. Esse agrupamento é útil para entender a distribuição de carga do tráfego total.
 | Ingresso no local |Agrupa o total de solicitações com base em se as solicitações são provenientes de dispositivos que são ingressados no local (conhecido). Esse agrupamento é útil para compreender se os recursos são acessados usando dispositivos desconhecidos para a infraestrutura de identidades. |
@@ -72,7 +72,7 @@ Para selecionar métricas adicionais, especifique um intervalo de tempo ou, para
 
 |Group By | O que significa que o agrupamento e por que ele é útil? |
 | --- | --- |
-|Tudo |Essa métrica fornece uma contagem do número médio de usuários que usam o serviço de federação na fração de tempo selecionada. Os usuários não estão agrupados. <br>A média depende da fração de tempo selecionada. |
+|Todos |Essa métrica fornece uma contagem do número médio de usuários que usam o serviço de federação na fração de tempo selecionada. Os usuários não estão agrupados. <br>A média depende da fração de tempo selecionada. |
 | Aplicativo |Agrupa o número médio de usuários com base no aplicativo de destino (terceira parte confiável). Esse agrupamento é útil para entender a quantos usuários estão usando o aplicativo. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>Monitoramento de desempenho do AD FS
@@ -110,7 +110,7 @@ Esse relatório fornece as seguintes informações:
 
 | Item do relatório | Descrição |
 | --- | --- |
-| ID do Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
+| Id de Usuário |Mostra a ID de usuário que foi usada. Esse valor é o que o usuário digitou, que, em alguns casos, é o uso da ID de usuário errada. |
 | Tentativas com falha |Mostra o número total de tentativas com falha para essa ID de usuário específica. A tabela é classificada com o maior número de tentativas com falha em ordem decrescente. |
 | Última falha |Mostra o carimbo de data/hora quando a última falha ocorreu. |
 | IP da última falha |Mostra o endereço IP do cliente da solicitação incorreta mais recente. Se houver mais de um endereço IP nesse valor, ele pode incluir o encaminhamento de IP do cliente junto com a última tentativa de solicitação de IP do usuário.  |
@@ -119,7 +119,6 @@ Esse relatório fornece as seguintes informações:
 > Esse relatório é atualizado automaticamente a cada 12 horas com as novas informações coletadas no momento. Como resultado, as tentativas de logon nas últimas 12 horas podem não ser incluídas no relatório.
 
 ## <a name="related-links"></a>Links relacionados
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Relatório de IP arriscado](how-to-connect-health-adfs-risky-ip.md)
-

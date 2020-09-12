@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 4de32bad763c0bbf0e143a7ce639efec8c9c41ae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079608"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291660"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Como solicitar aumentos de cota para o Azure HDInsight
 
@@ -65,7 +65,7 @@ Para solicitar um aumento de cota, siga estes passos:
 1. Na guia **Revisar + criar**, selecione **Criar**.
 
 > [!NOTE]  
-> Se precisar aumentar a cota de núcleos do HDInsight em uma região privada, [envie uma solicitação de lista de permissões](https://aka.ms/canaryintwhitelist).
+> Se você precisar aumentar a cota de núcleo do HDInsight em uma região privada, [envie uma solicitação de lista aprovada](https://aka.ms/canaryintwhitelist).
 
 Você pode [entrar em contato com o suporte para solicitar um aumento de cota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 

@@ -16,12 +16,12 @@ ms.date: 09/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6efff54d2c28659af27161ab4cd4753302210006
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e9c4489f59f72e4d0b5c7a0b911da188eb0828c
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358405"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280189"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
 
@@ -43,9 +43,9 @@ Os cenários a seguir têm suporte:
 
 Os cenários a seguir _não_ têm suporte:
 
-- Detecção de usuários com [credenciais vazadas](../reports-monitoring/concept-risk-events.md#leaked-credentials).
+- Detecção de usuários com [credenciais vazadas](../identity-protection/overview-identity-protection.md).
 - Azure AD Domain Services precisa de sincronização de Hash de senha para ser habilitado no locatário. Portanto, os locatários que _somente_ usam a autenticação de passagem não funcionam para cenários que precisam de Azure AD Domain Services.
-- A Autenticação de passagem não está integrada com [Azure AD Connect Health](whatis-hybrid-identity-health.md).
+- A Autenticação de passagem não está integrada com [Azure AD Connect Health](./whatis-azure-ad-connect.md).
 
 > [!IMPORTANT]
 > Como uma solução alternativa para cenários sem suporte _apenas_ (exceto integração do Azure AD Connect Health), habilite a Sincronização de Hash de Senha na página [Recursos Opcionais](how-to-connect-install-custom.md#optional-features) no assistente do Azure AD Connect.

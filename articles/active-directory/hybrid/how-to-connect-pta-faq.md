@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071424"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280155"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -29,7 +29,7 @@ Este artigo aborda perguntas frequentes sobre a Autenticação de Passagem do Az
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Qual dos métodos para entrar no Azure AD, Autenticação de Passagem, sincronização de hash de senha e Serviços de Federação do Active Directory (AD FS), devo escolher?
 
-Leia [este guia](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) para uma comparação entre os vários métodos de conexão do Azure AD e como escolher o método de entrada certo para a sua organização.
+Leia [este guia](./choose-ad-authn.md) para uma comparação entre os vários métodos de conexão do Azure AD e como escolher o método de entrada certo para a sua organização.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>A Autenticação de Passagem é um recurso gratuito?
 
@@ -39,7 +39,7 @@ A Autenticação de Passagem é um recurso gratuito. Você não precisa de nenhu
 
 Não. A Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
 
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>O [Acesso Condicional](../conditional-access/overview.md) funciona com a Autenticação de Passagem?
 
 Sim. Todos os recursos de acesso condicional, incluindo a autenticação multifator do Azure, funcionam com a autenticação de passagem.
 
@@ -148,7 +148,7 @@ Não, esse cenário _não_ tem suporte.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Por que eu preciso de uma conta de Administrador Global somente em nuvem para habilitar a autenticação de passagem?
 
-É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../active-directory-users-create-azure-portal.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
+É recomendável que você habilitar ou desabilitar a autenticação de passagem usando uma conta de Administrador Global somente em nuvem. Saiba mais sobre como [Adicionar uma conta de administrador global somente em nuvem](../fundamentals/add-users-azure-active-directory.md). Fazendo dessa maneira garante que você não seja bloqueado de seu locatário.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Como posso desabilitar a Autenticação de Passagem?
 
@@ -184,4 +184,3 @@ Locatários criados depois de 15 de junho de 2015 têm o comportamento padrão d
 - [Aprofundamento em segurança](how-to-connect-pta-security-deep-dive.md): obtenha informações técnicas avançadas sobre o recurso de Autenticação de passagem.
 - [SSO contínuo do Azure AD](how-to-connect-sso.md): saiba mais sobre esse recurso complementar.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): use o Fórum do Azure Active Directory para arquivar novas solicitações.
-
