@@ -3,20 +3,20 @@ title: Porta de frente do Azure-perguntas frequentes
 description: Esta página fornece respostas para perguntas frequentes sobre a porta frontal do Azure
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
-ms.author: sohamnc
-ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.author: duau
+ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760406"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399728"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
@@ -92,8 +92,8 @@ Para bloquear seu aplicativo para aceitar o tráfego somente de sua porta de fre
 - Configure o IP atuação para seus back-ends para aceitar o tráfego do espaço de endereço IP de back-end da porta do Azure e dos serviços de infraestrutura do Azure apenas. Consulte os detalhes de IP abaixo para atuação seu back-end:
  
     - Consulte a seção *AzureFrontDoor. backend* em [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para o intervalo de endereços IP de back-end IPv4 da porta frontal ou você também pode usar a marca de serviço *AzureFrontDoor. backend* em seus [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
-    - O espaço IP de back-end **IPv6** da porta frontal, enquanto coberto na marca de serviço, não está listado no arquivo JSON de intervalos de IP do Azure. Se você estiver procurando um intervalo de endereços IPv6 explícito, ele estará atualmente limitado a`2a01:111:2050::/44`
-    - Serviços de [infraestrutura básica](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) do Azure por meio de endereços IP de host virtualizados: `168.63.129.16` e`169.254.169.254`
+    - O espaço IP de back-end **IPv6** da porta frontal, enquanto coberto na marca de serviço, não está listado no arquivo JSON de intervalos de IP do Azure. Se você estiver procurando um intervalo de endereços IPv6 explícito, ele estará atualmente limitado a `2a01:111:2050::/44`
+    - Serviços de [infraestrutura básica](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) do Azure por meio de endereços IP de host virtualizados: `168.63.129.16` e `169.254.169.254`
 
     > [!WARNING]
     > O espaço de IP de back-end da porta frontal pode ser alterado mais tarde. no entanto, garantiremos que, antes disso, isso seria integrado aos [intervalos de IP e às marcas de serviço do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que você assine [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.

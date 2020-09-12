@@ -3,41 +3,39 @@ title: Melhores práticas para o Serviço de Pesquisa do Azure Mapas | Microsoft
 description: Saiba como aplicar as melhores práticas quando usar o Serviço de Pesquisa do Microsoft Azure Mapas.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/23/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6565d8056ae8106bd93b7dd096bc709010ec5c3f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064271"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400697"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Melhores práticas para o Serviço de Pesquisa do Azure Mapas
 
 O Azure Maps [serviço de pesquisa](https://docs.microsoft.com/rest/api/maps/search) inclui APIs que oferecem vários recursos para ajudar os desenvolvedores a pesquisar endereços, locais, listagens de negócios por nome ou categoria e outras informações geográficas. Por exemplo, a[API de pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) permite que os usuários pesquisem um endereço ou ponto de interesse (POI).
 
 Este artigo explica como aplicar práticas sonoras ao chamar dados do Serviço de Pesquisa do Azure Mapas. Você aprenderá a:
-
-* Criar consultas para retornar correspondências relevantes
-* Limitar os resultados da pesquisa
-* Aprenda as diferenças entre os tipos de resultados
-* Ler a estrutura de resposta de pesquisa de endereço
+> [!div class="checklist"]
+> * Criar consultas para retornar correspondências relevantes
+> * Limitar os resultados da pesquisa
+> * Aprenda as diferenças entre os tipos de resultados
+> * Ler a estrutura de resposta de pesquisa de endereço
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer chamadas para as APIs de serviço do Azure Mapas, você precisa de uma conta e uma chave do Azure Mapas. Para obter mais informações, consulte [Criar uma conta](quick-demo-map-app.md#create-an-azure-maps-account) e [Obter uma chave primária](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+1. [Fazer uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
 
-Para obter mais informações sobre a autenticação nos Azure Mapas, confira [Gerenciar a autenticação nos Azure Mapas](./how-to-manage-authentication.md).
-
-> [!TIP]
-> Para consultar Serviço de Pesquisa, você pode usar o [aplicativo de postmaster](https://www.getpostman.com/apps) para criar chamadas à API REST. Ou então, você pode usar qualquer ambiente de desenvolvimento de API que preferir.
+Este artigo usa o [aplicativo de postmaster](https://www.postman.com/downloads/) para criar chamadas REST, mas você pode escolher qualquer ambiente de desenvolvimento de API.
 
 ## <a name="best-practices-to-geocode-addresses"></a>Melhores práticas para endereços de código geográfico
 
-Quando você procura um endereço completo ou parcial usando o Serviço de Pesquisa do Azure Mapas, a API lê palavras-chave de sua consulta de pesquisa. Em seguida, ele retorna as coordenadas de longitude e latitude do endereço. Esse processo é chamado *código geográfico*. 
+Quando você procura um endereço completo ou parcial usando o Serviço de Pesquisa do Azure Mapas, a API lê palavras-chave de sua consulta de pesquisa. Em seguida, ele retorna as coordenadas de longitude e latitude do endereço. Esse processo é chamado *código geográfico*.
 
 A capacidade de código geográfico em um país/região depende da disponibilidade dos dados de estrada e da precisão do serviço de código geográfico. Para obter mais informações sobre os recursos de código geográfico do Azure Mapas por país ou região, consulte [Cobertura de código geográfico](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 

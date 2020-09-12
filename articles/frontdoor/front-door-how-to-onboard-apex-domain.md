@@ -2,17 +2,17 @@
 title: Carregar um domínio raiz ou Apex para uma porta frontal existente-portal do Azure
 description: Saiba como carregar um domínio raiz ou Apex para uma porta frontal existente usando o portal do Azure.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 05267ad43f6e7f89ec50b1765d2475a02fae1702
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743585"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399559"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Integrar um domínio raiz ou apex no seu Front Door
 A porta frontal do Azure usa registros CNAME para validar a propriedade do domínio para a integração de domínios personalizados. Além disso, a porta frontal não expõe o endereço IP de front-end associado ao seu perfil de porta frontal e, portanto, não é possível mapear seu domínio Apex para um endereço IP, se a intenção for integrar-o à porta frontal do Azure.
@@ -62,7 +62,7 @@ Neste artigo, você aprenderá como:
 ## <a name="enable-https-on-your-custom-domain"></a>Habilitar HTTPS em seu domínio personalizado
 
 1. Clique no domínio personalizado que foi adicionado e sob a seção **domínio personalizado https**, altere o status para **habilitado**.
-2. Selecione o **tipo de gerenciamento de certificado** para _' usar meu próprio certificado '_.
+2. Selecione o  **tipo de gerenciamento de certificado** para _' usar meu próprio certificado '_.
 
 > [!WARNING]
 > No momento, não há suporte para o tipo de gerenciamento de certificado gerenciado de porta frontal para Apex ou domínios raiz. A única opção disponível para habilitar HTTPS em um Apex ou domínio raiz para a porta frontal é usar seu próprio certificado TLS/SSL personalizado hospedado no Azure Key Vault.

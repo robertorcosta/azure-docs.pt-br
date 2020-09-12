@@ -4,12 +4,12 @@ description: Configurar credenciais de repositório para baixar imagens do regis
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934985"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421417"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurar credenciais de repositório para seu aplicativo para baixar imagens de contêiner
 
@@ -83,6 +83,10 @@ Aqui está um exemplo do que pode ser adicionado dentro da `Hosting` seção na 
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
+          },
+          {
+        "name": "DefaultMSIEndpointForTokenAuthentication",
+        "value": "URI"
           }
         ]
       },
@@ -117,6 +121,25 @@ O Service Fabric dá suporte ao uso de tokens como credenciais para baixar image
 
     > [!NOTE]
     > O sinalizador `UseDefaultRepositoryCredentials` definido como true enquanto `UseTokenAuthenticationCredentials` for true causará um erro durante a implantação.
+
+### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Usando credenciais de token fora da nuvem global do Azure
+
+Ao usar credenciais de registro baseadas em token, Service Fabric busca um token em nome da máquina virtual para apresentar ao ACR. Por padrão, o Service Fabric solicita um token cujo público é o ponto de extremidade global da nuvem do Azure. Se você estiver implantando em outra instância de nuvem, como o Azure Alemanha ou o Azure governamental, será necessário substituir o padrão do parâmetro `DefaultMSIEndpointForTokenAuthentication` . Se você não estiver implantando em um ambiente especial, não substitua esse parâmetro. Se você estiver, substituirá o padrão, que é
+
+```
+http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
+```
+
+com o ponto de extremidade de recurso apropriado para seu ambiente. Por exemplo, para o [Azure Alemanha](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping), a substituição seria 
+
+```json
+{
+    "name": "DefaultMSIEndpointForTokenAuthentication",
+    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
+}
+```
+
+[Leia mais sobre como buscar tokens do conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## <a name="next-steps"></a>Próximas etapas
 

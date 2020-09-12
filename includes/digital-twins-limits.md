@@ -5,20 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771199"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89303965"
 ---
 ### <a name="functional-limits"></a>Limites funcionais
 
 A tabela a seguir lista os limites funcionais do Azure digital gêmeos na visualização atual.
 
-| Área | Recurso | Limite padrão | Ajustá? |
+| Área | Funcionalidade | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
-| Recurso do Azure | Número de instâncias de gêmeos digitais do Azure em uma região, por assinatura | 10 | Sim |
+| Recursos do Azure | Número de instâncias de gêmeos digitais do Azure em uma região, por assinatura | 10 | Sim |
 | Gêmeos Digitais | Número de gêmeos em uma instância de gêmeos digital do Azure | 200.000 | Sim |
 | Gêmeos Digitais | Número de relações de entrada para um único "n" | 5\.000 | Não |
 | Gêmeos Digitais | Número de relações de saída de um único n º | 5\.000 | Não |
@@ -37,12 +37,12 @@ A tabela a seguir lista os limites funcionais do Azure digital gêmeos na visual
 
 Esta tabela reflete os limites de taxa de APIs diferentes.
 
-| API | Recurso | Limite padrão | Ajustá? |
+| API | Funcionalidade | Limite padrão | Ajustá? |
 | --- | --- | --- | --- |
 | API de modelos | Número de solicitações por segundo | 100 | Sim |
 | API gêmeos digital | Número de solicitações por segundo | 1,000 | Sim |
 | API de Consulta | Número de solicitações por segundo | 500 | Sim |
-| API de Consulta | Unidades de consulta por segundo | 4.000 | Sim |
+| API de Consulta | [Unidades de consulta](../articles/digital-twins/concepts-query-units.md) por segundo | 4.000 | Sim |
 | API de rotas de eventos | Número de solicitações por segundo | 100 | Sim |
 
 ### <a name="other-limits"></a>Outros limites

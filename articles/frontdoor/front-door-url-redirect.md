@@ -3,20 +3,20 @@ title: Redirecionamento de URL da porta frontal do Azure | Microsoft Docs
 description: Este artigo ajuda você a entender como a Azure front door dá suporte ao redirecionamento de URL para suas rotas, se configurado.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 41cb2343cb86d2ec756bb0a2fb690b7df886024f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295468"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399031"
 ---
 # <a name="url-redirect"></a>Redirecionamento de URL
 Você pode usar a porta frontal do Azure para redirecionar o tráfego. Você pode redirecionar o tráfego em vários níveis (protocolo, nome do host, caminho, Cadeia de caracteres de consulta) e toda a funcionalidade pode ser configurada para microserviços individuais, uma vez que o redirecionamento é baseado em caminho. Isso simplifica a configuração do aplicativo, otimiza o uso de recursos e dá suporte a novos cenários de redirecionamento, incluindo redirecionamento global e baseado no caminho.
@@ -43,7 +43,7 @@ Você pode definir o protocolo que será usado para redirecionamento. Isso permi
 Como parte da configuração de um roteamento de redirecionamento, você também pode alterar o nome do host ou domínio para a solicitação de redirecionamento. Você pode definir esse campo para alterar o nome do host na URL para o redirecionamento ou preservar o nome do host da solicitação de entrada. Portanto, usando esse campo, você pode redirecionar todas as solicitações enviadas `https://www.contoso.com/*` para `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>Caminho de destino
-Para casos em que você deseja substituir o segmento de caminho de uma URL como parte do redirecionamento, você pode definir esse campo com o novo valor de caminho. Caso contrário, você pode optar por preservar o valor do caminho como parte do redirecionamento. Portanto, usando esse campo, você pode redirecionar todas as solicitações enviadas ao `https://www.contoso.com/\*` para `https://www.contoso.com/redirected-site` .
+Para casos em que você deseja substituir o segmento de caminho de uma URL como parte do redirecionamento, você pode definir esse campo com o novo valor de caminho. Caso contrário, você pode optar por preservar o valor do caminho como parte do redirecionamento. Portanto, usando esse campo, você pode redirecionar todas as solicitações enviadas ao `https://www.contoso.com/\*` para  `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>Parâmetros de cadeia de caracteres de consulta
 Você também pode substituir os parâmetros da cadeia de caracteres de consulta na URL redirecionada. Para substituir qualquer cadeia de caracteres de consulta existente da URL de solicitação de entrada, defina esse campo como ' replace ' e defina o valor apropriado. Caso contrário, você pode manter o conjunto original de cadeias de consulta definindo o campo como ' preserve '. Como exemplo, usando esse campo, você pode redirecionar todo o tráfego enviado para o `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 

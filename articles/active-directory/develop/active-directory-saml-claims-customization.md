@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552825"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421451"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como personalizar declarações emitidas no token SAML para aplicativos empresariais
 
@@ -88,11 +88,11 @@ Você também pode atribuir qualquer valor constante (estático) a qualquer decl
 
 1. Insira o valor da constante sem aspas no **Atributo de origem** de acordo com sua organização e clique em **Salvar**.
 
-    ![Abrir a seção Declarações e Atributos do Usuário no portal do Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Seção de declarações & atributos org no portal do Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. O valor constante será exibido como mostrado abaixo.
 
-    ![Abrir a seção Declarações e Atributos do Usuário no portal do Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Seção editar atributos & declarações no portal do Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Declarações especiais – transformações
 
@@ -121,7 +121,7 @@ Para aplicar uma transformação a um atributo de usuário:
 2. Selecione a função na lista suspensa de transformação. Dependendo da função selecionada, você precisará fornecer parâmetros e um valor constante a ser avaliado na transformação. Consulte a tabela abaixo para obter mais informações sobre as funções disponíveis.
 3. Para aplicar várias transformações, clique em **adicionar transformação**. Você pode aplicar um máximo de duas transformações a uma declaração. Por exemplo, você pode primeiro extrair o prefixo de email do `user.mail`. Em seguida, converta a cadeia de caracteres em maiúsculas.
 
-   ![Editar o valor de NameID (identificador de nome)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![Transformação de várias declarações](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 É possível usar as funções a seguir para transformar declarações.
 
@@ -129,8 +129,8 @@ Para aplicar uma transformação a um atributo de usuário:
 |----------|-------------|
 | **ExtractMailPrefix()** | Remove o sufixo de domínio de endereço de email ou nome UPN. Isso extrai somente a primeira parte do nome de usuário que está sendo passada (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
 | **Join()** | Cria um valor unindo dois atributos. Opcionalmente, você pode usar um separador entre os dois atributos. Para a transformação da declaração NameID, a junção é restrita a um domínio verificado. Se o valor do identificador de usuário selecionado tiver um domínio, ele extrairá o nome de usuário para anexar o domínio verificado selecionado. Por exemplo, se você selecionar o email (joe_smith@contoso.com) como o valor de identificador de usuário e selecionar contoso.onmicrosoft.com como o domínio verificado, isso resultará em joe_smith@contoso.onmicrosoft.com. |
-| **ToLower()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
-| **ToUpper()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
+| **Tominúsculas ()** | Converte os caracteres do atributo selecionado em caracteres minúsculos. |
+| **Topercase ()** | Converte os caracteres do atributo selecionado em caracteres maiúsculos. |
 | **Contains()** | Gera um atributo ou constante se a entrada corresponde ao valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor será o endereço de email do usuário se ele contiver o domínio "@contoso.com", caso contrário, será recomendável que você gere o nome UPN. Para fazer isso, você configuraria os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user.email<br/>*Valor*: "@contoso.com"<br/>Parâmetro 2 (saída): user.email<br/>Parâmetro 3 (saída se não houver correspondência): user.userprincipalname |
 | **EndWith()** | Gera um atributo ou constante se a entrada termina com o valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração que terá o valor da ID do funcionário quando essa ID terminar com "000", mas quiser gerar um atributo de extensão quando o final dessa ID for diferente. Para fazer isso, você configuraria os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user.employeeid<br/>*Valor*: "000"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |
 | **StartWith()** | Gera um atributo ou constante se a entrada começa com o valor especificado. Caso contrário, você poderá especificar outra saída se não houver correspondência.<br/>Por exemplo, se você quiser emitir uma declaração em que o valor será a ID de funcionário do usuário quando o país/região começar com "EUA", mas quiser gerar um atributo de extensão quando o início do país/região for diferente. Para fazer isso, você configuraria os seguintes valores:<br/>*Parâmetro 1 (entrada)* : user.country<br/>*Valor*: "EUA"<br/>Parâmetro 2 (saída): user.employeeid<br/>Parâmetro 3 (saída se não houver correspondência): user.extensionattribute1 |

@@ -3,13 +3,13 @@ title: Conceitos - Armazenamento nos Serviços do Kubernetes do Azure (AKS)
 description: Saiba mais sobre o Armazenamento nos Serviços do Kubernetes do Azure (AKS), incluindo volumes, volumes persistentes, classes de armazenamento e declarações
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.date: 08/17/2020
+ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406955"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421145"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -32,8 +32,6 @@ Volumes tradicionais para armazenar e recuperar os dados são criados como recur
 
 - *Azure Disks* pode ser usado para criar um recurso de Kubernetes *DataDisk*. Os discos podem usar o armazenamento Premium do Azure, apoiados por SSDs de alto desempenho, ou o armazenamento Standard do Azure, apoiado por HDDs regulares. Para a maioria das cargas de trabalho de desenvolvimento e produção, use o Armazenamento Premium. Os discos do Azure são montados como *ReadWriteOnce*, portanto, estão disponíveis apenas para um único Pod. Para volumes de armazenamento que podem ser acessados por vários pods simultaneamente, use os arquivos do Azure.
 - *Os Arquivos do Azure* podem ser usados para montar um compartilhamento SMB 3.0 de apoio de uma conta de Armazenamento do Microsoft Azure com os pods. Os arquivos permitem que você compartilhe dados em vários nós e pods. Os arquivos podem usar o armazenamento standard do Azure apoiado por HDDs regulares ou pelo armazenamento Premium do Azure, apoiado por SSDs de alto desempenho.
-> [!NOTE] 
-> Os arquivos do Azure dão suporte ao armazenamento Premium em clusters AKS que executam o kubernetes 1,13 ou superior.
 
 No Kubernetes, os volumes podem representar mais do que apenas um disco tradicional onde as informações podem ser armazenadas e recuperadas. Volumes Kubernetes também podem ser usados como uma forma de injetar dados em um pod para uso pelos contêineres. Tipos comuns de volume adicional no Kubernetes incluem:
 
@@ -55,12 +53,18 @@ Um PersistentVolume pode ser *estaticamente* criado por um administrador de clus
 
 Para definir diferentes camadas de armazenamento, como Premium e Standard, você pode criar uma *StorageClass*. O StorageClass também define a *reclaimPolicy*. Este reclaimPolicy controla o comportamento do recurso de armazenamento do Azure subjacente quando o pod é excluído e o volume persistente talvez não seja mais necessário. O recurso de armazenamento subjacente pode ser excluído ou retido para uso com um pod futuro.
 
-Em AKS, quatro StorageClasses iniciais são criadas:
+No AKS, quatro iniciais `StorageClasses` são criadas para cluster usando os plug-ins de armazenamento na árvore:
 
-- *padrão* – usa o armazenamento StandardSSD do Azure para criar um disco gerenciado. A política de recuperação indica que o disco do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
-- *managed-premium* - usa o Armazenamento do Premium do Azure para criar Discos Gerenciados. A política de recuperação novamente indica que o disco do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
-- *azurefile* – usa o armazenamento standard do Azure para criar um compartilhamento de arquivos do Azure. A política de recuperação indica que o compartilhamento de arquivos do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
-- *azurefile-Premium* -usa o armazenamento Premium do Azure para criar um compartilhamento de arquivos do Azure. A política de recuperação indica que o compartilhamento de arquivos do Azure subjacente é excluído quando o volume persistente que o usava é excluído.
+- `default` -Usa o armazenamento StandardSSD do Azure para criar um disco gerenciado. A política de recuperação garante que o disco subjacente do Azure seja excluído quando o volume persistente que o usou for excluído.
+- `managed-premium` -Usa o armazenamento Premium do Azure para criar um disco gerenciado. A política de recuperação novamente garante que o disco subjacente do Azure seja excluído quando o volume persistente que o utilizou for excluído.
+- `azurefile` -Usa o armazenamento standard do Azure para criar um compartilhamento de arquivos do Azure. A política de recuperação garante que o compartilhamento de arquivos do Azure subjacente seja excluído quando o volume persistente que o usou for excluído.
+- `azurefile-premium` -Usa o armazenamento Premium do Azure para criar um compartilhamento de arquivos do Azure. A política de recuperação garante que o compartilhamento de arquivos do Azure subjacente seja excluído quando o volume persistente que o usou for excluído.
+
+Para clusters que usam os novos plug-ins externos da CSI (interface de armazenamento de contêiner) (versão prévia), são criados os seguintes adicionais `StorageClasses` :
+- `managed-csi` -Usa o LRS (armazenamento com redundância local) do Azure StandardSSD para criar um disco gerenciado. A política de recuperação garante que o disco subjacente do Azure seja excluído quando o volume persistente que o usou for excluído. A classe de armazenamento também configura os volumes persistentes para que sejam expansíveis, você só precisa editar a declaração de volume persistente com o novo tamanho.
+- `managed-csi-premium` -Usa o LRS (armazenamento com redundância local) Premium do Azure para criar um disco gerenciado. A política de recuperação novamente garante que o disco subjacente do Azure seja excluído quando o volume persistente que o utilizou for excluído. Da mesma forma, essa classe de armazenamento permite que volumes persistentes sejam expandidos.
+- `azurefile-csi` -Usa o armazenamento standard do Azure para criar um compartilhamento de arquivos do Azure. A política de recuperação garante que o compartilhamento de arquivos do Azure subjacente seja excluído quando o volume persistente que o usou for excluído.
+- `azurefile-csi-premium` -Usa o armazenamento Premium do Azure para criar um compartilhamento de arquivos do Azure. A política de recuperação garante que o compartilhamento de arquivos do Azure subjacente seja excluído quando o volume persistente que o usou for excluído.
 
 Se nenhum StorageClass for especificado para um volume persistente, o padrão StorageClass será usado. Tome cuidado ao solicitar volumes persistentes, para que eles usem o armazenamento adequado, que você precisa. Você pode criar um StorageClass para necessidades adicionais usando `kubectl`. O exemplo a seguir usa o Managed Disks Premium e especifica que o Azure Disk subjacente deve ser *retidos* quando o pod é excluído:
 

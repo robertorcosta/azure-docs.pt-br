@@ -2,18 +2,18 @@
 title: 'Redefinir um circuito com falha-ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Este artigo ajuda a redefinir um circuito de ExpressRoute em um estado de falha.
 services: expressroute
-author: kumudD
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/28/2018
-ms.author: kumud
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e0f79ce0959e7b7dccc20e46493f34e1963df70e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7df96f34ee408c0a6d26b27adbac7351c9ab937f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537098"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393081"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>Redefinir um circuito de ExpressRoute com falha
 
