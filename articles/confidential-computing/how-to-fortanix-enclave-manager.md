@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826286"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462421"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Como executar um aplicativo com o Fortanix enclave Manager 
 
@@ -24,7 +24,7 @@ Comece a executar seu aplicativo na computação confidencial do Azure usando o 
 O Fortanix é um fornecedor de software de terceiros com produtos e serviços criados com base na infraestrutura do Azure. Há outros provedores de terceiros que oferecem serviços de computação confidencial semelhantes no Azure.
 
 > [!Note] 
- > OS PRODUTOS MENCIONADOS NESTE DOCUMENTO NÃO ESTÃO SOB O CONTROLE DA MICROSOFT. A MICROSOFT ESTÁ FORNECENDO ESSAS INFORMAÇÕES A VOCÊ APENAS COMO UMA CONVENIÊNCIA, E A REFERÊNCIA A ESSES PRODUTOS QUE NÃO SÃO DA MICROSOFT NÃO IMPLICA O ENDOSSO DA MICROSOFT.
+ > Os produtos mencionados neste documento não estão sob o controle da Microsoft. A Microsoft está fornecendo essas informações a você apenas como uma conveniência, e a referência a esses produtos que não são da Microsoft não implica o endosso da Microsoft.
 
 
 
@@ -43,7 +43,7 @@ Este tutorial mostra como converter a imagem do aplicativo em uma imagem confide
 > As contas de avaliação gratuita não têm acesso às máquinas virtuais usadas neste tutorial. Atualize para uma assinatura de Pagamento Conforme o Uso.
 
 ## <a name="add-an-application-to-fortanix-enclave-manager"></a>Adicionar um aplicativo ao Fortanix enclave Manager
-1. Entrar em [Fortanix](https://fortanix.com) em
+1. Entrar no [Fortanix enclave Manager (Fortanix em)](https://em.fortanix.com)
 1. Navegue até a página **contas** e selecione **adicionar conta** para criar uma nova conta. 
     
 ![Criar uma conta](media/how-to-fortanix-enclave-manager/create-account.png)
@@ -120,7 +120,7 @@ A criação de um agente de nó Fortanix implantará uma máquina virtual, uma i
 1. Nessa página, você inserirá informações para implantar uma máquina virtual. Especificamente, essa VM é uma máquina virtual DCsv2 Intel com SGX habilitada para o Microsoft Azure com o software de agente de nó do Fortanix instalado. O agente de nó permitirá que a imagem convertida seja executada com segurança em nós de SGX Intel no Azure.  Selecione a **assinatura** e o **grupo de recursos** em que você deseja implantar a máquina virtual e os recursos associados. 
  
     > [!NOTE]
-    > Há restrições ao implantar máquinas virtuais da série DCsv2 no Azure. Talvez seja necessário solicitar uma cota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs do Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solution) para obter mais informações. 
+    > Há restrições ao implantar máquinas virtuais da série DCsv2 no Azure. Talvez seja necessário solicitar uma cota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs do Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) para obter mais informações. 
 
 1. Selecione uma região disponível.
 1. Insira um nome para sua máquina virtual no campo **nome do nó** . 
@@ -158,7 +158,7 @@ onde:
 1. Verifique se há um aplicativo em execução com um nó de computação associado
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você poderá excluir o grupo de recursos, a máquina virtual e os recursos associados. A exclusão do grupo de recursos cancelará o registro dos nós associados à imagem convertida. 
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 642186ef4af43127ba0d6eb6950f09e069eb79ca
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005948"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649290"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
@@ -58,7 +58,7 @@ Quando uma execução é concluída, ela deixa de ser exibida nessa página. Par
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Monitorar execuções usando o widget Jupyter Notebook
 
-Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observar o progresso da execução usando o [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho seja concluído.
+Ao usar o método **ScriptRunConfig** para enviar execuções, você pode observar o progresso da execução usando o [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Como o envio de execução, o widget é assíncrono e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho seja concluído.
 
 Exiba o widget do Jupyter enquanto aguarda a execução ser concluída.
     

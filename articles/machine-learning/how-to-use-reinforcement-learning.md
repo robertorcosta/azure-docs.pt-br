@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 97119f3ec370894183c4aee44ff8a5bd6e5ea93b
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650818"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647138"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Reinforcement Learning (versão prévia) com Azure Machine Learning
 
@@ -49,8 +49,8 @@ Execute este código em um dos ambientes a seguir. Recomendamos que você use a 
  
  - Seu próprio servidor Jupyter Notebook
 
-    - Instale o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Instale o [SDK do RL do Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Instale o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+    - Instale o [SDK do RL do Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Crie um [arquivo de configuração de workspace](how-to-configure-environment.md#workspace).
     - Execute o [notebook de configuração](https://aka.ms/azure-rl-env-setup) de rede virtual para abrir as portas de rede usadas para aprendizado por reforço distribuído.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Criar um experimento de aprendizado por reforço
 
-Crie um [experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) para acompanhar a execução do aprendizado por reforço. No Azure Machine Learning, os experimentos são coleções lógicas de avaliações relacionadas para organizar logs de execução, histórico, saídas e muito mais.
+Crie um [experimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) para acompanhar a execução do aprendizado por reforço. No Azure Machine Learning, os experimentos são coleções lógicas de avaliações relacionadas para organizar logs de execução, histórico, saídas e muito mais.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Criar um avaliador de aprendizado por reforço
 
-Nesta seção, você aprenderá a usar o [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) para enviar um trabalho de treinamento para o Azure Machine Learning.
+Nesta seção, você aprenderá a usar o [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) para enviar um trabalho de treinamento para o Azure Machine Learning.
 
 O Azure Machine Learning usa classes do avaliador para encapsular informações de configuração de execução. Isso permite que você especifique facilmente como configurar uma execução de script. Para obter mais informações sobre o padrão do avaliador do Azure Machine Learning, consulte [Como treinar modelos usando os avaliadores](how-to-train-ml-models.md).
 
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Enviar uma execução
 
-A [execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) trata do histórico de execução de trabalhos em andamento ou completos. 
+A [execução](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true) trata do histórico de execução de trabalhos em andamento ou completos. 
 
 ```python
 run = exp.submit(config=rl_estimator)

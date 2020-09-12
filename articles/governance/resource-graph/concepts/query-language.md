@@ -3,12 +3,12 @@ title: Noções básicas da linguagem de consulta
 description: Descreve as tabelas do Resource Graph e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o Azure Resource Graph.
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798543"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426394"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do Azure Resource Graph
 
@@ -32,6 +32,7 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 |ResourceContainers |Inclui os tipos de recursos e dados da assinatura (em versão prévia -- `Microsoft.Resources/subscriptions`) e do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Inclui recursos _relacionados_ ao `Microsoft.Advisor`. |
 |AlertsManagementResources |Inclui recursos _relacionados_ ao `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Inclui recursos _relacionados_ ao `Microsoft.GuestConfiguration`. |
 |HealthResources |Inclui recursos _relacionados_ ao `Microsoft.ResourceHealth`. |
 |MaintenanceResources |Inclui recursos _relacionados_ ao `Microsoft.Maintenance`. |
 |SecurityResources |Inclui recursos _relacionados_ ao `Microsoft.Security`. |
@@ -142,7 +143,7 @@ A seguir está a lista de operadores de tabela da linguagem KQL com suporte do R
 O escopo das assinaturas dos quais os recursos são retornados por uma consulta depende do método de acesso ao grafo de recursos. CLI do Azure e Azure PowerShell popular a lista de assinaturas a serem incluídas na solicitação com base no contexto do usuário autorizado. A lista de assinaturas pode ser definida manualmente para cada uma com as **assinaturas** e os parâmetros de **assinatura** , respectivamente.
 Na API REST e em todos os outros SDKs, a lista de assinaturas para incluir recursos deve ser explicitamente definida como parte da solicitação.
 
-Como uma **Visualização**, a versão da API REST `2020-04-01-preview` adiciona uma propriedade para o escopo da consulta a um [grupo de gerenciamento](../../management-groups/overview.md). Essa API de visualização também torna a propriedade de assinatura opcional. Se um grupo de gerenciamento ou uma lista de assinaturas não estiver definida, o escopo da consulta será todos os recursos que o usuário autenticado pode acessar. A nova `managementGroupId` propriedade usa a ID do grupo de gerenciamento, que é diferente do nome do grupo de gerenciamento. Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId` Não pode ser usado ao mesmo tempo que `subscriptions` .
+Como uma **Visualização**, a versão da API REST `2020-04-01-preview` adiciona uma propriedade para o escopo da consulta a um [grupo de gerenciamento](../../management-groups/overview.md). Essa API de visualização também torna a propriedade de assinatura opcional. Se um grupo de gerenciamento ou uma lista de assinaturas não estiver definida, o escopo da consulta será todos os recursos, que inclui recursos delegados do [Lighthouse do Azure](../../../lighthouse/concepts/azure-delegated-resource-management.md) , que o usuário autenticado pode acessar. A nova `managementGroupId` propriedade usa a ID do grupo de gerenciamento, que é diferente do nome do grupo de gerenciamento. Quando `managementGroupId` é especificado, os recursos das primeiras assinaturas 5000 no ou na hierarquia do grupo de gerenciamento especificado são incluídos. `managementGroupId` Não pode ser usado ao mesmo tempo que `subscriptions` .
 
 Exemplo: consultar todos os recursos na hierarquia do grupo de gerenciamento denominado ' meu grupo de gerenciamento ' com a ID ' myMG '.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 86fc63d8b0615423f4138ed1b09dc3a24d1e527e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9ae42bb29d1273e4f0f9c25803e8cc97b56ad95
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514461"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462404"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos do Armazenamento do Azure no C++
 
@@ -200,5 +200,5 @@ Para obter mais informações sobre o Armazenamento do Azure e a Biblioteca de C
 * [Como usar o Armazenamento de Tabelas do C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Como usar o armazenamento de filas do C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [Documentação Biblioteca de Cliente de Armazenamento do Azure para API do C++.](https://azure.github.io/azure-storage-cpp/)
-* [Blog da equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog da equipe de Armazenamento do Azure](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
 * [Documentação do armazenamento do Azure](https://azure.microsoft.com/documentation/services/storage/)

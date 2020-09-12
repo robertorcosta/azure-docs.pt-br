@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273194"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649739"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e Gateway de Aplicativo com redundância de zona v2 
 
@@ -47,87 +47,7 @@ Com o SKU v2, o modelo de preço é orientado pelo consumo e não é mais anexad
 
 Cada unidade de capacidade é composta de no máximo: 1 unidade de computação, 2500 conexões persistentes e taxa de transferência de 2,22 Mbps.
 
-Diretrizes da unidade de computação:
-
-- **Standard_v2** - Cada unidade de computação tem capacidade para aproximadamente 50 conexões por segundo com o certificado TLS da chave RSA de 2048 bits.
-- **WAF_v2** - Cada unidade de computação pode aceitar aproximadamente 10 solicitações simultâneas por segundo para uma combinação de tráfego de 70 a 30%, com 70% de solicitações menores que 2 KB GET/POST e permanecendo mais altas. O desempenho do WAF não é afetado pelo tamanho da resposta no momento.
-
-> [!NOTE]
-> Atualmente, cada instância pode dar suporte a aproximadamente 10 unidades de capacidade.
-> O número de solicitações que uma unidade de computação pode atender depende de vários critérios, como tamanho da chave do certificado TLS, algoritmo de troca de chaves, regravações de cabeçalho e, no caso do WAF, tamanho das solicitações de entrada. Recomendamos que você realize testes de aplicativo para determinar a taxa de solicitação por unidade de computação. A unidade de capacidade e a unidade de computação serão disponibilizadas como métricas, antes do início da cobrança.
-
-A tabela a seguir mostra os preços de exemplo apenas para fins ilustrativos.
-
-**Preços no Leste dos EUA**:
-
-|              Nome do SKU                             | Preço fixo ($/hora)  | Preço da unidade de capacidade ($/CU-hora)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0,20             | 0,0080                          |
-| WAF_v2                                            |    0,36             | 0,0144                          |
-
-Para obter mais informações, confira a [página de preço](https://azure.microsoft.com/pricing/details/application-gateway/). 
-
-**Exemplo 1**
-
-Um Gateway de Aplicativo Standard_v2 é provisionado sem o dimensionamento automático no modo de dimensionamento manual com capacidade fixa de cinco instâncias.
-
-Preço fixo = 744 (horas) * US$ 0,20 = US$ 148,8 <br>
-Unidades de capacidade = 744 (horas) * 10 unidades de capacidade por instância * 5 instâncias * US$ 0,008 por unidade de capacidade por hora = US$ 297,6
-
-Preço total = US$ 148,8 + US$ 297,6 = US$ 446,4
-
-**Exemplo 2**
-
-Um Gateway de Aplicativo standard_v2 é provisionado por um mês, no mínima sem instâncias e, durante esse tempo, recebe 25 novas conexões TLS/segundo, uma média de transferência de dados de 8,88 Mbps. Supondo que as conexões sejam de curta duração, o preço seria:
-
-Preço fixo = 744 (horas) * US$ 0,20 = US$ 148,8
-
-Preço da unidade de capacidade = 744 (horas) * Máximo (25/50 unidades de computação para conexões/segundo, unidade de capacidade para taxa de transferência de 8,88/2,22) * US$ 0,008 = 744 * 4 * 0,008 = US$ 23,81
-
-Preço total = US$ 148,8 + 23,81 = US$ 172,61
-
-Como é possível observar, você é cobrado apenas por quatro unidades de capacidade, não pela instância inteira. 
-
-> [!NOTE]
-> A função Máximo retorna o maior valor em um par de valores.
-
-
-**Exemplo 3**
-
-Um Gateway de Aplicativo standard_v2 é provisionado por um mês, com no mínimo cinco instâncias. Supondo que não haja tráfego e as conexões sejam de curta duração, seu preço seria:
-
-Preço fixo = 744 (horas) * US$ 0,20 = US$ 148,8
-
-Preço da unidade de capacidade = 744 (horas) * Máximo (0/50 unidade de computação para conexões/segundo, unidade de capacidade para taxa de transferência de 0/2,22) * US$ 0,008 = 744 * 50 * 0,008 = US$ 297,60
-
-Preço total = US$ 148,80 + 297,60 = US$ 446,4
-
-Nesse caso, você será cobrado pelo todas as cinco instâncias, mesmo que não haja tráfego.
-
-**Exemplo 4**
-
-Um Gateway de Aplicativo standard_v2 é provisionado por um mês, com no mínimo cinco instâncias, mas nesse tempo, há uma média de transferência de dados de 125 Mbps e 25 conexões TLS por segundo. Supondo que não haja tráfego e as conexões sejam de curta duração, seu preço seria:
-
-Preço fixo = 744 (horas) * US$ 0,20 = US$ 148,8
-
-Preço da unidade de capacidade = 744 (horas) * Máximo (25/50 unidades de computação para conexões/segundo, unidade de capacidade para taxa de transferência de 125/2,22) * US$ 0,008 = 744 * 57 * 0,008 = US$ 339,26
-
-Preço total = US$ 148,80 + 339,26 = US$ 488,06
-
-Nesse caso, você será cobrado pelas cinco instâncias completas, mais sete unidades de capacidade (que corresponde a 7/10 de uma instância).  
-
-**Exemplo 5**
-
-Um Gateway de Aplicativo WAF_v2 é provisionado por um mês. Durante esse tempo, ele recebe 25 novas conexões TLS/segundo, uma média de transferência de dados de 8,88 Mbps e realiza 80 solicitações por segundo. Supondo que as conexões sejam de curta duração e que o cálculo da unidade de computação para o aplicativo dê suporte a 10 RPS por unidade de computação, o preço seria:
-
-Preço fixo = 744 (horas) * US$ 0,36 = US$ 267,84
-
-Preço da unidade de capacidade = 744 (horas) * Máximo (25/50 unidades de computação para conexões/segundo, 80/10 WAF RPS, unidade de capacidade para taxa de transferência de 8,88/2,22) * US$ 0,0144 = 744 * 8 * 0,0144 = US$ 85,71
-
-Preço total = US$ 267,84 + 85,71 = US$ 353,55
-
-> [!NOTE]
-> A função Máximo retorna o maior valor em um par de valores.
+Para saber mais, consulte [noções básicas sobre preços](understanding-pricing.md).
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Dimensionamento do Gateway de Aplicativo e WAF v2
 
@@ -178,11 +98,11 @@ Esta seção descreve os recursos e as limitações do SKU v2 que são diferente
 
 |Diferença|Detalhes|
 |--|--|
-|Certificado de autenticação|Não há suporte.<br>Para obter mais informações, confira [Visão geral de TLS de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
+|Certificado de autenticação|Sem suporte.<br>Para obter mais informações, confira [Visão geral de TLS de ponta a ponta com o Gateway de Aplicativo](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinando Standard_v2 e o Gateway de Aplicativo Standard na mesma sub-rede|Sem suporte|
-|Rota Definida pelo Usuário (UDR) na sub-rede do Gateway de Aplicativo|Com Suporte (cenários específicos). Em versão prévia.<br> Para obter mais informações sobre os cenários com suporte, confira [Visão geral da configuração do Gateway de Aplicativo](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
+|Rota Definida pelo Usuário (UDR) na sub-rede do Gateway de Aplicativo|Com Suporte (cenários específicos). Em versão prévia.<br> Para obter mais informações sobre os cenários com suporte, confira [Visão geral da configuração do Gateway de Aplicativo](configuration-infrastructure.md#supported-user-defined-routes).|
 |NSG para o intervalo de porta de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 to 65534 para Standard SKU.<br>Consulte mais informações em [Perguntas Frequentes](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Logs de desempenho no diagnóstico do Azure|Não há suporte.<br>As métricas do Azure devem ser usadas.|
+|Logs de desempenho no diagnóstico do Azure|Sem suporte.<br>As métricas do Azure devem ser usadas.|
 |Cobrança|Cobrança agendada para iniciar em 1º de julho de 2019.|
 |Modo FIPS|Essas não atualmente têm suporte.|
 |Modo somente de ILB|Não há suporte para esse recurso no momento. Público e o modo ILB juntos tem suporte.|

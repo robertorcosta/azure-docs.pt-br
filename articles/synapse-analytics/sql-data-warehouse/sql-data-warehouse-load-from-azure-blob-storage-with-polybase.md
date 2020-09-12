@@ -1,5 +1,5 @@
 ---
-title: Carregar dados de varejo da Contoso em um data warehouse SQL Synapse
+title: Carregar dados de varejo da Contoso para Synapse SQL
 description: Use os comandos do polybase e do T-SQL para carregar duas tabelas dos dados de varejo da Contoso no Synapse SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213305"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461690"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Carregar dados de varejo da Contoso para Synapse SQL 
 
-Neste tutorial, você aprenderá a usar os comandos do polybase e do T-SQL para carregar duas tabelas dos dados de varejo da Contoso em um data warehouse SQL Synapse.
+Neste tutorial, você aprenderá a usar os comandos do polybase e do T-SQL para carregar duas tabelas dos dados de varejo da Contoso no Synapse SQL.
 
-Neste tutorial, você irá:
+Neste tutorial, você vai:
 
 1. Configurar PolyBase para carregar do armazenamento de blobs do Azure
 2. Carregar dados públicos em seu banco de dados
@@ -30,11 +30,11 @@ Neste tutorial, você irá:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para executar este tutorial, você precisa de uma conta do Azure que já tenha um data warehouse SQL Synapse. Se você não tiver um data warehouse provisionado, consulte [criar um data warehouse e definir regra de firewall no nível de servidor](create-data-warehouse-portal.md).
+Para executar este tutorial, você precisa de uma conta do Azure que já tenha um SQL Synapse. Se você não tiver um data warehouse provisionado, consulte [criar um data warehouse e definir regra de firewall no nível de servidor](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configurar a fonte de dados
 
-O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos dados externos. As definições de objeto externo são armazenadas em sua data warehouse SQL do Synapse. Os dados são armazenados externamente.
+O PolyBase usa objetos externos do T-SQL para definir o local e os atributos dos dados externos. As definições de objeto externo são armazenadas em Synapse SQL. Os dados são armazenados externamente.
 
 ## <a name="create-a-credential"></a>Criar uma credencial
 
@@ -122,7 +122,7 @@ GO
 
 Execute o script a seguir para criar as tabelas externas DimProduct e FactOnlineSales. Tudo o que você está fazendo aqui é definir nomes de coluna e tipos de dados e associá-los ao local e ao formato dos arquivos de armazenamento de BLOBs do Azure. A definição é armazenada na data warehouse e os dados ainda estão no Azure Storage Blob.
 
-O parâmetro **Location** é a pasta sob a pasta raiz no Azure Storage BLOB. Cada tabela é em uma pasta diferente.
+O parâmetro  **Location** é a pasta sob a pasta raiz no Azure Storage BLOB. Cada tabela é em uma pasta diferente.
 
 ```sql
 --DimProduct
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Otimizar a compactação columnstore
 
-Por padrão, o Synapse SQL data warehouse armazena a tabela como um índice columnstore clusterizado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há diferentes motivos pelos quais isso pode acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
+Por padrão, o SQL Synapse armazena a tabela como um índice columnstore clusterizado. Após a conclusão do carregamento, algumas das linhas de dados não podem ser compactadas no columnstore.  Há diferentes motivos pelos quais isso pode acontecer. Para obter mais informações, confira [gerenciar índices columnstore](sql-data-warehouse-tables-index.md).
 
 Para otimizar o desempenho da consulta e a compactação columnstore após um carregamento, recrie a tabela para forçar o índice columnstore a compactar todas as linhas.
 

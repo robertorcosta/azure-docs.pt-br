@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 07/09/2020
-ms.openlocfilehash: 5ec6af894f434f8d1f7df34b2ed0c2514ab88cc4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/03/2020
+ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306138"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440111"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerenciar Azure Machine Learning recursos com a extensão de VS Code (versão prévia)
 
@@ -48,6 +48,7 @@ Para obter mais informações, consulte [espaços de trabalho](concept-workspace
 
 Os métodos alternativos para criar um espaço de trabalho incluem:
 
+- Abra a exibição paleta de comandos **> paleta de comandos** e insira no prompt de texto **Azure ml: criar espaço de trabalho**.
 - Clique no `+` ícone na parte superior da exibição de Azure Machine Learning.
 - Crie um novo espaço de trabalho quando solicitado a selecionar um espaço de trabalho durante o provisionamento de outros recursos.
 
@@ -63,7 +64,7 @@ Os métodos alternativos para criar um espaço de trabalho incluem:
 
 Atualmente, a extensão VS Code dá suporte a repositórios de armazenamento dos seguintes tipos:
 
-- Compartilhamento de Arquivo do Azure
+- Compartilhamento de arquivos do Azure
 - Armazenamento do Blobs do Azure
 
 Quando você cria um espaço de trabalho, um repositório de armazenamento é criado para cada um desses tipos.
@@ -243,6 +244,39 @@ Quando uma execução for concluída, talvez você queira baixar os logs e ativo
 
 Na extensão, você pode inspecionar metadados como a configuração de execução usada para a execução, bem como os detalhes de execução.
 
+## <a name="compute-instances"></a>Instâncias de computação
+
+Para obter mais informações, consulte [Compute instances](concept-compute-instance.md).
+
+### <a name="create-compute-instance"></a>Criar instância de computação
+
+1. Expanda o nó de assinatura que contém seu espaço de trabalho.
+1. Expanda o nó do espaço de trabalho em que você deseja criar a instância de computação.
+1. Clique com o botão direito do mouse no nó **instâncias de computação** e selecione **criar instância de computação**.
+1. No prompt:
+    1. Forneça um nome para a instância de computação.
+    1. Selecione um tamanho de VM na lista.
+    1. Escolha se deseja habilitar o acesso SSH.
+        1. Se você habilitar o acesso SSH, também terá que fornecer a chave SSH pública ou o arquivo que contém a chave. Para obter mais informações, consulte o [guia sobre como criar e usar chaves SSH no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+
+### <a name="stop-or-restart-compute-instance"></a>Parar ou reiniciar instância de computação
+
+1. Expanda o nó de assinatura que contém seu espaço de trabalho.
+1. Expanda o nó da **instância de computação** dentro de seu espaço de trabalho.
+1. Clique com o botão direito do mouse na instância de computação que você deseja parar ou reiniciar e selecione **parar a instância de computação** ou reiniciar a instância de **computação** , respectivamente.
+
+### <a name="view-compute-instance-configuration"></a>Exibir configuração da instância de computação
+
+1. Expanda o nó de assinatura que contém seu espaço de trabalho.
+1. Expanda o nó da **instância de computação** dentro de seu espaço de trabalho.
+1. Clique com o botão direito do mouse na instância de computação que você deseja inspecionar e selecione **Exibir Propriedades da instância de computação**.
+
+### <a name="delete-compute-instance"></a>Excluir instância de computação
+
+1. Expanda o nó de assinatura que contém seu espaço de trabalho.
+1. Expanda o nó da **instância de computação** dentro de seu espaço de trabalho.
+1. Clique com o botão direito do mouse na instância de computação que você deseja excluir e selecione **excluir instância de computação**.
+
 ## <a name="compute-clusters"></a>Clusters de cálculo
 
 A extensão dá suporte aos seguintes tipos de computação:
@@ -362,7 +396,7 @@ Para obter mais informações, consulte [pontos de extremidade de serviço Web](
 1. Clique com o botão direito do mouse no nó **pontos de extremidade** e selecione **implantar serviço**.
 1. No prompt:
     1. Escolha se deseja usar um modelo já registrado ou um arquivo de modelo local.
-    1. Selecione seu modelo
+    1. Selecione o modelo
     1. Escolha o destino de implantação no qual você deseja implantar seu modelo.
     1. Forneça um nome para seu modelo.
     1. Forneça o script a ser executado ao pontuar o modelo.

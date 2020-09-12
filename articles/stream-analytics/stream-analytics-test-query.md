@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043948"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612154"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testar um trabalho de Azure Stream Analytics no portal
 
@@ -96,6 +96,21 @@ Em vez de usar dados dinâmicos, você pode usar dados de exemplo de um arquivo 
    ![Azure Stream Analytics saída selecionada](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. Depois de verificar os resultados mostrados no navegador, você pode **Iniciar** o trabalho.
+
+## <a name="limitations"></a>Limitações
+
+1.  A política de tempo não tem suporte no teste do portal:
+
+   * Fora de ordem: todos os eventos de entrada serão ordenados.
+   * Chegada tardia: não haverá evento de chegada tardia, pois Stream Analytics só poderá usar dados existentes para teste.
+   
+2.  Não há suporte para UDF em C#.
+
+3.  Todos os testes serão executados com um trabalho que tenha uma unidade de streaming.
+
+4.  O tamanho do tempo limite é de um minuto. Portanto, qualquer consulta com um tamanho de janela maior que um minuto não pode obter dados.
+
+5.  Não há suporte para Machine Learning.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Crie uma solução de IOT usando Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): Este tutorial orientará você a criar uma solução de ponta a ponta com um gerador de dados que simulará o tráfego em um estande de Tarifa.

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268767"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433646"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que você tenha [dispositivos configurados e ingressados 
 
 - Acesso Condicional baseado no dispositivo
 - [Roaming corporativo de configurações](./enterprise-state-roaming-overview.md)
-- [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
+- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Este documento fornece diretrizes de solução de problemas para resolver possíveis problemas.
 
@@ -99,7 +99,7 @@ Esse campo indica se o dispositivo ingressou em um Active Directory local ou nã
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined : NO
 
-Esse campo indica se o dispositivo está registrado no Azure AD como um dispositivo pessoal (marcado como *Ingressado no Espaço de Trabalho*). Esse valor deve ser **NO** para um computador ingressado no domínio, que também é ingressado no Azure AD híbrido. Se o valor for **YES**, uma conta corporativa ou de estudante terá sido adicionada antes da conclusão do ingresso do Azure AD híbrido. Nesse caso, a conta é ignorada ao usar a versão de Atualização de Aniversário do Windows 10 (1607).
+Esse campo indica se o dispositivo está registrado no Azure AD como um dispositivo pessoal (marcado como *Ingressado no Espaço de Trabalho*). Esse valor deve ser **NO** para um computador ingressado no domínio, que também é ingressado no Azure AD híbrido. Se o valor for **YES**, uma conta corporativa ou de estudante terá sido adicionada antes da conclusão do ingresso do Azure AD híbrido. Nesse caso, a conta é ignorada ao usar o Windows 10 versão 1607 ou posterior.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : YES
 

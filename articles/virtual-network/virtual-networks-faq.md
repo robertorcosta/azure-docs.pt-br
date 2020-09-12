@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d39e66e205c592d58a93c1187a1c77269da9e7ad
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205481"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438221"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -191,7 +191,7 @@ Sim. Todas as instâncias de função de VMs e Serviços de Nuvem implantados em
 ## <a name="azure-services-that-connect-to-vnets"></a>Serviços do Azure que se conectam a redes virtuais
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Posso usar os Aplicativos Web do Serviço de Aplicativo do Azure em uma rede virtual?
-Sim. Você pode implantar aplicativos Web dentro de uma VNet usando um ASE (Ambiente do Serviço de Aplicativo), conectar o back-end de seus aplicativos ao seu VNets com integração VNet e bloquear o tráfego de entrada para seu aplicativo com pontos de extremidade de serviço. Para obter mais informações, consulte os seguintes artigos:
+Sim. Você pode implantar aplicativos Web dentro de uma VNet usando um ASE (Ambiente do Serviço de Aplicativo), conectar o back-end de seus aplicativos ao seu VNets com integração VNet e bloquear o tráfego de entrada para seu aplicativo com pontos de extremidade de serviço. Para obter mais informações, confira os seguintes artigos:
 
 * [Recursos de rede do serviço de aplicativo](../app-service/networking-features.md)
 * [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -410,7 +410,7 @@ Não há limite para o número total de pontos de extremidade de serviço de VNe
 |---|---|
 |Armazenamento do Azure| 100|
 |SQL do Azure| 128|
-|SQL Data Warehouse do Azure|  128|
+|Azure Synapse Analytics|   128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|

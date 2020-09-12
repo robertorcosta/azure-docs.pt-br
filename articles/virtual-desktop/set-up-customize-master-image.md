@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2a10a32a98a240f740f48f7b25e6fa6ac3f2e873
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 175b2268727364040640b319c24019bdf9b48df9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009504"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433697"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem de VHD mestre
 
@@ -93,7 +93,7 @@ Para desabilitar Atualizações Automáticas via Política de Grupo local:
 
 Você também pode executar o comando a seguir em um prompt de comando para desabilitar o Atualizações Automáticas.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
@@ -101,7 +101,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpd
 
 Execute este comando para especificar um layout inicial para PCs com Windows 10.
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
@@ -119,7 +119,7 @@ Para redirecionar fusos horários:
 
 Você também pode executar esse comando na imagem mestra para redirecionar os fusos horários:
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
 ```
 
@@ -132,13 +132,13 @@ Para o host de sessão de área de trabalho virtual do Windows que usa o Windows
 
 Você também pode alterar a configuração com o registro executando o seguinte comando:
 
-```batch
+```cmd
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
 ```
 
 ### <a name="include-additional-language-support"></a>Incluir suporte a idiomas adicionais
 
-Este artigo não aborda como configurar o suporte a idiomas e regionais. Para obter mais informações, consulte os seguintes artigos:
+Este artigo não aborda como configurar o suporte a idiomas e regionais. Para obter mais informações, confira os seguintes artigos:
 
 - [Adicionar idiomas a imagens do Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Recursos sob demanda](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
@@ -153,19 +153,19 @@ Esta seção aborda a configuração do aplicativo e do sistema operacional. Tod
 
 Para coleta de Hub de comentários de dados de telemetria no Windows 10 Enterprise Multi-Session, execute este comando:
 
-```batch
+```cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 3 /f
 ```
 
 Execute o seguinte comando para corrigir falhas do Watson:
 
-```batch
+```cmd
 remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting
 ```
 
 Insira os seguintes comandos no editor do registro para corrigir o suporte à resolução de 5K. Você deve executar os comandos para poder habilitar a pilha lado a lado.
 
-```batch
+```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxMonitors /t REG_DWORD /d 4 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxXResolution /t REG_DWORD /d 5120 /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v MaxYResolution /t REG_DWORD /d 2880 /f

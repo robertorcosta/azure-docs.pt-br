@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891854"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439737"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -72,7 +72,7 @@ Para listar um aplicativo na Galeria de aplicativos do Azure AD, você precisa i
 
 A tabela a seguir compara os principais padrões: autenticação aberta 2,0 (OAuth 2,0) com OpenID Connect (OIDC), Security Assertion Markup Language (SAML) e especificação Web Services Federation (WS-alimentado).
 
-| Recurso| OAuth/OIDC| SAML/WS-alimentado |
+| Funcionalidade| OAuth/OIDC| SAML/WS-alimentado |
 | - |-|-|
 | Logon único baseado na Web| √| √ |
 | Logout único baseado na Web| √| √ |
@@ -278,5 +278,5 @@ O Microsoft Partner Network fornece acesso instantâneo a recursos, programas, f
 
 
 ## <a name="next-steps"></a>Próximas etapas
-
-Para obter mais informações sobre como compilar aplicativos que dão suporte a entradas do Azure AD, consulte [Cenários de autenticação do Azure AD](authentication-flows-app-scenarios.md).
+* [Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Cenários de autenticação do Azure AD](authentication-flows-app-scenarios.md)

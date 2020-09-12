@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 21bede74ee265ffbe530c7697817186ac0e8dd3b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845690"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440194"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>O processo de ciência de dados de equipe em ação: usando o Azure Synapse Analytics
 Neste tutorial, mostraremos como criar e implantar um modelo de aprendizado de máquina usando o Azure Synapse Analytics para um conjunto de informações publicamente disponível – o conjunto de informações de [táxis de NYC](https://www.andresmh.com/nyctaxitrips/) . O modelo de classificação binária construído prevê se uma gorjeta é paga ou não por uma corrida.  Os modelos incluem classificação multiclasse (se houver uma gorjeta) e regressão (a distribuição para os valores de gorjeta pagos).
@@ -91,14 +91,14 @@ Para configurar o ambiente de Ciência de Dados do Azure, execute estas etapas:
   * **Nome do Contêiner** (no qual você deseja armazenar os dados no armazenamento de blobs do Azure)
 
 **Provisione sua instância do Azure Synapse Analytics.**
-Siga a documentação em [criar e consultar uma SQL data warehouse do Azure no portal do Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para provisionar uma instância do Azure Synapse Analytics. Certifique-se de fazer notações nas seguintes credenciais do Azure Synapse Analytics que serão usadas em etapas posteriores.
+Siga a documentação em [criar e consultar uma análise de Synapse do Azure no portal do Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para provisionar uma instância do Azure Synapse Analytics. Certifique-se de fazer notações nas seguintes credenciais do Azure Synapse Analytics que serão usadas em etapas posteriores.
 
 * **Nome do servidor**: \<server Name> . Database.Windows.net
 * **Nome do SQLDW (Banco de Dados)**
 * **Nome de usuário**
 * **Senha**
 
-**Instale o Visual Studio e o SQL Server Data Tools.** Para obter instruções, consulte [introdução ao Visual Studio 2019 para SQL data warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Instale o Visual Studio e o SQL Server Data Tools.** Para obter instruções, consulte [introdução ao Visual Studio 2019 para o Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Conecte-se à sua análise de Synapse do Azure com o Visual Studio.** Para obter instruções, consulte as etapas 1 & 2 em [conectar-se à análise de SQL no Azure Synapse Analytics](../../synapse-analytics/sql/connect-overview.md).
 

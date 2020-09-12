@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7457ad5870e31d682f8727901795c9d6d73f06
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553491"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442659"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Criar alertas para o banco de dados SQL do Azure e a análise de Synapse do Azure usando o portal do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "85553491"
 
 ## <a name="overview"></a>Visão geral
 
-Este artigo mostra como configurar alertas para bancos de dados no banco de dados SQL do Azure e o Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure) usando o portal do Azure. Os alertas podem enviar a você um email ou chamar um webhook quando alguma métrica (por exemplo, tamanho do banco de dados ou uso da CPU) atinge o limite.
+Este artigo mostra como configurar alertas para bancos de dados no banco de dados SQL do Azure e o Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando o portal do Azure. Os alertas podem enviar a você um email ou chamar um webhook quando alguma métrica (por exemplo, tamanho do banco de dados ou uso da CPU) atinge o limite.
 
 > [!NOTE]
 > Para o Azure SQL Instância Gerenciada instruções específicas, consulte [criar alertas para o sql instância gerenciada do Azure](../managed-instance/alerts-create.md).
@@ -45,7 +45,7 @@ Você pode configurar e obter informações sobre o uso de regras de alerta
 * [O portal do Azure](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Uma CLI (interface de linha de comando)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [API REST do Monitor do Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [API REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Criar uma regra de alerta em uma métrica com o Portal do Azure
 

@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: c7b2055494d61ba348ae6226e6fc0ad9ce5775bb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022132"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438391"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente
 
@@ -61,7 +61,7 @@ O dispositivo de faixas de categoria conexões conecta e desconecta eventos um h
             "operationName": "deviceConnect",
             "category": "Connections",
             "level": "Information",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
             "location": "Resource location"
         }
     ]
@@ -352,7 +352,7 @@ O Hub IoT registra esse log quando uma mensagem que contém propriedades de rast
 
 Aqui, `durationMs` não é calculado, uma vez que o relógio do Hub IoT não pode ser sincronizado com o relógio do dispositivo e, portanto, um cálculo de duração pode ser enganoso. Recomendamos gravar escrever lógica usando carimbos de data/hora na seção `properties` para capturar os picos na latência de dispositivo para nuvem.
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Integer | O tamanho da mensagem de dispositivo para nuvem em bytes |
 | **deviceId** | Cadeia de caracteres alfanumérica ASCII de 7 bits | A identidade do dispositivo |
@@ -386,10 +386,10 @@ O Hub IoT registra esse log quando a mensagem que contém as propriedades de ras
 
 Na `properties` seção, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Cadeia de caracteres | Verdadeiro ou falso, indica se o roteamento de mensagens está ou não habilitado no Hub IoT |
-| **parentSpanId** | Cadeia de caracteres | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens D2C |
+| **isRoutingEnabled** | String | Verdadeiro ou falso, indica se o roteamento de mensagens está ou não habilitado no Hub IoT |
+| **parentSpanId** | String | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Logs de saída do Hub IoT
 
@@ -418,15 +418,15 @@ O Hub IoT registra esse log quando [roteamento](iot-hub-devguide-messages-d2c.md
 
 Na `properties` seção, esse log contém informações adicionais sobre a entrada da mensagem.
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Cadeia de caracteres | O nome do ponto de extremidade de roteamento |
-| **endpointType** | Cadeia de caracteres | O tipo de roteamento o ponto de extremidade |
-| **parentSpanId** | Cadeia de caracteres | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens de entrada do Hub IoT |
+| **endpointName** | String | O nome do ponto de extremidade de roteamento |
+| **endpointType** | String | O tipo de roteamento o ponto de extremidade |
+| **parentSpanId** | String | A [ID do span](https://w3c.github.io/trace-context/#parent-id) da mensagem pai, que seria, neste caso, o rastreamento de mensagens de entrada do Hub IoT |
 
 #### <a name="configurations"></a>Configurações
 
-Os logs de configuração do Hub IoT rastreia eventos e erros para o conjunto de recursos de gerenciamento automático de dispositivos.
+Os logs de configuração do Hub IoT rastreiam eventos e erros para o conjunto de recursos de gerenciamento automático de dispositivos.
 
 ```json
 {
@@ -470,6 +470,42 @@ A categoria fluxos de dispositivo rastreia as interações de solicitação-resp
          }
     ]
 }
+```
+
+### <a name="sdk-version"></a>Versão do SDK
+
+Algumas operações retornam uma `sdkVersion` propriedade em seu `properties` objeto. Para essas operações, quando um dispositivo ou aplicativo de back-end estiver usando um dos SDKs do Azure IoT, essa propriedade conterá informações sobre o SDK que está sendo usado, a versão do SDK e a plataforma na qual o SDK está em execução. O exemplo a seguir mostra a `sdkVersion` Propriedade emitida para uma `deviceConnect` operação ao usar o SDK do dispositivo Node.js: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"` . Veja um exemplo do valor emitido para o SDK do .NET (C#): `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"` .
+
+A tabela a seguir mostra o nome do SDK usado para SDKs diferentes do Azure IoT:
+
+| Nome do SDK na propriedade sdkVersion | Idioma |
+|----------|----------|
+| .NET | .NET (C#) |
+| Microsoft. Azure. Devices | SDK do serviço .NET (C#) |
+| Microsoft. Azure. Devices. Client | SDK do dispositivo .NET (C#) |
+| iothubclient | C ou Python V1 (preterido) SDK do dispositivo |
+| iothubserviceclient | C ou Python V1 (preterido) SDK de serviço |
+| Azure-IOT-Device-iothub-py | SDK do dispositivo Python |
+| azure-iot-device | SDK do dispositivo Node.js |
+| azure-iothub | SDK do serviço Node.js |
+| com. Microsoft. Azure. iothub-Java-Client | SDK do dispositivo Java |
+| com. Microsoft. Azure. iothub. Service. Sdk | SDK do serviço Java |
+| com. Microsoft. Azure. Sdk. IOT. IOT-Device-Client | SDK do dispositivo Java |
+| com. Microsoft. Azure. Sdk. IOT. IOT-Service-Client | SDK do serviço Java |
+| C | C inserido |
+| C + (OSSimplified = RTOS do Azure) | Azure RTOS |
+
+Você pode extrair a propriedade versão do SDK ao executar consultas em logs de diagnóstico. A consulta a seguir extrai a propriedade da versão do SDK (e a ID do dispositivo) das propriedades retornadas por eventos de conexões. Essas duas propriedades são gravadas nos resultados junto com a hora do evento e a ID do recurso do Hub IoT ao qual o dispositivo está se conectando.
+
+```kusto
+// SDK version of devices
+// List of devices and their SDK versions that connect to IoT Hub
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s) 
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
 ```
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Ler logs de Hubs de Eventos do Azure

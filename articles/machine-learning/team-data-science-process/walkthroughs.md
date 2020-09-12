@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864070"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439820"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Passo a passos da execução do Processo de Ciência de Dados de Equipe
 
@@ -32,7 +32,7 @@ Confira aqui descrições resumidas do que esses exemplos de passo a passo forne
 - [Passo a passos do HDInsight Hadoop usando Hive](walkthroughs-hdinsight-hadoop.md) Estes passo a passos usam Hive com um cluster HDInsight Hadoop para realizar análise preditiva.
 - [Passo a passo do Azure Data Lake usando U-SQL](walkthroughs-azure-data-lake.md) Estes passo a passos usam U-SQL com o Azure Data Lake para realizar a análise preditiva.
 - [SQL Server](walkthroughs-sql-server.md) Estes passo a passos usam SQL Server, SQL Server R Services e SQL Server Python Services para realizar a análise preditiva.
-- [SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) Estes passo a passos usam SQL Data Warehouse para realizar análise preditiva. 
+- [Análise de Synapse do Azure](walkthroughs-sql-data-warehouse.md) Essas instruções usam a análise de Synapse do Azure para fazer análises preditivas. 
 
 
 

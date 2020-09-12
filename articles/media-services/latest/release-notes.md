@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2e637392328c7a09fb23adeca61a352707f05e0e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5a22bd9508feac1348bcd8042fa6ac791864c261
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267489"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425629"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -38,13 +38,25 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 >
 > Para obter detalhes, consulte: [as limitações de portal do Azure para os serviços de mídia v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+
+## <a name="august-2020"></a>Agosto de 2020
+
+### <a name="dynamic-encryption"></a>Criptografia Dinâmica
+O suporte para a criptografia herdada do formato de arquivo protegido do PlayReady (PIFF 1,1) agora está disponível no empacotador dinâmico. Isso fornece suporte para conjuntos de TV inteligente herdados da Samsung e do LG que implementaram os rascunhos iniciais Criptografia Comum do CENC (Standard) publicado pela Microsoft.  O formato PIFF 1,1 também é conhecido como o formato de criptografia anteriormente suportado pela biblioteca de cliente do Silverlight. Hoje, o único cenário de caso de uso para esse formato de criptografia é direcionar para o mercado de TV inteligente herdado, em que resta um número não trivial de TV inteligente em algumas regiões que dão suporte apenas a Smooth Streaming com a criptografia PIFF 1,1. 
+
+Para usar o novo suporte à criptografia do PIFF 1,1, altere o valor de criptografia para ' PIFF ' no caminho da URL do localizador de streaming. Para obter mais detalhes, consulte a [visão geral de proteção de conteúdo.](content-protection-overview.md)
+Por exemplo: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
+
+> [!NOTE]
+> O suporte do PIFF 1,1 é fornecido como uma solução compatível com versões anteriores para Smart TV (Samsung, LG) que implementou a versão "Silverlight" inicial do Criptografia Comum. É recomendável usar apenas o formato PIFF, quando necessário, para dar suporte a TVs inteligentes Samsung ou LG herdadas fornecidas entre 2009-2015 que têm suporte na versão PIFF 1,1 da criptografia PlayReady. 
+
 ## <a name="july-2020"></a>Julho de 2020
 
 ### <a name="live-transcriptions"></a>Transcrições ao vivo
 
 As transcrições ao vivo agora dão suporte a 19 idiomas e 8 regiões.
 
-## <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Protegendo seu conteúdo com os serviços de mídia e o Azure AD
+### <a name="protecting-your-content-with-media-services-and-azure-ad"></a>Protegendo seu conteúdo com os serviços de mídia e o Azure AD
 
 Publicamos um tutorial chamado [proteção de conteúdo de ponta a ponta usando o Azure ad](./azure-ad-content-protection.md).
 

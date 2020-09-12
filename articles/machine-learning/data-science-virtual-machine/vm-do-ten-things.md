@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: dba0f22f1dfece7edd92a80ae1c3a91616a4236c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815905"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440449"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciência de dados com um Máquina Virtual de Ciência de Dados do Windows
 
@@ -255,7 +255,7 @@ Os dados são lidos como um quadro de dados:
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (anteriormente conhecido como SQL DW) e bancos de dados
 O Azure Synapse Analytics (anteriormente conhecido como SQL DW) é um data warehouse elástico como um serviço com uma experiência de SQL Server de classe empresarial.
 
-Você pode provisionar o Azure Synapse Analytics seguindo as instruções neste [artigo](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Depois de provisionar o SQL data warehouse, você pode usar [este passo a passos](../team-data-science-process/sqldw-walkthrough.md) para fazer upload, exploração e modelagem de dados usando dados dentro do data warehouse do SQL.
+Você pode provisionar o Azure Synapse Analytics seguindo as instruções neste [artigo](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Depois de provisionar o Azure Synapse Analytics, você pode usar [este passo a passos](../team-data-science-process/sqldw-walkthrough.md) para fazer upload, exploração e modelagem de dados usando dados dentro do Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 O Azure Cosmos DB é um banco de dados NoSQL na nuvem. Você pode usá-lo para trabalhar com documentos como JSON e para armazenar e consultar os documentos.

@@ -8,16 +8,16 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c562708dcf554afc8dfe4acf6b525db1db677f40
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855944"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89564895"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
-No momento, o único SDK do plano de dados publicado para interagir com as APIs do gêmeos digital do Azure é para .NET (C#). Você pode ler sobre o SDK do .NET e as APIs em geral, em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md). Se você estiver trabalhando em outra linguagem, este artigo mostrará como gerar seu próprio SDK do plano de dados no idioma de sua escolha, usando o REST.
+No momento, os únicos SDKs de plano de dados publicados para interagir com as APIs do Azure digital gêmeos são para .NET (C#) e JavaScript. Você pode ler sobre esses SDKs e as APIs em geral, em [*How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md). Se você estiver trabalhando em outra linguagem, este artigo mostrará como gerar seu próprio SDK do plano de dados no idioma de sua escolha, usando o REST.
 
 >[!NOTE]
 > Você também pode usar o autorest para gerar um SDK do plano de controle, se desejar. Para fazer isso, conclua as etapas neste artigo usando o [arquivo Swagger (openapi) do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) em vez do plano de dados um.

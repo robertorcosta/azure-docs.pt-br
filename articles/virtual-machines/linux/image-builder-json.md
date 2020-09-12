@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 6ed95f87d2b2a5f811531a5ff258ebe97a9b892a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869194"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378364"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Visualização: Criar um modelo do Construtor de Imagens do Azure 
 
@@ -142,7 +142,7 @@ Para obter mais informações sobre como implantar esse recurso, confira [Config
 
 ## <a name="properties-source"></a>Propriedades: origem
 
-Atualmente, o Image Builder dá suporte apenas a imagens e VMs da geração 1 do HyperV, a `source` seção contém informações sobre a imagem de origem que será usada pelo construtor de imagem.
+A seção `source` contém informações sobre a imagem de origem que será usada pelo Construtor de Imagens. Atualmente, o Image Builder dá suporte apenas para a criação de imagens de geração do Hyper-V (GEN1) 1 para a Galeria de imagens compartilhada do Azure (SIG) ou a imagem gerenciada. Se você quiser criar imagens Gen2, precisará usar uma imagem Gen2 de origem e distribuir para o VHD. Depois, você precisará criar uma imagem gerenciada do VHD e inseri-la no SIG como uma imagem Gen2.
 
 A API requer um 'SourceType' que define a origem para o build da imagem. No momento, há três tipos:
 - PlatformImage – indica que a imagem de origem é uma imagem do Marketplace.
@@ -571,7 +571,7 @@ Antes de distribuir para a Galeria de Imagens, você deve criar uma galeria e um
 
 ```json
 {
-    "type": "sharedImage",
+    "type": "SharedImage",
     "galleryImageId": "<resource ID>",
     "runOutputName": "<name>",
     "artifactTags": {

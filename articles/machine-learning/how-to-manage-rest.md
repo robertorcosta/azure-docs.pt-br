@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d5343e6c21da4c30dc18c8692b41dd66eb9566a4
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8c97ee9782f728e39175ed2517b64020ca4169f4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846693"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649404"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e excluir recursos do Azure ML usando REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Há várias maneiras de gerenciar seus recursos do Azure ML. Você pode usar o [portal](https://portal.azure.com/), a [interface de linha de comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)ou o SDK do [python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Ou, você pode escolher a API REST. A API REST usa verbos HTTP de uma maneira padrão para criar, recuperar, atualizar e excluir recursos. A API REST funciona com qualquer linguagem ou ferramenta que possa fazer solicitações HTTP. A estrutura direta do REST geralmente o torna uma boa opção nos ambientes de script e na automação de MLOps. 
+Há várias maneiras de gerenciar seus recursos do Azure ML. Você pode usar o [portal](https://portal.azure.com/), a [interface de linha de comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)ou o SDK do [python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Ou, você pode escolher a API REST. A API REST usa verbos HTTP de uma maneira padrão para criar, recuperar, atualizar e excluir recursos. A API REST funciona com qualquer linguagem ou ferramenta que possa fazer solicitações HTTP. A estrutura direta do REST geralmente o torna uma boa opção nos ambientes de script e na automação de MLOps. 
 
 Neste artigo, você aprenderá como:
 

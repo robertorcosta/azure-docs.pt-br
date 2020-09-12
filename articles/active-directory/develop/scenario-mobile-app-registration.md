@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047666"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442727"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrar aplicativos móveis que chamam APIs da Web
 
@@ -30,7 +30,7 @@ Os tipos de conta aos quais seus aplicativos móveis dão suporte dependem da ex
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Público-alvo para aquisição de token interativo
 
-A maioria dos aplicativos móveis usa a autenticação interativa. Se seu aplicativo usar essa forma de autenticação, você poderá conectar usuários de qualquer [tipo de conta](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+A maioria dos aplicativos móveis usa a autenticação interativa. Se seu aplicativo usar essa forma de autenticação, você poderá conectar usuários de qualquer [tipo de conta](quickstart-register-app.md).
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Público-alvo para autenticação integrada do Windows, nome de usuário-senha e B2C
 

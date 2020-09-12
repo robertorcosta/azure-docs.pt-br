@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 8/7/2020
-ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 9/8/2020
+ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121350"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565082"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,11 +114,12 @@ A pausa automática será ativada se todas as seguintes condições forem verdad
 
 Se desejado, será possível desabilitar a pausa automática.
 
-Os recursos a seguir não oferecem suporte à pausa automática, mas oferecem suporte ao dimensionamento automático.  Ou seja, se qualquer um dos seguintes recursos estiver sendo usado, o banco de dados permanecerá online, independentemente da duração da inatividade do banco de dados:
+Os recursos a seguir não oferecem suporte à pausa automática, mas oferecem suporte ao dimensionamento automático.  Se qualquer um dos recursos a seguir for usado, a autopausa deverá ser desabilitada e o banco de dados permanecerá online, independentemente da duração da inatividade do banco de dados:
 
 - Replicação geográfica (replicação geográfica ativa e grupos de failover automático).
 - LTR (retenção de backup de longo prazo).
 - O banco de dados de sincronização usado na sincronização de dados SQL.  Ao contrário dos bancos de dados de sincronização, os bancos de dados de hub e de membros dão suporte à pausa automática.
+- Alias de DNS
 - O banco de dados de trabalho usado em trabalhos elásticos (visualização).
 
 A pausa automática é impedida temporariamente durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.  Nesses casos, a pausa automática será permitida novamente após a conclusão da atualização do serviço.

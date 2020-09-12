@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: d7ac2777ffd500082bd0b8a9700d53bffd9d6931
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2012f590aa833bea1b49955958095917a6479665
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177305"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438561"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivos de novidades na Central de Segurança do Azure?
 
@@ -28,6 +28,84 @@ Esta página apresenta informações sobre:
 - Novos recursos
 - Correções de bug
 - Funcionalidades preteridas
+
+
+## <a name="march-2020"></a>Março de 2020
+
+As atualizações em março incluem:
+
+- [A automação do fluxo de trabalho já está em disponibilidade geral](#workflow-automation-is-now-generally-available)
+- [Integração da Central de Segurança do Azure ao Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)
+- [Proteção para o Serviço de Kubernetes do Azure](#protection-for-azure-kubernetes-service)
+- [Experiência Just-In-Time aprimorada](#improved-just-in-time-experience)
+- [Duas recomendações de segurança para aplicativos Web preteridas](#two-security-recommendations-for-web-applications-deprecated)
+
+
+### <a name="workflow-automation-is-now-generally-available"></a>A automação do fluxo de trabalho já está em disponibilidade geral
+
+O recurso de automação de fluxo de trabalho da Central de Segurança do Azure agora está em disponibilidade geral. Use-o para disparar automaticamente Aplicativos Lógicos em alertas de segurança e recomendações. Além disso, os gatilhos manuais estão disponíveis para alertas e todas as recomendações que têm a opção de correção rápida disponível.
+
+Cada programa de segurança inclui vários fluxos de trabalho para resposta a incidentes. Esses processos podem incluir a notificação de stakeholders relevantes, a inicialização de um processo de gerenciamento de alterações e a aplicação de etapas de correção específicas. Os especialistas em segurança recomendam que você automatize o máximo possível de etapas desses procedimentos. A automação reduz a sobrecarga e pode aprimorar sua segurança, garantindo que as etapas do processo sejam feitas de maneira rápida, consistente e de acordo com seus requisitos predefinidos.
+
+Para obter mais informações sobre as funcionalidades automáticas e manuais da Central de Segurança do Azure para executar seus fluxos de trabalho, confira [automação de fluxo de trabalho](workflow-automation.md).
+
+Saiba mais sobre a [criação de Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+
+
+### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integração da Central de Segurança do Azure ao Windows Admin Center
+
+Agora é possível mover seus servidores Windows locais do Windows Admin Center diretamente para a Central de Segurança do Azure. A Central de Segurança se torna seu único painel de controle para ver informações de segurança para todos os seus recursos do Windows Admin Center, incluindo servidores locais, máquinas virtuais e cargas de trabalho de PaaS adicionais.
+
+Depois de mover um servidor do Windows Admin Center para a Central de Segurança do Azure, você poderá:
+
+- Exibir alertas de segurança e recomendações na extensão da Central de Segurança do Windows Admin Center.
+- Exibir a postura de segurança e recuperar informações detalhadas adicionais dos servidores gerenciados do Windows Admin Center na Central de Segurança dentro do portal do Azure (ou por meio de uma API).
+
+Saiba mais sobre [como integrar a Central de Segurança do Azure ao Windows Admin Center](windows-admin-center-integration.md).
+
+
+### <a name="protection-for-azure-kubernetes-service"></a>Proteção para o Serviço de Kubernetes do Azure
+
+A Central de Segurança do Azure está expandindo os respectivos recursos de segurança de contêiner para proteger o AKS (Serviço de Kubernetes do Azure).
+
+A popular plataforma de software livre do Kubernetes foi adotada tão amplamente que ela agora é um padrão do setor para orquestração de contêineres. Apesar dessa implementação generalizada, ainda há uma falta de compreensão sobre como proteger um ambiente do Kubernetes. A defesa das superfícies de ataque de um aplicativo em contêineres exige experiência para garantir que a infraestrutura seja configurada de modo seguro e constante para possíveis ameaças.
+
+A defesa da Central de Segurança inclui:
+
+- **Descoberta e visibilidade** – descoberta contínua de instâncias gerenciadas do AKS nas assinaturas registradas na Central de Segurança.
+- **Recomendações de segurança** – recomendações acionáveis para ajudá-lo a manter a conformidade com as melhores práticas de segurança para o AKS. Essas recomendações estão incluídas na sua classificação de segurança para garantir que elas sejam exibidas como parte da postura de segurança de sua organização. Um exemplo de uma recomendação relacionada ao AKS que você pode ver é "O controle de acesso baseado em função deve ser usado para restringir o acesso a um cluster do serviço de Kubernetes".
+- **Proteção contra ameaças** – por meio da análise contínua de sua implantação do AKS, a Central de Segurança alerta você sobre ameaças e atividades mal-intencionadas detectadas no nível de cluster do host e do AKS.
+
+Saiba mais sobre a [Integração do Serviço de Kubernetes do Azure à Central de Segurança](azure-kubernetes-service-integration.md).
+
+Saiba mais sobre os [recursos de segurança de contêiner na Central de Segurança](container-security.md).
+
+
+### <a name="improved-just-in-time-experience"></a>Experiência Just-In-Time aprimorada
+
+Os recursos, a operação e a interface do usuário das ferramentas Just-In-Time da Central de Segurança do Azure que protegem suas portas de gerenciamento foram aprimoradas da seguinte maneira: 
+
+- **Campo de justificativa** – ao solicitar acesso a uma VM (máquina virtual) por meio da página Just-In-Time do portal do Azure, um novo campo opcional estará disponível para inserir uma justificativa para a solicitação. As informações inseridas nesse campo podem ser acompanhadas no log de atividades. 
+- **Limpeza automática de regras JIT (Just-In-Time) redundantes** – sempre que você atualiza uma política JIT, uma ferramenta de limpeza é executada automaticamente para verificar a validade de todo o conjunto de regras. A ferramenta procura incompatibilidades entre as regras em sua política e as regras no NSG. Se a ferramenta de limpeza encontrar uma incompatibilidade, ela determinará a causa e, quando for seguro, removerá as regras internas que não forem mais necessárias. O limpador nunca exclui regras que você criou. 
+
+Saiba mais sobre o [recurso de acesso JIT](security-center-just-in-time.md).
+
+
+### <a name="two-security-recommendations-for-web-applications-deprecated"></a>Duas recomendações de segurança para aplicativos Web preteridas
+
+Duas recomendações de segurança relacionadas a aplicativos Web estão sendo preteridas: 
+
+- As regras para aplicativos Web nos NSGs da IaaS devem ser fortalecidas.
+    (Política relacionada: as regras de NSGs para aplicativos Web em IaaS devem ser fortalecidas)
+
+- O acesso aos Serviços de Aplicativos deve ser restrito.
+    (Política relacionada: o acesso aos Serviços de Aplicativos deve ser restrito [Versão Prévia])
+
+Essas recomendações não serão mais exibidas na lista de recomendações da Central de Segurança. As políticas relacionadas não serão mais incluídas na iniciativa denominada "Padrão da Central de Segurança".
+
+Saiba mais sobre [recomendações de segurança](recommendations-reference.md).
+
+
 
 
 ## <a name="february-2020"></a>Fevereiro de 2020

@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/11/2020
-ms.openlocfilehash: 3bc8458aa009920f183b076d12185295ef294e07
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186073"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440568"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalizar instalação para um Azure-SSIS Integration Runtime
 
@@ -143,13 +143,13 @@ Se você selecionar o tipo de **componente de instalação licenciado** para a i
 
    * Se você selecionar o componente de **fábrica de tarefas do SentryOne** , poderá instalar o pacote de [tarefas da fábrica](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) de componentes do SentryOne em seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **2020.1.3**.
 
-   * Se você selecionar o **OH22'S HEDDA. Componente de e/s** , você pode instalar o [HEDDA. ](https://hedda.io/ssis-component/)Componente de qualidade de dados de es/limpeza do oh22 no seu Azure-SSIS ir. Para fazer isso, você precisa comprar o serviço com antecedência. A versão integrada atual é **1.0.14**.
+   * Se você selecionar o **OH22'S HEDDA. Componente de e/s** , você pode instalar o [HEDDA. ](https://hedda.io/ssis-component/) Componente de qualidade de dados de es/limpeza do oh22 no seu Azure-SSIS ir. Para fazer isso, você precisa comprar o serviço com antecedência. A versão integrada atual é **1.0.14**.
 
    * Se você selecionar o componente **oh22's SQLPhonetics.net** , poderá instalar o componente de correspondência/qualidade de dados do [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) do oh22 no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **1.0.45**.
 
-   * Se você selecionar o componente **do kit de ferramentas de integração SSIS do KingswaySoft** , poderá instalar o conjunto de conectores do [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) para aplicativos CRM/ERP/marketing/colaboração, como Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marketing Cloud, etc. do KingswaySoft no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **2019.2**.
+   * Se você selecionar o componente **do kit de ferramentas de integração SSIS do KingswaySoft** , poderá instalar o conjunto de conectores do [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) para aplicativos CRM/ERP/marketing/colaboração, como Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marketing Cloud, etc. do KingswaySoft no seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **2020,1**.
 
-   * Se você selecionar o componente **do pacote de produtividade do SSIS do KingswaySoft** , poderá instalar o pacote de [produtividade do SSIS](https://www.kingswaysoft.com/products/ssis-productivity-pack) do pacote de componentes do KingswaySoft em seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **10.0**.
+   * Se você selecionar o componente **do pacote de produtividade do SSIS do KingswaySoft** , poderá instalar o pacote de [produtividade do SSIS](https://www.kingswaysoft.com/products/ssis-productivity-pack) do pacote de componentes do KingswaySoft em seu Azure-SSIS ir. Para fazer isso, insira a chave de licença do produto que você comprou com antecedência na caixa de texto **chave de licença** . A versão integrada atual é **20,1**.
 
    * Se você selecionar o componente **trair do Theobald software** , poderá instalar o [trair é](https://theobald-software.com/en/xtract-is/) um conjunto de conectores para sistemas SAP (ERP, s/4HANA, BW) de Theobald software no seu Azure-SSIS ir. Para fazer isso, arraste & soltar/carregar o arquivo de licença do produto que você comprou a partir deles com antecedência na caixa de entrada do **arquivo de licença** . A versão integrada atual é **6.1.1.3**.
 

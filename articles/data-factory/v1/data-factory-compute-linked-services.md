@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ac92e45e69522fe3de8abdb3afcf6049e5f07ac8
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: cf7a3ff478100c892e59e98c91e9605c88bdc667
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563493"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438816"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes de computação com suporte do Azure Data Factory versão 1
 > [!NOTE]
@@ -32,7 +32,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | [Lote do Azure](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: Execução de lote e Recurso de atualização](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](data-factory-usql-activity.md) |
-| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) |
+| [Azure SQL](#azure-sql-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
 ## <a name="hdinsight-versions-supported-in-data-factory"></a><a name="supported-hdinsight-versions-in-azure-data-factory"></a>Versões do HDInsight com suporte no Data Factory
 O HDInsight do Azure oferece suporte a várias versões do cluster Hadoop que podem ser implantadas a qualquer momento. Cada opção de versão cria uma versão específica da distribuição de HDP (Hortonworks Data Platform) e um conjunto de componentes contidos nessa distribuição. 
@@ -232,7 +232,7 @@ Esse tipo de configuração tem suporte para os ambientes de computação a segu
 * Lote do Azure
 * Azure Machine Learning
 * Análise Azure Data Lake
-* Banco de dados SQL do Azure, Azure SQL Data Warehouse, SQL Server
+* Banco de dados SQL do Azure, Azure Synapse Analytics (anteriormente SQL Data Warehouse), SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Serviço vinculado do Azure HDInsight
 Você pode criar um serviço vinculado HDInsight para registrar seu próprio cluster HDInsight com o Data Factory.
@@ -462,8 +462,8 @@ Adicione uma referência a Microsoft.IdentityModel.Clients.ActiveDirectory.Windo
 ## <a name="azure-sql-linked-service"></a>Serviço vinculado de SQL do Azure
 Você pode criar um serviço vinculado de SQL e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Para obter mais informações, consulte o artigo [Conector de SQL do Azure](data-factory-azure-sql-connector.md#linked-service-properties).
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Serviço vinculado do SQL Data Warehouse do Azure
-Você pode criar um serviço vinculado do SQL Data Warehouse e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Para obter mais informações, consulte [Conector do SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
+## <a name="azure-synapse-analytics-linked-service"></a>Serviço vinculado do Azure Synapse Analytics
+Você pode criar um serviço vinculado do Azure Synapse Analytics e usá-lo com a [atividade de procedimento armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline data Factory. Para obter mais informações, consulte [conector do Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
 
 ## <a name="sql-server-linked-service"></a>Serviço vinculado do SQL Server
 Você pode criar um serviço vinculado do SQL Server e usá-lo com a [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Para obter mais informações, consulte [Conector do SQL Server](data-factory-sqlserver-connector.md#linked-service-properties).

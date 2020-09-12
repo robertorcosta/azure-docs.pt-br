@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ef46a0040ba767197028d170372a4a9edca9feee
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085082"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442693"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Banco de dados SQL do Azure e regras de firewall de IP do Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Quando você cria um novo servidor no banco de dados SQL do Azure ou no Azure Synapse Analytics chamado *MySqlServer*, por exemplo, um firewall de nível de servidor bloqueia todo o acesso ao ponto de extremidade público para o servidor (que pode ser acessado em *MySqlServer.Database.Windows.net*). Para simplificar, o *banco de dados SQL* é usado para fazer referência ao banco de dados SQL e ao Azure Synapse Analytics (anteriormente chamado de Azure SQL data warehouse).
+Quando você cria um novo servidor no banco de dados SQL do Azure ou no Azure Synapse Analytics chamado *MySqlServer*, por exemplo, um firewall de nível de servidor bloqueia todo o acesso ao ponto de extremidade público para o servidor (que pode ser acessado em *MySqlServer.Database.Windows.net*). Para simplificar, o *banco de dados SQL* é usado para fazer referência ao banco de dados SQL e ao Azure Synapse Analytics (anteriormente SQL data warehouse).
 
 > [!IMPORTANT]
 > Este artigo *não* se aplica à *Instância Gerenciada de SQL do Azure*. Para obter informações sobre a configuração de rede, consulte [conectar seu aplicativo ao Azure SQL instância gerenciada](../managed-instance/connect-application-instance.md).
@@ -237,7 +237,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Excluir regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Servidor |Remove as regras de firewall de IP no nível de servidor |
 | [Obter regras de firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Servidor | Obtém regras de firewall de IP no nível de servidor |
 
-## <a name="troubleshoot-the-database-firewall"></a>Solucionar problemas do firewall de banco de dados
+## <a name="troubleshoot-the-database-firewall"></a>Solucionar problemas do firewall do banco de dados
 
 Considere os seguintes pontos quando o acesso ao banco de dados SQL do Azure não se comportar conforme o esperado.
 

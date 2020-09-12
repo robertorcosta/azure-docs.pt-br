@@ -3,12 +3,12 @@ title: Entender como funcionam os efeitos
 description: As definições do Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079652"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425527"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -156,7 +156,8 @@ A propriedade **detalhes** dos efeitos AuditIfNotExists tem todas as subpropried
   - Se **details.type** for um tipo de recurso abaixo do recurso de condição **if**, a política consultará os recursos desse **tipo** dentro do escopo do recurso avaliado. Caso contrário, a política consultará dentro do mesmo grupo de recursos que o recurso avaliado.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando há correspondência nos valores de condição para **if.field.type** e **then.details.type**, **Nome** se torna _obrigatório_ e deverá ser `[field('name')]`. No entanto, um efeito [Audit](#audit) deve ser considerado em seu lugar.
+  - Quando os valores de condição para **If. Field. Type** e **. Details. Type** correspondem, o **nome** torna-se _obrigatório_ e deve ser `[field('name')]` ou `[field('fullName')]` para um recurso filho.
+    No entanto, um efeito [Audit](#audit) deve ser considerado em seu lugar.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.
@@ -277,7 +278,7 @@ A propriedade **details** do efeito DeployIfNotExists tem todas as subpropriedad
   - Começa tentando buscar um recurso sob o recurso de condição **se**, depois consulta dentro do mesmo grupo de recursos como o recurso de condição **se**.
 - **Nome** (opcional)
   - Especifica o nome exato do recurso a ser correspondido e faz com que a política busque um recurso específico em vez de todos os recursos do tipo especificado.
-  - Quando há correspondência nos valores de condição para **if.field.type** e **then.details.type**, **Nome** se torna _obrigatório_ e deverá ser `[field('name')]`.
+  - Quando os valores de condição para **If. Field. Type** e **. Details. Type** correspondem, o **nome** torna-se _obrigatório_ e deve ser `[field('name')]` ou `[field('fullName')]` para um recurso filho.
 - **ResourceGroupName** (opcional)
   - Permite que a correspondência do recurso relacionado venha de um grupo de recursos diferente.
   - Não se aplica se **type** for um recurso que estaria sob o recurso de condição **if**.

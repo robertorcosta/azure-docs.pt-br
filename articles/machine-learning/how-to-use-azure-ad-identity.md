@@ -11,20 +11,20 @@ ms.subservice: core
 ms.date: 02/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: f76e149339e80ddeba8431afffbd677a4b595ec3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac7420e47077e4e2b5bcfce0f33766554cd5c76d
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319466"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647328"
 ---
-# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Usar a identidade do Azure AD com o serviço Web do Machine Learning no serviço kubernetes do Azure
+# <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Usar a identidade do Azure AD com o serviço Web de machine learning no Serviço de Kubernetes do Azure
 
 Neste "como", você aprende a atribuir uma identidade de Azure Active Directory (AAD) ao seu modelo de aprendizado de máquina implantado no serviço kubernetes do Azure. O projeto de [identidade Pod do AAD](https://github.com/Azure/aad-pod-identity) permite que os aplicativos acessem recursos de nuvem com segurança com o AAD usando uma [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) e primitivos kubernetes. Isso permite que seu serviço Web acesse seus recursos do Azure com segurança sem precisar inserir credenciais ou gerenciar tokens diretamente dentro do `score.py` script. Este artigo explica as etapas para criar e instalar uma identidade do Azure em seu cluster do serviço kubernetes do Azure e atribuir a identidade ao serviço Web implantado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+- A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - Acesso ao cluster AKS usando o `kubectl` comando. Para obter mais informações, consulte [conectar-se ao cluster](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
 
@@ -153,7 +153,7 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> Este exemplo usa o DefaultAzureCredential. Para conceder acesso de identidade usando uma política de acesso específica, consulte [parte 4: recuperar o segredo de você Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
+> Este exemplo usa o DefaultAzureCredential. Para conceder acesso de identidade usando uma política de acesso específica, consulte [atribuir uma política de acesso de Key Vault usando o CLI do Azure](/azure/key-vault/general/assign-access-policy-cli).
 
 ### <a name="access-blob-from-your-web-service"></a>Acessar o blob do serviço Web
 
