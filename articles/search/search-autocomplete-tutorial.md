@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c0031b09dbb3335113cb52c9b3ec5e4fd4fa2758
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8be53838f6262eaafc643bc78fd08b6f02d9bac6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011571"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660257"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar preenchimento automático e sugestões aos aplicativos cliente
 
@@ -139,9 +139,11 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Função de sugestão
 
-Se você estiver usando C# e um aplicativo MVC, o arquivo **HomeController.cs** no diretório de controladores será onde você poderá criar uma classe para os resultados sugeridos. No .NET, uma função de sugestão é baseada no [método DocumentsOperationsExtensions. sugira](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
+Se você estiver usando C# e um aplicativo MVC, o arquivo **HomeController.cs** no diretório de controladores será onde você poderá criar uma classe para os resultados sugeridos. No .NET, uma função de sugestão é baseada no [método DocumentsOperationsExtensions. sugira](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet). Para obter mais informações sobre o SDK do .NET, consulte [como usar o Azure pesquisa cognitiva de um aplicativo .net](./search-howto-dotnet-sdk.md).
 
-O `InitSearch` método cria um cliente de índice http autenticado para o serviço de pesquisa cognitiva do Azure. Para obter mais informações sobre o SDK do .NET, consulte [como usar o Azure pesquisa cognitiva de um aplicativo .net](./search-howto-dotnet-sdk.md).
+O `InitSearch` método cria um cliente de índice http autenticado para o serviço de pesquisa cognitiva do Azure. As propriedades da classe [sugiraparameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) determinam quais campos são pesquisados e retornados nos resultados, o número de correspondências e se a correspondência difusa é usada. 
+
+Para preenchimento automático, a correspondência difusa é limitada a uma distância de edição (um caractere omitido ou de local incorreto). Observe que a correspondência difusa em consultas de preenchimento automático pode, às vezes, produzir resultados inesperados dependendo do tamanho do índice e de como ele é fragmentado. Para obter mais informações, consulte [conceitos de particionamento e fragmentação](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -250,5 +252,5 @@ A função Autocomplete usa a entrada do termo de pesquisa. O método cria um [o
 Siga estes links para obter instruções de ponta a ponta ou código que demonstram experiências de pesquisa conforme o tipo. Ambos os exemplos de código incluem implementações híbridas de sugestões e preenchimento automático em conjunto.
 
 + [Tutorial: criar seu primeiro aplicativo em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [Exemplo de código C#: Azure-Search-dotnet-Samples/Create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [Exemplo de código C#: Azure-Search-dotnet-Samples/Create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
 + [C# e JavaScript com a amostra de código lado a lado do REST](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

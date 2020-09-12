@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386122"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660488"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -33,7 +33,7 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
   * Sua conta do Azure precisa ser uma conta corporativa ou de estudante, que se parece com `username@contoso.com` . Você não pode usar contas do B2B (convidado) do Azure ou contas pessoais da Microsoft, como @hotmail.com ou @outlook.com.
 
     > [!NOTE]
-    > Se você se inscreveu para uma oferta do Office 365 e não informou seu email de trabalho, seu endereço deve se parecer com este: `username@domain.onmicrosoft.com`. Sua conta é armazenada em um locatário do Azure AD. Na maioria dos casos, o UPN (nome principal do usuário) da sua conta do Azure é o mesmo que seu endereço de email.
+    > Se você se inscreveu para uma oferta de Microsoft 365 e não forneceu seu endereço de email de trabalho, seu endereço pode ser semelhante a `username@domain.onmicrosoft.com` . Sua conta é armazenada em um locatário do Azure AD. Na maioria dos casos, o UPN (nome principal do usuário) da sua conta do Azure é o mesmo que seu endereço de email.
 
     Para usar uma [assinatura padrão do Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) associada a um conta Microsoft, primeiro [crie um locatário do Azure ad](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório padrão. Adicione um usuário com uma senha ao diretório e, em seguida, forneça o acesso a esse usuário à sua assinatura do Azure. Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
 

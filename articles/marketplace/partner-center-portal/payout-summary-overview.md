@@ -1,27 +1,27 @@
 ---
-title: Visão geral do resumo do pagamento - Microsoft Azure Marketplace
+title: Visão geral do resumido de pagamento, Azure Marketplace
 description: O resumo do Pagamento mostra detalhes sobre o dinheiro que você ganhou com sua oferta. Ele também permite que você saiba quando receberá os pagamentos e quanto será pago.
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 09/09/2020
+ms.openlocfilehash: 708fc2c0783bdefa4ac4fa4b73f10733bba0bc04
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479805"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006917"
 ---
 # <a name="payout-summary-overview"></a>Visão geral do resumo do pagamento
 
 O [resumo do Pagamento](./payout-summary.md) mostra detalhes sobre o dinheiro que você ganhou com a Microsoft. Ele também permite que você saiba quando receberá os pagamentos e quanto será pago.
 
-Se você vender ofertas no Azure Marketplace, também verá as informações sobre pagamentos bem-sucedidos no resumo do Pagamento. Para obter mais informações sobre o pagamento do Microsoft Azure Marketplace, confira [Políticas de participação do Microsoft Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e [Contrato do editor do Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+Se você vender ofertas no Azure Marketplace, também verá informações sobre pagamentos bem-sucedidos no resumo do pagamento. Para obter mais informações sobre o pagamento do Azure Marketplace, consulte [como pagar no Marketplace comercial](./get-paid.md) e no [contrato do Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Para se qualificar para o pagamento, suas receitas devem atingir o [limite de pagamento](./payment-thresholds-methods-timeframes.md) de US$ 50. Para obter detalhes sobre o limite de pagamento, confira o [Contrato do editor do Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+> Para se qualificar para o pagamento, suas receitas devem alcançar o limite de pagamento de US$ 50. Para obter detalhes, consulte o [contrato do Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Para exibir os detalhes do pagamento, entre no [Partner Center](https://partner.microsoft.com/dashboard/home) e selecione o ícone de pagamento no canto superior direito da tela:
 
@@ -29,7 +29,7 @@ Para exibir os detalhes do pagamento, entre no [Partner Center](https://partner.
 
 ## <a name="roles-and-permissions"></a>Funções e permissões
 
-Estas são as funções e permissões para acessar o relatório de pagamento:
+Essas são as funções e permissões para acessar o relatório de pagamento:
 
 | Relatórios/páginas | Proprietário da conta | Gerente | Desenvolvedor | Colaborador comercial | Colaborador financeiro | Marketer |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Estas são as funções e permissões para acessar o relatório de pagamento:
 
 ## <a name="payment-schedules"></a>Agendamentos de pagamento
 
-Para uma discussão dos agendamentos de pagamento, incluindo períodos de retenção, visibilidade do parceiro e quando o cliente usa um cartão de crédito ou fatura, veja a seção [Agendamentos de pagamento](./payout-policy-details.md#payment-schedules) do tópico **Detalhes de pagamento**.
+Para uma discussão sobre planos de pagamento, incluindo períodos de retenção, visibilidade do parceiro e quando o cliente usa um cartão de crédito ou fatura, consulte a seção [planos de pagamento](./payout-policy-details.md#payment-schedules) do artigo **detalhes** do pagamento.
 
 ## <a name="transaction-history-download-export"></a>Exportação de download do histórico de transações
 

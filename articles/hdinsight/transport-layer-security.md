@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: b74ca75b26d4d98c79091683f428eb39e5827665
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e46cca28c049a794db617797d5f09e9f3b5720d
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82183493"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006884"
 ---
 # <a name="transport-layer-security-in-azure-hdinsight"></a>Segurança da camada de transporte no Azure HDInsight
 
@@ -21,8 +21,6 @@ As conexões com o cluster HDInsight por meio do ponto de extremidade do cluster
 
 Por padrão, os clusters do Azure HDInsight aceitam conexões TLS 1,2 em pontos de extremidade HTTPS públicos e versões mais antigas para compatibilidade com versões anteriores. Você pode controlar a versão mínima do TLS com suporte nos nós de gateway durante a criação do cluster usando o portal do Azure ou um modelo do Resource Manager. Para o portal, selecione a versão do TLS na guia **segurança + rede** durante a criação do cluster. Para um modelo do Resource Manager no momento da implantação, use a propriedade **minSupportedTlsVersion** . Para obter um modelo de exemplo, consulte [modelo de início rápido de TLS 1,2 mínimo do HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Essa propriedade dá suporte a três valores: "1,0", "1,1" e "1,2", que correspondem ao TLS 1.0 +, TLS 1.1 + e TLS 1.2 + respectivamente.
 
-> [!IMPORTANT]
-> A partir de 30 de junho de 2020, o Azure HDInsight impedirá o TLS 1,2 ou versões posteriores para todas as conexões HTTPS. Recomendamos que você verifique se todos os seus clientes estão prontos para lidar com o TLS 1,2 ou versões posteriores. Para obter mais informações, consulte [imposição de TLS 1,2 do Azure HDInsight](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/).
 
 ## <a name="next-steps"></a>Próximas etapas
 

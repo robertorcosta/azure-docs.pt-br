@@ -3,20 +3,20 @@ title: Cache de porta frontal do Azure | Microsoft Docs
 description: Este artigo ajuda você a entender como a porta frontal do Azure monitora a integridade dos back-ends
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056951"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024274"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
 O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado. A porta frontal é uma CDN (rede de distribuição de conteúdo) moderna e, assim, com a aceleração de site dinâmica e o balanceamento de carga, ele também dá suporte a comportamentos de cache, assim como qualquer outra CDN.
@@ -88,13 +88,22 @@ Com o Front Door, é possível controlar como os arquivos são armazenados em ca
 - **Armazenar em cada cache URL exclusiva**: nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de back-end para uma solicitação de `www.example.ashx?q=test1` é armazenada em cache no Front Door e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação `www.example.ashx?q=test2` é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
 
 ## <a name="cache-purge"></a>Limpeza do cache
-O Front Door armazenará em cache os ativos até a TTL (vida útil) do ativo expirar. Após a TTL do ativo expirar, quando um cliente solicitar o ativo, o ambiente do Front Door irá recuperar uma nova cópia atualizada do ativo para atender à solicitação do cliente e atualizar o armazenamento da cache.
-</br>A prática recomendada para garantir que os usuários sempre obtenham a cópia mais recente de seus ativos é verter os ativos para cada atualização e publicá-los como novas URLs. O Front Door recuperará imediatamente os novos ativos para as próximas solicitações do cliente. Às vezes, convém limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados. Isso pode ocorrer devido a atualizações do aplicativo Web ou para atualizar rapidamente ativos que contenham informações incorretas.
 
-</br>Selecione os ativos que você deseja limpar dos nós de borda. Para limpar todos os ativos, clique na caixa de seleção Limpar todos. Caso contrário, digite o caminho de cada ativo que você quer limpar na caixa de texto Caminho. Veja abaixo os formatos com suporte no caminho.
-1. **Limpeza de caminho único**: Limpe ativos individuais especificando o caminho completo do ativo (sem o protocolo e o domínio), com a extensão de arquivo, por exemplo,/Pictures/strasbourg.png;
-2. **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todas as pastas, subpastas e arquivos em um ponto de extremidade com/ \* no caminho ou limpe todas as subpastas e arquivos em uma pasta específica, especificando a pasta seguida por/ \* , por exemplo,/Pictures/ \* .
-3. **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
+A porta frontal armazena ativos em cache até o tempo de vida (TTL) do ativo expirar. Depois que a TTL do ativo expira, quando um cliente solicita o ativo, o ambiente de porta de front-end recupera uma nova cópia atualizada do ativo para atender à solicitação do cliente e armazenar a atualização do cache.
+
+A prática recomendada para garantir que os usuários sempre obtenham a cópia mais recente de seus ativos é verter os ativos para cada atualização e publicá-los como novas URLs. O Front Door recuperará imediatamente os novos ativos para as próximas solicitações do cliente. Às vezes, convém limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados. Isso pode ocorrer devido a atualizações do aplicativo Web ou para atualizar rapidamente ativos que contenham informações incorretas.
+
+Selecione os ativos que você deseja limpar dos nós de borda. Para limpar todos os ativos, selecione **limpar tudo**. Caso contrário, em **caminho**, insira o caminho de cada ativo que você deseja limpar.
+
+Esses formatos têm suporte nas listas de caminhos a serem limpos:
+
+- **Limpeza de caminho único**: Limpe ativos individuais especificando o caminho completo do ativo (sem o protocolo e o domínio), com a extensão de arquivo, por exemplo,/Pictures/strasbourg.png;
+- **Limpeza de caractere curinga**: o asterisco (\*) pode ser usado como um caractere curinga. Limpe todas as pastas, subpastas e arquivos em um ponto de extremidade com/ \* no caminho ou limpe todas as subpastas e arquivos em uma pasta específica, especificando a pasta seguida por/ \* , por exemplo,/Pictures/ \* .
+- **Limpeza do domínio raiz**: limpe a raiz do ponto de extremidade com "/" no caminho.
+
+> [!NOTE]
+> A **limpeza de domínios curinga**: a especificação de caminhos armazenados em cache para limpeza, conforme discutido nesta seção, não se aplica a domínios curinga que estejam associados à porta frontal. No momento, não há suporte para a limpeza direta de domínios curinga. Você pode limpar caminhos de subdomínios específicos especificando o subdomínio específico e o caminho de limpeza. Por exemplo, se minha porta frontal tiver `*.contoso.com` , posso limpar os ativos do meu subdomínio `foo.contoso.com` digitando `foo.contoso.com/path/*` . Atualmente, a especificação de nomes de host no caminho de conteúdo de limpeza é imited a subdomínios de domínios curinga, se aplicável.
+>
 
 As limpezas de cache do Front Door diferenciam maiúsculas de minúsculas. Além disso, as limpezas são independentes da cadeia de caracteres de consulta, significando que a limpeza de uma URL apagará todas as variações da cadeia de caracteres de consulta dessa URL. 
 
@@ -102,7 +111,7 @@ As limpezas de cache do Front Door diferenciam maiúsculas de minúsculas. Além
 A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um item será armazenado em nosso cache:</br>
 1. Cache-Control: s-maxage=\<seconds>
 2. Cache-Control: Max-age =\<seconds>
-3. Expira\<http-date>
+3. Expira \<http-date>
 
 Cabeçalhos de resposta de controle de cache que indicam que a resposta não será armazenada em cache, como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: no-Store são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta. Se nenhum controle de cache estiver presente, o comportamento padrão é que AFD armazenará em cache o recurso por X quantidade de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
 

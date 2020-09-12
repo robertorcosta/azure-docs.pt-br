@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291793"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667506"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usar scripts de implantação em modelos (versão prévia)
 
@@ -143,7 +143,7 @@ Detalhes do valor da propriedade:
 - **azPowerShellVersion**/**azCliVersion**: Especifique a versão de módulo a ser usada. Para obter uma lista de versões do PowerShell e da CLI com suporte, consulte [Pré-requisitos](#prerequisites).
 - **arguments**: Especifique os valores de parâmetro. os valores são separados por espaços.
 
-    Os scripts de implantação dividem os argumentos em uma matriz de cadeias de caracteres invocando a chamada do sistema [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Isso é necessário porque os argumentos são passados como uma [propriedade de comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) para a instância de contêiner do Azure e a propriedade Command é uma matriz de cadeia de caracteres.
+    Os scripts de implantação dividem os argumentos em uma matriz de cadeias de caracteres invocando a chamada do sistema [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Isso é necessário porque os argumentos são passados como uma [propriedade de comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) para a instância de contêiner do Azure e a propriedade Command é uma matriz de cadeia de caracteres.
 
     Se os argumentos contiverem caracteres de escape, use [JsonEscaper](https://www.jsonescaper.com/) para dobrar o escape dos caracteres. Cole a cadeia de caracteres de escape original na ferramenta e selecione **escape**.  A ferramenta gera uma cadeia de caracteres com escape duplo. Por exemplo, no modelo de exemplo anterior, o argumento é **-name \\ "John giros \\ "**.  A cadeia de caracteres de escape é **-name \\ \\ \\ "John giros \\ \\ \\ "**.
 
@@ -217,7 +217,7 @@ Você é responsável por garantir a integridade dos scripts referenciados pelo 
 
 ## <a name="use-supporting-scripts"></a>Usar scripts de suporte
 
-Você pode separar as lógicas complicadas em um ou mais arquivos de script de suporte. Se necessário, a propriedade `supportingScriptURI` permite que você forneça uma matriz de URIs para os arquivos de script de suporte:
+Você pode separar as lógicas complicadas em um ou mais arquivos de script de suporte. Se necessário, a propriedade `supportingScriptUris` permite que você forneça uma matriz de URIs para os arquivos de script de suporte:
 
 ```json
 "scriptContent": "

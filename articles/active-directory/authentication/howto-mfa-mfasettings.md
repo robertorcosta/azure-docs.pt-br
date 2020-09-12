@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179396"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023832"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -242,7 +242,10 @@ O recurso _IPs confiáveis_ da autenticação multifator do Azure ignora os prom
 
 Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos locais, o endereço IP de origem sempre parecerá ser o servidor NPS que passa pela tentativa de autenticação.
 
-| Tipo de locatário do Azure AD | Opções de recurso de IP confiável | |:---|:---| duas etapas | Gerenciado | **Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis. | | Federado | **Todos os usuários federados**: todos os usuários federados que entram de dentro da organização podem ignorar a autenticação multifator. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. |
+| Tipo de locatário do Azure AD | Opções de recurso de IP confiável |
+|:--- |:--- |
+| Gerenciados |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
+| Federado |**Todos os usuários federados**: todos os usuários federados que entram de dentro da organização podem ignorar a autenticação multifator. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. |
 
 O bypass de IP confiável funciona somente de dentro da intranet da empresa. Se você selecionar a opção **todos os usuários federados** e um usuário entrar de fora da intranet da empresa, o usuário precisará se autenticar usando a autenticação multifator. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS.
 

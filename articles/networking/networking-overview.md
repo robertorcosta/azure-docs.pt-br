@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037245"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651738"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de rede do Azure
 
@@ -38,7 +38,7 @@ Esta seção descreve os serviços que fornecem conectividade entre os recursos 
 |[DNS do Azure](#dns)|Hospeda domínios DNS que fornecem resolução de nomes usando Microsoft Azure infraestrutura.|<p>[Hospede seu domínio no DNS do Azure](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Criar registros DNS para um aplicativo Web](../dns/dns-web-sites-custom-domain.md)</p> <p>[Criar um registro de alias para o Gerenciador de tráfego](../dns/tutorial-alias-tm.md)</p> <p>[Criar um registro de alias para o endereço IP público](../dns/tutorial-alias-pip.md)</p> <p>[Criar um registro de alias para o registro de recurso de zona](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|Configure a conectividade RDP/SSH segura e direta para suas máquinas virtuais diretamente no portal do Azure sobre TLS. Quando você se conecta por meio de bastiões do Azure, suas máquinas virtuais não precisam de um endereço IP público|<p>[Criar um Azure Bastion host](../bastion/bastion-create-host-portal.md)</p><p>[Conectar-se usando SSH em uma VM Linux](../bastion/bastion-connect-vm-ssh.md)</p><p>[Conectar-se usando o RDP em uma VM do Windows](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[Gateway NAT da rede virtual](#nat)|Crie um gateway NAT para fornecer conectividade de saída para uma máquina virtual.|<p>[Criar um gateway NAT](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
-|[Serviço de emparelhamento do Azure (versão prévia)](#azurepeeringservice)|Colabore com provedores de serviços para um roteamento ideal e confiável para a nuvem da Microsoft pela rede pública.|<p>[Registrar o serviço de emparelhamento do Azure](../peering-service/azure-portal.md)</p>|
+|[Serviço de Emparelhamento do Azure](#azurepeeringservice)|Colabore com provedores de serviços para um roteamento ideal e confiável para a nuvem da Microsoft pela rede pública.|<p>[Registrar o serviço de emparelhamento do Azure](../peering-service/azure-portal.md)</p>|
 ||||
 
 
@@ -71,7 +71,7 @@ WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramific
 ![Diagrama de WAN virtual](./media/networking-overview/virtualwan1.png)
 
 ### <a name="azure-dns"></a><a name="dns"></a>DNS do Azure
-O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure. Para obter mais informações, consulte [o que é o DNS do Azure?](../dns/dns-overview.md).
+O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure. Para obter mais informações, consulte [o que é o DNS do Azure?](../dns/dns-overview.md).
 
 ### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
 O serviço Azure Bastion é um novo serviço de PaaS, totalmente gerenciado pela plataforma e provisionado dentro de sua rede virtual. Ele fornece conectividade de RDP/SSH contínua e segura às suas máquinas virtuais, diretamente no portal do Azure, via TLS. Quando você se conecta usando o Azure Bastion, suas máquinas virtuais não precisam de um endereço IP público. Para obter mais informações, consulte [o que é a bastiões do Azure?](../bastion/bastion-overview.md).
@@ -83,7 +83,7 @@ A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectivid
 
 ![Gateway NAT da rede virtual](./media/networking-overview/flow-map.png)
 
-### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a>Serviço de emparelhamento do Azure
+### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Serviço de emparelhamento do Azure
 O serviço de emparelhamento do Azure aprimora a conectividade do cliente com os serviços de nuvem da Microsoft, como Office 365, Dynamics 365, serviços SaaS (software como serviço), Azure ou qualquer serviço da Microsoft acessível pela Internet pública. Para obter mais informações, consulte [o que é o serviço de emparelhamento do Azure?](../peering-service/about.md).
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Serviços de proteção de aplicativo
@@ -97,7 +97,7 @@ Esta seção descreve os serviços de rede no Azure que ajudam a proteger seus r
 |[Firewall do Azure](#firewall)|Firewall do Azure é um serviço de segurança de rede gerenciado e baseado em nuvem que protege seus recursos de Rede Virtual do Azure. É um firewall como serviço totalmente com estado com alta disponibilidade interna e escalabilidade de nuvem irrestrita.|<p>[Implantar um firewall do Azure em uma vnet](../firewall/tutorial-firewall-deploy-portal.md)</p> <p>[-Implantar um firewall do Azure em uma rede híbrida](../firewall/tutorial-hybrid-ps.md)</p> <p>[Filtrar o tráfego de entrada com o Firewall do Azure DNAT](../firewall/tutorial-firewall-dnat.md)</p>|
 |[Grupos de segurança de rede](#nsg)|Controle completo de nó final distribuído granular na VM/sub-rede para todos os fluxos de tráfego de rede|[Filtrar o tráfego de rede usando grupos de segurança de rede](../virtual-network/tutorial-filter-network-traffic.md)|
 |[Pontos de extremidade de serviço de rede virtual](#serviceendpoints)|Permite limitar o acesso à rede para alguns recursos de serviço do Azure a uma sub-rede de rede virtual|[Restringir o acesso à rede para recursos PaaS](../virtual-network/tutorial-restrict-network-access-to-resources-powershell.md)|
-[Link privado](#privatelink)|Permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e serviços hospedados de Propriedade do cliente/parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual.|<p>[Criar um ponto de extremidade privado](../private-link/create-private-endpoint-portal.md)</p><p>[Criar um serviço de vínculo privado](../private-link/create-private-link-service-portal.md)</p>|
+[Link privado](#privatelink)|Permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e serviços hospedados de Propriedade do cliente/parceiro do Azure por meio de um ponto de extremidade privado em sua rede virtual.|<p>[Criar um ponto de extremidade privado](../private-link/create-private-endpoint-portal.md)</p><p>[Criar um serviço de Link Privado](../private-link/create-private-link-service-portal.md)</p>|
 |||
 ### <a name="ddos-protection"></a><a name="ddosprotection"></a>Proteção contra DDoS 
 A [proteção contra DDoS do Azure](../virtual-network/manage-ddos-protection.md) fornece medidas defensivas contra as ameaças de DDoS mais sofisticadas. O serviço fornece recursos aprimorados de mitigação de DDoS para seu aplicativo e recursos implantados em suas redes virtuais. Além disso, os clientes que usam a proteção contra DDoS do Azure têm acesso ao suporte de resposta rápida a DDoS para envolver especialistas em DDoS durante um ataque ativo.
@@ -157,7 +157,7 @@ A CDN oferece aos desenvolvedores uma solução global de fornecimento rápido d
 O Azure Front Door Service permite que você defina, gerencie e monitore o roteamento global para seu tráfego da Web otimizando para melhor desempenho e failover global instantâneo para ter alta disponibilidade. Com o Front Door, é possível transformar seus aplicativos consumidores e empresariais globais (de várias regiões) em modernos aplicativos robustos altamente personalizados e com alto desempenho, APIs e conteúdo que alcançam um público global com o Azure. Para obter mais informações, consulte [Azure front door](../frontdoor/front-door-overview.md).
 
 
-### <a name="traffic-manager"></a><a name="trafficmanager"></a>Gerenciador de tráfego
+### <a name="traffic-manager"></a><a name="trafficmanager"></a>Gerenciador de Tráfego
 
 O Gerenciador de tráfego do Azure é um balanceador de carga de tráfego baseado em DNS que permite que você distribua o tráfego de maneira ideal para serviços em todas as regiões globais do Azure, fornecendo alta disponibilidade e capacidade de resposta. O Gerenciador de tráfego fornece uma variedade de métodos de roteamento de tráfego para distribuir tráfego, como prioridade, peso, desempenho, geográfico, vários valores ou sub-rede. Para obter mais informações sobre métodos de roteamento de tráfego, consulte [métodos de roteamento do Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
 

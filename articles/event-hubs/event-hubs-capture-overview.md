@@ -3,12 +3,12 @@ title: Capturar eventos de streaming – Hubs de Eventos do Azure | Microsoft Do
 description: Este artigo fornece uma visão geral do recurso de Captura que permite que você capture eventos de streaming por meio dos Hubs de Eventos do Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 201fde24e50fc9403d5e9faf314550520fb7b865
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2302f31130b6179b187c17e2f44c5fa7cc50648b
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522117"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667453"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capture eventos por meio dos Hubs de Eventos do Azure no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage
 Os Hubs de Eventos do Azure permitem que você capture automaticamente dados de streaming em seus Hubs de Eventos em uma conta de [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou do [Azure Data Lake Storage Gen1 ou Gen2](https://azure.microsoft.com/services/data-lake-store/) de sua escolha, com maior flexibilidade para especificar uma hora ou um período. A configuração da Captura é rápida, não há custos administrativos para executá-la e ela é dimensionada automaticamente com as [unidades de produtividade](event-hubs-scalability.md#throughput-units) dos Hubs de Eventos. A Captura de Hubs de Eventos é a maneira mais fácil de carregar dados de streaming no Azure e permite que você se concentre no processamento de dados em vez de se concentrar na captura de dados.
@@ -132,7 +132,7 @@ A Captura não consome a cota de saída, pois é cobrada separadamente.
 
 ## <a name="integration-with-event-grid"></a>Integração com a Grade de Eventos 
 
-Você pode criar uma assinatura da Grade de Eventos do Azure com um namespace de Hubs de Eventos como sua fonte. O tutorial a seguir mostra como criar uma assinatura da Grade de Eventos com um hub de eventos como origem e um aplicativo do Azure Functions como coletor: [Processar e migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions](store-captured-data-data-warehouse.md).
+Você pode criar uma assinatura da Grade de Eventos do Azure com um namespace de Hubs de Eventos como sua fonte. O tutorial a seguir mostra como criar uma assinatura de grade de eventos com um hub de eventos como uma fonte e um aplicativo Azure Functions como um coletor: [processar e migrar dados de hubs de eventos capturados para uma análise de Synapse do Azure usando a grade de eventos e Azure Functions](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 A Captura de Hubs de Eventos é a forma mais fácil de obter dados para o Azure. Usando o Azure Data Lake, o Azure Data Factory e o Azure HDInsight, você pode executar processamento em lotes e outras análises usando ferramentas familiares e plataformas de sua escolha, na escala que precisar.
@@ -147,7 +147,7 @@ Saiba como habilitar esse recurso usando o portal do Azure e o modelo do Azure R
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
+[Azure Storage Explorer]: https://github.com/microsoft/AzureStorageExplorer/releases
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
 [Avro Tools]: https://downloads.apache.org/avro/stable/java/
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html

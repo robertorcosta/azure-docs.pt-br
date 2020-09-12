@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507489"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004265"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,14 @@ Os clientes serão notificados por email e na portal do Azure bem antes de qualq
 ## <a name="status-updates"></a>Atualizações de status
 
 # <a name="in-progress"></a>[Em Andamento](#tab/in-progress-ip)
+### <a name="october-2020"></a>Outubro de 2020
+
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+
+- Centro-oeste da Alemanha: 51.116.240.0, 51.116.248.0
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 12 de outubro de 2020. 
+
 ### <a name="september-2020"></a>Setembro de 2020
 Novos gateways do SQL estão sendo adicionados às regiões a seguir. Esses gateways do SQL devem começar a aceitar o tráfego do cliente em **15 de setembro de 2020**:
 
@@ -77,7 +85,7 @@ Novos gateways do SQL estão sendo adicionados às seguintes regiões:
 Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de agosto de 2020. 
 
 ### <a name="october-2019"></a>Outubro de 2019
-- Sul do Brasil
+- Brazil South
 - Oeste dos EUA
 - Europa Ocidental
 - Leste dos EUA
@@ -87,7 +95,7 @@ Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de ag
 - Norte da Europa
 - Centro-Norte dos EUA
 - Oeste do Japão
-- Leste do Japão
+- Japan East
 - Leste dos EUA 2
 - Leste da Ásia
 

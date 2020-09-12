@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b7b3236fe1e4052689657316df851753de7edbe5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b34bd51e9d84629682565592c733b23a320597aa
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083677"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669754"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solucionar problemas comuns do Azure Spring Cloud
 
@@ -48,18 +48,23 @@ Quando você estiver Depurando falhas do aplicativo, comece verificando o status
 * Se o status da descoberta estiver _ATIVO_, acesse Métricas para verificar a integridade do aplicativo. Inspecione as seguintes métricas:
 
 
-  - `TomcatErrorCount`(_tomcat. global. Error_): todas as exceções de aplicativo Spring são contadas aqui. Se este número for muito alto, acesse o Azure Log Analytics para inspecionar seus logs de aplicativo.
+  - `TomcatErrorCount` (_tomcat. global. Error_): todas as exceções de aplicativo Spring são contadas aqui. Se este número for muito alto, acesse o Azure Log Analytics para inspecionar seus logs de aplicativo.
 
-  - `AppMemoryMax`(_JVM. Memory. Max_): a quantidade máxima de memória disponível para o aplicativo. O valor pode ser indefinido ou pode mudar ao longo do tempo se for definido. Se ele for definido, a quantidade de memória usada e confirmada será sempre menor ou igual ao máximo. No entanto, uma alocação de memória poderá falhar com uma `OutOfMemoryError` mensagem se a alocação tentar aumentar a memória usada de forma que *usada > confirmada*, mesmo se *usada <= Max* ainda for verdadeira. Nessa situação, tente aumentar o tamanho máximo do heap usando o `-Xmx` parâmetro.
+  - `AppMemoryMax` (_JVM. Memory. Max_): a quantidade máxima de memória disponível para o aplicativo. O valor pode ser indefinido ou pode mudar ao longo do tempo se for definido. Se ele for definido, a quantidade de memória usada e confirmada será sempre menor ou igual ao máximo. No entanto, uma alocação de memória poderá falhar com uma `OutOfMemoryError` mensagem se a alocação tentar aumentar a memória usada de forma que *usada > confirmada*, mesmo se *usada <= Max* ainda for verdadeira. Nessa situação, tente aumentar o tamanho máximo do heap usando o `-Xmx` parâmetro.
 
-  - `AppMemoryUsed`(_JVM. Memory. Used_): a quantidade de memória em bytes que é usada atualmente pelo aplicativo. Para um aplicativo Java de carregamento normal, essa série de métricas forma um padrão *Sawtooth* , em que o uso de memória aumenta e diminui continuamente em pequenos incrementos e, repentinamente, cai muito e, em seguida, o padrão se repete. Essa série de métricas ocorre devido à coleta de lixo dentro da máquina virtual Java, em que as ações de coleta representam quedas no padrão Sawtooth.
+  - `AppMemoryUsed` (_JVM. Memory. Used_): a quantidade de memória em bytes que é usada atualmente pelo aplicativo. Para um aplicativo Java de carregamento normal, essa série de métricas forma um padrão *Sawtooth* , em que o uso de memória aumenta e diminui continuamente em pequenos incrementos e, repentinamente, cai muito e, em seguida, o padrão se repete. Essa série de métricas ocorre devido à coleta de lixo dentro da máquina virtual Java, em que as ações de coleta representam quedas no padrão Sawtooth.
     
     Essa métrica é importante para ajudar a identificar problemas de memória, como:
     * Uma explosão de memória no início.
     * A alocação de memória de sobretensão para um caminho lógico específico.
     * Vazamentos de memória gradual.
-
   Para obter mais informações, consulte [métricas](spring-cloud-concept-metrics.md).
+  
+* Se o aplicativo falhar ao iniciar, verifique se o aplicativo tem parâmetros JVM válidos. Se a memória da JVM estiver definida com um valor muito alto, a seguinte mensagem de erro poderá aparecer em seus logs:
+
+  >"a memória necessária 2728741K é maior que 2000m disponível para alocação"
+
+
 
 Para saber mais sobre o Log Analytics do Azure, confira [introdução ao log Analytics no Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
@@ -138,7 +143,7 @@ Se a sondagem for interrompida, você ainda poderá usar o seguinte comando para
 
 `az spring-cloud app show-deploy-log -n <app-name>`
 
-No entanto, observe que uma instância do serviço de nuvem do Azure Spring pode disparar apenas um trabalho de compilação para um pacote de origem ao mesmo tempo. Para obter mais informações, consulte [implantar um aplicativo](spring-cloud-quickstart-launch-app-portal.md) e [configurar um ambiente de preparo no Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
+No entanto, observe que uma instância do serviço de nuvem do Azure Spring pode disparar apenas um trabalho de compilação para um pacote de origem ao mesmo tempo. Para obter mais informações, consulte [implantar um aplicativo](spring-cloud-quickstart.md) e [configurar um ambiente de preparo no Azure Spring Cloud](spring-cloud-howto-staging-environment.md).
 
 ### <a name="my-application-cant-be-registered"></a>Meu aplicativo não pode ser registrado
 
@@ -174,7 +179,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
 
 1. Reinicie o aplicativo.
 
-1. Vá para `https://<your application test endpoint>/actuator/env` e inspecione a resposta.  Ele deverá ser parecido com isto:
+1. Vá para `https://<your application test endpoint>/actuator/env` e inspecione a resposta.  Ele deverá ser parecido com:
 
     ```json
     {
@@ -193,7 +198,7 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
 Procure o nó filho denominado `systemEnvironment` .  Esse nó contém as variáveis de ambiente do aplicativo.
 
 > [!IMPORTANT]
-> Lembre-se de reverter a exposição das variáveis de ambiente antes de tornar o aplicativo acessível ao público.  Vá para a portal do Azure, procure a página de configuração do seu aplicativo e exclua essa variável de ambiente: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
+> Lembre-se de reverter a exposição das variáveis de ambiente antes de tornar o aplicativo acessível ao público.  Vá para a portal do Azure, procure a página de configuração do seu aplicativo e exclua essa variável de ambiente:  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Não consigo encontrar métricas ou logs para meu aplicativo
 

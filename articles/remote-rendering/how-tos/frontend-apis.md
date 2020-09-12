@@ -6,19 +6,19 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 420ff7ed838bc9fa14c1276ae0a70220fc7e11a9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003517"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024053"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Usar as APIs de front-end do Azure para autenticação
 
 Nesta seção, descreveremos como usar a API para autenticação e gerenciamento de sessão.
 
 > [!CAUTION]
-As funções descritas neste capítulo emitem as chamadas REST no servidor internamente. Para todas as chamadas REST, o envio desses comandos com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. O valor do membro, nesse `SessionGeneralContext.HttpResponseCode` caso, é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5-10 segundos entre as chamadas subsequentes**.
+> As funções descritas neste capítulo emitem as chamadas REST no servidor internamente. Para todas as chamadas REST, o envio desses comandos com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. O valor do membro, nesse `SessionGeneralContext.HttpResponseCode` caso, é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5 a 10 segundos entre as chamadas subsequentes**.
 
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo

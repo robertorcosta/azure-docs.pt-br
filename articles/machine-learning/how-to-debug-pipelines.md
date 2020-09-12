@@ -10,17 +10,17 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: 0f051e5b5711cec9fd8e72ec2b84c18f80430a0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cad1c8b7250ddf1e675145e764abcc90b4db9d86
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018052"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661721"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprende a solucionar problemas e depurar [pipelines do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) e no [Designer de Azure Machine Learning (versão prévia)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+Neste artigo, você aprende a solucionar problemas e depurar [pipelines do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) e no [Designer de Azure Machine Learning (versão prévia)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
@@ -33,7 +33,7 @@ A tabela a seguir contém problemas comuns durante o desenvolvimento de pipeline
 | Erros ambíguos com destinos de computação | Tente excluir e recriar destinos de computação. Recriar destinos de computação é rápido e pode resolver alguns problemas transitórios. |
 | O pipeline não está Reutilizando as etapas | A reutilização de etapa é habilitada por padrão, mas certifique-se de que você não a desabilitou em uma etapa de pipeline. Se a reutilização estiver desabilitada, o `allow_reuse` parâmetro na etapa será definido como `False` . |
 | O pipeline está sendo executado desnecessariamente | Para garantir que as etapas sejam executadas somente quando seus dados ou scripts subjacentes forem alterados, desassocie os diretórios de código-fonte para cada etapa. Se você usar o mesmo diretório de origem para várias etapas, poderá ocorrer uma reexecutação desnecessária. Use o `source_directory` parâmetro em um objeto Step de pipeline para apontar para seu diretório isolado para essa etapa e verifique se você não está usando o mesmo `source_directory` caminho para várias etapas. |
-
+| Etapa reduzindo as épocas de treinamento ou outro comportamento de looping | Tente alternar qualquer gravação de arquivo, incluindo registro em log, de `as_mount()` para `as_upload()` . O modo de **montagem** usa um sistema de arquivos virtualizado remoto e carrega todo o arquivo cada vez que é anexado. |
 
 ## <a name="debugging-techniques"></a>Técnicas de depuração
 
@@ -148,7 +148,7 @@ Ao enviar uma execução de pipeline e permanecer na página de criação, você
 1. No painel direito do módulo, vá para a guia  **saídas + logs** .
 1. Expanda o painel direito e selecione o **70_driver_log.txt** para exibir o arquivo no navegador. Você também pode baixar logs localmente.
 
-    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)
+    ![Painel de saída expandido no designer](./media/how-to-debug-pipelines/designer-logs.png)? View = Azure-ml-py&preserve-View = true)? exibição = Azure-ml-py&preserve-View = true)
 
 ### <a name="get-logs-from-pipeline-runs"></a>Obter logs de execuções de pipeline
 
@@ -174,6 +174,6 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o pacote [azureml-pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) .
+* Consulte a referência do SDK para obter ajuda com o pacote [azureml-pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e o pacote [azureml-pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) .
 
 * Consulte a lista de [exceções de designer e códigos de erro](algorithm-module-reference/designer-error-codes.md).

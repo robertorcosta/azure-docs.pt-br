@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3d46df8847a5865c42438ea36245ead0f1e6e528
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: f65bf2bbe174ff90d5a0b962768833b8668f6400
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951113"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019709"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
 
@@ -125,7 +125,7 @@ A propriedade **AllowSharedKeyAccess** não é definida por padrão e não retor
 > [!WARNING]
 > Se algum cliente estiver acessando dados em sua conta de armazenamento com a chave compartilhada, a Microsoft recomendará que você migre esses clientes para o Azure AD antes de não permitir o acesso à chave compartilhada à conta de armazenamento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para não permitir a autorização de chave compartilhada para uma conta de armazenamento no portal do Azure, siga estas etapas:
 
@@ -213,7 +213,7 @@ Algumas ferramentas do Azure oferecem a opção de usar a autorização do Azure
 
 | Ferramenta do Azure | Autorização do Azure AD para o armazenamento do Azure |
 |-|-|
-| Portal do Azure | Com suporte. Para obter informações sobre como autorizar com sua conta do Azure AD do portal do Azure, consulte [escolher como autorizar o acesso a dados de BLOB ou de fila no portal do Azure](storage-access-blobs-queues-portal.md). |
+| Portal do Azure | Com suporte. Para obter informações sobre como autorizar com sua conta do Azure AD do portal do Azure, consulte [escolher como autorizar o acesso a dados de blob no portal do Azure](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Com suporte para armazenamento de BLOBs. Para obter informações sobre como autorizar operações de AzCopy, consulte [escolher como você fornecerá credenciais de autorização](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) na documentação do AzCopy. |
 | Gerenciador de Armazenamento do Azure | Com suporte somente para armazenamento de BLOBs e Azure Data Lake Storage Gen2. Não há suporte para o acesso do Azure AD ao armazenamento de filas. Certifique-se de selecionar o locatário correto do Azure AD. Para obter mais informações, consulte Introdução [ao Gerenciador de armazenamento](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Com suporte. Para obter informações sobre como autorizar comandos do PowerShell com o Azure AD para acessar dados de BLOB e de fila, consulte [executar comandos do PowerShell com as credenciais do Azure ad para acessar dados de BLOB ou fila](authorize-active-directory-powershell.md). |

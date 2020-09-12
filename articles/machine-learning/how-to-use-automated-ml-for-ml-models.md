@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185393"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660437"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +69,7 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
 
     1. Selecione **Avançar** para abrir o **Formulário de armazenamento de dados e de seleção de arquivos**. Nesse formulário, você seleciona onde quer carregar seu conjunto de dados, o contêiner de armazenamento padrão que é criado automaticamente com seu espaço de trabalho, ou escolhe um contêiner de armazenamento que deseja usar para o experimento. 
     
-        1. Se seus dados estiverem atrás de uma rede virtual, você precisará habilitar a função **ignorar a validação** para garantir que o espaço de trabalho possa acessar seus dados. Saiba mais sobre [isolamento de rede e privacidade](how-to-enable-virtual-network.md#machine-learning-studio). 
+        1. Se seus dados estiverem atrás de uma rede virtual, você precisará habilitar a função **ignorar a validação** para garantir que o espaço de trabalho possa acessar seus dados. Para obter mais informações, consulte [usar o Azure Machine Learning Studio em uma rede virtual do Azure](how-to-enable-studio-virtual-network.md). 
     
     1. Selecione **procurar** para carregar o arquivo de dados para o seu DataSet. 
 
@@ -120,11 +120,14 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
 
 1. No formulário **Tipo de tarefa e configurações**, selecione o tipo de tarefa: classificação, regressão ou previsão. Consulte [tipos de tarefas com suporte](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) para obter mais informações.
 
-    1. Para **classificação**, você também pode habilitar o aprendizado profundo, que é usado para featurizations de texto.
+    1. Para **classificação**, você também pode habilitar o aprendizado profundo.
+    
+        Se o aprendizado profundo estiver habilitado, a validação será limitada à _divisão de train_validation_. [Saiba mais sobre as opções de validação](how-to-configure-cross-validation-data-splits.md).
+
 
     1. Para **previsão** , você pode, 
     
-        1. Habilitar o aprendizado profundo
+        1. Habilite o aprendizado profundo.
     
         1. Selecionar *coluna de tempo*: esta coluna contém os dados de hora a serem usados.
 
@@ -135,10 +138,10 @@ Caso contrário, você verá uma lista das suas experiências recentes de machin
     Configurações adicionais|Descrição
     ------|------
     Métrica principal| Métrica principal usada para a pontuação do seu modelo. [Saiba mais sobre as métricas do modelo](how-to-configure-auto-train.md#primary-metric).
-    Explicar o melhor modelo | Selecione para habilitar ou desabilitar o, a fim de mostrar a explicação do melhor modelo recomendado.
-    Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento.
+    Explicar o melhor modelo | Selecione para habilitar ou desabilitar o para mostrar explicações para o melhor modelo recomendado. <br> Essa funcionalidade não está disponível atualmente para [determinados algoritmos de previsão](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+    Algoritmo bloqueado| Selecione os algoritmos que você deseja excluir do trabalho de treinamento. <br><br> A permissão de algoritmos só está disponível para [experimentos do SDK](how-to-configure-auto-train.md#supported-models). <br> Consulte os [modelos com suporte para cada tipo de tarefa](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
     Critério de saída| Quando qualquer um desses critérios for atendido, o trabalho de treinamento é interrompido. <br> *Tempo do trabalho de treinamento (horas)* : o tempo permitido de execução do trabalho de treinamento. <br> *Limite de pontuação da métrica*:  pontuação mínima da métrica para todos os pipelines. Isso garante que, caso você tenha uma métrica de destino definida e que deseje alcançar, não gastará mais tempo no trabalho de treinamento do que o necessário.
-    Validação| Selecione uma das opções de validação cruzada para ser usada no trabalho de treinamento. [Saiba mais sobre a validação cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).
+    Validação| Selecione uma das opções de validação cruzada para ser usada no trabalho de treinamento. <br> [Saiba mais sobre a validação cruzada](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>A previsão só dá suporte à validação cruzada de k-fold.
     Simultaneidade| *Máximo de iterações simultâneas*: número máximo de pipelines (iterações) a serem testados no trabalho de treinamento. O trabalho não será executado mais vezes do que o número de iterações especificado.
 
 1. Adicional Exibir configurações de personalização: se você optar por habilitar o **personalização automático** no formulário de **definições de configuração adicional, as** técnicas padrão do personalização serão aplicadas. Em **exibir configurações de personalização** , você pode alterar esses padrões e personalizá-los adequadamente. Saiba como [Personalizar o featurizations](#customize-featurization). 
@@ -217,7 +220,7 @@ O ML automatizado ajuda a implantar o modelo sem escrever códigos:
         1. Selecione **implantar** na parte superior esquerda da janela. 
 
     + Opção 2: para implantar uma iteração de modelo específica deste experimento.
-        1. Selecione o modelo desejado na guia **modelos**
+        1. Selecione o modelo desejado na guia **Modelos**
         1. Selecione **implantar** na parte superior esquerda da janela.
 
 1. Preencha o painel **Implantar um modelo**.
@@ -237,7 +240,7 @@ O ML automatizado ajuda a implantar o modelo sem escrever códigos:
     O menu *Avançado* oferece recursos de implantação padrão, como [coleta de dados](how-to-enable-app-insights.md) e configurações de utilização de recursos. Caso queira substituir esses padrões, você deve fazê-lo nesse menu.
 
 1. Selecione **Implantar**. A implantação pode levar cerca de 20 minutos para ser concluída.
-    Depois que a implantação for iniciada, a guia **Resumo do modelo** será exibida. Consulte o progresso da implantação na seção **implantar status** . 
+    Depois que a implantação for iniciada, a guia **Resumo do modelo** será exibida. Consulte o progresso da implantação na seção **Status de implantação**. 
 
 Agora você tem um serviço Web operacional para gerar previsões. Você pode testar as previsões por meio de consultas ao serviço de [Suporte ao Azure Machine Learning interno do Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

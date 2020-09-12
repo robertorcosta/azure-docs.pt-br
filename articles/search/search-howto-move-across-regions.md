@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
-ms.openlocfilehash: 71846b8e26efb3853705fabff78831e746727191
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/10/2020
+ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926942"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007036"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Mover o serviço de Pesquisa Cognitiva do Azure para outra região do Azure
 
@@ -23,7 +23,13 @@ Ocasionalmente, os clientes perguntam sobre como mover um serviço de pesquisa p
 > [!NOTE]
 > Na portal do Azure, todos os serviços têm um comando **Exportar modelo** . No caso do Azure Pesquisa Cognitiva, esse comando produz uma definição básica de um serviço (nome, local, camada, réplica e contagem de partições), mas não reconhece o conteúdo do serviço nem carrega chaves, funções ou logs. Embora o comando exista, não é recomendável usá-lo para mover um serviço de pesquisa.
 
-## <a name="guidance-for-moving-a-service"></a>Diretrizes para mover um serviço
+## <a name="prerequisites"></a>Pré-requisitos
+
++ Verifique se os serviços e recursos que sua conta usa têm suporte na região de destino.
+
++ Para obter as versões prévias do recurso, verifique se sua assinatura está na lista de permissões para a região de destino.
+
+## <a name="prepare-and-move"></a>Preparar e mover
 
 1. Identifique dependências e serviços relacionados para entender o impacto total da realocação de um serviço, caso você precise mover mais do que apenas o Azure Pesquisa Cognitiva.
 
@@ -41,7 +47,9 @@ Ocasionalmente, os clientes perguntam sobre como mover um serviço de pesquisa p
 
 1. Atualize os aplicativos cliente e os conjuntos de testes para usar o novo nome de serviço e as chaves de API e testar todos os aplicativos.
 
-1. Exclua o serviço antigo depois que o novo serviço for totalmente testado e operacional.
+## <a name="discard-or-clean-up"></a>Descartar ou limpar
+
+Exclua o serviço antigo depois que o novo serviço for totalmente testado e operacional. Excluir o serviço exclui automaticamente todo o conteúdo associado ao serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 

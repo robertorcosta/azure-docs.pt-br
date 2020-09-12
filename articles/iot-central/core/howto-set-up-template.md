@@ -7,13 +7,15 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: contperfq1
-ms.openlocfilehash: a75fbeb9a12f61f827411e56c57ff6a4460ab083
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.custom:
+- contperfq1
+- device-developer
+ms.openlocfilehash: aa70c9e5d67c759afe905e9e110d6bcd18555a8c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136262"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019233"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT em seu aplicativo do Azure IoT Central
 
@@ -125,7 +127,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Tipo de Funcionalidade | Telemetria. |
 | Tipo Semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados telemétricos, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
-| Gravidade | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
+| Severidade | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
 | Unidade | Uma unidade para o valor de telemetria, como **mph**, **%** ou ** &deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |
@@ -146,7 +148,7 @@ A seguinte tabela mostra as definições de configuração para uma funcionalida
 | Tipo Semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos campos a seguir estão disponíveis. |
 | Esquema | O tipo de dados de propriedade, como duplo, cadeia de caracteres ou vetor. As opções disponíveis são determinadas pelo tipo semântico. O esquema não está disponível para os tipos semânticos de evento e estado. |
 | Gravável | Se a propriedade não for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central. Se a propriedade for gravável, o dispositivo poderá relatar valores de propriedade para o IoT Central, e o IoT Central poderá enviar atualizações de propriedade para o dispositivo.
-| Gravidade | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
+| Severidade | Disponível somente para o tipo semântico de evento. As severidades são **Erro**, **Informação** ou **Aviso**. |
 | Valores de Estado | Disponível apenas para o tipo de estado semântico. Defina os valores de estado possíveis, cada um dos quais com o nome de exibição, o nome, o tipo de enumeração e o valor. |
 | Unidade | Uma unidade para o valor da propriedade, como **mph**, **%** ou ** &deg; C**. |
 | Unidade de exibição | Uma unidade de exibição para uso em dashboards e formulários. |

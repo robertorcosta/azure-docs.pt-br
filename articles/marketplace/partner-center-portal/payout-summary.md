@@ -3,25 +3,25 @@ title: Relatórios de pagamento – marketplace comercial da Microsoft
 description: Os relatórios de pagamento mostram detalhes sobre o dinheiro que você ganhou com sua oferta, incluindo a quantidade de pagamento e quando você será pago.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: a013dd875fc5a97e5e2e619553cdeb8c6d729298
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 09/09/2020
+ms.openlocfilehash: 62de9380578ca5a97f7b72f9939d5c2dd7392c0d
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502623"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004214"
 ---
 # <a name="payout-summaries"></a>Resumos do pagamento
 
 O resumo do pagamento mostra detalhes sobre o dinheiro que você ganhou com a Microsoft. Ele também permite que você saiba quando receberá os pagamentos e quanto será pago.
 
-Se você vender produtos no Azure Marketplace, também verá as informações sobre pagamentos bem-sucedidos no resumo do pagamento. Para obter detalhes, confira [Políticas de participação do Microsoft Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e [Contrato do editor do Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+Se você vender produtos no Azure Marketplace, também verá as informações sobre pagamentos bem-sucedidos no resumo do pagamento. Para obter mais informações sobre o pagamento do Azure Marketplace, consulte [como pagar no Marketplace comercial](./get-paid.md) e no [contrato do Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Para se qualificar para o pagamento, suas receitas devem alcançar o [limite de pagamento](payment-thresholds-methods-timeframes.md) de US$ 50. Para obter detalhes sobre o limite de pagamento, confira esta página e examine o Contrato de Desenvolvedor de Aplicativos.
+> Para se qualificar para o pagamento, suas receitas devem alcançar o limite de pagamento de US$ 50. Para obter detalhes, consulte o [contrato do Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > Se você estiver procurando suporte em relação a pagamentos, incluindo a configuração de contas de pagamento, pagamentos ausentes, colocação de pagamentos em espera ou qualquer outra coisa, entre em contato com o suporte [aqui](https://developer.microsoft.com/windows/support).
@@ -31,22 +31,14 @@ Se você vender produtos no Azure Marketplace, também verá as informações so
 Para abrir uma das páginas de resumo do pagamento:
 
 1. Selecione o ícone Pagamento no canto superior direito.
-2. Selecione Histórico de transações, Pagamentos ou Exportar dados.
-
-## <a name="transaction-history-page"></a>Página Histórico de transação
-
-Esta página exibe todos os seus ganhos individuais, incluindo a data, o tipo e os ganhos de cada um. Você pode selecionar um período de tempo a ser exibido e também pode filtrar por ID de registro, Programa, ID de pagamento, Tipo de ganho, Alavanca e Status. Os dados estão disponíveis para o ano fiscal atual (1º de julho a 30 de junho) e os dois anos fiscais anteriores.
-
-Para ver mais detalhes sobre um ganho, selecione a seta para baixo no lado direito da página. Isso exibirá a alavanca, o valor da receita e o produto. Se um desses dados estiver não disponível e você precisar acessá-lo, entre em contato com o [suporte](https://developer.microsoft.com/windows/support). Se o ganho for o resultado de um ajuste e não de uma transação, os campos de produto não serão exibidos.
-
-Para exportar um dos dados de transação nessa página, use a página **Exportar dados**.
+2. Selecione **histórico de transações**, **pagamentos**ou **exportar dados**.
 
 ## <a name="payments-page"></a>Página Pagamentos
 
 Os totais nessa página representam todos os programas que você participa. Você pode filtrar por ID de participante, Programa, ID de pagamento e Tipo de ganho. Os valores são fornecidos em dólares americanos. O valor pago também é exibido na moeda de pagamento.
 
-| Área                   | Descrição                                                                                |
-|------------------------|---------------------------------------------------------------------------------------------|
+| Área  | Descrição |
+| --- | --- |
 | Total pago neste ano   | O total combinado pago a você neste ano, em dólares americanos, para todos os seus programas       |
 | Próximo pagamento estimado | Seu próximo pagamento (mesmo se houver outros em breve), em dólares americanos |
 | Último pagamento           | O valor (em dólares americanos), o nome do programa e o programa do seu pagamento mais recente           |
@@ -66,8 +58,8 @@ Para exportar um dos dados da transação nessa página, selecione **Exportar** 
 
 ## <a name="payment-status"></a>Status de pagamento
 
-| Status do ganho           | Motivo                                                                                                                                      | É necessária uma ação do parceiro?                                   |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| Status do ganho | Motivo | É necessária uma ação do parceiro? |
+| --- | --- | --- |
 | Não processado              | O ganho está qualificado para pagamento. Ele permanece nesse estado por um período de carência, conforme definido no guia do programa de incentivo. | Não                                                         |
 | Futuros                 | A ordem de pagamento gerou revisões internas pendentes antes de o pagamento ser processado                                                               | Não                                                         |
 | Fatura de imposto pendente      | Sua fatura de imposto está incompleta ou é inválida                                                                                                  | Atualize sua fatura de imposto para ser pago |
@@ -97,8 +89,8 @@ O filtro pode resultar em um erro **Não há dados disponíveis**. Isso provavel
 
 Essa opção fornece um download dos pagamentos recebidos em seu banco para um determinado programa, o imposto associado e a quantidade de ganho agregada. Esse relatório é usado para vários programas do Partner Center, portanto, algumas colunas podem ser inaplicáveis ao seu relatório. Essas colunas são marcadas abaixo.
 
-| Nome da coluna              | Descrição                                                                                                                               |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------  |
+| Nome da coluna | Descrição |
+| --- | --- |
 | participantID            | A identidade principal do parceiro que ganha com o programa                                                                             |
 | participantIDType        | Normalmente a ID do programa para programas de incentivo e ID do vendedor para programas da loja                                                                |
 | participantName          | Nome do parceiro de ganho                                                                                                               |
@@ -123,8 +115,8 @@ Essa opção fornece um download dos pagamentos recebidos em seu banco para um d
 
 Essa opção fornece um download de cada item de linha de ganho que você vê na página Histórico de transação, tipo de conquista, data, valor da transação associada, cliente, produto e outros detalhes transacionais aplicáveis aos seus programas.
 
-| Nome da coluna                    | Descrição                                                                                                                              | Aplicabilidade para Incentivos/Loja/Azure Marketplace           |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Nome da coluna | Descrição | Aplicabilidade para Incentivos/Loja/Azure Marketplace |
+| --- | --- | --- |
 | earningId                      | Identificador exclusivo de cada ganho                                                                                                       | Todos                                                            |
 | participantId                  | A identidade principal do parceiro que ganha com o programa                                                                            | Todos                                                            |
 | participantIdType              | ID do programa para programas de incentivo e vendedor SE o programa for para programas da loja e do Microsoft Azure Marketplace                                          | Todos                                                            |
@@ -209,8 +201,8 @@ O histórico de transações de antes de 1º de julho de 2019 é tratado separad
 > [!NOTE]
 > Filtros como 3M, 6M ou 12M não serão aplicados à seção **Demonstrativos do histórico**.
 
-| Nome do campo              | Descrição                                                                                                                                                             |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nome do campo | Descrição |
+| --- | --- |
 | Origem da receita          | A origem de sua receita com base no local no qual a transação ocorreu, como Microsoft Store, Windows Phone Store, Windows Store 8 ou publicidade                  |
 | ID do pedido                | Identificador exclusivo do pedido. Essa ID permite que você identifique as transações de compra com suas respectivas transações de não compra, como reembolsos ou estornos. Ambas terão a mesma ID de pedido. Além disso, no caso de uma cobrança dividida em que vários métodos de pagamento para uma compra, ele permite vincular as transações de compra. |
 | ID da transação          | Identificador exclusivo da transação.                                                                                                                                          |

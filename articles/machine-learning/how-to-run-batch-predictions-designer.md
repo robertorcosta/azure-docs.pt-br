@@ -5,17 +5,17 @@ description: Saiba como treinar um modelo e configurar um pipeline de previsão 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
-ms.openlocfilehash: a464ab001eec877ffc6dc0ab5e33e82493c226ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
+ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84429936"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661527"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar previsões em lote usando o designer do Azure Machine Learning (versão prévia)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -34,6 +34,8 @@ Para saber como configurar serviços de pontuação de lote usando o SDK, veja a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Estas instruções pressupõem que você já tem um pipeline de treinamento. Para obter uma introdução guiada ao designer, conclua a [primeira parte do tutorial do designer](tutorial-designer-automobile-price-train-score.md). 
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="create-a-batch-inference-pipeline"></a>Criar um pipeline de inferência em lote
 
@@ -69,7 +71,10 @@ Nesta seção, você criará um parâmetro de conjunto de dados para especificar
    
     Insira um nome para o parâmetro ou aceite o valor padrão.
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>Publicação do pipeline de inferência em lote
+    > [!div class="mx-imgBorder"]
+    > ![Definir conjunto de um como parâmetro de pipeline](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
+
+## <a name="publish-your-batch-inference-pipeline"></a>Publicar o pipeline de inferência de lote
 
 Agora você está pronto para implantar o pipeline de inferência. Isso implantará o pipeline e o tornará disponível para outras pessoas usarem.
 
@@ -124,9 +129,7 @@ Encontre informações sobre como consumir pontos de extremidade de pipeline e o
 
 Encontre o ponto de extremidade de REST de um ponto de extremidade de pipeline no painel de visão geral de execução. Quando chama o ponto de extremidade, você consome seu pipeline publicado padrão.
 
-Você também pode consumir um pipeline publicado na página **Pipelines publicados**. Selecione um pipeline publicado e localize o seu respectivo ponto de extremidade de REST. 
-
-![Detalhes do ponto de extremidade de REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+Você também pode consumir um pipeline publicado na página **Pipelines publicados**. Selecione um pipeline publicado e você poderá encontrar o ponto de extremidade REST dele no painel **visão geral do pipeline publicado** à direita do grafo. 
 
 Para realizar uma chamada REST, você precisará de um cabeçalho de autenticação do tipo portador do OAuth 2.0. Confira a [seção do tutorial](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) a seguir para obter mais detalhes sobre como configurar a autenticação para seu workspace e realizar uma chamada REST.
 
@@ -140,7 +143,7 @@ Quando publica um pipeline, você pode optar por torná-lo o novo pipeline padr�
 
 Você também pode definir um novo pipeline padrão na guia **Pipelines publicados** do ponto de extremidade.
 
-![Definição do pipeline padrão](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Definir pipeline padrão na página de pipeline publicada](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

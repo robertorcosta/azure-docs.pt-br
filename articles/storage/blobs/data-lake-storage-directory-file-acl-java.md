@@ -3,24 +3,24 @@ title: Azure Data Lake Storage Gen2 SDK do Java para arquivos & ACLs
 description: Use bibliotecas de armazenamento do Azure para Java para gerenciar diretórios e listas de controle de acesso (ACL) de arquivos e diretórios em contas de armazenamento que têm o namespace hierárquico (HNS) habilitado.
 author: normesta
 ms.service: storage
-ms.date: 03/20/2020
+ms.date: 09/10/2020
 ms.custom: devx-track-java
 ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 0f7dfda46c7a4af8143c33b1b45001a88d3bed88
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ac0f885a370269a87e45b5e31ec1de6ac397080a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319381"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017206"
 ---
 # <a name="use-java-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Java para gerenciar diretórios, arquivos e ACLs no Azure Data Lake Storage Gen2
 
 Este artigo mostra como usar o Java para criar e gerenciar diretórios, arquivos e permissões em contas de armazenamento que têm o namespace hierárquico (HNS) habilitado. 
 
-[Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [Exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [Referência](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)  |  de API Mapeamento de Gen1 [para Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [Enviar comentários](https://github.com/Azure/azure-sdk-for-java/issues)
+[Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)  |  [Exemplos](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)  |  [Referência](/java/api/overview/azure/storage-file-datalake-readme)  |  de API Mapeamento de Gen1 [para Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [Enviar comentários](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Este artigo mostra como usar o Java para criar e gerenciar diretórios, arquivos
 
 Para começar, abra [esta página](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) e localize a versão mais recente da biblioteca do Java. Em seguida, abra o arquivo *pom.xml* em seu editor de texto. Adicione um elemento Dependency que faz referência a essa versão.
 
-Se você planeja autenticar seu aplicativo cliente usando o Azure Active Directory (AD), adicione uma dependência à biblioteca do cliente de segredo do Azure. Consulte [adicionando o pacote de biblioteca de cliente secreto ao seu projeto](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
+Se você planeja autenticar seu aplicativo cliente usando o Azure Active Directory (AD), adicione uma dependência à biblioteca do cliente de segredo do Azure. Consulte  [adicionando o pacote de biblioteca de cliente secreto ao seu projeto](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project).
 
 Em seguida, adicione essas instruções Imports ao arquivo de código.
 
@@ -395,7 +395,7 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 
 ## <a name="see-also"></a>Confira também
 
-* [Documentação de referência da API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.1/index.html)
+* [Documentação de referência da API](/java/api/overview/azure/storage-file-datalake-readme)
 * [Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
 * [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)

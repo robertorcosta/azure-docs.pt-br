@@ -1,5 +1,5 @@
 ---
-title: Criar recursos de computação com o SDK do Python
+title: Criar treinamento & implantar computações (Python)
 titleSuffix: Azure Machine Learning
 description: Use o SDK do Python Azure Machine Learning para criar recursos de computação de treinamento e implantação (destinos de computação) para o aprendizado de máquina
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 96aa6839fe51bb8a8c26f411c1a1f9df6b8c5a7f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147346"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662535"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Criar destinos de computação para treinamento e implantação de modelo com o SDK do Python
 
@@ -31,8 +31,12 @@ Neste artigo, use o SDK Azure Machine Learning Python para criar e gerenciar des
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Caso não tenha uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree) hoje
-* O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* O [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md)
+
+## <a name="limitations"></a>Limitações
+
+Alguns dos cenários listados neste documento são marcados como __Visualização__. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>O que é um destino de computação?
 
@@ -55,16 +59,33 @@ Use as seções a seguir para configurar estes destinos de computação:
 * [Máquinas virtuais remotas](#vm)
 * [Azure HDInsight](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>Destinos de computação para inferência
+
+Ao executar a inferência, Azure Machine Learning cria um contêiner do Docker que hospeda o modelo e os recursos associados necessários para usá-lo. Esse contêiner é usado em um dos seguintes cenários de implantação:
+
+* Como um __serviço Web__ que é usado para inferência em tempo real. As implantações de serviço Web usam um dos seguintes destinos de computação:
+
+    * [Computador local](#local)
+    * [Instância de computação do Azure Machine Learning](#instance)
+    * [Instâncias de Contêiner do Azure](#aci)
+    * [Serviço de Kubernetes do Azure](how-to-create-attach-kubernetes.md)
+    * Azure Functions (versão prévia). A implantação em Azure Functions se baseia apenas em Azure Machine Learning para criar o contêiner do Docker. A partir daí, ele é implantado usando Azure Functions. Para obter mais informações, consulte [implantar um modelo de aprendizado de máquina para Azure Functions (versão prévia)](how-to-deploy-functions.md).
+
+* Como um ponto de extremidade de __inferência de lote__ que é usado para processar periodicamente lotes de dados. As inferências em lote usam [Azure Machine Learning cluster de computação](#amlcompute).
+
+* Para um __dispositivo IOT__ (versão prévia). A implantação em um dispositivo IoT conta apenas com Azure Machine Learning para criar o contêiner do Docker. A partir daí, ele é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implantar como um módulo IOT Edge (versão prévia)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="local-computer"></a><a id="local"></a>Computador local
 
-Quando você usa seu computador local para treinamento, não é necessário criar um destino de computação.  Basta [enviar a execução de treinamento](how-to-set-up-training-targets.md) do computador local.
+Quando você usa seu computador local para **treinamento**, não é necessário criar um destino de computação.  Basta [enviar a execução de treinamento](how-to-set-up-training-targets.md) do computador local.
+
+Ao usar seu computador local para **inferência**, você deve ter o Docker instalado. Para executar a implantação, use [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) para definir a porta que o serviço Web usará. Em seguida, use o processo de implantação normal, conforme descrito em [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning cluster de computação
 
 Azure Machine Learning cluster de computação é uma infraestrutura de computação gerenciada que permite criar facilmente uma computação de vários nós ou um único nó. Ela é criada na sua região do workspace e é um recurso que pode ser compartilhado com outros usuários no workspace. A computação escala verticalmente e automaticamente quando um trabalho é enviado e pode ser colocada em uma Rede Virtual do Azure. A computação é executada em um ambiente em contêineres, empacotando as dependências do modelo em um [contêiner do Docker](https://www.docker.com/why-docker).
 
-É possível usar a Computação do Azure Machine Learning para distribuir o processo de treinamento em um cluster de nós de computação de CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos de máquina virtual que incluem GPUs, consulte os [Tamanhos de máquinas virtuais com GPU otimizadas](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+Você pode usar Azure Machine Learning computação para distribuir um processo de inferência de treinamento ou de lote em um cluster de nós de computação de CPU ou GPU na nuvem. Para obter mais informações sobre os tamanhos de máquina virtual que incluem GPUs, consulte os [Tamanhos de máquinas virtuais com GPU otimizadas](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 A Computação do Machine Learning do Azure tem limites padrão como o número de núcleos que podem ser alocados. Para obter mais informações, consulte [Gerenciar e solicitar cotas para recursos do Azure](how-to-manage-quotas.md).
 
@@ -87,7 +108,7 @@ Uma Computação do Azure Machine Learning pode ser reutilizada entre execuçõe
 
     Outra opção é criar e anexar a um recurso persistente de Computação do Azure Machine Learning no [estúdio do Azure Machine Learning](how-to-create-attach-compute-studio.md#portal-create).
 
-Agora que você anexou a computação, a próxima etapa é [enviar a execução de treinamento](how-to-set-up-training-targets.md).
+Agora que você anexou a computação, a próxima etapa é enviar a [inferência](how-to-use-parallel-run-step.md) [de execução de treinamento](how-to-set-up-training-targets.md) ou execução de lote.
 
  ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Reduzir o custo do cluster de computação
 
@@ -201,8 +222,15 @@ As instâncias de computação podem executar trabalhos com segurança em um [am
         instance.wait_for_completion(show_output=True)
     ```
 
-Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](how-to-set-up-training-targets.md)
+Agora que você anexou a computação e configurou sua execução, a próxima etapa é [enviar a execução de treinamento](how-to-set-up-training-targets.md) ou [implantar um modelo para inferência](how-to-deploy-local-container-notebook-vm.md).
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Azure Container Instance
+
+As ACI (instâncias de contêiner do Azure) são criadas dinamicamente quando você implanta um modelo. Não é possível criar ou anexar ACI ao seu espaço de trabalho de nenhuma outra maneira. Para obter mais informações, consulte [implantar um modelo para instâncias de contêiner do Azure](how-to-deploy-azure-container-instance.md).
+
+## <a name="azure-kubernetes-service"></a>Serviço de Kubernetes do Azure
+
+O AKS (serviço kubernetes do Azure) permite uma variedade de opções de configuração quando usadas com Azure Machine Learning. Para obter mais informações, consulte [como criar e anexar o serviço kubernetes do Azure](how-to-create-attach-kubernetes.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuais remotas
 
@@ -437,7 +465,7 @@ except ComputeTargetException:
 Para obter um exemplo mais detalhado, consulte um [exemplo de bloco de anotações](https://aka.ms/pl-adla) no github.
 
 > [!TIP]
-> Os pipelines do Azure Machine Learning só podem funcionar com dados armazenados no armazenamento de dados padrão da conta do Data Lake Analytics. Se os dados com os quais você precisa trabalhar estiverem em um repositório não padrão, você poderá usar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar os dados antes do treinamento.
+> Os pipelines do Azure Machine Learning só podem funcionar com dados armazenados no armazenamento de dados padrão da conta do Data Lake Analytics. Se os dados com os quais você precisa trabalhar estiverem em um repositório não padrão, você poderá usar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) para copiar os dados antes do treinamento.
 
 ## <a name="notebook-examples"></a>Exemplos de notebook
 

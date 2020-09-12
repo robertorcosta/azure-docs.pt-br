@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713b4ed2559e3cd16943af92e68818047e249ef4
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: aafaeb1143049b14f0a2fe2d867a951355d1ba61
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501007"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667586"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador em todo o locatário para um aplicativo
 
@@ -32,15 +32,12 @@ Conceder consentimento de administrador em todo o locatário exige que você ent
 > [!IMPORTANT]
 > Quando um aplicativo recebe o consentimento do administrador em todo o locatário, todos os usuários poderão entrar no aplicativo, a menos que tenham sido configurados para exigir a atribuição de usuário. Para restringir quais usuários podem entrar em um aplicativo, exija a atribuição de usuário e, em seguida, atribua usuários ou grupos ao aplicativo. Para obter mais informações, confira [Métodos para atribuir usuários e grupos](methods-for-assigning-users-and-groups.md).
 >
-> A função de administrador global é necessária para fornecer consentimento de administrador para a API de Microsoft Graph.
->
-
+> A função de administrador global é necessária para fornecer consentimento de administrador para permissões de aplicativo para a API de Microsoft Graph.
 
 > [!WARNING]
 > Conceder consentimento de administrador em todo o locatário a um aplicativo concederá o aplicativo e o acesso do Publicador do aplicativo aos dados da sua organização. Examine atentamente as permissões que o aplicativo está solicitando antes de conceder consentimento.
 >
-> A função de administrador global é necessária para fornecer consentimento de administrador para a API de Microsoft Graph.
->
+> A função de administrador global é necessária para fornecer consentimento de administrador para permissões de aplicativo para a API de Microsoft Graph.
 
 ## <a name="grant-admin-consent-from-the-azure-portal"></a>Conceder consentimento de administrador do portal do Azure
 
@@ -56,6 +53,9 @@ Para conceder consentimento de administrador em todo o locatário para um aplica
 4. Selecione **permissões** e clique em **conceder consentimento do administrador**.
 5. Examine atentamente as permissões que o aplicativo requer.
 6. Se você concordar com as permissões que o aplicativo requer, conceda o consentimento. Caso contrário, clique em **Cancelar** ou feche a janela.
+
+> [!WARNING]
+> A concessão de consentimento de administrador em todo o locatário por meio de **aplicativos empresariais** revogará quaisquer permissões que tenham recebido anteriormente todo o locatário. As permissões que foram concedidas anteriormente pelos usuários em seu próprio nome não serão afetadas. 
 
 ### <a name="grant-admin-consent-in-app-registrations"></a>Conceder consentimento de administrador no Registros de aplicativo
 
@@ -80,12 +80,15 @@ A URL de consentimento do administrador em todo o locatário segue o seguinte fo
 https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
 ```
 
-onde:
+em que:
 
-* `{client-id}`é a ID do cliente do aplicativo (também conhecida como ID do aplicativo).
-* `{tenant-id}`é a ID de locatário da sua organização ou qualquer nome de domínio verificado.
+* `{client-id}` é a ID do cliente do aplicativo (também conhecida como ID do aplicativo).
+* `{tenant-id}` é a ID de locatário da sua organização ou qualquer nome de domínio verificado.
 
 Como sempre, examine atentamente as permissões que um aplicativo solicita antes de conceder consentimento.
+
+> [!WARNING]
+> Conceder consentimento de administrador em todo o locatário por meio desta URL revogará todas as permissões que anteriormente receberam todo o locatário. As permissões que foram ggranteddas anteriormente pelos usuários em seu próprio nome não serão afetadas. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

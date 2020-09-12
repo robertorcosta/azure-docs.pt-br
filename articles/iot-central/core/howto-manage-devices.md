@@ -8,18 +8,16 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8725a822c575ce80b9810d56bfd072241ded4c86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ee9552b251cbc8cca1891de043ee79682e7b2d6c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80157935"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017091"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerenciar dispositivos no aplicativo Azure IoT Central
 
-
-
-Este artigo descreve como, como operador, gerenciar dispositivos no seu Microsoft IoT Central. Como um operador, você pode:
+Este artigo descreve como, como um operador, você gerencia dispositivos em seu aplicativo IoT Central do Azure. Como um operador, você pode:
 
 - Use a página **dispositivos** para exibir, adicionar e excluir dispositivos conectados ao seu aplicativo IOT central do Azure.
 - Mantenha um inventário atualizado dos seus dispositivos.
@@ -124,7 +122,7 @@ Para exportar em massa os dispositivos do seu aplicativo:
 
 1. Selecione os dispositivos que você deseja exportar e, em seguida, selecione a ação **Exportar** .
 
-    ![Exportar](./media/howto-manage-devices/export1a.png)
+    ![Exportação](./media/howto-manage-devices/export1a.png)
 
 
 1. O processo de exportação tem início. Você pode acompanhar o status usando o painel de operações do dispositivo.

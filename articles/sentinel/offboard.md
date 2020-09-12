@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: yelevin
-ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77581677"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662010"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Remover o Azure Sentinel do seu espaço de trabalho
 
@@ -48,13 +48,13 @@ Depois que a desconexão é identificada, o processo de remoção é iniciado.
 
 -   AWS
 
--   Alertas de segurança de serviços da Microsoft (Azure ATP Microsoft Cloud App Security incluindo Cloud Discovery relatório de ti de sombra, Azure AD Identity Protection, Microsoft defender ATP, central de segurança do Azure)
+-   Alertas de segurança de serviços da Microsoft: Microsoft defender para identidade (*anteriormente Azure ATP*), Microsoft Cloud App Security incluindo Cloud Discovery relatório de ti de sombra, Azure ad Identity Protection, Microsoft defender for Endpoint (*anteriormente Microsoft defender ATP*), Azure defender (anteriormente, a*central de segurança do Azure*)
 
 -   Inteligência contra ameaças
 
--   Logs de segurança comuns (incluindo logs baseados em CEF, Barracuda e syslog) (se você tiver a central de segurança do Azure, esses logs continuarão a ser coletados.)
+-   Logs de segurança comuns (incluindo logs baseados em CEF, Barracuda e syslog) (se você tiver o Azure defender, esses logs continuarão a ser coletados.)
 
--   Eventos de segurança do Windows (se você tiver a central de segurança do Azure, esses logs continuarão a ser coletados).
+-   Eventos de segurança do Windows (se você tiver o Azure defender, esses logs continuarão a ser coletados).
 
 Nas primeiras 48 horas, as regras de dados e analíticas (incluindo a configuração de automação em tempo real) não estarão mais acessíveis ou consultáveis no Azure Sentinel.
 

@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 09/04/2020
 ms.author: kgremban
-ms.openlocfilehash: 4078d7e6c20571db2387cfd138ecb325fc3469e7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 21fde76dc5791030a7afa280e00642119cbe464c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022081"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660046"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian
 
@@ -25,7 +25,7 @@ Este artigo lista as etapas para instalar o Azure IoT Edge Runtime em um disposi
 > [!NOTE]
 > Os pacotes nos repositórios de software do Linux estão sujeitos aos termos de licença localizados em cada pacote (/usr/share/doc/ *package-name *). Leia os termos da licença antes de usar o pacote. A instalação e o uso do pacote constitui a aceitação desses termos. Se você não concorda com os termos de licença, não utilize o pacote.
 
-## <a name="install-iot-edge-and-container-runtimes"></a>Instalar IoT Edge e tempos de execução de contêiner
+## <a name="install-container-runtime-and-iot-edge"></a>Instalar o tempo de execução do contêiner e IoT Edge
 
 Use as seções a seguir para instalar a versão mais recente do Azure IoT Edge Runtime em seu dispositivo.
 
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opção 2: provisionamento automático
 
-IoT Edge dispositivos podem ser provisionados automaticamente usando o [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../iot-dps/index.yml). Atualmente, o IoT Edge dá suporte a três mecanismos de atestado ao usar o provisionamento automático, mas seus requisitos de hardware podem afetar suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip Trusted Platform Module (TPM) por padrão. Para obter mais informações, consulte os seguintes artigos:
+IoT Edge dispositivos podem ser provisionados automaticamente usando o [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../iot-dps/index.yml). Atualmente, o IoT Edge dá suporte a três mecanismos de atestado ao usar o provisionamento automático, mas seus requisitos de hardware podem afetar suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip Trusted Platform Module (TPM) por padrão. Para obter mais informações, confira os seguintes artigos:
 
 * [Criar e provisionar um dispositivo IoT Edge com um TPM virtual em uma VM do Linux](how-to-auto-provision-simulated-device-linux.md)
 * [Criar e provisionar um dispositivo IoT Edge usando certificados X. 509](how-to-auto-provision-x509-certs.md)
@@ -272,7 +272,7 @@ Você precisa de privilégios elevados para executar comandos `iotedge`. Após i
 
 Em dispositivos com restrição de recursos, é altamente recomendável que a variável de ambiente *OptimizeForPerformance* seja definida como *false* de acordo com as instruções no [guia de solução de problemas](troubleshoot.md).
 
-Se a rede tem um servidor proxy, siga as etapas em [Configurar o dispositivo do IoT Edge para comunicar-se por meio de um servidor proxy](how-to-configure-proxy-support.md).
+Se o dispositivo não puder se conectar ao Hub IoT e sua rede tiver um servidor proxy, siga as etapas em [configurar seu IOT Edge dispositivo para se comunicar por meio de um servidor proxy](how-to-configure-proxy-support.md).
 
 ### <a name="verify-your-linux-kernel-for-moby-compatibility"></a>Verifique a compatibilidade do kernel do Linux para Moby
 
@@ -290,13 +290,15 @@ Esse comando fornece uma saída detalhada que contém o status dos recursos de k
 
 Use as etapas nesta seção se você quiser instalar uma versão específica do Azure IoT Edge Runtime que não está disponível por meio do `apt-get install` . A lista de pacotes da Microsoft contém apenas um conjunto limitado de versões recentes e suas subversãos, portanto, essas etapas são para qualquer pessoa que queira instalar uma versão mais antiga ou uma versão Release Candidate.
 
-Usando comandos de rotação, você pode direcionar os arquivos de componentes diretamente do repositório GitHub IoT Edge. Use as etapas a seguir para instalar o libiothsm e o daemon de segurança IoT Edge. Instale o mecanismo Moby e a CLI usando as etapas na seção [instalar um tempo de execução de contêiner](#install-a-container-runtime) .
+Usando comandos de rotação, você pode direcionar os arquivos de componentes diretamente do repositório GitHub IoT Edge. Use as etapas a seguir para instalar o libiothsm e o daemon de segurança IoT Edge.
 
-1. Navegue até o [Azure IOT Edge versões](https://github.com/Azure/azure-iotedge/releases)e localize a versão de lançamento que você deseja direcionar.
+1. Seu dispositivo está preparado com um mecanismo de contêiner instalado. Se você não tiver um mecanismo de contêiner, siga as etapas para registrar o repositório da Microsoft e instalar o Moby na seção [instalar tempo de execução do contêiner e IOT Edge](#install-container-runtime-and-iot-edge) deste artigo.
 
-2. Expanda a seção **ativos** para essa versão.
+2. Navegue até o [Azure IOT Edge versões](https://github.com/Azure/azure-iotedge/releases)e localize a versão de lançamento que você deseja direcionar.
 
-3. Cada versão deve ter novos arquivos para o daemon de segurança IoT Edge e o hsmlib. Use os comandos a seguir para atualizar esses componentes.
+3. Expanda a seção **ativos** para essa versão.
+
+4. Cada versão deve ter novos arquivos para o daemon de segurança IoT Edge e o hsmlib. Use os comandos a seguir para atualizar esses componentes.
 
    1. Localize o arquivo **libiothsm-STD** que corresponde à arquitetura do dispositivo IOT Edge. Clique com o botão direito do mouse no link do arquivo e copie o endereço do link.
 

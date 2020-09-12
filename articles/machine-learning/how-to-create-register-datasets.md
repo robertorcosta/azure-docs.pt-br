@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: ae8dcc02618220750e2d15d815da4b36ea64da2d
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 6229686cda87a6dd65dfb9232f0e8ac550ba3750
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782185"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660497"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados no Azure Machine Learning
 
@@ -43,16 +43,16 @@ Para criar e trabalhar com conjuntos de os, você precisa de:
 
 * Um [espaço de trabalho Azure Machine Learning](how-to-manage-workspace.md).
 
-* O [SDK do Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), que inclui o pacote de conjuntos de linhas do azureml.
+* O [SDK do Azure Machine Learning para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), que inclui o pacote de conjuntos de linhas do azureml.
 
     * Crie uma [instância de computação Azure Machine Learning](concept-compute-instance.md#managing-a-compute-instance), que é um ambiente de desenvolvimento totalmente configurado e gerenciado que inclui blocos de anotações integrados e o SDK já instalado.
 
     **OR**
 
-    * Trabalhe em seu próprio notebook Jupyter e instale o SDK com [estas instruções](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    * Trabalhe em seu próprio notebook Jupyter e instale o SDK com [estas instruções](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 > [!NOTE]
-> Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) , que é compatível apenas com Python de 64 bits. Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14, 4, 16, 4, 18, 4), Fedora (27, 28), Debian (8, 9) e CentOS (7).
+> Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) , que é compatível apenas com Python de 64 bits. Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14, 4, 16, 4, 18, 4), Fedora (27, 28), Debian (8, 9) e CentOS (7).
 
 ## <a name="compute-size-guidance"></a>Diretrizes de tamanho de computação
 
@@ -68,7 +68,7 @@ Há dois tipos de conjuntos de conjunto de DataSet, com base em como os usuário
 
 ### <a name="filedataset"></a>DataSet
 
-Um [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar](how-to-train-with-datasets.md#mount-vs-download) os arquivos em sua computação como um objeto filedataset. 
+Um [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar](how-to-train-with-datasets.md#mount-vs-download) os arquivos em sua computação como um objeto filedataset. 
 
 É recomendável o filedatasets para seus fluxos de trabalho de aprendizado de máquina, já que os arquivos de origem podem estar em qualquer formato, o que permite uma ampla gama de cenários de aprendizado de máquina, incluindo aprendizado profundo.
 
@@ -76,7 +76,7 @@ Criar um filedataset com o [SDK do Python](#create-a-filedataset) ou o [Azure Ma
 
 ### <a name="tabulardataset"></a>TabularDataset
 
-Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Isso fornece a capacidade de materializar os dados em um data frame do pandas ou Spark para que você possa trabalhar com bibliotecas de treinamento e preparação de dados familiares sem precisar sair do bloco de anotações. Você pode criar um `TabularDataset` objeto a partir de arquivos. csv,. TSV,. parquet,. jsonl e dos [resultados da consulta SQL](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
+Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Isso fornece a capacidade de materializar os dados em um data frame do pandas ou Spark para que você possa trabalhar com bibliotecas de treinamento e preparação de dados familiares sem precisar sair do bloco de anotações. Você pode criar um `TabularDataset` objeto a partir de arquivos. csv,. TSV,. parquet,. jsonl e dos [resultados da consulta SQL](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#&preserve-view=truefrom-sql-query-query--validate-true--set-column-types-none--query-timeout-30-).
 
 Com o TabularDatasets, você pode especificar um carimbo de data/hora de uma coluna nos dados ou de onde quer que os dados de padrão de caminho sejam armazenados para habilitar uma característica de série temporal. Essa especificação permite uma filtragem fácil e eficiente por tempo. Para obter um exemplo, consulte [tabela de demonstração de API relacionada à série temporal com dados meteorológicos NOAA](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
@@ -87,7 +87,7 @@ Crie um TabularDataset com [o SDK do Python ou o](#create-a-tabulardataset) [Azu
 
 ## <a name="access-datasets-in-a-virtual-network"></a>Acessar conjuntos de os em uma rede virtual
 
-Se o seu espaço de trabalho estiver em uma rede virtual, você deverá configurar o conjunto de um para ignorar a validação. Para obter mais informações sobre como usar armazenamentos de dados e conjuntos de dados em uma rede virtual, consulte [isolamento de rede durante o treinamento & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#use-datastores-and-datasets).
+Se o seu espaço de trabalho estiver em uma rede virtual, você deverá configurar o conjunto de um para ignorar a validação. Para obter mais informações sobre como usar armazenamentos de dados e conjuntos de dados em uma rede virtual, consulte [proteger um espaço de trabalho e os recursos associados](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
 
 <a name="datasets-sdk"></a>
 
@@ -106,9 +106,9 @@ Para criar conjuntos de itens de um [repositório de armazenamento do Azure](how
 
 ### <a name="create-a-filedataset"></a>Criar um FileDataset
 
-Use o [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) método na `FileDatasetFactory` classe para carregar arquivos em qualquer formato e para criar um filedataset não registrado. 
+Use o [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#&preserve-view=truefrom-files-path--validate-true-) método na `FileDatasetFactory` classe para carregar arquivos em qualquer formato e para criar um filedataset não registrado. 
 
-Se o armazenamento estiver protegido por uma rede virtual ou firewall, defina o parâmetro `validate=False` em seu `from_files()` método. Isso ignora a etapa de validação inicial e garante que você possa criar seu conjunto de seus arquivos seguros. Saiba mais sobre como usar [repositórios de armazenamento e conjuntos de informações em uma rede virtual](how-to-enable-virtual-network.md#use-datastores-and-datasets).
+Se o armazenamento estiver protegido por uma rede virtual ou firewall, defina o parâmetro `validate=False` em seu `from_files()` método. Isso ignora a etapa de validação inicial e garante que você possa criar seu conjunto de seus arquivos seguros. Saiba mais sobre como [usar repositórios de armazenamento e conjuntos de informações em uma rede virtual](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively
@@ -125,7 +125,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 Use o [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) método na `TabularDatasetFactory` classe para ler os arquivos no formato. csv ou. tsv e para criar um TabularDataset não registrado. Se você estiver lendo de vários arquivos, os resultados serão agregados em uma representação tabular. 
 
-Se o armazenamento estiver protegido por uma rede virtual ou firewall, defina o parâmetro `validate=False` em seu `from_delimited_files()` método. Isso ignora a etapa de validação inicial e garante que você possa criar seu conjunto de seus arquivos seguros. Saiba mais sobre como usar [repositórios de armazenamento e conjuntos de informações em uma rede virtual](how-to-enable-virtual-network.md#use-datastores-and-datasets).
+Se o armazenamento estiver protegido por uma rede virtual ou firewall, defina o parâmetro `validate=False` em seu `from_delimited_files()` método. Isso ignora a etapa de validação inicial e garante que você possa criar seu conjunto de seus arquivos seguros. Saiba mais sobre como usar [repositórios de armazenamento e conjuntos de informações em uma rede virtual](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
 
 O código a seguir obtém o espaço de trabalho existente e o repositório de armazenamento desejado pelo nome. E, em seguida, passa o repositório de armazenamento e os locais de arquivo para o `path` parâmetro para criar um novo TabularDataset, `weather_ds` .
 
@@ -148,7 +148,7 @@ datastore_paths = [(datastore, 'weather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-Por padrão, quando você cria um TabularDataset, os tipos de dados de coluna são inferidos automaticamente. Se os tipos deduzidos não corresponderem às suas expectativas, você poderá especificar tipos de coluna usando o código a seguir. O parâmetro `infer_column_type` só é aplicável a conjuntos de valores criados a partir de arquivos delimitados. [Saiba mais sobre os tipos de dados com suporte](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py).
+Por padrão, quando você cria um TabularDataset, os tipos de dados de coluna são inferidos automaticamente. Se os tipos deduzidos não corresponderem às suas expectativas, você poderá especificar tipos de coluna usando o código a seguir. O parâmetro `infer_column_type` só é aplicável a conjuntos de valores criados a partir de arquivos delimitados. [Saiba mais sobre os tipos de dados com suporte](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py&preserve-view=true).
 
 
 ```Python
@@ -167,7 +167,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 ### <a name="create-a-dataset-from-pandas-dataframe"></a>Criar um conjunto de uma série de dataframe do pandas
 
@@ -200,7 +200,7 @@ dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv
 
 ## <a name="register-datasets"></a>Registrar conjuntos de os
 
-Para concluir o processo de criação, registre seus conjuntos de registros com um espaço de trabalho. Use o [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) método para registrar conjuntos de registros com seu espaço de trabalho a fim de compartilhá-los com outras pessoas e reutilizá-los entre experimentos em seu espaço de trabalho:
+Para concluir o processo de criação, registre seus conjuntos de registros com um espaço de trabalho. Use o [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#&preserve-view=trueregister-workspace--name--description-none--tags-none--create-new-version-false-) método para registrar conjuntos de registros com seu espaço de trabalho a fim de compartilhá-los com outras pessoas e reutilizá-los entre experimentos em seu espaço de trabalho:
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
@@ -223,7 +223,7 @@ Para criar um conjunto de um DataSet no estúdio:
 1. Selecione **criar conjunto** de um para escolher a origem do conjunto de seus conjuntos de um. Essa fonte pode ser arquivos locais, um repositório de armazenamento ou URLs públicas.
 1. Selecione **tabela** ou **arquivo** para o tipo de conjunto de texto.
 1. Selecione **Avançar** para abrir o formulário **repositório de armazenamento e seleção de arquivo** . Neste formulário, você seleciona onde deseja manter o conjunto de dados após a criação, bem como selecionar quais arquivos que deseja usar para o conjunto. 
-    1. Habilite ignorar validação se os dados estiverem em uma rede virtual. Saiba mais sobre o [isolamento e a privacidade da rede virtual](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Habilite ignorar validação se os dados estiverem em uma rede virtual. Saiba mais sobre como [usar conjuntos de informações e repositórios de armazenamento em uma rede virtual](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets).
 1. Selecione **Avançar** para popular as **configurações e** os formulários de visualização e **esquema** ; Eles são populados de forma inteligente com base no tipo de arquivo e você pode configurar ainda mais seu conjunto de informações antes da criação nesses formulários. 
 1. Selecione **Avançar** para examinar o formulário **confirmar detalhes** . Verifique suas seleções e crie um perfil de dados opcional para seu conjunto de dados. Saiba mais sobre a [criação de perfil de dados](how-to-use-automated-ml-for-ml-models.md#profile). 
 1. Selecione **criar** para concluir a criação do conjunto de seus conjuntos de os.

@@ -11,14 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079579"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661926"
 ---
-# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning
+# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do Azure Machine Learning. O [controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview) é usado para gerenciar o acesso aos recursos do Azure. Os usuários em seu Azure Active Directory recebem funções específicas, que concedem acesso aos recursos. O Azure fornece funções internas e a capacidade de criar funções personalizadas.
@@ -134,17 +134,17 @@ A tabela a seguir é um resumo de Azure Machine Learning atividades e as permiss
 
 | Atividade | Escopo de nível de assinatura | Escopo no nível do grupo de recursos | Escopo no nível do espaço de trabalho |
 | ----- | ----- | ----- | ----- |
-| Criar novo workspace | Não é necessária | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
-| Atualizar a edição do espaço de trabalho | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/write` |
-| Solicitar cota de Amlcompute de nível de assinatura ou definir cota de nível de espaço de trabalho | Proprietário, ou colaborador, ou função personalizada </br>permitindo que`/locations/updateQuotas/action`</br> no escopo da assinatura | Não autorizado | Não autorizado |
-| Criar novo cluster de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/computes/write` |
-| Criar nova instância de computação | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/computes/write` |
-| Enviando qualquer tipo de execução | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Publicando um ponto de extremidade de pipeline | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| Implantando um modelo registrado em um recurso AKS/ACI | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Pontuação em relação a um ponto de extremidade AKS implantado | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando Azure Active Directory autenticação) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
-| Acessando o armazenamento usando blocos de anotações interativos | Não é necessária | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
-| Criar nova função personalizada | Proprietário, colaborador ou função personalizada que permite`Microsoft.Authorization/roleDefinitions/write` | Não é necessária | Proprietário, colaborador ou função personalizada, permitindo:`/workspaces/computes/write` |
+| Criar novo workspace | Não obrigatório | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
+| Atualizar a edição do espaço de trabalho | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/write` |
+| Solicitar cota de Amlcompute de nível de assinatura ou definir cota de nível de espaço de trabalho | Proprietário, ou colaborador, ou função personalizada </br>permitindo que `/locations/updateQuotas/action`</br> no escopo da assinatura | Não autorizado | Não autorizado |
+| Criar novo cluster de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
+| Criar nova instância de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
+| Enviando qualquer tipo de execução | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Publicando um ponto de extremidade de pipeline | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Implantando um modelo registrado em um recurso AKS/ACI | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Pontuação em relação a um ponto de extremidade AKS implantado | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (quando você não estiver usando Azure Active Directory autenticação) ou `"/workspaces/read"` (quando estiver usando a autenticação de token) |
+| Acessando o armazenamento usando blocos de anotações interativos | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Criar nova função personalizada | Proprietário, colaborador ou função personalizada que permite `Microsoft.Authorization/roleDefinitions/write` | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
 
 > [!TIP]
 > Se você receber uma falha ao tentar criar um espaço de trabalho pela primeira vez, certifique-se de que sua função permite `Microsoft.MachineLearningServices/register/action` . Essa ação permite que você registre o provedor de recursos Azure Machine Learning com sua assinatura do Azure.
@@ -429,6 +429,6 @@ Você precisa de permissões de nível de assinatura para executar qualquer oper
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Visão geral de segurança empresarial](concept-enterprise-security.md)
-- [Executar experimentos e inferência/Pontuação com segurança dentro de uma rede virtual](how-to-enable-virtual-network.md)
+- [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md)
 - [Tutorial: Treinar modelos](tutorial-train-models-with-aml.md)
 - [Operações de provedor de recursos](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

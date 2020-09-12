@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548859"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661857"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
 Este artigo explica as regras da configuração pronta para uso. Ele documenta as regras e como elas afetarão a configuração. Ele também orienta você pela configuração padrão de sincronização de Azure AD Connect. O objetivo é que o leitor entenda como o modelo de configuração, chamado provisionamento declarativo, está funcionando em um exemplo do mundo real. Este artigo pressupõe que você já instalou e configurou a sincronização do Azure AD Connect usando o assistente de instalação.
@@ -223,7 +223,7 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 | Nome | Comentário |
 |:--- |:--- |
 | Entrada do AD – Associação de Usuário |Regra para associar objetos de espaço conector com metaverso. |
-| Entrada do AD – UserAccount habilitada |Os atributos necessários para entrar no Azure AD e no Office 365. Queremos esses atributos da conta habilitada. |
+| Entrada do AD – UserAccount habilitada |Atributos necessários para entrar no Azure AD e Microsoft 365. Queremos esses atributos da conta habilitada. |
 | Entrada do AD – usuário comum do Exchange |Atributos encontrados na Lista de Endereços Global. Vamos supor que a qualidade dos dados é melhor na floresta em que achamos a caixa de correio do usuário. |
 | Entrada do AD – usuário comum |Atributos encontrados na Lista de Endereços Global. No caso de não encontramos uma caixa de correio, outros objetos associados podem contribuir com o valor do atributo. |
 | Entrada do AD – usuário do Exchange |Existe somente se o Exchange foi detectado. Flui todos os atributos do Exchange de infraestrutura. |

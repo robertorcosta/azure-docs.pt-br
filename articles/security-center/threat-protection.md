@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 69f439e102edc53207e44d63cb29396f64f59e0e
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: e2f72cc0ea6851caaf5d0db2f17f8e16473d420e
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272494"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667549"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Proteção contra ameaças na Central de Segurança do Azure
 
@@ -25,7 +25,7 @@ A proteção contra ameaças da Central de Segurança do Azure fornece defesas a
 
 * **Proteção contra ameaças para recursos de computação do Azure**: Computadores Windows, computadores Linux, Serviço de Aplicativo do Azure e contêineres do Azure
 
-* **Proteção contra ameaças para recursos de dados do Azure**: Banco de Dados SQL e SQL Data Warehouse, Armazenamento do Microsoft Azure e Azure Cosmos DB
+* **Proteção contra ameaças para recursos de dados do Azure**: banco de dados SQL e Azure Synapse Analytics (anteriormente SQL data warehouse), armazenamento do azure e Azure Cosmos DB
 
 * **Proteção contra ameaças para camadas de serviço do Azure**: Camada de rede do Azure, camada de gerenciamento do Azure (Azure Resource Manager - versão prévia) e Azure Key Vault (versão prévia)
 
@@ -131,19 +131,19 @@ Para saber mais sobre os planos do Serviço de Aplicativo, confira [Planos do Se
 
 
 
-## <a name="threat-protection-for-sql-database-and-sql-data-warehouse"></a>Proteção contra ameaças para o Banco de Dados SQL e o SQL Data Warehouse <a name="data-sql"></a>
+## <a name="threat-protection-for-sql-database-and-azure-synapse-analytics-formerly-sql-data-warehouse"></a>Proteção contra ameaças para o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL Data Warehouse) <a name="data-sql"></a>
 
 A Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure detecta atividades anômalas que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
 Você receberá alertas quando ocorrerem atividades suspeitas no banco de dados possíveis vulnerabilidades ou ataques de injeção de SQL, além de padrões anômalos de consultas e acesso a banco de dados.
 
-A proteção avançada contra ameaças para o banco de dados SQL do Azure e o SQL fazem parte do pacote unificado do [ADS (segurança de dados avançado)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para recursos avançados de segurança do SQL, cobrindo o banco de dados SQL do Azure, instâncias gerenciadas do Azure SQL, bancos de dados do Azure SQL data warehouse e SQL Servers em máquinas virtuais do
+A proteção avançada contra ameaças para o banco de dados SQL do Azure e o SQL fazem parte do pacote unificado do [ADS (Advanced Data Security)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) para recursos avançados de segurança do SQL, cobrindo o banco de dados SQL do Azure, instâncias gerenciadas do Azure SQL, bancos de dados do Azure Synapse Analytics (anteriormente SQL data warehouse) e SQL Servers em máquinas virtuais do Azure
 
 Para obter mais informações, consulte:
 
 * [Como habilitar a Proteção Avançada contra Ameaças para o Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
 * [Como habilitar a Proteção Avançada contra Ameaças para servidores SQL em Máquinas Virtuais do Azure](security-center-iaas-advanced-data.md)
-* [A lista de alertas de proteção contra ameaças para o Banco de Dados SQL e o SQL Data Warehouse](alerts-reference.md#alerts-sql-db-and-warehouse)
+* [A lista de alertas de proteção contra ameaças para o banco de dados SQL e o Azure Synapse Analytics (anteriormente SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 
 
 
@@ -164,8 +164,6 @@ Para obter mais informações, consulte:
 A proteção contra ameaças para o armazenamento do Azure detecta atividade potencialmente prejudicial em suas contas de armazenamento do Azure. Seus dados podem ser protegidos independentemente de serem armazenados como contêineres de BLOB, compartilhamentos de arquivos ou data lagos.
 
 Essa camada de proteção permite que você resolva as ameaças *sem* exigir que você seja um especialista em segurança e ajuda você a gerenciar seus sistemas de monitoramento de segurança.
-
-Suas contas de armazenamento estão protegidas 
 
 ### <a name="what-kind-of-alerts-does-threat-protection-for-azure-storage-provide"></a>Que tipo de alertas a proteção contra ameaças para o armazenamento do Azure fornece?
 
@@ -204,7 +202,7 @@ Para obter mais informações, consulte:
 
 
 
-## <a name="threat-protection-for-azure-cosmos-db"></a>Proteção contra ameaças para o Azure Cosmos DB <a name="cosmos-db"></a>
+## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Proteção contra ameaças para Azure Cosmos DB (versão prévia) <a name="cosmos-db"></a>
 
 Os alertas do Azure Cosmos DB são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas do Azure Cosmos DB.
 

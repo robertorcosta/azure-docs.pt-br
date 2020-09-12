@@ -5,17 +5,17 @@ description: Saiba como importar dados para o designer de Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495364"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006977"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importar dados para o designer de Azure Machine Learning (versão prévia)
 
@@ -38,19 +38,28 @@ Além disso, é possível registrar o resultado de qualquer módulo do designer 
 
 1. Selecione o módulo que gera os dados que você deseja registrar.
 
-1. No painel Propriedades, selecione **Saídas** > **Registrar conjunto de dados**.
+1. No painel Propriedades, selecione **saídas + logs**  >  **registrar conjunto**de registros.
 
     ![Captura de tela mostrando como navegar até a opção Registrar conjunto de dados](media/how-to-designer-import-data/register-dataset-designer.png)
 
+Se os dados de saída do módulo estiverem em um formato tabular, você deverá optar por registrar a saída como um conjunto de dados de **arquivo** ou **tabular**.
+
+ - O conjunto de registros de **arquivo** registra a pasta de saída do módulo como um conjunto de um arquivo. A pasta de saída contém um arquivo de dados e metadados que o designer usa internamente. Selecione esta opção se você quiser continuar a usar o conjunto de entrada registrado no designer. 
+
+ - **DataSet tabular** registra apenas o arquivo de dados de saída do módulo como um DataSet tabular. Esse formato é facilmente consumido por outras ferramentas, por exemplo, no Machine Learning automatizado ou no SDK do Python. Selecione esta opção se você planeja usar o conjunto de DataSet registrado fora do designer.  
+
+
+
 ### <a name="use-a-dataset"></a>Usar um conjunto de dados
 
-Os conjuntos de dados registrados podem ser encontrados na paleta de módulos, em **Conjuntos de dados** > **Meus conjuntos de dados**. Para usar um conjunto de dados, arraste-o e solte-o na tela do pipeline. Em seguida, conecte a porta de saída do conjunto de dados a outros módulos na paleta.
+Seus conjuntos de valores registrados podem ser encontrados na paleta de módulos, em **DataSets**. Para usar um conjunto de dados, arraste-o e solte-o na tela do pipeline. Em seguida, conecte a porta de saída do conjunto de resultados a outros módulos na tela. 
 
 ![Captura de tela mostrando o local dos conjuntos de dados salvos na paleta do designer](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> No momento, o designer oferece suporte apenas ao processamento de [conjuntos de dados tabulares](how-to-create-register-datasets.md#dataset-types). Se você quiser usar [conjuntos de dados de arquivo](how-to-create-register-datasets.md#dataset-types), use o SDK do Azure Machine Learning disponível para Python e R.
+> O designer dá suporte ao [controle de versão do conjunto](how-to-version-track-datasets.md)de os. Especifique a versão do conjunto de módulos no painel de propriedades do módulo DataSet.
+
 
 ## <a name="import-data-using-the-import-data-module"></a>Importar dados usando o módulo Importar Dados
 
@@ -94,7 +103,7 @@ Os módulos no designer são limitados pelo tamanho do destino de computação. 
 
 ## <a name="access-data-in-a-virtual-network"></a>Acessar dados em uma rede virtual
 
-Se o seu espaço de trabalho estiver em uma rede virtual, você deverá executar etapas de configuração adicionais para visualizar dados no designer. Para obter mais informações sobre como usar armazenamentos de dados e conjuntos de dados em uma rede virtual, consulte [isolamento de rede durante o treinamento & inferência com redes virtuais privadas](how-to-enable-virtual-network.md#machine-learning-studio).
+Se o seu espaço de trabalho estiver em uma rede virtual, você deverá executar etapas de configuração adicionais para visualizar dados no designer. Para obter mais informações sobre como usar armazenamentos de dados e conjuntos de dados em uma rede virtual, consulte [usar o Azure Machine Learning Studio em uma rede virtual do Azure](how-to-enable-studio-virtual-network.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

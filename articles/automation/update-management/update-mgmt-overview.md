@@ -3,14 +3,14 @@ title: Visão geral do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo fornece uma visão geral do recurso Gerenciamento de Atualizações que implementa atualizações para seus computadores com Windows e com Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660901"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024114"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -18,8 +18,8 @@ Você pode usar o Gerenciamento de Atualizações na Automação do Azure para g
 
 Você pode habilitar o Gerenciamento de Atualizações para VMs das seguintes maneiras:
 
-* Em sua [conta da Automação do Azure](update-mgmt-enable-automation-account.md) para um ou mais computadores do Azure.
-* Manualmente para computadores não Azure.
+* Da sua [conta de automação do Azure](update-mgmt-enable-automation-account.md) para um ou mais computadores Azure e não Azure.
+* Manualmente para computadores não Azure, incluindo computadores ou servidores registrados com [servidores habilitados para Arc do Azure](../../azure-arc/servers/overview.md) (versão prévia).
 * Para uma única VM do Azure da página de máquina virtual no portal do Azure. Esse cenário está disponível para VMs do [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e do [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management).
 * Para [várias VMs do Azure](update-mgmt-enable-portal.md), selecionando-as na página de máquinas virtuais no portal do Azure.
 
@@ -40,21 +40,17 @@ Os computadores que são gerenciados pelo Gerenciamento de Atualizações usam a
 * Hybrid Runbook Worker de Automação
 * Microsoft Update ou WSUS (Windows Server Update Services) para computadores com Windows
 
-O diagrama a seguir ilustra como o Gerenciamento de Atualizações avalia e aplica atualizações de segurança a todos os computadores com Windows Server e com Linux conectados em um workspace:
+O diagrama a seguir ilustra como o Gerenciamento de Atualizações avalia e aplica atualizações de segurança a todos os servidores Windows Server e Linux conectados em um espaço de trabalho:
 
 ![Fluxo de trabalho do Gerenciamento de Atualizações](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
-O Gerenciamento de Atualizações pode ser usado para implantar nativamente computadores em várias assinaturas no mesmo locatário.
+Gerenciamento de Atualizações pode ser usado para implantar nativamente em computadores em várias assinaturas no mesmo locatário.
 
-Após um pacote ser lançado, leva de duas a três horas para o patch aparecer nos computadores com Linux para avaliação. Para computadores com Windows, leva de 12 a 15 horas após o lançamento de um patch até que ele seja exibido para avaliação.
-
-Depois que um computador conclui uma verificação de conformidade de atualizações, o agente encaminha as informações em massa para os logs do Azure Monitor. Em um computador com Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
+Após um pacote ser lançado, leva de duas a três horas para o patch aparecer nos computadores com Linux para avaliação. Para computadores com Windows, leva de 12 a 15 horas após o lançamento de um patch até que ele seja exibido para avaliação. Quando um computador conclui uma verificação de conformidade de atualização, o agente encaminha as informações em massa para Azure Monitor logs. Em um computador com Windows, a verificação de conformidade é executada a cada 12 horas por padrão. Para um computador com Linux, a verificação de conformidade é executada a cada hora por padrão. Se o agente do Log Analytics for reiniciado, uma verificação de conformidade será iniciada dentro de 15 minutos.
 
 Além do agendamento da verificação, a verificação de conformidade de atualizações será iniciada em 15 minutos se o agente do Log Analytics estiver sendo reiniciado antes da instalação da atualização e após a instalação da atualização.
 
-Para um computador com Linux, a verificação de conformidade é executada a cada hora por padrão. Se o agente do Log Analytics for reiniciado, uma verificação de conformidade será iniciada dentro de 15 minutos.
-
-O Gerenciamento de Atualizações relata o grau de atualização do computador com base na fonte com a qual você está configurado para sincronizar. Se o computador com Windows estiver configurado para relatar ao WSUS, dependendo de quando o WSUS tiver sincronizado pela última vez com o Microsoft Update, os resultados poderão diferir do que é mostrado pelo Microsoft Update. Esse comportamento é o mesmo para computadores com Linux configurados para relatar a um repositório local em vez de para um repositório público.
+O Gerenciamento de Atualizações relata o grau de atualização do computador com base na fonte com a qual você está configurado para sincronizar. Se o computador Windows estiver configurado para relatar para [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), dependendo de quando o WSUS foi sincronizado pela última vez com Microsoft Update, os resultados poderão ser diferentes do que Microsoft Update mostra. Esse comportamento é o mesmo para computadores com Linux configurados para relatar a um repositório local em vez de para um repositório público.
 
 > [!NOTE]
 > Para relatar adequadamente o serviço, o Gerenciamento de Atualizações requer que determinadas URLs e portas sejam habilitadas. Para saber mais sobre esses requisitos, confira [Configuração de rede](../automation-hybrid-runbook-worker.md#network-planning).
@@ -176,7 +172,7 @@ A tabela a seguir descreve as fontes conectadas compatíveis com o Gerenciamento
 
 O Gerenciamento de Atualizações verifica os dados em computadores gerenciados usando as regras a seguir. Pode demorar entre 30 minutos e seis horas para o painel exibir os dados atualizados dos computadores gerenciados.
 
-* Cada computador com Windows – o Gerenciamento de Atualizações faz uma verificação duas vezes por dia para cada computador. A cada 15 minutos, ele consulta a API do Windows quanto à hora da última atualização para determinar se o status foi alterado. Se o status tiver sido alterado, o Gerenciamento de Atualizações iniciará uma verificação de conformidade.
+* Cada computador com Windows – o Gerenciamento de Atualizações faz uma verificação duas vezes por dia para cada computador.
 
 * Cada computador com Linux – o Gerenciamento de Atualizações faz uma verificação a cada hora.
 
@@ -256,9 +252,10 @@ Um [modelo do Azure Resource Manager](update-mgmt-enable-template.md) está disp
 
 Aqui estão as maneiras como você pode habilitar o Gerenciamento de Atualizações e selecionar os computadores a serem gerenciados:
 
-* [De uma máquina virtual](update-mgmt-enable-vm.md)
-* [Da navegação em várias máquinas](update-mgmt-enable-portal.md)
+* [De uma máquina virtual do Azure](update-mgmt-enable-vm.md)
+* [De navegar por várias máquinas virtuais do Azure](update-mgmt-enable-portal.md)
 * [De uma conta da Automação do Azure](update-mgmt-enable-automation-account.md)
+* Para servidores habilitados para Arc (visualização) ou computadores não Azure, instale o [agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md) e, em seguida, [habilite os computadores no espaço de trabalho](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) para gerenciamento de atualizações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 3c097260812e72dfaa3678a4aade556a337e6a6c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d87635b3bfbfd70a67e8eebd4000fda73229d606
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272892"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018349"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada
 
@@ -225,6 +225,8 @@ Agora seu ponto de extremidade do barramento de serviço está configurado para 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Conectividade de saída para contas de armazenamento para carregamento de arquivos
 
 O recurso de carregamento de arquivo do Hub IoT permite que dispositivos carreguem arquivos para uma conta de armazenamento de propriedade do cliente. Para permitir que o carregamento do arquivo funcione, os dispositivos e o Hub IoT precisam ter conectividade com a conta de armazenamento. Se a conta de armazenamento tiver restrições de firewall, os dispositivos precisarão usar qualquer um dos mecanismos de conta de armazenamento com suporte (incluindo [pontos de extremidade privados](../private-link/create-private-endpoint-storage-portal.md), [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) ou [configuração de firewall direto](../storage/common/storage-network-security.md)) para obter conectividade. Da mesma forma, se a conta de armazenamento tiver restrições de firewall, o Hub IoT precisará ser configurado para acessar o recurso de armazenamento por meio da exceção de serviços confiáveis da Microsoft. Para esse fim, o Hub IoT deve ter uma identidade gerenciada. Após provisionar uma identidade gerenciada, siga as etapas abaixo para conceder permissão de RBAC à identidade de recurso do hub para acessar sua conta de armazenamento.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 1. No portal do Azure, vá até a guia **Controle de acesso (IAM)** da conta de armazenamento e clique em **Adicionar** na seção **Adicionar uma atribuição de função**.
 

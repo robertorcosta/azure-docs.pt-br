@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167633"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661630"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um workspace para o Azure Machine Learning com a CLI do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -155,7 +155,7 @@ Se você quiser restringir o acesso ao seu espaço de trabalho a uma rede virtua
 * `--pe-vnet-name`: A rede virtual existente na qual criar o ponto de extremidade privado.
 * `--pe-subnet-name`: O nome da sub-rede para a qual criar o ponto de extremidade privado. O valor padrão é `default`.
 
-Para obter mais informações sobre como usar um ponto de extremidade privado e uma rede virtual com seu espaço de trabalho, consulte [isolamento de rede e privacidade](how-to-enable-virtual-network.md).
+Para obter mais informações sobre como usar um ponto de extremidade privado e uma rede virtual com seu espaço de trabalho, consulte [visão geral de isolamento e privacidade de rede virtual](how-to-network-security-overview.md).
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Espaço de trabalho de chave gerenciada pelo cliente e alto impacto nos negócios
 

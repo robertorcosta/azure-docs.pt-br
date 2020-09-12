@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 73cb8396876a5baad74190ec9a86237362037c36
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1449114ad14ebbd064f95ad2853b516893ba4b12
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907880"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661696"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuração interativa com Visual Studio Code
 
@@ -37,7 +37,7 @@ Em alguns casos, talvez seja necessário depurar interativamente o código Pytho
   * Uma instância de computação da VM do notebook na rede virtual
   * Um computador cliente que tem conectividade de rede privada com a rede virtual, seja por VPN ou via ExpressRoute.
 
-Para saber mais sobre como usar uma rede virtual do Azure com Azure Machine Learning, confira [trabalhos de inferência e experimentação seguros do Azure ml em uma rede virtual do Azure](how-to-enable-virtual-network.md).
+Para obter mais informações sobre como usar uma rede virtual do Azure com Azure Machine Learning, consulte [visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md).
 
 > [!TIP]
 > Embora você possa trabalhar com Azure Machine Learning recursos que não estão atrás de uma rede virtual, é recomendável usar uma rede virtual.
@@ -281,7 +281,7 @@ Salve o `ip_address` valor. Ele é usado na próxima seção.
 Em alguns casos, talvez seja necessário depurar interativamente o código Python contido na implantação de modelo. Por exemplo, se o script de entrada estiver falhando e não for possível determinar o motivo por meio de um registro adicional. Usando VS Code e debugpy, você pode anexar ao código em execução dentro do contêiner do Docker.
 
 > [!IMPORTANT]
-> Esse método de depuração não funciona ao usar `Model.deploy()` e `LocalWebservice.deploy_configuration` para implantar um modelo localmente. Em vez disso, você deve criar uma imagem usando o método [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Esse método de depuração não funciona ao usar `Model.deploy()` e `LocalWebservice.deploy_configuration` para implantar um modelo localmente. Em vez disso, você deve criar uma imagem usando o método [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 As implantações de serviço Web local exigem uma instalação do Docker em funcionamento no sistema local. Para obter mais informações, confira a [Documentação do Docker](https://docs.docker.com/). Observe que, ao trabalhar com instâncias de computação, o Docker já está instalado.
 

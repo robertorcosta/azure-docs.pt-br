@@ -5,18 +5,18 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236787"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018962"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lendo o Azure Cosmos DB alterar feed
 
-Você pode trabalhar com o feed de alterações do Azure Cosmos DB usando um modelo push ou pull. Com um modelo de push, um servidor (o feed de alterações) envia o trabalho para um cliente que tem lógica de negócios para processar esse trabalho. No entanto, a complexidade na verificação do trabalho e do armazenamento do estado do último trabalho processado é tratada no servidor.
+Você pode trabalhar com o feed de alterações do Azure Cosmos DB usando um modelo push ou pull. Com um modelo de push, um servidor (o processador do feed de alterações) envia o trabalho para um cliente que tem lógica de negócios para processar esse trabalho. No entanto, a complexidade na verificação do trabalho e do armazenamento do estado do último trabalho processado é tratada no servidor.
 
 Com um modelo de pull, o cliente precisa efetuar pull do trabalho do servidor. O cliente, nesse caso, não só tem lógica de negócios para processar o trabalho, mas também armazenar o estado para o último trabalho processado, lidando com o balanceamento de carga entre vários clientes processando o trabalho em paralelo e manipulando erros.
 
@@ -68,7 +68,7 @@ Você pode paralelizar o processamento de alterações em vários clientes, assi
 Não há nenhuma garantia de "pelo menos uma" entrega interna com o modelo pull. O modelo pull fornece controle de baixo nível para decidir como você gostaria de lidar com erros.
 
 > [!NOTE]
-> O modelo de pull do feed de alterações está atualmente somente em [versão prévia no SDK do .NET do Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.9.0-preview). A versão prévia ainda não está disponível para outras versões do SDK.
+> O modelo de pull do feed de alterações está atualmente somente em [versão prévia no SDK do .NET do Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.13.0-preview). A versão prévia ainda não está disponível para outras versões do SDK.
 
 ## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Feed de alterações em APIs para Cassandra e MongoDB
 

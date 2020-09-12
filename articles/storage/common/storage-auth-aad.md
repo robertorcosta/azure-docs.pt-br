@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a098d4bab4ea8cb083658b205dcb73da619fdbde
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 2fd0269744c7ee49c72806e3cb0e1227035de4f0
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035698"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019165"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autorizar o acesso a BLOBs e filas usando Azure Active Directory
 
@@ -79,7 +79,7 @@ Quando você tenta acessar dados de BLOB ou de fila, a portal do Azure primeiro 
 
 Para acessar dados de BLOB ou de fila do portal do Azure usando sua conta do Azure AD, você precisa de permissões para acessar dados de BLOB e de fila e também precisa de permissões para navegar pelos recursos da conta de armazenamento no portal do Azure. As funções internas fornecidas pelo armazenamento do Azure concedem acesso aos recursos de BLOB e fila, mas não concedem permissões aos recursos da conta de armazenamento. Por esse motivo, o acesso ao portal também requer a atribuição de uma função de Azure Resource Manager, como a função [leitor](../../role-based-access-control/built-in-roles.md#reader) , no escopo do nível da conta de armazenamento ou superior. A função **leitor** concede as permissões mais restritas, mas outra função de Azure Resource Manager que concede acesso aos recursos de gerenciamento da conta de armazenamento também é aceitável. Para saber mais sobre como atribuir permissões a usuários para acesso a dados no portal do Azure com uma conta do Azure AD, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](storage-auth-aad-rbac-portal.md).
 
-O portal do Azure indica qual esquema de autorização está em uso quando você navega para um contêiner ou uma fila. Para obter mais informações sobre o acesso a dados no portal, consulte [usar o portal do Azure para acessar dados de BLOB ou fila](storage-access-blobs-queues-portal.md).
+O portal do Azure indica qual esquema de autorização está em uso quando você navega para um contêiner ou uma fila. Para obter mais informações sobre o acesso a dados no portal, consulte [escolher como autorizar o acesso a dados de blob no portal do Azure](../blobs/authorize-blob-access-portal.md) e [escolher como autorizar o acesso aos dados da fila no portal do Azure](../queues/authorize-queue-access-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Acesso a dados do PowerShell ou CLI do Azure
 

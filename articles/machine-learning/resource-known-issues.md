@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230374"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651648"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -173,7 +173,9 @@ Para obter mais informações sobre solução de problemas, consulte [próximas 
 > [!WARNING]
 > Não há suporte para a movimentação do workspace do Azure Machine Learning para outra assinatura nem para a movimentação da assinatura proprietária para um novo locatário. Se você fizer isso, poderá causar erros.
 
-* **Portal do Azure**: se você for diretamente para exibir seu espaço de trabalho em um link de compartilhamento no SDK ou no portal, você não poderá exibir a página de **visão geral** normal com as informações de assinatura na extensão. Você também não poderá alternar para outro workspace. Se você precisar exibir outro espaço de trabalho, vá diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquise o nome do espaço de trabalho.
+* **Portal do Azure**: 
+  * Se você ir diretamente para seu espaço de trabalho de um link de compartilhamento do SDK ou do portal do Azure, não será possível exibir a página de **visão geral** padrão que tem informações de assinatura na extensão. Nesse cenário, você também não pode alternar para outro espaço de trabalho. Para exibir outro espaço de trabalho, vá diretamente para [Azure Machine Learning Studio](https://ml.azure.com) e pesquise o nome do espaço de trabalho.
+  * Todos os ativos (conjuntos de valores, testes, computações e assim por diante) estão disponíveis apenas no [Azure Machine Learning Studio](https://ml.azure.com). Eles *não* estão disponíveis na portal do Azure.
 
 * **Navegadores com suporte no portal da Web do Azure Machine Learning Studio**: Recomendamos que você use o navegador mais atualizado que é compatível com seu sistema operacional. Há suporte para os seguintes navegadores:
   * Microsoft Edge (o novo Microsoft Edge, versão mais recente. Não é herdado do Microsoft Edge)
@@ -208,7 +210,7 @@ Se você estiver usando o compartilhamento de arquivos para outras cargas de tra
 
     Se você não incluir a barra "/" à esquerda, será necessário prefixar o diretório de trabalho, por exemplo, `/mnt/batch/.../tmp/dataset` no destino de computação para indicar onde você deseja que o conjunto de os seja montado.
 
-### <a name="data-labeling-projects"></a>Projetos de rotulamento de dados
+### <a name="data-labeling-projects"></a>Projetos de rotulagem de dados
 
 |Problema  |Resolução  |
 |---------|---------|
@@ -239,7 +241,7 @@ Limitações e problemas conhecidos para monitores de descompasso de dados:
     1. Na guia **monitores do conjunto** de testes, selecione o link experimento para verificar o status da execução.  Esse link está na extrema direita da tabela.
     1. Se a execução for concluída com êxito, verifique os logs de driver para ver quantas métricas foram geradas ou se há alguma mensagem de aviso.  Localize os logs de driver na guia **saída + logs** depois de clicar em um experimento.
 
-* Se a função SDK não `backfill()` gerar a saída esperada, isso pode ser devido a um problema de autenticação.  Quando você cria a computação para passar para essa função, não use `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) como o seguinte para criar a computação que você passa para essa `backfill()` função: 
+* Se a função SDK não `backfill()` gerar a saída esperada, isso pode ser devido a um problema de autenticação.  Quando você cria a computação para passar para essa função, não use `Run.get_context().experiment.workspace.compute_targets` .  Em vez disso, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) como o seguinte para criar a computação que você passa para essa `backfill()` função: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -251,7 +253,7 @@ Limitações e problemas conhecidos para monitores de descompasso de dados:
    compute = ws.compute_targets.get("xxx")
    ```
 
-## <a name="azure-machine-learning-designer"></a>Azure Machine Learning Designer
+## <a name="azure-machine-learning-designer"></a>Designer do Azure Machine Learning
 
 * **Tempo de preparação de computação longa:**
 
@@ -294,7 +296,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     O Azure ML também fornece avaliadores específicos da estrutura para TensorFlow, PyTorch, chainer e SKLearn. Usar esses estimadores garantirá que as principais dependências da estrutura sejam instaladas em seu nome no ambiente usado para treinamento. Você tem a opção de especificar dependências extras, conforme descrito acima. 
  
     As imagens do Docker mantidas pelo Azure ML e seu conteúdo podem ser vistos em [contêineres do AzureML](https://github.com/Azure/AzureML-Containers).
-    As dependências específicas à estrutura são listadas no respectivo Framework Documentation- [Chainr](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+    As dependências específicas à estrutura são listadas no respectivo Framework Documentation- [Chainr](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
 
     > [!Note]
     > Se você considerar que um pacote específico é comum o suficiente para ser adicionado em ambientes e imagens mantidas do Azure ML, gere um problema do GitHub nos [contêineres do AzureML](https://github.com/Azure/AzureML-Containers). 
@@ -303,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * O **Horovod foi desligado**: na maioria dos casos, se você encontrar "AbortedError: Horovod foi desligado", essa exceção significa que houve uma exceção subjacente em um dos processos que fizeram com que o Horovod fosse desligado. Cada classificação no trabalho MPI obtém seu próprio arquivo de log dedicado no Azure ML. Esses logs são nomeados `70_driver_logs` . No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que fez com que o Horovod fosse desligado, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos de driver_log. Um desses arquivos fornecerá a exceção subjacente real. 
 
-* **Execução ou teste de exclusão**: os experimentos podem ser arquivados usando o método [experimento. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) ou da exibição guia do experimento no cliente Azure Machine Learning Studio por meio do botão "arquivo de teste". Essa ação oculta o experimento de consultas de lista e exibições, mas não a exclui.
+* **Execução ou teste de exclusão**: os experimentos podem ser arquivados usando o método [experimento. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) ou da exibição guia do experimento no cliente Azure Machine Learning Studio por meio do botão "arquivo de teste". Essa ação oculta o experimento de consultas de lista e exibições, mas não a exclui.
 
     Atualmente, não há suporte para a exclusão permanente de experimentos ou execuções individuais. Para obter mais informações sobre como excluir ativos de espaço de trabalho, consulte [exportar ou excluir seus dados de espaço de trabalho do serviço Machine Learning](how-to-export-delete-data.md).
 
@@ -337,6 +339,8 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
+ 
+* A **previsão da Pontuação do R2 é sempre zero**: esse problema ocorre se os dados de treinamento fornecidos tiverem uma série temporal que contém o mesmo valor para os últimos `n_cv_splits`  +  `forecasting_horizon` pontos de dados. Se esse padrão for esperado em sua série temporal, você poderá alternar a métrica primária para erro de raiz quadrada média normalizada.
  
 * **TensorFlow**: a partir da versão 1.5.0 do SDK, o Machine Learning automatizado não instala modelos TensorFlow por padrão. Para instalar o TensorFlow e usá-lo com seus experimentos de ML automatizados, instale TensorFlow = = 1.12.0 via CondaDependecies. 
  
@@ -403,7 +407,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Execute estas ações para os seguintes erros:
 
-|Erro do  | Resolução  |
+|Erro  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |

@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3c3bed20b5fd60b9323dada617fb1302efc41d2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477678"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006937"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Marcar seu aplicativo como “editor verificado” (visualização)
+# <a name="mark-your-app-as-publisher-verified"></a>Marcar seu aplicativo como “editor verificado”
 
 Quando um aplicativo é marcado como editor verificado, isso significa que o editor verificou sua identidade usando uma conta do Microsoft Partner Network (MPN) e associou essa conta do MPN ao registro de aplicativo. Este artigo descreve como concluir o processo de [verificação do editor (visualização)](publisher-verification-overview.md).
 
 ## <a name="quickstart"></a>Guia de Início Rápido
 Se você já estiver inscrito no Microsoft Partner Network (MPN) e tiver atendido aos [pré-requisitos](publisher-verification-overview.md#requirements), poderá começar imediatamente: 
 
-1. Navegue até a visualização [Portal de registro de aplicativo](https://aka.ms/PublisherVerificationPreview).
+1. Navegue até o [portal de registro de aplicativo](https://aka.ms/PublisherVerificationPreview).
 
 1. Escolha um aplicativo e clique em **Identidade visual**. 
 
@@ -46,7 +46,7 @@ Verifique se você atendeu aos [pré-requisitos](publisher-verification-overview
 
     - No Partner Center, esse usuário deve ter as seguintes funções: Administrador de MPN, administrador de contas ou um administrador global (essa é uma função compartilhada controlada no Azure Active Directory). 
 
-1. Navegue até a versão de visualização do portal de registro de aplicativo:  
+1. Navegue até o portal de registro do aplicativo:  
 
 1. Clique em um aplicativo que você deseja marcar como Editor Verificado e abra a folha de identidade visual. 
 
