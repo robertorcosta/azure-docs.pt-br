@@ -3,12 +3,12 @@ title: Use parâmetros para criar blueprints dinâmicos
 description: Saiba mais sobre os parâmetros estáticos e dinâmicos e como usá-los para criar plantas dinâmicas e seguras.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051552"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651952"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando blueprints dinâmicos por meio de parâmetros
 
@@ -61,11 +61,11 @@ Um valor de parâmetro definido na definição de um blueprint é chamado de **p
 
 1. Os artefatos adicionados ao blueprint que têm opções de parâmetro exibem **X de Y parâmetros populados** na coluna **Parâmetros**. Selecione a linha de artefato para editar os parâmetros de artefato.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parâmetros de Blueprint em uma definição de Blueprint" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Captura de tela de uma definição de plano gráfico e o ' X dos parâmetros Y preenchidos ' realçado." border="false":::
 
-1. A página **Editar artefato** exibe opções de valor apropriadas para o artefato clicado. Cada parâmetro no artefato tem um título, uma caixa de valor e uma caixa de seleção. Defina a caixa como desmarcada para torná-la um **parâmetro estático**. No exemplo abaixo, apenas _Local_ é um **parâmetro estático**, pois está desmarcado e _Nome do Grupo de Recursos_ está marcado.
+1. A página **Editar artefato** exibe as opções de valor apropriadas para o artefato selecionado. Cada parâmetro no artefato tem um título, uma caixa de valor e uma caixa de seleção. Defina a caixa como desmarcada para torná-la um **parâmetro estático**. No exemplo abaixo, apenas _Local_ é um **parâmetro estático**, pois está desmarcado e _Nome do Grupo de Recursos_ está marcado.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Parâmetros estáticos do Blueprint em um artefato do Blueprint" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Captura de tela de parâmetros estáticos em um artefato de Blueprint." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Definindo parâmetros estáticos com base na API REST
 
@@ -176,7 +176,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâme
 
 1. Na página **atribuir Blueprint** , localize a seção **parâmetros de artefato** . Cada artefato com pelo menos um **parâmetro dinâmico** exibe o artefato e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir o blueprint. No exemplo abaixo, _Nome_ é um **parâmetro dinâmico** que deve ser definido para concluir a atribuição do blueprint.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parâmetro dinâmico do Blueprint durante a atribuição do Blueprint" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Captura de tela da configuração de parâmetros dinâmicos durante a atribuição do Blueprint." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definindo parâmetros dinâmicos com base na API REST
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f6c6dd18ba57d83aa235f66285e7cb2ed42c1703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524950"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595829"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicativo que hospede múltiplos websites usando Azure PowerShell
 
@@ -22,15 +22,14 @@ Você pode usar o Azure PowerShell para configurar [a hospedagem de vários site
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um Gateway de Aplicativo
-> * Criar ouvintes de back-end
-> * Criar regras de roteamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
-> * Criar um registro CNAME no seu domínio
+* Configurar a rede
+* Criar um Gateway de Aplicativo
+* Criar ouvintes de back-end
+* Criar regras de roteamento
+* Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
+* Criar um registro CNAME no seu domínio
 
-:::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Gateway de aplicativo multissite":::
+:::image type="content" source="./media/tutorial-multiple-sites-powershell/scenario.png" alt-text="Gateway de Aplicativo multissite":::
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

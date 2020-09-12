@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: b2cf984e629d6b86beef9292dac819b554f49749
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 5804dcc840eb666c1d43ea7d7ed7640b8f7ff371
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850688"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657437"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Conectar o Windows Defender firewall com segurança avançada ao Azure Sentinel
 
@@ -31,7 +31,7 @@ A solução coleta eventos de firewall do Windows dos computadores Windows nos q
 > [!NOTE]
 > - Os dados serão armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
 >
-> - Se o Azure Sentinel e a central de segurança do Azure forem coletados para o mesmo espaço de trabalho, não será necessário habilitar a solução de firewall do Windows por meio desse conector. Se você habilitá-lo mesmo assim, ele não causará dados duplicados. 
+> - Se o Azure Sentinel e o Azure defender (anteriormente conhecido como central de segurança do Azure) forem coletados para o mesmo espaço de trabalho, não haverá necessidade de habilitar a solução de firewall do Windows por meio desse conector. Se você habilitá-lo mesmo assim, ele não causará dados duplicados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,37 +47,40 @@ A solução coleta eventos de firewall do Windows dos computadores Windows nos q
 
 ### <a name="instructions-tab"></a>Guia instruções
 
-- **Se seus computadores Windows estiverem no Azure:**
+Conclua as etapas a seguir na guia **instruções** .
 
-    1. Selecione **instalar agente na máquina virtual do Windows do Azure**.
+- **Se seus computadores Windows estiverem no Azure, conclua estas etapas:**
 
-    1. Clique no link **baixar & instalar o agente para máquinas virtuais do Windows do Azure >** que apareça.
+   1. Selecione **instalar agente na máquina virtual do Windows do Azure**.
+   
+   1. Clique no link **baixar & instalar o agente para máquinas virtuais do Windows do Azure >** que apareça.
+   
+   1. Na lista **máquinas virtuais** , selecione o computador Windows que você deseja transmitir para o Azure Sentinel. (Você pode selecionar **Windows** no filtro de coluna do so para garantir que apenas VMs do Windows sejam exibidas).
+   
+   1. Na janela que é aberta para essa VM, clique em **conectar**.
+   
+   1. Retorne ao painel **máquinas virtuais** e repita as duas etapas anteriores para todas as outras VMs que você deseja conectar. Quando terminar, retorne ao painel **Firewall do Windows** .
 
-    1. Na lista **máquinas virtuais** , selecione o computador Windows que você deseja transmitir para o Azure Sentinel. (Você pode selecionar **Windows** no filtro de coluna do so para garantir que apenas VMs do Windows sejam exibidas).
+- **Se seu computador Windows não for uma VM do Azure, conclua estas etapas:**
+   
+   1. Selecione **instalar agente em computador não Azure Windows**.
+   
+   1. Clique no link **baixar & instalar o agente para computadores que não são do Windows do Azure >** que aparece.
+   
+   1. No painel **Gerenciamento de agentes** , selecione **baixar o agente do Windows (64 bits)** ou baixar o **agente do Windows (32 bits)**, conforme necessário.
+   
+   1. Copie a **ID do espaço de trabalho**, a **chave primária**e as cadeias de caracteres de **chave secundária** para um arquivo de texto. Copie esse arquivo e o arquivo de instalação baixado para seu computador Windows. Execute o arquivo de instalação e, quando solicitado, insira as cadeias de caracteres de ID e chave no arquivo de texto durante a instalação.
+   
+   1. Retorne ao painel **Firewall do Windows** .
 
-    1. Na janela que é aberta para essa VM, clique em **conectar**.
-
-    1. Retorne ao painel **máquinas virtuais** e repita as duas etapas anteriores para todas as outras VMs que você deseja conectar. Quando terminar, retorne ao painel **Firewall do Windows** .
-
-- **Se seu computador Windows não for uma VM do Azure:**
-
-    1. Selecione **instalar agente em computador não Azure Windows**.
-
-    1. Clique no link **baixar & instalar o agente para computadores que não são do Windows do Azure >** que aparece.
-
-    1. No painel **Gerenciamento de agentes** , selecione **baixar o agente do Windows (64 bits)** ou baixar o **agente do Windows (32 bits)**, conforme necessário.
-
-    1. Copie a **ID do espaço de trabalho**, a **chave primária**e as cadeias de caracteres de **chave secundária** para um arquivo de texto. Copie esse arquivo e o arquivo de instalação baixado para seu computador Windows. Execute o arquivo de instalação e, quando solicitado, insira as cadeias de caracteres de ID e chave no arquivo de texto durante a instalação.
-
-    1. Retorne ao painel **Firewall do Windows** .
-
-1. Clique em **instalar solução**.
+Depois de concluir as etapas na guia **instruções** , clique em **instalar solução**.
 
 ### <a name="next-steps-tab"></a>Guia próximas etapas
 
-- Consulte as pastas de trabalho e exemplos de consulta recomendados disponíveis agrupados com o conector de dados do **Firewall do Windows** para obter informações sobre os dados de log do firewall do Windows.
+- Para obter informações sobre os dados de log do firewall do Windows, consulte as pastas de trabalho e exemplos de consulta recomendados disponíveis agrupados com o conector de dados do **Firewall do Windows** .
 
 - Para consultar dados do firewall do Windows em **logs**, digite **WindowsFirewall** na janela de consulta.
+
 
 ## <a name="validate-connectivity"></a>Validar a conectividade
  

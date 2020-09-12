@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502742"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595828"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure
 
@@ -22,15 +22,14 @@ Você pode usar a CLI do Azure para configurar [a hospedagem de vários sites da
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um Gateway de Aplicativo
-> * Criar ouvintes de back-end
-> * Criar regras de roteamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
-> * Criar um registro CNAME no seu domínio
+* Configurar a rede
+* Criar um Gateway de Aplicativo
+* Criar ouvintes de back-end
+* Criar regras de roteamento
+* Criar conjuntos de dimensionamento de máquinas virtuais com pools de back-end
+* Criar um registro CNAME no seu domínio
 
-:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Gateway de aplicativo multissite":::
+:::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Gateway de Aplicativo multissite":::
 
 Se preferir, você poderá concluir este procedimento usando o [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 

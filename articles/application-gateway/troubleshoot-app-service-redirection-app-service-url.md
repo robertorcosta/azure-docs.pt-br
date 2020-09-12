@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 2af52d1e7c211ccc0b5c18ed1ecda66d46d80786
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806489"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595937"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solucionar problemas do serviço de aplicativo no gateway de aplicativo
 
@@ -23,9 +23,8 @@ Saiba como diagnosticar e resolver problemas que podem ocorrer quando Azure App 
 
 Neste artigo, você aprenderá a solucionar os seguintes problemas:
 
-> [!div class="checklist"]
-> * A URL do serviço de aplicativo é exposta no navegador quando há um redirecionamento.
-> * O domínio do cookie ARRAffinity do serviço de aplicativo é definido como o nome do host do serviço de aplicativo, example.azurewebsites.net, em vez do host original.
+* A URL do serviço de aplicativo é exposta no navegador quando há um redirecionamento.
+* O domínio do cookie ARRAffinity do serviço de aplicativo é definido como o nome do host do serviço de aplicativo, example.azurewebsites.net, em vez do host original.
 
 Quando um aplicativo de back-end envia uma resposta de redirecionamento, talvez você queira redirecionar o cliente para uma URL diferente daquela especificada pelo aplicativo de back-end. Talvez você queira fazer isso quando um serviço de aplicativo estiver hospedado atrás de um gateway de aplicativo e exigir que o cliente faça um redirecionamento para seu caminho relativo. Um exemplo é um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2. 
 

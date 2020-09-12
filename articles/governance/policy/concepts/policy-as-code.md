@@ -3,12 +3,12 @@ title: Projetar os fluxos de trabalho da Política como código
 description: Aprenda a criar fluxos de trabalho para implantar suas definições do Azure Policy como código e validar automaticamente os recursos.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047319"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651879"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projetar os fluxos de trabalho da Política como código
 
@@ -43,7 +43,9 @@ Exemplos desses formatos de arquivo estão disponíveis no [repositório GitHub 
 
 O fluxo de trabalho geral recomendado da Política como Código é semelhante a este diagrama:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Visão geral do fluxo de trabalho da Política como Código" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagrama mostrando a política como caixas de fluxo de trabalho de código de criar para testar para implantar." border="false":::
+   O diagrama que mostra a política como caixas de fluxo de trabalho de código. Criar abrange a criação das definições de política e iniciativa. O teste aborda a atribuição com o modo de imposição desabilitado. Uma verificação de gateway para o status de conformidade é seguida, concedendo as permissões M S I e remediando os recursos.  Implantar abrange a atualização da atribuição com o modo de imposição habilitado.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Criar e atualizar definições de política
 

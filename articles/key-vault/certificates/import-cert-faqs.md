@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588814"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651857"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Perguntas frequentes sobre importação de certificados Azure Key Vault
 
@@ -54,7 +54,7 @@ Para obter mais informações sobre políticas de acesso relacionadas a certific
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Como posso resolver "tipo de erro: conflito ao criar um certificado"?
     
-Cada nome de certificado deve ser exclusivo. Um certificado com o mesmo nome que outro pode estar em um estado excluído de forma reversível. Além disso, de acordo com a [composição de um certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) em Azure Key Vault, se houver outra chave ou segredo no cofre de chaves com o mesmo nome que você está tentando especificar para o certificado, a criação do certificado falhará e você precisará remover essa chave ou segredo ou usar um nome diferente para o certificado. 
+Cada nome de certificado deve ser exclusivo. Um certificado com o mesmo nome pode estar em um estado excluído de maneira reversível. Além disso, de acordo com a [composição de um certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), quando um novo certificado é criado, ele cria um segredo endereçável com o mesmo nome, portanto, se houver outra chave ou segredo no cofre de chaves com o mesmo nome que você está tentando especificar para o certificado, a criação do certificado falhará e você precisará remover essa chave ou segredo ou usar um nome diferente para o certificado. 
 
 Para obter mais informações, consulte [obter operação de certificado excluído](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 

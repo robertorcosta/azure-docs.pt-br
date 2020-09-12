@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cb45f4a19cf36fe291ffe7299a46a44a245fbb8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806202"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595852"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gerenciar o tráfego da web com um gateway de aplicativo usando o Azure PowerShell
 
@@ -21,10 +21,9 @@ Gateway de aplicativo é usado para gerenciar e proteger o tráfego da web em se
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um Gateway de Aplicativo
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
+* Configurar a rede
+* Criar um Gateway de Aplicativo
+* Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
 Se preferir, você pode concluir este procedimento usando a [CLI do Azure](tutorial-manage-web-traffic-cli.md).
 

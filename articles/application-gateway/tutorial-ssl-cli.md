@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502725"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595811"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um gateway de aplicativo com terminação TLS usando o CLI do Azure
 
@@ -21,11 +21,10 @@ Você pode usar o CLI do Azure para criar um [Gateway de aplicativo](overview.md
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Criará um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicativo com o certificado
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
+* Crie um certificado autoassinado
+* Configurar uma rede
+* Criar um gateway de aplicativo com o certificado
+* Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
 Se preferir, você poderá concluir este procedimento usando o [Azure PowerShell](tutorial-ssl-powershell.md).
 
@@ -35,7 +34,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Caso opte por instalar e usar a CLI localmente, este artigo exigirá que você execute a CLI do Azure versão 2.0.4 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
 
 Para uso em produção, você deve importar um certificado válido assinado por um fornecedor confiável. Para este artigo, você pode criar um certificado autoassinado e o arquivo pfx usando o comando openssl.
 
