@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: ba0b242fa28b8dac774a48bdd9297e44a17fa3ec
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475593"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483024"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeando o modo de depuração do fluxo de dados
 
@@ -41,7 +41,7 @@ Quando terminar de usar a depuração, desative a opção de depuração para qu
 
 ## <a name="debug-settings"></a>Configurações de depuração
 
-As configurações de depuração podem ser editadas clicando em "configurações de depuração" na barra de ferramentas da tela fluxo de dados. Você pode selecionar o limite de linha ou a fonte de arquivo a ser usada para cada uma das transformações de origem aqui. Os limites de linha nessa configuração são apenas para a sessão de depuração atual. Você também pode selecionar o serviço vinculado de preparo a ser usado para uma fonte do SQL DW. 
+Depois de ativar o modo de depuração, você pode editar como um fluxo de dados visualiza os dados. As configurações de depuração podem ser editadas clicando em "configurações de depuração" na barra de ferramentas da tela fluxo de dados. Você pode selecionar o limite de linha ou a fonte de arquivo a ser usada para cada uma das transformações de origem aqui. Os limites de linha nessa configuração são apenas para a sessão de depuração atual. Você também pode selecionar o serviço vinculado de preparo a ser usado para uma fonte do Azure Synapse Analytics. 
 
 ![Configurações de depuração](media/data-flow/debug-settings.png "Configurações de depuração")
 

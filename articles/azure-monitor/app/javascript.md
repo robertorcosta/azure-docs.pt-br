@@ -4,12 +4,12 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 9f335ca6912545b39fb8276f5895f98e653735d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224845"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656938"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -115,7 +115,7 @@ As opções de configuração disponíveis são
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Enviando telemetria para o portal do Azure
 
-Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Eles incluem:
+Por padrão, o SDK do JavaScript Application Insights coleta a um número de itens de telemetria que são úteis para determinar a integridade do seu aplicativo e a experiência do usuário subjacente. Elas incluem:
 
 - **Exceções não capturadas** em seu aplicativo, incluindo informações sobre
     - Rastreamento de pilha
@@ -155,7 +155,7 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 | Nome | Padrão | Descrição |
 |------|---------|-------------|
-| instrumentationKey | null | **Necessário**<br>Chave de instrumentação que você obteve do portal do Azure. |
+| instrumentationKey | null | **Necessária**<br>Chave de instrumentação que você obteve do portal do Azure. |
 | accountId | null | Uma ID de conta opcional, se seu aplicativo agrupar usuários em contas. Sem espaços, vírgulas, pontos-e-vírgulas, Equals ou barras verticais |
 | sessionRenewalMs | 1,8 milhões | Uma sessão será registrada se o usuário estiver inativo por esse período de tempo em milissegundos. O padrão é 30 minutos |
 | sessionExpirationMs | 86,4 milhões | Uma sessão será registrada se continuar por esse período de tempo em milissegundos. O padrão é 24 horas |
@@ -204,8 +204,7 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 Por padrão, esse SDK **não** tratará da alteração de rota baseada em estado que ocorre em aplicativos de página única. Para habilitar o controle de alterações de rota automático para seu aplicativo de página única, você pode adicionar `enableAutoRouteTracking: true` à sua configuração de instalação.
 
-Atualmente, oferecemos um [plug-in reajam](#react-extensions)separado, que pode ser inicializado com esse SDK. Ele também realizará o controle de alterações de rota para você, além de coletar [outra telemetria específica de reagir](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
-
+Atualmente, oferecemos um [plug-in reajam](javascript-react-plugin.md)separado, que pode ser inicializado com esse SDK. Ele também realizará o controle de alterações de rota para você, além de coletar outra telemetria específica de reagir.
 > [!NOTE]
 > Use `enableAutoRouteTracking: true` somente se você **não** estiver usando o plug-in reagir. Ambos são capazes de enviar novos PageViews quando a rota é alterada. Se ambos estiverem habilitados, PageViews duplicados poderão ser enviados.
 
@@ -213,12 +212,13 @@ Atualmente, oferecemos um [plug-in reajam](#react-extensions)separado, que pode 
 
 Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gasta em cada página é acompanhado. Em cada novo PageView, a duração que o usuário gastou na página *anterior* é enviada como uma [métrica personalizada](../platform/metrics-custom-overview.md) chamada `PageVisitTime` . Essa métrica personalizada é visível na [Metrics Explorer](../platform/metrics-getting-started.md) como uma "métrica baseada em log".
 
-## <a name="react-extensions"></a>Extensões de reagir
+## <a name="extensions"></a>Extensões
 
 | Extensões |
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
+| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
 
 ## <a name="correlation"></a>Correlação
 
@@ -315,7 +315,7 @@ Essa versão vem com o número mínimo de recursos e funcionalidades e se baseia
 
 ## <a name="examples"></a>Exemplos
 
-Para obter exemplos de executáveis, consulte [Application insights exemplos de SDK do JavaScript](https://github.com/topics/applicationinsights-js-demo)
+Para obter exemplos de executáveis, consulte [Application insights exemplos de SDK do JavaScript](https://github.com/Azure-Samples?q=applicationinsights-js-demo).
 
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Atualizando da versão antiga do Application Insights
 

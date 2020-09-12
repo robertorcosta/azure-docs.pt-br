@@ -1,5 +1,5 @@
 ---
-title: Integração contínua e implantação
+title: Integração e implantação contínuas
 description: Experiência de DevOps de banco de dados de classe empresarial para data warehousing com suporte interno para integração e implantação contínuas usando o Azure Pipelines.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 725e8165f8a7bdb654f61d7257867a2d0bf17110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 131811ffd268f001a047a7031170f0723770d24c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213560"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462319"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Integração e implantação contínuas para data warehousing
 
@@ -44,13 +44,13 @@ Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT 
 
 Neste momento, você tem um ambiente simples no qual qualquer check-in em seu branch mestre do repositório de controle do código-fonte deve disparar automaticamente um build do Visual Studio bem-sucedido do seu projeto de banco de dados. Confirme se a automação está funcionando de ponta a ponta fazendo uma alteração em seu projeto de banco de dados local e fazendo check-in dessa alteração no branch mestre.
 
-## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do SQL Data Warehouse (ou Banco de Dados) do Azure
+## <a name="continuous-deployment-with-the-azure-synapse-analytics-or-database-deployment-task"></a>Implantação contínua com a tarefa de implantação do Azure Synapse Analytics (ou banco de dados)
 
-1. Adicione uma nova tarefa usando a [tarefa de implantação do Banco de Dados SQL do Azure](/azure/devops/pipelines/targets/azure-sqldb) e preencha os campos obrigatórios para se conectar ao seu data warehouse de destino. Quando essa tarefa é executada, o DACPAC gerado com base no processo de build anterior é implantado no data warehouse de destino. Use também a [tarefa de implantação do SQL Data Warehouse do Azure](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
+1. Adicione uma nova tarefa usando a [tarefa de implantação do Banco de Dados SQL do Azure](/azure/devops/pipelines/targets/azure-sqldb) e preencha os campos obrigatórios para se conectar ao seu data warehouse de destino. Quando essa tarefa é executada, o DACPAC gerado com base no processo de build anterior é implantado no data warehouse de destino. Você também pode usar a [tarefa de implantação do Azure Synapse Analytics](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
       ![Tarefa de implantação](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Tarefa de implantação")
 
-2. Se você estiver usando um agente auto-hospedado, verifique se você definiu sua variável de ambiente para usar o SqlPackage.exe correto para o SQL Data Warehouse. O caminho deve ter a seguinte aparência:
+2. Se você estiver usando um agente auto-hospedado, certifique-se de definir sua variável de ambiente para usar o SqlPackage.exe correto para o Azure Synapse Analytics. O caminho deve ter a seguinte aparência:
 
       ![Variável de ambiente](./media/sql-data-warehouse-continuous-integration-and-deployment/5-environment-variable-preview.png "Variável de ambiente")
 

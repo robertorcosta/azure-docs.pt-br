@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835998"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462387"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 
@@ -29,7 +29,7 @@ Tipos de alerta:
 
 * Análise de Comportamento da Máquina Virtual (VMBA)
 * Análise de Rede
-* Análise do Banco de Dados SQL e SQL Data Warehouse
+* Análise do banco de dados SQL e do Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 * Informações Contextuais
 
 Dependendo dos tipos de alerta, é possível que os clientes tenham acesso às informações necessárias para investigar o alerta usando os seguintes recursos:
@@ -151,4 +151,4 @@ Neste documento, você aprendeu como configurar políticas de segurança na Cent
 * [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md)
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas Frequentes sobre a Central de Segurança do Azure](faq-general.md) – encontre as perguntas frequentes sobre como usar o serviço
-* [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure
+* [Blog de Segurança do Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) – encontre postagens no blog sobre conformidade e segurança do Azure

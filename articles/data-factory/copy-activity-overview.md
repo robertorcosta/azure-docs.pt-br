@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534338"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440585"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -61,7 +61,7 @@ Você pode usar a atividade de cópia para copiar arquivos no estado em que se e
 * Copie dados no formato de texto compactado gzip (CSV) do armazenamento de BLOBs do Azure e grave-os no banco de dados SQL do Azure.
 * Muitas outras atividades que exigem serialização/desserialização ou compactação/descompactação.
 
-## <a name="supported-regions"></a>Regiões compatíveis
+## <a name="supported-regions"></a>Regiões com suporte
 
 O serviço que habilita a atividade de cópia está disponível globalmente nas regiões e geografias listados em [locais de tempo de execução de integração do Azure](concepts-integration-runtime.md#integration-runtime-location). A topologia globalmente disponível garante a movimentação de dados eficiente, o que geralmente evita saltos entre regiões. Consulte [produtos por região](https://azure.microsoft.com/regions/#services) para verificar a disponibilidade de data Factory e a movimentação de dados em uma região específica.
 
@@ -129,7 +129,7 @@ O modelo a seguir de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário? |
 |:--- |:--- |:--- |
-| tipo | Para uma atividade de cópia, defina como`Copy` | Sim |
+| type | Para uma atividade de cópia, defina como `Copy` | Sim |
 | entradas | Especifique o conjunto de dados que você criou que aponta para a origem. A atividade de cópia dá suporte a apenas uma única entrada. | Sim |
 | outputs | Especifique o conjunto de dados que você criou que aponta para o coletor. A atividade de cópia dá suporte a apenas uma única saída. | Sim |
 | typeProperties | Especifique as propriedades para configurar a atividade de cópia. | Sim |
@@ -200,7 +200,7 @@ Para configurá-lo programaticamente, adicione a `additionalColumns` propriedade
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`**-uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **Expressão**<br>- **Valor estático** | Não |
+| additionalColumns | Adicione colunas de dados adicionais para copiar para o coletor.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna e `value` indica o valor de dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** -uma variável reservada indica armazenar o caminho relativo dos arquivos de origem para o caminho da pasta especificado no conjunto de uma. Aplicar à fonte baseada em arquivo.<br>- **Expressão**<br>- **Valor estático** | Não |
 
 **Exemplo:**
 
@@ -249,7 +249,7 @@ Esse recurso tem suporte ao copiar dados de qualquer fonte nos armazenamentos de
 
 - [Banco de Dados SQL do Azure](connector-azure-sql-database.md)
 - [Instância Gerenciada do Banco de Dados SQL do Azure](connector-azure-sql-managed-instance.md)
-- [Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics (antigo SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Criar tabelas de coletor](media/copy-activity-overview/create-sink-table.png)

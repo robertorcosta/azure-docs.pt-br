@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526496"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436180"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solucionar problemas de inicialização de VM Linux devido a erros do sistema de arquivos
 
@@ -83,7 +83,7 @@ Para resolver esse problema, inicialize a VM no modo de emergência usando o [co
 
    > [!Note]
    > Para obter mais informações sobre como usar o console serial para Linux, consulte:
-   > * [Usar o console serial para acessar o GRUB e o modo de usuário único](../linux/serial-console-grub-single-user-mode.md)
+   > * [Usar o console serial para acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md)
    > * [Usar o console serial para chamadas SysRq e NMI](./serial-console-nmi-sysrq.md)
 
 2. Selecione o botão ícone de energia e, em seguida, selecione reiniciar VM. (Se o console serial não estiver habilitado ou não estiver conectado com êxito, você não verá o botão.)

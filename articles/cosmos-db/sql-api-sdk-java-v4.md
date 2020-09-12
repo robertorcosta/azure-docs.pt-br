@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586208"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536393"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>SDK do Java v4 do Azure Cosmos DB para API do Core (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -68,7 +68,33 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 
 ## <a name="release-history"></a>Histórico de versões
 
-### <a name="440-beta1-unreleased"></a>4.4.0-beta. 1 (não lançado)
+### <a name="440-beta2-unreleased"></a>4.4.0-beta. 2 (não lançado)
+#### <a name="key-bug-fixes"></a>Correções de bug de chave
+* RequestTimeoutException corrigido quando habilitar tcnative.
+
+### <a name="440-beta1-2020-08-27"></a>4.4.0-beta. 1 (2020-08-27)
+#### <a name="new-features"></a>Novos recursos
+* Adicionada nova API para carregar com eficiência muitos documentos (por meio da lista de pares de CP/ID ou de todos os documentos para um conjunto de valores de CP).
+* Nova `deleteItem` API adicionada.
+* As métricas de consulta habilitadas por padrão.
+#### <a name="key-bug-fixes"></a>Correções de bug de chave
+* O NPE foi corrigido no `GatewayAddressCache` .
+* Corrigindo o problema de métrica de consulta para resposta a zero item.
+* Melhor desempenho (redução do uso da CPU) para análise de endereços e autenticação de chave mestra.
+
+### <a name="432-beta2-2020-08-17"></a>4.3.2-beta. 2 (2020-08-17)
+#### <a name="key-bug-fixes"></a>Correções de bug de chave
+* Nenhuma alteração da versão anterior, liberando para problemas de compatibilidade com módulos Spring Data.
+
+### <a name="432-beta1-2020-08-14"></a>4.3.2-beta. 1 (2020-08-14)
+#### <a name="key-bug-fixes"></a>Correções de bug de chave
+* Correção do problema em RntbdServiceEndpoint para evitar o fechamento inicial de uma conexão TCP não usada.
+
+### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
+#### <a name="key-bug-fixes"></a>Correções de bug de chave
+* Corrigido o problema com a `GROUP BY` consulta, onde ele estava retornando apenas uma página.
+* Formato de cadeia de caracteres do agente do usuário fixo para atender às diretrizes do SDK central.
+* Informações de diagnóstico aprimoradas para incluir o diagnóstico do plano de consulta.
 
 ### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
 #### <a name="new-features"></a>Novos recursos

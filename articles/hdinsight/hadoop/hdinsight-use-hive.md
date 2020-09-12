@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 95af0cd4b59863ad0f591476441d9a7733765453
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076021"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462268"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Saiba mais sobre o Apache Hive e o HiveQL no Azure HDInsight?
 
@@ -100,7 +100,7 @@ O Hive também pode ser estendido por meio de **UDF (funções definidas pelo us
 
 * [Usar uma função definida C# pelo usuário do Java com o Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Como adicionar uma função definida pelo usuário personalizado de Apache Hive no HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Como adicionar uma função definida pelo usuário personalizado de Apache Hive no HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Um exemplo de função definida pelo usuário do Apache Hive para converter formatos de data/hora para carimbo de data/hora do Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -131,7 +131,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 No exemplo anterior, as instruções HiveQL executam as seguintes ações:
 
-|de |Descrição |
+|Instrução |Descrição |
 |---|---|
 |DROP TABLE|Se a tabela já existir, exclua-a.|
 |CREATE EXTERNAL TABLE|Cria uma nova tabela **externa** no hive. Tabelas externas só armazenam a definição da tabela no Hive. Os dados são mantidos no local e no formato originais.|
@@ -164,7 +164,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Essas instruções executam as seguintes ações:
 
-|de |Descrição |
+|Instrução |Descrição |
 |---|---|
 |CREATE TABLE SE NÃO EXISTIR|Se a tabela não existir, crie-a. Como a palavra-chave **external** não é usada, essa instrução cria uma tabela interna. Uma tabela interna é armazenada no data warehouse do Hive e é totalmente gerenciada pelo Hive.|
 |ARMAZENADO COMO ORC|Armazena os dados no formato OCR (Optimized Row Columnar). Esse é um formato altamente otimizado e eficiente para o armazenamento de dados do Hive.|

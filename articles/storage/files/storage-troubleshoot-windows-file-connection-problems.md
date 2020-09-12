@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 08/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3bd059e59bebe9ae1ecc8f2f00dd63f873e08944
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: eed9109416f434e2492d621f60b7ad6bf6e188e8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269362"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437370"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -50,7 +50,12 @@ Se os usuários estiverem acessando o compartilhamento de arquivos do Azure usan
 
 ### <a name="solution-for-cause-3"></a>Solução para a causa 3
 
-Para atualizar as permissões de nível de compartilhamento, consulte [atribuir permissões de acesso a uma identidade](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
+Valide se as permissões estão configuradas corretamente:
+
+- **Active Directory (AD)** consulte [atribuir permissões de nível de compartilhamento a uma identidade](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+
+    As atribuições de permissão de nível de compartilhamento têm suporte para grupos e usuários que foram sincronizados do Active Directory (AD) para Azure Active Directory (AAD) usando Azure AD Connect.  Confirme se os grupos e os usuários que estão sendo atribuídos às permissões de nível de compartilhamento não são grupos de "somente nuvem" sem suporte.
+- **Azure Active Directory Domain Services (Azure AD DS)** consulte [atribuir permissões de acesso a uma identidade](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Erro 53, Erro 67 ou Erro 87 ao montar ou desmontar um compartilhamento de arquivos do Azure
@@ -316,18 +321,6 @@ O erro AadDsTenantNotFound ocorre quando você tenta [habilitar a autenticação
 Habilite o Azure AD DS no locatário do Azure AD da assinatura na qual sua conta de armazenamento está implantada. Você precisa de privilégios de administrador do locatário do Azure AD para criar um domínio gerenciado. Se você não for o administrador do locatário do Azure AD, entre em contato com o administrador e siga as orientações passo a passo para [Habilitar os Serviços de Domínio do Active Directory do Azure usando o portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
-
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>Erro ' ocorreu o erro de sistema 1359. Um erro interno ' recebido por meio de acesso SMB a compartilhamentos de arquivos com a autenticação do serviço de domínio Azure Active Directory (AD DS) habilitada
-
-### <a name="cause"></a>Causa
-
-Erro ' ocorreu o erro de sistema 1359. Um erro interno ' ocorre quando você tenta se conectar ao compartilhamento de arquivos com a autenticação de AD DS do Azure habilitada em uma AD DS do Azure com o nome DNS de domínio começando com um caractere numérico. Por exemplo, se o nome DNS do domínio AD DS do Azure for "1domain", você receberá esse erro ao tentar montar o compartilhamento de arquivos usando as credenciais do Azure AD. 
-
-### <a name="solution"></a>Solução
-
-No momento, você pode considerar reimplantar sua AD DS do Azure usando um novo nome DNS de domínio que se aplica com as regras abaixo:
-- Os nomes não podem começar com um caractere numérico.
-- Os nomes devem ter de 3 a 63 caracteres de comprimento.
 
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Não é possível montar os arquivos do Azure com as credenciais do AD 
 

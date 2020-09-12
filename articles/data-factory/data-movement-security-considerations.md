@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84019972"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440549"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -28,7 +28,7 @@ ms.locfileid: "84019972"
 
 Este artigo descreve a infraestrutura básica de segurança usada pelos serviços de movimentação de dados no Azure Data Factory para ajudar a proteger seus dados. Os recursos de gerenciamento do Data Factory se baseiam na infraestrutura de segurança do Azure e usam todas as medidas de segurança possíveis oferecidas pelo Azure.
 
-Em uma solução de Data Factory, você cria um ou mais [pipelines](concepts-pipelines-activities.md)de dados. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Esses pipelines residem na região em que o data factory foi criado. 
+Em uma solução de Data Factory, você cria um ou mais [pipelines](concepts-pipelines-activities.md)de dados. Um pipeline é um agrupamento lógico de atividades que, juntas, executam uma tarefa. Esses pipelines residem na região em que o data factory foi criado. 
 
 Mesmo que a fábrica de dados está disponível apenas em algumas regiões, o serviço de movimentação de dados é [disponível globalmente](concepts-integration-runtime.md#integration-runtime-location) para garantir a conformidade de dados, eficiência e rede reduzida os custos de saída. 
 
@@ -51,7 +51,7 @@ Se você estiver interessado na conformidade do Azure e como ele protege sua pr�
 
 Neste artigo, examinamos as considerações sobre segurança nestes dois cenários de movimentação de dados: 
 
-- **Cenário de nuvem**: neste cenário, sua origem e destino são publicamente acessíveis por meio da Internet. Eles incluem serviços de armazenamento em nuvem gerenciados como Armazenamento do Azure, SQL Data Warehouse do Azure, Banco de Dados SQL do Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como Salesforce e protocolos da Web como FTP e OData. Localizar uma lista completa de fontes de dados com suporte em [Armazenamentos de dados e formatos com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Cenário de nuvem**: neste cenário, sua origem e destino são publicamente acessíveis por meio da Internet. Isso inclui serviços de armazenamento em nuvem gerenciados, como o armazenamento do Azure, o Azure Synapse Analytics (anteriormente SQL Data Warehouse), o banco de dados SQL do Azure, Azure Data Lake Store, Amazon S3, Amazon redshift, serviços SaaS como Salesforce e protocolos da Web, como FTP e OData. Localizar uma lista completa de fontes de dados com suporte em [Armazenamentos de dados e formatos com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Cenário híbrido**: nesse cenário, sua origem ou destino está atrás de um firewall ou dentro de uma rede corporativa local. Ou, o armazenamento de dados está em uma particular ou rede virtual (geralmente a origem) e não está acessível publicamente. Os servidores de banco de dados hospedados em máquinas virtuais também se enquadram nesse cenário.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -67,7 +67,7 @@ Neste artigo, examinamos as considerações sobre segurança nestes dois cenári
 Caso o armazenamento de dados em nuvem dê suporte a HTTPS ou TLS, todas as transferências de dados entre serviços de movimentação de dados no Data Factory e um armazenamento de dados em nuvem ocorrerão por meio de um canal seguro HTTPS ou TLS.
 
 > [!NOTE]
-> Todas as conexões com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure exigem criptografia (SSL/TLS) quando os dados estão em trânsito, entrando e saindo do banco de dados. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como **verdadeira** na cadeia de conexão. Para o armazenamento do Azure, você pode usar **https** na cadeia de conexão.
+> Todas as conexões com o banco de dados SQL do Azure e o Azure Synapse Analytics exigem Criptografia (SSL/TLS), enquanto os dados estão em trânsito para e do banco. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como **verdadeira** na cadeia de conexão. Para o armazenamento do Azure, você pode usar **https** na cadeia de conexão.
 
 > [!NOTE]
 > Para habilitar a criptografia em trânsito, simultaneamente movendo dados do Oracle, siga uma das opções abaixo:
@@ -80,8 +80,8 @@ Caso o armazenamento de dados em nuvem dê suporte a HTTPS ou TLS, todas as tran
 ### <a name="data-encryption-at-rest"></a>Criptografia de dados em repouso
 Alguns armazenamentos de dados dão suporte à criptografia de dados em repouso. Recomendamos que você habilite o mecanismo de criptografia de dados nesses armazenamentos de dados. 
 
-#### <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
-A TDE (Transparent Data Encryption) no SQL Data Warehouse do Azure ajuda a proteger contra a ameaça de atividades mal-intencionadas por meio da execução de criptografia e descriptografia de seus dados em repouso. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [Proteger um banco de dados no SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+O Transparent Data Encryption (TDE) na análise de Synapse do Azure ajuda a proteger contra a ameaça de atividades mal-intencionadas, executando criptografia e descriptografia em tempo real de seus dados em repouso. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [proteger um banco de dados no Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 O Banco de Dados SQL do Azure também dá suporte à TDE (Transparent Data Encryption), que ajuda a proteger contra ameaças de atividades mal-intencionadas por meio da execução de criptografia e descriptografia em tempo real dos dados, sem a necessidade de alterações no aplicativo. Esse comportamento é transparente para o cliente. Para obter mais informações, consulte [Transparent Data Encryption para o Banco de Dados SQL e SQL Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
@@ -153,10 +153,10 @@ As imagens a seguir mostram o uso do runtime de integração auto-hospedada para
 
 ![VPN IPsec com gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Configurações de firewall e lista de permissões de configuração para endereços IP
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Configurações de firewall e lista de permissões de configuração para endereços IP
 
 > [!NOTE] 
-> Talvez você precise gerenciar portas ou configurar a lista de permissões para domínios no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Azure Data Lake Store como exemplos.
+> Talvez você precise gerenciar portas ou configurar a lista de permissões para domínios no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o banco de dados SQL do Azure, o Azure Synapse Analytics e o Azure Data Lake Store como exemplos.
 
 > [!NOTE] 
 > Para obter detalhes sobre estratégias de acesso a dados por meio de Azure Data Factory, consulte [Este artigo](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
@@ -169,7 +169,7 @@ A tabela a seguir fornece os requisitos de porta de saída e de domínio dos fir
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Talvez você precise gerenciar portas ou configurar a lista de permissões para domínios no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Azure Data Lake Store como exemplos.   
+> Talvez você precise gerenciar portas ou configurar a lista de permissões para domínios no nível do firewall corporativo, conforme exigido pelas respectivas fontes de dados. Esta tabela usa apenas o banco de dados SQL do Azure, o Azure Synapse Analytics e o Azure Data Lake Store como exemplos.   
 
 A tabela a seguir fornece os requisitos de porta de entrada do Firewall do Windows:
 
@@ -185,7 +185,7 @@ Alguns armazenamentos de dados na nuvem também exigem que você permita o ender
 Os seguintes armazenamentos de dados de nuvem exigem que você permita o endereço IP do computador do Integration Runtime de hospedagem interna. Por padrão, alguns desses armazenamentos de dados podem não exigir a lista de permissões. 
 
 - [Banco de Dados SQL do Azure](../azure-sql/database/firewall-configure.md) 
-- [SQL Data Warehouse do Azure](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Repositório Azure Data Lake](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
@@ -198,7 +198,7 @@ Sim. Mais detalhes [aqui](https://azure.microsoft.com/blog/sharing-a-self-hosted
 
 **Quais são os requisitos de porta para o runtime de integração auto-hospedada funcionar?**
 
-O runtime de integração auto-hospedada faz conexões com base em HTTP para acessar a internet. As portas de saída 443 devem ser abertas para o runtime de integração auto-hospedada para fazer essa conexão. Abra a porta de entrada 8060 somente no nível do computador (não no nível do firewall corporativo) para o aplicativo Gerenciador de credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta 1433 também. Para obter mais informações, consulte a seção [configurações de firewall e lista de permissões de configuração para endereços IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
+O runtime de integração auto-hospedada faz conexões com base em HTTP para acessar a internet. As portas de saída 443 devem ser abertas para o runtime de integração auto-hospedada para fazer essa conexão. Abra a porta de entrada 8060 somente no nível do computador (não no nível do firewall corporativo) para o aplicativo Gerenciador de credenciais. Se o banco de dados SQL do Azure ou o Azure Synapse Analytics for usado como a origem ou o destino, você precisará abrir a porta 1433 também. Para obter mais informações, consulte a seção [configurações de firewall e lista de permissões de configuração para endereços IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
 
 
 ## <a name="next-steps"></a>Próximas etapas

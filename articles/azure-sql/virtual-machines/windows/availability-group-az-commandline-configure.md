@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 212ead54f0f8212ae251175d40873e7cec4e0240
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002974"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482650"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Configurar um grupo de disponibilidade para SQL Server na VM do Azure (PowerShell & AZ CLI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,13 +44,13 @@ Você precisa das seguintes permissões de conta para configurar o grupo de disp
 - Uma conta de usuário de domínio existente com permissão para **Criar Objeto de Computador** no domínio. Por exemplo, uma conta de administrador do domínio normalmente tem permissão suficiente (por exemplo: account@domain.com). _Essa conta também deve fazer parte do grupo administrador local em cada VM para criar o cluster._
 - A conta de usuário do domínio que controla o SQL Server. 
  
-## <a name="create-a-storage-account-as-a-cloud-witness"></a>Criar uma conta de armazenamento como uma testemunha em nuvem
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
+
 O cluster precisa de uma conta de armazenamento do Azure para atuar como a testemunha da nuvem. Você pode usar qualquer conta de armazenamento existente ou criar uma. Se você deseja usar uma conta de armazenamento existente, pule para a próxima seção. 
 
 O seguinte snippet de código cria a conta de armazenamento: 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
 
 ```azurecli-interactive
 # Create the storage account
@@ -80,7 +80,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ---
 
-## <a name="define-windows-failover-cluster-metadata"></a>Definir metadados do cluster de failover do Windows
+## <a name="define-cluster-metadata"></a>Definir metadados do cluster
 
 O grupo de comandos da CLI do Azure [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) gerencia os metadados do serviço WSFC (Windows Server Failover Cluster) que hospeda o grupo de disponibilidade. Os metadados do cluster incluem o domínio do Active Directory, as contas de cluster, as contas de armazenamento a serem usadas como testemunha de nuvem e a versão do SQL Server. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) para definir os metadados do WSFC para que, quando a primeira VM do SQL Server for adicionada, o cluster seja criado conforme definido. 
 
@@ -183,6 +183,17 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
 
 ---
+
+
+## <a name="validate-cluster"></a>Validar cluster 
+
+Para que um cluster de failover seja suportado pela Microsoft, ele deve passar na validação do cluster. Conecte-se à VM usando seu método preferido, como protocolo RDP (RDP) e valide se o cluster passa pela validação antes de continuar. Deixar de fazer isso deixa o cluster em um estado sem suporte. 
+
+Você pode validar o cluster usando Gerenciador de Cluster de Failover (FCM) ou o seguinte comando do PowerShell:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
 
 ## <a name="create-availability-group"></a>Criar grupo de disponibilidade
 

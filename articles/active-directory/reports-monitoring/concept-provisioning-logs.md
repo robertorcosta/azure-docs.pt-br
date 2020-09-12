@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229864"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469857"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -99,7 +99,7 @@ Na exibição padrão, você pode selecionar os seguintes filtros:
 - Ação
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Filtrar")
+![Adicionar filtros](./media/concept-provisioning-logs/default-filter.png "Filtrar")
 
 O filtro de **identidade** permite que você especifique o nome ou a identidade sobre a qual você se preocupa. Essa identidade pode ser um usuário, grupo, função ou outro objeto. Você pode Pesquisar pelo nome ou ID do objeto. A ID varia de acordo com o cenário. Por exemplo, ao provisionar um objeto do Azure AD para o SalesForce, a ID de origem é a ID de objeto do usuário no Azure AD, enquanto a TargetId é a ID do usuário no Salesforce. Ao provisionar do WORKDAY para Active Directory, a ID de origem é a ID de funcionário do workday Worker. Observe que o nome do usuário talvez nem sempre esteja presente na coluna de identidade. Sempre haverá uma ID. 
 
@@ -175,7 +175,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Tabulações")
+![Detalhes de provisionamento](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
 
 
 
@@ -190,7 +190,7 @@ A guia **etapas** descreve as etapas executadas para provisionar um objeto. O pr
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Etapas](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Solução de problemas e recomendações
@@ -214,11 +214,13 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 - Você pode usar o atributo ID de alteração como um identificador exclusivo. Isso é, por exemplo, útil ao interagir com o suporte ao produto.
 
-- Atualmente, não há nenhuma opção para baixar dados de provisionamento.
+- Atualmente, não há nenhuma opção para baixar dados de provisionamento como um arquivo CSV, mas você pode exportar os dados usando [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 - No momento, não há suporte para o log Analytics.
 
 - Você pode ver eventos ignorados para usuários que não estão no escopo. Isso é esperado, especialmente quando o escopo de sincronização é definido como todos os usuários e grupos. Nosso serviço avaliará todos os objetos no locatário, mesmo aqueles que estão fora do escopo. 
+
+- Os logs de provisionamento não estão disponíveis no momento na nuvem governamental. Se não for possível acessar os logs de provisionamento, use os logs de auditoria como uma solução alternativa temporária.  
 
 ## <a name="error-codes"></a>Códigos de erro
 
@@ -244,6 +246,7 @@ Use a tabela a seguir para entender melhor como resolver erros que podem ser enc
 |DuplicateSourceEntries | A operação não pôde ser concluída porque mais de um usuário foi encontrado com os atributos correspondentes configurados. Remova o usuário duplicado ou RECONFIGURE os mapeamentos de atributo conforme descrito [aqui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando cada usuário é avaliado, tentamos importar o usuário do sistema de origem. Esse erro geralmente ocorre quando o usuário que está sendo importado não tem a propriedade correspondente definida em seus mapeamentos de atributo. Sem um valor presente no objeto de usuário para o atributo correspondente, não podemos avaliar as alterações de escopo, correspondência ou exportação. Observação: a presença desse erro não indica que o usuário está no escopo, pois ainda não avaliamos o escopo do usuário.|
 |EntrySynchronizationSkipped | O serviço de provisionamento consultou com êxito o sistema de origem e identificou o usuário. Nenhuma ação adicional foi realizada no usuário e elas foram ignoradas. O Skip pode ser devido ao usuário estar fora do escopo ou ao usuário já existente no sistema de destino sem nenhuma alteração adicional necessária.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Ao executar uma solicitação GET para recuperar um usuário ou grupo, recebemos vários usuários ou grupos na resposta. Esperávamos receber apenas um usuário ou grupo na resposta. Se, [por exemplo](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), fizermos uma solicitação get para recuperar um grupo e fornecer um filtro para excluir Membros e seu ponto de extremidade scim retornar os membros, lançaremos esse erro.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

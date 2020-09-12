@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 16e15976c6f09881b75dcec207833f48aa1c4e7a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189944"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437659"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,11 +91,11 @@ A versão com redundância de zona da arquitetura de alta disponibilidade é ilu
 
 ## <a name="accelerated-database-recovery-adr"></a>Recuperação Acelerada de Banco de Dados (ADR)
 
-A [ADR (recuperação de banco de dados acelerada)](../accelerated-database-recovery.md) é um novo recurso de mecanismo de banco de dados que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução. ADR está disponível no momento para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada e Azure SQL Data Warehouse.
+A [ADR (recuperação de banco de dados acelerada)](../accelerated-database-recovery.md) é um novo recurso de mecanismo de banco de dados que melhora muito a disponibilidade do banco de dados, especialmente na presença de transações de longa execução. ADR está disponível no momento para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada e Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 
 ## <a name="testing-application-fault-resiliency"></a>Testando a resiliência de falha do aplicativo
 
-A alta disponibilidade é uma parte fundamental do banco de dados SQL e da plataforma SQL Instância Gerenciada que funciona de forma transparente para seu aplicativo de banco de dados. No entanto, reconhecemos que talvez você queira testar como as operações de failover automático iniciadas durante os eventos planejados ou não planejados afetariam um aplicativo antes de implantá-lo na produção. Você pode disparar um failover manualmente chamando uma API especial para reiniciar um banco de dados, um pool elástico ou uma instância gerenciada. No caso de um banco de dados com redundância de zona ou pool elástico, a chamada à API resultaria no redirecionamento de conexões de cliente para o novo primário em uma zona de disponibilidade diferente da zona de disponibilidade do primário antigo. Assim, além de testar como o failover afeta as sessões de banco de dados existentes, você também pode verificar se ele altera o desempenho de ponta a ponta devido a alterações na latência de rede. Como a operação de reinicialização é intrusiva e um grande número delas poderia enfatizar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada banco de dados, pool elástico ou instância gerenciada.
+A alta disponibilidade é uma parte fundamental do Banco de Dados SQL e da plataforma de Instância Gerenciada de SQL que funciona de forma transparente para o aplicativo de banco de dados. No entanto, reconhecemos que talvez você queira testar como as operações de failover automático iniciadas durante os eventos planejados ou não planejados afetariam um aplicativo antes de implantá-lo na produção. Você pode disparar um failover manualmente chamando uma API especial para reiniciar um banco de dados, um pool elástico ou uma instância gerenciada. No caso de um banco de dados com redundância de zona ou pool elástico, a chamada à API resultaria no redirecionamento de conexões de cliente para o novo primário em uma zona de disponibilidade diferente da zona de disponibilidade do primário antigo. Assim, além de testar como o failover afeta as sessões de banco de dados existentes, você também pode verificar se ele altera o desempenho de ponta a ponta devido a alterações na latência de rede. Como a operação de reinicialização é intrusiva e um grande número delas poderia enfatizar a plataforma, apenas uma chamada de failover é permitida a cada 30 minutos para cada banco de dados, pool elástico ou instância gerenciada.
 
 Um failover pode ser iniciado usando o PowerShell, a API REST ou CLI do Azure:
 

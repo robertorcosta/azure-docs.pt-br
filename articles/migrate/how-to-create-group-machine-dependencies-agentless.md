@@ -3,12 +3,12 @@ title: Configurar a análise de dependência sem agente na avaliação do servid
 description: Configure a análise de dependência sem agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771369"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536431"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências do computador (sem agente)
 
@@ -25,7 +25,7 @@ Este artigo descreve como configurar a análise de dependência sem agente em mi
 
 - No modo de exibição de análise de dependência, não é possível adicionar ou remover um servidor de um grupo no momento.
 - Um mapa de dependências para um grupo de servidores não está disponível no momento.
-- Os dados de dependência não podem ser baixados no formato tabular.
+- A coleta de dados de dependência pode ser configurada simultaneamente para servidores 400. Você pode analisar um número maior de servidores por meio do sequenciamento em lotes de 400.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -50,7 +50,7 @@ Adicione a conta de usuário ao dispositivo.
 2. Navegue até o painel **fornecer detalhes do vCenter** .
 3. Em **descobrir aplicativo e dependências em VMs**, clique em **Adicionar credenciais**
 3. Escolha o **sistema operacional**, forneça um nome amigável para a conta e a senha do **nome de usuário** / **Password**
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 7. Clique em **salvar e iniciar descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)

@@ -2,14 +2,13 @@
 title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
-ms.openlocfilehash: 86c9958818b5439502ab37471ed7a51fb3f21bf9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/02/2020
+ms.openlocfilehash: b9b2b7217b854153f03d61713d8b4a1bcf5bfd9d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854063"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470163"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -27,6 +26,9 @@ Para saber mais sobre os preços do Azure, consulte [visão geral de preços do 
 > Quando o limite pode ser ajustado, as tabelas incluem o **limite padrão** e os cabeçalhos de **limite máximo** . O limite pode ser gerado acima do limite padrão, mas não acima do limite máximo.
 >
 > Se você quiser aumentar o limite ou a cota acima do limite padrão, [abra uma solicitação de atendimento ao cliente online sem encargos](../templates/error-resource-quota.md).
+>
+> Os termos de *limite flexível* e *rígido* geralmente são usados informalmente para descrever o limite atual, ajustável (limite flexível) e o limite máximo (limite fixo). Se um limite não for ajustável, não haverá um limite flexível, apenas um limite rígido.
+>
 
 As [assinaturas de avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para aumentos de cota ou limite. Se você tiver uma [assinatura de Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), você poderá atualizar para uma assinatura de [pagamento conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obter mais informações, consulte [atualizar sua assinatura de avaliação gratuita do Azure para uma assinatura paga conforme o uso](../../cost-management-billing/manage/upgrade-azure-subscription.md) e as [perguntas frequentes sobre assinatura de avaliação gratuita](https://azure.microsoft.com/free/free-account-faq).
 
@@ -75,6 +77,10 @@ Os seguintes limites do Serviço de Aplicativo incluem limites para Aplicativos 
 ## <a name="automation-limits"></a>Limites de automação
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Configuração de Aplicativo do Azure
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Limites do Cache Redis do Azure
 

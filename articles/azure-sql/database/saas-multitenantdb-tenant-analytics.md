@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249135"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442898"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo multilocatário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Os aplicativos SaaS que você desenvolve têm acesso a uma grande quantidade de 
 
 Acessar os dados para todos os locatários é simples quando todos os dados estão em apenas um banco de dados multilocatário. Porém, o acesso é mais complexo quando distribuído em grande escala em milhares de bancos de dados. Uma maneira de controlar a complexidade é extrair os dados para um banco de dados de análise ou um data warehouse. Em seguida, consulte o data warehouse para coletar informações dos dados de tíquetes de todos os locatários.
 
-Este tutorial apresenta um cenário completo de análise para este aplicativo SaaS de exemplo. Primeiro, trabalhos elásticos são usados para agendar a extração de dados de cada banco de dados de locatário. Os dados são enviados para um repositório analítico. O repositório de análise pode ser um Banco de Dados SQL ou um SQL Data Warehouse. Para extração de dados em grande escala, o [Azure Data Factory](../../data-factory/introduction.md) é recomendado.
+Este tutorial apresenta um cenário completo de análise para este aplicativo SaaS de exemplo. Primeiro, trabalhos elásticos são usados para agendar a extração de dados de cada banco de dados de locatário. Os dados são enviados para um repositório analítico. O repositório de análise pode ser um banco de dados SQL ou uma análise de Synapse do Azure (anteriormente SQL Data Warehouse). Para extração de dados em grande escala, o [Azure Data Factory](../../data-factory/introduction.md) é recomendado.
 
 Em seguida, os dados agregados são fragmentados em um conjunto de tabelas de [esquema em estrela](https://www.wikipedia.org/wiki/Star_schema). As tabelas consistem em uma tabela de fatos central, mais tabelas de dimensões relacionadas:
 

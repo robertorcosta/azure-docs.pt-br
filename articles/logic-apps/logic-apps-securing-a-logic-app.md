@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: 442b5acf3a6786b9fcaf0a96015a6df31215653c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/08/2020
+ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231411"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500395"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -216,6 +216,9 @@ Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azur
 
 Para habilitar o OAuth do Azure AD no modelo ARM para implantar seu aplicativo lógico, na `properties` seção para a [definição de recurso do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), adicione um `accessControl` objeto, se não houver nenhum, que contenha um `triggers` objeto. No `triggers` objeto, adicione um `openAuthenticationPolicies` objeto em que você define uma ou mais políticas de autorização seguindo esta sintaxe:
 
+> [!NOTE]
+> No mínimo, a `claims` matriz deve incluir a `iss` declaração, que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração.
+
 ```json
 "resources": [
    {
@@ -233,7 +236,7 @@ Para habilitar o OAuth do Azure AD no modelo ARM para implantar seu aplicativo l
                         "claims": [
                            {
                               "name": "<claim-name>",
-                              "values": "<claim-value>"
+                              "value": "<claim-value>"
                            }
                         ]
                      }
@@ -811,7 +814,7 @@ Esta tabela identifica os tipos de autenticação que estão disponíveis nos ga
 | [Certificado do Cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth do Active Directory](#azure-active-directory-oauth-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Bruta](#raw-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
-| [Identidade gerenciada](#managed-identity-authentication) | Gerenciamento de API do Azure, serviços de Azure App, Azure Functions, HTTP |
+| [Identidade gerenciada](#managed-identity-authentication) | Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP |
 |||
 
 <a name="basic-authentication"></a>

@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012936"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651214"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o designer do Azure Machine Learning (versão prévia)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -114,7 +114,7 @@ Os pipelines publicados são flexíveis, podem ser usados ​​para treinar ou 
 
 Um pipeline publicado é executado nos recursos de computação que você define no rascunho de pipeline para cada módulo.
 
-O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) que o SDK.
+O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) que o SDK.
 
 ## <a name="next-steps"></a>Próximas etapas
 

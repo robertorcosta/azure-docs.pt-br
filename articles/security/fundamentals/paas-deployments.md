@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461694"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462353"
 ---
 # <a name="securing-paas-deployments"></a>Proteção de implantações de PaaS
 
@@ -151,10 +151,10 @@ O teste de difusão é um método para localizar falhas de programa (erros de c�
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, nos concentramos nas vantagens de segurança de uma implantação de PaaS do Azure e nas práticas recomendadas de segurança para aplicativos em nuvem. Em seguida, aprenda as práticas recomendadas para proteger suas soluções Web e móveis de PaaS usando serviços específicos do Azure. Começaremos com o Serviço de Aplicativo do Azure, o Banco de Dados SQL do Azure, o SQL Data Warehouse do Azure e o Armazenamento do Azure. Conforme os artigos sobre práticas recomendadas para outros serviços do Azure forem disponibilizados, os links serão fornecidos na lista a seguir:
+Neste artigo, nos concentramos nas vantagens de segurança de uma implantação de PaaS do Azure e nas práticas recomendadas de segurança para aplicativos em nuvem. Em seguida, aprenda as práticas recomendadas para proteger suas soluções Web e móveis de PaaS usando serviços específicos do Azure. Começaremos com o serviço Azure App, o banco de dados SQL do Azure e o Azure Synapse Analytics e o armazenamento do Azure. Conforme os artigos sobre práticas recomendadas para outros serviços do Azure forem disponibilizados, os links serão fornecidos na lista a seguir:
 
 - [Serviço de Aplicativo do Azure](paas-applications-using-app-services.md)
-- [Banco de Dados SQL do Azure e SQL Data Warehouse do Azure](paas-applications-using-sql.md)
+- [Banco de dados SQL do Azure e análise de Synapse do Azure](paas-applications-using-sql.md)
 - [Armazenamento do Azure](paas-applications-using-storage.md)
 - Cache Redis do Azure
 - Barramento de Serviço do Azure
@@ -166,4 +166,4 @@ Veja [Melhores práticas e padrões de segurança do Azure](best-practices-and-p
 
 Os seguintes recursos estão disponíveis para fornecer mais informações gerais sobre a segurança do Azure e os serviços da Microsoft relacionados:
 * [Blog da equipe de segurança do Azure](https://blogs.msdn.microsoft.com/azuresecurity/) – para obter informações atualizadas sobre as últimas novidades de Segurança do Azure
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou enviadas por email parasecure@microsoft.com
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) – em que vulnerabilidades de segurança da Microsoft, incluindo problemas com o Azure, podem ser relatadas ou enviadas por email para secure@microsoft.com

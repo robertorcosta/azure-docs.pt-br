@@ -1,19 +1,19 @@
 ---
 title: Desempenho do Phoenix no Azure HDInsight
 description: Práticas recomendadas para otimizar o desempenho de Apache Phoenix para clusters do Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/27/2019
-ms.openlocfilehash: 8d1dff01c9e7b5232cfac0cf5581c077e67f6937
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0dfb93db1af807459c37653189a90b754c933aa4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079489"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504784"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Práticas recomendadas de desempenho do Apache Phoenix
 

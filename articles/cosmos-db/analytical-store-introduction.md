@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815820"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505515"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
 
@@ -155,10 +155,15 @@ A TTL Analítico em um contêiner é definida usando a propriedade `AnalyticalSt
 * Se presente e o valor for definido como algum número positivo “n”: os itens expirarão do repositório analítico “n” segundos após a hora da última modificação no repositório transacional. Essa configuração poderá ser utilizada se você quiser manter seus dados operacionais por um período de tempo limitado no repositório analítico, independentemente da retenção dos dados no armazenamento transacional
 
 Considere o seguinte:
-*   Depois que o repositório analítico for habilitado com um determinado valor de TTL analítico, é possível atualizá-lo posteriormente com um valor válido diferente. 
-*   Embora a TTL transacional possa ser definida no nível de contêiner ou de item, atualmente, a TTL analítica só pode ser definida no nível de contêiner.
-*   Você pode obter uma retenção mais longa de seus dados operacionais no repositório analítico ao definir a TTL analítica > = TTL transacional no nível de contêiner.
-*   O repositório analítico pode ser feito para espelhar o armazenamento transacional ao definir a TTL analítica = TTL transacional.
+*   Depois que o repositório analítico é habilitado com um valor de TTL analítico, ele pode ser atualizado para um valor válido diferente posteriormente 
+*   Embora o TTL transacional possa ser definido no nível de contêiner ou item, o TTL analítico só pode ser definido no nível de contêiner atualmente
+*   Você pode obter uma retenção mais longa dos dados operacionais no repositório analítico definindo TTL >= transacional TTL no nível do contêiner
+*   O repositório analítico pode ser feito para espelhar o armazenamento transacional, definindo o TTL analítico = transacional TTL
+
+Quando você habilita o repositório anaytical em um contêiner:
+ * usando o portal do Azure, o TTL analítico é definido como o valor padrão de-1. Você pode alterar esse valor para ' n' segundos, navegando para configurações de contêiner em Data Explorer. 
+ 
+ * usando o SDK do Azure ou o PowerShell ou a CLI, o TTL analítico pode ser habilitado definindo-o como-1 ou ' n'. 
 
 Para saber mais, confira [Como configurar a TTL analítica em um contêiner](configure-synapse-link.md#create-analytical-ttl).
 

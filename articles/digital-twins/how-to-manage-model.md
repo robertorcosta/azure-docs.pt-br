@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079769"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536448"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -168,13 +168,18 @@ Os modelos não são necessariamente retornados exatamente no formulário de doc
 
 ### <a name="update-models"></a>Atualizar modelos
 
-Depois que um modelo é carregado em sua instância, a interface de modelo inteira é imutável. Isso significa que não há "edição" tradicional de modelos.
+Depois que um modelo é carregado em sua instância do gêmeos digital do Azure, toda a interface do modelo é imutável. Isso significa que não há "edição" tradicional de modelos. O Azure digital gêmeos também não permite o novo carregamento do mesmo modelo.
 
-Em vez disso, se você quiser fazer alterações em um modelo no Azure digital gêmeos, a maneira de fazer isso é carregar uma **versão mais recente** do mesmo modelo. Durante a visualização, o progresso de uma versão de modelo só permitirá que você remova os campos, e não adicione novos (para adicionar novos campos, basta [criar um modelo totalmente novo](#create-models)).
+Em vez disso, se você quiser fazer alterações em um modelo — como atualização `displayName` ou `description` – a maneira de fazer isso é carregar uma **versão mais recente** do modelo. 
+
+#### <a name="model-versioning"></a>Controle de versão de modelo
 
 Para criar uma nova versão de um modelo existente, comece com o DTDL do modelo original. Atualize os campos que você deseja alterar.
 
-Em seguida, marque-a como uma versão mais recente do modelo atualizando o `id` campo do modelo. A última seção da ID do modelo, após o `;` , representa o número do modelo. Para indicar que essa é agora uma versão mais atualizada desse modelo, aumente o número no final do `id` valor para qualquer número maior que o número de versão atual.
+>[!NOTE]
+>Durante a visualização, o progresso de uma versão de modelo só permitirá que você adicione novos campos, não remova os existentes. Para remover campos, você deve apenas [criar um modelo totalmente novo](#create-models).
+
+Em seguida, marque como uma versão mais recente do modelo atualizando o `id` campo do modelo. A última seção da ID do modelo, após o `;` , representa o número do modelo. Para indicar que essa é agora uma versão mais atualizada desse modelo, aumente o número no final do `id` valor para qualquer número maior que o número de versão atual.
 
 Por exemplo, se a ID do modelo anterior tiver a seguinte aparência:
 
@@ -188,7 +193,17 @@ a versão 2 desse modelo pode ter a seguinte aparência:
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-Em seguida, carregue a nova versão do modelo em sua instância. Ele assumirá o lugar da versão antiga e as novas gêmeos que você criar usando esse modelo usarão a versão atualizada.
+Em seguida, carregue a nova versão do modelo em sua instância. 
+
+Essa versão do modelo estará disponível em sua instância para ser usada para gêmeos digital. Ele **não** substitui as versões anteriores do modelo, portanto, várias versões do modelo coexistirão em sua instância até você [removê-las](#remove-models).
+
+#### <a name="impact-on-twins"></a>Impacto no gêmeos
+
+Quando você cria um novo "/", uma vez que a nova versão do modelo e a versão do modelo antiga coexistem, o novo "/" pode usar a nova versão do modelo ou a versão mais antiga.
+
+Isso também significa que o carregamento de uma nova versão de um modelo não afeta automaticamente o gêmeos existente. O gêmeos existente só permanecerá com instâncias da versão antiga do modelo.
+
+Você pode atualizar esses gêmeos existentes para a nova versão do modelo, aplicando patches a eles, conforme descrito na seção [*atualizar um modelo do digital r*](how-to-manage-twin.md#update-a-digital-twins-model) de " *como": gerenciar o digital gêmeos*. No mesmo patch, você deve atualizar a ID do **modelo** (para a nova versão) e **todos os campos que devem ser alterados no campo de atualização para torná-lo compatível com o novo modelo**.
 
 ### <a name="remove-models"></a>Remover modelos
 
@@ -273,6 +288,8 @@ O Azure digital gêmeos não impede esse Estado, portanto, tenha cuidado para ap
 ## <a name="manage-models-with-cli"></a>Gerenciar modelos com a CLI
 
 Os modelos também podem ser gerenciados usando a CLI do Azure digital gêmeos. Os comandos podem ser encontrados em [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661309"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595573"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos com suporte para alertas de métrica no Azure Monitor
 
@@ -37,7 +37,7 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.Automation/automationAccounts | Sim| Não | [Contas de Automação](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft. AVS/privateClouds | Não | Não | |
 |Microsoft.Batch/batchAccounts | Sim | Não | [Contas de Lote](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | Sim | Não | [Cache Redis do Azure](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/Redis | Sim | Não | [Cache do Azure para Redis](./metrics-supported.md#microsoftcacheredis) |
 |Microsoft.ClassicStorage/storageAccounts | Sim | Não | [Contas de armazenamento (clássicas)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft.ClassicStorage/storageAccounts/blobServices | Sim | Não | |
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Sim | Não | |
@@ -112,7 +112,7 @@ Esta é a lista completa das origens métricas do Azure Monitor com suporte pelo
 |Microsoft.Web/sites | Sim | Não | [Serviços de Aplicativos](./metrics-supported.md#microsoftwebsites-excluding-functions) e [Funções](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Sim | Não | [Slots do Serviço de Aplicativo](./metrics-supported.md#microsoftwebsitesslots)|
 
-<sup>1</sup> com suporte somente para métricas de plataforma (não métricas personalizadas)
+<sup>1</sup> não há suporte para métricas de rede de máquina virtual (rede no total, total de saída de rede, fluxos de entrada, fluxos de saída, taxa de criação máxima de fluxos de entrada, taxa de criação máxima de fluxos de saída) e métricas personalizadas.
 
 ## <a name="payload-schema"></a>Esquema de conteúdo
 

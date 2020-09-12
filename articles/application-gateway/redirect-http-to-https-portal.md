@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804346"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594808"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicativo com HTTP para redirecionamento HTTPS usando o portal do Azure
 
@@ -20,12 +20,11 @@ Você pode usar o portal do Azure para criar um [Gateway de aplicativo](overview
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Crie um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicativo com o certificado
-> * Adicionar um ouvinte e uma regra de direcionamento
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
+* Crie um certificado autoassinado
+* Configurar uma rede
+* Criar um gateway de aplicativo com o certificado
+* Adicionar um ouvinte e uma regra de direcionamento
+* Criar um conjunto de dimensionamento de máquinas virtuais com o pool de back-end padrão
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -133,7 +132,7 @@ Primeiro, adicione o ouvinte denominado *myListener* à porta 80.
 Neste exemplo, você criará um conjunto de dimensionamento de máquinas virtuais configurado para fornecer servidores para o pool de back-end no gateway de aplicativo.
 
 1. No canto superior esquerdo do portal, selecione **+ Criar um recurso**.
-2. Selecione **computação**.
+2. Selecione **Computação**.
 3. Na caixa de pesquisa, digite *conjunto de dimensionamento* e pressione Enter.
 4. Selecione **Conjunto de dimensionamento de máquinas virtuais**e selecione **Criar**.
 5. Em **Nome do conjunto de dimensionamento de máquinas virtuais**, digite *myvmss*.
@@ -157,13 +156,13 @@ A interface do usuário do portal do conjunto de dimensionamento de máquinas vi
 3. Selecione **Pools de back-end**.
 4. Selecione **myAppGatewaymyvmss**.
 5. Selecione **Remover todos os destinos do pool de back-end**.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 7. Depois que esse processo for concluído, selecione o pool de back-end **myAppGatewaymyvmss**, selecione **Excluir** e **OK** para confirmar.
 8. Selecione **appGatewayBackendPool**.
 9. Em **Destinos**, selecione **VMSS**.
 10. Em **VMSS**, selecione **myvmss**.
 11. Em **Configurações do Adaptador de Rede**, selecione **myvmssNic**.
-12. Selecione **Salvar**.
+12. Clique em **Salvar**.
 
 ### <a name="upgrade-the-scale-set"></a>Atualizar o conjunto de dimensionamento
 
@@ -172,7 +171,7 @@ Por fim, você deve atualizar o conjunto de dimensionamento com essas alteraçõ
 1. Selecione o conjunto de dimensionamento **myvmss**.
 2. Em **Configurações**, selecione **Instâncias**.
 3. Selecione ambas as instâncias e selecione **Atualizar**.
-4. Clique em **Sim** para confirmar.
+4. Selecione **Sim** para confirmar.
 5. Depois que isso for concluído, volte para **myAppGateway** e selecione **Pools de back-end**. Agora você deve ver que o **appGatewayBackendPool** tem dois destinos, e **myAppGatewaymyvmss** não tem destinos.
 6. Selecione **myAppGatewaymyvmss**e selecione **Excluir**.
 7. Selecione **OK** para confirmar.
@@ -206,7 +205,7 @@ Depois de alterar as instâncias com o IIS, você deve atualizar novamente o con
 1. Selecione o conjunto de dimensionamento **myvmss**.
 2. Em **Configurações**, selecione **Instâncias**.
 3. Selecione ambas as instâncias e selecione **Atualizar**.
-4. Clique em **Sim** para confirmar.
+4. Selecione **Sim** para confirmar.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 

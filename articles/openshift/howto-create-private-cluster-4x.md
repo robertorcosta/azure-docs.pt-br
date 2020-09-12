@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: c196d48d22a2bd714c4b6252ad927d18790f4674
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056764"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505328"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um cluster privado do Red Hat OpenShift 4 no Azure
 
@@ -23,17 +23,35 @@ Neste artigo, você vai preparar seu ambiente para criar clusters privados do Re
 > * Configurar os pré-requisitos e criar a rede virtual e as sub-redes necessárias
 > * Implantar um cluster com um ponto de extremidade privado do servidor de API e um controlador de entrada privado
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando o CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-### <a name="register-the-resource-provider"></a>Registre o provedor de recursos
+### <a name="register-the-resource-providers"></a>Registrar os provedores de recursos
 
-Em seguida, você precisa registrar o provedor de recursos `Microsoft.RedHatOpenShift` em sua assinatura.
+1. Se você tiver várias assinaturas do Azure, especifique a ID de assinatura relevante:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Registrar o `Microsoft.RedHatOpenShift` provedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+
+1. Registrar o `Microsoft.Compute` provedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+
+1. Registrar o `Microsoft.Storage` provedor de recursos:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obter um segredo de pull do Red Hat (opcional)
 
@@ -141,7 +159,7 @@ Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Desabilite as políticas de ponto de extremidade privado de sub-rede](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) na sub-rede mestra.** Isso é necessário para conectar e gerenciar o cluster.
+5. **[Desabilite as políticas de ponto de extremidade privado de sub-rede](../private-link/disable-private-link-service-network-policy.md) na sub-rede mestra.** Isso é necessário para conectar e gerenciar o cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -207,7 +225,7 @@ Você pode encontrar a URL do console de cluster executando o comando a seguir, 
 ```
 
 >[!IMPORTANT]
-> Para se conectar a um cluster privado do Red Hat OpenShift no Azure, você precisará executar a etapa a seguir de um host que esteja na rede virtual criada ou em uma rede virtual [emparelhada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) com a rede virtual na qual o cluster foi implantado.
+> Para se conectar a um cluster privado do Red Hat OpenShift no Azure, você precisará executar a etapa a seguir de um host que esteja na rede virtual criada ou em uma rede virtual [emparelhada](../virtual-network/virtual-network-peering-overview.md) com a rede virtual na qual o cluster foi implantado.
 
 Inicie a URL do console em um navegador e faça logon usando as credenciais `kubeadmin`.
 
@@ -230,9 +248,9 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 ```
 
 >[!IMPORTANT]
-> Para se conectar a um cluster privado do Red Hat OpenShift no Azure, você precisará executar a etapa a seguir de um host que esteja na rede virtual criada ou em uma rede virtual [emparelhada](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) com a rede virtual na qual o cluster foi implantado.
+> Para se conectar a um cluster privado do Red Hat OpenShift no Azure, você precisará executar a etapa a seguir de um host que esteja na rede virtual criada ou em uma rede virtual [emparelhada](../virtual-network/virtual-network-peering-overview.md) com a rede virtual na qual o cluster foi implantado.
 
-Faça logon no servidor de API do cluster OpenShift usando o comando a seguir. Substitua **\<kubeadmin password>** pela senha que você acabou de recuperar.
+Faça logon no servidor de API do cluster OpenShift usando o comando a seguir. Substitua **\<kubeadmin password>** pela senha que você recuperou.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

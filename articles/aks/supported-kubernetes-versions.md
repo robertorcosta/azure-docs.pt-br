@@ -3,19 +3,19 @@ title: Versões do Kubernetes com suporte no Serviço de Kubernetes do Azure
 description: Entender a política de suporte de versão do Kubernetes e o ciclo de vida dos clusters no AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144610"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565355"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
-A comunidade Kubernetes libera versões secundárias aproximadamente a cada três meses. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (às vezes, semanais) e são destinadas apenas a correções de bugs críticas em uma versão secundária. Essas versões de patch incluem correções para vulnerabilidades de segurança ou principais bugs.
+A comunidade Kubernetes libera versões secundárias aproximadamente a cada três meses. Recentemente, a Comunidade kubernetes [aumentou a janela de suporte para cada versão, de 9 meses a 12 meses, a partir da](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)versão 1,19. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (às vezes semanais) e destinam-se a correções de bugs críticos em uma versão secundária. Essas versões de patch incluem correções para vulnerabilidades de segurança ou principais bugs.
 
 ## <a name="kubernetes-versions"></a>Versões do Kubernetes
 
@@ -41,8 +41,8 @@ Os usuários devem visar executar a versão mais recente do patch da versão sec
 
 AKS define uma versão geralmente disponível, como uma versão habilitada em todas as medições de SLO ou SLA e quando disponível em todas as regiões. O AKS dá suporte a três versões secundárias de GA do kubernetes:
 
-* A versão secundária mais recente do GA lançada no AKS (que faremos referência a N). 
-* Duas versões secundárias anteriores. 
+* A versão secundária mais recente do GA lançada no AKS (que faremos referência a N).
+* Duas versões secundárias anteriores.
 * Cada versão secundária com suporte também dá suporte a um máximo de dois (2) patches estáveis.
 * O AKS também pode oferecer suporte a versões de visualização, que são rotuladas explicitamente e sujeitas a [termos e condições de visualização][preview-terms].
 
@@ -143,6 +143,10 @@ Para obter o histórico de versões anteriores, consulte [aqui](https://en.wikip
 \* Confirmação de data de lançamento de upstream pendente.
 
 ## <a name="faq"></a>Perguntas frequentes
+
+**Com que frequência devo esperar para atualizar as versões do kubernetes para manter o suporte?**
+
+Declarando com o kubernetes 1,19, a comunidade de software livre [expandiu o suporte para 1 ano](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/). AKS confirmações para habilitar patches e suporte correspondentes aos compromissos upstream, no mínimo. Isso significa que, a partir de clusters AKS em 1,19, você poderá atualizar no mínimo uma vez por ano para permanecer em uma versão com suporte. Para versões em 1,18 ou abaixo, a janela de suporte permanece a 9 meses, o que requer uma atualização uma vez a cada 9 meses para permanecer em uma versão com suporte. É altamente recomendável testar regularmente as novas versões e estar preparado para atualizar para versões mais recentes para capturar os aprimoramentos estáveis mais recentes no kubernetes.
 
 **O que acontece quando um usuário atualiza um cluster kubernetes com uma versão secundária que não tem suporte?**
 

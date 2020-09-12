@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187285"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440500"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes sobre o Azure Data Factory
 
@@ -83,7 +83,7 @@ Desde a versão prévia pública inicial em 2017, Data Factory adicionou os segu
 
 -    Suporte para mais três configurações/variantes do banco de dados SQL do Azure para hospedar o SSISDB (banco de dados SSIS) de projetos/pacotes:
 -    Banco de dados SQL com pontos de extremidade de serviço de rede virtual
--    Instância Gerenciada do SQL
+-    Instância Gerenciada de SQL
 -    Pool elástico
 -    O suporte para uma rede virtual Azure Resource Manager sobre uma rede virtual clássica será preterido no futuro, o que permite injetar/unir seu tempo de execução de integração do Azure-SSIS a uma rede virtual configurada para banco de dados SQL com pontos de extremidade de serviço de rede virtual/acesso a dados de MI/local. Para obter mais informações, consulte também [unir um tempo de execução de integração do Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Suporte para autenticação do Azure Active Directory (Azure AD) e autenticação do SQL para se conectar ao SSISDB, permitindo a autenticação do Azure AD com sua identidade Data Factory gerenciada para recursos do Azure
@@ -101,7 +101,7 @@ O Integration Runtime é a infraestrutura de computação que o Azure Data Facto
 
 Você pode implantar uma ou várias instâncias do tempo de execução de integração conforme necessário para mover e transformar dados. O Integration Runtime pode ser executado em uma rede pública do Azure ou em uma rede privada (local, rede virtual do Azure ou Amazon Web Services nuvem privada virtual [VPC]). 
 
-Para obter mais informações, consulte [Integration Runtime in Azure data Factory](concepts-integration-runtime.md).
+Para obter mais informações, consulte [runtime de integração no Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>O que é o limite do número de runtimes de integração?
 Não há nenhum limite rígido quanto ao número de instâncias de runtime de integração que você pode ter em um data factory. Entretanto, há um limite de número de núcleos de VM que o runtime de integração pode usar por assinatura para a execução de pacotes do SSIS. Para saber mais, confira [Limites do Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
@@ -190,7 +190,7 @@ Quando a Microsoft fornece ajuda ou solução de problemas com fluxos de dados, 
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Como fazer acessar dados usando os outros tipos de conjunto de dados 90 no Data Factory?
 
-No momento, o recurso de fluxo de dados de mapeamento permite que os arquivos de texto do Azure SQL, do Azure SQL Data Warehouse, delimitados do armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2, e parquet os arquivos do armazenamento de BLOBs ou Data Lake Storage Gen2 nativamente para origem e coletor. 
+No momento, o recurso de fluxo de dados de mapeamento permite o Azure SQL Database, o Azure Synapse Analytics (anteriormente SQL Data Warehouse), os arquivos de texto delimitados do armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2, e os arquivos parquet do armazenamento de BLOBs ou Data Lake Storage Gen2 nativamente para origem e coletor. 
 
 Use a atividade de cópia para preparar dados de qualquer um dos outros conectores e, em seguida, execute uma atividade de fluxo de dados para transformar dados após sua preparação. Por exemplo, seu pipeline primeiro copiará para o armazenamento de BLOBs e, em seguida, uma atividade de fluxo de dados usará um conjunto de dados na origem para transformá-los.
 
@@ -257,7 +257,7 @@ O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Voc�
 * NCHAR
 * varchar
 * NVARCHAR
-* inteiro
+* integer
 * INT
 * bit
 * booleano
@@ -265,7 +265,7 @@ O fluxo de dados Wrangling dá suporte aos seguintes tipos de dados no SQL. Voc�
 * TINYINT
 * BIGINT
 * long
-* text
+* texto
 * date
 * DATETIME
 * datetime2

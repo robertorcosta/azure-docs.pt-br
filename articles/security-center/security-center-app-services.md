@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec3fb8609612f3920e330da7922fdd1eb8883305
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080787"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459769"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteger os seus aplicativos Web e APIs do Serviço de Aplicativo do Azure
 
@@ -32,7 +32,7 @@ Com o plano do serviço de aplicativo habilitado, a central de segurança avalia
 A central de segurança aproveita a escala da nuvem e a visibilidade que o Azure tem como um provedor de nuvem para monitorar ataques comuns de aplicativos Web. A central de segurança pode descobrir ataques em seus aplicativos e identificar ataques emergentes – mesmo enquanto os invasores estão na fase de reconhecimento, a verificação para identificar vulnerabilidades em vários aplicativos hospedados no Azure. Como um serviço nativo do Azure, a central de segurança também está em uma posição exclusiva para oferecer análise de segurança baseada em host que abrange os nós de computação subjacentes para essa PaaS, permitindo que a central de segurança detecte ataques contra aplicativos Web que já foram explorados. Para obter mais detalhes, consulte [proteção contra ameaças para o serviço de Azure app](threat-protection.md#app-services).
 
 
-## <a name="enabling-monitoring-and-protection-of-app-service"></a>Ativando o monitoramento e a proteção do Serviço de Aplicativo
+## <a name="enable-monitoring-and-protection-of-app-service"></a>Habilitar o monitoramento e a proteção do serviço de aplicativo
 
 1. Na portal do Azure, escolha central de segurança.
 2. Vá para **preços & configurações** e escolha uma assinatura.
@@ -64,4 +64,4 @@ Neste artigo, você aprendeu como usar os recursos de monitoramento na Central d
 * [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md): aprenda a gerenciar e responder aos alertas de segurança.
 * [Serviços de aplicativos](security-center-virtual-machine-protection.md#app-services): exiba uma lista de seus ambientes de serviço de aplicativo com resumos de integridade.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Blog de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): encontre postagens no blog sobre a segurança e a conformidade do Azure.
+* [Blog de segurança do Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/): encontre postagens no blog sobre a segurança e a conformidade do Azure.

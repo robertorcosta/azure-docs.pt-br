@@ -3,15 +3,15 @@ title: Personalizar propriedades RDP com o PowerShell – Azure
 description: Como personalizar as propriedades de RDP para a área de trabalho virtual do Windows com cmdlets do PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 7c4bda1ecf28e964db6ba672157790114affe650
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009096"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462217"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Personalizar as propriedades de protocolo RDP (RDP) para um pool de hosts
 
@@ -21,6 +21,16 @@ ms.locfileid: "88009096"
 Personalizar as propriedades de protocolo RDP (RDP) de um pool de hosts, como experiência de vários monitores e redirecionamento de áudio, permite que você forneça uma experiência ideal para seus usuários com base em suas necessidades. Você pode personalizar as propriedades de RDP na área de trabalho virtual do Windows usando o portal do Azure ou usando o parâmetro *-CustomRdpProperty* no cmdlet **Update-AzWvdHostPool** .
 
 Consulte [configurações de arquivo RDP com suporte](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) para obter uma lista completa das propriedades com suporte e seus valores padrão.
+
+## <a name="default-rdp-file-properties"></a>Propriedades do arquivo RDP padrão
+
+Os arquivos RDP têm as seguintes propriedades por padrão:
+
+|Propriedade RDP|Na área de trabalho|Como um RemoteApp|
+|---|---|---|
+|Modo de vários monitores|habilitado|N/D|
+|Redirecionamentos de unidade habilitados|Unidades, área de transferência, impressoras, portas COM, dispositivos USB e cartões inteligentes|Unidades, área de transferência e impressoras|
+|Modo de áudio remoto|Reproduzir localmente|Reproduzir localmente|
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

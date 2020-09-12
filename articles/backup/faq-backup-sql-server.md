@@ -4,12 +4,12 @@ description: Encontre respostas para perguntas comuns sobre como fazer backup de
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: c1efbc44ae1e4bea96c063e4dc734f1cc53a42ac
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180092"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500327"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Perguntas frequentes sobre SQL Server bancos de dados que estão em execução em um backup de VM do Azure
 
@@ -72,7 +72,7 @@ Não. Trabalhos de backup bem-sucedidos não geram alertas. Os alertas são envi
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Posso ver trabalhos de backup agendados no menu Trabalhos de Backup?
 
-O menu **trabalho de backup** mostrará apenas os trabalhos de backup sob demanda. Para o trabalho agendado, use [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
+O menu **trabalho de backup** mostra todas as operações agendadas e sob demanda, exceto os backups de log agendados, pois eles podem ser muito frequentes. Para trabalhos de log agendados, use [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>Bancos de dados futuros são adicionados automaticamente ao backup?
 

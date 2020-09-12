@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273283"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470129"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistir arquivos no Azure Cloud Shell
 O Cloud Shell utiliza o armazenamento dos Arquivos do Azure para persistir os arquivos entre as sessões. No primeiro início, o Cloud Shell solicita a associação de um compartilhamento de arquivos novo ou existente para persistir arquivos entre as sessões.
@@ -83,7 +83,7 @@ Se uma região de armazenamento secundária for usada, a conta de armazenamento 
 Um usuário pode executar `(Get-CloudDrive | Get-AzStorageAccount).Location` no PowerShell para ver o local de seu compartilhamento de arquivos.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restringir a criação de recursos com uma política de recursos do Azure
-As contas de armazenamento criadas no Cloud Shell são marcadas com `ms-resource-usage:azure-cloud-shell`. Se você deseja impedir que os usuários criem contas de armazenamento no Cloud Shell, crie uma [Política de recursos do Azure para marcas](../azure-policy/json-samples.md) que seja disparada por essa marca específica.
+As contas de armazenamento criadas no Cloud Shell são marcadas com `ms-resource-usage:azure-cloud-shell`. Se você deseja impedir que os usuários criem contas de armazenamento no Cloud Shell, crie uma [Política de recursos do Azure para marcas](../governance/policy/samples/index.md) que seja disparada por essa marca específica.
 
 ## <a name="how-cloud-shell-storage-works"></a>Como funciona o armazenamento do Cloud Shell 
 O Cloud Shell persiste arquivos usando os seguintes métodos: 
@@ -170,4 +170,4 @@ Observação: se você precisar definir uma função em um arquivo e chamá-la d
 ## <a name="next-steps"></a>Próximas etapas
 [Início rápido do Cloud Shell](quickstart.md) <br>
 [Saiba mais sobre armazenamento de Arquivos do Microsoft Azure](../storage/files/storage-files-introduction.md) <br>
-[Saiba mais sobre marcas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Saiba mais sobre marcas de armazenamento](../azure-resource-manager/management/tag-resources.md) <br>

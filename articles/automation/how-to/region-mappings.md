@@ -1,27 +1,29 @@
 ---
 title: Regiões compatíveis com o workspace do Log Analytics vinculado
-description: Este artigo descreve os mapeamentos de região com suporte entre uma conta de Automação e um workspace do Log Analytics.
+description: Este artigo descreve os mapeamentos de região com suporte entre uma conta de automação e um Log Analytics espaço de trabalho, pois ele se relaciona a determinados recursos da automação do Azure.
+ms.date: 09/03/2020
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/12/2020
 ms.topic: conceptual
-manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447852"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440653"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões compatíveis com o workspace do Log Analytics vinculado
 
-Na Automação do Azure, habilite os recursos de Gerenciamento de Atualizações, Controle de Alterações e Inventário, Iniciar/Parar VMs fora do horário comercial para suas VMs. No entanto, somente determinadas regiões têm suporte para vincular um workspace do Log Analytics e uma Conta de Automação na sua assinatura. Os mapeamentos de região se aplicam somente à conta de Automação e ao workspace do Log Analytics. O workspace do Log Analytics e a conta de Automação devem estar na mesma assinatura, mas podem estar em grupos de recursos diferentes implantados na mesma região. Para saber mais informações, veja [Workspace do Log Analytics e conta de Automação](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
+Na automação do Azure, você pode habilitar o Gerenciamento de Atualizações, Controle de Alterações e inventário e recursos de Iniciar/Parar VMs fora do horário comercial para seus servidores e máquinas virtuais. Esses recursos têm uma dependência em um espaço de trabalho Log Analytics e, portanto, exigem a vinculação do espaço de trabalho com uma conta de automação. No entanto, somente determinadas regiões têm suporte para vinculá-las. Em geral, o mapeamento *não* é aplicável se você planeja vincular uma conta de automação a um espaço de trabalho que não terá esses recursos habilitados.
+
+Este artigo fornece os mapeamentos com suporte para habilitar e usar com êxito esses recursos em sua conta de automação.
+
+Para obter mais informações, consulte [log Analytics espaço de trabalho e conta de automação](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mapeamentos com suporte
+
+> [!NOTE]
+> Conforme mostrado na tabela a seguir, somente um mapeamento pode existir entre Log Analytics e a automação do Azure.
 
 A tabela abaixo mostra os mapeamentos com suporte:
 
@@ -52,7 +54,7 @@ A tabela abaixo mostra os mapeamentos com suporte:
 
 ## <a name="unlink-a-workspace"></a>Desvincular um workspace
 
-Caso decida que não quer mais integrar sua conta de Automação ao workspace do Log Analytics, você pode desvincular a conta diretamente no portal do Azure. Antes de continuar, primeiro [remova](move-account.md#remove-features) os recursos Gerenciamento de Atualizações, Controle de Alterações e inventário, e Iniciar/Parar VMs fora do horário comercial se estiver usando-os. Se não os remover, você não poderá concluir a operação de desvinculação. 
+Caso decida que não quer mais integrar sua conta de Automação ao workspace do Log Analytics, você pode desvincular a conta diretamente no portal do Azure. Antes de continuar, primeiro [remova](move-account.md#remove-features) os recursos Gerenciamento de Atualizações, Controle de Alterações e inventário, e Iniciar/Parar VMs fora do horário comercial se estiver usando-os. Se não os remover, você não poderá concluir a operação de desvinculação.
 
 Com os recursos removidos, siga as etapas abaixo para desvincular sua conta de Automação.
 

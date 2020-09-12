@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036361"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440602"
 ---
 # <a name="monitor-copy-activity"></a>Monitorar atividade de cópia
 
@@ -30,7 +30,7 @@ Depois de criar e publicar um pipeline no Azure Data Factory, você pode associ�
 
 Para monitorar a execução da atividade de cópia, vá para a interface do usuário do monitor do data factory **autor &** . Na guia **Monitor** , você vê uma lista de execuções de pipeline, clica no link **nome do pipeline** para acessar a lista de execuções de atividade na execução do pipeline.
 
-![Monitorar execução da atividade de cópia](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Monitorar execução do pipeline](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 Nesse nível, você pode ver links para entrada de atividade de cópia, saída e erros (se a execução da atividade de cópia falhar), bem como estatísticas como duração/status. Clicar no botão **detalhes** (óculos) ao lado do nome da atividade de cópia fornecerá detalhes detalhados sobre a execução da atividade de cópia. 
 
@@ -38,7 +38,7 @@ Nesse nível, você pode ver links para entrada de atividade de cópia, saída e
 
 Neste modo de exibição de monitoramento gráfico, Azure Data Factory apresenta as informações de execução da atividade de cópia, incluindo o volume de leitura/gravação de dados, o número de arquivos/linhas de dados copiados da origem para o coletor, a taxa de transferência, as configurações aplicadas ao seu cenário de cópia, as etapas que a atividade de cópia passa com as durações e os detalhes correspondentes e muito mais. Consulte [esta tabela](#monitor-programmatically) em cada métrica possível e sua descrição detalhada. 
 
-Em alguns cenários, ao executar uma atividade de cópia no Data Factory, você verá **"dicas de ajuste de desempenho"** na parte superior da exibição de monitoramento da atividade de cópia, conforme mostrado no exemplo. As dicas informam o afunilamento identificado pelo ADF para a execução de cópia específica, juntamente com a sugestão sobre o que mudar para impulsionar a produtividade da cópia. Saiba mais sobre as [dicas de ajuste de desempenho automático](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+Em alguns cenários, ao executar uma atividade de cópia no Data Factory, você verá **"dicas de ajuste de desempenho"**  na parte superior da exibição de monitoramento da atividade de cópia, conforme mostrado no exemplo. As dicas informam o afunilamento identificado pelo ADF para a execução de cópia específica, juntamente com a sugestão sobre o que mudar para impulsionar a produtividade da cópia. Saiba mais sobre as [dicas de ajuste de desempenho automático](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
 Os **detalhes e as durações da execução** inferior descrevem as principais etapas pelas quais sua atividade de cópia passa, o que é especialmente útil para solucionar problemas de desempenho de cópia. O afunilamento de sua execução de cópia é aquele com a duração mais longa. Consulte [solucionar problemas de desempenho da atividade de cópia](copy-activity-performance-troubleshooting.md) em para o que cada estágio representa e as diretrizes de solução de problemas detalhadas.
 
@@ -67,9 +67,9 @@ Os detalhes de execução da atividade de cópia e as características de desemp
 | throughput | Taxa de transferência de dados. | Número de ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados de origem durante a execução da atividade de cópia. | Valor Int32 (nenhuma unidade) |
 | sinkPeakConnections| Número máximo de conexões simultâneas estabelecidas com o armazenamento de dados do coletor durante a execução da atividade de cópia.| Valor Int32 (nenhuma unidade) |
-| sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para SQL Data Warehouse. | Boolean |
-| redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Boolean |
-| hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Boolean |
+| sqlDwPolyBase | Se o polybase é usado quando os dados são copiados para o Azure Synapse Analytics (anteriormente SQL Data Warehouse). | Booliano |
+| redshiftUnload | Se o UNLOAD é usado quando os dados são copiados do redshift. | Booliano |
+| hdfsDistcp | Se DistCp é usado quando os dados são copiados do HDFS. | Booliano |
 | effectiveIntegrationRuntime | O tempo de execução de integração (IR) ou tempos de execução usados para ativar a atividade de execução, no formato `<IR name> (<region if it's Azure IR>)` . | Texto (cadeia de caracteres) |
 | usedDataIntegrationUnits | As unidades de integração de dados efetivas durante a cópia. | Valor Int32 |
 | usedParallelCopies | ParallelCopies efetivos durante a cópia. | Valor Int32 |

@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4aad485741abc1c0f54e14e00cd8654a8addbca
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: contperfq1
+ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930784"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500310"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitar a autenticação de Azure Active Directory Domain Services nos arquivos do Azure
 
@@ -58,7 +59,7 @@ Antes de habilitar o Azure AD sobre SMB para compartilhamentos de arquivos do Az
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação de arquivos do Azure com o Azure AD DS está disponível em [todas as regiões públicas do Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+A autenticação de arquivos do Azure com o Azure AD DS está disponível em [todas as regiões do Azure Public e gov](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Visão geral do fluxo de trabalho
 
@@ -88,7 +89,7 @@ Para habilitar a autenticação de AD DS do Azure sobre SMB com o [portal do Azu
 1. Na portal do Azure, vá para sua conta de armazenamento existente ou [crie uma conta de armazenamento](../common/storage-account-create.md).
 1. Na seção **Configurações**, selecione **Configuração**.
 1. Em **acesso baseado em identidade para compartilhamentos de arquivos** , alterne a alternância para o **serviço de domínio Azure Active Directory (AAD DS)** para **habilitado**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 A imagem a seguir mostra como habilitar a autenticação de AD DS do Azure sobre SMB para sua conta de armazenamento.
 

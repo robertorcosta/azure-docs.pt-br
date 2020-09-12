@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013581"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613734"
 ---
 # <a name="debug-rendering"></a>Depurar renderização
 
@@ -74,6 +74,10 @@ No entanto, os efeitos fornecidos não dão informações detalhadas sobre a int
 
 * A habilitação das sobreposições de texto gera pouca ou nenhuma sobrecarga de desempenho.
 * A habilitação do modo Wireframe provoca uma sobrecarga de desempenho não trivial, embora possa variar dependendo da cena. Para cenas complexas, esse modo pode fazer com que a taxa de quadros seja descartada abaixo da meta de 60 Hz.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [C++ Remotomanager::D ebugRenderingSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## <a name="next-steps"></a>Próximas etapas
 

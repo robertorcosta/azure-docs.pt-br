@@ -1,7 +1,7 @@
 ---
 title: Configurar aplicativos móveis que chamam APIs da Web | Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como criar um aplicativo móvel que chama APIs da Web (configuração de código do aplicativo)
+description: Saiba como configurar o código do aplicativo móvel para chamar uma API da Web
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 717b6ed7e711b4db4cb15e55282cfcdea4659178
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 52bfd76a12f431576d4fc3cc7a51c6e58c7551ff
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051331"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442744"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurar um aplicativo móvel que chama APIs da Web
 
@@ -218,7 +218,7 @@ Para definir a janela de objeto, siga estas etapas:
 
     `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker."`
 
-1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Veja um exemplo:
+1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Aqui está um exemplo:
 
     Em `App.cs`:
     ```csharp

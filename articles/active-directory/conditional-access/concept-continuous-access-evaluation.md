@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39736f0a369064e1a825ba3f6975a01c5e9ecc40
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147349"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437234"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -108,7 +108,7 @@ Se você não estiver usando clientes compatíveis com CAE, o tempo de vida do t
 1. Nesse caso, o provedor de recursos nega o acesso e envia um desafio de declaração 401 + de volta para o cliente.
 1. O cliente com capacidade de CAE compreende o desafio de declaração 401 +. Ele ignora os caches e volta para a etapa 1, enviando seu token de atualização junto com o desafio de declaração de volta para o Azure AD. O Azure AD reavaliará todas as condições e solicitará que o usuário se autentique novamente nesse caso.
 
-### <a name="user-condition-change-flow-public-preview"></a>Fluxo de alteração de condição do usuário (visualização pública):
+### <a name="user-condition-change-flow-preview"></a>Fluxo de alteração de condição do usuário (visualização):
 
 No exemplo a seguir, um administrador de acesso condicional configurou uma política de acesso condicional com base na localização para permitir somente o acesso de intervalos de IP específicos:
 
@@ -135,6 +135,13 @@ Nessa página, você pode, opcionalmente, limitar os usuários e grupos que esta
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
+### <a name="supported-location-policies"></a>Políticas de localização com suporte
+
+Para CAE, só temos informações sobre locais nomeados baseados em IP nomeados. Não temos informações sobre outras configurações de local como [IPs confiáveis MFA](../authentication/howto-mfa-mfasettings.md#trusted-ips) ou locais baseados em países. Quando o usuário vem de um IP confiável MFA ou locais confiáveis que incluem IPs confiáveis de MFA ou local de país, o CAE não será imposto depois que o usuário mudar para um local diferente. Nesses casos, emitiremos um token CAE de 1 hora sem verificação instantânea de imposição de IP.
+
+> [!IMPORTANT]
+> Ao configurar locais para avaliação de acesso contínuo, use apenas a [condição de local de acesso condicional baseado em IP](../conditional-access/location-condition.md#preview-features) e configure todos os endereços IP, **incluindo IPv4 e IPv6**, que podem ser vistos pelo provedor de identidade e provedor de recursos. Não use condições de localização de país ou o recurso de IPs confiáveis que está disponível na página de configurações de serviço da autenticação multifator do Azure.
+
 ### <a name="ip-address-configuration"></a>Configuração do endereço IP
 
 O provedor de identidade e os provedores de recursos podem ver endereços IP diferentes. Essa incompatibilidade pode ocorrer devido a implementações de proxy de rede em sua organização ou configurações de IPv4/IPv6 incorretas entre o provedor de identidade e o provedor de recursos. Por exemplo:
@@ -144,9 +151,6 @@ O provedor de identidade e os provedores de recursos podem ver endereços IP dif
 - O endereço IP que seu provedor de identidade vê faz parte de um intervalo de IP permitido na política, mas o endereço IP do provedor de recursos não é.
 
 Se esse cenário existir em seu ambiente para evitar loops infinitos, o Azure AD emitirá um token de uma hora CAE e não imporá a alteração do local do cliente. Mesmo nesse caso, a segurança é melhorada em comparação com os tokens de hora tradicionais, pois ainda estamos avaliando os [outros eventos](#critical-event-evaluation) , além dos eventos de alteração de local do cliente.
-
-> [!IMPORTANT]
-> Ao configurar locais para avaliação de acesso contínuo, use apenas a [condição de local de acesso condicional baseado em IP](../conditional-access/location-condition.md). Não use condições de localização de país ou o recurso de IPs confiáveis que está disponível na página de configurações de serviço da autenticação multifator do Azure.
 
 ### <a name="office-and-web-account-manager-settings"></a>Configurações do Office e do Gerenciador de contas da Web
 

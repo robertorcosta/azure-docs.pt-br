@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a2ba89a9adec5443ed8ae2a10e0230874b571f46
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9abc6574117b194a626c2697f5297a13566e0447
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690231"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481783"
 ---
-# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Diretrizes de desempenho para SQL Server em máquinas virtuais do Azure
+# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server em Máquinas Virtuais do Microsoft Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo fornece diretrizes para otimizar o desempenho de SQL Server no Máquinas Virtuais do Microsoft Azure.
@@ -197,6 +197,19 @@ Se você estiver usando espaços de armazenamento, ao adicionar nós ao cluster 
 ![Desmarcar o armazenamento qualificado](./media/performance-guidelines-best-practices/uncheck-eligible-cluster-storage.png)
 
 Se você estiver usando Espaços de Armazenamento e não desmarcar **Adicionar todo o armazenamento qualificado ao cluster**, o Windows desconectará os discos virtuais durante o processo de clustering. Como resultado, eles não aparecem no Gerenciador ou Explorador de Discos até que os espaços de armazenamento sejam removidos do cluster e reanexados usando o PowerShell. Espaços de Armazenamento agrupam vários discos em pools de armazenamento. Para obter mais informações, consulte [Espaços de Armazenamento](/windows-server/storage/storage-spaces/overview).
+
+## <a name="multiple-instances"></a>Várias instâncias 
+
+Considere as seguintes práticas recomendadas ao implantar várias instâncias de SQL Server em uma única máquina virtual: 
+
+- Defina a memória máxima do servidor para cada instância de SQL Server, garantindo que haja memória restante para o sistema operacional. Certifique-se de atualizar as restrições de memória para as instâncias de SQL Server se você alterar a quantidade de memória alocada para a máquina virtual. 
+- Ter LUNs separados para dados, logs e TempDB, pois todos têm padrões de carga de trabalho diferentes e você não deseja que eles afetem uns aos outros. 
+- Teste exaustivamente seu ambiente em cargas de trabalho pesadas de produção para garantir que ele possa lidar com a capacidade de carga de trabalho de pico nos SLAs de seu aplicativo. 
+
+Os sinais de sistemas sobrecarregados podem incluir, mas não se limitam a, esgotamento de thread de trabalho, tempos de resposta lentos e/ou memória do sistema do Dispatcher paralisado. 
+
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d61cad0be25f5aa1a4c63bf3dc128196ad80fdad
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 83fa119a17d319dffe1fcd54173d9a11b29135ca
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875560"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481813"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Saída do banco de dados SQL do Azure de Azure Stream Analytics
 
-Você pode usar o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) como uma saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam da hospedagem do conteúdo em um banco de dados relacional. Azure Stream Analytics trabalhos gravam em uma tabela existente no banco de dados SQL. O esquema da tabela deve corresponder exatamente aos campos e seus tipos na saída de trabalho. Você também pode especificar um [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como uma saída por meio da opção de saída do Banco de Dados SQL. Para saber mais sobre as maneiras de melhorar a taxa de transferência de gravação, consulte o artigo [Stream Analytics com o Banco de Dados SQL do Azure como saída](stream-analytics-sql-output-perf.md).
+Você pode usar o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) como uma saída para os dados que sejam relacionais por natureza ou para aplicativos que dependam da hospedagem do conteúdo em um banco de dados relacional. Azure Stream Analytics trabalhos gravam em uma tabela existente no banco de dados SQL. O esquema da tabela deve corresponder exatamente aos campos e seus tipos na saída de trabalho. Você também pode especificar a [análise de Synapse do Azure](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) como uma saída por meio da opção saída do banco de dados SQL. Para saber mais sobre as maneiras de melhorar a taxa de transferência de gravação, consulte o artigo [Stream Analytics com o Banco de Dados SQL do Azure como saída](stream-analytics-sql-output-perf.md).
 
 Você também pode usar o [Azure SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como uma saída. Você precisa [configurar um ponto de extremidade público no SQL instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, definir manualmente as configurações a seguir em Azure Stream Analytics. A máquina virtual do Azure que executando o SQL Server com um banco de dados anexado também tem suporte da definição manual das configurações abaixo.
 

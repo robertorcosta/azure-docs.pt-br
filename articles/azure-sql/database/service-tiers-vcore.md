@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 08/14/2020
-ms.openlocfilehash: 7131ddac840d2854969147da2eeb82a890ce3410
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19f811c636d5cf3ffb3eef9904c7ba4f7d456b5f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586793"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462200"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Visão geral do modelo vCore-banco de dados SQL do Azure e Azure SQL Instância Gerenciada 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -188,7 +188,7 @@ O Gen5 está disponível na maioria das regiões em todo o mundo.
 
 #### <a name="fsv2-series"></a>Série Fsv2
 
-A Fsv2-Series está disponível nas seguintes regiões: Austrália Central, Austrália Central 2, leste da Austrália, sudeste da Austrália, sul do Brasil, central do Canadá, Ásia Oriental, leste dos EUA, França central, Índia central, Índia ocidental, Coreia central, sul da Coreia, Europa Setentrional, África do Sul dos EUA, sudeste da Ásia, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos Estados Unidos 2.
+A série Fsv2 está disponível nas seguintes regiões: Austrália Central, Austrália Central 2, leste da Austrália, sudeste da Austrália, sul do Brasil, central do Canadá, Ásia Oriental, leste dos EUA, França central, Índia central, Coreia central, Coreia do Sul, Europa Setentrional, África do Sul, sudeste da Ásia, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 
 
 #### <a name="m-series"></a>Série M

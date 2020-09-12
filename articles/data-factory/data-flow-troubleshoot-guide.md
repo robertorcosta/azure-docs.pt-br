@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/16/2020
-ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f2bf98e1c527be27ba0f08a43785ae7d3aea726
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263462"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594144"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solucionar problemas de fluxos de dados no Azure Data Factory
 
@@ -45,6 +45,8 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 - **Mensagem**: erro de tempo limite de junção de difusão, verifique se o fluxo de difusão produz dados em 60 segundos em execuções de depuração e em 300 segundos em execuções de trabalho
 - **Causas**: a difusão tem um tempo limite padrão de 60 segundos em execuções de depuração e de 300 segundos em execuções de trabalho. O fluxo escolhido para difusão parece grande demais para produzir dados dentro desse limite.
 - **Recomendação**: marque a guia Otimizar em suas transformações de fluxo de dados para Junção, Existe e Pesquisa. A opção padrão para Difusão é "Auto". Se ela estiver definida ou se você estiver configurando manualmente o lado esquerdo ou direito para difusão em "Fixo", poderá definir uma configuração maior do Azure Integration Runtime ou desativar a difusão. A abordagem recomendada para o melhor desempenho em fluxos de dados é permitir que o Spark transmita usando "Auto" e use um Azure IR otimizado para memória.
+
+Se você estiver executando o fluxo de dados em uma execução de teste de depuração de uma execução de pipeline de depuração, poderá encontrar essa condição com mais frequência. Isso ocorre porque o ADF acelera o tempo limite de difusão para 60 segundos a fim de manter uma experiência de depuração mais rápida. Se você quiser estendê-la para o tempo limite de 300 segundos de uma execução disparada, poderá usar a opção debug > use Activity Runtime para utilizar a Azure IR definida em sua atividade executar pipeline de fluxo de dados.
 
 ### <a name="error-code-df-executor-conversion"></a>Código de erro: DF-Executor-Conversion
 

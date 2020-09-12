@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 09/08/2020
 ms.author: ramakk
-ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a8d81acc0fcb4afa0f981fca3fd099296a0361df
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797424"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569485"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para planejamento de rede do Azure NetApp Files
 
@@ -42,6 +42,7 @@ Atualmente, não há suporte para os recursos abaixo para Azure NetApp Files:
 * WAN Virtual do Azure 
 * Gateways de rede virtual com redundância de zona (SKUs de gateway com AZ) 
 * GWs de rede virtual ativa/ativa 
+* VNet de pilha dupla (IPv4 e IPv6)
 
 As seguintes restrições de rede se aplicam a Azure NetApp Files:
 

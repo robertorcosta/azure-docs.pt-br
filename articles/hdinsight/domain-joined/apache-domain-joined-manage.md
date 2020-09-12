@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 17dcaee4f9cd4d889e585394362695ab31f0d012
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079727"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595777"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerenciar clusters HDInsight com Enterprise Security Package
 
@@ -47,7 +47,7 @@ Saiba mais sobre usuários e funções no ESP (Enterprise Security Package) do H
 
 O Pacote de Segurança Enterprise (anteriormente conhecido como HDInsight Premium) fornece acesso de vários usuário ao cluster, onde a autenticação é feita pelo Active Directory e a autorização pelo Apache Ranger e ACLs de armazenamento (ACLs do ADLS). A autorização fornece limites de segurança entre vários usuários e permite que somente usuários privilegiados tenham acesso aos dados com base nas políticas de autorização.
 
-Segurança e isolamento de usuários são importantes para um cluster de HDInsight com o Pacote de Segurança Enterprise. Para atender a esses requisitos, o acesso do SSH ao cluster com o Pacote de Segurança Enterprise é bloqueado. A tabela a seguir mostra os métodos de acesso recomendados para cada tipo de cluster:
+Segurança e isolamento de usuários são importantes para um cluster de HDInsight com o Pacote de Segurança Enterprise. Para atender a esses requisitos, o acesso do SSH ao cluster com Enterprise Security Package tem suporte para o usuário local selecionado no momento da criação do cluster, bem como os usuários disponíveis no AAD-DS (ou seja, Kerberos). A tabela a seguir mostra os métodos de acesso recomendados para cada tipo de cluster:
 
 |Carga de trabalho|Cenário|Método de Acesso|
 |--------|--------|-------------|

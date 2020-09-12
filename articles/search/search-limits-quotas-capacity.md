@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926857"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462506"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Cognitive Search
 
@@ -96,10 +96,26 @@ Os tempos máximos de execução existem para fornecer balanceamento e estabilid
 
 <sup>4</sup> Máximo de 30 habilidades por conjunto de habilidades.
 
-<sup>5</sup> O enriquecimento da IA e a análise de imagem fazem uso intensivo dos recursos de computação e consomem uma quantidade desproporcional da capacidade de processamento disponível. O tempo de execução dessas cargas de trabalho foi reduzido para dar a outros trabalhos na fila mais oportunidades de execução.  
+<sup>5</sup> O enriquecimento da IA e a análise de imagem fazem uso intensivo dos recursos de computação e consomem uma quantidade desproporcional da capacidade de processamento disponível. O tempo de execução dessas cargas de trabalho foi reduzido para dar a outros trabalhos na fila mais oportunidades de execução.
 
 > [!NOTE]
 > Conforme indicado nos [Limites de índice](#index-limits), os indexadores também impõem o limite superior de 3.000 elementos em todas as coleções complexas por documento, começando com a versão mais recente da API GA que dá suporte a tipos complexos (`2019-05-06`) em diante. Isso significa que, se criou o indexador com uma versão de API anterior, você não estará sujeito a esse limite. Para preservar a compatibilidade máxima, um indexador criado com uma versão de API anterior e, em seguida, atualizado com uma versão de API `2019-05-06` ou posterior, será **excluído** dos limites mesmo assim. Os clientes devem estar cientes do impacto adverso de ter coleções complexas muito grandes (como declarado anteriormente) e é altamente recomendável criar novos indexadores com a versão mais recente da API GA.
+
+### <a name="shared-private-link-resource-limits"></a>Limites de recurso de link privado compartilhado
+
+> [!NOTE]
+> Os indexadores podem acessar recursos com segurança por meio de pontos de extremidade privados gerenciados por meio da [API de recurso de link privado compartilhado](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) , conforme descrito neste [Guia de instruções](search-indexer-howto-access-private.md)
+
+| Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Suporte do indexador de ponto de extremidade privado | Não | Sim | Sim | Sim | Sim | Não | Sim | Sim |
+| Suporte de ponto de extremidade privado para indexadores com o Skills<sup>1</sup> | Não | Não | Não | Sim | Sim | Não | Sim | Sim |
+| Pontos de extremidade privados máximos | N/D | 10 ou 30 | 100 | 400 | 400 | N/D | 20 | 20 |
+| Tipos de recursos distintos máximos<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
+
+<sup>1</sup> a enriquecimento de ia e a análise de imagem são computacionalmente intensivas e consomem quantidades desproporcionais de capacidade de processamento disponível e, portanto, para as camadas de serviço de pesquisa mais baixa, as configurações para execução no ambiente privado podem ter um impacto adverso no desempenho e na estabilidade do serviço de pesquisa.
+
+<sup>2</sup> o número de tipos de recursos distintos é calculado como o número de `groupId` valores exclusivos usados em todos os recursos de link privado compartilhado para um determinado serviço de pesquisa, independentemente do status do recurso.
 
 ## <a name="synonym-limits"></a>Limites de sinônimos
 
@@ -108,7 +124,7 @@ O número máximo de mapas de sinônimos varia por camada. Cada regra pode ter a
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Mapas máximos de sinônimos |3 |3|5 |10 |20 |20 | 10 | 10 |
-| Número máximo de regras por mapa |5\.000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
+| Número máximo de regras por mapa |5.000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## <a name="queries-per-second-qps"></a>Consultas por segundo (QPS)
 
@@ -116,7 +132,7 @@ As estimativas QPS devem ser desenvolvidas independentemente por cada cliente. T
 
 As previsões são mais previsíveis quando calculada em serviços em execução em recursos dedicados (camadas Básico e Standard). No nível padrão, é possível estimar melhor o QPS, porque você tem controle sobre mais parâmetros. Para obter orientação sobre como a estimativa da abordagem, consulte [Desempenho e otimização do Azure Cognitive Search](search-performance-optimization.md).
 
-Para as camadas de Otimizado para armazenamento (L1 e L2), você deve esperar uma taxa de transferência de consulta inferior e uma latência mais alta do que as camadas Standard. 
+Para as camadas de Otimizado para armazenamento (L1 e L2), você deve esperar uma taxa de transferência de consulta inferior e uma latência mais alta do que as camadas Standard.
 
 ## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de IA)
 

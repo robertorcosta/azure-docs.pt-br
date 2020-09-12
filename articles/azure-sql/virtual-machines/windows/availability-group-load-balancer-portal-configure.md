@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612547"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482837"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurar um balanceador de carga para um grupo de disponibilidade SQL Server Always On em máquinas virtuais do Azure
 
@@ -40,7 +40,7 @@ Exibir artigos relacionados:
 
 Ao seguir este artigo, você cria e configura um balanceador de carga no Portal do Azure. Após a conclusão desse processo, você configura o cluster para usar o endereço IP do balanceador de carga no ouvinte do grupo de disponibilidade.
 
-## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Criar e configurar o balanceador de carga no Portal do Azure
+## <a name="create--configure-load-balancer"></a>Criar & configurar o balanceador de carga 
 
 Nesta parte da tarefa, execute as seguintes etapas:
 
@@ -71,7 +71,7 @@ Primeiro, crie o balanceador de carga.
    | --- | --- |
    | **Nome** |Um nome de texto que representa o balanceador de carga. Por exemplo, **sqlLB**. |
    | **Tipo** |**Interna**: a maioria das implementações usa um balanceador de carga interno que permite a conexão dos aplicativos na mesma rede virtual ao grupo de disponibilidade.  </br> **Externa**: permite que os aplicativos se conectem ao grupo de disponibilidade por meio de uma conexão à Internet pública. |
-   | **SKU** |**Standard**: necessário se as instâncias do SQL estiverem em um conjunto de disponibilidade diferente do balanceador de carga. </br> **Básico**: opção padrão. |
+   | **SKU** |**Básico**: opção padrão. Válido somente se as instâncias de SQL Server estiverem no mesmo conjunto de disponibilidade. </br> **Standard**: preferencial. Válido se as instâncias de SQL Server estiverem no mesmo conjunto de disponibilidade. Necessário se suas instâncias de SQL Server estiverem em zonas de disponibilidade diferentes. |
    | **Rede virtual** |Selecione a rede virtual na qual estão as instâncias do SQL Server. |
    | **Sub-rede** |Selecione a sub-rede na qual estão as instâncias do SQL Server. |
    | **Atribuição de endereço IP** |**Estático** |
@@ -248,7 +248,7 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
 
 10. Configure a nova regra de balanceamento de carga usando as seguintes configurações:
 
-    |Configuração |Valor
+    |Setting |Valor
     |:-----|:----
     |**Nome** |Um nome para identificar a regra de balanceamento de carga. 
     |**Endereço IP de front-end** |Selecione o endereço IP que você criou. 

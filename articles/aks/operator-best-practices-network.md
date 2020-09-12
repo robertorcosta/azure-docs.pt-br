@@ -5,12 +5,12 @@ description: Aprenda as práticas recomendadas do operador de cluster para rede 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542697"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482718"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para conectividade de rede e segurança no Serviço de Kubernetes do Azure (AKS)
 
@@ -31,7 +31,7 @@ Este artigo sobre práticas recomendadas se concentra na conectividade de rede e
 Redes virtuais fornecem a conectividade básica para que os clientes acessem seus aplicativos e nós do AKS. Há duas maneiras diferentes para implantar clusters AKS em redes virtuais:
 
 * **Rede Kubenet** – o Azure gerencia os recursos de rede virtual quando o cluster é implantado e usa o plug-in do Kubernetes [kubenet][kubenet].
-* **Rede do CNI do Azure ** – implanta em uma rede virtual existente e usa o plug-in do Kubernetes [CNI (Adaptador de Rede do Contêiner do Azure)][cni-networking]. Pods recebem IPs individuais que podem rotear para outros serviços de rede ou a recursos locais.
+* **Rede CNI do Azure** – implanta em uma rede virtual e usa o plug-in KUBERNETES do [CNI (interface de rede de contêiner do Azure)][cni-networking] . Pods recebem IPs individuais que podem rotear para outros serviços de rede ou a recursos locais.
 
 A Interface de Rede do Contêiner (CNI) é um protocolo de fornecedor que permite que o runtime do contêiner faça solicitações para um provedor de rede. O CNI do Azure atribui endereços IP para nós e pods e fornece recursos IPAM (gerenciamento) de endereço IP que você conecta as redes virtuais existentes do Azure. Cada recurso de nó e o’ pod recebe um endereço IP na rede virtual do Azure, e nenhum roteamento adicional é necessário para se comunicar com outros serviços ou recursos.
 
@@ -64,7 +64,7 @@ O kubenet é adequado para desenvolver ou testar cargas de trabalho pequenas, po
 
 **Diretrizes de práticas recomendadas** – para distribuir o tráfego HTTP ou HTTPS para seus aplicativos, use os recursos de entrada e controladores. Controladores de entrada fornecem recursos adicionais ao longo de um balanceador de carga do Azure regular e podem ser gerenciados como recursos nativos do Kubernetes.
 
-Um balanceador de carga do Azure pode distribuir o tráfego de cliente para aplicativos no cluster do AKS, mas é limitado nele compreende sobre esse tráfego. Um recurso de balanceador de carga funciona na camada 4 e distribui o tráfego com base no protocolo ou portas. A maioria dos aplicativos web que usam HTTP ou HTTPS deve usar os recursos de entrada Kuberenetes e controladores que funcionam na camada 7. A entrada pode distribuir o tráfego com base na URL do aplicativo e manusear o término TLS/SSL. Essa capacidade também reduz o número de endereços IP de expor e mapear. Com um balanceador de carga, cada aplicativo normalmente precisa de um endereço IP público atribuído e mapeado para o serviço no cluster AKS. Com um recurso de entrada, um único endereço IP pode distribuir o tráfego para vários aplicativos.
+Um balanceador de carga do Azure pode distribuir o tráfego de cliente para aplicativos no cluster do AKS, mas é limitado nele compreende sobre esse tráfego. Um recurso de balanceador de carga funciona na camada 4 e distribui o tráfego com base no protocolo ou portas. A maioria dos aplicativos Web que usam HTTP ou HTTPS deve usar os recursos e controladores de entrada do kubernetes, que funcionam na camada 7. A entrada pode distribuir o tráfego com base na URL do aplicativo e manusear o término TLS/SSL. Essa capacidade também reduz o número de endereços IP de expor e mapear. Com um balanceador de carga, cada aplicativo normalmente precisa de um endereço IP público atribuído e mapeado para o serviço no cluster AKS. Com um recurso de entrada, um único endereço IP pode distribuir o tráfego para vários aplicativos.
 
 ![Diagrama mostrando o fluxo de tráfego de ingresso em um cluster AKS](media/operator-best-practices-network/aks-ingress.png)
 

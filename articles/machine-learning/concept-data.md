@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146680"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651176"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -24,7 +24,7 @@ Azure Machine Learning facilita a conexão com seus dados na nuvem.  Ele fornece
 
 *    Interoperabilidade com pandas e Spark dataframes
 *    Controle de versão e acompanhamento de linhagem de dados
-*    Rotulamento de dados 
+*    Rotulagem de dados 
 *    Monitoramento de dessincronização de dados
     
 ## <a name="data-workflow"></a>Fluxo de trabalho de dados
@@ -57,7 +57,7 @@ Azure Machine Learning armazenamentos de dados mantêm com segurança as informa
 Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser registrados como repositórios de armazenamento:
 
 + Contêiner de blob do Azure
-+ Compartilhamento de Arquivo do Azure
++ Compartilhamento de arquivos do Azure
 + Azure Data Lake
 + Azure Data Lake Gen2
 + Banco de Dados SQL do Azure
@@ -81,9 +81,9 @@ Os conjuntos de valores podem ser criados a partir de arquivos locais, de URLs p
 
 Há dois tipos de conjuntos de valores: 
 
-+ Um [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar arquivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por filedatasets em seu destino de computação.
++ Um [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) faz referência a um ou vários arquivos em seus armazenamentos de dados ou URLs públicas. Se seus dados já estiverem limpos e prontos para uso em experimentos de treinamento, você poderá [baixar ou montar arquivos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por filedatasets em seu destino de computação.
 
-+ Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Você pode carregar um TabularDataset em um dataframe do pandas ou Spark para manipulação e limpeza adicionais. Para obter uma lista completa dos formatos de dados dos quais você pode criar TabularDatasets, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ Um [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa dados em um formato tabular analisando o arquivo ou a lista de arquivos fornecida. Você pode carregar um TabularDataset em um dataframe do pandas ou Spark para manipulação e limpeza adicionais. Para obter uma lista completa dos formatos de dados dos quais você pode criar TabularDatasets, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
 
 Os recursos adicionais de conjuntos de documentos podem ser encontrados na seguinte documentação:
 
@@ -105,7 +105,7 @@ Com conjuntos de informações, você pode realizar várias tarefas de aprendiza
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Rotulamento de dados
+## <a name="data-labeling"></a>Rotulagem de dados
 
 Rotular grandes quantidades de dados costuma ser uma dor de cabeça nos projetos de aprendizado de máquina. Aqueles com um componente da pesquisa Visual computacional, como classificação de imagem ou detecção de objetos, geralmente exigem milhares de imagens e rótulos correspondentes.
 

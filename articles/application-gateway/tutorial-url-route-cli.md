@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502691"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595216"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rotear o tráfego da Web baseado na URL usando a CLI do Azure
 
@@ -23,13 +23,12 @@ Como um administrador de TI que gerencia tráfego da Web, você deseja ajudar se
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Criar um grupo de recursos para os recursos de rede necessários
-> * Criar os recursos de rede
-> * Criar um gateway de aplicativo para o tráfego proveniente de seu aplicativo
-> * Especificar pools de servidores e regras de roteamento para vários tipos de tráfego
-> * Criar um conjunto de dimensionamento para cada pool para que o pool possa fazer o dimensionamento automaticamente
-> * Executar um teste para que você possa verificar se os diferentes tipos de tráfego estão indo para os pools corretos
+* Criar um grupo de recursos para os recursos de rede necessários
+* Criar os recursos de rede
+* Criar um gateway de aplicativo para o tráfego proveniente de seu aplicativo
+* Especificar pools de servidores e regras de roteamento para vários tipos de tráfego
+* Criar um conjunto de dimensionamento para cada pool para que o pool possa fazer o dimensionamento automaticamente
+* Executar um teste para que você possa verificar se os diferentes tipos de tráfego estão indo para os pools corretos
 
 Se preferir, você pode concluir este procedimento usando o [Azure PowerShell](tutorial-url-route-powershell.md) ou o [portal do Azure](create-url-route-portal.md).
 
@@ -256,7 +255,7 @@ Altere a URL para http:// &lt; IP-address &gt; : 8080/vídeo/test.html, substitu
 
 ![Testar a URL de vídeo no gateway de aplicativo](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não forem mais necessários, remova o grupo de recursos, o gateway de aplicativo e todos os recursos relacionados.
 

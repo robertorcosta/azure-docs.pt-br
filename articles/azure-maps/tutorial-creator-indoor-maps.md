@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688072"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469908"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Usar o Criador para criar mapas internos
 
@@ -120,7 +120,7 @@ A API de upload de dados é uma transação de execução prolongada que impleme
 4. Inicie um novo método HTTP **GET** na guia do construtor. Acrescente sua chave de assinatura primária do Azure Mapas ao `status URL`. Faça uma solicitação **Get** no `status URL` que você copiou na etapa 3. O `status URL` é semelhante à seguinte URL:
 
     ```http
-    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
     Se o processo de conversão ainda não tiver sido concluído, você poderá ver algo semelhante à seguinte resposta JSON:
@@ -208,7 +208,7 @@ Um conjunto de peças é um conjunto de peças de vetor que são renderizadas no
 3. Faça uma solicitação **GET** no `statusURL` para o conjunto de peças. Acrescente sua chave de assinatura primária do Azure Mapas para autenticação. A solicitação deve ser semelhante à seguinte URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 4. Quando a solicitação HTTP **GET** for concluída com êxito, o cabeçalho de resposta conterá o `tilesetId` para o conjunto de peças criado. Copie `tilesetId`.

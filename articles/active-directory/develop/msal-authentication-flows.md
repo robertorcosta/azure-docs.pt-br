@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 0dbd7eb9203f31b580f586a8a7d1fa216533628c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170506"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437863"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -26,7 +26,7 @@ A MSAL (biblioteca de autenticação da Microsoft) dá suporte a vários fluxos 
 | Flow | Descrição | Usado em |
 |--|--|--|
 | [Código de autorização](#authorization-code) | Usado em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Permite que você adicione entrada e acesso à API aos seus aplicativos móveis e de área de trabalho. | [Aplicativos da área de trabalho](scenario-desktop-overview.md), [Aplicativos móveis](scenario-mobile-overview.md), [Aplicativos Web](scenario-web-app-call-api-overview.md) |
-| [Credenciais de cliente](#client-credentials) | Permite acessar recursos hospedados na Web com a identidade de um aplicativo. Normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. | [Aplicativos daemon](scenario-daemon-overview.md) |
+| [Credenciais do cliente](#client-credentials) | Permite acessar recursos hospedados na Web com a identidade de um aplicativo. Normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. | [Aplicativos daemon](scenario-daemon-overview.md) |
 | [Código do dispositivo](#device-code) | Permite que os usuários se conectem a dispositivos com restrição de entrada, como uma smart TV, um dispositivo IoT ou uma impressora. | [Aplicativos de área de trabalho/móveis](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [Concessão implícita](#implicit-grant) | Permite que o aplicativo obtenha tokens sem executar uma troca de credenciais de servidor back-end. Permite que o aplicativo Conecte o usuário, mantenha a sessão e obtenha tokens para outras APIs da Web, tudo no código JavaScript do cliente. | [SPA (aplicativos de página única)](scenario-spa-overview.md) |
 | [On-behalf-of](#on-behalf-of) | Um aplicativo invoca um serviço ou uma API Web que, por sua vez, precisa chamar outro serviço ou API Web. A ideia é propagar as permissões e identidade de usuário delegado por meio da cadeia de solicitações. | [APIs da Web](scenario-web-api-call-api-overview.md) |
@@ -57,7 +57,7 @@ Vários desses fluxos dão suporte à aquisição de token interativa e não int
 
 Seu aplicativo baseado em MSAL deve primeiro tentar adquirir um token *silenciosamente*e, em seguida, interativamente somente se o método não interativo falhar. Para obter mais informações sobre esse padrão, consulte [adquirir e armazenar tokens em cache usando a MSAL (biblioteca de autenticação da Microsoft)](msal-acquire-cache-tokens.md).
 
-## <a name="authorization-code"></a>Código de autorização
+## <a name="authorization-code"></a>Código de Autorização
 
 A [concessão de código de autorização OAuth 2](v2-oauth2-auth-code-flow.md) pode ser usada em aplicativos que estão instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Isso permite adicionar credenciais e acesso à API a aplicativos móveis e de área de trabalho.
 
@@ -219,7 +219,7 @@ Como a IWA é um fluxo silencioso, uma das seguintes afirmações deve ser verda
 Isso significa que uma das afirmações a seguir é verdadeira:
 
 - Você, como desenvolvedor, selecionou **Grant** no portal do Azure por conta própria.
-- Um administrador de locatários selecionou **conceder/revogar consentimento de administrador para {domínio de locatário}** na guia **permissões de API** do registro de aplicativo no portal do Azure (consulte [adicionar permissões para acessar APIs Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- Um administrador de locatários selecionou **conceder/revogar consentimento de administrador para {domínio de locatário}** na guia **permissões de API** do registro de aplicativo no portal do Azure (consulte [adicionar permissões para acessar sua API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)).
 - Você forneceu uma maneira para os usuários consentirem com o aplicativo; consulte [solicitando consentimento de usuário individual](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - Você forneceu uma maneira para o administrador do locatário consentir para o aplicativo; consulte [consentimento do administrador](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

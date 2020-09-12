@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 10a7dc662993327b71d43c27f44d22166a3f3611
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590312"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469874"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurar a autenticação de Azure Active Directory para um cluster do Azure Red Hat OpenShift 4 (Portal)
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que você esteja executando o CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -50,7 +50,7 @@ Navegue até a **visão geral** e anote a **ID do aplicativo (cliente)** e a **I
 
 ## <a name="configure-optional-claims"></a>Configurar declarações opcionais
 
-Os desenvolvedores de aplicativos podem usar [declarações opcionais](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) em seus aplicativos do Azure ad para especificar quais declarações eles desejam em tokens enviados para seu aplicativo.
+Os desenvolvedores de aplicativos podem usar [declarações opcionais](../active-directory/develop/active-directory-optional-claims.md) em seus aplicativos do Azure ad para especificar quais declarações eles desejam em tokens enviados para seu aplicativo.
 
 Você pode usar declarações opcionais para:
 
@@ -68,7 +68,7 @@ Navegue até **configuração de token (versão prévia)** e clique em **Adicion
 
 Aplicativos registrados em um locatário do Azure Active Directory (Azure AD) estão, por padrão, disponíveis para todos os usuários do locatário que se autenticar com êxito. O Azure AD permite que os desenvolvedores e administradores de locatários restrinjam um aplicativo a um conjunto específico de usuários ou grupos de segurança no locatário.
 
-Siga as instruções na documentação do Azure Active Directory para [atribuir usuários e grupos ao aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Siga as instruções na documentação do Azure Active Directory para [atribuir usuários e grupos ao aplicativo](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Configurar a Autenticação OpenID OpenShift
 

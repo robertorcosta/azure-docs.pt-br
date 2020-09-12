@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 08/17/2020
-ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551833"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434394"
 ---
-# <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurar e gerenciar a autenticação do Azure AD com o SQL do Azure
+# <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurar e gerenciar a autenticação do Azure AD com o Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Este artigo mostra como criar e popular uma instância do Azure Active Directory (Azure AD) e, em seguida, usar o Azure AD com o [banco de dados SQL do](sql-database-paas-overview.md)Azure, o [SQL instância gerenciada do Azure](../managed-instance/sql-managed-instance-paas-overview.md)e o [Azure Synapse Analytics (anteriormente conhecido como Azure SQL data warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral, consulte [Azure Active Directory autenticação](authentication-aad-overview.md).
+Este artigo mostra como criar e popular uma instância do Azure Active Directory (Azure AD) e, em seguida, usar o Azure AD com o [banco de dados SQL do](sql-database-paas-overview.md)Azure, o [SQL instância gerenciada do Azure](../managed-instance/sql-managed-instance-paas-overview.md)e o [azure Synapse Analytics (anteriormente SQL data warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Para obter uma visão geral, consulte [Azure Active Directory autenticação](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Métodos de autenticação do Azure AD
 
@@ -73,7 +73,7 @@ Ao usar o Azure Active Directory com a Replicação Geográfica, o administrador
 > [!IMPORTANT]
 > Somente siga estas etapas se estiver provisionando um Instância Gerenciada de SQL do Azure. Esta operação só pode ser executada pelo administrador global/da empresa ou por um administrador de função com privilégios no Azure AD.
 >
-> Em **Visualização pública**, você pode atribuir a função de **leitores de diretório** a um grupo no Azure AD. Os proprietários do grupo podem então adicionar a identidade da instância gerenciada como um membro desse grupo, o que permitiria provisionar um administrador do Azure AD para o SQL Instância Gerenciada. Para obter mais informações sobre esse recurso, consulte [função de leitores de diretório no Azure Active Directory para Azure SQL](authentication-aad-directory-readers-role.md).
+> Em **Visualização pública**, você pode atribuir a função de **leitores de diretório** a um grupo no Azure AD. Os proprietários do grupo podem então adicionar a identidade da instância gerenciada como um membro desse grupo, o que permitiria provisionar um administrador do Azure AD para o SQL Instância Gerenciada. Para obter mais informações sobre esse recurso, confira [Função Leitores de Diretório no Azure Active Directory para o SQL do Azure](authentication-aad-directory-readers-role.md).
 
 O SQL Instância Gerenciada precisa de permissões para ler o Azure AD para realizar tarefas com êxito, como a autenticação de usuários por meio da Associação de grupo de segurança ou da criação de novos usuários. Para que isso funcione, você precisa conceder a permissão SQL Instância Gerenciada para ler o Azure AD. Você pode fazer isso usando o portal do Azure ou o PowerShell.
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049682"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437455"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -108,7 +108,7 @@ Não é possível estabelecer uma conexão com Azure Site Recovery pontos de ext
 
 #### <a name="resolution"></a>Resolução
 
-O Azure Site Recovery requer acesso para a [intervalos de IP de recuperação de Site](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) dependendo da região. Verifique se os intervalos de IP necessários estão acessíveis da VM.
+Se você estiver usando um proxy de Firewall/regra do NSG (grupo de segurança de rede) do Azure para controlar a conectividade de rede de saída no computador, haverá várias marcas de serviço que precisam ser permitidas. [Saiba mais](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: falha na replicação do Azure para o Azure quando o tráfego de rede passa pelo servidor proxy local (151072)
 

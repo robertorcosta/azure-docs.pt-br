@@ -10,13 +10,13 @@ manager: anandsub
 ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/30/2020
-ms.openlocfilehash: 66cc7b0d4f205a93c41f49ecaadac495a98b6da6
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/08/2020
+ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949126"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595063"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -242,13 +242,13 @@ Abaixo estão alguns exemplos de situações que podem tornar um branch de publi
 
 ## <a name="switch-to-a-different-git-repository"></a>Alternar para um repositório Git diferente
 
-Para alternar para um repositório Git diferente, clique no ícone **Configurações do Repositório Git** no canto superior direito da página Visão geral do Data Factory. Se você não vir o ícone, limpe o cache do navegador local. Selecione o ícone para remover a associação com o repositório atual.
+Para alternar para um repositório git diferente, vá para a página de configuração do git no Hub de gerenciamento sob **controle do código-fonte**. Selecione **Desconectar**. 
 
-![Ícone do Git](media/author-visually/remove-repo.png)
+![Ícone do Git](media/author-visually/remove-repository.png)
 
-Depois que o painel Configurações do Repositório for exibido, selecione **Remover Git**. Insira seu nome do Data Factory e clique em **Confirmar** para remover o repositório Git associado ao data factory.
+Insira seu nome do Data Factory e clique em **Confirmar** para remover o repositório Git associado ao data factory.
 
-![Remover a associação com o repositório Git atual](media/author-visually/remove-repo2.png)
+![Remover a associação com o repositório Git atual](media/author-visually/remove-repository-2.png)
 
 Depois de remover a associação com o repositório atual, você poderá definir as configurações do Git para usar um repositório diferente e importar recursos existentes do Data Factory para o novo repositório.
 

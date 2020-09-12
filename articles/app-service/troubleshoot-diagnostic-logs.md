@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962172"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469925"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -191,7 +191,7 @@ A tabela a seguir mostra os tipos de log e as descrições com suporte:
 | AppServiceHTTPLogs | Sim | Sim | Logs do Web Server |
 | AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
 | AppServiceAuditLogs | Sim | Sim | Atividade de logon via FTP e kudu |
-| AppServiceFileAuditLogs | Sim | TBD | Alterações de arquivo via FTP e kudu |
+| AppServiceFileAuditLogs | Sim | TBD | Alterações de arquivo feitas no conteúdo do site; disponível somente para a camada Premium e acima |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Logs de aplicativo |
 | AppServiceIPSecAuditLogs  | Sim | Sim | Solicitações de regras de IP |
 | AppServicePlatformLogs  | TBA | Sim | Logs de contêiner |

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2d596b6d0e291d197146bf5e00827d82b74c125c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311561"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434530"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicativo de página única: Registro do aplicativo
 
@@ -32,7 +32,7 @@ Para aplicativos baseados em MSAL.js 1.0 e 2.0, comece concluindo as etapas a se
 1. Entre no [portal do Azure](https://portal.azure.com). Se a sua conta tiver acesso a vários locatários, selecione o filtro **Diretório + Assinatura** no menu superior e, em seguida, escolha o locatário que deve conter o registro do aplicativo que você vai criar.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo**.
-1. Selecione **Novo registro**, insira um **Nome** para o aplicativo e escolha os **Tipos de conta com suporte** para o aplicativo. **NÃO** insira **URI de redirecionamento**. Para obter uma descrição dos diferentes tipos de conta, confira [Registrar um novo aplicativo usando o portal do Azure](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+1. Selecione **Novo registro**, insira um **Nome** para o aplicativo e escolha os **Tipos de conta com suporte** para o aplicativo. **NÃO** insira **URI de redirecionamento**. Para obter uma descrição dos diferentes tipos de conta, confira [Registrar um novo aplicativo usando o portal do Azure](quickstart-register-app.md).
 1. Selecione **Registrar** para criar o registro do aplicativo.
 
 Em seguida, configure o registro do aplicativo com um **URI de redirecionamento** para especificar para onde a plataforma de identidade da Microsoft deve redirecionar o cliente juntamente com os tokens de segurança. Use as etapas apropriadas para a versão do MSAL.js que você está usando em seu aplicativo:
