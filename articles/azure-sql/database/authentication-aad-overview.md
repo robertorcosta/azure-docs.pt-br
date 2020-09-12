@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 04/23/2020
-ms.openlocfilehash: e1f97b1a29681a65cddf3a5904020555e903fe63
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984768"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434275"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usar autenticação Azure Active Directory
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-A autenticação do Azure Active Directory (AD do Azure) é um mecanismo para se conectar ao [banco de dados SQL do](sql-database-paas-overview.md)Azure, [SQL instância gerenciada do Azure](../managed-instance/sql-managed-instance-paas-overview.md)e [análise de Synapse do Azure (anteriormente SQL data warehouse do Azure)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD.
+A autenticação do Azure Active Directory (AD do Azure) é um mecanismo para se conectar ao [banco de dados SQL do](sql-database-paas-overview.md)Azure, [SQL instância gerenciada do Azure](../managed-instance/sql-managed-instance-paas-overview.md)e [análise de Synapse do Azure (anteriormente SQL data warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD.
 
 > [!NOTE]
 > Este artigo se aplica ao banco de dados SQL do Azure, ao SQL Instância Gerenciada e ao Azure Synapse Analytics.
@@ -118,7 +118,7 @@ Para criar um usuário de banco de dados independente no banco de dados SQL do A
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
+### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
 
 - As entidades de segurança do servidor do Azure AD (logons) e os usuários têm suporte para o [SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md).
 - A definição de entidades de segurança do Azure AD (logons) mapeados para um grupo do Azure AD como proprietário do banco de dados não tem suporte no [SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md).
@@ -168,7 +168,7 @@ Os seguintes métodos de autenticação têm suporte para entidades de seguranç
 - Para obter uma visão geral de logons, usuários, funções de banco de dados e permissões no banco de dados SQL, consulte [logons, usuários, funções de banco de dados e permissões](logins-create-manage.md).
 - Para obter mais informações sobre objetos de banco de dados, confira [Entidades](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de banco de dados, confira [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121.aspx).
-- Para obter a sintaxe sobre a criação de entidades de segurança do servidor do Azure AD (logons) para o SQL Instância Gerenciada, consulte [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Para obter a sintaxe sobre a criação de entidades de segurança do servidor do Azure AD (logons) para o SQL Instância Gerenciada, consulte  [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Para obter mais informações sobre as regras de firewall no Banco de Dados SQL, confira [Regras de firewall de Banco de Dados SQL](firewall-configure.md).
 
 <!--Image references-->

@@ -3,20 +3,20 @@ title: Configurar o roteamento de tráfego de sub-rede-Gerenciador de tráfego d
 description: Este artigo explica como configurar o Gerenciador de Tráfego para rotear o tráfego de sub-redes específicas.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: rohink
-ms.openlocfilehash: fe65e2e2a05c3c1d936bcdfa94bbe8cc310f7c68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711775"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401360"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tráfego direto para pontos de extremidade específicos com base na sub-rede do usuário usando o Gerenciador de Tráfego
 
@@ -54,7 +54,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
     |Nome|myIISVMEastUS|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Selecione **Novo**e digite *myResourceGroupTM1*.|
+    |Grupo de recursos| Selecione **Novo**e digite *myResourceGroupTM1*.|
     |Location| Selecione **Leste dos EUA**.|
     |||
 
@@ -74,7 +74,7 @@ Nesta seção, você cria duas VMs *myEndpointVMEastUS* e *myEndpointVMWEurope* 
 
     |Setting|Valor|
     |---|---|
-    |Resource group | Selecione **Novo**e digite *myResourceGroupTM2*|
+    |Grupo de recursos | Selecione **Novo**e digite *myResourceGroupTM2*|
     |Location|Europa Ocidental|
     |Nome da VM | myIISVMWEurope|
     |Rede virtual | Selecione **Rede Virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet2*, para a sub-rede, insira *mySubnet*.|
@@ -140,7 +140,7 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
     |Nome|myVMEastUS|
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Selecione **Existente** e *myResourceGroupTM1*.|
+    |Grupo de recursos| Selecione **Existente** e *myResourceGroupTM1*.|
     |||
 
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
@@ -160,7 +160,7 @@ Nesta seção, você pode criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada 
     |Setting|Valor|
     |---|---|
     |Nome da VM | *myVMWEurope*|
-    |Resource group | Selecione **Existente** e em seguida, digite *myResourceGroupTM2*|
+    |Grupo de recursos | Selecione **Existente** e em seguida, digite *myResourceGroupTM2*|
     |Rede virtual | Selecione **Rede virtual**, em **Criar rede virtual**, para **Nome**, insira *myVNet4*, para sub-rede, insira *mySubnet4*.|
     |||
 
@@ -193,7 +193,7 @@ Adicione as duas VMs que executam os servidores IIS- *myIISVMEastUS*  &  *myIISV
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Ponto de extremidade do Azure                                   |
+    | Type                    | Ponto de extremidade do Azure                                   |
     | Nome           | myTestWebSiteEndpoint                                        |
     | Tipo de recurso de destino           | Endereço IP público                          |
     | Recurso de destino          | **Escolha um endereço IP Público** para mostrar a lista de recursos com endereços IP públicos na mesma assinatura. Em **Recursos**, selecione o endereço IP público denominado *myIISVMEastUS-ip*. Isso é o endereço IP público do servidor IIS VM no Leste dos EUA.|

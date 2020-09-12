@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869857"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437064"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Transmitir dados para o banco de dados SQL do Azure usando a integração do Azure Stream Analytics (versão prévia)
 
@@ -31,7 +31,7 @@ Agora, os usuários podem ingerir, processar, exibir e analisar dados de streami
 - Facilidade de uso adicional com dados de visualização: Visualizar dados de entrada da origem de eventos (Hub de eventos/Hub IoT) no contexto da tabela selecionada
 
 > [!IMPORTANT]
-> Um trabalho de Azure Stream Analytics pode gerar saída para o banco de dados SQL do Azure, o SQL Azure Instância Gerenciada ou o Azure Synapse Analytics (anteriormente conhecido como Azure SQL Data Warehouse). Para obter mais informações, consulte [saídas](../../stream-analytics/sql-database-output.md).
+> Um trabalho de Azure Stream Analytics pode produzir saída para o banco de dados SQL do Azure, o SQL Azure Instância Gerenciada ou o Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para obter mais informações, consulte [saídas](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

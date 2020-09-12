@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 70cbb21430253dc9683cd3803f2a09ef8bb858cb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 13d483507092892187bc13dd23bfa51ed516c890
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545634"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441146"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalar e executar ler contêineres (visualização)
 
@@ -55,6 +55,7 @@ O computador **host** é o computador que executa o contêiner do Docker. O host
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
 > [!WARNING]
 > O computador host é *necessário* para dar suporte a AVX2. O contêiner *não* funcionará corretamente sem o suporte do AVX2.
 
@@ -68,14 +69,14 @@ As imagens de contêiner para leitura estão disponíveis.
 
 | Contêiner | Registro de contêiner/repositório/nome da imagem |
 |-----------|------------|
-| Ler | `containerpreview.azurecr.io/microsoft/cognitive-services-read:latest` |
+| Ler | `containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0` |
 
 Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner.
 
 ### <a name="docker-pull-for-the-read-container"></a>Pull do Docker para o contêiner de leitura
 
 ```bash
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:2.0
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -186,13 +187,16 @@ O `operation-location` é a URL totalmente qualificada e é acessado por meio de
 }
 ```
 
+> [!IMPORTANT]
+> Se você implantar vários contêineres de leitura atrás de um balanceador de carga, por exemplo, em Docker Compose ou kubernetes, você deverá ter um cache externo. Como o contêiner de processamento e o contêiner de solicitação GET podem não ser iguais, um cache externo armazena os resultados e os compartilha entre contêineres. Para obter detalhes sobre as configurações de cache, consulte [configurar pesquisa Visual computacional contêineres do Docker](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+
 ### <a name="synchronous-read"></a>Leitura síncrona
 
 Você pode usar a `POST /vision/v2.0/read/core/Analyze` operação para ler de forma síncrona uma imagem. Quando a imagem é lida em sua totalidade, e somente em seguida, a API retorna uma resposta JSON. A única exceção a isso é se ocorrer um erro. Quando ocorre um erro, o JSON a seguir é retornado:
 
 ```json
 {
-    status: "Failed"
+    "status": "Failed"
 }
 ```
 
@@ -283,7 +287,7 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para baixar, instalar
 ## <a name="next-steps"></a>Próximas etapas
 
 * Revise [Configurar contêineres](computer-vision-resource-container-config.md) para configurações
-* Examinar [Visão geral da Pesquisa Visual Computacional](Home.md) para saber mais sobre como reconhecer texto impresso e manuscrito
+* Examinar [Visão geral da Pesquisa Visual Computacional](overview.md) para saber mais sobre como reconhecer texto impresso e manuscrito
 * Veja a [API da Pesquisa Visual Computacional](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter detalhes sobre os métodos compatíveis com o contêiner.
 * Veja as [Perguntas frequentes](FAQ.md) para resolver problemas relacionados à funcionalidade de Pesquisa Visual Computacional.
 * Use mais [Contêineres de Serviços Cognitivos](../cognitive-services-container-support.md)

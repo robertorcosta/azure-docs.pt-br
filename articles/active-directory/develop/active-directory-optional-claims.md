@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068719"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436843"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: fornecer declarações opcionais para seu aplicativo
 
@@ -130,7 +130,7 @@ Você pode configurar declarações opcionais para seu aplicativo por meio da in
 
 **Configurando declarações opcionais por meio da interface do usuário:**
 
-[![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Configurar declarações opcionais na interface do usuário](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. Na seção **Gerenciar**, selecione **Configuração do token**.
 1. Escolha **Adicionar declaração opcional**.
@@ -182,7 +182,7 @@ Declara as declarações opcionais solicitadas por um aplicativo. Um aplicativo 
 
 **Tabela 5: Propriedades do tipo OptionalClaims**
 
-| Nome          | Tipo                       | Descrição                                           |
+| Nome          | Type                       | Descrição                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de ID JWT.     |
 | `accessToken` | Coleção (OptionalClaim) | As declarações opcionais retornadas no token de acesso JWT. |
@@ -195,7 +195,7 @@ Caso haja suporte por uma declaração específica, você também poderá modifi
 
 **Tabela 6: Propriedades do tipo OptionalClaim**
 
-| Nome                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Type                    | Descrição                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da declaração opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A origem (objeto de diretório) da declaração. Há declarações predefinidas e definidas pelo usuário de propriedades de extensão. Se o valor de origem for nulo, a declaração será uma declaração opcional predefinida. Se o valor de origem for um usuário, o valor na propriedade name será a propriedade de extensão do objeto de usuário. |
@@ -238,7 +238,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 1. Selecione o aplicativo para o qual você deseja configurar declarações opcionais na lista
 1. Na seção **Gerenciar**, selecione **Configuração de token**
 1. Selecione **Adicionar declaração de grupos**
-1. Selecione os tipos de grupos a serem retornados (**Todos os Grupos**, **SecurityGroup** ou **DirectoryRole**). A opção **Todos os Grupos** inclui **SecurityGroup**, **DirectoryRole** e **DistributionList**
+1. Selecione os tipos de grupo a serem retornados (**grupos de segurança**ou **funções de diretório**, **todos os grupos**e/ou **grupos atribuídos ao aplicativo**). Os **grupos atribuídos à opção de aplicativo** incluem apenas grupos atribuídos ao aplicativo. A opção **todos os grupos** inclui o grupo de **segurança**, **DirectoryRole**e **DistributionList**, mas não **os grupos atribuídos ao aplicativo**. 
 1. Opcional: selecione as propriedades do tipo de token específico para modificar o valor da declaração de grupos a fim de conter os atributos do grupo local ou alterar o tipo de declaração para uma função
 1. Selecione **Salvar**
 
@@ -256,6 +256,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
    - "Todos" (essa opção inclui o SecurityGroup, DirectoryRole e DistributionList)
    - “SecurityGroup”
    - “DirectoryRole”
+   - "Grupo de aplicativos" (essa opção inclui apenas grupos que são atribuídos ao aplicativo)
 
    Por exemplo:
 
@@ -307,7 +308,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
     **Configuração da interface do usuário:**
 
-    [![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Configurar declarações opcionais](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **Arquivo de manifesto do aplicativo:**
 
@@ -328,7 +329,7 @@ Esta seção aborda as opções de configuração em declarações opcionais par
 
     **Configuração da interface do usuário:**
 
-    [![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Declarações opcionais no manifesto](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Arquivo de manifesto do aplicativo:**
 
@@ -394,7 +395,7 @@ No exemplo a seguir, você usará a interface do usuário **Configuração de to
 
 1. Selecione **Adicionar declaração opcional**, selecione o tipo de token **SAML**, selecione **extn.skypeID** na lista de declarações (aplicável somente se você tiver criado um objeto de usuário do Azure AD chamado SkypeID) e selecione **Adicionar**.
 
-    [![mostra como configurar declarações opcionais usando a interface do usuário](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Declarações opcionais para token SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Configuração do manifesto:**
 

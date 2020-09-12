@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541712"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442098"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Este documento fornece orientação sobre como resolver requisitos comuns de seg
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Ofertas de implantação não abordadas neste guia
 
-- SQL Data Warehouse do Azure
+- Azure Synapse Analytics (antigo SQL Data Warehouse)
 - VMs do SQL do Azure (IaaS)
 - SQL Server
 
@@ -47,7 +47,7 @@ As audiências pretendidas para este guia são os clientes que fazem perguntas s
 - Responsáveis pela privacidade
 - Engenheiros de segurança
 
-### <a name="using-this-guide"></a><a id="using"></a>Usando este guia
+### <a name="using-this-guide"></a><a id="using"></a> Usando este guia
 
 Este documento tem como complemento a nossa documentação de [segurança do banco de dados SQL do Azure](security-overview.md) .
 
@@ -66,7 +66,7 @@ Planejamos continuar a atualizar as recomendações e as práticas recomendadas 
 
 A autenticação é o processo de provar que o usuário é quem diz ser. O banco de dados SQL do Azure e o SQL Instância Gerenciada dão suporte a dois tipos de autenticação:
 
-- Autenticação do SQL
+- Autenticação SQL
 - Autenticação do Azure Active Directory
 
 > [!NOTE]
@@ -228,7 +228,7 @@ Atribua apenas as [permissões](https://docs.microsoft.com/sql/relational-databa
 - Em bancos de dados SQL:
   - Use permissões granulares e funções de banco de dados definidas pelo usuário (ou funções de servidor no Instância Gerenciada):
     1. Criar as funções necessárias
-       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [CRIAR FUNÇÃO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. Criar usuários necessários
        - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
@@ -501,7 +501,7 @@ Práticas recomendadas sobre como impedir que computadores cliente e aplicativos
 
 **Como implementar**:
 
-- Verifique se os computadores cliente que se conectam ao banco de dados SQL do Azure e ao SQL Instância Gerenciada estão usando o protocolo [TLS](security-overview.md#transport-layer-security-encryption-in-transit).
+- Verifique se os computadores cliente que se conectam ao banco de dados SQL do Azure e ao SQL Instância Gerenciada estão usando o protocolo  [TLS](security-overview.md#transport-layer-security-encryption-in-transit).
 
 **Práticas recomendadas**:
 
@@ -742,7 +742,7 @@ Monitore quem acessa dados confidenciais e captura consultas em dados confidenci
 
 **Como implementar**:
 
-- Use a auditoria do SQL e a classificação de dados em combinação.
+- Use a Classificação de Dados e a Auditoria do SQL em conjunto.
   - No log de [auditoria do banco](../../azure-sql/database/auditing-overview.md) de dados SQL, você pode controlar o acesso especificamente a seus dados confidenciais. Você também pode exibir informações como os dados que foram acessados, bem como seu rótulo de sensibilidade. Para obter mais informações, consulte [descoberta de dados e classificação](data-discovery-and-classification-overview.md) e [auditoria de acesso a dados confidenciais](data-discovery-and-classification-overview.md#audit-sensitive-data).
 
 **Práticas recomendadas**:

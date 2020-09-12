@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 891d5907ee8c964ebe7e281f6298205712ce1186
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290098"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441163"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizar o acesso ao banco de dados SQL, SQL Instância Gerenciada e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Neste artigo, você aprenderá sobre:
 
-- Opções para configurar o banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synapse Analytics (anteriormente conhecido pelo Azure SQL Data Warehouse) para permitir que os usuários executem tarefas administrativas e acessem os dados armazenados nesses bancos.
+- Opções para configurar o banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synapse Analytics (anteriormente SQL Data Warehouse) para permitir que os usuários executem tarefas administrativas e acessem os dados armazenados nesses bancos.
 - A configuração de acesso e autorização depois de criar inicialmente um novo servidor.
 - Como adicionar logons e contas de usuário no banco de dados mestre e contas de usuário e conceder a essas contas permissões administrativas.
 - Como adicionar contas de usuário em bancos de dados de usuário, associadas a logons ou a contas de usuário contidas.
@@ -94,7 +94,7 @@ Neste ponto, o servidor ou a instância gerenciada só é configurada para acess
   - Adicione a conta de usuário ao `dbmanager` , à `loginmanager` função ou ambas no banco de `master` dados usando a instrução [ALTER role](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (para Synapse do Azure, use a instrução [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
 
   > [!NOTE]
-  > `dbmanager`e as `loginmanager` funções **não** pertencem a implantações do SQL instância gerenciada.
+  > `dbmanager` e as `loginmanager` funções **não** pertencem a implantações do SQL instância gerenciada.
 
   Os membros dessas [funções de banco de dados mestre especiais](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) para o banco de dados SQL do Azure têm autoridade para criar e gerenciar bancos ou para criar e gerenciar logons. Em bancos de dados criados por um usuário que seja membro da função `dbmanager`, o membro é mapeado na função de banco de dados fixa `db_owner` e pode fazer logon e gerenciar esse banco de dados usando a conta de usuário do `dbo`. Essas funções não têm permissões explícitas fora do banco de dados mestre.
 

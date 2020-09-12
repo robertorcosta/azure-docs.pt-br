@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254212"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319285"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Implantar um aplicativo sem estado do livro de visitas do PHP com o Redis em um cluster kubernetes habilitado para Arc na GPU de borda Azure Stack
 
@@ -57,7 +57,7 @@ Antes de implantar o aplicativo sem estado, verifique se você concluiu os segui
       - Na interface do usuário local do seu dispositivo Azure Stack Edge, acesse **visão geral** e anote o número do software kubernetes. 
       - Verifique essas duas versões para compatibilidade com o mapeamento fornecido na versão do kubernetes com suporte <!--insert link-->.
 
-1. Você tem uma [configuração GitOps que pode ser usada para executar uma implantação do Azure Arc](https://github.com/kagoyal/dbehaikudemo). Você usará os seguintes `yaml` arquivos para implantar em seu dispositivo do Azure Stack Edge.
+1. Você tem uma [configuração GitOps que pode ser usada para executar uma implantação do Azure Arc](https://github.com/kagoyal/dbehaikudemo). Neste exemplo, você usará os seguintes `yaml` arquivos para implantar em seu dispositivo do Azure Stack Edge.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -132,7 +132,7 @@ A implantação por meio da configuração GitOps cria um `demotestguestbook` na
     [10.128.44.240]: PS>
     ```  
 
-1. Neste exemplo, o serviço de front-end foi implantado como tipo: Balancer. Você precisará encontrar o endereço IP desse serviço para exibir o livro de visitas. Execute o seguinte comando.
+1. Neste exemplo, o serviço de front-end foi implantado como tipo: Balancer. Você precisará encontrar o endereço IP desse serviço para exibir o livro de visitas. Execute o comando a seguir.
 
     `kubectl get service -n <your-namespace>`
     

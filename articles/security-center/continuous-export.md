@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612377"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433918"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exporte alertas e recomendações
 
@@ -36,12 +36,12 @@ Usando essas ferramentas, você pode:
 |Estado da versão:|Disponível|
 |Refere|Camada gratuita|
 |Funções e permissões necessárias:|**Função de administrador de segurança** no grupo de recursos (ou **proprietário**)<br>Também deve ter permissões de gravação para o recurso de destino|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos), outros gov|
 |||
 
 
 
-## <a name="setting-up-a-continuous-export"></a>Configurando uma exportação contínua
+## <a name="set-up-a-continuous-export"></a>Configurar uma exportação contínua
 
 As etapas a seguir são necessárias se você estiver configurando uma exportação contínua para Log Analytics espaço de trabalho ou hubs de eventos do Azure.
 
@@ -55,12 +55,24 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
 
 1. Selecione o tipo de dados que você deseja exportar e escolha um dos filtros em cada tipo (por exemplo, exportar somente alertas de severidade alta).
 
+1. Opcionalmente, se sua seleção incluir uma dessas quatro recomendações, você poderá incluir as descobertas de avaliação de vulnerabilidade junto com elas:
+
+    - As descobertas de avaliação de vulnerabilidade em seus bancos de dados SQL devem ser corrigidas
+    - As descobertas de avaliação de vulnerabilidade em seus SQL Servers em computadores devem ser corrigidas (visualização)
+    - As vulnerabilidades nas imagens do Registro de Contêiner do Azure devem ser corrigidas (da plataforma Qualys)
+    - Vulnerabilidades em suas máquinas virtuais devem ser corrigidas
+
+    Para incluir as conclusões com essas recomendações, habilite a opção **incluir conclusões de segurança** .
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir a alternância de conclusões de segurança na configuração de exportação contínua" :::
+
+
 1. Na área "destino de exportação", escolha onde você deseja que os dados sejam salvos. Os dados podem ser salvos em um destino em uma assinatura diferente (por exemplo, em uma instância central de Hub de eventos ou em um espaço de trabalho central Log Analytics).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 
-## <a name="setting-up-continuous-export-via-the-rest-api"></a>Configurando a exportação contínua por meio da API REST
+## <a name="set-up-continuous-export-via-the-rest-api"></a>Configurar a exportação contínua por meio da API REST
 
 O recurso de exportação contínua pode ser configurado e gerenciado por meio da [API de automação](https://docs.microsoft.com/rest/api/securitycenter/automations)da central de segurança do Azure. Use esta API para criar ou atualizar automaçãos para exportar para qualquer um dos seguintes destinos possíveis:
 
@@ -83,7 +95,7 @@ Saiba mais sobre a API automations na [documentação da API REST](https://docs.
 
 
 
-## <a name="configuring-siem-integration-via-azure-event-hubs"></a>Configurando a integração SIEM por meio dos hubs de eventos do Azure
+## <a name="configure-siem-integration-via-azure-event-hubs"></a>Configurar a integração do SIEM por meio dos hubs de eventos do Azure
 
 Os hubs de eventos do Azure são uma ótima solução para consumir programaticamente quaisquer dados de streaming. Para alertas e recomendações da central de segurança do Azure, é a maneira preferida de integrar-se a um SIEM de terceiros.
 

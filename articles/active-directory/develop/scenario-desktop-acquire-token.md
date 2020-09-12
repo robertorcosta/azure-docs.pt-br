@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 0d1946862ec8af6a107ca4f5f963efbcb8912a5e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141288"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440925"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicativo da área de trabalho que chama as APIs Web: Adquirir um token
 
@@ -38,7 +38,7 @@ A API Web é definida por seus `scopes`. Qualquer que seja a experiência fornec
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -370,7 +370,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -433,7 +433,7 @@ Para conectar um usuário de domínio em um domínio ou em um computador ingress
   - Ou, o administrador de locatários deve ter consentido o uso do aplicativo anteriormente para todos os usuários no locatário.
   - Em outras palavras:
     - Ou você, como desenvolvedor, selecionou o botão **Concessão** no portal do Azure por conta própria.
-    - Ou, um administrador de locatários selecionou o botão **Conceder/revogar consentimento do administrador para {domínio de locatário}** na guia **Permissões de API** do registro do aplicativo. Para obter mais informações, consulte [Adicionar permissões para acessar APIs Web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Ou, um administrador de locatários selecionou o botão **Conceder/revogar consentimento do administrador para {domínio de locatário}** na guia **Permissões de API** do registro do aplicativo. Para obter mais informações, consulte [adicionar permissões para acessar sua API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
     - Ou, você forneceu uma forma de os usuários consentirem com o aplicativo. Para obter mais informações, consulte [Solicitar consentimento de usuário individual](./v2-permissions-and-consent.md#requesting-individual-user-consent).
     - Ou, você forneceu uma forma de o administrador do locatário consentir com o aplicativo. Para obter mais informações, consulte [Consentimento do administrador](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -925,7 +925,7 @@ Não há suporte para esse fluxo na MSAL para macOS.
 
 Caso esteja escrevendo uma ferramenta de linha de comando que não tenha controles da Web e você não possa ou não deseje usar os fluxos anteriores, será necessário usar o fluxo de código do dispositivo.
 
-A autenticação interativa com o Azure AD requer um navegador da Web. Para obter mais informações, consulte [Uso de navegadores da Web](https://aka.ms/msal-net-uses-web-browser). Para autenticar usuários em dispositivos ou sistemas operacionais que não fornecem um navegador da Web, o fluxo de código do dispositivo permite que o usuário use outro dispositivo, como um computador ou um telefone celular, para entrar interativamente. Com o fluxo de código do dispositivo, o aplicativo obtém tokens por meio de um processo de duas etapas projetado para esses dispositivos ou SOs. Como exemplos desses aplicativos, temos aqueles que são executados em iOT ou em ferramentas de linha de comando (CLI). A ideia é que:
+A autenticação interativa com o Azure AD requer um navegador da Web. Para obter mais informações, consulte [Uso de navegadores da Web](https://aka.ms/msal-net-uses-web-browser). Para autenticar usuários em dispositivos ou sistemas operacionais que não fornecem um navegador da Web, o fluxo de código do dispositivo permite que o usuário use outro dispositivo, como um computador ou um telefone celular, para entrar interativamente. Usando o fluxo de código do dispositivo, o aplicativo obtém tokens por meio de um processo de duas etapas projetado para esses dispositivos ou sistemas operacionais. Como exemplos desses aplicativos, temos aqueles que são executados em iOT ou em ferramentas de linha de comando (CLI). A ideia é que:
 
 1. Sempre que a autenticação do usuário for necessária, o aplicativo fornecerá um código para o usuário. O usuário será solicitado a usar outro dispositivo, como um smartphone conectado à Internet, para acessar uma URL, por exemplo, `https://microsoft.com/devicelogin`. Depois, o usuário é solicitado a inserir o código. Isso feito, a página da Web conduz o usuário por uma experiência de autenticação normal, a qual inclui solicitações de consentimento e autenticação multifator, se necessário.
 
@@ -978,7 +978,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)

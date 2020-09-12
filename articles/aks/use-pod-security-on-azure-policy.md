@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987351"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440869"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Proteger pods com Azure Policy (versão prévia)
 
@@ -28,8 +28,8 @@ Para proteger o AKS pods por meio de Azure Policy, você precisa instalar o comp
 
 Este documento pressupõe que você tem os seguintes que são implantados no detalhado vinculado acima.
 
-* Registrou `Microsoft.ContainerService` os `Microsoft.PolicyInsights` provedores de recursos e usando`az provider register`
-* Registrou o `AKS-AzurePolicyAutoApprove` sinalizador do recurso de visualização usando`az feature register`
+* Registrou `Microsoft.ContainerService` os `Microsoft.PolicyInsights` provedores de recursos e usando `az provider register`
+* Registrou o `AKS-AzurePolicyAutoApprove` sinalizador do recurso de visualização usando `az feature register`
 * CLI do Azure instalado com a `aks-preview` versão de extensão 0.4.53 ou superior
 * Um cluster AKS em uma versão com suporte do 1,15 ou superior instalado com o complemento Azure Policy
 
@@ -82,13 +82,13 @@ Ambas as iniciativas internas são criadas a partir de definições usadas na [p
 |Restringir todo o uso de rede e portas do host|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Sim | Sim
 |Restringir qualquer uso do sistema de arquivos do host|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Sim | Sim
 |Restringir os recursos do Linux ao [conjunto padrão](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Sim | Sim
-|Restringir o uso de tipos de volume definidos|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sim-os tipos de volume permitidos são,,, `configMap` `emptyDir` `projected` `downwardAPI` ,`persistentVolumeClaim`|
+|Restringir o uso de tipos de volume definidos|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sim-os tipos de volume permitidos são,,, `configMap` `emptyDir` `projected` `downwardAPI` , `persistentVolumeClaim`|
 |Elevação de privilégio para raiz|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Sim |
 |Restringir as IDs de usuário e grupo do contêiner|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim|
 |Restringir a alocação de um FSGroup que possui os volumes do pod|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sim-as regras permitidas são `runAsUser: mustRunAsNonRoot` ,, `supplementalGroup: mustRunAs 1:65536` `fsGroup: mustRunAs 1:65535` , `runAsGroup: mustRunAs 1:65535` .  |
-|Requer perfil seccomp|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Sim, allowedProfiles são * `docker/default` ou`runtime/default` |
+|Requer perfil seccomp|[Nuvem pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Sim, allowedProfiles são * `docker/default` ou `runtime/default` |
 
-\*o Docker/padrão é preterido no kubernetes desde o v 1.11
+\* o Docker/padrão é preterido no kubernetes desde o v 1.11
 
 ### <a name="additional-optional-policies"></a>Políticas opcionais adicionais
 
@@ -258,7 +258,7 @@ Para remover a iniciativa de linha de base:
 
 Para desabilitar o complemento Azure Policy, use o comando [AZ AKs Disable-addons][az-aks-disable-addons] .
 
-```azure-cli
+```azurecli
 az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
 ```
 
@@ -285,7 +285,7 @@ Veja abaixo um resumo das alterações de comportamento entre a política de seg
 | Escopo da política | As políticas de segurança de Pod não estão em namespace | Os modelos de restrição usados pelo Azure Policy não são namespaces.
 | Ação de negação/auditoria/mutação | As políticas de segurança Pod dão suporte apenas a ações Deny. A mutação pode ser feita com valores padrão em solicitações de criação. A validação pode ser feita durante solicitações de atualização.| O Azure Policy dá suporte a ações de negação de & de auditoria. A mutação ainda não é suportada, mas planejada.
 | Conformidade da política de segurança Pod | Não há visibilidade da conformidade de pods que existia antes de habilitar a política de segurança de Pod. Os pods sem conformidade criados após a habilitação das políticas de segurança de Pod são negados. | Os pods sem conformidade que existiam antes de aplicar as políticas do Azure apareceriam em violações de política. Os pods sem conformidade criados após a habilitação das políticas do Azure serão negadas se as políticas forem definidas com um efeito de negação.
-| Como exibir políticas no cluster | `kubectl get psp` | `kubectl get constrainttemplate`-Todas as políticas são retornadas.
+| Como exibir políticas no cluster | `kubectl get psp` | `kubectl get constrainttemplate` -Todas as políticas são retornadas.
 | Política de segurança Pod com privilégios padrão | Um recurso de política de segurança de Pod privilegiado é criado por padrão ao habilitar o recurso. | O modo privilegiado não implica nenhuma restrição, como resultado, é equivalente a não ter nenhuma atribuição de Azure Policy.
 | [Política de segurança de Pod padrão-linha de base/padrão](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | O usuário instala um recurso de linha de base de política de segurança Pod. | Azure Policy fornece uma [iniciativa de linha de base interna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) que é mapeada para a política de segurança pod de linha de base.
 | [Política de segurança Pod padrão-restrita](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | O usuário instala um recurso restrito da política de segurança de Pod. | Azure Policy fornece uma [iniciativa restrita interna](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) que é mapeada para a política de segurança Pod restrita.

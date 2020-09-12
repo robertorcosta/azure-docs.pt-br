@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695990"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319433"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Log de recursos para um grupo de segurança de rede
 
@@ -24,7 +24,7 @@ Um grupo de segurança de rede (NSG) contém regras que permitem ou negam o trá
 Ao habilitar o registro em log para um NSG, você pode reunir os seguintes tipos de informações do log de recursos:
 
 * **Evento:** as entradas são registradas para qual NSG regras são aplicadas às VMs, com base no endereço MAC.
-* **Contador de regras:** contém entradas de quantas vezes cada regra NSG é aplicada para negar ou permitir tráfego. O status para essas regras é coletado a cada 60 segundos.
+* **Contador de regras:** contém entradas de quantas vezes cada regra NSG é aplicada para negar ou permitir tráfego. O status dessas regras é coletado a cada 300 segundos.
 
 Os logs de recursos estão disponíveis somente para NSGs implantados por meio do modelo de implantação Azure Resource Manager. Você não pode habilitar o log de recursos para NSGs implantados por meio do modelo de implantação clássico. Para reconhecimento melhor dos dois modelos, consulte [ Compreendendo os modelos de implantação do Azure ](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

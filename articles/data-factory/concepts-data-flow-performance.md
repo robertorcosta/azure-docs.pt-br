@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212042"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434224"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -126,7 +126,7 @@ Os fluxos de dados são cobrados no VCORE-h, o que significa que o tamanho do cl
 
 ### <a name="time-to-live"></a>Vida útil
 
-Por padrão, cada atividade de fluxo de dados gira um novo cluster com base na configuração de IR. O tempo de inicialização do cluster leva alguns minutos e o processamento de dados não pode ser iniciado até ser concluído. Se seus pipelines contiverem vários fluxos de dados **sequenciais** , você poderá habilitar um valor TTL (vida útil). Especificar um valor de vida útil mantém um cluster ativo por um determinado período de tempo após sua execução ser concluída. Se um novo trabalho começar a usar o IR durante o tempo de vida útil, ele reutilizará o cluster existente e a hora de início será em segundos, em vez de minutos. Após a conclusão do segundo trabalho, o cluster permanecerá ativo novamente durante o tempo de vida útil.
+Por padrão, cada atividade de fluxo de dados gira um novo cluster com base na configuração de IR. O tempo de inicialização do cluster leva alguns minutos e o processamento de dados não pode ser iniciado até ser concluído. Se seus pipelines contiverem vários fluxos de dados **sequenciais** , você poderá habilitar um valor TTL (vida útil). Especificar um valor de vida útil mantém um cluster ativo por um determinado período de tempo após sua execução ser concluída. Se um novo trabalho começar a usar o IR durante o tempo de vida útil, ele reutilizará o cluster existente e o tempo de inicialização será muito reduzido. Após a conclusão do segundo trabalho, o cluster permanecerá ativo novamente durante o tempo de vida útil.
 
 Somente um trabalho pode ser executado em um único cluster por vez. Se houver um cluster disponível, mas dois fluxos de dados forem iniciados, apenas um usará o cluster ao vivo. O segundo trabalho criará seu próprio cluster isolado.
 

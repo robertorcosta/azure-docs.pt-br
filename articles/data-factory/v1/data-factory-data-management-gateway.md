@@ -1,6 +1,6 @@
 ---
 title: Gerenciamento de Dados gateway para Data Factory
-description: Configure um gateway de dados para mover dados entre o local e a nuvem. Use o Gateway de Gerenciamento de Dados no Azure Data Factory para mover os dados.
+description: Use o Gateway de Gerenciamento de Dados no Azure Data Factory para mover os dados.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: a83020af17758b570030a4c6129ffdd7dec58094
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 68459253114e97c5e113b863a075c210ef50bf2e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087071"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441112"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
@@ -121,7 +121,7 @@ Para criar um gateway no portal e obter a chave na página **Configurar**, siga 
     ![Baixar o link no portal](media/data-factory-data-management-gateway/download-and-install-link-on-portal.png)
 4. Na página **Configurar**, clique em **Recriar chave**. Clique em Sim na mensagem de aviso depois de ler com cuidado.
 
-    ![Recriar chave](media/data-factory-data-management-gateway/recreate-key-button.png)
+    ![Botão recriar chave](media/data-factory-data-management-gateway/recreate-key-button.png)
 5. Clique no botão Copiar ao lado da chave. A chave é copiada para a área de transferência.
 
     ![Copiar chave](media/data-factory-data-management-gateway/copy-gateway-key.png)
@@ -140,7 +140,7 @@ Há dois firewalls que você precisa levar em consideração: o **firewall corpo
 
 No nível do firewall corporativo, você precisa configurar os seguintes domínios e portas de saída:
 
-| Nomes de domínio | Portas | Descrição |
+| Nomes de domínios | Portas | Descrição |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Usado para comunicação com o back-end do Serviço de Movimentação de Dados |
 | *.core.windows.net |443 |Usado para cópia em etapas usando Blobs do Azure (se estiver configurado)|
@@ -150,15 +150,15 @@ No nível do firewall corporativo, você precisa configurar os seguintes domíni
 No nível do Firewall do Windows, essas portas de saída normalmente são habilitadas. Se não forem, você poderá configurar as portas e os domínios adequadamente no computador do gateway.
 
 > [!NOTE]
-> 1. Com base em sua origem/coletores, talvez você precise incluir domínios adicionais na lista de permissões e as portas de saída em seu Firewall do Windows/corporativo.
-> 2. Para alguns bancos de dados na nuvem (por exemplo: [Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure Data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access) etc.), talvez seja necessário incluir o endereço IP do computador do Gateway na lista de permissões na configuração do firewall deles.
+> 1. Com base em sua fonte/coletores, talvez seja necessário permitir domínios adicionais e portas de saída no seu firewall corporativo/Windows.
+> 2. Para alguns bancos de dados de nuvem (por exemplo: [banco de dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-configure-firewall-settings), [Azure data Lake](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data#set-ip-address-range-for-data-access), etc.), talvez seja necessário permitir o endereço IP do computador do gateway em sua configuração de firewall.
 >
 >
 
 #### <a name="copy-data-from-a-source-data-store-to-a-sink-data-store"></a>Copiar dados de um repositório de dados de origem para um repositório de dados de coletor
 Verifique se as regras de firewall estão habilitadas corretamente no firewall corporativo, no Firewall do Windows no computador do gateway e no próprio repositório de dados. Habilitar essas regras permite ao gateway se conectar com êxito à fonte e ao coletor. Habilite as regras para cada repositório de dados que esteja envolvido na operação de cópia.
 
-Por exemplo, para copiar de **um repositório de dados local para um coletor do Banco de Dados SQL do Azure ou um coletor do SQL Data Warehouse do Azure**, siga as etapas abaixo:
+Por exemplo, para copiar de **um armazenamento de dados local para um coletor de banco de dado SQL do Azure ou um coletor do Azure Synapse Analytics (anteriormente SQL data warehouse)**, execute as seguintes etapas:
 
 * Permita a comunicação **TCP** de saída na porta **1433** para o Firewall do Windows e o firewall corporativo.
 * Defina as configurações de firewall do SQL Server lógico para adicionar o endereço IP do computador do gateway à lista de endereços IP permitidos.
@@ -175,7 +175,7 @@ Se o ambiente de rede corporativo usar um servidor proxy para acessar a Internet
 
 O gateway usa o servidor proxy para se conectar ao serviço de nuvem. Clique no link **Alteração** durante a configuração inicial. Você verá a caixa de diálogo **configuração de proxy** .
 
-![Definir proxy usando o gerenciador de configurações](media/data-factory-data-management-gateway/SetProxySettings.png)
+![Definir proxy usando o Gerenciador de configuração 1](media/data-factory-data-management-gateway/SetProxySettings.png)
 
 Há três opções de configuração:
 
@@ -194,7 +194,7 @@ Depois que o gateway tiver sido registrado com êxito, se você quiser exibir ou
 
 Você pode exibir e atualizar o proxy HTTP usando a ferramenta Gerenciador de Configurações.
 
-![Definir proxy usando o gerenciador de configurações](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
+![Definir proxy usando o config Manager 2](media/data-factory-data-management-gateway/SetProxyConfigManager.png)
 
 > [!NOTE]
 > Se você configurar um servidor proxy com autenticação NTLM, o Serviço de Host do Gateway será executado sob a conta de domínio. Se você alterar a senha da conta de domínio posteriormente, lembre-se de atualizar as definições de configuração para o serviço e reiniciá-lo adequadamente. Por conta desse requisito, sugerimos o uso de uma conta de domínio dedicada para acessar o servidor proxy que não exija a atualização da senha com frequência.
@@ -233,7 +233,7 @@ Se você selecionar **usar** configuração de proxy do sistema para o proxy htt
 > [!IMPORTANT]
 > Não se esqueça **de atualizar diahost.exe.config** e diawp.exe.config.
 
-Além dos desses pontos, você também precisa verificar se o Microsoft Azure está lista de autorizados da empresa. Baixe a lista de endereços IP válidos do Microsoft Azure no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Além desses pontos, você também precisa ter certeza de que Microsoft Azure está na lista de permissões da sua empresa. Baixe a lista de endereços IP válidos do Microsoft Azure no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Possíveis sintomas de problemas relacionados ao firewall e ao servidor proxy
 Se você encontrar erros similares aos descritos a seguir, eles provavelmente se deverão à configuração incorreta do servidor proxy ou firewall, que impedirá o gateway de se conectar ao Data Factory para se autenticar. Confira a seção anterior para garantir que seu firewall e servidor proxy estejam configurados corretamente.
@@ -313,7 +313,7 @@ Depois de instalar o gateway, você pode iniciar o Gerenciador de Configuração
 1. Na janela **Search**, digite **Gateway de Gerenciamento de Dados** para acessar esse utilitário.
 2. Execute o executável *ConfigManager.exe* na pasta: *C: \\ \\ arquivos de programas \\ Microsoft gerenciamento de dados gateway \\ 2,0 \\ compartilhado*.
 
-### <a name="home-page"></a>Home page
+### <a name="home-page"></a>Página inicial
 A home page permite que você realize as seguintes ações:
 
 * Exibir o status do gateway (conectado ao serviço de nuvem etc.).
@@ -425,7 +425,7 @@ Esta seção fornece etapas para movimentação do cliente do gateway de um comp
     ![Gerenciador de Configurações](./media/data-factory-data-management-gateway/ConfigurationManager.png)
 6. Na página **Configurar no portal**, clique em **Recriar chave** na barra de comandos e clique em **Sim** para a mensagem de aviso. Clique no **botão copiar** ao lado do texto da chave, que copia a chave para a área de transferência. O gateway no computador antigo deixa de funcionar assim que você recria a chave.
 
-    ![Recriar chave](./media/data-factory-data-management-gateway/RecreateKey.png)
+    ![Recriar a chave 2](./media/data-factory-data-management-gateway/RecreateKey.png)
 7. Colar a **chave** na caixa de texto na página **Registrar Gateway** do **Gerenciador de Configurações do Gateway de Gerenciamento de dados** em seu computador. (Opcional) Clique na caixa de seleção **Mostrar chave do gateway** para ver o texto da chave.
 
     ![Copiar chave e Registrar-se](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)

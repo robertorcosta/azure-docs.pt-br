@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043505"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437387"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo de locatário único
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Aplicativos SaaS multilocatários normalmente têm uma grande quantidade de dado
 
 O acesso aos dados para todos os locatários é simples quando todos os dados estão em apenas um banco de dados multilocatário. Porém, o acesso é mais complexo quando distribuído em grande escala em potencialmente milhares de bancos de dados. Uma maneira de controlar a complexidade e minimizar o impacto de consultas de análise em dados transacionais é extrair dados para um banco de dados ou data warehouse de análise projetado para esse fim.
 
-Este tutorial apresenta um cenário completo de análise para o aplicativo SaaS Wingtip Tickets de exemplo. Primeiro, *Trabalhos Elásticos* são usados para extrair dados de cada banco de dados de locatário e carregá-los em tabelas de preparo em um armazenamento de análise. O repositório de análise pode ser um Banco de Dados SQL ou um SQL Data Warehouse. Para extração de dados em grande escala, o [Azure Data Factory](../../data-factory/introduction.md) é recomendado.
+Este tutorial apresenta um cenário completo de análise para o aplicativo SaaS Wingtip Tickets de exemplo. Primeiro, *Trabalhos Elásticos* são usados para extrair dados de cada banco de dados de locatário e carregá-los em tabelas de preparo em um armazenamento de análise. O repositório de análise pode ser um banco de dados SQL ou um pool SQL. Para extração de dados em grande escala, o [Azure Data Factory](../../data-factory/introduction.md) é recomendado.
 
 Em seguida, os dados agregados são transformados em um conjunto de tabelas de [esquema estrela](https://www.wikipedia.org/wiki/Star_schema). As tabelas consistem em uma tabela de fatos central, mais tabelas de dimensões relacionadas.  Para o Wingtip Tickets:
 

@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: be3b82765f2f5268a75147e8e1ef6de34aeb8ff2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629075"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441061"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Cópia em massa de um banco de dados com uma tabela de controle
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Para copiar dados de um data warehouse no Oracle Server, Netezza, Teradata ou SQL Server para o SQL Data Warehouse do Azure, é preciso carregar uma enorme quantidade de dados de várias tabelas em fontes de dados. Normalmente, os dados precisam ser particionados em cada tabela para que seja possível carregar linhas com vários threads paralelamente de uma só tabela. Este artigo descreve um modelo a ser usado nesses cenários.
+Para copiar dados de um data warehouse no Oracle Server, Netezza, Teradata ou SQL Server para o Azure Synapse Analytics (anteriormente SQL Data Warehouse), você precisa carregar enormes quantidades de dados de várias tabelas. Normalmente, os dados precisam ser particionados em cada tabela para que seja possível carregar linhas com vários threads paralelamente de uma só tabela. Este artigo descreve um modelo a ser usado nesses cenários.
 
- >!OBSERVAÇÃO Se você quiser copiar dados de um pequeno número de tabelas com volume de dados relativamente pequeno para o SQL Data Warehouse, será mais eficiente usar a [Ferramenta Copiar Dados do Azure Data Factory](copy-data-tool.md). O modelo descrito neste artigo é mais do que o necessário para esse cenário.
+ >! Observação Se você quiser copiar dados de um pequeno número de tabelas com volume de dados relativamente pequeno para o Azure Synapse Analytics, será mais eficiente usar a [ferramenta de copiar dados de Azure data Factory](copy-data-tool.md). O modelo descrito neste artigo é mais do que o necessário para esse cenário.
 
 ## <a name="about-this-solution-template"></a>Sobre o modelo de solução
 
@@ -44,7 +44,7 @@ O modelo define os seguintes parâmetros:
 - *Data_Destination_Container* é o caminho da pasta raiz para a qual os dados são copiados em seu armazenamento de destino. 
 - *Data_Destination_Directory* é o caminho do diretório na raiz para a qual os dados são copiados para o armazenamento de destino. 
 
-Os últimos três parâmetros que definem o caminho no armazenamento de destino ficam visíveis apenas quando o destino escolhido é um armazenamento baseado em arquivos. Se você escolher "Azure Synapse Analytics (anteriormente conhecido como SQL DW)" como o armazenamento de destino, esses parâmetros não serão necessários. Porém, os nomes de tabela e o esquema no SQL Data Warehouse devem ser os mesmos que os do banco de dados de origem.
+Os últimos três parâmetros que definem o caminho no armazenamento de destino ficam visíveis apenas quando o destino escolhido é um armazenamento baseado em arquivos. Se você escolher "Azure Synapse Analytics (anteriormente conhecido como SQL DW)" como o armazenamento de destino, esses parâmetros não serão necessários. Mas os nomes de tabela e o esquema na análise de Synapse do Azure devem ser iguais aos do banco de dados de origem.
 
 ## <a name="how-to-use-this-solution-template"></a>Como usar este modelo de solução
 
@@ -94,7 +94,7 @@ Os últimos três parâmetros que definem o caminho no armazenamento de destino 
 
     ![Revisar o resultado](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Opcional) Se você escolheu o "Azure Synapse Analytics (conhecido anteriormente como SQL DW)" como destino de dados, insira uma conexão com o Armazenamento de Blobs do Azure para preparo, conforme exigido pelo SQL Data Warehouse Polybase. O modelo gera automaticamente um caminho de contêiner para o Armazenamento de Blobs. Verifique se o contêiner foi criado após a execução do pipeline.
+9. Adicional Se você escolheu "Azure Synapse Analytics (anteriormente conhecido como SQL DW)" como o destino de dados, você deve inserir uma conexão com o armazenamento de BLOBs do Azure para preparo, conforme exigido pelo polybase do Azure Synapse Analytics. O modelo gera automaticamente um caminho de contêiner para o Armazenamento de Blobs. Verifique se o contêiner foi criado após a execução do pipeline.
     
     ![Configuração do Polybase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

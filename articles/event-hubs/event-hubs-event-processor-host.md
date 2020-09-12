@@ -4,12 +4,12 @@ description: Este artigo descreve o Host do Processador de Eventos nos Hubs de E
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27b587e6562b5ba0c9bf28a52a00a9d8e7d9201c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010453"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319494"
 ---
 # <a name="event-processor-host"></a>Host do processador de eventos
 > [!NOTE]
@@ -87,6 +87,8 @@ Em seguida, criar uma instância de uma instância [EventProcessorHost](/dotnet/
 
 Por fim, os consumidores registram a instância [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) com o serviço Hub de Eventos. Registrar uma classe de processador de eventos com uma instância do EventProcessorHost que inicia o processamento de eventos. Registrando instrui o serviço Hub de Eventos a esperar que o aplicativo consumidor consuma eventos de algumas de suas partições e invoque o código de implementação [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) sempre que ele enviar eventos para consumo. 
 
+> [!NOTE]
+> O consumerGroupName diferencia maiúsculas de minúsculas.  As alterações no consumerGroupName podem resultar na leitura de todas as partições desde o início do fluxo.
 
 ### <a name="example"></a>Exemplo
 

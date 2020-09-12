@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553386"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400034"
 ---
 # <a name="scenario-isolating-vnets"></a>Cenário: isolando VNets
 
@@ -29,7 +29,7 @@ Nesse cenário, a carga de trabalho em uma determinada VNet permanece isolada e 
 | VNets     | &#8594;|           |     X    |
 | Branches   | &#8594;|    X     |     X    |
 
-Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico) para um fluxo de tráfego específico.
+Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico) para um fluxo de tráfego específico, em que um "X" significa que a conectividade é fornecida pela WAN virtual.
 
 Essa matriz de conectividade nos oferece dois padrões de linha diferentes, que são convertidos em duas tabelas de rotas. A WAN virtual já tem uma tabela de rotas padrão, portanto, precisaremos de outra tabela de rotas. Para este exemplo, nomearemos a tabela de rotas **RT_VNET**.
 

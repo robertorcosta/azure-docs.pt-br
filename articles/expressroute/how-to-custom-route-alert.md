@@ -2,17 +2,17 @@
 title: 'ExpressRoute: como configurar alertas personalizados para rotas anunciadas'
 description: Este artigo mostra como usar a automação do Azure e os aplicativos lógicos para monitorar o número de rotas anunciadas do gateway de ExpressRoute para redes locais a fim de evitar atingir o limite de rotas de 200.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
-ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738474"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401717"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorar rotas anunciadas
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 Quando você executa o script do PowerShell, uma lista de valores é coletada:
  
-* Resource group
+* Grupo de recursos
 
 * Nome do gateway de ExpressRoute
 
@@ -257,7 +257,7 @@ Quando você executa o script do PowerShell, uma lista de valores é coletada:
 
 * Mensagem de alerta, para obter uma descrição detalhada do status (OK, alerta, aviso)
 
-O script do PowerShell converte as informações coletadas em uma saída JSON. O runbook usa o cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?) do PowerShell como fluxo de saída para comunicar informações ao cliente.
+O script do PowerShell converte as informações coletadas em uma saída JSON. O runbook usa o cmdlet [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  do PowerShell como fluxo de saída para comunicar informações ao cliente.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. validar o runbook
 

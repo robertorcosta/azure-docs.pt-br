@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707286"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441622"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Cópia repetida no Azure Data Factory
 
@@ -104,7 +104,7 @@ A atividade de cópia executou o script de limpeza para excluir os dados corresp
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mecanismo 2: usando o sliceIdentifierColumnName
 > [!IMPORTANT]
-> No momento, não há suporte para sliceIdentifierColumnName no SQL Data Warehouse do Azure. 
+> Atualmente, não há suporte para sliceIdentifierColumnName no Azure Synapse Analytics (anteriormente SQL Data Warehouse). 
 
 O segundo mecanismo para atingir a capacidade de repetição é ter uma coluna dedicada (sliceIdentifierColumnName) na tabela de destino. Essa coluna pode ser usada pelo Azure Data Factory para garantir que a origem e destino permaneçam em sincronia. Essa abordagem funciona quando há flexibilidade para alteração ou definição do esquema de tabela SQL de destino. 
 
@@ -151,5 +151,5 @@ Semelhante ao mecanismo 1, os dados da fatia fornecida da tabela SQL de destino 
 Examine os artigos sobre conector a seguir para obter exemplos de JSON completos: 
 
 - [Banco de Dados SQL do Azure](data-factory-azure-sql-connector.md)
-- [SQL Data Warehouse do Azure](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

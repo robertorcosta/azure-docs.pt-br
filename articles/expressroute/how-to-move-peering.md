@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: mover um emparelhamento público para o emparelhamento da Microsoft'
 description: Este artigo mostra as etapas para mover o emparelhamento público para o emparelhamento da Microsoft no ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.author: cherylmc
-ms.openlocfilehash: 2f6b3ec93498ab58ba67a2ca08199feaa2da73ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738355"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401411"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Mover um emparelhamento público para o emparelhamento da Microsoft
 
@@ -33,7 +33,7 @@ Para se conectar ao emparelhamento da Microsoft, você precisa configurar e gere
 
 Consulte [Roteamento Assimétrico com vários caminhos de rede](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) para obter as advertências de roteamento assimétrico antes de configurar o emparelhamento da Microsoft.
 
-* Se você estiver usando o emparelhamento público e tiver regras de rede IP para endereços IP públicos que são usados para acessar [armazenamento do Azure](../storage/common/storage-network-security.md) ou [banco de dados SQL do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md), você precisa certificar-se de que o pool de IP de NAT configurado com o emparelhamento Microsoft está incluído na lista de endereços IP públicos para a conta de armazenamento do Azure ou a conta do SQL Azure.<br>
+* Se você estiver usando o emparelhamento público e tiver regras de rede IP para endereços IP públicos que são usados para acessar o [armazenamento do Azure](../storage/common/storage-network-security.md) ou o [banco de dados SQL do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md), você precisará certificar-se de que o pool de IP de NAT configurado com o emparelhamento da Microsoft esteja incluído na lista de endereços IP públicos para a conta de armazenamento do Azure ou conta SQL do Azure.<br>
 * Para fazer uma movimentação para o emparelhamento da Microsoft sem tempo de inatividade, use as etapas deste artigo na ordem em que são apresentadas.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. criar emparelhamento da Microsoft

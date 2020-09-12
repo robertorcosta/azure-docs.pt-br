@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852083"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400017"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: rotear o tráfego por meio de um NVA
 
@@ -46,7 +46,7 @@ A matriz de conectividade a seguir resume os fluxos com suporte neste cenário:
 | **VNets não NVA**| &#8594; |   Estático |      X   |        X     |      X    |
 | **Branches**     | &#8594; |   Estático |      X   |        X     |      X    |
 
-Cada uma das células na matriz de conectividade descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico. Considere o seguinte:
+Cada uma das células na matriz de conectividade descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida nativamente pela WAN virtual e "estática" significa que a conectividade é fornecida pela WAN virtual usando rotas estáticas. Considere o seguinte:
 
 * Os spokes NVA não são gerenciados pela WAN virtual. Como resultado, os mecanismos com os quais eles se comunicarão com outros VNets ou branches serão mantidos pelo usuário. A conectividade com a VNet NVA é fornecida por um emparelhamento de VNet e uma rota padrão para 0.0.0.0/0 apontando para o NVA como o próximo salto deve abranger a conectividade com a Internet, com outros spokes e para branches
 * NVA VNets saberá sobre seus próprios spokes de NVA, mas não sobre os raios de NVA conectados a outros NVA VNets. Por exemplo, na tabela 1, a VNet 2 sabe sobre VNet 5 e VNet 6, mas não sobre outros spokes como VNet 7 e VNet 8. Uma rota estática é necessária para injetar os prefixos dos outros spokes em NVA VNets
