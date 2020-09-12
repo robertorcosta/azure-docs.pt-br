@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SAP HANA em VMs do Azure
 description: Neste artigo, descubra como restaurar SAP HANA bancos de dados que estão em execução em máquinas virtuais do Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006305"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375305"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Restaurar bancos de dados SAP HANA em VMs do Azure
 
@@ -28,29 +28,29 @@ O Backup do Azure pode restaurar bancos de dados SAP HANA que estão em execuç�
 
 Antes de restaurar um banco de dados, observe o seguinte:
 
-* Você pode restaurar o banco de dados somente para uma instância SAP HANA que esteja na mesma região
+* Você pode restaurar o banco de dados somente para uma instância SAP HANA que esteja na mesma região.
 
-* A instância de destino precisa ser registrada no mesmo cofre da origem
+* A instância de destino deve ser registrada com o mesmo cofre que a origem.
 
 * O Backup do Azure não pode identificar duas instâncias diferentes do SAP HANA na mesma VM. Portanto, a restauração de dados de uma instância para outra na mesma VM não é possível.
 
 * Para garantir que a instância de SAP HANA de destino esteja pronta para restauração, verifique seu status de **preparação de backup** :
 
-  1. Abra o cofre no qual a instância de SAP HANA de destino está registrada
+  1. Abra o cofre no qual a instância de SAP HANA de destino está registrada.
 
-  1. No painel do cofre, em **introdução**, escolha **backup**
+  1. No painel do cofre, em **introdução**, escolha **backup**.
 
       ![Backup no painel do cofre](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. Em **backup**, em **o que você deseja fazer backup?** escolha **SAP Hana na VM do Azure**
+  1. Em **backup**, em **o que você deseja fazer backup?** escolha **SAP Hana na VM do Azure**.
 
       ![Escolha SAP HANA na VM do Azure](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. Em **descobrir bancos de os em VMs**, clique em **Exibir detalhes**
+  1. Em **descobrir bancos de os em VMs**, selecione **Exibir detalhes**.
 
       ![Exibir detalhes](media/sap-hana-db-restore/view-details.png)
 
-  1. Examinar a **prontidão de backup** da VM de destino
+  1. Examine a **prontidão de backup** da VM de destino.
 
       ![Servidores protegidos](media/sap-hana-db-restore/protected-servers.png)
 

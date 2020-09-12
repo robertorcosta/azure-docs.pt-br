@@ -3,14 +3,14 @@ title: Executar cargas de trabalho em VMs econômicas de baixa prioridade
 description: Saiba como provisionar VMs de baixa prioridade para reduzir o custo das cargas de trabalho do Lote do Azure.
 author: mscurrell
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816687"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568448"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usar VMs de baixa prioridade com o Lote
 
@@ -18,7 +18,7 @@ O Lote do Azure oferece VMs (máquinas virtuais) de baixa prioridade para reduzi
 
 VMs de baixa prioridade tiram proveito da capacidade excedente do Azure. Quando você especifica VMs de baixa prioridade em seus pools, o Lote do Azure pode usar esse excedente quando ele estiver disponível.
 
-A desvantagem do uso de VMs de prioridade baixa é que elas podem não estar disponíveis para serem alocadas ou podem admitir preempção a qualquer momento, dependendo da capacidade disponível. Por esse motivo, as VMs de baixa prioridade são mais adequadas para determinados tipos de cargas de trabalho. Use VMs de baixa prioridade para cargas de trabalho de processamento assíncronas e em lote, em que o tempo para conclusão do trabalho é flexível e o trabalho é distribuído entre várias VMs.
+A desvantagem de usar VMs de baixa prioridade é que essas VMs nem sempre podem estar disponíveis para serem alocadas ou podem ser admitidas a qualquer momento, dependendo da capacidade disponível. Por esse motivo, as VMs de baixa prioridade são mais adequadas para determinados tipos de cargas de trabalho. Use VMs de baixa prioridade para cargas de trabalho de processamento assíncronas e em lote, em que o tempo para conclusão do trabalho é flexível e o trabalho é distribuído entre várias VMs.
 
 VMs de prioridade baixa são oferecidas a um preço consideravelmente menor em comparação com VMs dedicadas. Para ver detalhes dos preços, consulte [Preços do Lote](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -123,7 +123,7 @@ Os nós do pool têm uma propriedade para indicar se o nó é uma VM dedicada ou
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-Quando um ou mais nós em um pool admitem preempção, uma operação de listar nós no pool ainda retorna esses nós. O número atual de nós de baixa prioridade permanece inalterado, mas esses nós têm seu estado definido como **Admitiu preempção**. O Lote tenta localizar VMs substitutas e, se for bem-sucedido, os nós passarão pelos estados **Criando** e **Iniciando** antes de ficarem disponíveis para a execução da tarefa, assim como ocorreria com novos nós.
+Para pools de configuração de máquina virtual, quando um ou mais nós são preempçãos, uma operação listar nós no pool ainda retorna esses nós. O número atual de nós de baixa prioridade permanece inalterado, mas esses nós têm seu estado definido como **Admitiu preempção**. O Lote tenta localizar VMs substitutas e, se for bem-sucedido, os nós passarão pelos estados **Criando** e **Iniciando** antes de ficarem disponíveis para a execução da tarefa, assim como ocorreria com novos nós.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>Dimensionar um pool que contém VMs de baixa prioridade
 
@@ -155,10 +155,11 @@ Trabalhos e tarefas exigem pouca configuração para nós de baixa prioridade; o
 
 ## <a name="handling-preemption"></a>Tratamento de preempções
 
-Ocasionalmente, as VMs podem sofrer preempção. Quando isso acontece, o lote faz o seguinte:
+Ocasionalmente, as VMs podem sofrer preempção. Quando isso acontece, as tarefas que estavam em execução nas VMs de nó admitidas são recolocadas na fila e executadas novamente.
+
+Para pools de configuração de máquina virtual, o lote também faz o seguinte:
 
 -   As VMs que sofreram preempção têm seu estado atualizado para **Admitiu Preempção**.
--   Caso tarefas estivessem sendo executadas nas VMs do nó que sofreu preempção, essas tarefas serão recolocadas em fila e serão executadas novamente.
 -   A VM é excluída efetivamente, causando a perda de todos os dados armazenados localmente na VM.
 -   O pool tentará continuamente alcançar o número alvo de nós de baixa prioridade disponíveis. Quando a capacidade de substituição for encontrada, os nós manterão suas IDs, mas serão reinicializados, passando pelos estados **Criando** e **Inicial** antes que fiquem disponíveis para o agendamento de tarefas.
 -   Contagens de preempção estão disponíveis como uma métrica no Portal do Azure.
@@ -168,7 +169,7 @@ Ocasionalmente, as VMs podem sofrer preempção. Quando isso acontece, o lote fa
 Novas métricas estão disponíveis no [Portal do Azure](https://portal.azure.com) para nós de baixa prioridade. Essas métricas são:
 
 - Contagem de nós de baixa prioridade
-- Contagem de núcleos de baixa prioridade 
+- Contagem de núcleos de baixa prioridade
 - Contagem de nós com preempção
 
 Para exibir as métricas no Portal do Azure:
@@ -177,10 +178,10 @@ Para exibir as métricas no Portal do Azure:
 2. Selecione **Métricas** na seção **Monitoramento**.
 3. Selecione as métricas desejadas na lista **Métricas Disponíveis**.
 
-![Métricas para nós de baixa prioridade](media/batch-low-pri-vms/low-pri-metrics.png)
+![Captura de tela mostrando a seleção de métrica para nós de baixa prioridade.](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre o [Fluxo de trabalho e os recursos primários do serviço de lote](batch-service-workflow-features.md) como os pools, nós, trabalhos e tarefas.
-* Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
-* Comece a planejar a mudança das VMs de baixa prioridade para as VMs Spot. Se você usa VMs de baixa prioridade com pools de **configuração de Serviço de Nuvem**, planeje a mudança para pools de **configuração de Máquina Virtual**.
+- Saiba mais sobre o [Fluxo de trabalho e os recursos primários do serviço de lote](batch-service-workflow-features.md) como os pools, nós, trabalhos e tarefas.
+- Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
+- Comece a planejar a mudança das VMs de baixa prioridade para as VMs Spot. Se você usa VMs de baixa prioridade com pools de **configuração de Serviço de Nuvem**, planeje a mudança para pools de **configuração de Máquina Virtual**.

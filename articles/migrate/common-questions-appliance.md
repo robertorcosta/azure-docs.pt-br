@@ -3,12 +3,12 @@ title: FAQ do dispositivo de migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre o dispositivo migrações para Azure.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050668"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514536"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
 
@@ -21,7 +21,7 @@ Este artigo responde a perguntas comuns sobre o dispositivo migrações para Azu
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>O que é o dispositivo de migrações para Azure?
 
-O dispositivo de migrações para Azure é um dispositivo leve que a ferramenta migrações para Azure usa para descobrir e avaliar servidores locais. A ferramenta migrações para Azure: migração de servidor também usa o dispositivo para a migração sem agente de VMs VMware locais.
+O dispositivo de migrações para Azure é um dispositivo leve que a ferramenta migrações para Azure usa para descobrir e avaliar servidores físicos ou virtuais do local ou de qualquer nuvem. A ferramenta migrações para Azure: migração de servidor também usa o dispositivo para a migração sem agente de VMs VMware locais.
 
 Veja mais informações sobre o dispositivo migrações para Azure:
 
@@ -35,13 +35,14 @@ Veja mais informações sobre o dispositivo migrações para Azure:
 
 O dispositivo pode ser implantado da seguinte maneira:
 
-- Usando um modelo para VMs do VMware e VMs do Hyper-V (modelo OVA para VMware ou VHD para Hyper-V).
-- Se você não quiser usar um modelo ou estiver no Azure governamental, poderá implantar o dispositivo para VMware ou Hyper-V usando um script do PowerShell.
-- Para servidores físicos, você sempre implanta o dispositivo usando um script.
+- Usando um modelo para a descoberta de VMs VMware (. Arquivo OVA) e VMs do Hyper-V (. Arquivo VHD) para criar uma nova VM que hospeda o dispositivo.
+- Se você não quiser usar um modelo, poderá implantar o dispositivo em uma máquina física ou virtual existente para descoberta de VMs do VMware ou VMs do Hyper-V usando um script do instalador do PowerShell, disponível para download em um arquivo zip do Portal.
+- Para servidores físicos ou virtuais do local ou de qualquer nuvem, você sempre implanta o dispositivo usando um script em um servidor existente.
+- Para o Azure governamental, todos os três dispositivos só podem ser implantados usando o script do instalador do PowerShell.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Como o dispositivo se conecta ao Azure?
 
-O dispositivo pode se conectar pela Internet ou usando o Azure ExpressRoute.
+O dispositivo pode se conectar pela Internet ou usando o Azure ExpressRoute. Verifique se essas [URLs](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) estão na lista de permissões para que o dispositivo se conecte ao Azure.
 
 - Para usar o Azure ExpressRoute para migrar o tráfego de replicação do Azure, o emparelhamento da Microsoft ou um emparelhamento público existente é necessário (o emparelhamento público é preterido para novas criações de ER).
 - Não há suporte para replicação no Azure ExpressRoute com o emparelhamento privado (somente) habilitado.
@@ -66,6 +67,7 @@ Consulte os seguintes artigos para obter informações sobre os dados que o disp
 
 - **VM VMware**: [examine](migrate-appliance.md#collected-data---vmware) os dados coletados.
 - **VM do Hyper-V**: [examinar](migrate-appliance.md#collected-data---hyper-v) os dados coletados.
+- **Servidores físicos ou virtuais**:[examine](migrate-appliance.md#collected-data---physical) os dados coletados.
 
 ## <a name="how-is-data-stored"></a>Como os dados são armazenados?
 
@@ -107,8 +109,7 @@ Um projeto pode ter vários dispositivos anexados a ele. No entanto, um disposit
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>O dispositivo de migração/dispositivo de replicação do Azure pode se conectar ao mesmo vCenter?
 
-Sim. Você pode adicionar o dispositivo migrações para Azure (usado para avaliação e migração do VMware sem agente) e o dispositivo de replicação (usado para migração baseada em agente de VMs VMware) para o mesmo servidor vCenter.
-
+Sim. Você pode adicionar o dispositivo migrações para Azure (usado para avaliação e migração do VMware sem agente) e o dispositivo de replicação (usado para migração baseada em agente de VMs VMware) para o mesmo servidor vCenter. Mas certifique-se de que você não está configurando ambos os dispositivos na mesma VM e que não tem suporte no momento.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantas VMs ou servidores posso descobrir com um dispositivo?
 
@@ -124,7 +125,9 @@ No entanto, a exclusão do grupo de recursos também exclui outros dispositivos 
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>Posso usar o dispositivo com uma assinatura ou um projeto diferente?
 
-Depois de usar o dispositivo para iniciar a descoberta, você não pode reconfigurar o dispositivo para usar com uma assinatura do Azure diferente e não pode usá-lo em um projeto de migrações para Azure diferente. Você também não pode descobrir VMs em uma instância diferente do vCenter Server. Configure um novo dispositivo para essas tarefas.
+Para usar o dispositivo com uma assinatura ou um projeto diferente, você precisará reconfigurar o dispositivo existente executando o script do instalador do PowerShell para o cenário específico (VMware/Hyper-V/físico) no computador do dispositivo. O script limpará os componentes e as configurações do dispositivo existentes para implantar um novo dispositivo. Certifique-se de limpar o cache do navegador antes de começar a usar o Gerenciador de configuração do dispositivo implantado recentemente.
+
+Além disso, você não pode usar novamente uma chave de projeto de migrações do Azure existente em um dispositivo reconfigurado. Certifique-se de gerar uma nova chave a partir da assinatura/projeto desejado para concluir o registro do dispositivo.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Posso configurar o dispositivo em uma VM do Azure?
 

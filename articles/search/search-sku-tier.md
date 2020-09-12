@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922796"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661095"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -39,7 +39,7 @@ A maioria dos recursos está disponível em todas as camadas, incluindo recursos
 
 As camadas são diferenciadas por:
 
-+ Quantidade de índices e indexadores que você pode criar
++ Quantidade de índices e indexadores (limites máximos)
 + Tamanho e velocidade de partições (armazenamento físico)
 
 A camada selecionada determina a taxa faturável. A captura de tela a seguir de portal do Azure mostra as camadas disponíveis, menos preços (que você pode encontrar no portal e na [página de preços](https://azure.microsoft.com/pricing/details/search/). **Gratuita**, **básica**e **Standard** são as camadas mais comuns.

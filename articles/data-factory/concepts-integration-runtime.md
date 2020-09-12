@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407686"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485712"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory 
 
@@ -143,7 +143,7 @@ Se você optar por usar a resolução automática Azure IR na rede pública, que
   - Quando os dados são copiados para o Salesforce do qual a região não é detectável, a atividade de cópia é executada no IR no leste dos EUA.
 
   >[!TIP] 
-  >Se você tiver requisitos de conformidade de dados restritos e precisar garantir que os dados não saiam de uma determinada geografia, você pode criar explicitamente um IR do Azure em uma determinada região e apontar o Serviço Vinculado a esse IR usando a propriedade ConnectVia. Por exemplo, se você quiser copiar dados de Blob no Sul do Reino Unido para SQL DW no Sul do Reino Unido e quiser garantir que os dados não saiam do Reino Unido, crie um IR do Azure no Sul do Reino Unido e vincule os dois Serviços Vinculados a este IR.
+  >Se você tiver requisitos de conformidade de dados restritos e precisar garantir que os dados não saiam de uma determinada geografia, você pode criar explicitamente um IR do Azure em uma determinada região e apontar o Serviço Vinculado a esse IR usando a propriedade ConnectVia. Por exemplo, se você quiser copiar dados do blob em Sul do Reino Unido para o Azure Synapse Analytics no Sul do Reino Unido e desejar garantir que os dados não saiam do Reino Unido, crie um Azure IR no Sul do Reino Unido e vincule os dois serviços vinculados a esse IR.
 
 - Para pesquisa/GetMetadata/excluir execução de atividade (também conhecida como atividades de pipeline), expedição de atividade de transformação (também conhecida como atividades externas) e operações de criação (testar conexão, procurar lista de pastas e lista de tabelas, Visualizar dados), ADF usa o IR na região de data factory.
 
