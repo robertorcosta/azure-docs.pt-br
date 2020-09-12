@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782321"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300214"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -28,7 +28,7 @@ Você também pode usar o Translator em conjunto com o tradutor personalizado pa
 ## <a name="text-translation"></a>Tradução de texto
 A tradução de texto está disponível usando a operação de conversão de ou para qualquer um dos idiomas disponíveis no tradutor. A API também oferece detecção de idioma usando a operação de detecção, a transliteração usando a operação de transliteração e os dicionários bilíngües usando as operações de exemplos de dicionário e pesquisa de dicionário. Os idiomas disponíveis para cada uma dessas operações estão listados abaixo. 
 
-### <a name="translate"></a>Translate
+### <a name="translate"></a>Tradução
 
 O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto. 
 
@@ -155,6 +155,7 @@ O tradutor detecta os seguintes idiomas para tradução e transliteração.
 |Suaíli| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coreano |`ko`   |
+|Curdo (central)  |`ku-Arab`  |
 |Letão|   `lv`    |
 |Lituano|    `lt`    |
 |Malaio| `ms`        |
@@ -193,10 +194,10 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
-| Chinês (simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Latim `Latn` |
-| Chinês (simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
-| Chinês (tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
-| Chinês (tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Latim `Latn` |
+| Chinês (Simplificado) | `zh-Hans` | Chinês simplificado `Hans`| <--> | Chinês tradicional `Hant`|
+| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Latim `Latn` |
+| Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
 | Guzerate | `gu`  | Guzerate `Gujr` | <--> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
 | Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
@@ -283,10 +284,12 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 
 | Linguagem    | Código de idioma |
 |:----------- |:-------------:|
+|Africâner| `af`|
 | Árabe       | `ar`          |
 | Bangla      | `bn`          |
 | Bósnio (latim)      | `bs`          |
 | Búlgaro      | `bg`          |
+|Catalão|   `ca`    |
 | Chinês simplificado      | `zh-Hans`          |
 |Chinês (tradicional)|   `zh-Hant`   |
 | Croata      | `hr`          |
@@ -295,6 +298,8 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Holandês      | `nl`          |
 | Inglês    | `en`     |
 | Estoniano      | `et`          |
+|Fijiano|    `fj`    |
+|Filipino|  `fil`   |
 | Finlandês      | `fi`          |
 | Francês      | `fr`          |
 | Alemão      | `de`          |
@@ -308,12 +313,14 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Irlandês | `ga`  |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
+|canarim|`kn`|
 | Suaíli|    `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
 | Malgaxe| `mg`    |
 | Malaio|    `ms`        |
+|Maltês|   `mt`    |
 | Maori| `mi`  |
 | Marati| `mr`  |
 | Norueguês      | `nb`          |
@@ -329,7 +336,9 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Esloveno      | `sl`          |
 | Espanhol      | `es`          |
 | Sueco      | `sv`          |
+|Taitiano|  `ty`    |
 | Tailandês      | `th`          |
+|Tongan|    `to`    |
 | Turco      | `tr`          |
 | Ucraniano      | `uk`          |
 | Urdu| `ur`    |

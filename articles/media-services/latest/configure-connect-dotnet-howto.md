@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 90f5c55922a5fafb29a40faf9af719f77c74c6cf
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b9b72e8340722f8ddc97b3769ce22e607974a508
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265636"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297392"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectar-se à API dos serviços de mídia v3-.NET
 
@@ -33,7 +33,7 @@ Este artigo mostra como se conectar ao SDK do .NET dos serviços de mídia do Az
 - Instale uma ferramenta que você gostaria de usar para o desenvolvimento do .NET. As etapas neste artigo mostram como usar o [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Você pode usar Visual Studio Code, consulte [trabalhando com C#](https://code.visualstudio.com/docs/languages/csharp). Ou, você pode usar um editor de código diferente.
 
 > [!IMPORTANT]
-> Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
+> Examine [Convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="create-a-console-application"></a>Criar um aplicativo de console
 

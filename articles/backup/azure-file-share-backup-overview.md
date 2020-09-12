@@ -3,12 +3,12 @@ title: Sobre o backup do compartilhamento de arquivos do Azure
 description: Saiba como fazer backup de compartilhamentos de arquivos do Azure no cofre dos serviços de recuperação
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180007"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378076"
 ---
 # <a name="about-azure-file-share-backup"></a>Sobre o backup do compartilhamento de arquivos do Azure
 
@@ -52,9 +52,9 @@ O backup de compartilhamento de arquivos do Azure é uma solução de backup nat
 
 Há dois custos associados à solução de backup de compartilhamento de arquivos do Azure:
 
-1. **Custo de armazenamento de instantâneos**: os encargos de armazenamento incorridos para instantâneos são cobrados junto com o uso de arquivos do Azure de acordo com os detalhes de preços mencionados [aqui](https://azure.microsoft.com/pricing/details/storage/files/) 
+1. **Custo de armazenamento de instantâneos**: os encargos de armazenamento incorridos para instantâneos são cobrados junto com o uso de arquivos do Azure de acordo com os detalhes de preços mencionados [aqui](https://azure.microsoft.com/pricing/details/storage/files/)
 
-2. **Taxa de instância protegida** : a partir de 1º de setembro de 2020, os clientes serão cobrados por uma taxa de instância protegida de acordo com os detalhes de preços mencionados [aqui](https://azure.microsoft.com/en-in/pricing/details/backup/) . A taxa de instância protegida depende do tamanho total dos compartilhamentos de arquivos protegidos em uma conta de armazenamento.
+2. **Taxa de instância protegida**: a partir de 1º de setembro de 2020, os clientes serão cobrados por uma taxa de instância protegida de acordo com os detalhes de preços mencionados [aqui](https://azure.microsoft.com/pricing/details/backup/). A taxa de instância protegida depende do tamanho total dos compartilhamentos de arquivos protegidos em uma conta de armazenamento.
 
 Para obter estimativas detalhadas de backup de compartilhamentos de arquivos do Azure, você pode baixar o [avaliador de preço detalhado do backup do Azure](https://aka.ms/AzureBackupCostEstimates).  
 

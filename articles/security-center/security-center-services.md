@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: ebc921e319b5ac16cb39001b5ffba5de48727d84
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c4f3ccce03f91b0567980d55b59bfb15d6985bb7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181928"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299738"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -34,9 +34,9 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |[Análise comportamental de máquina virtual (e alertas de segurança)](threat-protection.md)|✔|✔|✔|Standard|
 |[Alertas de segurança de arquivo](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
 |[Alertas de segurança baseados em rede](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Acesso à VM Just-In-Time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidades nativas](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
-|[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Monitoramento de integridade do arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
@@ -58,9 +58,9 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |[Análise comportamental de máquina virtual (e alertas de segurança)](security-center-alerts-iaas.md)|✔</br>(em versões com suporte)|✔</br>(em versões com suporte)|✔|Standard|
 |[Alertas de segurança de arquivo](alerts-reference.md#alerts-windows)|-|-|-|Standard|
 |[Alertas de segurança baseados em rede](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Acesso à VM just-in-time](security-center-just-in-time.md)|✔|-|-|Standard|
+|[Acesso à VM Just-In-Time](security-center-just-in-time.md)|✔|-|-|Standard|
 |[Avaliação de vulnerabilidades nativas](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Standard|
-|[Monitoramento de integridade de arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
+|[Monitoramento de integridade do arquivo](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
 |[Controles de aplicativo adaptáveis](security-center-adaptive-application.md)|✔|-|✔|Standard|
 |[Mapa de rede](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|

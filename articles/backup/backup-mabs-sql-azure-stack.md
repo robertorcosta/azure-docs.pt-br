@@ -3,12 +3,12 @@ title: Fazer backup de cargas de trabalho do SQL Server no Azure Stack
 description: Neste artigo, saiba como configurar o servidor de Backup do Microsoft Azure (MABS) para proteger SQL Server bancos de dados no Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: e56b29f886224617a9ae13d58c8b3dd8dda0dcf8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 912e6f10b689217303786b20ec6315fca595a8c2
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017950"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376325"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Fazer backup do SQL Server no Azure Stack
 
@@ -54,29 +54,29 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Criar política de backup para proteger bancos de dados SQL Server no Azure
 
-1. Na interface de usuário do Servidor de Backup do Azure, clique no workspace **Proteção**.
+1. Na interface do usuário do Servidor de Backup do Azure, selecione o espaço de trabalho **proteção** .
 
-2. Na faixa de opções da ferramenta, clique em **Novo** para criar um novo grupo de proteção.
+2. Na faixa de opções da ferramenta, selecione **novo** para criar um novo grupo de proteção.
 
     ![Criar grupo de proteção](./media/backup-azure-backup-sql/protection-group.png)
 
-    O Servidor de Backup do Azure inicia o assistente de Grupo de proteção, que orienta você na criação de um **Grupo de proteção**. Clique em **Avançar**.
+    O Servidor de Backup do Azure inicia o assistente de Grupo de proteção, que orienta você na criação de um **Grupo de proteção**. Selecione **Avançar**.
 
 3. Na tela **Selecionar tipo de grupo de proteção**, selecione **Servidores**.
 
     ![Selecionar o tipo de Grupo de Proteção - ‘Servidores’](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. Na tela **Selecionar membros do grupo**, a lista de membros disponíveis exibe as várias fontes de dados. Clique **+** para expandir uma pasta e revelar as subpastas. Clique na caixa de seleção para selecionar um item.
+4. Na tela **Selecionar membros do grupo**, a lista de membros disponíveis exibe as várias fontes de dados. Selecione **+** para expandir uma pasta e revelar as subpastas. Marque a caixa de seleção para selecionar um item.
 
     ![Selecione o banco de dados SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
-    Todos os itens selecionados são exibidos na lista de membros Selecionados. Após selecionar os servidores ou bancos de dados que deseja proteger, clique em **Avançar**.
+    Todos os itens selecionados são exibidos na lista de membros Selecionados. Depois de selecionar os servidores ou bancos de dados que você deseja proteger, selecione **Avançar**.
 
 5. Na tela **Selecionar método de proteção de dados**, forneça um nome para o grupo de proteção e marque a caixa de seleção **Desejo proteção online**.
 
     ![Método de proteção de dados – disco de curto prazo e Azure Online](./media/backup-azure-backup-sql/pg-name.png)
 
-6. Na tela **Especificar objetivos de curto prazo**, inclua as entradas necessárias para criar pontos de backup no disco e clique em **Avançar**.
+6. Na tela **especificar objetivos de curto prazo** , inclua as entradas necessárias para criar pontos de backup no disco e selecione **Avançar**.
 
     No exemplo, o **Intervalo de retenção** é de **5 dias**, a **Frequência de sincronização** é de uma vez a cada **15 minutos**, que é a frequência de backup. **Backup Completo Expresso** é definido como **20h**.
 
@@ -87,9 +87,9 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
    >
    >
 
-7. Na tela **Examinar alocação de disco**, verifique o espaço geral de armazenamento disponível e o possível espaço em disco. Clique em **Avançar**.
+7. Na tela **Examinar alocação de disco**, verifique o espaço geral de armazenamento disponível e o possível espaço em disco. Selecione **Avançar**.
 
-8. Em **Escolher método de criação de réplica**, escolha como criar seu primeiro ponto de recuperação. É possível transferir o backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Se optar por esperar para transferir o primeiro backup, será possível especificar o tempo da transferência inicial. Clique em **Avançar**.
+8. Em **Escolher método de criação de réplica**, escolha como criar seu primeiro ponto de recuperação. É possível transferir o backup inicial manualmente (fora da rede) para evitar o congestionamento de largura de banda ou pela rede. Se optar por esperar para transferir o primeiro backup, será possível especificar o tempo da transferência inicial. Selecione **Avançar**.
 
     ![Método de replicação inicial](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -97,13 +97,13 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 
     Quando o backup inicial for concluído, os backups restantes serão backups incrementais na cópia de backup inicial. Os backups incrementais tendem a ser pequenos e são facilmente transferidos pela rede.
 
-9. Escolha quando deseja que a verificação de consistência seja executada e clique em **Avançar**.
+9. Escolha quando deseja que a verificação de consistência seja executada e selecione **Avançar**.
 
     ![Verificação de consistência](./media/backup-azure-backup-sql/pg-consistent.png)
 
     O Servidor de Backup do Azure realiza uma verificação de consistência sobre a integridade do ponto de backup. Servidor de Backup do Azure calcula a soma de verificação do arquivo de backup no servidor de produção (SQL Server computador neste cenário) e os dados de backup para esse arquivo. Se houver um conflito, supõe-se que o arquivo de backup em Servidor de Backup do Azure está corrompido. O Servidor de Backup do Azure corrige os dados do backup enviando os blocos correspondentes à incompatibilidade da soma de verificação. Como as verificações de consistência requerem desempenho intenso, é possível agendar a verificação de consistência ou executá-la automaticamente.
 
-10. Para especificar a proteção online das fontes de dados, selecione os bancos de dados a serem protegidos no Azure e clique em **Avançar**.
+10. Para especificar a proteção online das fontes de dados, selecione os bancos que serão protegidos no Azure e selecione **Avançar**.
 
     ![Selecionar fontes de dados](./media/backup-azure-backup-sql/pg-sqldatabases.png)
 
@@ -130,9 +130,9 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
     * O backup do sábado às 12h é retido por 104 semanas
     * O backup do último sábado às 12h é retido por 60 meses
     * O backup do último sábado de março às 12h é retido por 10 anos
-13. Clique em **Avançar** e selecione a opção apropriada para transferir a cópia do backup inicial para o Azure. Você pode escolher **automaticamente pela rede**
+13. Selecione **Avançar** e selecione a opção apropriada para transferir a cópia de backup inicial para o Azure. Você pode escolher **automaticamente pela rede**
 
-14. Depois de examinar os detalhes da política na tela **Resumo**, clique em **Criar grupo** para concluir o fluxo de trabalho. É possível clicar em **Fechar** e monitorar o andamento do trabalho no workspace Monitoramento.
+14. Depois de examinar os detalhes da política na tela **Resumo** , selecione **Criar grupo** para concluir o fluxo de trabalho. Você pode selecionar **fechar** e monitorar o andamento do trabalho no espaço de trabalho monitoramento.
 
     ![Criação de grupo de proteção em andamento](./media/backup-azure-backup-sql/pg-summary.png)
 
@@ -146,7 +146,7 @@ Embora as etapas anteriores tenham criado uma política de backup, um "ponto de 
 2. Clique com o botão direito do mouse no banco de dados e selecione **Criar Ponto de Recuperação**.
 
     ![Criar ponto de recuperação online](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. Escolha **Proteção online** no menu suspenso e clique em **OK** para iniciar a criação de um ponto de recuperação no Azure.
+3. Escolha **proteção online** no menu suspenso e selecione **OK** para iniciar a criação de um ponto de recuperação no Azure.
 
     ![Criar Ponto de Recuperação](./media/backup-azure-backup-sql/sqlbackup-azure.png)
 4. Exiba o andamento do trabalho no workspace **Monitoramento**.
@@ -160,20 +160,20 @@ As seguintes etapas são necessárias para recuperar uma entidade protegida (ban
 1. Abra o Console de gerenciamento do Servidor de Backup do Azure. Navegue até o workspace **Recuperação**, em que é possível ver os servidores protegidos. Procure o banco de dados necessário (nesse caso, ReportServer$MSDPM2012). Selecione uma **recuperação a partir da** hora especificada como um ponto **online** .
 
     ![Selecione um ponto de recuperação](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-2. Clique com o botão direito do mouse no nome do banco de dados e clique em **Recuperar**.
+2. Clique com o botão direito do mouse no nome do banco de dados e selecione **recuperar**.
 
     ![Recuperar do Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. O MABS mostra os detalhes do ponto de recuperação. Clique em **Avançar**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Clique em **Avançar**.
+3. O MABS mostra os detalhes do ponto de recuperação. Selecione **Avançar**. Para substituir o banco de dados, selecione o tipo de recuperação **Recuperar na instância original do SQL Server**. Selecione **Avançar**.
 
     ![Recuperar no local original](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     Neste exemplo, o MABS recupera o banco de dados para outra instância do SQL Server ou para uma pasta de rede autônoma.
 
-4. Na tela **Especificar opções de recuperação** , você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Clique em **Avançar**.
+4. Na tela **Especificar opções de recuperação** , você pode selecionar as opções de recuperação, como a limitação do uso da largura de banda de rede para restringir a largura de banda usada pela recuperação. Selecione **Avançar**.
 
-5. Na tela **Resumo** , você vê todas as configurações de recuperação fornecidas até agora. Clique em **Recuperar**.
+5. Na tela **Resumo** , você vê todas as configurações de recuperação fornecidas até agora. Selecione **recuperar**.
 
-    O status de Recuperação mostra que o banco de dados está sendo recuperado. Você pode clicar em **Fechar** para fechar o assistente e exibir o andamento no workspace **Monitoramento**.
+    O status de Recuperação mostra que o banco de dados está sendo recuperado. Você pode selecionar **fechar** para fechar o assistente e exibir o progresso no espaço de trabalho **monitoramento** .
 
     ![Iniciar o processo de recuperação](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 

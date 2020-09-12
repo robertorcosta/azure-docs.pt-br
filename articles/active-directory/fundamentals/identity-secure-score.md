@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523094"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320640"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>O que é a classificação de segurança de identidade no Azure Active Directory?
 
@@ -50,7 +50,7 @@ Ao seguir as ações de melhoria, você pode:
 
 A pontuação de segurança de identidade está disponível em todas as edições do Azure AD. As organizações podem acessar sua pontuação segura de identidade do **portal do Azure**  >  **Azure Active Directory**  >  **Security**  >  **Pontuação segura de identidade**de segurança.
 
-## <a name="how-does-it-work"></a>Como ele funciona?
+## <a name="how-does-it-work"></a>Como ela funciona?
 
 A cada 48 horas, o Azure analisa sua configuração de segurança e compara suas configurações com as práticas recomendadas. Com base no resultado dessa avaliação, uma nova pontuação é calculada para seu diretório. É possível que sua configuração de segurança não esteja totalmente alinhada com as diretrizes de práticas recomendadas e as ações de melhoria sejam atendidas apenas parcialmente. Nesses cenários, você receberá apenas uma parte da pontuação máxima disponível para o controle.
 
@@ -104,7 +104,7 @@ Para ver seu histórico de pontuação, acesse a [central de segurança do Micro
 
 ### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Como a classificação de segurança de identidade se relaciona à classificação de segurança do Office 365?
 
-A [Pontuação de segurança da Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contém cinco categorias de controle distinto e Pontuação:
+A [Pontuação de segurança da Microsoft](/office365/securitycompliance/microsoft-secure-score) contém cinco categorias de controle distinto e Pontuação:
 
 - Identidade
 - Dados
@@ -116,4 +116,4 @@ A pontuação de segurança de identidade representa a parte de identidade da Po
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre a pontuação de segurança da Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Saiba mais sobre a pontuação de segurança da Microsoft](/office365/securitycompliance/microsoft-secure-score)

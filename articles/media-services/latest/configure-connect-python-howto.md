@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 42fea1a4363684667ccb41f0406bb66ef00d5485
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 68620b644ef85f7b627b7b6380c16959b25299f0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265568"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297324"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Conectar-se à API dos serviços de mídia v3-Python
 
@@ -31,11 +31,11 @@ Este artigo mostra como se conectar ao SDK do Python do Azure Media Services V3 
 
 - Baixar o Python do [Python.org](https://www.python.org/downloads/)
 - Certifique-se de definir a `PATH` variável de ambiente
-- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
-- Siga as etapas no tópico [APIs de acesso](./access-api-howto.md) . Registre a ID da assinatura, a ID do aplicativo (ID do cliente), a chave de autenticação (segredo) e a ID do locatário que você precisa na etapa posterior.
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se do nome do grupo de recursos e da conta dos Serviços de Mídia.
+- Siga as etapas descritas no tópico [APIs de acesso](./access-api-howto.md). Registre a ID da assinatura, a ID do aplicativo (ID do cliente), a chave de autenticação (segredo) e a ID do locatário que você precisa na etapa posterior.
 
 > [!IMPORTANT]
-> Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
+> Examine [Convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="install-the-modules"></a>Instalar os módulos
 

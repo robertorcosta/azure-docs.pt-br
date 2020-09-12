@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223849"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300265"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
 O [Serviço de Aplicativo do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) oferece suporte a dois tipos de credenciais para a [implantação local do Git](deploy-local-git.md) e a [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são iguais às suas credenciais de assinatura do Azure.
@@ -73,6 +73,36 @@ Para definir e redefinir credenciais de aplicativo:
 2. Selecione **Credenciais de Aplicativo** e clique no link **Copiar** para copiar o nome de usuário ou senha.
 
 Para redefinir as credenciais de nível de aplicativo, selecione **Redefinir credenciais** na mesma caixa de diálogo.
+
+## <a name="disable-basic-authentication"></a>Desabilitar a autenticação básica
+
+Algumas organizações precisam atender aos requisitos de segurança e, em vez disso, desabilitar o acesso via FTP ou WebDeploy. Dessa forma, os membros da organização só podem acessar seus serviços de aplicativos por meio de APIs controladas pelo Azure Active Directory (AD do Azure).
+
+### <a name="ftp"></a>FTP
+
+Para desabilitar o acesso FTP ao site, execute o comando da CLI a seguir. Substitua os espaços reservados pelo seu grupo de recursos e nome do site. 
+
+```bash
+az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Para confirmar se o acesso ao FTP está bloqueado, você pode tentar autenticar usando um cliente FTP, como o FileZilla. Para recuperar as credenciais de publicação, vá para a folha visão geral do seu site e clique em baixar perfil de publicação. Use o nome de host, o nome de usuário e a senha do FTP do arquivo para autenticar e você receberá uma resposta de erro 401, indicando que você não está autorizado.
+
+### <a name="webdeploy-and-scm"></a>WebDeploy e SCM
+
+Para desabilitar o acesso básico de autenticação para a porta WebDeploy e o site SCM, execute o comando da CLI a seguir. Substitua os espaços reservados pelo seu grupo de recursos e nome do site. 
+
+```bash
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Para confirmar se as credenciais do perfil de publicação estão bloqueadas no WebDeploy, tente [publicar um aplicativo Web usando o Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+
+### <a name="disable-access-to-the-api"></a>Desabilitar o acesso à API
+
+A API na seção anterior é apoiada no controle de acesso baseado em função (RBAC) do Azure, o que significa que você pode [criar uma função personalizada](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) e atribuir usuários de priveldged inferior à função para que eles não possam habilitar a autenticação básica em nenhum site. Para configurar a função personalizada, [siga estas instruções](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+
+Você também pode usar [Azure monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) para auditar quaisquer solicitações de autenticação bem-sucedidas e usar [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) para impor essa configuração para todos os sites em sua assinatura.
 
 ## <a name="next-steps"></a>Próximas etapas
 

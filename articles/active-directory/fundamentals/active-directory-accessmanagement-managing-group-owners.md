@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e696ff576ffa8e788312344c4ebd103184173fa4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 30b547ecd4ff76e650d7be837fa5bce03046da50
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799575"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318583"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Adicionar ou remover proprietários do grupo no Azure Active Directory
 Os grupos do Active Directory do Azure (Azure AD) são de propriedade e gerenciados pelos proprietários do grupo. Os proprietários do grupo podem ser usuários ou entidades de serviço e podem gerenciar o grupo, incluindo a associação. Somente proprietários de grupo existentes ou administradores de gerenciamento de grupo podem atribuir proprietários de grupo. Os proprietários do grupo não precisam ser membros do grupo.
@@ -25,7 +25,7 @@ Os grupos do Active Directory do Azure (Azure AD) são de propriedade e gerencia
 Quando um grupo não tem proprietário, administradores de grupo de gerenciamento ainda podem gerenciar o grupo. É recomendável que cada grupo tenha pelo menos um proprietário. Depois que os proprietários são atribuídos a um grupo, o último proprietário do grupo não pode ser removido. Certifique-se de selecionar outro proprietário antes de remover o último proprietário do grupo.
 
 ## <a name="add-an-owner-to-a-group"></a>Adicionar um proprietário a um grupo
-Abaixo estão as instruções para adicionar um usuário como um proprietário a um grupo usando o portal do AD do Azure. Para adicionar uma entidade de serviço como um proprietário de um grupo, siga as instruções para fazer isso usando o [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
+Abaixo estão as instruções para adicionar um usuário como um proprietário a um grupo usando o portal do AD do Azure. Para adicionar uma entidade de serviço como um proprietário de um grupo, siga as instruções para fazer isso usando o [PowerShell](/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0).
 
 ### <a name="to-add-a-group-owner"></a>Para adicionar um proprietário do grupo
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de administrador Global para o diretório.

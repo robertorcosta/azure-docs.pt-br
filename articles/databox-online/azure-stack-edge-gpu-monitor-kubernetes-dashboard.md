@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180670"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297800"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Use o painel do kubernetes para monitorar seu Azure Stack dispositivo de GPU de borda
 
@@ -26,7 +26,6 @@ Neste artigo, você aprenderá como:
 > [!div class="checklist"]
 >
 > * Acessar o painel do kubernetes em seu dispositivo
-> * Baixar `aseuser` configuração
 > * Exibir módulos implantados em seu dispositivo
 > * Obter endereço IP para aplicativos implantados em seu dispositivo
 > * Exibir logs de contêiner para módulos implantados em seu dispositivo
@@ -42,26 +41,18 @@ No dispositivo Azure Stack Edge, você pode usar o painel do kubernetes no modo 
 
 O painel do kubernetes é *somente leitura* e é executado no nó mestre kubernetes na porta 31000. Siga estas etapas para acessar o painel: 
 
-1. Na interface do usuário local do seu dispositivo, vá para **dispositivo** e vá para **pontos de extremidade do dispositivo**. Selecione a URL do painel do kubernetes para abrir o painel em um navegador.
+1. Na interface do usuário local do seu dispositivo, vá para **dispositivo** e vá para **pontos de extremidade do dispositivo**. 
+1. Selecione **baixar configuração** para baixar um `kubeconfig` que permite que você acesse o painel. Salve o `config.json` arquivo no sistema local.
+1. Selecione a URL do painel do kubernetes para abrir o painel em um navegador.
 
     ![URL do painel do kubernetes na página do dispositivo na interface do usuário local](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-url-local-ui-1.png)
 
-1. Na página de **entrada do painel do kubernetes** , selecione **token**. 
-1. Forneça um token. 
-    1. Para obter o token, [Conecte-se por meio da interface do PowerShell do seu dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md).
-    1. Execute o comando:  `Get-HcsKubernetesDashboardToken`
+1. Na página de **entrada do painel do kubernetes** :
     
-    1. Copie a cadeia de caracteres do token apresentada a você no prompt. Aqui está uma amostra de saída:
-        
-        ```powershell
-        [10.100.10.10]: PS>Get-HcsKubernetesDashboardToken
-        eyJhbGciOiJSUzI1NiIsImtpZCI6IkpFTEtBYTMyZ0Ezb01OYTVFSnVaUV85OWtLdXNETTZQR0k0UlFybGdReFUifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZC10b2tlbi03czZ6ayIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjU3NzY3ZDAzLTJlYWUtNDlkMi1hNDEyLTNkOTU3MDFiMThiMyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDprdWJlcm5ldGVzLWRhc2hib2FyZCJ9.UgNrpVYVJBEaWxFlljuENUQQmzFXMYG2VsJUIYFdp2AO20zX0k5dRvwcCpeGlqSKb9MyYjG0c6RmT9uCOZk-vAwt7btszQLD7KPCwh_nn_NiIyO8ApgGRYZP8NuP8CBTX3tl_hpwfHtZ0ksbuKAduIL-0uPF0rG5wgLk9cTEw6fKSc2UZW6bIzhNSp_uSiP6MexOS6OftF9JFZejkIGd33dSp-k-tgFlm2Zy96sdFJC0q-XsH7jygiVnfxA9XMs5wqW26LkCh0rfO2WI3C1XFK-4TpufRZLJHo5WPlu-Tnsxa8xmtk2jQ3us-sXcBRrvhPNPrNKkbqc9hbjmWfGD0Q
-        [10.100.10.10]: PS>
-        ```
-        
-1. Escolha **Entrar**.
-
-    ![Entrar no painel do kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png)
+    1. Selecione **kubeconfig**. 
+        ![Selecione a opção kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
+    1. Selecione as reticências **...**. Procure e aponte para o `kubeconfig` que você baixou anteriormente no sistema local. Escolha **Entrar**.
+        ![Navegue até o arquivo kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
 6. Agora você pode exibir o painel do kubernetes para seu dispositivo de borda Azure Stack no modo somente leitura.
 
@@ -110,6 +101,21 @@ Para exibir os logs de contêiner, siga estas etapas no painel:
 
     ![Exibir logs de contêiner 2](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-container-logs-1.png)
     
+
+## <a name="view-cpu-memory-usage"></a>Exibir CPU, uso de memória
+
+O painel do kubernetes para o dispositivo Azure Stack Edge também tem um [complemento do servidor de métricas](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) que agrega o uso de CPU e de memória entre os recursos do kubernetes.
+ 
+Por exemplo, você pode exibir a CPU e a memória consumidas entre implantações em todos os namespaces. 
+
+![Exibir o uso de CPU e memória em todas as implantações](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-all-1.png)
+
+Você também pode filtrar por um namespace específico. No exemplo a seguir, você pode exibir o consumo de CPU e memória somente para implantações de arco do Azure.  
+
+![Exibir o uso de memória e CPU para implantações do Azure Arc](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
+
+O servidor de métricas do kubernetes fornece pipelines de dimensionamento automático semelhantes aos do [dimensionador automático do pod horizontal](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

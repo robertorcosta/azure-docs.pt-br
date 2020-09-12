@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 960e480bc3271a24f1fa898e1af6c55bcaaada7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f004be0afc6c73fdabe57e568cd57b51e9abcc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037552"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299675"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>CI/CD do Azure Spring Cloud com ações do GitHub
 
@@ -164,7 +164,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Implantar com o plug-in Maven
-Outra opção é usar o [plug-in do Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) para implantar o JAR e atualizar as configurações do aplicativo. O comando `mvn azure-spring-cloud:deploy` é idempotente e criará aplicativos automaticamente, se necessário. Você não precisa criar aplicativos correspondentes com antecedência.
+Outra opção é usar o [plug-in do Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) para implantar o JAR e atualizar as configurações do aplicativo. O comando `mvn azure-spring-cloud:deploy` é idempotente e criará aplicativos automaticamente, se necessário. Você não precisa criar aplicativos correspondentes com antecedência.
 
 ```
 name: AzureSpringCloud

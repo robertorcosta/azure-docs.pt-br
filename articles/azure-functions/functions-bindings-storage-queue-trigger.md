@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 515e23fa318e8e77024dadefe9a13e795999f820
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761688"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376631"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de filas do Azure para Azure Functions
 
@@ -299,7 +299,7 @@ public class QueueTriggerDemo {
 }
 ```
 
-| Propriedade    | DESCRIÇÃO |
+| Propriedade    | Descrição |
 |-------------|-----------------------------|
 |`name`       | Declara o nome do parâmetro na assinatura da função. Quando a função é disparada, o valor desse parâmetro tem o conteúdo da mensagem da fila. |
 |`queueName`  | Declara o nome da fila na conta de armazenamento. |
@@ -363,7 +363,7 @@ A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.q
 
 O gatilho de fila fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. As propriedades são membros da classe [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Propriedade|Type|DESCRIÇÃO|
+|Propriedade|Type|Descrição|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila for uma cadeia de caracteres, `QueueTrigger` o terá o mesmo valor que a variável nomeada pela `name` propriedade em *function.js*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|
@@ -388,7 +388,7 @@ O algoritmo usa a seguinte lógica:
 - Quando uma mensagem é encontrada, o tempo de execução aguarda dois segundos e, em seguida, verifica se há outra mensagem
 - Quando nenhuma mensagem é encontrada, ela aguarda cerca de quatro segundos antes de tentar novamente.
 - Após subsequentes tentativas falhas para obter uma mensagem da fila, o tempo de espera continua a aumentar até atingir o tempo de espera máximo, cujo padrão é um minuto.
-- O tempo de espera máximo é configurável por meio da propriedade `maxPollingInterval` no [arquivo host.json](functions-host-json.md#queues).
+- O tempo de espera máximo é configurável por meio da propriedade `maxPollingInterval` no [arquivo host.json](functions-host-json-v1.md#queues).
 
 Para o desenvolvimento local, o intervalo máximo de sondagem tem como padrão dois segundos.
 

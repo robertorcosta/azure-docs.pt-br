@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 53bd7a404e4635833b03507e8b5ae93ae40b1c61
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268016"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318974"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Gerenciamento de carga de trabalho kubernetes em seu dispositivo Azure Stack Edge
 
@@ -47,7 +47,7 @@ Há três maneiras principais de implantar suas cargas de trabalho. Cada uma des
 
 ![Implantação de carga de trabalho kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Implantação local**: essa é por meio da ferramenta de acesso de linha de comando, como a `kubectl` que permite implantar kubernetes `yamls` . Você se conecta ao cluster kubernetes em seu Azure Stack Edge que você cria usando o `kubeconfig` arquivo. Para obter mais informações, acesse [acessar um cluster kubernetes por meio de kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Implantação local**: essa implantação é por meio da ferramenta de acesso de linha de comando, como a `kubectl` que permite implantar kubernetes `yamls` . Você acessa o cluster kubernetes em seu Azure Stack Edge por meio de um `kubeconfig` arquivo. Para obter mais informações, acesse [acessar um cluster kubernetes por meio de kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - **Implantação de IOT Edge**: isso ocorre por meio de IOT Edge, que se conecta ao Hub IOT do Azure. Você se conecta ao cluster kubernetes em seu dispositivo Azure Stack Edge por meio do `iotedge` namespace. Os agentes de IoT Edge implantados nesse namespace são responsáveis pela conectividade com o Azure. Você aplica a `IoT Edge deployment.json` configuração usando o CI/CD do DevOps do Azure. O namespace e o gerenciamento de IoT Edge são feitos por meio do operador de nuvem.
 
@@ -59,9 +59,9 @@ Ao implantar aplicativos, considere as seguintes informações:
 
 - **Tipos únicos ou múltiplos**: você pode escolher uma única opção de implantação ou uma combinação de opções de implantação diferentes.
 - **Nuvem versus local**: dependendo de seus aplicativos, você pode escolher a implantação local via kubectl ou implantação de nuvem por meio do IOT Edge e do Arc do Azure. 
-    - A implantação local é mais adequada para cenários de desenvolvimento. Ao escolher uma implantação local, você é restrito à rede na qual o dispositivo do Azure Stack Edge é implantado.
+    - Ao escolher uma implantação local, você é restrito à rede na qual o dispositivo do Azure Stack Edge é implantado.
     - Se você tiver um agente de nuvem que possa implantar, você deve implantar seu operador de nuvem e usar o gerenciamento de nuvem.
-- **IOT vs. arc do Azure**: a escolha da implantação também depende da intenção do seu cenário de produto. Se você estiver implantando aplicativos ou contêineres com integração mais profunda com o ecossistema IoT ou IoT, deverá escolher a maneira IoT Edge de implantar aplicativos. Se você tiver implantações kubernetes existentes, o arco do Azure será a escolha preferida.
+- **IOT vs. arc do Azure**: a escolha da implantação também depende da intenção do seu cenário de produto. Se você estiver implantando aplicativos ou contêineres com integração mais profunda com o ecossistema IoT ou IoT, selecione IoT Edge para implantar seus aplicativos. Se você tiver implantações kubernetes existentes, o arco do Azure será a escolha preferida.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -76,4 +76,4 @@ Para implantar um aplicativo por meio do IoT Edge, consulte:
 
 Para implantar um aplicativo por meio do Azure Arc, consulte:
 
-- [Implantar um aplicativo usando o arco do Azure](azure-stack-edge-gpu-deploy-sample-module.md).
+- [Implantar um aplicativo usando o arco do Azure](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).

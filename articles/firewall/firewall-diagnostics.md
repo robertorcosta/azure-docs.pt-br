@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/02/2020
 ms.author: victorh
-ms.openlocfilehash: 82202705c5dbd4539eec4775d0844a749fd405f9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536996"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376937"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar os logs e as métricas do Firewall do Azure
 
 Você pode monitorar o Firewall do Azure usando os logs de firewall. Você também pode usar os logs de atividades para auditar operações nos recursos do Firewall do Azure. Usando as métricas, você pode exibir contadores de desempenho no portal.
 
-Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para os [logs do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), o Armazenamento e os Hubs de Eventos e analisados nos logs do Azure Monitor ou por ferramentas diferentes, como Excel e Power BI.
+Você pode acessar alguns desses logs por meio do portal. Os logs podem ser enviados para [Azure monitor logs](../azure-monitor/insights/azure-networking-analytics.md), armazenamento e hubs de eventos e analisados em logs de Azure monitor ou ferramentas diferentes, como Excel e Power bi.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -45,7 +45,7 @@ Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois d
 6. Em **log**, selecione **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule** para coletar logs de regras de aplicativo e de rede.
 7. Selecione **Enviar para log Analytics** para configurar seu espaço de trabalho.
 8. Selecione sua assinatura.
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
 
@@ -78,6 +78,7 @@ Você pode exibir e analisar os dados do log de atividades usando um dos seguint
 
 * **Ferramentas do Azure**: recupere informações do log de atividades por meio do Azure PowerShell, da CLI do Azure, da API REST do Azure ou do portal do Azure. As instruções passo a passo para cada método são detalhadas no artigo [Activity operations with Resource Manager](../azure-resource-manager/management/view-activity-logs.md) (Operações de atividade com o Resource Manager).
 * **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), experimente uma gratuitamente. Com o [pacote de conteúdo dos Logs de Atividades do Azure para Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), você pode analisar seus dados com painéis pré-configurados que podem ser usados no estado em que se encontram ou ser personalizados.
+* **Azure Sentinel**: você pode conectar os logs de firewall do Azure ao Azure Sentinel, permitindo que você exiba dados de log em pastas de trabalho, use-os para criar alertas personalizados e incorporá-los para melhorar sua investigação. O conector de dados do firewall do Azure no Azure Sentinel está atualmente em visualização pública. Para obter mais informações, consulte [conectar dados do firewall do Azure](../sentinel/connect-azure-firewall.md).
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Exibir e analisar os logs de regra de aplicativo e de rede
 
@@ -90,7 +91,7 @@ Você também pode se conectar à sua conta de armazenamento e recuperar as entr
 > [!TIP]
 > Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C#, você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
 
-## <a name="view-metrics"></a>Métricas de exibição
+## <a name="view-metrics"></a>Exibir métricas
 Navegue até um firewall do Azure, em **monitoramento** selecione **métricas**. Para exibir os valores disponíveis, selecione a lista suspensa **MÉTRICA**.
 
 ## <a name="next-steps"></a>Próximas etapas

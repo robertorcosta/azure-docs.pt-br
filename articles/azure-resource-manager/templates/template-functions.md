@@ -2,13 +2,13 @@
 title: Funções de modelo
 description: Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: d237f5c42c1d1eaab7b2236b15a3122bcb55865b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/01/2020
+ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84331399"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378399"
 ---
 # <a name="arm-template-functions"></a>Funções de modelo ARM
 
@@ -167,6 +167,7 @@ O Gerenciador de Recursos fornece as seguintes funções para obter valores de r
 * [listKeys](template-functions-resource.md#listkeys)
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
+* [pickZones](template-functions-resource.md#pickzones)
 * [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
 * [resourcegroup](template-functions-resource.md#resourcegroup) -só pode ser usado em implantações em um grupo de recursos.

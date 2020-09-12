@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925627"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300095"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar acesso a dados de log e workspaces no Azure Monitor
 
-Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics. Um espaço de trabalho é um contêiner que inclui informações de dados e de configuração. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas ao seu espaço de trabalho.
+Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics. Um workspace é um contêiner que inclui dados e informações de configuração. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas ao seu espaço de trabalho.
 
 Este artigo explica como gerenciar o acesso aos logs e administrar os espaços de trabalho que os contêm, incluindo como conceder acesso a: 
 
@@ -228,14 +228,14 @@ Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo s
 
     * Conceda aos usuários as seguintes permissões no espaço de trabalho: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`– necessário para que o usuário possa enumerar o espaço de trabalho e abrir a folha do espaço de trabalho no portal do Azure
-        * `Microsoft.OperationalInsights/workspaces/query/read`– necessário para cada usuário que pode executar consultas
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`– para poder ler os logs de entrada do Azure AD
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`– para poder ler Gerenciamento de Atualizações logs da solução
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`– para poder ler Gerenciamento de Atualizações logs da solução
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`– para poder ler os logs de gerenciamento de atualizações
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`– necessário para poder usar a solução Gerenciamento de Atualizações
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`– necessário para poder usar a solução Gerenciamento de Atualizações
+        * `Microsoft.OperationalInsights/workspaces/read` – necessário para que o usuário possa enumerar o espaço de trabalho e abrir a folha do espaço de trabalho no portal do Azure
+        * `Microsoft.OperationalInsights/workspaces/query/read` – necessário para cada usuário que pode executar consultas
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – para poder ler os logs de entrada do Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` – para poder ler Gerenciamento de Atualizações logs da solução
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` – para poder ler Gerenciamento de Atualizações logs da solução
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` – para poder ler os logs de gerenciamento de atualizações
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – necessário para poder usar a solução Gerenciamento de Atualizações
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – necessário para poder usar a solução Gerenciamento de Atualizações
 
     * Conceda aos usuários as seguintes permissões para seus recursos: `*/read` , atribuído à função leitor ou `Microsoft.Insights/logs/*/read` . 
 
@@ -270,7 +270,7 @@ Para criar uma função com acesso apenas à tabela _SecurityBaseline_ , crie um
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-Os exemplos acima definem uma lista de permissões de tabelas que são permitidas. Este exemplo mostra a definição de lista negra quando um usuário pode acessar todas as tabelas, exceto a tabela _SecurityAlert_ :
+Os exemplos acima definem uma lista de tabelas que são permitidas. Este exemplo mostra a definição da lista bloqueada quando um usuário pode acessar todas as tabelas, exceto a tabela _SecurityAlert_ :
 
 ```
 "Actions":  [

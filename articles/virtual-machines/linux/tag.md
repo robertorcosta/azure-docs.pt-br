@@ -1,25 +1,20 @@
 ---
-title: Como marcar uma máquina virtual Linux do Azure
-description: Saiba como marcar uma máquina virtual Linux do Azure criada no Azure usando o modelo de implantação do Resource Manager.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mmccrory
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
-ms.service: virtual-machines-linux
+title: Como marcar uma máquina virtual do Azure usando a CLI
+description: Saiba mais sobre como marcar uma máquina virtual usando o CLI do Azure.
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
-ms.author: memccror
+ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a830f6eb604bb1173a7a552ad5f81c936f02d5fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1a417e7cff4c7afb601861ddfe09eec171f0cf15
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500514"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320606"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Como marcar uma máquina virtual do Linux no Azure
 Este artigo descreve as diferentes maneiras de marcar uma máquina virtual do Linux no Azure por meio do modelo de implantação do Resource Manager. As marcas são pares de chave/valor definidos pelo usuário que podem ser colocados diretamente em um recurso ou grupo de recursos. Atualmente, o Azure dá suporte a até 50 marcas por recurso e grupo de recursos. As marcas podem ser colocadas em um recurso no momento da criação ou adicionadas a um recurso existente. Observe que as marcas tem suporte apenas para recursos criados por meio do modelo de implantação do Resource Manager.
@@ -62,5 +57,5 @@ Agora que aplicamos marcas aos nossos recursos por meio do CLI do Azure e do Por
 [Azure CLI environment]: ../../azure-resource-manager/management/manage-resources-cli.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/management/tag-resources.md
-[Understanding your Azure Bill]:../../cost-management-billing/understand/review-individual-bill.md
-[Gain insights into your Microsoft Azure resource consumption]:../../cost-management-billing/manage/usage-rate-card-overview.md
+[Understanding your Azure Bill]: ../../cost-management-billing/understand/review-individual-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../../cost-management-billing/manage/usage-rate-card-overview.md

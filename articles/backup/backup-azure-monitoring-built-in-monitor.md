@@ -4,12 +4,12 @@ description: Neste artigo, saiba mais sobre os recursos de monitoramento e notif
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 0e1e50f27c6d0563ab51a74bbfa22d2a7f54ecd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000729"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377396"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
@@ -63,7 +63,7 @@ Para soluções de backup de carga de trabalho do Azure, como SQL e SAP HANA, ba
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é gerado
 
-Há algumas exceções quando um alerta não é gerado em uma falha. Eles são:
+Há algumas exceções quando um alerta não é gerado em uma falha. Elas são:
 
 - O usuário cancelou explicitamente o trabalho em execução
 - O trabalho falha porque outro trabalho de backup está em andamento (nada para agir aqui, pois acabamos de aguardar a conclusão do trabalho anterior)
@@ -100,7 +100,7 @@ Se a frequência tiver sido definida como um resumo por hora e um alerta tiver s
 
 ## <a name="inactivating-alerts"></a>Inativando alertas
 
-Para desativar/resolver um alerta ativo, você pode selecionar o item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão de **inativação** na parte superior. Clicar nesse botão irá alterar o status do alerta para **inativo**. Você também pode desativar um alerta clicando com o botão direito do mouse no item de lista correspondente ao alerta e selecionando **inativo**.
+Para desativar/resolver um alerta ativo, você pode selecionar o item de lista correspondente ao alerta que deseja desativar. Isso abre uma tela que exibe informações detalhadas sobre o alerta, com um botão de **inativação** na parte superior. A seleção desse botão irá alterar o status do alerta para **inativo**. Você também pode desativar um alerta clicando com o botão direito do mouse no item de lista correspondente ao alerta e selecionando **inativo**.
 
 ![Inativação de alerta do cofre RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

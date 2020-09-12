@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre fazer backup de Arquivos do Azure
 description: Neste artigo, descubra respostas para perguntas comuns sobre como proteger seus compartilhamentos de arquivo do Azure com o serviço de Backup do Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: c62f8376b220911edd26edbe18955d0103440b81
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824722"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377413"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre como fazer backup de Arquivos do Azure
 
@@ -30,7 +30,7 @@ Verifique se o compartilhamento de arquivos do Azure já está protegido no mesm
 
 Sim. A proteção dos Compartilhamentos de Arquivo do Azure conectados a Grupos de Sincronização está habilitada.
 
-### <a name="when-trying-to-back-up-file-shares-i-clicked-on-a-storage-account-for-discovering-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ao tentar fazer backup de compartilhamentos de arquivos, cliquei em uma Conta de Armazenamento para ver os compartilhamentos de arquivos que estão nela. No entanto, eu não os protegi. Como fazer para proteger esses compartilhamentos de arquivo com outro cofre?
+### <a name="when-trying-to-back-up-file-shares-i-selected-a-storage-account-to-discover-the-file-shares-in-it-however-i-didnt-protect-them-how-do-i-protect-these-file-shares-with-any-other-vault"></a>Ao tentar fazer backup de compartilhamentos de arquivos, selecionei uma conta de armazenamento para descobrir os compartilhamentos de arquivos nele. No entanto, eu não os protegi. Como fazer para proteger esses compartilhamentos de arquivo com outro cofre?
 
 Ao tentar fazer backup, a seleção de uma Conta de Armazenamento para ver os compartilhamentos de arquivo dentro dela gera o registro da Conta de Armazenamento no cofre em que isso foi feito. Se você optar por proteger os compartilhamentos de arquivos com um cofre diferente, [cancele o registro](manage-afs-backup.md#unregister-a-storage-account) da Conta de Armazenamento escolhida no cofre.
 

@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ec79fc7c09f2bc1aeb2c07016365e831932fa1ff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018103"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377311"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -197,6 +197,6 @@ Sim, há um limite de 100 VMs que podem ser associadas à mesma política de bac
 
 No momento, você pode exibir as configurações de retenção em um nível de item de backup (VM) com base na política de backup atribuída à VM.
 
-Uma maneira de exibir as configurações de retenção para seus backups é navegar até o [painel](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) do item de backup para sua VM, na portal do Azure. Clicar no link para sua política de backup ajuda a exibir a duração da retenção de todos os pontos de retenção diários, semanais, mensais e anuais associados à VM.
+Uma maneira de exibir as configurações de retenção para seus backups é navegar até o [painel](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) do item de backup para sua VM, na portal do Azure. Selecionar o link para sua política de backup ajuda a exibir a duração da retenção de todos os pontos de retenção diários, semanais, mensais e anuais associados à VM.
 
 Você também pode usar o [Gerenciador de backup](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) para exibir as configurações de retenção de todas as suas VMs em um único painel de vidro. Navegue até o Gerenciador de backup em qualquer cofre dos serviços de recuperação, vá para a guia **itens de backup** e selecione o modo de exibição avançado para ver informações detalhadas de retenção para cada VM.

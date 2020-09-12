@@ -3,12 +3,12 @@ title: Solucionar erros de backup de bancos de dados SAP HANA
 description: Descreve como solucionar erros comuns que podem ocorrer ao usar o Backup do Microsoft Azure nos bancos de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004163"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377677"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Solucionar problemas de backup dos bancos de dados SAP HANA no Azure
 
@@ -97,7 +97,7 @@ Observe os seguintes pontos:
 
 - Por padrão, o nome do banco de dados restaurado será preenchido com o nome do item de backup. Neste caso, h21(sdc).
 - Selecionar o destino como H11 não alterará automaticamente o nome do banco de BD restaurado. **Ele deve ser editado para h11(sdc)** . Para SDC, o nome do banco de dados restaurado será a ID da instância de destino com letras minúsculas e 'sdc' entre parênteses.
-- Como o SDC só pode ter banco de dados individual, você também precisa clicar na caixa de seleção para permitir a substituição dos dados do banco de dados existentes pelos dados do ponto de recuperação.
+- Como o SDC pode ter apenas um único banco de dados, você também precisa marcar a caixa de seleção para permitir a substituição dos existentes com os dados de ponto de recuperação.
 - O Linux diferencia maiúsculas de minúsculas. Portanto, tenha cuidado para manter as maiúsculas e minúsculas.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Restauração do banco de dados de contêiner múltiplo (SDC)
@@ -165,7 +165,7 @@ As atualizações de SDC para MDC que não mudam o SID podem ser tratadas da seg
 - Realize a atualização. Após a conclusão, o sistema HANA agora é MDC com um banco de dados do sistema e os bancos de banco de locatário
 - Execute novamente o [script de pré-registro](https://aka.ms/scriptforpermsonhana)
 - Registre a extensão novamente para o mesmo computador no portal do Azure (**Backup** -> **Exibir detalhes** -> Selecione a VM do Azure correspondente -> Registrar novamente)
-- Clique em **Redescobrir bancos de dados** para a mesma VM. Essa ação deve mostrar os novos bancos de bancos na etapa 3 como SYSTEMDB e o banco de dados de locatário, não o SDC
+- Selecione **redescobrir bancos** de todos para a mesma VM. Essa ação deve mostrar os novos bancos de bancos na etapa 3 como SYSTEMDB e o banco de dados de locatário, não o SDC
 - O banco de dados SDC mais antigo continua existindo no vault e os dados de backup antigos são retidos de acordo com a política
 - Configure o backup para esses bancos de dados
 
@@ -178,7 +178,7 @@ As atualizações de SDC para MDC que mudam o SID podem ser tratadas da seguinte
 - Realize a atualização. Após a conclusão, o sistema HANA agora é MDC com um banco de dados do sistema e os bancos de banco de locatário
 - Execute novamente o [script de pré-registro](https://aka.ms/scriptforpermsonhana) com os detalhes corretos (novo SID e MDC). Devido a uma alteração no SID, você pode ter problemas ao executar o script com sucesso. Entre em contato com o suporte de Backup do Azure, se você tiver problemas.
 - Registre a extensão novamente para o mesmo computador no portal do Azure (**Backup** -> **Exibir detalhes** -> Selecione a VM do Azure correspondente -> Registrar novamente)
-- Clique em **Redescobrir bancos de dados** para a mesma VM. Essa ação deve mostrar os novos bancos de bancos na etapa 3 como SYSTEMDB e o banco de dados de locatário, não o SDC
+- Selecione **redescobrir bancos** de todos para a mesma VM. Essa ação deve mostrar os novos bancos de bancos na etapa 3 como SYSTEMDB e o banco de dados de locatário, não o SDC
 - O banco de dados SDC mais antigo continua existindo no vault e os dados de backup antigos são retidos de acordo com a política
 - Configure o backup para esses bancos de dados
 

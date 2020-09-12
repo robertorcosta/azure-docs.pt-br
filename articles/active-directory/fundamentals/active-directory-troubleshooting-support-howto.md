@@ -15,12 +15,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4d1490c4900c957a7dce7e632415823723f81b
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797280"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322527"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontrar ajuda e abrir um tíquete de suporte para o Azure Active Directory
 A Microsoft fornece suporte técnico global, de pré-vendas, cobrança e assinatura para o Azure AD (Azure Active Directory). O suporte está disponível online e por telefone para versões de avaliação e assinaturas pagas do Microsoft Azure. O suporte telefônico e o suporte de cobrança online estão disponíveis em outros idiomas. 
@@ -29,7 +29,7 @@ A Microsoft fornece suporte técnico global, de pré-vendas, cobrança e assinat
 
 Antes de criar um tíquete de suporte, confira os seguintes recursos para obter informações e respostas. 
 
-* Para obter conteúdo, como instruções ou exemplos de código para desenvolvedores e profissionais de TI, consulte a [documentação técnica em docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/).
+* Para obter conteúdo, como instruções ou exemplos de código para desenvolvedores e profissionais de TI, consulte a [documentação técnica em docs.microsoft.com](../index.yml).
 
 * A [comunidade técnica da Microsoft](https://techcommunity.microsoft.com/) é o lugar para que nossos clientes e parceiros de profissionais de ti colaborem, compartilhem e aprendam. O [centro de informações da comunidade técnica da Microsoft](https://techcommunity.microsoft.com/t5/Community-Info-Center/ct-p/Community-Info-Center) é usado para anúncios, Postagens de blog, interações de ama (pergunte-me-qualquer coisa) com especialistas e muito mais. Você também pode [participar da comunidade para enviar suas ideias](https://techcommunity.microsoft.com/t5/Communities/ct-p/communities).
 
@@ -100,4 +100,4 @@ Consulte a página [Contate a Microsoft para obter suporte](https://portal.offic
 
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 
-* [Documentação técnica em docs.microsoft.com](https://docs.microsoft.com/azure/active-directory/)
+* [Documentação técnica em docs.microsoft.com](../index.yml)

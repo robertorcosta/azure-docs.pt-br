@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions
-ms.openlocfilehash: 8748e4f78582ab133d7e527daba1c126dcb7e7e2
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 0fe8c4753cef9fa829a2cb696e164dbdf5f2b8f2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543700"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297562"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar nós virtuais no portal do Azure
 
@@ -62,7 +62,7 @@ As seguintes regiões têm suporte para implantações de nó virtual:
 A funcionalidade de Nós Virtuais é altamente dependente do conjunto de recursos de ACI. Além das [cotas e dos limites das instâncias de contêiner do Azure](../container-instances/container-instances-quotas.md), os seguintes cenários ainda não têm suporte com nós virtuais:
 
 * Usando a entidade de serviço para efetuar pull de imagens do ACR. A [solução alternativa](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) é usar [segredos do Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitações de Rede Virtual](../container-instances/container-instances-vnet.md) incluindo o emparelhamento de redes virtuais, políticas de rede do Kubernetes e o tráfego de saída para a Internet com grupos de segurança de rede.
+* [Limitações de Rede Virtual](../container-instances/container-instances-virtual-network-concepts.md) incluindo o emparelhamento de redes virtuais, políticas de rede do Kubernetes e o tráfego de saída para a Internet com grupos de segurança de rede.
 * Contêineres de inicialização
 * [Alias de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argumentos](../container-instances/container-instances-exec.md#restrictions) para exec em ACI

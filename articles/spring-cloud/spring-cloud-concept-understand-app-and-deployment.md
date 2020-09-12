@@ -7,25 +7,27 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 81e1925810f374da6f02bf6c3a013b00b5bb9a2c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: a1f6d318c123b5907a8c434bb097fb86a351f5d1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263877"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297528"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Entender o aplicativo e a implantação no Azure Spring Cloud
 
-O **aplicativo** e a **implantação** são os dois conceitos principais do modelo de recurso do Azure Spring Cloud. No Azure Spring Cloud, um *aplicativo* é uma abstração de um aplicativo de negócios ou de um microserviço.  Uma versão do código ou binário implantado como o *aplicativo* é executado em uma *implantação*.
+O **aplicativo** e a **implantação** são os dois conceitos principais do modelo de recurso do Azure Spring Cloud. No Azure Spring Cloud, um *aplicativo* é uma abstração de um aplicativo de negócios ou de um microserviço.  Uma versão do código ou binário implantado como o *aplicativo* é executado em uma *implantação*.  Os aplicativos são executados em uma *instância de serviço de nuvem do Azure Spring*ou simplesmente *instância de serviço*, conforme mostrado a seguir.
 
  ![Aplicativos e implantações](./media/spring-cloud-app-and-deployment/app-deployment-rev.png)
+
+Você pode ter várias instâncias de serviço em uma única assinatura do Azure, mas o serviço de nuvem do Azure Spring é mais fácil de usar quando todos os aplicativos que compõem um aplicativo de negócios ou um microserviço residem em uma única instância de serviço.
 
 A camada padrão do Azure Spring Cloud permite que um aplicativo tenha uma implantação de produção e uma implantação de preparo, para que você possa fazer uma implantação azul/verde com facilidade.
 
 ## <a name="app"></a>Aplicativo
 Os seguintes recursos/propriedades são definidos no nível do aplicativo.
 
-| Enum | Definição |
+| Enumeração | Definição |
 |:--|:----------------|
 | Público</br>Ponto de extremidade | A URL para acessar o aplicativo |
 | Personalizado</br>Domínio | Registro CNAME que protege o domínio personalizado |
@@ -37,7 +39,7 @@ Os seguintes recursos/propriedades são definidos no nível do aplicativo.
 
 Os seguintes recursos/propriedades são definidos no nível de implantação e serão trocados ao trocar a implantação de produção/preparo.
 
-| Enum | Definição |
+| Enumeração | Definição |
 |:--|:----------------|
 | CPU | Número de vcores por instância de aplicativo |
 | Memória | Configuração que aloca memória para escalar verticalmente ou escalar horizontalmente as implantações |
@@ -53,5 +55,5 @@ Os seguintes recursos/propriedades são definidos no nível de implantação e s
 * **Um aplicativo pode ter no máximo duas implantações**: a criação de mais de duas implantações é bloqueada pela API. Implante seu novo binário para a implantação existente ou para preparo de produção.
 * O **Gerenciamento de implantação não está disponível na camada básica**: Use a camada Standard para o recurso de implantação azul-verde.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 * [Configurar um ambiente de preparo no Azure Spring Cloud](spring-cloud-howto-staging-environment.md)

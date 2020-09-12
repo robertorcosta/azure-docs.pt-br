@@ -3,12 +3,12 @@ title: Configurar um laboratório de Ethical Hacking com o Azure Lab Services | 
 description: Saiba como configurar um laboratório usando Azure Lab Services para ensinar ao Ethical Hacking.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5134a7db824bad69f42a4051319479f712051446
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443988"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297579"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurar um laboratório para ensinar a classe de Ethical Hacking 
 Este artigo mostra como configurar uma classe que se concentra no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de hacking ético, ocorre quando alguém tenta obter acesso ao sistema ou rede para demonstrar vulnerabilidades que um invasor mal-intencionado pode explorar. 
@@ -22,9 +22,9 @@ Para configurar este laboratório, você precisa de uma assinatura do Azure para
 
 Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laboratório e, em seguida, aplicar as seguintes configurações:
 
-| Tamanho da máquina virtual | Image |
+| Tamanho da máquina virtual | Imagem |
 | -------------------- | ----- | 
-| Médio (virtualização aninhada) | Windows Server 2019 Datacenter |
+| Médio (virtualização aninhada) | Windows Server 2019 Datacenter |
 
 ## <a name="template-machine"></a>Computador de modelo 
 
@@ -74,7 +74,7 @@ A imagem Rapid7 Metasploitable é uma imagem configurada propositadamente com vu
 1. Selecione o botão **baixar agora** .
 1. Quando o arquivo zip for baixado, extraia o arquivo zip e lembre-se do local.
 1. Converta o arquivo VMDK extraído em um arquivo vhdx para que você possa usar o com o Hyper-V. Para fazer isso, abra o PowerShell com privilégios administrativos e navegue até a pasta onde o arquivo VMDK reside e siga estas instruções:
-    1. Baixe o [conversor de máquina virtual da Microsoft](https://www.microsoft.com/download/details.aspx?id=42497)e execute mvmc_setup.msi arquivo quando solicitado.
+    1. Baixe o [conversor de máquina virtual da Microsoft](https://download.microsoft.com/download/9/1/E/91E9F42C-3F1F-4AD9-92B7-8DD65DA3B0C2/mvmc_setup.msi)e execute mvmc_setup.msi arquivo quando solicitado.
     1. Importe o módulo do PowerShell.  O local padrão no qual o módulo está instalado é C:\Arquivos de Programas\microsoft Virtual Machine converter \
 
         ```powershell

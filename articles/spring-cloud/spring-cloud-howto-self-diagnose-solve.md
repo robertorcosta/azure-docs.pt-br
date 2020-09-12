@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1f48cd185f2aa25954627a9ff26f3e59b8e76e7a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d8f3b4d57f00ef33bbf566c36babafd83be9a5df
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037304"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299619"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Como diagnosticar e solucionar problemas automaticamente no Azure Spring Cloud
 O Azure Spring Cloud Diagnostics é uma experiência interativa para ajudá-lo a solucionar problemas de seu aplicativo. Nenhuma configuração é necessária. Quando você encontrar problemas, o Azure Spring Cloud Diagnostics indica o que está errado e o orienta a informações que ajudam a solucionar o problema.
@@ -21,11 +21,11 @@ O Azure Spring Cloud Diagnostics é uma experiência interativa para ajudá-lo a
 Para concluir este tutorial, você precisará:
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* Uma instância de serviço do Azure Spring Cloud implantada. Siga nosso [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](spring-cloud-quickstart-launch-app-cli.md) para obter uma introdução.
+* Uma instância de serviço do Azure Spring Cloud implantada. Siga nosso [início rápido sobre como implantar um aplicativo por meio da CLI do Azure](spring-cloud-quickstart.md) para obter uma introdução.
 * Pelo menos um aplicativo já criado na instância de serviço.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Navegue até a página de diagnóstico
-1. Entre no portal do Azure.
+1. Entre no Portal do Azure.
 2. Vá até a página **Visão geral** do Azure Spring Cloud.
 3. Abra **diagnosticar e solucionar problemas** no menu no lado esquerdo da página.
 

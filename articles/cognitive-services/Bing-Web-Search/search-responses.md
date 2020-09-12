@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202244"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297783"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta da API do Bing Web Search e tipos de resposta  
 
@@ -445,7 +445,7 @@ As respostas da API de Pesquisa na Web do Bing podem conter os seguintes cabeça
 
 No entanto, quando você chama a API de Pesquisa na Web do Bing a partir do JavaScript, os recursos de segurança incorporados do navegador (CORS) podem impedi-lo de acessar os valores desses cabeçalhos.
 
-Para obter acesso aos cabeçalhos, é possível fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
+Para obter acesso aos cabeçalhos, é possível fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta de tal proxy tem um `Access-Control-Expose-Headers` cabeçalho que filtra os cabeçalhos de resposta e os torna disponíveis para o JavaScript.
 
 É fácil instalar um proxy CORS para permitir que nosso [aplicativo de tutorial](tutorial-bing-web-search-single-page-app.md) acesse os cabeçalhos opcionais do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, insira o comando a seguir em um prompt de comando.
 
@@ -480,6 +480,6 @@ O exemplo a seguir mostra como o Bing usa a sugestão de ortografia.
 
 * Leia a documentação de [Limitação da solicitação](throttling-requests.md).  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Confira também  
 
 * [Referência da API de Pesquisa na Web do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826813"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319790"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de versão do Azure HDInsight
 
@@ -49,7 +49,7 @@ A partir de 1º de julho de 2020, os clientes não poderão criar clusters Kafka
 
 ## <a name="behavior-changes"></a>Alterações de comportamento
 ### <a name="ambari-stack-version-change"></a>Alteração da versão do Ambari Stack
-A partir desta versão, a versão do Ambari é alterada de 2. x. x para 4,1. Você pode obter a versão Ambari da interface do usuário do Ambari > sobre o.
+Nesta versão, a versão Ambari muda de 2. x. x para 4,1. Você pode verificar a versão da pilha (HDInsight 4,1) em Ambari: Ambari > > versões do usuário.
 
 ## <a name="upcoming-changes"></a>Alterações futuras
 Não há alterações futuras que você precise prestar atenção.
@@ -75,4 +75,4 @@ Nenhuma alteração de versão de componente para esta versão. Você pode encon
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
-Um problema foi corrigido no portal do Azure, onde os usuários estavam tendo um erro ao criar um cluster do Azure HDInsight usando um tipo de autenticação SSH de chave pública. Quando os usuários clicarem em **revisar + criar**, eles receberão o erro "não deve conter três caracteres consecutivos do nome de usuário SSH". Esse problema foi corrigido, mas pode ser necessário atualizar o cache do navegador pressionando CTRL + F5 para carregar a exibição corrigida. A solução alternativa para esse problema era criar um cluster com um modelo ARM. 
+Um problema foi corrigido no portal do Azure. Os usuários recebiam um erro ao criar um cluster do Azure HDInsight usando um tipo de autenticação SSH de chave pública. Quando os usuários clicavam em **Examinar + Criar**, recebiam o erro "Não pode conter três caracteres consecutivos do nome de usuário do SSH". Esse problema foi corrigido, mas pode ser necessário atualizar o cache do navegador pressionando CTRL + F5 para carregar a exibição corrigida. A solução alternativa para esse problema era criar um cluster com um modelo do Resource Manager. 

@@ -3,12 +3,12 @@ title: Restaurar bancos de dados SQL Server em uma VM do Azure
 description: Este artigo descreve como restaurar SQL Server bancos de dados que estão em execução em uma VM do Azure e cujo backup é feito com o backup do Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826549"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377974"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bancos de dados do SQL Server em VMs do Azure
 
@@ -98,7 +98,7 @@ Restaure da seguinte maneira:
 
         ![Inserir caminhos de destino](./media/backup-azure-sql-database/target-paths.png)
 
-1. Clique em **OK** para disparar a restauração. Acompanhe o progresso da restauração na área **notificações** ou acompanhe-a na exibição **trabalhos de backup** no cofre.
+1. Selecione **OK** para disparar a restauração. Acompanhe o progresso da restauração na área **notificações** ou acompanhe-a na exibição **trabalhos de backup** no cofre.
 
     > [!NOTE]
     > A restauração pontual está disponível apenas para backups de log de bancos de dados que estão no modo de recuperação completa e bulk-logged.
@@ -161,7 +161,7 @@ Se você tiver selecionado **Completo e Diferencial** como o tipo de restauraç�
     ![Escolha um ponto de recuperação completo](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > Por padrão, os pontos de recuperação dos últimos 30 dias são exibidos. Você pode exibir pontos de recuperação com mais de 30 dias clicando em **Filtrar** e selecionando um intervalo personalizado.
+    > Por padrão, os pontos de recuperação dos últimos 30 dias são exibidos. Você pode exibir pontos de recuperação com mais de 30 dias selecionando **Filtrar** e selecionando um intervalo personalizado.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restaurar bancos de dados com um grande número de arquivos
 

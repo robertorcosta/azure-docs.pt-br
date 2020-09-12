@@ -3,12 +3,12 @@ title: Restaurar o estado do sistema para um Windows Server
 description: Explicação passo a passo para restaurar o estado do sistema do Windows Server de um backup no Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178579"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377430"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -56,7 +56,7 @@ As etapas a seguir explicam como reverter a configuração do Windows Server par
 
 8. Verifique os detalhes da recuperação no painel de **confirmação** e selecione **recuperar**.
 
-   ![Clique em Recuperar para confirmar a ação de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Selecione recuperar para confirmar a ação de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copie o diretório *WindowsImageBackup* no destino de recuperação para um volume não crítico do servidor. Geralmente, o volume do sistema operacional Windows é o volume crítico.
 
@@ -104,7 +104,7 @@ A terminologia usada nessas etapas inclui:
 
 11. Verifique os detalhes da recuperação no painel de confirmação e selecione **recuperar**.
 
-    ![Clique no botão Recuperar para confirmar o processo de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Selecione o botão recuperar para confirmar o processo de recuperação](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copie o diretório *WindowsImageBackup* para um volume não crítico do servidor (por exemplo D:\). Geralmente, o volume do sistema operacional Windows é o volume crítico.
 

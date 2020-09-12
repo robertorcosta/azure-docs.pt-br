@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181367"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298259"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -58,6 +58,13 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
     * Para o registro do aplicativo: uma *URL de resposta do aplicativo do Azure ad* para o aplicativo do Azure AD. Use `http://localhost`. O script irá configurar um URI de *cliente público/nativo (mobile & Desktop)* para ele.
 
 O script criará uma instância de gêmeos digital do Azure, atribuirá ao usuário do Azure a função de *proprietário do gêmeos digital do Azure (versão prévia)* na instância e configurará um registro de aplicativo do Azure ad para o aplicativo cliente usar.
+
+>[!NOTE]
+>Atualmente, há um **problema conhecido** com a instalação com script, em que alguns usuários (especialmente usuários nas [contas pessoais da Microsoft (MSAS)](https://account.microsoft.com/account)) podem achar que a **atribuição de função ao _proprietário do gêmeos digital do Azure (versão prévia)_ não foi criada**.
+>
+>Você pode verificar a atribuição de função com a seção [*verificar atribuição de função de usuário*](#verify-user-role-assignment) posteriormente neste artigo e, se necessário, configurar a atribuição de função manualmente usando o [portal do Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou a [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>
+>Para obter mais detalhes sobre esse problema, consulte solução de problemas [*: problemas conhecidos no Azure digital gêmeos*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 Aqui está um trecho do log de saída do script:
 
@@ -127,5 +134,9 @@ Primeiro, verifique se as configurações de permissões do gêmeos digital do A
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:
+Teste as chamadas de API REST individuais em sua instância usando os comandos da CLI do Azure digital gêmeos: 
+* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
+
+Ou então, consulte Como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:
 * [*Como: escrever código de autenticação do aplicativo*](how-to-authenticate-client.md)

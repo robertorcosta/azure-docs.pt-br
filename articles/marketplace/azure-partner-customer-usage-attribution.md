@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 04/14/2020
+ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031278"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320963"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro do Marketplace comercial e atribuição de uso do cliente
 
@@ -97,9 +97,9 @@ Para adicionar um identificador global exclusivo (GUID), você faz uma única mo
 
 1. Abra o modelo do Resource Manager.
 
-1. Adicione um novo recurso no arquivo de modelo principal. O recurso precisa estar no arquivo **mainTemplate.json** ou **azuredeploy.json**, e não em nenhum modelo aninhado ou vinculado.
+1. Adicione um novo recurso do tipo [Microsoft. Resources/Implantations](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) no arquivo de modelo principal. O recurso precisa estar no arquivo **mainTemplate.json** ou **azuredeploy.json**, e não em nenhum modelo aninhado ou vinculado.
 
-1. Insira o valor de GUID após o `pid-` prefixo (por exemplo, PID-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Insira o valor de GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome do recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Verifique o modelo para todos os erros.
 
@@ -112,11 +112,11 @@ Para adicionar um identificador global exclusivo (GUID), você faz uma única mo
 Para habilitar recursos de acompanhamento para o modelo, você precisará adicionar o recurso adicional a seguir na seção de recursos. Não se esqueça de modificar o exemplo código abaixo com suas próprias entradas ao adicioná-lo ao arquivo de modelo principal.
 O recurso precisa ser adicionado ao arquivo **mainTemplate.json** ou **azuredeploy.json**, e não em nenhum modelo aninhado ou vinculado.
 
-```
+```json
 // Make sure to modify this sample code with your own inputs where applicable
 
 { // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
-    "apiVersion": "2018-02-01",
+    "apiVersion": "2020-06-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
@@ -153,6 +153,20 @@ Para o Python, use o **config** atributo. Você só pode adicionar o atributo a 
 
 > [!NOTE]
 > Adicione o atributo para cada cliente. Não há nenhuma configuração estática global. Você pode marcar uma fábrica de clientes para ter certeza de que todos os clientes estão rastreando. Para obter mais informações, consulte este [exemplo de fábrica do cliente no GitHub](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
+
+#### <a name="example-the-net-sdk"></a>Exemplo: o SDK do .NET
+
+Para o .NET, certifique-se de definir o agente do usuário. A biblioteca [Microsoft. Azure. Management. Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) pode ser usada para definir o agente do usuário com o seguinte código (exemplo em C#):
+
+```csharp
+
+var azure = Microsoft.Azure.Management.Fluent.Azure
+    .Configure()
+    // Add your pid in the user agent header
+    .WithUserAgent("pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", String.Empty) 
+    .Authenticate(/* Credentials created via Microsoft.Azure.Management.ResourceManager.Fluent.SdkContext.AzureCredentialsFactory */)
+    .WithSubscription("<subscription ID>");
+```
 
 #### <a name="tag-a-deployment-by-using-the-azure-powershell"></a>Marca uma implantação usando o Azure PowerShell
 
@@ -339,7 +353,7 @@ Não é possível. A imagem da máquina virtual deve vir do Azure Marketplace, c
 
 **Falha ao atualizar a propriedade *contentVersion* para o modelo principal?**
 
-Provavelmente um bug em alguns casos, quando o modelo está sendo implantado usando um TemplateLink de outro modelo que espera contentVersion mais antigo por algum motivo. A solução alternativa é usar a propriedade de metadados:
+Esse é provavelmente um bug, em casos em que o modelo está sendo implantado usando um TemplateLink de outro modelo que espera um contentVersion mais antigo por algum motivo. A solução alternativa é usar a propriedade de metadados:
 
 ```
 "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

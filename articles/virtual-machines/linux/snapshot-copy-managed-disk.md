@@ -1,5 +1,5 @@
 ---
-title: Criar um instantâneo de um VHD no Azure
+title: Criar um instantâneo de um VHD usando o CLI do Azure
 description: Saiba como criar uma cópia de um VHD no Azure como um backup ou para solução de problemas.
 author: roygara
 manager: twooley
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659959"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89317988"
 ---
-# <a name="create-a-snapshot"></a>Criar um instantâneo 
+# <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Criar um instantâneo usando o portal ou CLI do Azure
 
 Capture um instantâneo de um SO ou disco de dados para backup ou para solucionar problemas de VM. Um instantâneo é uma cópia completa somente leitura de um VHD. 
 

@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974880"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299246"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
 
@@ -51,7 +51,7 @@ Quando um dispositivo for inicialmente provisionado por meio do provisionamento 
 
 Depois que um novo certificado de folha for revertido para o dispositivo, ele pode não mais se conectar ao Hub IoT porque ele está usando um novo certificado para se conectar. O Hub IoT só reconhece o dispositivo com o certificado antigo. O resultado da tentativa de conexão do dispositivo será um erro de conexão "não autorizado". Para resolver esse erro, você deve atualizar a entrada de registro do dispositivo para a conta para o novo certificado de folha do dispositivo. Em seguida, o serviço de provisionamento pode atualizar as informações de registro de dispositivo Hub IoT conforme necessário, quando o dispositivo for provisionado novamente. 
 
-Uma possível exceção para essa falha de conexão seria um cenário que você criou um [Grupo de Registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver implatando a raiz ou os certificados intermediários na cadeia de certificados do dispositivo de confiança, em seguida, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se este cenário surgir como reação a uma violação de segurança, você deve pelo menos colocar na lista de bloqueios dos certificados de dispositivo específico no grupo que são considerados para serem violados. Para obter mais informações, consulte [Dispositivos específicos de lista de bloqueios em um grupo de certificado](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Uma possível exceção para essa falha de conexão seria um cenário que você criou um [Grupo de Registro](concepts-service.md#enrollment-group) para seu dispositivo no serviço de provisionamento. Nesse caso, se você não estiver implatando a raiz ou os certificados intermediários na cadeia de certificados do dispositivo de confiança, em seguida, o dispositivo será reconhecido se o novo certificado fizer parte da cadeia de confiança definida no grupo de registro. Se esse cenário surgir como uma reação a uma violação de segurança, você deve, pelo menos, impedir que os certificados de dispositivo específicos no grupo sejam considerados violados. Para obter mais informações, consulte não [Permitir dispositivos específicos em um grupo de registro](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#disallow-specific-devices-in-an-enrollment-group).
 
 Atualização das entradas de registro para certificados implantados é realizada na página **Gerenciar Registros**. Para acessar essa página, siga essas etapas:
 
@@ -94,7 +94,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Clique em **Registros Individuais**e clique na entrada da ID de registro na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
 
     ![Gerenciar registros individuais usando o certificado secundário](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
@@ -177,7 +177,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Clique em **Grupos de Registro**e, em seguida, clique no nome de grupo na lista. 
 
-2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Save** (Salvar).
+2. Clique em **Certificado Secundário** e, em seguida, clique no ícone de pasta para selecionar o novo certificado a ser carregado para a entrada de registro. Clique em **Salvar**.
 
     Esse novo certificado intermediário deve ser assinado por um certificado de autoridade de certificação de raiz verificado que já foi adicionado ao serviço de provisionamento. Para saber mais, confira [Certificados X.509](concepts-security.md#x509-certificates).
 
@@ -197,9 +197,9 @@ Outra maneira são os antigos e os novos certificados para que seja válido a um
 Depois que o reprovisionamento for concluído, os dispositivos poderão se conectar ao Hub IoT usando os novos certificados.
 
 
-## <a name="blacklist-certificates"></a>Certificados de lista de bloqueios
+## <a name="disallow-certificates"></a>Não permitir certificados
 
-Em resposta a uma violação de segurança, talvez seja necessário um certificado de dispositivo. Para um certificado de dispositivo de lista de bloqueios, desabilite a entrada de registro para o dispositivo/certificado de destino. Para obter mais informações, consulte dispositivos na lista de bloqueios no artigo [Gerenciar o Cancelamento do Registro](how-to-revoke-device-access-portal.md).
+Em resposta a uma violação de segurança, talvez seja necessário proibir um certificado de dispositivo. Para não permitir um certificado de dispositivo, desabilite a entrada de registro para o dispositivo/certificado de destino. Para obter mais informações, consulte desautorizando dispositivos no artigo [gerenciar cancelamento de registro](how-to-revoke-device-access-portal.md) .
 
 Depois que um certificado é incluído como parte de uma entrada de registro desabilitado, qualquer tentativa de registrar com um hub IoT usando esses certificados falhará mesmo se ela estiver habilitada como parte de outra entrada de registro.
  
@@ -211,13 +211,3 @@ Depois que um certificado é incluído como parte de uma entrada de registro des
 - Para saber mais sobre os certificados x. 509 no serviço de provisionamento de dispositivos, consulte [Segurança](concepts-security.md) 
 - Para saber como fazer uma prova de posse para certificados de autoridade de certificação X.509 com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure, consulte [Como verificar os certificados](how-to-verify-certificates.md)
 - Para saber mais sobre como usar o portal para criar um grupo de registro, consulte [Gerenciando registros de dispositivos com o portal do Azure](how-to-manage-enrollments.md).
-
-
-
-
-
-
-
-
-
-

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e28da81400a97216836cfd9eccf0d4859ce0762f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228215"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321235"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Atribuir funções de administrador e não administrador aos usuários com Azure Active Directory
 
@@ -28,7 +28,7 @@ Para obter mais informações sobre as funções disponíveis do Azure AD, consu
 
 ## <a name="assign-roles"></a>Atribuir funções
 
-Uma maneira comum de atribuir funções do Azure AD a um usuário está na página **funções atribuídas** para um usuário. Você também pode configurar a elegibilidade do usuário para que ele seja elevado just-in-time em uma função usando Privileged Identity Management (PIM). Para obter mais informações sobre como usar o PIM, consulte [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
+Uma maneira comum de atribuir funções do Azure AD a um usuário está na página **funções atribuídas** para um usuário. Você também pode configurar a elegibilidade do usuário para que ele seja elevado just-in-time em uma função usando Privileged Identity Management (PIM). Para obter mais informações sobre como usar o PIM, consulte [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 > [!Note]
 > Se você tiver um plano de licença Azure AD Premium P2 e já usar o PIM, todas as tarefas de gerenciamento de função serão executadas na [experiência de Privileged Identity Management](../users-groups-roles/directory-manage-roles-portal.md). No momento, esse recurso está limitado à atribuição de apenas uma função por vez. No momento, não é possível selecionar várias funções e atribuí-las a um usuário de uma só vez.
@@ -79,6 +79,6 @@ Se você precisar remover a atribuição de função de um usuário, também pod
 
 - [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
 
-- [Adicionar usuários convidados de outro diretório](../b2b/what-is-b2b.md)
+- [Adicionar usuários convidados de outro diretório](../external-identities/what-is-b2b.md)
 
 Outras tarefas de gerenciamento de usuário que você pode fazer check-out estão disponíveis em [Azure Active Directory documentação de gerenciamento de usuário](../users-groups-roles/index.yml).

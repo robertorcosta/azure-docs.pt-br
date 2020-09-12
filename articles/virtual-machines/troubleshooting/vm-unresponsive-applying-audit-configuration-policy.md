@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: e55fa377f28572901202b4d722bea70786edae22
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942045"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299517"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>A máquina virtual não está respondendo ao aplicar a política de configuração de política de auditoria
 
@@ -27,7 +27,7 @@ Este artigo fornece etapas para resolver problemas em que a VM (máquina virtual
 
 ## <a name="symptom"></a>Sintoma
 
-Quando você usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, verá que a captura de tela exibe que o sistema operacional (SO) foi suspenso durante uma inicialização com a mensagem **aplicando a política de configuração de política de auditoria**.
+Ao usar o [diagnóstico de inicialização](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para exibir a captura de tela da VM, você verá que a captura de tela exibe que o sistema operacional (SO) não estava respondendo durante uma inicialização com a mensagem **aplicando a política de configuração de política de auditoria**.
 
   ![O sistema operacional Inicializando com a mensagem: "aplicando a política de configuração de política de auditoria"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 

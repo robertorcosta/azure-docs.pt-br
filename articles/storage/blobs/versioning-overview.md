@@ -10,12 +10,12 @@ ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 72597d445be41ede47d043d11653df139bc52d0d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 2e3cfd27d36558587ca35cc1c573999a48092b0d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226255"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297652"
 ---
 # <a name="blob-versioning"></a>Controle de versão de BLOB
 
@@ -66,7 +66,7 @@ Para simplificar, os diagramas mostrados neste artigo exibem a ID da versão com
 
 O diagrama a seguir mostra como as operações de gravação afetam as versões de BLOB. Quando um blob é criado, esse blob é a versão atual. Quando o mesmo blob é modificado, uma nova versão é criada para salvar o estado anterior do blob e o blob atualizado se torna a versão atual.
 
-:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão":::
+:::image type="content" source="media/versioning-overview/write-operations-blob-versions.png" alt-text="Diagrama mostrando como as operações de gravação afetam os BLOBs com versão.":::
 
 > [!NOTE]
 > Um blob que foi criado antes do controle de versão habilitado para a conta de armazenamento não tem uma ID de versão. Quando esse blob é modificado, o blob modificado torna-se a versão atual e uma versão é criada para salvar o estado do blob antes da atualização. A versão recebe uma ID de versão que é sua hora de criação.
@@ -79,11 +79,11 @@ Chamar a operação [excluir blob](/rest/api/storageservices/delete-blob) sem um
 
 O diagrama a seguir mostra o efeito de uma operação de exclusão em um blob com versão:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama mostrando a exclusão de blob com versão":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama mostrando a exclusão de blob com versão.":::
 
 Gravar novos dados no blob cria uma nova versão do blob. As versões existentes não são afetadas, conforme mostrado no diagrama a seguir.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando a recriação de blob com versão após a exclusão":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando a recriação de blob com versão após a exclusão.":::
 
 ### <a name="blob-types"></a>Tipos de blobs
 
@@ -122,7 +122,7 @@ Você pode ler ou excluir versões usando a ID de versão após a desabilitaçã
 
 O diagrama a seguir mostra como a modificação de um blob após o controle de versão é desabilitada cria um blob sem controle de versão. Todas as versões existentes associadas ao blob persistem.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagrama mostrando o blob de base modificado após a desabilitação do controle de versão":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagrama mostrando o blob de base modificado após a desabilitação do controle de versão.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Controle de versão e exclusão reversível do blob
 
@@ -138,7 +138,7 @@ Para remover uma versão anterior de um blob, exclua-o explicitamente especifica
 
 O diagrama a seguir mostra o que acontece quando você exclui um BLOB ou uma versão de BLOB.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama mostrando a exclusão de uma versão com exclusão reversível habilitada":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama mostrando a exclusão de uma versão com exclusão reversível habilitada.":::
 
 Se o controle de versão e a exclusão reversível estiverem habilitados em uma conta de armazenamento, nenhum instantâneo excluído por software será criado quando uma versão BLOB ou blob for modificada ou excluída.
 
@@ -150,7 +150,7 @@ A restauração de versões com exclusão reversível com a operação **restaur
 
 O diagrama a seguir mostra como restaurar versões de blob com exclusão reversível com a operação **restaurar blob** e como restaurar a versão atual do blob com a operação **copiar blob** .
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagrama mostrando como restaurar versões com exclusão reversível":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagrama mostrando como restaurar versões com exclusão reversível.":::
 
 Depois que o período de retenção de exclusão reversível tiver decorrido, todas as versões de blob excluídas por software serão excluídas permanentemente.
 
@@ -169,7 +169,7 @@ Quando você tira um instantâneo de um blob com versão, uma nova versão é cr
 
 O diagrama a seguir mostra o que acontece quando você tira um instantâneo de um blob com versão. No diagrama, as versões de BLOB e os instantâneos com a ID de versão 2 e 3 contêm dados idênticos.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando instantâneos de um blob com versão ":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama que mostra instantâneos de um blob com versão.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autorizar operações em versões de BLOB
 
@@ -231,25 +231,25 @@ Os cenários a seguir demonstram como as cobranças se acumulam para um blob de 
 
 No cenário 1, o blob tem uma versão anterior. O BLOB não foi atualizado desde que a versão foi criada, portanto, os encargos são incorridos apenas para os blocos exclusivos 1, 2 e 3.
 
-![Diagrama 1 mostrando a cobrança de blocos exclusivos no blob de base e na versão anterior](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagrama 1 mostrando a cobrança de blocos exclusivos no blob de base e na versão anterior.](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Cenário 2
 
 No cenário 2, um bloco (bloco 3 no diagrama) no blob foi atualizado. Embora o bloco atualizado contenha os mesmos dados e a mesma ID, ele não é o mesmo que o bloco 3 na versão anterior. Como resultado, a conta é cobrada por quatro blocos.
 
-![Diagrama 2 mostrando a cobrança para blocos exclusivos no blob de base e na versão anterior](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagrama 2 mostrando a cobrança para blocos exclusivos no blob de base e na versão anterior.](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Cenário 3
 
 No cenário 3, o blob foi atualizado, mas a versão não. O bloco 3 foi substituído pelo bloco 4 no blob de base, mas a versão anterior ainda reflete o bloco 3. Como resultado, a conta é cobrada por quatro blocos.
 
-![Diagrama 3 mostrando a cobrança de blocos exclusivos no blob de base e na versão anterior](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagrama 3 mostrando a cobrança de blocos exclusivos no blob de base e na versão anterior.](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Cenário 4
 
 No cenário 4, o blob de base foi totalmente atualizado e não contém nenhum dos seus blocos originais. Como resultado, a conta é cobrada por todos os oito blocos exclusivos &mdash; quatro no blob de base e quatro na versão anterior. Esse cenário pode ocorrer se você estiver gravando em um blob com a operação [Put Blob](/rest/api/storageservices/put-blob) , pois ele substitui todo o conteúdo do blob de base.
 
-![Diagrama 4 mostrando a cobrança para blocos exclusivos no blob de base e na versão anterior](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagrama 4 mostrando a cobrança de blocos exclusivos no blob de base e na versão anterior.](./media/versioning-overview/versions-billing-scenario-4.png)
 
 ### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Cobrança quando a camada de blob foi definida explicitamente
 
@@ -266,6 +266,10 @@ A tabela a seguir descreve o comportamento de cobrança para um BLOB ou uma vers
 | Uma versão anterior | A versão na nova camada e o blob de base na camada original, além de quaisquer blocos exclusivos em outras versões. <sup>1</sup> |
 
 <sup>1</sup> Se houver outras versões ou instantâneos anteriores que não foram movidos da camada original, essas versões ou instantâneos serão cobrados com base no número de blocos exclusivos que eles contêm, conforme descrito em [cobrança quando a camada de BLOB não tiver sido definida explicitamente](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+O diagrama a seguir ilustra como os objetos são cobrados quando um blob com versão é movido para uma camada diferente.
+
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagrama mostrando como os objetos são cobrados quando um blob com versão é explicitamente em camadas.":::
 
 A definição explícita da camada para um blob, versão ou instantâneo não pode ser desfeita. Se você mover um blob para uma nova camada e, em seguida, movê-lo de volta para sua camada original, você será cobrado pelo tamanho completo do conteúdo do objeto, mesmo se ele compartilhar blocos com outros objetos na camada original.
 
@@ -287,7 +291,7 @@ A tabela a seguir descreve o comportamento de cobrança para um blob que é excl
 | Se a exclusão reversível de BLOB e o controle de versão estiverem habilitados | Todas as versões existentes com tamanho de conteúdo completo, independentemente da camada. |
 | Se a exclusão reversível de blob estiver habilitada, mas o controle de versão estiver desabilitado | Todos os instantâneos de exclusão reversível existentes com tamanho de conteúdo completo, independentemente da camada. |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)
 - [Criando um instantâneo de um blob](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

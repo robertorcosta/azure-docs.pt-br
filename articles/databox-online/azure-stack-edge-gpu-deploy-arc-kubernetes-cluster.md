@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cd163b4c7514507d2a0563f1254c83dd22a3af2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3405f28d5f306e8370bae72eb5f3f3c406235c3d
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268186"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322017"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Habilitar o arco do Azure no cluster kubernetes no dispositivo de GPU do Azure Stack Edge
 
@@ -59,7 +59,7 @@ Antes de habilitar o arco do Azure no cluster kubernetes, verifique se você con
 
 ## <a name="register-kubernetes-resource-providers"></a>Registrar provedores de recursos kubernetes
 
-Antes de configurar o cluster kubernetes por meio do Arc do Azure, você precisará habilitar e registrar `Microsoft.Kubernetes` e `Microsoft.KubernetesConfiguration` em sua assinatura. 
+Antes de habilitar o arco do Azure no cluster kubernetes, você precisará habilitar e registrar `Microsoft.Kubernetes` e `Microsoft.KubernetesConfiguration` em sua assinatura. 
 
 1. Para habilitar um provedor de recursos, na portal do Azure, acesse a assinatura que você está planejando usar para a implantação. Vá para **provedores de recursos**. 
 1. No painel direito, pesquise os provedores que você deseja adicionar. Neste exemplo, `Microsoft.Kubernetes` e `Microsoft.KubernetesConfiguration` .
@@ -88,7 +88,7 @@ Você também pode registrar provedores de recursos por meio do `az cli` . Para 
 
 1. Para criar uma entidade de serviço, use o comando a seguir por meio do `az cli` .
 
-    `az as sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --skip assignment --name "<Informative name for service principal>"`  
 
     Para obter informações sobre como fazer logon no `az cli` , [inicie o Cloud Shell no portal do Azure](../cloud-shell/quickstart-powershell.md?view=azure-cli-latest#start-cloud-shell)
 
@@ -142,12 +142,12 @@ Siga estas etapas para configurar o cluster kubernetes para o gerenciamento de a
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Para implantar o arco do Azure no dispositivo Azure Stack Edge, verifique se você está usando uma [região com suporte para o arco do Azure](../azure-arc/kubernetes/overview.md#supported-regions). O arco do Azure está atualmente em visualização. 
+    Para implantar o arco do Azure no dispositivo Azure Stack Edge, verifique se você está usando uma [região com suporte para o arco do Azure](../azure-arc/kubernetes/overview.md#supported-regions). O arco do Azure está atualmente em visualização. Você também pode descobrir o nome exato da região para passar o cmdlet usando o `az account list-locations` comando.
     
     Veja um exemplo:
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "WestEurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
+    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
         [10.128.44.240]: PS>
     ```
     

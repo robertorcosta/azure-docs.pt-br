@@ -9,17 +9,19 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 78ac75566eac120db4527b2e04324e7e6d40808c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 29d80d2c6dc4e090e30d7a90460dc970ff4d8ca9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258887"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320674"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analisar arquivos de vídeo e áudio com os serviços de mídia do Azure
+
+[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -72,7 +74,7 @@ A saída inclui um arquivo JSON (insights.jsem) com todas as informações encon
 |Nome|Descrição|
 |---|---|
 |id|A ID da linha.|
-|text|A própria transcrição.|
+|texto|A própria transcrição.|
 |Linguagem|O idioma da transcrição. Tem o objetivo dar suporte à transcrição na qual cada linha pode ter um idioma diferente.|
 |instances|Uma lista com os intervalos de tempo nos quais essa linha apareceu. Se a instância for transcrita, ela terá apenas 1 instância.|
 
@@ -110,7 +112,7 @@ Exemplo:
 |Nome|Descrição|
 |---|---|
 |id|A ID da linha de OCR.|
-|text|O texto de OCR.|
+|texto|O texto de OCR.|
 |confidence|A confiança do reconhecimento.|
 |Linguagem|O idioma do OCR.|
 |instances|Uma lista de intervalos de tempo nos quais essa OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
@@ -155,12 +157,12 @@ Exemplo:
 |id|A ID da face.|
 |name|O nome da face. Pode ser ' desconhecido #0 ', um celebridade identificado ou uma pessoa treinada para o cliente.|
 |confidence|A confiança de identificação da face.|
-|description|Uma descrição da celebridade. |
+|descrição|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura dessa face.|
 |knownPersonId|A ID interna (se for uma pessoa conhecida).|
 |referenceId|A ID do Bing (se for um celebridade do Bing).|
 |referenceType|No momento, apenas Bing.|
-|title|O título (se for um celebridade — por exemplo, "CEO da Microsoft").|
+|título|O título (se for um celebridade — por exemplo, "CEO da Microsoft").|
 |imageUrl|A URL da imagem, se for um celebridade.|
 |instances|Instâncias em que a face apareceu no intervalo de tempo determinado. Cada ocorrência também tem uma thumbnailsId. |
 
@@ -361,7 +363,7 @@ Os sentimentos são agregadas de acordo com seu campo sentimentType (Positivo/Ne
 |Nome|Descrição|
 |---|---|
 |id|A ID da palavra-chave.|
-|text|O texto da palavra-chave.|
+|texto|O texto da palavra-chave.|
 |confidence|A confiança do reconhecimento da palavra-chave.|
 |Linguagem|O idioma da palavra-chave (quando traduzida).|
 |instances|Uma lista de intervalos de tempo nos quais essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|

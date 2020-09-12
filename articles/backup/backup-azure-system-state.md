@@ -3,12 +3,12 @@ title: Fazer backup de estado do sistema para o Windows Azure
 description: Saiba como fazer backup do estado do sistema de computadores Windows Server no Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181622"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376483"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
 
@@ -62,7 +62,7 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
     ![Configuração de arquivos e pastas](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Depois de clicar em OK, uma marca de seleção é exibida ao lado de **meta de backup**e o painel **preparar infraestrutura** é aberto.
+    Depois de selecionar **OK**, uma marca de seleção é exibida ao lado de **meta de backup**e o painel **preparar infraestrutura** é aberto.
 
     ![Meta de backup configurada, prepare a infraestrutura em seguida](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 

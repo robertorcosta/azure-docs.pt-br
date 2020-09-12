@@ -4,12 +4,12 @@ description: Use o Controle de Acesso baseado em função para gerenciar o acess
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 1a4bb617511f5d5ccf882ccb11e7d88eb7a848ea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017797"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376121"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Use o Controle de Acesso baseado em função para gerenciar pontos de recuperação de Backup do Azure
 
@@ -56,7 +56,7 @@ A tabela a seguir captura as ações de gerenciamento de backup e a função mí
 | Excluir o Windows Server/cliente/SCDPM local registrado ou o Servidor de Backup do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
 
 > [!IMPORTANT]
-> Se você especificar o Colaborador de VM em um escopo de recurso da VM e clicar em Backup como parte das configurações da VM, ele abrirá a tela 'Habilitar Backup', mesmo que o backup da VM já tenha sido realizado, pois a chamada para verificar o status do backup funciona apenas no nível de assinatura. Para evitar isso, vá para o cofre e abra a exibição de item de backup da VM ou especifique a função de Colaborador de VM em um nível de assinatura.
+> Se você especificar colaborador de VM em um escopo de recurso de VM e selecionar **backup** como parte das configurações de VM, ele abrirá a tela **habilitar backup** , mesmo que a VM já tenha sido submetida a backup. Isso ocorre porque a chamada para verificar o status do backup funciona apenas no nível da assinatura. Para evitar isso, vá para o cofre e abra a exibição do item de backup da VM ou especifique a função de colaborador de VM em um nível de assinatura.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisitos mínimos de função para o backup do compartilhamento de arquivos do Azure
 

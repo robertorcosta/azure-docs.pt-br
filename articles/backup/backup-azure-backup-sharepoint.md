@@ -3,12 +3,12 @@ title: Fazer backup de um farm do SharePoint no Azure com o DPM
 description: Este artigo fornece uma visão geral da proteção do servidor do DPM/Backup do Azure de um farm do SharePoint no Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032877"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375237"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Fazer backup de um farm do SharePoint no Azure com o DPM
 
@@ -30,7 +30,7 @@ Antes de prosseguir, verifique se você atende a todos os [pré-requisitos para 
 
 Os pré-requisitos e as limitações adicionais podem ser encontrados no artigo [fazer backup do SharePoint com o DPM](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#prerequisites-and-limitations) .
 
-## <a name="configure-backup"></a>Configurar o backup
+## <a name="configure-backup"></a>Configurar backup
 
 Para fazer backup do farm do SharePoint, configure a proteção do SharePoint usando o ConfigureSharePoint.exe e, então, crie um grupo de proteção no DPM. Para obter instruções, consulte [Configurar backup](/system-center/dpm/back-up-sharepoint?view=sc-dpm-2019#configure-backup) na documentação do DPM.
 
@@ -53,7 +53,7 @@ Para saber como restaurar um item do SharePoint de um disco com o DPM, consulte 
    > Como o farm do SharePoint está protegido para retenção de longo prazo no Azure, não há nenhuma informação de catálogo (metadados) disponível no servidor DPM. Desta forma, sempre que um banco de dados de conteúdo do SharePoint pontual precisar ser recuperado, será necessário recatalogar o farm do SharePoint.
    >
    >
-3. Clique em **Recatalogar**.
+3. Selecione **recatalogar**.
 
     ![Proteção do SharePoint do DPM10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -61,10 +61,10 @@ Para saber como restaurar um item do SharePoint de um disco com o DPM, consulte 
 
     ![Proteção do SharePoint do DPM11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Após a catalogação ser concluída, o status é alterado para *Êxito*. Clique em **fechar**
+    Após a catalogação ser concluída, o status é alterado para *Êxito*. Selecione **Fechar**.
 
     ![Proteção do SharePoint do DPM12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Clique no objeto do SharePoint mostrado na guia **Recuperação** do DPM para obter a estrutura do banco de dados de conteúdo. Clique com o botão direito do mouse no item apropriado e em **Recuperar**.
+4. Selecione o objeto do SharePoint mostrado na guia **recuperação** do DPM para obter a estrutura do banco de dados de conteúdo. Clique com o botão direito do mouse no item e selecione **recuperar**.
 
     ![Proteção do SharePoint do DPM13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. Nesse ponto, siga as etapas de recuperação descritas anteriormente neste artigo para recuperar um banco de dados de conteúdo do SharePoint do disco.

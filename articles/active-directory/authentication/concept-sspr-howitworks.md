@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716309"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377192"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -27,7 +27,7 @@ A SSPR (redefinição de senha por autoatendimento) do Microsoft Azure AD (Activ
 >
 > Se sua equipe de TI não tiver habilitado a capacidade de redefinir sua própria senha, entre em contato com sua assistência técnica para obter mais assistência.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Como funciona o portal de redefinição de senha?
+## <a name="how-does-the-password-reset-process-work"></a>Como funciona o processo de redefinição de senha?
 
 Um usuário pode redefinir ou alterar sua senha usando o [portal do SSPR](https://aka.ms/sspr). Eles devem primeiro registrar seus métodos de autenticação desejados. Quando um usuário acessa o portal do SSPR, a plataforma do Azure considera os seguintes fatores:
 
@@ -58,6 +58,11 @@ Depois que o portal do SSPR for exibido no idioma necessário, será solicitado 
   * Se o Write-back SSPR não for implantado e a senha do usuário for gerenciada localmente, o usuário será solicitado a entrar em contato com o administrador para redefinir sua senha.
 
 Se todas as verificações anteriores forem concluídas com êxito, o usuário será guiado pelo processo de redefinição ou alteração de senha.
+
+> [!NOTE]
+> O SSPR pode enviar notificações por email aos usuários como parte do processo de redefinição de senha. Esses emails são enviados usando o serviço de retransmissão SMTP, que opera em um modo ativo-ativo em várias regiões.
+>
+> Os serviços de retransmissão SMTP recebem e processam o corpo do email, mas não os armazenam. O corpo do email SSPR que pode potencialmente conter informações fornecidas pelo cliente não é armazenado nos logs do serviço de retransmissão SMTP. Os logs contêm apenas metadados de protocolo.
 
 Para começar a usar o SSPR, conclua o seguinte tutorial:
 

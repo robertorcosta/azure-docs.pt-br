@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045324"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322544"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criando imagens generalizadas sem um agente de provisionamento
 
@@ -78,7 +78,7 @@ $ sudo rm -rf /var/lib/waagent /etc/waagent.conf /var/log/waagent.log
 
 Além disso, dentro da VM, como removemos o agente Linux do Azure, precisamos fornecer um mecanismo para relatar prontamente. 
 
-#### <a name="python-script"></a>Script do Python
+#### <a name="python-script"></a>Script Python
 
 ```python
 import http.client
@@ -174,7 +174,7 @@ Se sua VM não tiver o Python instalado ou disponível, você poderá reproduzir
    </Health>
    ```
 
-3. Poste esses dados no WireServer:`curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
+3. Poste esses dados no WireServer: `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
 
 ### <a name="automating-running-the-code-at-first-boot"></a>Automatizando a execução do código na primeira inicialização
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Esse serviço em sistema faz três coisas para o provisionamento básico:
 
 1. Relatórios prontos para o Azure (para indicar que ele foi fornecido com êxito).
-1. Renomeia a VM com base no nome da VM fornecida pelo usuário, extraindo esses dados de IMDS.
+1. Renomeia a VM com base no nome da VM fornecida pelo usuário ao extrair esses dados do [serviço de metadados de instância do Azure (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Observação** O IMDS também fornece outros [metadados de instância](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), como chaves públicas SSH, para que você possa definir mais do que o nome do host.
 1. Desabilita a si mesmo para que ele só seja executado na primeira inicialização e não nas reinicializações subsequentes.
 
 Com a unidade no sistema de arquivos, execute o seguinte para habilitá-lo:

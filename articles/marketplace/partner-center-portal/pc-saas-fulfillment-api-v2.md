@@ -7,20 +7,20 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: f40da30ff0d702078861367dea810cc8ca1ab91b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4a98207ef5b03f77a4f741894ec210f7551c5933
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305135"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378127"
 ---
-# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>APIs de preenchimento de SaaS versão 2 no Microsoft Commercial Marketplace
+# <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>APIs de preenchimento de SaaS versão 2 no Marketplace comercial
 
 Este artigo detalha as APIs que permitem que os parceiros vendam suas ofertas de SaaS no Microsoft AppSource e no Azure Marketplace. Um Publicador é necessário para implementar a integração com essas APIs para publicar uma oferta de SaaS transactável no Partner Center.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Gerenciando o ciclo de vida da assinatura SaaS
 
-O Azure Marketplace gerencia todo o ciclo de vida de uma assinatura de SaaS após sua compra pelo cliente final.  Ele usa a página de aterrissagem, as APIs de preenchimento, as APIs de operações e o webhook como um mecanismo para orientar a ativação e o uso da assinatura de SaaS real, as atualizações e o cancelamento da assinatura.  A fatura do cliente final é baseada no estado da assinatura de SaaS que a Microsoft mantém. 
+O Marketplace comercial gerencia todo o ciclo de vida de uma assinatura de SaaS após sua compra pelo cliente final.  Ele usa a página de aterrissagem, as APIs de preenchimento, as APIs de operações e o webhook como um mecanismo para orientar a ativação e o uso da assinatura de SaaS real, as atualizações e o cancelamento da assinatura.  A fatura do cliente final é baseada no estado da assinatura de SaaS que a Microsoft mantém. 
 
 ### <a name="states-of-a-saas-subscription"></a>Estados de uma assinatura de SaaS
 
@@ -35,7 +35,7 @@ Depois que um cliente final (ou CSP) comprar uma oferta de SaaS no Marketplace, 
 Para que a criação da conta aconteça:
 
 1. O cliente precisa clicar no botão **Configurar** que está disponível para uma oferta de SaaS após sua compra bem-sucedida no Microsoft AppSource ou portal do Azure. Ou, no email que o cliente receberá logo após a compra.
-2. Em seguida, a Microsoft notifica o parceiro sobre a compra abrindo na nova guia do navegador a URL da página de aterrissagem com o parâmetro de token (o token de identificação de compra do Marketplace).
+2. Em seguida, a Microsoft notifica o parceiro sobre a compra abrindo na nova guia do navegador a URL da página de aterrissagem com o parâmetro de token (o token de identificação de compra do Marketplace comercial).
 
 Um exemplo de tal chamada é `https://contoso.com/signup?token=<blob>` , enquanto a URL da página de aterrissagem para essa oferta de SaaS no Partner Center é configurada como `https://contoso.com/signup` . Esse token fornece ao Publicador uma ID que identifica exclusivamente a compra de SaaS e o cliente.
 
@@ -46,12 +46,12 @@ A URL da página de aterrissagem deve estar em execução 24x7 e pronta para rec
 
 Em seguida, o *token* deve ser passado de volta para a Microsoft do Publicador chamando a [API de resolução de SaaS](#resolve-a-purchased-subscription), como o valor do `x-ms-marketplace-token header` parâmetro header.  Como resultado da chamada à API de resolução, o token é trocado para os detalhes da compra de SaaS, como ID exclusiva da compra, ID da oferta adquirida, ID do plano comprado, etc.
 
-Na página de aterrissagem, o cliente deve estar conectado à conta SaaS nova ou existente via SSO (logon único) do AAD (Azure Active Directory).
+Na página de aterrissagem, o cliente deve estar conectado à conta SaaS nova ou existente por meio do SSO (logon único) do Azure Active Directory (AD do Azure).
 
 O Publicador deve implementar o logon de SSO para fornecer a experiência do usuário exigida pela Microsoft para esse fluxo.  Certifique-se de usar o aplicativo multilocatário do Azure AD, permitir contas corporativas e de estudante ou contas pessoais da Microsoft, ao configurar o SSO.  Esse requisito só se aplica à página de aterrissagem e para os usuários que são redirecionados para o serviço SaaS quando já estão conectados com as credenciais da Microsoft. Ele não se aplica a todos os logons no serviço SaaS.
 
 > [!NOTE]
->Se o logon de SSO exigir que um administrador Conceda permissão a um aplicativo, a descrição da oferta no Partner Center deverá divulgar o acesso de nível de administrador necessário. Isso é para atender às [políticas de certificação do Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>Se o logon de SSO exigir que um administrador Conceda permissão a um aplicativo, a descrição da oferta no Partner Center deverá divulgar o acesso de nível de administrador necessário. Isso é para atender às [políticas de certificação do Marketplace comercial](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
 
 Depois de conectado, o cliente deve concluir a configuração de SaaS no lado do Publicador. Em seguida, o Publicador deve chamar a [API ativar assinatura](#activate-a-subscription) para enviar um sinal ao Marketplace de que o provisionamento da conta SaaS foi concluído.
 Isso iniciará o ciclo de cobrança do cliente. Se a chamada à API ativar assinatura não for bem-sucedida, o cliente não será cobrado pela compra.
@@ -67,16 +67,16 @@ Quando a assinatura de SaaS já estiver ativa e o cliente optar por iniciar a ex
 
 #### <a name="being-updated-subscribed"></a>Sendo atualizado (assinado)
 
-Essa ação significa que uma atualização para uma assinatura SaaS ativa existente foi processada pela Microsoft e pelo Publicador. Essa atualização pode ser iniciada pelo
+Essa ação significa que uma atualização para uma assinatura SaaS ativa existente foi processada pela Microsoft e pelo Publicador. Essa atualização pode ser iniciada por:
 
-* o cliente do Marketplace
-* o CSP do Marketplace
-* o cliente do site SaaS do Publicador (não se aplica ao CSP feito compras)
+- o cliente do Marketplace comercial.
+- o CSP do Marketplace comercial.
+- o cliente do site SaaS do Publicador (não se aplica ao CSP feito compras).
 
 Dois tipos de atualizações estão disponíveis para uma assinatura de SaaS:
 
-1. Atualizar plano quando o cliente escolher outro plano para a assinatura.
-1. Atualizar a quantidade quando o cliente alterar o número de estações compradas para a assinatura
+- Atualizar plano quando o cliente escolher outro plano para a assinatura.
+- Atualizar a quantidade quando o cliente alterar o número de estações compradas para a assinatura
 
 Somente uma assinatura ativa pode ser atualizada. Enquanto a assinatura está sendo atualizada, seu estado permanece ativo no lado da Microsoft.
 
@@ -194,7 +194,7 @@ Chamar a API de resolução retornará os detalhes da assinatura e o status das 
 |  `x-ms-requestid`    |  Um valor de cadeia de caracteres exclusivo para acompanhamento da solicitação do cliente, preferencialmente um GUID. Se esse valor não for fornecido, ele será gerado e fornecido nos cabeçalhos de resposta. |
 |  `x-ms-correlationid` |  Um valor de cadeia de caracteres exclusiva para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, ele será gerado e fornecido nos cabeçalhos de resposta.  |
 |  `authorization`     |  Um token de acesso exclusivo que identifica o Publicador que faz essa chamada à API. O formato é `"Bearer <accessaccess_token>"` quando o valor do token é recuperado pelo Publicador, conforme explicado em [obter um token baseado no aplicativo do Azure ad](./pc-saas-registration.md#get-the-token-with-an-http-post). |
-|  `x-ms-marketplace-token`  | O parâmetro de *token* de identificação de compra do Marketplace a ser resolvido.  O token é passado na chamada da URL da página de aterrissagem quando o cliente é redirecionado para o site do parceiro SaaS (por exemplo: `https://contoso.com/signup?token=<token><authorization_token>` ). <br> <br>  *Observação:* O valor de *token* que está sendo codificado faz parte da URL da página de aterrissagem e, portanto, precisa ser decodificado antes de ser usado como um parâmetro nesta chamada à API.  <br> <br> Um exemplo de uma cadeia de caracteres codificada na URL é semelhante a: `contoso.com/signup?token=ab%2Bcd%2Fef` , onde o token é `ab%2Bcd%2Fef` .  O mesmo token decodificado será:`Ab+cd/ef` |
+|  `x-ms-marketplace-token`  | O parâmetro de *token* de identificação de compra do Marketplace a ser resolvido.  O token é passado na chamada da URL da página de aterrissagem quando o cliente é redirecionado para o site do parceiro SaaS (por exemplo: `https://contoso.com/signup?token=<token><authorization_token>` ). <br> <br>  *Observação:* O valor de *token* que está sendo codificado faz parte da URL da página de aterrissagem e, portanto, precisa ser decodificado antes de ser usado como um parâmetro nesta chamada à API.  <br> <br> Um exemplo de uma cadeia de caracteres codificada na URL é semelhante a: `contoso.com/signup?token=ab%2Bcd%2Fef` , onde o token é `ab%2Bcd%2Fef` .  O mesmo token decodificado será: `Ab+cd/ef` |
 | | |
 
 *Códigos de resposta:*
@@ -248,7 +248,7 @@ Exemplo de corpo da resposta:
 
 ```
 
-Código: 400 solicitação inadequada. `x-ms-marketplace-token`está ausente, malformado, inválido ou expirou.
+Código: 400 solicitação inadequada. `x-ms-marketplace-token` está ausente, malformado, inválido ou expirou.
 
 Código: 403 Proibido. O token de autorização é inválido, expirou ou não foi fornecido.  A solicitação está tentando acessar uma assinatura de SaaS para uma oferta que foi publicada com uma ID de Aplicativo Azure AD diferente da usada para criar o token de autorização.
 
@@ -296,9 +296,9 @@ Não há corpo de resposta para esta chamada.
 
 Código: 400 solicitação inadequada: falha na validação.
 
-* `planId`Não existe na carga de solicitação.
-* `planId`a carga de solicitação não corresponde à que foi adquirida.
-* `quantity`a carga de solicitação não corresponde à que foi adquirida
+* `planId` Não existe na carga de solicitação.
+* `planId` a carga de solicitação não corresponde à que foi adquirida.
+* `quantity` a carga de solicitação não corresponde à que foi adquirida
 * A assinatura de SaaS está em estado de assinatura ou suspenso.
 
 Código: 403 Proibido. O token de autorização é inválido, expirou ou não foi fornecido. A solicitação está tentando acessar uma assinatura de SaaS para uma oferta que foi publicada com uma ID de Aplicativo Azure AD diferente da usada para criar o token de autorização.
@@ -426,7 +426,7 @@ Código: 500 erro interno do servidor. Repita a chamada à API.  Se o erro persi
 
 Recupera uma assinatura de SaaS adquirida especificada para uma oferta de SaaS publicada no Marketplace pelo Publicador. Use essa chamada para obter todas as informações disponíveis para uma assinatura SaaS específica por sua ID em vez de chamar a API para obter a lista de todas as assinaturas.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Obter`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Obter `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -498,7 +498,7 @@ Recupera todos os planos para uma oferta de SaaS identificados pelo `subscriptio
 
 Essa chamada retorna uma lista de planos disponíveis para esse cliente, além do já adquirido.  A lista pode ser apresentada a um cliente final no site do Publicador.  Um cliente final pode alterar o plano de assinatura para qualquer um dos planos na lista retornada.  A alteração do plano para um não listado na lista falhará.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Obter`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidlistavailableplansapi-versionapiversion"></a>Obter `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -552,7 +552,7 @@ Atualize o plano existente adquirido para uma assinatura de SaaS para um novo pl
 
 Essa API pode ser chamada somente para assinaturas ativas.  Qualquer plano pode ser alterado para qualquer outro plano existente (público ou privado), mas não para ele mesmo.  Para planos privados, o locatário do cliente deve ser definido como parte do público do plano no Partner Center.
 
-##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Distribuído`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Distribuído `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -617,7 +617,7 @@ Atualizar (aumentar ou diminuir) a quantidade de estações compradas para uma a
 
 A quantidade de assentos não pode ser maior que o permitido no plano atual.  Nesse caso, o plano deve ser alterado antes da alteração da quantidade.
 
-##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Distribuído`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patchhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Patch`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -738,7 +738,7 @@ Obter a lista das operações pendentes para a assinatura SaaS especificada.  As
 
 No momento, apenas **as operações de rerestabelecimento** são retornadas como resposta para essa chamada à API.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Obter`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsapi-versionapiversion"></a>Obter `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -792,11 +792,11 @@ Código: 500 erro interno do servidor. Repita a chamada à API.  Se o erro persi
 
 #### <a name="get-operation-status"></a>Obter status da operação
 
-Permite que o Publicador acompanhe o status da operação assíncrona especificada: **cancelamento de assinatura**, **ChangePlan**ou **ChangeQuantity**.
+Permite que o Publicador acompanhe o status da operação assíncrona especificada:  **cancelamento de assinatura**, **ChangePlan**ou **ChangeQuantity**.
 
 O `operationId` para essa chamada à API pode ser recuperado do valor retornado por **Operation-Location**, obter chamada à API de operações pendentes ou o `<id>` valor de parâmetro recebido em uma chamada de webhook.
 
-##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Obter`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Obter `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -857,7 +857,7 @@ Atualize o status de uma operação pendente para indicar o êxito ou a falha da
 
 O `operationId` para esta chamada à API pode ser recuperado do valor retornado pelo **local de operação**, obter chamada à API de operações pendentes ou o `<id>` valor de parâmetro recebido em uma chamada de webhook.
 
-##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Distribuído`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Distribuído `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -969,13 +969,13 @@ Um fluxo de compra pode ser disparado a partir do portal do Azure ou Microsoft A
 
 As ações *Alterar plano*, *Alterar quantidade*e *cancelar assinatura* são testadas no lado do Publicador.  Do lado da Microsoft, o *cancelamento da assinatura* pode ser disparado tanto do portal do Azure quanto do centro de administração (o portal em que Microsoft AppSource compras são gerenciadas).  *Alterar a quantidade e o plano* só podem ser disparados no centro de administração.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Consulte [suporte para o programa do Marketplace comercial no Partner Center](support.md) para obter opções de suporte do Publicador.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte [APIs do serviço de medição](marketplace-metering-service-apis.md) do Marketplace para obter mais opções de ofertas de SaaS no Marketplace.
+Consulte as [APIs do serviço de medição do Marketplace comercial](marketplace-metering-service-apis.md) para obter mais opções de ofertas de SaaS no Marketplace comercial.
 
 Examine e use o [SDK do SaaS](https://github.com/Azure/Microsoft-commercial-marketplace-transactable-SaaS-offer-SDK) criado com base nas APIs descritas neste documento.

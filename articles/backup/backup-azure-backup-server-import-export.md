@@ -3,12 +3,12 @@ title: Backup offline do DPM e do Servidor de Backup do Azure
 description: Com o backup do Azure, você pode enviar dados da rede usando o serviço de importação/exportação do Azure. Este artigo explica o fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002004"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378450"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Fluxo de trabalho de backup offline para o DPM e o Servidor de Backup do Azure (MABS)
 
@@ -51,10 +51,10 @@ Verifique se os pré-requisitos a seguir foram atendidos antes de iniciar o flux
 * Crie uma conta de Armazenamento do Azure na mesma assinatura que o cofre dos Serviços de Recuperação.
 * Verifique se você tem as [permissões necessárias](../active-directory/develop/howto-create-service-principal-portal.md) para criar o aplicativo do Azure Active Directory. O fluxo de trabalho do Backup Offline cria um aplicativo do Azure Active Directory na assinatura associada à conta de Armazenamento do Azure. O objetivo do aplicativo é fornecer o Backup do Azure com acesso seguro e escopo definido ao Serviço de Importação do Azure, necessário para o fluxo de trabalho de Backup Offline.
 * Registre o provedor de recursos Microsoft.ImportExport com a assinatura que possui a conta de Armazenamento do Azure. Para registrar o provedor de recursos:
-    1. No menu principal, clique em **Assinaturas**.
+    1. No menu principal, selecione **assinaturas**.
     2. Se você estiver inscrito em várias assinaturas, selecione a assinatura que você está usando para o backup offline. Se você usar apenas uma assinatura, ela será exibida.
-    3. No menu assinatura, clique em **Provedores de Recursos** para exibir a lista de provedores.
-    4. Na lista de provedores, role para baixo até Microsoft.ImportExport. Se o status for NotRegistered, clique em **Registrar**.
+    3. No menu assinatura, selecione **provedores de recursos** para exibir a lista de provedores.
+    4. Na lista de provedores, role para baixo até Microsoft.ImportExport. Se o status for não registrado, selecione **registrar**.
 
        ![Registrando o provedor de recursos](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -68,7 +68,7 @@ As informações nesta seção ajudam você a concluir o fluxo de trabalho de ba
 
 ## <a name="initiate-offline-backup"></a>Iniciar o backup offline
 
-1. Ao criar um novo grupo de proteção com proteção online ou adicionar proteção online ao grupo existente, você verá a tela a seguir. Para selecionar o método de Replicação online inicial, selecione **Transferir usando meu próprio disco** e clique em **Próximo**.
+1. Ao criar um novo grupo de proteção com proteção online ou adicionar proteção online ao grupo existente, você verá a tela a seguir. Para selecionar o método de replicação online inicial, selecione **transferir usando meu próprio disco** e selecione **Avançar**.
 
     ![Tela de importação](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -160,7 +160,7 @@ O procedimento a seguir atualiza os detalhes de envio do trabalho de Importaçã
 * detalhes da remessa de retorno para seus discos
 
    1. Entre na sua assinatura do Azure.
-   2. No menu principal, clique em **Todos os serviços** e, na caixa de diálogo Todos os serviços, digite Importar. Ao visualizar **Trabalhos de Importação/Exportação**, clique nisso.
+   2. No menu principal, selecione **todos os serviços** e, na caixa de diálogo todos os serviços, digite importar. Quando você vir **trabalhos de importação/exportação**, selecione-o.
        ![Inserir informações de envio](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        A lista de menu **Importar/exportar trabalhos** é aberta, e a lista de todos os trabalhos de Importação/exportação na assinatura selecionada é exibida.
@@ -169,11 +169,11 @@ O procedimento a seguir atualiza os detalhes de envio do trabalho de Importaçã
 
        ![Examinar Informações de Envio](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. No menu Configurações do trabalho de Importação, clique em **Gerenciar Informações de Envio** e insira os detalhes da remessa de retorno.
+   4. No menu configurações do trabalho de importação, selecione **gerenciar informações de envio** e insira os detalhes de envio de retorno.
 
        ![Armazenar Informações de Envio](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. Quando você tiver o número de rastreamento de sua transportadora, clique na faixa na página visão geral do trabalho de Importação do Azure e insira os seguintes detalhes:
+   5. Quando você tiver o número de rastreamento de sua operadora de entrega, selecione a faixa na página Visão geral do trabalho de importação do Azure e insira os seguintes detalhes:
 
       > [!IMPORTANT]
       > Verifique se as informações da transportadora e o número de rastreamento são atualizados dentro de duas semanas após a criação do trabalho de importação do Azure. A falha em verificar essas informações dentro do prazo de duas semanas pode resultar na exclusão do trabalho e no não processamento das unidades.

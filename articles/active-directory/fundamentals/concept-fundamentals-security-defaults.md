@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 64ee8f2daddd53d37aeaf0f02208e02500b48f57
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873714"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320861"
 ---
 # <a name="what-are-security-defaults"></a>O que são os padrões de segurança?
 
@@ -92,7 +92,7 @@ Depois que os padrões de segurança forem habilitados em seu locatário, todas 
 > [!WARNING]
 > Antes de habilitar os padrões de segurança, garanta que os administradores não estejam usando protocolos de autenticação mais antigos. Para obter mais informações, consulte [Como deixar de usar a autenticação herdada](concept-fundamentals-block-legacy-authentication.md).
 
-- [Como configurar um dispositivo ou aplicativo multifuncional para enviar emails usando o Office 365 e o Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Como configurar um dispositivo ou aplicativo multifuncional para enviar emails usando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Proteção a ações privilegiadas
 
@@ -109,7 +109,7 @@ O uso do Azure Resource Manager para gerenciar seus serviços é uma ação alta
 Depois de habilitar os padrões de segurança em seu locatário, qualquer usuário que estiver acessando o portal do Azure, o Azure PowerShell ou a CLI do Azure precisará realizar a autenticação adicional. Essa política se aplica a todos os usuários que estejam acessando o Azure Resource Manager, sejam eles administradores ou usuários. 
 
 > [!NOTE]
-> Os locatários do Exchange Online anteriores a 2017 têm a autenticação moderna desabilitada por padrão. Para evitar que possa ocorrer um loop de logon durante a autenticação por meio desses locatários, você deve [habilitar a autenticação moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+> Os locatários do Exchange Online anteriores a 2017 têm a autenticação moderna desabilitada por padrão. Para evitar que possa ocorrer um loop de logon durante a autenticação por meio desses locatários, você deve [habilitar a autenticação moderna](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > A conta de sincronização do Azure AD Connect é excluída dos padrões de segurança e não serão solicitados o registro ou a execução da autenticação multifator. As organizações não devem usar essa conta para outras finalidades.

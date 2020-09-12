@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796753"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321184"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Restaurar ou remover permanentemente um usuário excluído recentemente usando o Azure Active Directory
 Depois que você excluir um usuário, a conta permanecerá em um estado suspenso por 30 dias. Durante essa janela de 30 dias, a conta do usuário pode ser restaurada, juntamente com todas as suas propriedades. Depois que a janela de 30 dias passa, o usuário é excluído automaticamente e permanentemente.
@@ -88,6 +88,6 @@ Depois de restaurar ou excluir seus usuários, você pode executar os seguintes 
 
 - [Adicionar ou alterar informações de perfil](active-directory-users-profile-azure-portal.md)
 
-- [Adicionar usuários convidados de outra organização](../b2b/what-is-b2b.md)
+- [Adicionar usuários convidados de outra organização](../external-identities/what-is-b2b.md)
 
 Para obter mais informações sobre outras tarefas de gerenciamento de usuário disponíveis, [documentação de gerenciamento de usuários do Azure ad](../users-groups-roles/index.yml).

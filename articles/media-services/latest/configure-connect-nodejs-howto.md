@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 95059710ce759a1536bcaacd35c0d2cf6497269b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4f6b24b17ac0e12c286a11abe8732bb86e2deb5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265585"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297341"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conectar-se à API dos serviços de mídia v3-Node.js
 
@@ -30,10 +30,10 @@ Este artigo mostra como se conectar ao SDK de node.js de serviços de mídia do 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Instale o [Node.js](https://nodejs.org/en/download/).
-- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia.
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se do nome do grupo de recursos e da conta dos Serviços de Mídia.
 
 > [!IMPORTANT]
-> Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
+> Examine [Convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
 
 ## <a name="create-packagejson"></a>Criar package.jsem
 

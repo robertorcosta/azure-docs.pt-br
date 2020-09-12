@@ -3,12 +3,12 @@ title: Definir configurações de diagnóstico de cofre em escala
 description: Definir Log Analytics configurações de diagnóstico para todos os cofres em um determinado escopo usando Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 751ce0233fb232ef5d276c88a8c2429a2975b2f9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179973"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378042"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Definir configurações de diagnóstico de cofre em escala
 
@@ -22,7 +22,7 @@ Para simplificar a criação de configurações de diagnóstico em escala (com L
 
 * A política pode ser aplicada de uma vez a todos os cofres dos serviços de recuperação em uma determinada assinatura (ou a um grupo de recursos dentro da assinatura). O usuário que atribui a política precisa ter acesso de **proprietário** à assinatura à qual a política é atribuída.
 
-* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter acesso de **leitor**, **colaborador** ou **proprietário** à assinatura na qual o espaço de trabalho da la especificada existe.
+* O espaço de trabalho LA conforme especificado pelo usuário (para o qual os dados de diagnóstico serão enviados) pode estar em uma assinatura diferente dos cofres aos quais a política é atribuída. O usuário precisa ter acesso de **leitor**, **colaborador**ou **proprietário** à assinatura na qual o espaço de trabalho especificado existe.
 
 * O escopo do grupo de gerenciamento não tem suporte no momento.
 

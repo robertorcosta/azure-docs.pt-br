@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: fb76f7897b9647a688e21993002f9c96fe9487f8
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 45f892064d0910029db37c56f731a072a6c7514e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046741"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299602"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Transmitir por streaming logs dos aplicativos do Azure Spring Cloud em tempo real
 O Azure Spring Cloud permite o streaming de log no CLI do Azure para obter os logs do console do aplicativo em tempo real para solução de problemas. Você também pode [analisar logs e métricas com configurações de diagnóstico](./diagnostic-services.md).
@@ -20,7 +20,7 @@ O Azure Spring Cloud permite o streaming de log no CLI do Azure para obter os lo
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Instalar a [extensão de CLI do Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) para Spring Cloud, versão mínima 0.2.0.
-* Uma instância do **Azure Spring Cloud** com um aplicativo em execução, por exemplo, [aplicativo Spring Cloud](./spring-cloud-quickstart-launch-app-cli.md).
+* Uma instância do **Azure Spring Cloud** com um aplicativo em execução, por exemplo, [aplicativo Spring Cloud](./spring-cloud-quickstart.md).
 
 > [!NOTE]
 >  A extensão da CLI do ASC é atualizada da versão 0.2.0 para 0.2.1. Essa alteração afeta a sintaxe do comando para streaming de log: `az spring-cloud app log tail` , que é substituído por: `az spring-cloud app logs` . O comando: `az spring-cloud app log tail` será preterido em uma versão futura. Se você estiver usando a versão 0.2.0, poderá atualizar para o 0.2.1. Primeiro, remova a versão antiga com o comando: `az extension remove -n spring-cloud` .  Em seguida, instale o 0.2.1 pelo comando: `az extension add -n spring-cloud` .
@@ -87,7 +87,7 @@ az spring-cloud app logs -h
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Início rápido: monitorando aplicativos de nuvem Spring do Azure com logs, métricas e rastreamento](spring-cloud-quickstart-logs-metrics-tracing.md)
+* [Início Rápido: Monitoramento de aplicativos do Azure Spring Cloud com logs, métricas e rastreamento](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analisar logs e métricas com configurações de diagnóstico](./diagnostic-services.md)
 
  

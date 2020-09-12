@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178004"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376172"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -198,7 +198,7 @@ A operação de backup falhou devido ao estado inconsistente da extensão de bac
 
 * Verifique se o Agente Convidado está instalado e respondendo
 * No portal do Azure, vá para **Máquina Virtual** > **Todas as Configurações** > **Extensões**
-* Selecione a extensão de backup VmSnapshot ou VmSnapshotLinux e clique em **Desinstalar**
+* Selecione a extensão de backup VmSnapshot ou VmSnapshotLinux e selecione **desinstalar**.
 * Depois de excluir a extensão de backup, repita a operação de backup
 * A operação de backup subsequente instalará a nova extensão no estado desejado
 

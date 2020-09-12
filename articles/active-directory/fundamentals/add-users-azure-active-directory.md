@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797093"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321082"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 
@@ -60,7 +60,7 @@ O usuário é criado e adicionado à sua organização do Azure AD.
 
 ## <a name="add-a-new-guest-user"></a>Adicionar um novo usuário convidado
 
-Você também pode convidar o novo usuário convidado a colaborar com sua organização selecionando **convidar usuário** na página **novo usuário** . Se as configurações de colaboração externa da sua organização estiverem configuradas de forma que você tenha permissão para convidar convidados, o usuário receberá um convite por email para que ele possa começar a colaborar. Para obter mais informações sobre como convidar usuários de colaboração B2B, consulte [convidar usuários B2B para Azure Active Directory](../b2b/add-users-administrator.md)
+Você também pode convidar o novo usuário convidado a colaborar com sua organização selecionando **convidar usuário** na página **novo usuário** . Se as configurações de colaboração externa da sua organização estiverem configuradas de forma que você tenha permissão para convidar convidados, o usuário receberá um convite por email para que ele possa começar a colaborar. Para obter mais informações sobre como convidar usuários de colaboração B2B, consulte [convidar usuários B2B para Azure Active Directory](../external-identities/add-users-administrator.md)
 
 ## <a name="add-a-consumer-user"></a>Adicionar um usuário do consumidor
 
@@ -105,4 +105,4 @@ Depois de adicionar os usuários, você pode fazer os seguintes processos básic
 
 - [Trabalhar com usuários e grupos dinâmicos](../users-groups-roles/groups-create-rule.md)
 
-Ou você pode fazer outras tarefas de gerenciamento de usuário, como [Adicionar usuários convidados de outro diretório](../b2b/what-is-b2b.md) ou [restaurar um usuário excluído](active-directory-users-restore.md). Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).
+Ou você pode fazer outras tarefas de gerenciamento de usuário, como [Adicionar usuários convidados de outro diretório](../external-identities/what-is-b2b.md) ou [restaurar um usuário excluído](active-directory-users-restore.md). Para obter mais informações sobre outras ações disponíveis, consulte [documentação de gerenciamento de usuário do Azure Active Directory](../users-groups-roles/index.yml).

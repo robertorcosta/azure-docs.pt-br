@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387108"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318277"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -132,6 +132,11 @@ Depois que o acesso à chave for restaurado, colocar o banco de dados online nov
 - Se o acesso à chave for restaurado dentro de 8 horas, o banco de dados será reparado automaticamente na próxima hora.
 
 - Se o acesso à chave for restaurado após mais de 8 horas, a reparação automática não será possível e o retorno do banco de dados exigirá etapas adicionais no portal e poderá levar um tempo significativo dependendo do tamanho do banco de dados. Quando o banco de dados estiver online novamente, as configurações de nível de servidor definidas anteriormente, como configuração do [grupo de failover](auto-failover-group-overview.md) , histórico de restauração pontual e marcas **serão perdidas**. Portanto, é recomendável implementar um sistema de notificação que permita que você identifique e resolva os problemas de acesso de chave subjacente dentro de 8 horas.
+
+Veja abaixo uma exibição das etapas adicionais necessárias no portal para colocar um banco de dados inacessível online novamente.
+
+![Banco de dados inacessível TDE BYOK](./media/transparent-data-encryption-byok-overview/customer-managed-tde-inaccessible-database.jpg)
+
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Revogação de acesso de protetor de TDE acidental
 

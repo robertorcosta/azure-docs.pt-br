@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfc60eacd70576d9cfa79dbc03368c8e8c4a8636
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797386"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321966"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Adicionar informações de privacidade de sua organização usando o Azure Active Directory
 Este artigo explica como um administrador de locatário pode adicionar informações relacionadas à privacidade ao locatário do Azure Active Directory (Azure AD) de uma organização, por meio do portal do Azure.
@@ -56,5 +56,5 @@ Você adiciona informações de privacidade da sua organização na área **Prop
 4. Clique em **Salvar**.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Resgate do convite de colaboração do Azure Active Directory B2B](../b2b/redemption-experience.md)
+- [Resgate do convite de colaboração do Azure Active Directory B2B](../external-identities/redemption-experience.md)
 - [Adicionar ou alterar as informações de perfil de um usuário no Azure Active Directory](active-directory-users-profile-azure-portal.md)

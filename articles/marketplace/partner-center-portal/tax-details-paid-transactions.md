@@ -1,44 +1,43 @@
 ---
 title: Detalhes de impostos do marketplace comercial da Microsoft
 Description: Para entender suas considerações sobre impostos na seleção de preços, implicações de pagamento e responsabilidade fiscal, consulte seus países/regiões de distribuição nas tabelas a seguir.
-ms.topic: conceptual
+ms.topic: article
 ms.service: marketplace
-ms.date: 05/04/2020
+ms.date: 09/02/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b0ada7047241e74095fd5b81a261c15295a08737
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 82e70c128b64f0574050c17d5e40509995488666
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319925"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378331"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Detalhes de impostos para editores do marketplace comercial
 
-Para entender suas considerações sobre impostos na seleção de preços e responsabilidade fiscal no [Contrato de Editor do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) ou no Contrato de Editor Moderno, consulte seus países/regiões de distribuição nas tabelas a seguir.
+Para entender suas considerações de imposto sobre a seleção de preços e a responsabilidade de impostos sobre o contrato de [Microsoft Azure Marketplace editor](https://go.microsoft.com/fwlink/p/?LinkID=699560) ou o contrato de editor moderno, consulte seus países/regiões de distribuição nas tabelas a seguir.
 
-> [!NOTE]
-> O Ajuste de Expansão de Comércio pode ter implicações no pagamento em um conjunto limitado de países/regiões. Para obter mais detalhes sobre o Ajuste de Expansão de Comércio e os mercados em que ele se aplica, consulte o [Contrato de Editor do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) e a lista de países/regiões afetados.
+O Ajuste de Expansão de Comércio pode ter implicações no pagamento em um conjunto limitado de países/regiões. Para obter mais detalhes sobre o Ajuste de Expansão de Comércio e os mercados em que ele se aplica, consulte o [Contrato de Editor do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) e a lista de países/regiões afetados.
 
 > [!IMPORTANT]
 > A responsabilidade fiscal para países/regiões de revendedores e circunstâncias (conforme descrito [abaixo](#reseller-countriesregions)) é coberta pelo Anexo A do [Contrato de Editor do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560), não obstante as informações na tabela a seguir.
 > Observe que a coluna de **implicação de pagamento** só se aplica a editores. As taxas de impostos indicadas nesta coluna estão sujeitas a alterações a qualquer momento, e a Microsoft não pode garantir que as taxas nas tabelas abaixo sempre sejam precisas.
 
-| País/Região                   | Consideração sobre impostos na seleção de preços                                                                                                             | Implicação de pagamento                    | Responsabilidade fiscal |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
+| País/Região  | Consideração sobre impostos na seleção de preços  | Implicação de pagamento  | Responsabilidade fiscal |
+|---|---|---|---|
 | Afeganistão                      | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Albânia                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Argélia                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Samoa Americana                   | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Andorra                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
-| Anguila                         | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Angola                           | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
+| Anguila                         | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Antártica                       | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Antígua e Barbuda              | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Argentina                        | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.  | Preço menos o valor da Store  | Publicador          |
 | Armênia                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos 20% de imposto, menos o valor da Store       | Microsoft          |
 | Aruba                      | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
-| Austrália                        | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                             | Preço menos 10% de imposto, menos o valor da Store             | Microsoft          |
+| Austrália                        | O preço que está sendo selecionado exclui todos os impostos aplicáveis. *        | Preço menos taxa de armazenamento *        | Microsoft          |
 | Áustria                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.       | Preço menos 20% de imposto, menos o valor da Store     | Microsoft          |
 | Azerbaijão                       | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Bahamas                      | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
@@ -83,7 +82,7 @@ Para entender suas considerações sobre impostos na seleção de preços e resp
 | Croácia                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.       | Preço menos 25% de imposto, menos o valor da Store   | Microsoft          |
 | Curaçao                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Chipre                           | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.       | Preço menos 19% de imposto, menos o valor da Store  | Microsoft          |
-| República Tcheca                   | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.       | Preço menos 21% de imposto, menos o valor da Store   | Microsoft        |
+| Tchéquia                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.       | Preço menos 21% de imposto, menos o valor da Store   | Microsoft        |
 | Dinamarca                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.       | Preço menos 25% de imposto, menos o valor da Store   | Microsoft          |
 | Djibuti                         | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Dominica                         | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
@@ -148,7 +147,6 @@ Para entender suas considerações sobre impostos na seleção de preços e resp
 | Lituânia                        | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.              | Preço menos 21% de imposto, menos o valor da Store | Microsoft          |
 | Luxemburgo                       | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.              | Preço menos 17% de imposto, menos o valor da Store | Microsoft          |
 | RAE de Macau                        | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
-| Macedônia (Antiga República Iugoslava da Macedônia)                | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Madagascar                       | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Malaui                           | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Malásia                         | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
@@ -180,6 +178,7 @@ Para entender suas considerações sobre impostos na seleção de preços e resp
 | Nigéria                          | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Niue                             | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Ilha Norfolk                   | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
+| Macedônia do Norte                | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Ilhas Marianas do Norte         | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Noruega                           | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. Os impostos são subtraídos do preço antes do pagamento.              | Preço menos 25% de imposto, menos o valor da Store | Microsoft          |
 | Omã                             | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
@@ -258,10 +257,12 @@ Para entender suas considerações sobre impostos na seleção de preços e resp
 | Zâmbia                           | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 | Zimbábue                         | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis.                                                                   | Preço menos o valor da Store                 | Publicador          |
 
+\* Para compras feitas por meio de todos os cenários de compra do cliente, exceto Enterprise Agreement.
+
 O seguinte se aplica somente aos Editores do Azure Marketplace, não obstante qualquer disposição em contrário acima:
 
-| País/Região                   | Consideração sobre impostos na seleção de preços                                                                                                             | Gerenciamento de impostos                    |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
+| País/Região | Consideração sobre impostos na seleção de preços | Gerenciamento de impostos |
+| --- |--- | --- |
 | Austrália (para compras feitas por meio de todos os cenários de compra do cliente, exceto pelo Enterprise Agreement) | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. | Microsoft |
 | Austrália (somente para compras feitas por meio do cenário de compra do cliente do Enterprise Agreement) | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. | Publicador |
 | Brasil | O preço que está sendo selecionado é o preço de venda final e inclui os impostos aplicáveis. | Editor (**consulte países/regiões do revendedor**) |
@@ -287,6 +288,6 @@ O seguinte se aplica somente aos editores do Azure Marketplace:
 | Brasil (para compras feitas por meio de todos os cenários de compra do cliente, exceto pelo CSP) |
 | México (somente para compras feitas por meio do cenário de compra do cliente do Enterprise Agreement) |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-step"></a>Próxima etapa
 
 [Configurar sua conta de pagamento e formulários de impostos](set-up-your-payout-account-tax-forms.md)
