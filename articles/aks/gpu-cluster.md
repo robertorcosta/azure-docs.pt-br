@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757635"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443051"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usar GPUs para cargas de trabalho de computação intensiva no AKS (Serviço de Kubernetes do Azure)
 
@@ -162,7 +162,7 @@ az extension update --name aks-preview
 
 Configure o cluster para usar a imagem de GPU especializada AKS quando o cluster for criado. Use o `--aks-custom-headers` sinalizador para os nós de agente de GPU no novo cluster para usar a imagem de GPU especializada AKs.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -173,7 +173,7 @@ Se você quiser criar um cluster usando as imagens de AKS regulares, poderá faz
 
 Configure um novo pool de nós para usar a imagem de GPU especializada AKS. Use o `--aks-custom-headers` sinalizador de sinalizador para os nós do agente de GPU em seu novo pool de nós para usar a imagem de GPU especializada AKs.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -181,7 +181,7 @@ Se você quiser criar um pool de nós usando as imagens AKS regulares, poderá f
 
 > [!NOTE]
 > Se o SKU de sua GPU exigir máquinas virtuais de geração 2, você poderá criar:
-> ```azure-cli
+> ```azurecli
 > az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
 > ```
 
@@ -386,7 +386,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover os objetos de Kubernetes associados criados neste artigo, use o comando [kubectl delete job][kubectl delete] da seguinte maneira:
 

@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: modificar um circuito: PowerShell: clássico'
 description: Este artigo orienta você pelas etapas para verificar o status, atualização ou delete e desprovisionar o circuito de modelo de implantação clássico de ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/05/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 801032e3df9dcb778fa4e591ef37eabc317e997a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: be45d49d3f445810c7ac6a38e3e12abe178a4bed
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073328"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396277"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificar um circuito da ExpressRoute usando o PowerShell (clássico)
 
@@ -195,7 +195,7 @@ At line:1 char:1
 ### <a name="considerations"></a>Considerações
 
 * Você deve desvincular todas as redes virtuais do circuto do ExpressRoute para que a operação seja bem-sucedida. Se essa operação falhar, verifique se você tem redes virtuais vinculadas ao circuito.
-* Se o estado de provisionamento do provedor de serviço de circuito do **ExpressRoute for Provisionando** ou **provisionado** , você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado deles. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+* Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
 * Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interrompe a cobrança pelo circuito.
 
 #### <a name="delete-a-circuit"></a>Excluir um circuito

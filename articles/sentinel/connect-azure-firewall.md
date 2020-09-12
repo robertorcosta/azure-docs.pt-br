@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 167cfe6b8fb1394291866e51ec14ec91bf9035a1
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 05a2869152def0fc9a44defaa21f0643d9fdbb08
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89183545"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504869"
 ---
 # <a name="connect-data-from-azure-firewall"></a>Conectar dados do firewall do Azure
 
@@ -40,7 +40,7 @@ Saiba mais sobre como [monitorar logs de firewall do Azure](https://docs.microso
 
 1. Habilite os **logs de diagnóstico** em todos os firewalls cujos logs você deseja conectar:
 
-    1. Selecione o link [abrir >de recursos do firewall do Azure ](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Network%2FazureFirewalls) .
+    1. Selecione o link **abrir >de recursos do firewall do Azure ** .
 
     1. No menu de navegação **firewalls** , selecione **configurações de diagnóstico**.
 

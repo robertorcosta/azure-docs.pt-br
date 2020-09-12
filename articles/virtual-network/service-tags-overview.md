@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: fd44c07ea44e7487a22b0de67737dcc135c813b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ce4c44ef17f456a776fde3addc5ec4ed29c8ebbd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038031"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434445"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
 
 Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços, minimizando a complexidade de atualizações frequentes das regras de segurança de rede.
 
-Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou no  [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, **ApiManagement**) no campo correto de *origem* ou *destino* de uma regra, você poderá permitir ou negar o tráfego para o serviço correspondente.
+Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou no  [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags). Use marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço, como **ApiManagement**, no campo de *origem*   ou *destino*apropriado   de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente.
 
 Você pode usar as marcas de serviço para obter o isolamento da rede e proteger os recursos do Azure da Internet em geral ao acessar os serviços do Azure que tenham pontos de extremidade públicos. Crie regras de entrada/saída para o grupo de segurança de rede a fim de negar o tráfego de/para a **Internet** e permitir o tráfego de/para o **AzureCloud** ou outras [marcas de serviço disponíveis](#available-service-tags) de serviços específicos do Azure.
 
@@ -54,7 +54,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureBackup** |Backup do Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **Armazenamento** e **AzureActiveDirectory**. | Saída | Não | Sim |
 | **AzureBotService** | Serviço de Bot do Azure. | Saída | Não | Não |
 | **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=56519). | Saída | Sim | Sim |
-| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>Esta marca ou os endereços IP cobertos por essa marca podem ser usados para conceder aos indexadores o acesso seguro a fontes de dados. Confira a [documentação de conexão do indexador](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) para obter mais detalhes. <br/><br/> *Observação*: o IP do serviço de pesquisa não está incluído na lista de intervalos de IP para essa marca de serviço e **também precisa ser adicionado** ao firewall de IP de fontes de dados. | Entrada | Não | Não |
+| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>Esta marca ou os endereços IP cobertos por essa marca podem ser usados para conceder aos indexadores o acesso seguro a fontes de dados. Consulte a [documentação de conexão do indexador](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) para obter mais detalhes. <br/><br/> *Observação*: o IP do serviço de pesquisa não está incluído na lista de intervalos de IP para essa marca de serviço e **também precisa ser adicionado** ao firewall de IP de fontes de dados. | Entrada | Não | Não |
 | **AzureConnectors** | Conectores de Aplicativos Lógicos do Azure para conexões de investigação/back-end. | Entrada | Sim | Sim |
 | **AzureContainerRegistry** | Registro de Contêiner do Azure. | Saída | Sim | Sim |
 | **AzureCosmosDB** | Azure Cosmos DB. | Saída | Sim | Sim |
@@ -96,7 +96,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **PowerQueryOnline** | Power Query Online. | Ambos | Não | Não |
 | **Barramento de Serviço** | O tráfego do Barramento de Serviço do Azure que usa a camada de serviço Premium. | Saída | Sim | Sim |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Observação:* essa marca representa o ponto de extremidade do serviço Service Fabric do plano de controle por região. Ele permite que os clientes executem operações de gerenciamento para os clusters do Service Fabric em sua VNET (ponto de extremidade, por exemplo, https:// westus.servicefabric.azure.com) | Ambos | Não | Não |
-| **Sql** | Banco de Dados SQL do Azure, Banco de Dados do Azure para MySQL, Banco de Dados do Azure para PostgreSQL e Data Warehouse do Azure SQL.<br/><br/>*Observação:* essa marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. Essa marca não se aplica ao SQL Instância Gerenciada. | Saída | Sim | Sim |
+| **Sql** | Banco de dados SQL do Azure, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e Azure Synapse Analytics.<br/><br/>*Observação:* essa marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. Essa marca não se aplica à instância gerenciada do SQL. | Saída | Sim | Sim |
 | **SqlManagement** | Tráfego de gerenciamento para implantações dedicadas do SQL. | Ambos | Não | Sim |
 | **Storage** | Armazenamento do Microsoft Azure. <br/><br/>*Observação:* essa marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. | Saída | Sim | Sim |
 | **StorageSyncService** | Serviço de Sincronização de Armazenamento. | Ambos | Não | Não |

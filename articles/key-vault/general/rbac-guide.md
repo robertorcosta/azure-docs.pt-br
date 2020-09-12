@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f1e95c1244d327478862c3919481394d974ea42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269998"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419258"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)
 
@@ -38,7 +38,7 @@ As permissões individuais de chaves, segredos e certificados devem ser usadas s
 
 Mais sobre as diretrizes de gerenciamento de Azure Key Vault, consulte:
 
-- [Práticas recomendadas de Azure Key Vault](best-practices.md)
+- [Melhores práticas do Azure Key Vault](best-practices.md)
 - [Limites de serviço Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Funções internas do Azure para Key Vault operações do plano de dados (versão prévia)
@@ -61,6 +61,10 @@ Para obter mais informações sobre as definições de funções internas do Azu
 O novo modelo de permissão do RBAC do Azure para o Key Vault fornece uma alternativa ao modelo de permissões de política de acesso do cofre. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Habilitar permissões do RBAC do Azure no Key Vault
+
+Durante a visualização, você deve usar a marca de recurso do RBAC do Azure (Microsoft_Azure_KeyVault_RBACEnabled = true) para ver as novas opções do modelo de permissão.
+
+https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > A configuração do modelo de permissão do RBAC do Azure invalida todas as permissões de políticas de acesso. Isso pode causar interrupções quando funções equivalentes do Azure não são atribuídas.
@@ -205,8 +209,6 @@ az role definition create --role-definition '{ \
 Para obter mais informações sobre como criar funções personalizadas, consulte:
 
 [Funções personalizadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-
-Para verificação de ações disponíveis, apêndice: **ações disponíveis**
 
 ## <a name="known-limits-and-performance"></a>Limites e desempenho conhecidos
 

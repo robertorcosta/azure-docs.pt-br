@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99985ba8540a347977b9eaf2e733a308fa777b97
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231394"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401615"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de base de segurança do Azure para Cosmos DB
 
@@ -890,9 +890,11 @@ Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/gov
 
 Como integrar-se às Identidades Gerenciadas do Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um cofre de chaves: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Como criar um cofre de chaves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer a autenticação do cofre de chaves com uma identidade gerenciada: https://docs.microsoft.com/azure/key-vault/managed-identity
+Como autenticar para o Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Como atribuir uma política de acesso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -946,7 +948,7 @@ Como configurar o verificador de credenciais: https://secdevtools.azurewebsites.
 
 **Responsabilidade**: Cliente
 
-### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Garantir que o software antimalware e as assinaturas sejam atualizados
+### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: garantir que o software antimalware e as assinaturas sejam atualizados
 
 **Orientação**: não aplicável; o parâmetro de comparação destina-se a recursos de computação. O Microsoft Antimalware está habilitado no host subjacente que dá suporte aos serviços do Azure, no entanto, ele não é executado no conteúdo do cliente.
 

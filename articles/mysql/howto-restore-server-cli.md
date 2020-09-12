@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 27d1841458e8c5e1854d6fcd0810c36d4272cc1d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2116b5be4c5d40076aae10ecc2e81d73e7806e6d
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500531"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419462"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando a CLI do Azure
 
@@ -79,6 +79,12 @@ Quando você restaura um servidor para um ponto anterior no tempo, é criado um 
 Os valores de local e tipo de preço para o servidor restaurado permanecem iguais aos do servidor de origem. 
 
 Depois que o processo de restauração é concluído, localize o novo servidor e verifique se os dados são restaurados como esperado. O novo servidor tem o mesmo nome de logon e senha do administrador do servidor que eram válidos para o servidor existente no momento em que a restauração foi iniciada. A senha pode ser alterada na página **Visão geral** do servidor.
+
+Além disso, após a conclusão da operação de restauração, há dois parâmetros de servidor que são redefinidos para valores padrão (e não são copiados do servidor primário) após a operação de restauração
+*   time_zone-esse valor a ser definido como **sistema** de valor padrão
+*   event_scheduler-a event_scheduler está definida como **off** no servidor restaurado
+
+Você precisará copiar sobre o valor do servidor primário e defini-lo no servidor restaurado reconfigurando o [parâmetro do servidor](howto-server-parameters.md)
 
 O servidor criado durante uma restauração não tem o ponto de extremidade de serviço VNet existentes no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor. As regras de firewall do servidor original são restauradas.
 

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2f90ba0bb732930b4cf3b1c832c6954683119f5f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585858"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394747"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -67,7 +67,7 @@ Antes de trabalhar com chaves, segredos ou certificados em seu cofre de chaves, 
 - [Definir e recuperar um certificado com a CLI](../certificates/quick-create-cli.md)
 - [Definir e recuperar um certificado com o PowerShell](../certificates/quick-create-powershell.md)
 - [Definir e recuperar um certificado com o portal do Azure](../certificates/quick-create-portal.md)
-- [Operações de chaves com REST](/rest/api/keyvault/#certificate-operations)
+- [Operações de certificado com REST](/rest/api/keyvault/#certificate-operations)
 - [Definir e recuperar um certificado com Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Codificação com o Cofre da Chave
@@ -125,7 +125,7 @@ Os artigos e cenários a seguir fornecem diretrizes específicas da tarefa para 
 - [Como usar o Cofre de Chaves para o gerenciamento extensível de chaves com o SQL Server](https://msdn.microsoft.com/library/dn198405.aspx) - O Conector do SQL Server para o Cofre de Chaves do Azure permite que o SQL Server e o SQL em uma VM utilizem o serviço do Cofre de Chaves do Azure como um provedor EKM (gerenciamento extensível de chaves) para proteger suas chaves de criptografia para o vínculo de aplicativos; Transparent Data Encryption, Criptografia de Backup e Criptografia de Nível de Coluna.
 - [Como implantar certificados em VMs do Cofre de Chaves](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - Um aplicativo em nuvem em execução em uma VM no Azure precisa de um certificado. Como você obtém esse certificado para essa VM atualmente?
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Implantando o certificado de aplicativo Web do Azure por meio do Key Vault) fornece instruções passo a passo para implantar certificados armazenados no Key Vault como parte da oferta do [Certificado do Serviço de Aplicativo](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
-- [Conceder permissão para vários aplicativos acessarem um key vault](group-permissions-for-apps.md) política de controle de acesso do Key Vault dá suporte a até 1024 entradas. No entanto, você pode criar um grupo de segurança do Azure Active Directory. Adicione todas as entidades de serviço associadas a esse grupo de segurança e, em seguida, conceda a esse grupo de segurança acesso ao Key Vault.
+- Atribuir uma política de acesso (Portal do PowerShell da[CLI](assign-access-policy-cli.md)  |  [PowerShell](assign-access-policy-powershell.md)  |  [Portal](assign-access-policy-portal.md)). Key Vault dá suporte a até 1024 entradas de política de acesso. Para permanecer dentro desse limite com os usuários, crie Azure Active Directory grupos de segurança, adicione todas as entidades de serviço associadas a esse grupo e conceda acesso ao grupo para Key Vault.
 - Para obter mais diretrizes específicas da tarefa sobre como integrar e usar os Cofres de Chaves com o Azure, consulte os [Exemplos de modelo do Azure Resource Manager do Ryan Jones para o Cofre de Chaves](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Como usar a exclusão reversível do Key Vault com CLI](soft-delete-cli.md) orienta pela utilização e ciclo de vida de um cofre de chaves e de vários objetos de cofre de chaves com a exclusão reversível habilitada.
 - [Como usar a exclusão reversível do Key Vault com PowerShell](soft-delete-powershell.md) orienta pela utilização e ciclo de vida de um cofre de chaves e de vários objetos de cofre de chaves com a exclusão reversível habilitada.

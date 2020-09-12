@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/15/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2abbab0d6a0fd39b2adf0eade77d355c18b3cc03
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 759436477563065d9b03bffa314a4a843ec694b9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036072"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435942"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Criar uma Rede Virtual com uma conexão VPN site a site usando o PowerShell
 
@@ -186,7 +186,7 @@ Use os seguintes valores:
 
 * O *-GatewayType* para uma configuração Site a Site é *Vpn*. O tipo de gateway é sempre específico para a configuração que você está implementando. Por exemplo, outras configurações de gateway podem exigir -GatewayType ExpressRoute.
 * O *-VpnType* pode ser *RouteBased* (chamado de gateway dinâmico em alguma documentação) ou *PolicyBased* (conhecido como um gateway estático em alguma documentação). Para saber mais sobre os tipos de gateway de VPN, veja [Sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md).
-* Selecione a SKU de Gateway que você deseja usar. Há limitações de configuração para alguns SKUs. Para obter mais informações, consulte [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Se você receber um erro ao criar o gateway de VPN sobre o - GatewaySku, verifique se você instalou a versão mais recente dos cmdlets do PowerShell.
+* Selecione a SKU de Gateway que você deseja usar. Há limitações de configuração para alguns SKUs. Para obter mais informações, confira [SKUs de gateway](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Se você receber um erro ao criar o gateway de VPN sobre o - GatewaySku, verifique se você instalou a versão mais recente dos cmdlets do PowerShell.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `

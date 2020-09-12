@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: projetando para recuperação de desastres'
 description: Esta página fornece recomendações de arquitetura para a recuperação de desastres durante o uso do Azure ExpressRoute.
 services: expressroute
-author: rambk
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
-ms.author: rambala
-ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 0c85272989a362da77b01af7bb1fe968516e53b6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081161"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397994"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Criando para recuperação de desastre com o emparelhamento privado do ExpressRoute
 
@@ -76,11 +76,11 @@ Como/25 é mais específico, comparado a/24, o Azure enviaria o tráfego destina
 
 A captura de tela a seguir ilustra a configuração do peso de uma conexão do ExpressRoute por meio de portal do Azure.
 
-[![Beta]][3]
+[![3]][3]
 
 O diagrama a seguir ilustra a influência da seleção de caminho do ExpressRoute usando o peso da conexão. O peso de conexão padrão é 0. No exemplo a seguir, o peso da conexão para o ExpressRoute 1 é configurado como 100. Quando uma VNet recebe um prefixo de rota anunciado por mais de um circuito de ExpressRoute, a VNet prefere a conexão com o peso mais alto.
 
-[![quatro]][4]
+[![4]][4]
 
 Se ambas as conexões do ExpressRoute 1 ficarem inativas, a VNet veria o anúncio de rota 10.1.11.0/24 somente por meio do ExpressRoute 2; e, portanto, o circuito em espera é usado nesse estado de falha.
 

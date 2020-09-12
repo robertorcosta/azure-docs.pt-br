@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 41df31cde95ae7ed1d05dac572718622067194c9
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265245"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397297"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de Eventos ao Vivo
 
@@ -78,16 +78,15 @@ Se o feed de contribuição for de 720p ou de resolução superior, a predefini�
 
 | Bitrate | Largura | Altura | MáxFPS | Perfil |
 | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alto |
-| 2200 |960 |540 |30 |Alto |
-| 1350 |704 |396 |30 |Alto |
-| 850 |512 |288 |30 |Alto |
-| 550 |384 |216 |30 |Alto |
-| 200 |340 |192 |30 |Alto |
+| 3500 |1280 |720 |30 |Alta |
+| 2200 |960 |540 |30 |Alta |
+| 1350 |704 |396 |30 |Alta |
+| 850 |512 |288 |30 |Alta |
+| 550 |384 |216 |30 |Alta |
+| 200 |340 |192 |30 |Alta |
 
 > [!NOTE]
-> Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Você deve especificar a tabela desejada da resolução e das taxas de bits. Verifique se há apenas uma camada em 720p e no máximo seis camadas. Além disso, especifique que você está solicitando uma predefinição para um codificador ao vivo padrão.
-> Os valores específicos das taxas de bits e resoluções podem ser ajustados ao longo do tempo
+> Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Você deve especificar a tabela desejada de taxa de bits e resolução de vídeo. Não há suporte para a personalização da taxa de bits de codificação de áudio. Verifique se há apenas uma camada em 720p e no máximo seis camadas. Além disso, especifique que você está solicitando uma predefinição.
 
 ### <a name="output-video-streams-for-default1080p"></a>Fluxos de vídeo de saída para default1080p
 
@@ -95,16 +94,15 @@ Se o feed de contribuição for de 1080p resolução, a predefinição de **defa
 
 | Bitrate | Largura | Altura | MáxFPS | Perfil |
 | --- | --- | --- | --- | --- |
-| 5500 |1920 |1080 |30 |Alto |
-| 3000 |1280 |720 |30 |Alto |
-| 1600 |960 |540 |30 |Alto |
-| 800 |640 |360 |30 |Alto |
-| 400 |480 |270 |30 |Alto |
-| 200 |320 |180 |30 |Alto |
+| 5500 |1920 |1080 |30 |Alta |
+| 3000 |1280 |720 |30 |Alta |
+| 1600 |960 |540 |30 |Alta |
+| 800 |640 |360 |30 |Alta |
+| 400 |480 |270 |30 |Alta |
+| 200 |320 |180 |30 |Alta |
 
 > [!NOTE]
-> Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Você deve especificar a tabela desejada da resolução e das taxas de bits. Verifique se há apenas uma camada em 1080p e no máximo 6 camadas. Além disso, especifique que você está solicitando uma predefinição para um codificador ao vivo Premium1080p.
-> Os valores específicos das taxas de bits e resoluções podem ser ajustados ao longo do tempo.
+> Se você precisar personalizar a predefinição de codificação ativa, abra um tíquete de suporte por meio do portal do Azure. Você deve especificar a tabela desejada da resolução e das taxas de bits. Verifique se há apenas uma camada em 1080p e no máximo 6 camadas. Além disso, especifique que você está solicitando uma predefinição para um codificador ao vivo Premium1080p. Os valores específicos das taxas de bits e resoluções podem ser ajustados ao longo do tempo.
 
 ### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Fluxo de áudio de saída para default720p e default1080p
 

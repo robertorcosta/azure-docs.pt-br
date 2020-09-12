@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268152"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419819"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Implantar VMs em seu Azure Stack dispositivo de GPU de borda por meio de modelos
 
@@ -23,7 +23,7 @@ Os modelos são flexíveis em ambientes diferentes, pois eles podem usar parâme
 
 Neste tutorial, usaremos modelos de exemplo pré-gravados para a criação de recursos. Você não precisará editar o arquivo de modelo e poderá modificar apenas os `.parameters.json` arquivos para personalizar a implantação em seu computador. 
 
-## <a name="vm-deployment-workflow"></a>Fluxo de trabalho de implantação de VM
+## <a name="vm-deployment-workflow"></a>Fluxo de trabalho de implantação da VM
 
 Para implantar Azure Stack VMs de borda em vários dispositivos, você pode usar um único VHD Sysprep para sua frota completa, o mesmo modelo para implantação e apenas fazer pequenas alterações nos parâmetros para esse modelo para cada local de implantação (essas alterações podem ser feitas manualmente, como estamos fazendo aqui ou programaticamente.) 
 
@@ -139,7 +139,7 @@ key1 GsCm7QriXurqfqx211oKdfQ1C9Hyu5ZutP6Xl0dqlNNhxLxDesDej591M8y7ykSPN4fY9vmVpgc
 key2 7vnVMJUwJXlxkXXOyVO4NfqbW5e/5hZ+VOs+C/h/ReeoszeV+qoyuBitgnWjiDPNdH4+lSm1/ZjvoBWsQ1klqQ== ll
 ```
 
-### <a name="add-blob-uri-to-hosts-file"></a>Adicionar URI de blob ao arquivo de hosts
+### <a name="add-blob-uri-to-hosts-file"></a>Adicionar o URI do blob ao arquivo hosts
 
 Certifique-se de que você já adicionou o URI de blob no arquivo de hosts para o cliente que você está usando para se conectar ao armazenamento de BLOBs. **Execute o bloco de notas como administrador** e adicione a seguinte entrada para o URI de blob no `C:\windows\system32\drivers\etc\hosts` :
 
@@ -167,7 +167,7 @@ Copie as imagens de disco a serem usadas em blobs de páginas na conta de armaze
 
     ![Importar certificado de ponto de extremidade de armazenamento de BLOB](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/import-blob-storage-endpoint-certificate-1.png)
 
-    - Se você estiver usando certificados gerados pelo dispositivo, baixe e converta o certificado do ponto de extremidade do armazenamento de BLOBs `.cer` em um `.pem` formato. Execute o seguinte comando. 
+    - Se você estiver usando certificados gerados pelo dispositivo, baixe e converta o certificado do ponto de extremidade do armazenamento de BLOBs `.cer` em um `.pem` formato. Execute o comando a seguir. 
     
         ```powershell
         PS C:\windows\system32> Certutil -encode 'C:\myasegpu1_Blob storage (1).cer' .\blobstoragecert.pem
@@ -245,11 +245,14 @@ O arquivo `CreateImageAndVnet.parameters.json` usa os seguintes parâmetros:
 
 ```json
 "parameters": {
+        "osType": {
+              "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+        },
         "imageName": {
             "value": "<Name for the VM iamge>"
         },
         "imageUri": {
-      "value": "<Path to the VHD that you uploaded in the Storage account>"
+              "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
         "vnetName": {
             "value": "<Name for the virtual network where you will deploy the VM>"
@@ -340,7 +343,7 @@ Implante o modelo `CreateImageAndVnet.json` . Este modelo implanta os recursos d
 > [!NOTE]
 > Ao implantar o modelo, se você receber um erro de autenticação, suas credenciais do Azure para esta sessão poderão ter expirado. Execute `login-AzureRM` novamente o comando para se conectar ao Azure Resource Manager em seu dispositivo do Azure Stack Edge novamente.
 
-1. Execute o seguinte comando: 
+1. Execute o comando a seguir: 
     
     ```powershell
     $templateFile = "Path to CreateImageAndVnet.json"
@@ -494,14 +497,14 @@ Atribua parâmetros apropriados no `CreateVM.parameters.json` para seu dispositi
 
 Implante o modelo de criação de VM `CreateVM.json` . Este modelo cria uma interface de rede a partir da VNet existente e cria a VM a partir da imagem implantada.
 
-1. Execute o seguinte comando: 
+1. Execute o comando a seguir: 
     
     ```powershell
     Command:
         
         $templateFile = "<Path to CreateVM.json>"
         $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "RG1"
+        $RGName = "<Resource group name>"
              
         New-AzureRmResourceGroupDeployment `
             -ResourceGroupName $RGName `
@@ -547,15 +550,47 @@ Implante o modelo de criação de VM `CreateVM.json` . Este modelo cria uma inte
         
         PS C:\07-30-2020>
     ```   
- 
-7. Verifique se a VM foi provisionada com êxito. Execute o seguinte comando:
+Você também pode executar o `New-AzureRmResourceGroupDeployment` comando de forma assíncrona com o `–AsJob` parâmetro. Aqui está um exemplo de saída quando o cmdlet é executado em segundo plano. Em seguida, você pode consultar o status do trabalho criado usando o `Get-Job` cmdlet.
+
+    ```powershell   
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
+    ```
+
+7. Verifique se a VM foi provisionada com êxito. Execute o comando a seguir:
 
     `Get-AzureRmVm`
 
 
 ## <a name="connect-to-a-vm"></a>Como conectar-se a uma VM
 
+Dependendo se você criou uma VM do Windows ou do Linux, as etapas para conectar podem ser diferentes.
+
+### <a name="connect-to-windows-vm"></a>Conectar-se à VM do Windows
+
+Siga estas etapas para se conectar a uma VM do Windows.
+
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+### <a name="connect-to-linux-vm"></a>Conectar-se à VM do Linux
+
+Siga estas etapas para se conectar a uma VM do Linux.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
 <!--## Manage VM
 

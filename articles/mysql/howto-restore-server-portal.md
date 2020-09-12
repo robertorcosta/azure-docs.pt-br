@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: 1a10d61c5dc35a19a8b02769a517d9f1c7aac601
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119218"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421077"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando o Portal do Azure
 
@@ -37,7 +37,7 @@ Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é
 Para saber mais sobre como definir esses valores de durante a criação, confira o [guia de início rápido do Banco de Dados do Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 O período de retenção de backup pode ser alterado em um servidor por meio das seguintes etapas:
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Selecione seu servidor de Banco de Dados do Azure para MySQL. Essa ação abre a página **Visão geral** do runbook.
 3. Selecione **Tipo de Preço** no menu, em **CONFIGURAÇÕES**. Usando o controle deslizante, você pode alterar o **Período de Retenção de Backup** entre 7 e 35 dias, conforme a sua preferência.
 Na captura de tela abaixo, ele foi aumentado para 34 dias.
@@ -73,12 +73,18 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 
 O novo servidor criado pela restauração pontual tem o mesmo nome de logon e senha do administrador válidos para o servidor existente no ponto escolhido. Você pode alterar a senha na página **Visão geral** do novo servidor.
 
+Além disso, após a conclusão da operação de restauração, há dois parâmetros de servidor que são redefinidos para valores padrão (e não são copiados do servidor primário) após a operação de restauração
+*   time_zone-esse valor a ser definido como **sistema** de valor padrão
+*   event_scheduler-a event_scheduler está definida como **off** no servidor restaurado
+
+Você precisará copiar sobre o valor do servidor primário e defini-lo no servidor restaurado reconfigurando o [parâmetro do servidor](howto-server-parameters.md)
+
 O servidor criado durante uma restauração não tem o ponto de extremidade de serviço VNet existentes no servidor original. Essas regras precisam ser configuradas separadamente para esse novo servidor. As regras de firewall do servidor original são restauradas.
 
 ## <a name="geo-restore"></a>Restauração geográfica
 Se você configurou seu servidor para backups com redundância geográfica, um novo servidor pode ser criado do backup do servidor existente. Esse novo servidor pode ser criado em qualquer região em que o Banco de Dados do Azure para MySQL esteja disponível.  
 
-1. Selecione o botão **criar um recurso** (+) no canto superior esquerdo do Portal. Selecione **Bancos de Dados** > **Banco de Dados do Azure para MySQL**.
+1. Selecione o botão **Criar um recurso** (+) no canto superior esquerdo do portal. Selecione **Bancos de Dados** > **Banco de Dados do Azure para MySQL**.
 
    :::image type="content" source="./media/howto-restore-server-portal/1_navigate-to-mysql.png" alt-text="Navegue até o banco de dados do Azure para MySQL.":::
  

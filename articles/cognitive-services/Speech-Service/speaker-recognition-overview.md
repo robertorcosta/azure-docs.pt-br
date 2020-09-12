@@ -1,25 +1,27 @@
 ---
-title: Serviço de Reconhecimento do Locutor do Azure
+title: Visão geral do Reconhecimento do Locutor-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Os serviços cognitivas do Azure Reconhecimento do Locutor fornecem algoritmos que verificam e identificam alto-falantes por suas características de voz exclusivas O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?".
+description: Reconhecimento do Locutor fornece algoritmos que verificam e identificam os alto-falantes por suas características de voz exclusivas usando biometry de voz. O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?". Este artigo é uma visão geral dos benefícios e funcionalidades do serviço de Reconhecimento do Locutor.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: cog-serv-seo-aug-2020
+keywords: reconhecimento de palestrante, biometry de voz
+ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780878"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397252"
 ---
-# <a name="what-is-the-azure-speaker-recognition-service"></a>O que é o serviço de Reconhecimento do Locutor do Azure?
+# <a name="what-is-speaker-recognition"></a>O que é o Reconhecimento do Locutor?
 
-O serviço de Reconhecimento do Locutor fornece algoritmos que verificam e identificam os locutores por suas características de voz exclusivas. O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?". Você fornece dados de treinamento de áudio para um único palestrante, que cria um perfil de registro com base nas características exclusivas da voz do orador. Em seguida, você pode fazer uma verificação cruzada das amostras de voz de áudio em relação a esse perfil para verificar se o orador é a mesma pessoa (verificação do orador) ou fazer uma verificação cruzada de exemplos de voz de áudio em um *grupo* de perfis de palestrantes registrados, para ver se ele corresponde a qualquer perfil no grupo (identificação do orador). Por outro lado, o [Diarization do orador](batch-transcription.md#speaker-separation-diarization) agrupa segmentos de áudio por palestrante em uma operação em lote.
+O serviço de Reconhecimento do Locutor fornece algoritmos que verificam e identificam os alto-falantes por suas características de voz exclusivas usando biometry de voz. O Reconhecimento do Locutor é usado para responder à pergunta "quem está falando?". Você fornece dados de treinamento de áudio para um único palestrante, que cria um perfil de registro com base nas características exclusivas da voz do orador. Em seguida, você pode fazer uma verificação cruzada das amostras de voz de áudio em relação a esse perfil para verificar se o orador é a mesma pessoa (verificação do orador) ou fazer uma verificação cruzada de exemplos de voz de áudio em um *grupo* de perfis de palestrantes registrados, para ver se ele corresponde a qualquer perfil no grupo (identificação do orador). Por outro lado, o [Diarization do orador](batch-transcription.md#speaker-separation-diarization) agrupa segmentos de áudio por palestrante em uma operação em lote.
 
 ## <a name="speaker-verification"></a>Verificação do locutor
 

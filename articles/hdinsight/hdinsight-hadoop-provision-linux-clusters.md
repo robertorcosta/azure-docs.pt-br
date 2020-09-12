@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b7757b5204c9b3b32145667367a71a9acc42c230
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749878"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434649"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configure os clusters no HDInsight com o Apache Hadoop, o Apache Spark, o Apache Kafka e muito mais
 
@@ -32,7 +32,7 @@ Se você estiver usando vários clusters juntos, desejará criar uma rede virtua
 
 A tabela a seguir mostra os diferentes métodos que você pode usar para configurar um cluster HDInsight.
 
-| Clusters criados com | Navegador da Web | Linha de Comando | API REST | . |
+| Clusters criados com | Navegador da Web | Linha de comando | API REST | . |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -93,7 +93,7 @@ Escolha a versão do HDInsight para este cluster. Para saber mais, confira [Vers
 Com os clusters HDInsight, você pode configurar duas contas de usuário durante a criação de cluster:
 
 * Nome de usuário de logon do cluster: o nome de usuário padrão é *admin*. Ele usa a configuração básica no portal do Azure. Às vezes, é chamado de "usuário de cluster" ou "usuário HTTP".
-* Nome de usuário do Secure Shell (SSH): usado para se conectar ao cluster por meio de SSH. Para obter mais informações, consulte [usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Nome de usuário do Secure Shell (SSH): usado para se conectar ao cluster por meio de SSH. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 O nome de usuário HTTP tem as seguintes restrições:
 
@@ -139,7 +139,7 @@ Durante a configuração, para o ponto de extremidade de armazenamento padrão, 
 
 ### <a name="metastore-settings"></a>Configurações de metastore
 
-Você pode criar metastores Hive ou Apache Oozie opcionais. No entanto, nem todos os tipos de cluster dão suporte a metastores e o SQL Data Warehouse do Azure não é compatível com metastores.
+Você pode criar metastores Hive ou Apache Oozie opcionais. No entanto, nem todos os tipos de cluster dão suporte a metastores e o Azure Synapse Analytics não é compatível com metastores.
 
 Para obter mais informações, consulte [Usar armazenamentos de metadados externos no Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 

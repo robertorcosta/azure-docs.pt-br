@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f816c95b5e210e86e2215cadf8407f442d69ebe
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1c5efbbd5f9f5dfe701deb50b51605ab324c081a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475954"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401666"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo de funções atribuídas no Azure Active Directory
 
-Você só pode atribuir uma função a um grupo que foi criado com a propriedade ' isAssignableToRole ' definida como true, ou foi criado no portal do Azure AD com as **funções do Azure AD que podem ser atribuídas ao grupo** ativado. Esse atributo de grupo torna o grupo um que pode ser atribuído a uma função no Azure Active Directory (Azure AD). Este artigo descreve como criar esse tipo especial de grupo.
+Você só pode atribuir uma função a um grupo que foi criado com a propriedade ' isAssignableToRole ' definida como true, ou foi criado no portal do Azure AD com as **funções do Azure AD que podem ser atribuídas ao grupo** ativado. Esse atributo de grupo torna o grupo um que pode ser atribuído a uma função no Azure Active Directory (Azure AD). Este artigo descreve como criar esse tipo especial de grupo. **Observação:** Um grupo com a propriedade isAssignableToRole definida como true não pode ser do tipo de associação dinâmica. Para obter mais informações, consulte [usando um grupo para gerenciar atribuições de função do Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
 
 ## <a name="using-azure-ad-admin-center"></a>Usando o centro de administração do Azure AD
 
@@ -128,4 +128,4 @@ Para esse tipo de grupo, `isPublic` sempre será false e `isSecurityEnabled` ser
 
 - [Atribuir uma função a um grupo de nuvem](roles-groups-assign-role.md)
 - [Usar grupos de nuvem para gerenciar atribuições de função](roles-groups-concept.md)
-- [Solucionando problemas de funções atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)
+- [Solução de problemas de funções atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)

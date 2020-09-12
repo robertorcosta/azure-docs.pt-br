@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f7f559a0f0cfeddcba6e3f563c0a74a2472887d7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226770"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393829"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Linha de base de segurança do Azure para banco de dados do Azure para MariaDB
 
@@ -880,11 +880,11 @@ Como configurar e gerenciar o Azure Policy: https://docs.microsoft.com/azure/gov
 
 Como integrar-se às Identidades Gerenciadas do Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um cofre de chaves: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Como criar um cofre de chaves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer a autenticação do cofre de chaves com uma identidade gerenciada: https://docs.microsoft.com/azure/key-vault/managed-identity 
+Como autenticar para o Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
 
-
+Como atribuir uma política de acesso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

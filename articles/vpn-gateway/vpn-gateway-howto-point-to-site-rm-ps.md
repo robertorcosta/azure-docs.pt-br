@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/15/2020
+ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3a17b56d3abed30ccb495fd9111ff1299165175c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7522e4c1074c3c52e62453e815cce859a86148
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988091"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435755"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma conexão VPN ponto a site para uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
 
@@ -95,7 +95,7 @@ Declare as variáveis que você quer usar. Use o exemplo a seguir, substituindo 
 
 ## <a name="2-configure-a-vnet"></a><a name="ConfigureVNet"></a>2. configurar uma VNet
 
-1. Crie um grupos de recursos.
+1. Crie um grupo de recursos.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG -Location $Location

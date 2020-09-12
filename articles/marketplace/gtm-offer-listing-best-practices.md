@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816262"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420924"
 ---
 # <a name="offer-listing-best-practices"></a>Práticas recomendadas de listagem de ofertas
 
@@ -34,7 +34,7 @@ As categorias e os setores de uma loja online diferente serão aplicáveis a dif
 
 | Loja online | Categorias <br>por loja online | Categorias <br>por loja online | Setores <br> para AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
-| **Tipo de oferta**   |  **Azure Marketplace**  | **AppSource**  |
+| **Tipo de Oferta**   |  **Azure Marketplace**  | **AppSource**  |
 | Aplicativo do Azure | X | |
 | Contêiner | X | |
 | Serviços de Consultoria | | | X |
@@ -48,11 +48,11 @@ As categorias e os setores de uma loja online diferente serão aplicáveis a dif
 
 ### <a name="categories"></a>Categorias
 
-O Microsoft AppSource e o Azure Marketplace são duas lojas online diferentes que atendem aos requisitos exclusivos do cliente. O Azure Marketplace tem como alvo profissionais de ti e desenvolvedores que criam soluções no Azure.  Microsoft AppSource destina-se a usuários empresariais que buscam aplicativos SaaS de negócios e/ou setor, suplementos do Dynamics 365, suplementos de Microsoft 365 e aplicativos de plataforma de energia.
+O Microsoft AppSource e o Azure Marketplace são lojas online que oferecem tipos de solução diferentes. O Azure Marketplace oferece soluções de ti criadas no ou para o Azure.  Microsoft AppSource oferecem soluções de negócios, como aplicativos SaaS do setor, suplementos do Dynamics 365, suplementos de Microsoft 365 e aplicativos de plataforma de energia.
 
-As categorias e subcategorias são mapeadas para cada loja online com base no público-alvo. Sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace, dependendo do tipo de oferta, dos recursos de transação da seleção de oferta e categoria/subcategoria. 
+Categorias e subcategorias são mapeadas para cada loja online com base no tipo de solução. Sua oferta será publicada no Microsoft AppSource ou no Azure Marketplace, dependendo do tipo de oferta, dos recursos de transação da seleção de oferta e categoria/subcategoria. 
 
-Selecione categorias e subcategorias que melhor se alinhem com sua oferta e seu público-alvo. Você pode selecionar:
+Selecione categorias e subcategorias que melhor se alinham com o tipo de solução. Você pode selecionar:
 
 * Até duas categorias, incluindo uma categoria primária e uma secundária (opcional).
 * Até duas subcategorias para cada categoria primária e/ou secundária. Se nenhuma subcategoria for selecionada, sua oferta ainda poderá ser descoberta somente na categoria selecionada.

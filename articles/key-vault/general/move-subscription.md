@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145358"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394725"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Movendo um Azure Key Vault para outra assinatura
 
@@ -97,11 +97,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Agora que o cofre está associado à ID de locatário correta e as antigas entradas da política de acesso foram removidas, defina novas entradas da política de acesso com o cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) do Azure PowerShell ou o comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) da CLI do Azure.
 
-Se você estiver usando uma identidade gerenciada para recursos do Azure, será necessário atualizá-la também para o novo locatário do Azure AD também. Para obter mais informações sobre identidades gerenciadas, confira [Fornecer autenticação do Key Vault com uma identidade gerenciada](managed-identity.md).
+Se você estiver usando uma identidade gerenciada para recursos do Azure, será necessário atualizá-la para o novo locatário Azure Active Directory também. Para obter mais informações sobre identidades gerenciadas, [visão geral da identidade gerenciada](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Se estiver usando o MSI, você também precisará atualizar a identidade do MSI, já que a identidade antiga não estará mais no locatário correto do AAD. Consulte os documentos a seguir para ajudar a resolver esse problema. 
+Se você estiver usando a identidade gerenciada, também precisará atualizar a identidade porque a identidade antiga não estará mais no locatário de Azure Active Directory correto. Consulte os documentos a seguir para ajudar a resolver esse problema. 
 
 * [Atualizando MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [Transferir assinatura para o novo diretório](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
-
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 42a76a2cf583a57ae5b38fe051ee48d16d705dd2
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e8f9a8e1d10e39e37480e06a25fcc0e203a104ec
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319959"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378722"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Estratégias de autenticação do serviço de medição do Marketplace
 
@@ -145,7 +145,7 @@ Por exemplo, siga as etapas abaixo para autenticar usando uma VM do Windows,
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,4 +156,4 @@ Por exemplo, siga as etapas abaixo para autenticar usando uma VM do Windows,
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Criar uma oferta do Aplicativo Azure](./create-new-azure-apps-offer.md)
-* [Criar uma oferta de SaaS transactável](./offer-creation-checklist.md)
+* [Planejar uma oferta de SaaS](../plan-saas-offer.md)

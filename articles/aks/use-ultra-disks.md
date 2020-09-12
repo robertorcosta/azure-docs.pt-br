@@ -4,12 +4,12 @@ description: Saiba como habilitar e configurar o ultra disks em um cluster do AK
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650172"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420856"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usar ultra discos do Azure no serviço kubernetes do Azure (versão prévia)
 
@@ -21,11 +21,6 @@ Esse recurso só pode ser definido na criação do cluster ou no momento da cria
 
 > [!IMPORTANT]
 > Os ultra discos do Azure exigem o nodepools implantado em zonas de disponibilidade e regiões que dão suporte a esses discos, bem como apenas a séries específicas da VM. Confira o [**escopo e as limitações do GA dos ultra discos**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-- Verifique se o `EnableUltraSSD` sinalizador de recurso está habilitado.
-- Verifique se você tem a última `aks-preview` [extensão da CLI][az-extension-add] instalada.
 
 ### <a name="register-the-enableultrassd-preview-feature"></a>Registrar o `EnableUltraSSD` recurso de visualização
 
@@ -78,7 +73,7 @@ Criar um grupo de recursos do Azure:
 az group create --name myResourceGroup --location westus2
 ```
 
-Crie o cluster AKS com a integração do Azure AD gerenciada e o RBAC do Azure para autorização do kubernetes.
+Crie o cluster AKS com suporte para ultra disks.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
@@ -133,7 +128,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 ## <a name="create-a-persistent-volume-claim"></a>Criar uma declaração de volume persistente
 
-Um PVC (declaração de volume persistente) é usado para provisionar automaticamente o armazenamento com base em uma classe de armazenamento. Nesse caso, um PVC pode usar uma das classes de armazenamento pré-criadas para criar um disco gerenciado standard ou premium do Azure.
+Um PVC (declaração de volume persistente) é usado para provisionar automaticamente o armazenamento com base em uma classe de armazenamento. Nesse caso, um PVC pode usar a classe de armazenamento criada anteriormente para criar um ultra Disk.
 
 Crie um arquivo chamado `azure-ultra-disk-pvc.yaml` e copie-o para o manifesto a seguir. A declaração solicita um disco chamado `ultra-disk` que tenha *1000 GB* de tamanho com acesso *ReadWriteOnce* . A classe de armazenamento *ultra-Disk-SC* é especificada como a classe de armazenamento.
 

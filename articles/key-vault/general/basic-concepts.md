@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c64835ced558727718690138c3e7a7666cf0809
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167291"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378994"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos do Azure Key Vault
 
-O Azure Key Vault é uma ferramenta para armazenar e acessar segredos de forma segura. Um segredo é tudo o que você deseja controlar rigorosamente o acesso, como certificados, senhas ou chaves de API. Um cofre é um grupo lógico de segredos.
+O Azure Key Vault é uma ferramenta para armazenar e acessar segredos de forma segura. Um segredo é tudo a que você deseja controlar rigorosamente o acesso, como certificados, senhas ou chaves de API. Um cofre é um grupo lógico de segredos.
 
 Aqui estão outros termos importantes:
 
@@ -33,7 +33,7 @@ Aqui estão outros termos importantes:
 
 - **Grupo de recursos**: trata-se de um contêiner que mantém os recursos relacionados de uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização.
 
-- **Entidade de serviço**: uma entidade de serviço do Azure é uma identidade de segurança que os aplicativos, serviços e ferramentas de automação criados pelo usuário usam para acessar recursos específicos do Azure. Imagine-o como uma "identidade do usuário" (nome de usuários e senha ou certificado) com uma função específica e permissões rigidamente controladas. Uma entidade de serviço só precisa fazer coisas específicas, ao contrário de uma identidade de usuário geral. Ele melhora a segurança se você conceder apenas o nível mínimo de permissão necessário para executar suas tarefas de gerenciamento.
+- **Entidade**de segurança: uma entidade de segurança do Azure é uma identidade de segurança que os aplicativos, serviços e ferramentas de automação criados pelo usuário usam para acessar recursos específicos do Azure. Imagine-o como uma "identidade do usuário" (nome de usuários e senha ou certificado) com uma função específica e permissões rigidamente controladas. Uma entidade de segurança deve precisar apenas fazer coisas específicas, diferentemente de uma identidade de usuário geral. Ele melhora a segurança se você conceder apenas o nível mínimo de permissão necessário para executar suas tarefas de gerenciamento. Uma entidade de segurança usada com um aplicativo ou serviço é especificamente chamada de **entidade de serviço**.
 
 - [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): o Azure AD é o serviço do Active Directory de um locatário. Cada diretório tem um ou mais domínios. Um diretório pode ter várias assinaturas associadas a ele, mas apenas um locatário.
 

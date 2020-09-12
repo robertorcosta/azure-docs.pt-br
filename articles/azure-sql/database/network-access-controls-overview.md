@@ -1,7 +1,7 @@
 ---
 title: Controles de Acesso à Rede
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Visão geral de como gerenciar e controlar o acesso à rede para o banco de dados SQL do Azure e o Azure Synapse Analytics (anteriormente SQL Data Warehouse do Azure).
+description: Visão geral de como gerenciar e controlar o acesso à rede para o banco de dados SQL do Azure e o Azure Synapse Analytics (anteriormente SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085456"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435364"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controles de acesso à rede do banco de dados SQL do Azure e do Azure Synapse Analytics
 
@@ -102,7 +102,7 @@ start          end
 13.86.216.192  13.86.216.223
 ```
 
-Agora você pode adicioná-las como regras de firewall distintas e, em seguida, definir **permitir que os serviços do Azure acessem o servidor** como desativado.
+Agora você pode adicioná-las como regras de firewall distintas e, em seguida, definir **permitir que os serviços do Azure acessem o servidor**  como desativado.
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall de IP
 

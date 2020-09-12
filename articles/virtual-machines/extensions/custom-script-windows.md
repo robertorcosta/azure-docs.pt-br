@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: 5ab8d45c12d7b2c408328e306b1a6961cbe5272a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010930"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426258"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -60,6 +60,7 @@ Se o script estiver em um servidor local, ainda poderá ser necessário abrir po
 * É permitido que o script seja executado em até 90 minutos e um período mais longo resultará em falha na provisão da extensão.
 * Não coloque reinicializações dentro do script, pois essa ação causará problemas com outras extensões que estão sendo instaladas. Após a reinicialização, a extensão não continuará depois de reiniciar.
 * Se você tiver um script que causará uma reinicialização, instalará aplicativos e executará scripts, você poderá agendar a reinicialização usando uma Tarefa Agendada do Windows ou usar ferramentas como as extensões DSC, Chef ou Puppet.
+* Não é recomendável executar um script que causará uma parada ou atualização do agente de VM. Isso pode permitir a extensão em um estado de transição, levando a um tempo limite.
 * A extensão executará um script somente uma vez. Se você quiser executar um script em cada inicialização, use a extensão pra criar uma Tarefa Agendada do Windows.
 * Se você quiser agendar quando um script será executado, use a extensão para criar uma Tarefa Agendada do Windows.
 * Quando o script for executado, você só verá um status da extensão 'em transição' no portal do Azure ou no CLI. Se quiser atualizações de status mais frequentes de um script em execução, será necessário criar sua própria solução.

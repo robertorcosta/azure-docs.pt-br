@@ -3,15 +3,15 @@ title: O que é monitorado pelo Azure Monitor
 description: Referência de todos os serviços e outros recursos monitorados pelo Azure Monitor.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 06/15/2020
-ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+author: rboucher
+ms.author: robb
+ms.date: 08/15/2020
+ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080857"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435398"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -120,7 +120,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Hub IoT | Sim | Sim | Não |  |
 |Key Vault | Sim | Sim | [Sim](./insights/key-vault-insights-overview.md) |  |
 |AKS (Serviço do Kubernetes) | Não | Não | [Sim](insights/container-insights-overview.md)  |  |
-|Load Balancer | Sim | Sim | Não |  |
+|Load Balancer | Sim | Não | Não |  |
 |Aplicativos Lógicos | Sim | Sim | Não |  |
 |Serviço do Machine Learning | Não | Não | Não |  |
 |Aplicativos gerenciados  | Não | Não | Não |  |
@@ -151,7 +151,7 @@ A tabela a seguir lista os serviços do Azure e os dados coletados no Azure Moni
 |Portal de inscrição | Não | Não | Não |  |
 |Site Recovery | Não | Sim | Não |  |
 |Spring Cloud Service | Não | Não | Não |  |
-|SQL Data Warehouse | Sim | Sim | Não |  |
+|Azure Synapse Analytics | Sim | Sim | Não |  |
 |Banco de Dados SQL | Sim | Sim | Não |  |
 |SQL Server Stretch Database | Sim | Sim | Não |  |
 |Pilha | Não | Não | Não |  |

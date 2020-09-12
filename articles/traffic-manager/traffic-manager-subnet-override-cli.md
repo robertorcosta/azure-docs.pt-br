@@ -3,17 +3,17 @@ title: Substituição de sub-rede do Gerenciador de tráfego do Azure usando CLI
 description: Este artigo o ajudará a entender como a substituição de sub-rede do Gerenciador de tráfego pode ser usada para substituir o método de roteamento de um perfil do Gerenciador de tráfego para direcionar o tráfego para um ponto de extremidade com base no endereço IP do usuário final por meio do intervalo de IP predefinido para mapeamentos de ponto de extremidade.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: rohink
-ms.openlocfilehash: 33fdc2875d8d766f212301ddfecf9dbb734b876a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b66f1f0061f697349afae21f5f9c63a4089c2794
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689683"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401683"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Substituição de sub-rede do Gerenciador de tráfego usando CLI do Azure
 

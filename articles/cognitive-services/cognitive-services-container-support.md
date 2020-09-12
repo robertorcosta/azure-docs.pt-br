@@ -8,25 +8,28 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
-ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 141b82467f2b437cfd4a8125d86618b85e48a6ef
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104394"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424627"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte de contêiner nos Serviços Cognitivos do Azure
+
+> [!WARNING]
+> Em 11 de junho de 2020, a Microsoft comunicou que não venderá tecnologia de reconhecimento facial a departamentos de polícia nos Estados Unidos até que um sólido regulamento, com base nos direitos humanos, seja aprovado. Assim, os clientes não podem usar os recursos de reconhecimento facial ou a funcionalidade incluída nos serviços do Azure, como face ou Video Indexer, se um cliente estiver ou permitindo o uso de tais serviços por ou para, um departamento de polícia na Estados Unidos.
 
 O suporte a contêineres nos serviços cognitivas do Azure permite que os desenvolvedores usem as mesmas APIs avançadas disponíveis no Azure, além de permitir flexibilidade em onde implantar e hospedar os serviços que acompanham os [contêineres do Docker](https://www.docker.com/what-container). Atualmente, o suporte a contêineres está disponível para um subconjunto de serviços cognitivas do Azure, incluindo partes do:
 
 > [!div class="checklist"]
-> * [Detector de anomalias][ad-containers]
+> * [Detector de Anomalias][ad-containers]
 > * [Pesquisa Visual Computacional][cv-containers]
 > * [Detecção Facial][fa-containers]
 > * [Reconhecimento de Formulários][fr-containers]
-> * [Reconhecimento Vocal (LUIS)][lu-containers]
+> * [Reconhecimento vocal (LUIS)][lu-containers]
 > * [API do Serviço de Fala][sp-containers]
 > * [Análise de Texto][ta-containers]
 
@@ -51,7 +54,7 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 
 | Serviço | Tipo de preço com suporte | Contêiner | Descrição |
 |--|--|--|--|
-| [Detector de Anomalias][ad-containers] | F0, S0 | **Detector de anomalias** | A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina.<br>[Solicitar acesso][request-access] |
+| [Detector de anomalias][ad-containers] | F0, S0 | **Detector de anomalias** | A API do Detector de Anomalias permite monitorar e detectar anormalidades em seus dados de série temporal com aprendizado de máquina.<br>[Solicitar acesso][request-access] |
 | [Pesquisa Visual Computacional][cv-containers] | F0, S1 | **Ler** | Extrai texto impresso de imagens de vários objetos com diferentes superfícies e planos de fundo como recibos, pôsters e cartões de visita. O contêiner de leitura também detecta *texto manuscrito* em imagens e fornece suporte a PDF/TIFF/várias páginas.<br/><br/>**Importante:** O contêiner de leitura atualmente funciona apenas com o inglês. |
 | [Detecção Facial][fa-containers] | F0, S0 | **Detecção Facial** | Detecta rostos humanos em imagens e identifica atributos, incluindo referências faciais (como narizes e olhos), sexo, idade e outras características faciais previstas pelo computador. Além de detectar, a Detecção Facial pode verificar se duas faces na mesma imagem ou imagens diferentes são iguais usando uma pontuação de confiança, ou comparar faces em relação a um banco de dados para ver se uma face semelhante ou idêntica já existe. Além disso, também pode organizar rostos semelhantes em grupos, usando traços visuais compartilhados.<br>[Solicitar acesso][request-access] |
 | [Reconhecedor de formulário][fr-containers] | F0, S0 | **Reconhecimento de Formulários** | A compreensão de formulário aplica a tecnologia de aprendizado de máquina para identificar e extrair pares de chave-valor e tabelas de formulários.<br>[Solicitar acesso][request-access] |
@@ -60,6 +63,7 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 | [API do Serviço de Fala][sp-containers-cstt] | F0, S0 | **Fala Personalizada para texto** | Transcreve a fala contínua em tempo real em texto usando um modelo personalizado. |
 | [API do Serviço de Fala][sp-containers-tts] | F0, S0 | **Conversão de texto em fala** | Converte o texto em fala que soa natural. |
 | [API do Serviço de Fala][sp-containers-ctts] | F0, S0 | **Conversão de texto em fala personalizada** | Converte o texto em uma fala de som natural usando um modelo personalizado. |
+| [API do Serviço de Fala][sp-containers-ntts] | F0, S0 | **Texto em fala neural** | Converte o texto em voz natural usando uma tecnologia de rede neural profunda, permitindo uma fala mais natural sintetizada. |
 | [Análise de Texto][ta-containers-keyphrase] | F0, S | **Extração de Frases-Chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extrai frases-chave para identificar os principais pontos. Por exemplo, para o texto de entrada "A comida estava deliciosa e a equipe era maravilhosa", a API retorna os principais pontos de discussão: "comida" e "equipe maravilhosa". |
 | [Análise de Texto][ta-containers-language] | F0, S | **Detecção de Idioma** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Para até 120 idiomas, detecta em qual idioma o texto de entrada está escrito e informa um código de idioma único para cada documento enviado na solicitação. O código de idioma é emparelhado com uma pontuação que indica a intensidade da pontuação. |
 | [Análise de Texto][ta-containers-sentiment] | F0, S | **Análise de sentimento v3** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analisa o texto bruto em busca de pistas sobre sentimentos positivos ou negativos. Esta versão da análise de sentimentos retorna rótulos de sentimentos (por exemplo, *positivos* ou *negativos*) para cada documento e frase dentro dele. |
@@ -71,10 +75,10 @@ Os contêineres dos Serviços Cognitivos do Azure fornecem o seguinte conjunto d
 
 Além disso, alguns contêineres têm suporte em chaves de recurso de oferta de serviços cognitivas [**All-in-One**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) . Você pode criar um único recurso All-in-One de serviços cognitivas e usar a mesma chave de cobrança entre os serviços com suporte para os seguintes serviços:
 
-* Pesquisa Visual Computacional
-* Detecção Facial
+* Visual Computacional
+* Face
 * LUIS
-* Análise de texto
+* Análise de Texto
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilidade de contêiner nos Serviços Cognitivos do Azure
 
@@ -127,6 +131,7 @@ Instale e explore a funcionalidade fornecida pelos contêineres nos Serviços Co
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
+[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language

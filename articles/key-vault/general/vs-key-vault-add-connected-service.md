@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 3d39ad2016da1525658944f4f13185e9df9855af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007087"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378858"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Key Vault ao seu aplicativo Web usando os Serviços Conectados do Visual Studio
 
@@ -127,7 +127,7 @@ Você pode configurar a configuração para que o arquivo de web.config tenha um
 
 ## <a name="troubleshooting"></a>Solução de problemas
 
-Se o Key Vault estiver sendo executado em um conta Microsoft diferente daquele em que você está conectado ao Visual Studio (por exemplo, o Key Vault está sendo executado em sua conta corporativa, mas o Visual Studio está usando sua conta privada), você recebe um erro no arquivo Program.cs, que o Visual Studio não pode obter acesso ao Key Vault. Para corrigir esse problema:
+Se o Key Vault estiver sendo executado em um conta Microsoft diferente daquele em que você está conectado ao Visual Studio (por exemplo, o Key Vault está sendo executado em sua conta corporativa, mas o Visual Studio está usando sua conta privada), você recebe um erro no arquivo Program.cs, que o Visual Studio não pode obter acesso ao Key Vault. Para resolver este problema:
 
 1. Vá para a [portal do Azure](https://portal.azure.com) e abra o Key Vault.
 
@@ -201,6 +201,6 @@ Afeta o arquivo de projeto referências do .NET e `packages.config` (referência
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você seguiu este tutorial, suas permissões de Key Vault são configuradas para serem executadas com sua própria assinatura do Azure, mas isso pode não ser desejável para um cenário de produção. Você pode criar uma identidade gerenciada para gerenciar o acesso de Key Vault para seu aplicativo. Consulte [fornecer autenticação de Key Vault com uma identidade gerenciada](/azure/key-vault/managed-identity).
+Se você seguiu este tutorial, suas permissões de Key Vault são configuradas para serem executadas com sua própria assinatura do Azure, mas isso pode não ser desejável para um cenário de produção. Você pode criar uma identidade gerenciada para gerenciar o acesso de Key Vault para seu aplicativo. Consulte [como autenticar para Key Vault](/azure/key-vault/general/authentication) e [atribuir uma política de acesso de Key Vault](/azure/key-vault/general/assign-access-policy-portal).
 
 Saiba mais sobre o desenvolvimento de Key Vault lendo o [Guia do desenvolvedor do Key Vault](developers-guide.md).

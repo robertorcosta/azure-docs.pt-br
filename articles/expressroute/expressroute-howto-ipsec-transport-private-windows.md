@@ -2,18 +2,18 @@
 title: 'Emparelhamento privado do Azure ExpressRoute: configurar o modo de transporte IPsec-hosts do Windows'
 description: Como habilitar o modo de transporte IPsec entre as VMs do Windows do Azure e os hosts do Windows local usando GPOs e UOs de emparelhamento privado do ExpressRoute.
 services: expressroute
-author: fabferri
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: fabferri
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737250"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396481"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurar o modo de transporte IPsec para emparelhamento privado do ExpressRoute
 
@@ -147,7 +147,7 @@ Para aplicar o GPO à UO, o GPO deve não apenas ser vinculado a UO, mas o link 
 8. Na página **Configurações de Método de Segurança Personalizado**, selecione **Integridade de dados e criptografia (ESP): SHA1, 3DES**. Depois, clique em **OK**.
 
    [![22]][22]
-9. Na página **Gerenciar Ações de Filtro**, você pode ver que o filtro **myEncryption** foi adicionado com êxito. Clique em **Fechar**.
+9. Na página **Gerenciar Ações de Filtro**, você pode ver que o filtro **myEncryption** foi adicionado com êxito. Clique em **fechar**
 
    [![23]][23]
 
@@ -161,7 +161,7 @@ Crie uma lista de filtros que especifica o tráfego HTTP criptografado com a por
 2. No campo **Nome:**, digite um nome para sua lista de filtros IP. Por exemplo, **azure-onpremises-HTTP8080**. Em seguida, clique em **Adicionar**.
 
    [![25]][25]
-3. Na página **Descrição do filtro IP e propriedade espelhada**, selecione **Espelhado**. A configuração espelhada corresponde a pacotes que vão em ambos os sentidos, o que permite comunicação bidirecional. Clique em **Avançar**.
+3. Na página **Descrição do filtro IP e propriedade espelhada**, selecione **Espelhado**. A configuração espelhada corresponde a pacotes que vão em ambos os sentidos, o que permite comunicação bidirecional. Em seguida, clique em **Próximo**.
 
    [![26]][26]
 4. Na página **Origem do Tráfego IP**, na lista suspensa **Endereço de origem:**, escolha **Uma Sub-rede ou Endereço IP Específico**. 
@@ -231,7 +231,7 @@ Adicione à política de IPsec a **Lista de Filtros IP** e a **Ação de Filtro*
 1. Na guia **Regras** de Propriedades da política HTTP, clique em **Adicionar**.
 
    [![41]][41]
-2. Na página de Boas-vindas, clique em **Avançar**.
+2. Na página Bem-vindo , clique em **Avançar**.
 
    [![42]][42]
 3. Uma regra fornece a opção de definir o modo de IPsec: modo de túnel ou modo de transporte.

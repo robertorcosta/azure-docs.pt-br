@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/03/2020
 tags: connectors
-ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 68b81fa8cf110b47581e482e7e546821d40aef62
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853304"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435143"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
@@ -167,7 +167,7 @@ Ao criar um aplicativo lógico, você pode selecionar o modelo **entrega em orde
 
 ## <a name="connector-reference"></a>Referência de conector
 
-O conector do barramento de serviço pode economizar até 1.500 sessões exclusivas por vez de um barramento de serviço para o cache do conector. Se a contagem de sessões exceder esse limite, as sessões antigas serão removidas do cache. Para obter mais informações, consulte [sessões de mensagens](../service-bus-messaging/message-sessions.md).
+De um barramento de serviço, o conector do barramento de serviço pode economizar até 1.500 sessões exclusivas de cada vez no cache do conector, por [entidade de mensagens do barramento de serviço, como uma assinatura ou um tópico](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Se a contagem de sessões exceder esse limite, as sessões antigas serão removidas do cache. Para obter mais informações, consulte [sessões de mensagens](../service-bus-messaging/message-sessions.md).
 
 Para obter outros detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição do Swagger do conector, examine a [página de referência do conector](/connectors/servicebus/). Para saber mais sobre as mensagens do barramento de serviço do Azure, consulte [o que é o barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md)?
 

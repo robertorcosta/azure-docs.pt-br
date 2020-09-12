@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 9aac374de5af748eafbe4c22e5fc89f64e483c2a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2a017371ccb3cf70812aed5606c386746024884
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877959"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443153"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Usar Pesquisa Visual Computacional contêiner com kubernetes e Helm
 
@@ -89,16 +89,25 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurar valores do gráfico Helm para implantação
 
-Comece criando uma pasta chamada *Read*e cole o seguinte conteúdo YAML em um novo arquivo chamado *Chart. yml*.
+Comece criando uma pasta chamada *Read*. Em seguida, Cole o seguinte conteúdo de YAML em um novo arquivo chamado `chart.yaml` :
 
 ```yaml
-apiVersion: v1
+apiVersion: v2
 name: read
 version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+dependencies:
+- name: rabbitmq
+  condition: read.image.args.rabbitmq.enabled
+  version: ^6.12.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
+- name: redis
+  condition: read.image.args.redis.enabled
+  version: ^6.0.0
+  repository: https://kubernetes-charts.storage.googleapis.com/
 ```
 
-Para configurar os valores padrão do gráfico de Helm, copie e cole o seguinte YAML em um arquivo chamado `values.yaml` . Substitua os `# {ENDPOINT_URI}` `# {API_KEY}` comentários e pelos seus próprios valores.
+Para configurar os valores padrão do gráfico de Helm, copie e cole o seguinte YAML em um arquivo chamado `values.yaml` . Substitua os `# {ENDPOINT_URI}` `# {API_KEY}` comentários e pelos seus próprios valores. Configure resultExpirationPeriod, Redis e RabbitMQ, se necessário.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -107,7 +116,7 @@ read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry: containerpreview.azurecr.io/
+    registry:  containerpreview.azurecr.io/
     repository: microsoft/cognitive-services-read
     tag: latest
     pullSecret: containerpreview # Or an existing secret
@@ -115,25 +124,52 @@ read:
       eula: accept
       billing: # {ENDPOINT_URI}
       apikey: # {API_KEY}
+      
+      # Result expiration period setting. Specify when the system should clean up recognition results.
+      # For example, resultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.
+      # resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.
+      resultExpirationPeriod: 1
+      
+      # Redis storage, if configured, will be used by read container to store result records.
+      # A cache is required if multiple read containers are placed behind load balancer.
+      redis:
+        enabled: false # {true/false}
+        password: password
+
+      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read containers are
+      # placed behind load balancer.
+      rabbitmq:
+        enabled: false # {true/false}
+        rabbitmq:
+          username: user
+          password: password
 ```
 
 > [!IMPORTANT]
-> Se os `billing` `apikey` valores e não forem fornecidos, os serviços expirarão após 15 minutos. Da mesma forma, a verificação falhará, pois os serviços não estarão disponíveis.
+> - Se os `billing` `apikey` valores e não forem fornecidos, os serviços expirarão após 15 minutos. Da mesma forma, a verificação falha porque os serviços não estão disponíveis.
+> 
+> - Se você implantar vários contêineres de leitura atrás de um balanceador de carga, por exemplo, em Docker Compose ou kubernetes, você deverá ter um cache externo. Como o contêiner de processamento e o contêiner de solicitação GET podem não ser iguais, um cache externo armazena os resultados e os compartilha entre contêineres. Para obter detalhes sobre as configurações de cache, consulte [configurar pesquisa Visual computacional contêineres do Docker](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-resource-container-config).
+>
 
 Crie uma pasta de *modelos* no diretório de *leitura* . Copie e cole o YAML a seguir em um arquivo chamado `deployment.yaml` . O `deployment.yaml` arquivo funcionará como um modelo Helm.
 
 > Os modelos geram arquivos de manifesto, que são descrições de recursos formatados por YAML que o kubernetes pode entender. [-Guia de modelo de gráfico de Helm][chart-template-guide]
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: read
+  labels:
+    app: read-deployment
 spec:
+  selector:
+    matchLabels:
+      app: read-app
   template:
     metadata:
       labels:
-        app: read-app
+        app: read-app       
     spec:
       containers:
       - name: {{.Values.read.image.name}}
@@ -147,14 +183,23 @@ spec:
           value: {{.Values.read.image.args.billing}}
         - name: apikey
           value: {{.Values.read.image.args.apikey}}
+        args:        
+        - ReadEngineConfig:ResultExpirationPeriod={{ .Values.read.image.args.resultExpirationPeriod }}
+        {{- if .Values.read.image.args.rabbitmq.enabled }}
+        - Queue:RabbitMQ:HostName={{ include "rabbitmq.hostname" . }}
+        - Queue:RabbitMQ:Username={{ .Values.read.image.args.rabbitmq.rabbitmq.username }}
+        - Queue:RabbitMQ:Password={{ .Values.read.image.args.rabbitmq.rabbitmq.password }}
+        {{- end }}      
+        {{- if .Values.read.image.args.redis.enabled }}
+        - Cache:Redis:Configuration={{ include "redis.connStr" . }}
+        {{- end }}
       imagePullSecrets:
-      - name: {{.Values.read.image.pullSecret}}
-
+      - name: {{.Values.read.image.pullSecret}}      
 --- 
 apiVersion: v1
 kind: Service
 metadata:
-  name: read
+  name: read-service
 spec:
   type: LoadBalancer
   ports:
@@ -163,6 +208,21 @@ spec:
     app: read-app
 ```
 
+Na mesma pasta *modelos* , copie e cole as seguintes funções auxiliares no `helpers.tpl` . `helpers.tpl` define funções úteis para ajudar a gerar o modelo Helm.
+
+```yaml
+{{- define "rabbitmq.hostname" -}}
+{{- printf "%s-rabbitmq" .Release.Name -}}
+{{- end -}}
+
+{{- define "redis.connStr" -}}
+{{- $hostMaster := printf "%s-redis-master:6379" .Release.Name }}
+{{- $hostSlave := printf "%s-redis-slave:6379" .Release.Name -}}
+{{- $passWord := printf "password=%s" .Values.read.image.args.redis.password -}}
+{{- $connTail := "ssl=False,abortConnect=False" -}}
+{{- printf "%s,%s,%s,%s" $hostMaster $hostSlave $passWord $connTail -}}
+{{- end -}}
+```
 O modelo especifica um serviço de balanceador de carga e a implantação do seu contêiner/imagem para leitura.
 
 ### <a name="the-kubernetes-package-helm-chart"></a>O pacote kubernetes (gráfico Helm)
@@ -235,7 +295,7 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 Para obter mais detalhes sobre como instalar aplicativos com o Helm no AKS (serviço kubernetes do Azure), [visite aqui][installing-helm-apps-in-aks].
 
 > [!div class="nextstepaction"]
-> [Contêineres de serviços cognitivas][cog-svcs-containers]
+> [Contêineres de Serviços Cognitivos][cog-svcs-containers]
 
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free

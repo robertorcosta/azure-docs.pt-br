@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.openlocfilehash: 737e2fc682e630775b763dd2f22f904d895a120f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/02/2020
+ms.openlocfilehash: 9db013d13098fc6aa4552459a2189e0ad8fc3ea6
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921259"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378790"
 ---
 # <a name="build-the-landing-page-for-your-transactable-saas-offer-in-the-commercial-marketplace"></a>Crie a página de aterrissagem para sua oferta de SaaS transactável no Marketplace comercial
 
@@ -38,15 +38,15 @@ A página de aterrissagem normalmente inclui o seguinte:
 As seções a seguir irão orientá-lo pelo processo de criação de uma página de aterrissagem:
 
 1. [Crie um registro de aplicativo do Azure ad](#create-an-azure-ad-app-registration) para a página de aterrissagem.
-2. [Use um exemplo de código como um ponto de partida](#use-a-code-sample-as-a-starting-point) para seu aplicativo.
-3. [Resolva o token de identificação de compra do Marketplace](#resolve-the-marketplace-purchase-identification-token) adicionado à URL pelo Marketplace comercial.
-4. [Ler informações de declarações codificadas no token de ID](#read-information-from-claims-encoded-in-the-id-token), que foi recebido do Azure ad após o logon, que foi enviado com a solicitação.
-5. [Use a API Microsoft Graph](#use-the-microsoft-graph-api) para coletar informações adicionais, conforme necessário.
-6. [Use dois aplicativos do Azure ad para melhorar a segurança na produção](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Use um exemplo de código como um ponto de partida](#use-a-code-sample-as-a-starting-point) para seu aplicativo.
+1. [Use dois aplicativos do Azure ad para melhorar a segurança na produção](#use-two-azure-ad-apps-to-improve-security-in-production).
+1. [Resolva o token de identificação de compra do Marketplace](#resolve-the-marketplace-purchase-identification-token) adicionado à URL pelo Marketplace comercial.
+1. [Ler informações de declarações codificadas no token de ID](#read-information-from-claims-encoded-in-the-id-token), que foi recebido do Azure ad depois de entrar, que foi enviado com a solicitação.
+1. [Use a API Microsoft Graph](#use-the-microsoft-graph-api) para coletar informações adicionais, conforme necessário.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Criar um registro de aplicativo do Azure AD
 
-O Marketplace comercial está totalmente integrado ao Azure AD. Os compradores chegam ao Marketplace autenticado com uma [conta do Azure ad ou conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Após a compra, o comprador vai do mercado comercial para a URL da página de aterrissagem para ativar e gerenciar sua assinatura de seu aplicativo SaaS. Você deve permitir que o comprador entre no seu aplicativo com o SSO do Azure AD. (A URL da página de aterrissagem é especificada na página de [configuração técnica](partner-center-portal/offer-creation-checklist.md#technical-configuration-page) da oferta.
+O Marketplace comercial está totalmente integrado ao Azure AD. Os compradores chegam ao Marketplace autenticado com uma [conta do Azure ad ou conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Após a compra, o comprador vai do mercado comercial para a URL da página de aterrissagem para ativar e gerenciar sua assinatura de seu aplicativo SaaS. Você deve permitir que o comprador entre no seu aplicativo com o SSO do Azure AD. (A URL da página de aterrissagem é especificada na página de [configuração técnica](plan-saas-offer.md#technical-information) da oferta.
 
 A primeira etapa para usar a identidade é verificar se sua página de aterrissagem está registrada como um aplicativo do Azure AD. O registro do aplicativo permite que você use o Azure AD para autenticar usuários e solicitar acesso aos recursos do usuário. Ele pode ser considerado a definição do aplicativo, o que permite que o serviço saiba como emitir tokens para o aplicativo com base nas configurações do aplicativo.
 
@@ -82,7 +82,7 @@ Isso permite que a solução funcione em cenários que observam o princípio [da
 Quando o comprador é enviado para a página de aterrissagem, um token é adicionado ao parâmetro de URL. Esse token é diferente do token emitido pelo Azure AD e do token de acesso usado para autenticação de serviço a serviço e é usado como uma entrada para as [APIs de preenchimento de SaaS](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) resolverem chamada para obter os detalhes da assinatura. Assim como acontece com todas as chamadas para as APIs de preenchimento de SaaS, sua solicitação de serviço a serviço será autenticada com um token de acesso baseado no usuário da ID de aplicativo do Azure AD do aplicativo para autenticação de serviço a serviço.
 
 > [!NOTE]
-> Na maioria dos casos, é preferível fazer essa chamada a partir de um segundo aplicativo de locatário único. Consulte [usar dois aplicativos do Azure ad para melhorar a segurança em produção](#use-two-azure-ad-apps-to-improve-security-in-production) posteriormente neste artigo.
+> Na maioria dos casos, é preferível fazer essa chamada a partir de um segundo aplicativo de locatário único. Consulte [usar dois aplicativos do Azure ad para melhorar a segurança na produção](#use-two-azure-ad-apps-to-improve-security-in-production) anteriormente neste artigo.
 
 ### <a name="request-an-access-token"></a>Solicitar um token de acesso
 
@@ -131,4 +131,4 @@ A maioria dos aplicativos registrados com o Azure AD concede permissões delegad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma oferta de SaaS no Marketplace comercial](./partner-center-portal/create-new-saas-offer.md)
+- [Como criar uma oferta de SaaS no Marketplace comercial](create-new-saas-offer.md)

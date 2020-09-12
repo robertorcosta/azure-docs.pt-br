@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5f16a902980b8cf88fb3e8a7f888a0f58ed34355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35631c8a0b66ade1457228ba16150f94f761f7b3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986548"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419904"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Criar e instalar arquivos de configuração de cliente VPN para autenticação RADIUS P2S
 
@@ -45,7 +45,7 @@ Para usar as seções neste artigo, primeiro decida qual tipo de autenticação 
 
 Quando configura a autenticação com nome de usuário e senha, você só pode criar uma configuração para o protocolo de autenticação EAP-MSCHAPv2 de nome de usuário e senha. Nos comandos, `-AuthenticationMethod` é `EapMSChapv2`.
 
-### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a>1. gerar arquivos de configuração de cliente VPN
+### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a> 1. gerar arquivos de configuração de cliente VPN
 
 Você pode gerar os arquivos de configuração de cliente VPN usando o portal do Azure ou usando Azure PowerShell.
 
@@ -80,7 +80,7 @@ Para recuperar arquivos de configuração de cliente gerados anteriormente, use 
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
 
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. configurar clientes VPN
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a> 2. configurar clientes VPN
 
 É possível configurar os seguintes clientes de VPN:
 
@@ -211,7 +211,7 @@ Para recuperar arquivos de configuração de cliente gerados anteriormente, use 
 Get-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" | fl
 ```
  
-### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a>2. configurar clientes VPN
+### <a name="2-configure-vpn-clients"></a><a name="setupusername"></a> 2. configurar clientes VPN
 
 É possível configurar os seguintes clientes de VPN:
 

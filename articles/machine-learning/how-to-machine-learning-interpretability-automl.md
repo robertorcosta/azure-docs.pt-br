@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 0ddfb0c9b10d96acd511b7bfaee4c6ef85d04812
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 921132947fbf52fbd187941b96d8b75197763387
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87306410"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419105"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretação: explicações de modelo no Machine Learning automatizado (visualização)
 
@@ -39,6 +39,14 @@ Neste artigo, você aprenderá como:
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretabilidade durante o treinamento para o melhor modelo
 
 Recupere a explicação do `best_run` , que inclui explicações para recursos de engenharia.
+
+> [!Warning]
+> A interpretação, a melhor explicação do modelo, não está disponível para experimentos de previsão de ML automáticos que recomendam os seguintes algoritmos como o melhor modelo: 
+> * ForecastTCN
+> * Média 
+> * Naive
+> * Média sazonal 
+> * Naive sazonal
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Baixar a importância de recursos com engenharia da loja de artefatos
 
@@ -112,7 +120,7 @@ engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=au
 print(engineered_explanations.get_feature_importance_dict())
 ```
 
-### <a name="interpretability-during-inference"></a>Interpretabilidade durante a inferência
+## <a name="interpretability-during-inference"></a>Interpretabilidade durante a inferência
 
 Nesta seção, você aprenderá a colocar em operação um modelo de ML automatizado com o explicador que foi usado para calcular as explicações na seção anterior.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 3f24e3538f05ca3b6a27907e0b794705402fce7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a6f6a052269bbfef6cafb359626031692a7d9c6
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285434"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418578"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauração no Banco de Dados do Azure para MySQL
 
@@ -76,6 +76,13 @@ O tempo estimado de recuperação dependerá de vários fatores, incluindo os ta
 ### <a name="point-in-time-restore"></a>Restauração em um momento determinado
 
 Independentemente de sua opção de redundância de backup, você pode executar uma restauração para qualquer ponto anterior dentro de seu período de retenção de backup. Um novo servidor é criado na mesma região do Azure do servidor original. Ele é criado com a configuração do servidor original para o tipo de preço, a geração de computação, o número de núcleos virtuais, o tamanho do armazenamento, o período de retenção de backup e a opção de redundância de backup.
+
+> [!NOTE]
+> Há dois parâmetros de servidor que são redefinidos para valores padrão (e não são copiados do servidor primário) após a operação de restauração
+> * time_zone-esse valor a ser definido como **sistema** de valor padrão
+> * event_scheduler-a event_scheduler está definida como **off** no servidor restaurado
+>
+> Será necessário definir esses parâmetros de servidor reconfigurando o [parâmetro de servidor](howto-server-parameters.md)
 
 A Restauração pontual é útil em vários cenários. Por exemplo, quando um usuário exclui dados acidentalmente, descarta uma tabela ou um banco de dados importante, ou se um aplicativo acidentalmente substitui dados bons por dados inválidos devido a um defeito no aplicativo.
 

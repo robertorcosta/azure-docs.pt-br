@@ -6,19 +6,21 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/11/2020
+ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81410863"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399949"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Marcas de serviço NSG para o Azure HDInsight
 
 As marcas de serviço do Azure HDInsight para NSGs (grupos de segurança de rede) são grupos de endereços IP para serviços de integridade e gerenciamento. Esses grupos ajudam a minimizar a complexidade para a criação de regras de segurança. As [marcas de serviço](../virtual-network/security-overview.md#service-tags) permitem o tráfego de entrada de IPS específicos sem inserir cada um dos [endereços IP de gerenciamento](hdinsight-management-ip-addresses.md) em seu NSGs.
 
 O serviço HDInsight gerencia essas marcas de serviço. Você não pode criar sua própria marca de serviço ou modificar uma marca existente. A Microsoft gerencia os prefixos de endereço que correspondem à marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados.
+
+Se você quiser usar uma região específica e a marca de serviço ainda não estiver documentada nesta página, você poderá usar a [API de descoberta de marca de serviço](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para localizar sua marca de serviço. Você também pode baixar o [arquivo JSON da marca de serviço](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) e pesquisar a região desejada.
 
 ## <a name="get-started-with-service-tags"></a>Introdução às marcas de serviço
 
@@ -57,7 +59,7 @@ Se o cluster estiver localizado em uma região listada nesta tabela, você só p
 | País | Região | Marca de serviço |
 | ---- | ---- | ---- |
 | Austrália | Leste da Austrália | HDInsight. AustraliaEast |
-| &nbsp; | Sudeste da Austrália | HDInsight. AustraliaSoutheast |
+| &nbsp; | Australia Southeast | HDInsight. AustraliaSoutheast |
 | &nbsp; | Austrália Central | HDInsight. AustraliaCentral |
 | China | Leste da China 2 | HDInsight. ChinaEast2 |
 | &nbsp; | Norte da China 2 | HDInsight. ChinaNorth2 |
@@ -74,9 +76,9 @@ Se o cluster estiver localizado em uma região listada nesta tabela, você só p
 | França | França Central| HDInsight. FranceCentral |
 | Reino Unido | Sul do Reino Unido | HDInsight. UKSouth |
 | Azure Government | USDoD Central | HDInsight. USDoDCentral |
-| &nbsp; | Gov. dos EUA – Texas | HDInsight. USGovTexas |
+| &nbsp; | Gov. EUA – Texas | HDInsight. USGovTexas |
 | &nbsp; | Leste UsDoD | HDInsight. USDoDEast |
-| &nbsp; | Gov. dos EUA – Arizona | HDInsight. USGovArizona |
+| &nbsp; | Gov. EUA – Arizona | HDInsight. USGovArizona |
 
 ### <a name="use-multiple-regional-service-tags"></a>Usar várias marcas de serviço regional
 

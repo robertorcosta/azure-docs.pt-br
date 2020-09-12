@@ -3,20 +3,20 @@ title: Azure front door-balanceamento de carga com o pacote de entrega de aplica
 description: Este artigo ajuda você a aprender como o Azure recomenda o balanceamento de carga com seu pacote de entrega de aplicativos
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 44af14a01e7b045b7abb6a84db89a67f3dd22445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 685ee9feaf057e4f2fae3cfe016624806f1ad00c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80875275"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399456"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o pacote de entrega de aplicativos do Azure
 

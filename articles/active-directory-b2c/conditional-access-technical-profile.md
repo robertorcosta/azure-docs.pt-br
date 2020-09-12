@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 080b5a224f3d4a720d8009933ddd9161f56dba0a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d2a62b55ce7f8cd408afeb2f10fd40f42b36d53d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269978"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393931"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de acesso condicional em uma política personalizada de Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ O exemplo a seguir mostra um perfil técnico de acesso condicional:
 
 ## <a name="conditional-access-evaluation"></a>Avaliação de acesso condicional
 
-Para cada entrada, Azure AD B2C avalia todas as políticas e garante que todos os requisitos sejam atendidos antes de conceder o acesso do usuário. "Bloquear acesso" substitui todas as outras definições de configuração. O modo de **avaliação** do perfil técnico de acesso condicional avalia os sinais coletados por Azure ad B2C durante a entrada com uma conta local. O resultado do perfil técnico de acesso condicional é um conjunto de declarações que resultam da avaliação de acesso condicional. A política de Azure AD B2C usa essas declarações em uma próxima etapa de orquestração para executar uma ação, como bloquear o usuário ou desafiar o uso com a autenticação multifator. As opções a seguir podem ser configuradas para esse modo.
+Para cada entrada, Azure AD B2C avalia todas as políticas e garante que todos os requisitos sejam atendidos antes de conceder o acesso do usuário. "Bloquear acesso" substitui todas as outras definições de configuração. O modo de **avaliação** do perfil técnico de acesso condicional avalia os sinais coletados por Azure ad B2C durante a entrada com uma conta local. O resultado do perfil técnico de acesso condicional é um conjunto de declarações que resultam da avaliação de acesso condicional. A política de Azure AD B2C usa essas declarações em uma próxima etapa de orquestração para executar uma ação, como bloquear o usuário ou desafiar o usuário com a autenticação multifator. As opções a seguir podem ser configuradas para esse modo.
 
 ### <a name="metadata"></a>Metadados
 

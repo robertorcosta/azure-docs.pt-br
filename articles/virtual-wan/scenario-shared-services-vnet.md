@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/07/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6045c491ea68d759b2a1739e20aa2f12b8520c87
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c72ff14246f3f96980fe1de2fdef16794bf23e4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006478"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399983"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Cenário: rota para serviços compartilhados VNets
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre roteamento de Hub virtual, consulte [sobre r
 
 ## <a name="design"></a><a name="design"></a>Design
 
-Podemos usar uma matriz de conectividade para resumir os requisitos desse cenário. Na matriz, cada célula descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico.
+Podemos usar uma matriz de conectividade para resumir os requisitos desse cenário. Na matriz, cada célula descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico. Um "X" significa que a conectividade é fornecida pela WAN virtual:
 
 **Matriz de conectividade**
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: f8127b485d8fea5aedccd472e209a448e3076b5b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553420"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400068"
 ---
 # <a name="scenario-any-to-any"></a>Cenário: qualquer-para-qualquer
 
@@ -29,7 +29,7 @@ Para descobrir quantas tabelas de rotas serão necessárias em um cenário de WA
 | VNets     | &#8594;|      X     |     X    |
 | Branches   | &#8594;|    X     |     X    |
 
-Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico.
+Cada uma das células na tabela anterior descreve se uma conexão de WAN virtual (o lado "de" do fluxo, os cabeçalhos de linha na tabela) aprende um prefixo de destino (o lado "para" do fluxo, os cabeçalhos de coluna em itálico na tabela) para um fluxo de tráfego específico, em que um "X" significa que a conectividade é fornecida pela WAN virtual.
 
 Como todas as conexões de VNets e branches (VPN, ExpressRoute e VPN de usuário) têm os mesmos requisitos de conectividade, uma única tabela de rotas é necessária. Como resultado, todas as conexões serão associadas e propagadas para a mesma tabela de rotas, a tabela de rotas padrão:
 

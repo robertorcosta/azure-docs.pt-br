@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ac538d71f854643cb59390447be360bc541142ac
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077221"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400085"
 ---
 # <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
 
@@ -74,7 +74,7 @@ Use Azure Policy [Deny] e [implantar se não existir] para impor configurações
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7,4 | 5.2 | Compartilhado |
+| 7.4 | 5.2 | Compartilhado |
 
 Siga as recomendações da central de segurança do Azure sobre como executar avaliações de vulnerabilidade em seus recursos de computação do Azure.  Além disso, você pode usar modelos de Azure Resource Manager, imagens do sistema operacional personalizado ou configuração de estado da automação do Azure para manter a configuração de segurança do sistema operacional exigido pela sua organização.   Os modelos de máquina virtual da Microsoft combinados com a configuração de estado desejado da automação do Azure podem ajudar a atender e a manter os requisitos de segurança. 
 
@@ -136,7 +136,7 @@ Defina e implemente configurações de segurança padrão para recursos do Azure
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7,8 | 5.4 | Cliente |
+| 7.8 | 5.4 | Cliente |
 
 A configuração de estado de automação do Azure é um serviço de gerenciamento de configuração para nós de DSC (configuração de estado desejado) em qualquer datacenter local ou na nuvem. Você pode, facilmente, integrar máquinas, atribuir a elas configurações declarativas e exibir relatórios que mostram a conformidade de cada computador com o estado desejado especificado. 
 
@@ -166,7 +166,7 @@ Use a central de segurança do Azure para executar verificações de linha de ba
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7,11 | 13.1 | Cliente |
+| 7.11 | 13.1 | Cliente |
 
 Use Identidade de Serviço Gerenciada em conjunto com Azure Key Vault para simplificar e proteger o gerenciamento de segredos para seus aplicativos de nuvem.
 
@@ -174,7 +174,9 @@ Use Identidade de Serviço Gerenciada em conjunto com Azure Key Vault para simpl
 
 - [Como criar um Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-- [Como fornecer Key Vault autenticação com uma identidade gerenciada](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Como autenticar-se no Key Vault](../../key-vault/general/authentication.md)
+
+- [Como atribuir uma política de acesso de Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7.12: gerenciar identidades de maneira segura e automática
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ff46c5e2d434a75bf71d6216ce81b34de878ba80
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304183"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419173"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Painel de análise de avaliações & análises no Partner Center
 
@@ -33,7 +33,7 @@ O painel exibe uma representação gráfica da seguinte atividade do cliente:
 - Avaliações & revisões  
 - Examinar comentários
 
-Use as guias de **vitrine do Marketplace** para exibir sua oferta Microsoft AppSource e as métricas do Azure Marketplace separadamente. Para exibir métricas de oferta específicas, selecione a oferta na lista suspensa oferta.
+Use as guias do **Marketplace insights** para exibir sua oferta Microsoft AppSource e as métricas do Azure Marketplace separadamente. Para exibir métricas de oferta específicas, selecione a oferta na lista suspensa oferta.
 
 ### <a name="ratings--reviews-summary"></a>Resumo de avaliações & revisões
 

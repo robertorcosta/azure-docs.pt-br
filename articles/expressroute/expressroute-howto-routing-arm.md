@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: configurar o emparelhamento: PowerShell'
 description: Este artigo fornece uma orientação sobre as etapas de criação e de provisionamento do emparelhamento público, privado e da Microsoft de um circuito de ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/13/2019
-ms.author: jaredro
-ms.openlocfilehash: ab20ae00fd9f275d21bc818e07bdc868944ee689
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: e1f1a36e84567a56ddb25366f96d1b2dba1d82fb
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735261"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395563"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Criar e modificar o emparelhamento de um circuito do ExpressRoute usando o PowerShell
 

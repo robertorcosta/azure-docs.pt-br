@@ -3,20 +3,20 @@ title: Regra de roteamento de porta frontal do Azure que corresponde ao monitora
 description: Este artigo ajuda você a entender como a porta frontal do Azure corresponde à regra de roteamento a ser usada para uma solicitação de entrada
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 420aa52293da14a0dfe8fbdfe681440ee4309e6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80878588"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401564"
 ---
 # <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como o Front Door faz a correspondência com uma regra de roteamento
 
@@ -120,7 +120,7 @@ Dada essa configuração, a tabela de correspondência de exemplo a seguir resul
 >
 > | Solicitação de entrada       | Rota correspondente |
 > |------------------------|---------------|
-> | profile.domain.com/other | Nenhum. Erro 400: solicitação inválida |
+> | profile.domain.com/other | nenhuma. Erro 400: solicitação inválida |
 
 ### <a name="routing-decision"></a>Decisão de roteamento
 Depois que você obteve correspondência para uma única regra de roteamento de Front Door, precisaremos escolher como processar a solicitação. Se, para a regra de roteamento correspondente, a porta da frente tiver uma resposta em cache disponível, ela será fornecida de volta ao cliente. Caso contrário, o próximo item que é avaliada é se você configurou [Reescrita de URL (caminho personalizado de encaminhamento)](front-door-url-rewrite.md) para o roteamento de regra correspondente ou não. Se não houver um caminho de encaminhamento personalizado definido, a solicitação será encaminhada para o back-end apropriado no pool de back-end configurado como está. Caso contrário, o caminho da solicitação será atualizado de acordo o [caminho de encaminhamento personalizado](front-door-url-rewrite.md) definido e, em seguida, encaminhado para o back-end.

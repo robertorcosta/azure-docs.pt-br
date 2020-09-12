@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: dd1e20504d96b55d6a450512ea287b9352fb043a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3393cb66735ffb881520a11bf9d1680c35d3d374
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496926"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424796"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Executar scripts do PowerShell na VM Windows usando o recurso Executar Comando
 
@@ -40,6 +40,7 @@ As seguintes restrições se aplicam ao usar o recurso Executar Comando:
 * Não é possível cancelar um script em execução.
 * O tempo máximo que um script pode ser executado é 90 minutos. Depois disso, ele atingirá o tempo limite.
 * A conectividade de saída da VM é necessária para retornar os resultados do script.
+* Não é recomendável executar um script que causará uma parada ou atualização do agente de VM. Isso pode permitir a extensão em um estado de transição, levando a um tempo limite.
 
 > [!NOTE]
 > Para funcionar corretamente, Executar Comando requer conectividade (porta 443) a endereços IP públicos do Azure. Se a extensão não tiver acesso a esses pontos de extremidade, os scripts poderão ser executados com êxito, mas não retornarão os resultados. Se você estiver bloqueando o tráfego na máquina virtual, poderá usar [marcas de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para os endereços IP públicos do Azure usando a marca `AzureCloud`.
