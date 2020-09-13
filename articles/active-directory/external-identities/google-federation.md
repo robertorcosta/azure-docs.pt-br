@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4b895054f8fa81526bf72cadd2fea1a3691d758
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eef04be1891eac35577a5f4cb18d5b83b8d0f301
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907981"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669387"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
@@ -51,39 +51,43 @@ Você também pode fornecer aos usuários convidados do Google um link direto pa
 ## <a name="step-1-configure-a-google-developer-project"></a>Etapa 1: Configurar um projeto de desenvolvedor do Google
 Primeiramente, crie um novo projeto no Console de Desenvolvedores do Google para obter um ID do cliente e um segredo do cliente que possa adicionar posteriormente ao Azure AD. 
 1. Acesse as APIs do Google em https://console.developers.google.com e entre com sua conta do Google. É recomendável que você use uma conta do Google de equipe compartilhada.
-2. Crie um novo projeto: No painel, selecione **Criar projeto** e, em seguida, selecione **Criar**. Na página Novo projeto, insira um **Nome do projeto** e, em seguida, selecione **Criar**.
+2. Aceitar os termos de serviço se solicitado
+3. Criar um novo projeto: no painel, selecione **criar projeto**, dê um nome ao projeto (por exemplo, "Azure ad B2B") e, em seguida, selecione **criar**. 
    
    ![Captura de tela mostrando uma página Novo projeto do Google](media/google-federation/google-new-project.png)
 
-3. Verifique se seu novo projeto está selecionado no menu do projeto. Em seguida, em **APIs e Serviços**, selecione **tela de consentimento do OAuth**.
+4. Na página de **serviços & de APIs** que agora é apresentada, clique em **Exibir** em seu novo projeto.
 
-4. Selecione **Firewall** e, em seguida, **Criar**. 
-5. Na **Tela de consentimento do OAuth**, insira um **Nome do aplicativo**. (Deixe as outras configurações.)
+5. Clique em **ir para APIs visão geral** no cartão de APIs. Selecione a **tela de consentimento do OAuth**.
+
+6. Selecione **Firewall** e, em seguida, **Criar**. 
+
+7. Na **Tela de consentimento do OAuth**, insira um **Nome do aplicativo**. 
 
    ![Captura de tela mostrando a opção da tela de consentimento do Google OAuth](media/google-federation/google-oauth-consent-screen.png)
 
-6. Role até a **autorizado domínios** seção e insira microsoftonline.com.
+8. Role até a **autorizado domínios** seção e insira microsoftonline.com.
 
-   ![Captura de tela mostrando a seção Domínios autorizados](media/google-federation/google-oauth-authorized-domains.png)
+   ![Captura de tela mostrando a seção Domínios autorizados](media/google-federation/google-oauth-authorized-domains.PNG)
 
-7. Clique em **Salvar**.
+9. Clique em **Salvar**.
 
-8. Escolha **Credenciais**. No menu **Criar credenciais**, escolha **ID do cliente OAuth**.
+10. Escolha **Credenciais**. No menu **Criar credenciais**, escolha **ID do cliente OAuth**.
 
-   ![Captura de tela mostrando a opção Criar credenciais de APIs do Google](media/google-federation/google-api-credentials.png)
+    ![Captura de tela mostrando a opção Criar credenciais de APIs do Google](media/google-federation/google-api-credentials.png)
 
-9. Em **Tipo de aplicativo**, escolha **Aplicativo Web** e, em **URIs de redirecionamento autorizados**, insira estes URIs:
-   - `https://login.microsoftonline.com` 
-   - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(em que `<directory id>` é a ID do seu diretório)
+11. Em **tipo de aplicativo**, escolha **aplicativo Web** e dê um nome adequado ao aplicativo, por exemplo, "Azure ad B2B" e, em seguida, em **URIs de redirecionamento autorizados**, insira os seguintes URIs:
+    - `https://login.microsoftonline.com` 
+    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(em que `<directory id>` é a ID do seu diretório)
    
-     > [!NOTE]
-     > Para localizar a ID do seu diretório, acesse https://portal.azure.com e, em **Azure Active Directory**, escolha **Propriedades** e copie o **ID do diretório**.
+    > [!NOTE]
+    > Para localizar a ID do seu diretório, acesse https://portal.azure.com e, em **Azure Active Directory**, escolha **Propriedades** e copie o **ID do diretório**.
 
-   ![Captura de tela mostrando a seção URIs de redirecionamento autorizados](media/google-federation/google-create-oauth-client-id.png)
+    ![Captura de tela mostrando a seção URIs de redirecionamento autorizados](media/google-federation/google-create-oauth-client-id.png)
 
-10. Selecione **Criar**. Copie a ID do cliente e o segredo do cliente, que você usará quando adicionar o provedor de identidade no portal do Azure AD.
+12. Selecione **Criar**. Copie a ID do cliente e o segredo do cliente, que você usará quando adicionar o provedor de identidade no portal do Azure AD.
 
-   ![Captura de tela mostrando a ID do cliente e o segredo do cliente OAuth](media/google-federation/google-auth-client-id-secret.png)
+    ![Captura de tela mostrando a ID do cliente e o segredo do cliente OAuth](media/google-federation/google-auth-client-id-secret.png)
 
 ## <a name="step-2-configure-google-federation-in-azure-ad"></a>Etapa 2: Configurar a federação do Google no Microsoft Azure Active Directory 
 Agora, você definirá a ID do cliente e o segredo do cliente do Google, seja inserindo-o no portal do Azure AD ou usando o PowerShell. Lembre-se de testar sua configuração da federação do Google. Convide-se usando um endereço do Gmail e tente resgatar o convite com sua conta do Google convidada. 
@@ -92,7 +96,7 @@ Agora, você definirá a ID do cliente e o segredo do cliente do Google, seja in
 1. Vá para o [Portal do Azure](https://portal.azure.com). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Selecione **Identidades Externas**.
 3. Selecione **Todos os provedores de identidade** e, em seguida, clique no botão **Google**.
-4. Insira um nome. Em seguida, insira a ID do cliente e o segredo do cliente obtidos anteriormente. Clique em **Salvar**. 
+4. Em seguida, insira a ID do cliente e o segredo do cliente obtidos anteriormente. Clique em **Salvar**. 
 
    ![Captura de tela mostrando a página Adicionar provedor de identidade do Google](media/google-federation/google-identity-provider.png)
 

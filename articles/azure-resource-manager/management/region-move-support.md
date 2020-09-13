@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 8c18a4d2fa6e5bdb211b77d4d7bb28af7e5b1c1a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 608d9511b14ef8dd3815d6f9b45cda31e6b38b94
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948106"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004299"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Suporte para mover recursos do Azure entre regiões
 
@@ -363,9 +363,9 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimentação de região | 
 > | ------------- | ----------- |
-> | availabilitysets | Não | 
+> | availabilitysets | Sim <br/><br/> Use o [Azure Resource mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover conjuntos de disponibilidade. | 
 > | diskencryptionsets | Não | 
-> | disks | Não | 
+> | disks | Sim <br/><br/> Use o [Azure Resource mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover VMs do Azure e discos relacionados. | 
 > | galleries | Não | 
 > | galleries/images | Não | 
 > | galleries/images/versions | Não | 
@@ -377,7 +377,7 @@ Pule para um namespace de provedor de recursos:
 > | sharedvmimages | Não | 
 > | sharedvmimages/versions | Não | 
 > | snapshots | Não | 
-> | virtualmachines | Sim | 
+> | virtualmachines | Sim <br/><br/> Use o [Azure Resource mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover VMs do Azure. | 
 > | virtualmachines/extensions | Não | 
 > | virtualmachinescalesets | Não | 
 
@@ -908,13 +908,13 @@ Pule para um namespace de provedor de recursos:
 > | expressrouteports | Não | 
 > | frontdoors | Não | 
 > | frontdoorwebapplicationfirewallpolicies | Não | 
-> | loadbalancers | Sim <br/><br/> Você pode exportar a configuração existente como um modelo e implantar o modelo na nova região. Saiba como mover um balanceador de carga [externo](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) ou [interno](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) . |
+> | loadbalancers | Sim <br/><br/> Use o [Azure Resource mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover balanceadores de carga internos e externos. |
 > | localnetworkgateways |  Não | 
 > | natgateways |  Não | 
 > | networkintentpolicies |  Não | 
-> | networkinterfaces | Sim | 
+> | networkinterfaces | Sim <br/><br/> Use o [Azure Resource mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover NICs. | 
 > | networkprofiles | Não | 
-> | networksecuritygroups | Sim | 
+> | networksecuritygroups | Sim <br/><br/> Use o [Azure Resource mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover NGSs (grupos de segurança de rede). | 
 > | networkwatchers |  Não |  
 > | networkwatchers/connectionmonitors |  Não | 
 > | networkwatchers/lentes |  Não | 
@@ -924,7 +924,7 @@ Pule para um namespace de provedor de recursos:
 > | privatednszones/virtualnetworklinks |  Não |  
 > | privateendpoints | Não | 
 > | privatelinkservices | Não | 
-> | publicipaddresses | Sim<br/><br/> Você pode exportar a configuração de endereço IP público existente como um modelo e implantar o modelo na nova região. [Saiba mais](../../virtual-network/move-across-regions-publicip-portal.md) sobre como mover um endereço IP público. |
+> | publicipaddresses | Sim<br/><br/> Use o [Azure Resource mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover endereços IP públicos. |
 > | publicipprefixes | Não | 
 > | routefilters | Não | 
 > | routetables |  Não | 
@@ -1134,11 +1134,11 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Movimentação de região | 
 > | ------------- | ----------- |
 > | instancepools | Não | 
-> | managedinstances | Sim | 
+> | managedinstances | Sim <br/><br/> [Saiba mais](/azure/azure-sql/database/move-resources-across-regions) sobre como mover instâncias gerenciadas entre regiões. | 
 > | managedinstances/databases | Sim | 
 > | servers | Sim | 
-> | servers/databases | Sim | 
-> | servers/elasticpools | Sim | 
+> | servers/databases | Sim <br/><br/> [Saiba mais](/azure/azure-sql/database/move-resources-across-regions) sobre como mover bancos de dados entre regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre como usar o Azure Resource mover para mover bancos de dados SQL do Azure.  | 
+> | servers/elasticpools | Sim <br/><br/> [Saiba mais](/azure/azure-sql/database/move-resources-across-regions) sobre como mover pools elásticos entre regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre como usar o Azure Resource mover para mover os pools elásticos do SQL Azure.  | 
 > | virtualclusters | Sim | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

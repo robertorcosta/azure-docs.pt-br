@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420304"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669188"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e Zonas de Disponibilidade
 
@@ -67,7 +67,7 @@ Além disso, há suporte para o uso de front-ends zonais diretamente para pontos
   <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="NAT de Rede Virtual">
 </p>
 
-*Figura: balanceador de carga com redundância de zona*
+*Figura: balanceador de carga zonal*
 
 Se você deseja mesclar esses conceitos (zonal e com redundância de zona para o mesmo back-end), analise [vários front-ends para Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -101,7 +101,7 @@ Ao usar front-ends com redundância de zona, o balanceador de carga expande sua 
 
 Outras zonas que podem alcançar essa VM podem continuar a atender a VM dos respectivos front-ends. Durante os eventos de falha, cada zona pode ter diferentes distribuições de novos fluxos e, ao mesmo tempo, proteger a integridade geral do seu serviço.
 
-## <a name="design-considerations"></a><a name="design"></a>Considerações de design
+## <a name="design-considerations"></a><a name="design"></a> Considerações de design
 
 O balanceador de carga é flexível no contexto de zonas de disponibilidade. Você pode optar por se alinhar às zonas ou ser com redundância de zona para cada regra. A maior disponibilidade pode chegar ao preço de maior complexidade. Design para disponibilidade para desempenho ideal.
 

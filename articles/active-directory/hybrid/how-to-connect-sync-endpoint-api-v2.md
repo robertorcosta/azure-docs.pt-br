@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357572"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662477"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API de ponto de extremidade da sincronização do Azure AD Connect V2 (versão prévia pública) 
 A Microsoft implantou um novo ponto de extremidade (API) para o Azure AD Connect que aprimora o desempenho das operações de serviço de sincronização para o Azure Active Directory. Ao utilizar o novo ponto de extremidade V2, você experimentará ganhos de desempenho perceptíveis na exportação e na importação para o Azure AD. Esse novo ponto de extremidade dá suporte ao seguinte:
@@ -26,14 +26,14 @@ A Microsoft implantou um novo ponto de extremidade (API) para o Azure AD Connect
  - ganhos de desempenho na exportação e na importação para o Azure AD
  
 > [!NOTE]
-> Atualmente, o novo ponto de extremidade não tem um limite de tamanho de grupo configurado para os grupos do O365 que são gravados novamente. Isso pode ter um efeito no Active Directory e nas latências de ciclo de sincronização.  É recomendável aumentar os tamanhos de grupo de modo incremental.  
+> Atualmente, o novo ponto de extremidade não tem um limite de tamanho de grupo configurado para grupos de Microsoft 365 que são gravados de volta. Isso pode ter um efeito no Active Directory e nas latências de ciclo de sincronização. É recomendável aumentar os tamanhos de grupo de modo incremental.  
 
 
 ## <a name="pre-requisites"></a>Pré-requisitos  
 Para usar o novo ponto de extremidade V2, você precisará usar o [Azure AD Connect versão 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou posterior e seguir as etapas de implantação fornecidas abaixo para habilitar o ponto de extremidade V2 para seu servidor do Azure AD Connect.   
 
 >[!NOTE]
->Atualmente, essa versão prévia pública só está disponível na nuvem global do Azure e não está disponível para [nuvens nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+>Atualmente, essa versão prévia pública só está disponível na nuvem global do Azure e não está disponível para [nuvens nacionais](../develop/authentication-national-cloud.md).
 
 ### <a name="public-preview-limitations"></a>Limitações da visualização pública  
 Embora esta versão tenha passado por testes extensivos, você ainda poderá encontrar problemas. Uma das metas dessa versão prévia pública é encontrar e corrigir esses problemas.  
@@ -44,14 +44,14 @@ Embora esta versão tenha passado por testes extensivos, você ainda poderá enc
 ## <a name="deployment-guidance"></a>Diretrizes de implantação 
 Será necessário implantar o [Azure AD Connect versão 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) ou posterior para usar o ponto de extremidade V2. Use o link fornecido para download. 
 
-É recomendável que você siga o método de [migração Swing](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) para distribuir o novo ponto de extremidade em seu ambiente. Isso fornecerá um plano de contingência claro no evento, que necessita de uma grande reversão. O exemplo a seguir ilustra como uma migração Swing pode ser usada neste cenário. Para obter mais informações sobre o método de implantação de migração Swing, veja o link fornecido. 
+É recomendável que você siga o método de [migração Swing](./how-to-upgrade-previous-version.md#swing-migration) para distribuir o novo ponto de extremidade em seu ambiente. Isso fornecerá um plano de contingência claro no evento, que necessita de uma grande reversão. O exemplo a seguir ilustra como uma migração Swing pode ser usada neste cenário. Para obter mais informações sobre o método de implantação de migração Swing, veja o link fornecido. 
 
 ### <a name="swing-migration-for-deploying-v2-endpoint"></a>Migração Swing para implantação do ponto de extremidade V2
 As etapas a seguir mostrarão a implantação do ponto de extremidade v2 usando o método Swing.
 
 1. Implante o ponto de extremidade V2 no servidor de preparo atual. Esse servidor será conhecido como o **servidor V2** nas etapas abaixo. O servidor ativo atual continuará processando a carga de trabalho de produção usando o ponto de extremidade V1, que será chamado de servidor **V1** abaixo.
 1. Valide se o **servidor V2** ainda está processando importações conforme o esperado. Nessa fase, os grupos grandes não serão provisionados no Azure AD ou no AD local, mas você poderá verificar se a atualização não resultou em nenhum outro impacto inesperado no processo de sincronização existente. 
-2. Após a conclusão da validação, alterne o **servidor V2** para ser o servidor ativo e o **servidor V1** para ser o servidor de preparo. Neste momento, os grupos grandes que estão no escopo para serem sincronizados serão provisionados para o Azure AD, assim como grandes grupos unificados do O365 serão provisionados no AD, se o write-back do grupo estiver habilitado.
+2. Após a conclusão da validação, alterne o **servidor V2** para ser o servidor ativo e o **servidor V1** para ser o servidor de preparo. Neste momento, os grupos grandes que estão no escopo a serem sincronizados serão provisionados para o Azure AD, bem como grandes Microsoft 365 grupos unificados serão provisionados no AD, se o Write-back do grupo estiver habilitado.
 3. Valide se o **servidor V2** está executando e processando grupos grandes com êxito. Você pode optar por permanecer nessa etapa e monitorar o processo de sincronização por um período.
   >[!NOTE]
   > Se você precisar fazer a transição de volta para a configuração anterior, poderá executar uma migração Swing do **servidor V2** de volta para o **servidor V1**. Como o ponto de extremidade V1 não dá suporte a grupos com mais de 50 mil membros, qualquer grupo grande que tenha sido provisionado pelo Azure AD Connect, no Azure AD ou no AD local, será excluído subsequentemente. 
@@ -153,7 +153,7 @@ Durante aumentos subsequentes no limite de membro do grupo na regra de sincroniz
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> Se você tiver grupos unificados do O365 que tenham mais de 50 mil membros, os grupos serão lidos no Azure AD Connect e, se o write-back do grupo estiver habilitado, eles serão gravados em seu AD local. 
+> Se você tiver Microsoft 365 grupos unificados que tenham mais de membros do 50 mil, os grupos serão lidos em Azure AD Connect e se o Write-back do grupo estiver habilitado, eles serão gravados em seu AD local. 
 
 ## <a name="rollback"></a>Reversão 
 Se você tiver habilitado o ponto de extremidade v2 e precisar reverter, siga estas etapas: 
@@ -181,7 +181,7 @@ Se você tiver habilitado o ponto de extremidade v2 e precisar reverter, siga es
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> Ao voltar dos pontos de extremidade de V2 para V1, os grupos sincronizados com mais de 50 mil membros serão excluídos após a execução de uma sincronização completa, tanto para os grupos do AD provisionados quanto para os grupos unificados do Azure AD e do O365 provisionados no AD. 
+> Ao alternar de volta dos pontos de extremidade de v2 para v1, os grupos sincronizados com mais de 50 mil membros serão excluídos após a execução de uma sincronização completa, tanto para os grupos do AD provisionados para o Azure AD quanto para Microsoft 365 grupos unificados provisionados no AD. 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes  
 **P: Um cliente pode usar esse recurso na produção?**   

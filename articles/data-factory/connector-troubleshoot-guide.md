@@ -5,16 +5,16 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 07/20/2020
+ms.date: 09/10/2020
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: c8edb36345de4516077b3c857cff33389062cc7f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62a5f3b18d4b8329c4a15086bc23d09805b786ab
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044551"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668896"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Solucionar problemas de conectores do Azure Data Factory
 
@@ -22,7 +22,6 @@ ms.locfileid: "87044551"
 
 Este artigo explora métodos comuns de solução de problemas para conectores no Azure Data Factory.
   
-
 ## <a name="azure-blob-storage"></a>Armazenamento do Blobs do Azure
 
 ### <a name="error-code--azurebloboperationfailed"></a>Código de erro:  AzureBlobOperationFailed
@@ -174,8 +173,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: falha na validação do certificado durante o HANDSHAKE de TLS.
 
-- **Resolução**: solução alternativa: Use cópia em etapas para ignorar a validação de TLS para ADLS Gen1. Você precisa reproduzir esse problema e reunir o rastreamento do Netmon e, em seguida, envolver sua equipe de rede para verificar a configuração de rede local seguindo [Este artigo](self-hosted-integration-runtime-troubleshoot-guide.md#how-to-collect-netmon-trace).
-
+- **Resolução**: solução alternativa: Use cópia em etapas para ignorar a validação de TLS para ADLS Gen1. Você precisa reproduzir esse problema e reunir o rastreamento do Netmon e, em seguida, envolver sua equipe de rede para verificar a configuração de rede local.
 
     ![Solucionar problemas ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
 
@@ -207,7 +205,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 - **Resolução:** Execute a atividade de cópia novamente após alguns minutos.
                   
 
-## <a name="azure-sql-data-warehouseazure-sql-databasesql-server"></a>SQL Data Warehouse do Azure/Banco de Dados SQL do Azure/SQL Server
+## <a name="azure-synapse-analytics-formerly-sql-data-warehouseazure-sql-databasesql-server"></a>Azure Synapse Analytics (anteriormente SQL Data Warehouse)/Azure banco de dados SQL/SQL Server
 
 ### <a name="error-code--sqlfailedtoconnect"></a>Código de erro:  SqlFailedToConnect
 
@@ -215,7 +213,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Se a mensagem de erro contiver “SqlException”, o Banco de Dados SQL lançará o erro indicando que uma operação específica falhou.
 
-- **Recomendação**:  Pesquise pelo código de erro do SQL neste documento de referência para obter mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. Se precisar de mais ajuda, entre em contato com o suporte do SQL do Azure.
+- **Recomendação**: Pesquise por código de erro do SQL neste documento de referência para obter mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors . Se precisar de mais ajuda, entre em contato com o suporte do SQL do Azure.
 
 - **Causa**: Se a mensagem de erro contiver "Cliente com endereço IP '...' não tem permissão para acessar o servidor", e você estiver tentando se conectar ao Banco de Dados SQL do Azure, geralmente o erro é causado por problema do firewall do Banco de Dados SQL do Azure.
 
@@ -228,8 +226,9 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Se a mensagem de erro contiver “SqlException”, o Banco de Dados SQL lançará o erro indicando que uma operação específica falhou.
 
-- **Recomendação**:  Se o erro de SQL não for claro, tente alterar o banco de dados para o nível de compatibilidade mais recente “150”. Isso pode gerar erros de SQL da versão mais recente. Veja o documento de detalhes: https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
-        Para solucionar problemas de SQL, pesquise pelo código de erro do SQL neste documento de referência para obter mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. Se precisar de mais ajuda, entre em contato com o suporte do SQL do Azure.
+- **Recomendação**:  Se o erro de SQL não for claro, tente alterar o banco de dados para o nível de compatibilidade mais recente “150”. Isso pode gerar erros de SQL da versão mais recente. Consulte o [documento de detalhes](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
+
+    Para solucionar problemas de SQL, pesquise pelo código de erro do SQL neste documento de referência para obter mais detalhes: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. Se precisar de mais ajuda, entre em contato com o suporte do SQL do Azure.
 
 - **Causa**: Se a mensagem de erro contiver "PdwManagedToNativeInteropException", geralmente ela é causada por incompatibilidade entre os tamanhos de coluna de origem e de coletor.
 
@@ -256,7 +255,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Pode ser uma falha transitória do Banco de Dados SQL.
 
-- **Recomendação**:  Tente atualizar novamente a cadeia de conexão de serviço vinculado com um valor de tempo limite de conexão maior.
+- **Recomendação**: tente novamente atualizar a cadeia de conexão de serviço vinculado com um valor de tempo limite de conexão maior.
 
 
 ### <a name="error-code--sqlautocreatetabletypemapfailed"></a>Código de erro:  SqlAutoCreateTableTypeMapFailed
@@ -319,7 +318,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Pode ser uma falha transitória do Banco de Dados SQL.
 
-- **Recomendação**:  Tente novamente. Se o problema for reproduzido, entre em contato com o suporte do SQL do Azure.
+- **Recomendação**: tente novamente. Se o problema for reproduzido, entre em contato com o suporte do SQL do Azure.
 
 
 ### <a name="error-code--sqlbatchwritetransactionfailed"></a>Código de erro:  SqlBatchWriteTransactionFailed
@@ -332,7 +331,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Se os detalhes da exceção intermitentemente informarem que o sqlconnection está quebrado, pode haver uma falha de rede transitória ou um problema do lado do Banco de Dados SQL
 
-- **Recomendação**:  Repita a atividade e revise as métricas do lado do Banco de Dados SQL.
+- **Recomendação**: repita a atividade e examine as métricas do lado do banco de dados SQL.
 
 
 ### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>Código de erro:  SqlBulkCopyInvalidColumnLength
@@ -350,7 +349,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: A conexão SQL é fechada pelo Banco de Dados SQL quando a execução simultânea alta e o servidor terminarem a conexão.
 
-- **Recomendação**:  O servidor remoto encerrou a conexão SQL. Tente novamente. Se o problema for reproduzido, entre em contato com o suporte do SQL do Azure.
+- **Recomendação**:  O servidor remoto encerrou a conexão SQL. Repetir. Se o problema for reproduzido, entre em contato com o suporte do SQL do Azure.
 
 
 ### <a name="error-code--sqlcreatetablefailedunsupportedtype"></a>Código de erro:  SqlCreateTableFailedUnsupportedType
@@ -360,38 +359,38 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 ### <a name="error-message-conversion-failed-when-converting-from-a-character-string-to-uniqueidentifier"></a>Mensagem de erro: Falha na conversão de uma cadeia de caracteres em um uniqueidentifier
 
-- **Sintomas**: Ao copiar dados da fonte de dados tabulares (como SQL Server) para o SQL Data Warehouse do Azure usando a cópia preparada e o PolyBase, você encontra o seguinte erro:
+- **Sintomas**: quando você copia dados da fonte de dados tabulares (como SQL Server) para o Azure Synapse Analytics usando cópia preparada e polybase, você clica no seguinte erro:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **Causa**: O PolyBase do SQL Data Warehouse do Azure não pode converter uma cadeia de caracteres vazia em GUID.
+- **Causa**: o polybase do Azure Synapse Analytics não pode converter uma cadeia de caracteres vazia em GUID.
 
 - **Resolução:** Em um coletor de atividade de cópia, nas configurações do PolyBase, defina a opção "**usar padrão de tipo**" como false.
 
 ### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>Mensagem de erro: Tipo de dados esperado: DECIMAL (x,x), valor incorreto
 
-- **Sintomas**: Ao copiar dados da fonte de dados tabulares (como SQL Server) para o SQL Data Warehouse usando a cópia preparada e o PolyBase, você encontra o seguinte erro:
+- **Sintomas**: quando você copia dados da fonte de dados tabulares (como SQL Server) para o Azure Synapse Analytics usando cópia preparada e polybase, você clica no seguinte erro:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **Causa**: O Polybase do SQL Data Warehouse do Azure não pode inserir um cadeia de caracteres vazia (valor nulo) em uma coluna decimal.
+- **Causa**: o polybase do Azure Synapse Analytics não pode inserir uma cadeia de caracteres vazia (valor nulo) em uma coluna decimal.
 
 - **Resolução:** Em um coletor de atividade de cópia, nas configurações do PolyBase, defina a opção "**usar padrão de tipo**" como false.
 
 ### <a name="error-message-java-exception-message-hdfsbridgecreaterecordreader"></a>Mensagem de erro: mensagem de exceção Java: HdfsBridge:: CreateRecordReader
 
-- **Sintomas**: Você copia dados para o SQL Data Warehouse do Azure usando o PolyBase e encontra o seguinte erro:
+- **Sintomas**: você copia dados para o Azure Synapse Analytics usando o polybase e clica no seguinte erro:
 
     ```
     Message=110802;An internal DMS error occurred that caused this operation to fail. 
@@ -400,7 +399,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **Causa**: Uma causa possível é que o esquema (largura da coluna total) é grande demais (maior que 1 MB). Verifique o esquema da tabela de destino do SQL DW adicionando o tamanho de todas as colunas:
+- **Causa**: Uma causa possível é que o esquema (largura da coluna total) é grande demais (maior que 1 MB). Verifique o esquema da tabela de destino do Azure Synapse Analytics adicionando o tamanho de todas as colunas:
 
     - Int -> 4 bytes
     - Bigint -> 8 bytes
@@ -424,15 +423,15 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>Mensagem de erro: A condição especificada usando cabeçalhos condicionais HTTP não foi atendida
 
-- **Sintomas**: Você usa a consulta do SQL para efetuar pull de dados do SQL Data Warehouse do Azure e encontra o seguinte erro:
+- **Sintomas**: você usa a consulta SQL para efetuar pull de dados do Azure Synapse Analytics e clica no seguinte erro:
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **Causa**: O SQL Data Warehouse do Azure encontrou um problema ao consultar a tabela externa no Armazenamento do Microsoft Azure.
+- **Causa**: problema de visita do Azure Synapse Analytics consultando a tabela externa no armazenamento do Azure.
 
-- **Resolução:** Execute a mesma consulta no SSMS e verifique se você vê o mesmo resultado. Em caso afirmativo, abra um tíquete de suporte para o SQL Data Warehouse do Azure e forneça o servidor e o nome do banco de dados do SQL Data Warehouse para prosseguir com a solução de problemas.
+- **Resolução:** Execute a mesma consulta no SSMS e verifique se você vê o mesmo resultado. Em caso afirmativo, abra um tíquete de suporte para o Azure Synapse Analytics e forneça o nome do servidor e do banco de dados do Azure Synapse Analytics para solucionar outros problemas.
             
 
 ## <a name="delimited-text-format"></a>Formato de texto delimitado
@@ -452,7 +451,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: A contagem de colunas da linha problemática é maior do que a contagem de colunas da primeira linha. Pode ser causado por problemas de dados ou configurações incorretas de caractere delimitador de coluna/caractere de cotação.
 
-- **Recomendação**:  Obtenha a contagem de linhas na mensagem de erro, verifique a coluna da linha e corrija os dados.
+- **Recomendação**: obter a contagem de linhas na mensagem de erro, verificar a coluna da linha e corrigir os dados.
 
 - **Causa**: Se a contagem de colunas esperada for "1" na mensagem de erro, é possível que você tenha especificado uma compactação incorreta ou configurações de formato, o que fez com que o ADF analisasse erroneamente seus arquivos.
 
@@ -537,7 +536,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Quando a mensagem de erro contém “java.lang.OutOfMemory”, “Java heap space” e “doubleCapacity”, geralmente é um problema de gerenciamento de memória na versão antiga do runtime de integração.
 
-- **Recomendação**:  Se você estiver usando o runtime de integração auto-hospedada e a versão for anterior à 3.20.7159.1, sugira a atualização para a versão mais recente.
+- **Recomendação**: se você estiver usando Integration Runtime de hospedagem interna e a versão for anterior à 3.20.7159.1, é recomendável atualizar para a versão mais recente.
 
 - **Causa**: Quando a mensagem de erro contém “java.lang.OutOfMemory'” o runtime de integração não tem recursos suficientes para processar os arquivos.
 
@@ -545,7 +544,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Quando a mensagem de erro contém “NullPointerReference”, é possível que seja um erro transitório.
 
-- **Recomendação**:  Tente novamente. Se o problema persistir, entre em contato com o suporte.
+- **Recomendação**: tente novamente. Se o problema persistir, entre em contato com o suporte.
 
 
 ### <a name="error-code--parquetinvalidfile"></a>Código de erro:  ParquetInvalidFile
@@ -617,7 +616,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Os dados da origem não podem ser convertidos em tipos definidos no coletor
 
-- **Recomendação**:  Especifique um tipo correto no mapping.sink.
+- **Recomendação**: especifique um tipo correto no Mapping. Sink.
 
 
 ### <a name="error-code--parquetbridgeinvaliddata"></a>Código de erro:  ParquetBridgeInvalidData
@@ -626,7 +625,7 @@ Este artigo explora métodos comuns de solução de problemas para conectores no
 
 - **Causa**: Valor de dados acima da limitação
 
-- **Recomendação**:  Tente novamente. Se o problema persistir, entre em contato conosco.
+- **Recomendação**: tente novamente. Se o problema persistir, entre em contato conosco.
 
 
 ### <a name="error-code--parquetunsupportedinterpretation"></a>Código de erro:  ParquetUnsupportedInterpretation

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907883"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668966"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
@@ -108,7 +108,7 @@ Sim. Por padrão, objetos convidados não são visíveis na lista de endereços 
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de email de um usuário convidado?
 
-Se um usuário convidado aceitar seu convite e, posteriormente, alterar seu endereço de email, o novo email não será sincronizado automaticamente com o objeto de usuário convidado em seu diretório. A propriedade mail é criada por meio da [API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Você pode atualizar a propriedade mail por meio do centro de administração do Exchange ou do [PowerShell do Exchange Online](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps), e a alteração será refletida no objeto de usuário convidado do Azure AD.
+Se um usuário convidado aceitar seu convite e, posteriormente, alterar seu endereço de email, o novo email não será sincronizado automaticamente com o objeto de usuário convidado em seu diretório. A propriedade mail é criada por meio da [API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Você pode atualizar a propriedade mail por meio da API Microsoft Graph, do centro de administração do Exchange ou do [PowerShell do Exchange Online](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). A alteração será refletida no objeto de usuário convidado do Azure AD.
 
 ## <a name="next-steps"></a>Próximas etapas
 

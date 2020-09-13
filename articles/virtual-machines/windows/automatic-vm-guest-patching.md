@@ -5,14 +5,14 @@ author: mayanknayar
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 720f9dfc09d27a18460037bfbbd15ae4bfc88707
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 47ac9fa91f391442691661a3ba03dd1f0d918601
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89236611"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669065"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Visualização: aplicação automática de patches de convidado de VM para VMs do Windows no Azure
 
@@ -67,7 +67,7 @@ Atualmente, somente as VMs criadas a partir de determinadas imagens da plataform
 
 Atualmente, há suporte para as seguintes SKUs de plataforma (e mais são adicionadas periodicamente):
 
-| Editor               | Oferta de sistema operacional      |  Sku               |
+| Publisher               | Oferta de sistema operacional      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
@@ -192,7 +192,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 Use o cmdlet [set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) para habilitar a aplicação automática de patches de convidado de VM ao criar ou atualizar uma VM.
 
 ```azurepowershell-interactive
-Set-AzVMOperatingSystem -VM $$VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
+Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate -PatchMode "AutomaticByPlatform"
 ```
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0

@@ -85,7 +85,7 @@ Novos gateways do SQL estão sendo adicionados às seguintes regiões:
 Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de agosto de 2020. 
 
 ### <a name="october-2019"></a>Outubro de 2019
-- Brazil South
+- Sul do Brasil
 - Oeste dos EUA
 - Europa Ocidental
 - Leste dos EUA
@@ -95,7 +95,7 @@ Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 10 de ag
 - Norte da Europa
 - Centro-Norte dos EUA
 - Oeste do Japão
-- Japan East
+- Leste do Japão
 - Leste dos EUA 2
 - Leste da Ásia
 

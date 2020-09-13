@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606510"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669232"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar o computador de origem para a instalação por push do agente de mobilidade
 
@@ -25,8 +25,12 @@ Em cada máquina Windows que você deseja proteger, faça o seguinte:
 1. Crie uma conta que o servidor de processo possa usar para acessar o computador. A conta deve ter direitos de administrador, seja local ou do domínio. Use essa conta somente para a instalação por push e atualizações de agentes.
 2. Se você não usar uma conta de domínio, desative o controle de acesso de usuário remoto no computador local da seguinte maneira:
     - Na chave do Registro HKEY_LOCAL_MACHINE \ SOFTWARE \ Microsoft \ Windows \ CurrentVersion \ Policies \ System, adicione um novo DWORD: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**.
-    -  Para fazer isso no prompt de comando, execute o seguinte comando:  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+    -  Para fazer isso no prompt de comando, execute o seguinte comando:
+    
+       ```
+       REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+       ```
+
 3. No Firewall do Windows na máquina que você deseja proteger, selecione **Permitir um aplicativo ou recurso pelo Firewall**. Habilite **Compartilhamento de Arquivo e Impressora** e **Instrumentação de Gerenciamento do Windows (WMI)**. Em computadores pertencentes a um domínio, pode-se configurar o firewall com um objeto de Política de Grupo (GPO).
 
    ![Configurações de firewall](./media/vmware-azure-install-mobility-service/mobility1.png)
