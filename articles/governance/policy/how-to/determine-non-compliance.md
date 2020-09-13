@@ -3,12 +3,12 @@ title: Determinar as causas de não conformidade
 description: Quando um recurso não está em conformidade, há muitos motivos possíveis. Saiba como descobrir o que causou a não conformidade.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: ee027ff0f2936dc3eb7153869c52d4e70c83918b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512020"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648573"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas de não conformidade
 
@@ -30,17 +30,17 @@ Quando um recurso não está em conformidade, os detalhes de conformidade desse 
 
 Para exibir os detalhes de conformidade, siga estas etapas:
 
-1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
+1. Inicie o serviço de Azure Policy no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **política**.
 
 1. Na página **Visão geral** ou **Conformidade**, escolha uma política em um **estado de conformidade** que seja de _Não conformidade_.
 
 1. Na guia **Conformidade de recursos** da página **Conformidade de política**, clique com o botão direito do mouse ou selecione as reticências de um recurso em um **estado de conformidade** que seja de _Não conformidade_. Em seguida, selecione **Exibir detalhes de conformidade**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Opção Exibir detalhes de conformidade" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Captura de tela do link ' Exibir detalhes de conformidade ' na guia conformidade de recursos." border="false":::
 
 1. O painel **Detalhes de conformidade** exibe informações da avaliação mais recente do recurso para a atribuição de política atual. Neste exemplo, o campo **Microsoft.Sql/servers/version** é considerado como _12.0_ enquanto a definição de política esperada era de _14.0_. Se o recurso não estiver em conformidade por vários motivos, cada um será listado nesse painel.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Painel de detalhes de conformidade e motivos para não conformidade" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Captura de tela do painel detalhes de conformidade e motivos para não conformidade que o valor atual é doze e o valor de destino é quatorze." border="false":::
 
    Para uma definição de política **auditIfNotExists** ou **deployIfNotExists**, os detalhes incluem a propriedade **details.type** e todas as propriedades opcionais. Para obter uma lista, confira [Propriedades auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [Propriedades deployIfNotExists](../concepts/effects.md#deployifnotexists-properties). **Último recurso avaliado** é um recurso relacionado da seção **detalhes** da definição.
 
@@ -69,7 +69,7 @@ Para exibir os detalhes de conformidade, siga estas etapas:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Painel de detalhes de conformidade -*ifNotExists" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Captura de tela do painel detalhes de conformidade para ifNotExists, incluindo a contagem de recursos avaliados." border="false":::
 
 > [!NOTE]
 > Para proteger os dados, quando um valor de propriedade for um _segredo_, o valor atual exibirá asteriscos.
@@ -114,13 +114,13 @@ Você também pode não ter acesso para entrar na VM diretamente, mas precisa re
 
 Comece seguindo as mesmas etapas da seção acima para exibir os detalhes de conformidade da política.
 
-Na exibição do painel Detalhes de conformidade, clique no link **Último recurso avaliado**.
+Na exibição do painel detalhes de conformidade, selecione o link **último recurso avaliado**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Exibir detalhes da definição auditIfNotExists" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Captura de tela da exibição dos detalhes de conformidade da definição de auditIfNotExists." border="false":::
 
 A página **Atribuição de convidado** exibe todos os detalhes de conformidade disponíveis. Cada linha na exibição representa uma avaliação que foi executada dentro da máquina. Na coluna **Motivo**, uma frase é mostrada descrevendo por que a atribuição de convidado é _não está em conformidade_. Por exemplo, se você estiver auditando políticas de senha, a coluna **Motivo** exibirá texto, incluindo o valor atual para cada configuração.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Exibir detalhes de conformidade" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Captura de tela dos detalhes de conformidade da atribuição de convidado." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +191,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 Como parte de uma nova **versão preliminar pública**, os últimos 14 dias de histórico de alterações estão disponíveis para todos os recursos do Azure que dão suporte à [exclusão de modo completo](../../../azure-resource-manager/templates/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _comparação visual_ para cada alteração. Uma detecção de alteração é disparada quando as propriedades de Azure Resource Manager são adicionadas, removidas ou alteradas.
 
-1. Inicie o serviço de Azure Policy no portal do Azure clicando em**Todos os serviços**, em seguida pesquisando e selecionando **Política**.
+1. Inicie o serviço de Azure Policy no portal do Azure selecionando **todos os serviços**, em seguida, procurando e selecionando **política**.
 
 1. Na página **Visão geral** ou **Conformidade**, escolha uma política em qualquer **estado de conformidade**.
 
@@ -199,11 +199,11 @@ Como parte de uma nova **versão preliminar pública**, os últimos 14 dias de h
 
 1. Escolha a guia **Histórico de Alterações (versão prévia)** na página **Conformidade do Recurso**. Se houver uma lista de alterações detectadas, ela será exibida.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Guia Histórico de Alterações do Azure Policy página Conformidade de Recursos" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Captura de tela da guia histórico de alterações e detectados tempos de alteração na página conformidade de recursos." border="false":::
 
 1. Escolha uma das alterações detectadas. A _comparação visual_ para o recurso é apresentada na página **Histórico de alterações**.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Diferença visual do histórico de alterações do Azure Policy na página Histórico de alterações" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Captura de tela da diferença visual do histórico de alterações do estado anterior e posterior das propriedades na página Histórico de alterações." border="false":::
 
 A _comparação visual_ ajuda a identificar alterações em um recurso. As alterações detectadas podem não estar relacionadas ao estado de conformidade atual do recurso.
 

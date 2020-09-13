@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3010c1d597907e7d5c7f82c8b42721dc1f934f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74782015"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648696"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Práticas recomendadas de gerenciamento de cluster HDInsight
 
@@ -41,7 +41,7 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 | Opção | Documentos |
 |---|---|
 | Ações de script | [Personalização de clusters do HDInsight através de ações de script](./hdinsight-hadoop-customize-cluster-linux.md) |
-| Inicialização | [Personalizar clusters do HDInsight usando a Inicialização](./hdinsight-hadoop-customize-cluster-bootstrap.md) |
+| Bootstrap | [Personalizar clusters do HDInsight usando a Inicialização](./hdinsight-hadoop-customize-cluster-bootstrap.md) |
 | Metastores externos | [Usar armazenamentos de metadados externos no Azure HDInsight](./hdinsight-use-external-metadata-stores.md) |
 | BD Ambari personalizado | [Configurar clusters do HDInsight com um Ambari DB personalizado](./hdinsight-custom-ambari-db.md) |
 
@@ -62,6 +62,8 @@ Conheça as práticas recomendadas para o gerenciamento de clusters HDInsight.
 | Dimensionamento manual | [Dimensionar clusters do Azure HDInsight](./hdinsight-scaling-best-practices.md) |
 | Monitoramento com o Ambari| [Monitorar o desempenho do cluster no Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Monitoramento com logs de Azure Monitor | [Uso de logs do Azure Monitor para monitorar clusters do HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
+| Problemas de serviço, manutenção planejada, & recomendações de segurança de integridade | [Assinar alertas de integridade de serviço específicos da assinatura](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>Como fazer verificar em clusters HDInsight excluídos?
 

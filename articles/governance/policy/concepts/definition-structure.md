@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079023"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648725"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -17,7 +17,7 @@ Saiba mais sobre as [condições](#conditions).
 
 Definindo as convenções, você pode controlar os custos e muito mais fácil gerenciar seus recursos. Por exemplo, você pode especificar que somente determinados tipos de máquinas virtuais são permitidos. Ou, você pode exigir que os recursos tenham uma marca específica. As atribuições de política são herdadas por recursos filho. Se uma atribuição de política for aplicada a um grupo de recursos, ela será aplicável a todos os recursos nesse grupo de recursos.
 
-O esquema de definição de política é encontrado aqui: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+O esquema _policyRule_ de definição de política é encontrado aqui: [https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Você usa JSON para criar uma definição de política. A definição de política contém elementos para:
 
@@ -77,7 +77,7 @@ Use **displayName** e **description** para identificar a definição de polític
 > [!NOTE]
 > Durante a criação ou a atualização de uma definição de política, **id**, **type** e **name** são definidos por propriedades externas ao JSON e não são necessários no arquivo JSON. O fetch da definição de política por meio do SDK retorna a as propriedades **id**, **type** e **name** como parte do JSON, mas cada uma delas é uma informação somente leitura relacionada à definição de política.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Embora a propriedade **Type** não possa ser definida, há três valores que são retornados pelo SDK e visíveis no Portal:
 
@@ -619,7 +619,7 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
 
   Use a [extensão do Azure Policy para Visual Studio Code](../how-to/extension-for-vscode.md) para ver e descobrir aliases das propriedades de recurso.
 
-  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Extensão do Azure Policy para Visual Studio Code" border="false":::
+  :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Captura de tela da extensão de Azure Policy para Visual Studio Code passando uma propriedade para exibir os nomes de alias." border="false":::
 
 - Gráfico de Recursos do Azure
 
