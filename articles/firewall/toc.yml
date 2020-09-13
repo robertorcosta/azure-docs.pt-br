@@ -28,8 +28,6 @@
   items:
     - name: Azure PowerShell
       href: sample-powershell.md
-    - name: Logs do Azure Monitor
-      href: log-analytics-samples.md
 - name: Conceitos
   items:
     - name: Recursos do Firewall do Azure
@@ -88,6 +86,8 @@
       href: dns-settings.md
     - name: Logs de diagnóstico do Monitor
       href: firewall-diagnostics.md
+    - name: Logs do Azure Monitor
+      href: log-analytics-samples.md
 - name: Referência
   items:
     - name: CLI do Azure

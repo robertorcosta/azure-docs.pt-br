@@ -12,19 +12,74 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/17/2020
 ms.author: yohaddad
-ms.openlocfilehash: 5e5bcef36bb283b8b3f2b67578e0f3118302d936
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510157"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024291"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
 
-## <a name="august-2020-guest-os"></a>SO convidado de agosto de 2020
+## <a name="september-2020-guest-os"></a>SO convidado de setembro de 2020
 >[!NOTE]
->O sistema operacional convidado de agosto está sendo lançado no momento para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os patches a seguir estão incluídos no sistema operacional convidado de agosto. Esta lista está sujeita a alterações.
+>O sistema operacional convidado de setembro está sendo distribuído para VMs do serviço de nuvem que estão configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os patches a seguir estão incluídos no sistema operacional convidado de setembro. Esta lista está sujeita a alterações.
+
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2,102, 3,89, 4,82 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4561600]  |  Atualização do flash | 3,89, 4,82, 5,47, 6,23 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4577015]  |  Atualização cumulativa mais recente (LCU) | 5,47 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4570333]  |  Atualização cumulativa mais recente (LCU) | 6,23 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4570673]  |  Atualização da pilha de manutenção | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4577051]  |  Rollup mensal | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569767]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569780]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4566426]  |  Atualização da pilha de manutenção | 3,89 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4577038]  |  Rollup mensal | 3,89 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569765]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | 3,89 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569779]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2 | 3,89 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4566425]  |  Atualização da pilha de manutenção | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4577066]  |  Rollup mensal | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569768]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5 | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4569778]  |  ROLLUP de qualidade e segurança do 4.5.2 do .NET Framework | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4578013]  |  Atualização de segurança | 2,102 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4576750]  |  Atualização da pilha de manutenção | 5,47 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4576479]  |  Pacote cumulativo de segurança e qualidade do .NET Framework 4,8 | 5,47 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcódigo | 5,47 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4570332]  |  Atualização da pilha de manutenção | 6,23 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4570720]  |  Atualização cumulativa do .NET Framework 3,5 e 4.7.2 | 6,23 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4576483]  |  .NET Framework o acúmulo de qualidade e segurança do 4,8 | 6,23 | 8 de setembro de 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcódigo | 6,23 | 8 de setembro de 2020 |
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4561600]: https://support.microsoft.com/kb/4561600
+[4577015]: https://support.microsoft.com/kb/4577015
+[4570333]: https://support.microsoft.com/kb/4570333
+[4570673]: https://support.microsoft.com/kb/4570673
+[4577051]: https://support.microsoft.com/kb/4577051
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4566426]: https://support.microsoft.com/kb/4566426
+[4577038]: https://support.microsoft.com/kb/4577038
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566425]: https://support.microsoft.com/kb/4566425
+[4577066]: https://support.microsoft.com/kb/4577066
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4576479]: https://support.microsoft.com/kb/4576479
+[4494175]: https://support.microsoft.com/kb/4494175
+[4570332]: https://support.microsoft.com/kb/4570332
+[4570720]: https://support.microsoft.com/kb/4570720
+[4576483]: https://support.microsoft.com/kb/4576483
+[4494174]: https://support.microsoft.com/kb/4494174
+
+## <a name="august-2020-guest-os"></a>SO convidado de agosto de 2020
 
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -145,7 +200,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 |  Rel 20-06  |  [4561643]  |  Rollup mensal  |  [2,99]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4562252]  |  Atualização da pilha de manutenção  |  [3,86]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4561612]  |  Rollup mensal  |  [3,86]  |  9 de junho de 2020  |
-|  Rel 20-06  |  [4561600]  |  Piscando  |  [3,86], [4,79], [5,44], [6,20]  |  9 de junho de 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  [3,86], [4,79], [5,44], [6,20]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4562253]  |  Atualização da pilha de manutenção  |  [4,79]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4561666]  |  Rollup mensal  |  [4,79]  |  9 de junho de 2020  |
 |  Rel 20-06  |  [4562561]  |  Atualização da pilha de manutenção  |  [5.44]  |  9 de junho de 2020  |

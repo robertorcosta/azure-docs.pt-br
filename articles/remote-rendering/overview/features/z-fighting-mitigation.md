@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013173"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024359"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigação de Z-fighting
 
@@ -21,9 +21,9 @@ Quando duas superfícies se sobrepõem, não fica claro qual delas deve ser rend
 
 |Situação                        | Result                               |
 |---------------------------------|:-------------------------------------|
-|Z-fighting regular               |![Z-fighting](./media/zfighting-0.png)|
-|Mitigação de Z-fighting habilitada    |![Z-fighting](./media/zfighting-1.png)|
-|Realce de padrão quadriculado habilitado|![Z-fighting](./media/zfighting-2.png)|
+|Z-fighting regular               |![Nenhuma precedência determinística entre os quádruplos vermelho e verde](./media/zfighting-0.png)|
+|Mitigação de Z-fighting habilitada    |![Vermelho quad tem precedência](./media/zfighting-1.png)|
+|Realce de padrão quadriculado habilitado|![Preferência de alternância quádrupla vermelha e verde no padrão quadriculado](./media/zfighting-2.png)|
 
 O código a seguir habilita a mitigação do Z-fighting:
 
@@ -53,7 +53,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > A mitigação do Z-fighting é uma configuração global que afeta todas as malhas renderizadas.
 
@@ -76,6 +75,11 @@ A mitigação de Z-fighting apresentada é um melhor esforço. Não há nenhuma 
 
 * A habilitação da mitigação das sobreposições de texto gera pouca ou nenhuma sobrecarga de desempenho.
 * Além disso, a habilitação da sobreposição do Z-fighting provoca uma sobrecarga de desempenho não trivial, embora possa variar dependendo da cena.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Propriedade C# Remotemanager. ZFightingMitigationSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [C++ Remotomanager:: ZFightingMitigationSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>Próximas etapas
 

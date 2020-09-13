@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8e0b244e0ba25ad253b4beeb0e0a707e66c39cef
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0c3896ca49a157928b7aea08ecf3b07485c173f7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483144"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90022417"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -46,7 +46,6 @@ ms.locfileid: "89483144"
 |[Implantar as Configurações de Diagnóstico dos Aplicativos Lógicos no Hub de Eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1dae6c7-13f3-48ea-a149-ff8442661f60) |Implanta as configurações de diagnóstico dos Aplicativos Lógicos a serem transmitidas para um Hub de Eventos regional em quaisquer Aplicativos Lógicos criados ou atualizados que não tenham essas configurações de diagnóstico. |DeployIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogicApps_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Implantar as Configurações de Diagnóstico dos Aplicativos Lógicos ao workspace do Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb889a06c-ec72-4b03-910a-cb169ee18721) |Implanta as configurações de diagnóstico dos Aplicativos Lógicos a serem transmitidas para um workspace do Log Analytics regional em quaisquer Aplicativos Lógicos criados ou atualizados que não tenham essas configurações de diagnóstico. |DeployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogicApps_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Implantar configurações de diagnóstico para Grupos de Segurança de Rede](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |Essa política implanta automaticamente configurações de diagnóstico em grupos de segurança de rede. Uma conta de armazenamento com o nome "{storagePrefixParameter} {NSGLocation}" será criada automaticamente. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
-|[Implantar as configurações de diagnóstico do cofre dos Serviços de Recuperação no workspace do Log Analytics para categorias específicas do recurso.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc717fb0c-d118-4c43-ab3d-ece30ac81fb3) |Implante as configurações de diagnóstico do cofre dos Serviços de Recuperação para transmitir para o workspace do Log Analytics de categorias específicas do recurso. Se uma das categorias específicas do recurso não estiver habilitada, uma configuração de diagnóstico será criada. |deployIfNotExists |[1.0.0 – versão prévia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/EnableRecoveryServiceVaultDiagnosticSetting_Backup_DeployIfNotExist.json) |
 |[Implantar as Configurações de Diagnóstico dos Serviços de Pesquisa no Hub de Eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3d5da587-71bd-41f5-ac95-dd3330c2d58d) |Implanta as configurações de diagnóstico dos Serviços de Pesquisa a serem transmitidas para um Hub de Eventos regional em quaisquer dos Serviços de Pesquisa criados ou atualizados que não tenham essas configurações de diagnóstico. |DeployIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Search_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Implantar as Configurações de Diagnóstico dos Serviços de Pesquisa no workspace do Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08ba64b8-738f-4918-9686-730d2ed79c7d) |Implanta as configurações de diagnóstico dos Serviços de Pesquisa a serem transmitidas para um workspace do Log Analytics regional em quaisquer Serviços de Pesquisa criados ou atualizados que não tenham essas configurações de diagnóstico. |DeployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Search_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Implantar as Configurações de Diagnóstico do Barramento de Serviço no Hub de Eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b51af03-9277-49a9-a3f8-1c69c9ff7403) |Implanta as configurações de diagnóstico do Barramento de Serviço a serem transmitidas para um Hub de Eventos regional em qualquer Barramento de Serviço criado ou atualizado que não tenha essas configurações de diagnóstico. |DeployIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_EventHub.json) |

@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f57c212dfc44d84640224b1526ab770fe97230
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009450"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024393"
 ---
 # <a name="hierarchical-state-override"></a>Substituição de estado hierárquico
 
-Em muitos casos, é necessário alterar dinamicamente a aparência de partes de um [modelo](../../concepts/models.md), por exemplo, ocultar subgráficos ou alternar partes para renderização transparente. A alteração dos materiais de cada parte envolvida não é prática, pois requer iteração em todo o grafo de cena e o gerenciamento da clonagem e da atribuição de material em cada nó.
+Em muitos casos, é necessário alterar dinamicamente a aparência de partes de um [modelo](../../concepts/models.md), por exemplo, ocultar Subgráficos ou alternar partes para renderização transparente. A alteração dos materiais de cada parte envolvida não é prática, pois requer iteração em todo o grafo de cena e o gerenciamento da clonagem e da atribuição de material em cada nó.
 
 Para realizar esse caso de uso com a menor sobrecarga possível, use o `HierarchicalStateOverrideComponent`. Esse componente implementa atualizações de estado hierárquicas em ramificações arbitrárias do grafo de cena. Isso significa que um estado pode ser definido em qualquer nível no grafo de cena e perpassa a hierarquia até que seja substituído por um novo estado ou aplicado a um objeto folha.
 
@@ -31,20 +31,23 @@ O conjunto fixo de estados que podem ser substituídos é:
 * **`Hidden`**: As respectivas malhas no grafo de cena são ocultas ou mostradas.
 * **`Tint color`**: Um objeto renderizado pode ser colorido por cores com sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra a coloração do aro de uma roda.
   
-  ![Color Tint](./media/color-tint.png)
+  ![Cor da tonalidade usada para transformar um objeto em verde](./media/color-tint.png)
 
 * **`See-through`**: A geometria é renderizada semitransparentemente, por exemplo, para revelar as partes internas de um objeto. A seguinte imagem mostra todo o carro sendo renderizado no modo de transparência, exceto a pinça de freio vermelha:
 
-  ![See-Through](./media/see-through.png)
+  ![Modo de visualização usado para tornar os objetos selecionados transparentes](./media/see-through.png)
 
   > [!IMPORTANT]
   > O efeito de transparência só funciona quando é usado o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
 * **`Selected`**: A geometria é renderizada com uma [estrutura de tópicos de seleção](outlines.md).
 
-  ![Contorno de seleção](./media/selection-outline.png)
+  ![Opção de estrutura de tópicos usada para realçar uma parte selecionada](./media/selection-outline.png)
 
 * **`DisableCollision`**: A geometria é isenta de [consultas espaciais](spatial-queries.md). O **`Hidden`** sinalizador não afeta o sinalizador de estado de colisão, portanto, esses dois sinalizadores geralmente são definidos juntos.
+
+> [!TIP]
+> Como alternativa para desativar as consultas de visibilidade e espaciais para um subgrafo completo, o `enabled` estado de um objeto de jogo pode ser alternado. Se uma hierarquia estiver desabilitada, isso terá preferência sobre qualquer `HierarchicalStateOverrideComponent` .
 
 ## <a name="hierarchical-overrides"></a>Substituições hierárquicas
 
@@ -95,6 +98,11 @@ A `tint color` substituição é um pouco especial, pois há um estado ligado/de
 Uma instância do `HierarchicalStateOverrideComponent` em si não adiciona muita sobrecarga de runtime. No entanto, é sempre uma boa prática manter um número baixo de componentes ativos. Por exemplo, ao implementar um sistema de seleção que realça o objeto selecionado, é recomendável excluir o componente quando o realce é removido. Manter os componentes com recursos neutros pode gerar acúmulo rapidamente.
 
 A renderização transparente coloca mais carga de trabalho nas GPUs do servidor do que a renderização padrão. Se grandes partes do grafo de cena forem alternadas para *see-through*, com muitas camadas de geometria ficando visíveis, ele poderá se tornar um gargalo de desempenho. O mesmo se dá para objetos com [contornos de seleção](../../overview/features/outlines.md#performance).
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Classe C# HierarchicalStateOverrideComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [Classe C++ HierarchicalStateOverrideComponent](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## <a name="next-steps"></a>Próximas etapas
 
