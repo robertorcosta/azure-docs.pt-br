@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: modificar um circuito: PowerShell'
 description: Criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/08/2020
-ms.author: cherylmc
-ms.openlocfilehash: aba29c46a781c8e687c79a197d37758699a9acf5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.author: duau
+ms.openlocfilehash: e9bf9dbe0f4146101513ab9786b298ac6b43b6a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984458"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566290"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -73,7 +73,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Especifique a camada da SKU e a família de SKUs corretas:
 
-* A camada de SKU determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, *Standard* ou *Premium*.
+* A camada de SKU determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, *Standard* ou *Premium*. Não é possível alterar a SKU de *Standard/Premium* para *local*.
 * A família da SKU determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é sempre *Unlimiteddata*.
 
 > [!IMPORTANT]
@@ -306,7 +306,7 @@ Você pode modificar certas propriedades de um circuito do ExpressRoute sem afet
 
 É possível executar as seguintes tarefas sem tempo de inatividade:
 
-* Como habilitar ou desabilitar o complemento premium do ExpressRoute para seu circuito do ExpressRoute.
+* Como habilitar ou desabilitar o complemento premium do ExpressRoute para seu circuito do ExpressRoute. Não há suporte para a alteração do SKU de *Standard/Premium* para *local* .
 * Aumente a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Não há suporte para o downgrade da largura de banda de um circuito.
 * Altere o plano de medição de Dados Limitados para Dados Ilimitados. Não há suporte para alteração do plano de medição de Dados Ilimitados para Dados Limitados.
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
@@ -391,8 +391,8 @@ Confira as instruções em [Mover os circuitos de ExpressRoute do modelo de impl
 Observe as seguintes informações:
 
 * Você deve desvincular todas as redes virtuais do circuito do ExpressRoute. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
-* Se o estado de provisionamento do provedor de serviço de circuito do **ExpressRoute for Provisionando** ou **provisionado** , você deverá trabalhar com seu provedor de serviços para desprovisionar o circuito no lado deles. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
-* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **não provisionado**), você poderá excluir o circuito. Isso interrompe a cobrança pelo circuito.
+* Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
+* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interrompe a cobrança pelo circuito.
 
 Você pode excluir o circuito do ExpressRoute executando o comando a seguir:
 

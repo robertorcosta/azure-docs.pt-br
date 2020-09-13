@@ -2,13 +2,13 @@
 title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 69fcb271ac94df3faf8e9e37c1ef30a6c0681441
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079496"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566119"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -744,7 +744,7 @@ Pule para um namespace de provedor de recursos:
 > | quotas | Não | Não |
 > | resourcetypes | Não | Não |
 > | validatesubscriptionmoveavailability | Não | Não |
-> | virtualmachines | Sim | Não |
+> | virtualmachines | Sim | Sim |
 > | virtualmachines/diagnosticsettings | Não | Não |
 > | virtualmachines/metricdefinitions | Não | Não |
 > | virtualmachines/metrics | Não | Não |
@@ -2789,7 +2789,7 @@ Pule para um namespace de provedor de recursos:
 > | locations/jobagentoperationresults | Não | Não |
 > | locations/longtermretentionbackupazureasyncoperation | Não | Não |
 > | locations/longtermretentionbackupoperationresults | Não | Não |
-> | locations/longtermretentionbackups | Não | Não |
+> | locations/longtermretentionbackups | Sim | Sim |
 > | locations/longtermretentionmanagedinstancebackupazureasyncoperation | Não | Não |
 > | locations/longtermretentionmanagedinstancebackupoperationresults | Não | Não |
 > | locations/longtermretentionmanagedinstancebackups | Não | Não |
@@ -2872,7 +2872,7 @@ Pule para um namespace de provedor de recursos:
 > | servers/databases/auditingsettings | Não | Não |
 > | servers/databases/auditrecords | Não | Não |
 > | servers/databases/automatictuning | Não | Não |
-> | servers/databases/backuplongtermretentionpolicies | Não | Não |
+> | servers/databases/backuplongtermretentionpolicies | Sim | Sim |
 > | servers/databases/backupshorttermretentionpolicies | Não | Não |
 > | servers/databases/connectionpolicies | Não | Não |
 > | servers/databases/datamaskingpolicies | Não | Não |

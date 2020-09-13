@@ -3,12 +3,12 @@ title: Dispositivo de Migrações para Azure
 description: Fornece uma visão geral do dispositivo de Migrações para Azure usado na avaliação e migração de servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f0bba2f2d200ffc84855ff8fc7f634bd8b71ceb6
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927486"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514349"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -121,7 +121,7 @@ download.microsoft.com/download | Permita downloads da Microsoft.
 graph.windows.net | Entre em sua assinatura do Azure.
 login.microsoftonline.us  | Crie aplicativos do Azure AD (Active Directory) para que o dispositivo se comunique com as Migrações para Azure.
 management.usgovcloudapi.net | Crie aplicativos do Azure AD para que o dispositivo se comunique com o serviço Migrações para Azure.
-dc.services.visualstudio.com | Carregue logs de aplicativo usados para monitoramento interno.
+*.services.visualstudio.com | Carregue logs de aplicativo usados para monitoramento interno.
 *.vault.usgovcloudapi.net | Gerencie segredos no Azure Key Vault.
 aka.ms/* | Permita o acesso a links aka. Usado para atualizações do dispositivo de Migrações para Azure.
 download.microsoft.com/download | Permita downloads da Microsoft.
@@ -219,7 +219,7 @@ Aqui estão os dados de aplicativo instalados que o dispositivo coleta de cada V
 --- | --- | ---
 Nome do Aplicativo  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publicador
+Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### <a name="windows-vm-features-data"></a>Dados de recursos de VM do Windows
 

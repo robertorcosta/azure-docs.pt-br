@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab9b396f72ddd35638519ab69f17e034479e0d5a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311044"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504903"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigar um dispositivo IoT suspeito
 
@@ -39,9 +39,9 @@ Por padrão, a central de segurança do Azure para IoT armazena seus alertas de 
 Para localizar seu espaço de trabalho do Log Analytics para armazenamento de dados:
 
 1. Abra seu Hub IoT,
-1. Em **segurança**, clique em **visão geral**e, em seguida, selecione **configurações**.
+1. Em **segurança**, selecione **configurações**e, em seguida, selecione **coleta de dados**.
 1. Altere seus detalhes de configuração do espaço de trabalho do Log Analytics.
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
 
 Após a configuração, faça o seguinte para acessar dados armazenados no espaço de trabalho do Log Analytics:
 

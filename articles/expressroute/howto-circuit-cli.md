@@ -2,18 +2,18 @@
 title: 'Criar e modificar um circuito de ExpressRoute: CLI do Azure'
 description: Este artigo mostra como criar, provisionar, verificar, atualizar, excluir e desprovisionar um circuito do ExpressRoute usando a CLI.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5f3270bbed5042ef89d5818523005dfc31589945
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503575"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566136"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Criar e modificar um circuito do ExpressRoute usando a CLI
 
@@ -119,7 +119,7 @@ A resposta é semelhante ao seguinte exemplo:
 
 Verifique a resposta para ver se o provedor de conectividade está listado. Anote as informações a seguir, pois você precisará delas quando criar um circuito:
 
-* Name
+* Nome
 * PeeringLocations
 * BandwidthsOffered
 
@@ -142,7 +142,7 @@ O exemplo a seguir mostra como criar um circuito do ExpressRoute de 200 Mbps por
 
 Especifique a camada da SKU e a família de SKUs corretas:
 
-* A camada de SKU determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, *Standard* ou *Premium*.
+* A camada de SKU determina se um circuito de ExpressRoute é [local](expressroute-faqs.md#expressroute-local), Standard ou [Premium](expressroute-faqs.md#expressroute-premium). Você pode especificar *local*, *Standard* ou *Premium*. Não é possível alterar a SKU de *Standard/Premium* para *local*.
 * A família da SKU determina o tipo de cobrança. Você pode especificar *Metereddata* para um plano de dados limitado e *Unlimiteddata* para um plano de dados ilimitado. É possível alterar o tipo de cobrança de *Metereddata* para *Unlimiteddata*, mas não é possível alterar o tipo de *Unlimiteddata* para *Metereddata*. Um circuito *local* é apenas *Unlimiteddata* .
 
 
@@ -280,7 +280,7 @@ Em seguida, vincule uma rede virtual a seu circuito do ExpressRoute. Use o artig
 
 Você pode modificar certas propriedades de um circuito do ExpressRoute sem afetar a conectividade. Você pode fazer as seguintes alterações sem tempo de inatividade:
 
-* Você pode habilitar ou desabilitar o complemento ExpressRoute Premium para seu circuito do ExpressRoute.
+* Você pode habilitar ou desabilitar o complemento ExpressRoute Premium para seu circuito do ExpressRoute. Não há suporte para a alteração do SKU de *Standard/Premium* para *local* .
 * Você pode aumentar a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Não há suporte para o downgrade da largura de banda de um circuito.
 * Altere o plano de medição de Dados Limitados para Dados Ilimitados. No entanto, não há suporte para alteração do plano de medição de Dados Ilimitados para Dados Limitados.
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
