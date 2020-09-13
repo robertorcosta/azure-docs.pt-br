@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612632"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441741"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a Área de Trabalho Virtual do Windows
 
@@ -67,7 +67,7 @@ Por padrão, aplicativos e áreas de trabalho sendo executados em configuraçõe
 
 2. Agora que as políticas de grupo foram editadas, force uma atualização da política de grupo. Abra o Prompt de Comando e digite:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -80,7 +80,7 @@ Se você geralmente usa aplicativos que produzem um conteúdo de alta taxa de qu
 1. Selecione a política **Priorizar o modo gráfico H.264/AVC 444 para conexões da Área de Trabalho Remota** e defina essa política como **Habilitada** para forçar o codec H.264/AVC 444 na sessão remota.
 2. Agora que as políticas de grupo foram editadas, force uma atualização da política de grupo. Abra o Prompt de Comando e digite:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 

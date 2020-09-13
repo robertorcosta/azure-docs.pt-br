@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Saiba como migrar para o monitor de conexão (versão prévia) do monitor de conexão.
 services: network-watcher
 documentationcenter: na
-author: vinigam
+author: vinynigam
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: how-to
@@ -12,50 +12,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2020
 ms.author: vinigam
-ms.openlocfilehash: ddf6e326df876229d32ef15983f76879836f1fca
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 05b42024529b8d9de3590488ecafbdf83283e007
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701410"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441809"
 ---
 # <a name="migrate-to-connection-monitor-preview-from-connection-monitor"></a>Migrar para o monitor de conexão (versão prévia) do monitor de conexão
 
-Você pode migrar os monitores de conexão existentes para o monitor de conexão novo e aprimorado (versão prévia) em um único clique e sem tempo de inatividade. Para saber mais sobre os benefícios, você pode ler o [Monitor de conexão (versão prévia)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview)
+É possível migrar os monitores de conexão existentes para um monitor de conexão novo e aprimorado (versão prévia) com apenas alguns cliques e sem tempo de inatividade. Para saber mais sobre os benefícios, consulte [Monitor de conexão (versão prévia)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview).
 
 ## <a name="key-points-to-note"></a>Pontos-chave a serem observados
 
-* Os agentes e as configurações de firewall funcionarão como estão (sem toque necessário) 
-* Os monitores de conexão existentes serão mapeados para o monitor de conexão (visualização) – > grupo de teste – > formato de teste. Os usuários podem clicar em *Editar* para exibir e modificar as propriedades do novo monitor de conexão e baixar o modelo para fazer alterações no monitor de conexão e enviá-lo por meio de Azure Resource Manager. 
-* As máquinas virtuais do Azure com extensão do observador de rede enviam dados para o espaço de trabalho e métricas. Os monitores de conexão disponibilizarão os dados por meio das novas métricas (ChecksFailedPercent (visualização) e RoundTripTimeMs (visualização)) em vez das métricas de parada antiga (ProbesFailedPercent e AverageRoundtripMs) 
-* Dados de monitoramento
-    * Alertas – serão migrados para novas métricas como parte da migração
-    * Painéis e integrações – você precisará editar manualmente o conjunto de métricas. 
+A migração ajuda a produzir os seguintes resultados:
+
+* Os agentes e as configurações de firewall funcionam como estão. Nenhuma alteração é necessária. 
+* Os monitores de conexão existentes são mapeados para o monitor de conexão (visualização) > grupo de teste > formato de teste. Ao selecionar **Editar**, você pode exibir e modificar as propriedades do novo monitor de conexão, baixar um modelo para fazer alterações no monitor de conexão e enviá-lo por meio de Azure Resource Manager. 
+* As máquinas virtuais do Azure com a extensão do observador de rede enviam dados para o espaço de trabalho e para as métricas. O monitor de conexão torna os dados disponíveis por meio das novas métricas (ChecksFailedPercent [visualização] e RoundTripTimeMs [Preview]) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). 
+* Monitoramento de dados:
+   * **Alertas**: migrados automaticamente para as novas métricas.
+   * **Painéis e integrações**: requer a edição manual do conjunto de métricas. 
     
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se estiver usando espaço de trabalho personalizado, verifique se o observador de rede está habilitado na assinatura e na região do espaço de trabalho Log Analytics 
+Se você estiver usando um espaço de trabalho personalizado, verifique se o observador de rede está habilitado em sua assinatura e na região do seu espaço de trabalho de Log Analytics. 
 
-## <a name="steps-to-migrate-from-connection-monitor-to-connection-monitor-preview"></a>Etapas para migrar do monitor de conexão para o monitor de conexão (versão prévia)
+## <a name="migrate-the-connection-monitors"></a>Migrar os monitores de conexão
 
-1. Clique em "Monitor de conexão", navegue até "migrar monitores de conexão" para migrar monitores de conexão de uma solução mais antiga para a mais recente.
+1. Para migrar os monitores de conexão mais antigos para o mais recente, selecione **Monitor de conexão**e, em seguida, selecione **migrar monitores de conexão**.
 
-    ![Captura de tela mostrando migrar monitores de conexão para a visualização do monitor de conexão](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
+    ![Captura de tela mostrando a migração de monitores de conexão para o monitor de conexão (versão prévia).](./media/connection-monitor-2-preview/migrate-cm-to-cm-preview.png)
     
-1. Selecione monitores de assinatura e conexão e clique em "migrar selecionados". Em um clique em migrar monitores de conexão existentes para o monitor de conexão (versão prévia) 
-1. Você pode personalizar as propriedades do monitor de conexão, alterar o espaço de trabalho padrão, baixar o modelo e verificar o status da migração. 
-1. Após o início da migração, ocorrem as seguintes alterações: 
-    1. Azure Resource Manager alterações de recurso para o monitor de conexão mais recente
-        1. O nome, a região e a assinatura do monitor de conexão permanecem inalterados. Portanto, não há nenhum impacto na ID do recurso.
-        1. A menos que personalizado, um espaço de trabalho padrão do Log Analytics é criado na região e na assinatura do monitor de conexão. Esse espaço de trabalho é onde os dados de monitoramento serão armazenados. Os dados de resultado do teste também serão armazenados em métricas.
-        1. Cada teste é migrado para um grupo de teste chamado * defaulttesto *
-        1.  Os pontos de extremidade de origem e destino são criados e usados no grupo de teste criado. Os nomes padrão são *defaultSourceEndpoint* e *defaultDestinationEndpoint*
-        1. A porta de destino e o intervalo de investigação são movidos para a configuração de teste chamada *defaultTestConfiguration*. Com base nos valores de porta, o protocolo é definido. Os limites de êxito e outras propriedades opcionais são deixados em branco.
-    1. Os alertas de métrica são migrados para alertas de métrica do monitor de conexão (versão prévia). As métricas são diferentes <link to metric section in the doc> , portanto, a alteração
-    1. Os monitores de conexão migrados não aparecerão na solução de monitor de conexão mais antiga, agora só estarão disponíveis para uso no monitor de conexão (versão prévia)
-    1. Todas as integrações externas, como painéis em Power BI, Grafana, integrações com sistemas SIEM, precisarão ser migradas diretamente pelo usuário. Essa é a única etapa manual que o usuário precisa executar para migrar sua configuração.
+1. Selecione sua assinatura e os monitores de conexão que você deseja migrar e selecione **migrar selecionado**. 
+
+Com apenas alguns cliques, você migrou os monitores de conexão existentes para o monitor de conexão (versão prévia). 
+
+Agora você pode personalizar as propriedades do monitor de conexão (visualização), alterar o espaço de trabalho padrão, baixar modelos e verificar o status da migração. 
+
+Após o início da migração, as seguintes alterações ocorrem: 
+* O recurso Azure Resource Manager muda para o monitor de conexão mais recente.
+    * O nome, a região e a assinatura do monitor de conexão permanecem inalterados. A ID do recurso não é afetada.
+    * A menos que o monitor de conexão seja personalizado, um espaço de trabalho de Log Analytics padrão é criado na assinatura e na região do monitor de conexão. Esse espaço de trabalho é onde os dados de monitoramento são armazenados. Os dados de resultado do teste também são armazenados nas métricas.
+    * Cada teste é migrado para um grupo de teste chamado *DefaultTest*.
+    * Os pontos de extremidade de origem e destino são criados e usados no novo grupo de teste. Os nomes padrão são *defaultSourceEndpoint* e *defaultDestinationEndpoint*.
+    * A porta de destino e o intervalo de investigação são movidos para uma configuração de teste chamada *defaultTestConfiguration*. O protocolo é definido com base nos valores de porta. Os limites de êxito e outras propriedades opcionais são deixados em branco.
+* Os alertas de métricas são migrados para alertas de métricas do monitor de conexão (versão prévia). As métricas são diferentes, portanto, a alteração. Para obter mais informações, consulte [monitoramento de conectividade de rede com o monitor de conexão (versão prévia)](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#metrics-in-azure-monitor).
+* Os monitores de conexão migrados não são mais exibidos como a solução de monitor de conexão mais antiga. Agora eles estão disponíveis para uso somente no monitor de conexão (versão prévia).
+* Todas as integrações externas, como painéis em Power BI e Grafana, e integrações com sistemas SIEM (gerenciamento de eventos e informações de segurança), devem ser migradas manualmente. Essa é a única etapa manual que você precisa executar para migrar a configuração.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba [como migrar de monitor de desempenho de rede para o monitor de conexão (versão prévia)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
-* Saiba [como criar um monitor de conexão (versão prévia) usando portal do Azure](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)
+Para saber mais sobre o monitor de conexão (versão prévia), consulte:
+* [Migrar do monitor de Monitor de Desempenho de Rede para conexão (versão prévia)](migrate-to-connection-monitor-preview-from-network-performance-monitor.md)
+* [Criar monitor de conexão (versão prévia) usando o portal do Azure](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview-create-using-portal)

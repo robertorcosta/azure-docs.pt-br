@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640473"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441911"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurar o logon único baseado em SAML
 
@@ -51,7 +51,6 @@ Na [série de início rápido](view-applications-portal.md), há um artigo sobre
 | **URL de logon** | Obrigatório | Não especifique | Quando um usuário abre essa URL, o provedor de serviço redireciona para o Azure AD a fim de autenticar e conectar o usuário. O Azure AD usa a URL para iniciar o aplicativo do Office 365 ou meus aplicativos do Azure AD. Quando em branco, o Azure AD faz um logon iniciado pelo IdP quando um usuário inicia o aplicativo do Office 365, meus aplicativos do Azure AD ou a URL de SSO do Azure AD.|
 | **Estado de Retransmissão** | Opcional | Opcional | Especifica para onde o aplicativo deve redirecionar o usuário depois que a autenticação é concluída. Normalmente, o valor é uma URL válida para o aplicativo. No entanto, alguns aplicativos usam esse campo de forma diferente. Para obter mais informações, pergunte ao fornecedor do aplicativo.
 | **URL de logoff** | Opcional | Opcional | Usada para enviar as respostas de Logoff do SAML novamente ao aplicativo.
-
 
 ## <a name="user-attributes-and-claims"></a>Atributos e declarações de usuário 
 
