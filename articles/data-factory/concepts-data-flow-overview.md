@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/12/2020
-ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/02/2020
+ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212059"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419956"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeando fluxos de dados em Azure Data Factory
 
@@ -37,13 +37,13 @@ Essa ação leva você para a tela de fluxo de dados, na qual você pode criar a
 
 O mapeamento de fluxo de dados tem uma tela de criação exclusiva projetada para facilitar a criação da lógica de transformação. A tela de fluxo de dados é separada em três partes: a barra superior, o grafo e o painel de configuração. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![Tela](media/data-flow/canvas1.png "Canvas")
 
 ### <a name="graph"></a>Grafo
 
-O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente.
+O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente. Saiba mais sobre como [gerenciar o grafo de fluxo de dados](concepts-data-flow-manage-graph.md).
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![Tela](media/data-flow/canvas2.png "Canvas")
 
 ### <a name="configuration-panel"></a>Painel de configuração
 
@@ -106,10 +106,10 @@ Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
 |  Austrália Central | | |  
 | Austrália Central 2 | | |
 | Leste da Austrália | ✓ |  ✓ |
-| Australia Southeast   | ✓ | ✓ |
-| Brazil South  | ✓ |  |
+| Sudeste da Austrália   | ✓ | ✓ |
+| Sul do Brasil  | ✓ |  |
 | Canadá Central | ✓ |  |
-| Central India | ✓ |   ✓ |
+| Índia Central | ✓ |   ✓ |
 | Centro dos EUA    | ✓ |   ✓ |
 | Leste da China |      | ✓ |
 | Leste da China 2  |   |    |
@@ -126,7 +126,7 @@ Os fluxos de dados de mapeamento estão disponíveis nas seguintes regiões:
 | Norte da Alemanha (público) | | |
 | Nordeste da Alemanha (soberanas) | | |
 | Centro-oeste da Alemanha (público) |  | ✓ |
-| Japan East | ✓ |  |
+| Leste do Japão | ✓ |  |
 | Oeste do Japão |  | |
 | Coreia Central | ✓ |  |
 | Sul da Coreia | | |
