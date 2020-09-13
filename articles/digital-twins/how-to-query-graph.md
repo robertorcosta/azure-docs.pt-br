@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055627"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468701"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
@@ -174,6 +174,42 @@ Você pode **combinar** qualquer um dos tipos de consulta acima usando operadore
 | Os dispositivos que a *sala 123* tem, retornam os dispositivos MxChip que atendem à função de operador | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Obtenha gêmeos que têm uma relação chamada *Contains* com outro "My" que tem uma ID de *ID1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
 | Obter todas as salas deste modelo de sala que estão contidas por *floor11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
+
+## <a name="reference-expressions-and-conditions"></a>Referência: expressões e condições
+
+Esta seção contém referência para os operadores e funções disponíveis ao escrever consultas do Azure digital gêmeos.
+
+### <a name="operators"></a>Operadores
+
+Há suporte para os seguintes operadores:
+
+| Família | Operadores |
+| --- | --- |
+| Lógico |AND, OR, NOT |
+| Comparação |=,! =, <, >, <=, >= |
+| Contém | NO, NIN |
+
+### <a name="functions"></a>Funções
+
+Há suporte para as seguintes funções de verificação e conversão de tipo:
+
+| Função | Descrição |
+| -------- | ----------- |
+| IS_DEFINED | Retorna um valor booliano que indica se um valor foi atribuído à propriedade. Isso só tem suporte quando o valor é um tipo primitivo. Tipos primitivos incluem cadeia de caracteres, booliano, numérico ou `null` . Não há suporte para DateTime, tipos de objeto e matrizes. |
+| IS_OF_MODEL | Retorna um valor booliano que indica se a propriedade de texto especificada corresponde ao tipo de modelo especificado |
+| IS_BOOL | Retorna um valor booliano que indica se o tipo da expressão especificada é um booliano. |
+| IS_NUMBER | Retorna um valor booliano que indica se o tipo da expressão especificada é um número. |
+| IS_STRING | Retorna um valor booliano que indica se o tipo da expressão especificada é uma cadeia de caracteres. |
+| IS_NULL | Retorna um valor booliano que indica se o tipo da expressão especificada é nulo. |
+| IS_PRIMITIVE | Retorna um valor booleano indicando se o tipo da expressão especificada é um primitivo (cadeia de caracteres, booliano, numérico ou `null`). |
+| IS_OBJECT | Retorna um valor booliano que indica se o tipo da expressão especificada é um objeto JSON. |
+
+Há suporte para as seguintes funções de cadeia de caracteres:
+
+| Função | Descrição |
+| -------- | ----------- |
+| STARTS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres começa com a segunda. |
+| ENDS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda. |
 
 ## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada à API
 

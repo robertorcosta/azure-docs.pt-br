@@ -5,16 +5,16 @@ keywords: credenciais de local de autenticação do Azure Key Vault
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 08/08/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 860f9b0e49423b5d144d56ecd965153f7a362d87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 00799f7c5239bfd744268f7353e1bac6cb038294
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180908"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483330"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticação serviço a serviço no Azure Key Vault usando o .NET
 
@@ -39,7 +39,7 @@ Para aplicativos .NET, a maneira mais simples de trabalhar com uma identidade ge
 
 1. Selecione **ferramentas**  >  **Gerenciador de pacotes NuGet**  >  **gerenciar pacotes NuGet para solução** para adicionar referências aos pacotes NuGet [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft. Azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) ao seu projeto.
 
-1. Adicione os códigos a seguir:
+1. Adicione o seguinte código:
 
     ``` csharp
     using Microsoft.Azure.Services.AppAuthentication;
@@ -54,7 +54,7 @@ Para aplicativos .NET, a maneira mais simples de trabalhar com uma identidade ge
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-Você não precisa verificar a expiração do token antes de chamar o `GetAccessTokenAsync` método, pois `AzureServiceTokenProvider` o armazena em cache o token na memória e o recupera do Azure ad logo antes da expiração. 
+A classe thread-safe `AzureServiceTokenProvider` armazena em cache o token na memória e o recupera do Azure ad logo antes da expiração. Isso significa que você nunca precisa verificar a expiração do token antes de chamar o `GetAccessTokenAsync` método. 
 
 O método `GetAccessTokenAsync` exige um identificador de recurso. Para saber mais sobre os serviços de Microsoft Azure, confira [o que são identidades gerenciadas para recursos do Azure](../../active-directory/msi-overview.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Ambientes de computação com suporte do Azure Data Factory
-description: Saiba mais sobre os ambientes de computação que você pode usar em pipelines do Azure Data Factory (por exemplo, o Azure HDInsight) para transformar ou processar dados.
+description: Ambientes de computação que podem ser usados com Azure Data Factory pipelines (como o Azure HDInsight) para transformar ou processar dados.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,12 +10,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.date: 05/08/2019
-ms.openlocfilehash: 98f3c96fe1d1e8dd0f73d0441db8319fc2241cd7
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 3d8e667cd96cc6d7091682a4530633588591d3a4
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563731"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483177"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 
@@ -33,7 +33,7 @@ A tabela a seguir fornece uma lista dos ambientes de computação com suporte do
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Pipeline de execução do Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Pipeline de execução do Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [U-SQL da Análise Data Lake](transform-data-using-data-lake-analytics.md) |
-| [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento armazenado](transform-data-using-stored-procedure.md) |
+| [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics (anteriormente SQL Data Warehouse)](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento armazenado](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Azure Function](#azure-function-linked-service)         | [Atividade do Azure Function](control-flow-azure-function-activity.md)
 >  
@@ -109,7 +109,7 @@ O JSON a seguir define um serviço vinculado HDInsight sob demanda baseado em Li
 > [!IMPORTANT]
 > O cluster HDInsight cria um **contêiner padrão** no armazenamento de blobs especificado no JSON (**nomeServiçoVinculado**). O HDInsight não exclui esse contêiner quando o cluster é excluído. Este comportamento ocorre por design. Com o serviço vinculado HDInsight sob demanda, um cluster HDInsight é criado sempre que uma fatia precisa ser processada, a menos que haja um cluster ativo existente (**timeToLive**), e é excluído quando o processamento é concluído. 
 >
-> Conforme mais atividades forem executadas, você verá muitos contêineres no Armazenamento de Blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use ferramentas como [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com/) para excluir contêineres no armazenamento de BLOBs do Azure.
+> Conforme mais atividades forem executadas, você verá muitos contêineres no Armazenamento de Blobs do Azure. Se você não precisa deles para solução de problemas dos trabalhos, convém excluí-los para reduzir o custo de armazenamento. Os nomes desses contêineres seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Use ferramentas como o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) para excluir contêineres do armazenamento de blobs do Azure.
 
 #### <a name="properties"></a>Propriedades
 
@@ -265,7 +265,7 @@ Esse tipo de configuração tem suporte para os ambientes de computação a segu
 * Lote do Azure
 * Azure Machine Learning
 * Análise Azure Data Lake
-* Banco de Dados SQL do Azure, SQL DW do Azure, SQL Server
+* BD SQL do Azure, Azure Synapse Analytics, SQL Server
 
 ## <a name="azure-hdinsight-linked-service"></a>Serviço vinculado do Azure HDInsight
 Você pode criar um serviço vinculado Azure HDInsight para registrar seu próprio cluster HDInsight com o Data Factory.
@@ -562,9 +562,9 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 
 Você pode criar um serviço vinculado SQL do Azure e usá-lo com a [Atividade de Procedimento Armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL do Azure](connector-azure-sql-database.md#linked-service-properties) para saber mais sobre esse serviço vinculado.
 
-## <a name="azure-sql-data-warehouse-linked-service"></a>Serviço vinculado do SQL Data Warehouse do Azure
+## <a name="azure-synapse-analytics-linked-service"></a>Serviço vinculado do Azure Synapse Analytics
 
-Você pode criar um serviço vinculado do SQL Data Warehouse do Azure e usá-lo com a [Atividade de Procedimento Armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado de um pipeline do Data Factory. Confira o artigo [Conector SQL Data Warehouse do Azure](connector-azure-sql-data-warehouse.md#linked-service-properties) para saber mais sobre esse serviço vinculado.
+Você cria um serviço vinculado do Azure Synapse Analytics (anteriormente SQL Data Warehouse) e o utiliza com a [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) para invocar um procedimento armazenado de um pipeline de data Factory. Confira o artigo [conector do Azure Synapse Analytics (anteriormente SQL data warehouse)](connector-azure-sql-data-warehouse.md#linked-service-properties) para obter detalhes sobre esse serviço vinculado.
 
 ## <a name="sql-server-linked-service"></a>Serviço vinculado do SQL Server
 

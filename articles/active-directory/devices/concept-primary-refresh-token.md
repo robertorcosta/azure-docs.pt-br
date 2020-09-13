@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025873"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468599"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de atualização principal?
 
@@ -86,6 +86,10 @@ Um PRT é renovado por meio de dois métodos:
 * **Plug-in WAM do Azure AD durante solicitações de token de aplicativo**: o plug-in WAM habilita o SSO em dispositivos Windows 10 por meio da habilitação de solicitações de token silencioso para aplicativos. O plug-in WAM pode renovar o PRT durante essas solicitações de token de duas maneiras:
    * Um aplicativo solicita o WAM a um token de acesso silenciosamente, mas não há um token de atualização disponível para esse aplicativo. Nesse caso, o WAM usa o PRT para solicitar um token para o aplicativo e retorna um novo PRT na resposta.
    * Um aplicativo solicita o WAM a um token de acesso, mas o PRT é inválido ou o Azure AD requer autorização adicional (por exemplo, Autenticação Multifator do Microsoft Azure). Nesse cenário, o WAM inicia um logon interativo que requer que o usuário seja reautenticado ou forneça uma verificação adicional, e um novo PRT é emitido na autenticação bem-sucedida.
+
+Em um ambiente do ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação de PRT requer apenas pontos de extremidade/ADFS/Services/Trust/2005/usernamemixed e/ADFS/Services/Trust/13/usernamemixed habilitados no proxy usando o protocolo WS-Trust.
+
+Os pontos de extremidade de transporte do Windows são necessários para a autenticação de senha somente quando uma senha é alterada, não para a renovação de PRT.
 
 ### <a name="key-considerations"></a>Considerações-chave
 

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 0d8e2ee684bc08ec23e052229d50b7e9d62c0ecb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/04/2020
+ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87328127"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483619"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Ofertas do Azure AD e SaaS transactáveis no Marketplace comercial
 
@@ -25,7 +25,7 @@ Seguindo as orientações deste artigo, você ajudará a certificar sua oferta d
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Ao [criar sua oferta de SaaS](./partner-center-portal/create-new-saas-offer.md) no Partner Center, você escolhe a partir de um conjunto de opções de ação específicas que serão exibidas na listagem de oferta. Sua escolha determina como sua oferta é transacionada no mercado comercial. As ofertas vendidas pela Microsoft são chamadas de ofertas de transações. Cobramos o cliente em seu nome para todas as ofertas de transações. Se você optar por vender pela Microsoft e tiver as transações de host dos EUA em seu nome (a opção **Sim** ), você optou por criar uma oferta proativa e este artigo é para você. É recomendável que você o leia em sua totalidade.
+Ao [criar sua oferta de SaaS](./partner-center-portal/create-new-saas-offer.md) no Partner Center, você escolhe um conjunto de opções de listagem específicas que serão exibidas na listagem de oferta. Sua escolha determina como sua oferta é transacionada no mercado comercial. As ofertas vendidas pela Microsoft são chamadas de ofertas de transações. Cobramos o cliente em seu nome para todas as ofertas de transações. Se você optar por vender pela Microsoft e tiver as transações de host dos EUA em seu nome (a opção **Sim** ), você optou por criar uma oferta proativa e este artigo é para você. É recomendável que você o leia em sua totalidade.
 
 Se você optar por listar apenas sua oferta por meio do Marketplace comercial e processar as transações de forma independente (a opção **não** ), terá três opções de como os clientes potenciais acessarão sua oferta: Obtenha agora (gratuito), avaliação gratuita e entre em contato comigo. Se você selecionar **obter agora (gratuito)** ou **avaliação gratuita**, este artigo não será para você. Em vez disso, consulte [criar a página de aterrissagem para sua oferta de SaaS gratuita ou de avaliação no Marketplace comercial](./azure-ad-free-or-trial-landing-page.md) para obter mais informações. Se você selecionar **entrar em contato comigo**, não haverá responsabilidades diretas do editor. Continue criando sua oferta no Partner Center.
 
@@ -51,8 +51,8 @@ Esta tabela fornece detalhes para as etapas do processo de gerenciamento de comp
 
 | Etapa do processo | Ação do Publicador | Recomendado ou necessário para Publicadores |
 | ------------ | ------------- | ------------- |
-| 1. o comprador faz logon no Marketplace comercial com sua identidade de ID do Azure e seleciona uma oferta de SaaS. | Nenhuma ação do Publicador necessária. | Não aplicável |
-| 2. após a compra, o comprador seleciona **configurar conta** no Azure Marketplace ou **Configurar agora** em AppSource, que direciona o comprador para a página de aterrissagem do editor para esta oferta. O comprador deve ser capaz de fazer logon no aplicativo SaaS do Publicador com o SSO do Azure AD e deve ser solicitado apenas pelo mínimo de consentimento que não exija a aprovação do administrador do Azure AD. | Crie uma [página de aterrissagem](azure-ad-transactable-saas-landing-page.md) para a oferta para que ela receba um usuário com sua identidade do Azure AD ou conta Microsoft (MSA) e facilite qualquer provisionamento ou configuração adicional necessária. | Obrigatório |
+| 1. o comprador entra no Marketplace comercial com sua identidade de ID do Azure e seleciona uma oferta de SaaS. | Nenhuma ação do Publicador necessária. | Não aplicável |
+| 2. após a compra, o comprador seleciona **configurar conta** no Azure Marketplace ou **Configurar agora** em AppSource, que direciona o comprador para a página de aterrissagem do editor para esta oferta. O comprador deve ser capaz de entrar no aplicativo SaaS do Publicador com o SSO do Azure AD e deve ser solicitado apenas pelo mínimo de consentimento que não exija a aprovação do administrador do Azure AD. | Crie uma [página de aterrissagem](azure-ad-transactable-saas-landing-page.md) para a oferta para que ela receba um usuário com sua identidade do Azure AD ou conta Microsoft (MSA) e facilite qualquer provisionamento ou configuração adicional necessária. | Obrigatório |
 | 3. o Publicador solicita detalhes de compra da API de preenchimento de SaaS. | Usando um [token de acesso](./partner-center-portal/pc-saas-registration.md) gerado a partir da ID do aplicativo da página de aterrissagem, [chame o ponto de extremidade de resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) para recuperar informações específicas sobre a compra. | Obrigatório |
 | 4. por meio do Azure AD e da API de Microsoft Graph, o Publicador reúne os detalhes da empresa e do usuário necessários para provisionar o comprador no aplicativo SaaS do editor.  | Decompote o token de usuário do Azure AD para localizar o nome e o email, ou [chamar a API de Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) e usar permissões delegadas para [recuperar informações](https://docs.microsoft.com/graph/api/user-get) sobre o usuário que está conectado. | Obrigatório |
 ||||
@@ -88,5 +88,6 @@ As etapas de processo 7 a 9 são etapas opcionais do processo de gerenciamento d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar uma oferta de SaaS no Marketplace comercial](./partner-center-portal/create-new-saas-offer.md)
-- [Crie a página de aterrissagem para sua oferta de SaaS transactável no Marketplace comercial](./azure-ad-transactable-saas-landing-page.md)
+- [Crie a página de aterrissagem para sua oferta de SaaS transactável no Marketplace comercial](azure-ad-transactable-saas-landing-page.md)
+- [Crie a página de aterrissagem para sua oferta de SaaS gratuita ou de avaliação no Marketplace comercial](azure-ad-free-or-trial-landing-page.md)
+- [Como criar uma oferta de SaaS no Marketplace comercial](create-new-saas-offer.md)

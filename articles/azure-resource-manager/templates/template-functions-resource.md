@@ -2,13 +2,13 @@
 title: Funções de modelo – recursos
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 7f485d258074959c4a0a17449c65c38fa9648502
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/03/2020
+ms.openlocfilehash: 3f916be4431aa6b2b100967465450447ecc1d626
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661394"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468667"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recurso para modelos do ARM
 
@@ -16,6 +16,7 @@ O Resource Manager fornece as seguintes funções para obter valores de recurso 
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
+* [pickZones](#pickzones)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -101,6 +102,12 @@ O exemplo a seguir retorna a ID de recurso para um bloqueio de grupo de recursos
 }
 ```
 
+Uma definição de política personalizada implantada em um grupo de gerenciamento é implementada como um recurso de extensão. Para criar e atribuir uma política, implante o modelo a seguir em um grupo de gerenciamento.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+As definições de política internas são recursos de nível de locatário. Para obter um exemplo de implantação de uma definição de política interna, consulte [tenantResourceId](#tenantresourceid).
+
 <a id="listkeys"></a>
 <a id="list"></a>
 
@@ -130,9 +137,16 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 
 | Tipo de recurso | Nome da função |
 | ------------- | ------------- |
+| Microsoft. addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft. ApiManagement/Service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
+| Microsoft. ApiManagement/Service/gateways | [listKeys](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
+| Microsoft. ApiManagement/Service/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
+| Microsoft. ApiManagement/Service/namedValues | [lista de](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
+| Microsoft. ApiManagement/Service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
 | Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
-| Microsoft.AppConfiguration/configurationStores | ListKeys |
+| Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
+| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
@@ -144,10 +158,15 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
+| Microsoft. ContainerRegistry/registros/agentpools | listQueueStatus |
+| Microsoft. ContainerRegistry/registros/buildTasks | listSourceRepositoryProperties |
+| Microsoft. ContainerRegistry/registros/buildTasks/etapas | listBuildArguments |
+| Microsoft. ContainerRegistry/registros/taskruns | listDetails |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
 | Microsoft.ContainerRegistry/registries/tasks | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
 | Microsoft.ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft.ContainerService/managedClusters | [listClusterMonitoringUserCredential](/rest/api/aks/managedclusters/listclustermonitoringusercredentials) |
 | Microsoft.ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
 | Microsoft.ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
 | Microsoft.DataBox/jobs | listCredentials |
@@ -168,6 +187,7 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -206,7 +226,9 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft.OperationalInsights/workspaces | [list](/rest/api/loganalytics/workspaces/list) |
+| Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
+| Microsoft. RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
@@ -225,6 +247,7 @@ Os possíveis usos de lista* são mostrados na tabela a seguir.
 | Microsoft.StorSimple/managers/devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
 | Microsoft.StorSimple/managers | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
 | Microsoft.StorSimple/managers | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
+| Microsoft. Synapse/Workspaces/integrationRuntimes | [listAuthKeys](/rest/api/synapse/integrationruntimeauthkeys/list) |
 | Microsoft.Web/connectionGateways | ListStatus |
 | microsoft.web/connections | listconsentlinks |
 | Microsoft.Web/customApis | listWsdlInterfaces |
@@ -315,6 +338,94 @@ O exemplo a seguir mostra uma função de lista que usa um parâmetro. Nesse cas
 ```
 
 Para obter um exemplo de listKeyValue, confira [Início rápido: Implantação automatizada de VM com a Configuração de Aplicativos e o modelo do Resource Manager](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
+
+## <a name="pickzones"></a>pickZones
+
+`pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
+
+Determina se um tipo de recurso dá suporte a zonas para uma região.
+
+### <a name="parameters"></a>Parâmetros
+
+| Parâmetro | Obrigatório | Type | Descrição |
+|:--- |:--- |:--- |:--- |
+| providerNamespace | Sim | string | O namespace do provedor de recursos para o tipo de recurso para verificar o suporte de zona. |
+| resourceType | Sim | string | O tipo de recurso para verificar o suporte de zona. |
+| local | Sim | string | A região para verificar o suporte de zona. |
+| numberOfZones | Não | inteiro | O número de zonas lógicas a serem retornadas. O padrão é 1. O número deve ser um inteiro positivo de 1 a 3.  Use 1 para recursos de zona única. Para recursos de várias zonas, o valor deve ser menor ou igual ao número de zonas com suporte. |
+| deslocamento | Não | inteiro | O deslocamento da zona lógica inicial. A função retornará um erro se offset mais numberOfZones exceder o número de zonas com suporte. |
+
+### <a name="return-value"></a>Valor retornado
+
+Uma matriz com as zonas com suporte. Ao usar os valores padrão para offset e numberOfZones, um tipo de recurso e uma região que dão suporte a zonas retornam a seguinte matriz:
+
+```json
+[
+    "1"
+]
+```
+
+Quando o `numberOfZones` parâmetro é definido como 3, ele retorna:
+
+```json
+[
+    "1",
+    "2",
+    "3"
+]
+```
+
+Quando o tipo de recurso ou a região não dá suporte a zonas, uma matriz vazia é retornada.
+
+```json
+[
+]
+```
+
+### <a name="pickzones-example"></a>exemplo de pickZones
+
+O modelo a seguir mostra três resultados para usar a função pickZones.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "supported": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+        },
+        "notSupportedRegion": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+        },
+        "notSupportedType": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
+        }
+    }
+}
+```
+
+A saída dos exemplos anteriores retorna três matrizes.
+
+| Nome | Type | Valor |
+| ---- | ---- | ----- |
+| com suporte | matriz | ["1"] |
+| notSupportedRegion | matriz | [] |
+| Sem suporte | matriz | [] |
+
+Você pode usar a resposta de pickZones para determinar se deve fornecer NULL para zonas ou atribuir máquinas virtuais a diferentes zonas. O exemplo a seguir define um valor para a zona com base na disponibilidade de zonas.
+
+```json
+"zones": {
+    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+},
+```
 
 ## <a name="providers"></a>providers
 
@@ -740,23 +851,27 @@ Quando o modelo é implantado no escopo de um grupo de recursos, a ID do recurso
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Quando usado em uma [implantação no nível da assinatura](deploy-to-subscription.md), a ID do recurso é retornada no seguinte formato:
+Você pode usar a função ResourceId para outros escopos de implantação, mas o formato da ID é alterado.
+
+Se você usar ResourceId durante a implantação em uma assinatura, a ID do recurso será retornada no seguinte formato:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Quando usado em uma [implantação em nível de grupo de gerenciamento](deploy-to-management-group.md) ou implantação em nível de locatário, a ID de recurso é retornada no seguinte formato:
+Se você usar ResourceId durante a implantação em um grupo de gerenciamento ou locatário, a ID do recurso será retornada no seguinte formato:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Para obter a ID em outros formatos, confira:
+Para evitar confusão, recomendamos que você não use ResourceId ao trabalhar com recursos implantados na assinatura, no grupo de gerenciamento ou no locatário. Em vez disso, use a função ID que foi projetada para o escopo.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+Para [recursos de nível de assinatura](deploy-to-subscription.md), use a função [subscriptionResourceId](#subscriptionresourceid) .
+
+Para [recursos de nível de grupo de gerenciamento](deploy-to-management-group.md), use a função [extensionResourceId](#extensionresourceid) para fazer referência a um recurso que é implementado como uma extensão de um grupo de gerenciamento. Por exemplo, as definições de política personalizadas que são implantadas em um grupo de gerenciamento são extensões do grupo de gerenciamento. Use a função [tenantResourceId](#tenantresourceid) para fazer referência a recursos que são implantados no locatário, mas disponíveis no seu grupo de gerenciamento. Por exemplo, as definições de política internas são implementadas como recursos de nível de locatário.
+
+Para [recursos de nível de locatário](deploy-to-tenant.md), use a função [tenantResourceId](#tenantresourceid) . Use tenantResourceId para definições de política internas porque elas são implementadas no nível do locatário.
 
 ### <a name="remarks"></a>Comentários
 
@@ -1019,6 +1134,44 @@ O identificador é retornado no seguinte formato:
 ### <a name="remarks"></a>Comentários
 
 Você usa essa função para obter a ID do recurso para um recurso que é implantado no locatário. A ID retornada difere dos valores retornados por outras funções de ID de recurso ao não incluir os valores de grupo de recursos ou de assinatura.
+
+### <a name="tenantresourceid-example"></a>exemplo de tenantResourceId
+
+As definições de política internas são recursos de nível de locatário. Para implantar uma atribuição de política que faz referência a uma definição de política interna, use a função tenantResourceId.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
