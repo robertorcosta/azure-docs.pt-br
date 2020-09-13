@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: c899d14b6e0eea8135b996aadfe2a7388a8fcb89
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 886e45e92fb3a882de167b5c59a9b5ee09a9c430
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860766"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657572"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning a paridade de nuvem do soberanas
 
@@ -136,7 +136,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 * Para Azure Machine Learning instâncias de computação, a capacidade de atualizar um token com duração de mais de 24 horas não está disponível no Azure governamental.
 * A criação de perfil de modelo não dá suporte a 4 CPUs na região de US-Arizona.   
 * Os notebooks de exemplo podem não funcionar no Azure governamental se precisarem de acesso aos dados públicos.
-* Endereços IP: o comando da CLI usado na [VNet e instruções de túnel forçado](how-to-enable-virtual-network.md#forced-tunneling) não retorna intervalos de IP. Em vez disso, use os [intervalos de IP e as marcas de serviço do Azure para o Azure governamental](https://www.microsoft.com/download/details.aspx?id=57063) .
+* Endereços IP: o comando da CLI usado na [VNet e instruções de túnel forçado](how-to-secure-training-vnet.md#forced-tunneling) não retorna intervalos de IP. Em vez disso, use os [intervalos de IP e as marcas de serviço do Azure para o Azure governamental](https://www.microsoft.com/download/details.aspx?id=57063) .
 * Para pipelines agendados, também fornecemos um mecanismo de gatilho baseado em BLOB. Não há suporte para esse mecanismo em espaços de trabalho do CMK. Para habilitar um gatilho baseado em blob para espaços de trabalho do CMK, você precisa fazer uma configuração adicional. Para obter mais informações, consulte [disparar uma execução de um pipeline de Machine Learning de um aplicativo lógico](how-to-trigger-published-pipeline.md).
 * Firewalls: ao usar uma região do Azure governamental, adicione os seguintes hosts adicionais à sua configuração de firewall:
 
@@ -236,7 +236,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * O bloco de anotações de exemplo pode não funcionar, se precisar de acesso a dados públicos.
-* Intervalos de endereços IP: o comando da CLI usado nas instruções de [túnel forçado da VNet](how-to-enable-virtual-network.md#forced-tunneling) não retorna intervalos de IP. Em vez disso, use os [intervalos de IP e as marcas de serviço do Azure para o Azure China](https://www.microsoft.com//download/details.aspx?id=57062) .
+* Intervalos de endereços IP: o comando da CLI usado nas instruções de [túnel forçado da VNet](how-to-secure-training-vnet.md#forced-tunneling) não retorna intervalos de IP. Em vez disso, use os [intervalos de IP e as marcas de serviço do Azure para o Azure China](https://www.microsoft.com//download/details.aspx?id=57062) .
 * Não há suporte para a visualização de instâncias de computação Azure Machine Learning em um espaço de trabalho em que o link privado está habilitado por enquanto, mas o CI terá suporte na próxima implantação para a expansão de serviço para todas as regiões AML.
 
 ## <a name="next-steps"></a>Próximas etapas

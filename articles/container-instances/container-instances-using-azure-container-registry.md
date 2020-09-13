@@ -4,14 +4,13 @@ description: Saiba como implantar contêineres em instâncias de contêiner do A
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927429"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656989"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
@@ -31,6 +30,9 @@ O registro de contêiner do Azure fornece [Opções de autenticação](../contai
 
 > [!NOTE]
 > Não é possível autenticar no registro de contêiner do Azure para extrair imagens durante a implantação do grupo de contêineres usando uma [identidade gerenciada](container-instances-managed-identity.md) configurada no mesmo grupo de contêineres.
+
+> [!NOTE]
+> Você não pode efetuar pull de imagens do [registro de contêiner do Azure](../container-registry/container-registry-vnet.md) implantado em uma rede virtual do Azure neste momento.
 
 Na seção a seguir, você cria um cofre de chaves do Azure e uma entidade de serviço e armazena as credenciais da entidade de serviço no cofre. 
 

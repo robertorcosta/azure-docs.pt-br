@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: 34ddea1445ef8a8eb8554add3ee8920078a6e573
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/10/2020
+ms.openlocfilehash: 883c88386e4796f8d0cd2631b7754c06ce13d141
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182557"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657261"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no Armazenamento de Blobs do Azure usando o Azure Data Factory
 
@@ -67,7 +67,7 @@ Este conector de armazenamento de BLOBs dá suporte aos seguintes tipos de auten
 - [Identidades gerenciadas para a autenticação de recursos do Azure](#managed-identity)
 
 >[!NOTE]
->Quando você estiver usando o polybase para carregar dados no Azure SQL Data Warehouse, se o armazenamento de blob de origem ou de preparo estiver configurado com um ponto de extremidade de rede virtual do Azure, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo polybase. Você também deve usar o Integration Runtime de hospedagem interna com a versão 3,18 ou posterior. Consulte a seção [autenticação de identidade gerenciada](#managed-identity) para obter mais pré-requisitos de configuração.
+>Quando você estiver usando o polybase para carregar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse), se o armazenamento de blob de origem ou de preparo estiver configurado com um ponto de extremidade de rede virtual do Azure, você deverá usar a autenticação de identidade gerenciada conforme exigido pelo polybase. Você também deve usar o Integration Runtime de hospedagem interna com a versão 3,18 ou posterior. Consulte a seção [autenticação de identidade gerenciada](#managed-identity) para obter mais pré-requisitos de configuração.
 
 >[!NOTE]
 >As atividades do Azure HDInsight e Azure Machine Learning só dão suporte à autenticação que usa chaves de conta de armazenamento de BLOBs do Azure.
@@ -234,6 +234,7 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AzureBlobStorage**. |Sim |
 | serviceEndpoint | Especifique o ponto de extremidade do serviço de armazenamento de Blob do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
+| accountKind | Especifique o tipo de sua conta de armazenamento. Os valores permitidos são: **armazenamento** (uso geral v1), **StorageV2** (uso geral v2), **BlobStorage**ou **BlockBlobStorage**. <br/> Ao usar o serviço vinculado de blob do Azure no fluxo de dados, a identidade gerenciada ou a autenticação da entidade de serviço não tem suporte quando o tipo de conta está vazio ou "armazenamento". Especifique o tipo de conta apropriado, escolha uma autenticação diferente ou atualize sua conta de armazenamento para uso geral v2. |Não |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como **SecureString** para armazená-lo com segurança no data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. Recupere-o passando o mouse sobre o canto superior direito do portal do Azure. | Sim |
@@ -252,6 +253,7 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
         "type": "AzureBlobStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -281,7 +283,7 @@ Para obter informações gerais sobre a autenticação de armazenamento do Azure
     - **Como coletor**, no **controle de acesso (iam)**, conceda pelo menos a função de **colaborador de dados de blob de armazenamento** .
 
 >[!IMPORTANT]
->Se você usar o polybase para carregar dados do armazenamento de BLOBs (como uma origem ou como um preparo) no SQL Data Warehouse, quando estiver usando a autenticação de identidade gerenciada para o armazenamento de BLOBs, siga as etapas 1 e 2 nesta [diretriz](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Essas etapas registrarão o servidor no Azure AD e atribuirão a função de colaborador de dados de blob de armazenamento ao servidor. Data Factory lida com o restante. Se você configurou o armazenamento de BLOBs com um ponto de extremidade de rede virtual do Azure, para usar o polybase para carregar dados dele, você deve usar a autenticação de identidade gerenciada conforme exigido pelo polybase.
+>Se você usar o polybase para carregar dados do armazenamento de BLOBs (como uma origem ou como preparo) no Azure Synapse Analytics (anteriormente SQL Data Warehouse), quando estiver usando a autenticação de identidade gerenciada para o armazenamento de BLOBs, siga as etapas 1 e 2 nesta [diretriz](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Essas etapas registrarão o servidor no Azure AD e atribuirão a função de colaborador de dados de blob de armazenamento ao servidor. Data Factory lida com o restante. Se você configurou o armazenamento de BLOBs com um ponto de extremidade de rede virtual do Azure, para usar o polybase para carregar dados dele, você deve usar a autenticação de identidade gerenciada conforme exigido pelo polybase.
 
 Estas propriedades são suportadas por um serviço vinculado de armazenamento de Blob do Azure:
 
@@ -289,6 +291,7 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
 |:--- |:--- |:--- |
 | type | A propriedade **Type** deve ser definida como **AzureBlobStorage**. |Sim |
 | serviceEndpoint | Especifique o ponto de extremidade do serviço de armazenamento de Blob do Azure com o padrão de `https://<accountName>.blob.core.windows.net/`. |Sim |
+| accountKind | Especifique o tipo de sua conta de armazenamento. Os valores permitidos são: **armazenamento** (uso geral v1), **StorageV2** (uso geral v2), **BlobStorage**ou **BlockBlobStorage**. <br/> Ao usar o serviço vinculado de blob do Azure no fluxo de dados, a identidade gerenciada ou a autenticação da entidade de serviço não tem suporte quando o tipo de conta está vazio ou "armazenamento". Especifique o tipo de conta apropriado, escolha uma autenticação diferente ou atualize sua conta de armazenamento para uso geral v2. |Não |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o tempo de execução de integração do Azure ou o tempo de execução de integração auto-hospedado (se o armazenamento de dados estiver em uma rede privada). Se essa propriedade não for especificada, o serviço usará o tempo de execução de integração do Azure padrão. |Não |
 
 > [!NOTE]
@@ -302,7 +305,8 @@ Estas propriedades são suportadas por um serviço vinculado de armazenamento de
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2" 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -517,7 +521,7 @@ Ao copiar arquivos do Amazon S3, armazenamento de BLOBs do Azure ou Azure Data L
 Quando estiver transformando dados no mapeamento de fluxos de dados, você poderá ler e gravar arquivos do armazenamento de BLOBs do Azure nos seguintes formatos:
 * [Avro](format-avro.md#mapping-data-flow-properties)
 * [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)
-* [Delta](format-delta.md#mapping-data-flow-properties)
+* [Trifásico](format-delta.md#mapping-data-flow-properties)
 * [Excel](format-excel.md#mapping-data-flow-properties)
 * [JSON](format-json.md#mapping-data-flow-properties)
 * [Parquet](format-parquet.md#mapping-data-flow-properties)

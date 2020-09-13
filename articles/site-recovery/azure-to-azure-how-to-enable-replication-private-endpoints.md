@@ -1,25 +1,22 @@
 ---
 title: Habilitar a replicação para pontos de extremidade privados no Azure Site Recovery
 description: Este artigo descreve como configurar a replicação para VMs com pontos de extremidade privados de uma região do Azure para outra usando Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 16cde1cf43c6463cbbe640d9e0a80a9ea88f1f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095667"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658255"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Replicar computadores com pontos de extremidade privados
 
-Azure Site Recovery permite que você use pontos de extremidade particulares do [link privado do Azure](../private-link/private-endpoint-overview.md) para replicar seus computadores de dentro de uma rede virtual isolada. O suporte para acesso de ponto de extremidade privado a um cofre de recuperação tem suporte para as seguintes regiões:
-
-- Comercial do Azure: Sul EUA Central, oeste dos EUA 2, leste dos EUA
-- Azure governamental: US Gov-Virgínia, US Gov Arizona, US Gov Texas, US DoD Leste, US DoD Central
+Azure Site Recovery permite que você use pontos de extremidade particulares do [link privado do Azure](../private-link/private-endpoint-overview.md) para replicar seus computadores de dentro de uma rede virtual isolada. O acesso de ponto de extremidade privado a um cofre de recuperação tem suporte em todas as regiões do Azure Commercial & governamental.
 
 Este artigo fornece instruções para que você execute as seguintes etapas:
 
@@ -176,7 +173,7 @@ Crie uma zona DNS privada para permitir que o agente de mobilidade resolva nomes
 
    1. Pesquise "zona de DNS privado" na barra de pesquisa **todos os serviços** e selecione "zonas de DNS privado" na lista suspensa.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a pesquisa da zona DNS privada na página novos recursos no portal do Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a pesquisa da "zona DNS privada" na página novos recursos no portal do Azure.":::
 
    1. Na página "zonas de DNS privado", selecione o botão ** \+ Adicionar** para começar a criar uma nova zona.
 
@@ -209,7 +206,7 @@ Crie uma zona DNS privada para permitir que o agente de mobilidade resolva nomes
 
    1. Na página "Adicionar conjunto de registros" que é aberta, adicione uma entrada para cada nome de domínio totalmente qualificado e IP privado como um registro _de_ tipo. A lista de nomes de domínio totalmente qualificados e IPs pode ser obtida na página "ponto de extremidade particular" em **visão geral**. Conforme mostrado no exemplo abaixo, o primeiro nome de domínio totalmente qualificado do ponto de extremidade privado é adicionado ao conjunto de registros na zona DNS privada.
 
-      Esses nomes de domínio totalmente qualificados correspondem ao padrão:`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      Esses nomes de domínio totalmente qualificados correspondem ao padrão: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Mostra a página para adicionar um registro de tipo DNS para o nome de domínio totalmente qualificado para o ponto de extremidade privado no portal do Azure.":::
 

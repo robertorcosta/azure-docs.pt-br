@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 168aec49dc9b14af57df98ebc4c997f8dfb27c9e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ffd374f650140b5b65988578756b25f5d0fb21cc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228351"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657350"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Linha de base de segurança do Azure para Azure Machine Learning
 
@@ -28,7 +28,7 @@ A linha de base de segurança do Azure para Microsoft Azure Machine Learning con
 
 O Firewall do Azure pode ser usado para controlar o acesso ao seu espaço de trabalho do Azure Machine Learning e à Internet pública.
 
-- [Como executar experimentos e inferências com segurança em uma rede virtual isolada](how-to-enable-virtual-network.md)
+- [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md)
 
 - [Usar o espaço de trabalho por trás do firewall do Azure para Azure Machine Learning](how-to-access-azureml-behind-firewall.md)
 
@@ -58,7 +58,7 @@ Habilite logs de fluxo do grupo de segurança de rede e envie os logs para uma c
 
 - [Use o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)
 
-- [Isolamento de rede durante &amp; a inferência de treinamento com redes virtuais privadas](how-to-enable-virtual-network.md)
+- [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -122,7 +122,7 @@ Azure Machine Learning serviço documenta uma lista de marcas de serviço para s
 
 - [Para obter mais informações sobre como usar marcas de serviço](../virtual-network/service-tags-overview.md)
 
-- [Para Azure Machine Learning rede virtual](how-to-enable-virtual-network.md)
+- [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -326,7 +326,7 @@ Você também pode usar o módulo do PowerShell do Azure AD para executar consul
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: usar contas administrativas dedicadas
 
-**Diretrizes**: Azure Machine Learning vem com três funções padrão quando um novo espaço de trabalho é criado, crie procedimentos operacionais padrão em relação ao uso de contas de proprietário.
+**Diretrizes**: Azure Machine Learning vem com três funções padrão quando um novo espaço de trabalho é criado, criando procedimentos operacionais padrão em relação ao uso de contas de proprietário.
 
 Você também pode habilitar um acesso just-in-time às contas administrativas usando Azure AD Privileged Identity Management e Azure Resource Manager. 
 
@@ -402,7 +402,7 @@ Você também pode habilitar um acesso just-in-time às contas administrativas u
  
 O acesso à função pode ser definido para vários níveis no Azure. Por Machine Learning, as funções podem ser gerenciadas no nível do espaço de trabalho, por exemplo, você tem acesso de proprietário a um espaço de trabalho pode não ter acesso de proprietário ao grupo de recursos que contém o espaço de trabalho. Isso fornece controles de acesso mais granulares para separar funções dentro do mesmo grupo de recursos. 
 
-- [Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md) 
+- [Gerenciar acesso a um workspace do Azure Machine Learning](how-to-assign-roles.md) 
  
 - [Como criar e configurar uma instância do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
@@ -527,7 +527,7 @@ Para a plataforma subjacente, que é gerenciada pela Microsoft, a Microsoft trat
 
 **Diretrizes**: o Azure Machine Learning dá suporte ao uso do Azure Active Directory (AD do Azure) para autorizar solicitações para Machine Learning recursos. Com o Azure AD, você pode usar o RBAC (controle de acesso baseado em função) do Azure para conceder permissões a uma entidade de segurança, que pode ser um usuário ou uma entidade de serviço de aplicativo.
 
-- [Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md)
+- [Gerenciar acesso a um workspace do Azure Machine Learning](how-to-assign-roles.md)
 
 **Monitoramento da central de segurança do Azure**: não aplicável
 
@@ -979,7 +979,9 @@ Use Azure Key Vault para passar segredos para execuções remotas com segurança
 
 - [Como criar um Key Vault](/azure/key-vault/quick-create-portal)
 
-- [Como fornecer Key Vault autenticação com uma identidade gerenciada](/azure/key-vault/managed-identity)
+- [Como autenticar-se no Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+- [Como atribuir uma política de acesso de Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -990,7 +992,7 @@ Use Azure Key Vault para passar segredos para execuções remotas com segurança
 **Diretrizes**: o Azure Machine Learning dá suporte a funções internas e à capacidade de criar funções personalizadas. Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade gerenciada automaticamente no Azure AD. Identidades gerenciadas permitem que você se autentique em qualquer serviço que ofereça suporte à autenticação do Azure AD, incluindo Key Vault, sem nenhuma credencial em seu código.
 
  
-- [Gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md)
+- [Gerenciar acesso a um workspace do Azure Machine Learning](how-to-assign-roles.md)
 
 - [Como configurar identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/05/2020
-ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 09/09/2020
+ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382943"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657305"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -21,17 +21,15 @@ Recomendamos revisar [Limitações e restrições](#limitationsandconstraints) a
 
 ## <a name="customer-managed-key-cmk-overview"></a>Visão geral da chave gerenciada pelo cliente (CMK)
 
-[Criptografia em Repouso](../../security/fundamentals/encryption-atrest.md) é um requisito comum de privacidade e segurança em organizações. Você pode permitir que o Azure gerencie completamente a Criptografia em Repouso, enquanto você tem várias opções para gerenciar de forma rigorosa a criptografia ou as chaves de criptografia.
+[A criptografia em repouso](../../security/fundamentals/encryption-atrest.md) é um requisito comum de privacidade e segurança nas organizações.  Você pode permitir que o Azure gerencie completamente a Criptografia em Repouso, enquanto você tem várias opções para gerenciar de forma rigorosa a criptografia ou as chaves de criptografia.
 
-Azure Monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu [Azure Key Vault](../../key-vault/general/overview.md) e acessada pelo armazenamento usando a autenticação de [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) atribuída pelo sistema. Essa chave (CMK) pode ser um [software ou hardware-HSM protegido](../../key-vault/general/overview.md).
+Azure Monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu [Azure Key Vault](../../key-vault/general/overview.md) e acessada pelo armazenamento usando a autenticação de [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) atribuída pelo sistema. Essa chave (CMK) pode ser um [software ou hardware-HSM protegido](../../key-vault/general/overview.md). Azure Monitor uso da criptografia é idêntico ao modo como a [criptografia de armazenamento do Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) Opera.
 
-O Azure Monitor usa a criptografia de modo idêntico à [operação da criptografia de Armazenamento do Microsoft Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
+O recurso CMK é fornecido em clusters de Log Analytics dedicados e lhe dá o controle para revogar o acesso aos seus dados a qualquer momento e protegê-los com o controle de [Lockbox](#customer-lockbox-preview) . Para verificar se temos a capacidade necessária para o cluster dedicado em sua região, exigimos que sua assinatura seja permitida com antecedência. Use seu contato da Microsoft para obter a assinatura permitida antes de começar a configurar o CMK.
 
-A CMK permite controlar o acesso aos seus dados e revogá-lo a qualquer momento. O armazenamento do Azure Monitor sempre respeita as alterações nas permissões de chave em uma hora. Os dados ingeridos nos últimos 14 dias também são mantidos no cache de acesso frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Esses dados permanecem criptografados com chaves da Microsoft, independentemente da configuração da CMK, mas seu controle sobre os dados SSD segue a  [revogação de chave](#cmk-kek-revocation). Estamos trabalhando para ter dados SSD criptografados com a CMK no segundo semestre de 2020.
+O [modelo de preços de clusters log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) usa reservas de capacidade a partir de um nível de 1000 GB/dia.
 
-O recurso CMK é fornecido em clusters dedicados do Log Analytics. Para verificar se temos a capacidade necessária em sua região, exigimos que sua assinatura seja permitida antecipadamente. Use seu contato da Microsoft para obter a assinatura permitida antes de começar a configurar o CMK.
-
-O  [modelo de preços de clusters do Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)  usa reservas de capacidade que começam no nível de 1000 GB/dia.
+Os dados ingeridos nos últimos 14 dias também são mantidos no cache de acesso frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Esses dados permanecem criptografados com chaves da Microsoft, independentemente da configuração de CMK, mas seu controle sobre os dados SSD obedece à [revogação de chave](#cmk-kek-revocation). Estamos trabalhando para ter dados SSD criptografados com a CMK no segundo semestre de 2020.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Como a CMK funciona no Azure Monitor
 
@@ -83,7 +81,7 @@ O procedimento não tem suporte no portal do Azure e o provisionamento é execut
 Por exemplo:
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer eyJ0eXAiO....
 ```
 
@@ -102,12 +100,12 @@ Você pode adquirir o token usando um destes métodos:
 
 Algumas das operações neste procedimento de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. Ao usar solicitações REST na configuração, a resposta inicialmente retorna um código de status HTTP 200 (OK) e o cabeçalho com a propriedade *Azure-AsyncOperation* quando aceita:
 ```json
-"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
+"Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
 
 Em seguida, você pode verificar o status da operação assíncrona enviando uma solicitação GET para o valor do cabeçalho *Azure-AsyncOperation* :
 ```rst
-GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -215,7 +213,7 @@ New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Clust
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -246,7 +244,7 @@ Embora o provisionamento do cluster do Log Analytics demore um pouco para ser co
 2. Envie uma solicitação GET no recurso de *cluster* e examine o valor *provisioningState*. É *ProvisioningAccount* ao longo do provisionamento e *Succeeded* quando concluído.
 
 ```rst
-GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -309,7 +307,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 > Você pode atualizar o *SKU*do recurso de *cluster* , *keyvaultproperties* ou *billtype* usando patch.
 
 ```rst
-PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -391,7 +389,7 @@ Set-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-name" 
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01 
 Authorization: Bearer <token>
 Content-type: application/json
 
@@ -412,7 +410,7 @@ Os dados ingeridos são armazenados criptografados com a chave gerenciada após 
 2. Envie uma solicitação [Workspaces - Get](/rest/api/loganalytics/workspaces/get) e observe a resposta. O workspace associado terá um clusterResourceId em "recursos".
 
 ```rest
-GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
+GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
@@ -475,7 +473,7 @@ Quando você coloca seu próprio armazenamento (BYOS) e o associa ao seu espaço
 * Você precisa ter permissões de ' gravação ' no espaço de trabalho e na conta de armazenamento
 * Certifique-se de criar sua conta de armazenamento na mesma região que o espaço de trabalho Log Analytics está localizado
 * As *pesquisas salvas* no armazenamento são consideradas como artefatos de serviço e seu formato pode ser alterado
-* As *pesquisas de gravações* existentes são removidas do seu espaço de trabalho. Copie e *salve as pesquisas* necessárias antes da configuração. Você pode exibir as *pesquisas salvas* usando o [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
+* As *pesquisas de gravações* existentes são removidas do seu espaço de trabalho. Copie e *salve as pesquisas* necessárias antes da configuração. Você pode exibir as *pesquisas salvas* usando o  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch)
 * Não há suporte para o histórico de consulta e você não poderá ver as consultas que executou
 * Você pode associar uma única conta de armazenamento ao espaço de trabalho com a finalidade de salvar consultas, mas pode ser usado partir as *pesquisas salvas* e consultas de *alertas de log*
 * Não há suporte para fixar no painel
@@ -490,7 +488,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Query?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -517,7 +515,7 @@ New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group
 ```
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-03-01-preview
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>/linkedStorageAccounts/Alerts?api-version=2020-08-01
 Authorization: Bearer <token> 
 Content-type: application/json
  
@@ -534,6 +532,13 @@ Content-type: application/json
 
 Após a configuração, qualquer consulta de alerta nova será salva no armazenamento.
 
+## <a name="customer-lockbox-preview"></a>Sistema de Proteção de Dados do Cliente (versão prévia)
+O Lockbox fornece a você o controle para aprovar ou rejeitar a solicitação de engenheiro da Microsoft para acessar seus dados durante uma solicitação de suporte.
+
+No Azure Monitor, você tem esse controle sobre os dados em espaços de trabalho associados ao seu Log Analytics cluster dedicado. O controle de lockbox se aplica aos dados armazenados em um cluster Log Analytics dedicado, em que é mantido isolado nas contas de armazenamento do cluster em sua assinatura protegida por lockbox.  
+
+Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+
 ## <a name="cmk-management"></a>Gerenciamento de CMK
 
 - **Obter todos os recursos de *cluster* para um grupo de recursos**
@@ -543,7 +548,7 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
   ```
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
@@ -589,7 +594,7 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
   ```
 
   ```rst
-  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
+  GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
     
@@ -606,7 +611,7 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
   ```
 
   ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   Content-type: application/json
 
@@ -627,7 +632,7 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
   Siga a [atualização do recurso de *cluster*](#update-cluster-resource-with-key-identifier-details) e forneça o novo valor de billingType. Observe que você não precisa fornecer o corpo da solicitação REST completa e deve incluir o *billingType*:
 
   ```rst
-  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   Content-type: application/json
 
@@ -649,7 +654,7 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
   ```
 
   ```rest
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
@@ -681,7 +686,7 @@ Após a configuração, qualquer consulta de alerta nova será salva no armazena
   ```
 
   ```rst
-  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 

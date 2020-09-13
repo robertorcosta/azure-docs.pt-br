@@ -3,12 +3,12 @@ title: Versões de cluster com suporte no Azure Service Fabric
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 9a2278769d75de19a3006e3a9f39b424dbc02b1f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d6e9bbe3a1a99a8e4ee726cb88796dccb6f6ccbd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205898"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652062"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões do Service Fabric com suporte
 
@@ -47,8 +47,9 @@ A tabela a seguir lista as versões do Service Fabric e suas datas de término d
 | 7.1.417.* | 7.0.466.* |Menor ou igual à versão 4,1 |Versão atual, portanto, sem data de término |
 | 7.1.428.* | 7.0.466.* |Menor ou igual à versão 4,1 |Versão atual, portanto, sem data de término |
 | 7.1.456.* | 7.0.466.* |Menor ou igual à versão 4,1 |Versão atual, portanto, sem data de término |
+| 7.1.458.* | 7.0.466.* |Menor ou igual à versão 4,1 |Versão atual, portanto, sem data de término |
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 A tabela a seguir lista os sistemas operacionais com suporte para as versões de Service Fabric com suporte.
 
@@ -119,4 +120,5 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | 7,1 CU1 | 7.1.417.9590 | 7.1.418.1 |
 | 7,1 CU2 | 7.1.428.9590 | 7.1.428.1 |
 | 7,1 CU3 | 7.1.456.9590 | 7.1.452.1 |
+| 7,1 CU5 | 7.1.458.9590 | 7.1.454.1 |
 

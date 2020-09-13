@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495600"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657479"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar loops que repetem ações de fluxo de trabalho ou processam matrizes nos Aplicativos Lógicos do Azure
 
@@ -45,7 +45,7 @@ para fazer referência e processar cada item na matriz. Se você especificar dad
 
 Este exemplo de aplicativo lógico envia um resumo diário para um RSS feed de um site. O aplicativo usa um loop "Foreach" que envia um email para cada novo item.
 
-1. [Crie esse aplicativo lógico de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta do Outlook.com ou Outlook para Office 365.
+1. [Crie este aplicativo lógico de exemplo](../logic-apps/quickstart-create-first-logic-app-workflow.md) com uma conta do Outlook.com ou uma conta corporativa ou de estudante.
 
 2. Entre o gatilho RSS e enviar ação de email, adicione um loop "Foreach". 
 
@@ -230,7 +230,7 @@ Começando às 8h00 todos os dias, esse aplicativo lógico incrementa uma variá
 
       ![Configurar propriedades de email](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Property | Valor | DESCRIÇÃO |
+      | Propriedade | Valor | Descrição |
       | -------- | ----- | ----------- | 
       | **Para** | *\<email-address\@domain>* | O endereço de email do destinatário. Para testes, use seu próprio endereço de email. | 
       | **Assunto** | O valor atual para "Limit" é **Limite** | Especifique o assunto do email. Para esse exemplo, certifique-se de incluir a variável **Limite**. | 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68bf47f370a57fe277d4ab9679af0b920a0d81ec
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611808"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658125"
 ---
 # <a name="import-data-module"></a>Importar módulo de dados
 
@@ -45,7 +45,7 @@ Depois de definir os dados desejados e conectar-se à origem, **[importar dados]
 Se os dados de origem forem alterados, você poderá atualizar o conjunto de dados e adicionar novos data executando novamente os [dados de importação](./import-data.md).
 
 > [!WARNING]
-> Se o seu espaço de trabalho estiver em uma rede virtual, você deverá configurar seus armazenamentos de dados para usar os recursos de visualização do dado do designer. Para obter mais informações sobre como usar armazenamentos de dados e conjuntos de dados em uma rede virtual, consulte [isolamento de rede durante o treinamento & inferência com redes virtuais privadas](../how-to-enable-virtual-network.md#machine-learning-studio).
+> Se o seu espaço de trabalho estiver em uma rede virtual, você deverá configurar seus armazenamentos de dados para usar os recursos de visualização do dado do designer. Para obter mais informações sobre como usar armazenamentos de dados e conjuntos de dados em uma rede virtual, consulte [usar o Azure Machine Learning Studio em uma rede virtual do Azure](../how-to-enable-studio-virtual-network.md).
 
 
 ## <a name="how-to-configure-import-data"></a>Como configurar dados de importação

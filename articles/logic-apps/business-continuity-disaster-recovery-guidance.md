@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066537"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658205"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade dos negócios e recuperação de desastre para aplicativos lógicos do Azure
 
@@ -69,7 +69,7 @@ Este exemplo mostra as instâncias de aplicativo lógico primário e secundário
 
 ## <a name="connections-to-resources"></a>Conexões com recursos
 
-Os aplicativos lógicos do Azure fornecem [gatilhos e ações internos, além de centenas de conectores gerenciados](../connectors/apis-list.md) que seu aplicativo lógico pode usar para trabalhar com outros aplicativos, serviços, sistemas e outros recursos, como contas de armazenamento do Azure, SQL Server bancos de dados, contas de email do Office 365 Outlook e assim por diante. Se seu aplicativo lógico precisar de acesso a esses recursos, você criará conexões que autenticam o acesso a esses recursos. Cada conexão é um recurso do Azure separado que existe em um local específico e não pode ser usado por recursos em outros locais.
+Os aplicativos lógicos do Azure fornecem [gatilhos e ações internos, além de centenas de conectores gerenciados](../connectors/apis-list.md) que seu aplicativo lógico pode usar para trabalhar com outros aplicativos, serviços, sistemas e outros recursos, como contas de armazenamento do Azure, SQL Server bancos de dados, contas de email corporativas ou de estudante e assim por diante. Se seu aplicativo lógico precisar de acesso a esses recursos, você criará conexões que autenticam o acesso a esses recursos. Cada conexão é um recurso do Azure separado que existe em um local específico e não pode ser usado por recursos em outros locais.
 
 Para sua estratégia de recuperação de desastres, considere os locais onde os recursos dependentes existem em relação às instâncias do aplicativo lógico:
 
