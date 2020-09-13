@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: configurar o emparelhamento: CLI'
 description: Este artigo ajuda a criar e provisionar o emparelhamento público, privado e da Microsoft de um circuito da ExpressRoute. Este artigo também mostra como verificar o status, atualizar ou excluir emparelhamentos de seu circuito.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 04/24/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: cbde41bd79409255e1ebf5145548ea260ac8581d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c20b0741f12ee2cab40d8f5b53c51ad537801bf2
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727034"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393166"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Criar e modificar o emparelhamento de um circuito do ExpressRoute usando a CLI
 

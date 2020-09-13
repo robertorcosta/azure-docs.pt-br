@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 686732716b26e8e82aa98d445cd04b0d311cf23a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8b6ab5dcbd38925afbd98381e427426d27110a53
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035528"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393506"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Criar um gateway VPN baseado em rotas usando PowerShell
 
@@ -20,7 +20,7 @@ Este artigo ajuda você a criar rapidamente um gateway de VPN do Azure baseadas 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do gateway e um gateway VPN com base em rota (gateway de rede virtual). Concluída a criação de gateway, você pode criar conexões. Estas etapas exigem uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do gateway e um gateway VPN com base em rota (gateway de rede virtual). Concluída a criação de gateway, você pode criar conexões. Estas etapas exigem uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ### <a name="working-with-azure-powershell"></a>Trabalhando com o Azure PowerShell
 
@@ -28,7 +28,7 @@ As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do 
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos do Azure com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupos de recursos. Se você estiver executando o PowerShell localmente, abra o console do PowerShell com privilégios elevados e conecte-se ao Azure usando o `Connect-AzAccount` comando.
+Crie um grupo de recursos do Azure com [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos. Se você estiver executando o PowerShell localmente, abra o console do PowerShell com privilégios elevados e conecte-se ao Azure usando o `Connect-AzAccount` comando.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS

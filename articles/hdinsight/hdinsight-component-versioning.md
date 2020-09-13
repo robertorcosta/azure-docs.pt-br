@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 5c3586e9ba405cb5a7338b8f7f22858a238b9271
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717244"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394322"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes e versões do Apache Hadoop disponíveis para o Azure HDInsight
 
@@ -78,7 +78,7 @@ Esta tabela lista as versões do HDInsight que estão disponíveis no portal do 
 | Versão do HDInsight | SO da VM | Data de liberação | Data de expiração do suporte | Data de baixa | Alta disponibilidade |  Disponibilidade no portal do Azure |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |Sim |Sim |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017      | * 31 de junho de 2021 |31 de junho de 2021 |Sim |Sim |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017      | * 30 de junho de 2021 |30 de junho de 2021 |Sim |Sim |
 
 * Estamos estendendo o cronograma de suporte para determinados tipos de cluster HDInsight 3,6
 
@@ -86,10 +86,10 @@ Esta tabela lista as versões do HDInsight que estão disponíveis no portal do 
 |---------------------------------|-------------------|-----------------------------------|-----------------------------|
 | HDInsight 3,6 Hadoop            | 2.7.3             | 31 de dezembro de 2020                      | 30 de junho de 2021               |
 | HDInsight 3,6 Spark             | 2.3               | 31 de dezembro de 2020                      | 30 de junho de 2021               |
-| HDInsight 3,6 Spark             | 2,2               | Desativado em 30 de junho de 2020          |                             |
+| HDInsight 3,6 Spark             | 2.2               | Desativado em 30 de junho de 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Desativado em 30 de junho de 2020          |                             |
 | HDInsight 3,6 Kafka             | 1,1               | 31 de dezembro de 2020                      | 30 de junho de 2021               |
-| HDInsight 3,6 Kafka             | 1.0               | Desativado em 30 de junho de 2020.         |                             |
+| HDInsight 3,6 Kafka             | 1,0               | Desativado em 30 de junho de 2020.         |                             |
 | HBase do HDInsight 3,6             | 1,1               | 31 de dezembro de 2020                      | 30 de junho de 2021               |
 | Consulta interativa do HDInsight 3,6 | 2.1               | 31 de dezembro de 2020                      | 30 de junho de 2021               |
 | HDInsight 3,6 Storm             | 1,1               | 31 de dezembro de 2020                      | 30 de junho de 2021               |

@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: configurar NPM para circuitos'
 description: Configure o monitoramento de rede baseado em nuvem (NPM) para circuitos do Azure ExpressRoute. Isso abrange o monitoramento através do emparelhamento privado do ExpressRoute e emparelhamento da Microsoft.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
-ms.author: cherylmc
-ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 0783675450bb6ddf2de7d012a6870f5e4c90408d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738372"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393654"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
 
@@ -96,7 +96,7 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
   >
 
 1. Execute a **Instalação** para instalar o agente em cada servidor que deseja usar para o monitoramento de ExpressRoute. O servidor utilizado no monitoramento pode ser uma VM ou local e deve ter acesso à Internet. É necessário instalar pelo menos um agente local e um agente em cada segmento de rede que você deseja monitorar no Azure.
-2. Na página de **Boas-vindas**, clique em **Avançar**.
+2. Na página **Bem-vindo** , clique em **Avançar**.
 3. Na página **termos de licença** , leia a licença e clique em **concordo**.
 4. Na página **pasta de destino** , altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
 5. Na página **Opções de instalação do agente** , você pode optar por conectar o agente a Azure monitor logs ou Operations Manager. Ou, você poderá deixar as opções em branco se quiser configurar o agente mais tarde. Após fazer suas seleções, clique em **Avançar**.

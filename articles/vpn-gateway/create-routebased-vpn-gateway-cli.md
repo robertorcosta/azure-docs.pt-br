@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/04/2018
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 81f451ace7ec3f032dc7752829d12a0a3598811b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e43f324a8c32615eded782e75291b575852c4382
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036089"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393647"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Criar um Gateway de VPN baseado em rota usando CLI
 
 Este artigo ajuda-o a criar rapidamente um Gateway de VPN do Azure baseado em rota usando a CLI do Azure. Um gateway de VPN é usado ao criar uma conexão VPN à rede local. Você também pode usar um gateway de VPN para se conectar a VNets.
 
-As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do gateway e um gateway VPN com base em rota (gateway de rede virtual). Um gateway de rede virtual pode levar 45 minutos ou mais para ser criado. Concluída a criação de gateway, você pode criar conexões. Estas etapas exigem uma assinatura do Azure. Caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+As etapas neste artigo criarão uma rede virtual, uma sub-rede, uma sub-rede do gateway e um gateway VPN com base em rota (gateway de rede virtual). Um gateway de rede virtual pode levar 45 minutos ou mais para ser criado. Concluída a criação de gateway, você pode criar conexões. Estas etapas exigem uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -171,7 +171,7 @@ Resposta de exemplo:
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando os recursos criados não forem mais necessários, use [az group delete](/cli/azure/group) para excluir o grupo de recursos. Isso excluirá o grupo de recursos e todos os recursos que ele contém.
 

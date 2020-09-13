@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 132a6d9a6f5ca702b13e84402ee9bb71eca57d7c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 581e30508b508d5a36f2d5695043ac7bd782a2d5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229694"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394373"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança do Azure para a grade de eventos
 
@@ -70,7 +70,7 @@ submeti.
 
 Você pode configurar pontos de extremidade privados para restringir o acesso somente de redes virtuais selecionadas.
 
-Habilite a proteção contra DDoS Standard nessas redes virtuais para proteger contra ataques de DDoS (negação de serviço distribuído). Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados. Para obter mais informações, consulte os seguintes artigos: 
+Habilite a proteção contra DDoS Standard nessas redes virtuais para proteger contra ataques de DDoS (negação de serviço distribuído). Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados. Para obter mais informações, confira os seguintes artigos: 
 
 - [Como configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure](configure-private-endpoints.md)
 
@@ -804,7 +804,9 @@ Use identidades gerenciadas em conjunto com Azure Key Vault para simplificar o g
 
 - [Como criar um Key Vault](/azure/key-vault/quick-create-portal)
 
-- [Como fornecer Key Vault autenticação com uma identidade gerenciada](/azure/key-vault/managed-identity)
+- [Como autenticar-se no Key Vault](../key-vault/general/authentication.md)
+
+- [Como atribuir uma política de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

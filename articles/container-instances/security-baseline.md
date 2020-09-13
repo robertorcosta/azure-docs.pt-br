@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87421509326ef8837a9787ed01a70915c7c5aafa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230731"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393421"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança do Azure para instâncias de contêiner
 
@@ -988,7 +988,9 @@ Use Azure Policy para colocar restrições no tipo de recursos que podem ser cri
 
 * [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Como fornecer Key Vault autenticação com uma identidade gerenciada](../key-vault/general/managed-identity.md)
+* [Como autenticar-se no Key Vault](../key-vault/general/authentication.md)
+
+* [Como atribuir uma política de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 * [Como usar identidades gerenciadas com Instâncias de Contêiner do Azure](./container-instances-managed-identity.md)
 
