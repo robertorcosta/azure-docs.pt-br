@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 10d253b3e470ea009944d4ccd756d4bbbe3766e7
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134506"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029810"
 ---
 # <a name="server-group-size"></a>Tamanho do grupo de servidores
 
@@ -40,7 +40,7 @@ Banco de dados do Azure para PostgreSQL-Citus (hiperescala) fornece dimensioname
 
 ### <a name="add-worker-nodes"></a>Adicionar nós de trabalho
 
-Para adicionar nós, vá para a guia **Configurar** em seu grupo de servidores de hiperescala (Citus).  Arrastar o controle deslizante para **contagem de nós de trabalho** altera o valor.
+Para adicionar nós, vá para a guia **computação + armazenamento** em seu grupo de servidores de hiperescala (Citus).  Arrastar o controle deslizante para **contagem de nós de trabalho** altera o valor.
 
 ![Controles deslizantes de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
@@ -66,7 +66,7 @@ A `rebalance_table_shards` função reequilibra todas as tabelas no grupo de [co
 
 Além de adicionar novos nós, você pode aumentar os recursos dos nós existentes. Ajustar a capacidade de computação para cima e para baixo pode ser útil para testes de desempenho, bem como alterações de curto ou longo prazo em demandas de tráfego.
 
-Para alterar o vCores de todos os nós de trabalho, ajuste o controle deslizante **vCores** em **configuração (por nó de trabalho)**. O vCores do nó de coordenador pode ser ajustado de forma independente. Ajuste o controle deslizante **vCores** em **configuração (nó de coordenador)**.
+Para alterar o vCores de todos os nós de trabalho, ajuste o controle deslizante **vCores** em **configuração (por nó de trabalho)**. O vCores do nó de coordenador pode ser ajustado de forma independente. Ajuste o controle deslizante **vCores** em  **configuração (nó de coordenador)**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

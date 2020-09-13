@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2020
-ms.openlocfilehash: 34f781db2a731cc6eb38c8241d0e1897517f2c9a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.date: 08/25/2020
+ms.openlocfilehash: ec7fc5cec7d8ba63d9a628c3ede978818a2c3012
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661809"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031017"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -28,19 +28,19 @@ Para treinamento de modelo de nível de produção, use um [cluster de computaç
 
 ## <a name="why-use-a-compute-instance"></a>Por que usar uma instância de computação?
 
-Uma instância de computação é uma estação de trabalho totalmente gerenciada baseada em nuvem otimizada para seu ambiente de desenvolvimento de machine learning. Ele oferece os seguintes benefícios:
+Uma instância de computação é uma estação de trabalho totalmente gerenciada baseada em nuvem otimizada para seu ambiente de desenvolvimento do Machine Learning. Ele oferece os seguintes benefícios:
 
 |Principais benefícios|Descrição|
 |----|----|
-|Produtividade|Você pode criar e implantar modelos usando blocos de anotações integrados e as seguintes ferramentas no Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versão prévia)<br/>A instância de computação é totalmente integrada com o Azure Machine Learning Workspace e o Studio. Você pode compartilhar blocos de anotações e dados com outros cientistas de dados no espaço de trabalho. Você também pode configurar VS Code desenvolvimento remoto usando [SSH](how-to-set-up-vs-code-remote.md) |
-|Gerenciado e seguro|Reduza o volume de segurança e adicione conformidade com os requisitos de segurança corporativa. As instâncias de computação fornecem políticas de gerenciamento robustas e configurações de rede seguras, como:<br/><br/>- Provisionamento automático de modelos do Resource Manager ou SDK do Azure Machine Learning<br/>- [Controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-secure-training-vnet.md#compute-instance)<br/>- Política SSH para habilitar/desabilitar o acesso SSH<br/>TLS 1,2 habilitado |
+|Produtividade|Você pode criar e implantar modelos usando blocos de anotações integrados e as seguintes ferramentas no Azure Machine Learning Studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-RStudio (versão prévia)<br/>A instância de computação é totalmente integrada com o Azure Machine Learning Workspace e o Studio. Você pode compartilhar blocos de anotações e dados com outros cientistas de dados no espaço de trabalho. Você também pode configurar o desenvolvimento de VS Code remoto usando [SSH](how-to-set-up-vs-code-remote.md) |
+|Gerenciado e seguro|Reduza o volume de segurança e adicione conformidade com os requisitos de segurança corporativa. As instâncias de computação fornecem políticas de gerenciamento robustas e configurações de rede seguras, como:<br/><br/>-Provisionamento automático de modelos do Resource Manager ou SDK do Azure Machine Learning<br/>- [Controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política SSH para habilitar/desabilitar o acesso SSH<br/>TLS 1,2 habilitado |
 |Pré-configurado &nbsp; para &nbsp; ml|Economize tempo nas tarefas de instalação com pacotes ML pré-configurados e atualizados, estruturas de aprendizado profundo, drivers de GPU.|
 |Totalmente personalizável|Amplo suporte para tipos de VM do Azure, incluindo GPUs e personalização de baixo nível persistente, como a instalação de pacotes e drivers, torna os cenários avançados muito fáceis. |
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Ferramentas e ambientes
 
 > [!IMPORTANT]
-> As ferramentas marcadas (visualização) abaixo estão atualmente em visualização pública.
+> Os itens marcados (visualização) neste artigo estão atualmente em visualização pública.
 > A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A instância de computação do Azure Machine Learning permite que você crie, treine e implante modelos em uma experiência de notebook totalmente integrada em seu workspace.
@@ -69,7 +69,7 @@ Essas ferramentas e esses ambientes são instalados na instância de computaçã
 |Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
-[SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)</br>do PyPI|Inclui a maioria dos pacotes extras do azureml.  Para ver a lista completa, [abra uma janela de terminal em sua instância de computação](how-to-run-jupyter-notebooks.md#terminal) e execute <br/> `conda list -n azureml_py36 azureml*` |
+[SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>do PyPI|Inclui a maioria dos pacotes extras do azureml.  Para ver a lista completa, [abra uma janela de terminal em sua instância de computação](how-to-run-jupyter-notebooks.md#terminal) e execute <br/> `conda list -n azureml_py36 azureml*` |
 |Outros pacotes do PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacotes de aprendizado profundo|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -104,7 +104,7 @@ Você também pode clonar os exemplos mais recentes do Azure Machine Learning em
 
 Gravar arquivos pequenos pode ser mais lento em unidades de rede do que gravar no próprio disco local da instância de computação.  Se você estiver escrevendo muitos arquivos pequenos, tente usar um diretório diretamente na instância de computação, como um diretório `/tmp`. Observe que esses arquivos não estarão acessíveis de outras instâncias de computação. 
 
-Você pode usar o `/tmp` diretório na instância de computação para seus dados temporários.  No entanto, não grave arquivos grandes de dados no disco do sistema operacional da instância de computação.  Em vez disso, use os [repositórios de armazenamento](concept-azure-machine-learning-architecture.md#datasets-and-datastores) . Se você instalou a extensão git do JupyterLab, ela também pode levar à lentidão no desempenho da instância de computação.
+Você pode usar o `/tmp` diretório na instância de computação para seus dados temporários.  No entanto, não grave arquivos grandes de dados no disco do sistema operacional da instância de computação.  Em vez disso, use os [repositórios de armazenamento](concept-azure-machine-learning-architecture.md#datasets-and-datastores) . Se você tiver instalado a extensão git do JupyterLab, ele também poderá levar a uma lentidão no desempenho da instância de computação.
 
 ## <a name="managing-a-compute-instance"></a>Como gerenciar uma instância de computação
 
@@ -116,17 +116,17 @@ Você pode executar as seguintes ações:
 
 * [Crie uma instância de computação](#create). 
 * Atualize a guia instâncias de computação.
-* Inicie, pare e reinicie uma instância de computação.  Você paga pela instância sempre que ela estiver em execução. Pare a instância de computação quando você não a estiver usando para reduzir o custo. Parar uma instância de computação a desaloca. Em seguida, inicie-o novamente quando precisar. 
+* Iniciar, parar e reiniciar uma instância de computação.  Você paga pela instância sempre que ela estiver em execução. Pare a instância de computação quando você não a estiver usando para reduzir o custo. Parar uma instância de computação a desaloca. Em seguida, inicie-o novamente quando precisar.
 * Excluir uma instância de computação.
-* Filtre a lista de instâncias de computação para aquelas que você criou.  Essas são as instâncias de computação que você pode acessar.
+* Filtre a lista de computação em instância para mostrar somente os que você criou.
 
-Para cada instância de computação em seu espaço de trabalho ao qual você tem acesso, você pode:
+Para cada instância de computação no espaço de trabalho que você pode usar, você pode:
 
 * Acessar o Jupyter, JupyterLab, RStudio na instância de computação
 * Efetuar SSH na instância de computação. O acesso SSH é desabilitado por padrão, mas pode ser habilitado no momento da criação da instância de computação. O acesso SSH é por meio do mecanismo de chave pública/privada. A guia fornecerá detalhes para a conexão SSH, como endereço IP, nome de usuário e número da porta.
 * Obtenha detalhes sobre uma instância de computação específica, como endereço IP e região.
 
-O [RBAC](/azure/role-based-access-control/overview) permite controlar quais usuários no workspace podem criar, excluir, iniciar, parar, reiniciar uma instância de computação. Todos os usuários na função colaborador e proprietário do workspace podem criar, excluir, iniciar, parar e reiniciar instâncias de computação no workspace. No entanto, somente o criador de uma instância de computação específica tem permissão para acessar o Jupyter, o JupyterLab e o RStudio nessa instância de computação. O criador da instância de computação tem a instância de computação dedicada a elas, tem acesso à raiz e pode acessar o terminal por meio de Jupyter/JupyterLab/RStudio. A instância de computação terá logon de usuário único do usuário criador e todas as ações usarão a identidade desse usuário para o RBAC e a atribuição de execuções de experimento. O acesso SSH é controlado por meio do mecanismo de chave pública/privada.
+O [RBAC](/azure/role-based-access-control/overview) permite controlar quais usuários no workspace podem criar, excluir, iniciar, parar, reiniciar uma instância de computação. Todos os usuários na função colaborador e proprietário do workspace podem criar, excluir, iniciar, parar e reiniciar instâncias de computação no workspace. No entanto, somente o criador de uma instância de computação específica ou o usuário atribuído se ele foi criado em seu nome, tem permissão para acessar Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância de computação é dedicada a um único usuário que tem acesso de raiz e pode acessar o terminal por meio de Jupyter/JupyterLab/RStudio. A instância de computação terá logon de usuário único e todas as ações usarão a identidade desse usuário para o RBAC e a atribuição de execuções de experimento. O acesso SSH é controlado por meio do mecanismo de chave pública/privada.
 
 Essas ações podem ser controladas pelo RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -136,9 +136,6 @@ Essas ações podem ser controladas pelo RBAC:
 * *Microsoft. MachineLearningServices/espaços de trabalho/computações/parada/ação*
 * *Microsoft. MachineLearningServices/espaços de trabalho/computações/reinicialização/ação*
 
-Para o criador da instância de computação poder acessar Jupyter/JupyterLab/RStudio na instância de computação, eles precisam da permissão RBAC abaixo (ou superior)
-* *Microsoft. MachineLearningServices/Workspaces/computações/applicationaccess*
-
 ### <a name="create-a-compute-instance"></a><a name="create"></a>Criar uma instância de computação
 
 Em seu espaço de trabalho no Azure Machine Learning Studio, [crie uma nova instância de computação](how-to-create-attach-compute-studio.md#compute-instance) na seção **computação** ou na seção **blocos de anotações** quando estiver pronto para executar um dos seus blocos de anotações. 
@@ -147,14 +144,33 @@ Você também pode criar uma instância
 * Diretamente da [experiência de notebooks integrados](tutorial-1st-experiment-sdk-setup.md#azure)
 * No Portal do Azure
 * Do modelo de Azure Resource Manager. Para obter um modelo de exemplo, consulte [criar um Azure Machine Learning modelo de instância de computação](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Com o SDK do Azure Machine Learning
+* Com [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
 * Da [extensão da CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 Os núcleos dedicados por região por cota da família de VMs e a cota regional total, que se aplicam à criação da instância de computação, são unificados e compartilhados com Azure Machine Learning cota de cluster de computação de treinamento. Parar a instância de computação não libera a cota para garantir que você poderá reiniciar a instância de computação.
 
+
+### <a name="create-on-behalf-of-preview"></a>Criar em nome de (visualização)
+
+Como administrador, você pode criar uma instância de computação em nome de um cientista de dados e atribuir a instância a elas com:
+* [Modelo de Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/2020-06-01/workspaces/computes).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
+* API REST
+
+O cientista de dados para o qual você cria a instância de computação precisa das seguintes permissões de RBAC: 
+* *Microsoft. MachineLearningServices/espaços de trabalho/computações/início/ação*
+* *Microsoft. MachineLearningServices/espaços de trabalho/computações/parada/ação*
+* *Microsoft. MachineLearningServices/espaços de trabalho/computações/reinicialização/ação*
+* *Microsoft. MachineLearningServices/espaços de trabalho/computações/applicationaccess/ação*
+
+O cientista de dados pode iniciar, parar e reiniciar a instância de computação. Eles podem usar a instância de computação para:
+* Jupyter
+* JupyterLab
+* RStudio
+* Blocos de anotações integrados
+
 ## <a name="compute-target"></a>Destino de computação
 
-As instâncias de computação podem ser usadas como um [destino de computação de treinamento](concept-compute-target.md#train) semelhante a Azure Machine Learning clusters de computação. 
+As instâncias de computação podem ser usadas como um [destino de computação de treinamento](concept-compute-target.md#train) semelhante a clusters de treinamento de computação do Azure Machine Learning. 
 
 Uma instância de computação:
 * Tem uma fila de trabalhos.
@@ -164,11 +180,12 @@ Uma instância de computação:
 
 Você pode usar a instância de computação como um destino de implantação de inferência local para cenários de teste/depuração.
 
+
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>O que aconteceu com a VM do Notebook?
 
 As instâncias de computação estão substituindo a VM do Notebook.  
 
-Todos os arquivos de notebook armazenados no compartilhamento de arquivo do workspace e dados em armazenamentos de dados de workspace estarão acessíveis de uma instância de computação. No entanto, todos os pacotes personalizados instalados anteriormente em uma VM do Notebook precisarão ser instalados novamente na instância de computação. As limitações de cota que se aplicam à criação de clusters de computação também serão aplicadas à criação da instância de computação.
+Todos os arquivos de notebook armazenados no compartilhamento de arquivo do workspace e dados em armazenamentos de dados de workspace estarão acessíveis de uma instância de computação. No entanto, todos os pacotes personalizados instalados anteriormente em uma VM do notebook precisarão ser reinstalados na instância de computação. As limitações de cota, que se aplicam à criação de clusters de computação, também serão aplicadas à criação da instância de computação.
 
 Não é possível criar novas VMs de Notebook. No entanto, você ainda pode acessar e usar as VMs de Notebook que você criou com funcionalidade completa. As instâncias de computação podem ser criadas no mesmo workspace que as VMs de Notebook existentes.
 

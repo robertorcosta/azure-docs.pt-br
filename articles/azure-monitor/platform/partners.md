@@ -4,12 +4,12 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d5f239540a74c431e381c581f00514a1f7acd5e3
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142393"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030372"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -77,6 +77,8 @@ O CloudMonix oferece serviços de monitoramento, automação e autorrecuperaçã
 Datadog é o serviço de monitoramento líder mundial para aplicativos em escala de nuvem. Ela reúne dados de servidores, bancos de dados, ferramentas e serviços para apresentar uma exibição unificada de todo o conjunto. Esses recursos são oferecidos em uma plataforma de análise de dados baseados em SaaS. Esses serviço permite às equipes de desenvolvimento e operações trabalharem em colaboração para evitar a inatividade, resolver problemas de desempenho e garantir que os ciclos de desenvolvimento e implantação terminem no prazo. Ao integrar o Datadog e o Azure, você pode coletar e exibir métricas em sua infraestrutura. Correlacione as métricas VM com métricas de nível de aplicativo. Divida e separe suas métricas usando qualquer combinação de marcas personalizadas e propriedades.
 
 [Vá para a documentação.][datadog-doc]
+
+Uma nova integração do Azure Marketplace do Datadog está agendada para lançamento no início de outubro de 2020. Um link será adicionado aqui na versão. 
 
 ## <a name="dynatrace"></a>Dynatrace
 

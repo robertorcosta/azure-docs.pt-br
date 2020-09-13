@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
-ms.openlocfilehash: ba0b242fa28b8dac774a48bdd9297e44a17fa3ec
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 09/11/2020
+ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483024"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030581"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeando o modo de depuração do fluxo de dados
 
@@ -49,6 +49,8 @@ Se você tiver parâmetros em seu fluxo de dados ou em qualquer um de seus DataS
 
 ![Parâmetros de configurações de depuração](media/data-flow/debug-settings2.png "Parâmetros de configurações de depuração")
 
+O IR padrão usado para o modo de depuração em fluxos de dados do ADF é um nó de trabalho único de 4 núcleos pequeno com um nó de driver único de 4 núcleos. Isso funciona bem com amostras menores de dados ao testar a lógica de fluxo de dados. Se você expandir os limites de linha nas configurações de depuração durante a visualização de dados ou definir um número maior de linhas de amostra em sua origem durante a depuração do pipeline, talvez queira considerar a definição de um ambiente de computação maior em um novo Azure Integration Runtime. Em seguida, você pode reiniciar a sessão de depuração usando o ambiente de computação maior.
+
 ## <a name="data-preview"></a>Visualização dos dados
 
 Com a depuração ativa, a guia Visualização dos Dados fica destacada no painel inferior. Sem o modo de depuração ativado, o fluxo de dados mostrará apenas os metadados atuais dentro e fora de cada uma de suas transformações na guia inspecionar. A visualização de dados somente consultará o número de linhas que você definiu como seu limite nas configurações de depuração. Clique em **Atualizar** para buscar a visualização de dados.
@@ -59,6 +61,8 @@ Com a depuração ativa, a guia Visualização dos Dados fica destacada no paine
 > As fontes de arquivo limitam apenas as linhas que você vê, não as linhas que estão sendo lidas. Para conjuntos de grandes volumes de arquivos, é recomendável que você faça uma pequena parte desse arquivo e use-o para seu teste. Você pode selecionar um arquivo temporário nas configurações de depuração para cada fonte que seja um tipo de conjunto de um arquivo.
 
 Ao executar no Modo de Depuração no Fluxo de Dados, seus dados não são gravados na transformação de Coletor. Uma sessão de depuração destina-se a servir como um equipamento de teste para suas transformações. Os coletores não são necessários durante a depuração e são ignorados no fluxo de dados. Se você quiser testar a gravação dos dados em seu coletor, execute o fluxo de dados de um pipeline Azure Data Factory e use a execução de depuração de um pipeline.
+
+A visualização de dados é um instantâneo dos seus dados transformados usando limites de linha e amostragem de dados de quadros de dados na memória do Spark. Portanto, os drivers de coletor não são utilizados nem testados neste cenário.
 
 ### <a name="testing-join-conditions"></a>Testando condições de junção
 

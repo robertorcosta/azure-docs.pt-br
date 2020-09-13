@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f61773e693ad1276ef48b2f26ef6e3e8f59e2992
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e97db598556d10538746242fa67449631394cd55
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612374"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030643"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
-O Azure digital gêmeos vem equipado com APIs de **plano de controle** e APIs de **plano de dados** para gerenciar sua instância e seus elementos. Este artigo fornece uma visão geral das APIs disponíveis e os métodos para interagir com elas. Você pode usar as APIs REST diretamente com seus swaggers associados ou por meio de um SDK.
+O Azure digital gêmeos vem equipado com APIs de **plano de controle** e APIs de **plano de dados** para gerenciar sua instância e seus elementos. 
+* As APIs do plano de controle são APIs [de Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) e abrangem operações de gerenciamento de recursos, como criar e excluir sua instância. 
+* As APIs do plano de dados são APIs de gêmeos digitais do Azure e são usadas para operações de gerenciamento de dados, como gerenciar modelos, gêmeos e o grafo.
+
+Este artigo fornece uma visão geral das APIs disponíveis e os métodos para interagir com elas. Você pode usar as APIs REST diretamente com seus swaggers associados ou por meio de um SDK.
 
 ## <a name="overview-control-plane-apis"></a>Visão geral: APIs do plano de controle
 
-As APIs do plano de controle são usadas para gerenciar sua instância do gêmeos digital do Azure como um todo, para que elas abranjam operações como criar ou excluir toda a sua instância. Você também vai usá-los para criar e excluir pontos de extremidade.
+As APIs do plano de controle são APIs [ARM](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) usadas para gerenciar sua instância do gêmeos digital do Azure como um todo, para que elas abranjam operações como criar ou excluir toda a sua instância. Você também vai usá-los para criar e excluir pontos de extremidade.
 
 A versão mais atual da API do plano de controle para visualização pública é _**2020-03-01-Preview**_.
 
@@ -37,7 +41,7 @@ Você também pode exercitar as APIs do plano de controle interagindo com o gêm
 
 ## <a name="overview-data-plane-apis"></a>Visão geral: APIs do plano de dados
 
-As APIs do plano de dados são usadas para gerenciar os elementos em sua instância do gêmeos digital do Azure. Eles incluem operações como a criação de rotas, o carregamento de modelos, a criação de relações e o gerenciamento de gêmeos. Elas podem ser divididas em larga escala nas seguintes categorias:
+As APIs do plano de dados são as APIs do Azure digital gêmeos usadas para gerenciar os elementos em sua instância do gêmeos digital do Azure. Eles incluem operações como a criação de rotas, o carregamento de modelos, a criação de relações e o gerenciamento de gêmeos. Elas podem ser divididas em larga escala nas seguintes categorias:
 * **DigitalTwinsModels** -a categoria DigitalTwinsModels contém APIs para gerenciar os [modelos](concepts-models.md) em uma instância do gêmeos digital do Azure. As atividades de gerenciamento incluem carregamento, validação, recuperação e exclusão de modelos criados no DTDL.
 * **DigitalTwins** -a categoria DigitalTwins contém as APIs que permitem que os desenvolvedores criem, modifiquem e excluam [gêmeos digitais](concepts-twins-graph.md) e suas relações em uma instância do gêmeos digital do Azure.
 * **Consulta** -a categoria de consulta permite que os desenvolvedores [encontrem conjuntos de gêmeos digitais no grafo de entrelaçamento](how-to-query-graph.md) entre relações.

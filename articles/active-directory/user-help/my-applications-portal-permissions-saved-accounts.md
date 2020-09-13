@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798101"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031085"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de aplicativo no portal Meus Aplicativos
 
@@ -28,9 +28,9 @@ Ao usar aplicativos organizacionais no portal **Meus Aplicativos**, você geralm
 >[!Important]
 >Este conteúdo destina-se aos usuários. Se você for administrador, poderá encontrar mais informações sobre como configurar e gerenciar seus aplicativos baseados em nuvem na [Documentação de Gerenciamento do Aplicativo](../manage-apps/access-panel-collections.md).
 
-## <a name="manage-app-permissions"></a>Gerenciar permissões do aplicativo
+## <a name="manage-app-accounts"></a>Gerenciar contas de aplicativo
 
-Para exibir as permissões consentidas por você ou seu administrador, selecione **...** ao passar o mouse sobre um aplicativo no portal **Meus Aplicativos** e, em seguida, selecione **Gerenciar seu aplicativo**:
+Para exibir os aplicativos consentidos por você ou seu administrador, selecione **...** ao passar o mouse sobre um aplicativo no portal **meus aplicativos** e, em seguida, selecione **gerenciar seu aplicativo**:
 
 ![Gerenciar um aplicativo no portal Meus Aplicativos](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 

@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: a08c6abe52801e1fbafd517adcb8fd9a8b8b4aee
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4de6d4ba019af75b0f6179b2794ddb6c1e35e0c1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462285"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030065"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar seus dados locais ou na nuvem para Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Os seguintes fatores determinam a escolha da ferramenta de migração:
 |Offline|[Azure Cosmos DB conector do Spark](spark-connector.md)|Azure Cosmos DB API do SQL. <br/><br/>Você pode usar outras fontes com conectores adicionais do ecossistema do Spark.| Azure Cosmos DB API do SQL. <br/><br/>Você pode usar outros destinos com conectores adicionais do ecossistema do Spark.| &bull; Usa a biblioteca de executores em massa Azure Cosmos DB. <br/>&bull; Adequado para grandes conjuntos de altos. <br/>&bull; Precisa de uma instalação personalizada do Spark. <br/>&bull; O Spark é sensível a inconsistências de esquema e pode ser um problema durante a migração. |
 |Offline|[Ferramenta personalizada com Cosmos DB biblioteca de executores em massa](migrate-cosmosdb-data.md)| A origem depende do seu código personalizado | API do SQL do Azure Cosmos DB| &bull; Fornece recursos de ponto de verificação e mensagens mortas que aumentam a resiliência da migração. <br/>&bull; Adequado para conjuntos de grandes volumes de valores (10 TB +).  <br/>&bull; Requer a instalação personalizada dessa ferramenta em execução como um serviço de aplicativo. |
 |Online|[Funções de Cosmos DB + API ChangeFeed](change-feed-functions.md)| API do SQL do Azure Cosmos DB | API do SQL do Azure Cosmos DB| &bull; Fácil de configurar. <br/>&bull; Funciona somente se a origem for um contêiner Azure Cosmos DB. <br/>&bull; Não é adequada para grandes conjuntos de dados. <br/>&bull; Não captura exclusões do contêiner de origem. |
-|Online|[Serviço de migração personalizado usando ChangeFeed](https://github.com/nomiero/CosmosDBLiveETLSample)| API do SQL do Azure Cosmos DB | API do SQL do Azure Cosmos DB| &bull; Fornece rastreamento de progresso. <br/>&bull; Funciona somente se a origem for um contêiner Azure Cosmos DB. <br/>&bull; Também funciona para conjuntos de valores maiores.<br/>&bull; Exige que o usuário configure um serviço de aplicativo para hospedar o processador do feed de alterações. <br/>&bull; Não captura exclusões do contêiner de origem.|
+|Online|[Serviço de migração personalizado usando ChangeFeed](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| API do SQL do Azure Cosmos DB | API do SQL do Azure Cosmos DB| &bull; Fornece rastreamento de progresso. <br/>&bull; Funciona somente se a origem for um contêiner Azure Cosmos DB. <br/>&bull; Também funciona para conjuntos de valores maiores.<br/>&bull; Exige que o usuário configure um serviço de aplicativo para hospedar o processador do feed de alterações. <br/>&bull; Não captura exclusões do contêiner de origem.|
 |Online|[Striim](cosmosdb-sql-api-migrate-data-striim.md)| &bull;Oracle <br/>&bull;Apache Cassandra<br/><br/> Consulte o [site do Striim](https://www.striim.com/sources-and-targets/) para obter outras fontes com suporte. |&bull;API do SQL do Azure Cosmos DB <br/>&bull; Azure Cosmos DB API do Cassandra<br/><br/> Consulte o [site do Striim](https://www.striim.com/sources-and-targets/) para obter outros destinos com suporte. | &bull; Funciona com uma grande variedade de fontes, como Oracle, DB2 SQL Server.<br/>&bull; É fácil criar pipelines ETL e fornece um painel para monitoramento. <br/>&bull; Dá suporte a conjuntos de grandes maiores. <br/>&bull; Como essa é uma ferramenta de terceiros, ela precisa ser adquirida no Marketplace e instalada no ambiente do usuário.|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>API do Mongo Azure Cosmos DB

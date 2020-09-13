@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816517"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029695"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Criar uma oferta de máquina virtual no Azure Marketplace
 
@@ -27,7 +27,7 @@ Antes de você começar, confira [Criar uma conta do marketplace comercial no Pa
 Ao publicar suas ofertas no Azure Marketplace, você pode:
 
 - Promover sua empresa, com a ajuda da marca Microsoft.
-- Alcançar mais de 100 milhões usuários do Office 365 e do Dynamics 365 e mais de 200.000 organizações.
+- Alcance mais de 100 milhões usuários do Microsoft 365 e do Dynamics 365 e mais de 200.000 organizações.
 - Obtenha clientes potenciais de alta qualidade desses mercados.
 - Tenha seus serviços promovidos pelas equipes de vendas de campo e televendas da Microsoft.
 
@@ -162,7 +162,7 @@ Você precisa fornecer termos e condições de oferta para seus clientes. Você 
 
        a. Insira seus termos de aditamento na caixa de **Termos de aditamento personalizadas**. Você pode inserir um número ilimitado de caracteres. Somente os clientes das IDs de locatário que você especificar para esses termos personalizados poderão vê-los no fluxo de compra da oferta no portal do Azure.
 
-       b. (Obrigatório) Forneça as **IDs de locatário**. Cada aditamento personalizado pode ser direcionado para até 20 IDs de locatário. Se você adicionar um aditamento personalizado, deverá fornecer pelo menos uma ID de locatário, que identifica seu cliente no Azure. O cliente pode encontrá-lo para você no Azure selecionando **Azure Active Directory** > **Propriedades**. O valor da ID de diretório é a ID do locatário (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode encontrar a ID do locatário da organização de seu cliente usando seu endereço web de nome de domínio em [Qual é a minha ID do locatário do Microsoft Azure e do Office 365?](https://www.whatismytenantid.com/).
+       b. (Obrigatório) Forneça as **IDs de locatário**. Cada aditamento personalizado pode ser direcionado para até 20 IDs de locatário. Se você adicionar um aditamento personalizado, deverá fornecer pelo menos uma ID de locatário, que identifica seu cliente no Azure. O cliente pode encontrá-lo para você no Azure selecionando **Azure Active Directory** > **Propriedades**. O valor da ID de diretório é a ID do locatário (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode encontrar a ID de locatário da organização de seu cliente usando seu endereço Web de nome de domínio em [qual é o meu Microsoft Azure e Microsoft 365 ID do locatário?](https://www.whatismytenantid.com/).
 
        c. (Opcional) Forneça uma descrição **amigável** para a ID do locatário, uma que ajude a identificar o cliente que você está direcionando para o aditamento.
 
@@ -572,7 +572,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
-1. Name
+1. Nome
 2. Descrição
 3. Links úteis
 4. Capturas de tela/vídeos

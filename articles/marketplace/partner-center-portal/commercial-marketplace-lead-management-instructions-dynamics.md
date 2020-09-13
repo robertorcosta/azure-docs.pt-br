@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120360"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030745"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurar o gerenciamento de clientes potenciais para o Dynamics 365 Customer Engagement
 
@@ -27,7 +27,7 @@ As permissões de usuário a seguir são necessárias para concluir as etapas ne
 
 * Direitos de administrador em sua instância do Dynamics 365 Customer Engagement para poder instalar uma solução.
 * Direitos de administrador de locatários para criar uma nova conta de serviço para o serviço de clientes potenciais usado para enviar clientes potenciais de ofertas do Marketplace comercial.
-* Acesso ao portal de administração do Office 365.
+* Acesso ao portal de administração.
 * Acesso ao portal do Azure.
 
 ## <a name="install-the-solution"></a>Instalar a solução

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 675f25107a2e4f0ddedf468dc06afea36ffc6151
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327745"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029827"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -84,7 +84,7 @@ Use operações assíncronas no [ponto de extremidade de provedor de recursos do
 
 Para obter mais informações sobre as APIs de importação e exportação, confira [APIs REST do provedor de recursos do Hub IoT](/rest/api/iothub/iothubresource). Para saber mais sobre como executar trabalhos de importação e exportação, confira [Gerenciamento em massa de identidades de dispositivo do Hub IoT](iot-hub-bulk-identity-mgmt.md).
 
-As identidades de dispositivo também podem ser exportadas e importadas de um hub IoT por meio da API de serviço por meio da [API REST](/rest/api/iothub/service/jobclient/createimportexportjob) ou de um dos [SDKs de serviço](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)do Hub IOT.
+As identidades de dispositivo também podem ser exportadas e importadas de um hub IoT por meio da API de serviço por meio da [API REST](/rest/api/iothub/service/jobs/createimportexportjob) ou de um dos [SDKs de serviço](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks)do Hub IOT.
 
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
 
@@ -124,7 +124,7 @@ Mensagem de notificação para dispositivo:
 |operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 |iothub-message-schema | deviceLifecycleNotification |
 
-Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo:
+Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de dispositivo criada. Por exemplo,
 
 ```json
 {
@@ -160,7 +160,7 @@ moduleId | ID do módulo |
 operationTimestamp | Carimbo de data/hora ISO8601 da operação |
 iothub-message-schema | moduleLifecycleNotification |
 
-Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de módulo criada. Por exemplo:
+Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de módulo criada. Por exemplo,
 
 ```json
 {
@@ -193,10 +193,10 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 | deviceId |obrigatória, somente leitura em atualizações |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, mais determinados caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |obrigatória, somente leitura |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas com até 128 caracteres gerada pelo Hub IoT. Esse valor é usado para distinguir os dispositivos com a mesma **deviceId** quando são excluídos e recriados. |
 | etag |obrigatória, somente leitura |Uma cadeia de caracteres que representa um ETag fraco para a identidade do dispositivo, de acordo com o [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| auth |opcionais |Um objeto composto que contém as informações de autenticação e os materiais de segurança. |
-| auth.symkey |opcionais |Um objeto composto que contém as chaves primária e secundária, armazenadas no formato base64. |
+| auth |opcional |Um objeto composto que contém as informações de autenticação e os materiais de segurança. |
+| auth.symkey |opcional |Um objeto composto que contém as chaves primária e secundária, armazenadas no formato base64. |
 | status |exigido |Um indicador de acesso. Pode estar **Habilitado** ou **Desabilitado**. Se estiver **Habilitado**, o dispositivo terá permissão para se conectar. Se estiver **Desabilitado**, este dispositivo não poderá acessar qualquer ponto de extremidade voltado para o dispositivo. |
-| statusReason |opcionais |Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
+| statusReason |opcional |Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |somente leitura |Um indicador temporal, mostrando a data e hora da última atualização de status. |
 | connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
 | connectionStateUpdatedTime |somente leitura |Um indicador temporal, mostrando a data e a hora da última atualização do estado da conexão. |
@@ -218,10 +218,10 @@ As identidades do módulo são representadas como documentos JSON com as seguint
 | moduleId |obrigatória, somente leitura em atualizações |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, mais determinados caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | generationId |obrigatória, somente leitura |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas com até 128 caracteres gerada pelo Hub IoT. Esse valor é usado para distinguir os dispositivos com a mesma **deviceId** quando são excluídos e recriados. |
 | etag |obrigatória, somente leitura |Uma cadeia de caracteres que representa um ETag fraco para a identidade do dispositivo, de acordo com o [RFC7232](https://tools.ietf.org/html/rfc7232). |
-| auth |opcionais |Um objeto composto que contém as informações de autenticação e os materiais de segurança. |
-| auth.symkey |opcionais |Um objeto composto que contém as chaves primária e secundária, armazenadas no formato base64. |
+| auth |opcional |Um objeto composto que contém as informações de autenticação e os materiais de segurança. |
+| auth.symkey |opcional |Um objeto composto que contém as chaves primária e secundária, armazenadas no formato base64. |
 | status |exigido |Um indicador de acesso. Pode estar **Habilitado** ou **Desabilitado**. Se estiver **Habilitado**, o dispositivo terá permissão para se conectar. Se estiver **Desabilitado**, este dispositivo não poderá acessar qualquer ponto de extremidade voltado para o dispositivo. |
-| statusReason |opcionais |Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
+| statusReason |opcional |Uma cadeia de caracteres com 128 caracteres que armazena o motivo do status de identidade do dispositivo. Todos os caracteres UTF-8 são permitidos. |
 | statusUpdateTime |somente leitura |Um indicador temporal, mostrando a data e hora da última atualização de status. |
 | connectionState |somente leitura |Um campo indicando o status da conexão: **Conectado** ou **Desconectado**. Esse campo representa a exibição do Hub IoT do status de conexão do dispositivo. **Importante**: esse campo deve ser usado apenas para fins de desenvolvimento/depuração. O estado da conexão é atualizado somente nos dispositivos que usam MQTT ou AMQP. Além disso, ele se baseia nos pings do nível de protocolo (pings MQTT ou AMQP) e pode ter um atraso máximo de apenas cinco minutos. Por esses motivos, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desconectados. |
 | connectionStateUpdatedTime |somente leitura |Um indicador temporal, mostrando a data e a hora da última atualização do estado da conexão. |
