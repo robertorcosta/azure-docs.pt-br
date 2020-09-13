@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526823"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017465"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: configurar o Write-back de atributo do Azure AD para o workday
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para os atributos de write-back do Azure AD para o workday. O aplicativo de provisionamento de write-back do workday dá suporte à atribuição de valores aos seguintes atributos do workday:
@@ -34,7 +34,7 @@ Depois de configurar a integração de provisionamento de entrada usando o [WORK
 
 Essa solução de provisionamento de usuário do workday write-back é ideal para:
 
-* Organizações que usam o Office 365 que desejam redirecionar atributos autoritativos gerenciados por ele (como endereço de email, nome de usuário e número de telefone) de volta ao workday
+* Organizações usando Microsoft 365 que desejam fazer write-back de atributos autoritativos gerenciados por ele (como endereço de email, nome de usuário e número de telefone) de volta ao workday
 
 ## <a name="configure-integration-system-user-in-workday"></a>Configurar o usuário do sistema de integração no Workday
 

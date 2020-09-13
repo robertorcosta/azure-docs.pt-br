@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056254"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018587"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -1257,23 +1257,7 @@ Se você encontrar problemas com a Sincronização de arquivos do Azure em um se
 
 Se o problema não for resolvido, execute a ferramenta AFSDiag e envie o arquivo zip de saída gerado por ela para o engenheiro de suporte atribuído ao seu caso para diagnóstico adicional.
 
-Para a versão v11 do agente e versões posteriores:
-
-1. Abra uma janela do PowerShell com privilégios elevados e execute os seguintes comandos (pressione Enter depois de cada comando):
-
-    > [!NOTE]
-    >O AFSDiag criará o diretório de saída e uma pasta temporária dentro dele antes de coletar logs e excluirá a pasta temporária após a execução. Especifique um local de saída que não contenha dados.
-    
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
-    ```
-
-2. Reproduza o problema. Quando tiver terminado, clique em **D**.
-3. Um arquivo. zip que contém logs e arquivos de rastreamento é salvo no diretório de saída que você especificou. 
-
-Para a versão v10 do agente e anteriores:
+Para executar o AFSDiag, execute as seguintes etapas:
 1. Crie um diretório que será usado para salvar a saída da AFSDiag (por exemplo, C:\Output).
     > [!NOTE]
     >O AFSDiag excluirá todo o conteúdo do diretório de saída antes de coletar logs. Especifique um local de saída que não contenha dados.

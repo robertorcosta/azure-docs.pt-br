@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540959"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015476"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutorial: configurar o WORKDAY para o provisionamento de usuário do Azure AD
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar dados de trabalho do workday no Azure Active Directory. 
@@ -27,13 +27,13 @@ O objetivo deste tutorial é mostrar as etapas que você precisa executar para p
 
 O [serviço de provisionamento de usuário do Azure Active Directory](../app-provisioning/user-provisioning.md) integra-se com a [API de Recursos Humanos do Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) para provisionar contas de usuários. Os fluxos de trabalho de provisionamento de usuário do Workday com suporte do serviço de provisionamento de usuário do Azure AD habilitam a automação dos seguintes cenários de gerenciamento do ciclo de vida de identidade e recurso humanos:
 
-* **Contratando novos funcionários** – quando um novo funcionário é adicionado ao workday, uma conta de usuário é criada automaticamente no Azure Active Directory e, opcionalmente, no Office 365 e em [outros aplicativos SaaS com suporte do Azure ad](../app-provisioning/user-provisioning.md), com write-back do endereço de email para o workday.
+* **Contratando novos funcionários** – quando um novo funcionário é adicionado ao workday, uma conta de usuário é criada automaticamente em Azure Active Directory e, opcionalmente, Microsoft 365 e [outros aplicativos SaaS com suporte do Azure ad](../app-provisioning/user-provisioning.md), com write-back do endereço de email para o workday.
 
-* **Atualizações de perfil e atributo de funcionário** – quando um registro de funcionário é atualizado no workday (como seu nome, título ou gerente), sua conta de usuário será atualizada automaticamente Azure Active Directory e, opcionalmente, o Office 365 e [outros aplicativos SaaS compatíveis com o Azure ad](../app-provisioning/user-provisioning.md).
+* **Atualizações de perfil e atributo de funcionário** – quando um registro de funcionário é atualizado no workday (como seu nome, título ou gerente), sua conta de usuário será atualizada automaticamente Azure Active Directory e, opcionalmente, Microsoft 365 e [outros aplicativos SaaS compatíveis com o Azure ad](../app-provisioning/user-provisioning.md).
 
-* **Encerramentos de funcionários** -quando um funcionário é encerrado no workday, sua conta de usuário é automaticamente desabilitada em Azure Active Directory e, opcionalmente, no Office 365 e [outros aplicativos SaaS com suporte do Azure ad](../app-provisioning/user-provisioning.md).
+* **Encerramentos de funcionários** -quando um funcionário é encerrado no workday, sua conta de usuário é automaticamente desabilitada em Azure Active Directory e, opcionalmente, Microsoft 365 e [outros aplicativos SaaS com suporte do Azure ad](../app-provisioning/user-provisioning.md).
 
-* **Recontratação de funcionário** -quando um funcionário é recontratado no workday, sua conta antiga pode ser reativada automaticamente ou reprovisionada (dependendo da sua preferência) para Azure Active Directory e, opcionalmente, o Office 365 e [outros aplicativos SaaS com suporte do Azure ad](../app-provisioning/user-provisioning.md).
+* **Recontratação de funcionário** -quando um funcionário é recontratado no workday, sua conta antiga pode ser reativada automaticamente ou reprovisionada (dependendo da sua preferência) para Azure Active Directory e, opcionalmente, Microsoft 365 e [outros aplicativos SaaS com suporte do Azure ad](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Para quem é mais recomendada essa solução de provisionamento de usuário?
 
@@ -45,7 +45,7 @@ Esse WORKDAY para Azure Active Directory solução de provisionamento de usuári
 
 * Organizações que exigem que os usuários sejam provisionados usando os dados obtidos do workday
 
-* Organizações que usam o Office 365 para email
+* Organizações que usam Microsoft 365 para email
 
 ## <a name="solution-architecture"></a>Arquitetura da solução
 

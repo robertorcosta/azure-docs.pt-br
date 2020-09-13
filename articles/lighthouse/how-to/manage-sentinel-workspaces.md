@@ -3,12 +3,12 @@ title: Gerenciar espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerenciar efetivamente o Azure Sentinel em recursos de clientes delegados.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050804"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019726"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerenciar espaços de trabalho do Azure Sentinel em escala
 
@@ -65,7 +65,7 @@ Os [Guias estratégicos](../../sentinel/tutorial-respond-threats-playbook.md) po
 
 [Azure monitor pastas de trabalho no Azure Sentinel](../../sentinel/overview.md#workbooks) o ajudam a visualizar e monitorar dados de suas fontes de dados conectadas para obter informações. Você pode usar os modelos de pasta de trabalho internos no Azure Sentinel ou criar pastas de trabalho personalizadas para seus cenários.
 
-Você pode implantar pastas de trabalho no seu locatário de gerenciamento e criar painéis em escala para monitorar e consultar dados entre locatários do cliente. Para obter mais informações, consulte [monitoramento entre espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Observe que alguns recursos [não têm suporte em vários espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+Você pode implantar pastas de trabalho no seu locatário de gerenciamento e criar painéis em escala para monitorar e consultar dados entre locatários do cliente. Para obter mais informações, consulte [monitoramento entre espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 Você também pode implantar pastas de trabalho diretamente em um locatário individual que você gerencia para cenários específicos para esse cliente.
 
@@ -76,8 +76,6 @@ Crie e salve Log Analytics consultas para detecção de ameaças de forma centra
 ## <a name="use-automation-for-cross-workspace-management"></a>Usar a automação para gerenciamento entre espaços de trabalho
 
 Você pode usar a automação para gerenciar vários espaços de trabalho do Azure Sentinel e configurar [consultas de busca](../../sentinel/hunting.md), guias estratégicos e pastas de trabalho. Para obter mais informações, consulte [gerenciamento entre espaços de trabalho usando automação](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
-
-Observe que alguns recursos [não têm suporte no momento em vários espaços de trabalho](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## <a name="manage-security-of-office-365-environments"></a>Gerenciar a segurança dos ambientes do Office 365
 

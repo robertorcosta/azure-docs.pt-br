@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2020
+ms.date: 09/10/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959146"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015442"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -147,7 +147,7 @@ Se você estiver criando um aplicativo que dá suporte a uma API de gerenciament
 Dentro da [especificação do protocolo SCIM 2.0](http://www.simplecloud.info/#Specification), seu aplicativo deve atender a esses requisitos:
 
 * Dar suporte à criação de usuários e, opcionalmente, grupos, de acordo com a seção [3.3 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
-* Dar suporte à modificação de usuários ou grupos com solicitações PATCH, de acordo com a [seção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Dar suporte à modificação de usuários ou grupos com solicitações PATCH, de acordo com a [seção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2). O suporte garante que os grupos e usuários sejam provisionados de uma maneira de alto desempenho. 
 * Dar suporte à recuperação de um recurso conhecido para um usuário ou grupo criado anteriormente, de acordo com a [seção 3.4.1 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
 * Dar suporte a consultas de usuários ou grupos, de acordo com a seção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por padrão, os usuários são recuperados por seu `id` e consultados por seus `username` e `externalId`, e os grupos são consultados por `displayName`.  
 * Dar suporte a consultas de usuário por ID e pelo gerenciador, de acordo com a seção 3.4.2 do protocolo SCIM.  
@@ -746,7 +746,7 @@ Barra mínima dos conjuntos de criptografia TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalos de IP
-O serviço de provisionamento do Azure AD opera atualmente nos intervalos de IP para AzureActiveDirectory e AzureActiveDirectoryDomainServices, conforme listado [aqui](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). O trabalho está em andamento para consolidar apenas os intervalos de IP em AzureActiveDirectory. 
+O serviço de provisionamento do Azure AD opera atualmente nos intervalos de IP para AzureActiveDirectory, conforme listado [aqui](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Você pode adicionar os intervalos de IP listados na marca AzureActiveDirectory para permitir o tráfego do serviço de provisionamento do Azure AD para seu aplicativo. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Etapa 3: Crie um ponto de extremidade do SCIM
 
@@ -1175,7 +1175,7 @@ Se você estiver criando um aplicativo que será usado por mais de um locatário
 Siga a lista de verificação abaixo para garantir que seu aplicativo seja integrado de forma rápida e que os clientes tenham uma experiência de implantação livre de problemas. As informações serão coletadas quando você estiver realizando a integração à galeria. 
 > [!div class="checklist"]
 > * Dar suporte a um ponto de extremidade de usuário e grupo do [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) (apenas um é necessário, mas ambos são recomendados)
-> * Dar suporte a pelo menos 25 solicitações por segundo por locatário (obrigatório)
+> * Suporte a pelo menos 25 solicitações por segundo por locatário para garantir que os usuários e grupos sejam provisionados e desprovisionados sem atraso (obrigatório)
 > * Estabelecer contatos de engenharia e suporte para orientar os clientes após a integração à galeria (obrigatório)
 > * 3 credenciais de teste sem expiração para seu aplicativo (obrigatório)
 > * Dar suporte à concessão de código de autorização OAuth ou a um token de vida útil longa, conforme é descrito abaixo (obrigatório)

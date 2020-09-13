@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533989"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017924"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: configurar o Write-back de atributo do Azure AD para o SAP SuccessFactors
 O objetivo deste tutorial é mostrar as etapas para os atributos de write-back do Azure AD para o SAP SuccessFactors Employee central. 
@@ -25,7 +25,7 @@ O objetivo deste tutorial é mostrar as etapas para os atributos de write-back d
 Você pode configurar o aplicativo SAP SuccessFactors write-back para gravar atributos específicos de Azure Active Directory para o SAP SuccessFactors Employee central. O aplicativo de provisionamento de write-back SuccessFactors dá suporte à atribuição de valores aos seguintes atributos centrais do funcionário:
 
 * Email comercial
-* Nome de Usuário
+* Nome de usuário
 * Número de telefone comercial (incluindo código de país, código de área, número e extensão)
 * Sinalizador principal do número de telefone comercial
 * Número de telefone celular (incluindo código de país, código de área, número)
@@ -40,7 +40,7 @@ Você pode configurar o aplicativo SAP SuccessFactors write-back para gravar atr
 
 Essa solução de provisionamento de usuário SuccessFactors write-back é ideal para:
 
-* Organizações que usam o Office 365 que desejam fazer write-back de atributos autoritativos gerenciados por ele (como endereço de email, telefone, nome de usuário) de volta para o SuccessFactors Employee central.
+* As organizações que usam Microsoft 365 que desejam fazer write-back de atributos autoritativos gerenciados por ele (como endereço de email, telefone, nome de usuário) de volta para o SuccessFactors Employee central.
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configurando o SuccessFactors para a integração
 
@@ -253,7 +253,7 @@ Nesta seção, você configurará como os dados do usuário fluem do SuccessFact
    | 3 | 8448 | emailtype | Esse valor constante é o valor de ID de SuccessFactors associado ao email comercial. Atualize esse valor para corresponder ao seu ambiente SuccessFactors. Consulte a seção [recuperar o valor constante para emailtype](#retrieve-constant-value-for-emailtype) para as etapas para definir esse valor. |
    | 4 | true | emailIsPrimary | Use este atributo para definir emails comerciais como primários no SuccessFactors. Se email comercial não for primário, defina esse sinalizador como false. |
    | 5 | userPrincipalName | [custom01 – custom15] | Usando **Adicionar novo mapeamento**, você pode opcionalmente escrever userPrincipalName ou qualquer atributo do Azure ad para um atributo personalizado disponível no objeto de usuário SuccessFactors.  |
-   | 6 | samAccountName local | username | Usando **Adicionar novo mapeamento**, você pode, opcionalmente, mapear sAMAccountName local para o atributo de nome de usuário SuccessFactors. |
+   | 6 | samAccountName local | Nome de Usuário | Usando **Adicionar novo mapeamento**, você pode, opcionalmente, mapear sAMAccountName local para o atributo de nome de usuário SuccessFactors. |
    | 7 | SSO | loginMethod | Se o locatário do SuccessFactors for configurado para [SSO parcial](https://apps.support.sap.com/sap/support/knowledge/en/2320766)e, em seguida, usar Adicionar novo mapeamento, você poderá, opcionalmente, definir loginMethod como um valor constante de "SSO" ou "pwd". |
    | 8 | telephoneNumber | businessPhoneNumber | Use esse mapeamento para fluir *telephoneNumber* do Azure ad para o número de telefone comercial/trabalho do SuccessFactors. |
    | 9 | 10605 | businessPhoneType | Esse valor constante é o valor de ID de SuccessFactors associado ao telefone comercial. Atualize esse valor para corresponder ao seu ambiente SuccessFactors. Consulte a seção [recuperar o valor constante de PhoneType](#retrieve-constant-value-for-phonetype) para obter as etapas para definir esse valor. |
