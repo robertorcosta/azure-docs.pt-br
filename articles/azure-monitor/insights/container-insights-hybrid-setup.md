@@ -3,12 +3,12 @@ title: Configurar clusters kubernetes híbridos com Azure Monitor para contêine
 description: Este artigo descreve como você pode configurar Azure Monitor para contêineres para monitorar clusters kubernetes hospedados em Azure Stack ou em outro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498892"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398374"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurar clusters kubernetes híbridos com Azure Monitor para contêineres
 
@@ -71,9 +71,11 @@ Antes de começar, verifique se você tem o seguinte:
 
 A habilitação de Azure Monitor para contêineres para o cluster híbrido kubernetes consiste em executar as etapas a seguir na ordem.
 
-1. Configure seu espaço de trabalho Log Analytics com a solução de informações de contêiner.
+1. Configure seu espaço de trabalho Log Analytics com a solução de informações de contêiner.   
 
 2. Habilite a Azure Monitor para contêineres HELM gráfico com Log Analytics espaço de trabalho.
+
+Para obter mais informações sobre soluções de monitoramento no Azure Monitor consulte [aqui](../../azure-monitor/insights/solutions.md).
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Como adicionar a solução de contêineres de Azure Monitor
 
@@ -334,7 +336,7 @@ Depois de ter implantado com êxito o gráfico, você pode examinar os dados par
 
 Começando com a versão de gráfico 2.7.1, o gráfico dará suporte à especificação do ponto de extremidade de proxy com o `omsagent.proxy` parâmetro de gráfico. Isso permite que ele se comunique por meio do servidor proxy. A comunicação entre o Azure Monitor para agente de contêineres e Azure Monitor pode ser um servidor proxy HTTP ou HTTPS, e a autenticação anônima e básica (nome de usuário/senha) têm suporte.
 
-O valor de configuração de proxy tem a seguinte sintaxe:`[protocol://][user:password@]proxyhost[:port]`
+O valor de configuração de proxy tem a seguinte sintaxe: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Se o servidor proxy não exigir autenticação, você ainda precisará especificar um nome de usuário/senha do psuedo. Isso pode ser qualquer nome de usuário ou senha.

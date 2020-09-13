@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2ca5a591d168e18181a29cf1c00a7d1fead54595
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226039"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400629"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Conectar-se à área de trabalho virtual do Windows com o cliente Web
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/connect-web-2019.md).
 
 O cliente Web permite acessar os recursos da Área de Trabalho Virtual do Windows em um navegador da Web sem o lento processo de instalação.
 
@@ -48,6 +48,25 @@ Em um navegador, vá até a versão integrada do Azure Resource Manager do clien
 >Se já tiver entrado com uma conta do Azure Active Directory diferente da que deseja usar para a Área de Trabalho Virtual do Windows, você deverá sair ou usar uma janela de navegador privada.
 
 Depois de entrar, você verá uma lista de recursos. Você pode iniciar os recursos selecionando-os da mesma maneira que faria com um aplicativo normal na guia **Todos os recursos**.
+
+## <a name="using-an-input-method-editor"></a>Usando um editor de método de entrada
+
+O cliente Web dá suporte ao uso de um IME (editor de método de entrada) na sessão remota na versão **1.0.21.16 ou posterior**. O pacote de idiomas do teclado que você deseja usar na sessão remota deve ser instalado na máquina virtual do host. Para saber mais sobre como configurar pacotes de idiomas na sessão remota, confira [adicionar pacotes de idiomas a uma imagem de várias sessões do Windows 10](language-packs.md).
+
+Para habilitar a entrada do IME usando o cliente Web:
+
+1. Antes de se conectar à sessão remota, vá para o painel de **configurações** do cliente Web.
+
+2. Alterne a configuração **habilitar editor de método de entrada** para **ativado**.
+
+3. No menu suspenso, selecione o teclado que será usado na sessão remota.
+
+4. Conecte-se à sessão remota.
+
+O cliente Web irá suprimir a janela local do IME quando você estiver concentrado na sessão remota. Alterar as configurações do IME depois que você já tiver se conectado à sessão remota não terá nenhum efeito.
+
+>[!NOTE]
+>Se o pacote de idiomas não estiver instalado na máquina virtual do host, a sessão remota usará como padrão o teclado inglês (Estados Unidos).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,18 +8,18 @@ ms.date: 8/14/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 2fc2db54217756ba0f4f7d643b1bc12ad2668209
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 20959709854f8366cc067437fe86c245fcbc3ef0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88848700"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401054"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrar com aplicativos lógicos usando um conector personalizado
 
 O [aplicativo lógico do Azure](../logic-apps/logic-apps-overview.md) é um serviço de nuvem que ajuda a automatizar fluxos de trabalho entre aplicativos e serviços. Ao conectar aplicativos lógicos às APIs do gêmeos digital do Azure, você pode criar fluxos automatizados em todo o gêmeos digital do Azure e seus dados.
 
-Atualmente, o Azure digital gêmeos não tem um conector certificado (pré-compilado) para aplicativos lógicos. Em vez disso, o processo atual para usar aplicativos lógicos com o Azure digital gêmeos é criar um [**conector de aplicativos lógicos personalizados**](../logic-apps/custom-connector-overview.md), usando um [arquivo Swagger personalizado do Azure digital gêmeos](https://github.com/Azure-Samples/digital-twins-custom-swaggers/blob/main/LogicApps/preview/2020-05-31-preview/digitaltwins.json) que foi modificado para funcionar com aplicativos lógicos.
+Atualmente, o Azure digital gêmeos não tem um conector certificado (pré-compilado) para aplicativos lógicos. Em vez disso, o processo atual para usar aplicativos lógicos com o Azure digital gêmeos é criar um [**conector de aplicativos lógicos personalizados**](../logic-apps/custom-connector-overview.md), usando um [Swagger do Azure digital gêmeos personalizado](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que foi modificado para funcionar com aplicativos lógicos.
 
 Neste artigo, você usará o [portal do Azure](https://portal.azure.com) para **criar um conector personalizado** que pode ser usado para conectar aplicativos lógicos a uma instância do gêmeos digital do Azure. Em seguida, você **criará um aplicativo lógico** que usa essa conexão para um cenário de exemplo, no qual os eventos disparados por um temporizador atualizarão automaticamente uma cópia em sua instância do gêmeos digital do Azure. 
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, **crie uma [conta gratuita](https:/
 
 Entre no [portal do Azure](https://portal.azure.com) com esta conta.
 
-### <a name="set-up-azure-digital-twins-instance"></a>Configurar a instância do gêmeos digital do Azure
+### <a name="set-up-azure-digital-twins-instance"></a>Configurar instância dos Gêmeos Digitais do Azure
 
 Para conectar uma instância do gêmeos digital do Azure a aplicativos lógicos neste artigo, você precisará ter a **instância do gêmeos digital do Azure** já configurada. 
 
@@ -46,7 +46,7 @@ Você também precisará criar um **_segredo do cliente_** para o registro do ap
 
 Clique em *certificados e segredos* no menu do registro e selecione *+ novo segredo do cliente*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre certificados e segredos no menu de recursos e um realce na página ao nosso novo segredo do cliente":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre "certificados e segredos" no menu de recursos e um realce na página ao nosso "novo segredo do cliente"":::
 
 Insira os valores que você deseja para descrição e expirar e clique em *Adicionar*.
 O segredo será adicionado à lista de segredos do cliente na página *certificados e segredos* . Anote seu valor para usar posteriormente (você também pode copiá-lo para a área de transferência com o ícone de cópia).
@@ -77,9 +77,9 @@ Você será levado para a página de implantação do conector. Quando terminar 
 
 Em seguida, você configurará o conector que criou para alcançar o gêmeos digital do Azure.
 
-Primeiro, baixe um Swagger personalizado do Azure digital gêmeos que foi modificado para funcionar com aplicativos lógicos. Baixe *digitaltwins.js* por meio [deste link](https://github.com/Azure-Samples/digital-twins-custom-swaggers/blob/main/LogicApps/preview/2020-05-31-preview/digitaltwins.json).
+Primeiro, baixe um Swagger personalizado do Azure digital gêmeos que foi modificado para funcionar com aplicativos lógicos. Baixe o exemplo de **swaggers personalizados do Azure digital gêmeos** deste [link](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) pressionando o botão *baixar zip* . Navegue até a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* baixada e descompacte-a. O Swagger personalizado para este tutorial está localizado em *Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.jsem*.
 
-Em seguida, na página Visão geral do conector na portal do Azure, clique em *Editar*.
+Em seguida, vá para a página Visão geral do conector na [portal do Azure](https://portal.azure.com) e clique em *Editar*.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="A página ' visão geral ' do conector criado na etapa anterior. Realçar ao contrário do botão ' Editar '":::
 
@@ -87,7 +87,7 @@ Na página *Editar conector personalizado dos aplicativos lógicos* a seguir, co
 * **Conectores personalizados**
     - Ponto de extremidade de API: REST (Mantenha o padrão)
     - Modo de importação: arquivo OpenAPI (Mantenha o padrão)
-    - Arquivo: esse será o arquivo Swagger personalizado que você baixou anteriormente. Clique em *importar*, localize o arquivo em seu computador e clique em *abrir*.
+    - Arquivo: esse será o arquivo Swagger personalizado que você baixou anteriormente. Clique em *importar*, localize o arquivo em seu computador (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.jsem*) e clique em *abrir*.
 * **Informações gerais**
     - Ícone, cor do plano de fundo do ícone, descrição: Preencha quaisquer valores que você desejar.
     - Esquema: HTTPS (Mantenha o padrão)
@@ -133,7 +133,7 @@ Navegue até a página [registros de aplicativo](https://portal.azure.com/#blade
 
 Em *autenticação* no menu do registro, adicione um URI.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="A página de autenticação para o registro do aplicativo no portal do Azure. Autenticação no menu é realçado e, na página, o botão adicionar um URI é realçado."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="A página de autenticação para o registro do aplicativo no portal do Azure. "Autenticação" no menu é realçado e, na página, o botão "adicionar um URI" é realçado."::: 
 
 Insira a *URL de redirecionamento* do conector personalizado no novo campo e clique no ícone *salvar* .
 

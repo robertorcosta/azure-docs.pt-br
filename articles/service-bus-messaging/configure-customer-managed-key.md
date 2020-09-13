@@ -3,12 +3,12 @@ title: Configure sua própria chave para criptografar dados do barramento de ser
 description: Este artigo fornece informações sobre como configurar sua própria chave para criptografar dados REST do barramento de serviço do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067232"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400578"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados do barramento de serviço do Azure em repouso usando o portal do Azure
 O barramento de serviço Premium do Azure fornece criptografia de dados em repouso com Criptografia do Serviço de Armazenamento do Azure (Azure SSE). O barramento de serviço Premium depende do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
@@ -28,7 +28,7 @@ Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da ch
 Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> O uso de chaves gerenciadas pelo cliente com o barramento de serviço do Azure requer que o cofre de chaves tenha duas propriedades necessárias configuradas. Eles são: **exclusão reversível** e **não limpeza**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
+> O uso de chaves gerenciadas pelo cliente com o barramento de serviço do Azure requer que o cofre de chaves tenha duas propriedades necessárias configuradas. Eles são:  **exclusão reversível** e **não limpeza**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
 Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas etapas:
@@ -82,12 +82,12 @@ Depois de habilitar as chaves gerenciadas pelo cliente, você precisa associar a
     > 
     >   * Se a [recuperação de desastre geográfica](service-bus-geo-dr.md) já estiver habilitada para o namespace do barramento de serviço e você estiver procurando habilitar a chave gerenciada pelo cliente, então 
     >     * Interromper o emparelhamento
-    >     * [Configure a política de acesso](../key-vault/general/managed-identity.md) para a identidade gerenciada para os namespaces primário e secundário para o cofre de chaves.
+    >     * [Configure a política de acesso](../key-vault/general/assign-access-policy-portal.md) para a identidade gerenciada para os namespaces primário e secundário para o cofre de chaves.
     >     * Configure a criptografia no namespace primário.
     >     * Emparelhe novamente os namespaces primário e secundário.
     > 
     >   * Se você estiver procurando habilitar a DR geográfica em um namespace do barramento de serviço em que a chave gerenciada pelo cliente já está configurada,
-    >     * [Configure a política de acesso](../key-vault/general/managed-identity.md) para a identidade gerenciada para o namespace secundário para o cofre de chaves.
+    >     * [Configure a política de acesso](../key-vault/general/assign-access-policy-portal.md) para a identidade gerenciada para o namespace secundário para o cofre de chaves.
     >     * Emparelhe os namespaces primários e secundários.
 
 
@@ -164,8 +164,8 @@ Esta seção mostra como criar um namespace do barramento de serviço do Azure c
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<ServiceBusNamespaceName>`-Nome do namespace do barramento de serviço
-    > - `<Location>`-Localização do seu namespace do barramento de serviço
+    > - `<ServiceBusNamespaceName>` -Nome do namespace do barramento de serviço
+    > - `<Location>` -Localização do seu namespace do barramento de serviço
 
     ```json
     {
@@ -287,10 +287,10 @@ Nesta etapa, você atualizará o namespace do barramento de serviço com informa
 
     > [!NOTE]
     > Substitua os seguintes valores: 
-    > - `<ServiceBusNamespaceName>`-Nome do namespace do barramento de serviço
-    > - `<Location>`-Localização do seu namespace do barramento de serviço
-    > - `<KeyVaultName>`-Nome do cofre de chaves
-    > - `<KeyName>`-Nome da chave no cofre de chaves  
+    > - `<ServiceBusNamespaceName>` -Nome do namespace do barramento de serviço
+    > - `<Location>` -Localização do seu namespace do barramento de serviço
+    > - `<KeyVaultName>` -Nome do cofre de chaves
+    > - `<KeyName>` -Nome da chave no cofre de chaves  
 
     ```json
     {

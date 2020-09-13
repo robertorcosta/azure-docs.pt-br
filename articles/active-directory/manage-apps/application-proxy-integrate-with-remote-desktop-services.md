@@ -1,6 +1,6 @@
 ---
 title: Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD | Microsoft Docs
-description: Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD.
+description: Aborda como configurar o proxy de aplicativo com o RDS
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019515"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396753"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
@@ -135,7 +135,7 @@ A configuração descrita neste artigo destina-se ao acesso ao RDS por meio da W
 
 | Método de autenticação | Configuração de cliente com suporte |
 | --------------------- | ------------------------------ |
-| Pré-autenticação    | Web da área de trabalho remota-Windows 7/10 usando o complemento ActiveX do Internet Explorer + RDS |
+| Pré-autenticação    | Web da área de trabalho remota-Windows 7/10 usando o Internet Explorer ou [Edge Chromium modo IE](https://docs.microsoft.com/deployedge/edge-ie-mode) + complemento ActiveX do RDS |
 | Pré-autenticação    | Cliente Web RD-navegador da Web compatível com HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari ou Mozilla Firefox (v 55.0 e posterior) |
 | Passagem | Qualquer outro sistema operacional que dê suporte ao aplicativo de Área de Trabalho Remota da Microsoft |
 

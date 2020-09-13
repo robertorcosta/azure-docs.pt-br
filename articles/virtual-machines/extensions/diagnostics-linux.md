@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 6bf82e85bfe36466010ce1cc8914bbd1221fe51a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7a0b2afa8b566ec82fc638291c43f3e0419f654c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267846"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400680"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -70,7 +70,7 @@ Distribuições e versões compatíveis:
 * **Agente Linux do Azure versão 2.2.0 ou posterior**. A maioria das imagens de galeria da VM Linux do Azure inclui a versão 2.2.7 ou posterior. Execute `/usr/sbin/waagent -version` para confirmar a versão instalada na VM. Se a VM estiver executando uma versão mais antiga do agente convidado, execute [estas instruções](./update-linux-agent.md) para atualizá-la.
 * **CLI do Azure**. [Configurar o ambiente da CLI do Azure](/cli/azure/install-azure-cli) em seu computador.
 * O comando wget, caso ainda não o tenha: Execute `sudo apt-get install wget`.
-* Uma assinatura existente do Azure e uma conta de armazenamento existente nela para armazenar os dados.
+* Uma assinatura do Azure existente e uma conta de armazenamento de uso geral existente para armazenar os dados no.  As contas de armazenamento de uso geral dão suporte ao armazenamento de tabela que é necessário.  Uma conta de armazenamento de BLOBs não funcionará.
 
 ### <a name="sample-installation"></a>Instalação de exemplo
 

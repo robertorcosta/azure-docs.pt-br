@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ea7460b3f997e0432ea0b987849eafccbe57b3b9
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3fcbc386c60611493912fdfb17226490549cdc53
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229167"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396804"
 ---
 # <a name="azure-security-baseline-for-azure-container-registry"></a>Linha de base de segurança do Azure para registro de contêiner do Azure
 
@@ -970,9 +970,11 @@ Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy
 
 Como integrar com identidades gerenciadas do Azure:  https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Como criar um Key Vault:  https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Como criar um cofre de chaves: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Como fornecer Key Vault autenticação com uma identidade gerenciada:  https://docs.microsoft.com/azure/key-vault/managed-identity
+Como autenticar para o Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Como atribuir uma política de acesso de Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 Usar uma identidade gerenciada pelo Azure nas tarefas do registro de contêiner do Azure:  https://docs.microsoft.com/azure/container-registry/container-registry-tasks-authentication-managed-identity
 
