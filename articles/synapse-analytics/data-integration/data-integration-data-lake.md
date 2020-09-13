@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8307f01e690536a71d98d5d5ca99f8f7a77a433f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cc5c72c2d0db7c17fdbc29e7fb815f1d06134730
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383912"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033210"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingerir dados em Azure Data Lake Storage Gen2 
 
@@ -31,25 +31,25 @@ No Azure Synapse Analytics, um serviço vinculado é onde você define as inform
 
 1. Abra a UX do Azure Synapse Analytics e vá para a guia **Gerenciar**.
 1. Em **Conexões externas**, selecione **Serviços vinculados**.
-1. Para adicionar um serviço vinculado, clique em **Novo**.
-1. Selecione a peça do Azure Data Lake Storage Gen2 na lista e clique em **Continuar**.
-1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Clique em testar conexão para verificar se suas credenciais estão corretas. 
-1. Clique em **Criar** quando terminar.
+1. Para adicionar um serviço vinculado, selecione **novo**.
+1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
+1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Selecione testar conexão para verificar se suas credenciais estão corretas. 
+1. Selecione **Criar** quando terminar.
 
 ## <a name="create-pipeline"></a>Criar um pipeline
 
 Um pipeline contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta seção, você criará um pipeline que contém uma atividade de cópia que ingere dados do Azure Data Lake Gen 2 para um pool de SQL.
 
-1. Vá para a guia **Orquestrar**. Clique no ícone de adição ao lado do cabeçalho de pipelines e selecione **Pipeline**.
+1. Vá para a guia **orquestrar** . Selecione no ícone de adição ao lado do cabeçalho pipelines e selecione **pipeline**.
 1. Em **Mover e Transformar** no painel atividades, arraste **Copiar dados** no painel da tela do pipeline.
-1. Clique na atividade de cópia e vá para a guia **Origem**. Clique em **Novo** para criar um conjunto de dados de origem.
-1. Selecione Azure Data Lake Storage Gen2 como seu armazenamento de dados e clique em continuar.
-1. Selecione DelimitedText como seu formato e clique em continuar.
-1. No painel definir propriedades, selecione o serviço vinculado ADLS que você criou. Especifique o caminho do arquivo dos dados de origem e especifique se a primeira linha tem um cabeçalho. Você pode importar o esquema do repositório de arquivos ou de um arquivo de exemplo. Clique em OK quando terminar.
-1. Vá para a guia **Coletor**. Clique em **Novo** para criar um novo conjunto de dados do coletor.
-1. Selecione Azure Data Lake Storage Gen2 como seu armazenamento de dados e clique em continuar.
-1. Selecione DelimitedText como seu formato e clique em continuar.
-1. No painel definir propriedades, selecione o serviço vinculado ADLS que você criou. Especifique o caminho da pasta na qual você deseja gravar os dados. Clique em OK quando terminar.
+1. Selecione na atividade de cópia e vá para a guia **origem** . Selecione **novo** para criar um novo conjunto de fonte de origem.
+1. Selecione Azure Data Lake Storage Gen2 como seu armazenamento de dados e selecione continuar.
+1. Selecione DelimitedText como seu formato e selecione continuar.
+1. No painel definir propriedades, selecione o serviço vinculado ADLS que você criou. Especifique o caminho do arquivo dos dados de origem e especifique se a primeira linha tem um cabeçalho. Você pode importar o esquema do repositório de arquivos ou de um arquivo de exemplo. Selecione OK quando terminar.
+1. Vá para a guia **coletor** . Selecione **novo** para criar um novo conjunto de coletas.
+1. Selecione Azure Data Lake Storage Gen2 como seu armazenamento de dados e selecione continuar.
+1. Selecione DelimitedText como seu formato e selecione continuar.
+1. No painel definir propriedades, selecione o serviço vinculado ADLS que você criou. Especifique o caminho da pasta na qual você deseja gravar os dados. Selecione OK quando terminar.
 
 ## <a name="debug-and-publish-pipeline"></a>Depurar e publicar o pipeline
 
@@ -57,7 +57,7 @@ Depois de concluir a configuração do pipeline, você poderá efetuar uma execu
 
 1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Você verá o status da execução do pipeline na guia **Saída** na parte inferior da janela. 
 1. Depois que o pipeline for executado corretamente, na barra de ferramentas superior, selecione **Publicar Tudo**. Esta ação publica as entidades (conjuntos de dados e pipelines) criadas por você anteriormente no Synapse Analytics.
-1. Aguarde até que você veja a mensagem **Publicado com êxito**. Para ver as mensagens de notificação, clique no botão de sino no canto superior direito. 
+1. Aguarde até que você veja a mensagem **Publicado com êxito**. Para ver as mensagens de notificação, selecione o botão de sino no canto superior direito. 
 
 
 ## <a name="trigger-and-monitor-the-pipeline"></a>Acionar e monitorar o pipeline

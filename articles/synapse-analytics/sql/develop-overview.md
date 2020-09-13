@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070042"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032938"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para recursos do Synapse SQL no Azure Synapse Analytics
 Neste artigo, você encontrará uma lista de recursos para o pool SQL e as funções SQL sob demanda (versão prévia) do SQL Synapse. Os artigos recomendados são divididos em duas seções: principais decisões de design e técnicas de desenvolvimento e codificação.

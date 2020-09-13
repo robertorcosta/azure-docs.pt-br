@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 14c4877e9692a35cb5b20e8d357c74fbb1dc909a
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: e3924e609091f4d0975901024f20db74efb6aac5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419785"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032700"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Gerenciamento de leads para o Marketplace comercial
 
@@ -48,7 +48,7 @@ Quando a instalação técnica estiver em vigor, incorpore esses clientes potenc
 
 **Não foi possível salvar o cliente potencial ao Dynamics CRM. Verifique as configurações de conta do Dynamics CRM. LastCRMError: Não é possível entrar no Dynamics CRM, LastCRMException:** 
 
-> Se a autenticação do O365 foi selecionada, verifique se a conta de usuário e senha é válida. Se Azure Active Directory foi selecionado, verifique se a ID do locatário, a ID do aplicativo e a chave secreta do aplicativo correspondem ao que foi configurado na Azure Active Directory. Siga as instruções [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Se o nome de usuário/senha da conta forem válidos, verifique se eles têm acesso ao Dynamics 365 e têm uma licença atribuída (as etapas 11 a 15 se estiver sendo usado o Microsoft Azure Active Directory ou as configurações de segurança se estiver sendo usado um usuário do Office). 
+> Se Microsoft 365 autenticação foi selecionada, verifique se a conta de usuário e a senha são válidas. Se Azure Active Directory foi selecionado, verifique se a ID do locatário, a ID do aplicativo e a chave secreta do aplicativo correspondem ao que foi configurado na Azure Active Directory. Siga as instruções [aqui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Se o nome de usuário/senha da conta forem válidos, verifique se eles têm acesso ao Dynamics 365 e têm uma licença atribuída (as etapas 11 a 15 se estiver sendo usado o Microsoft Azure Active Directory ou as configurações de segurança se estiver sendo usado um usuário do Office). 
 
 **Não foi possível salvar o cliente potencial ao Dynamics CRM. O usuário não tem permissões de criação para o atributo leadsourcecode na entidade de cliente potencial** 
 

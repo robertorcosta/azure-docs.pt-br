@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
-ms.openlocfilehash: 817c17b0e05180f5c7a616320a25c2bc3c21c5f8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651404"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033295"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitorar, criar e gerenciar arquivos SFTP em aplicativos lógicos do Azure
 
@@ -114,6 +114,10 @@ Esse acionador inicia um fluxo de trabalho de aplicativo lógico quando um arqui
 ### <a name="sftp-action-get-content"></a>Ação de SFTP: obter o conteúdo
 
 Esta ação obtém o conteúdo de um arquivo em um servidor SFTP. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do arquivo deve atender. Se a condição for verdadeira, a ação que obtém o conteúdo poderá ser executada.
+
+## <a name="connector-reference"></a>Referência de conector
+
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/azure/data-factory/connector-sftp) do conector.
 
 ## <a name="next-steps"></a>Próximas etapas
 

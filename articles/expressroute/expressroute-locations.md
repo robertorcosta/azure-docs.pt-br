@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/26/2020
 ms.author: duau
-ms.openlocfilehash: 78c0b589bfbab17f8c20b3e0b1181fca878d621d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0cf44407ce3087a79a3f54caea1b33c52709d816
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651335"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031984"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade do ExpressRoute e locais de emparelhamento
 
@@ -143,7 +143,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Optus](https://www.optus.com.au/enterprise/)** |Com suporte |Com suporte |Melbourne, Sydney |
 | **[Orange](https://www.orange-business.com/en/products/business-vpn-galerie)** |Com suporte |Com suporte |Amsterdã, Amsterdã 2, Dubai 2, Frankfurt, RAE de Hong Kong, Joanesburgo, Londres, Paris, São Paulo, Vale do Silício, Singapura, Sydney, Tóquio, Washington D.C. |
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Com suporte | Com suporte | Dubai2 |
-| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Com suporte |Com suporte |Chicago, Vale do Silício, Washington D.C. |
+| **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Com suporte |Com suporte |Chicago, Las Vegas, vale do silício, Washington, D.c. |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Com suporte |Com suporte |Chicago, Hong Kong, Hong Kong2, Londres, Singapore2 |
 | **[Retelit](https://www.retelit.it/en/services/enterprises-and-public-sector/data-center-e-cloud/cloud-services/direct-cloud-4-azure-expressroute.aspx)** | Com suporte | Com suporte | Milão | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Com suporte |Com suporte |Seul |

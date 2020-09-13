@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387227"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033176"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Proteger um serviço vinculado com links privados 
 
@@ -33,18 +33,18 @@ No Azure Synapse Analytics, um serviço vinculado é onde você define as inform
 
 1. Abra o Azure Synapse Studio e vá para a guia **gerenciar** .
 1. Em **Conexões externas**, selecione **Serviços vinculados**.
-1. Para adicionar um serviço vinculado, clique em **Novo**.
-1. Selecione a peça do Azure Data Lake Storage Gen2 na lista e clique em **Continuar**.
+1. Para adicionar um serviço vinculado, selecione **novo**.
+1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
 1. Lembre-se de habilitar **Criação Interativa**. Pode levar cerca de um minuto para habilitar essa opção. 
-1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Clique em testar conexão para verificar se suas credenciais estão corretas.
-1. Selecione **testar conexão**, ele deve falhar porque a conta de armazenamento não permite o acesso a ela sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você deve ver um link para criar um **ponto de extremidade privado** que você pode seguir para ir para a próxima parte. Se você seguir esse link, ignore a próxima parte.
+1. Insira as credenciais de autenticação. A chave de conta, a entidade de serviço e a identidade gerenciada são tipos de autenticação atualmente suportados. Selecione testar conexão para verificar se suas credenciais estão corretas.
+1. Selecione **testar conexão**, ele deve falhar porque a conta de armazenamento não habilita o acesso a ele sem a criação e a aprovação de um ponto de extremidade privado. Na mensagem de erro, você deve ver um link para criar um **ponto de extremidade privado** que você pode seguir para ir para a próxima parte. Se você seguir esse link, ignore a próxima parte.
 1. Selecione **Criar** quando terminar.
 
 ## <a name="create-a-managed-private-endpoint"></a>Criar um ponto de extremidade privado gerenciado
 
-Caso você não tenha clicado no hiperlink ao testar a conexão acima, siga o caminho a seguir. Agora você precisará criar um ponto de extremidade privado gerenciado que será conectado ao serviço vinculado criado acima.
+Se você não selecionou o hiperlink ao testar a conexão acima, siga o caminho a seguir. Crie um ponto de extremidade privado gerenciado que você se conectará ao serviço vinculado criado acima.
 
-1. Vá para a guia **gerenciar** .
+1. Acesse a guia **Gerenciar**.
 1. Vá para a seção **redes virtuais gerenciadas** .
 1. Selecione **+ novo** em ponto de extremidade privado gerenciado.
 1. Selecione o bloco Azure Data Lake Storage Gen2 na lista e selecione **continuar**.
@@ -55,7 +55,7 @@ Caso você não tenha clicado no hiperlink ao testar a conexão acima, siga o ca
 ## <a name="private-link-approval"></a>Aprovação de link particular
 1. Selecione o ponto de extremidade privado criado acima. Você pode ver um hiperlink que permitirá aprovar o ponto de extremidade privado no nível da conta de armazenamento. *Uma alternativa é ir diretamente para a conta de armazenamento portal do Azure e ir para a folha **conexões de ponto de extremidade privado** .*
 1. Marque o ponto de extremidade privado que você criou no estúdio e selecione **aprovar**.
-1. Adicione uma descrição e clique em **Sim**
+1. Adicione uma descrição e selecione **Sim**
 1. Volte para o Synapse Studio na seção **redes virtuais gerenciadas** da guia **gerenciar** .
 1. Deve levar cerca de 1 minuto para que a aprovação seja refletida para seu ponto de extremidade particular.
 
@@ -64,7 +64,7 @@ Caso você não tenha clicado no hiperlink ao testar a conexão acima, siga o ca
 1. Verifique se a **criação interativa** está ativa.
 1. Selecione **Testar conexão**. Você verá que a conexão foi bem-sucedida.
 
-Agora você estabeleceu uma conexão segura e privada entre o Synapse e o serviço vinculado!
+Agora você estabeleceu uma conexão segura e privada entre o Synapse e o serviço vinculado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

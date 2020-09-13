@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: fb58728e005ad70ac5392aa9e3e6a254ed317276
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016318"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032513"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do Agente do Log Analytics
 O agente de Log Analytics do Azure coleta a telemetria de máquinas virtuais Windows e Linux em qualquer nuvem, máquinas locais e aquelas monitoradas pelo [System Center Operations Manager](/system-center/scom/) e envia dados coletados para o espaço de trabalho Log Analytics no Azure monitor. O Agente do Log Analytics também dá suporte a informações e outros serviços no Azure Monitor, por exemplo, [Azure Monitor para VMs](../insights/vminsights-enable-overview.md), [Central de Segurança do Azure](../../security-center/index.yml) e [Automação do Azure](../../automation/automation-intro.md). Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede e dos métodos de implantação.
@@ -31,7 +31,7 @@ As principais diferenças a serem consideradas são:
 ## <a name="costs"></a>Custos
 Não há nenhum custo para o Agente do Log Analytics, mas você pode incorrer em encargos por conta dos dados ingeridos. Confira [Gerenciar o uso e os custos com os Logs do Azure Monitor](manage-cost-storage.md) para obter informações detalhadas sobre os preços dos dados coletados em um workspace do Log Analytics.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
  Consulte [sistemas operacionais com suporte](agents-overview.md#supported-operating-systems) para obter uma lista das versões do sistema operacional Windows e Linux com suporte pelo agente de log Analytics. 
 
@@ -63,7 +63,7 @@ Consulte [Configurar o agente para relatar a um grupo de gerenciamento de Operat
 
 ## <a name="security-limitations"></a>Limitações de segurança
 
-* O agente do Windows dá suporte ao [padrão FIPS 140](/windows/security/threat-protection/fips-140-validation); já o agente do Linux não dá suporte a ele.  
+* Os agentes do Windows e Linux oferecem suporte ao [padrão FIPS 140](/windows/security/threat-protection/fips-140-validation), mas [outros tipos de proteção podem não ter suporte](agent-linux.md#supported-linux-hardening).
 
 
 ## <a name="installation-options"></a>Opções de instalação

@@ -1,25 +1,25 @@
 ---
-title: Solucionar problemas de fluxos de dados
+title: Solucionar problemas de fluxos de dados de mapeamento
 description: Saiba como solucionar problemas de fluxos de dados no Azure Data Factory.
 services: data-factory
 ms.author: makromer
 author: kromerm
-manager: anandsub
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/08/2020
-ms.openlocfilehash: 6f2bf98e1c527be27ba0f08a43785ae7d3aea726
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.date: 09/11/2020
+ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594144"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031850"
 ---
-# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Solucionar problemas de fluxos de dados no Azure Data Factory
+# <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solucionar problemas de fluxos de dados de mapeamento em Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo explora métodos comuns de solução de problemas para fluxos de dados no Azure Data Factory.
+Este artigo explora métodos comuns de solução de problemas para mapeamento de fluxos de dados em Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Erros e mensagens comuns
 
@@ -31,7 +31,7 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 ### <a name="error-code-df-executor-systemimplicitcartesian"></a>Código de erro: DF-Executor-SystemImplicitCartesian
 
 - **Mensagem**: o produto cartesiano implícito para junção interna não é compatível, use a junção cruzada em vez disso. As colunas usadas na junção devem criar uma chave exclusiva para as linhas.
-- **Causas**: o produto cartesiano implícito para junção interna entre planos lógicos não é compatível. Se as colunas usadas na junção criarem a chave exclusiva, pelo menos uma coluna de cada um dos dois lados da relação será necessária.
+- **Causas**: o produto cartesiano implícito para junção interna entre planos lógicos não é compatível. Se as colunas usadas na junção criarem a chave exclusiva, pelo menos uma coluna de ambos os lados da relação será necessária.
 - **Recomendação**: para junções não baseadas em igualdade, você precisa optar por uma junção cruzada personalizada.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Código de erro: DF-Executor-SystemInvalidJson
@@ -43,10 +43,10 @@ Este artigo explora métodos comuns de solução de problemas para fluxos de dad
 ### <a name="error-code-df-executor-broadcasttimeout"></a>Código de erro: DF-Executor-BroadcastTimeout
 
 - **Mensagem**: erro de tempo limite de junção de difusão, verifique se o fluxo de difusão produz dados em 60 segundos em execuções de depuração e em 300 segundos em execuções de trabalho
-- **Causas**: a difusão tem um tempo limite padrão de 60 segundos em execuções de depuração e de 300 segundos em execuções de trabalho. O fluxo escolhido para difusão parece grande demais para produzir dados dentro desse limite.
-- **Recomendação**: marque a guia Otimizar em suas transformações de fluxo de dados para Junção, Existe e Pesquisa. A opção padrão para Difusão é "Auto". Se ela estiver definida ou se você estiver configurando manualmente o lado esquerdo ou direito para difusão em "Fixo", poderá definir uma configuração maior do Azure Integration Runtime ou desativar a difusão. A abordagem recomendada para o melhor desempenho em fluxos de dados é permitir que o Spark transmita usando "Auto" e use um Azure IR otimizado para memória.
+- **Causas**: a difusão tem um tempo limite padrão de 60 segundos em execuções de depuração e 300 segundos em execuções de trabalho. O fluxo escolhido para difusão parece muito grande para produzir dados dentro desse limite.
+- **Recomendação**: marque a guia Otimizar em suas transformações de fluxo de dados para Junção, Existe e Pesquisa. A opção padrão para Difusão é "Auto". Se "auto" estiver definido ou se você estiver configurando manualmente o lado esquerdo ou direito para difundir em "fixed", poderá definir uma configuração de Azure Integration Runtime maior ou desativar a difusão. A abordagem recomendada para o melhor desempenho em fluxos de dados é permitir que o Spark transmita usando "Auto" e use um Azure IR otimizado para memória.
 
-Se você estiver executando o fluxo de dados em uma execução de teste de depuração de uma execução de pipeline de depuração, poderá encontrar essa condição com mais frequência. Isso ocorre porque o ADF acelera o tempo limite de difusão para 60 segundos a fim de manter uma experiência de depuração mais rápida. Se você quiser estendê-la para o tempo limite de 300 segundos de uma execução disparada, poderá usar a opção debug > use Activity Runtime para utilizar a Azure IR definida em sua atividade executar pipeline de fluxo de dados.
+Se você estiver executando o fluxo de dados em uma execução de teste de depuração de uma execução de pipeline de depuração, poderá encontrar essa condição com mais frequência. Isso ocorre porque o ADF acelera o tempo limite de difusão para 60 segundos a fim de manter uma experiência de depuração mais rápida. Se você quiser estender isso para o tempo limite de 300 segundos de uma execução disparada, você pode usar a opção debug > use Activity Runtime para utilizar a Azure IR definida em sua atividade executar pipeline de fluxo de dados.
 
 ### <a name="error-code-df-executor-conversion"></a>Código de erro: DF-Executor-Conversion
 
@@ -59,6 +59,46 @@ Se você estiver executando o fluxo de dados em uma execução de teste de depur
 - **Mensagem**: o nome da coluna precisa ser especificado na consulta, defina um alias se você estiver usando uma função SQL
 - **Causas**: nenhum nome de coluna foi especificado
 - **Recomendação**: defina um alias se você estiver usando uma função SQL como min()/max() etc.
+
+ ### <a name="error-code-df-executor-drivererror"></a>Código de erro: DF-executor-DriverError
+- **Mensagem**: INT96 é um tipo de carimbo de data/hora herdado que não tem suporte pelo fluxo de mensagens do ADF Considere atualizar o tipo de coluna para os tipos mais recentes.
+- **Causas**: erro de driver
+- **Recomendação**: INT96 é o tipo de carimbo de data/hora herdado, que não tem suporte do fluxo de texto do ADF. Considere atualizar o tipo de coluna para os tipos mais recentes.
+
+ ### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Código de erro: DF-executor-BlockCountExceedsLimitError
+- **Mensagem**: a contagem de blocos não confirmados não pode exceder o limite máximo de 100.000 blocos. Verifique a configuração do blob.
+- **Causas**: pode haver no máximo 100.000 blocos não confirmados em um blob.
+- **Recomendação**: entre em contato com a equipe de produto da Microsoft sobre esse problema para obter mais detalhes
+
+ ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Código de erro: DF-executor-PartitionDirectoryError
+- **Mensagem**: o caminho de origem especificado tem vários diretórios particionados (por exemplo, <Source Path> /<diretório raiz de partição 1>/a = 10/b = 20, <Source Path> /<diretório raiz da partição 2>/c = 10/d = 30) ou diretório particionado com outro arquivo ou diretório não particionado (por exemplo <Source Path> /diretório raiz da partição de <1>/a = 10/b = 20, <Source Path> /diretório 2/arquivo1), remova o diretório raiz da partição do caminho de origem e leia-o por meio de transformação de origem separada.
+- **Causas**: o caminho de origem tem vários diretórios particionados ou diretório particionado com outro arquivo ou diretório não particionado.
+- **Recomendação**: Remova o diretório raiz particionado do caminho de origem e leia-o por meio de transformação de origem separada.
+
+ ### <a name="error-code-df-executor-outofmemoryerror"></a>Código de erro: DF-executor-OutOfMemoryError
+- **Mensagem**: o cluster encontrou um problema de memória insuficiente durante a execução. tente novamente usando um Integration Runtime com maior contagem de núcleos e/ou tipo de computação com otimização de memória
+- **Causas**: o cluster está ficando sem memória
+- **Recomendação**: os clusters de depuração destinam-se a fins de desenvolvimento. Aproveite a amostragem de dados, o tipo de computação apropriado e o tamanho para executar a carga. Consulte o [Guia de desempenho do fluxo de dados de mapeamento](concepts-data-flow-performance.md) para ajuste para obter o melhor desempenho.
+
+ ### <a name="error-code-df-executor-illegalargument"></a>Código de erro: DF-executor-illegalArgument
+- **Mensagem**: Verifique se a chave de acesso em seu serviço vinculado está correta
+- **Causas**: nome da conta ou chave de acesso incorretos
+- **Recomendação**: Verifique se o nome da conta ou a chave de acesso especificada no serviço vinculado está correta. 
+
+ ### <a name="error-code-df-executor-invalidtype"></a>Código de erro: DF-executor-invalidatype
+- **Mensagem**: Verifique se o tipo de parâmetro corresponde ao tipo de valor passado. A passagem de parâmetros float de pipelines não tem suporte no momento.
+- **Causas**: tipos de dados incompatíveis entre o tipo declarado e o valor real do parâmetro
+- **Recomendação**: Verifique se os valores de parâmetro passados para um fluxo de dados correspondem ao tipo declarado.
+
+ ### <a name="error-code-df-executor-columnunavailable"></a>Código de erro: DF-executor-ColumnUnavailable
+- **Mensagem**: o nome da coluna usado na expressão está indisponível ou é inválido
+- **Causas**: nome de coluna inválido ou indisponível usado em expressões
+- **Recomendação**: verificar nome (s) de coluna usado em expressões
+
+ ### <a name="error-code-df-executor-parseerror"></a>Código de erro: DF-executor-ParseError
+- **Mensagem**: a expressão não pode ser analisada
+- **Causas**: a expressão está analisando erros devido à formatação
+- **Recomendação**: verificar a formatação na expressão
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Código de erro: falha de GetCommand OutputAsync
 

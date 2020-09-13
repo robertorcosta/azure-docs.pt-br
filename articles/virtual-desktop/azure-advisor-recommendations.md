@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b14dd4aa44620f2b13891a18fc473acbcb0f3245
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89083250"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033023"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Como resolver as recomendações do Azure Advisor
 
@@ -34,7 +34,7 @@ Para habilitar um ambiente de validação:
 
 2. Em seguida, selecione o pool de hosts que você deseja alterar de um ambiente de produção para um ambiente de validação.
 
-3. No pool de hosts, selecione a guia **Propriedades** na coluna no lado direito da tela. Em seguida, role para baixo até ver "ambiente de validação". Selecione **Sim**e, em seguida, selecione **aplicar**.
+3. No pool de hosts, selecione **Propriedades** na coluna esquerda. Em seguida, role para baixo até ver "ambiente de validação". Selecione **Sim**e, em seguida, selecione **aplicar**.
 
 >[!div class="mx-imgBorder"]
 >![Uma captura de tela do menu Propriedades. "Ambiente de validação" é realçado em vermelho e a bolha "Sim" é selecionada.](media/validation-yes.png)

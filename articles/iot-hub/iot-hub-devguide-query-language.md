@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4e7d8c5c518e4ba4a2a9116898be2bba7df0b06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022438"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031170"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
@@ -234,7 +234,7 @@ O objeto de consulta expõe vários valores de **Next** dependendo da opção de
 ### <a name="limitations"></a>Limitações
 
 > [!IMPORTANT]
-> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se você estiver consultando dispositivos individuais gêmeos por ID, use a [API REST](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin)do "Get". Essa API sempre retorna os valores mais recentes e tem limites de maior limitação. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs de serviço do Hub IOT do Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Os resultados da consulta podem ter alguns minutos de atraso em relação aos valores mais recentes em dispositivos gêmeos. Se você estiver consultando dispositivos individuais gêmeos por ID, use a [API REST](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable)do "Get". Essa API sempre retorna os valores mais recentes e tem limites de maior limitação. Você pode emitir a API REST diretamente ou usar a funcionalidade equivalente em um dos [SDKs de serviço do Hub IOT do Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Atualmente, há suporte para as comparações apenas entre tipos primitivos (sem objetos), por exemplo `... WHERE properties.desired.config = properties.reported.config` tem suporte apenas se essas propriedades tiverem valores primitivos.
 

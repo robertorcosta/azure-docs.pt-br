@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400306"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033006"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -163,7 +163,17 @@ O Cosmos DB usa HMAC para autorização. Você pode usar uma chave mestra ou [to
 | Tempo de expiração do token de recurso máximo | 24 h por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 | Distorção máxima de relógio para autorização de token| 15 min |
 
-O Cosmos DB dá suporte à execução de gatilhos durante as gravações. O serviço dá suporte a um máximo de um pré-gatilho e um pós-gatilho por operação de gravação. 
+O Cosmos DB dá suporte à execução de gatilhos durante as gravações. O serviço dá suporte a um máximo de um pré-gatilho e um pós-gatilho por operação de gravação.
+
+## <a name="metadata-request-limits"></a>Limites de solicitação de metadados
+
+Azure Cosmos DB mantém metadados do sistema para cada conta. Esses metadados permitem que você enumere coleções, bancos de dados, outros recursos Azure Cosmos DB e suas configurações gratuitamente.
+
+| Recurso | Limite padrão |
+| --- | --- |
+|Taxa máxima de criação de coleção exec minuto| 5|
+|Taxa máxima de criação de banco de dados por minuto|   5|
+|Taxa máxima de atualização de produtividade provisionada por minuto| 5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limites para a taxa de transferência provisionada de dimensionamento automático
 

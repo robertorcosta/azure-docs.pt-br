@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 9/12/2019
-ms.openlocfilehash: c84616e8a9b9ff9722f5a104175c80c37dbcbcc3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 9/11/2020
+ms.openlocfilehash: 35d5b101f4ad5fe4498c0566227c5f0a9d102b60
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116906"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032530"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gerenciar regras de firewall para o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)
 As regras de firewall no nível do servidor podem ser usadas para gerenciar o acesso a um nó coordenador de Hiperescala (Citus) de um endereço IP especificado ou de um intervalo de endereços IP.
@@ -24,14 +24,14 @@ Para seguir este guia de instruções, você precisa:
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall de nível de servidor no portal do Azure
 
 > [!NOTE]
-> Essas configurações também são acessíveis durante a criação de um grupo de servidores do Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus). Na guia **Rede**, clique em **Ponto de extremidade público**.
+> Essas configurações também são acessíveis durante a criação de um grupo de servidores do Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus). Na guia **rede** , clique em **acesso público**.
 > ![Portal do Azure – guia Rede](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. Na página do grupo de servidores PostgreSQL, no título Segurança, clique em **Rede** para abrir as Regras de firewall.
 
    ![Portal do Azure – clique em Rede](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
 
-2. Clique em **Adicionar IP do cliente** na barra de ferramentas (opção A abaixo) ou no link (opção B). As duas opções criam automaticamente uma regra de firewall com o endereço IP público do seu computador, como visto pelo sistema do Azure.
+2. Clique em **Adicionar endereço IP do cliente atual** para criar uma regra de firewall com o endereço IP público do seu computador, conforme percebido pelo sistema do Azure.
 
    ![Portal do Azure – clique em Adicionar IP do cliente](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -55,7 +55,7 @@ Há uma forma fácil de conceder ao Banco de dados de hiperescala acesso aos apl
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Gerenciar regras de firewall existentes no nível de servidor pelo Portal do Azure
 Repita as etapas para gerenciar as regras de firewall.
-* Para adicionar o computador atual, clique no botão + **Adicionar IP do cliente**. Clique em **Salvar** para salvar as alterações.
+* Para adicionar o computador atual, clique no botão para + **Adicionar o endereço IP do cliente atual**. Clique em **Salvar** para salvar as alterações.
 * Para adicionar mais endereços IP, digite o Nome da Regra, o Endereço IP Inicial e o Endereço IP Final. Clique em **Salvar** para salvar as alterações.
 * Para modificar uma regra existente, clique em qualquer um dos campos na regra e modifique. Clique em **Salvar** para salvar as alterações.
 * Para excluir uma regra existente, clique nas reticências [...] e clique em **Excluir** para remover a regra. Clique em **Salvar** para salvar as alterações.

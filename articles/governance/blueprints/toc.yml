@@ -41,9 +41,15 @@
       href: ./samples/azure-security-benchmark.md
     - name: PROTEÇÃO ISM do Governo Australiano
       items:
+        - name: Visão geral
+          displayName: 'standards, Australian, Government, ISM, PROTECTED'
+          href: ./samples/ism-protected/index.md
         - name: Mapeamento de controle
           displayName: 'standards, Australian, Government, ISM, PROTECTED'
           href: ./samples/ism-protected/control-mapping.md
+        - name: Etapas de implantação
+          displayName: 'standards, Australian, Government, ISM, PROTECTED'
+          href: ./samples/ism-protected/deploy.md
     - name: PBMM Federal do Canadá
       items:
         - name: Visão geral

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: d87635b3bfbfd70a67e8eebd4000fda73229d606
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018349"
+ms.locfileid: "90033516"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada
 
@@ -252,7 +252,7 @@ Essa funcionalidade requer conectividade do Hub IoT à conta de armazenamento. P
 
 3. Vá até a guia **Firewalls e redes virtuais** na sua conta de armazenamento e habilite a opção **Permitir acesso a partir das redes selecionadas**. Na lista **Exceções**, marque a caixa **Permitir que serviços confiáveis da Microsoft acessem esta conta de armazenamento**. Clique no botão **Salvar** .
 
-Agora você pode usar as APIs REST do IoT do Azure para [criar trabalhos de importação/exportação](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) para obter informações sobre como usar a funcionalidade de importação/exportação em massa. Você precisará fornecer o `storageAuthenticationType="identityBased"` no corpo da solicitação e usar `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` como as URLs de entrada e saída da sua conta de armazenamento, respectivamente.
+Agora você pode usar as APIs REST do IoT do Azure para [criar trabalhos de importação/exportação](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) para obter informações sobre como usar a funcionalidade de importação/exportação em massa. Você precisará fornecer o `storageAuthenticationType="identityBased"` no corpo da solicitação e usar `inputBlobContainerUri="https://..."` e `outputBlobContainerUri="https://..."` como as URLs de entrada e saída da sua conta de armazenamento, respectivamente.
 
 Os SDKs do Hub IoT do Azure também dão suporte a essa funcionalidade no gerenciador de registro do cliente de serviço. O snippet de código de C# a seguir mostra como iniciar um trabalho de importação ou exportação usando o SDK de C#.
 

@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461996"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031476"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -220,7 +220,7 @@ A biblioteca do cliente de armazenamento para .NET habilita você a coletar dado
 Você pode capturar o tráfego entre o cliente e o servidor para dar informações detalhadas sobre os dados que o cliente e o servidor estão trocando e as condições subjacentes de rede. Ferramentas úteis de log de rede incluem:
 
 * [Fiddler](https://www.telerik.com/fiddler) é um proxy de depuração Web gratuito que permite que você examine os cabeçalhos e dados de conteúdo das solicitações HTTP e HTTPS e as mensagens de resposta. Para obter mais informações, veja o [Apêndice 1: Usando o Fiddler para capturar o tráfego HTTP e HTTPS](#appendix-1).
-* [Monitor de Rede da Microsoft (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](https://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, veja o "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede](#appendix-2)".
+* [Monitor de Rede da Microsoft (Netmon)](https://cnet-downloads.com/network-monitor) e [Wireshark](https://www.wireshark.org/) são analisadores de protocolo de rede gratuitos que permitem que você exiba informações detalhadas de pacote de uma vasta gama de protocolos de rede. Para obter mais informações sobre o Wireshark, veja o "[Apêndice 2: Usando o Wireshark para capturar o tráfego de rede](#appendix-2)".
 * O Microsoft Message Analyzer é uma ferramenta da Microsoft que substitui o Netmon e que além de capturar os dados de pacote de rede, a ajuda a exibir e analisar os dados de log capturados das outras ferramentas. Para obter mais informações, veja o "[Apêndice 3: Usando o Analisador de Mensagem da Microsoft para capturar o tráfego de rede](#appendix-3)".
 * Se você quer realizar um teste de conectividade básico para verificar que a máquina do cliente pode se conectar ao serviço de armazenamento do Azure pela rede, você não pode fazer isso usando a ferramenta padrão **ping** no cliente. Entretanto, você pode usar a [**ferramenta** tcping](https://www.elifulkerson.com/projects/tcping.php) para verificar a conectividade.
 
@@ -346,7 +346,7 @@ A figura abaixo da ferramenta de monitoramento do [portal do Azure](https://port
 
 ![Ilustração do portal do Azure que mostra um exemplo em que o AverageE2ELatency é significativamente maior do que o AverageServerLatency.][4]
 
-O serviço de armazenamento calcula apenas a métrica **AverageE2ELatency** para solicitações de êxito e, ao contrário de **AverageServerLatency**, inclui o tempo que o cliente leva para enviar os dados e receber a confirmação do serviço de armazenamento. Portanto, a diferença entre a **AverageE2ELatency** e a **AverageServerLatency** pode ser ou devido a lentidão de resposta do aplicativo do cliente ou devido às condições da rede.
+O serviço de armazenamento calcula apenas a métrica **AverageE2ELatency** para solicitações bem-sucedidas e, ao contrário de **AverageServerLatency**, inclui o tempo que o cliente leva para enviar os dados e receber a confirmação do serviço de armazenamento. Portanto, a diferença entre a **AverageE2ELatency** e a **AverageServerLatency** pode ser ou devido a lentidão de resposta do aplicativo do cliente ou devido às condições da rede.
 
 > [!NOTE]
 > Você também pode exibir **E2ELatency** e **ServerLatency** das operações de armazenamento individual nos dados de registro do log de Armazenamento.
@@ -409,7 +409,7 @@ Se você estiver sofrendo um atraso entre o tempo um aplicativo adiciona uma men
 
 * Verifique se o aplicativo está efetivamente adicionando as mensagens à fila. Verifique se o aplicativo não está tentando o método **AddMessage** várias vezes antes de conseguir. Os logs da biblioteca do cliente de armazenamento irá mostrar qualquer tentativa repetida de operações de armazenamento.
 * Verifique se não há nenhum distorção no relógio entre a função de trabalho que adiciona a mensagem à fila e a função de trabalho que lê a mensagem da fila que faz parecer como se houvesse um atraso em processamento.
-* A função de trabalho lê as mensagens da fila que tem falhas. Se um cliente de fila chama o método **GetMessage**, mas falha em responder com uma confirmação, a mensagem permanecerá invisível na fila até que o período de **invisibilityTimeout** expire. Nesse momento, a mensagem se torna disponibilidade para ser processada novamente.
+* A função de trabalho lê as mensagens da fila que tem falhas. Se um cliente de fila chamar o método **GetMessage** , mas não responder com uma confirmação, a mensagem permanecerá invisível na fila até que o período de **invisibilityTimeout** expire. Nesse momento, a mensagem se torna disponibilidade para ser processada novamente.
 * Verifique se o tamanho da fila está aumentando com o tempo. Isso pode acontecer se você não tiver operadores disponíveis o suficiente para processar todas as mensagens que os outros operadores estão colocando na fila. Verifique também as métricas para ver se as solicitações excluídas estão falhando e a retirada da fila conta as mensagens as quais podem indicar falhas repetidas de tentativas para excluir a mensagem.
 * Examine os logs de log de armazenamento para qualquer operação de fila que possa estar mais alta do que a **E2ELatency** esperada e dos valor **ServerLatency** durante um período mais longo de tempo do que de costume.
 
@@ -617,9 +617,9 @@ Os detalhes da exceção no cliente incluem a ID da solicitação (7e84f12d...) 
 
 O log do lado do servidor inclui também uma outra entrada com o mesmo valor **client-request-id** (813ea74f…) para uma operação de exclusão com sucesso para a mesma entidade e do mesmo cliente. A operação de exclusão com êxito aconteceu um pouco antes da solicitação de exclusão falhar.
 
-O caso mais provável nesse cenário é que o cliente enviou uma solicitação excluída da entidade para o serviço de tabela, a qual teve êxito, mas não recebeu uma confirmação do servidor (talvez devido a problemas temporários de rede). O cliente repetiu a operação automaticamente (usando o mesmo **client-request-id**) e essa tentativa falhou porque a entidade já tinha sido excluída.
+A causa mais provável desse cenário é que o cliente enviou uma solicitação de exclusão para a entidade para o serviço tabela, que teve êxito, mas não recebeu uma confirmação do servidor (talvez devido a um problema de rede temporário). O cliente repetiu a operação automaticamente (usando o mesmo **client-request-id**) e essa tentativa falhou porque a entidade já tinha sido excluída.
 
-Se esse problema ocorre com frequência, investigue porque o cliente não está recebendo as confirmações do serviço de tabela. Se o problema for intermitente, intercepte o erro "HTTP (404) Não encontrado" e log no cliente, mas permita que o cliente continue.
+Se esse problema ocorrer com frequência, você deve investigar por que o cliente está falhando em receber confirmações do serviço tabela. Se o problema for intermitente, intercepte o erro "HTTP (404) Não encontrado" e log no cliente, mas permita que o cliente continue.
 
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>O cliente está recebendo mensagens HTTP 409 (Conflito)
 A tabela a seguir mostra um trecho do log do lado do servidor para duas operações de cliente: **DeleteIfExists** seguida imediatamente por **CreateIfNotExists** usando o mesmo nome de contêiner de blob. Cada operação do cliente resulta em duas solicitações enviadas para o servidor, primeiro uma solicitação **GetContainerProperties** para verificar se o contêiner existe, seguida por uma solicitação de **DeleteContainer** ou **CreateContainer**.
@@ -777,7 +777,7 @@ O rastreamento interno de **Proxy da Web** no Microsoft Message Analyzer é com 
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnóstico dos problemas de rede usando o Microsoft Message Analyzer
 Além de usar o rastreamento de **Proxy da Web** do Microsoft Message Analyzer para capturar detalhes do tráfego HTTP/HTTPS entre o aplicativo do cliente e o serviço de armazenamento, você pode usar também o rastreamento interno **Camada de Link Local** para capturar as informações do pacote de rede. Isso permite que você capture os dados similares aos que você pode capturar com o Wireshark e que diagnostique os problemas de rede tal como os pacotes ignorados.
 
-A seguinte captura de tela mostra um exemplo de rastreamento de **Camada de Link Local** com algumas mensagens **informativas** na coluna **DiagnosisTypes**. Clicar no ícone na coluna **DiagnosisTypes** mostra detalhes da mensagem. Neste exemplo, o servidor retransmitiu a mensagem nº 305 porque ele não recebeu uma confirmação do cliente:
+A seguinte captura de tela mostra um exemplo de rastreamento de **Camada de Link Local** com algumas mensagens **informativas** na coluna **DiagnosisTypes**. Clicar no ícone na coluna **DiagnosisTypes** mostra detalhes da mensagem. Neste exemplo, o servidor retransmitiu a mensagem #305 porque ela não recebeu uma confirmação do cliente:
 
 ![Captura de tela que mostra um exemplo de rastreamento de camada de link local com algumas mensagens informativas na coluna DiagnosisTypes][9]
 

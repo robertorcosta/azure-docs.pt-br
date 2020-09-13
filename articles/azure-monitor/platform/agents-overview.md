@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 2a0c95e45dc529d779d6b06e1e5bdb32ba80b241
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 48d233dee063d8f9049e6e54baa2d744e1b8b058
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007529"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033448"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -79,7 +79,7 @@ O [agente de log Analytics](log-analytics-agent.md) coleta dados de monitorament
 Use o agente de Log Analytics se você precisar:
 
 * Colete logs e dados de desempenho de máquinas virtuais ou físicas dentro ou fora do Azure. 
-* Envie dados para um espaço de trabalho Log Analytics para aproveitar os recursos com suporte dos [logs de Azure monitor](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) , como [consultas de log](../log-query/log-query-overview.md).
+* Envie dados para um espaço de trabalho Log Analytics para aproveitar os recursos com suporte dos [logs de Azure monitor](data-platform-logs.md) , como [consultas de log](../log-query/log-query-overview.md).
 * Use [Azure monitor para VMs](../insights/vminsights-overview.md) que permite monitorar suas máquinas virtuais em escala e monitora seus processos e dependências em outros recursos e processos externos.  
 * Gerencie a segurança de suas máquinas virtuais usando a [central de segurança do Azure](../../security-center/security-center-intro.md)  ou o [Azure Sentinel](../../sentinel/overview.md).
 * Use o [Gerenciamento de atualizações da automação do Azure](../../automation/update-management/update-mgmt-overview.md), a [configuração de estado da automação do azure](../../automation/automation-dsc-overview.md)ou a [controle de alterações de automação do Azure e o inventário](../../automation/change-tracking.md) para fornecer gerenciamento abrangente de suas VMs do Azure

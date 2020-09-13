@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: ca1a1bd1f07bf30fd7e5cd57b617a823120e85ea
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017363"
+ms.locfileid: "90033244"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta na Central de Parceiros
 
@@ -66,7 +66,7 @@ Você tem a opção de fornecer documentos de material de apoio que a Microsoft 
 
 | **Documentos**    | **Descrição**  |
 | :------------------- | :-------------------|
-| *Cliente One-pager* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Microsoft Azure modelo de um pager </li> <li> Modelo do Microsoft Dynamics 365 1-pager </li> <li> Office 365 1-modelo de pager </li> <li> Windows 10 1-modelo de pager </li> </ul> |
+| *Cliente One-pager* | Descrição pronta para o cliente de sua oferta. As equipes de vendas da Microsoft podem compartilhar essas informações com os clientes para ajudar a determinar se sua oferta pode ser uma boa opção e garantir que ela esteja pronta para o cliente. <br> <br> Use um dos modelos relevantes disponíveis no Partner Center: <br> <ul> <li> Microsoft Azure modelo de um pager </li> <li> Modelo do Microsoft Dynamics 365 1-pager </li> <li> Modelo Microsoft 365 1-pager </li> <li> Windows 10 1-modelo de pager </li> </ul> |
 | *Apresentação do cliente* | Deslize a apresentação para pitch sua solução e sua proposta de valor. Depois de garantir que sua oferta esteja pronta para o cliente, as equipes de vendas da Microsoft podem compartilhar a apresentação com os clientes para articular o valor que ambas as empresas trazem ao implantar uma solução conjunta. A apresentação deve cobrir o que a sua solução faz, como ela pode ajudar os clientes, em que setores a solução se destina e como ela se compara às soluções concorrentes. <br> <br> Use o modelo disponível no Partner Center.|
 | *Estudo de caso de cliente* | Essas informações mostram um cliente potencial como você e a Microsoft implantaram com êxito essa solução em casos anteriores. <br> <br> Use o modelo disponível no Partner Center. |
 | *Cliente verificável ganha (opcional)* | Exemplos específicos de sucessos do cliente depois que sua solução foi implantada. |

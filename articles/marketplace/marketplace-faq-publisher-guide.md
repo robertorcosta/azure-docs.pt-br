@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 07/22/2020
-ms.openlocfilehash: 28f8dd4be9e03af9f0b155d6e79949fe522cd7c2
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.date: 09/11/2020
+ms.openlocfilehash: fa8ee205952d1bd39e932ca6c91e3cffe608bf95
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007750"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032105"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Perguntas comuns sobre o Marketplace comercial da Microsoft
 
@@ -42,7 +42,7 @@ O marketplace comercial está disponível em 141 regiões, sendo oferecido por p
 
 Gerenciamos o pagamento de impostos em muitos países/regiões e fornecemos acesso à nossa rede de canais global de revendedores. Você pode usar o contrato de cliente da Microsoft de um cliente ou Contrato Enterprise para vender para organizações sem precisar criar um relacionamento de compra.
 
-Para saber mais, assista ao vídeo em [Por que vender por meio do marketplace](https://partner.microsoft.com/asset/detail/why-sell-through-marketplace).
+Para saber mais, confira o [Hub do Microsoft Commercial Marketplace](https://aka.ms/commercialmarketplacehub).
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>Há um valor de listagem para o marketplace comercial da Microsoft?
 
@@ -67,7 +67,7 @@ As maneiras como os clientes podem usar sua oferta do marketplace comercial depe
 
 Depois de se inscrever e aceitar o contrato do editor, você terá acesso à página do marketplace comercial no Partner Center. É nela que você cria e gerencia ofertas e visualiza os relatórios de análise. Para os aplicativos Microsoft 365, você também deve ativar o programa Office Store no Partner Center.
 
-Para obter mais informações, confira [Bem-vindo(a) ao marketplace comercial](index.yml) e [Monetizar seu suplemento do Office 365 por meio do marketplace comercial da Microsoft](https://docs.microsoft.com/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+Para obter mais informações, consulte [Bem-vindo ao Marketplace comercial](index.yml) e [monetizar seu suplemento do Microsoft 365 por meio do Microsoft Commercial Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>Como faço para obter assistência de suporte para o marketplace comercial?
 
@@ -329,7 +329,7 @@ Recomendamos estes recursos:
 
 ### <a name="where-can-i-learn-more-about-the-microsoft-admin-center"></a>Como posso saber mais sobre o Centro de Administração da Microsoft?
 
-Para obter informações sobre o Centro de Administração da Microsoft, confira [Gerenciar assinaturas de aplicativo de terceiros para sua organização](https://docs.microsoft.com/microsoft-365/commerce/manage-saas-apps?view=o365-worldwide).
+Para obter informações sobre o Centro de Administração da Microsoft, confira [Gerenciar assinaturas de aplicativo de terceiros para sua organização](/microsoft-365/commerce/manage-saas-apps).
 
 ### <a name="where-can-i-learn-more-about-azure-billing"></a>Como posso saber mais sobre a cobrança do Azure?
 
