@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500139"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488857"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>FAQ de hiperescala do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,19 +42,19 @@ As camadas de serviço baseadas em vCore são diferenciadas com base na disponib
 
 | | Tipo de recurso | Uso Geral |  Hiperescala | Comercialmente Crítico |
 |:---:|:---:|:---:|:---:|:---:|
-| **Mais adequado para** |Tudo|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
+| **Mais adequado para** |Todos|Oferece opções equilibradas de computação e armazenamento orientadas ao orçamento.|A maioria das cargas de trabalho comerciais. Dimensionamento automático de tamanho de armazenamento de até 100 TB, dimensionamento rápido vertical e horizontal de computação, restauração rápida de banco de dados.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
 |  **Tipo de recurso** ||Banco de dados SQL/SQL Instância Gerenciada | Banco de dados individual | Banco de dados SQL/SQL Instância Gerenciada |
 | **Tamanho da computação**|Banco de dados SQL * | 1 a 80 vCores | 1 a 80 vCores * | 1 a 80 vCores |
 | **Tamanho da computação**|Instância Gerenciada de SQL | 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 8, 16, 24, 32, 40, 64, 80 vCores |
-| **Tipo de armazenamento** | Tudo |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
+| **Tipo de armazenamento** | Todos |Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
 | **Tamanho de armazenamento** | Banco de dados SQL *| 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
 | **Tamanho de armazenamento** | Instância Gerenciada de SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **IOPS** | Banco de dados individual | 500 IOPS por vCore com máximo de 7.000 IOPS | O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPS efetivo dependerá da carga de trabalho. | 5000 IOPS com 200.000 IOPS máximo|
 | **IOPS** | Instância Gerenciada de SQL | Depende do tamanho do arquivo | N/D | 1375 IOPS/vCore |
-|**Disponibilidade**|Tudo|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
-|**Backups**|Tudo|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
+|**Disponibilidade**|Todos|1 réplica, sem escala de leitura, sem cache local | Várias réplicas, até 4 expansão de leitura, cache local parcial | 3 réplicas, 1 expansão de leitura, HA com redundância de zona, armazenamento local completo |
+|**Backups**|Todos|RA-GRS, 7-35 dias de retenção (7 dias por padrão)| RA-GRS, 7 dias de retenção, PITR (tempo constante de recuperação pontual) | RA-GRS, 7-35 dias de retenção (7 dias por padrão) |
 
-\*Não há suporte para pools elásticos na camada de serviço de hiperescala
+\* Não há suporte para pools elásticos na camada de serviço de hiperescala
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Quem deve usar o nível de serviço Hiperescala
 
@@ -114,11 +114,11 @@ Sim, [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-b
 
 O hiperscale dá suporte a todas as cargas de trabalho de SQL Server, mas é essencialmente otimizado para OLTP. Você também pode colocar cargas de trabalho híbridas (HTAP) e analíticas (data mart).
 
-### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>Como escolher entre a SQL Data Warehouse do Azure e a hiperescala do banco de dados SQL do Azure
+### <a name="how-can-i-choose-between-azure-synapse-analytics-and-azure-sql-database-hyperscale"></a>Como escolher entre a análise de Synapse do Azure e a hiperescala do banco de dados SQL do Azure
 
 Se você estiver executando consultas de análise interativas usando SQL Server como um data warehouse, o hiperescala é uma ótima opção, pois você pode hospedar data warehouses de pequeno e médio porte (como alguns TB de até 100 TB) a um custo mais baixo e migrar suas cargas de trabalho de SQL Server data warehouse para hiperescala com alterações mínimas de código T-SQL.
 
-Se você estiver executando a análise de dados em grande escala com consultas complexas e taxas de ingestão sustentadas superiores a 100 MB/s ou usando o PDW (Parallel data warehouse), o Teradata ou outros data warehouses de processamento paralelo (MPP), o SQL Data Warehouse poderá ser a melhor opção.
+Se você estiver executando a análise de dados em uma grande escala com consultas complexas e taxas de ingestão sustentadas maiores que 100 MB/s ou usando o PDW (Parallel data warehouse), Teradata ou outros data warehouses de processamento paralelo (MPP), o Azure Synapse Analytics (anteriormente SQL Data Warehouse) pode ser a melhor opção.
   
 ## <a name="hyperscale-compute-questions"></a>Perguntas de computação de hiperescala
 
@@ -158,7 +158,7 @@ O log de transações com a Hiperescala é praticamente infinito. Você não pre
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Minha `tempdb` escala conforme meu banco de dados cresce
 
-Seu `tempdb` banco de dados está localizado no armazenamento SSD local e é dimensionado proporcionalmente ao tamanho de computação que você provisiona. Seu `tempdb` é otimizado para fornecer benefícios máximos de desempenho. `tempdb`o tamanho não é configurável e é gerenciado para você.
+Seu `tempdb` banco de dados está localizado no armazenamento SSD local e é dimensionado proporcionalmente ao tamanho de computação que você provisiona. Seu `tempdb` é otimizado para fornecer benefícios máximos de desempenho. `tempdb` o tamanho não é configurável e é gerenciado para você.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>O tamanho do meu banco de dados aumenta automaticamente ou preciso gerenciar o tamanho dos arquivos
 
@@ -229,7 +229,7 @@ O tempo de inatividade para a migração para o hiperescala é o mesmo que o tem
 
 O hiperscale é capaz de consumir 100 MB/s de dados novos/alterados, mas o tempo necessário para mover dados para bancos de dado no banco de dados SQL do Azure também é afetado pela taxa de transferência de rede disponível, velocidade de leitura de origem e o objetivo de nível de serviço de banco de dados de destino.
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-sql-data-warehouse"></a>Posso ler dados do armazenamento de BLOBs e fazer o carregamento rápido (como o polybase no SQL Data Warehouse)
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>Posso ler dados do armazenamento de BLOBs e fazer o carregamento rápido (como o polybase no Azure Synapse Analytics)
 
 Você pode fazer com que um aplicativo cliente leia dados do armazenamento do Azure e carregue a carga de dados em um banco de dados de hiperescala (assim como você pode com qualquer outro banco de dado no banco de dados SQL do Azure). Atualmente, o polybase não tem suporte no banco de dados SQL do Azure. Como alternativa para fornecer carga rápida, você pode usar [Azure data Factory](https://docs.microsoft.com/azure/data-factory/)ou usar um trabalho do spark no [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) com o [conector do Spark para SQL](spark-connector.md). O conector do Spark SQL dá suporte à inserção em massa.
 
@@ -269,7 +269,7 @@ Sim.
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>O que é o RTO (objetivo de ponto de recuperação)/Recovery tempo (objetivo) para restauração de banco de dados em hiperescala
 
-O RPO é de 0 min. A meta de RTO é menor que 10 minutos, independentemente do tamanho do banco de dados.
+O RPO é de 0 min. A maioria das operações de restauração é concluída em 60 minutos, independentemente do tamanho do banco de dados. O tempo de restauração pode ser mais longo para bancos de dados maiores e, se o banco de dados tiver experimentado uma atividade de gravação significativa antes e até o ponto de restauração no tempo.
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>O backup de banco de dados afeta o desempenho de computação em minhas réplicas primárias ou secundárias
 
@@ -345,9 +345,9 @@ A expansão ou redução dos resultados em conexões existentes são descartadas
 
 Usuário final. Não é automático.  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>O tamanho do meu `tempdb` banco de dados também aumenta à medida que a computação é dimensionada
+### <a name="does-the-size-of-my-tempdb-database-and-rbpex-cache-also-grow-as-the-compute-is-scaled-up"></a>O tamanho do meu `tempdb` banco de dados e do cache RBPEX também aumenta à medida que a computação é dimensionada
 
-Sim. O `tempdb` banco de dados será dimensionado automaticamente conforme a computação aumentar.  
+Sim. O `tempdb` tamanho do [cache RBPEX](service-tier-hyperscale.md#distributed-functions-architecture) e do banco de dados em nós de computação será dimensionado automaticamente conforme o número de núcleos aumentar.
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>Posso provisionar várias réplicas de computação primárias, como um sistema de vários mestres, em que vários cabeçotes de computação primários podem impulsionar um nível mais alto de simultaneidade
 
@@ -361,7 +361,7 @@ Criamos uma réplica secundária para bancos de dados de hiperescala por padrão
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Como fazer conectar-se a essas réplicas de computação secundárias
 
-Você pode se conectar a essas réplicas de computação somente leitura, definindo o `ApplicationIntent` argumento na cadeia de conexão como `ReadOnly` . Todas as conexões marcadas com `ReadOnly` são automaticamente roteadas para uma das réplicas de computação somente leitura adicionais.  
+Você pode se conectar a essas réplicas de computação somente leitura, definindo o `ApplicationIntent` argumento na cadeia de conexão como `ReadOnly` . Todas as conexões marcadas com `ReadOnly` são automaticamente roteadas para uma das réplicas de computação somente leitura adicionais. Para obter detalhes, consulte [usar réplicas somente leitura para descarregar cargas de trabalho de consulta somente leitura](read-scale-out.md).
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>Como fazer validar se eu me conectasse com êxito à réplica de computação secundária usando o SSMS ou outras ferramentas de cliente?
 
@@ -390,7 +390,7 @@ Não. Os bancos de dados de hiperescala têm armazenamento compartilhado, o que 
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Quanto atraso haverá entre as réplicas de computação primárias e secundárias
 
-Latência de dados do momento em que uma transação é confirmada no primário até o momento em que ela é visível em um secundário depende da taxa de geração de log atual. A latência de dados típica é de poucos milissegundos.
+Latência de dados do momento em que uma transação é confirmada no primário até o momento em que é legível em um secundário depende da taxa de geração de log atual, do tamanho da transação, da carga na réplica e de outros fatores. A latência de dados típica para transações pequenas é em dezenas de milissegundos, no entanto, não há nenhum limite superior de latência de dados. Os dados em uma determinada réplica secundária são sempre consistentes transacionalmente. No entanto, em uma determinada latência de dados pontual pode ser diferente para réplicas secundárias diferentes. As cargas de trabalho que precisam ler dados confirmados imediatamente devem ser executadas na réplica primária.
 
 ## <a name="next-steps"></a>Próximas etapas
 

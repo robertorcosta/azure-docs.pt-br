@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6fb7a6654f5917c0651ffba6e672b41d14fdbe20
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798424"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489639"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Restringir as permissões de acesso de convidado (versão prévia) no Azure Active Directory
 
@@ -40,17 +40,14 @@ Você deve estar na função de administrador global para definir as configuraç
 
 Fizemos alterações nos controles de portal do Azure existentes para permissões de usuário convidado.
 
-> [!IMPORTANT]
-> Por um curto período, os novos controles do portal para permissões de usuário convidado serão visíveis somente usando a URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . O PowerShell e o Microsoft Graph ainda podem ser usados para definir os controles e as alterações serão respeitadas pelo portal.
-
-1. Entre no centro de [Administração do Azure ad](https://aka.ms/AADRestrictedGuestAccess) com permissões de administrador global.
+1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com) com permissões de administrador global.
 1. Na página Visão geral do **Azure Active Directory** da sua organização, selecione **configurações do usuário**.
 1. Em **usuários externos**, selecione **gerenciar configurações de colaboração externas**.
 1. Na página **configurações de colaboração externas** , selecione **acesso de usuário convidado é restrito a propriedades e associações de sua própria opção de objetos de diretório** .
 
     ![Página de configurações de colaboração externa do Azure AD](./media/users-restrict-guest-permissions/external-collaboration-settings.png)
 
-1. Selecione **Salvar**. As alterações podem levar até 15 minutos para entrar em vigor para os usuários convidados.
+1. Clique em **Salvar**. As alterações podem levar até 15 minutos para entrar em vigor para os usuários convidados.
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Atualizar com a API de Microsoft Graph
 

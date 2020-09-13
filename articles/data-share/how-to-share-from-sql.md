@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.openlocfilehash: 2cb06b6802fdc4cebd04f687266f5ac08dde82c0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e813921727ee08bf9a76c0a2dbfe15f45fe4db79
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269984"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490064"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Compartilhar e receber dados do Azure Synapse
 
@@ -34,7 +34,7 @@ Quando os dados são recebidos na tabela e se a tabela de destino ainda não exi
 
 ### <a name="prerequisites-for-sql-source"></a>Pré-requisitos para a origem do SQL
 
-* Um Banco de Dados SQL do Azure ou o Azure Synapse Analytics (antigo SQL Data Warehouse do Azure) com tabelas e exibições que você deseja compartilhar.
+* Um banco de dados SQL do Azure ou o Azure Synapse Analytics (anteriormente SQL Data Warehouse) com tabelas e exibições que você deseja compartilhar.
 * Permissão para gravar em bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função Colaborador.
 * Permissão para o compartilhamento de dados acessar o data warehouse. Isso pode ser feito executando as seguintes etapas: 
     1. Defina-se como o Administrador do Azure Active Directory para o SQL Server.
@@ -62,11 +62,11 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
-1. Selecione o botão de menu no canto superior esquerdo do portal e, em seguida, selecione **criar um recurso** (+).
+1. Clique no botão de menu no canto superior esquerdo do portal e selecione **Criar um recurso** (+).
 
 1. Pesquise *Data Share*.
 
-1. Selecione Data Share e **Criar**.
+1. Selecione Data Share (versão prévia) e selecione **Criar**.
 
 1. Preencha os detalhes básicos de seu recurso do Azure Data Share com as informações a seguir. 
 
@@ -98,9 +98,9 @@ Crie um recurso do Azure Data Share em um grupo de recursos do Azure.
 
 1. Selecione **Continuar**.
 
-1. Para adicionar conjuntos de itens ao seu compartilhamento, selecione **Adicionar conjuntos**de os. 
+1. Para adicionar conjuntos de dados ao compartilhamento, selecione **Adicionar Conjuntos de Dados**. 
 
-    ![Adicionar conjuntos de itens ao seu compartilhamento](./media/datasets.png "Conjunto de dados")
+    ![Adicionar conjuntos de dados ao compartilhamento](./media/datasets.png "Conjunto de dados")
 
 1. Selecione o tipo de conjunto de dados que você deseja adicionar. Você verá uma lista diferente de tipos de conjuntos de dados, dependendo do tipo de compartilhamento (instantâneo ou in-loco) que você selecionou na etapa anterior. 
 
@@ -150,7 +150,7 @@ Se você optar por receber dados no armazenamento do Azure, abaixo está a lista
 Se você optar por receber dados para o Azure SQL Database, a análise de Synapse do Azure, abaixo, será a lista de pré-requisitos.
 
 * Permissão para gravar nos bancos de dados no SQL Server, que está presente em *Microsoft.Sql/servers/databases/write*. Essa permissão existe na função Colaborador. 
-* Permissão para a identidade gerenciada do recurso do compartilhamento de dados acessar o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure. Isso pode ser feito executando as seguintes etapas: 
+* Permissão para a identidade gerenciada do recurso de compartilhamento de dados para acessar o banco de dados SQL do Azure ou o Azure Synapse Analytics. Isso pode ser feito executando as seguintes etapas: 
     1. Defina-se como o Administrador do Azure Active Directory para o SQL Server.
     1. Conecte-se ao Banco de Dados SQL do Azure/Data Warehouse usando o Azure Active Directory.
     1. Use o Editor de Consultas (versão prévia) para executar o script a seguir para adicionar a Identidade Gerenciada do Data Share como um 'db_datareader, db_datawriter, db_ddladmin'. Você deve se conectar usando o Active Directory e não a autenticação do SQL Server. 

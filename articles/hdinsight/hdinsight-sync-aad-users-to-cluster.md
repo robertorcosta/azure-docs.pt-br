@@ -1,19 +1,19 @@
 ---
 title: Sincronizar Azure Active Directory usuários com o cluster HDInsight
 description: Sincronizar usuários autenticados do Azure Active Directory para um cluster HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 83e168c5f1d1bad58a193937a4b97fe686dde2a3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 689417dd0743b01afd18b57b5336640f11edd044
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004412"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504648"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizar usuários do Azure Active Directory para um cluster HDInsight
 
@@ -59,7 +59,7 @@ O método a seguir usa o POST com a API REST do Ambari. Para obter mais informa�
     "https://CLUSTERNAME.azurehdinsight.net/api/v1/ldap_sync_events"
     ```
 
-    A resposta deve se parecer com esta:
+    A resposta será parecida com esta:
 
     ```json
     {
@@ -80,7 +80,7 @@ O método a seguir usa o POST com a API REST do Ambari. Para obter mais informa�
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
 
-    A resposta deve se parecer com esta:
+    A resposta será parecida com esta:
 
     ```json
     {
@@ -146,7 +146,7 @@ Abra a [Interface do Usuário do Apache Ambari](hdinsight-hadoop-manage-ambari.m
 Quando o novo usuário (ou qualquer outro usuário de domínio) faz logon no Ambari, usa suas credenciais de nome e o domínio de usuário completo do Azure AD.  Ambari exibe um alias do usuário, que é o nome de exibição do usuário no Azure AD.
 O novo usuário de exemplo tem o nome de usuário `hiveuser3@contoso.com`. No Ambari, esse novo usuário é exibido como `hiveuser3`, mas o usuário faz logon em Ambari como `hiveuser3@contoso.com`.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Configurar políticas do Apache Hive no HDInsight com ESP](hdinsight-domain-joined-run-hive.md)
 * [Gerenciar clusters do HDInsight com ESP](hdinsight-domain-joined-manage.md)

@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/04/2020
+ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921377"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488602"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Crie a página de aterrissagem para sua oferta de SaaS gratuita ou de avaliação no Marketplace comercial
 
@@ -21,13 +21,13 @@ Este artigo orienta você pelo processo de criação de uma página de aterrissa
 
 ## <a name="overview"></a>Visão geral
 
-Você pode considerar a página de aterrissagem como o "lobby" de sua oferta de SaaS (software como serviço). Depois que o cliente opta por obter seu aplicativo, o Marketplace comercial os direciona para a página de aterrissagem para ativar e configurar sua assinatura para seu aplicativo SaaS. Ao criar uma oferta de SaaS (software como serviço), no Partner Center, você pode escolher se deseja ou não [vender pela Microsoft](partner-center-portal/create-new-saas-offer.md). Se você quiser listar apenas sua oferta no Microsoft Commercial Marketplace e não vender pela Microsoft, poderá especificar como os clientes potenciais podem interagir com a oferta. Ao habilitar a opção de listagem **obter agora (gratuito)** ou **avaliação gratuita** , você deve especificar uma URL da página de aterrissagem para a qual o usuário pode acessar a assinatura ou avaliação gratuita.
+Você pode considerar a página de aterrissagem como o "lobby" de sua oferta de SaaS (software como serviço). Depois que o cliente opta por obter seu aplicativo, o Marketplace comercial os direciona para a página de aterrissagem para ativar e configurar sua assinatura para seu aplicativo SaaS. Ao criar uma oferta de SaaS (software como serviço), no Partner Center, você pode escolher se deseja ou não [vender pela Microsoft](plan-saas-offer.md#listing-options). Se você quiser listar apenas sua oferta no Microsoft Commercial Marketplace e não vender pela Microsoft, poderá especificar como os clientes potenciais podem interagir com a oferta. Ao habilitar a opção de listagem **obter agora (gratuito)** ou **avaliação gratuita** , você deve especificar uma URL da página de aterrissagem para a qual o usuário pode acessar a assinatura ou avaliação gratuita.
 
 A finalidade da página de aterrissagem é simplesmente receber o usuário para que eles possam ativar a avaliação gratuita ou assinatura gratuita. Usando o Azure Active Directory (Azure AD) e Microsoft Graph, você habilitará o SSO (logon único) para o usuário e obterá detalhes importantes sobre o usuário que você pode usar para ativar sua avaliação gratuita ou assinatura gratuita, incluindo seu nome, endereço de email e organização.
 
 Como as informações necessárias para ativar a assinatura são limitadas e fornecidas pelo Azure AD e Microsoft Graph, não deve ser necessário solicitar informações que exijam mais do que o consentimento básico. Se você precisar de detalhes do usuário que exigem consentimento adicional para seu aplicativo, solicite essas informações após a conclusão da ativação da assinatura. Isso permite a ativação de assinatura descomplicada para o usuário e diminui o risco de abandonar.
 
-A página de aterrissagem normalmente inclui as seguintes informações e chamadas para ação:
+A página de aterrissagem normalmente inclui as seguintes informações e opções de listagem:
 
 - Apresente o nome e os detalhes da avaliação gratuita ou da assinatura gratuita. Por exemplo, especifique os limites de uso ou a duração de uma avaliação.
 - Apresente os detalhes da conta do usuário, incluindo nome e sobrenome, organização e email.
@@ -38,12 +38,12 @@ As seções a seguir neste artigo guiarão você pelo processo de criação de u
 
 1. [Crie um registro de aplicativo do Azure ad](#create-an-azure-ad-app-registration) para a página de aterrissagem.
 2. [Use um exemplo de código como um ponto de partida](#use-a-code-sample-as-a-starting-point) para seu aplicativo.
-3. [Ler informações de declarações codificadas no token de ID](#read-information-from-claims-encoded-in-the-id-token), recebidas do Azure ad após o logon, que foram enviadas com a solicitação.
+3. [Ler informações de declarações codificadas no token de ID](#read-information-from-claims-encoded-in-the-id-token), recebidas do Azure ad após a entrada, que foi enviada com a solicitação.
 4. [Use a API Microsoft Graph](#use-the-microsoft-graph-api) para coletar informações adicionais, conforme necessário.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Criar um registro de aplicativo do Azure AD
 
-O Marketplace comercial está totalmente integrado ao Azure AD. Os usuários chegam ao Marketplace autenticado com uma [conta do Azure ad ou conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Depois de adquirir uma assinatura de avaliação gratuita ou gratuita por meio de sua oferta somente lista, o usuário passa do mercado comercial para a URL da página de aterrissagem para ativar e gerenciar sua assinatura para seu aplicativo SaaS. Você deve permitir que o usuário entre em seu aplicativo com o SSO do Azure AD. (A URL da página de aterrissagem é especificada na [página de configuração técnica](partner-center-portal/offer-creation-checklist.md#technical-configuration-page)da oferta).
+O Marketplace comercial está totalmente integrado ao Azure AD. Os usuários chegam ao Marketplace autenticado com uma [conta do Azure ad ou conta Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Depois de adquirir uma assinatura de avaliação gratuita ou gratuita por meio de sua oferta somente lista, o usuário passa do mercado comercial para a URL da página de aterrissagem para ativar e gerenciar sua assinatura para seu aplicativo SaaS. Você deve permitir que o usuário entre em seu aplicativo com o SSO do Azure AD. (A URL da página de aterrissagem é especificada na página de [configuração técnica](plan-saas-offer.md#technical-information) da oferta.
 
 A primeira etapa para usar a identidade é verificar se sua página de aterrissagem está registrada como um aplicativo do Azure AD. O registro do aplicativo permite que você use o Azure AD para autenticar usuários e solicitar acesso aos recursos do usuário. Ele pode ser considerado a definição do aplicativo, o que permite que o serviço saiba como emitir tokens para o aplicativo com base nas configurações do aplicativo.
 
@@ -103,4 +103,4 @@ A maioria dos aplicativos registrados com o Azure AD concede permissões delegad
 > As contas do locatário MSA (com a ID de locatário `9188040d-6c67-4c5b-b112-36a304b66dad` ) não retornarão mais informações do que já foram coletadas com o token de ID. Portanto, você pode ignorar essa chamada para o API do Graph para essas contas.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Criar uma oferta de SaaS no Marketplace comercial](./partner-center-portal/create-new-saas-offer.md)
+- [Como criar uma oferta de SaaS no Marketplace comercial](create-new-saas-offer.md)

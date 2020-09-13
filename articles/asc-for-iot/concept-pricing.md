@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 98afd1eb1f8a73c2d6dd3f293a07cdb70780d238
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c76a79f09629b32767c1dcc78989dfa47c678fd
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004759"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504563"
 ---
 # <a name="pricing-and-associated-costs"></a>Preços e custos associados
 
@@ -48,9 +48,9 @@ Para alterar suas configurações:
 
 1. Abra o Hub IoT.
 
-1. Em **segurança**, clique em **visão geral**.
+1. Em **segurança**, clique em **configurações**.
 
-1. Clique em **Configurações**.
+1. Clique em **coleta de dados**.
 
 A tabela a seguir fornece um resumo dos custos associados e as implicações de cada opção.
 

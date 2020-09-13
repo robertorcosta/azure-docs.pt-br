@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833888"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488840"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
@@ -124,7 +124,7 @@ Esses pré-requisitos se aplicam quando os seus aplicativos lógicos são execut
 
 ### <a name="sap-client-library-prerequisites"></a>Pré-requisitos da biblioteca de cliente SAP
 
-* Certifique-se de instalar a versão mais recente, [conector SAP (NCo 3,0) para Microsoft .net 3.0.22.0 compilado com .NET Framework 4,0-Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). As versões anteriores podem resultar em problemas de compatibilidade. Para obter mais informações, consulte [versões da biblioteca do cliente SAP](#sap-library-versions).
+* Certifique-se de instalar a versão mais recente, [conector SAP (NCo 3,0) para Microsoft .net 3.0.22.0 compilado com .NET Framework 4,0-Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). As versões anteriores podem resultar em problemas de compatibilidade. Para obter mais informações, consulte [versões da biblioteca do cliente SAP](#sap-library-versions).
 
 * Por padrão, o instalador do SAP coloca os arquivos de assembly na pasta de instalação padrão. Você precisa copiar esses arquivos de assembly para outro local, com base em seu cenário, da seguinte maneira:
 
@@ -396,7 +396,7 @@ Este exemplo usa um aplicativo lógico que é disparado quando o aplicativo rece
 
    Ou, você pode especificar uma ação manualmente:
 
-   ![Inserir manualmente a ação do SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Insira manualmente a ação SAP que você deseja usar](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Veja um exemplo que mostra como a ação é exibida quando você configura o gatilho para receber mais de uma mensagem.
 
@@ -808,12 +808,12 @@ Para gerar um esquema XML IDoc SAP simples, use o aplicativo de **logon do SAP**
 
 Este exemplo declara o nó raiz e os namespaces. O URI no código de exemplo, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send` , declara a seguinte configuração:
 
-* `/IDoc`é a observação raiz para todos os IDocs
-* `/3`é a versão de tipos de registro para definições de segmento comuns
-* `/ORDERS05`é o tipo IDoc
-* `//`é um segmento vazio, porque não há extensão IDoc
-* `/700`é a versão do SAP
-* `/Send`é a ação para enviar as informações para o SAP
+* `/IDoc` é a observação raiz para todos os IDocs
+* `/3` é a versão de tipos de registro para definições de segmento comuns
+* `/ORDERS05` é o tipo IDoc
+* `//` é um segmento vazio, porque não há extensão IDoc
+* `/700` é a versão do SAP
+* `/Send` é a ação para enviar as informações para o SAP
 
 ```xml
 

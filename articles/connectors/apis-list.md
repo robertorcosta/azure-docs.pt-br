@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 1bd3cb1c18d1bac078ac1344f574914dba73d07b
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871557"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488823"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores dos Aplicativos Lógicos do Azure
 
@@ -308,7 +308,7 @@ Para aplicativos lógicos que você cria e executa em um [ambiente dedicado do s
         [![Conector do ISE do barramento de serviço do Azure ][azure-service-bus-icon]<br> ** <br> barramento de serviço do Azure**][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Conector do ISE do Azure SQL Data Warehouse Azure ][azure-sql-data-warehouse-icon]<br> **SQL Data <br> warehouse**][azure-sql-data-warehouse-doc]
+        [![Conector do ISE do Azure Synapse Analytics ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
         [![Conector do ISE do armazenamento de tabelas do Azure ][azure-table-storage-icon]<br> ** <br> armazenamento de tabelas do Azure**][azure-table-storage-doc]
@@ -572,7 +572,7 @@ Embora você crie conexões de dentro de um aplicativo lógico, as conexões sã
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Executar consultas em logs de Azure Monitor em Log Analytics espaços de trabalho e componentes de Application Insights"
 [azure-queues-doc]: /connectors/azurequeues/ "Conecte-se à sua conta de armazenamento do Azure para que você possa criar e gerenciar filas e mensagens"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Envia mensagens de tópicos e filas do barramento de serviço e recebe mensagens de assinaturas e filas do barramento de serviço"
-[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Conecte-se ao Azure SQL Data Warehouse para que você possa exibir seus dados"
+[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Conectar-se ao Azure Synapse Analytics para que você possa exibir seus dados"
 [azure-table-storage-doc]: /connectors/azuretables/ "Conecte-se à sua conta de armazenamento do Azure para que você possa criar, atualizar e consultar tabelas e muito mais"
 [biztalk-server-doc]: /connectors/biztalk/ "Conecte-se ao seu BizTalk Server para que você possa executar aplicativos baseados no BizTalk lado a lado com os aplicativos lógicos do Azure"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Conectar-se a um sistema de arquivos local"

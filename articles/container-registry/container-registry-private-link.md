@@ -3,27 +3,23 @@ title: Configurar link privado
 description: Configure um ponto de extremidade privado em um registro de contêiner e habilite o acesso em um link privado em uma rede virtual local. O acesso ao link privado é um recurso da camada de serviço Premium.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 713b19e4a60e5dcad6cfd92d65f97af2e921c0e9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: da07d35ad944db8e9b8a7bac0602fff23cd222d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523835"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488738"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conectar-se de forma privada a um registro de contêiner do Azure usando o link privado do Azure
 
 
-Limite o acesso a um registro atribuindo endereços IP privados da rede virtual aos pontos de extremidade do registro e usando o [link privado do Azure](../private-link/private-link-overview.md). O tráfego de rede entre os clientes na rede virtual e os pontos de extremidade privados do registro atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. O vínculo privado também habilita o acesso de registro privado do local por meio do emparelhamento privado [do Azure ExpressRoute](../expressroute/expressroute-introduction.MD) ou um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Limite o acesso a um registro atribuindo endereços IP privados da rede virtual aos pontos de extremidade do registro e usando o [link privado do Azure](../private-link/private-link-overview.md). O tráfego de rede entre os clientes na rede virtual e os pontos de extremidade privados do registro atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. O link privado também habilita o acesso de registro privado do local por meio do emparelhamento privado [do Azure ExpressRoute](../expressroute/expressroute-introduction.MD) ou de um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 Você pode [definir as configurações de DNS](../private-link/private-endpoint-overview.md#dns-configuration) para os pontos de extremidade particulares do registro, para que as configurações sejam resolvidas para o endereço IP privado alocado do registro. Com a configuração de DNS, clientes e serviços na rede podem continuar acessando o registro no nome de domínio totalmente qualificado do registro, como *myregistry.azurecr.io*. 
 
-Esse recurso está disponível na camada de serviço **Premium** do registro de contêiner. Para obter informações sobre os limites e as camadas de serviço do registro, confira [Camadas do Registro de Contêiner do Azure](container-registry-skus.md).
+Esse recurso está disponível na camada de serviço **Premium** do registro de contêiner. No momento, um máximo de 10 pontos de extremidade privados podem ser configurados para um registro. Para obter informações sobre os limites e as camadas de serviço do registro, confira [Camadas do Registro de Contêiner do Azure](container-registry-skus.md).
 
-
-## <a name="things-to-know"></a>Observações importantes
-
-* Atualmente, o exame de imagem usando a Central de Segurança do Azure não está disponível em um registro configurado com um ponto de extremidade privado.
-* No momento, um máximo de 10 pontos de extremidade privados podem ser configurados para um registro.
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

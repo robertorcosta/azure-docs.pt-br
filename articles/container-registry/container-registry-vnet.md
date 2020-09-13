@@ -3,12 +3,12 @@ title: Restringir acesso usando um ponto de extremidade de serviço
 description: Restrinja o acesso a um registro de contêiner do Azure usando um ponto de extremidade de serviço em uma rede virtual do Azure. O acesso ao ponto de extremidade de serviço é um recurso da camada de serviço Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509280"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488653"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restringir o acesso a um registro de contêiner usando um ponto de extremidade de serviço em uma rede virtual do Azure
 
@@ -27,6 +27,9 @@ A configuração de um ponto de extremidade de serviço de registro está dispon
 * Você não pode usar o portal do Azure para configurar pontos de extremidade de serviço em um registro.
 * Somente um cluster do [Serviço de Kubernetes do Azure](../aks/intro-kubernetes.md) ou a [máquina virtual](../virtual-machines/linux/overview.md) do Azure pode ser usado como host para acessar um registro de contêiner usando um ponto de extremidade de serviço. *Não há suporte para outros serviços do Azure, incluindo Instâncias de Contêiner do Azure.*
 * Cada registro oferece suporte ao máximo de 100 regras de acesso à rede.
+* Não há suporte para pontos de extremidade de serviço para o registro de contêiner do Azure na nuvem do Azure no governo dos EUA ou na nuvem do Azure China.
+
+[!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

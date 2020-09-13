@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: e4f9fa554a7c0e45abe1e9686605c95bb79d1739
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/04/2020
+ms.openlocfilehash: c8bc9e844687c85255be972011eba03e9c38de48
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932943"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488296"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -85,6 +85,7 @@ Para trabalhar com cadeias de caracteres, você pode usar essas funções de cad
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Gerar um GUID (identificador global exclusivo) como uma cadeia de caracteres. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retornar a posição inicial de uma subcadeia de caracteres. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retorna a posição inicial da última ocorrência de uma subcadeia de caracteres. |
+| [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retornar o número de itens em uma cadeia de caracteres ou matriz. |
 | [substitui](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Substituir uma subcadeia de caracteres pela cadeia de caracteres especificada e retornar a cadeia de caracteres atualizada. |
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retorna uma matriz contendo subcadeias de caracteres, separadas por vírgulas, de uma cadeia de caracteres maior baseada em um caractere delimitador especificado na cadeia de caracteres original. |
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verificar se uma cadeia de caracteres começa com uma subcadeia de caracteres específica. |
@@ -1135,14 +1136,14 @@ Se você estiver usando `bool()` com um objeto, o valor do objeto deverá ser um
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| `true` ou `false` | Boolean | A versão booliana do valor especificado. |
+| `true` ou `false` | Booliano | A versão booliana do valor especificado. |
 ||||
 
 *Saídas*
 
 Estes exemplos mostram os diferentes tipos de entrada com suporte para `bool()` :
 
-| Valor de entrada | Type | Retornar valor |
+| Valor de entrada | Type | Valor retornado |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | Integer | `true` |
 | `bool(0)` | Integer    | `false` |
@@ -3914,8 +3915,7 @@ E retorna este resultado: `10`
 
 ### <a name="substring"></a>substring
 
-Retornar caracteres de uma cadeia de caracteres, começando na posição especificada, ou índice.
-Os valores de índice começam com o número 0.
+Retornar caracteres de uma cadeia de caracteres, começando na posição especificada, ou índice. Os valores de índice começam com o número 0.
 
 ```
 substring('<text>', <startIndex>, <length>)
@@ -3927,6 +3927,10 @@ substring('<text>', <startIndex>, <length>)
 | <*startIndex*> | Sim | Integer | Um número positivo igual ou superior a 0 que você deseja usar como a posição inicial ou o valor do índice |
 | <*length*> | Sim | Integer | Um número positivo de caracteres que você deseja na subcadeia de caracteres |
 |||||
+
+> [!NOTE]
+> Certifique-se de que a soma de adicionar os valores de parâmetro *startIndex* e *Length* seja menor do que o comprimento da cadeia de caracteres que você fornece para o parâmetro de *texto* .
+> Caso contrário, você receberá um erro, diferentemente de funções semelhantes em outras linguagens em que o resultado é a subcadeia de *startIndex* para o final da cadeia de caracteres.
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |

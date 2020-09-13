@@ -1,19 +1,19 @@
 ---
 title: Mergulho profundo - Análise avançada - Azure HDInsight
 description: Saiba como a análise avançada usa algoritmos para processar Big Data no Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
-ms.openlocfilehash: fa2909055259d7832942f9f47434963f7bbb2aa1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ffc8fcf734877f55210507310849a5746a280c3d
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079353"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504342"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
 
@@ -42,7 +42,7 @@ Além de selecionar os algoritmos mais adequados, você precisa considerar se pr
 * Não supervisionado-o algoritmo não requer dados de treinamento
 * Reforço – o algoritmo usa os agentes do software para determinar o comportamento ideal em um contexto específico (geralmente usado em robótica)
 
-| Categoria de algoritmo| Uso | Tipo de aprendizado | Algoritmos |
+| Categoria de algoritmo| Use | Tipo de aprendizado | Algoritmos |
 | --- | --- | --- | -- |
 | classificação | Classificar pessoas ou coisas em grupos | Supervisionado | Árvores de decisão, Regressão logística, redes neurais |
 | Clustering | Dividir um conjunto de exemplos em grupos homogêneos | Não supervisionado | Modelo de cluster K-means |

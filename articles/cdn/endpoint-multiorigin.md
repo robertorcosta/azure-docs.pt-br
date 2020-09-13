@@ -1,21 +1,21 @@
 ---
-title: 'Ponto de extremidade da CDN do Azure: várias origens'
+title: Ponto de extremidade da CDN do Azure com várias origens (visualização)
 description: Introdução ao ponto de extremidade da CDN do Azure várias origens.
 services: cdn
 author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 8/20/2020
+ms.date: 9/06/2020
 ms.author: allensu
-ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f9293206526778f8c3de8a368a1916a2cb3f88c2
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870435"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504666"
 ---
-# <a name="azure-cdn-endpoint-multi-origin"></a>Ponto de extremidade da CDN do Azure: várias origens
+# <a name="azure-cdn-endpoint-multi-origin-preview"></a>Ponto de extremidade da CDN do Azure com várias origens (visualização)
 
 O suporte a várias origens elimina o tempo de inatividade e estabelece redundância global. 
 
@@ -25,6 +25,10 @@ Configure um ou mais grupos de origem e escolha um grupo de origem padrão. Cada
 
 > [!NOTE]
 > Atualmente, esse recurso só está disponível na CDN do Azure da Microsoft. 
+
+> [!IMPORTANT]
+> A multiorigem do ponto de extremidade da CDN do Azure está atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-the-origin-group"></a>Criar o grupo de origem
 
