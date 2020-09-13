@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640575"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296508"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -38,7 +38,7 @@ Se você receber o erro "o arquivo de manifesto fornecido é inválido: entrada 
 
 Isso pode acontecer se a máquina do dispositivo estiver atrás de um proxy.
 
-- Certifique-se de fornecer as credenciais de autorização se o proxy precisar delas.
+- Forneça as credenciais de autorização se o proxy precisar delas.
 - Se você estiver usando um proxy de firewall baseado em URL para controlar a conectividade de saída, adicione [essas URLs](migrate-appliance.md#url-access) a uma lista de permissões.
 - Se você estiver usando um proxy de interceptação para se conectar à Internet, importe o certificado de proxy para a VM do dispositivo usando [estas etapas](./migrate-appliance.md).
 
@@ -151,7 +151,7 @@ Se você aguardar e o estado não for alterado, selecione **Atualizar** na guia 
 Se isso não funcionar e você estiver descobrindo servidores VMware:
 
 - Verifique se a conta do vCenter especificada tem permissões definidas corretamente, com acesso a pelo menos uma VM.
-- As migrações para Azure não poderão descobrir VMs do VMware se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. [Saiba mais](set-discovery-scope.md) sobre a descoberta de escopo.
+- As migrações para Azure não podem descobrir VMs do VMware se a conta do vCenter tiver acesso concedido no nível da pasta da VM do vCenter. [Saiba mais](set-discovery-scope.md) sobre a descoberta de escopo.
 
 ## <a name="vm-data-not-in-portal"></a>Dados da VM não estão no portal
 

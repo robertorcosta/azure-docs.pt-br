@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 4ba7aa530699ab0e06ac42e3701265254b617f73
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5bb244796414c828e1535e4874fc85aa83f182dc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167684"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300061"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como usar Análise de Texto para integridade (versão prévia)
 
@@ -47,7 +47,7 @@ A extração de relações identifica conexões significativas entre os conceito
 > ![Renovar integridade](../media/ta-for-health/health-relation-extraction.png)
 
 
-#### <a name="entity-linking"></a>[Vinculação de entidade](#tab/entity-linking)
+#### <a name="entity-linking"></a>[Vinculação de Identidade](#tab/entity-linking)
 
 A vinculação de entidade ambiguidade entidades distintas associando entidades nomeadas mencionadas em texto a conceitos encontrados em um banco de dados predefinido de conceitos. Por exemplo, o sistema de idiomas médicos unificados (UMLS).
 
@@ -91,7 +91,7 @@ Há várias maneiras que você pode instalar e executar o contêiner.
 O Azure [aplicativo Web para contêineres](https://azure.microsoft.com/services/app-service/containers/) é um recurso do Azure dedicado à execução de contêineres na nuvem. Ele traz recursos prontos para uso, como dimensionamento automático, suporte a contêineres do Docker e ao Docker Compose, suporte a HTTPS e muito mais.
 
 > [!NOTE]
-> Usando o aplicativo Web do Azure, você obterá automaticamente um domínio na forma de`<appservice_name>.azurewebsites.net`
+> Usando o aplicativo Web do Azure, você obterá automaticamente um domínio na forma de `<appservice_name>.azurewebsites.net`
 
 Execute este script do PowerShell usando o CLI do Azure para criar um Aplicativo Web para Contêineres, usando sua assinatura e a imagem de contêiner sobre HTTPS. Aguarde até que o script seja concluído (aproximadamente 25-30 minutos) antes de enviar a primeira solicitação.
 
@@ -161,11 +161,11 @@ Por padrão, não há nenhuma segurança fornecida ao usar ACI com a API do cont
 
 #### <a name="set-up-nginx-as-an-ingress-gateway"></a>Configurar o NGINX como um gateway de entrada
 
-O NGINX usa [arquivos de configuração](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) para habilitar recursos em tempo de execução. Para habilitar o encerramento de TLS para outro serviço, você deve especificar um certificado SSL para encerrar a conexão TLS e `proxy_pass` especificar um endereço para o serviço. Um exemplo é fornecido abaixo.
+O NGINX usa [arquivos de configuração](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) para habilitar recursos em tempo de execução. Para habilitar o encerramento de TLS para outro serviço, você deve especificar um certificado SSL para encerrar a conexão TLS e  `proxy_pass` especificar um endereço para o serviço. Um exemplo é fornecido abaixo.
 
 
 > [!NOTE]
-> `ssl_certificate`Espera que um caminho seja especificado no sistema de arquivos local do contêiner NGINX. O endereço especificado para `proxy_pass` deve estar disponível na rede do contêiner nginx.
+> `ssl_certificate` Espera que um caminho seja especificado no sistema de arquivos local do contêiner NGINX. O endereço especificado para `proxy_pass` deve estar disponível na rede do contêiner nginx.
 
 O contêiner NGINX carregará todos os arquivos no `_.conf_` que estão montados em no `/etc/nginx/conf.d/` caminho de configuração de http.
 
@@ -399,22 +399,19 @@ A saída de extração de relação contém referências de URI para a *origem* 
 
 ```json
 "relations": [
-  {
-      "relationType": "DosageOfMedication",
-      "score": 1.0,
-      "bidirectional": false,
-      "source": "#/documents/2/entities/0",
-      "target": "#/documents/2/entities/1",
-      "entities": [
-          {
-              "id": "0",
-              "role": "ATTRIBUTE"
-          },
-          {
-              "id": "1",
-              "role": "ENTITY"
-          }
-      ]
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
   },
 ...
 ]

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
-ms.openlocfilehash: 29caccd666294add98882d080a2a0fd3bd9dd660
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 827871bdac689d1f5e8acb64d3565ca3c6da39be
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036616"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292513"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
@@ -779,7 +779,7 @@ Esta versão fornece Hive 1.2.1 e Hive 2.1.0 além dos patches a seguir:
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): configurações de Hive-site serão ignoradas durante o cálculo de divisão HCatInputFormat.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: tenha uma configuração da lista de bloqueios/lista de permissões para permitir cache seletiva de tabelas/partições e permitir leitura durante a preparação.
+-   [*Hive-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: tenha uma configuração aprovada/não aprovada para permitir o cache seletivo de tabelas/partições e permitir a leitura durante o aquecimento.
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): adicionar vários\_teste agg.q para blobstores.
 
@@ -1692,7 +1692,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 
 |**Componente do Apache**|**Apache JIRA**|**Resumo**|**Detalhes**|
 |--|--|--|--|
-|**Spark 2.3** |**N/A** |**Notas de versão de alterações conforme documentado no Apache Spark** |-Há um documento de "reprovação" e um guia de "alteração de comportamento",https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para o SQL Part, há outro guia detalhado de "migração" (de 2,2 a 2,3),https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**N/A** |**Notas de versão de alterações conforme documentado no Apache Spark** |-Há um documento de "reprovação" e um guia de "alteração de comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Para o SQL Part, há outro guia detalhado de "migração" (de 2,2 a 2,3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Trabalho do Spark concluído com êxito, mas há um erro de total de cota de disco HDFS |**Cenário:** Em execução **inserir substituir** quando uma cota é definida na pasta da Lixeira do usuário que executa o comando.<br /><br />**Comportamento anterior:** o trabalho for bem-sucedido, mesmo que ele não consegue mover os dados para a Lixeira. O resultado incorretamente pode conter alguns dos dados esteja presentes na tabela.<br /><br />**Novo comportamento:** quando a mudança para a pasta da Lixeira falha, os arquivos serão excluídos permanentemente.|
 |**Kafka 1.0**|**N/A**|**Notas de versão de alterações conforme documentado no Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive / Ranger** | |Políticas de hive do ranger adicionais necessárias para INSERT OVERWRITE |**Cenário:** políticas de hive do ranger adicionais necessárias para **INSERT OVERWRITE**<br /><br />**Comportamento anterior:** consultas do Hive **INSERT OVERWRITE** consultas realizadas com êxito como de costume.<br /><br />**Novo comportamento:** consultas do Hive **INSERT OVERWRITE** estão falhando inesperadamente após a atualização para HDP 2.6 com o erro:<br /><br />Erro durante a compilação de instrução: FAILED: HiveAccessControlException permissão negada: usuário jdoe não tem privilégios de gravação em /tmp/\*(estado = 42000, código = 40000)<br /><br />A partir das consultas HDP-2.6.0 Hive **INSERT OVERWRITE** exigem uma política de URI do Ranger para permitir operações de gravação, mesmo se o usuário tem o privilégio de gravação concedido por meio da política HDFS.<br /><br />**Solução alternativa/esperado ação do cliente:**<br /><br />1. Crie uma nova política no repositório do hive.<br />2. no menu suspenso onde você vê banco de dados, selecione URI.<br />3. atualize o caminho (exemplo:/tmp/*)<br />4. Adicione os usuários e o grupo e salve.<br />5. Repita a consulta INSERT.|

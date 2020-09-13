@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714773"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293635"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Experiências do assistente de design para Windows 10
 
@@ -118,9 +118,9 @@ Muitos PCs são portáteis, mas nem sempre dentro do alcance do cliente. Elas po
 
 Portanto, os assistentes devem seguir as orientações desta seção para ajudar a manter a experiência segura. A interação acima do bloqueio ocorre quando o usuário do Windows não está autenticado. Isso significa que, em geral, a **entrada para o assistente também deve ser tratada como não autenticada**.
 
-- Os assistentes devem **implementar uma lista branca de habilidades para identificar as habilidades que são confirmadas de forma segura e** segura para serem acessadas acima do bloqueio.
+- Os assistentes devem **implementar uma lista de habilidades permitidas para identificar as habilidades que são confirmadas de forma segura e** segura para serem acessadas acima do bloqueio.
 - As tecnologias de ID do palestrante podem desempenhar uma função para aliviar alguns riscos, mas a ID do palestrante não é uma substituição adequada para a autenticação do Windows.
-- A lista de permissões de habilidades deve considerar três classes de ações ou habilidades:
+- A lista de habilidades permitidas deve considerar três classes de ações ou habilidades:
 
 | **Classe de ação** | **Descrição** | **Exemplos (não é uma lista completa)** |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ Portanto, os assistentes devem seguir as orientações desta seção para ajudar
 
 Para o caso da Contoso, informações gerais sobre informações de ações públicas são seguras sem autenticação. Informações específicas do cliente, como o número de compartilhamentos de propriedade, provavelmente são seguras com a ID do palestrante. No entanto, comprar ou vender ações nunca deve ser permitido sem a autenticação do Windows.
 
-Para proteger ainda mais a experiência, os **weblinks ou outras inicializações de aplicativo para aplicativo sempre serão bloqueadas pelo Windows até que o cliente entre.** Como última mitigação de Resort, a Microsoft se reserva o direito de remover um aplicativo da lista de permissões de assistentes habilitados se um problema sério de segurança não for resolvido em tempo hábil.
+Para proteger ainda mais a experiência, os **weblinks ou outras inicializações de aplicativo para aplicativo sempre serão bloqueadas pelo Windows até que o cliente entre.** Como última mitigação de Resort, a Microsoft se reserva o direito de remover um aplicativo da lista permitida de assistentes habilitados se um problema sério de segurança não for resolvido em tempo hábil.
 
 ## <a name="design-guidance-for-voice-activation-preview"></a>Diretrizes de design para visualização de ativação de voz
 

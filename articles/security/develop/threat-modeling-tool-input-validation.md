@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a10dec01757fd344c9fa2bc92082082d2af085e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3bb944badfbdffd703672f9e78619c70a148aae2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000559"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293346"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Quadro de segurança: Validação de entrada | Atenuações 
 | Produto/Serviço | Artigo |
@@ -397,7 +397,7 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 | **Tecnologias aplicáveis** | Genérico, MVC5, MVC6 |
 | **Atributos**              | N/D  |
 | **Referências**              | [Adicionando Validação](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [Validando Dados de Modelo em um Aplicativo MVC](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [Princípios Básicos para Aplicativos ASP.NET MVC](https://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Etapas** | <p>Todos os parâmetros de entrada devem ser validados antes de serem usados no aplicativo, para garantir que o aplicativo esteja protegido contra entradas de usuários mal-intencionados. Valide os valores de entrada usando validações de expressão regular no lado do servidor com uma estratégia de validação de lista de permissões. Entradas do usuário/parâmetros não corrigidos passados para os métodos podem causar vulnerabilidades de injeção de código.</p><p>Para aplicativos Web, os pontos de entrada também podem incluir campos de formulário, QueryStrings, cookies, cabeçalhos HTTP e parâmetros de serviço Web.</p><p>As seguintes verificações de validação de entrada devem ser executadas após o model binding:</p><ul><li>As propriedades do modelo devem ser anotadas com a anotação RegularExpression, para aceitar os caracteres e o comprimento máximo permitidos</li><li>Os métodos do controlador devem executar a validade ModelState</li></ul>|
+| **Etapas** | <p>Todos os parâmetros de entrada devem ser validados antes de serem usados no aplicativo, para garantir que o aplicativo esteja protegido contra entradas de usuários mal-intencionados. Valide os valores de entrada usando validações de expressão regular no lado do servidor com uma estratégia de validação de lista permitida. Entradas do usuário/parâmetros não corrigidos passados para os métodos podem causar vulnerabilidades de injeção de código.</p><p>Para aplicativos Web, os pontos de entrada também podem incluir campos de formulário, QueryStrings, cookies, cabeçalhos HTTP e parâmetros de serviço Web.</p><p>As seguintes verificações de validação de entrada devem ser executadas após o model binding:</p><ul><li>As propriedades do modelo devem ser anotadas com a anotação RegularExpression, para aceitar os caracteres e o comprimento máximo permitidos</li><li>Os métodos do controlador devem executar a validade ModelState</li></ul>|
 
 ## <a name="sanitization-should-be-applied-on-form-fields-that-accept-all-characters-eg-rich-text-editor"></a><a id="richtext"></a>A limpeza deve ser aplicada em campos de formulário que aceitam todos os caracteres, como o editor de rich text
 
@@ -441,7 +441,7 @@ Não use `innerHtml`; em vez disso, use `innerText`. Da mesma forma, em vez de `
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | [Estrutura de autorização OAuth 2.0 - redirecionadores abertos](https://tools.ietf.org/html/rfc6749#section-10.15) |
-| **Etapas** | <p>O design do aplicativo que exige o redirecionamento para um local fornecido pelo usuário deve restringir os destinos possíveis de redirecionamento para uma lista predefinida "segura" de sites ou domínios. Todos os redirecionamentos do aplicativo devem ser fechados/seguros.</p><p>Para fazer isso:</p><ul><li>Identificar todos os redirecionamentos</li><li>Implemente uma atenuação apropriada para cada tipo de redirecionamento. Atenuações apropriadas incluem a confirmação de usuário ou a lista de permissões de redirecionamento. Se um site ou serviço com uma vulnerabilidade de redirecionamento aberto usar provedores de identidade Facebook/OAuth/OpenID, um invasor poderá roubar o token de logon do usuário e representar o usuário. Esse é um risco inerente ao usar OAuth, o que está documentado em RFC 6749 "A Estrutura de Autorização OAuth 2.0", Seção 10.15, "Redirecionamentos Abertos". Da mesma forma, as credenciais de usuário podem ser comprometidas por ataques de spear phishing usando redirecionamentos abertos</li></ul>|
+| **Etapas** | <p>O design do aplicativo que exige o redirecionamento para um local fornecido pelo usuário deve restringir os destinos possíveis de redirecionamento para uma lista predefinida "segura" de sites ou domínios. Todos os redirecionamentos do aplicativo devem ser fechados/seguros.</p><p>Para fazer isso:</p><ul><li>Identificar todos os redirecionamentos</li><li>Implemente uma atenuação apropriada para cada tipo de redirecionamento. As atenuações apropriadas incluem a lista de redirecionamento permitido ou a confirmação do usuário. Se um site ou serviço com uma vulnerabilidade de redirecionamento aberto usar provedores de identidade Facebook/OAuth/OpenID, um invasor poderá roubar o token de logon do usuário e representar o usuário. Esse é um risco inerente ao usar OAuth, o que está documentado em RFC 6749 "A Estrutura de Autorização OAuth 2.0", Seção 10.15, "Redirecionamentos Abertos". Da mesma forma, as credenciais de usuário podem ser comprometidas por ataques de spear phishing usando redirecionamentos abertos</li></ul>|
 
 ## <a name="implement-input-validation-on-all-string-type-parameters-accepted-by-controller-methods"></a><a id="string-method"></a>Implemente a validação de entrada em todos os parâmetros de tipo de cadeia de caracteres aceitos por métodos do Controlador
 
