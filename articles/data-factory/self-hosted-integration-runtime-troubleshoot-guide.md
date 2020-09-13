@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/10/2020
 ms.author: abnarain
-ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800529"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033652"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -190,7 +190,7 @@ Para obter mais informações sobre o GAC, consulte [Este artigo](https://docs.m
 
 #### <a name="symptoms"></a>Sintomas
 
-O tempo de execução de integração auto-hospedado deixa de repente offline sem chave, abaixo da mensagem de erro mostrada no log de eventos:`Authentication Key is not assigned yet`
+O tempo de execução de integração auto-hospedado deixa de repente offline sem chave, abaixo da mensagem de erro mostrada no log de eventos: `Authentication Key is not assigned yet`
 
 ![Chave de autenticação ausente](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
@@ -351,7 +351,7 @@ Não foi possível encontrar o botão **registrar** na interface do usuário do 
 
 #### <a name="cause"></a>Causa
 
-Desde o lançamento do *Integration Runtime 3,0*, o botão **registrar** em um nó Integration Runtime existente foi removido para habilitar um ambiente mais limpo e seguro. Se um nó tiver sido registrado em alguns Integration Runtime (estando online ou não), para registrá-lo novamente em outro Integration Runtime, você deverá desinstalar o nó anterior e, em seguida, instalar e registrar o nó.
+Desde o lançamento do *Integration Runtime 3,0*, o botão **registrar** em um nó Integration Runtime existente foi removido para habilitar um ambiente mais limpo e seguro. Se um nó foi registrado em algum Integration Runtime (online ou não), para registrá-lo novamente em outro Integration Runtime, desinstale o nó anterior e, em seguida, instale e registre o nó.
 
 #### <a name="resolution"></a>Resolução
 
@@ -366,7 +366,7 @@ Desde o lançamento do *Integration Runtime 3,0*, o botão **registrar** em um n
 1. Instale o MSI e registre o Integration Runtime.
 
 
-### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Não é possível registrar o IR auto-hospedado devido ao localhost    
+### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Não é possível registrar o IR auto-hospedado interno devido a localhost    
 
 #### <a name="symptoms"></a>Sintomas
 
@@ -519,7 +519,7 @@ Esse comportamento ocorre quando os nós não conseguem se comunicar entre si.
 
 ### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Problema de conectividade entre o IR e o Data Factory ou a fonte de dados e o coletor auto-hospedados
 
-Para solucionar o problema de conectividade de rede, você deve saber como [coletar o rastreamento de rede](#how-to-collect-netmon-trace), entender como usá-lo e [analisar o rastreamento do Netmon](#how-to-analyze-netmon-trace) antes de aplicar as ferramentas do Netmon em casos reais do ir hospedado internamente.
+Para solucionar o problema de conectividade de rede, você deve saber como coletar o rastreamento de rede, entender como usá-lo e [analisar o rastreamento do Netmon](#how-to-analyze-netmon-trace) antes de aplicar as ferramentas do Netmon em casos reais do ir hospedado internamente.
 
 #### <a name="symptoms"></a>Sintomas
 
@@ -577,7 +577,7 @@ Faça o rastreamento do Netmon e analise mais detalhadamente.
 
 ### <a name="how-to-collect-netmon-trace"></a>Como coletar rastreamento do Netmon
 
-1.  Baixe as ferramentas do Netmon deste [site](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)e instale-as no computador do servidor (qualquer servidor que tenha o problema) e cliente (como o ir para hospedagem interna).
+1.  Baixe as ferramentas do Netmon deste [site](https://cnet-downloads.com/network-monitor)e instale-as no computador do servidor (qualquer servidor que tenha o problema) e cliente (como o ir para hospedagem interna).
 
 2.  Crie uma pasta, por exemplo, no seguinte caminho: *D:\netmon*. Verifique se ele tem espaço suficiente para salvar o log.
 
@@ -621,7 +621,10 @@ Faça o rastreamento do Netmon e analise mais detalhadamente.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Como analisar o rastreamento do Netmon
 
-Ao tentar fazer o Telnet **8.8.8.8 888** com o rastreamento do Netmon acima coletado, você deve ver o rastreamento abaixo:
+> [!NOTE] 
+> A instrução abaixo é aplicável ao rastreamento do Netmon. Como o Netmon Trace está atualmente sem suporte, você pode aproveitar o Wireshark da mesma forma.
+
+Ao tentar fazer o Telnet **8.8.8.8 888** com o Netmon Trace coletado, você deve ver o rastreamento abaixo:
 
 ![rastreamento do Netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 
