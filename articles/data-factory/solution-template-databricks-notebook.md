@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857651"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438442"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformação com o Azure Databricks
 
@@ -28,7 +28,7 @@ Neste tutorial, você cria um pipeline de ponta a ponta que contém a **validaç
 
 - **Copy data** duplica o conjunto de dados de origem para o armazenamento do coletor, que é montado como DBFS no bloco de anotações Azure Databricks. Dessa forma, o conjunto de entrada pode ser diretamente consumido pelo Spark.
 
-- O **Notebook** dispara o bloco de anotações do databricks que transforma o conjunto de os. Ele também adiciona o conjunto de um a uma pasta processada ou SQL Data Warehouse do Azure.
+- O **Notebook** dispara o bloco de anotações do databricks que transforma o conjunto de os. Ele também adiciona o conjunto de um a uma pasta processada ou a análise de Synapse do Azure Azure (anteriormente SQL Data Warehouse).
 
 Para simplificar, o modelo neste tutorial não cria um gatilho agendado. Você pode adicionar um se necessário.
 

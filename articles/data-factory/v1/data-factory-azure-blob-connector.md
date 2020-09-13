@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254507"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438510"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copie os dados de ou para o Armazenamento de Blobs do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -31,7 +31,7 @@ ms.locfileid: "85254507"
 Este artigo explica como usar a Atividade de Cópia no Azure Data Factory para copiar dados de e para o Armazenamento de Blobs do Azure. Ele se baseia no artigo [atividades de movimentação de dados](data-factory-data-movement-activities.md) , que apresenta uma visão geral da movimentação de dados com a atividade de cópia.
 
 ## <a name="overview"></a>Visão geral
-Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o armazenamento de Blobs do Azure ou do armazenamento de Blobs do Azure para qualquer armazenamento de dados do coletor com suporte. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como fontes ou coletores na atividade de cópia. Por exemplo, você pode mover dados **de** um SQL Server banco de dado ou de um banco do dados SQL do Azure **para** um armazenamento de BLOBs do Azure. Além disso, é possível copiar dados **de** um armazenamento de Blobs do Azure **para** um SQL Data Warehouse do Azure ou uma coleção do Azure Cosmos DB.
+Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o armazenamento de Blobs do Azure ou do armazenamento de Blobs do Azure para qualquer armazenamento de dados do coletor com suporte. A tabela a seguir fornece uma lista de armazenamentos de dados com suporte como fontes ou coletores na atividade de cópia. Por exemplo, você pode mover dados **de** um SQL Server banco de dado ou de um banco do dados SQL do Azure **para** um armazenamento de BLOBs do Azure. E, você pode copiar dados **do armazenamento de** BLOBs do Azure **para** o Azure Synapse Analytics (anteriormente SQL data warehouse) ou uma coleção de Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -81,7 +81,7 @@ O Data Factory dá suporte aos valores de tipo baseados em .NET em conformidade 
 
 A seção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização, o formato etc. dos dados no armazenamento de dados. A seção typeProperties para o conjunto de dados do tipo **AzureBlob** tem as seguintes propriedades:
 
-| Property | Descrição | Obrigatório |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | folderPath |Caminho para o contêiner e a pasta no armazenamento de blob. Exemplo: myblobcontainer\myblobfolder\ |Sim |
 | fileName |O nome do blob. fileName é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Caso você especifique um nome de arquivo, a atividade (incluindo Cópia) funcionará no Blob específico.<br/><br/>Quando fileName não for especificado, a Cópia incluirá todos os Blobs do folderPath para o conjunto de dados de entrada.<br/><br/>Quando **filename** não for especificado para um conjunto de resultados de saída e **preserveHierarchy** não for especificado no coletor de atividade, o nome do arquivo gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
@@ -127,13 +127,13 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 O **BlobSource** dá suporte às seguintes propriedades na seção **typeProperties**:
 
-| Property | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | recursiva |Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada. |True (valor padrão), False |Não |
 
 O **BlobSink** dá suporte às seguintes propriedades na seção **typeProperties**:
 
-| Property | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
 | copyBehavior |Define o comportamento de cópia quando a origem é BlobSource ou FileSystem. |<b>PreserveHierarchy</b>: preserva a hierarquia de arquivos na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico ao caminho relativo do arquivo de destino para a pasta de destino.<br/><br/><b>FlattenHierarchy</b>: todos os arquivos da pasta de origem estão no primeiro nível da pasta de destino. Os arquivos de destino têm o nome gerado automaticamente. <br/><br/><b>MergeFiles</b>: mescla todos os arquivos da pasta de origem em um arquivo. Se o nome do arquivo/blob for especificado, o nome do arquivo mesclado será o nome especificado; caso contrário, será o nome de arquivo gerado automaticamente. |Não |
 
@@ -193,7 +193,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     4. Selecione um **local** para o data factory.
     5. Marque a caixa de seleção **Fixar no painel** na parte inferior da folha.
     6. Clique em **Criar**.
-3. Depois que a criação for concluída, você verá a folha **Data Factory** , conforme mostrado na imagem a seguir: ![ Data Factory Home Page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. Depois que a criação for concluída, você verá a folha **Data Factory** , conforme mostrado na imagem a seguir:  ![ Data Factory Home Page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Assistente de Cópia
 1. Na home page do Data Factory, clique no bloco **Copiar dados** para iniciar o **Assistente de Cópia de Dados** em uma guia separada.  
@@ -207,7 +207,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     4. Mantenha as configurações de **Padrão recorrente**. Essa tarefa é executada diariamente entre as horas de início e término especificadas na próxima etapa.
     5. Altere a **Data/hora de início** para **21/04/2017**.
     6. Altere a **Data/hora de término** para **25/04/2017**. Talvez você queira digitar a data em vez de procurá-la no calendário.
-    8. Clique em **Próximo**.
+    8. Clique em **Avançar**.
         ![Ferramenta de Cópia – Página Propriedades](./media/data-factory-azure-blob-connector/copy-tool-properties-page.png)
 3. Na página **Repositório de dados de origem**, clique no bloco **Armazenamento de Blobs do Azure**. Use essa página para especificar o repositório de dados de origem para a tarefa de cópia. Você pode usar um serviço de repositório de dados vinculado existente ou especificar um novo repositório de dados. Para usar um serviço vinculado existente, selecione **DE SERVIÇOS VINCULADOS EXISTENTES** e selecione o serviço vinculado correto.
     ![Ferramenta de Cópia – Página do armazenamento de dados de origem](./media/data-factory-azure-blob-connector/copy-tool-source-data-store-page.png)
@@ -216,19 +216,19 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     2. Confirme se a opção **De assinaturas do Azure** foi selecionada em **Método de seleção de conta**.
     3. Selecione sua assinatura do Azure ou mantenha **Selecionar tudo** para **Assinatura do Azure**.
     4. Selecione uma **Conta de armazenamento do Azure** na lista de contas de armazenamento do Azure disponíveis na assinatura selecionada. Você também pode optar por inserir as configurações da conta de armazenamento manualmente selecionando a opção **Inserir manualmente** para o **Método de seleção de conta**.
-    5. Clique em **Próximo**.  
+    5. Clique em **Avançar**.  
         ![Ferramenta de Cópia – Especificar a conta do armazenamento de Blobs do Azure](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. Na página **Escolher o arquivo de entrada ou a pasta** :
     1. Clique duas vezes em **adfblobcontainer**.
     2. Selecione **input** e clique em **Escolher**. Neste passo a passo, você seleciona a pasta input. Você também pode selecionar o arquivo emp.txt na pasta.
-        ![Ferramenta de Cópia – Escolher a pasta ou o arquivo de entrada](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        ![Ferramenta de cópia – escolha o arquivo de entrada ou a pasta 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. Na página **Escolher o arquivo ou a pasta de entrada**:
     1. Confirme se **a pasta ou o arquivo** está definido como **adfblobconnector/input**. Se os arquivos estiverem em subpastas, por exemplo, 01/04/2017, 02/04/2017 e assim por diante, insira adfblobconnector/input/{year}/{month}/{day} para o arquivo ou a pasta. Ao pressionar TAB fora da caixa de texto, você verá três listas suspensas para selecionar formatos de ano (yyyy), mês (MM) e dia (dd).
     2. Não defina a opção **Copiar arquivo recursivamente**. Selecione essa opção para percorrer as pastas recursivamente para que os arquivos sejam copiados para o destino.
     3. Não defina a opção **Cópia binária**. Selecione essa opção para executar uma cópia binária do arquivo de origem para o destino. Não selecione essa opção neste passo a passo, de forma que você possa ver mais opções na próxima página.
     4. Confirme se o **Tipo de compactação** está definido como **Nenhum**. Selecione um valor para essa opção se os arquivos de origem estiverem compactados em um dos formatos com suporte.
-    5. Clique em **Próximo**.
-    ![Ferramenta de Cópia – Escolher a pasta ou o arquivo de entrada](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    5. Clique em **Avançar**.
+    ![Ferramenta de cópia – escolha o arquivo ou a pasta de entrada 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. Na página **Configurações de formato de arquivo**, você vê os delimitadores e o esquema é detectado automaticamente pelo assistente na análise do arquivo.
     1. Confirme as opções a seguir:  
         a. O **formato de arquivo** está definido como **Formato de texto**. É possível ver todos os formatos com suporte na lista suspensa. Por exemplo: JSON, Avro, ORC, Parquet.
@@ -249,7 +249,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     2. Confirme se a opção **De assinaturas do Azure** foi selecionada em **Método de seleção de conta**.
     3. Selecione sua **assinatura**do Azure.
     4. Selecione sua conta de armazenamento do Azure.
-    5. Clique em **Próximo**.
+    5. Clique em **Avançar**.
 10. Na página **Escolher o arquivo ou a pasta de saída**:  
     1. especifique **Caminho da pasta** como **adfblobconnector/output/{year}/{month}/{day}**. Insira **GUIA**.
     1. No **ano**, selecione **yyyy**.
@@ -257,7 +257,7 @@ Vamos examinar como copiar dados rapidamente de e para um armazenamento de blobs
     1. No **dia**, confirme se ele está definido como **dd**.
     1. Confirme se o **tipo de compactação** está definido como **nenhum**.
     1. Confirme se o **comportamento de cópia** está definido como **Mesclar arquivos**. Se o arquivo de saída com o mesmo nome já existir, o novo conteúdo será adicionado ao mesmo arquivo no final.
-    1. Clique em **Próximo**.
+    1. Clique em **Avançar**.
        ![Ferramenta de Cópia – Escolher o arquivo ou a pasta de saída](media/data-factory-azure-blob-connector/choose-the-output-file-or-folder.png)
 11. Na página **Configurações de formato de arquivo**, examine as configurações e clique em **Avançar**. Uma das opções adicionais aqui é adicionar um cabeçalho ao arquivo de saída. Se você selecionar essa opção, uma linha de cabeçalho será adicionada com nomes das colunas do esquema da fonte. Você pode renomear os nomes de coluna padrão ao exibir o esquema da fonte. Por exemplo, você poderá alterar a primeira coluna para Nome e a segunda coluna para Sobrenome. Em seguida, o arquivo de saída será gerado com um cabeçalho com esses nomes como nomes de coluna.
     ![Ferramenta de Cópia – Configurações de formato de arquivo para o destino](media/data-factory-azure-blob-connector/file-format-destination.png)

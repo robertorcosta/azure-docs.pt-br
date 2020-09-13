@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57786aa343fd2ea863b17f65253e5d4a4a6b88ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226821"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437931"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de base de segurança do Azure para Azure Data Factory
 
@@ -578,7 +578,7 @@ Onde o link privado está disponível, use pontos de extremidade privados para p
 
 **Orientação**: se o armazenamento de dados de nuvem oferecer suporte a HTTPS ou TLS, todas as transferências de dados entre serviços de movimentação de dados no data Factory e um armazenamento de dados de nuvem serão por meio do canal seguro HTTPS ou TLS. A versão do TLS usada é a 1.2.
 
-Todas as conexões com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure exigem criptografia (SSL/TLS) quando os dados estão em trânsito, entrando e saindo do banco de dados. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como verdadeira na cadeia de conexão. Para Armazenamento do Azure, é possível usar HTTPS na cadeia de conexão.
+Todas as conexões com o banco de dados SQL do Azure e a análise de Synapse do Azure (anteriormente SQL Data Warehouse) exigem Criptografia (SSL/TLS) enquanto os dados estão em trânsito de e para o Database. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como verdadeira na cadeia de conexão. Para Armazenamento do Azure, é possível usar HTTPS na cadeia de conexão.
 
 * [Noções básicas sobre criptografia em trânsito no Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 
@@ -896,11 +896,11 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 * [O que é o Firewall do Azure?](https://docs.microsoft.com/azure/firewall/overview)
 
-* [O que é o Firewall do Aplicativo Web do Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [O que é o Firewall do aplicativo Web do Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
-* [O que é a Rede Virtual do Azure?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [O que é a rede virtual do Azure?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 
 * [Organizar seus recursos com grupos de gerenciamento do Azure](https://docs.microsoft.com/azure/governance/management-groups/overview)
 
@@ -1050,7 +1050,9 @@ Você também pode armazenar credenciais ou valores secretos em um Azure Key Vau
 
 * [Como criar um Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Como fornecer Key Vault autenticação com uma identidade gerenciada](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Como autenticar-se no Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Como atribuir uma política de acesso de Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 * [Usar segredos de Azure Key Vault em atividades de pipeline](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 

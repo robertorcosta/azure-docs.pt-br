@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 891ea69dc6d53370f5f73f8bb3072a9795f07635
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 261d85c60473749719830c380d8a4866d7561874
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190576"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438033"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -71,7 +71,7 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Exchange Online e SharePoint Online|Permite acesso à chave de cliente para Criptografia do Serviço de Armazenamento do Azure com [Chave de Cliente](/microsoft-365/compliance/customer-key-overview).|
 |Proteção de Informações do Azure|Permitir acesso à chave de locatário para [Proteção de Informações do Azure.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Serviço de aplicativo do Azure|[Implanta o Certificado do Aplicativo Web do Azure por meio do Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Banco de Dados SQL do Azure|[Transparent Data Encryption com suporte Bring Your Own Key para Data Warehouse e Banco de Dados SQL do Azure](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Banco de Dados SQL do Azure|[Transparent Data Encryption com suporte de Bring your own Key para o banco de dados SQL do Azure e o Azure Synapse Analytics (anteriormente SQL data warehouse)](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Armazenamento do Azure|[Criptografia do serviço de armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Repositório Azure Data Lake|[Criptografia de dados no Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
 |Azure Databricks|[Serviço de análise rápida, fácil e colaborativa, com base no Apache Spark](../../azure-databricks/what-is-azure-databricks.md)|
