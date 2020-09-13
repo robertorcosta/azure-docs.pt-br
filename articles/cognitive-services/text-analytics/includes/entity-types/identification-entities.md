@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e0798f75aaa79031ca7cc03814282daa049fbfe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010922"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662764"
 ---
 Essa categoria de entidade inclui informações financeiras e formulários oficiais de identificação. Disponível a partir da versão do modelo `2019-10-01` . Os subtipos são listados abaixo. 
 
@@ -34,7 +34,7 @@ Essa categoria de entidade inclui informações financeiras e formulários ofici
 > * Números de passaporte
 > * IDs de imposto
 
-As entidades abaixo são agrupadas e listadas por país:
+As seguintes entidades são agrupadas e listadas por país:
 
 Argentina
 * Número de identidade nacional da Argentina (DNI)
@@ -116,7 +116,7 @@ França
 * Placa de ID nacional da França (CNI)
 * Número do Passport da França
 * INSEE (número de seguro social da França)
-* Número de identificação do imposto da França (SPI de Numéro.)
+* Número de identificação do imposto da França (Numéro SPI)
 * Número de imposto agregado do valor da França
 
 Alemanha

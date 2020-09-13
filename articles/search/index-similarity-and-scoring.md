@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: d980764b7151183b61657434afa6c472e5058d18
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924479"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662266"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similaridade e pontuação no Azure Cognitive Search
 
@@ -40,7 +40,7 @@ Um perfil de pontuação faz parte da definição de índice, composta por funç
 
 ## <a name="scoring-statistics-and-sticky-sessions"></a>Estatísticas de Pontuação e sessões adesivas
 
-Para escalabilidade, o Azure Cognitive Search distribui cada índice horizontalmente por meio de um processo de fragmentação, o que significa que partes de um índice são fisicamente separadas.
+Para escalabilidade, o Azure Pesquisa Cognitiva distribui cada índice horizontalmente por meio de um processo de fragmentação, o que significa que [partes de um índice são fisicamente separadas](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 Por padrão, a pontuação de um documento é calculada com base nas propriedades estatísticas dos dados *dentro de um fragmento*. Essa abordagem geralmente não é um problema para uma grande corpus de dados e fornece um melhor desempenho do que ter que calcular a pontuação com base nas informações de todos os fragmentos. Dito isso, o uso dessa otimização de desempenho pode fazer com que dois documentos muito semelhantes (ou até mesmo idênticos) acabem com pontuações de relevância diferentes se eles terminarem em fragmentos diferentes.
 

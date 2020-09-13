@@ -1,24 +1,21 @@
 ---
 title: Habilitar a replicação para computadores locais com pontos de extremidade privados
 description: Este artigo descreve como configurar a replicação para computadores locais usando pontos de extremidade privados no Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 13c19f07ac21f986a5523407e46c59c050ebf96d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142070"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658805"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replicar computadores locais usando pontos de extremidade privados
 
-Azure Site Recovery permite que você use pontos de extremidade particulares [do link privado do Azure](../private-link/private-endpoint-overview.md) para replicar seus computadores locais para uma rede virtual no Azure. O suporte para acesso de ponto de extremidade privado a um cofre de recuperação tem suporte nessas regiões:
-
-- Comercial do Azure: Sul EUA Central, oeste dos EUA 2, leste dos EUA
-- Azure governamental: US Gov-Virgínia, US Gov Arizona, US Gov Texas, US DoD Leste, US DoD Central
+Azure Site Recovery permite que você use pontos de extremidade particulares [do link privado do Azure](../private-link/private-endpoint-overview.md) para replicar seus computadores locais para uma rede virtual no Azure. O acesso de ponto de extremidade privado a um cofre de recuperação tem suporte em todas as regiões do Azure Commercial & governamental.
 
 Este artigo descreve como concluir as etapas a seguir:
 
@@ -210,7 +207,7 @@ Crie uma zona DNS privada para permitir que o provedor de Site Recovery (para co
 
    1. Na página **Adicionar conjunto de registros** , adicione uma entrada para cada nome de domínio totalmente qualificado e IP privado como um registro **de** tipo. Você pode obter uma lista dos nomes de domínio totalmente qualificados e IPs na página **ponto de extremidade particular** em **visão geral**. Como você pode ver na captura de tela a seguir, o primeiro nome de domínio totalmente qualificado do ponto de extremidade privado é adicionado ao conjunto de registros na zona DNS privada.
 
-      Esses nomes de domínio totalmente qualificados correspondem a esse padrão:`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      Esses nomes de domínio totalmente qualificados correspondem a esse padrão: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Captura de tela que mostra a página Adicionar conjunto de registros.":::
 

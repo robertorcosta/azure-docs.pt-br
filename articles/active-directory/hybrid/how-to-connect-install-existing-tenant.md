@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640643"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662247"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: quando você tem um locatário existente
 A maioria dos tópicos sobre como usar o Azure AD Connect pressupõe que você inicie com um novo locatário do Azure AD e que não exista nenhum usuário nem outros objetos. Mas, se você tiver começado com um locatário do Azure AD, o preencheu com usuários e outros objetos, e agora deseja usar o Connect, este tópico é para você.
@@ -41,7 +41,7 @@ A correspondência é avaliada apenas para objetos novos provenientes do Connect
 Se o Azure AD encontrar um objeto cujos valores de atributo são os mesmos para um objeto proveniente do Connect e que já esteja presente no Azure AD, o objeto no Azure AD será controlado pelo Connect. O objeto anteriormente gerenciado por nuvem é sinalizado como gerenciado no local. Todos os atributos no Azure AD com um valor no AD local são substituídos pelo valor local. A exceção é quando um atributo tem um valor local **NULL**. Nesse caso, o valor no Azure AD permanece, mas você pode alterar apenas o local para outro valor.
 
 > [!WARNING]
-> Como todos os atributos no Azure AD serão substituídos pelo valor local, verifique se os dados no local estão corretos. Por exemplo, se você só gerenciou emails no Office 365 e não manteve atualizado no AD DS local, você perderá os valores no Azure AD/Office 365 não presentes no AD DS.
+> Como todos os atributos no Azure AD serão substituídos pelo valor local, verifique se os dados no local estão corretos. Por exemplo, se você tiver apenas endereços de email gerenciados no Microsoft 365 e não for mantido atualizado no AD DS local, perderá os valores no Azure AD/Microsoft 365 não presentes no AD DS.
 
 > [!IMPORTANT]
 > Caso use a sincronização de senha, que é sempre usada pelas configurações expressas, a senha no Azure AD será substituída pela a senha do AD local. Se os usuários são usados para gerenciar senhas diferentes, informe-os de que eles devem usar a senha local de quando você instalou o Connect.
