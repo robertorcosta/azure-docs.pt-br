@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/08/2020
 ms.author: b-juche
-ms.openlocfilehash: e7bdf6ce35e2649a068de234b4b52e13efe72c44
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ca17dccd8b17a2e0ff7e9b960c74b4c5a36018f5
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690537"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567312"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas da solução usando o Azure NetApp Files
 Este artigo fornece referências a práticas recomendadas que podem ajudá-lo a entender as arquiteturas de solução para usar o Azure NetApp Files.  
@@ -50,8 +50,8 @@ Esta seção fornece referências para aplicativos do Windows e soluções de SQ
 ### <a name="sql-server"></a>SQL Server
 
 * [Implantar SQL Server sobre SMB com Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
-* [Implante SQL Server Cluster de failover do Always on via SMB com Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q)
-* [Implantar grupos de disponibilidade AlwaysOn com Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc)
+<!-- * [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q) --> 
+<!-- * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc) --> 
 
 ## <a name="sap-on-azure-solutions"></a>Soluções SAP no Azure
 
@@ -89,7 +89,7 @@ Esta seção fornece referências para soluções de infraestrutura de área de 
 * [Benefícios de usar o Azure NetApp Files com a Área de Trabalho Virtual do Windows](solutions-windows-virtual-desktop.md)
 * [Opções de armazenamento para contêineres de perfil FSLogix na área de trabalho virtual do Windows](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
-* [Área de trabalho virtual do Windows em escala empresarial](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
+* [Área de Trabalho Virtual do Windows em escala corporativa](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## <a name="hpc-solutions"></a>Soluções de HPC
 

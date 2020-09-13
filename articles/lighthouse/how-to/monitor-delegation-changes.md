@@ -1,14 +1,14 @@
 ---
 title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589734"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567598"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
@@ -48,6 +48,9 @@ Como esse é um nível amplo de acesso, recomendamos que você atribua essa fun�
 - Certifique-se de que essa entidade de serviço não tenha acesso a nenhum recurso de cliente delegado.
 - [Use um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) e [armazená-lo com segurança no Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limite os usuários que têm acesso ao Act em nome da entidade de serviço.
+
+> [!NOTE]
+> Você também pode atribuir a função interna do leitor de monitoramento do Azure ao escopo raiz para usuários individuais ou grupos de usuários. Isso pode ser útil se você quiser que um usuário possa [Exibir informações de delegação diretamente no portal do Azure](#view-delegation-changes-in-the-azure-portal). Se você fizer isso, lembre-se de que esse é um nível amplo de acesso que deve ser limitado ao menor número de usuários possível.
 
 Use um dos métodos a seguir para fazer as atribuições de escopo raiz.
 
@@ -164,6 +167,15 @@ else {
 
 > [!TIP]
 > Embora possamos nos referimos a provedores de serviços e clientes neste tópico, as [empresas que gerenciam vários locatários](../concepts/enterprise.md) podem usar os mesmos processos.
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Exibir alterações de delegação no portal do Azure
+
+Os usuários que receberam a função interna de leitor de monitoramento do Azure no escopo raiz podem exibir as alterações de delegação diretamente no portal do Azure.
+
+1. Navegue até a página **meus clientes** e, em seguida, selecione **log de atividades** no menu de navegação à esquerda.
+1. Verifique se a **atividade de diretório** está selecionada no filtro próximo à parte superior da tela.
+
+Uma lista de alterações de delegação será exibida. Você pode selecionar **Editar colunas** para mostrar ou ocultar o **status**, **a categoria de evento**, a **hora**, o carimbo de **data/hora**, a **assinatura**, o **evento iniciado por**, o **grupo de recursos**, o tipo de **recurso**e os valores de **recurso** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

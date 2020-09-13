@@ -3,12 +3,12 @@ title: Monitoramento e registro em log – Azure
 description: Este artigo fornece uma visão geral da análise de vídeo ao vivo em IoT Edge monitoramento e registro em log.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: ef00517fc61ac532bdd99c1e887dfd93d56a8c4f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934286"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567547"
 ---
 # <a name="monitoring-and-logging"></a>Monitoramento e registro em log
 
@@ -20,7 +20,8 @@ Você também aprenderá como é possível controlar os logs gerados pelo módul
 
 A análise de vídeo ao vivo em IoT Edge emite eventos ou dados de telemetria de acordo com a taxonomia a seguir.
 
-![Análise de vídeo ao vivo em IoT Edge esquema de telemetria](./media/telemetry-schema/taxonomy.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/telemetry-schema/taxonomy.png" alt-text="Taxonomia de eventos":::
 
 * Operacional: eventos gerados como parte das ações executadas por um usuário ou durante a execução de um [grafo de mídia](media-graph-concept.md).
    
@@ -71,6 +72,7 @@ A análise de vídeo ao vivo em IoT Edge emite eventos ou dados de telemetria de
    * Exemplos:
       
       Movimento detectado (abaixo), resultado da inferência.
+
    ```      
    {
      "body": {
@@ -98,15 +100,19 @@ A análise de vídeo ao vivo em IoT Edge emite eventos ou dados de telemetria de
      }
    }
    ```
+
 Os eventos emitidos pelo módulo são enviados para o [Hub de IOT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)e, daí, podem ser roteados para outros destinos. 
 
 ### <a name="timestamps-in-analytic-events"></a>Carimbos de data/hora em eventos analíticos
+
 Conforme indicado acima, os eventos gerados como parte da análise de vídeo têm um carimbo de data/hora associado a eles. Se você [gravou o vídeo ao vivo](video-recording-concept.md) como parte da sua topologia de grafo, esse carimbo de data/hora o ajuda a localizar onde ocorreu o evento em questão no vídeo gravado. Veja a seguir as diretrizes sobre como mapear o carimbo de data/hora em um evento analítico para a linha do tempo do vídeo gravado em um [ativo de serviço de mídia do Azure](terminology.md#asset).
 
 Primeiro, extraia o `eventTime` valor. Use esse valor em um [filtro de intervalo de tempo](playback-recordings-how-to.md#time-range-filters) para recuperar uma parte adequada da gravação. Por exemplo, talvez você queira buscar vídeo que comece 30 segundos antes `eventTime` e termine 30 segundos depois. Com o exemplo acima, em que `eventTime` é 2020-05-12T23:33:09.381 z, uma solicitação para um manifesto do HLS para a janela +/-30s seria semelhante ao seguinte:
+
 ```
 https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
 ```
+
 A URL acima retornaria uma chamada de [playlist mestre](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming), contendo URLs para listas de reprodução de mídia. A playlist de mídia conterá entradas semelhantes às seguintes:
 
 ```
@@ -158,7 +164,7 @@ Os eventos originam-se no dispositivo de borda e podem ser consumidos na borda o
 
 Cada evento, quando observado por meio do Hub IoT, terá um conjunto de propriedades comuns, conforme descrito abaixo.
 
-|Propriedade   |Tipo de propriedade| Tipo de Dados   |DESCRIÇÃO|
+|Propriedade   |Tipo de propriedade| Tipo de Dados   |Descrição|
 |---|---|---|---|
 |message-id |sistema |guid|  ID de evento exclusivo.|
 |topic| applicationproperty |string|    Azure Resource Manager caminho para a conta dos serviços de mídia.|

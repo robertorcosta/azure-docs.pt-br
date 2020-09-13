@@ -1,19 +1,19 @@
 ---
 title: Conecte-se em particular a um aplicativo Web usando o Ponto de extremidade privado do Azure
-description: Conecte-se em particular a um aplicativo Web usando o Ponto de extremidade privado do Azure
+description: Este artigo explica como se conectar de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 09/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d547546c3c0e0bbcdde65a654bf373ab7407be3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737386"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569434"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Conectar-se de forma privada a um aplicativo Web usando o ponto de extremidade privado do Azure (versão prévia)
 
@@ -39,7 +39,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 
 1. No lado superior esquerdo da tela, selecione **criar um recurso**  >  **rede**  >  **Virtual Network** ou Pesquisar **rede virtual** na caixa de pesquisa.
 
-1. Em **criar rede virtual**, insira ou selecione essas informações na guia noções básicas:
+1. Em **Criar rede virtual**, insira ou selecione estas informações na guia Básico:
 
    > [!div class="mx-imgBorder"]
    > ![Criar rede virtual][1]
@@ -65,7 +65,7 @@ Nesta seção, você criará uma rede virtual e uma sub-rede.
 1. Em Criar uma máquina virtual – Noções básicas, insira ou selecione estas informações:
 
    > [!div class="mx-imgBorder"]
-   >![Máquina virtual básica][4]
+   >![Máquina virtual básica ][4]
 
 1. Selecione **"Avançar: discos"**
 
@@ -94,7 +94,7 @@ Nesta seção, você criará um aplicativo Web privado usando um ponto de extrem
 1. Em criar aplicativo Web-noções básicas, insira ou selecione estas informações:
 
    > [!div class="mx-imgBorder"]
-   >![Aplicativo Web básico][6]
+   >![Aplicativo Web básico ][6]
 
 1. Selecione **"revisar + criar"**
 
@@ -138,13 +138,13 @@ Nesta seção, você criará um aplicativo Web privado usando um ponto de extrem
 
 1. Abra o arquivo. rdp baixado.
 
-- Se solicitado, selecione Conectar.
-- Insira o nome de usuário e a senha que você especificou ao criar a VM.
+   - Se solicitado, selecione Conectar.
+   - Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
-> [!Note]
-> Talvez seja necessário selecionar mais escolhas > usar uma conta diferente, para especificar as credenciais inseridas quando você criou a VM.
+   > [!Note]
+   > Talvez seja necessário selecionar mais escolhas > usar uma conta diferente, para especificar as credenciais inseridas quando você criou a VM.
 
-- Selecione OK.
+   - Selecione OK.
 
 1. Você pode receber um aviso do certificado durante o processo de logon. Se você receber um aviso de certificado, selecione Sim ou Continuar.
 
@@ -174,12 +174,21 @@ Nesta seção, você se conectará de forma privada ao aplicativo Web usando o p
 1. No myVM, verifique se o aplicativo Web não está acessível por meio do IP público. Abra um navegador e cole o nome do aplicativo Web, você deve ter uma página de erro 403 Proibido
 
    > [!div class="mx-imgBorder"]
-   >![Proibido][17]
+   >![erro proibido ao tentar usar o endereço IP][17]
 
-> [!Important]
-> Como esse recurso está em versão prévia, você precisa gerenciar manualmente a entrada DNS.
+   > [!Important]
+   > Como esse recurso está em versão prévia, você precisa gerenciar manualmente a entrada DNS.
 
-1. Criar a entrada de host, abrir o explorador de arquivos e localizar o arquivo de hosts
+   Para o DNS, você tem duas opções:
+   - usar o arquivo de host da VM 
+   - ou use o serviço de zona privada do DNS do Azure.
+
+1. Primeira solução: você pode criar uma zona privada DNS chamada privatelink.azurewebsites.net e vinculá-la à VNet
+1. Em seguida, você precisa criar os dois registros A (nome do aplicativo e nome do SCM) com o endereço IP do seu ponto de extremidade privado
+   > [!div class="mx-imgBorder"]
+   >![Registros de zona privada DNS][21]
+
+1. Segunda solução: criar a entrada de host, abrir o explorador de arquivos e localizar o arquivo de hosts
 
    > [!div class="mx-imgBorder"]
    >![Arquivo de hosts][18]
@@ -189,7 +198,7 @@ Nesta seção, você se conectará de forma privada ao aplicativo Web usando o p
    > [!div class="mx-imgBorder"]
    >![Hospeda conteúdo][19]
 
-1. Salvar o arquivo
+1. Salve o arquivo
 
 1. Abra um navegador e digite a URL do seu aplicativo Web
 
@@ -214,7 +223,7 @@ Neste guia de início rápido, você criou uma VM em uma rede virtual, um aplica
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
 [2]: ./media/create-private-endpoint-webapp-portal/ipaddresses.png
 [3]: ./media/create-private-endpoint-webapp-portal/subnet.png
-[4]: ./media/create-private-endpoint-webapp-portal/virtualmachine.png
+[4]: ./media/create-private-endpoint-webapp-portal/virtual-machine.png
 [5]: ./media/create-private-endpoint-webapp-portal/vmnetwork.png
 [6]: ./media/create-private-endpoint-webapp-portal/webapp.png
 [7]: ./media/create-private-endpoint-webapp-portal/webappnetworking.png
@@ -231,6 +240,8 @@ Neste guia de início rápido, você criou uma VM em uma rede virtual, um aplica
 [18]: ./media/create-private-endpoint-webapp-portal/explorer.png
 [19]: ./media/create-private-endpoint-webapp-portal/hosts.png
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
+[21]: ./media/create-private-endpoint-webapp-portal/dns-private-zone-records.png
+
 
 <!--Links-->
 [privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
