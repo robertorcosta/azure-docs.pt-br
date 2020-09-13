@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: f08352d4a79b8c27b2c163516f44edf578fbe3a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c930636f9af45edc66670c3f757333fef8e8756e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092636"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458817"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de desativação da família 1 de SO convidados
 A desativação da família 1 do sistema operacional foi anunciada em 1º de junho de 2013.
@@ -32,7 +32,7 @@ Os Serviços de Nuvem são afetados se qualquer uma das opções a seguir se apl
 2. Você não tem um valor para osFamily especificado explicitamente no arquivo ServiceConfiguration.cscfg para seu serviço de nuvem. Atualmente, o sistema usa o valor padrão de "1" nesse caso.
 3. O Portal do Azure lista o valor da família do Sistema Operacional Convidado como "Windows Server 2008".
 
-Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azure/) primeiro. Para saber mais sobre o script, confira [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](https://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx).
+Para definir quais dos serviços de nuvem estão executando qual família de SO, execute o script a seguir no Azure PowerShell, embora você deva [configurar o Azure PowerShell](/powershell/azure/) primeiro. Para saber mais sobre o script, confira [Fim da vida útil da família 1 dos sistemas operacionais convidados do Azure: junho de 2014](https://docs.microsoft.com/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

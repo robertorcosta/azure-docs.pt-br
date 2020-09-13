@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542952"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458613"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
@@ -83,7 +83,7 @@ O [Banco de Dados SQL do Azure](../../azure-sql/database/sql-database-paas-overv
 
 #### <a name="transparent-data-encryption"></a>Criptografia de Dados Transparente
 
-A [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é usada para criptografar arquivos de dados do [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Banco de Dados SQL do Azure](../../azure-sql/database/sql-database-paas-overview.md) e [SQL Data Warehouse do Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real usando uma DEK (chave de criptografia de banco de dados), que é armazenada no registro de inicialização do banco de dados para disponibilidade durante a recuperação.
+O [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) é usado para criptografar [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), banco de dados [SQL do Azure](../../azure-sql/database/sql-database-paas-overview.md)e arquivos de data do [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em tempo real, usando uma chave de criptografia de banco de dados (Dek), que é armazenada no registro de inicialização do banco de dados para disponibilidade durante a recuperação.
 
 A TDE protege dados e arquivos de log usando os algoritmos de criptografia AES e 3DES (DES triplo). A criptografia do arquivo de banco de dados é executada em nível de página. As páginas de um banco de dados criptografado são criptografadas antes de serem gravadas em disco e são descriptografadas quando lidas na memória. A TDE agora é habilitada por padrão em bancos de dados SQL do Azure recentemente criados.
 

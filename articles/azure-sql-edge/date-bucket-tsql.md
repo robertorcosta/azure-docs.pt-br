@@ -8,28 +8,26 @@ ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2019
-ms.openlocfilehash: c2f63abeb9f935236b4c35decb278eb86e0e2a82
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 09/03/2020
+ms.openlocfilehash: 63b7ad84b0866c91e84007a188b82de65983790f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233290"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458843"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (T-SQL)
 
-Essa função retorna o valor de data e hora correspondente ao início de cada bucket datetime, desde o valor de origem padrão de `1900-01-01 00:00:00.000`.
+Essa função retorna o valor DateTime correspondente ao início de cada bucket DateTime, do carimbo de data/hora definido pelo `origin` parâmetro ou o valor de origem padrão de `1900-01-01 00:00:00.000` se o parâmetro Origin não for especificado. 
 
 Confira [Tipos e funções de data e hora do &#40;T-SQL&#41;](/sql/t-sql/functions/date-and-time-data-types-and-functions-transact-sql/) para ter uma visão geral de todos os tipos e funções de data e hora do T-SQL.
 
 [Convenções de sintaxe Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql/)
 
-`DATE_BUCKET` usa um valor de data de origem padrão de `1900-01-01 00:00:00.000`, ou seja, 12:00 de segunda-feira, 1 de janeiro de 1900.
-
 ## <a name="syntax"></a>Sintaxe
 
 ```sql
-DATE_BUCKET (datePart, number, date)
+DATE_BUCKET (datePart, number, date, origin)
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -52,7 +50,7 @@ A parte da *data* que é usada com o parâmetro 'number'. Ex.: ano, mês, minuto
 
 *number*
 
-O número inteiro que decide a largura do bucket combinado com o argumento *datePart*. Isso representa a largura dos buckets de datePart da hora de origem. **`This argument cannot be a negative integer value`** . 
+O número inteiro que decide a largura do bucket combinado com o argumento *datePart*. Isso representa a largura dos buckets de datePart da hora de origem. **`This argument cannot be a negative integer value`**. 
 
 *date*
 
@@ -66,6 +64,21 @@ Uma expressão que pode resolver um dos seguintes valores:
 + **time**
 
 Para *date*, `DATE_BUCKET` aceitará uma expressão de coluna, expressão ou variável definida pelo usuário se elas resolverem para qualquer um dos tipos de dados mencionados acima.
+
+**Origem** 
+
+Uma expressão opcional que pode ser resolvida para um dos seguintes valores:
+
++ **date**
++ **datetime**
++ **datetimeoffset**
++ **datetime2**
++ **smalldatetime**
++ **time**
+
+O tipo de dados para `Origin` deve corresponder ao tipo de dados do `Date` parâmetro. 
+
+`DATE_BUCKET` usa um valor de data de origem padrão de, `1900-01-01 00:00:00.000` ou seja, 12:00 am na segunda-feira, 1 1900 de Janeiro, se nenhum valor de origem for especificado para a função.
 
 ## <a name="return-type"></a>Tipo de retorno
 
@@ -92,11 +105,19 @@ Select DATE_BUCKET(wk, 4, @date)
 Select DATE_BUCKET(wk, 6, @date)
 ```
 
-A saída da expressão abaixo, que é de 6275 semanas da hora de origem.
+A saída para a expressão abaixo é `2020-04-06 00:00:00.0000000` , que é de 6275 semanas a partir da hora de origem padrão `1900-01-01 00:00:00.000` .
 
 ```sql
 declare @date datetime2 = '2020-04-15 21:22:11'
 Select DATE_BUCKET(wk, 5, @date)
+```
+
+A saída para a expressão abaixo é `2020-06-09 00:00:00.0000000` , que é de 75 semanas a partir do tempo de origem especificado `2019-01-01 00:00:00` .
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(wk, 5, @date, @origin)
 ```
 
 ## <a name="datepart-argument"></a>Argumento datepart
@@ -126,6 +147,10 @@ Invalid bucket width value passed to date_bucket function. Only positive values 
 ```sql
 Select DATE_BUCKET(dd, 10, SYSUTCDATETIME())
 ```
+
+## <a name="origin-argument"></a>Argumento de origem  
+
+O tipo de dados dos `origin` `date` argumentos e em deve ser o mesmo. Se tipos de dados diferentes forem usados, um erro será gerado.
 
 ## <a name="remarks"></a>Comentários
 
@@ -268,6 +293,15 @@ Where ShipDate between '2011-01-03 00:00:00.000' and '2011-02-28 00:00:00.000'
 order by DateBucket
 GO  
 ``` 
+### <a name="c-using-a-non-default-origin-value"></a>C. Usando um valor de origem não padrão
+
+Este exemplo usa um valor de orgin não padrão para gerar os buckets de data. 
+
+```sql
+declare @date datetime2 = '2020-06-15 21:22:11'
+declare @origin datetime2 = '2019-01-01 00:00:00'
+Select DATE_BUCKET(hh, 2, @date, @origin)
+```
 
 ## <a name="see-also"></a>Confira também
 
