@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526373"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006067"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
 
@@ -125,8 +125,16 @@ No Azure AD, é possível definir quem estará no escopo de provisionamento com 
    |phoneNumbers[type eq "fax"].value|String|
    |externalId|String|
    |preferredLanguage|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Manager|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Department|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Division|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. Organization|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. costCenter|String|
+   |urn: SCIM: esquemas: extensão: Enterprise: 1.0. employeeNumber|String|
+   |urn: SCIM: esquemas: extensão: Facebook: auth_method: 1.0: auth_method|String|
+   |urn: SCIM: esquemas: extensão: Facebook: frente: 1.0. is_frontline|Booliano|
+   |urn: SCIM: esquemas: extensão: Facebook: starttermdates: 1.0. startDate|Integer|
+
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,6 +161,10 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 *  Se você vir um usuário não criado com êxito e houver um evento de log de auditoria com o código "1789003", isso significa que o usuário é de um domínio não verificado.
+
+## <a name="change-log"></a>Log de alterações
+
+* 09/10/2020-suporte adicionado para os atributos corporativos "divisão", "organização", "costCenter" e "employeeNumber". Suporte adicionado para atributos personalizados "startDate", "auth_method" e "frente"
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
