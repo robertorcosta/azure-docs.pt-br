@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 09/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 16f7a1481b15f280995bb71fa9e30ed3a129ab6d
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635793"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612624"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL usando o Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Versão atual](connector-mysql.md)
@@ -66,7 +67,9 @@ Uma cadeia de conexão válida é `Server=<server>;Port=<port>;Database=<databas
 
 | Propriedade | Descrição | Opções | Obrigatório |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Esta opção especifica se o driver usa criptografia e verificação TLS ao se conectar ao MySQL. Por exemplo, `SSLMode=<0/1/2/3/4>`| DESATIVADO (0) / PREFERENCIAL (1) **(padrão)** / NECESSÁRIO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
+| SSLMode | Esta opção especifica se o driver usa criptografia e verificação TLS ao se conectar ao MySQL. Por exemplo,  `SSLMode=<0/1/2/3/4>` .| DESATIVADO (0) / PREFERENCIAL (1) **(padrão)** / NECESSÁRIO (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Não |
+| SSLCert | O caminho completo e o nome de um arquivo. pem que contém o certificado SSL usado para provar a identidade do cliente. <br/> Para especificar uma chave privada para criptografar esse certificado antes de enviá-lo para o servidor, use a `SSLKey` propriedade.| | Sim, se estiver usando a verificação de SSL bidirecional. |
+| SSLKey | O caminho completo e o nome de um arquivo que contém a chave privada usada para criptografar o certificado do lado do cliente durante a verificação de SSL bidirecional.|  | Sim, se estiver usando a verificação de SSL bidirecional. |
 | UseSystemTrustStore | Esta opção especifica se deve usar um certificado de autoridade de certificação do repositório de confiança de sistema ou de um arquivo PEM especificado. Por ex.: `UseSystemTrustStore=<0/1>;`| Ativado (1) / Desativado (0) **(Padrão)** | Não |
 
 **Exemplo:**
@@ -168,7 +171,7 @@ Para copiar dados do MySQL, há suporte para as seguintes propriedades:
 }
 ```
 
-Se você estava usando o conjunto de dados com tipos `RelationalTable`, ele ainda tem suporte como se encontra, mas é recomendável empregar o novo de agora em diante.
+Se você estava usando o conjunto de dados com tipos `RelationalTable`, ele ainda tem suporte como está, mas é recomendável usar o novo de agora em diante.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 

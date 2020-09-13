@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808103"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595703"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurar Serviço de Aplicativo com Gateway de Aplicativo
 
@@ -23,10 +23,8 @@ O gateway de aplicativo fornece uma opção chamada `Pick host name from backend
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
->
-> - Criar um pool de back-end e adicionar um serviço de aplicativo a ele
-> - Criar configurações de HTTP e investigação personalizada com opções "escolher nome do host" habilitadas
+- Criar um pool de back-end e adicionar um serviço de aplicativo a ele
+- Criar configurações de HTTP e investigação personalizada com opções "escolher nome do host" habilitadas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,7 +41,7 @@ Neste artigo, você aprenderá como:
 
 4. Em **destinos**, clique na lista suspensa e escolha **serviços de aplicativos** como a opção.
 
-5. Uma lista suspensa logo abaixo da lista suspensa **destinos** aparecerá, que conterá uma List dos serviços de aplicativo. Nessa lista suspensa, escolha o serviço de aplicativo que você deseja adicionar como um membro do pool de back-end e clique em Adicionar.
+5. Uma lista suspensa logo abaixo da lista suspensa **destinos**  aparecerá, que conterá uma List dos serviços de aplicativo. Nessa lista suspensa, escolha o serviço de aplicativo que você deseja adicionar como um membro do pool de back-end e clique em Adicionar.
 
    ![Back-end do serviço de aplicativo](./media/configure-web-app-portal/backendpool.png)
    
@@ -61,9 +59,9 @@ Neste artigo, você aprenderá como:
    > [!NOTE]
    > Se você selecionar HTTPS, não será necessário carregar nenhum certificado de autenticação ou certificado raiz confiável para permitir o back-end do serviço de aplicativo, pois o serviço de aplicativo é um serviço do Azure confiável.
 
-4. Marque a caixa para **uso do serviço de aplicativo** . Observe que os comutadores `Create a probe with pick host name from backend address` e `Pick host name from backend address` serão habilitados automaticamente.`Pick host name from backend address` substituirá o cabeçalho de host na solicitação pelo nome do host do back-end quando a solicitação for roteada do gateway de aplicativo para o back-end.  
+4. Marque a caixa para **uso do serviço de aplicativo** . Observe que os comutadores  `Create a probe with pick host name from backend address` e `Pick host name from backend address` serão habilitados automaticamente.`Pick host name from backend address` substituirá o cabeçalho de host na solicitação pelo nome do host do back-end quando a solicitação for roteada do gateway de aplicativo para o back-end.  
 
-   `Create a probe with pick host name from backend address`criará automaticamente uma investigação de integridade e a associará a essa configuração de HTTP. Você não precisa criar nenhuma outra investigação de integridade para essa configuração de HTTP. Você pode verificar se uma nova investigação com o nome foi <HTTP Setting name> <Unique GUID> adicionada na lista de investigações de integridade e se ela já tem a opção `Pick host name from backend http settings enabled` .
+   `Create a probe with pick host name from backend address` criará automaticamente uma investigação de integridade e a associará a essa configuração de HTTP. Você não precisa criar nenhuma outra investigação de integridade para essa configuração de HTTP. Você pode verificar se uma nova investigação com o nome foi <HTTP Setting name> <Unique GUID> adicionada na lista de investigações de integridade e se ela já tem a opção `Pick host name from backend http settings enabled` .
 
    Se você já tiver uma ou mais configurações HTTP que estão sendo usadas para o serviço de aplicativo e se essas configurações de HTTP usarem o mesmo protocolo que o que você está usando no que você está criando, em vez da `Create a probe with pick host name from backend address` opção, você obterá uma lista suspensa para selecionar uma das investigações personalizadas. Isso ocorre porque, como já existe uma configuração HTTP com o serviço de aplicativo, por isso, também existe uma investigação de integridade que tem a opção `Pick host name from backend http settings enabled` . Escolha essa investigação personalizada na lista suspensa.
 

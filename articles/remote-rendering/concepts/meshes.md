@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b800272a538243d39a89e4eed64bc5cbc2d53ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eea43f48abef5e2b258251d46eca1061a2263519
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80681760"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613842"
 ---
 # <a name="meshes"></a>Malhas
 
@@ -37,6 +37,13 @@ A `MeshComponent` classe é usada para posicionar uma instância de um recurso d
 * **Materiais:** A matriz de materiais especificada no próprio componente de malha. A matriz terá sempre o mesmo comprimento que a matriz de *materiais* no recurso de malha. Os materiais que não devem ser substituídos do padrão de malha são definidos como *NULL* nessa matriz.
 
 * **UsedMaterials:** A matriz de materiais realmente usados para cada submalha. Será idêntico aos dados na matriz de *materiais* , para valores não nulos. Caso contrário, ele contém o valor da matriz de *materiais* na instância de malha.
+
+## <a name="api-documentation"></a>Documentação da API
+
+* [Classe de malha C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.mesh)
+* [Classe C# MeshComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.meshcomponent)
+* [Classe de malha C++](https://docs.microsoft.com/cpp/api/remote-rendering/mesh)
+* [Classe C++ MeshComponent](https://docs.microsoft.com/cpp/api/remote-rendering/meshcomponent)
 
 ## <a name="next-steps"></a>Próximas etapas
 
