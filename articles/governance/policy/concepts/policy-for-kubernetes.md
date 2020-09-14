@@ -63,7 +63,7 @@ Antes de instalar o complemento do Azure Policy ou habilitar um dos recursos de 
 
      1. Selecione **Ingressar na Versão Prévia** no lado esquerdo da página Azure Policy.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Captura de tela do nó "visualização de junção" na página de política." border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Captura de tela do nó visualização de junção na página de política." border="false":::
 
      1. Selecione a linha da assinatura que você deseja adicionar à versão prévia.
 
