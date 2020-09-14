@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270998"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052368"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemas conhecidos: provisionamento de aplicativos
 Problemas conhecidos que você deve estar atento ao trabalhar com o provisionamento de aplicativos. Você pode fornecer comentários sobre o serviço de provisionamento de aplicativos no UserVoice, confira [UserVoice de provisionamento de aplicativos do Azure ad](https://aka.ms/appprovisioningfeaturerequest). Nós observamos com atenção o UserVoice para que possamos melhorar o serviço. 
@@ -66,7 +66,13 @@ As expressões de mapeamento de atributo podem ter um máximo de 10.000 caracter
 - Não há suporte para o provisionamento de grupos aninhados. 
 - O provisionamento para locatários B2C não tem suporte devido ao tamanho dos locatários. 
 
-**O intervalo de provisionamento é fixo** O [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é configurável no momento. 
+**O provisionamento automático não está disponível no meu aplicativo baseado em OIDC**
+
+Se você criar um registro de aplicativo, a entidade de serviço correspondente nos aplicativos empresariais não será habilitada para o provisionamento automático de usuário. Você precisará solicitar que o aplicativo seja adicionado à galeria, se destinado para uso por várias organizações, ou criar um segundo aplicativo que não seja da galeria para provisionamento. 
+
+**O intervalo de provisionamento é fixo**
+
+O [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) entre os ciclos de provisionamento não é configurável no momento. 
 
 **Alterações que não se movem do aplicativo de destino para o Azure AD**
 

@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee4b15311dfefecd9a533add9c5a028a9b7b22fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8bed0f6cc32c25563d322da77193c5a3b6072902
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051163"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052272"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residência de dados e dados do cliente para Autenticação Multifator do Azure
 
-Os dados do cliente são armazenados pelo Azure AD em um local geográfico com base no endereço fornecido por sua organização ao se inscrever em um serviço Microsoft Online como o Office 365 e o Azure. Para obter informações sobre onde os dados do cliente estão armazenados, você pode usar a seção [Onde seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) do Microsoft Trust Center.
+Os dados do cliente são armazenados pelo Azure AD em uma localização geográfica com base no endereço fornecido pela sua organização ao assinar um serviço online da Microsoft, como o Microsoft 365 e o Azure. Para obter informações sobre onde os dados do cliente estão armazenados, você pode usar a seção [Onde seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) do Microsoft Trust Center.
 
 A Autenticação Multifator do Azure baseada em nuvem e o Servidor de Autenticação Multifator do Azure processam e armazenam uma quantidade de dados pessoais e organizacionais. Este artigo descreve o que são os dados e onde eles são armazenados.
 

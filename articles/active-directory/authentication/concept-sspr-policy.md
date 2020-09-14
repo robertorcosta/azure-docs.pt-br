@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005013"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052708"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de senha e restrições de conta no Azure Active Directory
 
@@ -108,7 +108,7 @@ Um administrador *global* ou *administrador de usuários* pode usar o [módulo M
 
 Você também pode usar os cmdlets do PowerShell para remover a configuração nunca expira ou para ver quais senhas de usuário estão definidas para nunca expirar.
 
-Esta instrução se aplica a outros provedores, como o Intune e o Office 365, que também dependem do Azure AD para serviços de identidade e diretório. A expiração da senha é a única parte da política que pode ser alterada.
+Essa orientação se aplica a outros provedores, como o Intune e Microsoft 365, que também dependem do Azure AD para serviços de identidade e diretório. A expiração da senha é a única parte da política que pode ser alterada.
 
 > [!NOTE]
 > Somente as senhas para contas de usuário que não são sincronizadas por meio do Azure AD Connect podem ser configuradas para não expirar. Para saber mais sobre a sincronização de diretório, confira [Conectar AD ao Azure AD](../hybrid/whatis-hybrid-identity.md).

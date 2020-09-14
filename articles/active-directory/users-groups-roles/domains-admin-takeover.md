@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ccf986f81ec3abed54c85640b8afb1c5cf7172
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015877"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054697"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 
@@ -34,7 +34,7 @@ Durante o processo de controle do administrador, você pode comprovar a propried
 
 ## <a name="internal-admin-takeover"></a>Assumir como administrador interno
 
-Alguns produtos que incluem o SharePoint e OneDrive, como o Office 365, não dão suporte a controle externo. Se esse for o seu cenário, ou se você for um administrador e quiser assumir uma organização não gerenciada ou "sombra" do Azure AD criada por usuários que usaram inscrição de autoatendimento, você pode fazer isso com um tomada de administrador interno.
+Alguns produtos que incluem o SharePoint e o OneDrive, como Microsoft 365, não dão suporte a tomada externos. Se esse for o seu cenário, ou se você for um administrador e quiser assumir uma organização não gerenciada ou "sombra" do Azure AD criada por usuários que usaram inscrição de autoatendimento, você pode fazer isso com um tomada de administrador interno.
 
 1. Crie um contexto de usuário na organização não gerenciada por meio da inscrição para Power BI. Para fins de conveniência do exemplo, essas etapas pressupõem esse caminho.
 
@@ -52,7 +52,7 @@ Alguns produtos que incluem o SharePoint e OneDrive, como o Office 365, não dã
 
 Quando os registros TXT do DNS são verificados no seu registrador de nome de domínio, você pode gerenciar a organização do Azure AD.
 
-Ao concluir as etapas anteriores, agora você é o administrador global da Fourth Coffee Organization in Office 365. Para integrar o nome de domínio com seus outros serviços do Azure, você pode removê-lo do Office 365 e adicioná-lo a uma organização gerenciada diferente no Azure.
+Ao concluir as etapas anteriores, agora você é o administrador global da Fourth Coffee em Microsoft 365. Para integrar o nome de domínio com seus outros serviços do Azure, você pode removê-lo de Microsoft 365 e adicioná-lo a uma organização gerenciada diferente no Azure.
 
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Adicionando o nome de domínio a uma organização gerenciada no Azure AD
 
@@ -61,9 +61,9 @@ Ao concluir as etapas anteriores, agora você é o administrador global da Fourt
 3. Verifique se a nova conta de usuário tem privilégios de administrador global para a organização do Azure AD.
 4. Abra a guia **domínios** no centro de administração Microsoft 365, selecione o nome de domínio e selecione **remover**. 
   
-   ![remover o nome de domínio do Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![Remover o nome de domínio de Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Se você tiver usuários ou grupos no Office 365 que fazem referência ao nome de domínio removido, eles deverão ser renomeados para o domínio .onmicrosoft.com. Se você forçar a exclusão do nome de domínio, todos os usuários serão automaticamente renomeados, neste exemplo, para o *usuário \@ fourthcoffeexyz.onmicrosoft.com*.
+5. Se você tiver usuários ou grupos em Microsoft 365 que referenciem o nome de domínio removido, eles deverão ser renomeados para o domínio. onmicrosoft.com. Se você forçar a exclusão do nome de domínio, todos os usuários serão automaticamente renomeados, neste exemplo, para o *usuário \@ fourthcoffeexyz.onmicrosoft.com*.
   
 6. Entre no centro de [Administração do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que seja o administrador global da organização do Azure AD.
   
@@ -72,11 +72,11 @@ Ao concluir as etapas anteriores, agora você é o administrador global da Fourt
    ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas na organização do Office 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como o *usuário \@ fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário \@ fourthcoffee. xyz*.
+> Qualquer usuário do Power BI ou serviço de Rights Management do Azure que tenha licenças atribuídas na organização Microsoft 365 deverá salvar seus painéis se o nome de domínio for removido. Eles devem entrar com um nome de usuário como o *usuário \@ fourthcoffeexyz.onmicrosoft.com* , em vez de *usuário \@ fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Assumir como administrador externo
 
-Se você já gerencia uma organização com os serviços do Azure ou o Office 365, não é possível adicionar um nome de domínio personalizado se ele já estiver verificado em outra organização do Azure AD. No entanto, de sua organização gerenciada no Azure AD, você pode assumir uma organização não gerenciada como um tomada de administrador externo. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
+Se você já gerencia uma organização com os serviços do Azure ou Microsoft 365, não será possível adicionar um nome de domínio personalizado se ele já estiver verificado em outra organização do Azure AD. No entanto, de sua organização gerenciada no Azure AD, você pode assumir uma organização não gerenciada como um tomada de administrador externo. O procedimento geral segue o artigo [Adicionar um domínio personalizado ao Azure AD](../fundamentals/add-custom-domain.md).
 
 Quando você verifica a propriedade do nome de domínio, o Azure AD remove o nome de domínio da organização não gerenciada e o move para a sua organização existente. O controle de administrador externo de um diretório não gerenciado requer o mesmo processo de validação de TXT do DNS que o controle de administrador interno. A diferença é que os itens a seguir também são movidos com o nome de domínio:
 
@@ -120,7 +120,7 @@ cmdlet | Uso
 `new-msoldomain –name <domainname>` | Adiciona o nome de domínio à organização como não verificado (nenhuma verificação de DNS foi executada ainda).
 `get-msoldomain` | O nome de domínio agora está incluído na lista de nomes de domínio associados à sua organização gerenciada, mas está listado como não **verificado**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornece informações que serão colocadas no novo registro TXT do DNS para o domínio (MS=xxxxx). A verificação pode não acontecer imediatamente porque demora algum tempo para o registro TXT se propagar, portanto, aguarde alguns minutos antes de considerar a opção **-ForceTakeover**. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se seu nome de domínio ainda não foi verificado, você pode prosseguir com a opção **-ForceTakeover**. Ele verifica se o registro TXT foi criado e inicia o processo de tomada de controle.<li>A opção **-ForceTakeover** deve ser adicionada ao cmdlet somente ao forçar um tomada de administrador externo, como quando a organização não gerenciada tem os serviços do Office 365 bloqueando o tomada.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se seu nome de domínio ainda não foi verificado, você pode prosseguir com a opção **-ForceTakeover**. Ele verifica se o registro TXT foi criado e inicia o processo de tomada de controle.<li>A opção **-ForceTakeover** deve ser adicionada ao cmdlet somente ao forçar um tomada de administrador externo, como quando a organização não gerenciada tem Microsoft 365 serviços bloqueando o tomada.
 `get-msoldomain` | A lista de domínios agora mostra o nome de domínio como **Verificado**.
 
 > [!NOTE]

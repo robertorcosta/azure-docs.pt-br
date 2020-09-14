@@ -2,16 +2,19 @@
 title: Use uma galeria de imagens compartilhadas no Azure Lab Services | Microsoft Docs
 description: Saiba como configurar uma conta de laboratório para usar uma galeria de imagens compartilhadas para que um usuário possa compartilhar uma imagem com outra e outro usuário possa usar a imagem para criar uma VM modelo no laboratório.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 4dc001a5e4c95db608c38f0a7c00190fd1859998
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/11/2020
+ms.openlocfilehash: 04e3764b095706d091bb72baaae77f5a4016fd28
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445144"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052827"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usar uma galeria de imagens compartilhadas no Azure Lab Services
 Este artigo mostra como educadores/administradores de laboratório podem salvar um modelo de imagem de máquina virtual em uma [galeria de imagens compartilhada](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) para que ela possa ser usada por outras pessoas para criar laboratórios. 
+
+> [!IMPORTANT]
+> Ao usar uma galeria de imagens compartilhadas, o Azure Lab Services dá suporte apenas a imagens com menos de 128 GB de espaço em disco do sistema operacional. Imagens com mais de 128 GB de espaço em disco ou vários discos não serão mostradas na lista de imagens de máquina virtual durante a criação do laboratório.
 
 ## <a name="scenarios"></a>Cenários
 Aqui estão alguns dos cenários aos quais esse recurso dá suporte: 

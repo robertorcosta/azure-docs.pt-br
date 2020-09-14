@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e294aa2580dd9f0cceb539a2696e7ebbf08c4afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829a82cb94e5c2a7e7cbc9190047c368299612cd
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051003"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052742"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Recursos e Licenças para a Autenticação Multifator do Azure
 
@@ -41,7 +41,7 @@ A Autenticação Multifator do Azure pode ser usada e licenciada de algumas mane
 
 A tabela a seguir fornece uma lista dos recursos que estão disponíveis em várias versões do Autenticação Multifator do Azure. Planeje suas necessidades para proteger a autenticação do usuário e, em seguida, determine qual abordagem atende a esses requisitos. Por exemplo, embora o Azure AD Gratuito forneça padrões de segurança que forneçam a Autenticação Multifator do Azure, somente o aplicativo do autenticador móvel pode ser usado para o prompt de autenticação, não para uma chamada telefônica ou SMS. Essa abordagem pode ser uma limitação se você não puder garantir que o aplicativo de autenticação móvel esteja instalado no dispositivo pessoal de um usuário.
 
-| Recurso | Azure AD Gratuito - padrões de segurança | Azure AD Gratuito - Administradores Globais do Azure AD | Aplicativos do Office 365 | O Azure AD Premium P1 ou P2 |
+| Recurso | Azure AD Gratuito - padrões de segurança | Azure AD Gratuito - Administradores Globais do Azure AD | Aplicativos do Microsoft 365 | O Azure AD Premium P1 ou P2 |
 | --- |:---:|:---:|:---:|:---:|
 | Proteger contas de administrador de locatário do Azure AD com MFA | ● | ● (Apenas para contas de *Administrador Global do Azure AD*) | ● | ● |
 | Aplicativos móveis como um fator secundário | ● | ● | ● | ● |
@@ -58,11 +58,11 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>Comprar e habilitar a Autenticação Multifator do Microsoft Azure
 
-Para usar a Autenticação Multifator do Azure, inscreva-se ou compre uma camada qualificada do Azure AD. O Azure AD vem em quatro edições: aplicativos gratuitos, do Office 365, Premium P1 e Premium P2.
+Para usar a Autenticação Multifator do Azure, inscreva-se ou compre uma camada qualificada do Azure AD. O Azure AD vem em quatro edições: aplicativos gratuitos, Microsoft 365, Premium P1 e Premium P2.
 
 A edição gratuita é fornecida com uma assinatura do Azure. Confira a [seção abaixo](#azure-ad-free-tier) para saber mais sobre como usar padrões de segurança ou proteger contas com a função de *Administrador global do Azure AD*.
 
-As edições do Azure AD Premium estão disponíveis por meio de um representante da Microsoft, o [Programa de Licenciamento Open Volume](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) e o [programa Provedores de Soluções de Nuvem](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). Os assinantes do Azure e do Microsoft 365 também podem comprar Azure Active Directory Premium P1 e P2 online. [Entrar](https://portal.office.com/Commerce/Catalog.aspx) para comprar.
+As edições do Azure AD Premium estão disponíveis por meio de um representante da Microsoft, o [Programa de Licenciamento Open Volume](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) e o [programa Provedores de Soluções de Nuvem](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). Os assinantes do Azure e do Microsoft 365 também podem comprar o Azure Active Directory Premium P1 e P2 online. [Entrar](https://portal.office.com/Commerce/Catalog.aspx) para comprar.
 
 Depois de adquirir a camada necessária do Azure AD, [planeje e implante a Autenticação Multifator do Azure](howto-mfa-getstarted.md).
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377192"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052767"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -39,7 +39,7 @@ Um usuário pode redefinir ou alterar sua senha usando o [portal do SSPR](https:
 
 Quando um usuário seleciona o link **não consegue acessar sua conta** de um aplicativo ou uma página, ou vai diretamente para [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) o, o idioma usado no portal do SSPR é baseado nas seguintes opções:
 
-* Por padrão, a localidade do navegador é usada para exibir o SSPR no idioma apropriado. A experiência de redefinição de senha é localizada nos mesmos idiomas aos quais o [Office 365 dá suporte](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
+* Por padrão, a localidade do navegador é usada para exibir o SSPR no idioma apropriado. A experiência de redefinição de senha é localizada nos mesmos idiomas [aos quais Microsoft 365 dá suporte](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * Se você quiser vincular ao SSPR em um idioma localizado específico, acrescente `?mkt=` ao final da URL de redefinição de senha junto com a localidade necessária.
     * Por exemplo, para especificar a localidade *es-US* espanhol, use `?mkt=es-us`  -  [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) .
 
@@ -77,7 +77,7 @@ Antes que os usuários possam redefinir ou alterar sua senha usando SSPR, eles d
 
 Você pode habilitar a opção para exigir que um usuário conclua o registro do SSPR se eles entrarem em qualquer aplicativo usando o Azure AD. Esse fluxo de trabalho inclui os seguintes aplicativos:
 
-* Office 365
+* Microsoft 365
 * Portal do Azure
 * Painel de acesso
 * Aplicativos federados
@@ -226,7 +226,7 @@ SSPR executa o equivalente a uma redefinição de senha iniciada pelo administra
 
 A reinicialização e a mudança de senha são totalmente suportadas em todas as configurações B2B (entre empresas). A reinicialização da senha do usuário B2B tem suporte nos três casos a seguir:
 
-* **Usuários de uma organização parceira com um locatário existente do Azure ad**: se a organização com a qual você se parceiro tiver um locatário existente do AD do Azure, respeitaremos quaisquer políticas de redefinição de senha habilitadas nesse locatário. Para que a reinicialização da senha funcione, a organização parceira precisa ter certeza de que a SSPR do Azure Active Directory está habilitada. Não há custo adicional para os clientes do Office 365.
+* **Usuários de uma organização parceira com um locatário existente do Azure ad**: se a organização com a qual você se parceiro tiver um locatário existente do AD do Azure, respeitaremos quaisquer políticas de redefinição de senha habilitadas nesse locatário. Para que a reinicialização da senha funcione, a organização parceira precisa ter certeza de que a SSPR do Azure Active Directory está habilitada. Não há nenhum custo adicional para Microsoft 365 clientes.
 * **Usuários que se inscrevem por meio** de inscrição de autoatendimento: se a organização com a qual você se parceiro usou o recurso de [inscrição de autoatendimento](../users-groups-roles/directory-self-service-signup.md) para entrar em um locatário, permitimos que eles redefinam a senha com o email que eles registraram.
 * **Usuários B2B**: quaisquer novos usuários B2B criados usando os novos [recursos B2B do Azure ad](../external-identities/what-is-b2b.md) também podem redefinir suas senhas com o email que eles registraram durante o processo de convite.
 

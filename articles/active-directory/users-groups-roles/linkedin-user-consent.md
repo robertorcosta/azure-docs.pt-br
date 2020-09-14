@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 5d90391dd5512b08ee6995a32bcd0b0f111b0f2b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542354"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053928"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>Consentimento e compartilhamento de dados de conexões de contas do LinkedIn
 
@@ -73,7 +73,7 @@ Quando você conectar suas contas Microsoft e LinkedIn, permitirá que a Microso
 * Dados do perfil - inclui informações como seu nome, sobrenome, foto de perfil, endereço de e-mail, gerente e as pessoas que você gerencia.
 * Dados do calendário - inclui reuniões em seus calendários, seus tempos, locais e as informações de contato dos participantes. Informações sobre a reunião, como a agenda, o conteúdo ou o título de reunião não estão incluídas nos dados de calendário.
 * Dados de interesse: inclui os interesses associados à sua conta, com base no uso de serviços Microsoft, como o Cortana e Bing para empresas.
-* Dados de assinaturas - inclui assinaturas fornecidas pela sua organização para aplicativos da Microsoft e serviços, como o Office 365.
+* Dados de assinaturas-inclui assinaturas fornecidas pela sua organização para aplicativos e serviços da Microsoft, como Microsoft 365.
 * Dados de contato - inclui listas de contatos no Outlook, Skype e outros serviços de conta da Microsoft, incluindo as informações de contato para as pessoas se comunicam com frequência ou colaboram. Contatos serão periodicamente importados, armazenados e usado pelo LinkedIn, por exemplo, sugerir conexões, ajudar a organizar contatos e mostrar atualizações sobre contatos.
 
 Dados que são acessados da Microsoft não são armazenados permanentemente com o LinkedIn, exceto para contatos. Os Contatos da Microsoft são armazenados no LinkedIn até que os usuários os removem. Saiba mais sobre [excluindo contatos importados do LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).

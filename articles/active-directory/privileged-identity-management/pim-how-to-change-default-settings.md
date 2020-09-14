@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a42cdfbf251e24ed2b59adca1a73b4dfe427a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419998"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055479"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Definir as configurações de função do Azure AD no Privileged Identity Management
 
@@ -123,7 +123,7 @@ Se definir vários Aprovadores, a aprovação será concluída assim que um dele
 
 # <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
-## <a name="open-role-settings"></a>Abrir configurações de função
+## <a name="open-role-settings-previous-version"></a>Abrir configurações de função (versão anterior)
 
 Siga estas etapas para abrir as configurações de uma função do Azure AD.
 
@@ -168,7 +168,7 @@ Use a opção de **tíquete de incidente/solicitação** para exigir que os admi
 Use a opção **Autenticação Multifator** para especificar se os usuários deverão confirmar a identidade com MFA antes de poderem ativar as funções. Eles só precisam verificar sua identidade uma vez por sessão, nem sempre que ativam uma função. Há duas dicas para ter em mente quando você habilita a MFA:
 
 - Os usuários que têm contas da Microsoft para seus endereços de email (normalmente @outlook.com , mas nem sempre) não podem se registrar para a autenticação multifator do Azure. Se você quiser atribuir funções a usuários com contas da Microsoft, você deve torná-los administradores permanentes ou desabilitar a autenticação multifator para essa função.
-- Não é possível desabilitar a autenticação multifator do Azure para funções altamente privilegiadas para o Azure AD e o Office 365. Esse recurso de segurança ajuda a proteger as seguintes funções:  
+- Não é possível desabilitar a autenticação multifator do Azure para funções altamente privilegiadas para o Azure AD e o Microsoft 365. Esse recurso de segurança ajuda a proteger as seguintes funções:  
   
   - Administrador da Proteção de Informações do Azure
   - Administrador de cobrança

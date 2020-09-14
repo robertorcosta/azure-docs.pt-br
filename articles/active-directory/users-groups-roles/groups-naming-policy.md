@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fe5072042553d676c798a32e0ca6fc28e92332d
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213737"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054459"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomenclatura em grupos de Microsoft 365 no Azure Active Directory
 
@@ -174,7 +174,7 @@ Certifique-se de desinstalar qualquer versão anterior do Azure Active Directory
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-É isso. Você definiu sua política de nomenclatura e adicionou suas palavras bloqueadas.
+Isso é tudo. Você definiu sua política de nomenclatura e adicionou suas palavras bloqueadas.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Exportar ou importar palavras bloqueadas personalizadas
 
@@ -229,9 +229,9 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Experiência em aplicativos do Office 365
+## <a name="experience-across-microsoft-365-apps"></a>Experiência em aplicativos Microsoft 365
 
-Depois de definir uma política de nomenclatura de grupo no Azure AD, quando um usuário cria um grupo em um aplicativo do Office 365, ele vê:
+Depois de definir uma política de nomenclatura de grupo no Azure AD, quando um usuário cria um grupo em um aplicativo Microsoft 365, ele vê:
 
 - Uma visualização de nome de acordo com a política de nomenclatura (com prefixos e sufixos) assim que o usuário digitar o nome do grupo
 - Se o usuário inserir palavras bloqueadas, ele verá uma mensagem de erro para que possa remover as palavras bloqueadas.
@@ -252,7 +252,7 @@ School Data Sync (SDS) | Grupos criados por meio de SDS estão em conformidade c
 Gerenciador de clientes do Outlook (OCM) | Gerenciador de clientes do Outlook está em conformidade com a política de nomenclatura, que é aplicada automaticamente para o grupo criado no Gerenciador de clientes do Outlook. Se uma palavra bloqueada personalizada for detectada, criação de grupo no OCM será bloqueada e o usuário será impedido de usar o aplicativo OCM.
 Aplicativo de sala de aula | Grupos criados no aplicativo de sala de aula estão em conformidade com a política de nomenclatura, mas a política de nomenclatura não é aplicada automaticamente, e a visualização de política de nomenclatura não é mostrada para os usuários ao inserir um nome de grupo de sala de aula. Os usuários devem digitar o nome imposto do grupo de sala de aula com prefixos e sufixos. Caso contrário, a operação para criar ou editar o grupo de sala de aula falhará com erros.
 Power BI | Os workspaces do Power BI estão em conformidade com a política de nomenclatura.    
-Yammer | Quando um usuário conectado ao Yammer com sua conta do Azure Active Directory criar um grupo ou editar o nome de um grupo, o nome do grupo estará em conformidade com a política de nomenclatura. Isso se aplica a grupos conectados do Office 365 e a todos os outros grupos do Yammer.<br>Se um grupo conectado do Office 365 tiver sido criado antes da política de nomenclatura ter entrado em vigor, o nome do grupo não seguirá automaticamente as políticas de nomenclatura. Quando um usuário editar o nome do grupo, será solicitado que adicione o prefixo e o sufixo.
+Yammer | Quando um usuário conectado ao Yammer com sua conta do Azure Active Directory criar um grupo ou editar o nome de um grupo, o nome do grupo estará em conformidade com a política de nomenclatura. Isso se aplica a Microsoft 365 grupos conectados e a todos os outros grupos do Yammer.<br>Se um grupo Microsoft 365 conectado tiver sido criado antes da política de nomenclatura estar em vigor, o nome do grupo não seguirá automaticamente as políticas de nomenclatura. Quando um usuário editar o nome do grupo, será solicitado que adicione o prefixo e o sufixo.
 StaffHub  | As equipes do StaffHub não seguem a política de nomenclatura, mas o grupo de Microsoft 365 subjacente faz. O nome da equipe StaffHub não aplica os prefixos e sufixos e não verifica as palavras bloqueadas personalizadas. Mas StaffHub aplica os prefixos e sufixos e remove as palavras bloqueadas do grupo de Microsoft 365 subjacente.
 Exchange PowerShell | Cmdlets do Exchange PowerShell estão em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriado com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se eles não seguem a política de nomenclatura no nome do grupo e o alias de grupo (mailNickname).
 Cmdlets do Azure Active Directory PowerShell | Cmdlets do Azure Active Directory PowerShell estão em conformidade com a política de nomenclatura. Os usuários recebem mensagens de erro apropriado com prefixos e sufixos sugeridos e palavras bloqueadas personalizadas se eles não seguem a convenção de nomenclatura nos nomes do grupo e o alias de grupo.

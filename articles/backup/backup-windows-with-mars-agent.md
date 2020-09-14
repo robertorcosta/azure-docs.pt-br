@@ -3,12 +3,12 @@ title: Fazer backup de computadores Windows usando o agente MARS
 description: Use o agente de Serviços de Recuperação do Microsoft Azure (MARS) para fazer backup de computadores Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 55eb8bdf069fd1b5793468ae52f764eb4288f261
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182081"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052215"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Fazer backup de arquivos e pastas do Windows Server no Azure
 
@@ -125,7 +125,7 @@ Para habilitar a limitação de rede:
 1. Na guia **limitação** , selecione **habilitar limitação de uso de largura de banda da Internet para operações de backup**.
 
     ![Configurar a limitação de rede para operações de backup](./media/backup-configure-vault/throttling-dialog.png)
-1. Especifique a largura de banda permitida durante as horas de trabalho e as horas não úteis. Os valores de largura de banda começam em 512 kbps e vão até 1.023 MBps. Depois, selecione **OK**.
+1. Especifique a largura de banda permitida durante as horas de trabalho e as horas não úteis. Os valores de largura de banda começam em 512 kbps e vão até 1.023 Mbps. Depois, selecione **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Executar um backup sob demanda
 

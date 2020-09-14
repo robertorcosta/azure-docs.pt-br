@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ed286cf2b11429d5f0f56b3a85f173c2a39bc81
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799291"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054544"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurar a política de expiração para grupos de Microsoft 365
 
@@ -42,7 +42,7 @@ Para saber mais sobre como fazer o download e instalar os cmdlets do PowerShell 
 
 ## <a name="activity-based-automatic-renewal"></a>Renovação automática baseada em atividade
 
-Com a inteligência do Azure AD, os grupos agora são renovados automaticamente com base no uso recente. Esse recurso elimina a necessidade de ação manual por proprietários de grupo, pois ele é baseado na atividade do usuário em grupos entre os serviços do Office 365, como o Outlook, o SharePoint ou as equipes. Por exemplo, se um proprietário ou um membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de equipes ou enviar um email para o grupo no Outlook, o grupo será renovado automaticamente e o proprietário não receberá nenhuma notificação de renovação.
+Com a inteligência do Azure AD, os grupos agora são renovados automaticamente com base no uso recente. Esse recurso elimina a necessidade de ação manual por proprietários de grupo, pois ele é baseado na atividade do usuário em grupos entre Microsoft 365 serviços, como o Outlook, o SharePoint ou as equipes. Por exemplo, se um proprietário ou um membro do grupo fizer algo como carregar um documento no SharePoint, visitar um canal de equipes ou enviar um email para o grupo no Outlook, o grupo será renovado automaticamente e o proprietário não receberá nenhuma notificação de renovação.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Atividades que renovam automaticamente a expiração do grupo
 

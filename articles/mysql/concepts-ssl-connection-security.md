@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: ad255b2e03cdecd9a87f1af3ce780ae64535bfa2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 641ff13ec440bb8267e546c54b684ab4453f91a7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495073"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052929"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>Conectividade SSL/TLS no banco de dados do Azure para MySQL
 
@@ -19,6 +19,9 @@ O Banco de Dados do Azure para MySQL dá suporte à conexão de seu servidor de 
 
 > [!NOTE]
 > A atualização do `require_secure_transport` valor do parâmetro de servidor não afeta o comportamento do serviço mysql. Use os recursos de imposição SSL e TLS descritos neste artigo para proteger as conexões com seu banco de dados.
+
+> [!IMPORTANT] 
+> O certificado raiz SSL está definido para expirar a partir de 26 de outubro, 2020 (10/26/2020). Atualize seu aplicativo para usar o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Para saber mais, confira [atualizações de certificado planejadas](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>Configurações padrão de SSL
 

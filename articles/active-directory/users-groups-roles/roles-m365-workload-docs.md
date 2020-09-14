@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14d5b458aeccd2587f24b30548c4b5e76912bce1
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6060bc286024183661024abd56567eeefed76430
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798271"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053541"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Funções de administrador para serviços Microsoft 365s
 
@@ -29,10 +29,10 @@ Todos os produtos do Microsoft 365 podem ser gerenciados com funções administr
 
 Serviço de Microsoft 365 | Conteúdo de função | Conteúdo de API
 ---------------------- | ------------------ | -----------------
-Funções de administrador em planos de negócios do Office 365 e do Microsoft 365 | [Funções de administrador do Office 365](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Não disponível
+Funções de administrador em planos de negócios do Office 365 e do Microsoft 365 | [Microsoft 365 funções de administrador](/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Não disponível
 Azure AD (Azure Active Directory) e Azure AD Identity Protection| [Funções de administrador do Azure AD](directory-assign-admin-roles.md) | [API do Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Buscar atribuições de função](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Exchange Online| [Controle de acesso baseado em função do Exchange](/exchange/understanding-role-based-access-control-exchange-2013-help) |  [PowerShell para Exchange](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Buscar atribuições de função](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
-SharePoint online | [Funções de administrador do Azure AD](directory-assign-admin-roles.md)<br>Também [Sobre a função de administrador do SharePoint no Office 365](/sharepoint/sharepoint-admin-role) | [API do Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Buscar atribuições de função](/graph/api/directoryrole-list?view=graph-rest-1.0)
+SharePoint online | [Funções de administrador do Azure AD](directory-assign-admin-roles.md)<br>Além disso, [sobre a função de administrador do SharePoint no Microsoft 365](/sharepoint/sharepoint-admin-role) | [API do Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Buscar atribuições de função](/graph/api/directoryrole-list?view=graph-rest-1.0)
 Equipes/Skype for Business | [Funções de administrador do Azure AD](directory-assign-admin-roles.md) | [API do Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Buscar atribuições de função](/graph/api/directoryrole-list?view=graph-rest-1.0)
 O Centro de Conformidade e Segurança (Proteção Avançada contra Ameaças do Office 365, Proteção do Exchange Online, Proteção de Informações) | [Funções de administrador do Office 365](/office365/SecurityCompliance/permissions-in-the-security-and-compliance-center) | [Exchange PowerShell](/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Buscar atribuições de função](/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
 Pontuação segura | [Funções de administrador do Azure AD](directory-assign-admin-roles.md) | [API do Graph](/graph/api/overview?view=graph-rest-1.0)<br>[Buscar atribuições de função](/graph/api/directoryrole-list?view=graph-rest-1.0)

@@ -1,6 +1,6 @@
 ---
 title: Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory | Microsoft Docs
-description: Visualize funções personalizadas do Azure AD para delegar o gerenciamento de identidades. Gerencie funções do Azure no portal do Azure, no PowerShell ou na API do Graph.
+description: Visualize funções personalizadas do Azure AD para delegar o gerenciamento de identidades. Gerencie as atribuições de função do Azure no portal do Azure, PowerShell ou API do Graph.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe509879c38f979525a673890c05fcfe5c8e3880
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798305"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053762"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -28,7 +28,7 @@ Considere este exemplo: a contoso contratou pessoas entre geografias para gerenc
 
 ## <a name="how-this-feature-works"></a>Como esse recurso funciona
 
-Crie um novo Office 365 ou grupo de segurança com a propriedade ' isAssignableToRole ' definida como ' true '. Você também pode habilitar essa propriedade ao criar um grupo no portal do Azure ativando **as funções do Azure AD que podem ser atribuídas ao grupo**. De qualquer forma, você pode atribuir o grupo a uma ou mais funções do Azure AD da mesma maneira que atribui funções aos usuários. Um máximo de 200 grupos de atribuição de função pode ser criado em uma única organização do AD do Azure (locatário).
+Crie um novo Microsoft 365 ou grupo de segurança com a propriedade ' isAssignableToRole ' definida como ' true '. Você também pode habilitar essa propriedade ao criar um grupo no portal do Azure ativando **as funções do Azure AD que podem ser atribuídas ao grupo**. De qualquer forma, você pode atribuir o grupo a uma ou mais funções do Azure AD da mesma maneira que atribui funções aos usuários. Um máximo de 200 grupos de atribuição de função pode ser criado em uma única organização do AD do Azure (locatário).
 
 Se você não quiser que os membros do grupo tenham acesso à função, você poderá usar Azure AD Privileged Identity Management. Atribua um grupo como um membro qualificado de uma função do Azure AD. Em seguida, cada membro do grupo é elegível para que sua atribuição seja ativada para a função à qual o grupo está atribuído. Em seguida, eles podem ativar sua atribuição de função por uma duração fixa.
 

@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76a2e4cb170ca5bee41c0ae8f3e0557eab19562e
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a8d1b6d912cadb073251d72ee327f4b19950ab1b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147126"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055178"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Revogar o acesso do usuário no Azure Active Directory
 
@@ -38,7 +38,7 @@ Tokens de acesso e tokens de atualização são frequentemente usados com aplica
 
 Em seguida, o Azure AD reavalia suas políticas de autorização. Se o usuário ainda estiver autorizado, o Azure AD emitirá um novo token de acesso e o token de atualização.
 
-Os tokens de acesso podem ser uma preocupação de segurança se o acesso precisar ser revogado dentro de um tempo menor do que a vida útil do token, que geralmente é de uma hora. Por esse motivo, a Microsoft está trabalhando ativamente para trazer a [avaliação de acesso contínuo](../conditional-access/concept-continuous-access-evaluation.md) aos aplicativos do Office 365, o que ajuda a garantir a invalidação de tokens de acesso quase em tempo real.  
+Os tokens de acesso podem ser uma preocupação de segurança se o acesso precisar ser revogado dentro de um tempo menor do que a vida útil do token, que geralmente é de uma hora. Por esse motivo, a Microsoft está trabalhando ativamente para trazer a [avaliação de acesso contínuo](../conditional-access/concept-continuous-access-evaluation.md) para Microsoft 365 aplicativos, o que ajuda a garantir a invalidação de tokens de acesso quase em tempo real.  
 
 ## <a name="session-tokens-cookies"></a>Tokens de sessão (cookies)
 

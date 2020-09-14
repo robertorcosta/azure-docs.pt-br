@@ -2,18 +2,18 @@
 title: Tutorial para exportar dados do Azure Data Box | Microsoft Docs
 description: Conheça os pré-requisitos de implantação e como exportar dados de um Azure Data Box
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
-ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.author: alkohli
+ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783613"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052982"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: criar ordem de exportação para Azure Data Box (versão prévia)
 
@@ -70,7 +70,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     |---------|---------|
     |Tipo de transferência     | Selecione **exportar para o Azure**.        |
     |Subscription     | Selecione uma assinatura do EA, do CSP ou do Azure Sponsorship para o serviço Data Box. <br> A assinatura está vinculada à sua conta de cobrança.       |
-    |Resource group     |    Selecione um grupo de recursos existente. <br> Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos.         |
+    |Grupo de recursos     |    Selecione um grupo de recursos existente. <br> Um grupo de recursos é um contêiner lógico para os recursos que podem ser gerenciados ou implantados juntos.         |
     |Região do Azure de origem    |    Selecione a região do Azure na qual seus dados estão atualmente.         |
     |País de destino     |     Selecione o país em que deseja enviar o dispositivo.        |
 
@@ -98,7 +98,7 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
 8. Na **opção Selecionar exportação**, especifique os detalhes da opção de exportação. Insira ou selecione as informações a seguir e selecione **Adicionar**.
 
-    |Configuração  |Valor  |
+    |Setting  |Valor  |
     |---------|---------|
     |Conta de armazenamento     | A conta de armazenamento do Azure de onde você deseja exportar dados. |
     |Tipo de exportação     | Especifica o tipo de dados a serem exportados de **todos os objetos** e **usam o arquivo XML**.<ul><li> **Todos os objetos** – especifica que o trabalho exporta todos os dados dependendo da sua seleção para **Opções de transferência**.</li><li> **Usar arquivo XML** – especifica um arquivo XML que contém um conjunto de caminhos e prefixos para BLOBs e/ou arquivos a serem exportados da conta de armazenamento. O arquivo XML precisa estar no contêiner da conta de armazenamento selecionada e não há suporte para a seleção de compartilhamentos de arquivos. O arquivo precisa ser um arquivo. xml não vazio.</li></ul>        |
@@ -115,9 +115,20 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
 
    Para ver um exemplo da entrada XML, consulte [exemplo de entrada XML](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. Em **seleção de dados**, examine as configurações e selecione **Avançar: detalhes de contato>**.
+9. Em **seleção de dados**, examine as configurações e selecione **avançar: segurança>**.
 
    ![Detalhes do Contato](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. Em **segurança**, se você quiser habilitar a criptografia dupla baseada em software, selecione **habilitar criptografia dupla para o pedido**. 
+
+   A criptografia baseada em software é executada além da criptografia AES-256 bits dos dados no Data Box.
+
+   > [!NOTE]
+   > Habilitar essa opção pode fazer com que o processamento de pedidos e a cópia de dados demorem mais. Você não pode alterar essa opção depois de criar seu pedido.
+
+   ![Tela de segurança para importação de caixa de dados, criptografia dupla](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   Selecione **Avançar: Detalhes de contato** para continuar.
 
 10. Nos **detalhes de contato**, selecione **+ Adicionar endereço de envio** para inserir suas informações de envio.
 

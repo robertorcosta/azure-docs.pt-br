@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb637ae3da9c6a0a3ea066ad741845bad36d5d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489622"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055156"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Compartilhar contas com o AD do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "89489622"
 Às vezes, as organizações precisam usar um único nome de usuário e senha para várias pessoas, o que normalmente acontece em dois casos:
 
 * Ao acessar aplicativos que exigem um logon único e uma senha para cada usuário, seja em aplicativos locais ou em serviços de nuvem do consumidor (por exemplo, contas corporativas de mídias sociais).
-* Durante a criação de ambientes de vários usuários. Você pode ter uma conta local única que tenha privilégios elevados e que seja usada para fazer atividades de instalação, administração e recuperação de núcleo. Por exemplo, a conta local do "administrador global" do Office 365 ou a conta raiz no Salesforce.
+* Durante a criação de ambientes de vários usuários. Você pode ter uma conta local única que tenha privilégios elevados e que seja usada para fazer atividades de instalação, administração e recuperação de núcleo. Por exemplo, a conta "administrador global" local para Microsoft 365 ou a conta raiz no Salesforce.
 
 Tradicionalmente, essas contas são compartilhadas distribuindo as credenciais (nome de usuário e senha) para os indivíduos certos ou armazenando-as em um local compartilhado onde vários agentes confiáveis podem acessá-las.
 

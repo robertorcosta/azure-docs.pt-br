@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 39a4cbd5ffd04aa3346b1ce4f3b73576b92c4d3b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 7f400d6959a40361ea3beff8bd21c2fa9ef2996a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065481"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052623"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e as resoluções em conformidade com o protocolo SCIM 2.0 do serviço de Provisionamento de Usuário do Microsoft Azure Active Directory
 
@@ -50,7 +50,7 @@ Use os sinalizadores abaixo na URL do locatário do seu aplicativo para alterar 
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM sinalizadores para o comportamento posterior.":::
 
-* Use a URL a seguir para atualizar o comportamento do PATCH e garantir a conformidade do SCIM (por exemplo, ativo como booliano e remoções de associação de grupo adequadas). Esse comportamento está disponível no momento apenas ao usar o sinalizador, mas se tornará o comportamento padrão nos próximos meses.
+* Use a URL a seguir para atualizar o comportamento do PATCH e garantir a conformidade do SCIM (por exemplo, ativo como booliano e remoções de associação de grupo adequadas). Esse comportamento está disponível no momento apenas ao usar o sinalizador, mas se tornará o comportamento padrão nos próximos meses. Observe que esse sinalizador de visualização atualmente não funciona com o provisionamento sob demanda. 
   * **URL (compatível com scim):** AzureAdScimPatch062020
   * **Referências de RFC SCIM:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2

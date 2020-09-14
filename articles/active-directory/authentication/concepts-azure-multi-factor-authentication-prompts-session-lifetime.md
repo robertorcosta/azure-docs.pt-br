@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179344"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052657"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure
 
@@ -36,7 +36,7 @@ Para dar aos usuários o equilíbrio certo de segurança e facilidade de uso sol
     * Habilite o SSO (logon único) entre aplicativos usando [dispositivos gerenciados](../devices/overview.md) ou [SSO contínuo](../hybrid/how-to-connect-sso.md).
     * Se a reautenticação for necessária, use uma [política de frequência de entrada](../conditional-access/howto-conditional-access-session-lifetime.md)de acesso condicional.
     * Para usuários que se conectam de dispositivos não gerenciados ou cenários de dispositivos móveis, use o acesso condicional para habilitar sessões persistentes do navegador e políticas de frequência de entrada.
-* Se você tiver licenças de aplicativos do Office 365 ou a camada gratuita do Azure AD:
+* Se você tiver licenças de aplicativos Microsoft 365 ou a camada gratuita do Azure AD:
     * Habilite o SSO (logon único) entre aplicativos usando [dispositivos gerenciados](../devices/overview.md) ou [SSO contínuo](../hybrid/how-to-connect-sso.md).
     * Mantenha a opção de *permanecer conectada* habilitada e Oriente seus usuários a aceitá-la.
 * Para cenários de dispositivos móveis, verifique se os usuários usam o aplicativo Microsoft Authenticator. Esse aplicativo é usado como um agente para outros aplicativos federados do Azure AD e reduz os prompts de autenticação no dispositivo.
@@ -123,13 +123,13 @@ Para configurar políticas de acesso condicional para a frequência de entrada e
 
 Para examinar os tempos de vida [do token, use o PowerShell do Azure ad para consultar as políticas do Azure ad](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Desabilite as políticas que você tiver em vigor.
 
-Se mais de uma configuração estiver habilitada em seu locatário, é recomendável atualizar suas configurações com base no licenciamento disponível para você. Por exemplo, se você tiver licenças do Azure AD Premium, você deve usar apenas a política de acesso condicional de *frequência de entrada* e *sessão de navegador persistente*. Se você tiver aplicativos do Office 365 ou licenças gratuitas do Azure AD, deverá usar a configuração *permanecer conectado?* .
+Se mais de uma configuração estiver habilitada em seu locatário, é recomendável atualizar suas configurações com base no licenciamento disponível para você. Por exemplo, se você tiver licenças do Azure AD Premium, você deve usar apenas a política de acesso condicional de *frequência de entrada* e *sessão de navegador persistente*. Se você tiver aplicativos Microsoft 365 ou licenças gratuitas do Azure AD, deverá usar a configuração *permanecer conectado?* .
 
 Se você tiver habilitado tempos de vida de token configuráveis, esse recurso será removido em breve. Planejar uma migração para uma política de acesso condicional.
 
 A tabela a seguir resume as recomendações com base em licenças:
 
-|              | Aplicativos Azure AD Gratuito e Office 365 | Azure AD Premium |
+|              | Aplicativos Azure AD Gratuito e Microsoft 365 | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
 | **SSO**                      | [Ingresso](../devices/concept-azure-ad-join.md) no Azure ad ou [ingresso no Azure ad híbrido](../devices/concept-azure-ad-join-hybrid.md)ou [SSO contínuo](../hybrid/how-to-connect-sso.md) para dispositivos não gerenciados. | Ingresso no Azure AD<br />Ingresso no Azure AD Híbrido |
 | **Configurações de reautenticação** | Permanecer conectado                  | Usar políticas de acesso condicional para frequência de entrada e sessão de navegador persistente |
