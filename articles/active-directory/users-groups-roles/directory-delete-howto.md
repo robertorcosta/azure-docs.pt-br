@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795415"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056295"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Excluir um novo locatário no Azure Active Directory
 
@@ -27,12 +27,12 @@ Quando uma organização do Azure Active Directory (locatário) é excluída, to
 
 ## <a name="prepare-the-organization"></a>Preparar a organização
 
-Você poderá apenas excluir uma organização do Azure Active Directory depois que ela passar por várias verificações. Essas verificações reduzem o risco de que a exclusão de uma organização do Azure Active Directory prejudique o acesso do usuário, como a capacidade de entrar no Office 365 ou de acessar recursos no Azure. Por exemplo, se a organização associada a uma assinatura for excluída acidentalmente, os usuários não poderão acessar os recursos do Azure dessa assinatura. As seguintes condições são verificadas:
+Você poderá apenas excluir uma organização do Azure Active Directory depois que ela passar por várias verificações. Essas verificações reduzem o risco de que a exclusão de uma organização do Azure AD afete negativamente o acesso do usuário, como a capacidade de entrar no Microsoft 365 ou acessar recursos no Azure. Por exemplo, se a organização associada a uma assinatura for excluída acidentalmente, os usuários não poderão acessar os recursos do Azure dessa assinatura. As seguintes condições são verificadas:
 
 * Não pode haver nenhum usuário na organização do Azure Active Directory (locatário), exceto um administrador global que excluirá a organização. Todos os outros usuários precisam ser excluídos para que a organização possa ser excluída. Se os usuários estiverem sincronizados localmente, primeiro a sincronização precisará ser desabilitada e os usuários precisarão ser excluídos da organização de nuvem usando o portal do Azure ou os cmdlets do Azure PowerShell.
 * Não pode haver nenhum aplicativo na organização. Todos os aplicativos precisam ser removidos para que a organização possa ser excluída.
 * Não pode haver nenhum provedor de autenticação multifator vinculado à organização.
-* Não pode haver nenhuma assinatura de nenhum Serviço Online da Microsoft como o Microsoft Azure, o Office 365 ou o Azure Active Directory Premium associada à organização. Por exemplo, se uma organização padrão do Azure Active Directory tiver sido criada para você no Azure, não será possível excluir essa organização se a autenticação da sua assinatura do Azure ainda depender dela. Da mesma forma, você não poderá excluir uma organização se outro usuário tiver associado uma assinatura a ele.
+* Não pode haver assinaturas para nenhum Microsoft Online Services, como Microsoft Azure, Microsoft 365 ou Azure AD Premium associados à organização. Por exemplo, se uma organização padrão do Azure Active Directory tiver sido criada para você no Azure, não será possível excluir essa organização se a autenticação da sua assinatura do Azure ainda depender dela. Da mesma forma, você não poderá excluir uma organização se outro usuário tiver associado uma assinatura a ele.
 
 ## <a name="delete-the-organization"></a>Excluir a organização
 
@@ -52,16 +52,16 @@ Você poderá apenas excluir uma organização do Azure Active Directory depois 
 
 ## <a name="if-you-cant-delete-the-organization"></a>Se você não puder excluir a organização
 
-Quando você configurou sua organização do Azure Active Directory, talvez você também tenha ativado assinaturas baseadas em licença para a organização, como o Azure Active Directory Premium P2, o Office 365 Business Premium ou Enterprise Mobility + Security E5. Para evitar a perda acidental de dados, não é possível excluir uma organização até que as assinaturas sejam totalmente excluídas. As assinaturas precisam estar em um estado **Desprovisionado** para permitir a exclusão da organização. Uma assinatura **Expirada** ou **Cancelada** passa para o estado **Desabilitado** e a fase final é o estado **Desprovisionado**.
+Quando você configurou sua organização do Azure AD, você também pode ter ativado assinaturas baseadas em licença para sua organização, como Azure AD Premium P2, Microsoft 365 Business Standard ou Enterprise Mobility + Security e5. Para evitar a perda acidental de dados, não é possível excluir uma organização até que as assinaturas sejam totalmente excluídas. As assinaturas precisam estar em um estado **Desprovisionado** para permitir a exclusão da organização. Uma assinatura **Expirada** ou **Cancelada** passa para o estado **Desabilitado** e a fase final é o estado **Desprovisionado**.
 
-Para saber o que esperar quando uma assinatura de avaliação do Office 365 expirar (não incluindo Parceiro/CSP, Contrato Enterprise ou Licenciamento por Volume), confira a tabela a seguir. Para obter mais informações sobre a retenção de dados e o ciclo de vida de assinatura do Office 365, confira [O que acontecerá com meus dados e o acesso ao Office 365 para empresas quando a assinatura terminar?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+Para saber o que esperar quando uma assinatura de Microsoft 365 de avaliação expira (não incluindo parceiro/CSP, Enterprise Agreement ou licenciamento de volume pago), consulte a tabela a seguir. Para obter mais informações sobre Microsoft 365 ciclo de vida da assinatura e retenção de dados, consulte [o que acontece com meus dados e acesso quando minha assinatura do Microsoft 365 for Business termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Estado da assinatura | Dados | Acesso a dados
 ----- | ----- | -----
-Ativo (30 dias para avaliação) | Dados acessíveis a todos | Os usuários têm acesso normal a aplicativos ou arquivos do Office 365<br>Os administradores têm acesso normal ao centro de administração e aos recursos do Microsoft 365 
-Expirado (30 dias) | Dados acessíveis a todos| Os usuários têm acesso normal a aplicativos ou arquivos do Office 365<br>Os administradores têm acesso normal ao centro de administração e aos recursos do Microsoft 365
-Desabilitado (30 dias) | Dados acessíveis somente ao administrador | Os usuários não podem acessar arquivos ou aplicativos do Office 365<br>Os administradores podem acessar o centro de administração do Microsoft 365, mas não podem atribuir licenças ou atualizar usuários
-Desprovisionado (30 dias depois de ser desabilitado) | Dados excluídos (excluídos automaticamente se nenhum outro serviço estiver em uso) | Os usuários não podem acessar arquivos ou aplicativos do Office 365<br>Os administradores podem acessar o centro de administração do Microsoft 365 para comprar e gerenciar outras assinaturas
+Ativo (30 dias para avaliação) | Dados acessíveis a todos | Os usuários têm acesso normal a Microsoft 365 arquivos ou aplicativos<br>Os administradores têm acesso normal ao centro de administração e aos recursos do Microsoft 365 
+Expirado (30 dias) | Dados acessíveis a todos| Os usuários têm acesso normal a Microsoft 365 arquivos ou aplicativos<br>Os administradores têm acesso normal ao centro de administração e aos recursos do Microsoft 365
+Desabilitado (30 dias) | Dados acessíveis somente ao administrador | Os usuários não podem acessar Microsoft 365 arquivos ou aplicativos<br>Os administradores podem acessar o centro de administração do Microsoft 365, mas não podem atribuir licenças ou atualizar usuários
+Desprovisionado (30 dias depois de ser desabilitado) | Dados excluídos (excluídos automaticamente se nenhum outro serviço estiver em uso) | Os usuários não podem acessar Microsoft 365 arquivos ou aplicativos<br>Os administradores podem acessar o centro de administração do Microsoft 365 para comprar e gerenciar outras assinaturas
 
 ## <a name="delete-a-subscription"></a>Excluir uma assinatura
 
@@ -97,7 +97,7 @@ Você pode colocar uma assinatura no estado **Desprovisionado** a ser excluída 
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Tenho uma assinatura de avaliação que bloqueia a exclusão
 
-Há [produtos de inscrição para autoatendimento](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, usuários individuais podem se inscrever por meio do Office 365, que também cria um usuário convidado para autenticação na sua organização do Azure Active Directory. Esses produtos de autoatendimento bloqueiam exclusões de diretório até que os produtos sejam totalmente excluídos da organização, para evitar a perda de dados. Eles podem ser excluídos somente pelo administrador do Azure Active Directory, apesar de o usuário ter se inscrito individualmente ou ter atribuído o produto.
+Há [produtos de inscrição de autoatendimento](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) como Microsoft Power BI, Rights Management Services, Microsoft Power Apps ou Dynamics 365, usuários individuais podem se inscrever via Microsoft 365, que também cria um usuário convidado para autenticação em sua organização do Azure AD. Esses produtos de autoatendimento bloqueiam exclusões de diretório até que os produtos sejam totalmente excluídos da organização, para evitar a perda de dados. Eles podem ser excluídos somente pelo administrador do Azure Active Directory, apesar de o usuário ter se inscrito individualmente ou ter atribuído o produto.
 
 Há dois tipos de produtos de inscrição para autoatendimento, dependendo de como eles são atribuídos: 
 
@@ -108,7 +108,7 @@ Quando você inicia a exclusão do produto de inscrição para autoatendimento, 
 
 Para obter mais informações sobre produtos e serviços de inscrição para autoatendimento disponíveis no momento, consulte [Programas de autoatendimento disponíveis](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Para saber o que esperar quando uma assinatura de avaliação do Office 365 expirar (não incluindo Parceiro/CSP, Contrato Enterprise ou Licenciamento por Volume), confira a tabela a seguir. Para obter mais informações sobre a retenção de dados e o ciclo de vida de assinatura do Office 365, confira [O que acontecerá com meus dados e o acesso ao Office 365 para empresas quando a assinatura terminar?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Para saber o que esperar quando uma assinatura de Microsoft 365 de avaliação expira (não incluindo parceiro/CSP, Enterprise Agreement ou licenciamento de volume pago), consulte a tabela a seguir. Para obter mais informações sobre Microsoft 365 ciclo de vida da assinatura e retenção de dados, consulte [o que acontece com meus dados e acesso quando minha assinatura do Microsoft 365 for Business termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Estado do produto | Dados | Acesso a dados
 ------------- | ---- | --------------

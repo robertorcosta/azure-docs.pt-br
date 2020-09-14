@@ -3,17 +3,16 @@ title: Resource Health para serviços de nuvem (clássico)
 description: Este artigo fala sobre o suporte de verificação de Resource Health (RHC) para Serviços de Nuvem do Microsoft Azure (clássico)
 services: cloud-services
 author: tanmaygore
-manager: vashan
 ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: 969390b0988c59940cb210c14821cbee42edfa7a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663702"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056040"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte à verificação de Resource Health (RHC) para serviços de nuvem do Azure (clássico)
 Este artigo fala sobre o suporte de verificação de Resource Health (RHC) para [serviços de nuvem do Microsoft Azure (clássico)](https://azure.microsoft.com/services/cloud-services)
@@ -22,6 +21,7 @@ Este artigo fala sobre o suporte de verificação de Resource Health (RHC) para 
 
 Relatórios de status do Azure sobre problemas que afetam um amplo conjunto de clientes do Azure. Resource Health fornece um painel personalizado da integridade de seus recursos. Resource Health mostra todas as ocasiões em que os recursos não estão disponíveis devido a problemas de serviço do Azure. Esses dados tornam mais fácil para você ver se um SLA foi violado.
 
+:::image type="content" source="media/cloud-services-allocation-failure/rhc-blade-cloud-services.png" alt-text="Imagem mostra a folha de verificação de integridade do recurso no portal do Azure.":::
 
 ## <a name="how-health-is-checked-and-reported"></a>Como a integridade é verificada e relatada?
 O Resource Health é relatado em um nível de implantação ou função. A verificação de integridade ocorre no nível de instância de função, agregamos o status e o relatamos no nível de função. Por ex.: Se todas as instâncias de função estiverem disponíveis, o status da função estará disponível. Da mesma forma, agregamos o status de integridade de todas as funções e a relatamos no nível de implantação. Por ex.: Se todas as funções estiverem disponíveis, o status da implantação ficará disponível. 

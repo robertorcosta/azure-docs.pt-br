@@ -13,12 +13,12 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: daa2cfae4ed8371e245d12a9f805fe07f31a6d76
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742949"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056021"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Entrar em sua conta corporativa ou de estudante usando seu método de verificação de dois fatores
 
@@ -39,14 +39,14 @@ Sua experiência de conexão varia, dependendo do que você escolhe usar como o 
 ## <a name="signing-in-with-a-phone-call"></a>Conectando com uma chamada telefônica
 As informações a seguir descrevem a experiência de verificação em duas etapas com uma chamada para seu telefone celular ou comercial.
 
-1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.  
+1. Entre em um aplicativo ou serviço, como Microsoft 365 usando seu nome de usuário e senha.  
 2. A Microsoft liga para você.  
 3. Atenda o telefone e pressione a tecla #.  
 
 ## <a name="signing-in-with-a-text-message"></a>Conectando com uma mensagem de texto
 As seguintes informações descrevem a experiência de verificação em duas etapas com uma mensagem de texto para seu telefone celular:
 
-1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
+1. Entre em um aplicativo ou serviço, como Microsoft 365 usando seu nome de usuário e senha.
 2. A Microsoft envia para você uma mensagem de texto com um código numérico.
 3. Insira o código na caixa fornecida na página de conexão.
 
@@ -54,7 +54,7 @@ As seguintes informações descrevem a experiência de verificação em duas eta
 As informações a seguir descrevem a experiência do uso do aplicativo Microsoft Authenticator para verificações em duas etapas. Há duas maneiras diferentes de usar o aplicativo. Você pode receber notificações por push no seu dispositivo ou abrir o aplicativo para obter um código de verificação.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Para entrar com uma notificação enviada pelo aplicativo Microsoft Authenticator
-1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
+1. Entre em um aplicativo ou serviço, como Microsoft 365 usando seu nome de usuário e senha.
 2. A Microsoft envia uma notificação ao aplicativo Microsoft Authenticator no seu dispositivo.
 
    ![A Microsoft envia notificação](./media/multi-factor-authentication-end-user-signin/notify.png)
@@ -66,7 +66,7 @@ As informações a seguir descrevem a experiência do uso do aplicativo Microsof
 
 Se você usar o aplicativo Microsoft Authenticator para obter códigos de verificação, ao abrir o aplicativo, você verá um número sob o nome de sua conta. Ele muda a cada 30 segundos, para que não seja usado duas vezes. Quando tiver de informar o código de verificação, abra o aplicativo e use o número que aparecer na tela.
 
-1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
+1. Entre em um aplicativo ou serviço, como Microsoft 365 usando seu nome de usuário e senha.
 2. A Microsoft solicita que você insira um código de verificação.
 
    ![Inserir código de verificação](./media/multi-factor-authentication-end-user-signin/verify3.png)
@@ -76,7 +76,7 @@ Se você usar o aplicativo Microsoft Authenticator para obter códigos de verifi
 ## <a name="signing-in-with-an-alternate-method"></a>Conectando-se com um método alternativo
 Às vezes, pode ser que o telefone ou dispositivo que você tem não seja o seu método de verificação de preferência. É por isso que recomendamos que faça o backup da conta. A seção a seguir mostra como se conectar com um método alternativo quando o método primário não está disponível.
 
-1. Entre em um aplicativo ou serviço, como o Office 365, usando seu nome de usuário e senha.
+1. Entre em um aplicativo ou serviço, como Microsoft 365 usando seu nome de usuário e senha.
 2. Selecione **Usar uma opção de verificação diferente**. Você verá opções de verificação diferentes, de acordo com a quantidade configurada.
 3. Escolha um método alternativo e conecte-se.
 

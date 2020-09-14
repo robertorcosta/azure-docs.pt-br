@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: d2966f32fcf7f8be2a93d1639f0a63f49768c306
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 443e8c09ea46c0c20b557d77d6ed7bd63db00085
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80981844"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058743"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Visão geral do IPv6 para o Azure Load Balancer
 
@@ -79,7 +79,7 @@ Limitações
 * O ponto de extremidade IPv6 na VM não é exposto diretamente à internet. Ele fica atrás de um balanceador de carga. Somente as portas especificadas nas regras do balanceador de carga são acessíveis via IPv6.
 * **No momento, não há suporte** para mudar o parâmetro IdleTimeout para IPv6. O padrão é de quatro minutos.
 * **No momento, não há suporte** para alterar o parâmetro loadDistributionMethod para IPv6.
-* **No momento, não há suporte** para IPs IPv6 reservados (em que IPAllocationMethod = estático).
+* O IPv6 para Load Balancer básica está bloqueado para um SKU **dinâmico** .  O IPv6 para um Standard Load Balancer está bloqueado para um SKU **estático** .
 * O NAT64 (conversão de IPv6 para IPv4) não é compatível.
 * **No momento, não há suporte**para a anexação de uma NIC secundária que se refere a uma sub-rede IPv6 a um pool de back-ends.
 

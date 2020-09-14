@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 4462ea0277193f0f8a4112cad5991d1e12c5f600
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652743"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058726"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Suporte para mover VMs do Azure entre regiões do Azure
 
@@ -80,7 +80,7 @@ Debian 8 |  3.16.0-4-amd64 a 3.16.0-10-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.
 
 **Versão** | **Versão do kernel** 
 --- |  --- 
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.34-azure  
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Todos os [estoques SuSE 12 SP1, SP2, SP3 e kernels do SP4](https://www.suse.com/support/kb/doc/?id=000019587) têm suporte.</br></br> 4.4.138-4.7-azure a 4.4.180-4.31-azure,</br>4.12.14-6.3-azure a 4.12.14-6.34-azure  
 
 
 ### <a name="supported-suse-linux-enterprise-server-15-kernel-versions"></a>SUSE Linux Enterprise Server de 15 versões de kernel com suporte
@@ -100,7 +100,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 |  Há suporte para todos os kernels SU
 
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho | Qualquer tamanho de VM do Azure com pelo menos dois núcleos de CPU e 1 GB de RAM | Verifique se [tamanhos de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machines/sizes-general).
+Tamanho | Qualquer tamanho de VM do Azure com pelo menos dois núcleos de CPU e 1 GB de RAM | Verifique se [tamanhos de máquina virtual do Azure](../virtual-machines/sizes-general.md).
 Conjuntos de disponibilidade | Sem suporte no momento | Se você adicionar uma VM do Azure com um conjunto de disponibilidade à coleção de movimentação com as opções padrão, o processo de preparação falhará. Você pode optar por mover a VM para uma zona de disponibilidade para ou para movê-la como uma única VM de instância. Você pode modificar essas configurações na página Editar propriedades de destino.
 Zonas de disponibilidade | Com suporte | Com suporte, dependendo do suporte de região de destino.
 Imagens da galeria do Azure (publicadas pela Microsoft) | Com suporte | Suportado se a VM for executada em um sistema operacional suportado.
@@ -113,15 +113,15 @@ Extensões | Sem suporte | As extensões não são copiadas para a VM na região
 
 ## <a name="supported-vm-storage-settings"></a>Configurações de armazenamento de VM com suporte
 
-Esta tabela resumiu o suporte ao disco do SO do Azure VM, ao disco de dados e ao disco temporário. É importante observar os limites de disco e os destinos da VM para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-scalability-targets) e [VMs do Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets) para evitar problemas de desempenho.
+Esta tabela resumiu o suporte ao disco do SO do Azure VM, ao disco de dados e ao disco temporário. É importante observar os limites de disco e os destinos da VM para [Linux](../virtual-machines/linux/disk-scalability-targets.md) e [VMs do Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar problemas de desempenho.
 
 **Componente** | **Suporte** | **Detalhes**
 --- | --- | ---
-Tamanho máximo do disco do sistema operacional | 2048 GB | [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sobre discos de VM.
-Disco temporário | Sem suporte | O disco temporário sempre é excluído do processo de preparação.<br/><br/> Não armazene nenhum dado persistente no disco temporário. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk).
+Tamanho máximo do disco do sistema operacional | 2048 GB | [Saiba mais](../virtual-machines/windows/managed-disks-overview.md) sobre discos de VM.
+Disco temporário | Sem suporte | O disco temporário sempre é excluído do processo de preparação.<br/><br/> Não armazene nenhum dado persistente no disco temporário. [Saiba mais](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
 Tamanho máximo do disco de dados | 8\.192 GB para discos gerenciados
 Tamanho mínimo do disco de dados |  2 GB para discos gerenciados |
-Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/sizesd) sobre os tamanhos de VM.
+Número máximo de discos de dados | Até 64, de acordo com o suporte para um tamanho específico de VM do Azure | [Saiba mais](../virtual-machines/windows/sizes.md) sobre os tamanhos de VM.
 Taxa de alteração do disco de dados | Máximo de 10 MBps por disco para armazenamento premium. Máximo de 2 MBps por disco para armazenamento padrão. | Se a taxa média de alteração de dados no disco for continuamente maior do que o máximo, a preparação não será atualizada.<br/><br/>  No entanto, se o máximo for excedido esporadicamente, a preparação poderá ser atualizada, mas você poderá ver pontos de recuperação ligeiramente atrasados.
 Disco de dados (conta de armazenamento Standard) | Não há suporte. | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.
 Disco de dados (conta de armazenamento Premium) | Sem suporte | Altere o tipo de armazenamento para disco gerenciado e tente mover a VM.

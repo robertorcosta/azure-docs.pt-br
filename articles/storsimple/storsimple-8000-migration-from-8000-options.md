@@ -2,17 +2,17 @@
 title: Opções de migração de dados de dispositivos StorSimple da série 8000
 description: Fornece uma visão geral das opções para migrar dados do StorSimple 8000 Series.
 services: storsimple
-author: twooley
+author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.author: twooley
-ms.openlocfilehash: 92ab570b3e06d67d7986a8103e9622e95eb57e7e
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 78ac7e849a3a8f1742701006638a2cb72299bad7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783902"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055768"
 ---
 # <a name="options-to-migrate-data-from-storsimple-8000-series"></a>Opções para migrar dados do StorSimple série 8000
 

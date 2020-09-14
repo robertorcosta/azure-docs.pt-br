@@ -2,17 +2,17 @@
 title: Instalar a atualização no dispositivo da série Gateway do Azure Data Box | Microsoft Docs
 description: Descreve como aplicar atualizações usando o portal do Azure e a interface do usuário da Web local para o dispositivo Gateway do Azure Data Box Series
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: twooley
-ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 1b3f0faa2b5f67a23317935f0ad868e3872cf86e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783868"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055956"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Atualizar seu Gateway do Azure Data Box
 
@@ -22,7 +22,7 @@ Este artigo descreve as etapas necessárias para instalar a atualização no seu
 >
 > - A atualização **1911** corresponde à versão do **1.6.1049.786** software em seu dispositivo. Para obter informações sobre essa atualização, acesse [notas de versão](data-box-gateway-1911-release-notes.md).
 >
-> - Tenha em mente que instalar uma atualização ou um hotfix reinicia seu dispositivo. Considerando que o Gateway do Data Box é um dispositivo de nó único, qualquer e/s em andamento será interrompida e o dispositivo apresentará um tempo de inatividade de até 30 minutos para a atualização de software do dispositivo.
+> - Tenha em mente que instalar uma atualização ou um hotfix reinicia seu dispositivo. Considerando que o Data Box Gateway é um dispositivo de nó único, qualquer E/S em andamento será interrompida, e o dispositivo apresentará um tempo de inatividade de até 30 minutos para a atualização de software do dispositivo.
 
 Cada uma dessas etapas é descrita nas seções a seguir.
 

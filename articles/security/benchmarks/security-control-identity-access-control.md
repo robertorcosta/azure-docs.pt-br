@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 473fe838f53df0a874a2c793792533e01b7c069a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2df534842c6f6a922579e1128757ee4b7f46e006
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408524"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058590"
 ---
 # <a name="security-control-identity-and-access-control"></a>Controle de segurança: identidade e controle de acesso
 
@@ -76,7 +76,7 @@ Habilite o Azure AD MFA e siga as recomendações de gerenciamento de acesso e i
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 3.6 | 4,6, 11,6, 12,12 | Cliente |
+| 3,6 | 4,6, 11,6, 12,12 | Cliente |
 
 Use PAWs (estações de trabalho com acesso privilegiado) com a MFA configurada para fazer logon e configurar os recursos do Azure.
 
@@ -112,15 +112,15 @@ Use locais nomeados de acesso condicional para permitir o acesso somente de agru
 |--|--|--|
 | 3.9 | 16,1, 16,2, 16,4, 16,5, 16,6 | Cliente |
 
-Use Azure Active Directory (AAD) como o sistema de autenticação e autorização central. O AAD protege os dados usando criptografia forte para dados em repouso e em trânsito. O AAD também Salts, hashes e armazena com segurança as credenciais do usuário.
+Use Azure Active Directory como o sistema de autenticação e autorização central. O Azure AD protege os dados usando criptografia forte para dados em repouso e em trânsito. O Azure Active Directory também inclui sais, hashes e armazena com segurança as credenciais do usuário.
 
-- [Como criar e configurar uma instância do AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Como criar e configurar uma instância do Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 ## <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: revisar e reconciliar regularmente o acesso do usuário
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 3,10 | 16,9, 16,10 | Cliente |
+| 3.10 | 16,9, 16,10 | Cliente |
 
 O Azure AD fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo. 
 

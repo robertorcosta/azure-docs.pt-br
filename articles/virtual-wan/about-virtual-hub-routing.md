@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5116b3dfd53c5272ef7bb11d1719b7ee62416c4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762310"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055785"
 ---
 # <a name="about-virtual-hub-routing"></a>Sobre o roteamento de hub virtual
 
@@ -87,6 +87,7 @@ Considere o seguinte ao configurar o roteamento de WAN virtual:
 * Ao usar o Firewall do Azure em várias regiões, todas as redes virtuais spoke devem ser associadas à mesma tabela de rotas. Por exemplo, ter um subconjunto do VNets passando pelo firewall do Azure enquanto outros VNets ignoram o Firewall do Azure no mesmo Hub virtual não é possível.
 * Um único IP do próximo salto pode ser configurado por conexão VNet.
 * O Hub virtual não dá suporte à rota estática para 0.0.0.0/0 e conexão de rede virtual do próximo salto (ou um IP de um dispositivo na conexão VNet)
+* Todas as informações pertencentes à rota 0.0.0.0/0 são confinadas na tabela de rotas de um hub local. Essa rota não se propaga entre hubs.
 
 ## <a name="next-steps"></a>Próximas etapas
 

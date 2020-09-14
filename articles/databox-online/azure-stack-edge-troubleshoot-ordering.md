@@ -2,24 +2,24 @@
 title: Usar o portal do Azure para solucionar problemas de Azure Stack ordenação de borda | Microsoft Docs
 description: Descreve como solucionar problemas de Azure Stack ordenação de borda.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
-ms.author: twooley
-ms.openlocfilehash: 226274c52610e24c305400d77dc7737d32c2b722
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783987"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055938"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Solucionar problemas de ordenação do Azure Stack Edge
 
 Este artigo descreve como solucionar problemas de Azure Stack ordenação de borda.
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 >

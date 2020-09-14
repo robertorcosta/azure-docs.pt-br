@@ -1,19 +1,19 @@
 ---
 title: Examinando o status do trabalho de Importação/Exportação do Azure — v1 | Microsoft Docs
 description: Saiba como usar os arquivos de log criados pelo trabalho de importação ou exportação para ver o status do trabalho.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/26/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9093af25e621b3ab9a60d9894f0a875340fda45
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2fa5cfcf0cb6c20a8a0b64651da0b365e12a3d05
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525662"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056315"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Examinando o Status do trabalho de Importação/Exportação do Azure com cópias de arquivos de log
 Quando o serviço de Importação/Exportação do Microsoft Azure processa as unidades associadas a um trabalho de importação ou exportação, ele grava os arquivos de log de cópia na conta de armazenamento usada para importar ou exportar BLOBs. O arquivo de log contém o status detalhado sobre cada arquivo importado ou exportado. O serviço retorna a URL para cada arquivo de log de cópia quando você consulta o status de um trabalho concluído. Para obter mais informações, consulte [obter trabalho](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get).  

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 57a981f4967bc58ca39067f94abdcf64d764ab87
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536184"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058760"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar produtos/serviços de ITSM ao Conector de Gerenciamento de Serviços de TI
 Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM e o ITSMC (Conector de Gerenciamento de Serviços de TI) no Log Analytics para gerenciar seus itens de trabalho de forma centralizada. Para obter mais informações sobre o ITSMC, consulte [Visão geral](./itsmc-overview.md).
@@ -25,7 +25,8 @@ Há suporte para os seguintes produtos/serviços ITSM. Selecione o produto para 
 
 > [!NOTE]
 > 
-> O Conector ITSM pode se conectar apenas a instâncias do ServiceNow baseadas em nuvem. No momento, não há suporte para instâncias locais do ServiceNow.
+> A partir de 1-out-2020 Cherwell e as integrações do ITSM do Provance com o alerta do Azure não serão mais habilitadas para novos clientes. Não haverá suporte para novas conexões de ITSM. 
+> Haverá suporte para conexões de ITSM existentes.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Conectar o System Center Service Manager ao Conector de Gerenciamento de Serviços de TI no Azure
 
@@ -40,6 +41,10 @@ Verifique se os seguintes pré-requisitos foram atendidos:
 - Conexão híbrida criada e configurada. Mais informações: [Configurar a conexão híbrida](#configure-the-hybrid-connection).
 - Versões do Service Manager com suporte:  2012 R2 ou 2016.
 - Função de usuário:  [Operador avançado](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+
+> [!NOTE]
+> 
+> O Conector ITSM pode se conectar apenas a instâncias do ServiceNow baseadas em nuvem. No momento, não há suporte para instâncias locais do ServiceNow.
 
 ### <a name="connection-procedure"></a>Procedimento de conexão
 
