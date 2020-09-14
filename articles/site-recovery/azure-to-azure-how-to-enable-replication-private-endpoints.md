@@ -173,7 +173,7 @@ Crie uma zona DNS privada para permitir que o agente de mobilidade resolva nomes
 
    1. Pesquise "zona de DNS privado" na barra de pesquisa **todos os serviços** e selecione "zonas de DNS privado" na lista suspensa.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a pesquisa da "zona DNS privada" na página novos recursos no portal do Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra a pesquisa da zona DNS privada na página novos recursos no portal do Azure.":::
 
    1. Na página "zonas de DNS privado", selecione o botão ** \+ Adicionar** para começar a criar uma nova zona.
 
