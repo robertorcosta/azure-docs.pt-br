@@ -32,7 +32,7 @@ Nesta seção, você **criará uma nova instância do Azure digital gêmeos** us
 
 Uma vez no portal, comece selecionando _criar um recurso_ no menu Home Page de serviços do Azure.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecionando "criar um recurso" na home page da portal do Azure":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecionando criar um recurso na home page da portal do Azure":::
 
 Pesquise *gêmeos digital do Azure* na caixa de pesquisa e escolha o serviço **gêmeos (versão prévia) do Azure digital** dos resultados. Selecione o botão _criar_ para criar uma nova instância do serviço.
 
@@ -140,7 +140,7 @@ Clique em *adicionar permissões* quando terminar.
 
 De volta à página *permissões de API* , verifique se agora há uma entrada para o Azure digital gêmeos que reflete as permissões de leitura/gravação:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Exibição do portal das permissões de API para o registro do aplicativo do Azure AD, mostrando "acesso de leitura/gravação" para o gêmeos digital do Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Exibição do portal das permissões de API para o registro do aplicativo do Azure AD, mostrando acesso de leitura/gravação para o gêmeos digital do Azure":::
 
 Você também pode verificar a conexão com o gêmeos digital do Azure dentro domanifest.jsdo registro do aplicativo * em*, que foi atualizado automaticamente com as informações do gêmeos digital do Azure quando você adicionou as permissões de API.
 
