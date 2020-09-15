@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: e87ecc14907c6e0618de47ffdbd334d8ba03ec99
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500614"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526333"
 ---
 # <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Hipersistema de indexação para Apache Spark
 
@@ -392,7 +392,8 @@ Um dataframe do Spark que faz referência aos dados a serem indexados.
 Um objeto de configuração de índice: IndexConfig, que especifica o nome do índice, as colunas indexadas e incluídas do índice.
 Você começa criando três índices hiperespaciais em nossos dados de exemplo: dois índices no DataSet do departamento denominado "deptIndex1" e "deptIndex2" e um índice no conjunto de dados do funcionário chamado "empIndex". Para cada índice, você precisa de um IndexConfig correspondente para capturar o nome junto com as listas de colunas para as colunas indexadas e incluídas. A execução da célula abaixo cria esses indexConfigs e sua saída os lista.
 
-Observação: uma coluna de índice é uma coluna que aparece em seus filtros ou condições de junção. Uma coluna incluída é uma coluna que aparece em seu Select/Project.
+> [!Note]
+> Uma coluna de índice é uma coluna que aparece em seus filtros ou condições de junção. Uma coluna incluída é uma coluna que aparece em seu Select/Project.
 
 Por exemplo, na seguinte consulta:
 
@@ -508,8 +509,9 @@ O código abaixo mostra como você pode listar todos os índices disponíveis em
 
 A célula abaixo usa a ação ' Mostrar ' do dataframe para imprimir totalmente as linhas e mostrar os detalhes de nossos índices em um formato de tabela. Para cada índice, você pode ver que todas as informações hiperespaciais foram armazenadas sobre ela nos metadados. Você verá imediatamente o seguinte:
 
-"config. IndexName", "config. indexedColumns", "config. includedColumns" e "status. status" são os campos aos quais um usuário normalmente se refere.
-"dfSignature" é gerado automaticamente pelo hiperespacial e é exclusivo para cada índice. O hiperespaciai usa essa assinatura internamente para manter o índice e explorá-lo no momento da consulta.
+* "config. IndexName", "config. indexedColumns", "config. includedColumns" e "status. status" são os campos aos quais um usuário normalmente se refere.
+* "dfSignature" é gerado automaticamente pelo hiperespacial e é exclusivo para cada índice. O hiperespaciai usa essa assinatura internamente para manter o índice e explorá-lo no momento da consulta.
+
 Na saída abaixo, todos os três índices devem ter "ativo" como status e seu nome, colunas indexadas e colunas incluídas devem corresponder ao que definimos nas configurações de índice acima.
 
 :::zone pivot = "programming-language-scala"
@@ -839,7 +841,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 | 7876|  ADAMS|    20|
 ```
 
-&nbsp;&nbsp;mostrando apenas as cinco primeiras linhas &nbsp;&nbsp;
+&nbsp;&nbsp;Isso mostra apenas as 5 linhas &nbsp; principais&nbsp;
 
 ```console
 |deptId|  deptName|location|
@@ -1369,8 +1371,8 @@ Se os dados originais nos quais um índice foi criado são alterados, o índice 
 
 As duas células abaixo mostram um exemplo para este cenário:
 
-A primeira célula adiciona mais dois departamentos aos dados dos departamentos originais. Ele lê e imprime a lista de departamentos para verificar se novos departamentos foram adicionados corretamente. A saída mostra seis departamentos no total: quatro antigos e dois novos. Invocar "refreshIndex" atualiza "deptIndex1" para que o índice Capture novos departamentos.
-A segunda célula executa nosso exemplo de consulta de seleção de intervalo. Os resultados agora devem conter quatro departamentos: dois são aqueles, vistos antes de executarmos a consulta acima, e dois são os novos departamentos que acabamos de adicionar.
+* A primeira célula adiciona mais dois departamentos aos dados dos departamentos originais. Ele lê e imprime a lista de departamentos para verificar se novos departamentos foram adicionados corretamente. A saída mostra seis departamentos no total: quatro antigos e dois novos. Invocar "refreshIndex" atualiza "deptIndex1" para que o índice Capture novos departamentos.
+* A segunda célula executa nosso exemplo de consulta de seleção de intervalo. Os resultados agora devem conter quatro departamentos: dois são aqueles, vistos antes de executarmos a consulta acima, e dois são os novos departamentos que acabamos de adicionar.
 
 ### <a name="specific-index-refresh"></a>Atualização de índice específica
 

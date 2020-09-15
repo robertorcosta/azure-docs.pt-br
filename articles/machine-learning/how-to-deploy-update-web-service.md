@@ -1,20 +1,23 @@
 ---
-title: Atualizar um serviço Web implantado
-author: gvashishtha
+title: Atualizar serviços Web
+titleSuffix: Azure Machine Learning
+description: Saiba como atualizar um serviço Web que já está implantado no Azure Machine Learning
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 354d9b84c614447b6a957a6dba65984f4c97cac3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+author: gvashishtha
+ms.date: 07/31/2020
+ms.openlocfilehash: 52d7c42701e20c16272843a50c6c45847545d747
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645973"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90525160"
 ---
 # <a name="update-a-deployed-web-service"></a>Atualizar um serviço Web implantado
 
-Este artigo mostra como implantar um serviço Web que foi implantado com Azure Machine Learning.
+Neste artigo, você aprenderá a atualizar um serviço Web que foi implantado com o Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

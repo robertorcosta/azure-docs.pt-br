@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: b74fd1ad5c3783b2e456fa5f3c24fb8bc7875d4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551315"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527302"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projetando a implantação de logs do Azure Monitor
 
-O Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics, que é um recurso do Azure e um contêiner em que os dados são coletados, agregados e servem como um limite administrativo. Embora você possa implantar um ou mais espaços de trabalho em sua assinatura do Azure, há várias considerações que você deve entender para garantir que a implantação inicial esteja seguindo nossas diretrizes para fornecer a você uma implantação econômica, gerenciável e escalonável para atender às suas necessidades de organizações.
+O Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics, que é um recurso do Azure e um contêiner em que os dados são coletados, agregados e servem como um limite administrativo. Embora seja possível implantar um ou mais espaços de trabalho em sua assinatura do Azure, há várias considerações que você deve entender para garantir que a implantação inicial esteja seguindo nossas diretrizes para fornecer uma implantação econômica, gerenciável e escalonável para atender às necessidades da sua organização.
 
 Os dados em um espaço de trabalho são organizados em tabelas, cada um dos quais armazena diferentes tipos de dados e tem seu próprio conjunto exclusivo de propriedades com base no recurso que gera os dados. A maioria das fontes de dados será gravada em suas próprias tabelas em um espaço de trabalho Log Analytics.
 
@@ -131,7 +131,7 @@ O Azure Monitor é um serviço de dados de grande escala que atende milhares de 
 
 Ao enviar dados para um workspace a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa de volume de ingestão continuar excedendo o limite ou se você estiver esperando contatá-lo em breve, você poderá solicitar para aumentá-lo no abrindo uma solicitação de suporte. 
 
-Para ser notificado sobre o Approching ou atingir o limite de taxa de volume de ingestão em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com a base de lógica de alerta no número de resultados de zero, período de avaliação de 5 minutos e frequência de 5 minutos.
+Para ser notificado sobre Approching ou atingir o limite de taxa de volume de ingestão no espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com a lógica de alerta base no número de resultados maior que zero, período de avaliação de 5 minutos e frequência de 5 minutos.
 
 A taxa do volume de ingestão atingiu 80% do limite:
 ```Kusto
@@ -152,9 +152,9 @@ Operation
 
 ![Exemplo de design de contexto de recurso](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
-Este cenário aborda um design de espaço de trabalho único em sua assinatura de organizações de ti que não é restrita pela soberania de dados ou conformidade regulatória, ou que precisa mapear para as regiões em que os recursos são implantados. Ele permite que as equipes de segurança e administrador de ti da sua organização possam aproveitar a integração aprimorada com o gerenciamento de acesso do Azure e um controle de acesso mais seguro.
+Esse cenário abrange um design de espaço de trabalho único na assinatura de sua organização de ti que não é restrita pela soberania de dados ou conformidade regulatória, ou que precisa mapear para as regiões em que os recursos são implantados. Ele permite que as equipes de segurança e administrador de ti da sua organização possam aproveitar a integração aprimorada com o gerenciamento de acesso do Azure e um controle de acesso mais seguro.
 
-Todos os recursos, soluções de monitoramento e informações como Application Insights e Azure Monitor para VMs, a infraestrutura de suporte e os aplicativos mantidos pelas diferentes equipes são configurados para encaminhar seus dados de log coletados para o espaço de trabalho compartilhado centralizado nas organizações de ti. Os usuários em cada equipe recebem acesso a logs para recursos aos quais eles receberam acesso.
+Todos os recursos, soluções de monitoramento e informações como Application Insights e Azure Monitor para VMs, a infraestrutura de suporte e os aplicativos mantidos pelas diferentes equipes são configurados para encaminhar seus dados de log coletados para o espaço de trabalho compartilhado centralizado da organização de ti. Os usuários em cada equipe recebem acesso a logs para recursos aos quais eles receberam acesso.
 
 Depois de implantar a arquitetura do espaço de trabalho, você pode impor isso nos recursos do Azure com [Azure Policy](../../governance/policy/overview.md). Ele fornece uma maneira de definir políticas e garantir a conformidade com os recursos do Azure para que eles enviem todos os seus logs de recursos para um espaço de trabalho específico. Por exemplo, com máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais, você pode usar políticas existentes que avaliam a conformidade do espaço de trabalho e os resultados do relatório, ou personalizar para corrigir se não estiver em conformidade.  
 

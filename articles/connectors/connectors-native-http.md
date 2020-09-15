@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226419"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526731"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de Aplicativos Lógicos do Azure
 
@@ -104,7 +104,7 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos da solicitação |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
@@ -167,6 +167,14 @@ Aqui está o mesmo exemplo que mostra a definição de JSON da ação HTTP na de
    "type": "Http"
 }
 ```
+
+## <a name="content-with-applicationx-www-form-urlencoded-type"></a>Conteúdo com aplicativo/x-www-form-tipo urlencoded
+
+Para fornecer dados urlencoded no corpo de uma solicitação HTTP, você precisa especificar que os dados têm o `application/x-www-form-urlencoded` tipo de conteúdo. Na ação ou gatilho HTTP, adicione o `content-type` cabeçalho. Defina o valor do cabeçalho como `application/x-www-form-urlencoded` .
+
+Por exemplo, suponha que você tenha um aplicativo lógico que envia uma solicitação HTTP POST para um site, que dá suporte ao `application/x-www-form-urlencoded` tipo. Veja como essa ação pode parecer:
+
+![Captura de tela que mostra uma solicitação HTTP com o cabeçalho ' Content-Type ' definido como ' application/x-www-form-urlencoded '](./media/connectors-native-http/http-action-urlencoded.png)
 
 <a name="asynchronous-pattern"></a>
 
@@ -263,4 +271,3 @@ Para obter mais informações sobre parâmetros de ação e gatilho, consulte es
 
 * [Acesso seguro e acesso a dados para chamadas de saída para outros serviços e sistemas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
 * [Conectores para Aplicativos Lógicos](../connectors/apis-list.md)
-

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 251159c4fcf27ceb4d8b0dddeecbe501c7346e9e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 05ff5d2f7ff87d2ce58f135330487f746cc5c1c7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073226"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528356"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 
@@ -47,7 +47,7 @@ As operações de Key Vault são gerenciadas separadamente por meio de permissõ
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
 |Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-Para saber mais sobre permissões e controle de acesso, confira [Proteger seu cofre de chaves](secure-your-key-vault.md).
+Para saber mais sobre permissões e controle de acesso, veja [Proteger seu cofre de chaves](secure-your-key-vault.md).
 
 ## <a name="enabling-soft-delete"></a>Habilitar a exclusão reversível
 
@@ -283,4 +283,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## <a name="other-resources"></a>Outros recursos
 
 - Para obter uma visão geral do recurso de exclusão reversível do Key Vault, veja [Visão geral da exclusão reversível do Azure Key Vault](soft-delete-overview.md).
-- Para ter uma visão geral do uso do Azure Key Vault, confira [O que é o Azure Key Vault?](overview.md).
+- Para ter uma visão geral do uso do Azure Key Vault, confira [O que é Azure Key Vault?](overview.md).

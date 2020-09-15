@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 2c6d1873aadbbf19f1b7650f9b432b3b6bed2841
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068363"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527370"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre a rede na recuperação de desastre da VM do Azure
 
@@ -35,7 +35,7 @@ Caso você esteja usando o Azure ExpressRoute ou uma conexão VPN na rede local 
 
 ![ambiente do cliente](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-As redes geralmente são protegidas usando firewalls e NSGs (grupos de segurança de rede). Os firewalls usam lista branca baseada em IP ou em URL para controlar a conectividade de rede. Os NSGs fornecem regras que usam intervalos de endereços IP para controlar a conectividade de rede.
+As redes geralmente são protegidas usando firewalls e NSGs (grupos de segurança de rede). As marcas de serviço devem ser usadas para controlar a conectividade de rede. NSGs deve permitir várias marcas de serviço para controlar a conectividade de saída.
 
 >[!IMPORTANT]
 > O uso de um proxy autenticado para controlar a conectividade de rede não é compatível com o Site Recovery e a replicação não pode ser habilitada.
@@ -45,6 +45,8 @@ As redes geralmente são protegidas usando firewalls e NSGs (grupos de seguranç
 
 Se você está usando um proxy de firewall baseado em URL para controlar a conectividade de saída, permita estas URLs do Site Recovery:
 
+>[!NOTE]
+> A lista de permissões baseada em endereço IP não deve ser executada para controlar a conectividade de saída.
 
 **URL** | **Detalhes**
 --- | ---
@@ -63,10 +65,10 @@ Se você estiver usando um NSG para controlar a conectividade de saída, essas m
     - Crie uma [marcação de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base na regra NSG para a região de origem.
     - Permita esses endereços para que os dados possam ser gravados da VM para a conta de armazenamento de cache.
 - Criar uma [marca de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regra NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
-- Crie uma regra de NSG baseada na marca de serviço EventsHub para a região de destino, permitindo o acesso ao monitoramento de Site Recovery.
-- Crie uma regra de NSG baseada na marca de serviço AzureSiteRecovery para permitir acesso ao Site Recovery Service em qualquer região.
-- Crie uma regra de NSG baseada na marca de serviço AzureKeyVault. Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal.
-- Crie uma regra de NSG baseada na marca de serviço GuestAndHybridManagement. Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal.
+- Crie uma regra de NSG baseada em marca de serviço EventsHub para a região de destino, permitindo o acesso ao monitoramento de Site Recovery.
+- Crie uma regra de NSG baseada em marca de serviço do AzureSiteRecovery para permitir acesso ao Site Recovery Service em qualquer região.
+- Crie uma regra de NSG baseada em marca de serviço do AzureKeyVault. Isso é necessário apenas para habilitar a replicação de máquinas virtuais habilitadas para ADE por meio do Portal.
+- Crie uma regra de NSG baseada em marca de serviço do GuestAndHybridManagement. Isso é necessário apenas para habilitar a atualização automática do agente de mobilidade para um item replicado por meio do Portal.
 - É recomendável que você crie as regras de NSG necessárias em um NSG de teste e verifique se não há nenhum problema antes de criar as regras em um NSG de produção.
 
 ## <a name="example-nsg-configuration"></a>Exemplo de Configuração do NSG

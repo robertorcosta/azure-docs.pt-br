@@ -3,12 +3,12 @@ title: Criar função de Azure Resource Manager personalizada e atribuir à enti
 description: Este artigo fornece orientação sobre como criar uma função de Azure Resource Manager personalizada e atribuir à entidade de serviço para análise de vídeo ao vivo em IoT Edge usando CLI do Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043164"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526571"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Criar função de Azure Resource Manager personalizada e atribuir à entidade de serviço
 
@@ -43,7 +43,7 @@ Se você não tiver uma conta de serviço de mídia, use as etapas a seguir para
 1. Navegue até o [Cloud Shell](https://shell.azure.com/).
 1. Selecione "bash" como seu ambiente na lista suspensa no lado esquerdo da janela do Shell
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![A tela capturs mostra o bash selecionado na janela do Shell.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. Defina sua assinatura do Azure como a conta padrão usando o seguinte modelo de comando:
     
     ```
@@ -163,7 +163,7 @@ az ad sp show --id "<appId>" | Select-String "objectId"
 ```
 
 > [!NOTE]
-> `<appId>`pode ser recuperado da saída da etapa [criar entidade de serviço](#create-service-principal) .
+> `<appId>` pode ser recuperado da saída da etapa [criar entidade de serviço](#create-service-principal) .
 
 O comando acima imprimirá o objectId da entidade de serviço. 
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068805"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526877"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -31,7 +31,7 @@ As seguintes configurações de autenticação multifator do Azure estão dispon
 | [Bloquear/desbloquear usuários](#block-and-unblock-users) | Impedir que usuários específicos possam receber solicitações de autenticação multifator do Azure. Qualquer tentativa de autenticação de usuários bloqueados é negada automaticamente. Os usuários permanecem bloqueados por 90 dias a partir do momento em que são bloqueados ou desbloqueados manualmente. |
 | [Alerta de fraude](#fraud-alert) | Defina as configurações que permitem que os usuários relatem solicitações de verificação fraudulentas. |
 | [Notificações](#notifications) | Habilite notificações de eventos do servidor MFA. |
-| [Tokens OATH](concept-authentication-methods.md#oath-tokens) | Usado em ambientes de MFA do Azure baseados em nuvem para gerenciar tokens OATH para os usuários. |
+| [Tokens OATH](concept-authentication-oath-tokens.md) | Usado em ambientes de MFA do Azure baseados em nuvem para gerenciar tokens OATH para os usuários. |
 | [Configurações de chamada telefônica](#phone-call-settings) | Defina as configurações relacionadas para chamadas telefônicas e saudações para ambientes de nuvem e locais. |
 | Provedores | Isso mostrará quaisquer provedores de autenticação existentes que você possa ter associado a sua conta. Novos provedores de autenticação não podem ser criados a partir de 1 de setembro de 2018 |
 

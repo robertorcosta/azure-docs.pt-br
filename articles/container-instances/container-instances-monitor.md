@@ -3,12 +3,12 @@ title: Monitorar instâncias de contêiner
 description: Como monitorar o consumo de recursos de computação, como CPU e memória, pelos contêineres nas Instâncias de Contêiner do Azure.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116360"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526690"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorar os recursos de contêiner em Instâncias de Contêiner do Azure
 
@@ -44,7 +44,7 @@ Em um grupo de contêineres que contém vários deles, use uma [dimensão][monit
 1. Na página **Visão geral**, selecione um dos gráficos de métricas, como **CPU**. 
 1. Selecione o botão **Aplicar divisão** e o **Nome do Contêiner**.
 
-![dimensão][dimension]
+![Captura de tela mostra as métricas para uma instância de contêiner com aplicar divisão selecionada e nome do contêiner selecionado.][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Obter métricas – CLI do Azure
 

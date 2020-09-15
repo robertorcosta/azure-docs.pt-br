@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 953d22e2dc41ca64af3793c8e0f67a203eb5ca7c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646858"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527081"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -71,9 +71,7 @@ Colete informações de contato do cliente conectando seu sistema de CRM (gerenc
 
 ### <a name="test-drive"></a>Test drive
 
-Um test drive é uma ótima maneira de demonstrar sua oferta para clientes potenciais oferecendo a eles a opção de experimentar antes de comprar, o que resulta no aumento da conversão e na geração de clientes potenciais altamente qualificados. Para saber mais, comece com [o que é Test Drive](../what-is-test-drive.md).
-
-Para habilitar um test drive por um período de tempo fixo, marque a caixa de seleção **Habilitar um test drive**. Para remover o test drive de sua oferta, desmarque essa caixa de seleção.
+Neste ponto, o Dynamics 365 Business central offers não oferece suporte a test drive. Para remover test drive de sua oferta, desmarque a caixa de seleção **habilitar um test drive** .
 
 ### <a name="customer-leads"></a>Clientes potenciais
 
@@ -140,7 +138,7 @@ O nome que você digitar aqui será mostrado aos clientes como o título da sua 
 
 ### <a name="short-description"></a>Descrição breve
 
-Forneça uma descrição breve da sua oferta, com até 100 caracteres. Essa descrição pode ser usada nos resultados da pesquisa do marketplace.
+Forneça uma descrição breve da sua oferta, com até 100 caracteres. Essa descrição pode ser usada nos resultados da pesquisa do Marketplace.
 
 ### <a name="description"></a>Descrição
 

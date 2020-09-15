@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect topologias e cenários com suporte de provisionamento em nuvem
-description: Este tópico descreve os pré-requisitos e os requisitos de hardware do provisionamento de nuvem.
+description: Saiba mais sobre as várias topologias locais e Azure Active Directory (Azure AD) que usam Azure AD Connect provisionamento de nuvem.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77620868"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526843"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Azure AD Connect topologias e cenários com suporte de provisionamento em nuvem
 Este artigo descreve várias topologias locais e Azure Active Directory (Azure AD) que usam Azure AD Connect provisionamento de nuvem. Este artigo inclui apenas cenários e configurações com suporte.

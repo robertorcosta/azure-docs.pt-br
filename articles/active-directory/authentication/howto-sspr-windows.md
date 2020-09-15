@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a6013ed47196e2300f56f0066c634da2a64fdee8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717345"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526860"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Habilitar a Azure Active Directory redefinição de senha de autoatendimento na tela de entrada do Windows
 
@@ -40,7 +40,7 @@ As seguintes limitações se aplicam ao uso do SSPR na tela de entrada do Window
 - Os computadores ingressados no Azure Active Directory híbrido devem ter a linha de visão de conectividade de rede para um controlador de domínio para usar a nova senha e atualizar as credenciais armazenadas em cache. Isso significa que os dispositivos devem estar na rede interna da organização ou em uma VPN com acesso à rede para um controlador de domínio local.
 - Se estiver usando uma imagem, antes de executar o sysprep, veja se o cache da Web está desmarcado para o Administrador interno, antes de executar a etapa CopyProfile. Mais informações sobre esse assunto podem ser encontradas no artigo de suporte [Desempenho insatisfatório ao usar perfil de usuário padrão personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - As configurações a seguir são conhecidas por interferir na capacidade de usar e redefinir senhas em dispositivos Windows 10:
-    - Se Ctrl + Alt + Del for exigido pela política em versões do Windows 10 antes de v1809, a **redefinição de senha** não funcionará.
+    - Se Ctrl + Alt + Del for exigido pela política em versões do Windows 10 antes de v1909, a **redefinição de senha** não funcionará.
     - Se as notificações da tela de bloqueio estiverem desativadas, a opção **Redefinir senha** não funcionará.
     - *HideFastUserSwitching* é definido como Enabled ou 1
     - *DontDisplayLastUserName* é definido como Enabled ou 1

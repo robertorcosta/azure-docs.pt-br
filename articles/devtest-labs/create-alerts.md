@@ -3,12 +3,12 @@ title: Criar alertas do log de atividades para laboratórios no Azure DevTest La
 description: Este artigo fornece etapas para criar alertas do log de atividades para o laboratório no Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 6c859e70ab8a101c533e16f9cb118e26727baa52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d5886ea26ddbeb07efc23d61d3197860620eebf3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095856"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526350"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Criar alertas do log de atividades para laboratórios no Azure DevTest Labs
 Este artigo explica como criar alertas do log de atividades para laboratórios no Azure DevTest Labs (por exemplo: quando uma VM é criada ou quando uma VM é excluída).
@@ -64,7 +64,7 @@ Neste exemplo, você cria um alerta para todas as operações administrativas em
 ## <a name="view-alerts"></a>Exibir alertas 
 1. Você verá alertas sobre os **alertas** para todas as operações administrativas (neste exemplo). Os alertas podem demorar algum tempo para serem exibidos. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Alertas":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="A captura de tela exibe alertas no painel.":::
 1. Se você selecionar número em uma coluna (por exemplo: **total de alertas**), verá os alertas que foram gerados. 
 
     :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Todos os alertas":::
@@ -77,6 +77,6 @@ Neste exemplo, você cria um alerta para todas as operações administrativas em
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre como criar grupos de ações usando diferentes tipos de ação, consulte [criar e gerenciar grupos de ações no portal do Azure](../azure-monitor/platform/action-groups.md).
-- Para saber mais sobre os logs de atividade, consulte [log de atividades do Azure](../azure-monitor/platform/activity-log.md).
+- Para saber mais sobre os logs de atividade, consulte  [log de atividades do Azure](../azure-monitor/platform/activity-log.md).
 - Para saber mais sobre como definir alertas em logs de atividade, consulte [alertas no log de atividades](../azure-monitor/platform/activity-log-alerts.md).
 

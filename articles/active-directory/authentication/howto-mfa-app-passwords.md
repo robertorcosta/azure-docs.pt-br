@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 12be5109f339223c11970041922ed2172f67382b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224910"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526894"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitar e usar a autenticação multifator do Azure com aplicativos herdados usando senhas de aplicativo
 
-Alguns aplicativos, como o Office 2010 ou anterior e o Apple mail antes do iOS 11, não dão suporte à autenticação multifator. Os aplicativos não estão configurados para aceitar uma forma secundária de autenticação ou prompt. Para usar esses aplicativos de forma segura com a autenticação multifator do Azure habilitada para contas de usuário, você pode usar senhas de aplicativo. Essas senhas de aplicativo substituíram sua senha tradicional para permitir que um aplicativo ignore a autenticação multifator e funcione corretamente.
+Alguns aplicativos mais antigos, sem navegador, como o Office 2010 ou anterior e o Apple mail antes do iOS 11, não entendem pausas ou interrupções no processo de autenticação. Se um usuário estiver habilitado para a autenticação multifator do Azure e tentar usar um desses aplicativos mais antigos e sem navegador, eles não poderão se autenticar com êxito. Para usar esses aplicativos de forma segura com a autenticação multifator do Azure habilitada para contas de usuário, você pode usar senhas de aplicativo. Essas senhas de aplicativo substituíram sua senha tradicional para permitir que um aplicativo ignore a autenticação multifator e funcione corretamente.
 
 Autenticação moderna fornece suporte ao clientes do Microsoft Office 2013 e posteriores. Os clientes do Office 2013, incluindo o Outlook, dão suporte a protocolos de autenticação modernos e podem ser habilitados para funcionar com a verificação em duas etapas. Assim que o cliente estiver habilitado, as senhas de aplicativo não serão necessárias para o cliente.
 

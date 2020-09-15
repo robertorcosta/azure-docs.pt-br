@@ -5,12 +5,12 @@ ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f0b7d056d37ffb11945a5c50e2705b5d74402007
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 8ce343045f7ff124f5faf86b13210bfb5b3b5519
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386105"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527149"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implantar o modelo de solução do consórcio de prova de autoridade Ethereum no Azure
 
@@ -99,7 +99,7 @@ Tipo de autenticação | O método para autenticar para a máquina virtual. | Se
 Senha | A senha para a conta de administrador para cada uma das máquinas virtuais implantadas. Todas as VMs têm inicialmente a mesma senha. Você pode alterar a senha após o provisionamento. | 12 a 72 caracteres 
 Subscription | A assinatura para a qual deseja implantar a rede consortium |
 Grupo de recursos| O grupo de recursos para o qual implantar a rede do consórcio. | myResourceGroup
-Location | A região do Azure para o grupo de recursos. | Oeste dos EUA 2
+Local | A região do Azure para o grupo de recursos. | Oeste dos EUA 2
 
 Selecione **OK**.
 
@@ -131,7 +131,7 @@ Tamanho da máquina virtual do nó de mineração | O tamanho de máquina virtua
 
 A máquina virtual e a camada de armazenamento afetam o desempenho da rede.  Use a tabela a seguir para ajudar a escolher a eficiência de custo:
 
-SKU da máquina virtual|Camada de armazenamento|Preço|Taxa de transferência|Latency
+SKU da máquina virtual|Camada de armazenamento|Preço|Produtividade|Latency
 ---|---|---|---|---
 F1|SSD Standard|low|low|high
 D2_v3|SSD Standard|média|média|média
@@ -168,7 +168,7 @@ Parâmetro | Descrição | Valor de exemplo
 ----------|-------------|--------------
 Monitoramento | Opção para habilitar o monitoramento | Habilitar
 Conectar-se a logs de Azure Monitor existentes | Opção para criar uma nova instância de logs de Azure Monitor ou ingressar em uma instância existente | Create new
-Location | A região em que a nova instância é implantada | Leste dos EUA
+Local | A região em que a nova instância é implantada | Leste dos EUA
 ID do espaço de trabalho do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|ID do espaço de trabalho da instância existente de logs de Azure Monitor||NA
 Chave primária do log Analytics existente (conectar a logs de Azure Monitor existentes = ingressar existente)|A chave primária usada para se conectar à instância existente de logs de Azure Monitor||NA
 
@@ -279,7 +279,7 @@ O portal exibirá primeiro estatísticas de rede de alto nível como uma visão 
 
 ![Categorias de monitor](./media/ethereum-poa-deployment/monitor-categories.png)
 
-A seleção de **visão geral do nó** mostra as estatísticas de infraestrutura por nó.
+A seleção de **visão geral do nó**  mostra as estatísticas de infraestrutura por nó.
 
 ![Estatísticas de nó](./media/ethereum-poa-deployment/node-stats.png)
 
@@ -325,13 +325,13 @@ Por motivos de segurança, o acesso de porta SSH é negado por uma regra de segu
 
 1. Selecione a regra **Allow-SSH** .
 
-    ![ssh-permitir](./media/ethereum-poa-deployment/ssh-allow.png)
+    ![Captura de tela mostra uma janela de visão geral do ssh-permitir selecionado.](./media/ethereum-poa-deployment/ssh-allow.png)
 
 1. Alterar **ação** para **permitir**
 
     ![habilitar permissão ssh](./media/ethereum-poa-deployment/ssh-enable-allow.png)
 
-1. Clique em **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
+1. Selecione **Salvar**. As alterações podem levar alguns minutos para serem aplicadas.
 
 Você pode se conectar remotamente às máquinas virtuais para os nós de validador via SSH com o nome de usuário do administrador fornecido e a chave de senha/SSH. O comando SSH para acessar o primeiro nó do validador é listado na saída de implantação do modelo. Por exemplo:
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717142"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526996"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
 
@@ -82,7 +82,7 @@ Os pré-requisitos para o Windows Hello são altamente dependentes se você esti
 
 Os usuários registram seu método com senha como parte do fluxo de registro da autenticação multifator do Azure. A autenticação multifator com um nome de usuário e senha junto com outro método registrado pode ser usada como um fallback, caso eles não possam usar seu telefone ou chave de segurança em alguns cenários.
 
-### <a name="licensing"></a>Licenças 
+### <a name="licensing"></a>Licenciamento 
 Não há nenhum custo adicional para autenticação sem senha, embora alguns pré-requisitos possam exigir uma assinatura premium. Para obter informações detalhadas sobre recursos e licenciamento na [página de licenciamento do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Desenvolver um plano
@@ -98,7 +98,7 @@ A tabela a seguir descreve os casos de uso a serem implementados durante este pr
 | **Acesso** | A entrada sem senha está disponível em um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de uso estão disponíveis para que os administradores sejam auditados quase em tempo real. <br> Os dados de uso são baixados em sistemas corporativos pelo menos a cada 29 dias ou a ferramenta SIEM é usada. |
 | **Governança** | O ciclo de vida das atribuições de usuário ao método de autenticação apropriado e aos grupos associados é definido e monitorado. |
-| **Security** | O acesso ao método de autenticação apropriado é controlado por meio de atribuições de usuário e grupo. <br> Somente usuários autorizados podem usar a entrada sem senha. |
+| **Segurança** | O acesso ao método de autenticação apropriado é controlado por meio de atribuições de usuário e grupo. <br> Somente usuários autorizados podem usar a entrada sem senha. |
 | **Desempenho** | As linhas do tempo de propagação de atribuição de acesso são documentadas e monitoradas. <br> As horas de entrada são medidas para facilitar o uso. |
 | **Experiência do Usuário** | Os usuários estão cientes da compatibilidade com a mobilidade. <br> Os usuários podem configurar a entrada sem senha do aplicativo autenticador. |
 | **Suporte** | Os usuários estão cientes de como encontrar suporte para problemas de entrada sem senha. |
@@ -160,7 +160,7 @@ Você deve habilitar **as chaves de segurança FIDO2 compatíveis**. A Microsoft
 -    O Windows 10 versão 1809 dá suporte à entrada FIDO2 e pode exigir que o software do fabricante da chave FIDO2 seja implantado. Recomendamos que você use a versão 1903 ou posterior. 
 
 **Para dispositivos ingressados no domínio do Azure Active Directory híbrido**: 
--    Windows 10 Insider Build 18945 ou posterior
+-    Windows 10 versão 2004 ou posterior
 -    Servidores de domínio totalmente corrigidos que executam o Windows Server 2016 ou 2019.
 -    Versão mais recente do Azure AD Connect
 
@@ -294,7 +294,7 @@ Siga as etapas alinhadas ao método escolhido abaixo.
 
 | Função do Azure AD | Descrição |
 | --- | --- |
-| Administrador global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
+| Administrador Global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação. |
 | Usuário | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |
 

@@ -3,12 +3,12 @@ title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azu
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eecc17e36f35e7552c0be83f7ecc38f2d644f18d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89439615"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526316"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
@@ -107,7 +107,7 @@ Um manifesto de implantação é um documento JSON que descreve quais módulos i
     * **Nome do módulo de IOT Edge**: lvaEdge
     * **URI da imagem**: MCR.Microsoft.com/Media/Live-Video-Analytics:1.0    
     
-    ![Adicionar](./media/deploy-iot-edge-device/add.png)
+    ![Captura de tela mostra a guia Configurações do módulo.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > Não selecione **Adicionar** até que você tenha especificado valores nas guias **configurações do módulo**, opções de criação do **contêiner**e configurações do **módulo de configuração** , conforme descrito neste procedimento.
@@ -217,7 +217,7 @@ Depois de criar a implantação, você retorna para a página de IoT Edge do Hub
 Pode levar alguns instantes para que o módulo seja iniciado no dispositivo e, em seguida, seja relatado de volta para o Hub IoT. Atualize a página para ver o status atualizado.
 Código de status: 200 – OK significa que [o tempo de execução do IOT Edge](../../iot-edge/iot-edge-runtime.md) está íntegro e funcionando bem.
 
-![Status](./media/deploy-iot-edge-device/status.png)
+![Captura de tela mostra um valor de status para um tempo de execução IoT Edge.](./media/deploy-iot-edge-device/status.png)
 
 #### <a name="invoke-a-direct-method"></a>Invocar um método direto
 
@@ -225,7 +225,7 @@ Em seguida, vamos testar o exemplo invocando um método direto. Leia [métodos d
 
 1. Ao clicar no módulo de borda criado, você será levado para sua página de configuração.  
 
-    ![Módulos](./media/deploy-iot-edge-device/modules.png)
+    ![Captura de tela mostra a página de configuração de um módulo de borda.](./media/deploy-iot-edge-device/modules.png)
 1. Clique na opção de menu método direto.
 
     > [!NOTE] 
