@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB o conector de Apache Spark para recursos e notas de versão da API do SQL
-description: Saiba tudo sobre o conector de Apache Spark Azure Cosmos DB para a API do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do Java assíncrono do SQL Azure Cosmos DB.
+title: Cosmos DB o conector de Apache Spark para recursos e notas de versão da API do SQL
+description: Saiba mais sobre o conector de Apache Spark Azure Cosmos DB para a API do SQL, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão do SDK do Java assíncrono do SQL Azure Cosmos DB.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 46ddbd18051ffa44232468704ce189d4171b50e7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 05f81e4d93244db854bf8d0ec254ee647f81d9cc
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590002"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069162"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>API do Azure Cosmos DB Apache Spark Connector para núcleo (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -36,25 +36,25 @@ ms.locfileid: "88590002"
 > * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
-Acelere a análise de Big Data usando o conector do Azure Cosmos DB Apache Spark para núcleo (SQL). O conector do Spark permite executar trabalhos do [Spark ](https://spark.apache.org/) em dados armazenados no Azure Cosmos DB. Há suporte para processamento em lote e fluxo.
+Você pode acelerar a análise de Big Data usando o conector do Azure Cosmos DB Apache Spark para núcleo (SQL). O conector do Spark permite executar trabalhos do [Spark](https://spark.apache.org/) em dados armazenados no Azure Cosmos DB. Há suporte para processamento em lote e fluxo.
 
-Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/services/databricks) ou o [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), que fornece clusters Spark gerenciados no Azure. A tabela a seguir mostra as versões do Spark com suporte.
+Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/services/databricks) ou o [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), que fornece clusters Spark gerenciados no Azure. A tabela a seguir mostra as versões com suporte:
 
 | Componente | Versão |
 |---------|-------|
-| Apache Spark | 2.4. x, 2.3. x, 2.2. x e 2.1. x |
-| Scala | 2.11 |
-| Versão do Azure Databricks runtime | > 3.4 |
+| Apache Spark | 2,4.*x*, 2,3. *x*, 2,2. *x*e 2,1. *x* |
+| Scala | 2,11 |
+| Azure Databricks (versão de tempo de execução) | Posterior a 3,4 |
 
 > [!WARNING]
 > Este conector dá suporte à API de núcleo (SQL) do Azure Cosmos DB.
-> Para Cosmos DB API do MongoDB, use o [conector de Spark do MongoDB](https://docs.mongodb.com/spark-connector/master/).
-> Para Cosmos DB API do Cassandra, use o [conector do Spark Cassandra](https://github.com/datastax/spark-cassandra-connector).
+> Para a API de Cosmos DB para MongoDB, use o [conector do MongoDB para Spark](https://docs.mongodb.com/spark-connector/master/).
+> Para o API do Cassandra de Cosmos DB, use o [conector do Cassandra Spark](https://github.com/datastax/spark-cassandra-connector).
 >
 
-## <a name="helpful-content"></a>Conteúdo útil
+## <a name="resources"></a>Recursos
 
-| Conteúdo | Link |
+| Recurso | Link |
 |---|---|
 | **Baixe o SDK** | [Baixar de Apache Spark](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) |
 |**Documentação da API** | [Referência do conector do Spark]() |
@@ -64,67 +64,56 @@ Você pode usar o conector com o [Azure Databricks](https://azure.microsoft.com/
 ## <a name="release-history"></a>Histórico de versões
 
 ### <a name="311"></a>3.1.1
-#### <a name="new-features"></a>Novos recursos
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Corrige um caso de borda de ponto de verificação de streaming em que na "ID" contém o caractere "|" com a configuração "ChangeFeedMaxPagesPerBatch" aplicada
+* Corrige um caso de borda de ponto de verificação de streaming no qual o `ID` contém o caractere de pipe (|) com a `ChangeFeedMaxPagesPerBatch` configuração aplicada.
 
 ### <a name="310"></a>3.1.0
 #### <a name="new-features"></a>Novos recursos
-* Adiciona suporte para atualizações em massa ao usar chaves de partição aninhadas
-* Adiciona suporte para tipos de dados decimal e float durante gravações para Cosmos DB.
-* Adiciona suporte para tipos de carimbo de data/hora quando eles estão usando tempo longo (época do UNIX) como um valor
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+* Adiciona suporte para atualizações em massa quando chaves de partição aninhadas são usadas.
+* Adiciona suporte para tipos de dados decimal e float durante gravações para Azure Cosmos DB.
+* Adiciona suporte para tipos de carimbo de data/hora quando eles estão usando tempo longo (época do UNIX) como um valor.
 
 ### <a name="308"></a>3.0.8
-#### <a name="new-features"></a>Novos recursos
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Corrige a exceção de conversão de tipo ao usar a configuração "WriteThroughputBudget".
+* Corrige a exceção conversão que ocorre quando a `WriteThroughputBudget` configuração é usada.
 
 ### <a name="307"></a>3.0.7
 #### <a name="new-features"></a>Novos recursos
 * Adiciona informações de erro para falhas em massa à exceção e ao log.
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
 
 ### <a name="306"></a>3.0.6
-#### <a name="new-features"></a>Novos recursos
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
 * Corrige problemas de ponto de verificação de streaming.
 
 ### <a name="305"></a>3.0.5
-#### <a name="new-features"></a>Novos recursos
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Corrige o nível de log de uma mensagem deixada involuntariamente com o erro de nível para reduzir o ruído
+* Para reduzir o ruído, o nível de log de uma mensagem permanece involuntariamente com erro de nível.
 
 ### <a name="304"></a>3.0.4
-#### <a name="new-features"></a>Novos recursos
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Corrige um bug no streaming estruturado durante as divisões de partição-possivelmente resultando em alguns registros de feed de alteração ausentes ou vendo exceções nulas para gravações de ponto de verificação
+* Corrige um bug no streaming estruturado durante as divisões de partição. O bug pode resultar em alguns registros de feed de alteração ausentes ou exceções nulas para gravações de ponto de verificação.
 
 ### <a name="303"></a>3.0.3
-#### <a name="new-features"></a>Novos recursos
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Corrige um bug em que um esquema personalizado fornecido para readStream é ignorado
+* Corrige um bug que faz com que um esquema personalizado fornecido para readStream seja ignorado.
 
 ### <a name="302"></a>3.0.2
-#### <a name="new-features"></a>Novos recursos
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Corrige a regressão (JAR não sombreado inclui todas as dependências sombreadas) que aumentou o tempo de compilação em 50%
+* Corrige uma regressão (JAR não sombreado inclui todas as dependências sombreadas) que aumenta o tempo de compilação em 50%.
 
 ### <a name="301"></a>3.0.1
-#### <a name="new-features"></a>Novos recursos
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Corrige um problema de dependência que causa o transporte direto sobre TCP para falhar com RequestTimeoutException
+* Corrige um problema de dependência que faz com que o transporte direto sobre TCP falhe com RequestTimeoutException.
 
 ### <a name="300"></a>3.0.0
 #### <a name="new-features"></a>Novos recursos
-* Melhora o gerenciamento de conexões e o pool de conexões para reduzir o número de chamadas de metadados
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
+* Melhora o gerenciamento de conexões e o pool de conexões para reduzir o número de chamadas de metadados.
 
 ## <a name="faq"></a>Perguntas frequentes
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+Saiba mais sobre o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Para saber mais sobre Apache Spark, consulte [a Home Page](https://spark.apache.org/).
+Saiba mais sobre o [Apache Spark](https://spark.apache.org/).

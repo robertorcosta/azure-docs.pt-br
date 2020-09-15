@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c539fd37116f8c55f336aecf1e8979355a40d61c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662562"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084831"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que usam cargas de trabalho Microsoft 365, como o Exchange Online e o Skype for Business, se beneficiam de uma lista de endereços global completa para que possam enviar emails e chamar todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -217,7 +217,7 @@ A filtragem de entrada usa a configuração padrão, na qual objetos em direçã
 Na filtragem de entrada, você usa o **escopo** para determinar quais objetos devem ou não ser sincronizados. Aqui, você faz os ajustes para os requisitos da sua própria organização. O módulo do escopo tem um **grupo** e uma **cláusula** para determinar quando uma regra de sincronização deve estar no escopo. Um grupo contém uma ou muitas cláusulas. Há um “E” lógico entre várias cláusulas e um “OU” lógico entre vários grupos.
 
 Vamos examinar um exemplo:   
-![Uma captura de tela mostrando um exemplo de adição de filtros de escopo](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Uma captura de tela mostrando um exemplo de adição de filtros de escopo.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Isso deve ser lido como **(departamento = TI) OU (departamento = Vendas E c = EUA)**.
 
 Nos exemplos e nas etapas abaixo, usaremos o objeto de usuário como um exemplo, mas você poderá usar isso para todos os tipos de objeto.
@@ -275,7 +275,7 @@ Neste exemplo, você altera a filtragem para que somente usuários com emails e 
 1. Entre no servidor que está executando a sincronização do Azure AD Connect usando uma conta que seja membro do grupo de segurança **ADSyncAdmins** .
 2. Inicie o **Editor de regras de sincronização** no menu **Iniciar** .
 3. Em **Tipos de Regra**, clique em **Saída**.
-4. Dependendo da versão do Connect que você usar, localize a regra nomeada **Saída para AAD – Ingresso de usuário** ou **Saída para AAD - Usuário ingressado no SOAInAD** e clique em **Editar**.
+4. Dependendo da versão do Connect que você usa, localize a regra chamada **out to Azure ad – User Join** ou **out to Azure ad-User Join SOAInAD**e clique em **Edit**.
 5. No pop-up, responda **Sim** para criar uma cópia da regra.
 6. Na página **Descrição**, altere **Precedência** para um valor não usado, por exemplo, 50.
 7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**e clique em **Adicionar cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**.
@@ -300,7 +300,7 @@ Após a sincronização, todas as alterações serão preparadas para exportaç�
 
 1. Inicie um prompt de comando e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Execute `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   O nome do conector pode ser encontrado no Serviço de Sincronização. Ele tem um nome semelhante a "contoso.com – AAD" para o Azure AD.
+   O nome do conector pode ser encontrado no Serviço de Sincronização. Ele tem um nome semelhante a "contoso.com – Azure AD" para o Azure AD.
 3. Execute `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. Agora você tem um arquivo em %temp% chamado export.csv que pode ser examinado no Microsoft Excel. Esse arquivo contém todas as alterações que estão prestes a ser exportadas.
 5. Faça as alterações necessárias na configuração ou nos dados e execute essas etapas novamente (importar, sincronizar e verificar) até que você esteja satisfeito com as alterações que serão exportadas.

@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: abnarain
-ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033652"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069468"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Solução de problemas do runtime de integração auto-hospedada
 
@@ -46,13 +46,13 @@ Para atividades com falha em execução no ir de IR/compartilhado auto-hospedado
 > As solicitações de exibição de log e carregamento serão executadas em todas as instâncias de IR de hospedagem interna online. Certifique-se de que todas as instâncias de IR de hospedagem interna estejam online, caso haja algum log ausente. 
 
 
-## <a name="self-hosted-ir-general-failure-or-error"></a>Erro ou falha geral de IR de infravermelho auto-hospedado
+## <a name="self-hosted-ir-general-failure-or-error"></a>Erro ou falha geral de IR auto-hospedado
 
 ### <a name="tlsssl-certificate-issue"></a>Problema de certificado TLS/SSL
 
 #### <a name="symptoms"></a>Sintomas
 
-Ao tentar habilitar o certificado TLS/SSL (avançado) do **ir auto-hospedado Configuration Manager**  ->  **acesso remoto da intranet**, depois de selecionar o certificado TLS/SSL, abaixo do erro aparecerá:
+Ao tentar habilitar o certificado TLS/SSL (avançado) do **Gerenciador de configuração de IR auto-hospedado** -> **Acesso remoto da intranet**, depois de selecionar o certificado TLS/SSL, o erro abaixo será exibido:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
@@ -60,49 +60,49 @@ No caso acima, o usuário está usando o certificado com "microsoft.com" como ú
 
 #### <a name="cause"></a>Causa
 
-Este é um problema conhecido no WCF: a validação do WCF TLS/SSL verifica apenas a última DNSName em SAN. 
+Esse é um problema conhecido no WFC: A validação do WCF TLS/SSL verifica somente o último DNSName em SAN. 
 
 #### <a name="resolution"></a>Resolução
 
-Há suporte para o certificado curinga no IR do Azure Data Factory v2 auto-hospedado. Esse problema normalmente ocorre porque o certificado SSL não está correto. O último DNSName em SAN deve ser válido. Siga as etapas abaixo para verificá-lo. 
+O certificado curinga é compatível no IR auto-hospedado do Azure Data Factory v2. Esse problema normalmente ocorre porque o certificado SSL não está correto. O último DNSName em SAN deve ser válido. Siga as etapas abaixo para verificá-lo. 
 1.  Abra o console de gerenciamento, verifique duas vezes o *assunto* e o *nome alternativo da entidade* nos detalhes do certificado. No caso acima, por exemplo, o último item no *nome alternativo da entidade*, que é "nome DNS = Microsoft.com.com", não é legítimo.
 2.  Contate a empresa de problemas de certificado para remover o nome DNS errado.
 
-### <a name="concurrent-jobs-limit-issue"></a>O problema de limite de trabalhos simultâneos
+### <a name="concurrent-jobs-limit-issue"></a>Problema de limite de trabalhos concorrentes
 
 #### <a name="symptoms"></a>Sintomas
 
-Ao tentar aumentar o limite de trabalhos simultâneos da interface do usuário do Azure Data Factory, ele é interrompido como *atualização* para sempre.
-O valor máximo de trabalhos simultâneos foi definido como 24 e você deseja aumentar a contagem para que os trabalhos possam ser executados mais rapidamente. O valor mínimo que você pode inserir é 3 e o valor máximo que você pode inserir é 32. Você aumentou o valor de 24 para 32 e acertou no botão *Atualizar* , na interface do usuário que ele parou na *atualização* , como você pode ver abaixo. Após a atualização, o cliente ainda viu o valor como 24 e ele nunca foi atualizado para 32.
+Quando você tenta aumentar o limite de trabalhos concorrentes na interface do usuário do Azure Data Factory, ele paralisa e fica *atualizando* continuamente.
+O valor máximo de trabalhos concorrentes foi definido como 24 e você deseja aumentar a contagem para que os trabalhos possam ser executados com mais rapidez. O valor mínimo que você pode inserir é 3, e o valor máximo que você pode inserir é 32. Você aumentou o valor de 24 para 32 e acertou no botão *Atualizar* , na interface do usuário que ele parou na *atualização* , como você pode ver abaixo. Após a atualização, o cliente ainda viu o valor como 24 e ele nunca foi atualizado para 32.
 
 ![Atualizando status](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
 #### <a name="cause"></a>Causa
 
-Há uma limitação para a configuração à medida que o valor depende do computador logicCore e da memória, você pode apenas ajustá-lo a um valor menor, como 24, e ver o resultado.
+Há uma limitação para a configuração, já que o valor depende do computador logicCore e da memória. Você só pode ajustá-lo para um valor menor, como 24, e ver o resultado.
 
 > [!TIP] 
 > - Para obter detalhes sobre o que é a contagem de núcleos de lógica e como localizar a contagem de núcleos de lógica do computador, consulte [Este artigo](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
 > - Para obter detalhes sobre como calcular o Math. log, consulte [Este artigo](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
-### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problema de certificado SSL de HA de IR via auto-hospedado
+### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problema de certificado SSL de HA de IR auto-hospedado
 
 #### <a name="symptoms"></a>Sintomas
 
-O nó de trabalho do IR auto-hospedado relatou o erro abaixo:
+O nó de trabalho de IR auto-hospedado relatou o erro abaixo:
 
 `Failed to pull shared states from primary node net.tcp://abc.cloud.corp.Microsoft.com:8060/ExternalService.svc/. Activity ID: XXXXX The X.509 certificate CN=abc.cloud.corp.Microsoft.com, OU=test, O=Microsoft chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
 
 #### <a name="cause"></a>Causa
 
-Quando manipulamos casos relacionados ao handshake SSL/TLS, podemos encontrar alguns problemas relacionados à verificação da cadeia de certificados. 
+Quando lidamos com casos relacionados ao handshake SSL/TLS, podemos encontrar alguns problemas relacionados à verificação da cadeia de certificados. 
 
 #### <a name="resolution"></a>Resolução
 
 - Aqui está uma maneira rápida e intuitiva de solucionar problemas de falha de compilação da cadeia de certificados X. 509.
  
-    1. Exporte o certificado, que precisa ser verificado. Vá para gerenciar certificado de computador e localize o certificado que você deseja verificar e clique com o botão direito do mouse em **todas as tarefas**  ->  **Exportar**.
+    1. Exporte o certificado que precisa ser verificado. Vá para Gerenciar certificado de computador, localize o certificado que você deseja verificar e clique com o botão direito do mouse em **Todas as tarefas** -> **Exportar**.
     
         ![Exportar tarefas](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -138,15 +138,15 @@ Quando manipulamos casos relacionados ao handshake SSL/TLS, podemos encontrar al
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Em seguida, a **ferramenta de recuperação de URL** será aberta. Você pode verificar os certificados de AIA, CDP e OCSP clicando no botão **recuperar** .
+    1. Em seguida, a **ferramenta de recuperação de URL** será aberta. Você pode verificar os certificados de AIA, CDP e OCSP clicando no botão **Recuperar**.
 
         ![Botão de recuperação](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
-        A cadeia de certificados pode ser criada com êxito se o certificado de AIA for "verificado" e o certificado de CDP ou OCSP for "verificado".
+        A cadeia de certificados poderá ser criada com êxito se o certificado de AIA for "Verificado" e o certificado de CDP ou OCSP for "Verificado".
 
-        Se você encontrar uma falha ao recuperar o AIA, CDP, trabalhe com a equipe de rede para deixar o computador cliente pronto para se conectar à URL de destino. Ele será suficiente se o caminho http ou o caminho LDAP puder ser verificado.
+        Se você encontrar uma falha ao recuperar o AIA e o CDP, trabalhe com a equipe de rede para preparar o computador cliente para se conectar à URL de destino. Isso será suficiente se o caminho http ou o caminho LDAP puder ser verificado.
 
-### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>O IR auto-hospedado não pôde carregar o arquivo ou o assembly
+### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>O IR auto-hospedado não conseguiu carregar o arquivo ou assembly
 
 #### <a name="symptoms"></a>Sintomas
 
@@ -165,7 +165,7 @@ Se você usar o Process Monitor, poderá ver o seguinte resultado:
 > [!TIP] 
 > Você pode definir o filtro conforme mostrado na captura de tela abaixo.
 > Ele nos informa que o dll **System. ValueTuple** não está localizado na pasta relacionada ao GAC, ou em *C:\Program Files\Microsoft Integration Runtime\4.0\Gateway*ou em *c:\Program Files\Microsoft Integration Runtime\4.0\Shared* pasta.
-> Basicamente, ele carregará a DLL da pasta do *GAC* primeiro e, em seguida, de uma pasta de *Gateway* *compartilhada* e finalmente. Portanto, você pode colocar a dll em qualquer caminho que possa ser útil.
+> Basicamente, ele carregará a DLL da pasta *GAC* primeiro e, em seguida, de *Compartilhados* e finalmente da pasta *Gateway*. Portanto, você pode colocar a dll em qualquer caminho que possa ser útil.
 
 ![Configurar filtros](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -186,54 +186,54 @@ A partir do erro abaixo, você pode ver claramente o assembly *System. ValueTupl
 Para obter mais informações sobre o GAC, consulte [Este artigo](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
 
 
-### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Como auditar a chave de IR via hospedagem interna ausente
+### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Como auditar a chave de IR auto-hospedado ausente
 
 #### <a name="symptoms"></a>Sintomas
 
-O tempo de execução de integração auto-hospedado deixa de repente offline sem chave, abaixo da mensagem de erro mostrada no log de eventos: `Authentication Key is not assigned yet`
+O tempo de execução de integração auto-hospedado de repente fica off-line sem chave; a mensagem de erro abaixo é exibida no log de eventos: `Authentication Key is not assigned yet`
 
 ![Chave de autenticação ausente](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
 #### <a name="cause"></a>Causa
 
-- O nó IR auto-hospedado ou o IR via auto-hospedado lógico no portal é excluído.
+- O nó IR auto-hospedado ou o IR auto-hospedado lógico no portal é excluído.
 - Uma desinstalação limpa é feita.
 
 #### <a name="resolution"></a>Resolução
 
-Se nenhuma das causas acima for aplicável, você poderá ir para a pasta: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*e verificar se o arquivo chamado **configurações** foi excluído. Se ele for excluído, siga as instruções [aqui](https://www.netwrix.com/how_to_detect_who_deleted_file.html) para auditar quem exclui o arquivo.
+Se nenhuma das causas acima for aplicável, você poderá ir para a pasta: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*e verificar se o arquivo chamado **configurações** foi excluído. Se ele foi excluído, siga as instruções [aqui](https://www.netwrix.com/how_to_detect_who_deleted_file.html) para auditar quem exclui o arquivo.
 
 ![Verificar arquivo de configurações](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
 
-### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>Não é possível usar o IR auto-hospedado para ligar dois armazenamentos de dados locais
+### <a name="cannot-use-self-hosted-ir-to-bridge-two-on-premises-data-stores"></a>Não é possível usar o IR auto-hospedado para unir dois armazenamentos de dados locais
 
 #### <a name="symptoms"></a>Sintomas
 
-Depois de criar o IRs autohospedado para os armazenamentos de dados de origem e destino, você deseja conectar os dois IRs juntos para concluir uma cópia. Se os armazenamentos de dados estiverem configurados em diferentes VNETs ou não conseguirem entender o mecanismo de gateway, você encontrará erros como: *o driver de origem não pode ser encontrado no ir de destino*; *a origem não pode ser acessada pelo ir de destino*.
+Depois de criar o IRs auto-hospedados para os armazenamentos de dados de origem e destino, você deseja conectar os dois IRs para concluir uma cópia. Se os armazenamentos de dados estiverem configurados em diferentes VNETs ou não conseguirem entender o mecanismo de gateway, você encontrará erros como: *o driver de origem não pode ser encontrado no ir de destino*; *a origem não pode ser acessada pelo ir de destino*.
  
 #### <a name="cause"></a>Causa
 
 O IR auto-hospedado é projetado como um nó central de uma atividade de cópia, não um agente cliente que precisa ser instalado para cada armazenamento de dados.
  
-No caso acima, o serviço vinculado para cada repositório de dados deve ser criado com o mesmo IR e o IR deve ser capaz de acessar ambos os armazenamentos de dados por meio da rede. Independentemente de o IR ser instalado com o armazenamento de dados de origem, o armazenamento de dados de destino ou em um terceiro computador, se dois serviços vinculados forem criados com o IRs diferente, mas forem usados na mesma atividade de cópia, o IR de destino será usado e os drivers para os dois repositórios de dados precisarão ser instalados no computador IR de destino.
+No caso acima, o serviço vinculado para cada armazenamento de dados deve ser criado com o mesmo IR, e o IR deve ser capaz de acessar ambos os armazenamentos de dados através da rede. Independentemente de o IR ser instalado com o armazenamento de dados de origem, o armazenamento de dados de destino ou em um terceiro computador, se dois serviços vinculados forem criados com IRs diferentes, mas forem usados na mesma atividade de cópia, o IR de destino será usado, e os drivers para os dois armazenamentos de dados precisarão ser instalados no computador de IR de destino.
 
 #### <a name="resolution"></a>Resolução
 
 Instale os drivers para a origem e o destino no IR de destino e verifique se ele pode acessar o armazenamento de dados de origem.
  
-Se o tráfego não puder passar pela rede entre dois repositórios de dados (por exemplo, eles estiverem configurados em duas VNETs), você não poderá concluir a cópia em uma atividade mesmo com o IR instalado. Nesse caso, você pode criar duas atividades de cópia com dois IRs, cada um em um ventilação: 1 IR para copiar do armazenamento de dados 1 para o armazenamento de BLOBs do Azure, outro para copiar do armazenamento de BLOBs do Azure para o armazenamento de dados 2. Isso poderia simular a necessidade de usar o IR para criar uma ponte que conecta dois armazenamentos de dados desconectados.
+Se o tráfego não puder passar pela rede entre dois armazenamentos de dados (por exemplo, se eles estiverem configurados em duas VNETs), você não poderá concluir a cópia em uma atividade, mesmo com o IR instalado. Nesse caso, você pode criar duas atividades de cópia com dois IRs, cada um em uma VNET: 1 IR para copiar do armazenamento de dados 1 para o Armazenamento de Blobs do Azure, outro para copiar do Armazenamento de Blobs do Azure para o armazenamento de dados 2. Isso poderia simular a necessidade de usar o IR para criar uma ponte que conecta dois armazenamentos de dados desconectados.
 
 
 ### <a name="credential-sync-issue-causes-credential-lost-from-ha"></a>O problema de sincronização de credenciais causa a perda de credenciais da HA
 
 #### <a name="symptoms"></a>Sintomas
 
-A credencial de fonte de dados "XXXXXXXXXX" é excluída do nó de Integration Runtime atual com carga "quando você exclui o serviço de link em portal do Azure ou a tarefa tem a carga incorreta, crie um novo serviço de link com sua credencial novamente".
+A credencial da fonte de dados "XXXXXXXXXX" foi excluída do nó do Integration Runtime atual com o conteúdo "quando você excluiu o serviço de link no portal do Azure ou a tarefa tem o conteúdo incorreto; crie um novo serviço de link com sua credencial novamente".
 
 #### <a name="cause"></a>Causa
 
-O IR auto-hospedado é criado no modo de alta disponibilidade com dois nós, mas eles não estão no estado de sincronização de credenciais, o que significa que as credenciais armazenadas no nó Dispatcher não são sincronizadas com outros nós de trabalho. Se qualquer failover ocorrer do nó Dispatcher para o nó de trabalho, mas as credenciais existirem somente no nó Dispatcher anterior, a tarefa falhará ao tentar acessar as credenciais e você terá atingido o erro acima.
+O IR auto-hospedado é criado no modo HA com dois nós, porém eles não estão no estado de sincronização de credenciais, o que significa que as credenciais armazenadas no nó do Dispatcher não estão sincronizadas com outros nós de trabalho. Se qualquer failover ocorrer do nó do Dispatcher para o nó de trabalho, mas as credenciais existirem somente no nó do Dispatcher anterior, a tarefa falhará ao tentar acessar as credenciais e você receberá o erro acima.
 
 #### <a name="resolution"></a>Resolução
 
@@ -245,13 +245,13 @@ A única maneira de evitar esse problema é verificar se dois nós estão no est
 #### <a name="symptoms"></a>Sintomas
 
 1.  Importe um arquivo PFX para o repositório de certificados.
-2.  Ao selecionar o certificado por meio da interface do usuário do Configuration Manager IR, você encontra o erro abaixo:
+2.  Quando você selecionar o certificado por meio da interface do usuário do IR Configuration Manager, encontrará o erro abaixo:
 
     ![Chave privada ausente](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
 
 #### <a name="cause"></a>Causa
 
-- A conta de usuário está com privilégios baixos e não pode acessar a chave privada.
+- A conta de usuário está com privilégios insuficientes e não pode acessar a chave privada.
 - O certificado foi gerado como assinatura, mas não como troca de chaves.
 
 #### <a name="resolution"></a>Resolução
@@ -574,50 +574,6 @@ Faça o rastreamento do Netmon e analise mais detalhadamente.
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
     Portanto, você precisa envolver a equipe de rede para verificar o que o quarto salto é do IR do tipo auto-hospedado. Se for o firewall como um sistema Linux, verifique todos os logs em que o dispositivo redefine o pacote após o handshake TCP 3. No entanto, se você não tiver certeza de onde fazer a investigação, tente obter o rastreamento de Netmon do IR e do firewall auto-hospedados juntos durante o tempo problemático para descobrir qual dispositivo pode redefinir esse pacote e causar a desconexão. Nesse caso, você também precisa envolver sua equipe de rede para avançar.
-
-### <a name="how-to-collect-netmon-trace"></a>Como coletar rastreamento do Netmon
-
-1.  Baixe as ferramentas do Netmon deste [site](https://cnet-downloads.com/network-monitor)e instale-as no computador do servidor (qualquer servidor que tenha o problema) e cliente (como o ir para hospedagem interna).
-
-2.  Crie uma pasta, por exemplo, no seguinte caminho: *D:\netmon*. Verifique se ele tem espaço suficiente para salvar o log.
-
-3.  Capture as informações de IP e porta. 
-    1. Inicie um prompt CMD.
-    2. Selecione executar como administrador e execute o seguinte comando:
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.  Capture o rastreamento do Netmon (pacote de rede).
-    1. Inicie um prompt CMD.
-    2. Selecione executar como administrador e execute o seguinte comando:
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. Você pode usar três comandos diferentes para capturar a página de rede:
-        - Opção A: comando de arquivo RoundRobin (isso capturará apenas um arquivo e substituirá os logs antigos).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Opção B: comando de arquivo encadeado (isso criará um novo arquivo se 200 MB for atingido).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Opção C: comando de arquivo agendado.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.  Pressione **Ctrl + C** para parar a captura do rastreamento do Netmon.
- 
-> [!NOTE]
-> Se você só puder coletar o rastreamento do Netmon no computador cliente, obtenha o endereço IP do servidor para ajudá-lo a analisar o rastreamento.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Como analisar o rastreamento do Netmon
 

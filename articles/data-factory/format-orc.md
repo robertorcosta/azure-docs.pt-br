@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 9b68d3724c6390fc5d30745924451e27ef9855b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f71b739242cf4f6a3549927a2a7e61400b2f987e
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417718"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061061"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC no Azure Data Factory
 
@@ -56,7 +56,7 @@ Veja abaixo um exemplo de conjunto de ORC no armazenamento de BLOBs do Azure:
 }
 ```
 
-Observe os seguintes pontos:
+Observe o seguinte:
 
 * Não há suporte para tipos de dados complexos (STRUCT, MAP, LIST e UNION).
 * Não há suporte para o espaço em branco no nome da coluna.
@@ -82,7 +82,16 @@ As propriedades a seguir têm suporte na seção *** \* coletor \* *** de ativid
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | A propriedade Type da fonte da atividade de cópia deve ser definida como **OrcSink**. | Sim      |
+| formatSettings | Um grupo de propriedades. Consulte a tabela **configurações de gravação de Orc** abaixo. |    Não      |
 | storeSettings | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings` . **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+
+**Configurações de gravação de Orc** com suporte em `formatSettings` :
+
+| Propriedade      | Descrição                                                  | Obrigatório                                              |
+| ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| type          | O tipo de formatSettings deve ser definido como **OrcWriteSettings**. | Sim                                                   |
+| maxRowsPerFile | Ao gravar dados em uma pasta, você pode optar por gravar em vários arquivos e especificar o máximo de linhas por arquivo.  | Não |
+| fileNamePrefix | Especifique o prefixo do nome do arquivo ao gravar dados em vários arquivos, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo de nome de arquivo será gerado automaticamente. Essa propriedade não se aplica quando a origem é um armazenamento de [dados habilitado para opção](copy-activity-performance-features.md)de armazenamento ou de partição baseada em arquivo.  | Não |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Usando Integration Runtime auto-hospedados
 

@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 3faa86fe67e3f0a208bf42dc3e49de8335b25c95
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 7b629adc24f0c9d8826d610c59379605e1ca0b95
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272324"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061811"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral-local Active Directory Domain Services autenticação sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -24,7 +24,7 @@ Se você for novo nos compartilhamentos de arquivos do Azure, é recomendável l
 
 - AD DS identidades usadas para o arquivos do Azure no local, a autenticação do AD DS deve ser sincronizada com o Azure AD. A sincronização de hash de senha é opcional. 
 - Dá suporte a compartilhamentos de arquivos do Azure gerenciados pelo Sincronização de Arquivos do Azure.
-- Dá suporte à autenticação Kerberos com o AD com a criptografia RC4-HMAC. A criptografia Kerberos AES ainda não tem suporte.
+- Dá suporte à autenticação Kerberos com o AD com a criptografia RC4-HMAC e AES 256. A criptografia Kerberos AES 128 ainda não tem suporte.
 - Dá suporte à experiência de logon único.
 - Somente com suporte em clientes em execução em versões do sistema operacional mais recentes do que o Windows 7 ou o Windows Server 2008 R2.
 - Somente com suporte na floresta do AD na qual a conta de armazenamento está registrada. Você só pode acessar compartilhamentos de arquivos do Azure com as credenciais de AD DS de uma única floresta por padrão. Se você precisar acessar o compartilhamento de arquivos do Azure de uma floresta diferente, verifique se você tem a relação de confiança de floresta apropriada configurada, consulte as [perguntas frequentes](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) para obter detalhes.

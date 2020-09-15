@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226668"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084321"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
@@ -28,13 +28,13 @@ Recursos como a MFA (autenticação multifator) são uma ótima maneira de prote
 
 Cada organização tem necessidades diferentes quando se trata de autenticação. A Microsoft oferece as seguintes três opções de autenticação sem senha que se integram ao Azure Active Directory (Azure AD):
 
-- Windows Hello para Empresas
+- Windows Hello for Business
 - Aplicativo Microsoft Authenticator
 - Chaves de segurança FIDO2
 
 ![Autenticação: segurança versus conveniência](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello para Empresas
+## <a name="windows-hello-for-business"></a>Windows Hello for Business
 
 O Windows Hello para empresas é ideal para operadores de informações que têm seu próprio computador Windows designado. As credenciais biométricas e de PIN estão diretamente ligadas ao computador do usuário, o que impede o acesso de qualquer pessoa que não seja o proprietário. Com a integração de PKI (infraestrutura de chave pública) e suporte interno para SSO (logon único), o Windows Hello para empresas fornece um método conveniente para acessar diretamente os recursos corporativos locais e na nuvem.
 
@@ -45,7 +45,7 @@ As etapas a seguir mostram como o processo de entrada funciona com o Azure AD:
 ![Diagrama que descreve as etapas envolvidas para a entrada do usuário com o Windows Hello para empresas](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
 1. Um usuário entra no Windows usando biométrica ou gesto de PIN. O gesto desbloqueia a chave privada do Windows Hello para empresas e é enviado para o provedor de suporte de segurança de autenticação de nuvem, chamado de *provedor de AP de nuvem*.
-1. O provedor de AP de nuvem solicita um nonce do Azure AD.
+1. O provedor de AP de nuvem solicita um nonce (um número arbitrário aleatório que pode ser usado apenas uma vez) do Azure AD.
 1. O Azure AD retorna um nonce válido por 5 minutos.
 1. O provedor de AP de nuvem assina o nonce usando a chave privada do usuário e retorna o nonce assinado para o Azure AD.
 1. O Azure AD valida o nonce assinado usando a chave pública registrada com segurança do usuário em relação à assinatura de nonce. Depois de validar a assinatura, o Azure AD validará o nonce assinado retornado. Quando o nonce é validado, o Azure AD cria um PRT (token de atualização principal) com a chave de sessão que é criptografada para a chave de transporte do dispositivo e a retorna para o provedor de AP de nuvem.
@@ -159,7 +159,7 @@ A escolha entre essas três opções de senha depende dos requisitos de seguran�
 
 Aqui estão alguns fatores a serem considerados ao escolher a tecnologia com senha da Microsoft:
 
-||**Windows Hello para Empresas**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
+||**Windows Hello for Business**|**Entrada sem senha com o aplicativo Microsoft Authenticator**|**Chaves de segurança FIDO2**|
 |:-|:-|:-|:-|
 |**Pré-requisito**| Windows 10, versão 1809 ou posterior<br>Azure Active Directory| Aplicativo Microsoft Authenticator<br>Telefone (dispositivos iOS e Android que executam o Android 6,0 ou superior.)|Windows 10, versão 1809 ou posterior<br>Azure Active Directory|
 |**Modo**|Plataforma|Software|Hardware|

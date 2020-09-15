@@ -1,131 +1,140 @@
 ---
 title: Conector de Gerenciamento de Serviços de TI-exportação segura no Azure Monitor
-description: Este artigo fornece informações sobre como conectar seus produtos/serviços de ITSM com a exportação segura no Azure Monitor para monitorar e gerenciar centralmente os itens de trabalho de ITSM.
+description: Este artigo mostra como conectar seus produtos/serviços de ITSM com exportação segura em Azure Monitor para monitorar e gerenciar centralmente os itens de trabalho de ITSM.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 160054e7e98dc2cb06c2c7daf325536766963daa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 39f277fffbb9a76a4be4bfa8aaedeaf3479a989f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568635"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068876"
 ---
-# <a name="connect-azure-to-itsm-tools-using-secure-export"></a>Conectar o Azure a ferramentas de ITSM usando exportação segura
+# <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Conectar o Azure a ferramentas de ITSM usando a exportação segura
 
-Este artigo fornece informações sobre como configurar a conexão entre seu produto/serviço de ITSM usando a exportação segura.
+Este artigo mostra como configurar a conexão entre seu produto ou serviço de ITSM (gerenciamento de serviço de ti) usando a exportação segura.
 
-A exportação segura é e a versão atualizada do [ITSMC](./itsmc-overview.md) (gerenciamento de serviços de ti). Ambas as versões permitem que você crie itens de trabalho em uma ferramenta de ITSM quando Azure Monitor alertas são acionados. A funcionalidade inclui alertas de métrica, log e log de atividades.
+A exportação segura é uma versão atualizada do [conector de gerenciamento de serviços de ti (ITSMC)](./itsmc-overview.md). Ambas as versões permitem que você crie itens de trabalho em uma ferramenta de ITSM quando Azure Monitor envia alertas. A funcionalidade inclui os alertas de métrica, log e log de atividades.
 
-O [ITSMC](./itsmc-overview.md) usa credenciais de usuário e senha, enquanto a exportação segura tem autenticação mais forte porque usa Azure Active Directory (Azure AD). O Azure AD (Azure Active Directory) é o serviço de gerenciamento de acesso e identidade baseado em nuvem da Microsoft. Ele ajuda os usuários a entrar e acessar recursos internos ou externos. Usar o Azure AD com o ITSM ajuda a identificar alertas do Azure (usando a ID do aplicativo do Azure AD) que foram enviados para o sistema externo.
+ITSMC usa credenciais de nome de usuário e senha. A exportação segura tem autenticação mais forte porque usa Azure Active Directory (Azure AD). O Azure AD é o serviço de gerenciamento de identidade e acesso baseado em nuvem da Microsoft. Ele ajuda os usuários a entrar e acessar recursos internos ou externos. Usar o Azure AD com o ITSM ajuda a identificar alertas do Azure (por meio da ID do aplicativo do Azure AD) que foram enviados para o sistema externo.
 
 > [!NOTE]
-> As ferramentas conectar Azure a ITSM usando exportação segura está em versão prévia
+> A capacidade de conectar o Azure às ferramentas de ITSM usando a exportação segura está em versão prévia.
 
 ## <a name="secure-export-architecture"></a>Arquitetura de exportação segura
 
 A arquitetura de exportação segura apresenta os seguintes novos recursos:
 
-* **Novo grupo de ação** -os alertas são enviados para a ferramenta de ITSM usando o grupo de ações do webhook seguro (em vez do grupo de ações de ITSM usando o no ITSMC).
-* **Autenticação do Azure ad** -a autenticação ocorre usando o Azure AD em vez de credenciais de usuário/senha.
+* **Novo grupo de ações**: os alertas são enviados para a ferramenta de ITSM por meio do grupo de ação de webhook seguro, em vez do grupo de ações de ITSM que o ITSMC usa.
+* **Autenticação do Azure ad**: a autenticação ocorre por meio do Azure AD em vez de credenciais de nome de usuário/senha.
 
 ## <a name="secure-export-data-flow"></a>Fluxo de dados de exportação segura
 
-As etapas de fluxo de dados de exportação segura são:
+As etapas do fluxo de dados de exportação segura são:
 
-1) Um alerta que está configurado para usar a exportação segura é disparado no Azure Monitor
-2) A carga do alerta é enviada a uma ação de webhook segura para a ferramenta ITSM.
-3) O aplicativo ITSM verifica com o Azure AD se o alerta está autorizado a entrar na ferramenta de ITSM.
-4) Se o alerta estiver autorizado no aplicativo:
-    1) Cria um item de trabalho (por exemplo, incidente) na ferramenta ITSM.
-    2) Associa a ID do item de configuração (CI) ao banco de dados de gerenciamento do cliente (CMDB).
-![Diagrama de ITSM](media/it-service-management-connector-secure-webhook-connections/secure-export-diagram.png)
+1. Azure Monitor envia um alerta que está configurado para usar a exportação segura.
+1. A carga do alerta é enviada por uma ação de webhook segura para a ferramenta ITSM.
+1. O aplicativo ITSM verifica com o Azure AD se o alerta está autorizado a entrar na ferramenta de ITSM.
+1. Se o alerta for autorizado, o aplicativo:
+   
+   1. Cria um item de trabalho (por exemplo, um incidente) na ferramenta de ITSM.
+   1. Associa a ID do item de configuração (CI) ao banco de dados de gerenciamento do cliente (CMDB).
+
+![Diagrama que mostra como a ferramenta de ITSM se comunica com o Azure A D, alertas do Azure e um grupo de ações.](media/it-service-management-connector-secure-webhook-connections/secure-export-diagram.png)
 
 ## <a name="connection-with-bmc-helix"></a>Conexão com BMC Helix
 
 A exportação segura dá suporte ao BMC Helix. Alguns benefícios da integração são:
 
-* **Melhor autenticação** – o Azure ad fornece autenticação mais segura sem os tempos limite que normalmente ocorrem no ITSMC.
-* **Alertas resolvidos na ferramenta de ITSM** – os alertas de métrica implementam um estado "acionado" e "resolvido". Quando a condição for atendida, o estado do alerta será "disparado". Quando a condição não for mais atendida, o estado do alerta será "resolvido". No ITSMC, os alertas não puderam ser resolvidos automaticamente. Com a exportação segura, o estado resolvido flui para a ferramenta de ITSM e, portanto, é atualizado automaticamente.
-* O **[esquema comum permite](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)** – em ITSMC, o esquema da carga de alerta difere com base no tipo de alerta. Em exportação segura, nós temos um esquema comum para todos os tipos de alertas. Esse novo esquema comum contém o CI para todos os tipos de alerta. Por isso, todos os tipos de alerta poderão associar seu IC ao CMDB.
+* **Autenticação melhor**: o Azure ad fornece autenticação mais segura sem os tempos limite que normalmente ocorrem no ITSMC.
+* **Alertas resolvidos na ferramenta ITSM: os alertas de**métrica implementam os Estados "disparados" e "resolvidos". Quando a condição for atendida, o estado do alerta será "disparado". Quando a condição não for mais atendida, o estado do alerta será "resolvido". No ITSMC, os alertas não podem ser resolvidos automaticamente. Com a exportação segura, o estado resolvido flui para a ferramenta de ITSM e, portanto, é atualizado automaticamente.
+* **[Esquema de alerta comum](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)**: em ITSMC, o esquema da carga de alerta difere com base no tipo de alerta. Na exportação segura, há um esquema comum para todos os tipos de alertas. Esse esquema comum contém o CI para todos os tipos de alerta. Todos os tipos de alertas poderão associar seu IC ao CMDB.
 
-Comece a usar o Conector ITSM com estas etapas:
+Comece a usar a ferramenta de Conector ITSM com estas etapas:
 
-1. Registre seu aplicativo com Azure Active Directory.
+1. Registrar um aplicativo no Azure AD.
 2. Crie um grupo de ação de webhook seguro.
 3. Configure seu ambiente de parceiro.
 
 ## <a name="register-with-azure-active-directory"></a>Registrar com Azure Active Directory
 
-Siga estas etapas para registrar o aplicativo do Azure AD com o Azure Active Directory
+Siga estas etapas para registrar o aplicativo com o Azure AD:
 
-1) [Criação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
-2) Na Azure Active Directory selecione "expor aplicativo"
-3) Selecione definir no URI da ID [ ![ do aplicativo Azure ad](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
-4) Clique em Salvar.
+1. Siga as etapas em [registrar um aplicativo com a plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+1. No Azure AD, selecione **expor aplicativo**.
+1. Selecione **definir** para o **URI da ID do aplicativo**.
+
+   [![Captura de tela da opção de configuração do U R I do aplicativo I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
+1. Clique em **Salvar**.
 
 ## <a name="create-a-secure-webhook-action-group"></a>Criar um grupo de ação de webhook seguro
 
-Depois de registrar o Azure AD, você pode criar itens de trabalho em sua ferramenta de ITSM com base nos alertas do Azure, usando a ação proteger webhook em grupos de ações.
-Os Grupos de Ações fornecem uma maneira modular e reutilizável de disparar ações para os Alertas do Azure. Use Grupos de Ação com alertas de métricas, alertas do Log de Atividades e alertas do Azure Log Analytics no portal do Azure.
-Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
-Use este procedimento:
+Depois que o aplicativo for registrado no Azure AD, você poderá criar itens de trabalho em sua ferramenta de ITSM com base nos alertas do Azure, usando a ação proteger webhook em grupos de ações.
 
-No BMC Helix Environment:
+Os grupos de ações fornecem uma maneira modular e reutilizável de disparar ações para alertas do Azure. Você pode usar grupos de ação com alertas de métrica, alertas do log de atividades e alertas de Log Analytics do Azure no portal do Azure.
+Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações no portal do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+
+Use o procedimento a seguir no ambiente Helix do BMC:
 
 1. Faça logon no Integration Studio.
-2. Procure o fluxo criar incidente do Azure Alerts.
-3. Copie a URL do webhook.
-![URL DO BMC](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
+1. Procure o fluxo **criar incidente do Azure Alerts** .
+1. Copie a URL do webhook.
+   
+   ![Captura de tela do webhook U R L no Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
 
-Para adicionar um webhook a uma ação, siga as instruções para um webhook seguro:
+Para adicionar um webhook a uma ação, siga estas instruções para o webhook seguro:
 
 1. No [portal do Azure](https://portal.azure.com/), pesquise e selecione **Monitor**. O painel **Monitor** consolida todas as configurações e dados de monitoramento em uma exibição.
-2. Selecione **Alertas**, em seguida, selecione **Gerenciar ações**.
-3. Selecione [Adicionar grupo de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal) e preencha os campos.
-4. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, digite um nome na caixa **Nome curto**. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
-5. Selecionar **webhook protegido**
-6. Selecione Editar detalhes. A imagem a seguir mostra uma ação de webhook protegida por exemplo:
-    1. Selecione a ID de objeto correta da Azure Active Directory que você registrou
-    2. Cole o campo no URI a URL do webhook que você copiou do "ambiente Helix do BMC"
-    3. Defina o **esquema de alerta comum** como **Sim**. 
-7. A imagem a seguir mostra um exemplo de configuração de ação de webhook protegida: ![ webhook seguro](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
+1. Selecione **alertas**  >  **Gerenciar ações**.
+1. Selecione [Adicionar grupo de ações](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal) e preencha os campos.
+1. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, digite um nome na caixa **Nome curto**. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
+1. Selecione **proteger webhook**.
+1. Selecione estes detalhes:
+   1. Selecione a ID de objeto da instância de Azure Active Directory que você registrou.
+   1. Para o URI, Cole a URL do webhook que você copiou do ambiente do BMC Helix.
+   1. Defina **habilitar o esquema de alerta comum** como **Sim**. 
 
-## <a name="configure-partner-environment"></a>Configurar ambiente de parceiro
+   A imagem a seguir mostra a configuração de uma ação de webhook segura de exemplo:
+
+   ![Captura de tela que mostra uma ação de webhook segura.](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
+
+## <a name="configure-the-partner-environment"></a>Configurar o ambiente de parceiro
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Conectar o BMC Helix ao Azure Monitor
 
-A seção a seguir fornece detalhes sobre como conectar seu produto BMC Helix e exportar com segurança no Azure.
+As seções a seguir fornecem detalhes sobre como conectar seu produto BMC Helix e exportação segura no Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Verifique se os seguintes pré-requisitos foram atendidos:
+Verifique se você atendeu aos seguintes pré-requisitos:
 
 * O Azure AD está registrado.
-* A versão com suporte do gerenciamento de serviços de várias nuvens do BMC Helix: versão 20, 2 ou posterior
+* Você tem a versão com suporte do gerenciamento de serviços de várias nuvens do BMC Helix (versão 20, 2 ou posterior).
 
-Para configurar a conexão do BMC Helix:
+### <a name="configure-the-bmc-helix-connection"></a>Configurar a conexão do BMC Helix
 
-1) [Habilitando a integração predefinida com o Azure Monitor para a versão 20,2](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html)
+1. Siga as instruções em [habilitando a integração predefinida com o Azure monitor para a versão 20, 2](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
 
-2) Como parte da configuração da conexão no Helix do BMC, acesse sua instância de integração do BMC e siga as instruções:
+1. Como parte da configuração da conexão no BMC Helix, acesse sua instância de integração do BMC e siga estas instruções:
 
-1. Selecionar **Catálogo**
-2. Selecionar **alertas do Azure**
-3. Selecionar **conectores**
-4. Selecionar **configuração**
-5. Selecione **Adicionar nova** configuração de conexão
-6. Preencha as informações da seção de configuração.
-    1. **Nome** -crie seu próprio
-    2. **Tipo de autorização** -nenhum
-    3. **Descrição**-crie seu próprio
-    4. **Site**-nuvem
-    5. **Número de instâncias** -2 – valor padrão
-    6. **Marcar** -selecionado por padrão e habilitar o uso
-    7. ID de locatário do Azure, ID do aplicativo do Azure são obtidas do aplicativo que foram definidos na etapa "criado Azure Active Directory".
-![Configuração do BMC](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)
+   1. Selecione **Catálogo**.
+   1. Selecione **alertas do Azure**.
+   1. Selecione **conectores**.
+   1. Selecione **configuração**.
+   1. Selecione **Adicionar nova** configuração de conexão.
+   1. Preencha as informações da seção de configuração:
+      - **Nome**: Crie o seu próprio.
+      - **Tipo de autorização**: **nenhum**
+      - **Descrição**: Crie o seu próprio.
+      - **Site**: **nuvem**
+      - **Número de instâncias**: **2**, o valor padrão.
+      - **Marque**: selecionado por padrão para habilitar o uso.
+      - A ID do locatário do Azure e a ID do aplicativo do Azure são obtidas do aplicativo que você definiu anteriormente.
+
+![Captura de tela que mostra a configuração do BMC.](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

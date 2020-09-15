@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 0c4178513c5a6027b3261d6d7975d4ec7cc55c6a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500412"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085783"
 ---
 # <a name="monitoring-azure-storage"></a>Monitorar o Armazenamento do Microsoft Azure
 
@@ -76,7 +76,11 @@ Nenhuma outra solicitação anônima com falha é registrada em log. Para uma li
 
 ## <a name="configuration"></a>Configuração
 
-As métricas de plataforma e o log de atividades são coletados automaticamente, mas você precisa criar uma configuração de diagnóstico para coletar logs de recursos ou encaminhá-los para fora do Azure Monitor. Para ver o processo para criar uma configuração de diagnóstico usando o portal do Azure, a CLI do Azure ou o PowerShell, consulte [Criar uma configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/platform/diagnostic-settings.md).
+As métricas de plataforma e o log de atividades são coletados automaticamente, mas você precisa criar uma configuração de diagnóstico para coletar logs de recursos ou encaminhá-los para fora do Azure Monitor. 
+
+Para criar uma configuração de diagnóstico usando o portal do Azure, o CLI do Azure ou o PowerShell, consulte [criar configuração de diagnóstico para coletar logs e métricas de plataforma no Azure](../../azure-monitor/platform/diagnostic-settings.md). 
+
+Para ver um modelo de Azure Resource Manager que cria uma configuração de diagnóstico, consulte [configuração de diagnóstico para o armazenamento do Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 Ao criar uma configuração de diagnóstico, escolha o tipo de armazenamento para o qual você deseja habilitar os logs, como um blob, uma fila, uma tabela ou um arquivo. Data Lake Storage Gen2 não aparece como um tipo de armazenamento. Isso ocorre porque Data Lake Storage Gen2 é um conjunto de recursos disponíveis para o armazenamento de BLOBs. 
 
@@ -124,7 +128,7 @@ Para ver uma lista de todas as métricas de suporte do Azure Monitor, que inclui
 
 #### <a name="list-the-metric-definition"></a>Listar a definição de métrica
 
-Você pode listar a definição de métrica da sua conta de armazenamento ou do serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Use o cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0).
+Você pode listar a definição de métrica da sua conta de armazenamento ou do serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Use o cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition).
 
 Neste exemplo, substitua o espaço reservado `<resource-ID>` pela ID do recurso de toda a conta de armazenamento ou a ID do recurso de um serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Você pode encontrar essas IDs de recurso nas página de **propriedades** da sua conta de armazenamento no portal do Azure.
 
@@ -135,7 +139,7 @@ Neste exemplo, substitua o espaço reservado `<resource-ID>` pela ID do recurso 
 
 #### <a name="reading-metric-values"></a>Lendo valores de métrica
 
-Você pode ler os valores de métrica no nível da sua conta de armazenamento ou do serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Use o cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0).
+Você pode ler os valores de métrica no nível da sua conta de armazenamento ou do serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Use o cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric).
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -146,7 +150,7 @@ Você pode ler os valores de métrica no nível da sua conta de armazenamento ou
 
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição de métrica no nível de conta
 
-Você pode listar a definição de métrica da sua conta de armazenamento ou do serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Use o comando [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions).
+Você pode listar a definição de métrica da sua conta de armazenamento ou do serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Use o comando [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
  
 Neste exemplo, substitua o espaço reservado `<resource-ID>` pela ID do recurso de toda a conta de armazenamento ou a ID do recurso de um serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Você pode encontrar essas IDs de recurso nas página de **propriedades** da sua conta de armazenamento no portal do Azure.
 
@@ -156,7 +160,7 @@ Neste exemplo, substitua o espaço reservado `<resource-ID>` pela ID do recurso 
 
 #### <a name="read-account-level-metric-values"></a>Ler os valores de métrica no nível de conta
 
-Você pode ler os valores de métrica da sua conta de armazenamento ou do serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Use o comando [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+Você pode ler os valores de métrica da sua conta de armazenamento ou do serviço de armazenamento individual, como o serviço de blob, arquivo, tabela ou fila. Use o comando [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list).
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

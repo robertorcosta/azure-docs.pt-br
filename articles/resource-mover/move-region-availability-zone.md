@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: fdd564618232ce7fde5a76fb9c37937113f179b2
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670284"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061862"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Mover VMs do Azure para uma zona de disponibilidade em outra região
 
@@ -71,8 +71,7 @@ Selecione os recursos que você deseja mover.
     ![Botão para começar](./media/move-region-availability-zone/get-started.png)
 
 3. Em **mover recursos**  >  **origem + destino**, selecione a assinatura e a região de origem.
-4. Em **destino**, selecione a região para a qual você deseja mover as VMs. 
-5. Na **região de metadados**, selecione onde você deseja armazenar metadados sobre os recursos que você está movendo. Um grupo de recursos é criado especificamente para essa finalidade. Em seguida, clique em **Próximo**.
+4. Em **destino**, selecione a região para a qual você deseja mover as VMs. Em seguida, clique em **Próximo**.
 
      ![Página para preencher a assinatura/região de origem e de destino](./media/move-region-availability-zone/source-target.png)
 

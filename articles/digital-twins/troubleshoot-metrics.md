@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f2dc93767457bfb96a9457a73adb83c0ed965308
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003874"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069740"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solução de problemas do Azure digital gêmeos: métricas
 
@@ -41,7 +41,7 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do gê
 4. Você pode optar por configurar alertas para seus dados de métricas selecionando **alertas** no menu e **+ nova regra de alerta**.
     :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Captura de tela mostrando a página alertas e o botão para adicionar":::
 
-    Para obter mais informações sobre esse processo, consulte [*solução de problemas: configurar o diagnóstico*](troubleshoot-diagnostics.md).
+    Para obter mais informações sobre esse processo, consulte [*solução de problemas: configurar alertas*](troubleshoot-alerts.md).
 
 ## <a name="azure-digital-twins-metrics-and-how-to-use-them"></a>Métricas do gêmeos digital do Azure e como usá-las
 
@@ -70,7 +70,7 @@ Métricas que têm a ver com a cobrança:
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operações de API de cobrança (versão prévia) | Contagem | Total | Métrica de cobrança para a contagem de todas as solicitações de API feitas no serviço de Gêmeosção digital do Azure. | ID do medidor |
 | BillingMessagesProcessed | Mensagens de cobrança processadas (visualização) | Contagem | Total | Métrica de cobrança para o número de mensagens enviadas do Azure digital gêmeos para pontos de extremidade externos. | ID do medidor |
-| BillingQueryUnits | Unidades de consulta de cobrança (versão prévia) | Contagem | Total | O número de unidades de consulta, uma medida interna computada de uso de recursos de serviço, consumida para executar consultas. Também há uma API auxiliar disponível para medir as unidades de consulta: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | ID do medidor |
+| BillingQueryUnits | Unidades de consulta de cobrança (versão prévia) | Contagem | Total | O número de unidades de consulta, uma medida interna computada de uso de recursos de serviço, consumida para executar consultas. Também há uma API auxiliar disponível para medir as unidades de consulta: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | ID do medidor |
 
 #### <a name="ingress-metrics"></a>Métricas de entrada
 

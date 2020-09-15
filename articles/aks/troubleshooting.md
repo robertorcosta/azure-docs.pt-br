@@ -4,12 +4,12 @@ description: Aprenda a solucionar problemas comuns ao usar o Serviço de Kuberne
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460313"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068822"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -450,3 +450,15 @@ Nas versões do Kubernetes **mais antigas que a 1.15.0**, você pode receber um 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Por que as atualizações para o kubernetes 1,16 falham ao usar rótulos de nó com um prefixo kubernetes.io
+
+A partir do kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) , [apenas um subconjunto definido de rótulos com o prefixo kubernetes.Io](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) pode ser aplicado pelo kubelet aos nós. AKS não pode remover rótulos ativos em seu nome sem consentimento, pois isso pode causar tempo de inatividade para cargas de trabalho impactadas.
+
+Como resultado, para atenuar isso, você pode:
+
+1. Atualize seu plano de controle de cluster para 1,16 ou superior
+2. Adicionar um novo nodepoool em 1,16 ou superior sem os rótulos de kubernetes.io não suportados
+3. Excluir o nodepool mais antigo
+
+O AKS está investigando a capacidade de mutar rótulos ativos em um nodepool para melhorar essa mitigação.

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/14/2020
+ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587303"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069587"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos do Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -80,7 +80,7 @@ O SQL Instância Gerenciada tem duas camadas de serviço: [uso geral](../databas
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máx. de 48 MB/s |
 | Taxa de transferência de dados (aproximada) | 100 – 250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
-| OLTP na memória | Sem suporte | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
+| OLTP in-memory | Sem suporte | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
 | Máximo de trabalhos simultâneos (solicitações) | Gen4:210 * número de vCores + 800<br>Gen5:105 * número de vCores + 800 | Gen4:210 * contagem de vCore + 800<br>Gen5:105 * contagem de vCore + 800 |
 | [Réplicas somente leitura](../database/read-scale-out.md) | 0 | 1 (incluído no preço) |
@@ -99,12 +99,12 @@ Encontre mais informações sobre os [limites de recursos nos pools do SQL inst�
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Características de e/s de arquivo na camada de Uso Geral
 
-Na camada de serviço do Uso Geral, cada arquivo de banco de dados obtém IOPS dedicados e taxa de transferência que dependem do tamanho do arquivo. Arquivos de dados maiores obtêm mais IOPS e taxa de transferência. As características de e/s dos arquivos de banco de dados são mostradas na tabela a seguir:
+Na camada de serviço do Uso Geral, cada arquivo de banco de dados obtém IOPS dedicados e taxa de transferência que dependem do tamanho do arquivo. Arquivos maiores obtêm mais IOPS e taxa de transferência. As características de e/s dos arquivos de banco de dados são mostradas na tabela a seguir:
 
-| Tamanho do arquivo | >= 0 e <= 128 GiB | >128 e <= 256 GiB | >256 e <= 512 GiB | >0,5 e <= 1 TiB    | >1 e <= 2 TiB    | >2 e <= 4 TiB | >4 e <= 8 TiB |
+| Tamanho do arquivo | >= 0 e <= 128 GiB | >128 e <= 512 GiB | >0,5 e <= 1 TiB    | >1 e <= 2 TiB    | >2 e <= 4 TiB | >4 e <= 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS por arquivo       | 500   | 1100 | 2300              | 5.000              | 7500              | 7500              | 12.500   |
-| Taxa de transferência por arquivo | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+| IOPS por arquivo       | 500   | 2300              | 5.000              | 7500              | 7500              | 12.500   |
+| Taxa de transferência por arquivo | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 Se você notar alta latência de e/s em algum arquivo de banco de dados ou se perceber que o IOPS/taxa de transferência está atingindo o limite, você pode melhorar [o desempenho aumentando o tamanho do arquivo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 

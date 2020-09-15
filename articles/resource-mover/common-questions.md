@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 520c2d4fd258bfab5a5a1e0abf890d58bb98fbdc
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83191fd29e0cda4bc398f6a46a0d2ebf9631665
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652796"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068040"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -24,7 +24,13 @@ Este artigo responde a perguntas comuns sobre o [Azure Resource mover](overview.
 
 O movimentador de recursos está atualmente em visualização pública. Há suporte para cargas de trabalho de produção.
 
-## <a name="region-move"></a>Movimentação de região
+
+
+## <a name="moving-across-regions"></a>Movendo entre regiões
+
+### <a name="can-i-move-resources-across-any-regions"></a>Posso mover recursos entre todas as regiões?
+
+No momento, você pode mover recursos de qualquer região pública de origem para qualquer região pública de destino, dependendo dos [tipos de recursos disponíveis nessa região](https://azure.microsoft.com/global-infrastructure/services/). Atualmente, não há suporte para mover recursos nas regiões do Azure governamental.
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Quais recursos posso mover entre regiões usando o Resource mover?
 
@@ -34,13 +40,19 @@ Usando o Resource mover, atualmente, você pode mover os seguintes recursos entr
 - NICs
 - Conjuntos de disponibilidade 
 - Redes virtuais do Azure 
-- Endereços IP públicos grupos de segurança de rede (NSGs)
+- Endereços IP públicos
+- NSGs (grupos de segurança de rede)
 - Balanceadores de carga internos e públicos 
 - Bancos de dados SQL do Azure e pools elásticos
 
+
+### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Posso mover recursos entre assinaturas quando movê-los entre regiões?
+
+Você pode alterar a assinatura depois de mover os recursos para a região de destino. [Saiba mais](../azure-resource-manager/management/move-resource-group-and-subscription.md) sobre como mover recursos para uma assinatura diferente. 
+
 ### <a name="where-is-the-metadata-about-a-region-move-stored"></a>Onde os metadados sobre uma região se movem são armazenados?
 
-Ele é armazenado em um banco de dados [Cosmos do Azure](../cosmos-db/database-encryption-at-rest.md) e no [armazenamento de BLOBs do Azure](../storage/common/storage-service-encryption.md), em uma assinatura da Microsoft.
+Ele é armazenado em um banco de dados [Cosmos do Azure](../cosmos-db/database-encryption-at-rest.md) e no [armazenamento de BLOBs do Azure](../storage/common/storage-service-encryption.md), em uma assinatura da Microsoft. Atualmente, os metadados são armazenados no leste dos EUA 2 e Europa Setentrional. Expandiremos essa cobertura para outras regiões. Isso não o impedirá de mover recursos entre regiões públicas.
 
 ### <a name="is-the-collected-metadata-encrypted"></a>Os metadados coletados são criptografados?
 

@@ -3,12 +3,12 @@ title: Dispositivo de Migrações para Azure
 description: Fornece uma visão geral do dispositivo de Migrações para Azure usado na avaliação e migração de servidor.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f0bba2f2d200ffc84855ff8fc7f634bd8b71ceb6
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 2092b03ee95349286b9e845689b5d9d55b61c772
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514349"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060723"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -101,7 +101,7 @@ O dispositivo de Migrações para Azure precisa de conectividade com a Internet.
 **URL** | **Detalhes**  
 --- | --- |
 *. portal.azure.com  | Navegue até o Portal do Azure.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Entre em sua assinatura do Azure.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com <br/> *. office.com | Entre em sua assinatura do Azure.
 *.microsoftonline.com <br/> *.microsoftonline p.com | Crie aplicativos do Azure AD (Active Directory) para que o dispositivo se comunique com as Migrações para Azure.
 management.azure.com | Crie aplicativos do Azure AD para que o dispositivo se comunique com o serviço Migrações para Azure.
 *.services.visualstudio.com | Carregue logs de aplicativo usados para monitoramento interno.

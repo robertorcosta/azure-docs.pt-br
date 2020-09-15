@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023832"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068805"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -156,7 +156,7 @@ Na Estados Unidos, se você ainda não configurou a ID do chamador MFA, as chama
 * *+ 1 (877) 668 6536*
 
 > [!NOTE]
-> Quando as chamadas da autenticação multifator do Azure são colocadas por meio da rede telefônica pública, às vezes elas são roteadas por meio de uma operadora que não dá suporte à ID do chamador. Por isso, a ID do chamador não é garantida, mesmo que a autenticação multifator do Azure sempre a envie.
+> Quando as chamadas da autenticação multifator do Azure são colocadas por meio da rede de telefone pública, às vezes, as chamadas são roteadas por meio de uma operadora que não dá suporte à ID do chamador. Por isso, a ID do chamador não é garantida, embora a autenticação multifator do Azure sempre a envie. Isso se aplica a chamadas telefônicas e a mensagens de texto fornecidas pela autenticação multifator do Azure. Se você precisar validar que uma mensagem de texto é da autenticação multifator do Azure, consulte [quais códigos curtos do SMS são usados para enviar mensagens?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Para configurar seu próprio número de identificação de chamador, conclua as seguintes etapas:
 

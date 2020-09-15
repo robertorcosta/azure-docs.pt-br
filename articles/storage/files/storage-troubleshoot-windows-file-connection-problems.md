@@ -4,15 +4,15 @@ description: Solução de problemas de arquivos do Azure no Windows. Consulte pr
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/31/2019
+ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: eed9109416f434e2492d621f60b7ad6bf6e188e8
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f167ffb652054b64098994d334eea6e1db6d2d14
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437370"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061199"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -366,6 +366,18 @@ Esse erro pode ocorrer se um controlador de domínio que mantém a função FSMO
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Erro: "Não é possível associar parâmetros posicionais porque nenhum nome foi fornecido"
 
 Este erro provavelmente é acionado por um erro de sintaxe no comando Join-AzStorageAccountforAuth.  Verifique o comando em busca de erros de ortografia ou de sintaxe e verifique se a versão mais recente do módulo AzFilesHybrid ( https://github.com/Azure-Samples/azure-files-samples/releases) está instalada.  
+
+## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Suporte de autenticação local de AD DS arquivos do Azure para criptografia Kerberos AES 256
+
+Introduzimos o suporte de criptografia Kerberos do AES 256 para a autenticação de AD DS local dos arquivos do Azure com o [módulo AzFilesHybrid v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Se você tiver habilitado AD DS autenticação com uma versão de módulo inferior a v 0.2.2, será necessário baixar o módulo AzFilesHybrid mais recente (v 0.2.2 +) e executar o PowerShell abaixo. Se você ainda não habilitou a autenticação AD DS em sua conta de armazenamento, você pode seguir estas [diretrizes](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) para habilitação. Não é necessário executar novamente o PowerShell abaixo se você realizou a habilitação do recurso com o módulo AzFilesHybrid v 0.2.2 ou superior. 
+
+```PowerShell
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+Update-AzStorageAccountAuthForAES256 -ResourceGroupName $ResourceGroupName -StorageAccountName $StorageAccountName
+```
+
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 Caso ainda precise de ajuda, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.

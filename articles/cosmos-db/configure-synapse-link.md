@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 50881071380bbe5d245ed458d162e62bfabd108a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322459"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061488"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurar e usar o Link do Azure Synapse para Azure Cosmos DB (versão prévia)
 
@@ -48,16 +48,15 @@ Use as etapas a seguir para executar consultas analíticas com o Link do Azure S
 
 1. Sua conta agora está habilitada para usar o Link do Synapse. Em seguida, consulte como criar contêineres habilitados para repositório analítico para iniciar automaticamente a replicação dos dados operacionais do repositório transacional no repositório analítico.
 
-### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
-
-O [modelo do Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) cria uma conta do Azure Cosmos habilitada para Synapse Link para a API do SQL. Este modelo cria uma conta de API do Core (SQL) em uma região com um contêiner configurado com o TTL analítico habilitado e uma opção de usar taxa de transferência de dimensionamento manual ou automático. Para implantar esse modelo, clique em **Implantar no Azure** na página do arquivo Leia-me.
+> [!NOTE]
+> Ativar o link Synapse não ativa o repositório analítico automaticamente. Depois de habilitar o link do Synapse na conta de Cosmos DB, habilite o repositório analítico em contêineres ao criá-los, para iniciar a replicação dos dados de operação para o repositório analítico. 
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a>Criar um contêiner do Azure Cosmos com repositório analítico
 
 Você pode ativar o repositório analítico em um contêiner Azure Cosmos ao criar o contêiner. Você pode usar o portal do Azure ou configurar a propriedade `analyticalTTL` durante a criação do contêiner usando os SDKs do Azure Cosmos DB.
 
 > [!NOTE]
-> No momento, você pode habilitar o repositório analítico para **novos** contêineres (em contas novas e existentes).
+> No momento, você pode habilitar o repositório analítico para **novos** contêineres (em contas novas e existentes). Você pode migrar dados de seus contêineres do existente para novos contêineres usando [Azure Cosmos DB ferramentas de migração.](cosmosdb-migrationchoices.md)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -211,6 +210,10 @@ Use as instruções em [Conectar-se ao Link do Azure Synapse](../synapse-analyti
 ## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Consultar usando o Synapse Spark
 
 Use as instruções no artigo [Consultar o repositório analítico do Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) sobre como consultar com o Synapse Spark. Esse artigo fornece alguns exemplos sobre como você pode interagir com o armazenamento analítico de gestos do Synapse. Esses gestos ficam visíveis quando você clica com o botão direito do mouse em um contêiner. Com gestos, você pode gerar código rapidamente e ajustá-lo às suas necessidades. Eles também são perfeitos para descobrir dados com um único clique.
+
+## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
+
+O [modelo do Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) cria uma conta do Azure Cosmos habilitada para Synapse Link para a API do SQL. Este modelo cria uma conta de API do Core (SQL) em uma região com um contêiner configurado com o TTL analítico habilitado e uma opção de usar taxa de transferência de dimensionamento manual ou automático. Para implantar esse modelo, clique em **Implantar no Azure** na página do arquivo Leia-me.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Introdução ao Link do Azure Synapse - exemplos
 

@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254484"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084304"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Recomendações e práticas recomendadas para Azure Active Directory B2C
 
 As práticas recomendadas e recomendações a seguir abrangem alguns dos principais aspectos da integração do Azure Active Directory (Azure AD) B2C em ambientes de aplicativos novos ou existentes.
 
-## <a name="fundamentals"></a>Conceitos básicos
+## <a name="fundamentals"></a>Princípios básicos
 
 | Melhor prática | Descrição |
 |--|--|
@@ -56,8 +56,7 @@ Durante a fase de implementação, considere as recomendações a seguir.
 | Saiba como solucionar problemas Azure AD B2C | Saiba como [solucionar problemas de políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante o desenvolvimento. Saiba o que é um fluxo de autenticação normal e use as ferramentas para descobrir erros e anomalias. Por exemplo, use [Application insights](troubleshoot-with-application-insights.md) para examinar os logs de saída de percursos do usuário. |
 | Aproveite nossa biblioteca de padrões de política personalizada comprovada | Encontre [exemplos](https://github.com/azure-ad-b2c/samples) de vários percursos de usuário do CIAM (gerenciamento de identidade e acesso) de clientes Azure ad B2C aprimorados. |
 
-
-## <a name="testing"></a>Testando
+## <a name="testing"></a>Testes
 
 Teste e automatize sua implementação de Azure AD B2C.
 
@@ -79,11 +78,10 @@ Gerencie seu ambiente de Azure AD B2C.
 |--|--|
 | Criar vários ambientes | Para operações mais fáceis e distribuição de implantação, crie ambientes separados para desenvolvimento, teste, pré-produção e produção. Crie Azure AD B2C locatários para cada um. |
 | Use o controle de versão para suas políticas personalizadas | Considere o uso do GitHub, Azure Repos ou outro sistema de controle de versão baseado em nuvem para suas Azure AD B2C políticas personalizadas. |
-| Use a API de Microsoft Graph para automatizar o gerenciamento de seus locatários B2C | APIs de Microsoft Graph:<br/>Gerenciar a [estrutura de experiência de identidade](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) (políticas personalizadas)<br/>[Chaves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Fluxos de Usuário](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Use a API de Microsoft Graph para automatizar o gerenciamento de seus locatários B2C | APIs de Microsoft Graph:<br/>Gerenciar a [estrutura de experiência de identidade](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) (políticas personalizadas)<br/>[Chaves](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Fluxos de Usuário](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Integrar com o Azure DevOps | Um [pipeline de CI/CD](deploy-custom-policies-devops.md) torna o código de movimentação entre diferentes ambientes fácil e garante a preparação da produção em todos os momentos.   |
 | Integrar com o Azure Monitor | Os [eventos do log de auditoria](view-audit-logs.md) são mantidos apenas por sete dias. [Integre com Azure monitor](azure-monitor.md) para manter os logs para uso de longo prazo ou integre com ferramentas de Siem (gerenciamento de eventos e informações de segurança) de terceiros para obter informações sobre o seu ambiente. |
 | Configurar alertas e monitoramento ativos | [Acompanhe o comportamento do usuário](active-directory-b2c-custom-guide-eventlogger-appins.md) em Azure AD B2C usando Application insights. |
-
 
 ## <a name="support-and-status-updates"></a>Atualizações de status e suporte
 

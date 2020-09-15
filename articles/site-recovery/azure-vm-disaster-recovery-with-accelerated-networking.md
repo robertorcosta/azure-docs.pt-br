@@ -3,18 +3,18 @@ title: Habilitar rede acelerada para recuperação de desastre de VM do Azure co
 description: Descreve como habilitar a Rede acelerada com o Azure Site Recovery para recuperação de desastre de máquina virtual do Azure
 services: site-recovery
 documentationcenter: ''
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mayg
-ms.openlocfilehash: baa15b656f061d812b29ded99d55da13294f9800
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.author: harshacs
+ms.openlocfilehash: 1d2d3b3aacc00428c96cde0f8230421a98151ae2
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835843"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068006"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rede acelerada com a recuperação de desastre de máquina virtual do Azure
 
@@ -35,7 +35,7 @@ Antes de começar, verifique se você compreende:
 
 O Azure Site Recovery dá suporte a habilitar a Rede acelerada para máquinas virtuais replicadas somente se a máquina virtual de origem tiver a Rede acelerada habilitada. Se sua máquina virtual de origem não tem a Rede acelerada habilitada, saiba como habilitar a Rede acelerada para máquinas virtuais do Windows [aqui](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 As seguintes distribuições têm suporte imediato da Galeria do Azure:
 * **Datacenter do Windows Server 2016**
 * **Windows Server 2012 R2 Datacenter**
@@ -51,7 +51,7 @@ Para obter mais informações sobre instâncias de VM, consulte [Tamanhos de VM 
 
 O Azure Site Recovery dá suporte a habilitar a Rede acelerada para máquinas virtuais replicadas somente se a máquina virtual de origem tiver a Rede acelerada habilitada. Se sua máquina virtual de origem não tem a Rede acelerada habilitada, saiba como habilitar a Rede acelerada para máquinas virtuais do Linux [aqui](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 As seguintes distribuições têm suporte imediato da Galeria do Azure:
 * **Ubuntu 16.04**
 * **SLES 12 SP3**

@@ -1,6 +1,6 @@
 ---
-title: Solucionar problemas comuns ao adicionar um aplicativo a Azure Active Directory
-description: Solucione os problemas comuns que as pessoas enfrentam ao adicionar um aplicativo ao Azure Active Directory.
+title: Solucionar problemas comuns ao adicionar ou remover um aplicativo para Azure Active Directory
+description: Solucione os problemas comuns que as pessoas enfrentam ao adicionar ou remover um aplicativo para Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 1502c97e625d3af128772451be8db4dd6187e3a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410386"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068023"
 ---
-# <a name="troubleshoot-common-problem-adding-an-application-to-azure-active-directory"></a>Solucionar problemas comuns ao adicionar um aplicativo a Azure Active Directory
-Este artigo ajuda você a entender os problemas comuns que as pessoas enfrentam ao adicionar um aplicativo ao Azure Active Directory.
+# <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Solucionar problemas comuns ao adicionar ou remover um aplicativo para Azure Active Directory
+Este artigo ajuda você a entender os problemas comuns que as pessoas enfrentam ao adicionar ou remover um aplicativo para Azure Active Directory.
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e meu aplicativo demorou muito para aparecer
 Em algumas circunstâncias, pode demorar de 1 ou 2 minutos (às vezes mais) para um aplicativo aparecer após ser adicionado ao diretório. Embora esse não seja o desempenho normal esperado, você pode ver que a adição do aplicativo está em andamento clicando no ícone **Notificações** (o sino) no canto superior direito do [portal do Azure](https://portal.azure.com/) e procurando uma notificação **Em Andamento** ou **Concluído** rotulada como **Adicionar aplicativo.**
@@ -34,6 +34,16 @@ Se encontrar um erro ao clicar no botão **Adicionar**, você verá uma **Notifi
 Se você precisar de ajuda para aprender sobre aplicativos, a [lista de tutoriais sobre como integrar aplicativos SaaS com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom ponto de partida.
 
 Além disso, a [Biblioteca de documentos de aplicativos do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda você a saber mais sobre o logon único com o Azure AD e como ele funciona.
+
+## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Desejo excluir um aplicativo, mas o botão excluir está desabilitado
+
+O botão excluir será desabilitado nos seguintes cenários:
+
+- Para aplicativos em aplicativo empresarial, se você não tiver uma das seguintes funções: administrador global, administrador de aplicativo de nuvem, administrador de aplicativos ou proprietário da entidade de serviço.
+
+- Para o aplicativo da Microsoft, você não poderá excluí-los da interface do usuário, independentemente de sua função.
+
+- Para entidades de segurança que correspondem a uma identidade gerenciada. Entidades de serviço de identidades gerenciadas não podem ser excluídas na folha aplicativos empresariais. Você precisa acessar o recurso do Azure para gerenciá-lo. Saiba mais sobre [identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:

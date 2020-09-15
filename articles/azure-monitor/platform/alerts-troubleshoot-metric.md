@@ -4,14 +4,14 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 09/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190667"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068755"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica Azure Monitor 
 
@@ -234,7 +234,7 @@ Considere as seguintes restrições para nomes de regra de alerta de métrica:
 - Nomes de regra de alerta de métrica não podem ser alterados (renomeados) depois de criados
 - Os nomes de regra de alerta de métrica devem ser exclusivos em um grupo de recursos
 - Os nomes de regra de alerta de métrica não podem conter os seguintes caracteres: * # & +:  < > ? @ % { } \ / 
-- Os nomes de regra de alerta de métrica não podem terminar com o seguinte caractere:.
+- Os nomes de regra de alerta de métrica não podem terminar com um espaço ou um ponto
 
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrições ao usar dimensões em uma regra de alerta de métrica com várias condições
@@ -245,7 +245,7 @@ Considere as seguintes restrições ao usar dimensões em uma regra de alerta qu
 - Você só pode selecionar um valor por dimensão dentro de cada condição.
 - Você não pode usar a opção "selecionar todos os valores atuais e futuros" (selecione \* ).
 - Quando as métricas que são configuradas em condições diferentes dão suporte à mesma dimensão, um valor de dimensão configurado deve ser definido explicitamente da mesma forma para todas essas métricas (nas condições relevantes).
-Por exemplo: 
+Por exemplo:
     - Considere uma regra de alerta de métrica que é definida em uma conta de armazenamento e monitora duas condições:
         * Total de **transações** > 5
         * Média de **SuccessE2ELatency** > 250 MS

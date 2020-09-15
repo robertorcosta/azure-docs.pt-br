@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 09/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 82a370bcda2d762abb36e6e43ab755c45348e4c5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019916"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060808"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar um trabalho em seu aplicativo de IoT Central do Azure
 
@@ -38,7 +38,7 @@ O exemplo a seguir mostra como criar e executar um trabalho para definir o limit
 
     Selecione **salvar e sair** para adicionar o trabalho à lista de trabalhos salvos na página **trabalhos** . Posteriormente, você pode retornar a um trabalho na lista de trabalhos salvos.
 
-    Selecione **Avançar** para ir para a página **revisão** . A página * * examinar * * * * mostra os detalhes de configuração do trabalho. Selecione **executar** para enviar o trabalho.
+    Selecione **Avançar** para ir para a página **revisão** . A página **revisão** mostra os detalhes de configuração do trabalho. Selecione **executar** para enviar o trabalho.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Captura de tela da página de revisão do assistente de trabalho":::
 

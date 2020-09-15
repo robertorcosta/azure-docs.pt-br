@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16d48cda87b8226ebc3bbab179c1034abf0a486f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357351"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084602"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir exclusões acidentais
 Este tópico descreve o recurso de prevenção contra exclusões acidentais (que impede exclusões acidentais) no Azure AD Connect.
@@ -65,7 +65,7 @@ Se todas as exclusões forem desejadas, siga este procedimento:
 
 1. Para recuperar o limite atual de exclusão, execute o cmdlet `Get-ADSyncExportDeletionThreshold` do PowerShell. Forneça uma conta e senha de Administrador Global do Azure AD. O valor padrão é 500.
 2. Para desabilitar temporariamente a proteção e permitir que as exclusões ocorram, execute o cmdlet do PowerShell: `Disable-ADSyncExportDeletionThreshold`. Forneça uma conta e senha de Administrador Global do Azure AD.
-   ![Credenciais](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
+   ![Captura de tela mostra uma caixa de diálogo para inserir o nome de usuário e a senha do administrador global do Azure AD.](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. Com o Conector do Azure Active Directory ainda selecionado, selecione a ação **Executar** e **Exportar**.
 4. Para reabilitar a proteção, execute o cmdlet do PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Substitua 500 pelo valor que você observou ao recuperar o limite atual de exclusão. Forneça uma conta e senha de Administrador Global do Azure AD.
 

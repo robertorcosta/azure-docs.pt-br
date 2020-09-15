@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: aabd52d47bfc59de7a1d79bbe5ffbdda90d099bf
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536393"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060689"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>SDK do Java v4 do Azure Cosmos DB para API do Core (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -68,27 +68,14 @@ O SDK do Java v4 do Azure Cosmos DB para Core (SQL) combina uma API assíncrona 
 
 ## <a name="release-history"></a>Histórico de versões
 
-### <a name="440-beta2-unreleased"></a>4.4.0-beta. 2 (não lançado)
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
-* RequestTimeoutException corrigido quando habilitar tcnative.
+### <a name="450-beta1-unreleased"></a>4.5.0-beta. 1 (não lançado)
 
-### <a name="440-beta1-2020-08-27"></a>4.4.0-beta. 1 (2020-08-27)
-#### <a name="new-features"></a>Novos recursos
-* Adicionada nova API para carregar com eficiência muitos documentos (por meio da lista de pares de CP/ID ou de todos os documentos para um conjunto de valores de CP).
-* Nova `deleteItem` API adicionada.
-* As métricas de consulta habilitadas por padrão.
+### <a name="440-2020-09-12"></a>4.4.0 (2020-09-12)
 #### <a name="key-bug-fixes"></a>Correções de bug de chave
-* O NPE foi corrigido no `GatewayAddressCache` .
-* Corrigindo o problema de métrica de consulta para resposta a zero item.
-* Melhor desempenho (redução do uso da CPU) para análise de endereços e autenticação de chave mestra.
-
-### <a name="432-beta2-2020-08-17"></a>4.3.2-beta. 2 (2020-08-17)
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Nenhuma alteração da versão anterior, liberando para problemas de compatibilidade com módulos Spring Data.
-
-### <a name="432-beta1-2020-08-14"></a>4.3.2-beta. 1 (2020-08-14)
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
-* Correção do problema em RntbdServiceEndpoint para evitar o fechamento inicial de uma conexão TCP não usada.
+* RequestTimeoutException corrigido ao habilitar a `netty-tcnative-boringssl` dependência.
+* Correção do problema de vazamento de memória nas `Delete` operações no `GATEWAY` modo.
+* Foi corrigido um vazamento na `CosmosClient` instanciação quando o URI do ponto de extremidade é inválido.
+* Diagnóstico aprimorado `CPU History` .
 
 ### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
 #### <a name="key-bug-fixes"></a>Correções de bug de chave

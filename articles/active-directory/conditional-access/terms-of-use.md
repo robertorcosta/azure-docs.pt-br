@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948905"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085902"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory termos de uso
 
@@ -59,7 +59,7 @@ Para usar e configurar os termos de uso do Azure AD, você deve ter:
 - Assinatura do Azure AD Premium P1, P2, EMS E3 ou EMS E5.
    - Se você não tiver uma dessas assinaturas, poderá [obter o Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) ou [habilitar a avaliação do Azure AD Premium](https://azure.microsoft.com/trial/get-started-active-directory/).
 - Uma das seguintes contas de administrador para o diretório que você deseja configurar:
-   - Administrador global
+   - Administrador Global
    - Administrador de Segurança
    - Administrador de acesso condicional
 
@@ -253,7 +253,7 @@ A configuração **exigir que os usuários consentim em cada dispositivo** permi
 Segue uma lista dos softwares e plataformas com suporte.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Outros |
+> |  | iOS | Android | Windows 10 | Outro |
 > | --- | --- | --- | --- | --- |
 > | **Aplicativo nativo** | Sim | Sim | Sim |  |
 > | **Microsoft Edge** | Sim | Sim | Sim |  |
@@ -264,7 +264,7 @@ Os termos de uso por dispositivo têm as seguintes restrições:
 
 - Um dispositivo somente pode ser unido a um locatário.
 - Um usuário deve ter permissões para ingressar seu dispositivo.
-- Não há suporte para o aplicativo de registro do Intune.
+- Não há suporte para o aplicativo de registro do Intune. Certifique-se de que ele seja excluído de qualquer política de acesso condicional que exija os termos de uso.
 - Não há suporte para usuários B2B do Azure AD.
 
 Se o dispositivo do usuário não estiver ingressado, ele receberá uma mensagem de que é necessário ingressar o dispositivo dele. A experiência dele será dependente da plataforma e do software.

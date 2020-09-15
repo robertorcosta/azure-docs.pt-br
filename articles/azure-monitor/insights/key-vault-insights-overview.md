@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531252"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069791"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoramento do serviço do Key Vault com Azure Monitor para Key Vault (versão prévia)
 O Azure Monitor para Key Vault (versão prévia) fornece monitoramento abrangente de key vaults, fornecendo uma exibição unificada das solicitações, desempenho, falhas e latência do Key Vault.
@@ -76,16 +76,6 @@ Há codificação de cor condicional ou mapas de calor para colunas na pasta de 
 A pasta de trabalho exibe Sucessos (códigos de status 2xx), Erros de autenticação (códigos de status 401/403), Limitação (códigos de status 429) e Outras falhas (códigos de status 4xx).
 
 Para entender melhor o que cada um dos códigos de status representa, recomendamos ler a documentação em [Status e códigos de resposta do Azure Key Vault](../../key-vault/general/authentication-requests-and-responses.md).
-
-## <a name="operations--latency-workbook"></a>Pasta de trabalho Operações e latência
-
-Selecione **Operações e latência** na parte superior da página e a guia **Operações e latência** será aberta. Esta guia permite integrar os key vaults para monitoramento. Para obter etapas mais detalhadas, confira a seção [Configuração dos key vaults para monitoramento](#configuring-your-key-vaults-for-monitoring).
-
-Você pode ver quantos dos key vaults estão habilitados para o registro. Se pelo menos um vault foi configurado corretamente, você pode ver as tabelas que exibem as operações e os códigos de status de cada um dos key vaults. Você pode clicar na seção de detalhes de uma linha para obter informações adicionais sobre cada operação.
-
-![Captura de tela dos gráficos de operações e latência](./media/key-vaults-insights-overview/logs.png)
-
-Se você não estiver visualizando os dados desta seção, veja a seção superior sobre como habilitar logs para Azure Key Vault ou consulte a seção Solução de problemas abaixo.
 
 ## <a name="view-from-a-key-vault-resource"></a>Exibição de um recurso do Key Vault
 
@@ -191,16 +181,6 @@ Utilizamos o intervalo de agregação "Automático" e, portanto, depende do inte
 ### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte da pasta de trabalho é fixada
 
 O intervalo de tempo dependerá das configurações do painel.
-
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Por que não vejo nenhum dado para meu Key Vault nas seções de latência de & de operações
-
-Para exibir os dados baseados em logs, é necessário habilitar os logs de cada um dos key vaults que deseja monitorar. Isso pode ser feito nas configurações de diagnóstico para cada key vault. É necessário enviar os dados para um workspace do Log Analytics designado.
-
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Já habilitei os logs para o meu Key Vault, por que ainda não consigo ver meus dados em operações & latência
-
-No momento, os logs de diagnóstico não funcionam retroativamente, portanto, os dados só começarão a aparecer depois que ações forem realizados nos seus key vaults. Portanto, pode levar algum tempo, variando de horas a um dia, dependendo do volume de atividade do key vault.
-
-Além disso, se você tiver um grande número de key vaults e assinaturas selecionados, talvez não seja possível exibir seus dados devido às limitações de consulta. Para exibir seus dados, talvez seja necessário reduzir o número de assinaturas ou key vaults selecionados. 
 
 ### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>E se eu quiser ver outros dados ou fazer minhas próprias visualizações? Como fazer alterações no Key Vault insights
 

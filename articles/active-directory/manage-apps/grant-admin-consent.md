@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aafaeb1143049b14f0a2fe2d867a951355d1ba61
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667586"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060910"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador em todo o locatário para um aplicativo
 
@@ -88,7 +88,7 @@ em que:
 Como sempre, examine atentamente as permissões que um aplicativo solicita antes de conceder consentimento.
 
 > [!WARNING]
-> Conceder consentimento de administrador em todo o locatário por meio desta URL revogará todas as permissões que anteriormente receberam todo o locatário. As permissões que foram ggranteddas anteriormente pelos usuários em seu próprio nome não serão afetadas. 
+> Conceder consentimento de administrador em todo o locatário por meio desta URL revogará todas as permissões que anteriormente receberam todo o locatário. As permissões que foram concedidas anteriormente pelos usuários em seu próprio nome não serão afetadas. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
