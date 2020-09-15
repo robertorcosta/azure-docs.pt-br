@@ -3,12 +3,12 @@ title: Dispositivo de replicação de Migrações para Azure
 description: Saiba mais sobre o dispositivo de replicação de migração do Azure para a migração VMWare baseada em agente.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122091"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532113"
 ---
 # <a name="replication-appliance"></a>Dispositivo de replicação
 
@@ -26,7 +26,7 @@ O dispositivo de replicação é implantado quando você configura a migração 
 
 ## <a name="appliance-deployment"></a>Implantação de dispositivo
 
-**Usada para** | **Detalhes**
+**Usadas para** | **Detalhes**
 --- |  ---
 **Migração baseada no agente de VM VMware** | Você baixa o modelo OVA do Hub migrações para Azure e importa para vCenter Server para criar a VM do dispositivo.
 **Migração baseada em agente de máquina física** | Se você não tiver uma infra-estrutura do VMware ou se não puder criar uma VM do VMware usando um modelo OVA, baixe um instalador de software do Hub migrações para Azure e execute-o para configurar o computador do dispositivo.
@@ -129,7 +129,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
     - O servidor de processo recebe dados de replicação, otimiza-os e criptografa-os e envia-os para o armazenamento do Azure pela porta 443 de saída.
 5. Os logs de dados de replicação primeiro se esterram em uma conta de armazenamento de cache no Azure. Esses logs são processados e os dados são armazenados em um disco gerenciado do Azure.
 
-![Arquitetura](./media/migrate-replication-appliance/architecture.png)
+![Diagrama mostra a arquitetura do processo de replicação.](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Atualizações de dispositivo
 

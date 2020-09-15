@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956365"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530821"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários front-ends para Azure Load Balancer
 
@@ -69,7 +69,7 @@ Definimos duas regras:
 
 O mapeamento completo no Azure Load Balancer agora é o seguinte:
 
-| Regra | Endereço IP de front-end | protocolo | porta | Destination | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |Endereço IP DIP |80 |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |Endereço IP DIP |81 |
@@ -148,7 +148,7 @@ Definimos duas regras:
 
 A tabela a seguir mostra o mapeamento completo no balanceador de carga:
 
-| Regra | Endereço IP de front-end | protocolo | porta | Destination | porta |
+| Regra | Endereço IP de front-end | protocolo | porta | Destino | porta |
 | --- | --- | --- | --- | --- | --- |
 | ![regra de verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |mesmo que front-end (65.52.0.1) |mesmo que front-end (80) |
 | ![regra de roxo](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |mesmo que front-end (65.52.0.2) |mesmo que front-end (80) |
@@ -163,6 +163,7 @@ O tipo de regra de IP Flutuante é a base de vários padrões de configuração 
 
 * Há suporte para várias configurações de front-ends apenas com VMs de IaaS.
 * Com a regra de IP flutuante, seu aplicativo deve usar a configuração de IP primário para fluxos SNAT de saída. Se seu aplicativo se associar ao endereço IP de front-end configurado na interface de loopback no SO convidado, o SNAT de saída do Azure não estará disponível para regravar o fluxo de saída e o fluxo falhará.  Examine os [cenários de saída](load-balancer-outbound-connections.md).
+* No momento, não há suporte para o IP flutuante em configurações de IP secundárias para cenários de balanceamento de carga interno.
 * Endereços IP públicos têm um efeito sobre a cobrança. Para saber mais, confira [Preços de endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Limites de assinatura são aplicados. Para saber mais, confira [Limites de serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) .
 

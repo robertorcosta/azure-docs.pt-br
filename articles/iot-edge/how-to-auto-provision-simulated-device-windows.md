@@ -8,16 +8,16 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8278d9f2129ab8b213cf1b561f4b82b56dffc8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8a31f2739e497d8e203a9806d25b21608e5701f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131032"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531467"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Criar e provisionar um dispositivo de IoT Edge simulado com um TPM virtual no Windows
 
-Azure IoT Edge dispositivos podem ser provisionados automaticamente usando o serviço de [provisionamento de dispositivos](../iot-dps/index.yml) , assim como os dispositivos que não estão habilitados para a borda. Se você não estiver familiarizado com o processo de provisionamento automático, examine os [conceitos de provisionamento automático](../iot-dps/concepts-auto-provisioning.md) antes de continuar.
+Azure IoT Edge dispositivos podem ser provisionados automaticamente usando o serviço de [provisionamento de dispositivos](../iot-dps/index.yml) , assim como os dispositivos que não estão habilitados para a borda. Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
 O DPS dá suporte a atestado de chave simétrica para dispositivos IoT Edge no registro individual e no registro de grupo. Para o registro de grupo, se você marcar a opção "é IoT Edge dispositivo" como verdadeira no atestado de chave simétrica, todos os dispositivos registrados nesse grupo de registro serão marcados como IoT Edge dispositivos.
 

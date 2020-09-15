@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 08052b255854ac9637d4f9a65dd10b63b26ba38d
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 7c1a2cf4b9b476a8f31f38fea45b2e1ef3fe4307
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061165"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531756"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
 
@@ -34,7 +34,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` . **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
 | encodingName     | O tipo de codificação usado para ler/gravar arquivos de teste. <br>Os valores permitidos são os seguintes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Não       |
 | compactação | Grupo de propriedades para configurar a compactação de arquivo. Configure esta seção quando desejar fazer compactação/descompactação durante a execução da atividade. | Não |
-| type<br/>(*em `compression` *) | O codec de compactação usado para ler/gravar arquivos JSON. <br>Os valores permitidos **são bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **encaixado**ou **lz4**. O padrão não é compactado.<br>**Observação** a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4" e o fluxo de dados de mapeamento não dá suporte a "ZipDeflate".<br>**Observação** ao usar a atividade de cópia para descompactar arquivos **ZipDeflate** / **TarGzip** e gravar no armazenamento de dados de coletor baseado em arquivo, por padrão os arquivos são extraídos para a pasta: `<path specified in dataset>/<folder named as source compressed file>/` , use `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` na [origem da atividade de cópia](#json-as-source) para controlar se o nome do arquivo zip deve ser preservado como estrutura de pastas. | Não.  |
+| type<br/>(*em `compression` *) | O codec de compactação usado para ler/gravar arquivos JSON. <br>Os valores permitidos **são bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **encaixado**ou **lz4**. O padrão não é compactado.<br>**Observação** a atividade de cópia atualmente não dá suporte a "encaixar" & "lz4" e o fluxo de dados de mapeamento não dá suporte a "ZipDeflate".<br>**Observação** ao usar a atividade de cópia para descompactar arquivos **ZipDeflate** / **TarGzip** e gravar no armazenamento de dados de coletor baseado em arquivo, por padrão os arquivos são extraídos para a pasta: `<path specified in dataset>/<folder named as source compressed file>/` , use `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` na [origem da atividade de cópia](#json-as-source) para controlar se deseja preservar o nome dos arquivos compactados como estrutura de pastas.| Não.  |
 | nível<br/>(*em `compression` *) | A taxa de compactação. <br>Os valores permitidos são **ideal** ou **mais rápido**.<br>- **Mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **Ideal**: a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
 Veja abaixo um exemplo de conjunto de um DataSet no armazenamento de BLOBs do Azure:
@@ -312,11 +312,11 @@ Você pode adicionar uma coluna complexa ao fluxo de dados por meio do construto
 
 No painel do lado do esquema de saída, passe o mouse sobre uma coluna e clique no ícone de adição. Selecione **Adicionar subcoluna** para tornar a coluna um tipo complexo.
 
-![Adicionar subcoluna](media/data-flow/addsubcolumn.png "Adicionar subcoluna")
+![Adicionar subcoluna](media/data-flow/derive-add-subcolumn.png "Adicionar subcoluna")
 
 Você pode adicionar colunas e Subcolunas adicionais da mesma maneira. Para cada campo não complexo, uma expressão pode ser adicionada no editor de expressão à direita.
 
-![Coluna complexa](media/data-flow/complexcolumn.png "Coluna complexa")
+![Adicionar coluna complexa](media/data-flow/derive-complex-column.png "Adicionar colunas")
 
 #### <a name="entering-the-json-structure-manually"></a>Inserindo a estrutura JSON manualmente
 

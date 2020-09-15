@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7733859c4ca4de8b580a228d8a73b899f0afa953
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fc1154a3d4cefc84f223810a1972dd85673a6b3e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001919"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530889"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
 
@@ -44,7 +44,7 @@ Você executa as seguintes etapas neste artigo:
 
 Os pré-requisitos a seguir são para um ambiente de desenvolvimento do Windows. Para Linux ou macOS, confira a seção apropriada em [Preparar seu ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) na documentação do SDK.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho ["Desenvolvimento para desktop com C++"](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) habilitada. Também há suporte para o Visual Studio 2015 e o Visual Studio 2017.
 
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
@@ -298,7 +298,7 @@ Nesta seção, você cria uma função do Azure que implementa sua política de 
 
 ## <a name="create-the-enrollment"></a>Criar o registro
 
-Nesta seção, você criará um novo grupo de registro que usa a política de alocação personalizada. Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de confiança.
+Nesta seção, você criará um novo grupo de registro que usa a política de alocação personalizada. Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-x509-attestation.md) com uma cadeia de confiança.
 
 1. Ainda no [portal do Azure](https://portal.azure.com), abra o serviço de provisionamento.
 

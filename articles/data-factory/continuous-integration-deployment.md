@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 3621d0c22aa6f35fc845f449d07bce8dcf0ba1fa
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461877"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531212"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -639,7 +639,7 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
 
 -   **Key Vault**. Quando você usa serviços vinculados cujas informações de conexão são armazenadas no Azure Key Vault, é recomendável manter cofres de chaves separados para ambientes diferentes. Você também pode configurar níveis de permissão separados para cada cofre de chaves. Por exemplo, talvez você não queira que os membros da sua equipe tenham permissões para os segredos de produção. Se você seguir essa abordagem, recomendamos que você mantenha os mesmos nomes de segredo em todas as fases. Se você mantiver os mesmos nomes de segredo, não precisará parametrizar cada cadeia de conexão em ambientes de CI/CD porque a única coisa que é alterada é o nome do cofre de chaves, que é um parâmetro separado.
 
--  **Nomeação de recursos** Para a restrição de modelo ARM, podem surgir problemas na implantação se os recursos contiverem espaços no nome. A equipe de Azure Data Factory recomenda usar caracteres ' _ ' ou '-' em vez de espaços para recursos. Por exemplo, ' Pipeline_1 ' seria um nome preferível sobre ' pipeline 1 '.
+-  **Nomeação de recursos** Devido a restrições de modelo do ARM, podem surgir problemas na implantação se os recursos contiverem espaços no nome. A equipe de Azure Data Factory recomenda usar caracteres ' _ ' ou '-' em vez de espaços para recursos. Por exemplo, ' Pipeline_1 ' seria um nome preferível sobre ' pipeline 1 '.
 
 ## <a name="unsupported-features"></a>Recursos sem suporte
 

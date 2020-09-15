@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 781d88f1862ac20a1212676f29dc022157b3601c
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 297fb51dd1dd8f1dabdcf2fe9e0d2ead5c906c6f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061547"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531824"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binário no Azure Data Factory
 
@@ -36,7 +36,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | type             | A propriedade Type do conjunto de conjuntos deve ser definida como **Binary**. | Sim      |
 | local         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e propriedades com suporte em `location` . **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
 | compactação | Grupo de propriedades para configurar a compactação de arquivo. Configure esta seção quando desejar fazer compactação/descompactação durante a execução da atividade. | Não |
-| type | O codec de compactação usado para ler/gravar arquivos binários. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**ou **TarGzip**. <br>**Observação** ao usar a atividade de cópia para descompactar arquivos **ZipDeflate** / **TarGzip** e gravar no armazenamento de dados de coletor baseado em arquivo, por padrão os arquivos são extraídos para a pasta: `<path specified in dataset>/<folder named as source compressed file>/` , use `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` na [origem da atividade de cópia](#binary-as-source) para controlar se o nome do arquivo zip deve ser preservado como estrutura de pastas.| Não       |
+| type | O codec de compactação usado para ler/gravar arquivos binários. <br>Os valores permitidos são **bzip2**, **gzip**, **deflate**, **ZipDeflate**ou **TarGzip**. <br>**Observação** ao usar a atividade de cópia para descompactar arquivos **ZipDeflate** / **TarGzip** e gravar no armazenamento de dados de coletor baseado em arquivo, por padrão os arquivos são extraídos para a pasta: `<path specified in dataset>/<folder named as source compressed file>/` , use `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` na [origem da atividade de cópia](#binary-as-source) para controlar se deseja preservar o nome dos arquivos compactados como estrutura de pastas.| Não       |
 | nível | A taxa de compactação. Aplicar quando o conjunto de um for usado no coletor da atividade de cópia.<br>Os valores permitidos são **ideal** ou **mais rápido**.<br>- **Mais rápido:** A operação de compactação deve ser concluída o mais rápido possível, mesmo que o arquivo resultante não seja compactado de maneira ideal.<br>- **Ideal**: a operação de compactação deve ser corretamente compactada, mesmo se a operação levar mais tempo para ser concluída. Para saber mais, veja o tópico [Nível de compactação](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Não       |
 
 Veja abaixo um exemplo de conjunto de uma Binary DataSet no armazenamento de BLOBs do Azure:

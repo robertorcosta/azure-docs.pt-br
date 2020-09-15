@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294383"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531382"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desprovisionar dispositivos autoprovisionados anteriormente 
 
@@ -43,7 +43,7 @@ Para desprovisionar um dispositivo que possui um registro individual:
 
 
 ## <a name="enrollment-groups"></a>Grupos de registro
-Com o atestado X.509, os dispositivos também podem ser provisionados através de um grupo de registros. Os grupos de registro são configurados com um certificado de autenticação, um certificado de AC raiz ou intermediário e controlam o acesso ao serviço de provisionamento para dispositivos com esse certificado na cadeia de certificados. Para saber mais sobre grupos de registro e certificados X.509 com o serviço de provisionamento, consulte [Certificados X.509](concepts-security.md#x509-certificates). 
+Com o atestado X.509, os dispositivos também podem ser provisionados através de um grupo de registros. Os grupos de registro são configurados com um certificado de autenticação, um certificado de AC raiz ou intermediário e controlam o acesso ao serviço de provisionamento para dispositivos com esse certificado na cadeia de certificados. Para saber mais sobre grupos de registro e certificados X. 509 com o serviço de provisionamento, consulte [atestado de certificado x. 509](concepts-x509-attestation.md). 
 
 Para ver uma lista de dispositivos provisionados através de um grupo de registros, você pode visualizar os detalhes do grupo de registros. Essa é uma maneira fácil de entender qual Hub IoT para o qual cada dispositivo foi provisionado. Para visualizar a lista de dispositivos: 
 

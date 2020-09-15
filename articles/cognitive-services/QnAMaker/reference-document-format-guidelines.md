@@ -1,14 +1,14 @@
 ---
 title: Diretrizes de importação de formato de documento-QnA Maker
-description: Entenda como os tipos de URLs são usados para importar e criar pares de QnA.
+description: Use estas diretrizes para importar documentos para obter os melhores resultados para seu conteúdo.
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 799e85e2200d3caa29c9b76bc57a62fc883d246d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b94c8b3fd4d4c082e0bc49c6bd42d3b37e963988
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804326"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530770"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>Diretrizes de formato para documentos e URLs importadas
 
@@ -16,7 +16,7 @@ Examine essas diretrizes de formatação para obter os melhores resultados para 
 
 ## <a name="formatting-considerations"></a>Considerações de formatação
 
-Depois de importar um arquivo ou URL, QnA Maker converte e armazena seu conteúdo no [formato de redução](https://en.wikipedia.org/wiki/Markdown). O processo de conversão adiciona novas linhas no texto, como `\n\n`. Um conhecimento do formato de redução ajuda você a entender o conteúdo convertido e gerenciar seu conteúdo da base de dados de conhecimento.
+Depois de importar um arquivo ou URL, QnA Maker converte e armazena seu conteúdo no [formato de redução](https://en.wikipedia.org/wiki/Markdown). O processo de conversão adiciona novas linhas no texto, como `\n\n` . Um conhecimento do formato de redução ajuda você a entender o conteúdo convertido e gerenciar seu conteúdo da base de dados de conhecimento.
 
 Se você adicionar ou editar seu conteúdo diretamente na sua base de dados de conhecimento, use a **formatação de redução** para criar conteúdo de Rich Text ou alterar o conteúdo do formato de redução que já está na resposta. QnA Maker dá suporte a grande parte do formato de redução para trazer recursos de Rich Text para seu conteúdo. No entanto, o aplicativo cliente, como um bot de chat, pode não dar suporte ao mesmo conjunto de formatos de redução. É importante testar a exibição de respostas do aplicativo cliente.
 
@@ -110,7 +110,7 @@ Importar uma base de dados de conhecimento substitui o conteúdo da base de dado
 
 * Use títulos e subtítulos para denotar hierarquia. Por exemplo, você pode indicar que o pai QnA e H2 denotam o QnA que deve ser levado como prompt. Use pequeno tamanho de título para denotar a hierarquia subsequente. Não use estilo, cor ou algum outro mecanismo para implicar a estrutura em seu documento, QnA Maker não extrairá as solicitações de múltipla ativação.
 * O primeiro caractere de título deve estar em letras maiúsculas.
-* Não termine um cabeçalho com um ponto de interrogação `?`,.
+* Não termine um cabeçalho com um ponto de interrogação, `?` .
 
 **Documentos de exemplo**:<br>[Surface pro (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Benefícios da Contoso (docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Benefícios da Contoso (PDF)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 

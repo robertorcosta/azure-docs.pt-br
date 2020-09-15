@@ -1,14 +1,14 @@
 ---
-title: Análise de vídeo ao vivo em cotas de IoT Edge – Azure
+title: Análise de vídeo ao vivo em cotas de IoT Edge e limitações – Azure
 description: Este artigo descreve a análise de vídeo ao vivo em IoT Edge cotas e limitações.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750232"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529223"
 ---
 # <a name="quotas-and-limitations"></a>Cotas e limitações
 
@@ -40,7 +40,7 @@ Com a versão de visualização, há limitações em nós diferentes que podem s
    * Não é possível fazer upstream a partir de um processador de detecção de movimento.
 * Processador de extensão HTTP
    * Pode haver no máximo uma topologia de processador por grafo.
-* processador de extensão gRPC
+* Processador de extensão gRPC
    * Pode haver no máximo uma topologia de processador por grafo.
 * Processador de detecção de movimento
    * Deve ser imediatamente downstream da origem RTSP.
@@ -65,6 +65,10 @@ No momento da versão de visualização, a análise de vídeo ao vivo no IoT Edg
 * A capacidade de migrar a conta de serviço de mídia de uma assinatura para outra sem interrupção.
 * A capacidade de usar mais de uma conta de armazenamento com a conta de serviço de mídia.
 * A capacidade de alterar as informações da entidade de serviço nas propriedades desejadas do módulo dinamicamente, sem uma reinicialização.
+
+Você só pode usar câmeras IP que dão suporte ao protocolo RTSP. Veja as câmeras IP compatíveis com RTSP na página [Produtos em conformidade com ONVIF](https://www.onvif.org/conformant-products). Procure dispositivos em conformidade com os perfis G, S ou T.
+
+Além disso, você deve configurar essas câmeras para usar vídeo H. 264 e áudio AAC. Não há suporte para outros codecs no momento. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

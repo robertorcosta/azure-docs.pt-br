@@ -3,19 +3,19 @@ title: Regiões nas quais o Video Indexer está disponível – Azure
 titleSuffix: Azure Media Services
 description: Este artigo fala sobre regiões do Azure nas quais os serviços de mídia do Azure Video Indexer estão disponíveis.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/08/2020
-ms.author: kumud
-ms.openlocfilehash: dd95f022e40b9ae6fa60a6536a87146049c53b68
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.date: 09/14/2020
+ms.author: juliako
+ms.openlocfilehash: 6ebdb22f50efbefc695f9752c6e6fc333571828c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565320"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530923"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Regiões do Azure nas quais existe um Video Indexer
 
@@ -23,7 +23,18 @@ As APIs do Video Indexer contêm um parâmetro **location** que deve ser definid
 
 ## <a name="locations"></a>Locais
 
-O `location` parâmetro deve receber o nome do código de região do Azure como seu valor. Se você estiver usando Video Indexer no modo de visualização, deverá colocar `"trial"` como o valor. `trial` é o valor padrão para o `location` parâmetro. Caso contrário, para obter o nome do código da região do Azure na qual a conta está localizada e para a qual a chamada deverá ser encaminhada, execute a seguinte linha na [CLI do Azure](/cli/azure):
+O `location` parâmetro deve receber o nome do código de região do Azure como seu valor. Se você estiver usando Video Indexer no modo de visualização, deverá colocar `"trial"` como o valor. `trial` é o valor padrão para o `location` parâmetro. Caso contrário, para obter o nome do código da região do Azure em que sua conta está e para a qual sua chamada deve ser roteada, você pode usar o portal do Azure ou executar um comando [CLI do Azure](/cli/azure) .
+
+### <a name="azure-portal"></a>Portal do Azure
+
+1. Conecte-se ao site do [Video Indexer](https://www.videoindexer.ai/).
+1. Selecione **contas de usuário** no canto superior direito da página.
+1. Localize o local da sua conta no canto superior direito.  
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/location/location1.png" alt-text="Localidade":::
+    
+###  <a name="cli-command"></a>Comando da CLI
 
 ```azurecli-interactive
 az account list-locations

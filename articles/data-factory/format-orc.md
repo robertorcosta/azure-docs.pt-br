@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: f71b739242cf4f6a3549927a2a7e61400b2f987e
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061061"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531722"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC no Azure Data Factory
 
@@ -91,7 +91,7 @@ As propriedades a seguir têm suporte na seção *** \* coletor \* *** de ativid
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | O tipo de formatSettings deve ser definido como **OrcWriteSettings**. | Sim                                                   |
 | maxRowsPerFile | Ao gravar dados em uma pasta, você pode optar por gravar em vários arquivos e especificar o máximo de linhas por arquivo.  | Não |
-| fileNamePrefix | Especifique o prefixo do nome do arquivo ao gravar dados em vários arquivos, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo de nome de arquivo será gerado automaticamente. Essa propriedade não se aplica quando a origem é um armazenamento de [dados habilitado para opção](copy-activity-performance-features.md)de armazenamento ou de partição baseada em arquivo.  | Não |
+| fileNamePrefix | Aplicável quando o `maxRowsPerFile` está configurado.<br> Especifique o prefixo do nome do arquivo ao gravar dados em vários arquivos, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo de nome de arquivo será gerado automaticamente. Essa propriedade não se aplica quando a origem é um armazenamento de [dados habilitado para opção](copy-activity-performance-features.md)de armazenamento ou de partição baseada em arquivo.  | Não |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Usando Integration Runtime auto-hospedados
 

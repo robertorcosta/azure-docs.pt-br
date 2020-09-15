@@ -1,7 +1,7 @@
 ---
 title: Como instalar e executar contêineres para usar a API do detector de anomalias
 titleSuffix: Azure Cognitive Services
-description: Use algoritmos avançados da API do Detector de Anomalias para identificar anomalias em seus dados de série temporal.
+description: Saiba como instalar e usar o contêiner para usar os algoritmos avançados da API do detector de anomalias.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: ee742f09f3fcc1bd283efbc346fea6a040e53f48
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0ae3b66d8093c0498011d9f93cd8d869b85f9003
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548524"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530702"
 ---
 # <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalar e executar contêineres de detector de anomalias (visualização)
 

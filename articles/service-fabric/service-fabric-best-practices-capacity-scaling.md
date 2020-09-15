@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e6b6cebfd146ffe23bdc21751f86c71d14ea875e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96cd460ddfea863eb27a1087ff59f3b87acf65d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002242"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531297"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento para o Azure Service Fabric
 
@@ -36,6 +36,9 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 
 > [!NOTE]
 > O Service Fabric com estado Service Fabric:/System/InfastructureService/<NODE_TYPE_NAME> é executado em cada tipo de nó que tem durabilidade prateada ou mais alta. É o único serviço do sistema com suporte para ser executado no Azure em qualquer um dos seus tipos de nó de clusters.
+
+> [!IMPORTANT]
+> Service Fabric o dimensionamento automático dá suporte `Default` e `NewestVM` configurações de [dimensionamento](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md)de conjunto de dimensionamento de máquinas virtuais.
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de dimensionamento vertical
 
@@ -168,7 +171,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 > [!NOTE]
 > Ao dimensionar em um cluster, você verá a instância do nó/VM removida exibida em um estado não íntegro em Service Fabric Explorer. Para obter uma explicação desse comportamento, consulte [comportamentos que podem ser observados em Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). Você pode:
-> * Chame o [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) com o nome do nó apropriado.
+> * Chame o [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) com o nome do nó apropriado.
 > * Implante o [aplicativo auxiliar AutoScale Service Fabric](https://github.com/Azure/service-fabric-autoscale-helper/) no cluster. Esse aplicativo garante que os nós reduzidos sejam apagados de Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Níveis de confiabilidade

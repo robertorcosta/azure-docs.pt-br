@@ -3,12 +3,13 @@ title: Opções de rede do Azure Functions
 description: Uma visão geral de todas as opções de rede disponíveis no Azure Functions.
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385935"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530074"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -86,7 +87,7 @@ No momento, você pode usar funções de gatilho não HTTP de dentro de uma rede
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plano Premium com gatilhos de rede virtual
 
-Ao executar um plano Premium, você poderá conectar funções de gatilho não HTTP a serviços que são executados dentro de uma rede virtual. Para fazer isso, você deverá habilitar o suporte ao gatilho de rede virtual para seu aplicativo de funções. A configuração **suporte de gatilho de rede virtual** está localizada no [portal do Azure](https://portal.azure.com) em **Configuração** > **Configurações de execução do Functions**.
+Ao executar um plano Premium, você poderá conectar funções de gatilho não HTTP a serviços que são executados dentro de uma rede virtual. Para fazer isso, você deverá habilitar o suporte ao gatilho de rede virtual para seu aplicativo de funções. A configuração **monitoramento de escala de tempo de execução** é encontrada no [portal do Azure](https://portal.azure.com) em configurações de tempo de execução da função de **configuração**  >  **Function runtime settings**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

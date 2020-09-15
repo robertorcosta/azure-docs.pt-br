@@ -1,16 +1,16 @@
 ---
 title: Noções básicas sobre a configuração de backup periódico
-description: Use o recurso de restauração e backup periódico do Service Fabric para habilitar o backup periódico de dados dos dados do seu aplicativo.
+description: Use o recurso backup e restauração periódicos do Service Fabric para configurar o backup periódico de seus serviços confiáveis com estado ou Reliable Actors.
 author: hrushib
 ms.topic: article
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: c77f069d93e368652c30cd100b0f99ca55341882
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 53f63f341fe614f2287a09f37fafd2eedc614be7
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261228"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530906"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de backup periódico no Azure Service Fabric
 

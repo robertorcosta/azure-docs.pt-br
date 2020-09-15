@@ -1,16 +1,16 @@
 ---
 title: Backup/restauração periódicos no Azure Service Fabric autônomo
-description: Use o recurso de restauração e backup periódico do Service Fabric para habilitar o backup periódico de dados dos dados do seu aplicativo.
+description: Use um recurso de backup e restauração periódico de Service Fabric autônomo para habilitar o backup de dados periódicos dos dados do aplicativo.
 author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 07a6260c176165af5ced5ce275b9e4b365707d77
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dd91b8eb120de24d752073fd80157e9d2a663594
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261235"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531314"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup e restauração periódicos em um Service Fabric autônomo
 > [!div class="op_single_selector"]

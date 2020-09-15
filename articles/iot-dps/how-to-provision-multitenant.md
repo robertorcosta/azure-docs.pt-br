@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434746"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531416"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como provisionar para multilocação 
 
-As políticas de alocação definidas pelo serviço de provisionamento dão suporte a uma variedade de cenários de alocação. Os dois cenários mais comuns são:
+Este artigo demonstra como provisionar com segurança vários dispositivos de chave simétrica para um grupo de hubs IoT usando uma [política de alocação](concepts-service.md#allocation-policy). As políticas de alocação definidas pelo serviço de provisionamento oferecem suporte a uma variedade de cenários de alocação. Os dois cenários mais comuns são:
 
 * **Localização geográfica / GeoLatency**: uma vez que um dispositivo se move entre locais, a latência de rede é aprimorada fazendo com que o dispositivo provisionasse para o Hub do IoT mais perto de cada localização. Nesse cenário, um grupo de hubs de IoT, que se estendem entre regiões, são selecionados para os registros. A política de alocação de **menor latência** é selecionada para esses registros. Essa política faz com que o serviço de provisionamento de dispositivos avaliem a latência de dispositivo e determinar o hub IoT fora do grupo de hubs IoT armário. 
 
@@ -83,7 +83,7 @@ Nesta seção, você usará o Azure Cloud Shell para criar dois novos IoT hubs r
 
 Nesta seção, você criará um novo grupo de registro para os dispositivos de locatário.  
 
-Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de confiança.
+Para simplificar, este artigo usa o [Atestado de chave simétrica](concepts-symmetric-key-attestation.md) com o registro. Para uma solução mais segura, considere usar o [Atestado de certificado X.509](concepts-x509-attestation.md) com uma cadeia de confiança.
 
 1. Entre no [portal do Azure](https://portal.azure.com) e abra a instância do Serviço de Provisionamento de Dispositivos.
 
@@ -398,7 +398,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Caso planeje continuar a trabalhar com recursos criados neste artigo, você pode mantê-los. Caso contrário, use as etapas a seguir para excluir todos os recursos criados por este artigo, a fim de evitar alterações desnecessárias.
 

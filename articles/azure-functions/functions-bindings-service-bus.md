@@ -6,12 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111194"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530362"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -24,11 +25,14 @@ O Azure Functions integra-se com o [barramento de serviço do Azure](https://azu
 
 ## <a name="add-to-your-functions-app"></a>Adicionar ao seu aplicativo de funções
 
+> [!NOTE]
+> A associação do barramento de serviço atualmente não dá suporte à autenticação usando uma identidade gerenciada. Em vez disso, use uma [assinatura de acesso compartilhado do barramento de serviço](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature).
+
 ### <a name="functions-2x-and-higher"></a>Funções 2.x e posteriores
 
 Trabalhar com o gatilho e as associações exige que você referencie o pacote apropriado. O pacote NuGet é usado para bibliotecas de classes do .NET enquanto o pacote de extensão é usado para todos os outros tipos de aplicativos.
 
-| Linguagem                                        | Adicionar por...                                   | Comentários 
+| Idioma                                        | Adicionar por...                                   | Comentários 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalando o [pacote NuGet], versão 4. x | |
 | Script C#, Java, JavaScript, Python, PowerShell | Registrando o [pacote de extensão]          | A [extensão de ferramentas do Azure] é recomendada para uso com Visual Studio Code. |

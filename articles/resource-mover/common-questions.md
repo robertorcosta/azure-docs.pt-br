@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: a83191fd29e0cda4bc398f6a46a0d2ebf9631665
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 18de210d817ee309ac4970ecea6b62f6ef03ef02
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068040"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530396"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -50,7 +50,7 @@ Usando o Resource mover, atualmente, você pode mover os seguintes recursos entr
 
 Você pode alterar a assinatura depois de mover os recursos para a região de destino. [Saiba mais](../azure-resource-manager/management/move-resource-group-and-subscription.md) sobre como mover recursos para uma assinatura diferente. 
 
-### <a name="where-is-the-metadata-about-a-region-move-stored"></a>Onde os metadados sobre uma região se movem são armazenados?
+### <a name="where-is-the-metadata-for-moving-across-regions-stored"></a>Onde estão os metadados para mover entre regiões armazenadas?
 
 Ele é armazenado em um banco de dados [Cosmos do Azure](../cosmos-db/database-encryption-at-rest.md) e no [armazenamento de BLOBs do Azure](../storage/common/storage-service-encryption.md), em uma assinatura da Microsoft. Atualmente, os metadados são armazenados no leste dos EUA 2 e Europa Setentrional. Expandiremos essa cobertura para outras regiões. Isso não o impedirá de mover recursos entre regiões públicas.
 

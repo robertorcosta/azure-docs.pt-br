@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/21/2019
-ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606127"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531127"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Usando padrões de coluna no fluxo de dados de mapeamento
 
@@ -27,17 +27,17 @@ Atualmente, os padrões de coluna estão disponíveis nas transformações colun
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Padrões de coluna em coluna derivada e agregação
 
-Para adicionar um padrão de coluna em uma coluna derivada ou na guia agregações de uma transformação Agregação, clique no ícone de adição à direita de uma coluna existente. Selecione **Adicionar padrão de coluna**. 
+Para adicionar um padrão de coluna em uma transformação coluna, agregação ou janela derivada, clique em **Adicionar** acima da lista de colunas ou no ícone de adição ao lado de uma coluna derivada existente. Escolha o **padrão adicionar coluna**.
 
-![padrões de coluna](media/data-flow/columnpattern.png "Padrões de coluna")
+![padrões de coluna](media/data-flow/add-column-pattern.png "Padrões de coluna")
 
 Use o [Construtor de expressões](concepts-data-flow-expression-builder.md) para inserir a condição de correspondência. Crie uma expressão booliana que corresponda a colunas com base em `name` ,, `type` `stream` e `position` da coluna. O padrão afetará qualquer coluna, descompasso ou definida, em que a condição retorna true.
 
 As duas caixas de expressões abaixo da condição de correspondência especificam os novos nomes e valores das colunas afetadas. Use `$$` para fazer referência ao valor existente do campo correspondente. A caixa expressão à esquerda define o nome e a caixa de expressão direita define o valor.
 
-![padrões de coluna](media/data-flow/columnpattern2.png "Padrões de coluna")
+![padrões de coluna](media/data-flow/edit-column-pattern.png "Padrões de coluna")
 
-O padrão de coluna acima corresponde a cada coluna do tipo Double e cria uma coluna de agregação por correspondência. O nome da nova coluna é o nome da coluna correspondente concatenado com ' _total '. O valor da nova coluna é a soma arredondada, agregada do valor Double existente.
+O padrão de coluna acima corresponde a cada coluna do tipo Double e cria uma coluna derivada por correspondência. Ao ser declarada `$$` como o campo nome da coluna, cada coluna correspondente é atualizada com o mesmo nome. O valor de cada coluna é o valor existente arredondado para dois pontos decimais.
 
 Para verificar se a condição de correspondência está correta, você pode validar o esquema de saída das colunas definidas na guia **inspecionar** ou obter um instantâneo dos dados na guia **visualização de dados** . 
 
@@ -73,15 +73,15 @@ Se a projeção definida tiver uma hierarquia, você poderá usar o mapeamento b
 
 ![mapeamento baseado em regras](media/data-flow/rule-based-hierarchy.png "mapeamento baseado em regras")
 
-O exemplo acima corresponde a todas as Subcolunas de coluna complexa `a` . `a`contém duas Subcolunas `b` e `c` . O esquema de saída incluirá duas colunas `b` e `c` como a condição ' nome como ' é `$$` .
+O exemplo acima corresponde a todas as Subcolunas de coluna complexa `a` . `a` contém duas Subcolunas `b` e `c` . O esquema de saída incluirá duas colunas `b` e `c` como a condição ' nome como ' é `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>Valores de expressão correspondentes de padrões.
 
-* `$$`Converte o nome ou valor de cada correspondência no tempo de execução
-* `name`representa o nome de cada coluna de entrada
-* `type`representa o tipo de dados de cada coluna de entrada
-* `stream`representa o nome associado a cada fluxo ou transformação em seu fluxo
-* `position`é a posição ordinal de colunas em seu fluxo de dados
+* `$$` Converte o nome ou valor de cada correspondência no tempo de execução
+* `name` representa o nome de cada coluna de entrada
+* `type` representa o tipo de dados de cada coluna de entrada
+* `stream` representa o nome associado a cada fluxo ou transformação em seu fluxo
+* `position` é a posição ordinal de colunas em seu fluxo de dados
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [linguagem de expressão](data-flow-expression-functions.md) de fluxo de dados de mapeamento para transformações de dados

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 46ffb5bfe52fe4f398594a1dfed76a6ea6c0fd81
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400017"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530787"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: rotear o tráfego por meio de um NVA
 
@@ -112,6 +112,8 @@ Para configurar o roteamento via NVA, aqui estão as etapas a serem consideradas
    * Da vnet 7 e da VNet 8 para o IP NVA VNet 4 
    
    Você não precisa conectar o VNets 5, 6, 7, 8 aos hubs virtuais diretamente. Verifique se NSGs no VNets 5, 6, 7, 8 permitem o tráfego para Branch (VPN/ER/P2S) ou VNets conectado à sua VNets remota. Por exemplo, VNets 5 deve garantir que o NSGs permita o tráfego para prefixos de endereço local e VNets 7, 8 que estão conectados ao Hub remoto 2.
+
+A WAN virtual não oferece suporte a um cenário em que o VNets 5, 6 Conecte-se ao Hub virtual e se comunique por meio do IP de VNet 2 NVA; Portanto, a necessidade de conectar VNets 5, 6 a VNet2 e, da mesma forma, a VNet 7, 8 a VNet 4.
 
 2. Adicione uma entrada de rota estática agregada para VNets 2, 5, 6 à tabela de rotas padrão do hub 1.
 
