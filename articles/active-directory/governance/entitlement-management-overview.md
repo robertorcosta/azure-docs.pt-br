@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871200"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594315"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é o gerenciamento de direitos do Azure AD?
 
@@ -153,7 +153,7 @@ As licenças do Azure AD Premium P2 **não** são necessárias para as seguintes
 - Nenhuma licença é necessária para os usuários a quem foram delegadas tarefas administrativas, como criador de catálogos, proprietário do catálogo e gerenciador de pacotes de acesso.
 - Nenhuma licença é necessária para convidados que **podem** solicitar pacotes de acesso, mas **não** solicitam um pacote de acesso.
 
-Para cada licença paga do Azure AD Premium P2 adquirida para seus usuários membros (funcionários), você pode usar o B2B do Azure AD para convidar até cinco usuários convidados. Esses usuários convidados também poderão usar os recursos do Azure AD Premium P2. Para obter mais informações, confira [Diretrizes de licenciamento de colaboração B2B do Azure AD](../external-identities/licensing-guidance.md).
+O preço das Identidades Externas (usuários convidados) do Azure AD baseiam-se em MAUs (usuários ativos mensais), que é a contagem de usuários exclusivos que realizam atividades de autenticação em um mês civil. Esse modelo substitui o modelo de cobrança com proporção de 1:5, que permitia até cinco usuários convidados para cada licença do Azure AD Premium no locatário. Quando o locatário estiver vinculado a uma assinatura e você usar recursos de Identidades Externas para colaborar com usuários convidados, você será cobrado automaticamente de acordo com o modelo de cobrança baseado em MAU. Para obter mais informações, confira [Modelo de cobrança para Identidades Externas do Azure AD](../external-identities/external-identities-pricing.md).
 
 Para obter mais informações sobre licenças, confira [Atribuir ou remover licenças usando o portal do Azure Active Directory](../fundamentals/license-users-groups.md).
 

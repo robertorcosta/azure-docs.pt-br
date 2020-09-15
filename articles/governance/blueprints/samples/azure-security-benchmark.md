@@ -3,12 +3,12 @@ title: Visão geral do exemplo de blueprint do Azure Security Benchmark
 description: Visão geral do exemplo de blueprint do Azure Security Benchmark. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos.
 ms.date: 06/02/2020
 ms.topic: sample
-ms.openlocfilehash: 780d16cd52ef9ea8b5edd654d6c80b9db593ab6d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739511"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651894"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Exemplo de blueprint do Azure Security Benchmark
 
@@ -37,14 +37,14 @@ Primeiro, implemente a amostra de blueprint criando um blueprint no ambiente usa
 
 1. Na página **Introdução** à esquerda, selecione o botão **Criar** em _Criar um blueprint_.
 
-1. Localize o exemplo de blueprint **Azure Security Benchmark** em _outros Exemplos_ e selecione clique no nome para selecionar este exemplo.
+1. Localize o exemplo de blueprint do **Azure Security Benchmark** em _Outros Exemplos_ e clique no nome para selecionar este exemplo.
 
 1. Insira as informações _Básicas_ do exemplo de blueprint:
 
    - **Nome do blueprint**: Forneça um nome para a sua cópia do exemplo de blueprint do Azure Security Benchmark.
    - **Localização da definição**: Use as reticências e selecione o grupo de gerenciamento em que deseja salvar a cópia da amostra.
 
-1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Próximo: Artefatos** na parte inferior da página.
+1. Selecione a guia _Artefatos_ na parte superior da página ou clique em **Avançar: Artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo de blueprint. Muitos dos artefatos têm parâmetros que definiremos mais tarde. Selecione **Salvar Rascunho** quando terminar de examinar o exemplo de blueprint.
 

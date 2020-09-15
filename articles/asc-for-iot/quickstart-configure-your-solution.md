@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 04505527428a6bb312c6fb7a12c116947fbd7cf6
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: e6ab713715cacc799d2b980c2bce2a2a15b76887
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310848"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505447"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>Início Rápido: Configure a solução de IoT
 
@@ -45,8 +45,8 @@ Depois de definir todas as relações de recursos, a Central de Segurança do Az
 Para adicionar novos recursos à solução de IoT, faça o seguinte:
 
 1. Abra o **Hub IoT** no portal do Azure.
-1. No menu à esquerda, selecione e abra **Recursos** em **Segurança**.
-1. Selecione **Editar** e escolha os grupos de recursos que pertencem à solução de IoT.
+1. Selecione e abra **Configurações** na seção **Segurança** no menu à esquerda e selecione **Recursos Monitorados**.
+1. Selecione **Editar** e escolha os recursos monitorados que pertencem à solução de IoT.
 1. Clique em **Adicionar**.
 
 Parabéns! Você adicionou um novo grupo de recursos à solução de IoT.

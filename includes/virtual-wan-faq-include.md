@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304051"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570096"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>O usuário precisa ter hub e spoke com dispositivos SD-WAN/VPN para usar a WAN virtual do Azure?
 
@@ -83,7 +83,7 @@ Há duas opções para adicionar servidores DNS aos clientes do P2S. O primeiro 
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Para VPN de usuário (ponto a site) – há suporte para quantos clientes?
 
-Cada gateway P2S VPN de usuário tem duas instâncias e cada instância é compatível com até um número de usuários determinado à medida que a unidade de escala muda. A unidade de escala 1-3 é compatível com 500 conexões, a unidade de escala 4-6 é compatível com mil conexões, a unidade de escala 7-12 é compatível com 5 mil conexões e a unidade de escala 13-20 é compatível com até 10 mil conexões. 
+Cada gateway P2S VPN de usuário tem duas instâncias e cada instância é compatível com até um número de usuários determinado à medida que a unidade de escala muda. A unidade de escala 1-3 dá suporte a 500 conexões, a unidade de escala 4-6 dá suporte a mil conexões, a unidade de escala 7-12 dá suporte a 5 mil conexões e a unidade de escala 13-18 dá suporte a até 10 mil conexões. 
 
 Como exemplo, digamos que o usuário escolha uma unidade de escala. Cada unidade de escala implica em um gateway ativo-ativo implantado e cada uma das instâncias (neste caso, 2) seria compatível com até 500 conexões. Como você pode obter 500 conexões * 2 por gateway, isso não significa que você planeja mil conexões em vez de 500 para essa unidade de escala. As instâncias podem precisar de manutenção, durante a qual a conectividade das 500 adicionais poderá ser interrompida se você ultrapassar a contagem de conexões recomendada. Além disso, não se esqueça de planejar o tempo de inatividade caso você decida escalar ou reduzir verticalmente na unidade de escala ou alterar a configuração de ponto a site no gateway de VPN.
 

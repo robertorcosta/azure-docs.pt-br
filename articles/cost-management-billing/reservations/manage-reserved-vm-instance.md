@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684755"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400119"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
 
@@ -73,7 +73,7 @@ Para delegar o gerenciamento de acesso de uma reserva:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dividir uma única reserva em duas reservas
 
- Depois de comprar mais de uma instância de recurso em uma reserva, é recomendável atribuir instâncias nessa reserva a assinaturas diferentes. Por padrão, todas as instâncias têm um escopo - assinatura única ou compartilhada. Por exemplo, você comprou 10 instâncias de reserva e especificou o escopo para ser a assinatura A. Agora convém alterar o escopo de sete reservas para a assinatura A e as três restantes para a assinatura B. A divisão de uma reserva permite distribuir instâncias para gerenciamento de escopo granular. Você pode simplificar a alocação para as assinaturas escolhendo o escopo compartilhado. Contudo, para fins de gerenciamento ou de orçamento, você pode alocar quantidades a assinaturas específicas.
+ Depois de comprar mais de uma instância de recurso em uma reserva, é recomendável atribuir instâncias nessa reserva a assinaturas diferentes. Por padrão, todas as instâncias têm um escopo – assinatura única, grupo de recursos ou compartilhada. Digamos que você tenha comprado uma reserva de 10 instâncias e especificado o escopo como a assinatura A. Agora, você quer alterar o escopo para ter sete instâncias de VM na assinatura A e as três restantes na assinatura B. A divisão de uma reserva permite fazer isso. Após você dividir uma reserva, a ReservationID original é cancelada e duas reservas são criadas. A divisão não afeta a ordem de reserva – não ocorre nenhuma nova transação comercial com a divisão, e as novas reservas têm a mesma data de término que a reserva que foi dividida.
 
  Você pode dividir uma reserva em duas reservas por meio do PowerShell, CLI ou da API.
 

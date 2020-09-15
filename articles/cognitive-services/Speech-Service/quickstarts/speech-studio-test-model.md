@@ -1,25 +1,25 @@
 ---
-title: 'Início Rápido: Testar um modelo usando arquivos de áudio – Speech Studio'
+title: Testar um modelo usando arquivos de áudio – Speech Studio
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, você usará o Speech Studio para testar o reconhecimento de fala em um arquivo de áudio.
+description: Neste guia de instruções, você usa o Speech Studio para testar o reconhecimento de fala em um arquivo de áudio.
 services: cognitive-services
 author: v-demjoh
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 76fb933893b624e9b289ddf51d2a0373b51e58d1
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 9101944a567df5000d3584ed48eff24e4c5e0057
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391529"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565796"
 ---
-# <a name="quickstart-test-a-model-using-an-audio-file-in-speech-studio"></a>Início Rápido: Testar um modelo usando um arquivo de áudio – Speech Studio
+# <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Testar um modelo usando um arquivo de áudio – Speech Studio
 
-Neste guia de início rápido, você usa o Speech Studio para converter a fala de um arquivo de áudio em texto. O Speech Studio permite testar, comparar, melhorar e implantar modelos de reconhecimento de fala usando texto relacionado, áudio com transcrições rotuladas por humanos e orientação de pronúncia que você fornece.
+Neste guia de instruções, você usa o Speech Studio para converter a fala de um arquivo de áudio em texto. O Speech Studio permite testar, comparar, melhorar e implantar modelos de reconhecimento de fala usando texto relacionado, áudio com transcrições rotuladas por humanos e orientação de pronúncia que você fornece.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

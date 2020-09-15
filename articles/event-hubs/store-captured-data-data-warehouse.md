@@ -1,26 +1,26 @@
 ---
-title: 'Tutorial: Migrar dados de evento para o SQL Data Warehouse – Hubs de Eventos do Azure'
-description: 'Tutorial: Este tutorial mostra como capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma grade de eventos.'
+title: 'Tutorial: Migrar dados de evento para o Azure Synapse Analytics – Hubs de Eventos do Azure'
+description: 'Tutorial: Este tutorial mostra como capturar dados do hub de eventos em um Azure Synapse Analytics usando uma função do Azure disparada por uma grade de eventos.'
 services: event-hubs
 ms.date: 06/23/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b6b6466675c8fa258af8370798cadd88e3b25a83
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b2a35647422c91d6859e1889f906ae512ce41a56
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997822"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436605"
 ---
-# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutorial: Migrar dados dos Hubs de Eventos capturados para um SQL Data Warehouse usando a Grade de Eventos e o Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-azure-synapse-analytics-using-event-grid-and-azure-functions"></a>Tutorial: Migrar os dados dos Hubs de Eventos capturados para o Azure Synapse Analytics usando a Grade de Eventos e o Azure Functions
 
-A [captura](./event-hubs-capture-overview.md) dos Hubs de Eventos é a maneira mais fácil de enviar dados transmitidos nos Hubs de Eventos automaticamente para um Armazenamento de Blobs do Azure ou para um Azure Data Lake Store. Posteriormente, você pode processar e enviar os dados para outros destinos de armazenamento de sua escolha, como o SQL Data Warehouse ou o Cosmos DB. Neste tutorial, você aprenderá a capturar dados do hub de eventos em um SQL data warehouse usando uma função do Azure disparada por uma [grade de eventos](../event-grid/overview.md).
+A [captura](./event-hubs-capture-overview.md) dos Hubs de Eventos é a maneira mais fácil de enviar dados transmitidos nos Hubs de Eventos automaticamente para um Armazenamento de Blobs do Azure ou para um Azure Data Lake Store. Posteriormente, você poderá processar e enviar os dados para outros destinos de armazenamento de sua escolha, como o Azure Synapse Analytics ou o Cosmos DB. Neste tutorial, você aprenderá a capturar dados do hub de eventos no Azure Synapse Analytics usando uma função do Azure disparada por uma [grade de eventos](../event-grid/overview.md).
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
 - Primeiro, crie um hub de eventos com o recurso **Capturar** habilitado e defina um armazenamento de blobs do Azure como destino. Os dados gerados pelo WindTurbineGenerator são transmitidos para o hub de eventos e são capturados automaticamente no Armazenamento do Azure como arquivos Avro.
 - Em seguida, você cria uma assinatura da Grade de Eventos do Azure com o namespace dos Hubs de Eventos como sua fonte e o ponto de extremidade da função do Azure como seu destino.
-- Sempre que um novo arquivo Avro é enviado para o blob do Armazenamento do Azure pelo recurso Captura dos Hubs de Eventos, a Grade de Eventos notifica a função do Azure com o URI do blob. A função, em seguida, migra dados do blob para um SQL data warehouse.
+- Sempre que um novo arquivo Avro é enviado para o blob do Armazenamento do Azure pelo recurso Captura dos Hubs de Eventos, a Grade de Eventos notifica a função do Azure com o URI do blob. A Função migra os dados do blob para o Azure Synapse Analytics.
 
 Neste tutorial, você executa as seguintes ações:
 
@@ -30,7 +30,7 @@ Neste tutorial, você executa as seguintes ações:
 > - Publicar o código em um aplicativo do Functions
 > - Criar uma assinatura da Grade de Eventos a partir do aplicativo de funções
 > - Transmitir dados de exemplo ao Hub de Eventos.
-> - Verificar dados capturados em um SQL Data Warehouse
+> - Verificar dados capturados no Azure Synapse Analytics
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ Neste tutorial, você executa as seguintes ações:
 - Baixe o [exemplo do Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) A solução de exemplo contém os seguintes componentes:
 
   - *WindTurbineDataGenerator*: um editor simples que envia dados de exemplo de turbina eólica para um hub de eventos habilitado para captura
-  - *FunctionDWDumper*: uma função do Azure que recebe uma notificação da Grade de Eventos quando um arquivo Avro é capturado no blob do Armazenamento do Azure. Ela recebe o caminho do URI do blob, lê seu conteúdo e envia esses dados para um SQL Data Warehouse.
+  - *FunctionDWDumper*: uma função do Azure que recebe uma notificação da Grade de Eventos quando um arquivo Avro é capturado no blob do Armazenamento do Azure. Ela recebe o caminho do URI do blob, lê o conteúdo dele e envia esses dados para o Azure Synapse Analytics.
 
   Este exemplo usa o pacote mais recente Azure.Messaging.EventHubs. Você pode encontrar o exemplo antigo que usa o pacote Microsoft.Azure.EventHubs [aqui](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
@@ -53,7 +53,7 @@ Use o Azure PowerShell ou a CLI do Azure para implantar a infraestrutura necess�
 - Plano do Serviço de Aplicativo do Azure para hospedar o aplicativo de funções
 - Aplicativo de funções para processar arquivos de eventos capturados
 - Servidor SQL lógico para hospedar o Data Warehouse
-- SQL Data Warehouse para armazenamento dos dados migrados
+- Azure Synapse Analytics para armazenar os dados migrados
 
 As seções a seguir fornecem comandos da CLI do Azure e do Azure PowerShell a fim de implantar a infraestrutura necessária para o tutorial. Atualize os nomes dos objetos abaixo antes de executar os comandos: 
 
@@ -91,9 +91,9 @@ New-AzResourceGroup -Name rgDataMigration -Location westcentralus
 New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Criar uma tabela no SQL Data Warehouse
+### <a name="create-a-table-in-azure-synapse-analytics"></a>Criar uma tabela no Azure Synapse Analytics
 
-Crie uma tabela no SQL data warehouse, executando o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) usando o [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), o [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) ou o Editor de Consulta no portal. 
+Crie uma tabela no Azure Synapse Analytics executando o script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) usando o [Visual Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-visual-studio.md), o [SQL Server Management Studio](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-query-ssms.md) ou o Editor de Consulta no portal. 
 
 ```sql
 CREATE TABLE [dbo].[Fact_WindTurbineMetrics] (
@@ -148,7 +148,7 @@ Depois de publicar a função, você está pronto para assinar o evento de captu
    ![Criar assinatura](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo  
-Você configurou o Hub de Eventos, o SQL Data Warehouse, o Aplicativo de funções do Azure e a assinatura de da Grade de Eventos. Você pode executar WindTurbineDataGenerator.exe para gerar fluxos de dados para o Hub de Eventos depois de atualizar a cadeia de conexão e o nome do hub de eventos no código-fonte. 
+Agora você configurou seu Hub de Eventos, o Azure Synapse Analytics, o Aplicativo de Funções do Azure e a assinatura da Grade de Eventos. Você pode executar WindTurbineDataGenerator.exe para gerar fluxos de dados para o Hub de Eventos depois de atualizar a cadeia de conexão e o nome do hub de eventos no código-fonte. 
 
 1. No portal, selecione seu namespace do hub de eventos. Selecione **Cadeias de Conexão**.
 
@@ -174,9 +174,9 @@ Você configurou o Hub de Eventos, o SQL Data Warehouse, o Aplicativo de funçõ
 6. Compile a solução e execute o aplicativo WindTurbineGenerator.exe. 
 
 ## <a name="verify-captured-data-in-data-warehouse"></a>Verificar dados capturados no data warehouse
-Depois de alguns minutos, consulte a tabela no SQL data warehouse. Observe que os dados gerados pelo WindTurbineDataGenerator foram transmitidos ao Hub de Eventos, capturados em um contêiner do Armazenamento do Azure e migrados para a tabela do SQL Data Warehouse pela função do Azure.  
+Após alguns minutos, consulte a tabela no Azure Synapse Analytics. Observe que os dados gerados pelo WindTurbineDataGenerator foram transmitidos ao Hub de Eventos, capturados em um contêiner do Armazenamento do Azure e migrados para a tabela do Azure Synapse Analytics pela função do Azure.  
 
 ## <a name="next-steps"></a>Próximas etapas 
 Você pode usar as ferramentas de visualização de dados avançada com o data warehouse para obter insights acionáveis.
 
-Este artigo mostra como usar o [Power BI com o SQL Data Warehouse](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
+Este artigo mostra como usar o [Power BI com o Azure Synapse Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)

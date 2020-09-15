@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d55916539f64fc70560565bd5caf6254aac5a908
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 30fa6e0489c1f2c33e02286280e7508239c1c1d2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684857"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567904"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pague as assinaturas do Azure por fatura
 
@@ -67,7 +67,7 @@ Se você alternar para pagar por fatura, isso significa que você pagará sua co
      Região específica e série da assinatura:<br>
 
     - O **Nome da empresa** e o **Endereço da empresa** devem corresponder às informações fornecidas na conta do Azure. Para exibir ou atualizar as informações, confira [Alterar suas informações de perfil de conta do Azure](change-azure-account-profile.md).
-    - Adicione suas informações de contato de cobrança no portal do Azure para que o limite de crédito possa ser aprovado. Os detalhes de contato devem estar relacionados ao departamento de Contas a Pagar ou Finanças da empresa. Para atualizar as informações de contato de cobrança, acesse o [Centro de Contas do Azure](https://account.azure.com/Profile).
+    - Adicione suas informações de contato de cobrança no portal do Azure para que o limite de crédito possa ser aprovado. Os detalhes de contato devem estar relacionados ao departamento de Contas a Pagar ou Finanças da empresa. Para atualizar as informações de contato para cobrança, acesse o [portal do Azure](https://portal.azure.com).
 
 6. Verifique suas informações de contato e o método de contato preferencial e selecione **Criar**.
 

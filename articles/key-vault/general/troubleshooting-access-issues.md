@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400425"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595981"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Solucionar problemas de política de acesso do Azure Key Vault
 
@@ -25,6 +25,14 @@ Depois de criar um ou mais cofres de chaves, provavelmente você desejará monit
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Como posso monitorar a disponibilidade do cofre, os períodos de latência do serviço ou outras métricas de desempenho do cofre de chaves?
 
 Conforme você começar a escalar o serviço, o número de solicitações enviadas para o cofre de chaves aumentará. Essa demanda tem o potencial de aumentar a latência de suas solicitações e, em casos extremos, fazer com que suas solicitações sejam limitadas, o que afetará o desempenho do serviço. Você pode monitorar as métricas de desempenho do cofre de chaves e receber alertas relacionados a limites específicos. Para ver um guia passo a passo de como configurar o monitoramento, [leia mais](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Não consigo modificar a política de acesso, como ela pode ser habilitada?
+O usuário precisa ter permissões suficientes do AAD para modificar a política de acesso. Nesse caso, o usuário precisaria ter uma função de colaborador mais alta.
+
+### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Estou vendo o erro 'Unkwown Policy'. O que isso significa?
+Há duas situações diferentes em que podemos ver a política de acesso na seção desconhecida:
+* Pode ter existido um usuário anterior que tinha acesso e, por algum motivo, esse usuário não existe mais.
+* Se a política de acesso for adicionada por meio do PowerShell e a política de acesso for adicionada para o ObjectID do aplicativo em vez do princípio de serviço
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Como posso atribuir o controle de acesso por objeto do cofre de chaves? 
 

@@ -5,18 +5,18 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: e0b78c5e053c5668fbebd8ebaac91a90aa2b364f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752780"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434753"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Início Rápido: Como criar seu primeiro aplicativo Web estático no portal do Azure
 
-Os Aplicativos Web Estáticos do Azure publicam um site em um ambiente de produção por meio da criação de aplicativos por meio de um repositório GitHub. Neste guia de início rápido, você implantará um aplicativo Web nos Aplicativos Web Estáticos do Azure usando o portal.
+Os Aplicativos Web Estáticos do Azure publicam um site em um ambiente de produção por meio da criação de aplicativos por meio de um repositório GitHub. Neste guia de início rápido, você implantará um aplicativo Web nos Aplicativos Web Estáticos do Azure usando o portal do Azure.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta de avaliação gratuita](https://azure.microsoft.com/free).
 
@@ -56,38 +56,39 @@ Depois de entrar no GitHub, insira as informações do repositório.
 1. Selecione sua _Organização_ de preferência.
 1. Selecione **my-first-web-static-app** na lista suspensa _Repositório_.
 1. Selecione **mestre** na lista suspensa _Branch_
-1. Selecione **Próximo: Build >** para editar a configuração do build
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Botão Próxima compilação":::
 
 > [!NOTE]
 > Caso você não veja nenhum repositório, talvez seja necessário autorizar Aplicativos Web Estáticos do Azure no GitHub. Navegue até o repositório do GitHub e vá para **Configurações > Aplicativos > Aplicativos OAuth Autorizados**, selecione **Aplicativos Web Estáticos do Azure** e **Conceder**. Em repositórios corporativos, você precisa ser um proprietário da organização para conceder as permissões.
 
-1. Na guia _Build_, adicione detalhes de configuração específicos à sua estrutura de front-end preferida.
+1. Na seção _Detalhes do Build_, adicione detalhes de configuração específicos à sua estrutura de front-end preferida.
 
     # <a name="no-framework"></a>[Nenhuma estrutura](#tab/vanilla-javascript)
 
-    - Desmarque o valor padrão na caixa _Localização do aplicativo_
-    - Limpe o valor padrão na caixa _Local da API_.
-    - Limpe o valor padrão na caixa _Local do artefato do aplicativo_.
+    1. Selecione **Personalizado** na lista suspensa _Predefinições de Build_
+    1. Desmarque o valor padrão na caixa _Localização do aplicativo_
+    1. Limpe o valor padrão na caixa _Local da API_.
+    1. Deixe a caixa _Local do artefato do aplicativo_ vazia
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    - Desmarque o valor padrão na caixa _Localização do aplicativo_
-    - Limpe o valor padrão na caixa _Local da API_.
-    - Digite **dist/angular-basic** na caixa _Localização do artefato do aplicativo_
+    1. Selecione **Angular** na lista suspensa _Predefinições de Build_
+    1. Mantenha o valor padrão na caixa _Localização do aplicativo_
+    1. Limpe o valor padrão na caixa _Local da API_.
+    1. Digite **dist/angular-basic** na caixa _Localização do artefato do aplicativo_
 
     # <a name="react"></a>[React](#tab/react)
 
-    - Desmarque o valor padrão na caixa _Localização do aplicativo_
-    - Limpe o valor padrão na caixa _Local da API_.
-    - Digite **build** na caixa _Localização do artefato do aplicativo_
+    1. Selecione **Reagir** da lista suspensa _Predefinições de Build_
+    1. Mantenha o valor padrão na caixa _Localização do aplicativo_
+    1. Limpe o valor padrão na caixa _Local da API_.
+    1. Digite **build** na caixa _Localização do artefato do aplicativo_
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    - Desmarque o valor padrão na caixa _Localização do aplicativo_
-    - Limpe o valor padrão na caixa _Local da API_.
-    - Digite **dist** na caixa _Localização do artefato do aplicativo_
+    1. Selecione **Vue.js** na lista suspensa _Predefinições de Build_
+    1. Mantenha o valor padrão na caixa _Localização do aplicativo_
+    1. Limpe o valor padrão na caixa _Local da API_.
+    1. Mantenha o valor padrão na caixa _Local do artefato do aplicativo_
 
     ---
 

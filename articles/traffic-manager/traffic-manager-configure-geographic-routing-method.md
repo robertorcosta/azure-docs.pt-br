@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 53773d7c616edec067e1ed1778b7ce6b500ee936
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401071"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462608"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Tutorial: Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de Tráfego
 
@@ -39,8 +39,7 @@ O método de roteamento de tráfego geográfico permite direcionar tráfego para
 
 1. Procure pelo nome do perfil do Gerenciador de Tráfego que você criou na barra de pesquisa do portal e clique no resultado quando ele for exibido.
 2. Navegue até **Configurações** -> **Pontos de Extremidade** no Gerenciador de Tráfego.
-3. Clique em **Adicionar** para exibir **Adicionar Ponto de Extremidade**.
-3. Clique em **Adicionar**, e em **Adicionar ponto de extremidade** que é exibido, preencha como se segue:
+3. Clique em **Adicionar** e, no painel **Adicionar ponto de extremidade** exibido, preencha como o seguinte:
 4. Selecione **Tipo**, dependendo do tipo de ponto de extremidade que você está adicionando. Para perfis de roteamento geográfico usados na produção, é altamente recomendável usar tipos de ponto de extremidade aninhados que contenham um perfil filho com mais de um ponto de extremidade. Para obter mais detalhes, confira as [perguntas frequentes sobre métodos de roteamento de tráfego geográfico](traffic-manager-FAQs.md).
 5. Forneça um **Nome** pelo qual deseja reconhecer esse ponto de extremidade.
 6. Determinados campos nessa página dependem do tipo de ponto de extremidade que você está adicionando:

@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: 813cf91195a43a2fc68236febe114c67eb5a3378
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/02/2020
+ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684602"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398419"
 ---
 # <a name="reservation-recommendations"></a>Recomendações de reserva
 
@@ -25,6 +25,7 @@ As seguintes etapas definem como as recomendações são calculadas:
 2. Com base nos dados de uso, o mecanismo simula seus custos com e sem reservas.
 3. Os custos são simulados para diferentes quantidades e a quantidade que maximiza a economia é recomendada.
 4. Se os recursos forem desligados regularmente, a simulação não encontrará nenhuma economia e nenhuma recomendação de compra será fornecida.
+5. O cálculo das recomendações inclui todos os descontos especiais que você possa ter sobre as taxas de uso sob demanda.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Recomendações no portal do Azure
 
@@ -52,11 +53,11 @@ Para maximizar a economia com reservas, tente comprar a quantidade mais próxima
 
 Recomendações de compra de reserva estão disponíveis no Assistente do Azure. Tenha em mente os seguintes pontos:
 
-- O Assistente tem apenas recomendações de escopo de assinatura única.
-- As recomendações são calculadas com base na tendência de uso dos últimos 30 dias.
+- O Assistente tem apenas recomendações de escopo de assinatura única. Se quiser ver recomendações para todo o escopo do orçamento (conta de cobrança ou perfil de cobrança), vá até o portal do Azure > Reservas > Adicionar e selecione o tipo para o qual deseja ver as recomendações.
+- As recomendações disponíveis no assistente consideram a tendência de uso dos últimos 30 dias.
 - As quantidades recomendadas e as economias são para a reserva de três anos, quando disponível. Se a reserva de três anos não for oferecida para o serviço em questão, a recomendação será calculada usando o preço da reserva de um ano.
-- As recomendações levam em consideração quaisquer descontos especiais que você possa ter nas taxas de uso sob demanda.
-- Se você comprar uma reserva com escopo compartilhado, as recomendações de compra de reserva do Assistente poderão levar 30 dias para desaparecer.
+- Os cálculo das recomendações incluem todos os descontos especiais que você possa ter sobre as taxas de uso sob demanda.
+- Se você comprar uma reserva com escopo compartilhado, as recomendações de compra de reserva do Assistente poderão levar até 5 dias para desaparecer.
 
 ## <a name="other-expected-api-behavior"></a>Outro comportamento de API esperado
 

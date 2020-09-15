@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 80918c63c1fef82c13b23569bcda10545628e8e8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 56198392f3c769837d8d672b861baa9b341d284e
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998009"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419343"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução à API de Tabela do Azure Cosmos DB e armazenamento de Tabelas do Azure usando SDK do .NET
 
@@ -86,100 +86,21 @@ Para obter o pacote NuGet, siga estas etapas:
 
 1. Adicione o seguinte código ao arquivo AppSettings.cs. Esse arquivo lê a cadeia de conexão do arquivo Settings.json e a atribui ao parâmetro de configuração:
 
-   ```csharp
-   namespace CosmosTableSamples
-   {
-    using Microsoft.Extensions.Configuration;
-    public class AppSettings
-    {
-        public string StorageConnectionString { get; set; }
-        public static AppSettings LoadAppSettings()
-        {
-            IConfigurationRoot configRoot = new ConfigurationBuilder()
-                .AddJsonFile("Settings.json")
-                .Build();
-            AppSettings appSettings = configRoot.Get<AppSettings>();
-            return appSettings;
-        }
-    }
-   }
-   ```
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/AppSettings.cs":::
 
-## <a name="parse-and-validate-the-connection-details"></a>Analisar e validar os detalhes da conexão 
+## <a name="parse-and-validate-the-connection-details"></a>Analisar e validar os detalhes da conexão
 
 1. Clique com o botão direito do mouse no projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe nomeada **Common.cs**. Você gravará código para validar os detalhes da conexão e criar uma tabela dentro dessa classe.
 
-1. Defina um método `CreateStorageAccountFromConnectionString`, conforme mostrado abaixo. Esse método analisará os detalhes da cadeia de conexão e validará se os detalhes da chave de conta e do nome da conta fornecidos no arquivo "Settings.json" são válidos. 
+1. Defina um método `CreateStorageAccountFromConnectionString`, conforme mostrado abaixo. Esse método analisará os detalhes da cadeia de conexão e validará se os detalhes da chave de conta e do nome da conta fornecidos no arquivo "Settings.json" são válidos.
 
- ```csharp
-using System;
-
-namespace CosmosTableSamples
-{
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Cosmos.Table;
-    using Microsoft.Azure.Documents;
-
-    public class Common
-    {
-        public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
-        {
-            CloudStorageAccount storageAccount;
-            try
-            {
-                storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the application.");
-                throw;
-            }
-            catch (ArgumentException)
-            {
-                Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the sample.");
-                Console.ReadLine();
-                throw;
-            }
-
-            return storageAccount;
-        }
-    }
-}
-   ```
-
+   :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="createStorageAccount":::
 
 ## <a name="create-a-table"></a>Criar uma tabela 
 
 A classe [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) permite que você recupere as tabelas e entidades armazenadas no Armazenamento de tabelas. Como não temos tabelas na conta de API de Tabela do Cosmos DB, adicionaremos o método `CreateTableAsync` para a classe **Common.cs** para criar uma tabela:
 
-```csharp
-public static async Task<CloudTable> CreateTableAsync(string tableName)
-  {
-    string storageConnectionString = AppSettings.LoadAppSettings().StorageConnectionString;
-
-    // Retrieve storage account information from connection string.
-    CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(storageConnectionString);
-
-    // Create a table client for interacting with the table service
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
-
-    Console.WriteLine("Create a Table for the demo");
-
-    // Create a table client for interacting with the table service 
-    CloudTable table = tableClient.GetTableReference(tableName);
-    if (await table.CreateIfNotExistsAsync())
-    {
-      Console.WriteLine("Created Table named: {0}", tableName);
-    }
-    else
-    {
-      Console.WriteLine("Table {0} already exists", tableName);
-    }
-
-    Console.WriteLine();
-    return table;
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
 
 Caso você receba um erro "exceção 503 de serviço não disponível", é possível que as portas exigidas do modo de conectividade estejam bloqueadas por um firewall. Para corrigir esse problema, abra as portas necessárias ou use a conectividade do modo de gateway, conforme mostrado no código a seguir:
 
@@ -193,27 +114,7 @@ As entidades são mapeadas para objetos C# usando uma classe personalizada deriv
 
 Clique com o botão direito do mouse no projeto **CosmosTableSamples**. Selecione **Adicionar**, **Nova Pasta** e nomeie-a como **Modelo**. Na pasta Modelo, adicione uma classe nomeada **CustomerEntity.cs** e adicione o código a seguir.
 
-```csharp
-namespace CosmosTableSamples.Model
-{
-    using Microsoft.Azure.Cosmos.Table;
-    public class CustomerEntity : TableEntity
-    {
-        public CustomerEntity()
-        {
-        }
-
-        public CustomerEntity(string lastName, string firstName)
-        {
-            PartitionKey = lastName;
-            RowKey = firstName;
-        }
-
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
-    }
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Model/CustomerEntity.cs":::
 
 Esse código define uma classe de entidade que usa o nome do cliente como a chave de linha e o sobrenome como a chave de partição. Juntas, uma chave de partição e uma chave de linha identificam exclusivamente a entidade na tabela. As entidades com a mesma chave de partição podem ser consultadas mais rápido do que aquelas com chaves de partição diferentes, mas usar chaves de partição diferentes permite uma escalabilidade maior de operações paralelas. As entidades que serão armazenadas em tabelas deverão ser de um tipo com suporte, por exemplo, derivado da classe [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). As propriedades de entidade que você gostaria de armazenar em uma tabela precisam ser propriedades públicas do tipo e dar suporte à obtenção e à definição dos valores. Além disso, o tipo de entidade deverá expor um construtor sem parâmetros.
 
@@ -223,174 +124,27 @@ O exemplo de código a seguir cria um objeto de entidade e o adiciona à tabela.
 
 Clique com o botão direito do mouse no projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe nomeada **SamplesUtils.cs**. Essa classe armazena todo o código necessário para executar operações CRUD nas entidades. 
 
-```csharp
- public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable table, CustomerEntity entity)
- {
-     if (entity == null)
-     {
-         throw new ArgumentNullException("entity");
-     }
-     try
-     {
-         // Create the InsertOrReplace table operation
-         TableOperation insertOrMergeOperation = TableOperation.InsertOrMerge(entity);
-
-         // Execute the operation.
-         TableResult result = await table.ExecuteAsync(insertOrMergeOperation);
-         CustomerEntity insertedCustomer = result.Result as CustomerEntity;
-
-         // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure Cosmos DB
-         if (result.RequestCharge.HasValue)
-         {
-             Console.WriteLine("Request Charge of InsertOrMerge Operation: " + result.RequestCharge);
-         }
-
-         return insertedCustomer;
-     }
-     catch (StorageException e)
-     {
-         Console.WriteLine(e.Message);
-         Console.ReadLine();
-         throw;
-     }
- }
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
 
 ## <a name="get-an-entity-from-a-partition"></a>Obter uma entidade de uma partição
 
-É possível obter entidade de uma partição usando o método Recuperar na classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation). O exemplo de código a seguir obtém a chave de linha da chave de partição, o email e o número de telefone de uma entidade do cliente. Este exemplo também imprime as unidades de solicitação consumidas para consultar a entidade. Para consultar uma entidade, acrescente o seguinte código ao arquivo **SamplesUtils.cs**: 
+É possível obter entidade de uma partição usando o método Recuperar na classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation). O exemplo de código a seguir obtém a chave de linha da chave de partição, o email e o número de telefone de uma entidade do cliente. Este exemplo também imprime as unidades de solicitação consumidas para consultar a entidade. Para consultar uma entidade, acrescente o seguinte código ao arquivo **SamplesUtils.cs**:
 
-```csharp
-public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)
-    {
-      try
-      {
-        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>(partitionKey, rowKey);
-        TableResult result = await table.ExecuteAsync(retrieveOperation);
-        CustomerEntity customer = result.Result as CustomerEntity;
-        if (customer != null)
-        {
-          Console.WriteLine("\t{0}\t{1}\t{2}\t{3}", customer.PartitionKey, customer.RowKey, customer.Email, customer.PhoneNumber);
-        }
-
-        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
-        if (result.RequestCharge.HasValue)
-        {
-           Console.WriteLine("Request Charge of Retrieve Operation: " + result.RequestCharge);
-        }
-
-        return customer;
-        }
-        catch (StorageException e)
-        {
-           Console.WriteLine(e.Message);
-           Console.ReadLine();
-           throw;
-        }
-    }
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 
 ## <a name="delete-an-entity"></a>Excluir uma entidade
 
 Você pode excluir facilmente uma entidade após a recuperação usando o mesmo padrão mostrado para a atualização de uma entidade. O código a seguir recupera e exclui uma entidade de cliente. Para excluir uma entidade, anexe o seguinte código ao arquivo **SamplesUtils.cs**: 
 
-```csharp
-public static async Task DeleteEntityAsync(CloudTable table, CustomerEntity deleteEntity)
-   {
-     try
-     {
-        if (deleteEntity == null)
-     {
-        throw new ArgumentNullException("deleteEntity");
-     }
-
-    TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
-    TableResult result = await table.ExecuteAsync(deleteOperation);
-
-    // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
-    if (result.RequestCharge.HasValue)
-    {
-       Console.WriteLine("Request Charge of Delete Operation: " + result.RequestCharge);
-    }
-
-    }
-    catch (StorageException e)
-    {
-        Console.WriteLine(e.Message);
-        Console.ReadLine();
-        throw;
-    }
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
 
 ## <a name="execute-the-crud-operations-on-sample-data"></a>Executar as operações CRUD em dados de exemplo
 
-Após definir os métodos para criar tabela, inserir ou mesclar entidades, execute esses métodos nos dados de exemplo. Para fazer isso, clique com o botão direito do mouse no projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe nomeada **BasicSamples.cs**, em seguida, adicione o seguinte código. Esse código cria uma tabela e adiciona entidades a ela. Se você quiser excluir a entidade e a tabela no término do projeto, remova os comentários dos métodos `table.DeleteIfExistsAsync()` e `SamplesUtils.DeleteEntityAsync(table, customer)` do seguinte código:
+Após definir os métodos para criar tabela, inserir ou mesclar entidades, execute esses métodos nos dados de exemplo. Para fazer isso, clique com o botão direito do mouse no projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe nomeada **BasicSamples.cs**, em seguida, adicione o seguinte código. Esse código cria uma tabela e adiciona entidades a ela.
 
-```csharp
-using System;
-namespace CosmosTableSamples
-{
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Cosmos.Table;
-    using Model;
+Se você não quiser excluir a entidade e a tabela ao final do projeto, comente os métodos `await table.DeleteIfExistsAsync()` e `SamplesUtils.DeleteEntityAsync(table, customer)` do código a seguir. É melhor comentar esses métodos e validar os dados antes de excluir a tabela.
 
-    class BasicSamples
-    {
-        public async Task RunSamples()
-        {
-            Console.WriteLine("Azure Cosmos DB Table - Basic Samples\n");
-            Console.WriteLine();
-
-            string tableName = "demo" + Guid.NewGuid().ToString().Substring(0, 5);
-
-            // Create or reference an existing table
-            CloudTable table = await Common.CreateTableAsync(tableName);
-
-            try
-            {
-                // Demonstrate basic CRUD functionality 
-                await BasicDataOperationsAsync(table);
-            }
-            finally
-            {
-                // Delete the table
-                // await table.DeleteIfExistsAsync();
-            }
-        }
-
-        private static async Task BasicDataOperationsAsync(CloudTable table)
-        {
-            // Create an instance of a customer entity. See the Model\CustomerEntity.cs for a description of the entity.
-            CustomerEntity customer = new CustomerEntity("Harp", "Walter")
-            {
-                Email = "Walter@contoso.com",
-                PhoneNumber = "425-555-0101"
-            };
-
-            // Demonstrate how to insert the entity
-            Console.WriteLine("Insert an Entity.");
-            customer = await SamplesUtils.InsertOrMergeEntityAsync(table, customer);
-
-            // Demonstrate how to Update the entity by changing the phone number
-            Console.WriteLine("Update an existing Entity using the InsertOrMerge Upsert Operation.");
-            customer.PhoneNumber = "425-555-0105";
-            await SamplesUtils.InsertOrMergeEntityAsync(table, customer);
-            Console.WriteLine();
-
-            // Demonstrate how to Read the updated entity using a point query 
-            Console.WriteLine("Reading the updated Entity.");
-            customer = await SamplesUtils.RetrieveEntityUsingPointQueryAsync(table, "Harp", "Walter");
-            Console.WriteLine();
-
-            // Demonstrate how to Delete an entity
-            //Console.WriteLine("Delete the entity. ");
-            //await SamplesUtils.DeleteEntityAsync(table, customer);
-            //Console.WriteLine();
-        }
-    }
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/BasicSamples.cs":::
 
 O código anterior cria uma tabela que começa com “demo” e o GUID gerado é anexado ao nome da tabela. Em seguida, adiciona uma entidade de cliente com nome e sobrenome como "Valter Lima" e, posteriormente atualiza o número de telefone desse usuário. 
 
@@ -400,26 +154,7 @@ Neste tutorial, você compilou um código para executar operações CRUD básica
 
 No projeto **CosmosTableSamples**. Abra a classe chamada **Program.cs** e adicione o código a seguir a ela para chamar BasicSamples quando o projeto for executado.
 
-```csharp
-using System;
-
-namespace CosmosTableSamples
-{
-    class Program
-    {
-        public static void Main(string[] args)
-        {
-            Console.WriteLine("Azure Cosmos Table Samples");
-            BasicSamples basicSamples = new BasicSamples();
-            basicSamples.RunSamples().Wait();
-           
-            Console.WriteLine();
-            Console.WriteLine("Press any key to exit");
-            Console.Read();
-        }
-    }
-}
-```
+:::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Program.cs":::
 
 Agora, compile a solução e pressione F5 para executar o projeto. Quando o projeto for executado, a seguinte saída no prompt de comando será exibida:
 

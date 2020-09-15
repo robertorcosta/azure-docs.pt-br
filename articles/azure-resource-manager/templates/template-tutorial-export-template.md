@@ -2,16 +2,16 @@
 title: Tutorial – exportar modelo do portal do Azure
 description: Saiba como usar um modelo exportado para concluir o desenvolvimento do modelo.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497147"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650068"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Usar o modelo exportado do portal do Azure
 
@@ -62,7 +62,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 
    O recurso Exportar Modelo usa o estado atual de um recurso e gera um modelo para implantá-lo. A exportação de um modelo pode ser uma maneira útil de obter rapidamente o JSON de que você precisa para implantar um recurso.
 
-1. Copie a definição de **Microsoft.Web/serverfarms** e a definição de parâmetro para o modelo.
+1. Examine a definição de **Microsoft.Web/serverfarms** e a definição do parâmetro no modelo exportado. Não é necessário copiar essas seções. Você pode simplesmente usar esse modelo exportado como um exemplo de como deseja adicionar esse recurso ao modelo.
 
     ![Modelo exportado do modelo de exportação do modelo do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -73,7 +73,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 
 O modelo exportado fornece a maior parte do JSON necessário, mas você precisará personalizá-lo para o modelo. Preste atenção especial nas diferenças em parâmetros e variáveis entre o modelo e o modelo exportado. Obviamente, o processo de exportação não conhece os parâmetros e as variáveis que você já definiu no modelo.
 
-O exemplo a seguir realça as adições ao modelo. Ele contém o código exportado, além de algumas alterações. Primeiro, ele altera o nome do parâmetro para que corresponda à convenção de nomenclatura. Em segundo lugar, ele usa o parâmetro de localização para a localização do Plano do Serviço de Aplicativo. Em terceiro lugar, ele remove o **name** do objeto **properties**, porque esse valor é redundante com a propriedade **name** no nível de recurso.
+O exemplo a seguir realça as adições ao modelo. Ele contém o código exportado, além de algumas alterações. Primeiro, ele altera o nome do parâmetro para que corresponda à convenção de nomenclatura. Em segundo lugar, ele usa o parâmetro de localização para a localização do Plano do Serviço de Aplicativo. Terceiro, ele remove algumas das propriedades em que o valor padrão está ok.
 
 Copie o arquivo inteiro e substitua o modelo pelo conteúdo.
 

@@ -13,17 +13,17 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 05/29/2020
-ms.openlocfilehash: 4dbbf8267b4a7a1ea280d16ee787c8ae6cd652c9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ec43ad0c83ea56af935b326a2b13aa3b3dc4fa13
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267351"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441760"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Início Rápido: Usar o editor de consultas do portal do Azure para consultar um banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-O editor de consultas é uma ferramenta no portal do Azure para executar consultas SQL no banco de dados no Banco de Dados SQL do Azure ou no data warehouse no Azure Synapse Analytics. 
+O editor de consultas é uma ferramenta no portal do Azure para executar consultas SQL com relação ao seu banco de dados no Banco de Dados SQL do Azure ou no data warehouse no Azure Synapse Analytics. 
 
 Neste guia de início rápido, você usará o editor de consultas para executar consultas T-SQL (Transact-SQL) em um banco de dados.
 

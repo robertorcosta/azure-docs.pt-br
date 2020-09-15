@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e9507525dc2c52f584bd7883a12da401b5999f50
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585909"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485448"
 ---
 # <a name="azure-key-vault-logging"></a>Log do Azure Key Vault
 
@@ -36,7 +36,7 @@ Use este tutorial para ajudá-lo a começar a usar os logs do Cofre da Chave do 
 > Este artigo fornece instruções do Azure PowerShell para atualizar o log de diagnósticos. Você também pode atualizar o log de diagnósticos usando o Azure Monitor na seção **Logs de Diagnóstico** do portal do Azure. 
 >
 
-Para obter informações de visão geral sobre o Key Vault, confira [O que é o Azure Key Vault?](overview.md). Para obter informações sobre onde o Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/).
+Para obter informações de visão geral sobre o Key Vault, confira [O que é o Azure Key Vault?](overview.md). Para obter informações sobre onde o Key Vault está disponível, consulte a [página de preços](https://azure.microsoft.com/pricing/details/key-vault/). Para obter informações sobre como usar o [Azure Monitor para Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

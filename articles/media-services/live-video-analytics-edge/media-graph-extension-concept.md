@@ -3,12 +3,12 @@ title: O que é a extensão de grafo de mídia – Azure
 description: A Análise Dinâmica de Vídeo no IoT Edge permite que você estenda as funcionalidades de processamento do grafo de mídia por meio de um nó de extensão de grafo.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 74929cc51a868d20952f1e25432f5343e4821d08
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716071"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569315"
 ---
 # <a name="media-graph-extension"></a>Extensão do grafo de mídia
 
@@ -49,13 +49,14 @@ Portanto, use um nó do processador de extensão gRPC quando:
 As extensões de grafo de mídia permitem executar modelos de inferência de sua escolha em qualquer runtime de inferência disponível, como o ONNX, o TensorFlow, o PyTorch ou outros, no próprio contêiner do Docker. A extensão personalizada de inferência deve ser implantada junto com o módulo de borda da Análise Dinâmica de Vídeo para melhor desempenho e será então invocada por meio do processador de extensão HTTP ou gRPC incluído na topologia de grafo. Além disso, a frequência das chamadas na extensão personalizada pode ser restringida por meio da adição opcional de um [processador de detector de movimento](media-graph-concept.md#motion-detection-processor) e um [processador de filtro de taxa de quadros](media-graph-concept.md#frame-rate-filter-processor) upstream ao processador de extensão de mídia.
 
 O diagrama abaixo descreve o fluxo de dados de alto nível:
- 
-![Fluxo de dados](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="Serviço de inferência de IA":::
 
 ## <a name="samples"></a>Exemplos
 
-Confira alguns dos nossos exemplos do [Jupyter Notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) para a Análise Dinâmica de Vídeo. Estes notebooks fornecerão instruções passo a passo sobre:
+Confira alguns dos nossos exemplos do [Jupyter Notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) para a Análise Dinâmica de Vídeo. Estes notebooks fornecerão instruções passo a passo sobre **as extensões do grafo de mídia** em:
 
 * Como criar uma imagem de contêiner do Docker de um serviço de extensão
 * Como implantar o serviço de extensão como um contêiner junto com o contêiner da Análise Dinâmica de Vídeo
-* Como usar um grafo de mídia da Análise Dinâmica de Vídeo com um cliente de extensão e apontá-lo para o ponto de extremidade gRPC da extensão
+* Como usar um grafo de mídia da Análise Dinâmica de Vídeo com um cliente de extensão e apontá-lo para o ponto de extremidade da extensão (HTTP/gRPC)

@@ -1,5 +1,5 @@
 ---
-title: O que é Tradutor? - Tradutor
+title: O que é o Tradutor? - Tradutor
 titlesuffix: Azure Cognitive Services
 description: Integre o Tradutor em seus aplicativos, sites, ferramentas e outras soluções para fornecer experiências do usuário em vários idiomas.
 services: cognitive-services
@@ -11,24 +11,22 @@ ms.topic: overview
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 5da9e5b38b88a5a148bd3d85664daa523153086b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 206e1bc86404fa41b84647c50482dbe63301c0af
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589444"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425952"
 ---
-# <a name="what-is-the-translator"></a>O que é Tradutor?
+# <a name="what-is-translator"></a>O que é o Tradutor?
 
-O Tradutor é fácil de integrar em seus aplicativos, sites, ferramentas e soluções. Ele permite que você adicione experiências de usuário com vários idiomas em [mais de 70 idiomas](languages.md) e pode ser usado em qualquer plataforma de hardware com qualquer sistema operacional para traduzir idioma de texto para texto.
-
-O Tradutor faz parte da coleção [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) do aprendizado de máquina e dos algoritmos de IA na nuvem, e está pronto para ser consumido em seus projetos de desenvolvimento.
+O Tradutor de Serviços Cognitivos do Azure é um serviço de tradução automática baseado em nuvem e faz parte da família de APIs cognitivas de [Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/?pivot=products&panel=ai) para a criação de aplicativos inteligentes. O Tradutor é fácil de integrar em seus aplicativos, sites, ferramentas e soluções. Ele permite que você adicione experiências de usuário com vários idiomas em [mais de 70 idiomas](languages.md) e pode ser usado em qualquer plataforma de hardware com qualquer sistema operacional para traduzir idioma de texto para texto.
 
 ## <a name="about-microsoft-translator"></a>Sobre o Microsoft Translator
 
-O Tradutor é um serviço de tradução automática baseado em nuvem. O serviço principal é o Tradutor, que possibilita muitos produtos e serviços da Microsoft, e é usado por milhares de empresas no mundo todo em seus aplicativos e fluxos de trabalho, o que permite que seu conteúdo alcance um público global.
+O Tradutor de Serviços Cognitivos do Azure é um serviço de tradução automática baseado em nuvem. A Tradução possibilita muitos produtos e serviços da Microsoft e é usada por milhares de empresas no mundo todo em seus aplicativos e fluxos de trabalho, o que permite que seu conteúdo alcance um público-alvo global.
 
-A tradução de fala, possibilitado pelo Tradutor, também está disponível no [Serviço de Fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Ele combina a funcionalidade da API de Tradução de Fala e do Serviço de Fala Personalizado em um serviço unificado e totalmente personalizável. O Serviço de Fala está substituindo a API de Tradução de Fala, que será encerrado em 15 de outubro de 2019.
+A tradução de fala, possibilitado pela Tradução, também está disponível no [Serviço de Fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Ele combina a funcionalidade da API de Tradução de Fala e do Serviço de Fala Personalizado em um serviço unificado e totalmente personalizável. 
 
 ## <a name="language-support"></a>Suporte ao idioma
 
@@ -46,7 +44,7 @@ Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translato
 
 ## <a name="language-customization"></a>Personalização de linguagem
 
-Uma extensão do principal serviço Tradutor da Microsoft, o Tradutor Personalizado pode ser usado junto com o Tradutor para ajudá-lo a personalizar o sistema de tradução neural e aprimorar a tradução conforme sua terminologia e estilo específicos.
+Uma extensão do serviço Tradução da Microsoft, o Tradutor Personalizado pode ser usado junto com a Tradução para ajudar você a personalizar o sistema de tradução neural e aprimorar a tradução conforme sua terminologia e estilo específicos.
 
 Com o Tradutor Personalizado, é possível compilar sistemas de tradução que controlem a terminologia usada na sua própria empresa ou setor. Assim, seu sistema de tradução personalizado será integrado facilmente nos aplicativos, nos fluxos de trabalho, nos sites existentes e em vários tipos de dispositivos, por meio do Tradutor regular, usando o parâmetro da categoria.
 

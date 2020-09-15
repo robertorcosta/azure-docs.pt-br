@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5682d511b20f7b6f4dbfbd7487e39f345b660fa
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262848"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421366"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Tutorial: instalar o Azure Stack Edge com GPU
 
@@ -221,6 +221,10 @@ Execute as etapas a seguir para cabear o dispositivo para obter energia e rede.
 4. Ligue os cabos de alimentação às PDUs (unidades de distribuição de energia) do rack. Verifique se as duas PSUs usam fontes de energia separadas.
 5. Pressione o botão de energia para ligar o dispositivo.
 6. Conecte a PORTA 1 do adaptador de rede de 1 GbE ao computador usado para configurar o dispositivo físico. A PORTA 1 serve como interface de gerenciamento.
+    
+    > [!NOTE]
+    > Se você conectar o computador diretamente ao seu dispositivo (sem passar por um comutador), use um cabo cruzado ou um adaptador USB Ethernet.
+
 7. Conecte uma ou mais das portas (PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6) ao rede do datacenter/Internet.
 
     - Se estiver conectando a PORTA 2, use o cabo de rede RJ-45 de 1-GbE.
@@ -235,7 +239,7 @@ Neste tutorial, você viu tópicos do Azure Stack Edge, como:
 > * Montar o dispositivo em rack
 > * Cabear o dispositivo
 
-Vá para o próximo tutorial para aprender a conectar, configurar e ativar seu dispositivo.
+Vá para o próximo tutorial para aprender a se conectar ao seu dispositivo.
 
 > [!div class="nextstepaction"]
 > [Conectar o Azure Stack Edge](./azure-stack-edge-gpu-deploy-connect.md)

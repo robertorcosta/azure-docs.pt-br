@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: a581678fdd05dade336f7ca9fcbcf5ad4c92d49a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f4b43129db5288275434253545861f3eae218e82
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300163"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89503781"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift 4 no Azure
 
@@ -22,9 +22,9 @@ Neste tutorial, parte um de três, você vai preparar seu ambiente para criar um
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.6.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-O Red Hat OpenShift no Azure requer um mínimo de 40 núcleos para criar e executar um cluster do OpenShift. A cota de recursos padrão do Azure para uma nova assinatura do Azure não atende a esse requisito. Para solicitar um aumento no limite de recursos, confira [Cota Standard: Aumentar limites por série de VM](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+O Red Hat OpenShift no Azure requer um mínimo de 40 núcleos para criar e executar um cluster do OpenShift. A cota de recursos padrão do Azure para uma nova assinatura do Azure não atende a esse requisito. Para solicitar um aumento no limite de recursos, confira [Cota Standard: Aumentar limites por série de VM](../azure-portal/supportability/per-vm-quota-requests.md).
 
 ### <a name="verify-your-permissions"></a>Verificar suas permissões
 
@@ -35,13 +35,31 @@ Para criar um cluster do Red Hat OpenShift no Azure, verifique as seguintes perm
 |**Administrador de Acesso do Usuário**|X|X| |
 |**Colaborador**|X|X|X|
 
-### <a name="register-the-resource-provider"></a>Registre o provedor de recursos
+### <a name="register-the-resource-providers"></a>Registrar os provedores de recursos
 
-Em seguida, você precisa registrar o provedor de recursos `Microsoft.RedHatOpenShift` em sua assinatura.
+1. Se você tem várias assinaturas do Azure, especifique a ID de assinatura relevante:
 
-```azurecli-interactive
-az provider register -n Microsoft.RedHatOpenShift --wait
-```
+    ```azurecli-interactive
+    az account set --subscription <SUBSCRIPTION ID>
+    ```
+
+1. Registre o provedor de recursos `Microsoft.RedHatOpenShift`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.RedHatOpenShift --wait
+    ```
+    
+1. Registre o provedor de recursos `Microsoft.Compute`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Compute --wait
+    ```
+    
+1. Registre o provedor de recursos `Microsoft.Storage`:
+
+    ```azurecli-interactive
+    az provider register -n Microsoft.Storage --wait
+    ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obter um segredo de pull do Red Hat (opcional)
 
@@ -88,7 +106,7 @@ Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
 
 1. **Crie um grupo de recursos.**
 
-    Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Ao criar um grupo de recursos, você é solicitado a especificar um local. Essa é a localização na qual os metadados do grupo de recursos são armazenados e na qual os recursos são executados no Azure, caso você não especifique outra região durante a criação de recursos. Crie um grupo de recursos usando o comando [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create).
+    Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Ao criar um grupo de recursos, você é solicitado a especificar um local. Essa é a localização na qual os metadados do grupo de recursos são armazenados e na qual os recursos são executados no Azure, caso você não especifique outra região durante a criação de recursos. Crie um grupo de recursos usando o comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create).
     
 > [!NOTE]
 > O Red Hat OpenShift no Azure não está disponível em todas as regiões em que um grupo de recursos do Azure pode ser criado. Confira [regiões disponíveis](https://docs.openshift.com/aro/4/welcome/index.html#available-regions) para obter informações sobre em que locais há suporte para o Red Hat OpenShift no Azure.
@@ -167,7 +185,7 @@ Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
     --service-endpoints Microsoft.ContainerRegistry
     ```
 
-5. **[Desabilite as políticas de ponto de extremidade privado de sub-rede](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy) na sub-rede mestra.** Isso é necessário para conectar e gerenciar o cluster.
+5. **[Desabilite as políticas de ponto de extremidade privado de sub-rede](../private-link/disable-private-link-service-network-policy.md) na sub-rede mestra.** Isso é necessário para conectar e gerenciar o cluster.
 
     ```azurecli-interactive
     az network vnet subnet update \

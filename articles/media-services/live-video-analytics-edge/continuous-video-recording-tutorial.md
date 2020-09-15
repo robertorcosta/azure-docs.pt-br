@@ -3,12 +3,12 @@ title: Tutorial de gravação contínua de vídeo na nuvem e reprodução com or
 description: Neste tutorial, você aprenderá a usar a Análise Dinâmica de Vídeo do Azure no Azure IoT Edge para gravar vídeo continuamente na nuvem e para transmitir qualquer parte desse vídeo usando os Serviços de Mídia do Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043475"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566782"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo baseada na nuvem e reprodução com origem na nuvem
 
@@ -61,7 +61,8 @@ Conforme explicado no artigo [Conceito de grafo de mídia](media-graph-concept.m
  
  Para realizar a CVR, você precisa capturar o vídeo de uma câmera compatível com RTSP e gravá-lo continuamente em um [ativo dos Serviços de Mídia do Azure](terminology.md#asset). Este diagrama mostra uma representação gráfica desse grafo de mídia.
 
-![Grafo de mídia](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Grafo de mídia":::
 
 Neste tutorial, você usará um módulo do Edge criado usando o [Servidor de Mídia Live555](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) para simular uma câmera RTSP. Dentro do grafo de mídia, você usará um nó de [origem RTSP](media-graph-concept.md#rtsp-source) para obter o feed ao vivo e enviar esse vídeo para o [nó do coletor de ativos](media-graph-concept.md#asset-sink), que grava o vídeo em um ativo.
 
@@ -352,7 +353,7 @@ Você pode examinar o ativo dos Serviços de Mídia criado pelo grafo de mídia 
 1. Localize sua conta dos Serviços de Mídia entre os recursos que você tem em sua assinatura e abra o painel da conta.
 1. Selecione **Ativos** na lista **Serviços de Mídia**.
 
-    ![Ativos](./media/continuous-video-recording-tutorial/assets.png)
+    ![Ativos dos Serviços de Mídia](./media/continuous-video-recording-tutorial/assets.png)
 1. Você encontrará um ativo listado com o nome sampleAsset-CVRToAMSAsset-Sample-Graph-1. Esse é o padrão de nomenclatura escolhido no arquivo de topologia do grafo.
 1. Selecione o ativo.
 1. Na página de detalhes do ativo, selecione **Criar** na caixa de texto **URL de streaming**.

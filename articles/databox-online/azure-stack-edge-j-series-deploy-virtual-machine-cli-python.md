@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255521"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500225"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Implantar VMs no dispositivo de GPU Azure Stack Edge usando a CLI do Azure e o Python
 
@@ -60,13 +60,13 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge usa
 
     2. Habilite a computação no adaptador de rede. O Azure Stack Edge criará e gerenciará um comutador virtual correspondente a esse adaptador de rede.
 
-    Se você optar por usar outro adaptador de rede para computação, lembre-se de:
+    <!--If you decide to use another network interface for compute, make sure that you:
 
-    - Excluir todas as VMs implantadas por meio do Azure Resource Manager.
+    - Delete all the VMs that you have deployed using Azure Resource Manager.
 
-    - Excluir todos os adaptadores de rede virtual e a rede virtual associada a esse adaptador de rede.
+    - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - Agora você pode habilitar outro adaptador de rede para computação.
+    - You can now enable another network interface for compute.-->
 
 3. Você criou e instalou todos os certificados no dispositivo Azure Stack Edge e no repositório confiável do cliente. Siga o procedimento descrito na [Etapa 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
@@ -342,7 +342,8 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge usa
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Tome nota dos valores de `id` e `tenantId`, pois eles correspondem, respectivamente, à sua ID de assinatura do Azure Resource Manager e à ID de locatário do Azure Resource Manager, e serão usados em uma etapa posterior.
+       
    As seguintes variáveis de ambiente precisarão ser definidas para que funcionem como uma *entidade de serviço*:
 
    ```
@@ -352,7 +353,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge usa
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   A ID do locatário, a ID do cliente e a ID da assinatura do Azure Resource Manager são embutidas em código e têm os mesmos valores em todos os dispositivos Azure Stack Edge. O segredo do cliente do Azure Resource Manager é a senha do Azure Resource Manager definida por você.
+   A ID de cliente do Azure Resource Manager é embutida em código. A ID de locatário do Azure Resource Manager e a ID de assinatura do Azure Resource Manager estão presentes na saída do comando `az login` executado anteriormente. O segredo do cliente do Azure Resource Manager é a senha do Azure Resource Manager definida por você.
 
    Para obter mais informações, confira [Senha do Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
 

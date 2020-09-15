@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dedf0795e72c4bdace430ba2dd07ade9d792f13c
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070097"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459532"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Pontos de extremidade privados gerenciados do Synapse (versão prévia)
 
@@ -23,7 +23,7 @@ Este artigo explicará os Pontos de extremidade privados gerenciados no Azure Sy
 
 Os Pontos de extremidade privados gerenciados são pontos de extremidade privados criados na Rede Virtual do Microsoft Azure de workspace gerenciada que estabelece um link privado para recursos do Azure. O Azure Synapse gerencia para você esses pontos de extremidade privados.
 
-O Azure Synapse é compatível com links privados. O link privado permite que você acesse serviços do Azure (como o Armazenamento, o Cosmos DB e o SQL Data Warehouse) e os serviços de cliente/parceiro hospedados pelo Azure em sua Rede Virtual do Azure com segurança.
+O Azure Synapse é compatível com links privados. O link privado permite que você acesse serviços do Azure (como o Armazenamento do Azure e o Azure Cosmos DB) e os serviços de cliente/parceiro hospedados pelo Azure em sua Rede Virtual do Azure com segurança.
 
 Quando você usa um link privado, o tráfego entre a Rede Virtual e o workspace atravessa totalmente a rede de backbone da Microsoft. O Link Privado protege contra riscos de exfiltração dos dados. Você estabelece um link privado para um recurso criando um ponto de extremidade privado.
 

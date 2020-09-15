@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723547"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394390"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -48,6 +48,7 @@ O Reconhecimento de Formulários usa a [API de layout](#layout-api) para aprende
 ## <a name="prebuilt-models"></a>Modelos predefinidos
 
 O Reconhecimento de Formulários também inclui modelos predefinidos para tipos de formulário exclusivos.
+
 ### <a name="prebuilt-receipt-model"></a>Modelo de Recibo Predefinido
 O modelo de Recibo Predefinido é usado para a leitura de recibos de vendas em inglês da Austrália, do Canadá, da Grã-Bretanha, da Índia e dos Estados Unidos: o tipo usado por restaurantes, postos de gasolina, varejo etc. Esse modelo extrai informações essenciais, como data e hora da transação, informações do comerciante, valores de impostos, itens de linha, totais, entre outros. Além disso, o modelo de recibo predefinido é treinado para reconhecer e retornar todo o texto de um recibo. 
 
@@ -74,9 +75,11 @@ Siga um início rápido para começar a extrair dados de seus formulários. Reco
     * [Treinar sem rótulos – cURL](quickstarts/curl-train-extract.md)
     * [Treinar sem rótulos – Python](quickstarts/python-train-extract.md)
     * [Treinar com rótulos – Python](quickstarts/python-labeled-data.md)
-  * Extrair dados de recibos de vendas dos EUA
+  * Extrair dados de recibos de vendas
     * [Extrair dados de recibo – cURL](quickstarts/curl-receipts.md)
     * [Extrair dados de recibo – Python](quickstarts/python-receipts.md)
+  * Extrair dados de cartões de visita
+    * [Extrair dados do cartão de visita – Python](quickstarts/python-business-cards.md)
   * Extrair a estrutura de tabela e texto de formulários
     * [Extrair dados de layout – Python](quickstarts/python-layout.md)
 
@@ -90,6 +93,7 @@ Você usará as APIs a seguir para treinar modelos e extrair dados estruturados 
 | **Treinar Modelo Personalizado**| Treine um novo modelo para analisar seus formulários usando cinco formulários do mesmo tipo. Defina o parâmetro _useLabelFile_ como `true` para treinar usando dados rotulados manualmente. |
 | **Analisar Formulário** |Analise um documento individual transmitido como um fluxo para extrair texto, pares chave-valor e tabelas do formulário com o modelo personalizado.  |
 | **Analisar Recibo** |Analise um único documento de recibo para extrair informações importantes e outros textos do recibo.|
+| **Analisar o Cartão de Visita** |Analise um cartão de visita para extrair informações e texto importantes.|
 | **Analisar Layout** |Analise o layout de um formulário para extrair a estrutura de tabela e texto.|
 
 Explore a [documentação de referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) para saber mais. Se você estiver familiarizado com uma versão anterior da API, confira o artigo [O que há de novo](./whats-new.md) para saber mais sobre as alterações recentes.

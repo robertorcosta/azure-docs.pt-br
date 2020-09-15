@@ -4,12 +4,12 @@ description: Neste guia de início rápido, você aplicará a pesquisa visual co
 ms.topic: quickstart
 ms.date: 08/14/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: ac11ced68ab8463da26b9978a5b0b02c4cd1a402
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 907d402a4b0ef5d5e437322d02431a0ccd2d8da3
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687102"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421504"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-grpc-model"></a>Início Rápido: Análise Dinâmica de Vídeo usando o próprio modelo gRPC
 
@@ -56,11 +56,11 @@ Este início rápido mostra como usar a Análise Dinâmica de Vídeo no IoT Edge
 ## <a name="create-and-deploy-the-media-graph"></a>Criar e implantar o grafo de mídia
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/csharp/create-deploy-media-graph.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [create and deply the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
+[!INCLUDE [create and deploy the media graph](includes/analyze-live-video-your-grpc-model-quickstart/python/create-deploy-media-graph.md)]
 ::: zone-end
 
 ## <a name="interpret-results"></a>Interpretar os resultados
@@ -79,4 +79,9 @@ Se você pretende experimentar outros inícios rápidos, mantenha os recursos cr
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Tente executar diferentes topologias de grafo de mídia usando o protocolo gRPC.
+* Tente executar diferentes topologias de grafo de mídia usando o protocolo gRPC.
+* **Compilar e executar as extensões LVA (Análise Dinâmica de Vídeo) de exemplo**
+<br/>Experimente nossos notebooks de exemplo do Jupyter que permitem criar e executar modelos YOLO baseados em [ONNX](http://onnx.ai/) como uma extensão LVA (Análise Dinâmica de Vídeo).
+    * [Modelo YOLOv3 de exemplo](https://github.com/Azure/live-video-analytics/tree/master/utilities/video-analysis/notebooks/Yolo/yolov3/yolov3-grpc-icpu-onnx/readme.md)
+    * [Modelo YOLOv4 de exemplo](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/Yolo/yolov4/yolov4-grpc-icpu-onnx/readme.md)
+

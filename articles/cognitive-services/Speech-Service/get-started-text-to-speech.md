@@ -1,5 +1,5 @@
 ---
-title: Início rápido de síntese de Fala – serviço de Fala
+title: Início rápido de conversão de texto em fala – serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar o SDK de Fala para converter texto em fala. Neste guia de início rápido, você aprenderá sobre construção de objetos e padrões de design, formatos de saída de áudio compatíveis, a CLI de Fala e opções de configuração personalizadas para síntese de fala.
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/11/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: speech-full-stack
-ms.openlocfilehash: 12ee7fbbd7699d09deae85971ffe411e115609ec
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+keywords: conversão de texto em fala
+ms.openlocfilehash: 79409f95d698e015d15d9131dcf1f27b34b03343
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934678"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400885"
 ---
-# <a name="get-started-with-speech-synthesis"></a>Introdução à síntese de fala
+# <a name="get-started-with-text-to-speech"></a>Introdução à conversão de texto em fala
 
 Neste início rápido, você aprende os padrões de design comuns para fazer uma síntese da conversão de texto em fala usando o SDK de Fala. Você começa fazendo a configuração e a sintetização básicas e passa para exemplos mais avançados de desenvolvimento de aplicativos personalizados, incluindo:
 

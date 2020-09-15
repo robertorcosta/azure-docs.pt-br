@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377805"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418952"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -225,7 +225,9 @@ Os tipos de valor e as variações a seguir são compatíveis no momento:
 > [!NOTE]
 > Confira estas regras para a formatação de data:
 > 
-> Os caracteres a seguir podem ser usados como delimitadores de data DMA: `, - / . \`. O espaço em branco não pode ser usado como um delimitador. Por exemplo:
+> Você deve especificar um formato (`dmy`, `mdy`, `ymd`) para a formatação de data funcionar.
+>
+> Os seguintes caracteres podem ser usados como delimitadores de data: `, - / . \`. O espaço em branco não pode ser usado como um delimitador. Por exemplo:
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
@@ -234,11 +236,11 @@ Os tipos de valor e as variações a seguir são compatíveis no momento:
 > * 1-1-2020
 > * 1-01-20
 >
-> Se uma cadeia de caracteres de data DMA tiver oito dígitos, o delimitador será opcional:
+> Se uma cadeia de caracteres de data tiver oito dígitos, o delimitador será opcional:
 > * 01012020
 > * 01 01 2020
 >
-> O mês também pode ser escrito como nome completo ou curto. Se o nome for usado, os caracteres delimitadores serão opcionais:
+> O mês também pode ser escrito como nome completo ou curto. Se o nome for usado, os caracteres delimitadores serão opcionais. No entanto, esse formato pode ser reconhecido com menos precisão do que outros.
 > * 01/jan/2020
 > * 01jan2020
 > * 01 de janeiro de 2020

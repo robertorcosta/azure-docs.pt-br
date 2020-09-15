@@ -3,12 +3,12 @@ title: O que é a Grade de Eventos do Azure?
 description: Envie dados de eventos de uma origem para manipuladores com a Grade de Eventos do Azure. Crie aplicativos baseados em eventos e integre com serviços do Azure.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116124"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436860"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é a Grade de Eventos do Azure?
 
@@ -118,6 +118,6 @@ A Grade de Eventos do Azure usa um modelo de preço de pagamento por evento, par
 * [Usando Aplicativos Lógicos como um Manipulador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Um tutorial sobre como compilar um aplicativo usando os Aplicativos Lógicos para reagir a eventos enviados por push pela Grade de Eventos.
 * [Transmitir Big Data para um data warehouse](event-grid-event-hubs-integration.md)  
-  Um tutorial que usa o Azure Functions para transmitir dados dos Hubs de Eventos para o SQL Data Warehouse.
+  Um tutorial que usa o Azure Functions para transmitir dados dos Hubs de Eventos para o Azure Synapse Analytics.
 * [Referência da API REST da Grade de Eventos](/rest/api/eventgrid)  
   Fornece conteúdo de referência para o gerenciamento de Assinaturas de Eventos, roteamento e filtragem.

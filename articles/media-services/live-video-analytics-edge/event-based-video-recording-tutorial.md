@@ -3,12 +3,12 @@ title: Tutorial de gravação de vídeo baseada em eventos para a nuvem e reprod
 description: Neste tutorial, você aprenderá a usar a Análise de Vídeo ao vivo do Azure no Azure IoT Edge para registrar uma gravação de vídeo baseada em eventos para a nuvem e a reproduzir com origem na nuvem.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: cbd00bf5737e9833a860e154c629bb344416b6ca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05ee34770cacdcda270afced13373a61ba83e13a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87011763"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568550"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação de vídeo baseada em eventos para a nuvem e reprodução com origem na nuvem
 
@@ -62,7 +62,8 @@ A gravação de vídeo baseada em eventos se refere ao processo de gravação de
 
 Opcionalmente, você pode disparar a gravação somente quando um serviço de inferência detectar que ocorreu um evento específico. Neste tutorial, você usará um vídeo de veículos se movendo em uma rodovia e gravará clipes de vídeo sempre que um caminhão for detectado.
 
-![Grafo de mídia](./media/event-based-video-recording-tutorial/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/overview.svg" alt-text="Grafo de mídia":::
 
 O diagrama é uma representação em ilustração de um [grafo de mídia](media-graph-concept.md) e módulos adicionais que realizam o cenário desejado. Quatro módulos do IoT Edge são envolvidos:
 
@@ -80,7 +81,8 @@ Como mostra o diagrama, você usará um nó de [origem RTSP](media-graph-concept
 
 Antes de começar, verifique se você concluiu o terceiro marcador dos [Pré-requisitos](#prerequisites). Após a conclusão do script de instalação, selecione as chaves para expor a estrutura de pastas. Você verá alguns arquivos criados no diretório ~/clouddrive/lva-sample.
 
-![Configurações do aplicativo](./media/quickstarts/clouddrive.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/clouddrive.png" alt-text="Configurações do aplicativo":::
 
 Os arquivos de interesse neste tutorial são:
 
@@ -152,7 +154,8 @@ O manifesto de implantação define quais módulos são implantados em um dispos
 
 Usando o Visual Studio Code, siga [estas instruções](../../iot-edge/tutorial-develop-for-linux.md#build-and-push-your-solution) para entrar no Docker. Em seguida, selecione **Compilar e efetuar push da solução do IoT Edge**. Use src/edge/deployment.objectCounter.template.json para esta etapa.
 
-![Compilar e efetuar push da solução do IoT Edge](./media/event-based-video-recording-tutorial/build-push.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/build-push.png" alt-text="Compilar a solução do IoT Edge e efetuar push dela":::
 
 Essa ação cria o módulo objectCounter para contagem de objetos e vai efetuar push da imagem para o Registro de Contêiner do Azure.
 
@@ -160,7 +163,8 @@ Essa ação cria o módulo objectCounter para contagem de objetos e vai efetuar 
 
 A etapa cria o manifesto de implantação do IoT Edge em src/edge/config/deployment.objectCounter.amd64.json. Clique com o botão direito do mouse nesse arquivo e selecione **Criar implantação para dispositivo único**.
 
-![Criar implantação para dispositivo único](./media/quickstarts/create-deployment-single-device.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Criar implantação para dispositivo único":::
 
 Se este for seu primeiro tutorial com a Análise de Vídeo ao vivo no IoT Edge, o Visual Studio Code solicitará que você insira a cadeia de conexão do Hub IoT. Você pode copiá-la do arquivo appsettings.json.
 
@@ -169,7 +173,8 @@ Em seguida, o Visual Studio Code solicitará que você selecione um dispositivo 
 Nesta fase, a implantação dos módulos de borda em seu dispositivo do IoT Edge já foi iniciada.
 Em cerca de 30 segundos, atualize o Hub IoT do Azure no canto inferior esquerdo no Visual Studio Code. Você verá que há quatro módulos implantados chamados lvaEdge, rtspsim, yolov3 e objectCounter.
 
-![Quatro módulos implantados](./media/event-based-video-recording-tutorial/iot-hub.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording-tutorial/iot-hub.png" alt-text="Quatro módulos implantados":::
 
 ## <a name="prepare-for-monitoring-events"></a>Preparar-se para eventos de monitoramento
 
@@ -179,9 +184,10 @@ Para ver os eventos do módulo objectCounter e do módulo de Análise de Vídeo 
 1. Expanda o nó **Dispositivos**.
 1. Clique com o botão direito do mouse no arquivo lva-sample-device e selecione **Iniciar Monitoramento de Ponto de Extremidade de Evento Interno**.
 
-   ![Iniciar monitoramento de ponto de extremidade de evento interno](./media/quickstarts/start-monitoring-iothub-events.png)
-
-## <a name="run-the-program"></a>Execute o programa
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/start-monitoring-iothub-events.png" alt-text="Iniciar monitoramento do ponto de extremidade de evento interno":::
+    
+    ## <a name="run-the-program"></a>Execute o programa
 
 1. No Visual Studio Code, navegue até src/cloud-to-device-console-app/operations.json.
 
@@ -390,13 +396,14 @@ Você vai poder examinar o ativo de Serviços de Mídia criado pelo grafo de mí
 1. Localize sua conta dos Serviços de Mídia entre os recursos que você tem em sua assinatura. Abra o painel da conta.
 1. Selecione **Ativos** na lista **Serviços de Mídia**.
 
-    ![Ativos](./media/continuous-video-recording-tutorial/assets.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/assets.png" alt-text="Gravação de vídeo contínua":::
 1. Você encontrará um ativo listado com o nome sampleAssetFromEVR-LVAEdge-{DateTime}. Esse é o nome fornecido na propriedade outputLocation do evento RecordingStarted. O assetNamePattern na topologia determina como esse nome foi gerado.
 1. Selecione o ativo.
 1. Na página de detalhes do ativo, selecione **Criar** na caixa de texto **URL de Streaming**.
 
-    ![Novo ativo](./media/continuous-video-recording-tutorial/new-asset.png)
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/continuous-video-recording-tutorial/new-asset.png" alt-text="Novo ativo":::
 1. No assistente que é aberto, aceite as opções padrão e selecione **Adicionar**. Para obter mais informações, confira [reprodução de vídeo](video-playback-concept.md).
 
     > [!TIP]

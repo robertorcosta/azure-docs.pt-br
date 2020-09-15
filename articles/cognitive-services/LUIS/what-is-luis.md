@@ -3,14 +3,14 @@ title: O que é Reconhecimento Vocal (LUIS)?
 description: 'LUIS (Reconhecimento vocal): um serviço de API baseado em nuvem que usa o machine learning em idioma natural e de conversa para prever o significado e extrair informações.'
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, natural language understanding, nlu, ai conversation, conversational ai, ai chatbot, chatbot maker, LUIS, nlp ai, luis ai, azure luis, understanding natural language
 ms.topic: overview
-ms.date: 08/07/2020
+ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 98d801f6a34feb40d56215f8b6257a68ec628e10
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: ff9aa2652fe8a1e503b5e2c93ca149112770b081
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320045"
+ms.locfileid: "89400935"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 
@@ -44,19 +44,19 @@ O aplicativo LUIS fornece inteligência, para que o aplicativo cliente possa faz
 
 ## <a name="natural-language-understanding-nlu"></a>NLU (Reconhecimento de idioma natural)
 
-O [LUIS fornece IA (inteligência artificial)](artificial-intelligence.md) na forma de NLU, um subconjunto do NLP (processamento de idioma natural).
+O [LUIS fornece IA (inteligência artificial)](artificial-intelligence.md "O LUIS fornece IA (inteligência artificial)") na forma de NLU, um subconjunto do NLP (processamento de idioma natural).
 
 Um aplicativo LUIS contém um modelo de linguagem natural de domínio específico. Você pode iniciar o aplicativo LUIS com um modelo de domínio predefinido, criar seu próprio modelo ou combinar partes de um domínio predefinido com suas próprias informações personalizadas.
 
-* **Modelo predefinido** LUIS tem muitos modelos de domínio que incluem intenções, expressões e entidades predefinidas. Você pode usar as entidades predefinidas sem a necessidade de usar as intenções e expressões do modelo predefinido. [Modelos de domínio predefinidos](luis-how-to-use-prebuilt-domains.md) incluem todo o design para você e são uma ótima maneira de começar a usar o LUIS rapidamente.
+* **Modelo predefinido** LUIS tem muitos modelos de domínio que incluem intenções, expressões e entidades predefinidas. Você pode usar as entidades predefinidas sem a necessidade de usar as intenções e expressões do modelo predefinido. [Modelos de domínio predefinidos](luis-how-to-use-prebuilt-domains.md "Modelos de domínio predefinidos") incluem todo o design para você e são uma ótima maneira de começar a usar o LUIS rapidamente.
 
 * **O modelo personalizado** LUIS oferece várias maneiras de identificar seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades de aprendizado de máquina, entidades específicas ou literais e uma combinação de aprendizado de máquina e literal.
 
-Saiba mais sobre o [NLP](artificial-intelligence.md) e a área específica do LUIS de NLU.
+Saiba mais sobre o [NLP](artificial-intelligence.md "NLP") e a área específica do LUIS de NLU.
 
 ## <a name="step-1-design-and-build-your-model"></a>Etapa 1: Projetar e criar seu modelo
 
-Projete seu modelo com as categorias de intenções de usuário chamadas **[intenções](luis-concept-intent.md)** . Cada intenção precisa de exemplos de **[expressões](luis-concept-utterance.md)** do usuário. Cada enunciado pode fornecer dados que precisam ser extraídos com [entidades de machine learning](luis-concept-entity-types.md#effective-machine-learned-entities).
+Projete seu modelo com as categorias de intenções de usuário chamadas **[intenções](luis-concept-intent.md "intenções")** . Cada intenção precisa de exemplos de **[expressões](luis-concept-utterance.md "enunciados")** do usuário. Cada enunciado pode fornecer dados que precisam ser extraídos com [entidades de machine learning](luis-concept-entity-types.md#effective-machine-learned-entities "entidades de machine learning").
 
 |Expressão de usuário de exemplo|Intencional|Data da extração|
 |-----------|-----------|-----------|
@@ -64,11 +64,11 @@ Projete seu modelo com as categorias de intenções de usuário chamadas **[inte
 |`When does your store open?`|StoreHoursAndLocation|Abrir|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|13h, Bob|
 
-Crie o modelo com as APIs de [criação](https://go.microsoft.com/fwlink/?linkid=2092087), o [**portal do LUIS**](https://www.luis.ai) ou ambos. Saiba mais sobre como criar um modelo com o [portal](get-started-portal-build-app.md) e as [bibliotecas de clientes do SDK](azure-sdk-quickstart.md).
+Crie o modelo com as APIs de [criação](https://go.microsoft.com/fwlink/?linkid=2092087 "criação"), o **[portal do LUIS](https://www.luis.ai "Portal do LUIS")** ou ambos. Saiba mais sobre como criar um modelo com o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes do SDK](azure-sdk-quickstart.md "Bibliotecas de cliente do SDK").
 
 ## <a name="step-2-get-the-query-prediction"></a>Etapa 2: Obter a previsão da consulta
 
-Depois que o modelo do aplicativo é treinado e publicado no ponto de extremidade, um aplicativo cliente (como um chatbot) envia os enunciados à API do [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) de previsão. A API aplica o modelo ao enunciado para análise e responde com os resultados da previsão em um formato JSON.
+Depois que o modelo do aplicativo é treinado e publicado no ponto de extremidade, um aplicativo cliente (como um chatbot) envia os enunciados à API do [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356 "endpoint") de previsão. A API aplica o modelo ao enunciado para análise e responde com os resultados da previsão em um formato JSON.
 
 A resposta mínima do ponto de extremidade JSON, contém a expressão de consulta e a intenção de maior pontuação. Ele também pode extrair dados, como a entidade e o sentimento geral do **Tipo de contato** seguinte.
 
@@ -97,44 +97,44 @@ A resposta mínima do ponto de extremidade JSON, contém a expressão de consult
 
 ## <a name="step-3-improve-model-prediction"></a>Etapa 3: Melhorar a previsão do modelo
 
-Depois que o aplicativo LUIS for publicado e receber expressões de usuário real, LUIS fornecerá [aprendizado ativo](luis-concept-review-endpoint-utterances.md) de expressões do ponto de extremidade para melhorar a precisão da previsão. Examine essas sugestões como parte do seu trabalho de manutenção regular no ciclo de vida de desenvolvimento.
+Depois que o aplicativo LUIS for publicado e receber expressões de usuário real, LUIS fornecerá [aprendizado ativo](luis-concept-review-endpoint-utterances.md "aprendizado ativo") de expressões do ponto de extremidade para melhorar a precisão da previsão. Examine essas sugestões como parte do seu trabalho de manutenção regular no ciclo de vida de desenvolvimento.
 
 <a name="using-luis"></a>
 
 ## <a name="development-lifecycle-and-tools"></a>Ciclo de vida de desenvolvimento e ferramentas
-O LUIS fornece ferramentas, controle de versão e colaboração com outros autores do LUIS para integrar ao [ciclo de vida de desenvolvimento completo](luis-concept-app-iteration.md).
+O LUIS fornece ferramentas, controle de versão e colaboração com outros autores do LUIS para integrar ao [ciclo de vida de desenvolvimento completo](luis-concept-app-iteration.md "ciclo de vida do desenvolvimento").
 
-O LUIS, como uma API REST, pode ser usado com qualquer produto, serviço ou estrutura que faz uma solicitação HTTP. O LUIS também fornece SDKs (bibliotecas de clientes) para várias das principais linguagens de programação. Saiba mais sobre os [recursos para desenvolvedor](developer-reference-resource.md) fornecidos.
+O LUIS, como uma API REST, pode ser usado com qualquer produto, serviço ou estrutura que faz uma solicitação HTTP. O LUIS também fornece SDKs (bibliotecas de clientes) para várias das principais linguagens de programação. Saiba mais sobre os [recursos para desenvolvedor](developer-reference-resource.md "recursos para desenvolvedores") fornecidos.
 
 Ferramentas para usar o LUIS com um bot de modo rápido e fácil:
-* [CLI do LUIS](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) O pacote NPM fornece criação e previsão como uma ferramenta de linha de comando autônoma ou como uma importação.
-* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) O LUISGen é uma ferramenta para gerar código-fonte typescript e C# fortemente tipado de um modelo do LUIS exportado.
-* [Expedição](https://aka.ms/dispatch-tool) permite que vários aplicativos LUIS e QnA Maker sejam usados em um aplicativo pai usando o modelo de dispatcher.
-* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) O LUDown é uma ferramenta de linha de comando que ajuda a gerenciar modelos de linguagem para o bot.
+* [CLI do LUIS](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS "CLI d LUIS") O pacote NPM fornece criação e previsão como uma ferramenta de linha de comando autônoma ou como uma importação.
+* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen "LUISGen") O LUISGen é uma ferramenta para gerar código-fonte typescript e C# fortemente tipado de um modelo do LUIS exportado.
+* [Expedição](https://aka.ms/dispatch-tool "Dispatch") permite que vários aplicativos LUIS e QnA Maker sejam usados em um aplicativo pai usando o modelo de dispatcher.
+* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown "LUDown") O LUDown é uma ferramenta de linha de comando que ajuda a gerenciar modelos de linguagem para o bot.
 
 ## <a name="integrate-with-a-bot"></a>Integração a um bot
 
-Use o [Serviço de Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) com o [Microsoft Bot Framework](https://dev.botframework.com/) para criar e implantar um chatbot. Projete e desenvolva bots com a ferramenta de interface gráfica [Composer](https://docs.microsoft.com/composer/) ou os [exemplos de bots funcionais](https://github.com/microsoft/BotBuilder-Samples) projetados para os principais cenários de bots.
+Use o [Serviço de Bot do Azure](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0 "Serviço de Bot do Azure") com o [Microsoft Bot Framework](https://dev.botframework.com/ "Microsoft Bot Framework") para criar e implantar um chatbot. Projete e desenvolva bots com a ferramenta de interface gráfica [Composer](https://docs.microsoft.com/composer/ "Compositor") ou os [exemplos de bots funcionais](https://github.com/microsoft/BotBuilder-Samples "exemplos de bot de trabalho") projetados para os principais cenários de bots.
 
 ## <a name="integrate-with-other-cognitive-services"></a>Integração a outros Serviços Cognitivos
 
 Outros Serviços Cognitivos usados com o LUIS:
-* [QnA Maker][qnamaker] permite que vários tipos de texto sejam combinados em uma base de conhecimento de perguntas e respostas.
-* [Serviço de Fala](../Speech-Service/overview.md) converte as solicitações de linguagem falada em texto.
+* [QnA Maker](../QnAMaker/overview/overview.md "QnA Maker") permite que vários tipos de texto sejam combinados em uma base de conhecimento de perguntas e respostas.
+* [Serviço de Fala](../Speech-Service/overview.md "Serviço de Fala") converte as solicitações de linguagem falada em texto.
 
-O LUIS fornece a funcionalidade de Análise de Texto como parte dos recursos existentes. Essa funcionalidade inclui a [Análise de Sentimento](luis-how-to-publish-app.md#configuring-publish-settings) e a [Extração de Frases-chave](luis-reference-prebuilt-keyphrase.md) com a entidade keyPhrase predefinida.
+O LUIS fornece a funcionalidade de Análise de Texto como parte dos recursos existentes. Essa funcionalidade inclui a [Análise de Sentimento](luis-how-to-publish-app.md#configuring-publish-settings "análise de sentimento") e a [Extração de Frases-chave](luis-reference-prebuilt-keyphrase.md "como extração de frases-chave") com a entidade keyPhrase predefinida.
 
 ## <a name="learn-with-the-quickstarts"></a>Saiba mais com os guias de início rápido
 
-Saiba mais sobre o LUIS com guias de início rápido práticos usando o [portal](get-started-portal-build-app.md) e as [bibliotecas de clientes do SDK](azure-sdk-quickstart.md).
+Saiba mais sobre o LUIS com guias de início rápido práticos usando o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes do SDK](azure-sdk-quickstart.md "bibliotecas de cliente do SDK").
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Novidades](whats-new.md) do serviço e da documentação
-* [Planeje seu aplicativo](luis-how-plan-your-app.md) com [intenções](luis-concept-intent.md) e [entidades](luis-concept-entity-types.md).
-* [Consulte o ponto de extremidade de previsão](luis-get-started-get-intent-from-browser.md).
-* [Recursos para desenvolvedores](developer-reference-resource.md) para LUIS.
+* [Novidades](whats-new.md "Novidades") do serviço e da documentação
+* [Planeje seu aplicativo](luis-how-plan-your-app.md "Planejar seu aplicativo") com [intenções](luis-concept-intent.md "intenções") e [entidades](luis-concept-entity-types.md "entidades").
+* [Consulte o ponto de extremidade de previsão](luis-get-started-get-intent-from-browser.md "Consulte o ponto de extremidade de previsão").
+* [Recursos para desenvolvedores](developer-reference-resource.md "Recursos para desenvolvedores") para LUIS.
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/

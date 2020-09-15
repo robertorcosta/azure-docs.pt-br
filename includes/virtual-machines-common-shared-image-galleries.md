@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501944"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494315"
 ---
-A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens. A Galeria de Imagens Compartilhadas fornece:
+A Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a estrutura e a organização em torno das suas imagens. A Galeria de Imagens Compartilhadas fornece:
 
 - Replicação global de imagens.
 - Agrupamento e controle de versão de imagens para facilitar o gerenciamento.
@@ -33,7 +33,7 @@ O recurso Galeria de Imagens Compartilhadas tem vários tipos de recursos:
 
 | Recurso | Descrição|
 |----------|------------|
-| **Origem da imagem** | Este é um recurso que pode ser usado sozinho ou para criar uma **versão da imagem** em uma galeria de imagens. Uma origem de imagem pode ser uma VM do Azure existente que seja [generalizada ou especializada](#generalized-and-specialized-images), uma imagem gerenciada, um instantâneo, um VHD ou uma versão de imagem em outra galeria de imagens. |
+| **Origem da imagem** | Este é um recurso que pode ser usado sozinho ou para criar uma **versão da imagem** em uma galeria de imagens. Uma origem de imagem pode ser uma VM do Azure existente [generalizada ou especializada](#generalized-and-specialized-images), uma imagem gerenciada, um instantâneo, uma VHD ou uma versão de imagem em outra galeria de imagens. |
 | **Galeria de imagens** | Como o Azure Marketplace, uma **galeria de imagens** é um repositório para gerenciar e compartilhar imagens, mas você controla quem tem acesso. |
 | **Definição da imagem** | As definições de imagem são criadas dentro de uma galeria e transportam informações sobre a imagem e os requisitos para usá-la internamente. Isso inclui se a imagem é Windows ou Linux, notas sobre a versão e requisitos mínimos e máximos de memória. É uma definição de um tipo de imagem. |
 | **Versão da imagem** | Uma **versão da imagem** é usada para criar uma VM ao usar uma galeria. Você pode ter diversas versões de uma imagem conforme necessário para seu ambiente. Como uma imagem gerenciada, quando você usa uma **versão da imagem** para criar uma VM, a versão da imagem é usada para criar novos discos para a VM. Versões de imagem podem ser usadas várias vezes. |
@@ -68,7 +68,7 @@ A seguir estão outros parâmetros que podem ser configurados na definição de 
 * Recomendações de memória e de vCPU mínimas e máximas – Se sua imagem tiver recomendações de memória e de vCPU, você poderá anexar essas informações à definição de imagem.
 * Tipos de disco não permitidos – Você pode fornecer informações sobre as necessidades de armazenamento da sua VM. Por exemplo, se a imagem não for adequada para discos HDD Standard, você os adicionará à lista de não permitidos.
 * Geração do Hyper-V – Você pode especificar se a imagem foi criada de um VHD Hyper-V de Gen 1 ou Gen 2.
-* Informações do plano de compra para imagens do Marketplace – `-PurchasePlanPublisher ` , `-PurchasePlanName` e `-PurchasePlanProduct` . Para obter mais informações sobre as informações do plano de compra, consulte [Localizar imagens no Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [fornecer informações do plano de compra do Azure Marketplace ao criar imagens](../articles/virtual-machines/marketplace-images.md).
+* Informações do plano de compra para imagens do Marketplace – `-PurchasePlanPublisher `, `-PurchasePlanName` e `-PurchasePlanProduct`. Para obter mais informações sobre o plano de compra, confira [Localizar imagens no Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [Fornecer informações do plano de compra do Azure Marketplace ao criar imagens](../articles/virtual-machines/marketplace-images.md).
 
 ## <a name="generalized-and-specialized-images"></a>Imagens generalizadas e especializadas
 
@@ -83,7 +83,7 @@ As VMs especializadas não passaram por um processo para remover informações e
 
 ## <a name="regional-support"></a>Suporte regional
 
-Todas as regiões públicas podem ser regiões de destino, mas para replicação na Austrália Central e na Austrália Central 2, você precisa ter sua assinatura adicionada à lista de permissões. Para solicitar que uma assinatura seja adicionada à lista de permissões, vá para:https://azure.microsoft.com/global-infrastructure/australia/contact/
+Todas as regiões públicas podem ser regiões de destino, mas, para replicar para a Austrália Central e a Austrália Central 2, é necessário adicionar a assinatura à lista de permissões. Para solicitar que uma assinatura seja adicionada à lista de permissões, acesse: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>limites 
 
@@ -196,7 +196,7 @@ Você pode criar um recurso de Galeria de Imagens Compartilhadas usando modelos.
 * [Quais são os encargos para usar a Galeria de Imagens Compartilhadas?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Que versão de API devo usar para criar a Galeria de Imagens Compartilhadas, a Definição de Imagem e a Versão da Imagem?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Qual versão de API devo usar para criar uma VM Compartilhada ou um Conjunto de Dimensionamento de Máquinas Virtuais da Versão da Imagem?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [Posso atualizar o meu Conjunto de Dimensionamento de Máquinas Virtuais criado usando a imagem gerenciada para usar imagens da Galeria de Imagens Compartilhadas?]
+* [Posso atualizar o meu Conjunto de Dimensionamento de Máquinas Virtuais criado usando a imagem gerenciada para usar imagens da Galeria de Imagens Compartilhadas?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Como posso listar todos os recursos da Galeria de Imagens Compartilhadas entre assinaturas?
 
@@ -230,7 +230,7 @@ Sim. Há três cenários com base nos tipos de imagens que você pode ter.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Posso criar uma versão da imagem de um disco especializado?
 
-Sim, o pode criar uma VM com base em uma imagem especializada usando a [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), o [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md)ou a API. 
+Sim, você pode criar uma VM de uma imagem especializada usando a [CLI](../articles/virtual-machines/vm-specialized-image-version-cli.md), o [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md) ou a API. 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Posso mover o recurso da Galeria de Imagens Compartilhadas para uma assinatura diferente após ele ter sido criado?
 

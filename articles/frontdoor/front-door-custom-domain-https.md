@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2018
+ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bbd45a4190cfa1199568c23cc346b9ccacc20ac5
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399779"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648872"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
 
@@ -219,7 +219,27 @@ Se ocorrer um erro antes que a solicitação seja enviada, a seguinte mensagem d
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
+1. *Quem é o provedor de certificado e que tipo de certificado é usado?*
+
+    Um certificado dedicado/único, fornecido pela DigiCert, é usado para seu domínio personalizado. 
+
+2. *Você usa TLS/SSL de SNI ou baseado em IP?*
+
+    O Azure Front Door usa TLS/SSL de SNI.
+
+3. *E se eu não receber o email de verificação de domínio do DigiCert?*
+
+    Se você tiver uma entrada CNAME para seu domínio personalizado que aponte diretamente para o nome do host do ponto de extremidade (e não estiver usando o nome de subdomínio afdverify), você não receberá um email de verificação de domínio. A validação ocorre automaticamente. Caso contrário, se você não tem uma entrada CNAME e você ainda não recebeu um email em até 24 horas, entre em contato com o suporte da Microsoft.
+
+4. *Usar um certificado SAN é menos seguro do que um certificado dedicado?*
+    
+    Um certificado SAN segue os mesmos padrões de criptografia e segurança de um certificado dedicado. Todos os certificados TLS/SSL emitidos usam SHA-256 para uma maior segurança do servidor.
+
+5. *É necessário ter um registro de Autorização de Autoridade de Certificação em meu provedor DNS?*
+
+    Não, um registro de Autorização de Autoridade de Certificação não é necessário no momento. No entanto, caso você tenha um, ele deverá incluir o DigiCert como uma AC válida.
 
 ## <a name="clean-up-resources---disable-https"></a>Limpar recursos - desabilitar HTTPS
 
@@ -247,30 +267,15 @@ A tabela a seguir mostra o andamento da operação que ocorre quando você desab
 | 2 Desprovisionamento de certificado | Excluindo o certificado |
 | 3 Concluído | Certificado excluído |
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
-
-1. *Quem é o provedor de certificado e que tipo de certificado é usado?*
-
-    Um certificado dedicado/único, fornecido pela DigiCert, é usado para seu domínio personalizado. 
-
-2. *Você usa TLS/SSL de SNI ou baseado em IP?*
-
-    O Azure Front Door usa TLS/SSL de SNI.
-
-3. *E se eu não receber o email de verificação de domínio do DigiCert?*
-
-    Se você tiver uma entrada CNAME para seu domínio personalizado que aponte diretamente para o nome do host do ponto de extremidade (e não estiver usando o nome de subdomínio afdverify), você não receberá um email de verificação de domínio. A validação ocorre automaticamente. Caso contrário, se você não tem uma entrada CNAME e você ainda não recebeu um email em até 24 horas, entre em contato com o suporte da Microsoft.
-
-4. *Usar um certificado SAN é menos seguro do que um certificado dedicado?*
-    
-    Um certificado SAN segue os mesmos padrões de criptografia e segurança de um certificado dedicado. Todos os certificados TLS/SSL emitidos usam SHA-256 para uma maior segurança do servidor.
-
-5. *É necessário ter um registro de Autorização de Autoridade de Certificação em meu provedor DNS?*
-
-    Não, um registro de Autorização de Autoridade de Certificação não é necessário no momento. No entanto, caso você tenha um, ele deverá incluir o DigiCert como uma AC válida.
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [criar um Front Door](quickstart-create-front-door.md).
-- Saiba [como o Front Door funciona](front-door-routing-architecture.md).
+Neste tutorial, você aprendeu a:
+
+* Carregar um certificado no Key Vault.
+* Validar um domínio.
+* Habilitar o HTTPS para o domínio personalizado.
+
+Para saber como configurar uma política de filtragem geográfica para o Front Door, prossiga para o próximo tutorial.
+
+> [!div class="nextstepaction"]
+> [Configurar uma política de filtragem geográfica](front-door-geo-filtering.md)

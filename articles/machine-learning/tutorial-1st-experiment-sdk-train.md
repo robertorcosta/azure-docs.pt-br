@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: fb380e4b71ba68daf694ab725c41be64f066805e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7052617eb83dbd07c2d6938dcbb7a38ba19f3aad
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854922"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536220"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -56,11 +56,14 @@ Nesta parte do tutorial, você executará o código no Jupyter notebook de exemp
 Importe a classe `Workspace` e carregue suas informações de assinatura do arquivo `config.json` usando a função `from_config().`. Isso busca o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`. Se você estiver executando este notebook em um servidor de notebook de nuvem em seu workspace, o arquivo estará automaticamente no diretório raiz.
 
 Se o código a seguir solicitar autenticação adicional, basta colar o link em um navegador e inserir o token de autenticação. Além disso, se você tiver mais de um locatário vinculado ao seu usuário, será necessário adicionar as seguintes linhas:
-```
+
+```python
 from azureml.core.authentication import InteractiveLoginAuthentication
 interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
-Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
 ```
+
+Para obter mais informações sobre a autenticação, confira [Autenticação no Azure Machine Learning](https://aka.ms/aml-notebook-auth)
+
 
 ```python
 from azureml.core import Workspace

@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 06/18/2020
+ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 908d9386f08c5de863d1d435c54d65cb85feef7a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 94d4a035c95b8eb2a567c71ec2172f55881e8099
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181656"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488415"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -43,10 +43,13 @@ O Link Privado do Azure fornece os seguintes benefícios:
 |Serviços com suporte  |Regiões disponíveis | Considerações adicionais | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
 |Serviços de Link Privado atrás do Azure Load Balancer padrão | Todas as regiões públicas<br/> Todas as regiões do Governo  | Com suporte no Standard Load Balancer | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Armazenamento do Azure       |  Todas as regiões públicas       |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
-| Azure Data Lake Storage Gen2        |  Todas as regiões públicas      |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+| Armazenamento de Blobs do Azure (incluindo Data Lake Storage Gen2)       |  Todas as regiões públicas       |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+| Arquivos do Azure | Todas as regiões públicas      | |   GA <br/> [Saiba mais](/azure/storage/files/storage-files-networking-endpoints)   |
+| Sincronização de Arquivos do Azure | Todas as regiões públicas      | |   GA <br/> [Saiba mais](/azure/storage/files/storage-sync-files-networking-endpoints)   |
+| Armazenamento de Filas do Azure       |  Todas as regiões públicas       |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+| Armazenamento da tabela do Azure       |  Todas as regiões públicas       |  Com suporte no Tipo de Conta de Uso Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
 |  Banco de Dados SQL do Azure         | Todas as regiões públicas <br/> Todas as regiões do Governo      |  Com suporte para [política de conexão](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de Proxy | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|Azure Synapse Analytics (SQL Data Warehouse)| Todas as regiões públicas <br/> Todas as regiões do Governo |  Com suporte para [política de conexão](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de Proxy |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Synapse Analytics (antigo SQL Data Warehouse)| Todas as regiões públicas <br/> Todas as regiões do Governo |  Com suporte para [política de conexão](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) de Proxy |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
 |Azure Cosmos DB|  Todas as regiões públicas<br/> Todas as regiões do Governo | |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  Banco de Dados do Azure para PostgreSQL – Servidor único         | Todas as regiões públicas <br/> Todas as regiões do Governo     | Compatível com os tipos de preço uso geral e otimizado para memória | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Banco de Dados do Azure para MySQL         | Todas as regiões públicas<br/> Todas as regiões do Governo      |  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
@@ -67,7 +70,6 @@ O Link Privado do Azure fornece os seguintes benefícios:
 | Hub IoT do Azure | Todas as regiões públicas    |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA      |  | Visualização   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Sincronização de Arquivos do Azure | Todas as regiões públicas      | |   GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/storage/files/storage-sync-files-networking-endpoints?tabs=azure-portal)   |
 | Lote do Azure | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA, CENTRO-OESTE DOS EUA, FRANÇA CENTRAL, LESTE DA ÁSIA, SUL DO REINO UNIDO, US GOV – VIRGÍNIA, US GOV – ARIZONA  | | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/batch/private-connectivity) |
 
 Para obter as notificações mais recentes, confira a [página de atualizações de Link Privado do Azure](https://azure.microsoft.com/updates/?product=private-link).

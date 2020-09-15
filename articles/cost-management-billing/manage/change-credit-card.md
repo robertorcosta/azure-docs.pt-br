@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e5adf007294ea4be0f5716a4614e0639f840fa75
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c7622c4916b186a39aad9dafb54a1e2404458794
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684925"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569349"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito para o Azure
 
@@ -190,7 +190,7 @@ Se estiver [pagando por fatura](pay-by-invoice.md), envie seu pagamento para o l
 
 ### <a name="how-do-i-change-the-tax-id"></a>Como alterar a ID de imposto?
 
-Para adicionar ou atualizar o TID, atualize seu perfil no [Centro de Contas do Azure](https://account.azure.com/Profile), em seguida, selecione **Registro fiscal**. Essa ID de imposto é usada para cálculos de isenção de impostos e aparece em sua fatura.
+Para adicionar ou atualizar o TID, atualize seu perfil no [portal do Azure](https://portal.azure.com) e selecione **Registro fiscal**. Essa ID de imposto é usada para cálculos de isenção de impostos e aparece em sua fatura.
 
 ## <a name="check-the-type-of-your-account"></a>Verifique o tipo de sua conta
 

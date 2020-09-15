@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068607"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494300"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -22,9 +22,8 @@ O único pré-requisito é uma assinatura do serviço Fala do Azure. Consulte o 
 
 Siga estas etapas para instalar a CLI de Fala no Windows:
 
-1. Instale o [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) ou o [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Baixe o [arquivo zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala e, em seguida, extraia o arquivo.
-3. Acesse o diretório raiz `spx-zips` que você extraiu do download e extraia o subdiretório necessário (`spx-net471` para .NET Framework 4.7 ou `spx-netcore-win-x64` para .NET Core 3.0 em uma CPU x64).
+1. Baixe o [arquivo zip](https://aka.ms/speech/spx-zips.zip) da CLI de Fala e, em seguida, extraia o arquivo.
+2. Acesse o diretório raiz `spx-zips` que você extraiu do download e extraia o subdiretório necessário (`spx-net471` para .NET Framework 4.7 ou `spx-netcore-win-x64` para .NET Core 3.0 em uma CPU x64).
 
 No prompt de comando, altere o diretório para esse local e, em seguida, digite `spx` para ver a ajuda da CLI de Fala.
 
@@ -53,11 +52,13 @@ Digite `spx` para ver a ajuda da CLI de Fala.
 
 #### <a name="docker-install"></a>[Instalação do Docker](#tab/dockerinstall)
 
+> [!NOTE]
+> <a href="https://www.docker.com/get-started" target="_blank">O Docker Desktop para sua plataforma <span class="docon docon-navigate-external x-hidden-focus"></span></a> precisa ser instalado.
+
 Siga estas etapas para instalar a CLI de Fala em um contêiner do Docker:
 
-1. Instale e execute o [Docker Desktop na sua plataforma](https://www.docker.com/get-started).
 1. Em um novo prompt de comando ou terminal, digite este comando: `docker pull msftspeech/spx`
-1. Digite este comando. Você verá informações da Ajuda para a CLI de Fala: `docker run -it --rm msftspeech/spx help`
+2. Digite este comando. Você verá informações da Ajuda para a CLI de Fala: `docker run -it --rm msftspeech/spx help`
 
 ### <a name="mount-a-directory-in-the-container"></a>Montar um diretório no contêiner
 

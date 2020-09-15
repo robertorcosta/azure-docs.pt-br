@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
-ms.openlocfilehash: 69265b17d5030d30bbb4d4be3e68c3d98fc90af0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 06f308b4e0b2df0487a351ae38f16f3872961cfb
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85321083"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436249"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -35,7 +35,7 @@ Por exemplo, uma empresa de jogos coleta logs que são produzidos por jogos na n
 
 Para analisar esses logs, a empresa precisa usar dados de referência como informações do cliente, informações do jogo e informações de campanhas de marketing que estejam disponíveis em repositórios de dados locais. Portanto, a empresa quer ingerir dados de log do armazenamento de dados de nuvem e dados de referência do repositório de dados local. 
 
-Em seguida, ela processa esses dados usando o Hadoop na nuvem (Azure HDInsight). A empresa então pode publicar os dados resultantes em um data warehouse na nuvem como o SQL Data Warehouse do Azure ou um repositório de dados local como o SQL Server. Ela deseja executar esse fluxo de trabalho uma vez por semana. 
+Em seguida, ela processa esses dados usando o Hadoop na nuvem (Azure HDInsight). A empresa então pode publicar os dados resultantes em um data warehouse na nuvem como o Azure Synapse Analytics (antigo SQL Data Warehouse) ou um armazenamento de dados local como o SQL Server. Ela deseja executar esse fluxo de trabalho uma vez por semana. 
 
 A empresa precisa de uma plataforma onde possa criar um fluxo de trabalho capaz de ingerir dados provenientes de repositórios de dados locais e na nuvem. Ela também precisa ser capaz de transformar ou processar dados usado os serviços de computação existentes, como o Hadoop, e publicar os resultados em um repositório de dados local ou na nuvem para que eles sejam consumidos por aplicativos de BI. 
 
@@ -47,7 +47,7 @@ O Azure Data Factory é a plataforma para esses tipos de cenários. Ele é um *s
 
 - Processar ou transformar os dados usando serviços de computação como o Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics e Azure Machine Learning.
 
--  Publicar dados de saída em repositórios de dados como o SQL Data Warehouse do Azure para que estes sejam consumidos por aplicativos de business intelligence (BI).  
+-  Publicar dados de saída em repositórios de dados como o Azure Synapse Analytics para que estes sejam consumidos por aplicativos de BI (business intelligence).  
 
 Ele é mais uma plataforma para extrair e carregar (EL) e transformar e carregar (TL) do que uma plataforma tradicional para extrair, transformar e carregar (ETL). As transformações processam os dados usando serviços de computação em vez de adicionar colunas derivadas, contar o número de linhas, classificar os dados, e assim por diante. 
 

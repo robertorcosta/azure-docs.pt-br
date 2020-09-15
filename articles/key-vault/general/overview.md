@@ -11,12 +11,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 98f681494ca73bd2698cd3068441cf02cd6730ac
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 500648b3037a81b39f474538ec062ef922b6e2df
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190557"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421638"
 ---
 # <a name="about-azure-key-vault"></a>Sobre o Azure Key Vault
 
@@ -25,7 +25,7 @@ O Azure Key Vault ajuda a resolver os problemas a seguir:
 - **Gerenciamento de Segredos** – O Azure Key Vault pode ser usado para armazenar com segurança e controlar firmemente o acesso a tokens, senhas, certificados, chaves de API e outros segredos
 - **Gerenciamento de Chaves** – O Azure Key Vault também pode ser usado como uma solução de gerenciamento de chaves. O Azure Key Vault torna fácil criar e controlar as chaves de criptografia usadas para criptografar seus dados. 
 - **Gerenciamento de Certificado** – O Azure Key Vault também é um serviço que permite provisionar, gerenciar e implantar com facilidade certificados de protocolo TLS/SSL (Transport Layer Security/Secure Sockets Layer) públicos e privados para uso com o Azure e seus recursos internos conectados com facilidade. 
-- **Armazenar segredos com suporte de módulos de segurança de hardware**: as chaves e os segredos podem ser protegidos por software ou HSMs validados FIPS 140-2 Nível 2
+- **Armazenar segredos apoiados por Módulos de Segurança de Hardware** – os segredos, as chaves e os certificados no repositório são criptografados com a chave de software (camada Standard) ou a chave de HSMs validada do FIPS 140-2 Nível 2 (camada Premium) 
 
 ## <a name="why-use-azure-key-vault"></a>Por que usar o Azure Key Vault?
 

@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326419"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612169"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -78,7 +78,7 @@ Para criar um conjunto de dados com base nos dados que você já armazenou no Ar
 
 1. Selecione **Criar um conjunto de dados** > **Com base no armazenamento de dados**.
 1. Atribua um **Nome** ao conjunto de dados.
-1. Escolha **Arquivo** como o **Tipo de conjunto de dados**.  
+1. Escolha **Arquivo** como o **Tipo de conjunto de dados**.  Somente os tipos de conjunto de dados de arquivo são compatíveis.
 1. Selecione o armazenamento de dados.
 1. Se os dados estiverem em uma subpasta no Armazenamento de Blobs, escolha **Procurar** para selecionar o caminho.
     * Acrescente "/**" ao caminho para incluir todos os arquivos nas subpastas do caminho selecionado.

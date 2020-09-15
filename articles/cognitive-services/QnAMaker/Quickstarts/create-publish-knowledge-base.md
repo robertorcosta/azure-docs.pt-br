@@ -3,12 +3,12 @@ title: 'Início Rápido: Criar, treinar e publicar base de dados de conhecimento
 description: É possível criar uma KB (base de dados de conhecimento) do QnA Maker com base no seu próprio conteúdo, como perguntas frequentes ou manuais de produto. Este artigo inclui um exemplo de como criar uma base de dados de conhecimento do QnA Maker com base em uma página da Web simples de perguntas frequentes para responder a perguntas sobre o QnA Maker.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3cc38ca49820b1a97ec11c890bfd0ef1670f6eef
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540747"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535842"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início Rápido: Criar, treinar e publicar sua base de dados de conhecimento do QnA Maker
 
@@ -89,7 +89,7 @@ No canto superior direito, selecione **Salvar e treinar** para salvar as ediçõ
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-Ao publicar uma base de dados de conhecimento, o conteúdo da base de dados de conhecimento é movido do índice `test` para um índice `prod` no Azure Search.
+Quando você publica uma base de dados de conhecimento, o conteúdo dela é movido do índice `test` para um índice `prod` no Azure Search.
 
 ![Captura de tela da movimentação do conteúdo de sua base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 

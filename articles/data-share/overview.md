@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/30/2020
-ms.openlocfilehash: 0dd0fbdd9bcf4d4fab2ffe9f420264ab737a700b
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e80ea37409f7b5beb48ba7b8e96aeeda9a5836e5
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511914"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433425"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
 
@@ -45,7 +45,7 @@ Os provedores de dados podem oferecer a seus consumidores de dados atualizaçõe
 
 ![fluxo de compartilhamento de dados](media/data-share-flow.png)
 
-Quando um consumidor de dados aceita um compartilhamento de dados, ele é capaz de receber os dados em um armazenamento de dados de sua escolha. Por exemplo, se o provedor de dados compartilhar dados usando o Armazenamento de Blobs do Azure, o consumidor de dados poderá receber esses dados no Azure Data Lake Storage. Da mesma forma, se o provedor de dados compartilhar dados de um SQL Data Warehouse do Azure, o consumidor de dados poderá escolher se deseja receber os dados em um Azure Data Lake Storage, em um Banco de Dados SQL do Azure ou em um SQL Data Warehouse do Azure. No caso do compartilhamento de fontes baseadas em SQL, o consumidor de dados também pode escolher se deseja receber dados em parquet ou csv. 
+Quando um consumidor de dados aceita um compartilhamento de dados, ele é capaz de receber os dados em um armazenamento de dados de sua escolha. Por exemplo, se o provedor de dados compartilhar dados usando o Armazenamento de Blobs do Azure, o consumidor de dados poderá receber esses dados no Azure Data Lake Storage. Da mesma forma, se o provedor de dados compartilhar dados de um Azure Synapse Analytics (antigo SQL Data Warehouse), o consumidor de dados poderá escolher se deseja receber os dados em um Azure Data Lake Storage, em um Banco de Dados SQL do Azure ou em um Azure Synapse Analytics. No caso do compartilhamento de fontes baseadas em SQL, o consumidor de dados também pode escolher se deseja receber dados em parquet ou csv. 
 
 Com o compartilhamento in-loco, os provedores de dados podem compartilhar dados onde eles residem sem copiar os dados. Depois que a relação de compartilhamento é estabelecida por meio do fluxo de convite, um link simbólico é criado entre o armazenamento de dados de origem do provedor de dados e o armazenamento de dados de destino do consumidor de dados. O consumidor de dados pode ler e consultar os dados em tempo real usando o próprio armazenamento de dados. As alterações no armazenamento de dados de origem estão disponíveis imediatamente para o consumidor de dados. O compartilhamento in-loco está atualmente em versão prévia para o Azure Data Explorer.
 

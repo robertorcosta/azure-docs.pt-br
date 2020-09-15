@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/03/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 6e7dbc2b96a53d220554e07228a5e30857d12d9c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: cc111f0df889efd1d3720e2ec0e4aaa452efd801
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262967"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461860"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-with-gpu"></a>Tutorial: Configurar rede para o Azure Stack Edge com GPU
 
@@ -104,7 +104,11 @@ Siga estas etapas para habilitar a computação e configurar a rede de computaç
     
 3. Atribuir **IPs de nó de Kubernetes**. Esses endereços IP estáticos são para a VM de computação. 
 
-    Para um dispositivo de nó *n*, um intervalo contíguo de no mínimo *n + 1* endereços IPv4 (ou mais) são fornecidos para a VM de computação, usando os endereços IP inicial e final. Considerando que o Azure Stack Edge é um dispositivo de 1 nó, será fornecido o mínimo de 2 endereços IPv4 contíguos. 
+    Para um dispositivo de nó *n*, um intervalo contíguo de no mínimo *n + 1* endereços IPv4 (ou mais) são fornecidos para a VM de computação, usando os endereços IP inicial e final. Considerando que o Azure Stack Edge é um dispositivo de 1 nó, será fornecido o mínimo de 2 endereços IPv4 contíguos.
+
+    > [!IMPORTANT]
+    > O Kubernetes no Azure Stack Edge usa a sub-rede 172.27.0.0/16 para pod e a sub-rede 172.28.0.0/16 para o serviço. Verifique se elas não estão em uso na sua rede. Se essas sub-redes já estiverem em uso em sua rede, você poderá alterar essas sub-redes executando o cmdlet `Set-HcsKubeClusterNetworkInfo` da interface do PowerShell do dispositivo. Para obter mais informações, confira [Alterar o pod do Kubernetes e as sub-redes de serviço](azure-stack-edge-gpu-connect-powershell-interface.md#change-kubernetes-pod-and-service-subnets).
+
 
 4. Atribuir **IPs de serviço externo do Kubernetes**. Esses também são os endereços IP de balanceamento de carga. Esses endereços IP contíguos são para serviços que você deseja expor fora do cluster Kubernetes e você especifica o intervalo de IP estático com base no número de serviços expostos. 
     
