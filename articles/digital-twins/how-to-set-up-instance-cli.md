@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 17e39a7b94384827af19b2362d478456cde8f167
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e9a78690128c2406277ab4e8fb6e6e4625d2787f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181452"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280087"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
 
@@ -150,5 +150,9 @@ Anote a ID do *aplicativo (cliente)* e a *ID do diretório (locatário)* mostrad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Veja como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:
+Teste as chamadas de API REST individuais em sua instância usando os comandos da CLI do Azure digital gêmeos: 
+* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
+
+Ou então, consulte Como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:
 * [*Como: escrever código de autenticação do aplicativo*](how-to-authenticate-client.md)

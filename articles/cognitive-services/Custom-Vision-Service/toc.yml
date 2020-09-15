@@ -39,6 +39,8 @@
       href: use-prediction-api.md
     - name: Usar o Rotulador Inteligente
       href: suggested-tags.md
+    - name: Controle de acesso baseado em função
+      href: role-based-access-control.md
     - name: Exportar modelos
       items:
         - name: Exportar o modelo para móvel

@@ -20,7 +20,7 @@
   items:
     - name: Criar um dashboard de triagem de dados de integridade
       href: howto-health-data-triage.md
-    - name: Conectar dispositivos
+    - name: Conectar e desenvolver dispositivos
       items:
         - name: Preparar e conectar um Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json

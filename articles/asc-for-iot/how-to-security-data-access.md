@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: bbea0accc79cafb6fea3f1438a71250dc02f4d62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77982bb8e001670ec1db57405e746cd849024278
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81310999"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504886"
 ---
 # <a name="access-your-security-data"></a>Acessar seus dados de segurança
 
@@ -31,8 +31,8 @@ A central de segurança do Azure para IoT armazena alertas de segurança, recome
 Para configurar qual espaço de trabalho do Log Analytics é usado:
 
 1. Abrir seu Hub IoT.
-1. Clique na folha **visão geral** na seção **segurança**
-1. Clique em **configurações**e altere a configuração do log Analytics espaço de trabalho.
+1. Clique na folha **configurações** na seção **segurança** .
+1. Clique em **coleta de dados**e altere a configuração do log Analytics espaço de trabalho.
 
 Para acessar seus alertas e recomendações em seu espaço de trabalho do Log Analytics após a configuração:
 

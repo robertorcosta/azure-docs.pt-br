@@ -20,6 +20,8 @@
       href: set-up-service-alerts.md
 - name: Como fazer
   items:
+    - name: Migrar manualmente
+      href: manual-migration.md
     - name: Conectar-se a recursos de Área de Trabalho Virtual do Windows
       items:
         - name: Conectar-se ao Cliente de Área de Trabalho do Windows

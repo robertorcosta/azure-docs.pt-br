@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 title: Documentação dos Serviços de Mídia do Azure
-summary: Os Serviços de Mídia do Azure são uma plataforma de fluxo de trabalho de mídia baseada em nuvem que permite que você crie soluções que exigem codificação, empacotamento, proteção de conteúdo e transmissão de eventos ao vivo.
+summary: Os Serviços de Mídia do Azure são uma coleção de serviços de fluxo de trabalho de mídia de nuvem e de borda que permitem criar soluções que exigem análise de vídeo ao vivo e em lote, transcodificação, serviços de entrega de vários dispositivos, proteção de conteúdo e transmissão de eventos ao vivo em escala.
 brand: azure
 metadata:
   title: Documentação dos Serviços de Mídia do Azure
-  description: Os Serviços de Mídia do Azure são uma plataforma de fluxo de trabalho de mídia baseada em nuvem que permite que você crie soluções que exigem codificação, empacotamento, proteção de conteúdo e transmissão de eventos ao vivo.
+  description: Os Serviços de Mídia do Azure são uma coleção de serviços de fluxo de trabalho de mídia de nuvem e de borda que permitem criar soluções que exigem análise de vídeo ao vivo e em lote, transcodificação, serviços de entrega de vários dispositivos, proteção de conteúdo e transmissão de eventos ao vivo em escala.
   services: media-services
   ms.service: media-services
   ms.subservice: 
@@ -13,12 +13,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 07//2020
-  ms.openlocfilehash: d6f78b4494a16a0522f93658b063d157819c519e
-  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+  ms.openlocfilehash: fb258b634ff5511a9e795e8c0990a62bf2d0d22d
+  ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/06/2020
-  ms.locfileid: "87826136"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90056526"
 highlightedContent:
   items:
   - title: Sobre os Serviços de Mídia do Azure v3

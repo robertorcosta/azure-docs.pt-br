@@ -7,8 +7,10 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar um Front Door
+    - name: Criar um Front Door – Portal
       href: quickstart-create-front-door.md
+    - name: Criar um Front Door – Modelo do ARM
+      href: quickstart-create-front-door-template.md
 - name: Tutoriais
   items:
     - name: Adicionar um domínio personalizado ao seu Front Door

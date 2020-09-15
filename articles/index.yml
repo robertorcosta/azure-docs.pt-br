@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 07/27/2020
+  ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 5f6ba56347f76cc707bea2b30fab16e46f8be963
-  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+  ms.openlocfilehash: 45bad2d581e33ff89dbd28827f81ef26bc835f0a
+  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88651498"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90019777"
 highlightedContent:
   items:
   - title: Guia de introdução para desenvolvedores do Azure
@@ -174,13 +174,13 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/face/index.yml
-  - title: Reconhecimento de Formulários (versão prévia)
+  - title: Reconhecimento de Formulários
     summary: O serviço de extração de documentos da plataforma de IA que entende seus formulários
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/form-recognizer/index.yml
-  - title: Leitura Avançada (versão prévia)
+  - title: Leitura Avançada
     summary: Capacite usuários de todas as idades e habilidades a ler e compreender textos
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
@@ -260,7 +260,7 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: https://docs.microsoft.com/azure/cognitive-services/speech-service/index#pivot=start&panel=texttospeech
-  - title: Conversor de Texto
+  - title: Tradutor
     summary: Traduza textos automaticamente com facilidade com uma chamada simples à API REST
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
     azureCategories:
@@ -300,7 +300,7 @@ productDirectory:
     - storage
     url: data-share/index.yml
   - title: Stream Analytics do Azure
-    summary: Processamento de fluxo de dados em tempo real de milhões de dispositivos IoT
+    summary: Análise em tempo real sobre fluxos de dados de movimentação rápida de aplicativos e dispositivos
     imageSrc: https://static.docs.com/ui/media/product/azure/stream-analytics.svg
     azureCategories:
     - analytics
@@ -374,7 +374,7 @@ productDirectory:
     - blockchain
     url: blockchain/workbench/index.yml
   - title: Azure Cosmos DB
-    summary: Banco de dados multimodelo distribuído globalmente para qualquer escala
+    summary: Banco de dados NoSQL rápido com APIs abertas para qualquer escala
     imageSrc: https://static.docs.com/ui/media/product/azure/cosmos-db.svg
     azureCategories:
     - featured
@@ -443,7 +443,7 @@ productDirectory:
     - compute
     - web
     url: spring-cloud/index.yml
-  - title: Solução VMware no Azure
+  - title: Solução VMware no Azure (versão prévia)
     summary: Execute cargas de trabalho de VMware nativamente no Azure
     imageSrc: ./media/index/azure-vmware.svg
     azureCategories:
@@ -475,12 +475,6 @@ productDirectory:
     - featured
     - compute
     url: virtual-machines/linux/index.yml
-  - title: SAP HANA em Instâncias Grandes do Azure
-    summary: Execute as maiores cargas de trabalhos do SAP HANA de qualquer provedor de nuvem em hiperescala
-    imageSrc: https://static.docs.com/ui/media/product/azure/sap.svg
-    azureCategories:
-    - compute
-    url: virtual-machines/workloads/sap/hana-overview-architecture.md
   - title: Service Fabric
     summary: Desenvolver microsserviços e orquestrar contêineres no Windows ou Linux
     imageSrc: https://static.docs.com/ui/media/product/azure/service-fabric-clusters.svg
@@ -488,15 +482,15 @@ productDirectory:
     - compute
     - containers
     url: service-fabric/index.yml
-  - title: SQL Server nas Máquinas Virtuais do Azure
+  - title: SQL Server em máquinas virtuais
     summary: Hospede aplicativos empresariais do SQL Server na nuvem
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
     azureCategories:
     - compute
     - databases
     url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
-  - title: Aplicativos Web Estáticos
-    summary: Criar e implantar aplicativos Web de pilha cheia no Azure de um repositório do GitHub
+  - title: Aplicativos Web Estáticos (versão prévia)
+    summary: Um serviço de aplicativo Web moderno que oferece desenvolvimento de pilha completa simplificado do código-fonte para alta disponibilidade global
     imageSrc: ./media/index/static-apps.svg
     azureCategories:
     - compute
@@ -766,12 +760,24 @@ productDirectory:
     azureCategories:
     - hybrid
     url: https://docs.microsoft.com/azure-stack/
-  - title: Soluções do Azure Stack HCI
-    summary: Execute máquinas virtuais locais e conecte-se facilmente ao Azure com uma solução de HCI (infraestrutura hiperconvergente)
-    imageSrc: ./media/index/azure-stack-hci.svg
+  - title: Azure Stack HCI (versão prévia)
+    summary: Integrar a infraestrutura hiperconvergente ao Azure e aos serviços híbridos para executar cargas de trabalho virtuais locais
+    imageSrc: https://static.docs.com/ui/media/product/azure/stack-hci.svg
     azureCategories:
     - hybrid
     url: https://docs.microsoft.com/azure-stack/hci/
+  - title: Azure Stack Hub
+    summary: O Azure Stack Hub é vendido como um sistema de hardware integrado, com software pré-instalado no hardware validado
+    imageSrc: https://static.docs.com/ui/media/product/azure/stack-hub.svg
+    azureCategories:
+    - hybrid
+    url: https://docs.microsoft.com/azure-stack/operator/
+  - title: Azure Stack Edge
+    summary: Um dispositivo gerenciado do Azure que leva a computação, o armazenamento e a inteligência do Azure para a borda
+    imageSrc: https://static.docs.com/ui/media/product/azure/stack-edge.svg
+    azureCategories:
+    - hybrid
+    url: https://docs.microsoft.com/azure/databox-online/
   - title: Central de Segurança
     summary: Unifique o gerenciamento de segurança e habilite a proteção avançada contra ameaças em cargas de trabalho de nuvem híbrida
     imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
@@ -786,12 +792,12 @@ productDirectory:
     - hybrid
     - iot
     url: iot-edge/index.yml
-  - title: Azure Active Directory B2C
+  - title: Identidades externas do Azure Active Directory
     summary: Gerenciamento de identidade e de acesso na nuvem
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
     azureCategories:
     - identity
-    url: active-directory-b2c/index.yml
+    url: active-directory/external-identities/index.yml
   - title: Azure Active Directory Domain Services
     summary: Unir as máquinas virtuais do Azure a um domínio sem controladores de domínio
     imageSrc: https://static.docs.com/ui/media/product/azure/ad-domain-services.svg
@@ -950,6 +956,12 @@ productDirectory:
     azureCategories:
     - management-and-governance
     url: azure-resource-manager/index.yml
+  - title: Azure Resource Mover
+    summary: Mova recursos entre regiões do Azure.
+    imageSrc: https://static.docs.com/ui/media/product/azure/resource-mover.svg
+    azureCategories:
+    - management-and-governance
+    url: resource-mover/index.yml
   - title: Modelos de ARM
     summary: Oferecer infraestrutura como código para todos os recursos do Azure com o Resource Manager
     imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
@@ -995,12 +1007,6 @@ productDirectory:
     - management-and-governance
     - networking
     url: network-watcher/index.yml
-  - title: Agendador
-    summary: Execute seus trabalhos em agendamentos recorrentes simples ou complexos
-    imageSrc: https://static.docs.com/ui/media/product/azure/scheduler.svg
-    azureCategories:
-    - management-and-governance
-    url: scheduler/index.yml
   - title: Gerenciador de Tráfego
     summary: Faça o roteamento de tráfego de entrada para alto desempenho e disponibilidade
     imageSrc: https://static.docs.com/ui/media/product/azure/traffic-manager.svg
@@ -1040,6 +1046,12 @@ productDirectory:
     azureCategories:
     - media
     url: media-services/latest/stream-live-tutorial-with-api.md
+  - title: Análise Dinâmica de Vídeo (versão prévia)
+    summary: Crie aplicativos inteligentes baseados em vídeo usando a IA de sua escolha
+    imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
+    azureCategories:
+    - media
+    url: media-services/live-video-analytics-edge/overview.md
   - title: Serviços de mídia
     summary: Codificar, armazenar e transmitir áudio e vídeo em escala
     imageSrc: https://static.docs.com/ui/media/product/azure/media-services.svg
@@ -1121,6 +1133,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/front-door.svg
     azureCategories:
     - networking
+    - security
     url: frontdoor/index.yml
   - title: Analisador de Internet do Azure (versão prévia)
     summary: Avalie como as alterações na infraestrutura de rede afetam o desempenho dos seus clientes
@@ -1164,6 +1177,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/frontdoor-waf-policies.svg
     azureCategories:
     - networking
+    - security
     url: web-application-firewall/index.yml
   - title: HSM Dedicado do Azure
     summary: Gerencie módulos de segurança de hardware usados na nuvem
@@ -1214,7 +1228,7 @@ productDirectory:
     - storage
     url: storage/blobs/index.yml
   - title: Armazenamento em disco
-    summary: Opções de disco persistentes e protegidas para dar suporte a máquinas virtuais
+    summary: Armazenamento em bloco de alto desempenho e altamente durável para cargas de trabalho das Máquinas Virtuais do Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/disk-storage.svg
     azureCategories:
     - storage
@@ -1225,12 +1239,6 @@ productDirectory:
     azureCategories:
     - storage
     url: storage/files/index.yml
-  - title: Managed Disks
-    summary: Armazenamento em disco persistente e seguro para máquinas virtuais do Azure
-    imageSrc: https://static.docs.com/ui/media/product/azure/disk.svg
-    azureCategories:
-    - storage
-    url: virtual-machines/managed-disks-overview.md
   - title: Armazenamento de Filas
     summary: Escale efetivamente aplicativos de acordo com o tráfego
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
@@ -1238,7 +1246,7 @@ productDirectory:
     - storage
     url: storage/queues/index.yml
   - title: Armazenamento
-    summary: Obtenha armazenamento em nuvem seguro e muito escalonável para seus dados, seus aplicativos e suas cargas de trabalho
+    summary: Armazenamento em nuvem durável, com alta disponibilidade e massivamente escalonável
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
     azureCategories:
     - storage
