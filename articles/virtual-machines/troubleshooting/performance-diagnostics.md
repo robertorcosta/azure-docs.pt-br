@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70080609"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090628"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho de máquinas virtuais do Azure
 
@@ -29,15 +29,32 @@ Você pode executar o diagnóstico de desempenho diretamente do portal do Azure,
 > [!NOTE]
 > Para o Windows, o diagnóstico de desempenho tem suporte atualmente em VMs que têm o SDK do .NET versão 4,5 ou uma versão posterior instalada. Para as etapas para executar o diagnóstico de desempenho em VMs clássicas, veja [extensão de VM de Diagnóstico de Desempenho do Azure](performance-diagnostics-vm-extension.md).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 ### <a name="windows"></a>Windows
 
-Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-Database-Ee 13,8 imagem do Marketplace), CentOS 6,5 [ `*` ], 7,6, RHEL 7,2, 7,5, 8,0 [ `*` ], Ubuntu 14, 4, 16, 4, 18, 4, Debian 8, 9, 10 [ `*` ], SLES 12 SP4 [ `*` ]
+- Atualmente, há suporte para as seguintes distribuições:
+
+    | Distribuição               | Versão                                         |
+    |----------------------------|-------------------------------------------------|
+    | Servidor de Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 |
+    | CentOS                     | 6,5 [ `*` ], 7,6                                    |
+    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ]                               |
+    | Ubuntu                     | 14, 4, 16, 4, 18, 4, 20, 4                               |
+    | Debian                     | 8, 9, 10 [ `*` ]                                    |
+    | SLES                       | 12 SP4 [ `*` ]                                      |
+    |                            |                                                   |
 
 >[!Note]
 >[ `*` ] Consulte os [problemas conhecidos](how-to-use-perfinsights-linux.md#known-issues)

@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
-ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/15/2020
+ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440568"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090577"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalizar instalação para um Azure-SSIS Integration Runtime
 
@@ -40,7 +40,7 @@ Você pode instalar os componentes gratuitos (sem licença) e pagos (licenciado)
 
 As seguintes limitações se aplicam apenas a configurações personalizadas padrão:
 
-- Se desejar usar *gacutil.exe* em seu script para instalar assemblies no GAC (cache de assembly global), você precisará fornecer *gacutil.exe* como parte de sua configuração personalizada. Ou você poderá usar a cópia fornecida em nosso contêiner de *Versão Prévia Pública*, discutido posteriormente na seção “instruções”.
+- Se desejar usar *gacutil.exe* em seu script para instalar assemblies no GAC (cache de assembly global), você precisará fornecer *gacutil.exe* como parte de sua configuração personalizada. Ou você pode usar a cópia fornecida na pasta de *exemplo* do nosso contêiner de *Visualização pública* , consulte a seção **exemplos de instalação personalizada padrão** abaixo.
 
 - Se desejar fazer referência a uma subpasta no script, *msiexec.exe* não dará suporte à notação `.\` para fazer referência à pasta raiz. Use um comando como `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` em vez de `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 

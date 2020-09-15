@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a54cf2ed228a166ea3d87c14515f41d5b0e7aed9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209492"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090220"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -126,7 +126,7 @@ A restauração de backups nativos (arquivos. bak) obtidas de uma instância SQL
 
 O diagrama a seguir fornece uma visão geral de alto nível do processo:
 
-![fluxo de migração](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![O diagrama mostra SQL Server com uma seta rotulada BACKUP/upload para URL que flui para o armazenamento do Azure e uma segunda seta rotulada restaurar da URL que flui do armazenamento do Azure para um Instância Gerenciada de SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 A tabela a seguir fornece mais informações sobre os métodos que podem ser utilizados, dependendo da versão do SQL Server de origem em execução:
 

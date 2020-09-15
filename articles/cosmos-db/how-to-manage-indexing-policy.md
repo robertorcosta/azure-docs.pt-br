@@ -7,16 +7,19 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 2b1fe86c09349a25c8ebfda38ffc3ec352fdaba3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 36107f69fb51e16ef8f8a6213afc9b153165ab4c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019548"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090580"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerenciar políticas de indexação no Azure Cosmos DB
 
 No Azure Cosmos DB, os dados são indexados seguindo [políticas de indexação](index-policy.md) que são definidas para cada contêiner. A política de indexação padrão para contêineres recém-criados impõe os índices de intervalo para qualquer cadeia de caracteres ou número. Essa política pode ser substituída por sua própria política de indexação personalizada.
+
+> [!NOTE]
+> O método de atualização das políticas de indexação descritas neste artigo se aplica somente à API do SQL (Core) do Azure Cosmos DB. Saiba mais sobre a indexação na [API de Azure Cosmos DB para MongoDB](mongodb-indexing.md).
 
 ## <a name="indexing-policy-examples"></a>Exemplos de política de indexação
 
@@ -346,7 +349,7 @@ Uma [atualização de política de indexação](index-policy.md#modifying-the-in
 > [!NOTE]
 > Ao atualizar a política de indexação, as gravações para Azure Cosmos DB não serão interrompidas. Saiba mais sobre as [transformações de indexação](indexing-policy.md#modifying-the-indexing-policy)
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Contêineres do Azure Cosmos armazenam sua política de indexação como um documento JSON que o portal do Azure lhe permite editar diretamente.
 

@@ -3,17 +3,17 @@ title: 'Perguntas frequentes: SRE e DevOps | Microsoft Docs'
 titleSuffix: Azure
 description: 'Perguntas frequentes: compreendendo a relação entre SRE e DevOps'
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: e917c609b484b1a58377fea2f6cdd75dde30ca6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196407"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090322"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Perguntas frequentes: Qual é a relação entre SRE e DevOps?
 
@@ -24,8 +24,8 @@ Há um conjunto de perguntas comuns que surgem pela relação entre a engenharia
 SRE e DevOps são práticas de operações modernas que foram criadas e desenvolvidas em resposta a desafios que incluíram:
 
 - uma complexidade crescente de nossos ambientes de produção e processos de desenvolvimento
-- aumentando a dependência de negócios no funcionamento contínuo desses ambientes
-- a incapacidade de dimensionar a força de funcionários linearmente com o tamanho desses ambientes
+- o aumento da dependência dos negócios ao funcionamento contínuo desses ambientes
+- a incapacidade de dimensionar a força de funcionários de maneira linear ao tamanho desses ambientes
 - a necessidade de se mover mais rápido enquanto ainda mantém a estabilidade operacional
 
 Ambas as práticas de operações exigem atenção aos assuntos que são cruciais para lidar com esses desafios, como monitoramento/observação, automação, documentação e ferramentas de desenvolvimento de software colaborativo.

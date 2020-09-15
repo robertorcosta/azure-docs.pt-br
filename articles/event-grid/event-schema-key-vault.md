@@ -3,16 +3,16 @@ title: Azure Key Vault como fonte da grade de eventos
 description: Descreve as propriedades e o esquema fornecido para eventos de Azure Key Vault com a grade de eventos do Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1f9cbe85de9423484343e4054be8d2d58c6c5e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f6e2bdfb2000f3a4c4a8f91eee23348d9cc9c766
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109426"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090390"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Azure Key Vault como fonte da grade de eventos
 
-Este artigo fornece as propriedades e o esquema para eventos no [Azure Key Vault](../key-vault/index.yml), atualmente em visualização. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
+Este artigo fornece as propriedades e o esquema para eventos no [Azure Key Vault](../key-vault/index.yml). Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
 ## <a name="event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos
 
@@ -31,6 +31,7 @@ Uma conta de Azure Key Vault gera os seguintes tipos de evento:
 | Microsoft. keyvault. SecretNewVersionCreated | Nova versão secreta criada | Disparado quando uma nova versão secreta ou nova secreta é criada. |
 | Microsoft. keyvault. SecretNearExpiry | Segredo próximo da expiração | Disparado quando a versão atual de um segredo está prestes a expirar. (O evento é disparado 30 dias antes da data de validade.) |
 | Microsoft. keyvault. SecretExpired | Segredo expirado | Disparado quando um segredo expira. |
+| Microsoft. keyvault. VaultAccessPolicyChanged | Política de acesso do cofre alterada | Disparado quando uma política de acesso em Key Vault alterada. Ele inclui um cenário quando Key Vault modelo de permissão é alterado de/para o RBAC do Azure  |
 
 ### <a name="event-examples"></a>Exemplos de eventos
 
@@ -84,10 +85,10 @@ Um evento tem os seguintes dados de nível superior:
 
 * Para obter uma introdução à grade de eventos do Azure, consulte [o que é a grade de eventos?](overview.md).
 * Para obter mais informações sobre como criar uma assinatura da grade de eventos do Azure, consulte [esquema de assinatura da grade de eventos](subscription-creation-schema.md).
-* Para saber mais sobre a integração de Key Vault com a grade de eventos, consulte [monitorando Key Vault com a grade de eventos do Azure (versão prévia)](../key-vault/general/event-grid-overview.md).
-* Para obter um tutorial sobre a integração Key Vault com a grade de eventos, consulte [receber e responder a notificações do Key Vault com a grade de eventos do Azure (versão prévia)](../key-vault/general/event-grid-tutorial.md).
+* Para saber mais sobre a integração de Key Vault com a grade de eventos, consulte [monitorando Key Vault com a grade de eventos do Azure](../key-vault/general/event-grid-overview.md).
+* Para obter um tutorial sobre a integração Key Vault com a grade de eventos, consulte [receber e responder a notificações do Key Vault com a grade de eventos do Azure](../key-vault/general/event-grid-tutorial.md).
 * Para obter diretrizes adicionais para Key Vault e a automação do Azure, consulte:
     - [O que é o Cofre da Chave do Azure?](../key-vault/general/overview.md)
-    - [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](../key-vault/general/event-grid-overview.md)
-    - [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure (versão prévia)](../key-vault/general/event-grid-tutorial.md)
+    - [Monitoramento do Key Vault com a Grade de Eventos do Azure](../key-vault/general/event-grid-overview.md)
+    - [Receber notificações do cofre de chaves e responder a elas com a Grade de Eventos do Azure](../key-vault/general/event-grid-tutorial.md)
     - [Visão geral da Automação do Azure](../automation/index.yml)

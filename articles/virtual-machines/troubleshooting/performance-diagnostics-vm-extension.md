@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028542"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090645"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
@@ -29,7 +29,15 @@ Extensão de VM de Diagnóstico de Desempenho do Azure ajuda a coletar dados de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esta extensão pode ser instalada no Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. Também pode ser instalada no Windows 8.1 e no Windows 10.
+Esta extensão pode ser instalada em
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## <a name="extension-schema"></a>Esquema de extensão
 O JSON a seguir mostra o esquema para a Extensão da VM de Diagnóstico de Desempenho do Azure. Essa extensão requer o nome e a chave de uma conta de armazenamento para armazenar a saída de diagnóstico e o relatório. Esses valores são confidenciais. A chave de conta de armazenamento deve ser armazenada em uma configuração protegida. Os dados de configuração protegidos pela extensão da VM do Azure são criptografados, sendo descriptografados apenas na máquina virtual de destino. Observe que **storageAccountName** e **storageAccountKey** diferenciam maiúsculas de minúsculas. Outros parâmetros necessários são listados na seção a seguir.
@@ -69,8 +77,8 @@ O JSON a seguir mostra o esquema para a Extensão da VM de Diagnóstico de Desem
 |   **Nome**   |**Valor/Exemplo**|       **Descrição**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|A versão da API.
-|publicador|Microsoft.Azure.Performance.Diagnostics|O namespace do publicador para a extensão.
-|tipo|AzurePerformanceDiagnostics|O tipo da extensão de VM.
+|editor|Microsoft.Azure.Performance.Diagnostics|O namespace do publicador para a extensão.
+|type|AzurePerformanceDiagnostics|O tipo da extensão de VM.
 |typeHandlerVersion|1.0|A versão do manipulador de extensão.
 |performanceScenario|básico|O cenário de desempenho para o qual capturar dados. Os valores válidos são: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|A duração dos rastreamentos se qualquer uma das opções de rastreamento estiver selecionada.

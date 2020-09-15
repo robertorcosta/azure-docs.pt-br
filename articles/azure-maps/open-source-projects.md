@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f24a04db9317083fb47c0956174e649b5bd7ae10
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 94ba4b159e0a7e52603e7c200c11828f996cf6d8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815684"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090509"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidade do Azure Maps – projetos de código aberto
 
@@ -29,20 +29,26 @@ Veja a seguir uma lista de alguns dos projetos e exemplos mais populares de soft
 | [Estrutura de bot-ponto de habilidade de interesse](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | A habilidade de ponto de interesse fornece recursos relacionados ao POI para um assistente virtual usando mapas do Azure com o serviço de bot do Azure e a estrutura de bot. |
 | [Local BotBuilder](https://github.com/Microsoft/BotBuilder-Location) | Um controle de seletor de local de código aberto para o Microsoft bot Framework equipado com os serviços REST do Bing Maps. |
 
+<a name="open-web-sdk-modules"></a>
+
 **Abrir módulos do SDK da Web**
 
 Veja a seguir uma lista de projetos de software livre que ampliam os recursos do SDK para Web do Azure Maps.
 
 | Nome do projeto | Descrição |
 |-|-|
-| [Módulo de animação do Azure Maps](https://github.com/Azure-Samples/azure-maps-animations)| Uma biblioteca avançada de animações para uso com o SDK da Web do Azure Maps. |
+| [Módulo de animação do Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Uma biblioteca avançada de animações para uso com o SDK da Web do Azure Maps. |
+| [Módulo de controle de geolocalização do Azure Maps](https://github.com/Azure-Samples/azure-maps-geolocation-control) | Um módulo SDK para Web do Azure Maps que fornece um controle que usa a API de geolocalização do navegador para localizar o usuário no mapa. |
+| [Módulo de controle de tela inteira do Azure Maps](https://github.com/Azure-Samples/azure-maps-fullscreen-control) | Um módulo SDK para Web do Azure Maps que fornece um controle para exibir o mapa no modo de tela inteira. |
+| [Módulo de controle de seleção do Azure Maps](https://github.com/Azure-Samples/azure-maps-selection-control) | Um módulo SDK para Web do Azure Maps que fornece controles para selecionar dados em uma fonte de dados usando ferramentas de desenho ou solicitando um polígono de intervalo de rota. |
+| [Módulo de mapa de sincronização do Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Um módulo SDK para Web do Azure Maps que sincroniza as câmeras de dois ou mais mapas. |
 | [Módulo de interface do usuário dos serviços do Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Um conjunto de controles de interface do usuário da Web que encapsulam os serviços REST do Azure Maps. |
 
 **Amostras**
 
 | Nome do projeto | Descrição |
 |-|-|
-| [Exemplos de código do Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar mapas do Azure em aplicativos baseados na Web. |
+| [Exemplos de código do Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps em aplicativos baseados na Web. |
 | [Exemplos de código de nuvem do Azure Maps gov](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de exemplos de código para usar o Azure Maps por meio da nuvem do Azure governamental. |
 | [Exemplos de Azure Active Directory de & do Azure Maps](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Uma coleção de exemplos que mostram como usar Azure Active Directory com mapas do Azure. | 
 | [Exemplos do Azure Maps Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Uma coleção de exemplos do Python usando os serviços REST do Azure Maps. |
