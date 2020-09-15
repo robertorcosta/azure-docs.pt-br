@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005784"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089744"
 ---
 # <a name="publisher-verification"></a>Verificação do Publicador
 
@@ -33,7 +33,7 @@ A verificação do editor fornece os seguintes benefícios:
 
 - **Melhoria da identidade visual** - um selo "verificado" é exibido na [solicitação de consentimento](application-consent-experience.md) do Azure AD, na página de aplicativos empresariais e nas superfícies de UX adicionais usadas pelos usuários finais e administradores. 
 
-- **Adoção de empresas de forma mais tranquila** - os administradores podem configurar novas políticas de consentimento de usuário e o status de verificação do editor será um dos critérios de política primária. 
+- **Adoção de empresa mais suave**-os administradores podem configurar [políticas de consentimento do usuário](../manage-apps/configure-user-consent.md), com o status de verificação do Publicador como um dos critérios de política primária. 
 
 - **Avaliação de risco aprimorada** - as detecções da Microsoft para solicitações de consentimento "arriscadas" incluirão a verificação do editor como um sinal. 
 
@@ -52,6 +52,8 @@ Há alguns pré-requisitos para a verificação do editor, alguns dos quais já 
 
     -  No Partner Center, esse usuário deve ter as seguintes [funções](/partner-center/permissions-overview): Administrador de MPN, administrador de contas ou um administrador global (essa é uma função compartilhada controlada no Azure Active Directory).
     
+-  O usuário que executa a verificação deve entrar usando [a autenticação multifator](../authentication/howto-mfa-getstarted.md).
+
 -  O editor concorda com os [termos de uso da plataforma Microsoft Identity para desenvolvedores](/legal/microsoft-identity-platform/terms-of-use).
 
 Os desenvolvedores que já atenderam a esses pré-requisitos podem ser verificados em questão de minutos. Se os requisitos não tiverem sido atendidos, a configuração será gratuita. 

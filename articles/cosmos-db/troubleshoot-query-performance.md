@@ -4,16 +4,16 @@ description: Saiba como identificar, diagnosticar e solucionar problemas de cons
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 09/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117906"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089982"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solucionar problemas de consulta ao usar o Azure Cosmos DB
 
@@ -26,22 +26,21 @@ Você pode categorizar amplamente as otimizações de consulta no Azure Cosmos D
 
 Se você reduzir o preço de RU de uma consulta, certamente diminuirá a latência também.
 
-Este artigo fornece exemplos que você pode recriar usando o conjunto de dados de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
+Este artigo fornece exemplos que você pode recriar usando o conjunto de [nutrição](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## <a name="common-sdk-issues"></a>Problemas comuns do SDK
 
 Antes de ler este guia, é útil considerar problemas comuns do SDK que não estão relacionados ao mecanismo de consulta.
 
-- Para obter o melhor desempenho, siga estas [Dicas de desempenho](performance-tips.md).
-    > [!NOTE]
-    > Para aprimorar o desempenho, recomendamos o processamento de host do Windows de 64 bits. O SDK do SQL inclui um ServiceInterop.dll nativo para analisar e otimizar as consultas localmente. O ServiceInterop.dll tem suporte apenas na plataforma Windows x64. Para Linux e outras plataformas sem suporte em que o ServiceInterop.dll não está disponível, uma chamada de rede adicional será feita ao gateway para obter a consulta otimizada.
+- Siga estas [dicas de desempenho do SDK](performance-tips.md).
+    - [Guia de solução de problemas do SDK do .NET](troubleshoot-dot-net-sdk.md)
+    - [Guia de solução de problemas do SDK do Java](troubleshoot-java-sdk-v4-sql.md)
 - O SDK permite definir um `MaxItemCount` para suas consultas, mas você não pode especificar uma contagem mínima de itens.
     - O código deve lidar com qualquer tamanho de página, de zero a `MaxItemCount`.
-    - O número de itens em uma página sempre será inferior ou igual ao `MaxItemCount` especificado. No entanto, `MaxItemCount` é estritamente um máximo e pode haver menos resultados do que esse valor.
 - Às vezes, as consultas podem ter páginas vazias mesmo quando há resultados em uma página futura. Os motivos para isso podem ser:
     - O SDK pode estar fazendo várias chamadas de rede.
     - A consulta pode estar demorando um longo tempo para recuperar os documentos.
-- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de esvaziar a consulta completamente. Examine as amostras do SDK e use um loop `while` em `FeedIterator.HasMoreResults` para esvaziar toda a consulta.
+- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de esvaziar a consulta completamente. Saiba mais sobre como [lidar com várias páginas de resultados](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>Obter métricas de consulta
 

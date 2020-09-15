@@ -3,15 +3,15 @@ title: Configurar a autenticação multifator do Azure para área de trabalho vi
 description: Como configurar a autenticação multifator do Azure para aumentar a segurança na área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017763"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089914"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Habilitar a Autenticação Multifator do Azure para a Área de Trabalho Virtual do Windows
 
@@ -43,15 +43,24 @@ Veja como criar uma política de acesso condicional que requer autenticação mu
 2. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 3. Selecione **Nova política**.
 4. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-5. Em **Atribuições**, selecione **Usuários e grupos**.
+5. Em **Atribuições**, selecione **Usuários e Grupos**.
 6. Em **incluir**, selecione **Selecionar usuários e grupos**  >  **usuários e grupos** > escolha o grupo criado no estágio [pré-requisitos](#prerequisites) .
 7. Selecione **Concluído**.
 8. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **selecionar aplicativos**.
 9. Selecione um dos aplicativos a seguir com base na versão da área de trabalho virtual do Windows que você está usando.
-   - Se você estiver usando a área de trabalho virtual do Windows (clássico), escolha este aplicativo:
+   
+   - Se você estiver usando a área de trabalho virtual do Windows (clássico), escolha estes aplicativos:
+       
        - **Área de trabalho virtual do Windows** (ID do aplicativo 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Cliente de área de trabalho virtual do Windows** (ID do aplicativo fa4345a4-A730-4230-84a8-7d9651b86739), que permitirá que você defina políticas no cliente Web
+       
+        Depois disso, pule para a etapa 11.
+
    - Se você estiver usando a área de trabalho virtual do Windows, escolha este aplicativo:
+       
        -  **Área de trabalho virtual do Windows** (ID do aplicativo 9cdead84-A844-4324-93f2-b2e6bb768d07)
+       
+        Depois disso, vá para a etapa 10.
 
    >[!IMPORTANT]
    > Não selecione o aplicativo chamado provedor de Azure Resource Manager de área de trabalho virtual do Windows (50e95039-B200-4007-bc97-8d5790743a63). Este aplicativo é usado somente para recuperar o feed do usuário e não deve ter MFA.

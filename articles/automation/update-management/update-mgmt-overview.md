@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: ab2c584b1e62ac8296c4e9489a72489cd815fc3c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024114"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089846"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -108,7 +108,7 @@ Os agentes do Windows precisam ser configurados para comunicarem-se com um servi
 
 Você pode usar o Gerenciamento de Atualizações com o Microsoft Endpoint Configuration Manager. Para saber mais sobre cenários de integração, confira [Integrar o Gerenciamento de Atualizações com o Microsoft Endpoint Configuration Manager](update-mgmt-mecmintegration.md). O [agente do Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) é necessário para servidores Windows gerenciados por sites em seu ambiente do Configuration Manager. 
 
-Por padrão, máquinas virtuais do Windows implantadas no Azure Marketplace são definidas para receber atualizações automáticas do Serviço Windows Update. Esse comportamento não é alterado quando você adiciona VMs do Windows ao seu workspace. Se você não gerenciou atualizações ativamente usando o Gerenciamento de Atualizações, o comportamento padrão (para aplicar automaticamente as atualizações) é aplicado.
+Por padrão, as VMs do Windows que são implantadas no Azure Marketplace são definidas para receber atualizações automáticas do serviço Windows Update. Esse comportamento não é alterado quando você adiciona VMs do Windows ao seu workspace. Se você não gerenciou atualizações ativamente usando o Gerenciamento de Atualizações, o comportamento padrão (para aplicar automaticamente as atualizações) é aplicado.
 
 > [!NOTE]
 > Você pode modificar a Política de Grupo para que as reinicializações do computador possam ser executadas somente pelo usuário, não pelo sistema. Os computadores gerenciados poderão ficar presos se o Gerenciamento de Atualizações não tiver direitos para reinicializar o computador sem interação manual do usuário. Para obter mais informações, confira [Definir configurações de Política de Grupo para Atualizações Automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
@@ -122,7 +122,7 @@ Para o Linux, o computador requer acesso a um repositório de atualizações, qu
 
 Para obter informações sobre como instalar o agente do Log Analytics para Linux e fazer o download da versão mais recente, confira [Agente do Log Analytics para Linux](../../azure-monitor/platform/agent-linux.md).
 
-As VMs criadas por meio das imagens do RHEL (Red Hat Enterprise Linux) sob demanda que estão disponíveis no Azure Marketplace são registradas para acessar a [RHUI (Infraestrutura de Atualização do Red Hat)](../../virtual-machines/workloads/redhat/redhat-rhui.md) que é implantada no Azure. Qualquer distribuição do Linux deve ser atualizada nos repositórios de distribuição de arquivo online usando os métodos compatíveis com a distribuição.
+As VMs criadas a partir das imagens de Red Hat Enterprise Linux (RHEL) sob demanda que estão disponíveis no Azure Marketplace são registradas para acessar a [RHUI (infraestrutura de atualização do Red Hat)](../../virtual-machines/workloads/redhat/redhat-rhui.md) implantada no Azure. Qualquer distribuição do Linux deve ser atualizada nos repositórios de distribuição de arquivo online usando os métodos compatíveis com a distribuição.
 
 ## <a name="permissions"></a>Permissões
 
@@ -136,7 +136,7 @@ O Gerenciamento de Atualizações usa os recursos descritos nesta seção. Esses
 
 Depois que você habilita o Gerenciamento de Atualizações, qualquer computador com Windows conectado diretamente a seu workspace do Log Analytics é automaticamente configurado como um Hybrid Runbook Worker para dar suporte aos runbooks compatíveis com o Gerenciamento de Atualizações.
 
-Cada computador com Windows que é gerenciado pelo Gerenciamento de Atualizações é listado no painel de grupos do Hybrid Worker como um grupo do Hybrid Worker do sistema para a conta de Automação. Os grupos usam a convenção de nomenclatura `Hostname FQDN_GUID`. Não é possível direcionar esses grupos com runbooks em sua conta. Se você tentar fazê-lo, a tentativa falhará. Esses grupos são destinados a dar suporte somente ao Gerenciamento de Atualizações.
+Cada computador com Windows que é gerenciado pelo Gerenciamento de Atualizações é listado no painel de grupos do Hybrid Worker como um grupo do Hybrid Worker do sistema para a conta de Automação. Os grupos usam a convenção de nomenclatura `Hostname FQDN_GUID`. Não é possível direcionar esses grupos com runbooks em sua conta. Se você tentar fazê-lo, a tentativa falhará. Esses grupos são destinados a dar suporte somente ao Gerenciamento de Atualizações. Para saber mais sobre como exibir a lista de computadores Windows configurados como um Hybrid Runbook Worker, consulte [Exibir Hybrid runbook Workers](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers).
 
 Você pode adicionar o computador com Windows a um grupo do Hybrid Runbook Worker em sua conta de Automação para dar suporte a runbooks de Automação se você usar a mesma conta para o Gerenciamento de Atualizações e para a associação de grupo do Hybrid Runbook Worker. Essa funcionalidade foi adicionada à versão 7.2.12024.0 do Hybrid Runbook Worker.
 

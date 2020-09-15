@@ -1,17 +1,17 @@
 ---
 title: Solucionar problemas de conexão de serviço da Área de Trabalho Virtual do Windows – Azure
-description: Como resolver problemas ao configurar conexões de cliente em um ambiente de locatário da Área de Trabalho Virtual do Windows.
+description: Como resolver problemas durante a configuração de conexões de serviço em um ambiente de locatário de área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6d0360a4fe957f43e38fd892cef6b4ab0a2325a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009368"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089897"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço da Área de Trabalho Virtual do Windows
 
@@ -39,6 +39,12 @@ Um usuário consegue iniciar clientes da Área de Trabalho Remota e se autentica
 3. Se o cliente Web estiver sendo usado, confirme se não há problemas de credenciais em cache.
 
 4. Se o usuário fizer parte de um grupo de usuários Azure Active Directory (AD), verifique se o grupo de usuários é um grupo de segurança em vez de um grupo de distribuição. A área de trabalho virtual do Windows não dá suporte a grupos de distribuição do Azure AD.
+
+## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>O usuário perde o feed existente e nenhum recurso remoto é exibido (sem feed)
+
+Esse erro geralmente aparece depois que um usuário moveu sua assinatura de um locatário do Azure AD para outro. Como resultado, o serviço perde o controle de suas atribuições de usuário, pois eles ainda estão vinculados ao locatário antigo do Azure AD.
+
+Para resolver isso, tudo o que você precisa fazer é reatribuir os usuários aos seus grupos de aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
