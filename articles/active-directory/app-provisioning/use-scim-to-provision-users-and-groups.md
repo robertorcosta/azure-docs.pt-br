@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015442"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563798"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -167,6 +167,7 @@ Siga estas diretrizes gerais ao implementar um ponto de extremidade SCIM para ga
 * Não exija uma correspondência que diferencia maiúsculas de minúsculas em elementos estruturais no SCIM, em particular valores de operação `op` PATCH, conforme definido em https://tools.ietf.org/html/rfc7644#section-3.5.2. O Azure AD emite os valores de "op" como `Add`, `Replace` e `Remove`.
 * O Microsoft Azure AD faz com que as solicitações busquem um usuário aleatório e um grupo para garantir que o ponto de extremidade e as credenciais sejam válidos. Isso também é feito como parte do fluxo de **Testar a Conexão** no [portal do Azure](https://portal.azure.com). 
 * O atributo no qual os recursos podem ser consultados deve ser definido como um atributo correspondente no aplicativo no [portal do Azure](https://portal.azure.com). Para saber mais, confira [Personalizar mapeamentos de atributo de provisionamento do usuário](customize-application-attributes.md).
+* Suporte a HTTPS em seu ponto de extremidade SCIM
 
 ### <a name="user-provisioning-and-deprovisioning"></a>Provisionamento e desprovisionamento de usuários
 

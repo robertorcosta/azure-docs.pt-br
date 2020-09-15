@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563571"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563141"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quais são as opções de arquitetura do Gerenciador de firewall do Azure?
 
@@ -43,9 +43,10 @@ A tabela a seguir compara essas duas opções de arquitetura e pode ajudá-lo a 
 |**Gerenciamento de rota centralizado para rotear o tráfego para o Hub**     |Rota definida pelo usuário gerenciada pelo cliente|Com suporte usando BGP|
 |**Suporte a vários provedores de segurança**|Com suporte com túnel forçado configurado manualmente para firewalls de terceiros|Suporte automatizado para dois provedores de segurança: Firewall do Azure para filtragem de tráfego privado e terceiros para filtragem da Internet|
 |**Firewall do Aplicativo Web no Gateway de Aplicativo** |Com suporte na rede virtual|Atualmente com suporte na rede spoke|
-|**Solução de Virtualização de Rede**|Com suporte na rede virtual|Atualmente com suporte na rede spoke|
+|**Solução de virtualização de rede**|Com suporte na rede virtual|Atualmente com suporte na rede spoke|
+|**Suporte padrão à proteção contra DDoS do Azure**|Sim|Não|
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examinar a [visão geral da implantação do Azure firewall Manager](deployment-overview.md)
+- Examine [Visão geral da implantação do Gerenciador de Firewall do Azure](deployment-overview.md)
 - Saiba mais sobre [Hubs virtuais seguros](secured-virtual-hub.md).

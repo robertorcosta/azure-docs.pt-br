@@ -4,25 +4,32 @@ description: Entenda o planejamento de uma implantação de arquivos do Azure. V
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: db7ae0bd33bc52f80788db4994dcf2a3ca4d909a
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bf982b313c99034065aad5f246a69caf665a2657
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705904"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563416"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) podem ser implantados de duas maneiras principais: montando diretamente os compartilhamentos de arquivos do Azure sem servidor ou armazenando em cache os compartilhamentos de arquivos do Azure no local usando sincronização de arquivos do Azure. A opção de implantação escolhida altera as coisas que você precisa considerar ao planejar sua implantação. 
 
-- **Montagem direta de um compartilhamento de arquivo do Azure**: Como os Arquivos do Azure fornecem acesso SMB, você pode montar compartilhamentos de arquivo do Azure localmente ou na nuvem usando o cliente SMB padrão disponível no Windows, no macOS e no Linux. Como os compartilhamentos de arquivos do Azure são sem servidor, a implantação para cenários de produção não requer o gerenciamento de um servidor de arquivos nem de um dispositivo NAS. Isso significa que você não precisa aplicar patches de software nem trocar discos físicos. 
+- **Montagem direta de um compartilhamento de arquivos do Azure**: como os arquivos do Azure fornecem acesso ao protocolo SMB ou NFS (Network File System), você pode montar compartilhamentos de arquivos do Azure no local ou na nuvem usando os clientes SMB ou NFS padrão disponíveis no seu sistema operacional. Como os compartilhamentos de arquivos do Azure são sem servidor, a implantação para cenários de produção não requer o gerenciamento de um servidor de arquivos nem de um dispositivo NAS. Isso significa que você não precisa aplicar patches de software nem trocar discos físicos. 
 
-- **Armazenar em cache o compartilhamento de arquivo do Azure local com a Sincronização de Arquivos do Azure**: A Sincronização de Arquivos do Azure permite centralizar os compartilhamentos de arquivos da sua organização no serviço Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de Arquivos do Azure transforma um Windows Server local (ou em nuvem) em um cache rápido do compartilhamento de arquivo do Azure. 
+- **Armazenar em cache o compartilhamento de arquivo do Azure local com a Sincronização de Arquivos do Azure**: A Sincronização de Arquivos do Azure permite centralizar os compartilhamentos de arquivos da sua organização no serviço Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Sincronização de Arquivos do Azure transforma um Windows Server local (ou de nuvem) em um cache rápido do seu compartilhamento de arquivos SMB do Azure. 
 
 Este artigo aborda principalmente as considerações de implantação para implantar um compartilhamento de arquivos do Azure para ser montado diretamente por um cliente local ou em nuvem. Para planejar uma implantação de Sincronização de Arquivos do Azure, consulte [planejando uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md).
+
+## <a name="available-protocols"></a>Protocolos disponíveis
+
+O arquivos do Azure oferece dois protocolos que podem ser usados durante a montagem de compartilhamentos de arquivos, SMB e NFS (sistema de arquivos de rede). Para obter detalhes sobre esses protocolos, consulte [protocolos de compartilhamento de arquivos do Azure](storage-files-compare-protocols.md).
+
+> [!IMPORTANT]
+> A maior parte do conteúdo deste artigo se aplica somente a compartilhamentos SMB. Tudo o que se aplica a compartilhamentos NFS o determinará especificamente.
 
 ## <a name="management-concepts"></a>Conceitos de gerenciamento
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
@@ -54,7 +61,7 @@ Para desbloquear o acesso ao compartilhamento de arquivos do Azure, você tem du
 
 - Acesse compartilhamentos de arquivos do Azure por meio de uma conexão de ExpressRoute ou VPN. Quando você acessa o compartilhamento de arquivos do Azure por meio de um túnel de rede, é possível montar o compartilhamento de arquivos do Azure como um compartilhamento de arquivos local, pois o tráfego SMB não atravessa o limite organizacional.   
 
-Embora, de uma perspectiva técnica, seja consideravelmente mais fácil montar os compartilhamentos de arquivos do Azure por meio do ponto de extremidade público, esperamos que a maioria dos clientes opte por montar seus compartilhamentos de arquivos do Azure por meio de uma conexão de ExpressRoute ou VPN. Para fazer isso, será necessário configurar o seguinte para o seu ambiente:  
+Embora, de uma perspectiva técnica, seja consideravelmente mais fácil montar os compartilhamentos de arquivos do Azure por meio do ponto de extremidade público, esperamos que a maioria dos clientes opte por montar seus compartilhamentos de arquivos do Azure por meio de uma conexão de ExpressRoute ou VPN. A montagem com essas opções é possível com compartilhamentos SMB e NFS. Para fazer isso, será necessário configurar o seguinte para o seu ambiente:  
 
 - O **túnel de rede usando o ExpressRoute, site a site ou VPN ponto a site**: o túnel para uma rede virtual permite acessar compartilhamentos de arquivos do Azure do local, mesmo se a porta 445 estiver bloqueada.
 - **Pontos de extremidade privados**: pontos de extremidade privados dão à sua conta de armazenamento um endereço IP dedicado de dentro do espaço de endereço da rede virtual. Isso habilita o túnel de rede sem a necessidade de abrir redes locais até todos os intervalos de endereços IP pertencentes aos clusters de armazenamento do Azure. 
@@ -66,6 +73,10 @@ Para planejar a rede associada à implantação de um compartilhamento de arquiv
 Os arquivos do Azure dão suporte a dois tipos diferentes de criptografia: criptografia em trânsito, relacionada à criptografia usada ao montar/acessar o compartilhamento de arquivos do Azure e criptografia em repouso, que se relaciona com o modo como os dados são criptografados quando armazenados em disco. 
 
 ### <a name="encryption-in-transit"></a>Criptografia em trânsito
+
+> [!IMPORTANT]
+> Esta seção aborda os detalhes de criptografia em trânsito para compartilhamentos SMB. Para obter detalhes sobre a criptografia em trânsito com compartilhamentos NFS, consulte [segurança](storage-files-compare-protocols.md#security).
+
 Por padrão, todas as contas de armazenamento do Azure têm criptografia em trânsito habilitada. Isso significa que quando você montar um compartilhamento de arquivo via SMB ou acessá-lo por meio do protocolo FileREST (por exemplo, por meio do portal do Azure, do PowerShell/CLI ou de SDKs do Azure), os Arquivos do Azure só permitirão a conexão se for feita com o SMB 3.0 e com criptografia ou HTTPS. Os clientes que não são compatíveis com SMB 3.0 ou os clientes que são compatíveis com SMB 3.0, mas não com a criptografia SMB, não poderão montar o compartilhamento de arquivo do Azure se a criptografia em trânsito estiver habilitada. Para obter mais informações sobre quais sistemas operacionais são compatíveis com o SMB 3.0 com criptografia, consulte nossa documentação detalhada para [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) e [Linux](storage-how-to-use-files-linux.md). Todas as versões atuais do PowerShell, da CLI e dos SDKs são compatíveis com HTTPS.  
 
 Você pode desabilitar a criptografia em trânsito para uma conta de armazenamento do Azure. Quando a criptografia estiver desabilitada, os arquivos do Azure também permitirão SMB 2,1, SMB 3,0 sem criptografia e chamadas de API filerest não criptografadas via HTTP. O principal motivo para desabilitar a criptografia em trânsito é dar suporte a um aplicativo herdado que deve ser executado em um sistema operacional mais antigo, como o Windows Server 2008 R2 ou a distribuição mais antiga do Linux. Os Arquivos do Azure só permitem conexões SMB 2.1 na mesma região do Azure que o compartilhamento de arquivo do Azure. Um cliente SMB 2.1 fora da região do Azure do compartilhamento de arquivo do Azure, como local ou em uma região diferente do Azure, não será capaz de acessar o compartilhamento de arquivo.
@@ -152,7 +163,7 @@ A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de c
 |10.240      | 10.240  | Até 30.720  | 675 | 450   |
 |33.792      | 33.792  | Até 100.000 | 2.088 | 1.392   |
 |51.200      | 51.200  | Até 100.000 | 3.132 | 2.088   |
-|102.400     | 100.000 | Até 100.000 | 6.204 | 4.136   |
+|102.400     | 100,000 | Até 100.000 | 6.204 | 4.136   |
 
 > [!NOTE]
 > O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Por exemplo, com base no teste interno com 8 tamanhos de e/s de leitura/gravação de KiB, uma única máquina virtual do Windows, *F16s_v2 padrão*, conectada ao compartilhamento de arquivos Premium em SMB poderia alcançar IOPS de leitura de 20 mil e IOPS de gravação de 15.000. Com tamanhos de e/s de leitura/gravação de MiB 512, a mesma VM pode atingir a saída de 1,1 GiB/s e a taxa de transferência de entrada de 370 MiB/s. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.

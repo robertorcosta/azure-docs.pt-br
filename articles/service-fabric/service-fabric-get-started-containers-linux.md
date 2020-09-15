@@ -4,12 +4,12 @@ description: Crie seu primeiro aplicativo de contêiner do Linux no Azure Servic
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 35e96f1039dc71427a1a3d2745245eff5d012aaf
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847526"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563702"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o seguinte comando:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o comando a seguir:
 
 ```bash
 docker build -t helloworldapp .
@@ -215,7 +215,7 @@ A partir da versão de atualização mais recente do v 6.4, você tem a opção 
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
-![HealthCheckHealthy][1]
+![Captura de tela mostra detalhes do pacote de serviço implantado NodeServicePackage.][1]
 
 ![HealthCheckUnhealthyApp][2]
 
@@ -266,7 +266,7 @@ Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para
 ![Olá, Mundo!][hello-world]
 
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 Use o script de desinstalação fornecido com o modelo para excluir a instância do aplicativo no cluster de desenvolvimento local e cancelar o registro do tipo de aplicativo.
 
 ```bash
@@ -373,7 +373,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste artigo
 Para adicionar outro serviço de contêiner a um aplicativo já criado usando o yeoman, execute as seguintes etapas:
 
 1. Altere o diretório para a raiz do aplicativo existente. Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é o aplicativo criado pelo Yeoman.
-2. Executar `yo azuresfcontainer:AddService`
+2. Execute `yo azuresfcontainer:AddService`
 
 <a id="manually"></a>
 

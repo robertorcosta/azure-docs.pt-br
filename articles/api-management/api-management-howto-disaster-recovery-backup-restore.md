@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c0af87dc8e38c6d5184cec4614b47d2ae4a24ca
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 489a1afd8e247b69761d521f51e16310176e31f5
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458256"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564076"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -185,6 +185,7 @@ O backup é uma operação longa de execução que pode levar mais de um minuto 
 -   Configuração de [identidade gerenciada](api-management-howto-use-managed-service-identity.md) .
 -   [Diagnóstico de Azure monitor](api-management-howto-use-azure-monitor.md) Configuração.
 -   [Protocolos e configurações de codificação](api-management-howto-manage-protocols-ciphers.md) .
+-   Conteúdo do [portal do desenvolvedor](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) .
 
 A frequência com que você executa backups de serviço afeta seu objetivo de ponto de recuperação. Para minimizar, aconselhamos a implementação de backups regulares e realizar backups sob demanda depois de fazer as mudanças ao seu serviço de Gerenciamento de API.
 

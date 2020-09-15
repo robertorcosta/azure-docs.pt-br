@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 78007c9f153267b72a94dc4b4024155dee6beb88
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442966"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562002"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 
@@ -30,7 +30,7 @@ Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamen
 
 As atividades de um pipeline definem as ações a serem executadas nos seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de SQL Server para um armazenamento de BLOBs do Azure. Em seguida, use uma atividade de fluxo de dados ou uma atividade do databricks Notebook para processar e transformar dados do armazenamento de BLOBs em um pool do Azure Synapse Analytics sobre o qual business intelligence soluções de relatório são criadas.
 
-Data Factory tem três agrupamentos de atividades: [atividades de movimentação de dados](copy-activity-overview.md), [atividades de transformação de dados](transform-data.md)e atividades de [controle](control-flow-web-activity.md). Uma atividade pode usar zero ou mais [conjuntos](concepts-datasets-linked-services.md) de dados de entrada e produzir um ou mais [conjuntos](concepts-datasets-linked-services.md)de resultados de saída. O seguinte diagrama mostra a relação entre pipeline, atividade e conjunto de dados no Data Factory:
+Data Factory tem três agrupamentos de atividades: [atividades de movimentação de dados](copy-activity-overview.md), [atividades de transformação de dados](transform-data.md)e atividades de [controle](#control-flow-activities). Uma atividade pode usar zero ou mais [conjuntos](concepts-datasets-linked-services.md) de dados de entrada e produzir um ou mais [conjuntos](concepts-datasets-linked-services.md)de resultados de saída. O seguinte diagrama mostra a relação entre pipeline, atividade e conjunto de dados no Data Factory:
 
 ![Relação entre pipeline, atividade e conjunto de dados](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
@@ -355,7 +355,7 @@ No pipeline de exemplo a seguir, há uma atividade do tipo **HDInsightHive** in 
     }
 }
 ```
-Observe o seguinte:
+Observe os seguintes pontos:
 
 - Na seção de atividades, há apenas uma atividade cujo **tipo** é definido como **HDInsightHive**.
 - O arquivo de script do hive, **partitionweblogs. HQL**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, chamado AzureStorageLinkedService) e na pasta de script no contêiner `adfgetstarted` .

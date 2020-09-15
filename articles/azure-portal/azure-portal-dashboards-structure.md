@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459212"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561594"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
 Este documento explica a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
@@ -329,7 +329,7 @@ A propriedade __position__ contém as informações de tamanho e local para a pa
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![unidades de grade](./media/azure-portal-dashboards-structure/grid-units.png)
+![Captura de tela mostra um fechamento da grade, com uma unidade de grade quadrada realçada.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>O objeto metadata
 Cada parte tem uma propriedade de metadados, um objeto tem apenas uma propriedade necessária chamada __type__. Essa cadeia de caracteres informa o portal qual bloco mostrar. Nosso painel de exemplo usa esses tipos de blocos:

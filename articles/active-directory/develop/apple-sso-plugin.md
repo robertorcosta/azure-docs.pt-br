@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 03/31/2020
+ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6afbdb6bcb067bdcb570c366f4604ea77ec4f490
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526809"
+ms.locfileid: "90561339"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in do SSO corporativo da Microsoft para dispositivos Apple (versão prévia)
 
@@ -148,11 +148,11 @@ Não há nenhuma alteração de código necessária nesses aplicativos, contanto
 - O aplicativo está usando protocolos padrão para se comunicar com o Azure AD (por exemplo, OAuth2, SAML, WS-Federation)
 - O aplicativo não coleta nome de usuário e senha de texto não criptografado na interface do usuário nativa
 
-Nesse caso, o SSO é fornecido no momento em que o aplicativo cria uma solicitação de rede e abre um navegador da Web para conectar o usuário. Quando um usuário é redirecionado para uma URL de logon do Azure AD, o plug-in de SSO valida a URL e verifica se há uma credencial SSO disponível para essa URL. Se houver um, o plug-in SSO passará a credencial SSO para o Azure AD, o que autorizará o aplicativo a concluir a solicitação de rede sem solicitar que o usuário final Insira as credenciais. Além disso, se o dispositivo for conhecido pelo Azure AD, o plug-in de SSO também passará o certificado do dispositivo para atender à verificação de acesso condicional com base no dispositivo. 
+Nesse caso, o SSO é fornecido quando o aplicativo cria uma solicitação de rede e abre um navegador da Web para conectar o usuário. Quando um usuário é redirecionado para uma URL de logon do Azure AD, o plug-in de SSO valida a URL e verifica se há uma credencial SSO disponível para essa URL. Se houver um, o plug-in SSO passará a credencial SSO para o Azure AD, o que autorizará o aplicativo a concluir a solicitação de rede sem solicitar que o usuário insira suas credenciais. Além disso, se o dispositivo for conhecido pelo Azure AD, o plug-in de SSO também passará o certificado do dispositivo para atender à verificação de acesso condicional com base no dispositivo. 
 
 Para dar suporte a SSO para aplicativos não MSAL, o plug-in de SSO implementa um protocolo semelhante ao plug-in de navegador do Windows descrito em [o que é um token de atualização primário?](../devices/concept-primary-refresh-token.md#browser-sso-using-prt). 
 
-Em comparação com aplicativos baseados em MSAL, o plug-in de SSO atua de forma mais transparente para aplicativos não MSAL, integrando-se com a experiência de logon existente do navegador que os aplicativos fornecem. O usuário final veria sua experiência familiar com um benefício de não ter que fazer logon adicional em cada um dos aplicativos. Por exemplo, em vez de exibir o seletor de conta nativa, o plug-in de SSO adiciona sessões de SSO à experiência do seletor de conta baseada na Web. 
+Em comparação com aplicativos baseados em MSAL, o plug-in de SSO atua de forma mais transparente para aplicativos não MSAL, integrando-se com a experiência de logon existente do navegador que os aplicativos fornecem. O usuário final veria sua experiência familiar, com o benefício de não ter que executar entradas adicionais em cada um dos aplicativos. Por exemplo, em vez de exibir o seletor de conta nativa, o plug-in de SSO adiciona sessões de SSO à experiência do seletor de conta baseada na Web. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

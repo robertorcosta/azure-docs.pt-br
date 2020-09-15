@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298259"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562921"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -38,7 +38,7 @@ Na pasta de exemplo baixada, o script de implantação está localizado em _Azur
 
 Aqui estão as etapas para executar o script de implantação no Cloud Shell.
 1. Vá para uma janela de [Azure cloud Shell](https://shell.azure.com/) em seu navegador. Entre usando este comando:
-    ```azurecli-interactive
+    ```azurecli
     az login
     ```
     Se a CLI puder abrir o navegador padrão, ela o fará e carregará uma página de entrada do Azure. Caso contrário, abra uma página de navegador em *https://aka.ms/devicelogin* e insira o código de autorização exibido no terminal.

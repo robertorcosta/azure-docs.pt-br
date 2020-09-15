@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231173"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563906"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solucionar problemas ao entrar em um aplicativo do Azure AD meus aplicativos
 
@@ -33,7 +33,7 @@ Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a s
 -   Aplicativos com soluções de SSO existentes
 
 Aqui estão algumas coisas para verificar se um aplicativo está aparecendo ou não aparecendo.
-- Certifique-se de que o aplicativo seja adicionado ao Azure AD e verifique se o usuário está atribuído. Para saber mais, confira a [série de guias de início rápido sobre gerenciamento de aplicativos](view-applications-portal.md).
+- Certifique-se de que o aplicativo seja adicionado ao Azure AD e verifique se o usuário está atribuído. Para saber mais, confira a [série de guias de início rápido sobre gerenciamento de aplicativos](add-application-portal.md).
 - Se um aplicativo foi adicionado recentemente, faça com que o usuário saia e entre novamente. 
 - Se o aplicativo exigir uma licença, como o Office, verifique se o usuário está atribuído à licença apropriada.
 - O tempo necessário para as alterações de licenciamento pode variar dependendo do tamanho e da complexidade do grupo.

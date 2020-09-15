@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7417e2d39371066a5c5e8576040cbe22e7632043
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203207"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562869"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -32,6 +32,7 @@ Um perfil técnico permite esses tipos de cenários:
 - [Azure Active Directory](active-directory-technical-profile.md) – oferece suporte ao gerenciamento de usuário do Azure Active Directory B2C.
 - [Autenticação multifator do Azure](multi-factor-auth-technical-profile.md) -fornece suporte para verificar um número de telefone usando a MFA (autenticação multifator do Azure). 
 - [Transformação de declarações](claims-transformation-technical-profile.md) – chama transformações de declarações de saída para manipular valores de declarações, validar declarações ou definir valores padrão para um conjunto de declarações de saída.
+- [Dica de token de ID](id-token-hint.md) -valida a `id_token_hint` assinatura de token JWT, o nome do emissor e o público do token e extrai a declaração do token de entrada.
 - [Emissor de token JWT](jwt-issuer-technical-profile.md) – emite um token JWT que é retornado para o aplicativo de terceira parte confiável.
 - [OAuth1](oauth1-technical-profile.md) – federação com qualquer provedor de identidade de protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) – federação com qualquer provedor de identidade de protocolo OAuth 2.0.
@@ -103,7 +104,7 @@ Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError*
 </TechnicalProfile>
 ```
 
-O **AAD-UserReadUsingAlternativeSecurityId-NOERROR** e o **AAD-UserReadUsingAlternativeSecurityId** não especificam o elemento de **protocolo** necessário, pois ele é especificado no perfil técnico **AAD-Common** .
+O **AAD-UserReadUsingAlternativeSecurityId-NOERROR** e o  **AAD-UserReadUsingAlternativeSecurityId** não especificam o elemento de **protocolo** necessário, pois ele é especificado no perfil técnico **AAD-Common** .
 
 ```xml
 <TechnicalProfile Id="AAD-Common">

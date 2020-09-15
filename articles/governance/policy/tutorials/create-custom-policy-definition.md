@@ -3,12 +3,12 @@ title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044610"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649828"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -73,7 +73,7 @@ Há várias maneiras de examinar um [modelo do Resource Manager](../../../azure-
 A maneira mais simples de encontrar propriedades é examinar um recurso existente do mesmo tipo. Os recursos já definidos com a configuração que você deseja impor também fornecem o valor para comparação.
 Examine a página **Exportar modelo** (em **Configurações**) no portal do Azure desse recurso específico.
 
-:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Exportar página de modelo em recurso existente" border="false":::
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Captura de tela da página Exportar modelo em um recurso existente do portal do Azure." border="false":::
 
 Fazer isso para uma conta de armazenamento revela um modelo semelhante a este exemplo:
 

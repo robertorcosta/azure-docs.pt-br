@@ -479,7 +479,7 @@
                   items:
                     - name: De uma VM
                       href: ../image-version-vm-cli.md
-                    - name: De um VHD ou instantâneo
+                    - name: De um disco gerenciado ou instantâneo
                       href: ../image-version-snapshot-cli.md
                     - name: Migrar de uma imagem gerenciada
                       href: ../image-version-managed-image-cli.md
@@ -501,7 +501,7 @@
                   items:
                     - name: De uma VM
                       href: ../image-version-vm-powershell.md
-                    - name: De um VHD ou instantâneo
+                    - name: De um disco gerenciado ou instantâneo
                       href: ../image-version-snapshot-powershell.md
                     - name: Migrar de uma imagem gerenciada
                       href: ../image-version-managed-image-powershell.md
@@ -542,14 +542,16 @@
               href: image-builder-overview.md
             - name: Usar a CLI do Azure
               href: image-builder.md
-            - name: Criar VM usando VNET – CLI
+            - name: Usar uma VNET – CLI
               href: image-builder-vnet.md
-            - name: Configurar permissões – CLI
-              href: image-builder-permissions-cli.md
-            - name: Configurar permissões – PowerShell
-              href: image-builder-permissions-powershell.md
             - name: Opções de rede
               href: image-builder-networking.md
+            - name: Configurar permissões
+              items:
+                - name: CLI
+                  href: image-builder-permissions-cli.md
+                - name: PowerShell
+                  href: image-builder-permissions-powershell.md
             - name: Tarefa do DevOps
               href: image-builder-devops-task.md
             - name: Referência de modelo ARM

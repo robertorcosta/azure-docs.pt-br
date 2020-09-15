@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 20a376d303f90727063f288e239e89ede2a1113c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298208"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564350"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usar o gêmeos digital do Azure para atualizar um mapa interno do Azure Maps
 
@@ -135,7 +135,7 @@ namespace SampleFunctionsApp
 
 Você precisará definir duas variáveis de ambiente em seu aplicativo de funções. Uma é a [chave de assinatura primária do Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)e uma é sua [ID de estado do Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```

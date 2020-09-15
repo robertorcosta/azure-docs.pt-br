@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: af912838e99e7b36cb29695758108f0a9efeb8ea
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662535"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561628"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Criar destinos de computação para treinamento e implantação de modelo com o SDK do Python
 
@@ -36,7 +36,11 @@ Neste artigo, use o SDK Azure Machine Learning Python para criar e gerenciar des
 
 ## <a name="limitations"></a>Limitações
 
-Alguns dos cenários listados neste documento são marcados como __Visualização__. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Não **crie vários anexos simultâneos para a mesma computação** do seu espaço de trabalho. Por exemplo, anexar um cluster do serviço kubernetes do Azure a um espaço de trabalho usando dois nomes diferentes. Cada novo anexo interromperá os anexos existentes anteriores.
+
+    Se você quiser anexar novamente um destino de computação, por exemplo, para alterar o TLS ou outra configuração de cluster, primeiro você deve remover o anexo existente.
+
+* Alguns dos cenários listados neste documento são marcados como __Visualização__. A funcionalidade de visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>O que é um destino de computação?
 
@@ -269,6 +273,9 @@ Use o Máquina Virtual de Ciência de Dados do Azure (DSVM) como a VM do Azure e
 
    Outra opção é anexar a DSVM ao seu workspace [usando o estúdio do Azure Machine Learning](how-to-create-attach-compute-studio.md#attached-compute).
 
+    > [!WARNING]
+    > Não crie vários anexos simultâneos para o mesmo DSVM do seu espaço de trabalho. Cada novo anexo interromperá os anexos existentes anteriores.
+
 1. **Configurar**: Crie uma configuração de execução para o destino de computação da DSVM. O Docker e o conda são usados para criar e configurar o ambiente de treinamento na DSVM.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
@@ -313,6 +320,9 @@ O Azure HDInsight é uma plataforma popular para análise de dados. A plataforma
    ```
 
    Outra opção é anexar o cluster HDInsight ao seu workspace [usando o estúdio do Azure Machine Learning](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > Não crie vários anexos simultâneos para o mesmo HDInsight no seu espaço de trabalho. Cada novo anexo interromperá os anexos existentes anteriores.
 
 1. **Configurar**: Crie uma configuração de execução para o destino de computação da HDI. 
 
@@ -360,6 +370,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> Não crie vários anexos simultâneos para o mesmo lote do Azure do seu espaço de trabalho. Cada novo anexo interromperá os anexos existentes anteriores.
 
 ### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
@@ -414,6 +427,9 @@ except ComputeTargetException:
 
 Para obter um exemplo mais detalhado, consulte um [exemplo de bloco de anotações](https://aka.ms/pl-databricks) no github.
 
+> [!WARNING]
+> Não crie vários anexos simultâneos para o mesmo Azure Databricks do seu espaço de trabalho. Cada novo anexo interromperá os anexos existentes anteriores.
+
 ### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Análise Azure Data Lake
 
 O Azure Data Lake Analytics é uma plataforma de análise de big data na nuvem do Azure. Ele pode ser usado como um destino de computação com um pipeline do Azure Machine Learning.
@@ -463,6 +479,9 @@ except ComputeTargetException:
 ```
 
 Para obter um exemplo mais detalhado, consulte um [exemplo de bloco de anotações](https://aka.ms/pl-adla) no github.
+
+> [!WARNING]
+> Não crie vários anexos simultâneos para o mesmo ADLA do seu espaço de trabalho. Cada novo anexo interromperá os anexos existentes anteriores.
 
 > [!TIP]
 > Os pipelines do Azure Machine Learning só podem funcionar com dados armazenados no armazenamento de dados padrão da conta do Data Lake Analytics. Se os dados com os quais você precisa trabalhar estiverem em um repositório não padrão, você poderá usar um [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) para copiar os dados antes do treinamento.

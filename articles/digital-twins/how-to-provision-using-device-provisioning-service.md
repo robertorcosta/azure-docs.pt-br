@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1a7ab90cccd78c3b005487938432a0f955d50738
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380584"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561424"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gerenciar dispositivos automaticamente no gêmeos digital do Azure usando o DPS (serviço de provisionamento de dispositivos)
 
@@ -52,7 +52,7 @@ Para obter explicações mais detalhadas de cada etapa na arquitetura, consulte 
 
 Nesta seção, você anexará o serviço de provisionamento de dispositivos ao gêmeos digital do Azure para provisionar dispositivos automaticamente por meio do caminho abaixo. Este é um trecho da arquitetura completa mostrada [anteriormente](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisionar fluxo--um trecho do diagrama da arquitetura da solução, com números rotulando seções do fluxo. Os dados fluem entre um dispositivo termostato e um DPS (1 para dispositivos > DPS e 5 para o dispositivo DPS >). Os dados também fluem do DPS para o Hub IoT (4) e para o gêmeos digital do Azure (3) por meio de uma função do Azure rotulada como alocação (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisionar fluxo--um trecho do diagrama da arquitetura da solução, com números rotulando seções do fluxo. Os dados fluem entre um dispositivo termostato e um DPS (1 para dispositivos > DPS e 5 para o dispositivo DPS >). Os dados também fluem do DPS para o Hub IoT (4) e para o gêmeos digital do Azure (3) por meio de uma função do Azure rotulada como "alocação" (2).":::
 
 Aqui está uma descrição do fluxo do processo:
 1. O dispositivo entra em contato com o ponto de extremidade do DPS, passando informações de identificação para provar sua identidade.
@@ -71,7 +71,7 @@ Crie uma instância do serviço de provisionamento de dispositivos, que será us
 
 O comando a seguir CLI do Azure criará um serviço de provisionamento de dispositivos. Será necessário especificar um nome, um grupo de recursos e uma região. O comando pode ser executado no [Cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
+```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -237,7 +237,7 @@ Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de
 
 Adicione a configuração com este CLI do Azure comando:
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -246,7 +246,7 @@ Verifique se as permissões e a atribuição da função de identidade gerenciad
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -293,7 +293,7 @@ Você deve ver o dispositivo que está sendo registrado e conectado ao Hub IoT e
 
 Como resultado do fluxo que você configurou neste artigo, o dispositivo será registrado automaticamente no Azure digital gêmeos. Usando o seguinte comando da [CLI do Azure digital gêmeos](how-to-use-cli.md) para localizar o cópia do dispositivo na instância do gêmeos digital do Azure que você criou.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -449,13 +449,13 @@ Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de
 
 Adicione a configuração com este comando CLI do Azure. O comando pode ser executado no [Cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 Em seguida, você precisará configurar a variável de ambiente de função para se conectar ao Hub de eventos recém-criado.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -486,14 +486,14 @@ O dispositivo será removido automaticamente do Azure digital gêmeos.
 
 Use o seguinte comando da [CLI do Azure digital gêmeos](how-to-use-cli.md) para verificar se o cópia do dispositivo na instância do gêmeos digital do Azure foi excluída.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
 Você verá que o cópia do dispositivo não pode mais ser encontrado na instância do gêmeos digital do Azure.
 :::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="janela Comando mostrando não encontrado":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los.
 
@@ -502,7 +502,7 @@ Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 <!-- 

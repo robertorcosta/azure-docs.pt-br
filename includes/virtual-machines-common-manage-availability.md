@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 965da18c265fad1686473d5d6dcf8ba4a7a53b33
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760599"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89326302"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Entender as reinicializações de VM - manutenção vs. tempo de inatividade
 Há três cenários que podem afetar a máquina virtual no Azure: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -33,7 +33,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 * [Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância]
 * [Como usar discos gerenciados para VMs em um conjunto de disponibilidade]
 * [Usar eventos agendados para responder de maneira proativa a eventos que afetam a VM](../articles/virtual-machines/linux/scheduled-events.md)
-* [Configurar cada camada de aplicativo em conjuntos de disponibilidade separados]
+* [Configurar cada camada de aplicativo em conjuntos de disponibilidade separados](../articles/virtual-machines/windows/tutorial-availability-sets.md)
 * [Combinar o balanceador de carga com conjuntos ou zonas de disponibilidade]
 * [Usar as zonas de disponibilidade para se proteger contra falhas no nível do datacenter]
 
@@ -82,12 +82,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> Em determinadas circunstâncias, duas VMs no mesmo conjunto de disponibilidade podem compartilhar o mesmo domínio de falha. Isso pode ser confirmado entrando em seu conjunto de disponibilidade e verificando a coluna **Domínio de Falha**.
-> Isso pode ser causado pela seguinte sequência durante a implantação das VMs:
-> - Implantar a 1ª VM
-> - Parar/desalocas a 1ª VM
-> - Implante a 2ª VM nessas circunstâncias. O disco do SO da 2ª VM pode ser criado no mesmo domínio de falha que o da 1ª VM e, portanto, a 2ª VM também ficará no mesmo domínio de falha. 
-> Para evitar esse problema, é recomendável não parar/desalocar as VMs entre as implantações.
+> Em determinadas circunstâncias, duas VMs no mesmo conjunto de disponibilidade podem compartilhar um domínio de falha. Você pode confirmar um domínio de falha compartilhado acessando o seu conjunto de disponibilidade e verificando a coluna **Domínio de Falha**. Um domínio de falha compartilhado poderá ser causado pela conclusão da seguinte sequência quando você tiver implantado as VMs:
+> 1. Implantar a primeira VM.
+> 1. Parar/desalocar a primeira VM.
+> 1. Implantar a segunda VM.
+>
+> Nessas circunstâncias, o disco do sistema operacional da segunda VM pode ser criado no mesmo domínio de falha que a primeira VM. Assim, as duas VMs estarão no mesmo domínio de falha. Para evitar esse problema, é recomendável não parar/desalocar as VMs entre as implantações.
 
 Se você planeja usar VMs com discos não gerenciados, siga abaixo as práticas recomendadas para as contas de Armazenamento nas quais os discos rígidos virtuais (VHDs) das VMs são armazenados como [blobs de página](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

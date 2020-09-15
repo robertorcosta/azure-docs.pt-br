@@ -2,14 +2,14 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 09/01/2020
 ms.author: tomfitz
-ms.openlocfilehash: f0ab7c2efc499c43245680e56a7e5ca1b5261397
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 949118214851c3eceffd8c1d638a4093bdf7f366
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88748883"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304113"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -22,7 +22,7 @@ ms.locfileid: "88748883"
 | Comprimento da chave de marca |512 |
 | Comprimento do valor da marca |256 |
 
-<sup>1</sup>Desde junho de 2020, as implantações são automaticamente excluídas do histórico à medida que você se aproxima do limite. A exclusão de uma entrada do histórico de implantações não afeta os recursos implantados. Para obter mais informações, confira [Exclusões automáticas do histórico de implantações](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
+<sup>1</sup>As implantações são automaticamente excluídas do histórico à medida que você se aproxima do limite. A exclusão de uma entrada do histórico de implantações não afeta os recursos implantados. Para obter mais informações, confira [Exclusões automáticas do histórico de implantações](../articles/azure-resource-manager/templates/deployment-history-deletions.md).
 
 #### <a name="template-limits"></a>Limites de modelo
 

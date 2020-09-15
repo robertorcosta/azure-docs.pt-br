@@ -9,14 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+- seo-lt-2019
+- references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594349"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563991"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -88,7 +90,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - Banco de Dados do Azure para PostgreSQL
 - Banco de Dados do Azure para MariaDB
 
-### <a name="supported-regions"></a>Regiões com Suporte
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory rede virtual gerenciada está disponível nas seguintes regiões do Azure:
 - Leste dos EUA
 - Leste dos EUA 2
 - Centro-Oeste dos EUA
@@ -104,6 +106,10 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída por meio do ponto de extremidade público da rede virtual gerenciada por ADF
 - Somente a porta 443 é aberta para comunicações de saída.
 - O armazenamento do Azure e o Azure Data Lake Gen2 não têm suporte para serem conectados por meio do ponto de extremidade público da rede virtual gerenciada por ADF.
+
+### <a name="linked-service-creation-of-azure-key-vault"></a>Criação de serviço vinculado de Azure Key Vault 
+- Quando você cria um serviço vinculado para Azure Key Vault, não há nenhuma referência de Azure Integration Runtime. Portanto, você não pode criar um ponto de extremidade privado durante a criação de serviço vinculado do Azure Key Vault. Mas quando você cria um serviço vinculado para armazenamentos de dados que referencia Azure Key Vault serviço vinculado e esse serviço vinculado faz Azure Integration Runtime com a rede virtual gerenciada habilitada, você pode criar um ponto de extremidade privado para o serviço vinculado Azure Key Vault durante a criação. 
+- **Testar** a operação de conexão para o serviço vinculado do Azure Key Vault valida apenas o formato da URL, mas não faz nenhuma operação de rede.
 
 ## <a name="next-steps"></a>Próximas etapas
 

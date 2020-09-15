@@ -7,14 +7,17 @@ ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cffac114cacd05e04e149af96d1678b536db7fec
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782363"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564229"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho de arquivos do Azure
+# <a name="troubleshoot-azure-files-performance-issues-smb"></a>Solucionar problemas de desempenho de arquivos do Azure (SMB)
+
+> [!IMPORTANT]
+> O conteúdo deste artigo se aplica somente a compartilhamentos SMB.
 
 Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de arquivos do Azure. Ele fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
 
@@ -200,6 +203,36 @@ Maior que a latência esperada Acessando arquivos do Azure para cargas de trabal
 11. Clique em **selecionar grupo de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
 12. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
 13. Clique em **criar regra de alerta** para criar o alerta.
+
+Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão geral de alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-towards-being-throttled"></a>Como criar alertas se um compartilhamento de arquivos Premium estiver em direção à limitação
+
+1. Vá para sua **conta de armazenamento** no **portal do Azure**.
+2. Na seção monitoramento, clique em **alertas** e, em seguida, clique em **+ nova regra de alerta**.
+3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
+4. Clique em **Selecionar condição** para adicionar uma condição.
+5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **saída** .
+
+  > [!NOTE]
+  > Você precisa criar 3 alertas separados para serem alertados quando a entrada, saída ou transações exceder o valor de limite definido. Isso ocorre porque um alerta só é acionado quando todas as condições são atendidas. Portanto, se você colocar todas as condições em um alerta, só será alertado se a entrada, saída e transações excederem seus valores de limite.
+
+6. Role para baixo. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
+7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
+8. Defina os **parâmetros de alerta** (valor de limite, operador, granularidade de agregação e frequência de avaliação) e clique em **concluído**.
+
+  > [!NOTE]
+  > As métricas de egresso, de entrada e de transações são por minuto, embora você seja provisionado a saída, a entrada e a IOPS por segundo. (fale sobre a granularidade de agregação-> por minuto = mais ruído, portanto, escolha diff One) Portanto, por exemplo, se a saída provisionada for 90 MiB/segundo e você quiser que o limite seja de 80% de saída provisionada, deverá selecionar os seguintes parâmetros de alerta: 75497472 para **valor de limite**, maior ou igual a para **operador**e média para o **tipo de agregação**. Dependendo de quanto ruído você deseja que o alerta seja, você pode escolher quais valores selecionar para granularidade de agregação e frequência de avaliação. Por exemplo, se eu quiser que meu alerta examine a entrada média durante o período de uma hora e eu quiser que minha regra de alerta seja executada a cada hora, eu selecionaria uma hora para a **granularidade de agregação** e uma hora para a **frequência de avaliação**.
+
+9. Clique em **selecionar grupo de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta, seja selecionando um grupo de ações existente ou criando um novo grupo de ação.
+10. Preencha os **detalhes do alerta** , como nome da **regra de alerta**, **Descrição** e **severidade**.
+11. Clique em **criar regra de alerta** para criar o alerta.
+
+  > [!NOTE]
+  > Para ser notificado se o compartilhamento de arquivos Premium estiver perto de ser limitado devido à entrada provisionada, siga as mesmas etapas, exceto na etapa 5, selecione a métrica de **entrada** em vez disso.
+
+  > [!NOTE]
+  > Para ser notificado se o compartilhamento de arquivos Premium estiver perto de ser limitado devido ao IOPS provisionado, você terá que fazer algumas alterações. Na etapa 5, selecione a métrica **Transações** em vez disso. Além disso, para a etapa 10, a única opção para o **tipo de agregação** é total. Portanto, o valor de limite seria dependente de sua granularidade de agregação selecionada. Por exemplo, se você quisesse que o limite fosse de 80% de IOPS de linha de base provisionado e selecionou 1 hora para **granularidade de agregação**, seu **valor de limite** será o IOPS de linha de base (em bytes) x 0,8 x 3600. Além dessas alterações, siga as mesmas etapas listadas acima. 
 
 Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão geral de alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

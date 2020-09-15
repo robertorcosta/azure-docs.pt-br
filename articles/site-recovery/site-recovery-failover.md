@@ -4,12 +4,12 @@ description: Como fazer failover de VMs/servidores físicos para o Azure com Azu
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309961"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563974"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Execute um failover do local para o Azure
 
@@ -30,7 +30,7 @@ Para garantir que você possa se conectar às VMs do Azure criadas após o failo
 
 Se você quiser se conectar a VMs do Azure usando o RDP/SSH após o failover, há várias coisas que você precisa fazer no local antes do failover.
 
-**Após o failover** | **Localidade** | **Ações**
+**Depois do failover** | **Localidade** | **Ações**
 --- | --- | ---
 **VM do Azure executando o Windows** | Computador local antes do failover | Para acessar a VM do Azure pela Internet, habilite o RDP e fazer com que as regras de TCP e UDP sejam adicionadas para o **Público** e que o RDP foi permitido para todos os perfis no **Firewall do Windows** > **Aplicativos Permitidos**.<br/><br/> Para acessar a VM do Azure em uma conexão site a site, habilite o RDP no computador e verifique se o RDP é permitido no **Firewall do Windows**  ->  **aplicativos e recursos permitidos**para redes **privadas** e de domínio.<br/><br/> <br/><br/> Remova todas as rotas persistentes estáticas e o proxy WinHTTP. Verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).<br/><br/> Verifique se não existem Windows atualizações pendentes na VM virtual quando disparar um failover. A atualização do Windows poderá iniciar quando o failover for feito, e você não poderá fazer logon na VM até que a atualização seja concluída.
 **VM do Azure executando Linux** | Computador local antes do failover | Verifique se o serviço Secure Shell na VM está definido para iniciar automaticamente na inicialização do sistema.<br/><br/> Verifique se as regras de firewall permitem uma conexão SSH com ele.
@@ -46,7 +46,7 @@ Execute o failover do plano de recuperação da seguinte maneira:
 1. No cofre site Recovery, selecione **planos de recuperação**  >  *recoveryplan_name*.
 2. Clique em **Failover**.
 
-    ![Failover](./media/site-recovery-failover/Failover.png)
+    ![Captura de tela mostra o painel ADRP com failover selecionado no menu mais.](./media/site-recovery-failover/Failover.png)
 
 3. Em **Failover**  >  **direção de failover**de failover, deixe o padrão se você estiver replicando para o Azure.
 4. Em **failover**, selecione um **ponto de recuperação** para o qual fazer failover.

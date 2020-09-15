@@ -3,12 +3,12 @@ title: Replicar VMs do Azure Stack no Azure usando Azure Site Recovery | Microso
 description: Saiba como configurar a recuperação de desastre para VMs do Azure Stack com o serviço do Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 873b9c5efc2a89d3cda1bfe14a7518e6786a6870
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131601"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564302"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
@@ -36,7 +36,7 @@ Com essas etapas concluídas, será possível executar um failover completo no A
 
 ## <a name="architecture"></a>Arquitetura
 
-![Arquitetura](./media/azure-stack-site-recovery/architecture.png)
+![O diagrama mostra cofres dos serviços de recuperação para dois locatários em nuvens associadas a assinaturas de locatário em uma infraestrutura de Azure Stack comum.](./media/azure-stack-site-recovery/architecture.png)
 
 **Localidade** | **Componente** |**Detalhes**
 --- | --- | ---
@@ -141,11 +141,11 @@ Para cada máquina que você quer replicar, localize o endereço IP:
 2. Em **Nome**, digite um nome amigável para identificar o cofre.
 3. Em **Grupo de recursos**, crie ou selecione um grupo de recursos. Nós estamos usando **contosoRG**.
 4. Em **Localização**, insira a região do Azure. Estamos usando **Europa Ocidental**.
-5. Para acessar rapidamente o cofre no painel, selecione **fixar no painel**  >  **criar**.
+5. Para acessar rapidamente o cofre do painel, selecione **Fixar no painel** > **Criar**.
 
    ![Criar um novo cofre](./media/azure-stack-site-recovery/new-vault-settings.png)
 
-   O novo cofre aparece no **painel**  >  **todos os recursos**e na página **cofres dos serviços de recuperação** principal.
+   O novo cofre é exibido em **Painel** > **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
 
 ### <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
 
@@ -231,7 +231,7 @@ Certifique-se de ter concluído todas as tarefas na [Etapa 1: preparar a máquin
 5. Em **Destino**, selecione a assinatura e o grupo de recursos no qual você quer criar as VMs após failover. Escolha o modelo de implantação que você quer usar para as VMs com failover.
 6. Selecione a conta de armazenamento do Azure na qual deseja armazenar dados replicados.
 7. Selecione a rede e a sub-rede do Azure às quais conectar as VMs do Azure quando elas forem criadas após o failover.
-8. Selecione **Configurar agora para computadores selecionados** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde**, se quiser selecionar a rede do Azure separadamente para cada máquina.
+8. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a configuração de rede a todos os computadores selecionados para proteção. Selecione **Configurar mais tarde**, se quiser selecionar a rede do Azure separadamente para cada máquina.
 9. Em **Máquinas físicas**, clique em **+Máquina física**. Especifique o nome, o endereço IP e o tipo de sistema operacional de cada computador a ser replicado.
 
     - Use o endereço IP interno da máquina.
@@ -239,7 +239,7 @@ Certifique-se de ter concluído todas as tarefas na [Etapa 1: preparar a máquin
 
 10. Em **Propriedades**  >  **Configurar Propriedades**, selecione a conta que o servidor de processo usará para instalar automaticamente o serviço de mobilidade no computador.
 11. Em **configurações de replicação**  >  **definir configurações de replicação**, verifique se a política de replicação correta está selecionada.
-12. Clique em **habilitar replicação**.
+12. Clique em **Habilitar a Replicação**.
 13. Acompanhe o progresso do trabalho **habilitar proteção** em **configurações**  >  **trabalhos**  >  **site Recovery trabalhos**. Após o trabalho de **Finalizar Proteção** ser executado, o computador estará pronto para failover.
 
 > [!NOTE]

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261108"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561883"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
 
@@ -32,7 +32,7 @@ Quando você escala horizontalmente um conjunto de dimensionamento, uma nova ins
 
 Se você tiver implantado o cluster no portal do Azure ou usado o modelo do exemplo do Azure Resource Manager, todos os recursos em um grupo de recursos serão listados. Você pode ver os balanceadores de carga para cada conjunto de dimensionamento ou tipo de nó. O nome do balanceador de carga usa o seguinte formato: **LB-&lt;nome do tipo de nó&gt;**. Um exemplo é LB-sfcluster4doc-0, conforme mostrado na figura a seguir:
 
-![Recursos][Resources]
+![Captura de tela mostra um grupo de recursos com dois balanceadores de carga realçados.][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Extensão de máquina virtual Service Fabric
 
@@ -75,9 +75,9 @@ A seguir estão as descrições de propriedade:
 | **Nome** | **Valores permitidos** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
 | name | string | Nome exclusivo para a extensão |
-| tipo | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
+| type | "ServiceFabricLinuxNode" ou "ServiceFabricWindowsNode" | Identifica o sistema operacional Service Fabric está carregando para |
 | autoUpgradeMinorVersion | true ou false | Habilitar a atualização automática de versões secundárias do Runtime da it |
-| publicador | Microsoft. Azure. infabric | Nome do editor de extensão de Service Fabric |
+| editor | Microsoft. Azure. infabric | Nome do editor de extensão de Service Fabric |
 | clusterEndpont | string | URI: porta para ponto de extremidade de gerenciamento |
 | nodeTypeRef | string | Nome do nodeType |
 | durabilityLevel | bronze, prata, ouro, platina | Tempo permitido para pausar a infraestrutura imutável do Azure |

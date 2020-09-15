@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d8dc4a3efb034c9428de32f0f975869e1044327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613896"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561866"
 ---
 # <a name="graphics-binding"></a>Associações de gráficos
 
@@ -137,11 +137,23 @@ wmrBinding->BlitRemoteFrame();
 ### <a name="simulation"></a>Simulação
 
 `GraphicsApiType.SimD3D11` é a associação de simulação. Se ela for selecionada, criará a associação de gráficos `GraphicsBindingSimD3d11`. Essa interface é usada para simular o movimento da cabeça, por exemplo, em um aplicativo de área de trabalho e renderiza uma imagem monoscópica.
+
+Para implementar a associação de simulação, é importante entender a diferença entre a câmera local e o quadro remoto, conforme descrito na página da [câmera](../overview/features/camera.md) .
+
+São necessárias duas câmeras:
+
+* **Câmera local**: essa câmera representa a posição atual da câmera que é controlada pela lógica do aplicativo.
+* **Câmera de proxy**: esta câmera corresponde à *estrutura remota* atual que foi enviada pelo servidor. Como há um atraso de tempo entre o cliente solicitando um quadro e sua chegada, o *quadro remoto* é sempre um pouco atrás do movimento da câmera local.
+
+A abordagem básica aqui é que a imagem remota e o conteúdo local são renderizados em um destino fora da tela usando a câmera de proxy. A imagem de proxy é então reprojetada no espaço da câmera local, que é explicado em mais detalhes na [Reprojeção de estágio atrasado](../overview/features/late-stage-reprojection.md).
+
 A configuração é um pouco mais envolvente e funciona da seguinte maneira:
 
 #### <a name="create-proxy-render-target"></a>Criar destino de renderização de proxy
 
-O conteúdo local e remoto precisa ser renderizado para um destino de renderização de cor/profundidade fora da tela, chamado de “proxy” e que usa dados de câmera de proxy fornecidos pela função `GraphicsBindingSimD3d11.Update`. O proxy deve corresponder à resolução do buffer de fundo. Quando uma sessão estiver pronta, `GraphicsBindingSimD3d11.InitSimulation` precisará ser chamado antes de se conectar a ela:
+O conteúdo local e remoto precisa ser renderizado para um destino de renderização de cor/profundidade fora da tela, chamado de “proxy” e que usa dados de câmera de proxy fornecidos pela função `GraphicsBindingSimD3d11.Update`.
+
+O proxy deve corresponder à resolução do buffer de fundo e deve ser int o formato *DXGI_FORMAT_R8G8B8A8_UNORM* ou *DXGI_FORMAT_B8G8R8A8_UNORM* . Quando uma sessão estiver pronta, `GraphicsBindingSimD3d11.InitSimulation` precisará ser chamado antes de se conectar a ela:
 
 ```cs
 AzureSession currentSession = ...;
@@ -244,4 +256,6 @@ else
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Câmera](../overview/features/camera.md)
+* [Reprojeção de fase tardia](../overview/features/late-stage-reprojection.md)
 * [Tutorial: Como exibir modelos renderizados remotamente](../tutorials/unity/view-remote-models/view-remote-models.md)

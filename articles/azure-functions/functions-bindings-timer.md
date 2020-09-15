@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 88160d82cb7cc0a012d63445f101a1f2a3740da0
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569265"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563068"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions 
 
@@ -250,6 +250,7 @@ Quando uma função de gatilho de temporizador é invocada, um objeto de tempori
 
 A propriedade `IsPastDue` é `true` quando a invocação da função atual é posterior ao agendado. Por exemplo, uma reinicialização do aplicativo de função pode causar a perda de uma invocação.
 
+
 ## <a name="ncrontab-expressions"></a>Expressões NCRONTAB 
 
 Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar as expressões NCronTab. Uma expressão NCRONTAB é semelhante a uma expressão CRON, exceto que ela inclui um sexto campo adicional no início a ser usado para a precisão de tempo em segundos:
@@ -282,6 +283,8 @@ Aqui estão alguns exemplos de expressões NCRONTAB que você pode usar para o g
 |`"0 30 9 * * 1-5"`|às 9h30 todo dia útil|
 |`"0 30 9 * Jan Mon"`|em 9H30 toda segunda-feira em janeiro|
 
+> [!NOTE]
+> A expressão NCRONTAB requer seis formatos de **campo** . Não há suporte para expressões cron de cinco campos no Azure.
 
 ### <a name="ncrontab-time-zones"></a>NCRONTAB fuso horário
 

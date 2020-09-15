@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0931a7e344d6546bd62ceb7513c4aa540f5b9638
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 38e3526627eb4191643f8bc86b9ce5f49e41a71f
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447741"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564399"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar o gêmeos digital do Azure ao serviço de Signaler do Azure
 
@@ -147,7 +147,7 @@ Em seguida, publique sua função no Azure, usando as etapas descritas na [seç�
 
 1. Por fim, adicione a cadeia de **conexão** do signalr do Azure de antes às configurações do aplicativo da função, usando o comando CLI do Azure a seguir. O comando pode ser executado no [Azure cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
  
-    ```azurecli-interactive
+    ```azurecli
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -228,7 +228,7 @@ Isso abrirá uma janela do navegador que executa o aplicativo de exemplo, que ex
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Trecho do aplicativo Web do cliente de exemplo, mostrando um medidor de temperatura Visual. A temperatura refletida é 67,52":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los. 
 
@@ -242,7 +242,7 @@ Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 

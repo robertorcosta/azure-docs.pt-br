@@ -4,12 +4,12 @@ description: Crie seu primeiro aplicativo de contêiner do Windows no Azure Serv
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6303e37eaa8fa7ad45677d551b89337d20b1b604
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e8c3a0d60e10b1cf1f8a827cec8fcc25f3d33b05
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844419"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564297"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 
@@ -110,7 +110,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o seguinte comando:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e acesse o diretório que contém o Dockerfile. Execute o comando a seguir:
 
 ```
 docker build -t helloworldapp .
@@ -290,7 +290,7 @@ A partir da versão de atualização mais recente do v 6.4, você tem a opção 
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
-![HealthCheckHealthy][3]
+![Captura de tela mostra detalhes do pacote de serviço implantado NodeServicePackage.][3]
 
 ![HealthCheckUnhealthyApp][4]
 
@@ -331,7 +331,7 @@ O aplicativo está pronto quando ele está em ```Ready``` estado: ![pronto][2]
 
 Abra um navegador e navegue até `http://containercluster.westus2.cloudapp.azure.com:8081`. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 Você continua a incorrer em encargos enquanto o cluster estiver em execução, considere [excluir o cluster](./service-fabric-tutorial-delete-cluster.md).
 

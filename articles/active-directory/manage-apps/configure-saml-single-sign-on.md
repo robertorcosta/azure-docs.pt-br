@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 500bfff4afaebc345d344566b02fe945edb05795
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441911"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562597"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurar o logon único baseado em SAML
 
@@ -27,7 +27,7 @@ Na [série de guias de início rápido](view-applications-portal.md) sobre o ger
 
 Usar o Azure AD como seu IdP (provedor de identidade) e configurar o SSO (logon único) pode ser simples ou complexo, dependendo do aplicativo que está sendo usado. Alguns aplicativos podem ser configurados com apenas algumas ações. Outros exigem configuração detalhada. Para aumentar rapidamente, percorra a [série de guias de início rápido](view-applications-portal.md) sobre o gerenciamento de aplicativos. Se o aplicativo que você está adicionando for simples, provavelmente você não precisará ler este artigo. Se o aplicativo que você está adicionando exigir configuração personalizada para SSO baseado em SAML, este artigo será para você.
 
-Na [série de início rápido](view-applications-portal.md), há um artigo sobre como configurar o logon único. Nele, você aprende a acessar a página de configuração do SAML para um aplicativo. A página de configuração do SAML inclui cinco seções. Essas seções são discutidas detalhadamente neste artigo.
+Na [série de início rápido](add-application-portal-setup-sso.md), há um artigo sobre como configurar o logon único. Nele, você aprende a acessar a página de configuração do SAML para um aplicativo. A página de configuração do SAML inclui cinco seções. Essas seções são discutidas detalhadamente neste artigo.
 
 > [!IMPORTANT] 
 > Há alguns cenários em que a opção de **logon único** não estará presente na navegação de um aplicativo em **aplicativos empresariais**. 
@@ -42,7 +42,7 @@ Na [série de início rápido](view-applications-portal.md), há um artigo sobre
 É possível obter esses valores do fornecedor do aplicativo. Pode inserir os valores manualmente ou carregar um arquivo de metadados para extrair o valor dos campos.
 
 > [!TIP]
-> Muitos aplicativos já foram pré-configurados para trabalhar com o Azure AD. Esses aplicativos são listados na Galeria de aplicativos que você pode navegar quando adiciona um aplicativo ao seu locatário do Azure AD. A [série de guias de início rápido](view-applications-portal.md) orienta você pelo processo. Para os aplicativos na Galeria, você encontrará instruções detalhadas e passo a passo de configuração. Para acessar as etapas, você pode clicar no link na página de configuração do SAML para o aplicativo, conforme descrito na série de início rápido, ou pode procurar uma lista de todos os tutoriais de configuração de aplicativo em [tutoriais de configuração do aplicativo SaaS](../saas-apps/tutorial-list.md).
+> Muitos aplicativos já foram pré-configurados para trabalhar com o Azure AD. Esses aplicativos são listados na Galeria de aplicativos que você pode navegar quando adiciona um aplicativo ao seu locatário do Azure AD. A [série de guias de início rápido](add-application-portal-setup-sso.md) orienta você pelo processo. Para os aplicativos na Galeria, você encontrará instruções detalhadas e passo a passo de configuração. Para acessar as etapas, você pode clicar no link na página de configuração do SAML para o aplicativo, conforme descrito na série de início rápido, ou pode procurar uma lista de todos os tutoriais de configuração de aplicativo em [tutoriais de configuração do aplicativo SaaS](../saas-apps/tutorial-list.md).
 
 | Configuração Básica do SAML | Iniciado por SP | iniciado por idP | Descrição |
 |:--|:--|:--|:--|
@@ -57,7 +57,7 @@ Na [série de início rápido](view-applications-portal.md), há um artigo sobre
 Quando um usuário é autenticado no aplicativo, o Azure AD emite um token SAML para o aplicativo com informações (ou declarações) sobre o usuário que o identifica com exclusividade. Por padrão, essas informações incluem nome de usuário, endereço de email, nome e sobrenome do usuário. Talvez seja necessário personalizar as declarações se, por exemplo, o aplicativo exigir valores de declaração específicos ou um formato **Nome** diferente do nome de usuário. 
 
 > [!IMPORTANT]
-> Muitos aplicativos já estão pré-configurados e na Galeria de aplicativos e você não precisa se preocupar em definir declarações de usuário e de grupo. A [série de guias de início rápido](view-applications-portal.md) orienta você pela adição e configuração de aplicativos.
+> Muitos aplicativos já estão pré-configurados e na Galeria de aplicativos e você não precisa se preocupar em definir declarações de usuário e de grupo. A [série de guias de início rápido](add-application-portal.md) orienta você pela adição e configuração de aplicativos.
 
 
 O valor do identificador **exclusivo do identificador de usuário (ID de nome)** é uma declaração necessária e é importante. O valor padrão é *User. UserPrincipalName*. O identificador de usuário identifica exclusivamente cada usuário dentro do aplicativo. Por exemplo, se o endereço de email é tanto o nome de usuário quanto o identificador exclusivo, defina o valor como *user.mail*.
@@ -79,7 +79,7 @@ Você pode adicionar novas declarações, para obter detalhes, consulte [adicion
 O Azure AD usa um certificado para assinar os tokens SAML que ele envia para o aplicativo. Você precisa deste certificado para configurar a confiança entre o Azure AD e o aplicativo. Para obter detalhes sobre o formato de certificado, consulte a documentação do aplicativo SAML. Para saber mais, confira [Gerenciar certificados para logon único federado](manage-certificates-for-federated-single-sign-on.md) e [Opções de assinatura de certificado avançado no token SAML](certificate-signing-options.md).
 
 > [!IMPORTANT]
-> Muitos aplicativos já estão pré-configurados e na Galeria de aplicativos e você não precisa se aprofundar nos certificados. A [série de guias de início rápido](view-applications-portal.md) orienta você pela adição e configuração de aplicativos.
+> Muitos aplicativos já estão pré-configurados e na Galeria de aplicativos e você não precisa se aprofundar nos certificados. A [série de guias de início rápido](add-application-portal.md) orienta você pela adição e configuração de aplicativos.
 
 No Azure AD, você pode baixar o certificado ativo no formato Base64 ou Raw diretamente da página principal **Configurar logon único com SAML**. Além disso, você pode obter o certificado ativo baixando o arquivo XML de metadados do aplicativo ou usando a URL de metadados de Federação do aplicativo. Para exibir, criar ou baixar seus certificados (ativos ou inativos), siga estas etapas.
 

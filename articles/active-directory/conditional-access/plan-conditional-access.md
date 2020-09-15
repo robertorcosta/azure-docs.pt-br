@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049920"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561526"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -67,7 +67,7 @@ Se forem necessários recursos adicionais, talvez você também precise obter li
 Os recursos a seguir podem ser úteis à medida que você aprende sobre o acesso condicional:
 
 
-#### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>vídeos
 
 * [O que é Acesso Condicional?](https://youtu.be/ffMAw2IVO7A)
 * [Como implantar acesso condicional?](https://youtu.be/c_izIRNJNuk)
@@ -448,7 +448,7 @@ Caso você precise reverter as suas políticas recentemente implementadas, use u
 
 Use as seguintes opções de gerenciamento para controlar e gerenciar suas políticas de autoridade de certificação:
 
-![gerenciar-acesso](media/plan-conditional-access/manage-access.png)
+![Captura de tela mostra as opções de gerenciar para C uma políticas, incluindo locais nomeados, controles personalizados, Termos de uso, conectividade V P N e as políticas clássicas selecionadas.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Localizações nomeadas

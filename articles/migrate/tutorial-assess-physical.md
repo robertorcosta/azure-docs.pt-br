@@ -3,12 +3,12 @@ title: Avaliar servidores físicos para migração para o Azure com a avaliaçã
 description: Descreve como avaliar servidores físicos para a migração para o Azure usando a Avaliação de Servidor das Migrações para Azure.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 21ffc425ff7d04bbb1bc0c3a550133ae5374b1e9
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 25bd5241700d5950eb032a6c932470871e79945f
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950095"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514111"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com as Migrações para Azure: Avaliação de Servidor
 
@@ -115,13 +115,13 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
         **Cenário** | **Baixar*** | **Valor de hash**
         --- | --- | ---
-        Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140334) | 6de88e229c2b4836d16ce03fdfac93b5c27274945577bd8a359d598cf3777b24
+        Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
 
     - Para o Azure Government:
 
         **Cenário** | **Baixar*** | **Valor de hash**
         --- | --- | ---
-        Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | 5a4715a9d10e81a5f38192b7d1c6ac0919ae3998afbf2e933c99bafae6bef80e
+        Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
 
