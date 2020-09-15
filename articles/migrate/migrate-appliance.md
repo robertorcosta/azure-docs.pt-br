@@ -1,14 +1,14 @@
 ---
 title: Dispositivo de Migrações para Azure
-description: Fornece uma visão geral do dispositivo de Migrações para Azure usado na avaliação e migração de servidor.
+description: Fornece um resumo do suporte para o dispositivo de migrações para Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 2092b03ee95349286b9e845689b5d9d55b61c772
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060723"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084763"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -71,7 +71,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 **Script do PowerShell** | Consulte este [artigo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
 **Software/hardware***   |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo como uma VM do Hyper-V, precisará de recursos suficientes no host do Hyper-V para alocar 16 GB de RAM, 8 CPUs virtuais, cerca de 80 GB de espaço de armazenamento e um comutador externo para a VM do dispositivo.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware. 
 **Requisitos do Hyper-V** | Se você implantar o dispositivo com o modelo VHD, a VM do dispositivo fornecida pelas Migrações para Azure será a versão 5.0 da VM do Hyper-V.<br/><br/> O host do Hyper-V deve estar executando o Windows Server 2012 R2 ou posterior. 
-**Valor de hash – VHD** | [Verifique](tutorial-assess-hyper-v.md#verify-security) os valores de hash do modelo VHD.
+**Valor de hash – VHD** | Valores de hash do modelo VHD.
 **Valor de hash – script do PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
 
 
@@ -84,7 +84,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 **Implantação com suporte** | Implante como computador físico dedicado, ou VM, usando um script de instalação do PowerShell. O script está disponível para download no portal.
 **Suporte de projeto** |  Um dispositivo pode ser associado a um único projeto. <br/> Qualquer quantidade de dispositivos pode ser associada a um único projeto.<br/> 
 **Limites de descoberta** | Um dispositivo pode descobrir até 1000 servidores físicos.
-**Script do PowerShell** | Baixe o script (AzureMigrateInstaller.ps1) em uma pasta compactada do portal ou [aqui](https://go.microsoft.com/fwlink/?linkid=2140334). [Saiba mais](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance).<br/><br/> O tamanho do download é 85 MB.
+**Script do PowerShell** | Baixe o script (AzureMigrateInstaller.ps1) em uma pasta compactada do portal ou [aqui](https://go.microsoft.com/fwlink/?linkid=2140334). [Saiba mais](tutorial-discover-physical.md).<br/><br/> O tamanho do download é 85 MB.
 **Software/hardware** |  O dispositivo deve ser executado no computador com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco e um comutador virtual externo.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em um computador físico, verifique se ele está executando o Windows Server 2016 e se atende aos requisitos de hardware.<br/> Não há suporte para a execução do dispositivo em um computador com o Windows Server 2019.
 **Valor de hash** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores de hash de script do PowerShell.
 

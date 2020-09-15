@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526632"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088554"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Como usar o PerfInsights no Azure
 
@@ -76,13 +76,13 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | IOPS         | Solicitações de dados/s             |
 |              | Solicitações de leitura/s             |
 |              | Solicitações de gravação/s            |
-| Latência      | Média de solicitação de dados/s         |
+| Latency      | Média de solicitação de dados/s         |
 |              | Média de leitura/s                 |
 |              | Média de gravação/s                |
 | Tamanho de E/S      | Média de bytes/solicitação de dados       |
-|              | Média de bytes/leitura               |
-|              | Média de bytes/gravação              |
-| Taxa de transferência   | Bytes de dados/s                |
+|              | Méd. de Bytes/leitura               |
+|              | Méd. de Bytes/gravação              |
+| Produtividade   | Bytes de dados/s                |
 |              | Bytes de leitura/s                |
 |              | Bytes de gravação/s               |
 | Comprimento da fila | Comprimento médio da fila de leitura        |
@@ -165,7 +165,15 @@ Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidad
 
 -  Esta ferramenta deve ser executada na VM que tem o problema de desempenho. 
 
--  Há suporte para os seguintes sistemas operacionais: Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2, Windows Server 2016; Windows 8.1 e Windows 10.
+-  Há suporte para os seguintes sistemas operacionais:
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possíveis problemas ao executar a ferramenta em VMs de produção
 

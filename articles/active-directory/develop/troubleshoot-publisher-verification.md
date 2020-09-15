@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007546"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088316"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solucionar problemas de verificação do editor
 Se você não conseguir concluir o processo ou estiver experimentando um comportamento inesperado com a [verificação do Publicador](publisher-verification-overview.md), comece fazendo o seguinte se estiver recebendo erros ou observando um comportamento inesperado: 
@@ -39,10 +39,10 @@ Abaixo estão alguns problemas comuns que podem ocorrer durante o processo.
     1. Se já existir uma conta do MPN, ela será reconhecida e você será adicionado à conta 
     1. Navegue até a [página de perfil do parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) onde a ID do MPN e o contato principal da conta serão listados
 
-- **Não sei quem é meu administrador global do Azure AD (também conhecido como administrador da empresa ou administrador de locatários), como posso encontrá-lo? E o administrador de aplicativos ou uma função de administrador diferente?**
+- **Não sei quem meu administrador global do Azure AD (também conhecido como administrador da empresa ou administrador de locatários) é, como posso encontrá-los? E quanto ao administrador de aplicativos ou ao administrador de aplicativos na nuvem?**
     1. Entre no [Portal do Azure AD](https://aad.portal.azure.com) usando uma conta de usuário no locatário principal da sua organização
     1. Navegue até [Gerenciamento de funções](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
-    1. Clique em “Administrador global” ou na função de administrador desejada
+    1. Clique na função de administrador desejada
     1. A lista de usuários atribuídos àquela função será exibida
 
 - **Não sei quem é ou quem são os administradores da minha conta do MPN** Vá para a [página de Gerenciamento de usuários do MPN](https://partner.microsoft.com/pcv/users) e filtre a lista de usuários para ver quais usuários estão nas diferentes funções de administrador.
@@ -51,22 +51,25 @@ Abaixo estão alguns problemas comuns que podem ocorrer durante o processo.
     1. Acesse o [perfil de parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verifique se: 
         - A ID do MPN está correta. 
         - Não há erros ou “ações pendentes” mostradas, e o status de verificação sob o perfil Negócio jurídico e as informações do Parceiro dizem “autorizado” ou “sucesso”.
-    1. Vá para a [página de Gerenciamento de locatários do MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e confirme se o locatário no qual o aplicativo está registrado e a conta de usuário que você está usando para entrar estão na lista de locatários associados.
-    1. Vá para a [página de Gerenciamento de usuários do MPN](https://partner.microsoft.com/pcv/users) e confirme se o usuário no qual você está entrando é um administrador global, administrador de MPN ou administrador de contas.
+    1. Vá para a [página de Gerenciamento de locatários do MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e confirme se o locatário no qual o aplicativo está registrado e a conta de usuário que você está usando para entrar estão na lista de locatários associados. Se você precisar adicionar um locatário adicional, siga as instruções [aqui](https://docs.microsoft.com/partner-center/multi-tenant-account). Esteja ciente de que todos os administradores globais de qualquer locatário adicionado receberão privilégios de administrador global em sua conta do Partner Center.
+    1. Vá para a [página de gerenciamento de usuário do MPN](https://partner.microsoft.com/pcv/users) e confirme se o usuário no qual você está entrando é um administrador global, administrador do MPN ou administrador de contas. Se você precisar adicionar um usuário a uma função no Partner Center, siga as instruções [aqui](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
 
 - **Quando eu entro no portal do Azure AD, não vejo nenhum aplicativo registrado. Por quê?** 
-    Os registros do aplicativo podem ter sido criados usando uma conta de usuário diferente ou em um locatário diferente. Verifique se você está conectado com a conta correta no locatário onde os registros do aplicativo foram criados.
+    Os registros do aplicativo podem ter sido criados usando uma conta de usuário diferente neste locatário, uma conta pessoal/de consumidor ou em um locatário diferente. Verifique se você está conectado com a conta correta no locatário onde os registros do aplicativo foram criados.
 
-- **Como faço para saber quem é o proprietário de um registro de aplicativo no Azure AD?** 
-    Quando conectado a um locatário onde o aplicativo está registrado, navegue até a folha Registros do aplicativo, clique em um aplicativo e, em seguida, clique em Proprietários.
+- **Estou recebendo um erro relacionado à autenticação multifator. O que devo fazer?** 
+    Verifique se a [autenticação multifator](../fundamentals/concept-fundamentals-mfa-get-started.md) está habilitada e é necessária para o usuário com o qual você está entrando e para esse cenário. Por exemplo, a MFA pode ser:
+    - Sempre necessário para o usuário com o qual você está entrando
+    - [Necessário para o gerenciamento do Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
+    - [Necessário para o tipo de administrador com o](../conditional-access/howto-conditional-access-policy-admin-mfa.md) qual você está entrando.
 
 ## <a name="making-microsoft-graph-api-calls"></a>Chamar a API do Microsoft Graph 
 
 Se você está tendo um problema, mas não consegue entender o motivo com base no que você está vendo na interface do usuário, pode ser útil executar outras soluções de problemas através de chamadas do Microsoft Graph para executar as mesmas operações que você pode executar no portal de Registro de aplicativo.
 
-A maneira mais fácil de fazer essas solicitações é usando o [Explorador do Graph](https://developer.microsoft.com/graph/graph-explorer). Você também pode considerar outras opções, como usar [Postman](https://www.postman.com/) ou PowerShell para [invocar uma solicitação da Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
+A maneira mais fácil de fazer essas solicitações é usando o [Explorador do Graph](https://developer.microsoft.com/graph/graph-explorer). Você também pode considerar outras opções, como usar [Postman](https://www.postman.com/) ou PowerShell para [invocar uma solicitação da Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest).  
 
-Você pode usar o Microsoft Graph para definir e remover o editor verificado do seu aplicativo e verificar o resultado depois de executar uma dessas operações. O resultado pode ser visto no objeto de [aplicativo](/graph/api/resources/application?view=graph-rest-beta) correspondente ao registro do aplicativo e a quaisquer [entidades de serviço](/graph/api/resources/serviceprincipal?view=graph-rest-beta) que tenham sido instanciadas a partir desse aplicativo. Para obter mais informações sobre a relação entre esses objetos, consulte: [Objetos de entidade de serviço e aplicativo no Azure Active Directory](app-objects-and-service-principals.md).  
+Você pode usar o Microsoft Graph para definir e remover o editor verificado do seu aplicativo e verificar o resultado depois de executar uma dessas operações. O resultado pode ser visto no objeto de [aplicativo](/graph/api/resources/application) correspondente ao registro do aplicativo e a quaisquer [entidades de serviço](/graph/api/resources/serviceprincipal) que tenham sido instanciadas a partir desse aplicativo. Para obter mais informações sobre a relação entre esses objetos, consulte: [Objetos de entidade de serviço e aplicativo no Azure Active Directory](app-objects-and-service-principals.md).  
 
 Aqui estão exemplos de algumas solicitações úteis:  
 
@@ -105,7 +108,7 @@ Resposta
 ### <a name="get-verified-publisher-info-from-application"></a>Obter informações do editor verificado a partir do aplicativo 
  
 ```
-GET https://graph.microsoft.com/beta/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
+GET https://graph.microsoft.com/v1.0/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
 
 HTTP/1.1 200 OK 
 
@@ -124,7 +127,7 @@ HTTP/1.1 200 OK
 
 ### <a name="get-verified-publisher-info-from-service-principal"></a>Obter informações do editor verificado a partir da entidade de serviço 
 ```
-GET https://graph.microsoft.com/beta/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
+GET https://graph.microsoft.com/v1.0/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
 
 HTTP/1.1 200 OK 
 
@@ -183,11 +186,7 @@ Não há suporte para essa funcionalidade em um locatário verificado por email.
 
 ### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
 
-O aplicativo de destino (<AppId>) deve ter um conjunto de domínios do editor. Defina um domínio do editor e tente novamente. 
-
-### <a name="publisherdomainisnotdnsverified"></a>PublisherDomainIsNotDNSVerified  
-
-O domínio do editor do aplicativo de destino (<publisherDomain>) não é um domínio verificado neste locatário. Verifique um domínio de locatário usando a verificação de DNS e tente novamente. 
+O aplicativo de destino ( \<AppId\> ) deve ter um conjunto de domínios do Publicador. Defina um domínio do editor e tente novamente.
 
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 

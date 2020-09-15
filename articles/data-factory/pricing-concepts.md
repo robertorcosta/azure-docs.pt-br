@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949942"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087177"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
 
@@ -130,9 +130,13 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Usando a depuração de fluxo de dados de mapeamento para um workday normal
 
-Como engenheiro de dados, você é responsável por criar, criar e testar fluxos de dados de mapeamento todos os dias. Faça logon na interface do usuário do ADF na manhã e habilite o modo de depuração para fluxos de dados. O TTL padrão para sessões de depuração é de 60 minutos. Você trabalha ao longo do dia por 8 horas, portanto, sua sessão de depuração nunca expira. Portanto, sua cobrança pelo dia será:
+Como engenheiro de dados, o Sam é responsável por criar, criar e testar fluxos de dados de mapeamento todos os dias. O Sam faz logon na interface do usuário do ADF na manhã e habilita o modo de depuração para fluxos de dados. O TTL padrão para sessões de depuração é de 60 minutos. O Sam funciona ao longo do dia por 8 horas, portanto, a sessão de depuração nunca expira. Portanto, os encargos de Sam para o dia serão:
 
 **8 (horas) x 8 (núcleos com otimização de computação) x $0.193 = $12.35**
+
+Ao mesmo tempo, Chris, outro engenheiro de dados, também faz logon na interface do usuário do navegador ADF para o trabalho de design de ETL e criação de perfil de dados. Chris não funciona no ADF todo dia como o Sam. Chris só precisa usar o depurador de fluxo de dados por 1 hora durante o mesmo período e no mesmo dia que o Sam acima. Esses são os encargos que Chris incorre para uso de depuração:
+
+**1 (hora) x 8 (núcleos de uso geral) x $0.274 = $2.19**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformar dados no repositório de blob com fluxos de dados de mapeamento
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 15224afac33a3e236c2d1ed9f60515bdc2f34c4f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fe07d6d54296a3c55cb0b2cadb4d4ae0a311873b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036786"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089557"
 ---
 # <a name="change-the-style-of-the-map"></a>Alterar o estilo do mapa
 
@@ -82,7 +82,7 @@ O estilo de mapa base pode ser atualizado usando a `setStyle` função e definin
 map.setStyle({ style: 'satellite' });
 ```
 
-No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa é atualizado de `grayscale_dark` para `satellite` usando a função [SetStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) .
+No código a seguir, depois que uma instância de mapa é carregada, o estilo de mapa é atualizado de `grayscale_dark` para `satellite` usando a função [SetStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setstyle-styleoptions-) .
 
 <br/>
 
@@ -97,14 +97,14 @@ O seletor de estilo tem duas opções de layout diferentes: `icon` e `list` . Al
 
 A imagem abaixo mostra o controle seletor de estilo exibido no `icon` layout.
 
-:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Layout da lista do seletor de estilo":::
+:::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Layout do ícone do seletor de estilo":::
 
 A imagem abaixo mostra o controle seletor de estilo exibido no `list` layout.
 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Layout da lista do seletor de estilo":::
 
 > [!IMPORTANT]
->Por padrão, o controle seletor de estilo lista todos os estilos disponíveis no tipo de preço S0 dos mapas do Azure. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como `"all"` .
+> Por padrão, o controle seletor de estilo lista todos os estilos disponíveis no tipo de preço S0 dos mapas do Azure. Se você quiser reduzir o número de estilos nessa lista, passe uma matriz dos estilos que você deseja que apareça na lista na `mapStyle` opção do seletor de estilo. Se você estiver usando S1 e quiser mostrar todos os estilos disponíveis, defina a `mapStyles` opção do seletor de estilo como `"all"` .
 
 O código a seguir mostra como substituir a lista de `mapStyles` estilos base padrão. Neste exemplo, estamos definindo a `mapStyles` opção para listar os estilos base que desejamos exibir pelo controle seletor de estilo.
 

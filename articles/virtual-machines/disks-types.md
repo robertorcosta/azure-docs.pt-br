@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752017"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088486"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
@@ -71,12 +71,12 @@ Se você quiser começar a usar o ultra disks, consulte nosso artigo sobre o ass
 
 Os SSDs Premium do Azure oferecem compatibilidade de disco de alto desempenho e baixa latência para VMs (máquinas virtuais) com cargas de trabalho com uso intensivo de E/S (entrada/saída). Para aproveitar a velocidade e o desempenho dos discos de armazenamento Premium, você pode migrar os discos de VM existentes para os SSDs Premium. Os SSDs Premium são adequados para aplicativos de produção críticos. O SSDs Premium só pode ser usado com a série de VMs que são compatíveis com o armazenamento Premium.
 
-Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Windows ou Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de máquinas virtuais no Azure](sizes.md). Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, confira [tamanhos de máquinas virtuais no Azure](sizes.md). A partir de qualquer um desses artigos, você precisa verificar cada artigo de tamanho de VM individual para determinar se ele é compatível com o armazenamento Premium.
+Para saber mais sobre os tipos e tamanhos de VM individuais no Azure para Windows ou Linux, incluindo quais tamanhos são compatíveis com o armazenamento Premium, consulte [tamanhos de máquinas virtuais no Azure](sizes.md). Neste artigo, você precisa verificar cada artigo de tamanho de VM individual para determinar se ele é compatível com o armazenamento Premium.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Quando você provisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, a capacidade, IOPS e taxa de transferência de disco são garantidos. Por exemplo, se você criar um disco P50, o Azure provisionará uma capacidade de armazenamento de 4.095 GB, 7.500 IOPS e uma taxa de transferência de 250 MB/s para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte. SSD Premium discos são projetados para fornecer latências de milissegundos de um dígito baixo e IOPS de destino e taxa de transferência descritas na tabela anterior 99,9% do tempo.
+Quando você provisiona um disco de armazenamento premium, ao contrário do armazenamento padrão, a capacidade, IOPS e taxa de transferência de disco são garantidos. Por exemplo, se você criar um disco P50, o Azure provisionará uma capacidade de armazenamento de 4.095 GB, 7.500 IOPS e uma taxa de transferência de 250 MB/s para o disco. O aplicativo pode usar a capacidade e o desempenho no todo ou em parte. Os discos SSD Premium são projetados para fornecer as latências baixas de milissegundos de dígito único e a IOPS de destino e a taxa de transferência descritas na tabela anterior 99,9% do tempo.
 
 ## <a name="bursting"></a>Bursting
 

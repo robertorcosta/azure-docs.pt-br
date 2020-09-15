@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279577"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087002"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores que influenciam o desempenho do Azure AD Connect
 
@@ -41,7 +41,7 @@ A finalidade deste documento é descrever os fatores que influenciam o desempenh
 
 O diagrama a seguir mostra uma arquitetura de alto nível de provisionamento de mecanismo para se conectar a uma única floresta, embora várias florestas tenham suporte. Essa arquitetura mostra como os vários componentes interagem uns com os outros.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![O diagrama mostra como os diretórios conectados e o mecanismo de provisionamento do Azure AD Connect interagem, incluindo o espaço do conector e os componentes de metaverso em um banco de dados SQL. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 O mecanismo de provisionamento se conecta a cada floresta do Active Directory e ao Microsoft Azure Active Directory. O processo de ler informações de cada diretório é chamado de importação. Exportação se refere à atualização dos diretórios do mecanismo de provisionamento. A sincronização avalia as regras de como os objetos fluirão dentro do mecanismo de provisionamento. Para se aprofundar, você pode consultar [sincronização do Azure AD Connect: noções básicas sobre a arquitetura](./concept-azure-ad-connect-sync-architecture.md).
 

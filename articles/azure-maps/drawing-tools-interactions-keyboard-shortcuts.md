@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 429baa4d5dc85476192758e4500f4c1f14610e6d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77198285"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089302"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interação e atalhos de teclado no módulo ferramentas de desenho
 
@@ -21,9 +21,9 @@ Este artigo descreve todas as diferentes maneiras de desenhar e editar formas us
 
 O Gerenciador de desenho dá suporte a três maneiras diferentes de interagir com o mapa, para desenhar formas.
 
-* `click`-As coordenadas são adicionadas quando o mouse ou toque é clicado.
-* `freehand `-As coordenadas são adicionadas quando o mouse ou toque é arrastado no mapa.
-* `hybrid`-As coordenadas são adicionadas quando o mouse ou toque é clicado ou arrastado.
+* `click` -As coordenadas são adicionadas quando o mouse ou toque é clicado.
+* `freehand ` -As coordenadas são adicionadas quando o mouse ou toque é arrastado no mapa.
+* `hybrid` -As coordenadas são adicionadas quando o mouse ou toque é clicado ou arrastado.
 
 ## <a name="how-to-draw-shapes"></a>Como desenhar formas
 
@@ -131,7 +131,7 @@ Quando o Gerenciador de desenho está no `draw-circle` modo, as ações a seguir
 **Cancelar desenho**
  - Pressione a `Escape` tecla.
 
-## <a name="keyboard-shortcuts"></a>Atalhos do teclado
+## <a name="keyboard-shortcuts"></a>Atalhos de teclado
 
 As ferramentas de desenho dão suporte a atalhos de teclado. Esses atalhos de teclado são funcionais quando o mapa está em foco.
 
@@ -146,7 +146,7 @@ As ferramentas de desenho dão suporte a atalhos de teclado. Esses atalhos de te
 Saiba mais sobre as classes no módulo ferramentas de desenho:
 
 > [!div class="nextstepaction"]
-> [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gerenciador de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de ferramentas desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

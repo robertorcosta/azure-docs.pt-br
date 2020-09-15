@@ -4,12 +4,12 @@ description: Mostra como aplicar marcas para organizar os recursos do Azure para
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1eaf9b735e65811b242fa7198b3545c9c68a4d46
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425986"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086752"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use marcas para organizar os recursos e a hierarquia de gerenciamento do Azure
 
@@ -307,7 +307,27 @@ az group list --tag Dept=IT
 
 ### <a name="handling-spaces"></a>Espaços de manuseio
 
-Se os nomes ou valores de marcação incluírem espaços, você deverá executar algumas etapas adicionais. O exemplo a seguir aplica todas as marcas de um grupo de recursos a seus recursos quando as marcas podem conter espaços.
+Se os nomes ou valores de marcação incluírem espaços, você deverá tomar algumas etapas adicionais. 
+
+Os `--tags` parâmetros na CLI do Azure podem aceitar uma cadeia de caracteres que consiste em uma matriz de cadeias de caracteres. O exemplo a seguir substitui as marcas em um grupo de recursos em que as marcas têm espaços e hífen: 
+
+```azurecli-interactive
+TAGS=("Cost Center=Finance-1222" "Location=West US")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+Você pode usar a mesma sintaxe ao criar ou atualizar um grupo de recursos ou recursos usando o `--tags` parâmetro.
+
+Para atualizar as marcas usando o `--set` parâmetro, você deve passar a chave e o valor como uma cadeia de caracteres. O exemplo a seguir acrescenta uma única marca a um grupo de recursos:
+
+```azurecli-interactive
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+Nesse caso, o valor da marca é marcado com aspas simples porque o valor tem um hífen.
+
+Talvez você também precise aplicar marcas a muitos recursos. O exemplo a seguir aplica todas as marcas de um grupo de recursos a seus recursos quando as marcas podem conter espaços:
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)

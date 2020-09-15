@@ -3,18 +3,18 @@ title: Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos
 description: Use recursos como registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas de Azure Cosmos DB ao usar o SDK do .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 06/16/2020
+ms.date: 09/12/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc5af781b86ef559abaf33b0cb027ef14adb4262
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021894"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086980"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos DB
 
@@ -28,6 +28,7 @@ Este artigo aborda problemas comuns, soluções alternativas, etapas de diagnós
 O SDK do .NET fornece a representação lógica do lado do cliente para acessar a API do SQL do Azure Cosmos DB. Este artigo descreve as ferramentas e as abordagens para ajudá-lo se você tiver algum problema.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>Lista de verificação para solucionar problemas
+
 Considere a seguinte lista de verificação antes de mover seu aplicativo para produção. O uso da lista de verificação impedirá vários problemas comuns que você possa ver. Você também pode diagnosticar rapidamente quando ocorrer um problema:
 
 *    Use o [SDK](sql-api-sdk-dotnet-standard.md)mais recente. Os SDKs de visualização não devem ser usados para produção. Isso evitará o pressionamento de problemas conhecidos que já foram corrigidos.
@@ -99,10 +100,15 @@ Essa latência pode ter várias causas:
     * Habilite [a rede acelerada em uma máquina virtual existente](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Considere o uso de uma [máquina virtual de extremidade superior](../virtual-machines/windows/sizes.md).
 
-### <a name="slow-query-performance"></a>Desempenho de consulta lento
-As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde a consulta está sendo gasta na maior parte do tempo. A partir das métricas de consulta, você pode ver quanto ele está sendo gasto no back-end em vez do cliente.
+### <a name="common-query-issues"></a>Problemas comuns de consulta
+
+As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde a consulta está sendo gasta na maior parte do tempo. A partir das métricas de consulta, você pode ver quanto ele está sendo gasto no back-end em vez do cliente. Saiba mais sobre como [solucionar problemas de desempenho de consulta](troubleshoot-query-performance.md).
+
 * Se a consulta de back-end retornar rapidamente e passar um tempo grande no cliente, verifique a carga no computador. É provável que não haja recursos suficientes e o SDK esteja aguardando que os recursos estejam disponíveis para lidar com a resposta.
-* Se a consulta de back-end estiver lenta, tente [otimizar a consulta](optimize-cost-queries.md) e examinar a [política de indexação](index-overview.md) atual 
+* Se a consulta de back-end estiver lenta, tente [otimizar a consulta](troubleshoot-query-performance.md) e examinar a política de [indexação](index-overview.md) atual
+
+    > [!NOTE]
+    > Para aprimorar o desempenho, recomendamos o processamento de host do Windows de 64 bits. O SDK do SQL inclui um ServiceInterop.dll nativo para analisar e otimizar as consultas localmente. O ServiceInterop.dll tem suporte apenas na plataforma Windows x64. Para Linux e outras plataformas sem suporte em que o ServiceInterop.dll não está disponível, uma chamada de rede adicional será feita ao gateway para obter a consulta otimizada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

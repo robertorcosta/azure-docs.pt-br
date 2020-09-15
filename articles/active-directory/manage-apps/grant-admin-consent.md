@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060910"
+ms.locfileid: "90069570"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Conceder consentimento de administrador em todo o locatário para um aplicativo
 
@@ -69,6 +69,9 @@ Para conceder consentimento de administrador em todo o locatário do **registros
 4. Selecione **permissões de API** e clique em **conceder consentimento de administrador**.
 5. Examine atentamente as permissões que o aplicativo requer.
 6. Se você concordar com as permissões que o aplicativo requer, conceda o consentimento. Caso contrário, clique em **Cancelar** ou feche a janela.
+
+> [!WARNING]
+> A concessão de consentimento de administrador em todo o locatário por meio de **registros de aplicativo** revogará quaisquer permissões que tenham recebido anteriormente todo o locatário. As permissões que foram concedidas anteriormente pelos usuários em seu próprio nome não serão afetadas. 
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>Construa a URL para conceder consentimento de administrador em todo o locatário
 

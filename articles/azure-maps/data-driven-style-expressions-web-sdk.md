@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009130"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089438"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo controladas por dados (SDK da Web)
 
@@ -44,7 +44,7 @@ O SDK da Web do Azure Maps dá suporte a muitos tipos de expressões. As express
 | Tipo de expressões | Descrição |
 |---------------------|-------------|
 | [Expressão de agregação](#aggregate-expression) | Uma expressão que define um cálculo que é processado em um conjunto de dados e pode ser usado com a `clusterProperties` opção de a `DataSource` . |
-| [Expressões boolianas](#boolean-expressions) | As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas. |
+| [Expressões booleanas](#boolean-expressions) | As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas. |
 | [Expressões de cores](#color-expressions) | As expressões de cor facilitam a criação e a manipulação de valores de cores. |
 | [Expressões condicionais](#conditional-expressions) | As expressões condicionais fornecem operações lógicas que são como instruções IF-. |
 | [Expressões de dados](#data-expressions) | Fornece acesso aos dados de propriedade em um recurso. |
@@ -72,7 +72,12 @@ Todos os exemplos neste documento usam o recurso a seguir para demonstrar difere
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-        "zoneColor": "red"
+        "zoneColor": "red",
+        "abcArray": ['a', 'b', 'c'],
+        "array2d": [['a', 'b'], ['x', 'y']],
+        "_style": {
+            "fillColor": 'red'
+        }
     }
 }
 ```
@@ -83,7 +88,7 @@ As expressões de dados fornecem acesso aos dados de propriedade em um recurso.
 
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
-| `['at', number, array]` | object | Recupera um item de uma matriz. |
+| `['at', number, array]` | objeto | Recupera um item de uma matriz. |
 | `['geometry-type']` | string | Obtém o tipo de geometria do recurso: ponto, MultiPoint, LineString, MultiLineString, polígono, MultiPolygon. |
 | `['get', string]` | value | Obtém o valor da propriedade das propriedades do recurso atual. Retornará NULL se a propriedade solicitada estiver ausente. |
 | `['get', string, object]` | value | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
@@ -137,6 +142,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Da mesma forma, a estrutura de polígonos será renderizada em camadas de linha. Para desabilitar esse comportamento em uma camada de linha, adicione um filtro que permita `LineString` apenas `MultiLineString` recursos e.  
 
+Aqui estão alguns exemplos adicionais de como usar expressões de dados:
+
+```javascript
+//Get item [2] from an array "properties.abcArray[1]" = "c"
+['at', 2, ['get', 'abcArray']]
+
+//Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
+['at', 1, ['at', 0, ['get', 'array2d']]]
+
+//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+['in', 'a', ['get', 'abcArray']]
+
+//Get the length of an array "properties.abcArray.length" = 3
+['length', ['get', 'abcArray']]
+
+//Get the value of a subproperty "properties._style.fillColor" = "red"
+['get', 'fillColor', ['get', '_style']]
+
+//Check that "fillColor" exists as a subproperty of "_style".
+['has', 'fillColor', ['get', '_style']]
+```
+
 ## <a name="math-expressions"></a>Expressões matemáticas
 
 As expressões matemáticas fornecem operadores matemáticos para executar cálculos controlados por dados dentro do Expression Framework.
@@ -181,14 +208,14 @@ Uma expressão de agregação leva em três valores: um valor de operador e um v
 ```
 
 - operador: uma função de expressão que é aplicada em relação a todos os valores calculados pelo `mapExpression` para cada ponto no cluster. Operadores com suporte: 
-    - Para números: `+` , `*` , `max` ,`min`
-    - Para boolianos: `all` ,`any`
+    - Para números: `+` , `*` , `max` , `min`
+    - Para boolianos: `all` , `any`
 - inicialvalue: um valor inicial no qual o primeiro valor calculado é agregado.
 - mapExpression: uma expressão que é aplicada em cada ponto do conjunto de dados.
 
 **Exemplos**
 
-Se todos os recursos em um conjunto de dados tiverem uma `revenue` propriedade, que é um número. Em seguida, a receita total de todos os pontos em um cluster, que são criados a partir do conjunto de dados, pode ser calculada. Esse cálculo é feito usando a seguinte expressão de agregação:`['+', 0, ['get', 'revenue']]`
+Se todos os recursos em um conjunto de dados tiverem uma `revenue` propriedade, que é um número. Em seguida, a receita total de todos os pontos em um cluster, que são criados a partir do conjunto de dados, pode ser calculada. Esse cálculo é feito usando a seguinte expressão de agregação: `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>Expressões boolianas
 
@@ -410,7 +437,7 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 | `['typeof', value]` | string | Retorna uma cadeia de caracteres que descreve o tipo do valor especificado. |
 
 > [!TIP]
-> Se uma mensagem de erro semelhante a `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` aparecer no console do navegador, significa que há uma expressão em algum lugar em seu código que tem uma matriz que não tem uma cadeia de caracteres para seu primeiro valor. Se você quiser que a expressão retorne uma matriz, empacote a matriz com a `literal` expressão. O exemplo a seguir define a `offset` opção de ícone de uma camada de símbolo, que precisa ser uma matriz que contém dois números, usando uma `match` expressão para escolher entre dois valores de deslocamento com base no valor da `entityType` Propriedade do recurso de ponto.
+> Se uma mensagem de erro semelhante a `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` aparecer no console do navegador, significa que há uma expressão em algum lugar em seu código que tem uma matriz que não tem uma cadeia de caracteres para seu primeiro valor. Se você quiser que a expressão retorne uma matriz, empacote a matriz com a `literal` expressão. O exemplo a seguir define a `offset` opção de ícone de uma camada de símbolo, que precisa ser uma matriz que contém dois números, usando uma `match` expressão para escolher entre dois valores de deslocamento com base no valor da  `entityType` Propriedade do recurso de ponto.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -490,7 +517,7 @@ A expressão acima renderiza um PIN no mapa com o texto "64 ° f" sobreposto sob
 
 <center>
 
-![Exemplo ](media/how-to-expressions/string-operator-expression.png) de expressão de operador de cadeia de caracteres</center>
+![Exemplo ](media/how-to-expressions/string-operator-expression.png) de expressão de operador de cadeia de caracteres </center>
 
 ## <a name="interpolate-and-step-expressions"></a>Expressões de interpolação e etapas
 
@@ -502,9 +529,9 @@ Uma `interpolate` expressão pode ser usada para calcular um conjunto de valores
 
 Há três tipos de métodos de interpolação que podem ser usados em uma `interpolate` expressão:
  
-* `['linear']`– Interpola linearmente entre o par de paradas.
-* `['exponential', base]`– Interpola exponencialmente entre as interrupções. O `base` valor controla a taxa na qual a saída aumenta. Valores mais altos fazem com que a saída aumente mais em direção ao alto fim do intervalo. Um `base` valor próximo de 1 produz uma saída que aumenta de forma linear.
-* `['cubic-bezier', x1, y1, x2, y2]`-Interpolações usando uma [curva de Bézier cúbica](https://developer.mozilla.org/docs/Web/CSS/timing-function) definida pelos pontos de controle fornecidos.
+* `['linear']` – Interpola linearmente entre o par de paradas.
+* `['exponential', base]` – Interpola exponencialmente entre as interrupções. O `base` valor controla a taxa na qual a saída aumenta. Valores mais altos fazem com que a saída aumente mais em direção ao alto fim do intervalo. Um `base` valor próximo de 1 produz uma saída que aumenta de forma linear.
+* `['cubic-bezier', x1, y1, x2, y2]` -Interpolações usando uma [curva de Bézier cúbica](https://developer.mozilla.org/docs/Web/CSS/timing-function) definida pelos pontos de controle fornecidos.
 
 Veja um exemplo de como esses diferentes tipos de interpolações se parecem. 
 
@@ -553,7 +580,7 @@ A imagem a seguir demonstra como as cores são escolhidas para a expressão acim
  
 <center>
 
-![Exemplo ](media/how-to-expressions/interpolate-expression-example.png) de expressão Interpolate</center>
+![Exemplo ](media/how-to-expressions/interpolate-expression-example.png) de expressão Interpolate </center>
 
 ### <a name="step-expression"></a>Expressão de etapa
 
@@ -609,7 +636,7 @@ Expressões especiais que se aplicam somente a camadas específicas.
 
 ### <a name="heat-map-density-expression"></a>Expressão de densidade do mapa de calor
 
-Uma expressão de densidade do mapa de calor recupera o valor de densidade do mapa de calor para cada pixel em uma camada do mapa de calor e é definida como `['heatmap-density']` . Esse valor é um número entre `0` e `1` . Ele é usado em combinação com uma `interpolation` `step` expressão or para definir o gradiente de cor usado para colorir o mapa de calor. Essa expressão só pode ser usada na [opção de cor](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) da camada do mapa de calor.
+Uma expressão de densidade do mapa de calor recupera o valor de densidade do mapa de calor para cada pixel em uma camada do mapa de calor e é definida como `['heatmap-density']` . Esse valor é um número entre `0` e `1` . Ele é usado em combinação com uma `interpolation` `step` expressão or para definir o gradiente de cor usado para colorir o mapa de calor. Essa expressão só pode ser usada na [opção de cor](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) da camada do mapa de calor.
 
 > [!TIP]
 > A cor no índice 0, em uma expressão de interpolação ou a cor padrão de uma cor da etapa, define a cor da área onde não há dados. A cor no índice 0 pode ser usada para definir uma cor de plano de fundo. Muitos preferem definir esse valor como transparente ou semitransparente preto.
@@ -653,7 +680,7 @@ Para obter mais informações, consulte a documentação [Adicionar uma camada d
 
 ### <a name="line-progress-expression"></a>Expressão de progresso da linha
 
-Uma expressão de progresso de linha recupera o progresso ao longo de uma linha de gradiente em uma camada de linha e é definida como `['line-progress']` . Esse valor é um número entre 0 e 1. Ele é usado em combinação com uma `interpolation` `step` expressão ou. Essa expressão só pode ser usada com a [opção strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) da camada de linha. 
+Uma expressão de progresso de linha recupera o progresso ao longo de uma linha de gradiente em uma camada de linha e é definida como `['line-progress']` . Esse valor é um número entre 0 e 1. Ele é usado em combinação com uma `interpolation` `step` expressão ou. Essa expressão só pode ser usada com a [opção strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) da camada de linha. 
 
 > [!NOTE]
 > A `strokeGradient` opção da camada de linha requer a `lineMetrics` opção da fonte de dados a ser definida como `true` .
@@ -684,9 +711,9 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 A expressão de formato de campo de texto pode ser usada com a `textField` opção da propriedade camadas de símbolo `textOptions` para fornecer formatação de texto misto. Essa expressão permite que um conjunto de cadeias de caracteres de entrada e opções de formatação sejam especificados. As opções a seguir podem ser especificadas para cada cadeia de caracteres de entrada nesta expressão.
 
- * `'font-scale'`-Especifica o fator de dimensionamento para o tamanho da fonte. Se especificado, esse valor substituirá a `size` Propriedade do `textOptions` para a cadeia de caracteres individual.
- * `'text-font'`-Especifica uma ou mais famílias de fontes que devem ser usadas para esta cadeia de caracteres. Se especificado, esse valor substituirá a `font` Propriedade do `textOptions` para a cadeia de caracteres individual.
- * `'text-color'`-Especifica uma cor a ser aplicada a um texto durante a renderização. 
+ * `'font-scale'` -Especifica o fator de dimensionamento para o tamanho da fonte. Se especificado, esse valor substituirá a `size` Propriedade do `textOptions` para a cadeia de caracteres individual.
+ * `'text-font'` -Especifica uma ou mais famílias de fontes que devem ser usadas para esta cadeia de caracteres. Se especificado, esse valor substituirá a `font` Propriedade do `textOptions` para a cadeia de caracteres individual.
+ * `'text-color'` -Especifica uma cor a ser aplicada a um texto durante a renderização. 
 
 O pseudocódigo a seguir define a estrutura da expressão de formato de campo de texto. 
 
@@ -743,16 +770,16 @@ Essa camada renderizará o recurso de ponto, conforme mostrado na imagem abaixo:
  
 <center>
 
-![Imagem do recurso de ponto com campo ](media/how-to-expressions/text-field-format-expression.png) de texto formatado</center>
+![Imagem do recurso de ponto com campo ](media/how-to-expressions/text-field-format-expression.png) de texto formatado </center>
 
 ### <a name="number-format-expression"></a>Expressão de formato de número
 
 A `number-format` expressão só pode ser usada com a `textField` opção de uma camada de símbolo. Essa expressão converte o número fornecido em uma cadeia de caracteres formatada. Essa expressão encapsula a função [número. Tolocalstring](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) do JavaScript e dá suporte ao seguinte conjunto de opções.
 
- * `locale`-Especifique essa opção para converter números em cadeias de caracteres de uma maneira que se alinhe com o idioma especificado. Passe uma [marca de idioma BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) para essa opção.
- * `currency`-Para converter o número em uma cadeia de caracteres que representa uma moeda. Os valores possíveis são os [códigos de moeda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), como "USD" para o dólar americano, "EUR" para o euro ou "CNY" para o RMB do chinês.
- * `'min-fraction-digits'`-Especifica o número mínimo de casas decimais a serem incluídas na versão da cadeia de caracteres do número.
- * `'max-fraction-digits'`-Especifica o número máximo de casas decimais a serem incluídas na versão da cadeia de caracteres do número.
+ * `locale` -Especifique essa opção para converter números em cadeias de caracteres de uma maneira que se alinhe com o idioma especificado. Passe uma [marca de idioma BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) para essa opção.
+ * `currency` -Para converter o número em uma cadeia de caracteres que representa uma moeda. Os valores possíveis são os [códigos de moeda ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), como "USD" para o dólar americano, "EUR" para o euro ou "CNY" para o RMB do chinês.
+ * `'min-fraction-digits'` -Especifica o número mínimo de casas decimais a serem incluídas na versão da cadeia de caracteres do número.
+ * `'max-fraction-digits'` -Especifica o número máximo de casas decimais a serem incluídas na versão da cadeia de caracteres do número.
 
 O pseudocódigo a seguir define a estrutura da expressão de formato de campo de texto. 
 
@@ -791,7 +818,7 @@ Essa camada renderizará o recurso de ponto, conforme mostrado na imagem abaixo:
 
 <center>
 
-![Exemplo ](media/how-to-expressions/number-format-expression.png) de expressão de formato de número</center>
+![Exemplo ](media/how-to-expressions/number-format-expression.png) de expressão de formato de número </center>
 
 ### <a name="image-expression"></a>Expressão de imagem
 
@@ -829,7 +856,7 @@ Essa camada renderizará o campo de texto na camada de símbolo, conforme mostra
 
 <center>
 
-![Exemplo ](media/how-to-expressions/image-expression.png) de expressão de imagem</center>
+![Exemplo ](media/how-to-expressions/image-expression.png) de expressão de imagem </center>
 
 ## <a name="zoom-expression"></a>Expressão de zoom
 
@@ -916,16 +943,16 @@ Consulte os artigos a seguir para obter mais exemplos de código que implementam
 Saiba mais sobre as opções de camada que dão suporte a expressões:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)

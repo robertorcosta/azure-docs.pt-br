@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f65bf2bbe174ff90d5a0b962768833b8668f6400
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019709"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088792"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
 
@@ -216,7 +216,7 @@ Algumas ferramentas do Azure oferecem a opção de usar a autorização do Azure
 | Portal do Azure | Com suporte. Para obter informações sobre como autorizar com sua conta do Azure AD do portal do Azure, consulte [escolher como autorizar o acesso a dados de blob no portal do Azure](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Com suporte para armazenamento de BLOBs. Para obter informações sobre como autorizar operações de AzCopy, consulte [escolher como você fornecerá credenciais de autorização](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) na documentação do AzCopy. |
 | Gerenciador de Armazenamento do Azure | Com suporte somente para armazenamento de BLOBs e Azure Data Lake Storage Gen2. Não há suporte para o acesso do Azure AD ao armazenamento de filas. Certifique-se de selecionar o locatário correto do Azure AD. Para obter mais informações, consulte Introdução [ao Gerenciador de armazenamento](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
-| Azure PowerShell | Com suporte. Para obter informações sobre como autorizar comandos do PowerShell com o Azure AD para acessar dados de BLOB e de fila, consulte [executar comandos do PowerShell com as credenciais do Azure ad para acessar dados de BLOB ou fila](authorize-active-directory-powershell.md). |
+| Azure PowerShell | Com suporte. Para obter informações sobre como autorizar comandos do PowerShell para operações de BLOB ou fila com o Azure AD, consulte [executar comandos do PowerShell com as credenciais do Azure ad para acessar dados de blob](../blobs/authorize-active-directory-powershell.md) ou [executar comandos do PowerShell com as credenciais do Azure ad para acessar os dados da fila](../queues/authorize-active-directory-powershell.md). |
 | CLI do Azure | Com suporte. Para obter informações sobre como autorizar comandos de CLI do Azure com o Azure AD para acessar dados de BLOB e de fila, consulte [executar comandos de CLI do Azure com as credenciais do Azure ad para acessar dados de BLOB ou fila](authorize-data-operations-cli.md). |
 | Hub IoT do Azure | Com suporte. Para obter mais informações, consulte [suporte do Hub IOT para redes virtuais](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell é um shell integrado no portal do Azure. Azure Cloud Shell hospeda arquivos para persistência em um compartilhamento de arquivos do Azure em uma conta de armazenamento. Esses arquivos ficarão inacessíveis se a autorização de chave compartilhada não for permitida para essa conta de armazenamento. Para obter mais informações, consulte [conectar o armazenamento de arquivos de Microsoft Azure](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos no Azure Cloud Shell para gerenciar contas de armazenamento para as quais o acesso à chave compartilhada não é permitido, primeiro certifique-se de ter recebido as permissões necessárias para essas contas por meio do controle de acesso baseado em função (RBAC). Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md). |

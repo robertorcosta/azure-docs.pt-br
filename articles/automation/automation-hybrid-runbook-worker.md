@@ -3,14 +3,14 @@ title: Visão geral do Hybrid Runbook Worker da Automação do Azure
 description: Este artigo fornece uma visão geral do Hybrid Runbook Worker, que você pode usar para executar runbooks em computadores no seu datacenter ou provedor de nuvem local.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448084"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087874"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Visão geral do Hybrid Runbook Worker
 
@@ -51,9 +51,9 @@ Para que o Hybrid Runbook Worker se conecte e se registre na Automação do Azur
 A porta e URLs a seguir são necessárias para a função do Hybrid Runbook Worker:
 
 * Porta: Somente a TCP 443 é necessária para acesso à Internet de saída
-* URL global:`*.azure-automation.net`
-* URL global de US Gov-Virgínia:`*.azure-automation.us`
-* Serviço do agente:`https://<workspaceId>.agentsvc.azure-automation.net`
+* URL global: `*.azure-automation.net`
+* URL global de US Gov-Virgínia: `*.azure-automation.us`
+* Serviço do agente: `https://<workspaceId>.agentsvc.azure-automation.net`
 
 Se você tiver uma conta da Automação definida para uma região específica, você pode restringir a comunicação do Hybrid Runbook Worker para esse centro de dados regional. Examine os [registros DNS usados pela automação do Azure](how-to/automation-region-dns-records.md) para os registros DNS necessários.
 
@@ -63,11 +63,11 @@ Se você usar um servidor proxy para a comunicação entre a automação do Azur
 
 ### <a name="firewall-use"></a>Uso de firewall
 
-Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se estiver usando o gateway do Log Analytics como proxy, verifique se ele está configurado para Hybrid Runbook Workers. Confira [Configurar o Gateway do Log Analytics para Hybrid Workers de Automação](../azure-monitor/platform/gateway.md).
+Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso. Se estiver usando o gateway do Log Analytics como proxy, verifique se ele está configurado para Hybrid Runbook Workers. Consulte [Configurar o gateway de log Analytics para Hybrid runbook Workers de automação](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Marcas de serviço
 
-A automação do Azure dá suporte a marcas de serviço de rede virtual do Azure, começando com a marca de serviço [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). As marcas de serviço podem ser usadas no lugar de endereços IP específicos quando você cria regras de segurança. Ao especificar o nome da marca de serviço **GuestAndHybridManagement** no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço de automação. Essa marca de serviço não dá suporte à permissão de controle mais granular restringindo intervalos de IP para uma região específica.
+A automação do Azure dá suporte a marcas de serviço de rede virtual do Azure, começando com a marca de serviço [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Você pode usar marcas de serviço para definir os controles de acesso à rede em [grupos de segurança de rede](../virtual-network/security-overview.md#security-rules) ou no [Firewall do Azure](../firewall/service-tags.md). As marcas de serviço podem ser usadas no lugar de endereços IP específicos quando você cria regras de segurança. Ao especificar o nome da marca de serviço **GuestAndHybridManagement**  no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço de automação. Essa marca de serviço não dá suporte à permissão de controle mais granular restringindo intervalos de IP para uma região específica.
 
 A marca de serviço para o serviço de automação do Azure fornece somente IPs usados para os seguintes cenários:
 
@@ -115,6 +115,20 @@ Se o computador host do Hybrid Runbook Worker reiniciar, qualquer trabalho de ru
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Permissões de runbook para um Hybrid Runbook Worker
 
 Como eles acessam recursos que não são do Azure, os runbooks em execução em um Hybrid Runbook Worker não podem usar o mecanismo de autenticação normalmente usado pelos runbooks que se autenticam nos recursos do Azure. Um runbook fornece sua própria autenticação aos recursos locais, ou configura a autenticação usando [entidades gerenciadas para os recursos do Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Você também pode especificar uma conta Executar como para fornecer um contexto de usuário a todos os runbooks.
+
+## <a name="view-hybrid-runbook-workers"></a>Exibir Hybrid runbook Workers
+
+Depois que o recurso de Gerenciamento de Atualizações estiver habilitado em servidores ou máquinas virtuais Windows, você poderá inventariar a lista de grupos de Hybrid runbook Workers do sistema na portal do Azure. Você pode exibir até 2.000 trabalhadores no portal selecionando a guia grupo de **trabalhos híbridos do sistema** da opção **Hybrid Workers grupo** no painel esquerdo da conta de automação selecionada.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Página de grupos de trabalho híbridos do sistema de conta de automação" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+Se você tiver mais de 2.000 trabalhadores híbridos, para obter uma lista de todos eles, poderá executar o seguinte script do PowerShell:
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

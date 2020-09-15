@@ -3,12 +3,12 @@ title: Configurar um dispositivo de migrações para Azure para Hyper-V
 description: Saiba como configurar um dispositivo de migrações para Azure para avaliar e migrar VMs do Hyper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 21d88c4a2b2095fe677fe479bd7320f7a494db9e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929901"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087143"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um dispositivo para VMs do Hyper-V
 
@@ -32,23 +32,23 @@ Para configurar o dispositivo usando um modelo VHD:
 - Crie o dispositivo e verifique se ele pode se conectar à Avaliação de Servidor das Migrações para Azure.
 - Configure o dispositivo pela primeira vez e registre-o com o projeto de migrações para Azure usando a chave de projeto migrações para Azure.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave de projeto de migrações para Azure
+### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
 
 1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
 2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Sim, com o Hyper-V**.
-3. Em **1: gerar chave de projeto de migrações para Azure**, forneça um nome para o dispositivo de migrações para Azure que você irá configurar para a descoberta de VMs do Hyper-V. o nome deve ser alfanumérico com 14 caracteres ou menos.
-1. Clique em **gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página descobrir computadores durante a criação de recursos.
-1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto de migrações para Azure** é gerada.
-1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante sua configuração.
+3. Em **1: Gerar chave de projeto das Migrações para Azure**, forneça um nome para o dispositivo das Migrações para Azure que você vai configurar para a descoberta das VMs do Hyper-V. O nome deverá conter até 14 caracteres alfanuméricos.
+1. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir computadores durante a criação de recursos.
+1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
+1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
 ### <a name="download-the-vhd"></a>Baixar o VHD
 
-Em **2: baixar o dispositivo de migrações para Azure**, selecione o. Arquivo VHD e clique em **baixar**. 
+Em **2: Baixar o dispositivo das Migrações para Azure**, selecione o arquivo .VHD e clique em **Baixar**. 
 
-   ![Seleções para computadores de descoberta](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![Seleções para Descobrir computadores](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
-   ![Seleções para a chave de geração](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
+   ![Seleções para Gerar Chave](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
 
 ### <a name="verify-security"></a>Verificar a segurança
@@ -59,7 +59,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 2. Execute o seguinte comando para gerar o hash para o VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  Para a versão do dispositivo 2.19.11.12, o hash gerado deve corresponder a essas [configurações](./tutorial-assess-hyper-v.md#verify-security).
+
 
 
 
@@ -100,25 +100,25 @@ Configure o dispositivo pela primeira vez.
 3. Abra um navegador em qualquer computador que possa se conectar à VM e abra a URL do aplicativo Web do dispositivo: **https://*nome do dispositivo ou endereço IP*: 44368**.
 
    Como alternativa, você pode abrir o aplicativo na área de trabalho do dispositivo clicando no atalho do aplicativo.
-1. Aceite os **termos de licença**e leia as informações de terceiros.
+1. Aceite os **termos de licença** e leia as informações de terceiros.
 1. No aplicativo Web > **Configurar os pré-requisitos**, faça o seguinte:
     - **Conectividade**: o aplicativo verifica se a VM tem acesso à Internet. Se a VM usar um proxy:
-      - Clique em **Configurar proxy** para e especifique o endereço do proxy (no formulário http://ProxyIPAddress ou na http://ProxyFQDN) porta de escuta.
+      - Clique em **Configurar proxy** e especifique o endereço de proxy (na forma http://ProxyIPAddress ou http://ProxyFQDN) e na porta de escuta.
       - Especifique as credenciais caso o proxy exija autenticação.
       - Há suporte apenas para o proxy HTTP.
-      - Se você tiver adicionado detalhes de proxy ou desabilitado o proxy e/ou a autenticação, clique em **salvar** para disparar a verificação de conectividade novamente.
+      - Se você tiver adicionado detalhes de proxy ou desabilitado o proxy e/ou a autenticação, clique em **Salvar** para disparar a verificação de conectividade novamente.
     - **Sincronização do horário**: o horário é verificado. o horário no dispositivo deve ser sincronizado com o horário na Internet para que a descoberta da VM funcione corretamente.
-    - **Instalar atualizações**: avaliação do servidor de migrações para Azure verifica se o dispositivo tem as atualizações mais recentes instaladas. Depois que a verificação for concluída, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos componentes em execução no dispositivo.
+    - **Instalar as atualizações**: A avaliação do servidor das Migrações para Azure verifica se o dispositivo tem as últimas atualizações instaladas. Depois que a verificação for concluída, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos componentes em execução no dispositivo.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
-1. Cole a **chave de projeto de migrações para Azure** copiada do Portal. Se você não tiver a chave, vá para **avaliação do servidor> descobrir> gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração de chave e copie a chave correspondente.
-1. Clique em **fazer logon**. Ele abrirá um prompt de logon do Azure em uma nova guia do navegador. Se não aparecer, verifique se você desabilitou o bloqueador de pop-ups no navegador.
+1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
+1. Clique em **Fazer logon**. Será aberto um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
 1. Na nova guia, entre usando seu nome de usuário e senha do Azure.
    
    Não há suporte para a entrada com um PIN.
 3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
-4. Se a conta de usuário do Azure usada para registro em log tiver as [permissões](tutorial-prepare-hyper-v.md#prepare-azure) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
+4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](tutorial-prepare-hyper-v.md#prepare-azure) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 
 
@@ -143,27 +143,27 @@ Se estiver executando VHDs em SMBs, você precisará habilitar a delegação de 
 
 Conecte-se do dispositivo a clusters ou hosts do Hyper-V e inicie a descoberta de VM.
 
-1. Na **etapa 1: fornecer credenciais de host do Hyper-V**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicionar **nome de usuário** e **senha** para um host/cluster Hyper-v que o dispositivo usará para descobrir VMS. Clique em **Save**.
-1. Se você quiser adicionar várias credenciais ao mesmo tempo, clique em **adicionar mais** para salvar e adicionar mais credenciais. Há suporte para várias credenciais para a descoberta de VMs do Hyper-V.
-1. Na **etapa 2: fornecer detalhes de host/cluster do Hyper-v**, clique em **Adicionar origem de descoberta** para especificar o host do Hyper-v/ **endereço IP do cluster/FQDN** e o nome amigável para as credenciais a serem conectadas ao host/cluster.
-1. Você pode **Adicionar um único item** por vez ou **adicionar vários itens** em um só lugar. Também há uma opção para fornecer detalhes de host/cluster do Hyper-V por meio de **importação CSV**.
+1. Na **Etapa 1: Fornecer as credenciais do host Hyper-V**, clique em **Adicionar credenciais** para especificar um nome amigável para as credenciais, adicione o **Nome de usuário** e a **Senha** para um host/cluster Hyper-V que o dispositivo usará para descobrir VMs. Clique em **Save**.
+1. Se desejar adicionar várias credenciais ao mesmo tempo, clique em **Adicionar mais** para salvar e adicionar mais credenciais. Há suporte a várias credenciais para a descoberta de VMs Hyper-V.
+1. Na **Etapa 2: Fornecer detalhes do host/cluster Hyper-V**, clique em **Adicionar origem da descoberta** para especificar o **endereço IP/FQDN** do host/cluster Hyper-V e o nome amigável para as credenciais se conectarem ao host/cluster.
+1. Você pode **Adicionar um item** de cada vez ou **Adicionar vários itens** em um só lugar. Também há uma opção de fornecer detalhes do host/cluster Hyper-V por meio de **Importar CSV**.
 
-    ![Seleções para adicionar origem de descoberta](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
+    ![Seleções para adicionar a origem da descoberta](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
 
-    - Se você escolher **Adicionar um único item**, precisará especificar um nome amigável para credenciais e o host do Hyper-V/ **endereço IP do cluster/FQDN** e clicar em **salvar**.
-    - Se você escolher **adicionar vários itens** _(selecionados por padrão)_, poderá adicionar vários registros de uma só vez especificando o host do Hyper-V/ **endereço IP do cluster/FQDN** com o nome amigável para credenciais na caixa de texto. **Verifique** os registros adicionados e clique em **salvar**.
-    - Se você escolher **importar CSV**, poderá baixar um arquivo de modelo CSV, preencher o arquivo com o host do Hyper-V/ **endereço IP do cluster/FQDN** e nome amigável para credenciais. Em seguida, importe o arquivo para o dispositivo, **Verifique** os registros no arquivo e clique em **salvar**.
+    - Se você escolher **Adicionar um item**, precisará especificar o nome amigável para as credenciais e o **endereço IP/FQDN** do host/cluster Hyper-V e clicar em **Salvar**.
+    - Se você escolher **Adicionar vários itens** _(selecionado por padrão)_ , poderá adicionar vários registros de uma vez especificando o **endereço IP/FQDN** do host/cluster Hyper-V com o nome amigável para as credenciais na caixa de texto. **Verifique** os registros adicionados e clique em **Salvar**.
+    - Se você escolher **Importar CSV**, poderá baixar um arquivo de modelo CSV, preenchê-lo com o **endereço IP/FQDN** do host/cluster Hyper-V e o nome amigável para as credenciais. Em seguida, importe o arquivo para o dispositivo, **verifique** os registros no arquivo e clique em **Salvar**.
 
-1. Ao clicar em salvar, o dispositivo tentará validar a conexão com os hosts/clusters do Hyper-V adicionados e mostrará o **status de validação** na tabela em cada host/cluster.
-    - Para os hosts/clusters validados com êxito, você pode exibir mais detalhes clicando em seu endereço IP/FQDN.
-    - Se a validação falhar para um host, examine o erro clicando em **validação falha** na coluna status da tabela. Corrija o problema e valide novamente.
-    - Para remover hosts ou clusters, clique em **excluir**.
+1. Quando você clicar em Salvar, o dispositivo tentará validar a conexão com os hosts/clusters Hyper-V adicionados e mostrará o **Status de validação** na tabela em cada host/cluster.
+    - Para ter hosts/clusters validados com êxito, você pode ver mais detalhes clicando no endereço IP/FQDN deles.
+    - Se a validação falhar para um host, examine o erro clicando em **Falha na validação** na coluna Status da tabela. Corrija o problema e valide novamente.
+    - Para remover hosts ou clusters, clique em **Excluir**.
     - Não é possível remover um host específico de um cluster. Você só pode remover o cluster inteiro.
     - Você pode adicionar um cluster, mesmo que haja problemas com hosts específicos nele.
-1. Você pode **revalidar** a conectividade a hosts/clusters a qualquer momento antes de iniciar a descoberta.
-1. Clique em **Iniciar descoberta**para disparar a descoberta de VM dos hosts/clusters validados com êxito. Depois que a descoberta for iniciada com êxito, você poderá verificar o status da descoberta em cada host/cluster na tabela.
+1. Você pode **revalidar** a conectividade com os hosts/clusters a qualquer momento antes de iniciar a descoberta.
+1. Clique em **Iniciar descoberta** para iniciar a descoberta da VM dos hosts/clusters validados com êxito. Depois que a descoberta for iniciada com êxito, você poderá verificar o status da descoberta em cada host/cluster na tabela.
 
-Isso iniciará a descoberta. Leva aproximadamente 2 minutos por host para que os metadados de servidores descobertos apareçam na portal do Azure.
+Isso iniciará a descoberta. São necessários aproximadamente 2 minutos por host para que os metadados dos servidores descobertos sejam exibidos no portal do Azure.
 
 ## <a name="verify-vms-in-the-portal"></a>Verifique as VMs no portal
 

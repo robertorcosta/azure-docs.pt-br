@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7bc39e409d0ac10e41fae58c5e5216f386427e30
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541729"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088299"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Solucionar problemas de conectividade do Azure AD
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
@@ -33,7 +33,7 @@ O Azure AD Connect está usando Autenticação Moderna (usando a biblioteca ADAL
 Neste artigo, mostraremos como a Fabrikam se conecta ao AD do Azure por meio de seu proxy. O servidor proxy é chamado fabrikamproxy e está usando a porta 8080.
 
 Primeiro, precisamos verificar se [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) está configurado corretamente e **Microsoft Azure ad o serviço de sincronização** foi reiniciado uma vez após a atualização do arquivo de machine.config.
-![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
+![Captura de tela mostra parte do arquivo de configuração de ponto do computador.](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
 > Em alguns blogs sem relação com a Microsoft, está documentado que as alterações devem ser feitas em miiserver.exe.config. No entanto, esse arquivo será substituído em cada atualização, portanto, mesmo que ele funcione durante a instalação inicial, o sistema deixará de funcionar na primeira atualização. Por esse motivo, a recomendação é atualizar o machine.config.
@@ -60,7 +60,7 @@ Estes são os problemas mais comuns que você encontrará no assistente de insta
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>O assistente de instalação não foi configurado corretamente
 Esse erro aparecerá quando o assistente não conseguir acessar o proxy.
-![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
+![Captura de tela mostra um erro: não é possível validar as credenciais.](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Se você vir esse erro, verifique se o [machine.config](how-to-connect-install-prerequisites.md#connectivity) foi configurado corretamente.
 * Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
@@ -87,7 +87,7 @@ O PowerShell usa a configuração em machine.config para entrar em contato com o
 
 Se o proxy estiver configurado corretamente, você deverá obter um status de êxito: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Se você receber **Não é possível se conectar ao servidor remoto** é porque o PowerShell está tentando fazer uma chamada direta sem usar o proxy ou o DNS não está configurado corretamente. Verifique se o arquivo **machine.config** está configurado corretamente.
+Se você receber **não é possível se conectar ao servidor remoto, o**PowerShell está tentando fazer uma chamada direta sem usar o proxy ou o DNS não está configurado corretamente. Verifique se o arquivo de **machine.config** está configurado corretamente.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 Se o proxy não estiver configurado corretamente, você receberá um erro: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
@@ -122,7 +122,7 @@ Veja um despejo de um log de proxy real e a página do assistente de instalaçã
 | 11/01/2016 08:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 11/01/2016 08:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
-**Configure**
+**Configurar**
 
 | Hora | URL |
 | --- | --- |
@@ -225,14 +225,14 @@ Mostrada como um erro inesperado no assistente de instalação. Poderá ocorrer 
 O assistente de conexão foi desativado a partir das versões com número de compilação 1.1.105.0 (lançada em fevereiro de 2016). Esta seção e a configuração não são mais necessárias, mas são mantidas como referência.
 
 Para que o assistente de conexão funcione, o winhttp deve ser configurado. Essa configuração pode ser feita com [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
-![netsh](./media/tshoot-connect-connectivity/netsh.png)
+![Captura de tela mostra uma janela de prompt de comando executando a ferramenta Netsh para definir um proxy.](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>O assistente de conexão não foi configurado corretamente
 Esse erro ocorre quando o Assistente de conexão não consegue acessar o proxy ou o proxy não está permitindo a solicitação.
-![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
+![A captura de tela mostra um erro: não é possível validar as credenciais, verificar a conectividade de rede e as configurações de proxy ou de firewall.](./media/tshoot-connect-connectivity/nonetsh.png)
 
 * Se você vir esse erro, examine a configuração do proxy no [netsh](how-to-connect-install-prerequisites.md#connectivity) e verifique se ela está correta.
-  ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
+  ![Captura de tela mostra uma janela de prompt de comando executando a ferramenta Netsh para mostrar a configuração de proxy.](./media/tshoot-connect-connectivity/netshshow.png)
 * Se parecer correto, siga as etapas em [Verificar a conectividade do proxy](#verify-proxy-connectivity) para ver se o problema também ocorre fora do assistente.
 
 ## <a name="next-steps"></a>Próximas etapas

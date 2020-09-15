@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 7bdb0ae813600f53df44ee1a61a4cbbb56bb0bfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4926e18aa6b00fe36608843ea5253903ace774e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067492"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089101"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Experiência de logs simples em Azure Monitor (versão prévia)
 Azure Monitor fornece uma [experiência rica](get-started-portal.md) para criar [consultas de log](log-query-overview.md) usando a linguagem KQL. Talvez você não precise de toda a potência do KQL, mas prefira uma experiência simplificada para os requisitos básicos de consulta. A experiência de logs simples permite que você crie consultas básicas sem interagir diretamente com o KQL. Você também pode usar logs simples como uma ferramenta de aprendizado para KQL, pois você precisa de consultas mais sofisticadas.
@@ -26,11 +26,11 @@ A experiência de logs simples recupera dados da tabela *AzureDiagnostics*, *Azu
 ## <a name="using-simple-logs"></a>Usando logs simples
 Navegue até qualquer Cosmos DB ou Key Vault em sua assinatura do Azure com [as configurações de diagnóstico configuradas para coletar logs em um espaço de trabalho log Analytics](../platform/resource-logs.md#send-to-azure-storage). Clique em **logs** no menu **monitoramento** para abrir a experiência de logs simples.
 
-![Menu](media/simple-logs/menu.png)
+![Captura de tela mostra o menu monitoramento com logs selecionados.](media/simple-logs/menu.png)
 
 Selecione um **campo** e um **operador** e especifique um **valor** para comparação. Clique **+** e especifique **e/ou** para adicionar critérios adicionais.
 
-![Critérios](media/simple-logs/criteria.png)
+![Captura de tela mostra a pesquisa no painel logs com logs simples selecionados.](media/simple-logs/criteria.png)
 
 Clique em **executar** para exibir os resultados da consulta.
 
