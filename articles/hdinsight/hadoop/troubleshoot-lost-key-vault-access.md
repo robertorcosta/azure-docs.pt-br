@@ -1,18 +1,18 @@
 ---
 title: Clusters do Azure HDInsight com criptografia de disco perdem Key Vault acesso
-description: Etapas de solução de problemas e possíveis resoluções para problemas ao interagir com clusters do Azure HDInsight.
+description: Etapas de solução de problemas e possíveis resoluções para problemas de acesso de Key Vault ao interagir com clusters do Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: b1d941fbf86d453a56a5157ed988a32173c614fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e34c1002be3dffb719490fee01e481e8df45901
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461524"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532555"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Cenário: clusters do Azure HDInsight com criptografia de disco perdem Key Vault acesso
 
@@ -32,7 +32,7 @@ Navegue até a interface do usuário do Apache Ambari para obter mais informaç�
 
 ### <a name="kvaad-outage"></a>Interrupção de KV/AAD
 
-Veja [Azure Key Vault disponibilidade e redundância](../../key-vault/general/disaster-recovery-guidance.md) e a página de status do Azure para obter mais detalheshttps://status.azure.com/
+Veja [Azure Key Vault disponibilidade e redundância](../../key-vault/general/disaster-recovery-guidance.md) e a página de status do Azure para obter mais detalhes https://status.azure.com/
 
 ### <a name="kv-accidental-deletion"></a>Exclusão acidental do KV
 

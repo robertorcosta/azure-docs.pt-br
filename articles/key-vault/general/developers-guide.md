@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e6ee8ce065361ac27bba0e80349eb5e1d1877526
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394747"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532283"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -24,7 +24,7 @@ O Key Vault permite acessar com segurança informações confidenciais nos aplic
 - Seu aplicativo pode usar chaves para assinatura e criptografia, mas ainda manter o gerenciamento de chaves fora de seu aplicativo, permitindo que sua solução seja adequada a um aplicativo distribuído geograficamente.
 - Gerenciar certificados de Key Vault. Para obter mais informações, consulte [certificados](../certificates/about-certificates.md)
 
-Para obter mais informações gerais sobre Azure Key Vault, consulte [o que é Key Vault](overview.md)).
+Para obter mais informações gerais sobre o Cofre de Chaves do Azure, confira [O que é o Cofre de Chaves](overview.md).
 
 ## <a name="public-previews"></a>Visualizações públicas
 
@@ -140,7 +140,7 @@ Estes artigos abordam outros cenários e serviços que usam ou se integram ao Ke
 
 ## <a name="key-vault-overviews-and-concepts"></a>Visões gerais e conceitos do Key Vault
 
-- [Key Vault comportamento de exclusão reversível](soft-delete-overview.md)) Descreve um recurso que permite a recuperação de objetos excluídos, independentemente de a exclusão ser acidental ou intencional.
+- [Comportamento de exclusão reversível do Key Vault](soft-delete-overview.md) descreve um recurso que permite a recuperação de objetos excluídos, seja a exclusão acidental ou intencional.
 - [Limitação de cliente do Key Vault](overview-throttling.md) orienta você sobre os conceitos básicos de limitação e oferece uma abordagem para seu aplicativo.
 - [Mundos de segurança do Key Vault](overview-security-worlds.md) descreve as relações entre regiões e áreas de segurança.
 

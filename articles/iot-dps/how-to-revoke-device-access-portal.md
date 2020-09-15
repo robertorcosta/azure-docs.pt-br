@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: abc625c27617c27a79fe284393cdf7b281973bc4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299245"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532334"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Como cancelar o registro de um dispositivo do Provisionamento de Dispositivos no Hub IoT
 
 O gerenciamento adequado de credenciais do dispositivo é crucial para sistemas importantes como soluções de IoT. Uma melhor prática para tais sistemas é ter um plano claro de como revogar o acesso de dispositivos quando suas credenciais, sejam um token SAS (assinatura de acesso compartilhado) ou um certificado X.509, podem estar comprometidas. 
 
-O registro no Serviço de Provisionamento de Dispositivos permite que um dispositivo seja [autoprovisionado](concepts-auto-provisioning.md). Um dispositivo provisionado é aquele que foi registrado no Hub IoT, permitindo que ele receba o estado de [dispositivo gêmeo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) inicial e comece a relatar dados telemétricos. Este artigo descreve como cancelar o registro de um dispositivo da instância de serviço de provisionamento, evitando que ele seja provisionado novamente no futuro.
+O registro no serviço de provisionamento de dispositivos permite que um dispositivo seja [provisionado](about-iot-dps.md#provisioning-process). Um dispositivo provisionado é aquele que foi registrado no Hub IoT, permitindo que ele receba o estado de [dispositivo gêmeo](~/articles/iot-hub/iot-hub-devguide-device-twins.md) inicial e comece a relatar dados telemétricos. Este artigo descreve como cancelar o registro de um dispositivo da instância de serviço de provisionamento, evitando que ele seja provisionado novamente no futuro.
 
 > [!NOTE] 
 > Atente-se à política de repetição dos dispositivos para os quais você revoga o acesso. Por exemplo, um dispositivo que tem uma política de repetição infinita tenta continuamente registrar com o serviço de provisionamento. Essa situação consome recursos de serviço e possivelmente afeta o desempenho.

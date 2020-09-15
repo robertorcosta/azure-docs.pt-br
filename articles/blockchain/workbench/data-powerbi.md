@@ -4,12 +4,12 @@ description: Saiba como carregar e exibir dados de Banco de Dados SQL do Azure B
 ms.date: 04/22/2020
 ms.topic: how-to
 ms.reviewer: sunri
-ms.openlocfilehash: 2a5e67a8416c57c1a0cb039733a93608a8919be6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e0e585ce45616c2402972c725b502f4b704d1cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85214223"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532368"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Usando dados do Azure Blockchain Workbench com o Microsoft Power BI
 
@@ -24,7 +24,7 @@ Este artigo contém uma explicação passo a passo de como se conectar ao Banco 
 ## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Conectando o Power BI aos dados no Azure Blockchain Workbench
 
 1.  Abra o Power BI Desktop.
-2.  Selecione **Obter Dados**.
+2.  Selecione **obter dados**.
 
     ![Obter dados](./media/data-powerbi/get-data.png)
 3.  Selecione **SQL Server** na lista de tipos de fonte de dados.
@@ -41,7 +41,7 @@ Este artigo contém uma explicação passo a passo de como se conectar ao Banco 
 
 6.  Quando a conexão com o banco de dados estiver estabelecida, a caixa de diálogo **Navegador** mostrará as tabelas e as exibições disponíveis no banco de dados. As exibições são criadas para geração de relatórios, e todas elas recebem **vw** como prefixo.
 
-    ![Navegador](./media/data-powerbi/navigator.png)
+    ![Captura de tela da área de trabalho Power BI com a caixa de diálogo navegador com vwContractAction selecionado.](./media/data-powerbi/navigator.png)
 
 7.  Selecione as exibições que deseja incluir. Para fins de demonstração, incluímos **vwContractAction**, que fornece detalhes sobre todas as ações que foram executadas em um contrato.
 

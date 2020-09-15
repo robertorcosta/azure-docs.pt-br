@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/14/2020
+ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090101"
+ms.locfileid: "90532181"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Dimensionamento automático de clusters do Azure HDInsight
 
@@ -68,7 +68,7 @@ Para reduzir verticalmente, o dimensionamento automático emite uma solicitaçã
 > [!Important]
 > O recurso de dimensionamento automático do Azure HDInsight foi lançado para disponibilidade geral em 7 de novembro de 2019, para clusters Spark e Hadoop, e incluía aprimoramentos não estão disponíveis na versão prévia do recurso. Se você criou um cluster Spark antes de 7 de novembro de 2019 e deseja usar o recurso de dimensionamento automático em seu cluster, o caminho recomendado é criar um novo cluster e habilitar o dimensionamento automático no novo cluster.
 >
-> O dimensionamento automático para clusters Interactive Query (LLAP) e HBase ainda está na versão prévia. O dimensionamento automático só está disponível em clusters Spark, Hadoop, Interactive Query e HBase.
+> O dimensionamento automático para consulta interativa (LLAP) foi liberado para disponibilidade geral em 27 de agosto de 2020. Clusters HBase ainda estão em versão prévia. O dimensionamento automático só está disponível em clusters Spark, Hadoop, Interactive Query e HBase.
 
 A tabela a seguir descreve os tipos de cluster e as versões que são compatíveis com o recurso de dimensionamento automático.
 
@@ -231,7 +231,7 @@ Todas as mensagens de status do cluster que você pode ver são explicadas na li
 | Atualizar  | A configuração de autoescala do cluster está sendo atualizada.  |
 | Configuração do HDInsight  | Uma operação de expansão ou redução do cluster está em andamento.  |
 | Erro de atualização  | O HDInsight atendeu a problemas durante a atualização de configuração de dimensionamento automático. Os clientes podem optar por repetir a atualização ou desabilitar o dimensionamento automático.  |
-| Erro  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
+| Erro do  | Algo está errado com o cluster e não é utilizável. Exclua este cluster e crie um novo.  |
 
 Para exibir o número atual de nós no cluster, acesse o gráfico de **tamanho do cluster** na página **visão geral** do cluster. Ou selecione o **tamanho do cluster** em **configurações**.
 

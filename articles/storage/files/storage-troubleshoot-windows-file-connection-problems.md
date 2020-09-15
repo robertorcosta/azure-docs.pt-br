@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f167ffb652054b64098994d334eea6e1db6d2d14
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 549f9b03272accbe107c432f4929c5de250a6f6b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061199"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532385"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -369,7 +369,7 @@ Este erro provavelmente é acionado por um erro de sintaxe no comando Join-AzSto
 
 ## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>Suporte de autenticação local de AD DS arquivos do Azure para criptografia Kerberos AES 256
 
-Introduzimos o suporte de criptografia Kerberos do AES 256 para a autenticação de AD DS local dos arquivos do Azure com o [módulo AzFilesHybrid v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Se você tiver habilitado AD DS autenticação com uma versão de módulo inferior a v 0.2.2, será necessário baixar o módulo AzFilesHybrid mais recente (v 0.2.2 +) e executar o PowerShell abaixo. Se você ainda não habilitou a autenticação AD DS em sua conta de armazenamento, você pode seguir estas [diretrizes](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) para habilitação. Não é necessário executar novamente o PowerShell abaixo se você realizou a habilitação do recurso com o módulo AzFilesHybrid v 0.2.2 ou superior. 
+Introduzimos o suporte de criptografia Kerberos do AES 256 para a autenticação de AD DS local dos arquivos do Azure com o [módulo AzFilesHybrid v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Se você tiver habilitado AD DS autenticação com uma versão de módulo inferior a v 0.2.2, será necessário baixar o módulo AzFilesHybrid mais recente (v 0.2.2 +) e executar o PowerShell abaixo. Se você ainda não habilitou a autenticação AD DS em sua conta de armazenamento, você pode seguir estas [diretrizes](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) para habilitação. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
