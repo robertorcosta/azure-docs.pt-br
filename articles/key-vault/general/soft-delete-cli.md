@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: da821da08594180b9dd94728252e1a43c04fbde2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662042"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531654"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Como usar a exclusão reversível do Key Vault com a CLI
 
@@ -25,7 +25,7 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- CLI do Azure – Se essa configuração não existir para o seu ambiente, confira [Gerenciar o Key Vault usando a CLI do Azure](manage-with-cli2.md).
+- CLI do Azure – se essa configuração não existir para o seu ambiente, veja [Gerenciar Key Vault usando a CLI do Azure](manage-with-cli2.md).
 
 Para obter informações de referência específicas do Key Vault para CLI, confira [Referência do Key Vault da CLI do Azure](https://docs.microsoft.com/cli/azure/keyvault).
 
@@ -39,7 +39,7 @@ As operações de Key Vault são gerenciadas separadamente por meio de permissõ
 |Recuperar|Recupera o cofre de chaves excluído.|Microsoft.KeyVault/vaults/write|
 |Limpar|Remove permanentemente um cofre de chaves excluído e todo o seu conteúdo.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-Para saber mais sobre permissões e controle de acesso, confira [Proteger seu cofre de chaves](secure-your-key-vault.md).
+Para saber mais sobre permissões e controle de acesso, veja [Proteger seu cofre de chaves](secure-your-key-vault.md).
 
 ## <a name="enabling-soft-delete"></a>Habilitar a exclusão reversível
 
@@ -242,5 +242,5 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 ## <a name="other-resources"></a>Outros recursos
 
 - Para obter uma visão geral do recurso de exclusão reversível do Key Vault, veja [Visão geral da exclusão reversível do Azure Key Vault](soft-delete-overview.md).
-- Para ter uma visão geral do uso do Azure Key Vault, confira [O que é o Azure Key Vault?](overview.md).
+- Para ter uma visão geral do uso do Azure Key Vault, confira [O que é o Azure Key Vault?](overview.md)
 

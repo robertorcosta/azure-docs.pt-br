@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449508"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707995"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a taxa de transferência provisionada de dimensionamento automático no Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Os recursos criados com o modelo de camada anterior são automaticamente compat�
 
 Por exemplo, se você selecionou anteriormente a camada dimensionada entre 400 a 4.000 RU/s, o banco de dados ou o contêiner agora será mostrado como se tivesse no máximo 4.000 RU/s, o que é dimensionado entre 400 e 4.000 RU/s. A partir deste ponto, você pode alterar o máximo de RU/s para um valor personalizado para adequar-se à carga de trabalho. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>Com que rapidez o dimensionamento automático é escalado e reduzido verticalmente com base nos picos no tráfego?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>Com que rapidez o dimensionamento automático será dimensionado com base nos picos de tráfego?
 Com o dimensionamento automático, o sistema escala ou reduz verticalmente a taxa de transferência (RU/s) `T` dentro do intervalo de `0.1 * Tmax` e `Tmax`, com base no tráfego de entrada. Como o dimensionamento é automático e instantâneo, a qualquer momento, é possível consumir até o `Tmax` provisionado sem atraso. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>Como posso determinar para quais RU/s o sistema está dimensionado no momento?

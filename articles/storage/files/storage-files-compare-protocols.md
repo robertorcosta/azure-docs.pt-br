@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 90d51d7eb5425530ebad0fc9ac66ba2c95776076
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564805"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708131"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de compartilhamento de arquivos do Azure
 
@@ -55,7 +55,7 @@ A montagem de compartilhamentos de arquivos do Azure com o NFS 4,1 está atualme
 O NFS com arquivos do Azure é ideal para:
 
 - Cargas de trabalho que exigem compartilhamentos de arquivos em conformidade com POSIX, diferencia maiúsculas de minúsculas ou permissões de estilo do UNIX (UID/GID).
-- Cargas de trabalho centradas em Linux que não exigem acesso SMB.
+- Cargas de trabalho centradas em Linux que não exigem o Windows Access.
 
 ### <a name="security"></a>Segurança
 

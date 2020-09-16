@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 6592b1a934e732888ef949071d95075d0af61bf6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762259"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708063"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Exibir rotas efetivas do hub virtual
 
@@ -50,6 +50,8 @@ Use a barra de rolagem na parte inferior da tabela para exibir o "caminho AS".
 * O campo **propagar a rota padrão** é visto no portal de WAN virtual do Azure quando você edita uma conexão de rede virtual, uma conexão VPN ou uma conexão de ExpressRoute. Esse campo indica o sinalizador **enableInternetSecurity** , que é sempre por padrão "false" para conexões de EXPRESSROUTE e VPN, mas "true" para conexões de rede virtual.
 
 * Ao exibir rotas efetivas em uma NIC de VM, se você vir o próximo salto como "gateway de rede virtual", isso implica o roteador do Hub virtual quando a VM está em um spoke conectado a um hub de WAN virtual.
+
+* Exibir rotas efetivas para uma tabela de rotas de Hub virtual será preenchida somente se o Hub virtual tiver pelo menos um tipo de conexão (VPN/ER/VNET) conectado a ele.
 
 ## <a name="next-steps"></a>Próximas etapas
 

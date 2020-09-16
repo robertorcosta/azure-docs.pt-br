@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 9/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 60d3c9df270561c94b8eb162595e4fe01713c0b5
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 870863cc0b1a98aa0efe671da4a8f6a5bb7f53aa
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536472"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708097"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recursos no Azure NetApp Files
 
@@ -33,18 +33,19 @@ A tabela a seguir descreve os limites de recursos para Azure NetApp Files:
 |----------------|---------------------|--------------------------------------|
 |  Número de contas do NetApp por região do Azure   |  10    |  Sim   |
 |  Número de pools de capacidade por conta do NetApp   |    25     |   Sim   |
-|  Número de volumes por assinatura   |    500     |   Sim   |
-|  Número de volumes por pool de capacidade     |    500   |    Sim     |
-|  Número de instantâneos por volume       |    255     |    Não        |
+|  Número de volumes por assinatura   |    500     |   Yes   |
+|  Número de volumes por pool de capacidade     |    500   |    Yes     |
+|  Número de instantâneos por volume       |    255     |    No        |
 |  Número de sub-redes delegadas a Azure NetApp Files (Microsoft. NetApp/volumes) por rede virtual do Azure    |   1   |    Não    |
-|  Número de IPs usados em uma VNet (incluindo VNets imediatamente emparelhados) com Azure NetApp Files   |    1000   |    Não   |
-|  Tamanho mínimo de um pool de capacidade única   |  4 TiB     |    Não  |
-|  Tamanho máximo de um pool de capacidade única    |  500 TiB   |   Não   |
-|  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
-|  Tamanho máximo de um único volume     |    100 TiB    |    Não    |
-|  Tamanho máximo de um único arquivo     |    16 TiB    |    Não    |    
-|  Tamanho máximo de metadados de diretório em um único diretório      |    320 MB    |    Não    |    
-|  Número máximo de arquivos ([maxfiles](#maxfiles)) por volume     |    100 milhões    |    Sim    |    
+|  Número de IPs usados em uma VNet (incluindo VNets imediatamente emparelhados) com Azure NetApp Files   |    1000   |    No   |
+|  Tamanho mínimo de um pool de capacidade única   |  4 TiB     |    No  |
+|  Tamanho máximo de um pool de capacidade única    |  500 TiB   |   No   |
+|  Tamanho mínimo de um único volume    |    100 GiB    |    No    |
+|  Tamanho máximo de um único volume     |    100 TiB    |    No    |
+|  Tamanho máximo de um único arquivo     |    16 TiB    |    No    |    
+|  Tamanho máximo de metadados de diretório em um único diretório      |    320 MB    |    No    |    
+|  Número máximo de arquivos ([maxfiles](#maxfiles)) por volume     |    100 milhões    |    Yes    |   
+|  Número de volumes de proteção de dados de replicação entre regiões (volumes de destino)     |    5    |    Sim    |     
 
 Para obter mais informações, consulte [perguntas frequentes sobre gerenciamento de capacidade](azure-netapp-files-faqs.md#capacity-management-faqs).
 
@@ -83,9 +84,10 @@ Do plano de navegação portal do Azure:
         |  Recurso  |    Recursos pai      |    Novos limites solicitados     |    Motivo do aumento de cota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Conta |  *ID da assinatura*   |  *Número de Nova **conta** máxima solicitado*    |  *Qual cenário ou caso de uso solicitou a solicitação?*  |
-        |  pool    |  *ID da assinatura, URI da conta*  |  *Novo número máximo de **pool** solicitado*   |  *Qual cenário ou caso de uso solicitou a solicitação?*  |
-        |  Volume  |  *ID da assinatura, URI da conta, URI do pool*   |  *Novo número de **volume** máximo solicitado*     |  *Qual cenário ou caso de uso solicitou a solicitação?*  |
-        |  Maxfiles  |  *ID da assinatura, URI da conta, URI do pool, URI do volume*   |  *Novo número máximo de **maxfiles** solicitado*     |  *Qual cenário ou caso de uso solicitou a solicitação?*  |    
+        |  pool    |  *ID da assinatura, URI da conta do NetApp*  |  *Novo número máximo de **pool** solicitado*   |  *Qual cenário ou caso de uso solicitou a solicitação?*  |
+        |  Volume  |  *ID da assinatura, URI da conta do NetApp, URI do pool de capacidade*   |  *Novo número de **volume** máximo solicitado*     |  *Qual cenário ou caso de uso solicitou a solicitação?*  |
+        |  Maxfiles  |  *ID da assinatura, URI da conta do NetApp, URI do pool de capacidade, URI do volume*   |  *Novo número máximo de **maxfiles** solicitado*     |  *Qual cenário ou caso de uso solicitou a solicitação?*  |    
+        |  Volumes de proteção de dados de replicação entre regiões  |  *ID da assinatura, URI da conta do NetApp de destino, URI do pool de capacidade de destino, URI da conta do NetApp de origem, URI do pool de capacidade de origem, URI*   |  *Novo número máximo solicitado de **volumes de proteção de dados de replicação entre regiões (volumes de destino)***     |  *Qual cenário ou caso de uso solicitou a solicitação?*  |    
 
     2. Especifique o método de suporte apropriado e forneça suas informações de contrato.
 

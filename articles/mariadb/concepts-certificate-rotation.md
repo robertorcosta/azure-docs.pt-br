@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 89de144ab3d0ac4d8b68749e8c836ea1cf328dae
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f35a43e9cbffb2613f7a98e02b03840c774e5999
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601051"
+ms.locfileid: "90708148"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Noções básicas sobre as alterações na autoridade de certificação raiz para o banco de dados do Azure para MariaDB
 
@@ -29,10 +29,9 @@ O novo certificado será usado a partir de 26 de outubro de 2020 (10/26/2020). S
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Como fazer saber se meu banco de dados será afetado?
 
 Todos os aplicativos que usam SSL/TLS e verificam se o certificado raiz precisa atualizar o certificado raiz. Você pode identificar se suas conexões verificam o certificado raiz examinando a cadeia de conexão.
--   Se a cadeia de conexão incluir `sslmode=verify-ca` ou ' '
--   Se a cadeia de conexão incluir `sslmode=disable` , você não precisará atualizar os certificados.
--   Se a cadeia de conexão incluir `sslmode=allow` , `sslmode=prefer` ou `sslmode=require` , você não precisar atualizar certificados. 
--   Se a cadeia de conexão não sslmode específica, você não precisará atualizar os certificados.
+-   Se a cadeia de conexão incluir `sslmode=verify-ca` ou `sslmode=verify-full` , você precisará atualizar o certificado.
+-   Se a cadeia de conexão incluir `sslmode=disable` ,, `sslmode=allow` `sslmode=prefer` ou `sslmode=require` , você não precisará atualizar os certificados. 
+-   Se a cadeia de conexão não especificar sslmode, você não precisará atualizar os certificados.
 
 Se você estiver usando um cliente que abstrai a cadeia de conexão, examine a documentação do cliente para entender se ele verifica os certificados.
 Para entender o banco de dados do Azure para MariaDB sslmode examine as [descrições do modo SSL](concepts-ssl-connection-security.md#default-settings).
