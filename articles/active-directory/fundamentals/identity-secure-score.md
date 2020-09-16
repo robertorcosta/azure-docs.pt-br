@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320640"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705479"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>O que é a classificação de segurança de identidade no Azure Active Directory?
 
@@ -50,7 +50,7 @@ Ao seguir as ações de melhoria, você pode:
 
 A pontuação de segurança de identidade está disponível em todas as edições do Azure AD. As organizações podem acessar sua pontuação segura de identidade do **portal do Azure**  >  **Azure Active Directory**  >  **Security**  >  **Pontuação segura de identidade**de segurança.
 
-## <a name="how-does-it-work"></a>Como ela funciona?
+## <a name="how-does-it-work"></a>Como ele funciona?
 
 A cada 48 horas, o Azure analisa sua configuração de segurança e compara suas configurações com as práticas recomendadas. Com base no resultado dessa avaliação, uma nova pontuação é calculada para seu diretório. É possível que sua configuração de segurança não esteja totalmente alinhada com as diretrizes de práticas recomendadas e as ações de melhoria sejam atendidas apenas parcialmente. Nesses cenários, você receberá apenas uma parte da pontuação máxima disponível para o controle.
 
@@ -102,7 +102,7 @@ Você recebe pontos para configuração recursos de segurança recomendados ou r
 
 Para ver seu histórico de pontuação, acesse a [central de segurança do Microsoft 365](https://security.microsoft.com/) e examine sua pontuação de segurança geral da Microsoft. Você pode examinar as alterações em sua pontuação de segurança geral clicando em Exibir histórico. Escolha uma data específica para ver quais controles foram habilitados para aquele dia e que pontos você ganhou para cada um.
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Como a classificação de segurança de identidade se relaciona à classificação de segurança do Office 365?
+### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>Como a pontuação segura de identidade está relacionada à pontuação segura de Microsoft 365?
 
 A [Pontuação de segurança da Microsoft](/office365/securitycompliance/microsoft-secure-score) contém cinco categorias de controle distinto e Pontuação:
 

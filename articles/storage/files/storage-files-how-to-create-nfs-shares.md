@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: c265f404b2e2e2796baf0febb93997ef099f0844
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2a848cb77336fc89172d55a6204d66b9e5be5976
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564786"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705224"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar um compartilhamento NFS
 
@@ -163,3 +163,5 @@ az storage share-rm create \
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você criou um compartilhamento NFS, para usá-lo, você precisa montá-lo em seu cliente Linux. Para obter detalhes, consulte [como montar um compartilhamento NFS](storage-files-how-to-mount-nfs-shares.md).
+
+Se você tiver problemas, consulte [solucionar problemas de compartilhamentos de arquivos NFS do Azure](storage-troubleshooting-files-nfs.md).

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668966"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705462"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
@@ -104,7 +104,7 @@ Em alguns casos, talvez você queira dar privilégios mais altos aos usuários c
 ![Captura de tela mostrando a opção usuários externos nas configurações do usuário](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>É possível tornar os usuários convidados visíveis na Lista de Endereços Global do Exchange?
-Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter mais detalhes, confira **É possível tornar os objetos convidados visíveis na lista de endereços global?** em [Gerenciar acesso para convidado em Grupos do Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+Sim. Por padrão, objetos convidados não são visíveis na lista de endereços global da organização, mas você pode usar o PowerShell do Azure Active Directory para torná-los visíveis. Para obter detalhes, consulte posso **tornar os objetos convidados visíveis na lista de endereços global?** em [gerenciar o acesso de convidado em grupos de Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de email de um usuário convidado?
 
