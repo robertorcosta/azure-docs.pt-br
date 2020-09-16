@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763458"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605151"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar como os usuários finais consentem nos aplicativos
 
@@ -32,7 +32,7 @@ Para controlar em quais casos os usuários podem consentir nos aplicativos, esco
 
 * **Desabilitar o consentimento do usuário**: os usuários não podem conceder permissões a aplicativos. Os usuários podem continuar a entrar em aplicativos que tinham consentido anteriormente ou cujo consentimento tenha sido feito por administradores em seu nome, mas eles não terão permissão para dar consentimento a novas permissões ou a novos aplicativos por conta própria. Somente os usuários que receberam uma função de diretório que inclua a permissão para conceder consentimento poderão consentir novas permissões ou novos aplicativos.
 
-* **Os usuários podem consentir em aplicativos de fornecedores verificados, mas somente em permissões que você selecionar (versão prévia)** : todos os usuários só podem dar consentimento a aplicativos que forem publicados por um [fornecedor verificado](../develop/publisher-verification-overview.md) e aplicativos que estejam registrados em seu locatário. Os usuários só podem consentir nas permissões que você classificou como de "Pouco impacto".
+* **Os usuários podem consentir em aplicativos de fornecedores verificados, mas somente em permissões que você selecionar (versão prévia)** : todos os usuários só podem dar consentimento a aplicativos que forem publicados por um [fornecedor verificado](../develop/publisher-verification-overview.md) e aplicativos que estejam registrados em seu locatário. Os usuários só podem consentir as permissões que você classificou como "baixo impacto", também conhecido como "baixo risco". O que é considerado baixo risco para uma organização, como um aplicativo que exibe um endereço de email dos usuários, pode ser considerado de alto risco para outra organização. Por esse motivo, as permissões de "baixo risco" são definidas pelo administrador do locatário.
 
   [Classifique as permissões](#configure-permission-classifications-preview) para selecionar quais permissões os usuários têm permissão para consentir.
 
@@ -56,7 +56,7 @@ Para definir as configurações de consentimento do usuário por meio do portal 
 
 ### <a name="configure-user-consent-settings-using-powershell"></a>Definir configurações de consentimento do usuário usando o PowerShell
 
-Você pode usar o módulo de versão prévia mais recente do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), para escolher qual política de consentimento regerá o consentimento do usuário nos aplicativos.
+Você pode usar o módulo de versão prévia mais recente do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), para escolher qual política de consentimento regerá o consentimento do usuário nos aplicativos.
 
 * **Desabilitar consentimento do usuário**: para desabilitar o consentimento do usuário, defina as políticas de consentimento que regem o consentimento do usuário como vazio:
 
@@ -109,7 +109,7 @@ Neste exemplo, classificamos o conjunto mínimo de permissões obrigatórias par
 
 ### <a name="classify-permissions-using-powershell"></a>Classificar permissões usando o PowerShell
 
-Você pode usar o módulo de versão prévia mais recente do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), para classificar permissões. As classificações de permissão são configuradas no objeto **ServicePrincipal** da API que publica as permissões.
+Você pode usar o módulo de versão prévia mais recente do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para classificar permissões. As classificações de permissão são configuradas no objeto **ServicePrincipal** da API que publica as permissões.
 
 #### <a name="to-read-the-current-permission-classifications-for-an-api"></a>Para ler as classificações de permissão atuais de uma API:
 
@@ -196,9 +196,9 @@ Neste exemplo, todos os proprietários de grupo têm permissão para dar consent
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Configurar o consentimento do proprietário do grupo usando o PowerShell
 
-Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), para habilitar ou desabilitar a capacidade dos proprietários do grupo de dar consentimento a aplicativos que acessam os dados da sua organização nos grupos que eles possuem.
+Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para habilitar ou desabilitar a capacidade dos proprietários do grupo de dar consentimento a aplicativos que acessam os dados da sua organização nos grupos que eles possuem.
 
-1. Verifique se você está usando o módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview). Esta etapa será importante se você tiver instalado os módulos [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) e [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)).
+1. Verifique se você está usando o módulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Esta etapa será importante se você tiver instalado os módulos [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) e [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
 
     ```powershell
     Remove-Module AzureAD
@@ -280,7 +280,7 @@ Nesse caso, um evento de auditoria também será registrado com a categoria "App
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Desabilitar ou reabilitar o consentimento de step-up baseado em risco usando o PowerShell
 
-Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), para desabilitar o step-up até o consentimento do administrador necessário quando a Microsoft detecta um risco ou reabilitá-lo se tiver sido desabilitado anteriormente.
+Você pode usar o módulo de versão prévia do PowerShell do Azure AD, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), para desabilitar o step-up até o consentimento do administrador necessário quando a Microsoft detecta um risco ou reabilitá-lo se tiver sido desabilitado anteriormente.
 
 Você pode fazer isso usando as mesmas etapas mostradas acima para [configurar o consentimento do proprietário do grupo usando o PowerShell](#configure-group-owner-consent-using-powershell), mas substituindo por um valor de configurações diferente. Há três diferenças nas etapas: 
 

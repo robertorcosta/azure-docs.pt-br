@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207508"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603825"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Notificação de encerramento para instâncias de conjuntos de dimensionamento de máquinas virtuais do Azure
 As instâncias do conjunto de dimensionamento podem optar por receber notificações de encerramento de instância e definir um tempo limite de atraso predefinido para a operação de encerramento. A notificação de encerramento é enviada por meio do serviço de metadados do Azure – [eventos agendados](../virtual-machines/windows/scheduled-events.md), que fornece notificações e atraso de operações de impacto, como reinicializações e reimplantação. A solução adiciona outro evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento Terminate dependerá do limite de atraso conforme especificado pelos usuários em suas configurações de modelo de conjunto de dimensionamento.
@@ -91,7 +91,7 @@ Use o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para h
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
-  -TerminateScheduledEvents $true
+  -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
 O exemplo acima habilita as notificações de término em um conjunto de dimensionamento existente e define um tempo limite de 15 minutos para o evento Terminate.

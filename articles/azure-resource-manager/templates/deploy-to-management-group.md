@@ -2,13 +2,13 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 2265f1d31176052c7e7c358ee8ed4cb06fb50ee7
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/15/2020
+ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469788"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605219"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos no nível do grupo de gerenciamento
 
@@ -65,7 +65,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Os comandos para implantações de grupo de gerenciamento são diferentes dos comandos para implantações de grupo de recursos.
 
-Para CLI do Azure, use [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+Para CLI do Azure, use [AZ Deployment mg Create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
 ```azurecli-interactive
 az deployment mg create \

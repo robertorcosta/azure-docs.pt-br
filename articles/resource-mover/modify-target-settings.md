@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: c58fdd38c4221c03778b2c769620bf7911aaded8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670261"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604471"
 ---
 # <a name="modify-target-settings"></a>Modificar configurações de destino
 
@@ -42,10 +42,10 @@ As definições de configuração que você pode modificar são resumidas na tab
 **Recursos de rede** | Opções para redes virtuais (VNets)/Network grupos de segurança/interfaces de rede:<br/><br/> -Crie um novo recurso com o mesmo nome na região de destino.<br/><br/> -Crie um novo recurso com um nome diferente na região de destino.<br/><br/> -Use um recurso de rede existente na região de destino.<br/><br/> Se você criar um novo recurso de destino, com exceção das configurações que você modificar, ele receberá as mesmas configurações que o recurso de origem.
 **Nome do endereço IP público** | Especifique o nome.
 **SKU do endereço IP público** | Especifique a [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Zona de endereço IP público** | Especifique a [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) para endereços IP públicos padrão.<br/><br/> Se você quiser que ele seja com redundância de zona, insira como **regional**.
+**Zona de endereço IP público** | Especifique a [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) para endereços IP públicos padrão.<br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.
 **Nome do balanceador de carga** | Especifique o nome.
 **SKU do balanceador de carga** | Básico ou Padrão. É recomendável usar Standard.
-**Zona do balanceador de carga** | Especifique uma zona para o balanceador de carga. <br/><br/> Se você quiser que ele seja com redundância de zona, insira como **regional**.
+**Zona do balanceador de carga** | Especifique uma zona para o balanceador de carga. <br/><br/> Se você quiser que ele seja com redundância de zona, insira como com **redundância de zona**.
 **Dependências de recursos** | Opções para cada dependência:<br/><br/>-O recurso usa recursos dependentes de origem que serão movidos para a região de destino.<br/><br/> -O recurso usa diferentes recursos dependentes localizados na região de destino. Nesse caso, você pode escolher entre qualquer recurso semelhante na região de destino.
 
 ### <a name="edit-vm-target-settings"></a>Editar configurações de destino da VM

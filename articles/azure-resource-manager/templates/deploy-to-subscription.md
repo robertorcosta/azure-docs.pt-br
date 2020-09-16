@@ -2,13 +2,13 @@
 title: Implantar recursos na assinatura
 description: Descreve como criar um grupo de recursos em um modelo do Azure Resource Manager. Ele também mostra como implantar recursos no escopo da assinatura do Azure.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/15/2020
+ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468633"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605168"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos em nível de assinatura
 
@@ -82,7 +82,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Os comandos para implantações no nível da assinatura são diferentes dos comandos para implantações do grupo de recursos.
 
-Para CLI do Azure, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). O exemplo a seguir implanta um modelo para criar um grupo de recursos:
+Para CLI do Azure, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). O exemplo a seguir implanta um modelo para criar um grupo de recursos:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -162,9 +162,7 @@ Para implantações em nível de assinatura, há algumas considerações importa
 
 * A função [resourceGroup()](template-functions-resource.md#resourcegroup)**não** é suportada.
 * A funções [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) são suportadas.
-* Não use [ResourceId ()](template-functions-resource.md#resourceid) para obter a ID de recurso para recursos que são implantados no nível de assinatura.
-
-  Em vez disso, use a função [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
+* Não use [ResourceId ()](template-functions-resource.md#resourceid) para obter a ID de recurso para recursos que são implantados no nível de assinatura. Em vez disso, use a função [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
 
   Por exemplo, para obter a ID de recurso para uma definição de política que é implantada em uma assinatura, use:
 

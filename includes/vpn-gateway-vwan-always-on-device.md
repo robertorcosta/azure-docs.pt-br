@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371700"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606370"
 ---
 Os requisitos a seguir devem ser atendidos para estabelecer com êxito um túnel de dispositivo:
 
@@ -123,18 +123,18 @@ Depois de configurar o gateway de rede virtual e instalar o certificado do clien
    PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
+   ![Captura de tela mostra uma janela de prompt de comando com um comando para iniciar a versão de 64 bits do PowerShell.](./media/vpn-gateway-vwan-always-on-device/powershell.png)
 1. No PowerShell, alterne para a pasta onde **devicecert.ps1** e **VPNProfile.xml** estão localizados e execute o seguinte comando:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![Captura de tela mostra uma janela do PowerShell que executou o MachineCertTest usando o script devicesert.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. Execute o **Rasphone**.
 
-   ![Rasphone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![Captura de tela mostra uma caixa de diálogo Executar com o Rasphone selecionado.](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. Procure a entrada **MachineCertTest** e clique em **conectar**.
 
-   ![Conectar](./media/vpn-gateway-vwan-always-on-device/connect.png)
+   ![Captura de tela mostra uma caixa de diálogo conexões de rede com MachineCertTest selecionado e um botão conectar.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. Se a conexão for realizada com sucesso, reinicialize o computador. O túnel será conectado automaticamente.

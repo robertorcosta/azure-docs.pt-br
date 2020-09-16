@@ -12,22 +12,22 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285893"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604165"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
-Organizações de grande porte que enfatizam a segurança desejam mudar para serviços de nuvem como o Office 365, mas precisam saber que seus usuários poderão acessar somente os recursos aprovados. Tradicionalmente, as empresas restringem endereços IP ou nomes de domínio quando desejam gerenciar o acesso. Essa abordagem falha em um mundo em que os aplicativos de SaaS (software como serviço) são hospedados em uma nuvem pública e são executados em nomes de domínio compartilhados como [outlook.office.com](https://outlook.office.com/) e [login.microsoftonline.com](https://login.microsoftonline.com/). Bloquear esses endereços impediria totalmente que os usuários acessassem o Outlook na web, em vez de simplesmente restringi-los a identidades e recursos aprovados.
+Grandes organizações que enfatizam a segurança desejam migrar para serviços de nuvem como Microsoft 365, mas precisam saber que seus usuários só podem acessar os recursos aprovados. Tradicionalmente, as empresas restringem endereços IP ou nomes de domínio quando desejam gerenciar o acesso. Essa abordagem falha em um mundo em que os aplicativos de SaaS (software como serviço) são hospedados em uma nuvem pública e são executados em nomes de domínio compartilhados como [outlook.office.com](https://outlook.office.com/) e [login.microsoftonline.com](https://login.microsoftonline.com/). Bloquear esses endereços impediria totalmente que os usuários acessassem o Outlook na web, em vez de simplesmente restringi-los a identidades e recursos aprovados.
 
-A solução do Azure AD (Azure Active Directory) para esse desafio é um recurso chamado restrições de locatário. Com as restrições de locatário, as organizações podem controlar o acesso a aplicativos de nuvem de SaaS com base no locatário do Azure AD que os aplicativos usam para o logon único. Por exemplo, você pode desejar permitir o acesso aos aplicativos do Office 365 da sua organização enquanto impede o acesso a instâncias de outras organizações desses mesmos aplicativos.  
+A solução do Azure AD (Azure Active Directory) para esse desafio é um recurso chamado restrições de locatário. Com as restrições de locatário, as organizações podem controlar o acesso a aplicativos de nuvem de SaaS com base no locatário do Azure AD que os aplicativos usam para o logon único. Por exemplo, talvez você queira permitir o acesso aos aplicativos Microsoft 365 da sua organização, impedindo o acesso a instâncias de outras organizações desses mesmos aplicativos.  
 
 Com as restrições de locatário, as organizações podem especificar a lista de locatários que os usuários delas têm permissão para acessar. O Azure AD então apenas concede acesso para esses locatários permitidos.
 
-Este artigo se concentra em restrições de locatário para o Office 365, mas o recurso deve funcionar com qualquer aplicativo de nuvem de SaaS que usa protocolos de autenticação moderna com o Azure AD para logon único. Se você usar aplicativos de SaaS com um locatário do Azure AD diferente do usado pelo Office 365, certifique-se de que todos os locatários necessários sejam permitidos. Para obter mais informações sobre os aplicativos de nuvem de SaaS, consulte o [Marketplace do Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Este artigo se concentra em restrições de locatário para Microsoft 365, mas o recurso deve funcionar com qualquer aplicativo de nuvem SaaS que usa protocolos de autenticação modernos com o Azure AD para logon único. Se você usar aplicativos SaaS com um locatário do Azure AD diferente do locatário usado pelo Microsoft 365, certifique-se de que todos os locatários necessários sejam permitidos. Para obter mais informações sobre os aplicativos de nuvem de SaaS, consulte o [Marketplace do Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Como ele funciona
 
@@ -37,11 +37,11 @@ A solução geral inclui os seguintes componentes:
 
 2. **Infraestrutura de servidor proxy local**: Essa infraestrutura é um dispositivo proxy capaz de realizar inspeção de protocolo TLS. Você precisa configurar o proxy para inserir o cabeçalho que contém a lista de locatários permitidos no tráfego destinado ao Azure AD.
 
-3. **Software cliente**: Para dar suporte às restrições de locatário, o software cliente precisa solicitar tokens diretamente do Azure AD, de modo que a infraestrutura de proxy possa interceptar o tráfego. Tanto os aplicativos do Office 365 baseados em navegador quanto os clientes do Office que usam autenticação moderna (como OAuth 2.0) são compatíveis atualmente com restrições de locatário.
+3. **Software cliente**: Para dar suporte às restrições de locatário, o software cliente precisa solicitar tokens diretamente do Azure AD, de modo que a infraestrutura de proxy possa interceptar o tráfego. Atualmente, os aplicativos Microsoft 365 baseados em navegador dão suporte a restrições de locatário, como clientes do Office que usam autenticação moderna (como o OAuth 2,0).
 
-4. **Autenticação moderna**: os serviços de nuvem devem usar a autenticação moderna para usar restrições de locatário e bloquear o acesso a todos os locatários não permitidos. Você precisa configurar os serviços de nuvem do Office 365 para usar protocolos de autenticação moderna por padrão. Para obter as informações mais recentes sobre o suporte do Office 365 para autenticação moderna, leia [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticação moderna do Office 365 atualizada).
+4. **Autenticação moderna**: os serviços de nuvem devem usar a autenticação moderna para usar restrições de locatário e bloquear o acesso a todos os locatários não permitidos. Você deve configurar Microsoft 365 serviços de nuvem para usar protocolos de autenticação modernos por padrão. Para obter as informações mais recentes sobre Microsoft 365 suporte para autenticação moderna, leia [autenticação moderna do Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-O diagrama a seguir ilustra o fluxo do tráfego de alto nível. As restrições de locatário exigem a inspeção TLS apenas no tráfego para o Azure AD, não para os serviços de nuvem do Office 365. Essa distinção é importante porque o volume de tráfego de autenticação para o Azure AD normalmente é muito menor do que o volume de tráfego para aplicativos de SaaS como o Exchange Online e o SharePoint Online.
+O diagrama a seguir ilustra o fluxo do tráfego de alto nível. Restrições de locatário requer a inspeção TLS somente no tráfego para o Azure AD, não para os serviços de nuvem Microsoft 365. Essa distinção é importante porque o volume de tráfego de autenticação para o Azure AD normalmente é muito menor do que o volume de tráfego para aplicativos de SaaS como o Exchange Online e o SharePoint Online.
 
 ![Fluxo de tráfego de restrições de locatário – diagrama](./media/tenant-restrictions/traffic-flow.png)
 
@@ -63,7 +63,7 @@ A configuração a seguir é necessária para habilitar as restrições de locat
 
 - Os clientes devem confiar na cadeia de certificados apresentada pelo proxy para comunicações TLS. Por exemplo, se forem usados certificados de uma [PKI (infraestrutura de chave pública)](/windows/desktop/seccertenroll/public-key-infrastructure) interna, o certificado da autoridade de certificado raiz de emissão interno deverá ser confiável.
 
-- Esse recurso está incluído nas assinaturas do Office 365, mas se você desejar usar restrições de locatário para controlar o acesso a outros aplicativos de SaaS, são necessárias licenças do Azure AD Premium 1.
+- Esse recurso está incluído em assinaturas do Microsoft 365, mas se você quiser usar restrições de locatário para controlar o acesso a outros aplicativos SaaS, então Azure AD Premium 1 licenças são necessárias.
 
 #### <a name="configuration"></a>Configuração
 
@@ -129,16 +129,16 @@ Como outros relatórios no Portal do Azure, você pode usar filtros para especif
 - **Localidade**
 - **ID do locatário de destino**
 
-## <a name="office-365-support"></a>Suporte ao Office 365
+## <a name="microsoft-365-support"></a>Suporte do Microsoft 365
 
-Os aplicativos do Office 365 devem atender a dois critérios para dar suporte total às restrições de locatário:
+Microsoft 365 aplicativos devem atender a dois critérios para oferecer suporte total às restrições de locatário:
 
 1. O cliente usado dá suporte à autenticação moderna.
 2. A autenticação moderna está habilitada como o protocolo de autenticação padrão para o serviço de nuvem.
 
 Consulte [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Autenticação moderna do Office 365 atualizada) para obter as informações mais recentes sobre quais clientes do Office atualmente dão suporte à autenticação moderna. Essa página também inclui links para instruções para habilitar a autenticação moderna nos locatários do Exchange Online e Skype for Business Online. O SharePoint Online já habilita autenticação moderna por padrão.
 
-Os aplicativos baseados em navegador do Office 365 (o Portal do Office, Yammer, sites do SharePoint, Outlook na Web etc.) atualmente são compatíveis com restrições de locatário. Thick clients (Outlook, Skype for Business, Word, Excel, PowerPoint e mais) podem impor restrições de locatário somente ao usarem a autenticação moderna.  
+Microsoft 365 aplicativos baseados em navegador (o portal do Office, o Yammer, os sites do SharePoint, o Outlook na Web e muito mais) dão suporte atualmente a restrições de locatário. Thick clients (Outlook, Skype for Business, Word, Excel, PowerPoint e mais) podem impor restrições de locatário somente ao usarem a autenticação moderna.  
 
 Clientes Skype for Business e Outlook que dão suporte à autenticação moderna ainda podem usar protocolos herdados em locatários em que a autenticação moderna não está habilitada, ignorando efetivamente as restrições de locatário. As restrições de locatário podem bloquear aplicativos que usam protocolos herdados se eles contatarem login.microsoftonline.com, login.microsoft.com ou login.windows.net durante a autenticação.
 

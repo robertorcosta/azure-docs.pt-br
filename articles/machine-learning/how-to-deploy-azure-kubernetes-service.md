@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: da6554ae3b7df9962e1f57ac652567c282227d64
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: bfc285f68e8a44b6b09fc63d9b2775a047955a37
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661654"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604658"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -60,6 +60,39 @@ Ao implantar no serviço kubernetes do Azure, você implanta em um cluster AKS q
 
     - Se você quiser implantar modelos em nós de GPU ou nós FPGA (ou qualquer SKU específico), deverá criar um cluster com o SKU específico. Não há suporte para a criação de um pool de nós secundário em um cluster existente e a implantação de modelos no pool de nós secundário.
 
+## <a name="understand-the-deployment-processes"></a>Entender os processos de implantação
+
+A palavra "implantação" é usada em kubernetes e em Azure Machine Learning. "Implantação" tem significados diferentes nesses dois contextos. No kubernetes, uma `Deployment` é uma entidade concreta, especificada com um arquivo YAML declarativo. Um kubernetes `Deployment` tem um ciclo de vida definido e relações concretas com outras entidades kubernetes, como `Pods` e `ReplicaSets` . Você pode aprender sobre o kubernetes de documentos e vídeos em [o que é o kubernetes?](https://aka.ms/k8slearning).
+
+No Azure Machine Learning, a "implantação" é usada no sentido mais geral de disponibilizar e limpar os recursos do projeto. As etapas que Azure Machine Learning consideram parte da implantação são:
+
+1. Compactando os arquivos na pasta do projeto, ignorando aqueles especificados em. amlignore ou. gitignore
+1. Escalar verticalmente o cluster de cálculo (relacionado a kubernetes)
+1. Criando ou baixando o dockerfile para o nó de computação (relacionado ao kubernetes)
+    1. O sistema calcula um hash de: 
+        - A imagem base 
+        - Etapas personalizadas do Docker (consulte [implantar um modelo usando uma imagem de base do Docker personalizada](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - A definição de Conda YAML (consulte [criar & usar ambientes de software em Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. O sistema usa esse hash como a chave em uma pesquisa do ACR (registro de contêiner do Azure) do espaço de trabalho
+    1. Se não for encontrado, ele procurará uma correspondência no ACR global
+    1. Se não for encontrado, o sistema criará uma nova imagem (que será armazenada em cache e enviada por push para o ACR do espaço de trabalho)
+1. Baixando seu arquivo de projeto compactado para armazenamento temporário no nó de computação
+1. Descompactando o arquivo de projeto
+1. O nó de computação em execução `python <entry script> <arguments>`
+1. Salvando logs, arquivos de modelo e outros arquivos gravados na `./outputs` conta de armazenamento associada ao espaço de trabalho
+1. Reduzindo a computação, incluindo a remoção de armazenamento temporário (relacionado a kubernetes)
+
+### <a name="azure-ml-router"></a>Roteador do Azure ML
+
+O componente de front-end (azureml-FE) que roteia as solicitações de inferência de entrada para os serviços implantados dimensiona automaticamente conforme necessário. O dimensionamento do azureml-Fe é baseado na finalidade e no tamanho do cluster AKS (número de nós). A finalidade do cluster e os nós são configurados quando você [cria ou anexa um cluster AKs](how-to-create-attach-kubernetes.md). Há um serviço azureml-FE por cluster, que pode estar em execução em vários pods.
+
+> [!IMPORTANT]
+> Ao usar um cluster configurado como __desenvolvimento/teste__, o autodimensionador é **desabilitado**.
+
+O Azureml-Fe é dimensionado verticalmente para usar mais núcleos e out (horizontalmente) para usar mais pods. Ao tomar a decisão de escalar verticalmente, o tempo necessário para rotear solicitações de inferência de entrada é usado. Se esse tempo exceder o limite, ocorrerá uma escala vertical. Se o tempo para rotear solicitações de entrada continuar a exceder o limite, ocorrerá uma escala horizontal.
+
+Ao escalar verticalmente e horizontalmente, o uso da CPU é usado. Se o limite de uso da CPU for atingido, o front-end será reduzido primeiro. Se o uso da CPU cair para o limite de redução, ocorrerá uma operação de redução horizontal. Escalar verticalmente só ocorrerá se houver recursos de cluster suficientes disponíveis.
+
 ## <a name="deploy-to-aks"></a>Implantar no AKS
 
 Para implantar um modelo no serviço kubernetes do Azure, crie uma __configuração de implantação__ que descreva os recursos de computação necessários. Por exemplo, número de núcleos e memória. Você também precisa de uma __configuração de inferência__, que descreve o ambiente necessário para hospedar o modelo e o serviço Web. Para obter mais informações sobre como criar a configuração de inferência, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
@@ -67,7 +100,9 @@ Para implantar um modelo no serviço kubernetes do Azure, crie uma __configuraç
 > [!NOTE]
 > O número de modelos a serem implantados é limitado a modelos de 1.000 por implantação (por contêiner).
 
-### <a name="using-the-sdk"></a>Usar o SDK
+<a id="using-the-cli"></a>
+
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
@@ -91,7 +126,7 @@ Para obter mais informações sobre as classes, os métodos e os parâmetros usa
 * [Modelo. implantar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [WebService. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
-### <a name="using-the-cli"></a>Usando a CLI
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para implantar usando a CLI, use o comando a seguir. Substitua `myaks` pelo nome do destino de computação AKs. Substituir `mymodel:1` pelo nome e versão do modelo registrado. Substitua `myservice` pelo nome para fornecer este serviço:
 
@@ -103,36 +138,57 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
-### <a name="using-vs-code"></a>Usar o VS Code
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Para obter informações sobre como usar VS Code, consulte [implantar no AKs por meio da extensão vs Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 > [!IMPORTANT]
 > A implantação por meio do VS Code requer que o cluster AKS seja criado ou anexado ao seu espaço de trabalho com antecedência.
 
-### <a name="understand-the-deployment-processes"></a>Entender os processos de implantação
+---
 
-A palavra "implantação" é usada em kubernetes e em Azure Machine Learning. "Implantação" tem significados diferentes nesses dois contextos. No kubernetes, uma `Deployment` é uma entidade concreta, especificada com um arquivo YAML declarativo. Um kubernetes `Deployment` tem um ciclo de vida definido e relações concretas com outras entidades kubernetes, como `Pods` e `ReplicaSets` . Você pode aprender sobre o kubernetes de documentos e vídeos em [o que é o kubernetes?](https://aka.ms/k8slearning).
+### <a name="autoscaling"></a>Dimensionamento automático
 
-No Azure Machine Learning, a "implantação" é usada no sentido mais geral de disponibilizar e limpar os recursos do projeto. As etapas que Azure Machine Learning consideram parte da implantação são:
+O componente que lida com o dimensionamento automático para implantações de modelo do Azure ML é o azureml-Fe, que é um roteador de solicitação inteligente. Como todas as solicitações de inferência passam por ela, ela tem os dados necessários para dimensionar automaticamente os modelos implantados.
 
-1. Compactando os arquivos na pasta do projeto, ignorando aqueles especificados em. amlignore ou. gitignore
-1. Escalar verticalmente o cluster de cálculo (relacionado a kubernetes)
-1. Criando ou baixando o dockerfile para o nó de computação (relacionado ao kubernetes)
-    1. O sistema calcula um hash de: 
-        - A imagem base 
-        - Etapas personalizadas do Docker (consulte [implantar um modelo usando uma imagem de base do Docker personalizada](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - A definição de Conda YAML (consulte [criar & usar ambientes de software em Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
-    1. O sistema usa esse hash como a chave em uma pesquisa do ACR (registro de contêiner do Azure) do espaço de trabalho
-    1. Se não for encontrado, ele procurará uma correspondência no ACR global
-    1. Se não for encontrado, o sistema criará uma nova imagem (que será armazenada em cache e registrada com o ACR do espaço de trabalho)
-1. Baixando seu arquivo de projeto compactado para armazenamento temporário no nó de computação
-1. Descompactando o arquivo de projeto
-1. O nó de computação em execução `python <entry script> <arguments>`
-1. Salvando logs, arquivos de modelo e outros arquivos gravados na `./outputs` conta de armazenamento associada ao espaço de trabalho
-1. Reduzindo a computação, incluindo a remoção de armazenamento temporário (relacionado a kubernetes)
+> [!IMPORTANT]
+> * **Não habilite o kubernetes horizontal Pod AutoScaler (hPa) para implantações de modelo**. Fazer isso faria com que os dois componentes de dimensionamento automático concorram uns com os outros. O Azureml-FE foi projetado para dimensionar automaticamente os modelos implantados pelo Azure ML, em que HPA teria de adivinhar ou de utilização de modelo aproximada de uma métrica genérica, como o uso da CPU ou uma configuração de métrica personalizada.
+> 
+> * **O Azureml-FE não dimensiona o número de nós em um cluster AKs**, pois isso pode levar a aumentos de custos inesperados. Em vez disso, **ele dimensiona o número de réplicas para o modelo** dentro dos limites do cluster físico. Se você precisar dimensionar o número de nós dentro do cluster, poderá dimensionar manualmente o cluster ou [Configurar o dimensionamento automática do cluster AKs](/azure/aks/cluster-autoscaler).
 
-Quando você estiver usando o AKS, a expansão e a redução da computação serão controladas pelo kubernetes, usando o dockerfile compilado ou encontrado conforme descrito acima. 
+O dimensionamento automático pode ser controlado por configuração `autoscale_target_utilization` , `autoscale_min_replicas` e `autoscale_max_replicas` para o serviço Web AKs. O exemplo a seguir demonstra como habilitar o dimensionamento automático:
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+As decisões de expansão/redução baseiam-se na utilização das réplicas de contêiner atuais. O número de réplicas ocupadas (processando uma solicitação) dividido pelo número total de réplicas atuais é a utilização atual. Se esse número exceder `autoscale_target_utilization` , mais réplicas serão criadas. Se for menor, as réplicas serão reduzidas. Por padrão, a utilização de destino é de 70%.
+
+As decisões para adicionar réplicas são ansiosos e rápidas (cerca de 1 segundo). As decisões para remover réplicas são conservadoras (cerca de 1 minuto).
+
+Você pode calcular as réplicas necessárias usando o seguinte código:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+Para obter mais informações sobre `autoscale_target_utilization` a configuração, `autoscale_max_replicas` e `autoscale_min_replicas` , consulte a referência do módulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) .
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Implantar modelos no AKS usando a distribuição controlada (versão prévia)
 
@@ -223,7 +279,6 @@ endpoint.wait_for_deployment(true)
 endpoint.delete_version(version_name="versionb")
 
 ```
-
 
 ## <a name="web-service-authentication"></a>Autenticação de serviço Web
 

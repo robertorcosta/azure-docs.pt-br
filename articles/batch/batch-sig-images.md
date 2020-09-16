@@ -2,14 +2,14 @@
 title: Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 description: Os pools de imagens personalizadas são uma maneira eficiente de configurar nós de computação para executar suas cargas de trabalho do lote.
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aad8b279ce821496d4c947bc7f9c707243468f07
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852405"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605185"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
@@ -43,7 +43,9 @@ Usar uma imagem compartilhada configurada para o seu cenário pode fornecer vár
 - **Uma imagem da Galeria de Imagens Compartilhadas**. Para criar uma imagem compartilhada, você precisa ter ou criar um recurso de imagem gerenciada. A imagem deve ser criada de instantâneos de disco do sistema operacional da VM e, opcionalmente, dos discos de dados anexados.
 
 > [!NOTE]
-> Sua imagem compartilhada deve estar na mesma assinatura que a conta do Lote. A imagem pode estar em regiões diferentes, contanto que ela tenha réplicas na mesma região que a sua conta do Lote.
+> Se a imagem compartilhada não estiver na mesma assinatura que a conta do lote, você deverá [registrar o provedor de recursos Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para essa assinatura. As duas assinaturas devem estar no mesmo locatário do Azure AD.
+>
+> A imagem pode estar em uma região diferente, contanto que ela tenha réplicas na mesma região que a sua conta do lote.
 
 Se você usar um aplicativo do Azure AD para criar um pool de imagens personalizado com uma imagem da Galeria de imagens compartilhada, esse aplicativo deverá ter recebido uma [função interna do Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) que fornece acesso à imagem compartilhada. Você pode conceder esse acesso no portal do Azure navegando até a imagem compartilhada, selecionando **iam (controle de acesso)** e adicionando uma atribuição de função para o aplicativo.
 

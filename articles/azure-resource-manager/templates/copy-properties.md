@@ -2,21 +2,23 @@
 title: Definir várias instâncias de uma propriedade
 description: Use a operação de cópia em um modelo de Azure Resource Manager para iterar várias vezes ao criar uma propriedade em um recurso.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678453"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605236"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
-Este artigo mostra como criar mais de uma instância de uma propriedade em seu modelo de Azure Resource Manager (ARM). Ao adicionar o elemento **copiar** à seção Propriedades de um recurso em seu modelo, você pode definir dinamicamente o número de itens para uma propriedade durante a implantação. Você também evita a repetição da sintaxe do modelo.
+Este artigo mostra como criar mais de uma instância de uma propriedade em seu modelo de Azure Resource Manager (modelo ARM). Ao adicionar o elemento **copiar** à seção Propriedades de um recurso em seu modelo, você pode definir dinamicamente o número de itens para uma propriedade durante a implantação. Você também evita a repetição da sintaxe do modelo.
+
+Você só pode usar a cópia com recursos de nível superior, mesmo quando estiver aplicando a cópia a uma propriedade. Para saber mais sobre como alterar um recurso filho para um recurso de nível superior, consulte [iteração para um recurso filho](copy-resources.md#iteration-for-a-child-resource).
 
 Você também pode usar a cópia com [recursos](copy-resources.md), [variáveis](copy-variables.md)e [saídas](copy-outputs.md).
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O elemento Copy tem o seguinte formato geral:
 

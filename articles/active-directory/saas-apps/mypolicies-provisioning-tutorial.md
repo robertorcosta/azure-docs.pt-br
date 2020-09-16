@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548031"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604454"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: configurar mypolicies para provisionamento automático de usuário
 
@@ -101,7 +101,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Guia de provisionamento Automáticoa](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira `https://<myPoliciesCustomDomain>.mypolicies.com/scim` a **URL de locatário** em que `<myPoliciesCustomDomain>` é seu domínio personalizado mypolicies. Você pode recuperar seu domínio de cliente mypolicies, da sua URL.
 Exemplo: `<demo0-qa>` . mypolicies.com.
@@ -114,7 +114,7 @@ Exemplo: `<demo0-qa>` . mypolicies.com.
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Salvar).
+8. Clique em **Salvar**.
 
 9. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para mypolicies**.
 
@@ -122,7 +122,18 @@ Exemplo: `<demo0-qa>` . mypolicies.com.
 
 10. Examine os atributos de usuário que são sincronizados do Azure AD para mypolicies na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário em mypolicies para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Mapeamentos de usuário mypolicies](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |Atributo|Type|
+   |---|---|
+   |userName|String|
+   |ativo|Boolean|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.formatted|String|
+   |externalId|String|
+   |addresses[type eq "work"].country|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
+
 
 11. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -146,6 +157,10 @@ Para saber mais sobre como ler os logs de provisionamento do Azure AD, consulte 
 
 * mypolicies sempre requer **username**, **email** e **externalId**.
 * mypolicies não dá suporte a exclusões rígidas para atributos de usuário.
+
+## <a name="change-log"></a>Log de alterações
+
+* 09/15/2020-suporte adicionado para o atributo "Country" para os usuários.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

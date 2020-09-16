@@ -21,7 +21,19 @@
   expanded: true
   items:
     - name: Métodos de autenticação
-      href: concept-authentication-methods.md
+      items:
+        - name: Visão geral
+          href: concept-authentication-methods.md
+        - name: Aplicativo Microsoft Authenticator
+          href: concept-authentication-authenticator-app.md
+        - name: Tokens OATH
+          href: concept-authentication-oath-tokens.md
+        - name: Sem senha
+          href: concept-authentication-passwordless.md
+        - name: Opções por telefone
+          href: concept-authentication-phone-options.md
+        - name: Perguntas de segurança
+          href: concept-authentication-security-questions.md
     - name: Redefinição de senha de autoatendimento
       items:
         - name: Como funciona a redefinição de senha
@@ -46,8 +58,6 @@
           href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
         - name: Perguntas frequentes
           href: multi-factor-authentication-faq.md
-    - name: Autenticação sem senha
-      href: concept-authentication-passwordless.md
     - name: Proteção por senha
       items:
         - name: Eliminar senhas fracas na nuvem

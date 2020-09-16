@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: dbfe18c84217c741f8dd64481901747d068fcdd3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640507"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604131"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Usar o Proxy de Aplicativo do Azure AD para publicar aplicativos locais para usuários remotos
 
@@ -29,7 +29,7 @@ A capacidade de acessar com segurança aplicativos internos do lado de fora da r
 
 Muitas organizações acreditam que eles estão controlados e protegidos quando existem recursos dentro dos limites das redes corporativas. No entanto, no local de trabalho digital atual, esse limite foi expandido com recursos e dispositivos móveis gerenciados e serviços na nuvem. Agora você precisa gerenciar a complexidade da proteção das identidades e dados de seus usuários armazenados nos dispositivos e aplicativos.
 
-Talvez você já esteja usando o Azure AD para gerenciar usuários na nuvem que precisam acessar o Office 365 e outros aplicativos SaaS, além de aplicativos Web hospedados no local. Se você já tiver o Azure AD, poderá aproveitá-lo como um plano de controle para permitir acesso transparente e seguro aos aplicativos locais. Ou, talvez, você ainda esteja considerando uma mudança para a nuvem. Se for esse o caso, você pode começar sua jornada para a nuvem implementando o Proxy de Aplicativo e dar o primeiro passo para a criação de uma forte base de identidade.
+Talvez você já esteja usando o Azure AD para gerenciar usuários na nuvem que precisam acessar Microsoft 365 e outros aplicativos SaaS, bem como aplicativos Web hospedados localmente. Se você já tiver o Azure AD, poderá aproveitá-lo como um plano de controle para permitir acesso transparente e seguro aos aplicativos locais. Ou, talvez, você ainda esteja considerando uma mudança para a nuvem. Se for esse o caso, você pode começar sua jornada para a nuvem implementando o Proxy de Aplicativo e dar o primeiro passo para a criação de uma forte base de identidade.
 
 Embora não seja abrangente, a lista abaixo ilustra algumas das coisas que você pode ativar implementando o Proxy de Aplicativo em um cenário híbrido de coexistência:
 
@@ -53,7 +53,7 @@ Anteriormente, seu plano de controle para proteger recursos internos contra inva
 * Autenticação de usuários em servidores Web na rede de perímetro
 * Manter o acesso VPN para usuários remotos com a distribuição e a configuração do software do cliente VPN. Além disso, manter servidores associados ao domínio na DMZ que podem estar vulneráveis a ataques externos.
 
-No atual mundo da nuvem, o Azure AD é o recurso ideal para controlar quem e o que entra na sua rede. O Proxy de Aplicativo do Azure AD se integra à autenticação moderna e às tecnologias baseadas na nuvem, como aplicativos SaaS e provedores de identidade. Essa integração permite que os usuários acessem aplicativos de qualquer lugar. O Proxy de Aplicativo não só é mais adequado para o local de trabalho digital atual como também é mais seguro que as soluções de VPN e proxy reverso. Além disso, é mais fácil de implementar. Os usuários remotos podem acessar seus aplicativos locais da mesma forma que acessam o O365 e outros aplicativos SaaS integrados com o Azure AD. Você não precisa alterar ou atualizar seus aplicativos para que funcionem com o Proxy de Aplicativo. Além disso, o Proxy de Aplicativo não exige que você abra conexões de entrada por meio do firewall. Com o Proxy de Aplicativo, basta definir e pronto.
+No atual mundo da nuvem, o Azure AD é o recurso ideal para controlar quem e o que entra na sua rede. O Proxy de Aplicativo do Azure AD se integra à autenticação moderna e às tecnologias baseadas na nuvem, como aplicativos SaaS e provedores de identidade. Essa integração permite que os usuários acessem aplicativos de qualquer lugar. O Proxy de Aplicativo não só é mais adequado para o local de trabalho digital atual como também é mais seguro que as soluções de VPN e proxy reverso. Além disso, é mais fácil de implementar. Os usuários remotos podem acessar seus aplicativos locais da mesma forma que acessam o Microsoft e outros aplicativos SaaS integrados ao Azure AD. Você não precisa alterar ou atualizar seus aplicativos para que funcionem com o Proxy de Aplicativo. Além disso, o Proxy de Aplicativo não exige que você abra conexões de entrada por meio do firewall. Com o Proxy de Aplicativo, basta definir e pronto.
 
 ## <a name="the-future-of-remote-access"></a>O futuro do acesso remoto
 
@@ -72,7 +72,7 @@ Com o Proxy de Aplicativo, o Azure AD controla os usuários que precisam acessar
 
 ### <a name="an-overview-of-how-app-proxy-works"></a>Uma visão geral de como o Proxy de Aplicativo funciona
 
-O Proxy de Aplicativo é um serviço do Azure AD que você configura no portal do Azure. Ele permite que você publique o ponto de extremidade de uma URL HTTP/HTTPS pública externa na Nuvem do Azure que se conecta a uma URL do servidor de aplicativos interno em sua organização. Esses aplicativos Web locais podem ser integrados ao Azure AD para dar suporte ao logon único. Os usuários finais podem acessar seus aplicativos Web locais da mesma forma que acessam o Office 365 e outros aplicativos SaaS.
+O Proxy de Aplicativo é um serviço do Azure AD que você configura no portal do Azure. Ele permite que você publique o ponto de extremidade de uma URL HTTP/HTTPS pública externa na Nuvem do Azure que se conecta a uma URL do servidor de aplicativos interno em sua organização. Esses aplicativos Web locais podem ser integrados ao Azure AD para dar suporte ao logon único. Os usuários finais podem acessar os aplicativos Web locais da mesma maneira que acessam Microsoft 365 e outros aplicativos SaaS.
 
 Os componentes desse recurso incluem o serviço Proxy de Aplicativo, executado na nuvem, o conector do Proxy de Aplicativo, que é um agente leve executado em um servidor local, e o Azure AD, que é o provedor de identidade. Todos os três componentes trabalham em conjunto para fornecer ao usuário uma experiência de logon único para acessar aplicativos Web locais.
 
@@ -195,8 +195,8 @@ Se você estiver usando o Azure AD para gerenciar usuários em um cenário de co
 As organizações devem começar a usufruir do Proxy de Aplicativo hoje mesmo para aproveitar os seguintes benefícios:
 
 * Publicar externamente os aplicativos locais sem a sobrecarga associada à manutenção da VPN tradicional ou de outras soluções locais de publicação na Web e a abordagem da DMZ
-* Logon único para todos os aplicativos, que seja o Office 365 ou outros aplicativos SaaS, incluindo aplicativos locais
-* Segurança na escala de nuvem em que o Azure AD aproveita a telemetria do Office 365 para impedir o acesso não autorizado
+* Logon único para todos os aplicativos, sejam eles Microsoft 365 ou outros aplicativos SaaS e incluindo aplicativos locais
+* Segurança de escala de nuvem em que o Azure AD utiliza Microsoft 365 telemetria para impedir o acesso não autorizado
 * Integração com o Intune para garantir que o tráfego corporativo seja autenticado
 * Centralização do gerenciamento de conta de usuário
 * Atualizações automáticas para garantir que você tem os patches de segurança mais recentes

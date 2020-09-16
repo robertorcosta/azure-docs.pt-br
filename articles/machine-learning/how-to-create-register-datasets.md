@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 6229686cda87a6dd65dfb9232f0e8ac550ba3750
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 9137c98a2ba0b7356d25a79d3b75c3727fc35fc3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660497"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604692"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados no Azure Machine Learning
 
@@ -52,7 +52,7 @@ Para criar e trabalhar com conjuntos de os, você precisa de:
     * Trabalhe em seu próprio notebook Jupyter e instale o SDK com [estas instruções](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 
 > [!NOTE]
-> Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) , que é compatível apenas com Python de 64 bits. Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14, 4, 16, 4, 18, 4), Fedora (27, 28), Debian (8, 9) e CentOS (7).
+> Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) , que é compatível apenas com Python de 64 bits. Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14, 4, 16, 4, 18, 4), Fedora (27, 28), Debian (8, 9) e CentOS (7). O subsistema do Windows para Linux não tem suporte no momento.
 
 ## <a name="compute-size-guidance"></a>Diretrizes de tamanho de computação
 
@@ -163,11 +163,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|Index|PassengerId|Survived|Pclass|Nome|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
+|Index|PassengerId|Survived|Pclass|Name|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 ### <a name="create-a-dataset-from-pandas-dataframe"></a>Criar um conjunto de uma série de dataframe do pandas
 

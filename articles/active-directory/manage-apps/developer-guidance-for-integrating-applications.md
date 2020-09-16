@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640439"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605083"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Active Directory
-Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (de linha de negócios) do Azure AD (Active Directory). O público-alvo são os administradores globais do Active Directory/Office 365.
+Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (linha de negócios) para o Azure Active Directory (AD). O público-alvo é Active Directory/Microsoft 365 administradores globais.
 
 ## <a name="overview"></a>Visão geral
-A criação de aplicativos integrados ao AD do Azure oferece aos usuários em sua organização logon único com o Office 365. Ter o aplicativo no Azure AD dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre o acesso condicional e como proteger aplicativos com a autenticação multifator (MFA), confira [Configurando regras de acesso](../conditional-access/app-based-mfa.md).
+A criação de aplicativos integrados ao Azure AD fornece aos usuários em sua organização logon único com o Microsoft 365. Ter o aplicativo no Azure AD dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre o acesso condicional e como proteger aplicativos com a autenticação multifator (MFA), confira [Configurando regras de acesso](../conditional-access/app-based-mfa.md).
 
 Registre seu aplicativo com o Azure Active Directory. Registrar o aplicativo significa que seus desenvolvedores podem usar o Azure AD para autenticar usuários e solicitar acesso a recursos de usuário como email, calendário e documentos.
 

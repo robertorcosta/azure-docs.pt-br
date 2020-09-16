@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130152"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604675"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino mestre Linux para failback
 Após o failover de suas máquinas virtuais para o Azure, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -48,16 +48,7 @@ Crie o destino mestre de acordo com as seguintes diretrizes de dimensionamento:
 - **Tamanho do disco de SO**: 100 GB ou mais (para instalar o SO)
 - **Tamanho de disco adicional para unidade de retenção**: 1 TB
 - **Núcleos de CPU**: 4 núcleos ou mais
-
-Os kernels do Ubuntu a seguir tem suporte.
-
-
-|Série de Kernel  |Suporte até  |
-|---------|---------|
-|4.4      |4.4.0-81-generic         |
-|4.8      |4.8.0-56-generic         |
-|4.10     |4.10.0-24-generic        |
-
+- **Kernel**: 4,16. *
 
 ## <a name="deploy-the-master-target-server"></a>Implantar o servidor de destino mestre
 

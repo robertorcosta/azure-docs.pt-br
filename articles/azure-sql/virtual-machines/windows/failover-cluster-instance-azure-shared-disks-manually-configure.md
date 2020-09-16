@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8333de5b0139323b352d43a9259bde9d3b514fbe
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ddd6e08d9be36035b2db02ec5feb3ae4e957ec49
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611804"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604437"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos compartilhados do Azure (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,13 +33,13 @@ Para saber mais, confira uma visão geral do [FCI com SQL Server em VMs do Azure
 Antes de concluir as instruções neste artigo, você já deve ter:
 
 - Uma assinatura do Azure. Comece [gratuitamente](https://azure.microsoft.com/free/). 
-- [Duas ou mais máquinas virtuais do Windows Azure preparadas pelo oeste EUA Central](failover-cluster-instance-prepare-vm.md) no mesmo [conjunto de disponibilidade](../../../virtual-machines/linux/tutorial-availability-sets.md) e um [grupo de posicionamento de proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups), com o conjunto de disponibilidade que é criado com o domínio de falha e o domínio de atualização definido como **1**. 
+- [Duas ou mais máquinas virtuais do Windows Azure](failover-cluster-instance-prepare-vm.md). Os [conjuntos de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md) e os PPGs (grupos de posicionamento de [proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) ) têm suporte. Se você usar um PPG, todos os nós deverão existir no mesmo grupo.
 - Uma conta que tenha permissões para criar objetos em máquinas virtuais do Azure e no Active Directory.
 - A versão mais recente do [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
 
 
 ## <a name="add-azure-shared-disk"></a>Adicionar disco compartilhado do Azure
-Implante um disco SSD Premium gerenciado com o recurso de disco compartilhado habilitado. Defina `maxShares` como **2** para tornar o disco compartilhável entre ambos os nós do FCI. 
+Implante um disco SSD Premium gerenciado com o recurso de disco compartilhado habilitado. Defina `maxShares` para **alinhar com o número de nós de cluster** para tornar o disco compartilhável em todos os nós do FCI. 
 
 Adicione um disco compartilhado do Azure fazendo o seguinte: 
 
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver usando o SQL Server 2019 e o Windows Server 2016 (ou posterior), poderá visualizar o recurso de [nome de rede distribuída](hadr-distributed-network-name-dnn-configure.md) em vez disso. 
+Para rotear o tráfego adequadamente para o nó primário atual, configure a opção de conectividade adequada para o seu ambiente. Você pode criar um [balanceador de carga do Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se você estiver usando SQL Server 2019 Cu2 + e Windows Server 2016 (ou posterior), poderá visualizar o recurso de [nome de rede distribuída](hadr-distributed-network-name-dnn-configure.md) em vez disso. 
 
 ## <a name="limitations"></a>Limitações
 

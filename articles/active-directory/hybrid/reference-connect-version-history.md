@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1570f4a8c4fb23b885c1de68c2c8d2440c4f6aae
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018434"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604063"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -159,7 +159,7 @@ Esse build de hotfix corrigirá um problema no build 1.5.20.0 se você tiver clo
 ### <a name="release-status"></a>Status de liberação
 9/12/2019: Liberado para download. Não disponível pela atualização automática.
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
-- Atualizamos a sincronização de hash de senha do Azure AD Domain Services para lidar adequadamente com preenchimento em hashes do Kerberos.  Isso fornecerá uma melhoria no desempenho durante a sincronização de senha do Azure AD para o Azure AD Domain Services.
+- Atualizamos a sincronização de hash de senha do Azure AD Domain Services para lidar adequadamente com preenchimento em hashes do Kerberos.  Isso fornecerá uma melhoria no desempenho durante a sincronização de senha do Azure AD para Azure AD Domain Services.
 - Adicionamos suporte a sessões confiáveis entre o agente de autenticação e o barramento de serviço.
 - Essa versão impõe o TLS 1.2 à comunicação entre o agente de autenticação e os serviços de nuvem.
 - Adicionamos um cache DNS para conexões WebSocket entre o agente de autenticação e os serviços de nuvem.
@@ -208,13 +208,13 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 - Novas ferramentas de solução de problemas ajudam a solucionar os cenários "usuário não está sincronizando", "grupo não está sincronizando" ou "membros do grupo não estão sincronizando".
-- Adicionar suporte para nuvens nacionais em Azure AD Connect script de solução de problemas 
+- Adicione suporte para nuvens nacionais em Azure AD Connect script de solução de problemas.
 - Os clientes devem ser informados de que os pontos de extremidade WMI preteridos de MIIS_Service foram removidos. Todas as operações de WMI agora devem ser feitas por meio de cmdlets do PS.
-- Segurança aprimorada com a redefinição da delegação restrita no objeto AZUREADSSOACC
+- Melhoria de segurança redefinindo a delegação restrita no objeto AZUREADSSOACC.
 - Quando você adiciona/edita uma regra de sincronização, se houver algum atributo usado na regra que esteja no esquema do conector, mas não tenha sido adicionado ao conector, os atributos serão adicionados automaticamente ao conector. O mesmo acontece para o tipo de objeto que a regra afeta. Se algo for adicionado ao conector, ele será marcado para importação completa no próximo ciclo de sincronização.
 - Não há mais suporte ao uso de Administrador Corporativo ou de Domínio como a conta do conector nas novas implantações do Azure AD Connect. As implantações Azure AD Connect atuais usando um administrador corporativo ou de domínio como a conta do conector não serão afetadas por esta versão.
 - No Gerenciador de Sincronização, uma sincronização completa é executada na criação/edição/exclusão de uma regra. Um pop-up será exibido quando houver alteração de regra e notificará o usuário em caso de importação completa ou sincronização completa.
-- Etapas de mitigação adicionadas à página 'Conectores > Propriedades > Conectividade' para lidar com erros de senha
+- Etapas de mitigação adicionadas para erros de senha à página ' conectores > Propriedades > conectividade '.
 - Foi adicionado um aviso de substituição do Synchronization Service Manager na página de propriedades do conector. Esse aviso notifica o usuário de que as alterações devem ser feitas por meio do assistente do Azure AD Connect.
 - Adição de novo erro em problemas com a política de senha de um usuário.
 - Impedimento de configuração incorreta da filtragem de grupo por filtros de domínio e UO. A filtragem de grupo mostrará um erro quando o domínio/a UO do grupo inserido já estiver filtrado e impedirá que o usuário avance até que o problema seja resolvido.
@@ -233,7 +233,7 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 - Os pop-ups da ajuda agora aparecem no foco do teclado.
 - Para a atualização automática, se algum aplicativo conflitante estiver sendo executado há até 6 horas, ele é encerrado e o upgrade continua.
 - Limite o número de atributos que um cliente pode selecionar a 100 por objeto ao escolher extensões de diretório. Isso impedirá que o erro ocorra durante a exportação, pois o Azure tem o máximo de 100 atributos de extensão por objeto.
-- Corrigido um bug para tornar o script de conectividade do AD mais robusto
+- Correção de um bug para tornar o script de conectividade do AD mais robusto.
 - Correção de um bug para fazer Azure AD Connect instalar em um computador usando um serviço WCF de pipes nomeados existente mais robusto.
 - Diagnóstico aprimorado e solução de problemas em relação a políticas de grupo que não permitem que o serviço ADSync seja iniciado quando é instalado inicialmente.
 - Corrigido um bug em que o nome de exibição de um computador com Windows era gravado incorretamente.
@@ -246,9 +246,9 @@ Corrigimos um bug no utilitário de compactação de erros de sincronização qu
 >[!IMPORTANT]
 >Há um problema conhecido com a atualização de Azure AD Connect de uma versão anterior para 1.3.21.0, em que o portal de Microsoft 365 não reflete a versão atualizada, mesmo que Azure AD Connect atualizada com êxito.
 >
-> Para resolver isso, você precisa importar o módulo **AdSync** e executar o cmdlet`Set-ADSyncDirSyncConfiguration` do PowerShell no servidor Azure AD Connect.  Use as seguintes etapas:
+> Para resolver isso, você precisa importar o módulo **AdSync** e, em seguida, executar o `Set-ADSyncDirSyncConfiguration` cmdlet do PowerShell no servidor de Azure ad Connect.  Use as seguintes etapas:
 >
->1. Abra o PowerShell no modo Administrador.
+>1. Abra o PowerShell no modo de administrador.
 >2. Execute `Import-Module "ADSync"`.
 >3. Execute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  

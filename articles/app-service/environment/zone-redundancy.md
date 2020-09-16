@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961560"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605066"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Suporte à zona de disponibilidade para ambientes do serviço de aplicativo
 
@@ -29,11 +29,15 @@ A menos que as etapas descritas neste artigo sejam seguidas, ILB ASEs não serã
 
 ILB zona ASEs pode ser criada em qualquer uma das seguintes regiões:
 
+- Leste da Austrália
+- Sul do Brasil
+- Canadá Central
 - Centro dos EUA
 - Leste dos EUA
 - Leste dos EUA 2
 - Leste dos EUA 2 (EUAP)
 - França Central 
+- Centro-Oeste da Alemanha
 - Leste do Japão
 - Norte da Europa
 - Europa Ocidental

@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 72f12ece3c939ee8fbaecbec377d18c5bb3b0a49
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294604"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604977"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho do barramento de serviço do Azure para Azure Functions
 
 Use o gatilho do Barramento de Serviço para responder às mensagens de uma fila ou tópico do Barramento de Serviço. Começando com a versão de extensão 3.1.0, você pode disparar em uma fila ou tópico habilitado para sessão.
 
-Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-service-bus-output.md).
+Para obter informações sobre a instalação e detalhes de configuração, confira a [visão geral](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -359,7 +359,7 @@ O `maxAutoRenewDuration` pode ser configurado no *host.json*, que mapeia para [O
 
 O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas propriedades são membros da classe de [mensagem](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) .
 
-|Propriedade|Type|Descrição|
+|Propriedade|Tipo|Descrição|
 |--------|----|-----------|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo destinatário para lógica específica do aplicativo.|
 |`CorrelationId`|`string`|ID de correlação.|

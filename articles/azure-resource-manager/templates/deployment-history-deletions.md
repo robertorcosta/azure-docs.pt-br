@@ -2,19 +2,21 @@
 title: Exclusões de histórico de implantações
 description: Descreve como Azure Resource Manager exclui automaticamente implantações do histórico de implantação. As implantações são excluídas quando o histórico está próximo de exceder o limite de 800.
 ms.topic: conceptual
-ms.date: 08/07/2020
-ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 09/15/2020
+ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986501"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605202"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Exclusões automáticas do histórico de implantação
 
 Toda vez que você implanta um modelo, as informações sobre a implantação são gravadas no histórico de implantação. Cada grupo de recursos é limitado a 800 implantações em seu histórico de implantação.
 
-Azure Resource Manager exclui automaticamente as implantações do seu histórico conforme você próximo ao limite. A exclusão automática é uma alteração do comportamento passado. Anteriormente, era necessário excluir manualmente as implantações do histórico de implantação para evitar a obtenção de um erro. **Essa alteração foi implementada em 6 de agosto de 2020.**
+Azure Resource Manager exclui automaticamente as implantações do seu histórico conforme você próximo ao limite. A exclusão automática é uma alteração do comportamento passado. Anteriormente, era necessário excluir manualmente as implantações do histórico de implantação para evitar a obtenção de um erro. Essa alteração foi implementada em 6 de agosto de 2020.
+
+**As exclusões automáticas têm suporte para implantações de grupo de recursos. Atualmente, as implantações no histórico de implantação para [assinatura](deploy-to-subscription.md), [grupo de gerenciamento](deploy-to-management-group.md)e implantações de [locatário](deploy-to-tenant.md) não são excluídas.**
 
 > [!NOTE]
 > A exclusão de uma implantação do histórico não afeta nenhum dos recursos que foram implantados.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 500bfff4afaebc345d344566b02fe945edb05795
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: afa927f8faa1ac2bd9cd910b3e78b690c16259e5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562597"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605134"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurar o logon único baseado em SAML
 
@@ -48,7 +48,7 @@ Na [série de início rápido](add-application-portal-setup-sso.md), há um arti
 |:--|:--|:--|:--|
 | **Identificador (ID da Entidade)** | Obrigatório para alguns aplicativos | Obrigatório para alguns aplicativos | Identifica exclusivamente o aplicativo. O Azure AD envia o identificador para o aplicativo como o parâmetro Audience do token SAML. O aplicativo deve validá-lo. Esse valor também aparece como a ID da entidade em todos os metadados SAML fornecidos pelo aplicativo. Insira uma URL que usa o seguinte padrão: "https://<subdomain>.contoso.com" *Encontre esse valor como o elemento **Issuer** na **AuthnRequest** (solicitação SAML) enviada pelo aplicativo.* |
 | **URL de Resposta** | Obrigatório | Obrigatório | Especifica onde o aplicativo espera receber o token SAML. A URL de resposta também é chamada de URL do ACS (Serviço do Consumidor de Declaração). Você pode usar os campos de URL de resposta adicionais para especificar várias URLs de resposta. Por exemplo, você pode precisar de URLs de resposta adicionais para vários subdomínios. Ou, para fins de teste, você pode especificar várias URLs de resposta (host local e URLs públicas) ao mesmo tempo. |
-| **URL de logon** | Obrigatório | Não especifique | Quando um usuário abre essa URL, o provedor de serviço redireciona para o Azure AD a fim de autenticar e conectar o usuário. O Azure AD usa a URL para iniciar o aplicativo do Office 365 ou meus aplicativos do Azure AD. Quando em branco, o Azure AD faz um logon iniciado pelo IdP quando um usuário inicia o aplicativo do Office 365, meus aplicativos do Azure AD ou a URL de SSO do Azure AD.|
+| **URL de logon** | Obrigatório | Não especifique | Quando um usuário abre essa URL, o provedor de serviço redireciona para o Azure AD a fim de autenticar e conectar o usuário. O Azure AD usa a URL para iniciar o aplicativo de Microsoft 365 ou meus aplicativos do Azure AD. Quando em branco, o Azure AD faz um logon iniciado pelo IdP quando um usuário inicia o aplicativo de Microsoft 365, meus aplicativos do Azure AD ou a URL de SSO do Azure AD.|
 | **Estado de Retransmissão** | Opcional | Opcional | Especifica para onde o aplicativo deve redirecionar o usuário depois que a autenticação é concluída. Normalmente, o valor é uma URL válida para o aplicativo. No entanto, alguns aplicativos usam esse campo de forma diferente. Para obter mais informações, pergunte ao fornecedor do aplicativo.
 | **URL de logoff** | Opcional | Opcional | Usada para enviar as respostas de Logoff do SAML novamente ao aplicativo.
 
