@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: beabe9440c37d16ca4a81efdbc9588739f4c7473
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279339"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602363"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory
 
@@ -86,7 +86,7 @@ Detalhes sobre questões de decisão:
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>Autenticação na nuvem: Sincronização de hash de senha
 
-* **Esforço**. A sincronização de hash de senha exige o mínimo de esforço de implantação, manutenção e infraestrutura.  Esse nível de esforço normalmente aplica-se a organizações que precisam apenas que seus usuários entrem no Office 365, em aplicativos SaaS e em outros recursos baseados no Azure AD. Quando ativada, a sincronização de hash de senha faz parte do processo de sincronização do Azure AD Connect e é executada a cada dois minutos.
+* **Esforço**. A sincronização de hash de senha exige o mínimo de esforço de implantação, manutenção e infraestrutura.  Esse nível de esforço normalmente se aplica a organizações que precisam apenas de seus usuários para entrar em Microsoft 365, aplicativos SaaS e outros recursos baseados no Azure AD. Quando ativada, a sincronização de hash de senha faz parte do processo de sincronização do Azure AD Connect e é executada a cada dois minutos.
 
 * **Experiência do usuário**. Para melhorar a experiência de entrada dos usuários, implante o SSO contínuo com a sincronização de hash de senha. O SSO contínuo elimina prompts desnecessários quando os usuários estão conectados.
 
@@ -203,7 +203,7 @@ Use ou habilite a sincronização de hash de senha para o método de autenticaç
 
 2. **Sobrevivência à interrupção local**.  As consequências de uma interrupção local devido a um ataque cibernético ou desastre podem ser significativas, variando de danos à reputação da marca até a paralisação da organização que não consegue conter o ataque. Recentemente, muitas organizações foram vítimas de ataques de malware, incluindo ransomware direcionado, o que fez seus servidores locais ficarem inativos. Quando a Microsoft ajuda os clientes a lidar com esses tipos de ataques, ela observa duas categorias de organizações:
 
-   * As organizações que anteriormente também ativaram a sincronização de hash com base na autenticação de passagem ou federada alteraram seu método de autenticação principal para usar a sincronização de hash de senha. Elas voltaram a ficar online em questão de horas. Usando o acesso ao email por meio do Office 365, elas trabalharam para resolver os problemas e acessar outras cargas de trabalho baseadas em nuvem.
+   * As organizações que anteriormente também ativaram a sincronização de hash com base na autenticação de passagem ou federada alteraram seu método de autenticação principal para usar a sincronização de hash de senha. Elas voltaram a ficar online em questão de horas. Ao usar o acesso ao email via Microsoft 365, eles trabalharam para resolver problemas e acessar outras cargas de trabalho baseadas em nuvem.
 
    * As organizações que anteriormente não habilitaram a sincronização de hash de senha precisaram recorrer a sistemas de email de consumidor externo não confiáveis para comunicação para resolução dos problemas. Nesses casos, levava semanas para restaurar sua infraestrutura de identidade local, antes que os usuários conseguissem entrar em aplicativos baseados em nuvem novamente.
 

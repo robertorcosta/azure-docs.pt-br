@@ -2,14 +2,14 @@
 title: Mover recursos para uma nova assinatura ou grupo de recursos
 description: Use o Azure Resource Manager para mover recursos para um novo grupo de recursos ou uma nova assinatura.
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b278dae956ec0bd17773badbeaa880b7bf901a5
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056618"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603145"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -172,7 +172,7 @@ Quando você exibe o grupo de recursos, a opção mover é desabilitada.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="opção de movimentação desabilitada":::
 
-Para habilitar a opção mover, selecione os recursos que você deseja mover. Para selecionar todos os recursos, marque a caixa de seleção na parte superior da lista. Ou selecione recursos individualmente.
+Para habilitar a opção mover, selecione os recursos que você deseja mover. Para selecionar todos os recursos, marque a caixa de seleção na parte superior da lista. Ou selecione recursos individualmente. Depois de selecionar os recursos, a opção mover é habilitada.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="selecionar recursos":::
 
@@ -194,7 +194,7 @@ Selecione o grupo de recursos de destino. Confirme que você precisa atualizar s
 
 Depois de validar que os recursos podem ser movidos, você verá uma notificação informando que a operação de movimentação está em execução.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="Notification":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notificação":::
 
 Quando for concluída, você será notificado sobre o resultado.
 

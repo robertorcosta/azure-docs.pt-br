@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049257"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601581"
 ---
 # <a name="conditional-access-block-access"></a>Acesso condicional: bloquear acesso
 
@@ -40,13 +40,13 @@ As políticas de Acesso Condicional são ferramentas avançadas, recomendamos ex
 
 As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto para o [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) , se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente de relatório](howto-conditional-access-insights-reporting.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores se sentem confortáveis de que as políticas se aplicam conforme pretendido, eles podem alterná-los para **ativado**.
 
-A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplicativos do Office 365, se não estiver em um local confiável.
+A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplicativos Microsoft 365 se não estiver em um local confiável.
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **Atribuições**, selecione **Usuários e grupos**.
+1. Em **Atribuições**, selecione **Usuários e Grupos**.
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
@@ -64,11 +64,11 @@ A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplic
 1. Confirme suas configurações e defina **Habilitar política** com **Somente relatório**.
 1. Selecione **Criar** para criar e habilitar sua política.
 
-Uma segunda política é criada abaixo para exigir a autenticação multifator ou um dispositivo compatível para os usuários do Office 365.
+Uma segunda política é criada abaixo para exigir a autenticação multifator ou um dispositivo compatível para usuários de Microsoft 365.
 
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
-1. Em **Atribuições**, selecione **Usuários e grupos**.
+1. Em **Atribuições**, selecione **Usuários e Grupos**.
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.

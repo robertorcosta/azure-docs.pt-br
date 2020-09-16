@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7e394c4227be9ead491fe77457b466b1f62468
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279322"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600789"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro etapas para uma base de identidade forte com Azure Active Directory
 
@@ -46,7 +46,7 @@ O Azure AD permite que os administradores [adicionem aplicativos](../manage-apps
 Depois que os aplicativos são adicionados à galeria do Azure AD, os usuários podem ver os aplicativos atribuídos a eles e pesquisar e solicitar outros aplicativos, conforme necessário. O Azure AD fornece [vários métodos](../manage-apps/end-user-experiences.md) para que os usuários acessem seus aplicativos:
 
 * Painel de acesso/meus aplicativos
-* Iniciador do aplicativo do Office 365
+* Inicializador de aplicativos do Microsoft 365
 * Logon direto a aplicativos federados
 * Links diretos logon
 
@@ -115,7 +115,7 @@ As organizações com Active Directory local devem estender seu diretório para 
 
 O método mais simples e recomendado para habilitar a autenticação de nuvem para objetos de diretório locais no Azure AD é habilitar a PHS ( [sincronização de hash de senha](./how-to-connect-password-hash-synchronization.md) ). Como alternativa, algumas organizações podem considerar a habilitação da [autenticação de passagem](./how-to-connect-pta-quick-start.md) (PTA).
 
-Independentemente de você escolher PHS ou PTA, não se esqueça de habilitar o [logon único contínuo](./how-to-connect-sso.md) para permitir que os usuários acessem os aplicativos de nuvem sem inserir constantemente seu nome de usuário e senha no aplicativo ao usar o Windows 7 e 8 dispositivos em sua rede corporativa. Sem o logon único, os usuários devem se lembrar de senhas específicas do aplicativo e entrar em cada aplicativo. Da mesma forma, a equipe de ti precisa criar e atualizar contas de usuário para cada aplicativo, como Office 365, Box e Salesforce. Os usuários precisam se lembrar de suas senhas, além de gastar tempo para entrar em cada aplicativo. Fornecer um mecanismo de logon único padronizado para toda a empresa é crucial para melhor experiência do usuário, redução de risco, capacidade de relatório e governança.
+Independentemente de você escolher PHS ou PTA, não se esqueça de habilitar o [logon único contínuo](./how-to-connect-sso.md) para permitir que os usuários acessem os aplicativos de nuvem sem inserir constantemente seu nome de usuário e senha no aplicativo ao usar o Windows 7 e 8 dispositivos em sua rede corporativa. Sem o logon único, os usuários devem se lembrar de senhas específicas do aplicativo e entrar em cada aplicativo. Da mesma forma, a equipe de ti precisa criar e atualizar contas de usuário para cada aplicativo, como Microsoft 365, Box e Salesforce. Os usuários precisam se lembrar de suas senhas, além de gastar tempo para entrar em cada aplicativo. Fornecer um mecanismo de logon único padronizado para toda a empresa é crucial para melhor experiência do usuário, redução de risco, capacidade de relatório e governança.
 
 Para as organizações que já usam AD FS ou outro provedor de autenticação local, mudar para o Azure AD como seu provedor de identidade pode reduzir a complexidade e melhorar a disponibilidade. A menos que você tenha casos de uso específicos para usar a Federação, é recomendável migrar da autenticação federada para o PHS e o SSO contínuo ou PTA e o SSO contínuo para aproveitar os benefícios de um espaço local reduzido e a flexibilidade oferecida pela nuvem com experiências de usuário aprimoradas. Para obter mais informações, consulte [migrar da Federação para a sincronização de hash de senha para Azure Active Directory](./plan-migrate-adfs-password-hash-sync.md).
 
@@ -156,7 +156,7 @@ A atribuição de usuários a aplicativos é melhor mapeada ao usar grupos, pois
 * Baseado em atributo usando a associação dinâmica de grupo
 * Delegação aos proprietários do aplicativo
 
-O Azure AD fornece a capacidade de gerenciar o acesso aos recursos usando grupos de segurança e Grupos do Office 365. Esses grupos podem ser gerenciados por um proprietário de grupo que pode aprovar ou negar solicitações de associação e delegar o controle de associação de grupo. Conhecido como [Gerenciamento de grupo de autoatendimento](../users-groups-roles/groups-self-service-management.md), esse recurso poupa tempo, permitindo que os proprietários de grupos que não são atribuídos a uma função administrativa criem e gerenciem grupos sem precisar contar com os administradores para lidar com suas solicitações.
+O Azure AD fornece a capacidade de gerenciar o acesso a recursos usando grupos de segurança e grupos de Microsoft 365. Esses grupos podem ser gerenciados por um proprietário de grupo que pode aprovar ou negar solicitações de associação e delegar o controle de associação de grupo. Conhecido como [Gerenciamento de grupo de autoatendimento](../users-groups-roles/groups-self-service-management.md), esse recurso poupa tempo, permitindo que os proprietários de grupos que não são atribuídos a uma função administrativa criem e gerenciem grupos sem precisar contar com os administradores para lidar com suas solicitações.
 
 ## <a name="step-4---operationalize-your-insights"></a>Etapa 4-colocar suas ideias em operação
 

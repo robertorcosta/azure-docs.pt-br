@@ -5,14 +5,14 @@ description: Saiba como criar um perfil personalizado do Intune para implantar p
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5a754a14cada1547a83e29d474e9b77aed7a2728
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: fba8433a7964b10901527894eee98722ece970ec
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024342"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602186"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Criar um perfil do Intune para implantar perfis de cliente VPN
 
@@ -54,17 +54,7 @@ Para outras opções com suporte, consulte o artigo [CSP VPNv2](https://docs.mic
     </VPNProfile>
    ```
 1. Modifique a entrada entre ```<ServerUrlList>``` e ```</ServerUrlList>``` com a entrada de seu perfil baixado (azurevpnconfig.xml). Altere o FQDN "TrustedNetworkDetection" para se ajustar ao seu ambiente.
-1. Abra o perfil baixado do Azure (azurevpnconfig.xml) e copie o conteúdo para a área de transferência realçando o texto e pressionando <ctrl> + C. Copie tudo entre as seguintes linhas AzVpnProfile, mas não copie as linhas AzVpnProfile em si:
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-
-   For example - copy the text in your xml that is located here.
-
-   </AzVpnProfile>
-   ```
+1. Abra o perfil baixado do Azure (azurevpnconfig.xml) e copie todo o conteúdo para a área de transferência, destacando o texto e pressionando (Ctrl) + C. 
 1. Cole o texto copiado da etapa anterior no arquivo criado na etapa 2 entre as ```<CustomConfiguration>  </CustomConfiguration>``` marcas. Salve o arquivo com uma extensão XML.
 1. Anote o valor nas ```<name>  </name>``` marcas. Este é o nome do perfil. Você precisará desse nome ao criar o perfil no Intune. Feche o arquivo e lembre-se do local onde ele foi salvo.
 

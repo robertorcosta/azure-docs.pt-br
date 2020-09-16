@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/06/2020
+ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505040"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602924"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -111,6 +111,8 @@ Para obter mais informações, veja [Requisitos de licença](access-reviews-over
     - **Aprovar o acesso** - aprovar o acesso do usuário
     - **Fazer recomendações** - levar a recomendação do sistema ao negar ou aprovar o acesso contínuo do usuário
 
+    ![Criar uma revisão de acesso – configurações avançadas](./media/create-access-review/advanced-settings-preview-new.png)
+
 4. Apresentação Use a ação a ser aplicada a usuários negados para especificar o que acontece com os usuários convidados se eles forem negados.
     - A **opção 1** removerá o acesso negado do usuário ao grupo ou aplicativo que está sendo revisado, ainda poderá entrar no locatário. 
     - A **opção 2** impedirá que os usuários negados se inscrevam no locatário, independentemente de terem acesso a outros recursos. Se houvesse um erro ou se um administrador decidir reabilitar o acesso de um, ele poderá fazer isso dentro de 30 dias depois que o usuário tiver sido desabilitado. Se não houver nenhuma ação executada nos usuários desabilitados, eles serão excluídos do locatário.
@@ -123,8 +125,6 @@ Para saber mais sobre as práticas recomendadas para remover usuários convidado
 ### <a name="advanced-settings"></a>Configurações avançadas
 
 1. Para especificar configurações adicionais, expanda a seção **Configurações avançadas**.
-
-    ![Criar uma revisão de acesso – configurações avançadas](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Definir **Mostrar recomendações** à **Habilitar** para mostrar aos revisores as recomendações do sistema com base nas informações de acesso do usuário.
 

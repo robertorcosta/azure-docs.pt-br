@@ -7,19 +7,19 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058726"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602278"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Suporte para mover VMs do Azure entre regiões do Azure
 
 Este artigo resume o suporte e os pré-requisitos quando você move máquinas virtuais e recursos de rede relacionados entre regiões do Azure usando o Resource mover.
 
 > [!IMPORTANT]
-> O Azure Resource mover está atualmente em versão prévia.
+> O Azure Resource Mover está em versão prévia no momento.
 
 
 ## <a name="windows-vm-support"></a>Suporte à VM do Windows
@@ -114,6 +114,10 @@ Extensões | Sem suporte | As extensões não são copiadas para a VM na região
 ## <a name="supported-vm-storage-settings"></a>Configurações de armazenamento de VM com suporte
 
 Esta tabela resumiu o suporte ao disco do SO do Azure VM, ao disco de dados e ao disco temporário. É importante observar os limites de disco e os destinos da VM para [Linux](../virtual-machines/linux/disk-scalability-targets.md) e [VMs do Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar problemas de desempenho.
+
+> [!NOTE]
+> O tamanho da VM de destino deve ser igual ou maior que a VM de origem. Os parâmetros usados para validação são: contagem de discos de dados, contagem de NICs, CPUs disponíveis, memória em GB. Se não for emitido um erro.
+
 
 **Componente** | **Suporte** | **Detalhes**
 --- | --- | ---

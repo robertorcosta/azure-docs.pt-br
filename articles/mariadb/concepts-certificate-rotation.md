@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 3c91da6a9bfc7bfa23255dbc1c0c76d2f59818f1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 89de144ab3d0ac4d8b68749e8c836ea1cf328dae
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530549"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601051"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Noções básicas sobre as alterações na autoridade de certificação raiz para o banco de dados do Azure para MariaDB
 
@@ -28,13 +28,20 @@ O novo certificado será usado a partir de 26 de outubro de 2020 (10/26/2020). S
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Como fazer saber se meu banco de dados será afetado?
 
-Todos os aplicativos que usam SSL/TLS e verificam se o certificado raiz precisa atualizar o certificado raiz para se conectar ao banco de dados do Azure para MariaDB. Se você não estiver usando o SSL/TLS no momento, não haverá nenhum impacto na disponibilidade do aplicativo. Você pode verificar se o aplicativo cliente está tentando usar o modo SSL com a AC (autoridade de certificação) confiável predefinida [aqui](concepts-ssl-connection-security.md#default-settings).
+Todos os aplicativos que usam SSL/TLS e verificam se o certificado raiz precisa atualizar o certificado raiz. Você pode identificar se suas conexões verificam o certificado raiz examinando a cadeia de conexão.
+-   Se a cadeia de conexão incluir `sslmode=verify-ca` ou ' '
+-   Se a cadeia de conexão incluir `sslmode=disable` , você não precisará atualizar os certificados.
+-   Se a cadeia de conexão incluir `sslmode=allow` , `sslmode=prefer` ou `sslmode=require` , você não precisar atualizar certificados. 
+-   Se a cadeia de conexão não sslmode específica, você não precisará atualizar os certificados.
+
+Se você estiver usando um cliente que abstrai a cadeia de conexão, examine a documentação do cliente para entender se ele verifica os certificados.
+Para entender o banco de dados do Azure para MariaDB sslmode examine as [descrições do modo SSL](concepts-ssl-connection-security.md#default-settings).
 
 Para evitar que a disponibilidade do aplicativo seja interrompida devido aos certificados serem revogados inesperadamente ou para atualizar um certificado, que foi revogado, consulte a seção [**"o que preciso fazer para manter a conectividade"**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity) .
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>O que preciso fazer para manter a conectividade
 
-Para evitar que a disponibilidade do aplicativo seja interrompida devido aos certificados serem revogados inesperadamente ou para atualizar um certificado, que foi revogado, siga as etapas abaixo:
+Para evitar que a disponibilidade do aplicativo seja interrompida devido aos certificados serem revogados inesperadamente ou para atualizar um certificado, que foi revogado, siga as etapas abaixo. A ideia é criar um novo arquivo *. pem* , que combina o certificado atual e o novo e durante a validação do certificado SSL uma vez que os valores permitidos serão usados. Consulte as etapas abaixo:
 
 *   Baixe o **BaltimoreCyberTrustRoot**  &  **DigiCertGlobalRootG2** AC nos links abaixo:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
@@ -72,11 +79,10 @@ Para evitar que a disponibilidade do aplicativo seja interrompida devido aos cer
 *   Substitua o arquivo PEM da autoridade de certificação raiz original pelo arquivo de autoridade de certificação raiz combinado e reinicie o aplicativo/cliente.
 *   No futuro, após o novo certificado implantado no lado do servidor, você poderá alterar o arquivo PEM da autoridade de certificação para DigiCertGlobalRootG2. CRT. PEM.
 
-## <a name="what-can-be-the-impact"></a>Qual pode ser o impacto?
+## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>Qual pode ser o impacto de não atualizar o certificado?
 Se você estiver usando o banco de dados do Azure para o certificado emitido MariaDB conforme documentado aqui, a disponibilidade do aplicativo poderá ser interrompida, pois o banco de dados não estará acessível. Dependendo do seu aplicativo, você pode receber uma variedade de mensagens de erro, incluindo, mas não se limitando a:
 *   Certificado inválido/certificado revogado
 *   A conexão atingiu o tempo limite
-*   Erro se aplicável
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -84,28 +90,41 @@ Se você estiver usando o banco de dados do Azure para o certificado emitido Mar
 Nenhuma ação será necessária se você não estiver usando SSL/TLS. 
 
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. se eu estiver usando SSL/TLS, preciso reiniciar meu servidor de banco de dados para atualizar a AC raiz?
-Não, você não precisa reiniciar o servidor de banco de dados para começar a usar o novo certificado. Essa é uma alteração no lado do cliente e as conexões de entrada do cliente precisam usar o novo certificado para garantir que eles possam se conectar ao servidor de banco de dados.
+Não, você não precisa reiniciar o servidor de banco de dados para começar a usar o novo certificado. A atualização do certificado é uma alteração no lado do cliente e as conexões de entrada do cliente precisam usar o novo certificado para garantir que eles possam se conectar ao servidor de banco de dados.
 
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. o que acontecerá se eu não atualizar o certificado raiz antes de 26 de outubro de 2020 (10/26/2020)?
 Se você não atualizar o certificado raiz antes de 26 de outubro de 2020, seus aplicativos que se conectam via SSL/TLS e a verificação para o certificado raiz não poderão se comunicar com o servidor de banco de dados MariaDB e o aplicativo terá problemas de conectividade com o servidor de banco de dados MariaDB.
 
-### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. preciso planejar um tempo de inatividade de manutenção para essa alteração?<BR>
-Não. Como a alteração aqui só está no lado do cliente para se conectar ao servidor de banco de dados, não há nenhum tempo de inatividade de manutenção necessário aqui para essa alteração.
+### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mariadb"></a>4. qual é o impacto se estiver usando o serviço de aplicativo com o banco de dados do Azure para MariaDB?
+Para os serviços de aplicativos do Azure, conectando-se ao banco de dados do Azure para MariaDB, podemos ter dois cenários possíveis e depende de como você está usando SSL com seu aplicativo.
+*   Este novo certificado foi adicionado ao serviço de aplicativo no nível da plataforma. Se você estiver usando os certificados SSL incluídos na plataforma do serviço de aplicativo em seu aplicativo, nenhuma ação será necessária.
+*   Se você estiver incluindo explicitamente o caminho para o arquivo de certificado SSL em seu código, precisará baixar o novo certificado e atualizar o código para usar o novo certificado.
 
-### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5. e se eu não conseguir um tempo de inatividade agendado para essa alteração antes de 26 de outubro de 2020 (10/26/2020)?
+### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mariadb"></a>5. qual é o impacto se estiver usando o AKS (serviços Kubernetess do Azure) com o banco de dados do Azure para MariaDB?
+Se você estiver tentando se conectar ao banco de dados do Azure para MariaDB usando os AKS (serviços Kubernetess do Azure), ele será semelhante ao acesso de um ambiente de host de clientes dedicados. Consulte as etapas [aqui](../aks/ingress-own-tls.md).
+
+### <a name="6-what-is-the-impact-if-using-azure-data-factory-to-connect-to-azure-database-for-mariadb"></a>6. qual é o impacto se você estiver usando Azure Data Factory para se conectar ao banco de dados do Azure para MariaDB?
+Para o conector usando Azure Integration Runtime, o conector aproveita os certificados no repositório de certificados do Windows no ambiente hospedado do Azure. Esses certificados já são compatíveis com os certificados recém aplicados e, portanto, nenhuma ação é necessária.
+
+Para o conector que usa o autohospedado Integration Runtime em que você inclui explicitamente o caminho para o arquivo de certificado SSL na cadeia de conexão, será necessário baixar o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e atualizar a cadeia de conexão para usá-lo.
+
+### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. preciso planejar um tempo de inatividade de manutenção do servidor de banco de dados para essa alteração?
+Não. Como a alteração aqui é apenas no lado do cliente para se conectar ao servidor de banco de dados, não há nenhum tempo de inatividade de manutenção necessário para o servidor de banco de dados para essa alteração.
+
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. e se eu não conseguir um tempo de inatividade agendado para essa alteração antes de 26 de outubro de 2020 (10/26/2020)?
 Como os clientes usados para se conectar ao servidor precisam atualizar as informações do certificado, conforme descrito na seção corrigir [aqui](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), não precisamos de um tempo de inatividade para o servidor nesse caso.
 
-###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6. se eu criar um novo servidor após 26 de outubro de 2020, serei afetado?
+### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. se eu criar um novo servidor após 26 de outubro de 2020, serei afetado?
 Para servidores criados após 26 de outubro de 2020 (10/26/2020), você pode usar o certificado emitido recentemente para seus aplicativos se conectarem usando SSL.
 
-### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. com que frequência o Microsoft atualiza seus certificados ou qual é a política de expiração?
+### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. com que frequência o Microsoft atualiza seus certificados ou qual é a política de expiração?
 Esses certificados usados pelo banco de dados do Azure para MariaDB são fornecidos por autoridades de certificação confiáveis (CA). Portanto, o suporte desses certificados no banco de dados do Azure para MariaDB está vinculado ao suporte desses certificados pela CA. No entanto, como nesse caso, pode haver bugs imprevistos nesses certificados predefinidos, que precisam ser corrigidos no início.
 
-### <a name="8-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>8. se eu estiver usando réplicas de leitura, preciso executar essa atualização somente no servidor mestre ou em todas as réplicas de leitura?
-Como essa atualização é uma alteração no lado do cliente, se o cliente usado para ler dados do servidor de réplica, precisaremos aplicar as alterações para esses clientes também. 
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. se eu estiver usando réplicas de leitura, preciso executar essa atualização somente no servidor mestre ou nas réplicas de leitura?
+Como essa atualização é uma alteração no lado do cliente, se o cliente usado para ler dados do servidor de réplica, você também precisará aplicar as alterações para esses clientes.
 
-### <a name="9-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>9. temos uma consulta do lado do servidor para verificar se o SSL está sendo usado?
+### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. temos uma consulta do lado do servidor para verificar se o SSL está sendo usado?
 Para verificar se você está usando a conexão SSL para se conectar ao servidor, consulte [verificação de SSL](howto-configure-ssl.md#verify-the-ssl-connection).
 
-### <a name="10-what-if-i-have-further-questions"></a>10. e se eu tiver mais perguntas?
+### <a name="13-what-if-i-have-further-questions"></a>13. e se eu tiver outras dúvidas?
 Se você tiver dúvidas, obtenha respostas de especialistas da Comunidade no [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). Se você tiver um plano de suporte e precisar de ajuda técnica, [entre em contato conosco](mailto:AzureDatabaseformariadb@service.microsoft.com)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437234"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601751"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -48,26 +48,26 @@ A avaliação de acesso contínuo é implementada habilitando serviços, como o 
 - O administrador revoga explicitamente todos os tokens de atualização para um usuário
 - Risco de usuário elevado detectado por Azure AD Identity Protection
 
-Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos, email, calendário ou tarefas organizacionais do SharePoint, além de equipes de aplicativos cliente do O365 dentro de minutos após um desses eventos críticos. 
+Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos, email, calendário ou tarefas organizacionais do SharePoint, e equipes de Microsoft 365 aplicativos cliente dentro de minutos após um desses eventos críticos. 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Avaliação da política de acesso condicional (versão prévia)
 
 O Exchange e o SharePoint são capazes de sincronizar as políticas de acesso condicional de chave para que possam ser avaliadas dentro do próprio serviço.
 
-Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos organizacionais, email, calendário ou tarefas de aplicativos cliente do O365 ou SharePoint Online imediatamente após as alterações no local da rede.
+Esse processo habilita o cenário em que os usuários perdem o acesso a arquivos organizacionais, email, calendário ou tarefas de Microsoft 365 aplicativos cliente ou SharePoint Online imediatamente após as alterações no local de rede.
 
 > [!NOTE]
 > Nem todas as combinações de provedor de recursos e aplicativos têm suporte. Consulte a tabela abaixo. O Office se refere ao Word, Excel e PowerPoint
 
 | | Outlook Web | Win32 do Outlook | IOS do Outlook | Android do Outlook | Mac do Outlook |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint online | Com suporte | Com suporte | Sem suporte | Sem suporte | Com suporte |
-| Exchange Online | Com suporte | Com suporte | Com suporte | Com suporte | Com suporte |
+| **SharePoint Online** | Com suporte | Com suporte | Sem suporte | Sem suporte | Com suporte |
+| **Exchange Online** | Com suporte | Com suporte | Com suporte | Com suporte | Com suporte |
 
 | | Office Web Apps | Aplicativos Win32 do Office | Office para iOS | Office para Android | Office para Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint online | Com suporte | Com suporte | Sem suporte | Com suporte | Com suporte |
-| Exchange Online | Com suporte | Com suporte | Sem suporte | Com suporte | Com suporte |
+| **SharePoint Online** | Com suporte | Com suporte | Sem suporte | Com suporte | Com suporte |
+| **Exchange Online** | Com suporte | Com suporte | Sem suporte | Com suporte | Com suporte |
 
 ### <a name="client-side-claim-challenge"></a>Desafio de declaração do lado do cliente
 

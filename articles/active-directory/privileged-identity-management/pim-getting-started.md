@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567343"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600714"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar usando o Privileged Identity Management
 
@@ -35,6 +35,14 @@ Para usar Privileged Identity Management, você deve ter uma das seguintes licen
 - Enterprise Mobility + Security (EMS) E5
 
 Para obter mais informações, consulte [requisitos de licença para usar Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+> Quando um usuário que está ativo em uma função privilegiada em uma organização do Azure AD com uma licença Premium P2 vai para **funções e administradores** no Azure AD e seleciona uma função (ou até mesmo apenas visita Privileged Identity Management):
+>
+> - Habilitamos automaticamente o PIM para a organização
+> - Sua experiência agora é que eles podem atribuir uma atribuição de função "regular" ou uma atribuição de função qualificada
+>
+> Quando o PIM está habilitado, ele não tem nenhum outro efeito em sua organização com o qual você precisa se preocupar. Ele fornece opções de atribuição adicionais, como ativo vs qualificado com hora de início e de término. O PIM também permite que você defina o escopo para atribuições de função usando unidades administrativas e funções personalizadas. Se você for um administrador global ou administrador de função com privilégios, poderá começar a obter alguns emails adicionais como o resumo semanal do PIM. Você também pode ver a entidade de serviço MS-PIM no log de auditoria relacionado à atribuição de função. Essa é uma alteração esperada que não deve ter efeito sobre o fluxo de trabalho.
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Preparar o PIM para funções do Azure AD
 

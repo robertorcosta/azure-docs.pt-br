@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672652"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601377"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Entenda as estações de trabalho seguras e gerenciadas pelo Azure
 
@@ -64,7 +64,7 @@ Todos os usuários e operadores se beneficiam ao usar uma estação de trabalho 
 * Estação de trabalho altamente confidencial, como um terminal de pagamento SWIFT
 * Estação de trabalho lidando com segredos comerciais
 
-Para reduzir o risco, você deve implementar controles de segurança elevados para estações de trabalho privilegiadas que fazem uso dessas contas. Para obter mais informações, consulte o [Guia de implantação de recurso Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), o [roteiro do Office 365](https://aka.ms/o365secroadmap)e a [proteção do roteiro de acesso privilegiado](https://aka.ms/sparoadmap)).
+Para reduzir o risco, você deve implementar controles de segurança elevados para estações de trabalho privilegiadas que fazem uso dessas contas. Para obter mais informações, consulte o [Guia de implantação de recursos Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), o [roteiro do Microsoft 365](https://aka.ms/o365secroadmap)e a proteção do [roteiro de acesso privilegiado](https://aka.ms/sparoadmap)).
 
 ## <a name="why-use-dedicated-workstations"></a>Por que usar estações de trabalho dedicadas?
 
@@ -73,7 +73,7 @@ Embora seja possível adicionar segurança a um dispositivo existente, é melhor
 Um número crescente de vetores de ataque por email e navegação na Web torna cada vez mais difícil ter certeza de que um dispositivo pode ser confiável. Este guia pressupõe que uma estação de trabalho dedicada seja isolada da produtividade, navegação e email padrão. A remoção de produtividade, navegação na Web e email de um dispositivo pode ter um impacto negativo na produtividade. No entanto, essa proteção normalmente é aceitável para cenários em que as tarefas de trabalho não exigem explicitamente isso e o risco de um incidente de segurança é alto.
 
 > [!NOTE]
-> A navegação na Web aqui refere-se ao acesso geral a sites arbitrários que podem ser uma atividade de alto risco. Essa navegação é distintamente diferente de usar um navegador da Web para acessar um pequeno número de sites administrativos conhecidos para serviços como o Azure, o Office 365, outros provedores de nuvem e aplicativos SaaS.
+> A navegação na Web aqui refere-se ao acesso geral a sites arbitrários que podem ser uma atividade de alto risco. Essa navegação é distintamente diferente de usar um navegador da Web para acessar um pequeno número de sites administrativos conhecidos para serviços como o Azure, Microsoft 365, outros provedores de nuvem e aplicativos SaaS.
 
 As estratégias de confinamento fortalecem a segurança aumentando o número e o tipo de controles que importam um invasor de obter ativos confidenciais de acesso. O modelo descrito neste artigo usa um design de privilégio em camadas e restringe privilégios administrativos a dispositivos específicos.
 

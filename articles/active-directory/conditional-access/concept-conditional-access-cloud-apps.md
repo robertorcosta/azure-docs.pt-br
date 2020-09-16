@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948395"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602057"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicativos na nuvem ou ações
 
@@ -55,9 +55,9 @@ Os administradores podem atribuir uma política de Acesso Condicional aos aplica
 - Microsoft StaffHub
 - Microsoft Stream
 - Equipes da Microsoft
-- Office 365 Exchange Online
-- Office 365 SharePoint Online
-- Office 365 Yammer
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Office Sway
 - Outlook Groups
@@ -69,7 +69,7 @@ Os administradores podem atribuir uma política de Acesso Condicional aos aplica
 
 ### <a name="office-365-preview"></a>Office 365 (versão prévia)
 
-O Office 365 fornece serviços de produtividade e colaboração baseados em nuvem, como o Exchange, o SharePoint e o Microsoft Teams. Os serviços de nuvem do Office 365 são integrados profundamente para que haja experiências suaves e colaborativas. Essa integração pode causar confusão ao criar políticas, pois alguns aplicativos como o Microsoft Teams têm dependências de outros como SharePoint ou Exchange.
+O Microsoft 365 fornece serviços de produtividade e colaboração baseados em nuvem como o Exchange, SharePoint e Microsoft Teams. Microsoft 365 serviços de nuvem estão profundamente integrados para garantir experiências suaves e colaborativas. Essa integração pode causar confusão ao criar políticas, pois alguns aplicativos como o Microsoft Teams têm dependências de outros como SharePoint ou Exchange.
 
 O aplicativo Office 365 (versão prévia) torna possível direcionar esses serviços de uma só vez. É recomendável usar o novo aplicativo Office 365 (versão prévia), em vez de direcionar aplicativos de nuvem individuais para evitar problemas com [dependências de serviço](service-dependencies.md). Direcionar esse grupo de aplicativos ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
 
@@ -82,10 +82,10 @@ Aplicativos-chave incluídos no aplicativo cliente do Office 365 (versão prévi
    - Microsoft Stream
    - Microsoft To-Do
    - Equipes da Microsoft
-   - Office 365 Exchange Online
-   - Office 365 SharePoint Online
-   - Serviço de Pesquisa do Office 365
-   - Office 365 Yammer
+   - Exchange Online
+   - SharePoint online
+   - Microsoft 365 Serviço de Pesquisa
+   - Yammer
    - Office Delve
    - Office Online
    - Office.com

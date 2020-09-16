@@ -8,12 +8,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: b1d559d82cb22d8a787785c6d8c6a5101d89793a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586555"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601071"
 ---
 # <a name="point-in-time-snapshot"></a>Instantâneo pontual
 
@@ -23,31 +23,29 @@ Azure App configuração mantém um registro das alterações feitas nos valores
 
 Você pode usar portal do Azure ou CLI para recuperar valores de chave antigos. Em CLI do Azure, use `az appconfig revision list` , adicionando os parâmetros apropriados para recuperar os valores necessários.  Especifique a instância de configuração de Azure App fornecendo o nome do repositório ( `--name <app-config-store-name>` ) ou usando uma cadeia de conexão ( `--connection-string <your-connection-string>` ). Restrinja a saída especificando um ponto no tempo específico ( `--datetime` ) e especificando o número máximo de itens a serem retornados ( `--top` ).
 
-Se você não tiver CLI do Azure instalado localmente, você pode, opcionalmente, usar Azure Cloud Shell.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Se você não tiver CLI do Azure instalado localmente, você pode, opcionalmente, usar [Azure cloud Shell](/azure/cloud-shell/overview).
 
 Recupere todas as alterações gravadas para seus valores de chave.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name>.
 ```
 
 Recupere todas as alterações gravadas para a chave `environment` e os rótulos `test` e `prod` .
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
 ```
 
 Recupere todas as alterações gravadas no espaço de chave hierárquica `environment:prod` .
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
 ```
 
 Recupere todas as alterações gravadas para a chave `color` em um momento específico.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321660"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601292"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guia de referência de operações de gerenciamento de identidade e acesso do Azure Active Directory
 
@@ -35,8 +35,8 @@ O gerenciamento de Azure Active Directory requer a execução contínua das prin
 | :- | :- |
 | Definir o processo como criar assinaturas do Azure | Varia de acordo com a organização |
 | Decidir quem recebe licenças de Enterprise Mobility + Security | Equipe de operações IAM |
-| Decidir quem Obtém as licenças do Office 365 | Equipe de produtividade |
-| Decida quem obtém outras licenças, por exemplo, Dynamics, VSO | Proprietário do Aplicativo |
+| Decidir quem recebe licenças de Microsoft 365 | Equipe de produtividade |
+| Decida quem obtém outras licenças, por exemplo, Dynamics, Visual Studio Codespaces | Proprietário do Aplicativo |
 | Atribuir licenças | Equipe de operações IAM |
 | Solucionar problemas e corrigir erros de atribuição de licença | Equipe de operações IAM |
 | Provisionar identidades para aplicativos no Azure AD | Equipe de operações IAM |
@@ -140,7 +140,7 @@ O [Documentador de configuração de Azure ad Connect](https://github.com/Micros
 
 Azure Active Directory simplifica o gerenciamento de licenças por meio de [Licenciamento baseado em grupo](./active-directory-licensing-whatis-azure-portal.md) para serviços de nuvem da Microsoft. Dessa forma, IAM fornece a infraestrutura de grupo e o gerenciamento delegado desses grupos para as equipes adequadas nas organizações. Há várias maneiras de configurar a associação de grupos no Azure AD, incluindo:
 
-- **Sincronizados de grupos locais** podem vir de diretórios locais, o que pode ser uma boa opção para organizações que estabeleceram processos de gerenciamento de grupo que podem ser estendidos para atribuir licenças no Office 365.
+- **Sincronizados a partir de grupos locais** podem vir de diretórios locais, o que pode ser uma boa opção para organizações que estabeleceram processos de gerenciamento de grupo que podem ser estendidos para atribuir licenças em Microsoft 365.
 
 - Os grupos **baseados em atributo/dinâmicos** podem ser criados na nuvem com base em uma expressão baseada em atributos de usuário, por exemplo, Department é igual a "Sales". O Azure AD mantém os membros do grupo, mantendo-os consistentes com a expressão definida. Usar esse tipo de grupo para atribuição de licença habilita uma atribuição de licença baseada em atributo, que é uma boa opção para organizações que têm alta qualidade de dados em seu diretório.
 
@@ -188,7 +188,7 @@ A frequência de [sincronização Delta padrão](../hybrid/how-to-connect-sync-f
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Azure AD Connect solução de problemas de leitura recomendada
 
-- [Preparar atributos de diretório para sincronização com o Office 365 usando a ferramenta IdFix – Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Preparar atributos de diretório para sincronização com Microsoft 365 usando a ferramenta IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: solucionar erros durante a sincronização](../hybrid/tshoot-connect-sync-errors.md)
 
 ## <a name="summary"></a>Resumo

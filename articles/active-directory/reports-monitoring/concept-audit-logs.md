@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229915"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603502"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
@@ -89,14 +89,14 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
-- Todos
+- Tudo
 - UX de gerenciamento do AAD
 - Revisões de acesso
 - Provisionamento de conta de usuário
 - Proxy do Aplicativo
 - Métodos de autenticação
 - B2C
-- Acesso condicional
+- Acesso Condicional
 - Diretório principal
 - Gerenciamento de direitos
 - Autenticação híbrida
@@ -111,7 +111,7 @@ O filtro de **serviço** permite que você selecione em uma lista suspensa dos s
 
 O filtro **categoria** permite que você selecione um dos seguintes filtros:
 
-- Todos
+- Tudo
 - AdministrativeUnit
 - ApplicationManagement
 - Autenticação
@@ -138,7 +138,7 @@ Você pode obter a lista de todas as atividades de auditoria usando o API do Gra
 
 O filtro de **status** permite filtrar com base no status de uma operação de auditoria. O status pode ser um dos seguintes:
 
-- Todos
+- Tudo
 - Sucesso
 - Falha
 
@@ -208,11 +208,11 @@ Se você quiser revisar os dados de auditoria relacionados aos aplicativos, pode
 
 ![Logs de auditoria](./media/concept-audit-logs/enterpriseapplications.png "Logs de auditoria")
 
-## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
+## <a name="microsoft-365-activity-logs"></a>Logs de atividades Microsoft 365
 
-Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os logs de atividades do Azure AD compartilhem muitos recursos de diretório, somente o Microsoft 365 centro de administração fornece uma visão completa dos logs de atividade do Office 365. 
+Você pode exibir Microsoft 365 logs de atividades do [centro de administração do Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Embora Microsoft 365 atividade e os logs de atividades do Azure AD compartilhem muitos recursos de diretório, somente o centro de administração de Microsoft 365 fornece uma visão completa dos logs de atividades do Microsoft 365. 
 
-Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](/office/office-365-management-api/office-365-management-apis-overview).
+Você também pode acessar os logs de atividades de Microsoft 365 programaticamente usando as [APIs de gerenciamento do Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 

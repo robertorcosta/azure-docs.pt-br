@@ -3,12 +3,12 @@ title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 09/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67111ecb215f4976dd8d3bbe0b901e68c3ef10ec
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564059"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602380"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -48,13 +48,13 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 [Arco do Azure](../../azure-arc/index.yml):
 
-- Gerenciar servidores híbridos em escala – [arco do Azure para servidores (versão prévia)](../../azure-arc/servers/overview.md):
-  - [Conecte os computadores ao Windows Server ou ao Linux fora do Azure](../../azure-arc/servers/onboard-portal.md) para delegar assinaturas e/ou grupos de recursos no Azure
+- Gerenciar servidores híbridos em escala – [servidores habilitados para Arc do Azure (versão prévia)](../../azure-arc/servers/overview.md):
+  - [Gerenciar computadores Windows Server ou Linux fora do Azure que estão conectados](../../azure-arc/servers/onboard-portal.md) a assinaturas delegadas e/ou grupos de recursos no Azure
   - Gerenciar computadores conectados usando constructos do Azure, como o Azure Policy e a marcação
   - Garantir que o mesmo conjunto de políticas seja aplicado nos ambientes híbridos dos clientes
   - Usar a central de segurança do Azure para monitorar a conformidade entre os ambientes híbridos dos clientes
 - Gerenciar clusters kubernetes híbridos em escala – [kubernetes habilitado para Arc do Azure (versão prévia)](../../azure-arc/kubernetes/overview.md):
-  - [Conectar um cluster kubernetes ao arco do Azure](../../azure-arc/kubernetes/connect-cluster.md) a assinaturas e/ou grupos de recursos delegados no Azure
+  - [Gerenciar clusters kubernetes que estão conectados](../../azure-arc/kubernetes/connect-cluster.md) a assinaturas delegadas e/ou grupos de recursos no Azure
   - [Usar o GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para clusters conectados
   - Impor políticas entre clusters conectados
 

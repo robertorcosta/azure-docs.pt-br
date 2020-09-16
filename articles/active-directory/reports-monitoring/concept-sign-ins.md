@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228759"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603587"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -142,18 +142,18 @@ O **local** -o local do qual a conexão foi iniciada:
 ![Filtro de aplicativo cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Nome|Autenticação moderna|Descrição|
+|Name|Autenticação moderna|Descrição|
 |---|:-:|---|
 |SMTP autenticado| |Usado pelo cliente POP e IMAP para enviar mensagens de email.|
 |Descoberta automática| |Usado pelos clientes do Outlook e do EAS para localizar e conectar-se às caixas de correio no Exchange Online.|
 |Exchange ActiveSync| |Esse filtro mostra todas as tentativas de entrada nas quais o protocolo EAS foi tentado.|
-|Navegador|![Verificação](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários usando navegadores da Web|
-|Exchange ActiveSync| | Mostra todas as tentativas de entrada de usuários com aplicativos cliente usando o Exchange ActiceSync para se conectar ao Exchange Online|
+|Navegador|![Marca de seleção](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários usando navegadores da Web|
+|Exchange ActiveSync| | Mostra todas as tentativas de entrada de usuários com aplicativos cliente usando o Exchange ActiveSync para se conectar ao Exchange Online|
 |PowerShell do Exchange Online| |Usado para se conectar ao Exchange Online com o PowerShell remoto. Se você bloquear a autenticação básica para o Exchange Online PowerShell, será necessário usar o módulo do PowerShell do Exchange Online para se conectar. Para obter instruções, confira [Conectar ao Exchange Online PowerShell usando a autenticação multifator](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Serviços Web do Exchange| |Uma interface de programação usada pelo Outlook, pelo Outlook para Mac e por aplicativos de terceiros.|
 |IMAP4| |Um cliente de email herdado usando IMAP para recuperar email.|
 |MAPI sobre HTTP| |Usado pelo Outlook 2010 e posterior.|
-|Aplicativos móveis e clientes de desktop|![Verificação](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários que usam aplicativos móveis e clientes de desktop.|
+|Aplicativos móveis e clientes de desktop|![Marca de seleção azul](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de entrada de usuários que usam aplicativos móveis e clientes de desktop.|
 |Catálogo de endereços offline| |Uma cópia de coleções de listas de endereços que são baixadas e usadas pelo Outlook.|
 |Outlook Anywhere (RPC sobre HTTP)| |Usado pelo Outlook 2016 e anterior.|
 |Serviço do Outlook| |Usado pelo aplicativo de email e calendário para Windows 10.|
@@ -228,11 +228,11 @@ Ao clicar em um item, você verá mais detalhes sobre a operação de entrada:
 
 - Id de Usuário
 - Usuário
-- Nome de Usuário
+- Nome de usuário
 - ID do aplicativo
 - Aplicativo
 - Cliente
-- Localização
+- Local
 - Endereço IP
 - Data
 - MFA obrigatório
@@ -263,17 +263,17 @@ Os gráficos de uso de aplicativo geram agregações semanais de entradas para o
 
 Se desejar, você pode definir o foco em um aplicativo específico.
 
-![Relatórios](./media/concept-sign-ins/single-app-usage-graph.png "Relatórios")
+![Relatórios](./media/concept-sign-ins/single-app-usage-graph.png "Relatório")
 
 Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
 
 A opção **Entradas** oferece uma visão geral completa de todos os eventos de entrada para seus aplicativos.
 
-## <a name="office-365-activity-logs"></a>Logs de atividade do Office 365
+## <a name="microsoft-365-activity-logs"></a>Logs de atividades Microsoft 365
 
-Você pode exibir os logs de atividade do Office 365 no [centro de administração do Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Considere o ponto que, a atividade do Office 365 e os logs de atividade do Azure AD compartilham um número significativo de recursos de diretório. Somente o centro de administração Microsoft 365 fornece uma visão completa dos logs de atividades do Office 365. 
+Você pode exibir Microsoft 365 logs de atividades do [centro de administração do Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Considere o ponto que, Microsoft 365 atividade e os logs de atividade do Azure AD compartilham um número significativo de recursos de diretório. Somente o centro de administração do Microsoft 365 fornece uma exibição completa dos logs de atividade do Microsoft 365. 
 
-Você também pode acessar os logs de atividade do Office 365 programaticamente usando as [APIs de gerenciamento do office 365](/office/office-365-management-api/office-365-management-apis-overview).
+Você também pode acessar os logs de atividades de Microsoft 365 programaticamente usando as [APIs de gerenciamento do Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Próximas etapas
 

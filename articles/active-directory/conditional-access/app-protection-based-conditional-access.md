@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641017"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601938"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como fazer: Exigir políticas de proteção de aplicativo e um aplicativo cliente aprovado para acesso ao aplicativo em nuvem com acesso condicional
 
 As pessoas usam regularmente seus dispositivos móveis para tarefas pessoais e de trabalho. Enquanto garantem a produtividade de suas equipes, as organizações também desejam evitar a perda de dados por parte de aplicativos potencialmente não seguros. Com o acesso condicional, as organizações podem restringir o acesso a aplicativos cliente aprovados (com capacidade de autenticação moderna) usando as políticas de proteção de aplicativo do Intune aplicadas a eles.
 
-Este artigo apresenta três cenários para configurar políticas de acesso condicional para recursos como o Office 365, o Exchange Online e o SharePoint Online.
+Este artigo apresenta três cenários para configurar políticas de acesso condicional para recursos como Microsoft 365, Exchange Online e SharePoint.
 
-- [Cenário 1: Aplicativos do Office 365 exigem aplicativos aprovados com políticas de proteção de aplicativo](#scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies)
+- [Cenário 1: aplicativos de Microsoft 365 exigem aplicativos aprovados com políticas de proteção de aplicativo](#scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies)
 - [Cenário 2: Os aplicativos de navegador exigem aplicativos aprovados com políticas de proteção de aplicativo](#scenario-2-browser-apps-require-approved-apps-with-app-protection-policies)
-- [Cenário 3: O Exchange Online e o SharePoint Online exigem um aplicativo cliente aprovado e uma política de proteção de aplicativo](#scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy)
+- [Cenário 3: o Exchange Online e o SharePoint exigem um aplicativo cliente aprovado e uma política de proteção de aplicativo](#scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy)
 
 No acesso condicional, esses aplicativos cliente são sabidamente protegidos por uma política de proteção de aplicativo. Mais informações sobre as políticas de proteção de aplicativo podem ser encontradas no artigo [Visão geral das políticas de proteção de aplicativo](/intune/apps/app-protection-policy)
 
@@ -36,13 +36,13 @@ No acesso condicional, esses aplicativos cliente são sabidamente protegidos por
 > [!NOTE]
 > "Exigir um dos controles selecionados" em conceder controles é como uma cláusula OR. Isso é usado na política para permitir que os usuários utilizem aplicativos que suportam a **política exigir proteção de aplicativo** ou exigem controles de concessão de **aplicativo cliente aprovados** . **Exigir** que a política de proteção de aplicativo seja imposta se um aplicativo tiver suporte em ambas as políticas. Para saber mais sobre quais aplicativos dão suporte ao controle de concessão **Exigir política de proteção de aplicativo**, confira [Requisito de política de proteção de aplicativo](concept-conditional-access-grant.md#require-app-protection-policy).
 
-## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 1: Aplicativos do Office 365 exigem aplicativos aprovados com políticas de proteção de aplicativo
+## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 1: aplicativos de Microsoft 365 exigem aplicativos aprovados com políticas de proteção de aplicativo
 
-Nesse cenário, a Contoso decidiu que todo o acesso móvel aos recursos do Office 365 deve usar aplicativos cliente aprovados, como o Outlook Mobile e o OneDrive, protegidos por uma política de proteção de aplicativo antes de receber o acesso. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
+Nesse cenário, a Contoso decidiu que todo o acesso móvel aos recursos Microsoft 365 deve usar aplicativos cliente aprovados, como o Outlook Mobile e o OneDrive, protegidos por uma política de proteção de aplicativo antes de receber o acesso. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
 
 As organizações devem concluir as etapas a seguir para exigir o uso de um aplicativo cliente aprovado em dispositivos móveis.
 
-**Etapa 1: Configurar uma política de acesso condicional do Azure AD para o Office 365**
+**Etapa 1: configurar uma política de acesso condicional do Azure AD para Microsoft 365**
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
@@ -89,11 +89,11 @@ Confira o artigo [Como criar e atribuir políticas de proteção de aplicativo](
 
 ## <a name="scenario-2-browser-apps-require-approved-apps-with-app-protection-policies"></a>Cenário 2: Os aplicativos de navegador exigem aplicativos aprovados com políticas de proteção de aplicativo
 
-Nesse cenário, a Contoso decidiu que todo o acesso de navegação à Web móvel para os recursos do Office 365 deve usar aplicativos cliente aprovados, como o Microsoft Edge para iOS e Android, protegidos por uma política de proteção de aplicativo antes de receber acesso. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
+Nesse cenário, a Contoso decidiu que todo acesso à navegação na Web móvel para Microsoft 365 recursos deve usar um aplicativo cliente aprovado, como o Edge para iOS e Android, protegido por uma política de proteção de aplicativo antes de receber o acesso. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
 
 As organizações devem concluir as etapas a seguir para exigir o uso de um aplicativo cliente aprovado em dispositivos móveis.
 
-**Etapa 1: Configurar uma política de acesso condicional do Azure AD para o Office 365**
+**Etapa 1: configurar uma política de acesso condicional do Azure AD para Microsoft 365**
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
@@ -120,13 +120,13 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
 
 Confira o artigo [Como criar e atribuir políticas de proteção de aplicativo](/intune/apps/app-protection-policies) para obter as etapas necessárias para criar políticas de proteção de aplicativo para Android e iOS. 
 
-## <a name="scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy"></a>Cenário 3: O Exchange Online e o SharePoint Online exigem um aplicativo cliente aprovado e uma política de proteção de aplicativo
+## <a name="scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy"></a>Cenário 3: o Exchange Online e o SharePoint exigem um aplicativo cliente aprovado e uma política de proteção de aplicativo
 
 Nesse cenário, a Contoso decidiu que os usuários só podem acessar dados de email e do SharePoint em dispositivos móveis desde que usem um aplicativo cliente aprovado, como o Outlook Mobile, protegido por uma política de proteção de aplicativo antes de receber o acesso. Todos os seus usuários já entram com as credenciais do Azure AD e têm licenças atribuídas a eles que incluem o Azure AD Premium P1 ou P2 e o Microsoft Intune.
 
 As organizações devem concluir as seguintes três etapas para exigir o uso de um aplicativo cliente aprovado em dispositivos móveis e em cliente do Exchange ActiveSync.
 
-**Etapa 1: Política para clientes de autenticação moderna baseados em Android e iOS que exigem o uso de um aplicativo cliente aprovado e uma política de proteção de aplicativo ao acessar o Exchange Online e o SharePoint Online.**
+**Etapa 1: política para clientes de autenticação moderna com base em Android e iOS que exigem o uso de um aplicativo cliente aprovado e uma política de proteção de aplicativo ao acessar o Exchange Online e o SharePoint.**
 
 1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.

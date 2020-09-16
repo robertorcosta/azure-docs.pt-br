@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253232"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601630"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory FAQs de acesso condicional
 
@@ -59,7 +59,7 @@ Para obter mais informações, consulte o artigo [dependências do serviço de a
 
 Depois de habilitar algumas políticas de acesso condicional no locatário do Microsoft Teams, algumas guias podem não funcionar mais no cliente de desktop conforme o esperado. No entanto, as guias afetadas funcionam ao usar o cliente Web do Microsoft Teams. As guias afetadas podem incluir Power BI, formulários, VSTS, PowerApps e lista do SharePoint.
 
-Para ver as guias afetadas, você deve usar o cliente Web das equipes no Edge, no Internet Explorer ou no Chrome com a extensão de contas do Windows 10 instalada. Algumas guias dependem da autenticação na Web, que não funciona no cliente do Microsoft Teams desktop quando o acesso condicional está habilitado. A Microsoft está trabalhando com parceiros para habilitar esses cenários. Até o momento, habilitamos o scenrarios envolvendo o Planner, o OneNote e o Stream.
+Para ver as guias afetadas, você deve usar o cliente Web das equipes no Edge, no Internet Explorer ou no Chrome com a extensão de contas do Windows 10 instalada. Algumas guias dependem da autenticação na Web, que não funciona no cliente do Microsoft Teams desktop quando o acesso condicional está habilitado. A Microsoft está trabalhando com parceiros para habilitar esses cenários. Até o momento, habilitamos cenários envolvendo o Planner, o OneNote e o Stream.
 
 ## <a name="next-steps"></a>Próximas etapas
 

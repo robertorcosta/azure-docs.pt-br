@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: bbe813b46b41bf0e2b8bf9c6b3fe3e3e843204ed
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319739"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601241"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco etapas para integrar todos os seus aplicativos com o Azure AD
 
@@ -70,7 +70,7 @@ Durante o processo de descoberta, você pode encontrar aplicativos que não fora
 
 Publicamos diretrizes para gerenciar o processo comercial de integração de aplicativos com o Azure AD, incluindo um [cartaz](https://aka.ms/AppOnePager) e uma [apresentação](https://aka.ms/AppGuideline) que você pode usar para fazer com que os proprietários de negócios e aplicativos saibam e interessados. Você pode modificar esses exemplos com sua própria identidade visual e publicá-los em sua organização por meio do portal da empresa, do boletim informativo ou de outra mídia ao concluir esse processo.
 
-Um bom lugar para começar é avaliar o uso de Serviços de Federação do Active Directory (AD FS) (ADFS). Muitas organizações usam o ADFS para autenticação com aplicativos SaaS, aplicativos de linha de negócios personalizados e aplicativos baseados no Microsoft Azure AD 365
+Um bom lugar para começar é avaliar o uso de Serviços de Federação do Active Directory (AD FS) (ADFS). Muitas organizações usam o ADFS para autenticação com aplicativos SaaS, aplicativos de linha de negócios personalizados e Microsoft 365 e aplicativos baseados no Azure AD:
 
 ![O diagrama mostra aplicativos locais, aplicativos de linha de negócios, aplicativos SaaS e, por meio do Azure AD, o Office 365 todos conectando com linhas pontilhadas em Active Directory e AD FS.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 
