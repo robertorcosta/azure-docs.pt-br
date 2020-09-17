@@ -1,6 +1,6 @@
 ---
 title: Problemas ao entrar em um aplicativo Microsoft | Microsoft Docs
-description: Solucionar problemas comuns enfrentados ao entrar em aplicativos primários da Microsoft usando o Azure AD (como o Office 365)
+description: Solucionar problemas comuns enfrentados ao entrar em aplicativos primários da Microsoft usando o Azure AD (como Microsoft 365).
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,20 +16,20 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759276"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707944"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
-Os aplicativos Microsoft (como o Office 365 Exchange, SharePoint, Yammer, etc.) são atribuídos e gerenciados de forma um pouco diferente dos aplicativos SaaS de terceiros ou outros aplicativos que você integra com o Azure AD para o logon único.
+Os aplicativos da Microsoft (como Exchange, SharePoint, Yammer etc.) são atribuídos e gerenciados de maneira um pouco diferente dos aplicativos SaaS de terceiros ou outros aplicativos que você integra com o Azure AD para logon único.
 
 Há três principais maneiras que um usuário pode obter acesso a um aplicativo publicado Microsoft.
 
--   Para aplicativos no Office 365 ou em outros conjuntos de aplicativos pagos, os usuários têm acesso através de **atribuição de licença** diretamente à sua conta de usuário ou através de um grupo que usa nosso recurso de atribuição de licenças baseada em grupo.
+-   Para aplicativos no Microsoft 365 ou em outros pacotes pagos, os usuários recebem acesso por meio da **atribuição de licença** diretamente para sua conta de usuário ou por meio de um grupo usando a funcionalidade de atribuição de licença baseada em grupo.
 
 -   Para aplicativos que a Microsoft ou terceiros publicam livremente para uso de qualquer pessoa, os usuários podem ter o acesso concedido através do **consentimento do usuário**. Isso significa que o usuário se conecta ao aplicativo usando a conta Corporativa ou de Estudante do Azure AD e permite acesso a um conjunto limitado de dados em sua conta.
 
@@ -61,7 +61,7 @@ A seguir, são apresentados alguns problemas comuns que as pessoas se deparam qu
 
   * Certifique-se de que a**conta do usuário existe** no Azure Active Directory. [Verificar se existe uma conta de usuário no Azure Active Directory](#problems-with-the-users-account)
 
-  * Verifique se a conta do usuário está **habilitada** para entradas. [Verifique o status da conta de um usuário](#problems-with-the-users-account)
+  * Verifique se a conta do usuário está **habilitada** para entradas. [Verificar o status da conta de um usuário](#problems-with-the-users-account)
 
   * Verifique se a **senha do usuário não expirou ou foi esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 

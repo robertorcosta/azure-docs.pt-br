@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd98cab50c3239d3202e6feabe18f45a4240293
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: cccabaf069a3027e615892e36e218f865a6c983a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641170"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706652"
 ---
 # <a name="compare-remote-access-solutions"></a>Comparar as soluções de acesso remoto
 
@@ -38,17 +38,17 @@ Use essa tabela para entender a comparação entre o Threat Management Gateway (
 | Publicar seletivamente os aplicativos de navegador | Sim | Sim | Sim | Sim |
 | Pré-autenticação e logon único | Sim | Sim | Sim | Sim | 
 | Firewall de Camada 2/3 | Sim | Sim | - | - |
-| Recursos de proxy de encaminhamento | Sim | - | - | - |
+| Recursos de proxy de encaminhamento | Yes | - | - | - |
 | Funcionalidades de VPN | Sim | Sim | - | - |
-| Suporte avançado a protocolo | - | Sim | Sim, se estiver em execução sobre HTTP | Sim, se a execução for feita via HTTP ou por meio do Gateway de Área de Trabalho Remota |
+| Suporte avançado a protocolo | - | Yes | Sim, se estiver em execução sobre HTTP | Sim, se a execução for feita via HTTP ou por meio do Gateway de Área de Trabalho Remota |
 | Atua como um servidor proxy do ADFS | - | Sim | Sim | - |
 | Um portal para acesso de aplicativo | - | Sim | - | Sim |
 | Conversão de link de corpo de resposta | Sim | Sim | - | Sim | 
-| Autenticação com cabeçalhos | - | Sim | - | Sim, com PingAccess | 
-| Segurança em escala de nuvem | - | - | - | Sim | 
+| Autenticação com cabeçalhos | - | Yes | - | Sim, com PingAccess | 
+| Segurança em escala de nuvem | - | - | - | Yes | 
 | Acesso Condicional | - | Sim | - | Sim |
-| Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Sim |
-| Nenhuma conexão de entrada | - | - | - | Sim |
+| Nenhum componente na zona desmilitarizada (DMZ) | - | - | - | Yes |
+| Nenhuma conexão de entrada | - | - | - | Yes |
 
 Para a maioria dos cenários, recomendamos o Azure Proxy de Aplicativo do AD como a solução moderna. P Proxy de Aplicativo Web é preferencial apenas em cenários que exigem um servidor proxy para o AD FS e não pode usar domínios personalizados no Azure Active Directory. 
 
@@ -59,7 +59,7 @@ O Proxy de Aplicativo do Azure AD oferece benefícios exclusivos quando comparad
    - Recursos como acesso condicional e autenticação multifator são fáceis de habilitar
 - Nenhum componente na zona desmilitarizada
 - Nenhuma conexão de entrada necessária
-- Uma página meus aplicativos à qual os usuários podem ir para todos os seus aplicativos, incluindo o O365, aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 
+- Uma página meus aplicativos que os usuários podem acessar para todos os seus aplicativos, incluindo Microsoft 365, aplicativos SaaS integrados do Azure AD e seus aplicativos Web locais. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

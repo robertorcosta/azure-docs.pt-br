@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320028"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705360"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Responder rapidamente a identidades seguras com o Azure AD
 
@@ -42,13 +42,12 @@ Este guia pressupõe que sua nuvem somente ou identidades híbridas já tenham s
 
 Há muitos aspectos em uma infraestrutura de identidade segura, mas essa lista de verificação se concentra em uma infraestrutura de identidade seguro e segura, permitindo que os usuários trabalhem remotamente. Proteger sua identidade é apenas parte da sua história de segurança, proteger dados, aplicativos e dispositivos também deve ser considerado.
 
-### <a name="guidance-for-azure-ad-free-or-office-365-customers"></a>Diretrizes para clientes do Azure AD Gratuito ou Office 365.
+### <a name="guidance-for-azure-ad-free-office-365-or-microsoft-365-customers"></a>Diretrizes para clientes Azure AD Gratuito, Office 365 ou Microsoft 365.
 
-Há várias recomendações que Azure AD Gratuito ou os clientes do aplicativo Office 365 devem seguir para proteger suas identidades de usuário, a seguinte tabela destina-se a destacar as principais ações para as seguintes assinaturas de licença:
+Há várias recomendações que Azure AD Gratuito, o Office 365 ou os clientes de aplicativos Microsoft 365 devem seguir para proteger suas identidades de usuário, a seguinte tabela destina-se a destacar as principais ações para as seguintes assinaturas de licença:
 
-- Office 365 (O365 E1, E3, e5, F1, a1, a3, a5)
-- Office 365 Business (Essentials, Business, Business Premium)
-- Microsoft 365 (M365 Business, a1)
+- Office 365 (Office 365 E1, E3, e5, F1, a1, a3, a5)
+- Microsoft 365 (Business Basic, aplicativos para empresas, Standard Business, Business Premium, a1)
 - Azure AD Gratuito (incluído no Azure, Dynamics 365, Intune e Power Platform)
 
 | Ação recomendada | Detalhe |

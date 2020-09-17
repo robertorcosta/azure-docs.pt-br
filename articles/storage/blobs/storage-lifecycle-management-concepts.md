@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: be5d86fe690d60f687622243a2f1d7771b8af7d0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603979"
+ms.locfileid: "90707757"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure
 
@@ -87,7 +87,7 @@ Há duas maneiras de adicionar uma política por meio do portal do Azure.
    > [!IMPORTANT]
    > A visualização do último controle de tempo de acesso é para uso de não produção apenas. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
    
-   Para obter mais informações sobre a opção **último acesso** , consulte [mover dados com base na data do último acesso (versão prévia)](#move-data-based-on-last-accessed-date-preview).
+   Para usar a opção **último** acesso, selecione controle de **acesso habilitado** na página **Gerenciamento do ciclo de vida** no portal do Azure. Para obter mais informações sobre a opção **último acesso** , consulte [mover dados com base na data do último acesso (versão prévia)](#move-data-based-on-last-accessed-date-preview).
 
 1. Se você selecionou **limitar BLOBs com filtros** na página de **detalhes** , selecione **conjunto de filtros** para adicionar um filtro opcional. O exemplo a seguir filtra os BLOBs no contêiner *mylifecyclecontainer* que começam com "log".
 
@@ -376,6 +376,8 @@ A opção **último acessado** está disponível na visualização nas seguintes
 
 > [!IMPORTANT]
 > A visualização do último controle de tempo de acesso é para uso de não produção apenas. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.
+
+Para usar a opção **último** acesso, selecione controle de **acesso habilitado** na página **Gerenciamento do ciclo de vida** no portal do Azure.
 
 #### <a name="how-last-access-time-tracking-works"></a>Como o controle de tempo do último acesso funciona
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235682"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706347"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planejar o aplicativo de RH de nuvem para Azure Active Directory provisionamento de usuário
 
@@ -50,7 +50,7 @@ A integração do aplicativo de RH de nuvem com o provisionamento de usuário do
 - Exigir o provisionamento direto de usuário do aplicativo de RH na nuvem para Active Directory ou o Azure AD.
 - Exigir que os usuários sejam provisionados usando os dados obtidos do aplicativo de RH na nuvem.
 - Exigir ingressar, mover e deixar os usuários serem sincronizados com um ou mais Active Directory florestas, domínios e UOs com base apenas nas informações de alteração detectadas no aplicativo de RH de nuvem.
-- Use o Office 365 para email.
+- Use Microsoft 365 para email.
 
 ## <a name="learn"></a>Learn
 
@@ -61,14 +61,14 @@ O provisionamento de usuário cria uma base para a governança de identidade con
 Este artigo usa os seguintes termos:
 
 - **Sistema de origem**: o repositório de usuários do qual o Azure ad provisiona. Um exemplo é um aplicativo de RH de nuvem, como workday ou SuccessFactors.
-- **Sistema de destino**: o repositório de usuários para os quais o Azure ad provisiona. Os exemplos são Active Directory, Azure AD, Office 365 ou outros aplicativos SaaS.
+- **Sistema de destino**: o repositório de usuários para os quais o Azure ad provisiona. Os exemplos são Active Directory, Azure AD, Microsoft 365 ou outros aplicativos SaaS.
 - Emissores **– movimentadores-** permissers processam: um termo usado para novas contratações, transferências e rescisão usando um aplicativo de RH na nuvem como um sistema de registros. O processo é concluído quando o serviço provisiona com êxito os atributos necessários para o sistema de destino.
 
 ### <a name="key-benefits"></a>Principais benefícios
 
 Esse recurso de provisionamento de ti controlado por RH oferece os seguintes benefícios de negócios significativos:
 
-- **Aumentar a produtividade:** Agora você pode automatizar a atribuição de contas de usuário e licenças do Office 365 e fornecer acesso a grupos de chaves. A automação de atribuições dá ao novo contratado acesso imediato às suas ferramentas de trabalho e aumenta a produtividade.
+- **Aumentar a produtividade:** Agora você pode automatizar a atribuição de contas de usuário e licenças de Microsoft 365 e fornecer acesso a grupos de chaves. A automação de atribuições dá ao novo contratado acesso imediato às suas ferramentas de trabalho e aumenta a produtividade.
 - **Gerenciar risco:** Você pode aumentar a segurança automatizando as alterações com base no status do funcionário ou em associações de grupo com dados que fluem do aplicativo de RH na nuvem. Automatizar as alterações garante que as identidades do usuário e o acesso a aplicativos de chave sejam atualizados automaticamente quando os usuários fizerem a transição ou a saída da organização.
 - **Atender à conformidade e governança:** O Azure AD dá suporte a logs de auditoria nativos para solicitações de provisionamento de usuário executadas por aplicativos de sistemas de origem e de destino. Com a auditoria, você pode controlar quem tem acesso aos aplicativos de uma única tela.
 - **Gerenciar custo:** O provisionamento automático reduz os custos, evitando ineficiências e erros humanos associados ao provisionamento manual. Ele reduz a necessidade de soluções de provisionamento de usuário desenvolvidas personalizadas criadas com o passar do tempo usando plataformas herdadas e desatualizadas.
@@ -94,7 +94,7 @@ Você também precisa de uma licença de assinatura Azure AD Premium P1 ou super
 |:-|:-|
 | Vídeos | [O que é o provisionamento de usuário no diretório ativo do Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Como implantar o provisionamento de usuário no Active Directory do Azure](https://youtu.be/pKzyts6kfrw) |
-| Tutoriais | [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure AD](../saas-apps/tutorial-list.md) |
+| Tutoriais | [Lista de tutoriais sobre como integrar aplicativos SaaS ao Azure AD](../saas-apps/tutorial-list.md) |
 | | [Tutorial: Configurar o Workday para provisionamento automático do usuário](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 | Perguntas frequentes | [Provisionamento automatizado de usuários](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisionamento do WORKDAY para o Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -257,7 +257,7 @@ Por padrão, o aplicativo do conector de provisionamento mapeia o status do perf
 
 Quando você inicia o processo dos emissores-periões, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processar | Requisitos |
 | - | - |
 | **Entradas** | De uma perspectiva do ciclo de vida da identidade, como lidar com recontratações? As recontratações mantêm suas IDs de funcionário antigas? |
 | | Você processa contratações no futuro e cria Active Directory contas com antecedência? Essas contas são criadas em um estado habilitado ou desabilitado? |
@@ -276,7 +276,7 @@ Cada aplicativo de RH na nuvem é fornecido com o aplicativo de RH de nuvem padr
 
 Ao iniciar o processo de Complementos-movimentadores-periões, reúna os seguintes requisitos.
 
-| Processo | Requisitos |
+| Processar | Requisitos |
 | - | - |
 | **Entradas** | O processo de criação de conta Active Directory manual, automatizado ou parcialmente automatizado? |
 | | Você planeja propagar atributos personalizados do aplicativo de RH de nuvem para Active Directory? |

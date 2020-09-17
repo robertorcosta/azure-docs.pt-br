@@ -2,18 +2,18 @@
 title: Solucionar problemas do Aplicativo Azure insights Depurador de Instantâneos
 description: Este artigo apresenta as etapas e as informações de solução de problemas para ajudar os desenvolvedores que estão tendo problemas para habilitar ou usar Application Insights Depurador de Instantâneos.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671402"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707825"
 ---
-# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
-Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas. Pode haver vários motivos diferentes pelos quais os instantâneos não são gerados. Você pode executar a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
+Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas. Pode haver vários motivos diferentes para não gerar instantâneos. Você pode executar a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
 
 ## <a name="use-the-snapshot-health-check"></a>Use a verificação de integridade do instantâneo
 Vários problemas comuns resultam na não exibição do Abrir Instantâneo de Depuração. Usando um Coletor de Instantâneo desatualizado, por exemplo; alcançando o limite de carregamento diário; ou talvez o instantâneo está simplesmente demorando muito para carregar. Use a Verificação de Integridade de Instantâneo para solucionar problemas comuns.
@@ -31,6 +31,30 @@ Se isso não resolver o problema, consulte as etapas manuais de solução de pro
 ## <a name="verify-the-instrumentation-key"></a>Verificar a chave de instrumentação
 
 Certifique-se de que está usando a chave de instrumentação correta no aplicativo publicado. Normalmente, a chave de instrumentação é lida do arquivo ApplicationInsights.config. Verifique se o valor é o mesmo da chave de instrumentação para o recurso do Application Insights que você vê no portal.
+
+## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Verificar as configurações do cliente SSL (ASP.NET)
+
+Se você tiver um aplicativo ASP.NET hospedado no serviço Azure App ou no IIS em uma máquina virtual, seu aplicativo poderá falhar ao se conectar ao serviço Depurador de Instantâneos devido a um protocolo de segurança SSL ausente.
+[O ponto de extremidade depurador de instantâneos requer TLS versão 1,2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). O conjunto de protocolos de segurança SSL é uma das sutilezas habilitadas pelo valor de targetFramework de httpRuntime na seção System. Web do web.config. Se o targetFramework de httpRuntime for 4.5.2 ou inferior, o TLS 1,2 não será incluído por padrão.
+
+> [!NOTE]
+> O valor de targetFramework de httpRuntime é independente da estrutura de destino usada ao compilar seu aplicativo.
+
+Para verificar a configuração, abra o arquivo web.config e localize a seção System. Web. Verifique se o `targetFramework` para `httpRuntime` está definido como 4,6 ou superior.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> Modificar o valor de targetFramework de httpRuntime altera as peculiaridades de tempo de execução aplicadas ao seu aplicativo e pode causar outras alterações sutis de comportamento. Certifique-se de testar seu aplicativo cuidadosamente depois de fazer essa alteração. Para obter uma lista completa de alterações de compatibilidade, consulte https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+
+> [!NOTE]
+> Se o targetFramework for 4,7 ou superior, o Windows determinará os protocolos disponíveis. No serviço Azure App, o TLS 1,2 está disponível. No entanto, se você estiver usando sua própria máquina virtual, talvez seja necessário habilitar o TLS 1,2 no sistema operacional.
 
 ## <a name="preview-versions-of-net-core"></a>Versões prévias do .NET Core
 Se o aplicativo usar uma versão de visualização do .NET Core e Depurador de Instantâneos tiver sido habilitado por meio do [painel de Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, depurador de instantâneos talvez não seja iniciado. Siga as instruções em [habilitar depurador de instantâneos para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) com o aplicativo, ***além*** de habilitar por meio do [painel de Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).

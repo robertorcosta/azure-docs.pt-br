@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 23465c76fa62ed65583b97b0c9406dc791a4327f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 530ae82720e6b4eb6a3e4d1021c0b37b9f4dbf5c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564782"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707434"
 ---
 # <a name="how-to-mount-an-nfs-file-share"></a>Como montar um compartilhamento de arquivos NFS
 
@@ -61,4 +61,5 @@ Agora você montou seu compartilhamento NFS.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os arquivos do Azure com nosso artigo, [planejando uma implantação de arquivos do Azure](storage-files-planning.md).
+- Saiba mais sobre os arquivos do Azure com nosso artigo, [planejando uma implantação de arquivos do Azure](storage-files-planning.md).
+- Se você tiver problemas, consulte [solucionar problemas de compartilhamentos de arquivos NFS do Azure](storage-troubleshooting-files-nfs.md).

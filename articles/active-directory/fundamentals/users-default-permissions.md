@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 363068b74bf7639460da4fa80f0e661f3b8a88b9
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5d585ac57a369c994df9871bf731157de7b23212
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568805"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707621"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
 No Azure Active Directory (Azure AD), a todos os usuários é concedido um conjunto de permissões padrão. Um acesso do usuário é composto por tipo de usuário, suas [atribuições de função](active-directory-users-assign-role-azure-portal.md) e sua posse de objetos individuais. Este artigo descreve as permissões padrão e contém uma comparação entre os padrões do usuário membro e convidado. As permissões de usuário padrão podem ser alteradas somente nas configurações do usuário no Azure AD.
@@ -36,7 +36,7 @@ Usuários e contatos | <ul><li>Ler todas as propriedades públicas de usuários 
 Grupos | <ul><li>Criar grupos de segurança<li>Criar grupos de Microsoft 365<li>Ler todas as propriedades de grupos<li>Ler associações de grupos não ocultos<li>Ler associações de grupo de Microsoft 365 ocultas para o grupo associado<li>Gerenciar propriedades, posse e associação de grupos pertencentes ao usuário<li>Adicionar convidados a grupos próprios<li>Gerenciar configurações de associação dinâmica<li>Excluir grupos próprios<li>Restaurar grupos de Microsoft 365 de propriedade</li></ul> | <ul><li>Ler propriedades de todos os grupos não ocultos, incluindo associação e Propriedade (até mesmo grupos não associados)<li>Ler associações de grupo de Microsoft 365 ocultas para grupos associados<li>Pesquisar grupos por nome de exibição ou ObjectId (se permitido)</li></ul> | Nenhuma permissão
 Aplicativos | <ul><li>Registrar (criar) novo aplicativo<li>Ler propriedades de aplicativos registrados e corporativos<li>Gerenciar propriedades do aplicativo, atribuições e credenciais para aplicativos próprios<li>Criar ou excluir senha de aplicativo do usuário<li>Excluir aplicativos próprios<li>Restaurar aplicativos próprios</li></ul> | <ul><li>Ler propriedades de aplicativos registrados e corporativos</li></ul> | <ul><li>Ler propriedades de aplicativos registrados e corporativos
 Dispositivos</li></ul> | <ul><li>Ler todas as propriedades de dispositivos<li>Gerenciar todas as propriedades de dispositivos próprios</li></ul> | Nenhuma permissão | Nenhuma permissão
-Diretório | <ul><li>Ler todas as informações da empresa<li>Ler todos os domínios<li>Ler todos os contratos de parceiro</li></ul> | <ul><li>Ler nome de exibição e domínios verificados</li></ul> | <ul><li>Ler nome de exibição e domínios verificados</li></ul>
+Diretório | <ul><li>Ler todas as informações da empresa<li>Ler todos os domínios<li>Ler todos os contratos de parceiro</li></ul> | <ul><li>Ler nome de exibição da empresa<li>Ler todos os domínios</li></ul> | <ul><li>Ler nome de exibição da empresa<li>Ler todos os domínios</li></ul>
 Funções e escopos | <ul><li>Ler todas as funções e associações administrativas<li>Ler todas as propriedades e associação de unidades administrativas</li></ul> | Nenhuma permissão | Nenhuma permissão
 Assinaturas | <ul><li>Ler todas as assinaturas<li>Habilitar Membro de plano de serviço</li></ul> | Nenhuma permissão | Nenhuma permissão
 Políticas | <ul><li>Ler todas as propriedades de políticas<li>Gerenciar todas as propriedades de política própria</li></ul> | Nenhuma permissão | Nenhuma permissão

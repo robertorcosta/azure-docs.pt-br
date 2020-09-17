@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119429"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705853"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usar o MSAL em um ambiente de nuvem nacional
 
@@ -42,7 +42,7 @@ Antes de começar, certifique-se de atender a esses pré-requisitos.
 
 Os aplicativos [do Azure governamental](../../azure-government/index.yml) podem usar identidades do Azure ad governamental e identidades públicas do Azure ad para autenticar usuários. Como você pode usar qualquer uma dessas identidades, você precisa decidir qual ponto de extremidade de autoridade deve escolher para seu cenário:
 
-- Público do Azure AD: normalmente usado se sua organização já tiver um locatário público do Azure AD para dar suporte ao Office 365 (público ou GCC) ou a outro aplicativo.
+- Público do Azure AD: normalmente usado se sua organização já tiver um locatário público do Azure AD para dar suporte a Microsoft 365 (pública ou GCC) ou a outro aplicativo.
 - Azure AD governamental: normalmente usado se sua organização já tiver um locatário do Azure AD governamental para dar suporte ao Office 365 (GCC High ou DoD) ou estiver criando um novo locatário no Azure AD governamental.
 
 Depois de decidir, uma consideração especial é onde você executa o registro do aplicativo. Se você escolher identidades públicas do Azure AD para seu aplicativo do Azure governamental, deverá registrar o aplicativo em seu locatário público do Azure AD.
@@ -122,7 +122,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 Nesse código:
 
-- `Enter_the_Application_Id_here`é o valor da **ID do aplicativo (cliente)** para o aplicativo que você registrou.
+- `Enter_the_Application_Id_here` é o valor da **ID do aplicativo (cliente)** para o aplicativo que você registrou.
 - `Enter_the_Tenant_Info_Here` é definido como uma das seguintes opções:
     - Se seu aplicativo der suporte a **contas nesse diretório organizacional**, substitua esse valor pela ID do locatário ou pelo nome do locatário (por exemplo, contoso.Microsoft.com).
     - Se seu aplicativo oferecer suporte a **contas em qualquer diretório organizacional**, substitua esse valor por `organizations` .
@@ -132,7 +132,7 @@ Nesse código:
     > [!NOTE]
     > Não há suporte para contas pessoais da Microsoft em nuvens nacionais.
 
-- `graphEndpoint`é o ponto de extremidade Microsoft Graph para a nuvem da Microsoft para o governo dos EUA.
+- `graphEndpoint` é o ponto de extremidade Microsoft Graph para a nuvem da Microsoft para o governo dos EUA.
 
    Para localizar Microsoft Graph pontos de extremidade para todas as nuvens nacionais, confira [Microsoft Graph pontos de extremidade em nuvens nacionais](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 

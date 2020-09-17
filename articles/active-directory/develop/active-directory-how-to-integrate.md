@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c193742527cf69526d69549d3c10f5591f0d2f93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115689"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706159"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integração com a plataforma Microsoft Identity
 
@@ -31,7 +31,7 @@ Há várias maneiras para seu aplicativo se integrar à plataforma Microsoft Ide
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Suporte à plataforma de identidade da Microsoft como uma maneira de entrar no seu aplicativo
 
-**Reduza a fricção de entrada e reduza os custos de suporte.** Usando a plataforma de identidade da Microsoft para entrar em seu aplicativo, os usuários não terão mais um nome e senha para se lembrar. Como desenvolvedor, você terá uma senha a menos para armazenar e proteger. Apenas o fato de não precisar lidar com redefinições de senha, por si só, pode ser uma economia significativa. A plataforma de identidade da Microsoft liga para alguns dos aplicativos em nuvem mais populares do mundo, incluindo o Office 365 e Microsoft Azure. Com centenas de milhões de usuários de milhões de organizações, é provável que seu usuário já esteja conectado à plataforma de identidade da Microsoft. Saiba mais sobre como [Adicionar suporte à conexão da plataforma de identidade da Microsoft](./authentication-vs-authorization.md).
+**Reduza a fricção de entrada e reduza os custos de suporte.** Usando a plataforma de identidade da Microsoft para entrar em seu aplicativo, os usuários não terão mais um nome e senha para se lembrar. Como desenvolvedor, você terá uma senha a menos para armazenar e proteger. Apenas o fato de não precisar lidar com redefinições de senha, por si só, pode ser uma economia significativa. A plataforma de identidade da Microsoft liga para alguns dos aplicativos em nuvem mais populares do mundo, incluindo Microsoft 365 e Microsoft Azure. Com centenas de milhões de usuários de milhões de organizações, é provável que seu usuário já esteja conectado à plataforma de identidade da Microsoft. Saiba mais sobre como [Adicionar suporte à conexão da plataforma de identidade da Microsoft](./authentication-vs-authorization.md).
 
 **Simplifique a inscrição para o aplicativo.**  Durante a inscrição para seu aplicativo, a plataforma de identidade da Microsoft pode enviar informações essenciais sobre um usuário para que você possa preencher previamente seu formulário de inscrição ou eliminá-lo completamente. Os usuários podem inscrever-se no aplicativo usando suas respectivas contas do AD do Azure por meio de uma experiência de consentimento familiar, semelhante àquelas encontradas em mídias sociais e aplicativos móveis. Qualquer usuário pode se inscrever e entrar em um aplicativo que esteja integrado à plataforma de identidade da Microsoft sem exigir envolvimento de ti. Saiba mais sobre como [inscrever o aplicativo para logon na conta do AD do Azure](../../app-service/configure-authentication-provider-aad.md) .
 
@@ -47,13 +47,13 @@ Há várias maneiras para seu aplicativo se integrar à plataforma Microsoft Ide
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Obtenha acesso ao perfil do usuário, calendário, email, contatos, arquivos e muito mais
 
-**A plataforma Microsoft Identity é o servidor de autorização para o Office 365 e outros serviços comerciais da Microsoft.**  Se você der suporte à plataforma de identidade da Microsoft para entrar em seu aplicativo ou oferecer suporte à vinculação de suas contas de usuário atuais às contas de usuário do Azure AD usando o OAuth 2,0, poderá solicitar acesso de leitura e gravação ao perfil, calendário, email, contatos, arquivos e outras informações de um usuário. Você pode gravar eventos sem nenhum contratempo ao calendário dos usuários e ler ou gravar arquivos ao OneDrive desses mesmos usuários. Saiba mais sobre como [acessar as APIs do Office 365](/previous-versions/office/office-365-api/).
+**A plataforma de identidade da Microsoft é o servidor de autorização para Microsoft 365 e outros serviços comerciais da Microsoft.**  Se você der suporte à plataforma de identidade da Microsoft para entrar em seu aplicativo ou oferecer suporte à vinculação de suas contas de usuário atuais às contas de usuário do Azure AD usando o OAuth 2,0, poderá solicitar acesso de leitura e gravação ao perfil, calendário, email, contatos, arquivos e outras informações de um usuário. Você pode gravar eventos sem nenhum contratempo ao calendário dos usuários e ler ou gravar arquivos ao OneDrive desses mesmos usuários. Saiba mais sobre como [acessar as APIs de Microsoft 365](/previous-versions/office/office-365-api/).
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promova seu aplicativo nos Marketplaces do Azure e do Office 365
+### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promova seu aplicativo no Azure e Microsoft 365 Marketplaces
 
 **Promova o aplicativo para milhões de organizações que já estão usando o AD do Azure.**   Usuários que pesquisam e procuram por itens nesses Marketplaces já estão usando um ou mais serviços de nuvem, tornando-os clientes qualificados do serviço de nuvem. Saiba mais sobre como promover seu aplicativo no [Marketplace do Azure](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Quando os usuários se inscreverem no aplicativo, este será exibido no painel de acesso do AD do Azure e no lançador de aplicativo do Office 365 desses usuários.**   Os usuários poderão retornar rapidamente e facilmente ao seu aplicativo mais tarde, melhorando o envolvimento do usuário. Saiba mais sobre o [Painel de acesso do AD do Azure](../user-help/my-apps-portal-end-user-access.md).
+**Quando os usuários se inscrevem em seu aplicativo, eles aparecerão no painel de acesso do Azure AD e no iniciador do aplicativo Microsoft 365.**   Os usuários poderão retornar rapidamente e facilmente ao seu aplicativo mais tarde, melhorando o envolvimento do usuário. Saiba mais sobre o [Painel de acesso do AD do Azure](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Comunicação segura de dispositivo para serviço e serviço a serviço
 
@@ -85,7 +85,7 @@ A integração com a plataforma de identidade da Microsoft vem com benefícios q
 
 ### <a name="worldwide-presence-and-high-availability"></a>Presença mundial e alta disponibilidade
 
-**O AD do Azure é implantado em data centers em todo o mundo e é gerenciado e monitorado ininterruptamente.**   O AD do Azure é o sistema de gerenciamento de identidade para ambos o Microsoft Azure e o Office 365, e é implantado em 28 datacenters em todo o mundo. É garantido que dados de diretório serão replicados para pelo menos três datacenters. Balanceadores de carga global garantem o acesso de usuários à cópia mais próxima do AD do Azure que contém seus dados e rotearão automaticamente solicitações para outros datacenters, se algum problema for detectado.
+**O AD do Azure é implantado em data centers em todo o mundo e é gerenciado e monitorado ininterruptamente.**  O Azure AD é o sistema de gerenciamento de identidades para Microsoft Azure e Microsoft 365 e é implantado em 28 data centers em todo o mundo. É garantido que dados de diretório serão replicados para pelo menos três datacenters. Balanceadores de carga global garantem o acesso de usuários à cópia mais próxima do AD do Azure que contém seus dados e rotearão automaticamente solicitações para outros datacenters, se algum problema for detectado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

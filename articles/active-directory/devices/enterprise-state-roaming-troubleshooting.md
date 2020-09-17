@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267234"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705717"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory
 
@@ -78,9 +78,9 @@ O Enterprise State Roaming requer que o dispositivo seja registrado com o AD do 
 
 Em determinadas condições, o Roaming de Estado de Empresa poderá não sincronizar dados se a Autenticação Multifator do Azure estiver configurada. Para obter mais informações sobre esses sintomas, consulte o documento de suporte [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Possível problema**: se o dispositivo estiver configurado para exigir Autenticação Multifator no portal do Azure Active Directory, você talvez não consiga sincronizar configurações ao entrar em um dispositivo com Windows 10 usando uma senha. Esse tipo de configuração de Autenticação Multifator destina-se a proteger uma conta de administrador do Azure. Os usuários administradores talvez ainda possam executar a sincronização entrando em seus dispositivos Windows 10 com o PIN do Microsoft Passport for Work ou concluindo a Autenticação Multifator durante o acesso a outros serviços do Azure, como o Office 365.
+**Possível problema**: se o dispositivo estiver configurado para exigir Autenticação Multifator no portal do Azure Active Directory, você talvez não consiga sincronizar configurações ao entrar em um dispositivo com Windows 10 usando uma senha. Esse tipo de configuração de Autenticação Multifator destina-se a proteger uma conta de administrador do Azure. Os usuários administradores ainda podem ser capazes de sincronizar entrando em seus dispositivos Windows 10 com seu Microsoft Passport for Work PIN ou concluindo a autenticação multifator ao acessar outros serviços do Azure, como Microsoft 365.
 
-**Possível problema**: a sincronização poderá falhar se o administrador configurar a política de acesso condicional da autenticação multifator serviços de Federação do Active Directory (AD FS) e o token de acesso no dispositivo expirar. Certifique-se de entrar e sair usando o PIN do Microsoft Passport for Work ou conclua a Autenticação Multifator durante o acesso a outros serviços do Azure, como o Office 365.
+**Possível problema**: a sincronização poderá falhar se o administrador configurar a política de acesso condicional da autenticação multifator serviços de Federação do Active Directory (AD FS) e o token de acesso no dispositivo expirar. Certifique-se de entrar e sair usando o Microsoft Passport for Work PIN ou concluir a autenticação multifator ao acessar outros serviços do Azure, como Microsoft 365.
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
 

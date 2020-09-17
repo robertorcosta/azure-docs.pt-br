@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178817"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705989"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário do desenvolvedor da plataforma de identidade da Microsoft
 
@@ -154,7 +154,7 @@ Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], uma
 
 Conforme definido pela [Estrutura de Autorização OAuth2][OAuth2-Role-Def], um servidor que hospeda recursos protegidos, capaz de aceitar e responder a solicitações de recursos protegidos de [aplicativos cliente](#client-application) que apresentam um [token de acesso](#access-token). Também conhecido como um servidor de recursos protegidos ou aplicativo de recurso.
 
-Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos por meio de [escopos](#scopes) e [funções](#roles), usando a Estrutura de Autorização OAuth 2.0. Os exemplos incluem a [API Microsoft Graph][Microsoft-Graph] que fornece acesso aos dados de locatário do Azure AD e as APIs do Office 365 que fornecem acesso a dados como email e calendário.
+Um servidor de recursos expõe APIs e impõe o acesso a seus recursos protegidos por meio de [escopos](#scopes) e [funções](#roles), usando a Estrutura de Autorização OAuth 2.0. Os exemplos incluem a [API Microsoft Graph][Microsoft-Graph] que fornece acesso aos dados de locatário do Azure AD e as APIs de Microsoft 365 que fornecem acesso a dados como email e calendário.
 
 Assim como um aplicativo cliente, a configuração de identidade do aplicativo de recurso é estabelecida via [registro](#application-registration) em um locatário do Azure AD, fornecendo o objeto de entidade de serviço e de aplicativo. Algumas APIs fornecidas pela Microsoft, como a API de Microsoft Graph, têm entidades de serviço previamente registradas disponibilizadas em todos os locatários durante o provisionamento.
 
@@ -172,7 +172,7 @@ Assim como as [funções](#roles), os escopos fornecem uma maneira para que um [
 
 Os escopos são cadeias de caracteres definidas por recursos (por exemplo "Mail.Read", "Directory.ReadWrite.All"), gerenciados no [Portal do Azure][AZURE-portal] por meio do [manifesto do aplicativo](#application-manifest) do recurso e armazenados na [propriedade oauth2Permissions][Graph-Sp-Resource] do recurso. O Portal do Azure também é usado para configurar [permissões delegadas](#permissions) do aplicativo cliente para acessar um escopo.
 
-Uma prática recomendada para a convenção de nomenclatura é usar um formato "resource.operation.constraint". Para obter uma discussão detalhada dos escopos expostos pela API Microsoft Graph, consulte [API do Graph escopos de permissão][Graph-Perm-Scopes]. Para escopos expostos por serviços do Office 365, veja [Referência de permissões de API do Office 365][O365-Perm-Ref].
+Uma prática recomendada para a convenção de nomenclatura é usar um formato "resource.operation.constraint". Para obter uma discussão detalhada dos escopos expostos pela API Microsoft Graph, consulte [API do Graph escopos de permissão][Graph-Perm-Scopes]. Para escopos expostos por serviços de Microsoft 365, consulte [referência de permissões de API Microsoft 365][O365-Perm-Ref].
 
 ## <a name="security-token"></a>token de segurança
 
@@ -202,7 +202,7 @@ Uma instância de um diretório do Azure AD é chamada de locatário do Azure AD
 * autenticação de contas de usuário e aplicativos registrados
 * Pontos de extremidade REST necessários para dar suporte a vários protocolos, incluindo OAuth2 e SAML, incluindo [ponto de extremidade de autorização](#authorization-endpoint), [ponto de extremidade de token](#token-endpoint) e ponto de extremidade "comum" usado por [aplicativos de multilocação](#multi-tenant-application).
 
-Locatários do Azure AD são criados/associados com assinaturas do Azure e o Office 365 durante a inscrição, fornecendo recursos de Gerenciamento de Identidades e Acesso para a assinatura. Os administradores de assinatura do Azure também podem criar locatários do Azure AD adicionais por meio do Portal do Azure. Veja [Como obter um locatário do Azure Active Directory][AAD-How-To-Tenant] para saber mais sobre as várias maneiras de obter acesso a um locatário. Consulte [associar ou adicionar uma assinatura do Azure ao seu locatário Azure Active Directory][AAD-How-Subscriptions-Assoc] para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD e para obter instruções sobre como associar ou adicionar uma assinatura a um locatário do Azure AD.
+Os locatários do Azure AD são criados/associados ao Azure e Microsoft 365 assinaturas durante a inscrição, fornecendo recursos de gerenciamento de acesso & identidade para a assinatura. Os administradores de assinatura do Azure também podem criar locatários do Azure AD adicionais por meio do Portal do Azure. Veja [Como obter um locatário do Azure Active Directory][AAD-How-To-Tenant] para saber mais sobre as várias maneiras de obter acesso a um locatário. Consulte [associar ou adicionar uma assinatura do Azure ao seu locatário Azure Active Directory][AAD-How-Subscriptions-Assoc] para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD e para obter instruções sobre como associar ou adicionar uma assinatura a um locatário do Azure AD.
 
 ## <a name="token-endpoint"></a>ponto de extremidade de token
 

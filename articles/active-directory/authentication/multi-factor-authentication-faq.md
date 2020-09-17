@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 57325363909664bb527c2e2101505641858c4285
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718859"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706261"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 
@@ -102,7 +102,7 @@ A cobrança se baseia no número de usuários configurados para usar a Autentica
 
 Quando você cria um provedor MFA por usuário ou por autenticação, a assinatura do Azure da sua organização é cobrada mensalmente com base no uso. Esse modelo de cobrança é semelhante a como o Azure cobra pelo uso de máquinas virtuais e aplicativos Web.
 
-Quando você compra uma assinatura da Autenticação Multifator do Azure, sua organização só paga a taxa anual de licença para cada usuário. Licenças MFA e Office 365, Azure AD Premium ou os pacotes Enterprise Mobility + Security são cobrados dessa maneira.
+Quando você compra uma assinatura da Autenticação Multifator do Azure, sua organização só paga a taxa anual de licença para cada usuário. As licenças MFA e os pacotes Microsoft 365, Azure AD Premium ou Enterprise Mobility + Security são cobrados dessa maneira.
 
 Para obter mais informações, consulte [Como obter Autenticação Multifator do Azure](concept-mfa-licensing.md).
 

@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117780"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706244"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
 
@@ -173,7 +173,7 @@ Infelizmente, não há um serviço que forneça todos esses recursos equivalente
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrar para o Azure Active Directory
 
-Um caminho a ser levado em consideração é integrar seus aplicativos e serviços diretamente com o Azure AD. O Azure AD é o provedor de identidade baseados em nuvem para contas corporativas ou de estudante da Microsoft. O Azure AD é o provedor de identidade para o Office 365, Azure e muito mais. Ele fornece recursos de autenticação federados similares ao Controle de Acesso, mas não oferece suporte a todos os recursos do Controle de Acesso. 
+Um caminho a ser levado em consideração é integrar seus aplicativos e serviços diretamente com o Azure AD. O Azure AD é o provedor de identidade baseados em nuvem para contas corporativas ou de estudante da Microsoft. O Azure AD é o provedor de identidade para Microsoft 365, Azure e muito mais. Ele fornece recursos de autenticação federados similares ao Controle de Acesso, mas não oferece suporte a todos os recursos do Controle de Acesso. 
 
 O principal exemplo é a federação com provedores de identidade de redes sociais, como o Facebook, Google e Yahoo. Se seus usuários entram com esses tipos de credenciais, o Azure AD não é a solução para você. 
 
@@ -187,7 +187,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 
 Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção para a sua migração se você permitir que os usuários entrem somente com suas contas corporativas ou de estudante da Microsoft*.
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte |
@@ -238,7 +238,7 @@ No entanto, o Azure AD B2C não oferece suporte para a variedade de protocolos d
 
 A tabela a seguir compara os recursos do Controle de Acesso que são relevantes para aplicativos web aos que estão disponíveis no Azure AD B2C. Em um nível elevado, o *Azure AD B2C é provavelmente a escolha certa para a sua migração se seu aplicativo for voltado a clientes, ou se ele oferecer suporte a muitos tipos de contas.*
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte via políticas personalizadas  |
@@ -316,11 +316,11 @@ As identidades de serviço no Controle de Acesso são geralmente usadas para imp
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrar para o Azure Active Directory
 
-Nossa recomendação para este tipo de fluxo de autenticação é migrar para o [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). O Azure AD é o provedor de identidade baseados em nuvem para contas corporativas ou de estudante da Microsoft. O Azure AD é o provedor de identidade para o Office 365, Azure e muito mais. 
+Nossa recomendação para este tipo de fluxo de autenticação é migrar para o [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). O Azure AD é o provedor de identidade baseados em nuvem para contas corporativas ou de estudante da Microsoft. O Azure AD é o provedor de identidade para Microsoft 365, Azure e muito mais. 
 
 Você também usar o Azure AB para a autenticação de servidor para servidor usando a implementação do Azure AD da concessão de credenciais de cliente do OAuth. A tabela a seguir compara os recursos do Controle de Acesso na autenticação de servidor para servidor com aquelas que estão disponíveis no Azure AD.
 
-| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registrar um serviço Web | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie um aplicativo web do Azure AD no portal do Azure |
 | Como registrar um cliente | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie outro aplicativo web do Azure AD no portal do Azure |

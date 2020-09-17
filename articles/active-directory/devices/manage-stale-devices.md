@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184934"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705530"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como gerenciar dispositivos obsoletos no Azure AD
 
@@ -69,7 +69,7 @@ Para limpar com eficiência os dispositivos obsoletos em seu ambiente, você dev
 
 Para atualizar um dispositivo no Azure AD, é necessária uma conta que tenha uma das seguintes funções atribuídas:
 
-- Administrador global
+- Administrador Global
 - Administrador de Dispositivo de Nuvem
 - Administrador de serviços do Intune
 
@@ -91,7 +91,7 @@ Se seu dispositivo estiver sob o controle do Intune ou de qualquer outra soluç�
 
 Não exclua os dispositivos gerenciados pelo sistema. Em geral, são dispositivos como o AutoPilot. Depois de excluídos, esses dispositivos não podem ser reprovisionados. O novo cmdlet `Get-AzureADDevice` exclui dispositivos gerenciados pelo sistema por padrão. 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos ingressado no Azure AD Híbrido
 
 Seus dispositivos ingressados no Azure AD híbridos devem seguir suas políticas para gerenciamento de dispositivos obsoletos locais. 
 
@@ -175,9 +175,9 @@ Para saber mais sobre os diferentes tipos, consulte a [visão geral do gerenciam
 
 Qualquer autenticação em que um dispositivo está sendo usado para autenticar-se no Azure AD é negada. Alguns exemplos comuns são:
 
-- **Dispositivo ingressado no Azure ad híbrido** -os usuários podem ser capazes de usar o dispositivo para entrar em seu domínio local. No entanto, eles não podem acessar os recursos do Azure AD como o Office 365.
+- **Dispositivo ingressado no Azure ad híbrido** -os usuários podem ser capazes de usar o dispositivo para entrar em seu domínio local. No entanto, eles não podem acessar recursos do Azure AD, como Microsoft 365.
 - **Dispositivo ingressado no Azure AD** – usuários não podem usar o dispositivo para entrar. 
-- **Dispositivos móveis** – o usuário não pode acessar os recursos do Azure AD como o Office 365. 
+- **Dispositivos móveis** – o usuário não pode acessar recursos do Azure AD, como Microsoft 365. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141356"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705887"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: entrar em qualquer usuário do Azure Active Directory usando o padrão de aplicativo de vários inquilinos
 
@@ -141,7 +141,7 @@ Seu aplicativo pode ter várias camadas, cada uma representada por seu próprio 
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Várias camadas em um único locatário
 
-Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para permitir esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente como um `knownClientApplications` no [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo: 
+Isso poderá ser um problema se seu aplicativo lógico consistir em dois ou mais registros de aplicativo, por exemplo, um cliente e um recurso separados. Como você obtém o recurso no locatário do cliente primeiro? O Azure AD abrange neste caso permitindo que o cliente e o recurso recebam o consentimento em uma única etapa. O usuário vê a soma total das permissões solicitadas pelo cliente e pelo recurso na página de consentimento. Para permitir esse comportamento, o registro do aplicativo do recurso deve incluir a ID do aplicativo do cliente como um `knownClientApplications` no [manifesto do aplicativo][AAD-App-Manifest]. Por exemplo:
 
 ```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
@@ -153,7 +153,7 @@ Isso é demonstrado em uma amostra de chamada de cliente nativo de várias camad
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Várias camadas em vários locatários
 
-Um caso semelhante acontecerá se as diferentes camadas de um aplicativo forem registradas em locatários diferentes. Por exemplo, considere o caso da criação de um aplicativo cliente nativo que chama a API do Office 365 Exchange Online. Para desenvolver o aplicativo e posteriormente para o aplicativo nativo ser executado no locatário de um cliente, a entidade de serviço do Exchange Online deve estar presente. Nesse caso, o desenvolvedor e o cliente devem adquirir o Exchange Online para que a entidade de serviço seja criada em seus locatários.
+Um caso semelhante acontecerá se as diferentes camadas de um aplicativo forem registradas em locatários diferentes. Por exemplo, considere o caso da criação de um aplicativo cliente nativo que chama a API do Exchange Online. Para desenvolver o aplicativo e posteriormente para o aplicativo nativo ser executado no locatário de um cliente, a entidade de serviço do Exchange Online deve estar presente. Nesse caso, o desenvolvedor e o cliente devem adquirir o Exchange Online para que a entidade de serviço seja criada em seus locatários.
 
 Se for uma API criada por uma organização que não seja a Microsoft, o desenvolvedor da API precisará fornecer uma maneira para seus clientes consentirem o aplicativo nos locatários de seus clientes. O design recomendado é que o desenvolvedor de terceiros crie a API de modo que ela também possa funcionar como um cliente Web para implementar a inscrição. Para fazer isso:
 
@@ -181,7 +181,7 @@ Os aplicativos multilocatários também podem obter tokens de acesso para chamar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (Logon Único) entre o aplicativo e o Azure AD, também é possível atualizar o aplicativo para acessar as APIs expostas por recursos da Microsoft, como o Office 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas de API para serviços do Azure AD e do Office 365, como Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [API do Microsoft Graph][MSFT-Graph-overview].
+Neste artigo, você aprendeu a criar um aplicativo que pode conectar um usuário por meio de qualquer locatário do Azure AD. Depois de habilitar o SSO (logon único) entre seu aplicativo e o Azure AD, você também pode atualizar seu aplicativo para acessar as APIs expostas por recursos da Microsoft, como Microsoft 365. Portanto, é possível oferecer uma experiência personalizada no aplicativo, por exemplo, mostrando informações contextuais para os usuários, como suas imagens de perfil ou seus próximos compromissos no calendário. Para saber mais sobre como fazer chamadas à API para o Azure AD e Microsoft 365 serviços como o Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [Microsoft Graph API][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

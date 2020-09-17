@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563906"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707961"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Solucionar problemas ao entrar em um aplicativo do Azure AD meus aplicativos
 
@@ -27,7 +27,7 @@ Para saber mais sobre como usar o Azure AD como um provedor de identidade para u
 Esses aplicativos são configurados em nome do usuário no portal do Azure AD. O aplicativo deve ser configurado corretamente e atribuído ao usuário ou a um grupo do qual o usuário é membro para ver o aplicativo em meus aplicativos. 
 
 Os tipos de aplicativos que um usuário pode ver se enquadram nas categorias a seguir:
--   Aplicativos Microsoft 365 e Office 365
+-   Microsoft 365 aplicativos
 -   Aplicativos da Microsoft e de terceiros configurados com o SSO baseado em federação
 -   Aplicativos de SSO baseadas em senhas
 -   Aplicativos com soluções de SSO existentes
@@ -163,7 +163,7 @@ Para atribuir uma licença a um usuário, siga estas etapas:
 11. Selecione o botão **atribuir** para atribuir essas licenças a este usuário.
 
 ## <a name="troubleshooting-deep-links"></a>Solucionando problemas de links profundos
-DeepLinks ou URLs de acesso do Usuário são links que seus usuários podem usar para acessar seus aplicativos SSO de senha diretamente de suas barras de URLs de navegadores. Ao navegar até esse link, os usuários são automaticamente conectados ao aplicativo sem precisar ir primeiro para meus aplicativos. O link é o mesmo que os usuários usam para acessar esses aplicativos do iniciador de aplicativos do Office 365.
+DeepLinks ou URLs de acesso do Usuário são links que seus usuários podem usar para acessar seus aplicativos SSO de senha diretamente de suas barras de URLs de navegadores. Ao navegar até esse link, os usuários são automaticamente conectados ao aplicativo sem precisar ir primeiro para meus aplicativos. O link é o mesmo que os usuários usam para acessar esses aplicativos por meio do iniciador de aplicativo Microsoft 365.
 
 ### <a name="checking-the-deep-link"></a>Verificando o link profundo
 

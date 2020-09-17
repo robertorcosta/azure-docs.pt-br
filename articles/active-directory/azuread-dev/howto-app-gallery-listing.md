@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 40d299049a0a1bbff81c412a5beb84f28e64ff46
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814579"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706295"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
@@ -124,7 +124,7 @@ Siga o processo mostrado na imagem a seguir para solicitar o provisionamento de 
 
 ## <a name="update-or-remove-an-existing-listing"></a>Atualizar ou remover uma listagem existente
 
-Para atualizar ou remover um aplicativo existente na Galeria de aplicativos do Azure AD, primeiro você precisa enviar a solicitação no [portal de rede do aplicativo](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se você tiver uma conta do Office 365, use-a para entrar nesse portal. Caso contrário, use o conta Microsoft, como o Outlook ou hotmail, para entrar.
+Para atualizar ou remover um aplicativo existente na Galeria de aplicativos do Azure AD, primeiro você precisa enviar a solicitação no [portal de rede do aplicativo](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se você tiver uma conta corporativa ou de estudante, use-a para entrar neste portal. Caso contrário, use o conta Microsoft, como o Outlook ou hotmail, para entrar.
 
 - Selecione a opção apropriada, conforme mostrado na imagem a seguir.
 
