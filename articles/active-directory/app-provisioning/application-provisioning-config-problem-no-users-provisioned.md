@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234781"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706495"
 ---
 # <a name="no-users-are-being-provisioned"></a>Nenhum usuário sendo provisionado 
 >[!NOTE]
@@ -24,7 +24,7 @@ ms.locfileid: "88234781"
 >
 Após o provisionamento automático ser configurado para um aplicativo (incluindo verificar se as credenciais de aplicativo fornecidas ao Azure AD para se conectar ao aplicativo são válidas), os usuários e/ou grupos são provisionados no aplicativo. O provisionamento é determinado pelos seguintes fatores:
 
--   Quais usuários e grupos têm sido **atribuídos** para o aplicativo. Observe que não há suporte para o provisionamento de grupos aninhados ou grupos do Office 365. Para obter mais informações sobre atribuição, consulte [Atribuir um usuário ou grupo a um aplicativo corporativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
+-   Quais usuários e grupos têm sido **atribuídos** para o aplicativo. Observe que não há suporte para o provisionamento de grupos aninhados ou grupos de Microsoft 365. Para obter mais informações sobre atribuição, consulte [Atribuir um usuário ou grupo a um aplicativo corporativo no Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Estejam os **mapeamentos de atributos** habilitados ou não, e configurados para sincronizar atributos válidos do Azure AD para o aplicativo. Para obter mais informações sobre mapeamentos de atributo, consulte [Personalizando mapeamentos de atributo do provisionamento de usuário para aplicativos SaaS no Azure Active Directory](customize-application-attributes.md).
 -   Se há ou não um **filtro de escopo** presente que está filtrando usuários com base nos valores de atributo específico. Para obter mais informações sobre filtros de escopo, consulte [provisionamento de aplicativos com base em atributo com filtros de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   
