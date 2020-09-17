@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: bc045eba331c861801dceef7f00db42e851f8bb2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211371"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662362"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Início Rápido: Usar o Cache do Azure para Redis com um aplicativo .NET Core
 
@@ -23,7 +23,6 @@ Neste guia de início rápido, você incorporará o Cache do Azure para Redis a 
 
 - Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 - [SDK do .NET Core](https://dotnet.microsoft.com/download)
-- [.NET Framework 4 ou superior](https://www.microsoft.com/net/download/dotnet-framework-runtime), que é exigido pelo cliente StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Criar um cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -34,7 +33,7 @@ Anote o **NOME DE HOST** e a chave de acesso **primária**. Você usará esses v
 
 
 
-## <a name="create-a-console-app"></a>Criar um aplicativo de console
+## <a name="create-a-console-app"></a>Criar um aplicativo do console
 
 Abra uma nova janela de comando e execute o seguinte comando para criar um novo aplicativo de console .NET Core:
 

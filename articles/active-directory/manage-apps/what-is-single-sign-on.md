@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069461"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561643"
 ---
 # <a name="what-is-single-sign-on-sso"></a>O que é SSO (logon único)?
 
@@ -53,7 +53,7 @@ A maneira como você implementa o logon único depende do local em que o aplicat
 > [!TIP]
 > Os aplicativos hospedados na nuvem também são chamados de aplicativos SaaS (software como serviço). 
 
-O logon único para aplicativos hospedados na nuvem é simples. Você permite que o provedor de identidade saiba que está sendo usado para o aplicativo. E, em seguida, você configura o aplicativo para confiar no provedor de identidade. Para saber como usar o Azure AD como um provedor de identidade para um aplicativo, consulte a [Série de guias de início rápido sobre Gerenciamento de Aplicativos](view-applications-portal.md).
+O logon único para aplicativos hospedados na nuvem é simples. Você permite que o provedor de identidade saiba que está sendo usado para o aplicativo. E, em seguida, você configura o aplicativo para confiar no provedor de identidade. Para saber como usar o Azure AD como um provedor de identidade para um aplicativo, consulte a [Série de guias de início rápido sobre Gerenciamento de Aplicativos](add-application-portal.md).
 
 > [!TIP]
 > Os termos nuvem e Internet costumam ser usados de maneira intercambiável. O motivo disso está relacionado aos diagramas de rede. É comum representar grandes redes de computadores com uma forma de nuvem em um diagrama, pois não é viável desenhar todos os componentes. A Internet é a rede mais conhecida e, portanto, é fácil usar os termos de maneira intercambiável. No entanto, qualquer rede de computadores pode ser chamada de nuvem.

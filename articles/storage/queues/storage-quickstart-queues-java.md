@@ -4,16 +4,16 @@ description: Saiba como usar a biblioteca de Java de Filas do Azure v12 para cri
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 12/4/2019
+ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 753c245631d2fbdc8122f955c1db6562a1554031
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b9f68737ca714c0661ffb008347149235886c68
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319364"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015017"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Início Rápido: Biblioteca de clientes do armazenamento de Filas do Azure v12 para Java
 
@@ -30,17 +30,17 @@ Use a biblioteca de clientes do armazenamento de Filas do Azure v12 para Java pa
 
 Recursos adicionais:
 
-* [Documentação de referência da API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)
+* [Documentação de referência da API](/java/api/overview/azure/storage-queue-readme)
 * [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [Pacote (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Amostras](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Amostras](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) versão 8 ou superior
+* [Java Development Kit (JDK)](/java/azure/jdk/) versão 8 ou superior
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento do Azure – [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Conta de armazenamento do Azure – [criar uma conta de armazenamento](/azure/storage/common/storage-quickstart-create-account)
 
 ## <a name="setting-up"></a>Configurando
 
@@ -161,10 +161,10 @@ O diagrama a seguir mostra a relação entre esses recursos.
 
 Use as seguintes classes Java para interagir com esses recursos:
 
-* [QueueClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClientBuilder.html): A classe `QueueClientBuilder` configura e instancia um objeto `QueueClient`.
-* [QueueServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueServiceClient.html): O `QueueServiceClient` permite que você gerencie todas as filas em sua conta de armazenamento.
-* [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html): A classe `QueueClient` permite que você gerencie e manipule uma fila individual e as mensagens dela.
-* [QueueMessageItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/QueueMessageItem.html): A classe `QueueMessageItem` representa os objetos individuais retornados ao chamar [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-) em uma fila.
+* [QueueClientBuilder](/java/api/com.azure.storage.queue.queueclientbuilder): A classe `QueueClientBuilder` configura e instancia um objeto `QueueClient`.
+* [QueueServiceClient](/java/api/com.azure.storage.queue.queueserviceclient): O `QueueServiceClient` permite que você gerencie todas as filas em sua conta de armazenamento.
+* [QueueClient](/java/api/com.azure.storage.queue.queueclient): A classe `QueueClient` permite que você gerencie e manipule uma fila individual e as mensagens dela.
+* [QueueMessageItem](/java/api/com.azure.storage.queue.models.queuemessageitem): A classe `QueueMessageItem` representa os objetos individuais retornados ao chamar [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages) em uma fila.
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -204,7 +204,7 @@ Escolha um nome para a nova fila. O código abaixo acrescenta um valor de GUID a
 > Os nomes de fila podem conter apenas letras minúsculas, números e hifens e precisam começar com uma letra ou um número. Cada hífen deve ser precedido e seguido por um caractere que não seja um hífen. O nome também precisa ter entre 3 e 63 caracteres. Para obter mais informações sobre como nomear filas, confira [Como nomear filas e metadados](/rest/api/storageservices/naming-queues-and-metadata).
 
 
-Crie uma instância da classe [QueueClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html). Em seguida, chame o método [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#create--) para criar a fila em sua conta de armazenamento.
+Crie uma instância da classe [QueueClient](/java/api/com.azure.storage.queue.queueclient). Em seguida, chame o método [create](/java/api/com.azure.storage.queue.queueclient.create) para criar a fila em sua conta de armazenamento.
 
 Adicione este código ao final do método `main`:
 
@@ -227,7 +227,7 @@ queueClient.create();
 
 ### <a name="add-messages-to-a-queue"></a>Adicionar mensagens a uma fila
 
-O snippet de código a seguir adiciona mensagens à fila chamando o método [sendMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#sendMessage-java.lang.String-). Ele também salva um [SendMessageResult](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/models/SendMessageResult.html) retornado de uma chamada `sendMessage`. O resultado é usado para atualizar a mensagem posteriormente no programa.
+O snippet de código a seguir adiciona mensagens à fila chamando o método [sendMessage](/java/api/com.azure.storage.queue.queueclient.sendmessage). Ele também salva um [SendMessageResult](/java/api/com.azure.storage.queue.models.sendmessageresult) retornado de uma chamada `sendMessage`. O resultado é usado para atualizar a mensagem posteriormente no programa.
 
 Adicione este código ao final do método `main`:
 
@@ -244,7 +244,7 @@ SendMessageResult result = queueClient.sendMessage("Third message");
 
 ### <a name="peek-at-messages-in-a-queue"></a>Espiar mensagens em uma fila
 
-Inspecione as mensagens na fila chamando o método [peekMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#peekMessages-java.lang.Integer-java.time.Duration-com.azure.core.util.Context-). O método `peelkMessages` recupera uma ou mais mensagens do início da fila, mas não altera a visibilidade da mensagem.
+Inspecione as mensagens na fila chamando o método [peekMessages](/java/api/com.azure.storage.queue.queueclient.peekmessages). O método `peelkMessages` recupera uma ou mais mensagens do início da fila, mas não altera a visibilidade da mensagem.
 
 Adicione este código ao final do método `main`:
 
@@ -258,7 +258,7 @@ queueClient.peekMessages(10, null, null).forEach(
 
 ### <a name="update-a-message-in-a-queue"></a>Atualizar uma mensagem em uma fila
 
-Atualize o conteúdo de uma mensagem chamando o método [updateMessage](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#updateMessage-java.lang.String-java.lang.String-java.lang.String-java.time.Duration-). O método `updateMessage` pode alterar o conteúdo e o tempo limite da visibilidade de uma mensagem. O conteúdo da mensagem precisa ser uma cadeia de caracteres codificada em UTF-8 com até 64 KB. Junto com o novo conteúdo da mensagem, passe a ID da mensagem e o recebimento pop usando o `SendMessageResult` que foi salvo anteriormente no código. A ID da mensagem e o recebimento pop identificam qual mensagem atualizar.
+Atualize o conteúdo de uma mensagem chamando o método [updateMessage](/java/api/com.azure.storage.queue.queueclient.updatemessage). O método `updateMessage` pode alterar o conteúdo e o tempo limite da visibilidade de uma mensagem. O conteúdo da mensagem precisa ser uma cadeia de caracteres codificada em UTF-8 com até 64 KB. Junto com o novo conteúdo da mensagem, passe a ID da mensagem e o recebimento pop usando o `SendMessageResult` que foi salvo anteriormente no código. A ID da mensagem e o recebimento pop identificam qual mensagem atualizar.
 
 ```java
 System.out.println("\nUpdating the third message in the queue...");
@@ -273,7 +273,7 @@ queueClient.updateMessage(result.getMessageId(),
 
 ### <a name="receive-and-delete-messages-from-a-queue"></a>Receber e excluir mensagens de uma fila
 
-Baixe as mensagens adicionadas anteriormente chamando o método [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-). O código de exemplo também exclui mensagens da fila depois que elas são recebidas e processadas. Nesse caso, o processamento só exibe a mensagem no console.
+Baixe as mensagens adicionadas anteriormente chamando o método [receiveMessages](/java/api/com.azure.storage.queue.queueclient.receivemessages). O código de exemplo também exclui mensagens da fila depois que elas são recebidas e processadas. Nesse caso, o processamento só exibe a mensagem no console.
 
 O aplicativo pausa para a entrada do usuário chamando `System.console().readLine();` antes de receber e excluir as mensagens. Verifique no [portal do Azure](https://portal.azure.com) se os recursos foram criados corretamente antes de serem excluídos. As mensagens que não forem explicitamente excluídas acabarão se tornando visíveis na fila novamente para outra oportunidade de processamento.
 
@@ -298,7 +298,7 @@ queueClient.receiveMessages(10).forEach(
 
 ### <a name="delete-a-queue"></a>Excluir uma fila
 
-O código a seguir limpa os recursos que o aplicativo criou ao excluir a fila usando o método [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#delete--).
+O código a seguir limpa os recursos que o aplicativo criou ao excluir a fila usando o método [delete](/java/api/com.azure.storage.queue.queueclient.delete).
 
 Adicione este código ao final do método `main`:
 
@@ -372,6 +372,6 @@ Neste guia de início rápido, você aprendeu a criar uma fila e a adicionar men
 Para acessar tutoriais, amostras, inícios rápidos e outras documentações, visite:
 
 > [!div class="nextstepaction"]
-> [Azure para desenvolvedores de nuvem do Java](https://docs.microsoft.com/azure/developer/java/)
+> [Azure para desenvolvedores de nuvem do Java](/azure/developer/java/)
 
 * Para ver mais aplicativos de amostra de armazenamento de Filas do Azure, continue para [Amostras da biblioteca de clientes Java do SDK do armazenamento de Filas do Azure v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue).

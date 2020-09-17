@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4929836b7fb617884008fafea50a10e0212fbd58
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7c144ddac255087ae48ff2f1c5406ad66d670562
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961951"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601332"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – portal do Azure
 
@@ -25,8 +25,6 @@ O gateway de aplicativo direciona o tráfego da Web do aplicativo para recursos 
 Conclua também este início rápido usando o [Azure PowerShell](quick-create-powershell.md) ou a [CLI do Azure](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -171,7 +169,7 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
 
 2. Execute o comando a seguir para instalar o IIS na máquina virtual. Altere o parâmetro *Local*, se necessário: 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -196,7 +194,6 @@ Neste exemplo, você instala IIS nas máquinas virtuais apenas para verificar se
 4. Em **Destinos de Back-end**, **Tipo de destino**, selecione **Máquina virtual** na lista suspensa.
 
 5. Em **Destino**, selecione as máquinas virtuais **myVM** e **myVM2** e suas interfaces de rede associadas nas listas suspensas.
-
 
    > [!div class="mx-imgBorder"]
    > ![Adicionar servidores de back-end](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)

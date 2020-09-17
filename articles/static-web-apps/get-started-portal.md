@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434753"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604080"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Início Rápido: Como criar seu primeiro aplicativo Web estático no portal do Azure
 
@@ -65,7 +65,7 @@ Depois de entrar no GitHub, insira as informações do repositório.
     # <a name="no-framework"></a>[Nenhuma estrutura](#tab/vanilla-javascript)
 
     1. Selecione **Personalizado** na lista suspensa _Predefinições de Build_
-    1. Desmarque o valor padrão na caixa _Localização do aplicativo_
+    1. Mantenha o valor padrão na caixa _Localização do aplicativo_
     1. Limpe o valor padrão na caixa _Local da API_.
     1. Deixe a caixa _Local do artefato do aplicativo_ vazia
 

@@ -3,14 +3,14 @@ title: 'Início Rápido: Implantar um cluster do AKS usando o PowerShell'
 description: Saiba como criar rapidamente um cluster do Kubernetes, implantar um aplicativo e monitorar o desempenho no AKS (Serviço de Kubernetes do Azure) usando o PowerShell.
 services: container-service
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 09/11/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4dde1dcd131a497b60a314513df44cc0443d28ed
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 75356204fc1cd02c369f919c25281efc5f8781b0
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589962"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032632"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>Início Rápido: Implantar um cluster do Serviço de Kubernetes do Azure usando o PowerShell
 
@@ -163,7 +163,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m

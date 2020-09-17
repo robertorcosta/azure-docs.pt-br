@@ -3,15 +3,15 @@ title: O que é a Área de Trabalho Virtual do Windows? - Azure
 description: Uma visão geral da Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661105"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527166"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é a Área de Trabalho Virtual do Windows?
 
@@ -110,12 +110,10 @@ Os seguintes clientes da Área de Trabalho Remota são compatíveis com a Área 
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android](connect-android.md)
+* Cliente para Microsoft Store
 
 > [!IMPORTANT]
 > A Área de Trabalho Virtual do Windows não dá suporte ao cliente de RADC (Conexões de RemoteApp e Área de Trabalho) nem ao cliente de Conexão de Área de Trabalho Remota (MSTSC).
-
-> [!IMPORTANT]
-> No momento, a Área de Trabalho Virtual do Windows não dá suporte ao cliente da Área de Trabalho Remota da Microsoft Store. O suporte para esse cliente será adicionado em uma versão futura.
 
 Para saber mais sobre as URLs que você precisa desbloquear para usar os clientes, confira a [Lista de URLs seguras](safe-url-list.md).
 

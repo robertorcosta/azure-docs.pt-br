@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 94d4a035c95b8eb2a567c71ec2172f55881e8099
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 2d2a520540ad69697da869833d52ab10e63a7730
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488415"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527183"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -22,8 +22,6 @@ O tráfego entre sua rede virtual e o serviço viaja a rede de backbone da Micro
 
 > [!IMPORTANT]
 > O Link Privado do Azure já está em disponibilidade geral. O Ponto de Extremidade Privado e o serviço de Link Privado (serviço por trás do Standard Load Balancer) estão em disponibilidade geral. O Azure PaaS diferente será integrado ao Link Privado do Azure em datas diferentes. Verifique a seção de [disponibilidade](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) abaixo para obter o status preciso do PaaS do Azure no Link Privado. Para conhecer as limitações conhecidas, confira [Ponto de Extremidade Privado](private-endpoint-overview.md#limitations) e [Serviço de Link Privado](private-link-service-overview.md#limitations). 
-
-![Visão geral do ponto de extremidade privado](media/private-link-overview/private-endpoint.png)
 
 ## <a name="key-benefits"></a>Principais benefícios
 O Link Privado do Azure fornece os seguintes benefícios:  
