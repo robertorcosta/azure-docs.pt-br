@@ -17,7 +17,7 @@ ms.locfileid: "88009623"
 Aqui estão algumas atividades potenciais comuns que um proprietário/administrador pode precisar executar. Essas e outras operações podem ser executadas na página [*aplicativo Azure ad registros*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) no portal do Azure.
 * Conceda consentimento de administrador para o registro do aplicativo. Sua organização pode ter *consentimento de administrador necessário* ativado globalmente no Azure ad para todos os registros de aplicativo em sua assinatura. Nesse caso, o proprietário/administrador precisará selecionar esse botão para sua empresa na página de *permissões de API* do registro de aplicativo para que o registro do aplicativo seja válido:
 
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Exibição do portal do botão "conceder consentimento de administrador" em permissões de API":::
+    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Exibição do portal do botão conceder consentimento de administrador em permissões de API":::
   - Se o consentimento tiver sido concedido com êxito, a entrada para o gêmeos digital do Azure deverá mostrar um valor de *status* de _concedido para **(sua empresa)** _
    
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Exibição do portal do consentimento do administrador concedido para a empresa em permissões de API":::
