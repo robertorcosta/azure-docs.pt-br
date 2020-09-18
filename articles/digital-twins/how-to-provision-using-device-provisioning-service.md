@@ -52,7 +52,7 @@ Para obter explicações mais detalhadas de cada etapa na arquitetura, consulte 
 
 Nesta seção, você anexará o serviço de provisionamento de dispositivos ao gêmeos digital do Azure para provisionar dispositivos automaticamente por meio do caminho abaixo. Este é um trecho da arquitetura completa mostrada [anteriormente](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisionar fluxo--um trecho do diagrama da arquitetura da solução, com números rotulando seções do fluxo. Os dados fluem entre um dispositivo termostato e um DPS (1 para dispositivos > DPS e 5 para o dispositivo DPS >). Os dados também fluem do DPS para o Hub IoT (4) e para o gêmeos digital do Azure (3) por meio de uma função do Azure rotulada como "alocação" (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisionar fluxo--um trecho do diagrama da arquitetura da solução, com números rotulando seções do fluxo. Os dados fluem entre um dispositivo termostato e um DPS (1 para dispositivos > DPS e 5 para o dispositivo DPS >). Os dados também fluem do DPS para o Hub IoT (4) e para o gêmeos digital do Azure (3) por meio de uma função do Azure rotulada como alocação (2).":::
 
 Aqui está uma descrição do fluxo do processo:
 1. O dispositivo entra em contato com o ponto de extremidade do DPS, passando informações de identificação para provar sua identidade.
