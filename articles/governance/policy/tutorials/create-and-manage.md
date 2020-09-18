@@ -40,7 +40,7 @@ A primeira etapa para impor a conformidade com a Política do Azure é atribuir 
 
 1. Selecione **Atribuir Política** na parte superior da página **Política - Atribuições**.
 
-   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Captura de tela da seleção do botão "Atribuir política" na página Atribuições." border="false":::
+   :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Captura de tela da seleção do botão Atribuir política na página Atribuições." border="false":::
 
 1. Na página **Atribuir Política** e guia **Básico**, selecione o **Escopo** selecionando as reticências e uma assinatura ou um grupo de gerenciamento. Opcionalmente, selecione um grupo de recursos. Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta.
    Em seguida, selecione a opção **Selecionar** na parte inferior da página **Escopo**.
@@ -426,7 +426,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
 1. Localize a definição de iniciativa **Fique Seguro** que você criou anteriormente e selecione-a. Selecione **Atribuir** na parte superior da página para abrir a página **Ficar seguro: atribuir iniciativa**.
 
-   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Captura de tela do botão "Atribuir" na página de definição de iniciativa." border="false":::
+   :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Captura de tela do botão Atribuir na página de definição de iniciativa." border="false":::
 
    Você também pode clicar com o botão direito do mouse na linha selecionada ou selecionar as reticências no final da linha de um menu contextual. Em seguida, selecione **Atribuir**.
 
