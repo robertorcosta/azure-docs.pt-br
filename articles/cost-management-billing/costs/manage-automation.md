@@ -3,17 +3,17 @@ title: Gerenciar os custos do Azure com automação
 description: Este artigo explica como você pode gerenciar os custos do Azure com automação.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
-ms.openlocfilehash: a5ab84794884cc0c87bd766be7a0fa2fe4c52aa9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.reviewer: matrive
+ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684398"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526639"
 ---
 # <a name="manage-costs-with-automation"></a>Gerenciar os custos com a automação
 
@@ -161,6 +161,70 @@ Uma chamada GET à API de Orçamentos não retornará os custos atuais mostrados
 ### <a name="automate-budget-creation"></a>Automatizar a criação de orçamento
 
 Você pode automatizar a criação de orçamento usando a [API de Orçamentos](/rest/api/consumption/budgets). Você também pode criar um orçamento com um [modelo de orçamento](quick-create-budget-template.md). Os modelos são uma forma fácil de padronizar as implantações do Azure, garantindo que o controle de custos seja configurado e imposto corretamente.
+
+#### <a name="supported-locales-for-budget-alert-emails"></a>Localidades com suporte para alertas de orçamento por email
+
+Com os Orçamentos, você recebe um alerta quando os custos ultrapassam um limite definido. É possível configurar até cinco destinatários de email por orçamento. Eles recebem os alertas por email nas 24 horas seguintes ao estouro do limite de orçamento. No entanto, talvez o destinatário precise receber um email em um idioma diferente. Use os códigos de cultura do idioma a seguir com a API de Orçamentos. Defina o código de cultura com o parâmetro `locale`, como no exemplo a seguir.
+
+```json
+{
+  "eTag": "\"1d681a8fc67f77a\"",
+  "properties": {
+    "timePeriod": {
+      "startDate": "2020-07-24T00:00:00Z",
+      "endDate": "2022-07-23T00:00:00Z"
+    },
+    "timeGrain": "BillingMonth",
+    "amount": 1,
+    "currentSpend": {
+      "amount": 0,
+      "unit": "USD"
+    },
+    "category": "Cost",
+    "notifications": {
+      "actual_GreaterThan_10_Percent": {
+        "enabled": true,
+        "operator": "GreaterThan",
+        "threshold": 20,
+        "locale": "en-us",
+        "contactEmails": [
+          "user@contoso.com"
+        ],
+        "contactRoles": [],
+        "contactGroups": [],
+        "thresholdType": "Actual"
+      }
+    }
+  }
+}
+
+```
+
+Idiomas compatíveis com um código de cultura:
+
+| Código de cultura| Idioma |
+| --- | --- |
+| pt-br | Inglês (Estados Unidos) |
+| ja-jp | Japonês (Japão) |
+| zh-cn | Chinês (simplificado, China) |
+| de-de | Alemão (Alemanha) |
+| es-es | Espanhol (Espanha, Internacional) |
+| fr-fr | Francês (França) |
+| it-it | Italiano (Itália) |
+| ko-kr | Coreano (Coreia do Sul) |
+| pt-br | Português (Brasil) |
+| ru-ru | Russo (Rússia) |
+| zh-tw | Chinês (tradicional, Taiwan) |
+| cs-cz | Tcheco (República Tcheca) |
+| pl-pl | Polonês (Polônia) |
+| tr-tr | Turco (Turquia) |
+| da-dk | Dinamarquês (Dinamarca) |
+| dn-gb | Inglês (Reino Unido) |
+| hu-hu | Húngaro (Hungria) |
+| nb-bo | Norueguês Bokmal (Noruega) |
+| nl-nl | Holandês (Países Baixos) |
+| pt-pt | Português (Portugal) |
+| sv-se | Sueco (Suécia) |
 
 #### <a name="common-budgets-api-configurations"></a>Configurações comuns da API de Orçamentos
 

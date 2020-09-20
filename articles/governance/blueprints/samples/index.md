@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de blueprint
 description: Índice de exemplos padrão e de conformidade para implantar ambientes, políticas e fundamentos do Cloud Adoptions Framework com o Azure Blueprints.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031867"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530974"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -42,7 +42,8 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 
 ## <a name="samples-strategy"></a>Estratégia de exemplos
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Estratégia de exemplos de blueprint" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="Diagrama onde os exemplos de blueprint se encaixam para a complexidade da arquitetura versus os requisitos de conformidade." border="false":::
+   Descreve um sistema de coordenadas em que a complexidade da arquitetura está no eixo X e os requisitos de conformidade estão no eixo Y.  À medida que a complexidade da arquitetura e os requisitos de conformidade aumentam, adotamos exemplos de blueprint padrão do portal designado na região E. Para clientes que estão começando a usar o Azure, aproveitem os blueprints de Base e Zona de Destino baseados no C A F (Cloud Adoption Framework) designados pelas regiões A e B. O espaço restante é atribuído a blueprints personalizados criados por clientes parceiros das regiões C, D e F. :::image-end:::
 
 Os blueprints da Base do CAF e da zona de destino da Migração do CAF pressupõem que o cliente está preparando uma assinatura única limpa existente para migrar ativos e cargas de trabalho locais para o Azure.
 (Regiões A e B da figura).  

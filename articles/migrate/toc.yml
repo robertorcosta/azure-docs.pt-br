@@ -28,8 +28,6 @@
           href: tutorial-discover-physical.md
         - name: Descobrir instâncias da AWS
           href: tutorial-discover-aws.md
-        - name: Descobrir servidores importados
-          href: tutorial-discover-import.md
     - name: Avaliar
       items:
         - name: Avaliar VMs do VMware para migração para VMs do Azure
@@ -42,6 +40,8 @@
           href: tutorial-assess-physical.md
         - name: Avaliar instâncias da AWS para migração para o Azure
           href: tutorial-assess-aws.md
+        - name: Avaliar os servidores importados
+          href: tutorial-discover-import.md
     - name: Migrar
       items:
         - name: Migrar VMs da VMware

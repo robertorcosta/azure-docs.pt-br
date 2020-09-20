@@ -3,17 +3,17 @@ title: Monitorar o uso e os gastos com alertas de custo
 description: Este artigo descreve como alertas de custo ajudam você a monitorar uso e os gastos no gerenciamento de custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 09/03/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: aeeb630cf15aedd62c085e2070e08fd223656094
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 72e9fd0d5a178897cf84b2babe4c02f7ef920841
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683429"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531331"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usar alertas de custo para monitorar o uso e os gastos
 
@@ -25,17 +25,19 @@ Alertas de orçamento o notificam quando os gastos, com base em uso ou custos, a
 
 No portal do Azure, os orçamentos são definidos pelo custo. Usando a API de Consumo do Azure, os orçamentos são definidos pelo custo ou pelo uso de consumo. Alertas de orçamento dão suporte a orçamentos com base em custo e em uso. Alertas de orçamento são gerados automaticamente sempre que as condições de alerta de orçamento são atendidas. Você pode exibir todos os alertas de custo no portal do Azure. Sempre que um alerta é gerado, ele é mostrado em alertas de custo. Um email de alerta também é enviado para as pessoas na lista de destinatários de alerta do orçamento.
 
+É possível usar a API de Orçamento para enviar alertas por email em um idioma diferente. Para saber mais, confira [Localidades com suporte para alertas de orçamento por email](manage-automation.md#supported-locales-for-budget-alert-emails).
+
 ## <a name="credit-alerts"></a>Alertas de crédito
 
-Alertas de crédito o notificam quando seus compromissos monetários do crédito do Azure são consumidos. Compromissos monetários são para organizações com Contratos Enterprise. Alertas de crédito são gerados automaticamente em 90% e 100% do seu saldo de crédito do Azure. Sempre que um alerta é gerado, ele é refletido nos alertas de custo e no email enviado para os proprietários da conta.
+Os alertas de crédito notificam você quando seus compromissos monetários de crédito do Azure são consumidos. Os compromissos monetários se destinam a organizações com Contratos Enterprise. Os alertas de crédito são gerados automaticamente a 90% e a 100% do saldo de crédito do Azure. Sempre que um alerta é gerado, ele se reflete nos alertas de custo e no email enviado aos proprietários da conta.
 
-## <a name="department-spending-quota-alerts"></a>Alertas de cota de gastos do departamento
+## <a name="department-spending-quota-alerts"></a>Alertas de cota de gasto do departamento
 
-Alertas de cota de gastos de departamento notificam quando o departamento de gastos atinge um limite fixo da cota. As cotas de gastos são configuradas no portal do EA. Sempre que um limite é atingido, ele gera um email aos proprietários do departamento e é mostrado em alertas de custo. Por exemplo, 50% ou 75% da cota.
+Os alertas de cota de gasto do departamento notificam você quando os gastos do departamento atingem um limite fixo da cota. As cotas de gasto são configuradas no Portal do EA. Sempre que um limite é atingido, ele gera um email para proprietários do departamento e é mostrado nos alertas de custo. Por exemplo, 50% ou 75% da cota.
 
 ## <a name="supported-alert-features-by-offer-categories"></a>Recursos de alerta compatíveis por categorias de oferta
 
-O suporte para tipos de alertas depende do tipo de conta do Azure que você tem (oferta da Microsoft). A tabela a seguir mostra os recursos de alerta que são compatíveis com ofertas diversas da Microsoft. Você pode exibir a lista completa de ofertas da Microsoft em [Entender os dados de Gerenciamento de Custos](understand-cost-mgt-data.md).
+O suporte para tipos de alertas depende do tipo de conta do Azure que você tem (oferta da Microsoft). A tabela a seguir mostra os recursos de alerta compatíveis com várias ofertas da Microsoft. Você pode exibir a lista completa de ofertas da Microsoft em [Entender os dados de Gerenciamento de Custos](understand-cost-mgt-data.md).
 
 | Tipo de alerta | Contrato Enterprise | Contrato de Cliente da Microsoft | Web direct/pago conforme o uso |
 |---|---|---|---|
@@ -47,17 +49,17 @@ O suporte para tipos de alertas depende do tipo de conta do Azure que você tem 
 
 ## <a name="view-cost-alerts"></a>Exibir alertas de custo
 
-Para exibir alertas de custo, abra o escopo desejado no portal do Azure e selecione **Orçamentos** no menu. Use o controle oval **Escopo** para alternar para outro escopo. Selecione **Alertas de custo** no menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
+Para exibir alertas de custo, abra o escopo desejado no portal do Azure e selecione **Orçamentos** no menu. Use o item **Escopo** para alterar para outro escopo. Selecione **Alertas de custo** no menu. Para obter mais informações sobre escopos, consulte [Entender e trabalhar com escopos](understand-work-scopes.md).
 
 ![Imagem de exemplo de alertas mostrados no Gerenciamento de Custos](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
-O número total de alertas ativos e ignorados aparece na página de alertas de custo.
+O número total de alertas ativos e ignorados é exibido na página alertas de custo.
 
 Todos os alertas mostram o tipo de alerta. Um alerta de orçamento mostra o motivo pelo qual ele foi gerado e o nome do orçamento ao qual ele se aplica. Cada alerta mostra a data em que ele foi gerado, seu status e o escopo (assinatura ou grupo de gerenciamento) ao qual o alerta se aplica.
 
-Possíveis status incluem **ativo** e **descartado**. O status ativo indica que o alerta ainda é relevante. O status ignorado indica que alguém marcou o alerta para configurá-lo como não há mais relevantes.
+Os possíveis status incluem **ativo** e **ignorado**. O status ativo indica que o alerta ainda é relevante. O status ignorado indica que alguém marcou o alerta para defini-lo como não mais relevante.
 
-Selecione um alerta na lista para exibir os detalhes. Os detalhes do alerta mostram mais informações sobre o alerta. Alertas de orçamento incluem um link para o orçamento. Se uma recomendação está disponível para um alerta de orçamento, um link para a recomendação também é mostrado. Alertas de cota de gastos de departamento, crédito e orçamento têm um link para analisar de análise de custo no qual você pode explorar os custos para o escopo do alerta. O exemplo a seguir mostra os gastos para um departamento com detalhes do alerta.
+Selecione um alerta na lista para exibir os detalhes dele. Os detalhes do alerta mostram mais informações sobre o alerta. Os alertas de orçamento incluem um link para o orçamento. Se uma recomendação estiver disponível para um alerta de orçamento, um link para a recomendação também será mostrado. Os alertas de cota de gastos do departamento, crédito e orçamento têm um link para análise na análise de custo, em que você pode explorar os custos para o escopo do alerta. O exemplo a seguir mostra os gastos para um departamento com detalhes do alerta.
 
 ![Imagem de exemplo mostrando os gastos para um departamento com detalhes do alerta](./media/cost-mgt-alerts-monitor-usage-spending/dept-spending-selected-with-credits.png)
 

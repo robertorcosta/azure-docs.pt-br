@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322272"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527132"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -106,7 +106,7 @@ Depois de configurar o valor do orçamento, selecione **Avançar** para configur
 
 Se você quiser receber emails, adicione azure-noreply@microsoft.com à sua lista de remetentes aprovados para que os emails não entrem na pasta de lixo eletrônico. Para obter mais informações sobre as notificações, confira [Alertas de custo de uso](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
 
-No exemplo a seguir, um alerta por email é gerado quando 90% do orçamento é atingido. Se criar um orçamento com a API de Orçamentos, você também poderá atribuir funções para que pessoas recebam os alertas. Não há suporte para a atribuição de funções a pessoas no portal do Azure. Para obter mais informações sobre a API de Orçamentos do Azure, confira [API de Orçamentos](/rest/api/consumption/budgets).
+No exemplo a seguir, um alerta por email é gerado quando 90% do orçamento é atingido. Se criar um orçamento com a API de Orçamentos, você também poderá atribuir funções para que pessoas recebam os alertas. Não há suporte para a atribuição de funções a pessoas no portal do Azure. Para obter mais informações sobre a API de Orçamentos do Azure, confira [API de Orçamentos](/rest/api/consumption/budgets). Para enviar alertas por email em um idioma diferente, confira [Localidades com suporte para alertas de orçamento por email](manage-automation.md#supported-locales-for-budget-alert-emails).
 
 Os limites de alerta dão suporte a um intervalo de 0,01 a 1000% do limite de orçamento que você forneceu.
 
