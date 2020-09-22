@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 680fd298f3d772ecb9a4787342d22bf44e74ec78
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 394d048ce5978c2789e47b984abebaf30dec5f93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651085"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893573"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gerenciamento de modelos, implantação e monitoramento com Azure Machine Learning
 
@@ -184,7 +184,7 @@ Não há nenhuma resposta universal para "Como fazer saber se devo treinar novam
 - Compare as saídas do seu novo modelo com as de seu modelo antigo
 - Use critérios predefinidos para escolher se deseja substituir o modelo antigo 
 
-Um tema das etapas acima é que o seu novo treinamento deve ser automatizado, não ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) são uma boa resposta para a criação de fluxos de trabalho relacionados à preparação, ao treinamento, à validação e à implantação de dados. Leia [modelos de readaptação com o designer de Azure Machine Learning (versão prévia)](how-to-retrain-designer.md) para ver como pipelines e o designer de Azure Machine Learning se encaixam em um cenário de novo treinamento. 
+Um tema das etapas acima é que o seu novo treinamento deve ser automatizado, não ad hoc. [Azure Machine Learning pipelines](concept-ml-pipelines.md) são uma boa resposta para a criação de fluxos de trabalho relacionados à preparação, ao treinamento, à validação e à implantação de dados. Leia [modelos de readaptação com Azure Machine Learning designer](how-to-retrain-designer.md) para ver como os pipelines e o designer de Azure Machine Learning se encaixam em um cenário de novo treinamento. 
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatizar o ciclo de vida do ML 
 

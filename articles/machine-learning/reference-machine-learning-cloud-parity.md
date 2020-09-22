@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 886e45e92fb3a882de167b5c59a9b5ee09a9c430
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657572"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892981"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning a paridade de nuvem do soberanas
 
@@ -49,9 +49,9 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Criar pontos de extremidade de pipeline usando o SDK do Azure ML                           | GA                   | YES                | YES         |
 | Criar, editar e excluir execuções agendadas de pipelines usando o SDK do Azure ML | GA                   | Ok               | Ok        |
 | Exibir detalhes de execução de pipeline no estúdio                                        | GA                   | YES                | YES         |
-| Criar, executar, Visualizar e publicar pipelines no Azure ML designer          | Visualização pública       | YES                | YES         |
+| Criar, executar, Visualizar e publicar pipelines no Azure ML designer          | GA      | YES                | YES         |
 | Integração de Azure Databricks com o pipeline ML                             | GA                   | Não                 | Não          |
-| Criar pontos de extremidade de pipeline no Azure ML designer                             | Visualização pública       | YES                | YES         |
+| Criar pontos de extremidade de pipeline no Azure ML designer                             | GA      | YES                | YES         |
 | **Blocos de anotações integrados** |   |  | | 
 | Bloco de anotações de espaço de trabalho e compartilhamento de arquivos                                        | GA                   | YES                | YES         |
 | Suporte a R e Python                                                       | GA                   | YES                | YES         |
@@ -60,7 +60,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Instâncias de computação gerenciadas para blocos de anotações integrados                         | GA                   | YES                | YES         |
 | Integração do Jupyter, JupyterLab                                            | GA                   | YES                | YES         |
 | Suporte de rede virtual (VNet)                                             | Visualização pública       | YES                | YES         |
-| **Suporte do SDK** |  |  | | 
+| **Suporte a SDK** |  |  | | 
 | Suporte do SDK do R                                                              | Visualização pública       | YES                | YES         |
 | Suporte ao SDK do Python                                                         | GA                   | YES                | YES         |
 | **Segurança** |   | | | 
@@ -162,9 +162,9 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Criar pontos de extremidade de pipeline usando o SDK do Azure ML                           | GA               | YES       | N/D        |
 | Criar, editar e excluir execuções agendadas de pipelines usando o SDK do Azure ML | GA               | YES       | N/D        |
 | Exibir detalhes de execução de pipeline no estúdio                                        | GA               | YES       | N/D        |
-| Criar, executar, Visualizar e publicar pipelines no Azure ML designer          | Visualização pública   | YES       | N/D        |
+| Criar, executar, Visualizar e publicar pipelines no Azure ML designer          | GA  | YES       | N/D        |
 | Integração de Azure Databricks com o pipeline ML                             | GA               | Não        | N/D        |
-| Criar pontos de extremidade de pipeline no Azure ML designer                             | Visualização pública   | YES       | N/D        |
+| Criar pontos de extremidade de pipeline no Azure ML designer                             | GA   | YES       | N/D        |
 | **Blocos de anotações integrados** |   | | |
 | Bloco de anotações de espaço de trabalho e compartilhamento de arquivos                                        | GA               | YES       | N/D        |
 | Suporte a R e Python                                                       | GA               | YES       | N/D        |
@@ -173,7 +173,7 @@ Nós visamos fornecer a paridade máxima entre nossa nuvem pública e regiões s
 | Instâncias de computação gerenciadas para blocos de anotações integrados                         | GA               | Não        | N/D        |
 | Integração do Jupyter, JupyterLab                                            | GA               | YES       | N/D        |
 | Suporte de rede virtual (VNet)                                             | Visualização pública   | YES       | N/D        |
-| **Suporte do SDK** |    | | |
+| **Suporte a SDK** |    | | |
 | Suporte do SDK do R                                                              | Visualização pública   | YES       | N/D        |
 | Suporte ao SDK do Python                                                         | GA               | YES       | N/D        |
 | **Segurança** |   | | |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276755"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894732"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -50,8 +50,8 @@ Definindo listas de aplicativos conhecidos e gerando alertas quando qualquer out
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Disponibilidade Geral|
-|Refere|Camada padrão|
+|Estado da versão:|GA (em disponibilidade geral)|
+|Refere|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
 |Computadores com suporte:|![Sim ](./media/icons/yes-icon.png) computadores Azure e não Azure executando Windows e Linux<br>![Sim, ](./media/icons/yes-icon.png) computadores [do Arc do Azure](https://docs.microsoft.com/azure/azure-arc/)|
 |Funções e permissões necessárias:|O **leitor de segurança** e as funções de **leitor** podem exibir grupos e as listas de aplicativos conhecidos confiáveis<br>As funções de administrador de **colaborador** e de **segurança** podem editar grupos e as listas de aplicativos conhecidos confiáveis|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) National/soberanas (US Gov, China gov, outros gov)|
@@ -65,7 +65,9 @@ Se a central de segurança tiver identificado grupos de computadores em suas ass
 
 Selecione a recomendação ou abra a página controles de aplicativo adaptáveis para exibir a lista de aplicativos e grupos de computadores conhecidos e sugeridos.
 
-1. No menu da central de segurança, selecione **controles de aplicativo adaptáveis**.
+1. Abra o painel do Azure defender e, na área proteção avançada, selecione **controles de aplicativo adaptáveis**.
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Abrindo controles de aplicativo adaptáveis no painel do Azure" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     A página **controles de aplicativo adaptáveis** é aberta com suas VMs agrupadas nas seguintes guias:
 
@@ -86,7 +88,7 @@ Selecione a recomendação ou abra a página controles de aplicativo adaptáveis
       - É um computador Windows com uma política [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) já existente habilitada por um GPO ou uma política de segurança local
 
       > [!TIP]
-      > A central de segurança precisa de pelo menos duas semanas de dados para definir as recomendações exclusivas por grupo de computadores. As máquinas que foram criadas recentemente ou que pertencem a assinaturas que foram habilitadas recentemente com a camada Standard serão exibidas na guia **sem recomendação** .
+      > A central de segurança precisa de pelo menos duas semanas de dados para definir as recomendações exclusivas por grupo de computadores. As máquinas que foram criadas recentemente ou que pertencem a assinaturas que foram habilitadas recentemente com o Azure defender serão exibidas na guia **sem recomendação** .
 
 
 1. Abra a guia **recomendado** . Os grupos de computadores com as listas de permissões recomendadas são exibidos.
@@ -121,7 +123,7 @@ Você pode optar por editar a lista de permissões para um grupo de computadores
 
 Para editar as regras para um grupo de computadores:
 
-1. No menu da central de segurança, selecione **controles de aplicativo adaptáveis**.
+1. Abra o painel do Azure defender e, na área proteção avançada, selecione **controles de aplicativo adaptáveis**.
 
 1. Na guia **configurada** , selecione o grupo com a regra que você deseja editar.
 
@@ -169,7 +171,7 @@ Para corrigir os problemas:
 
 ## <a name="audit-alerts-and-violations"></a>Alertas e violações de auditoria
 
-1. No menu da central de segurança, selecione **controles de aplicativo adaptáveis**.
+1. Abra o painel do Azure defender e, na área proteção avançada, selecione **controles de aplicativo adaptáveis**.
 
 1. Para ver grupos com computadores que têm alertas recentes, examine os grupos listados na guia **configurado** .
 
@@ -184,6 +186,8 @@ Para corrigir os problemas:
 ## <a name="move-a-machine-from-one-group-to-another"></a>Mover um computador de um grupo para outro
 
 Quando você move um computador de um grupo para outro, a política de controle de aplicativo aplicada a ele muda para as configurações do grupo para o qual você o moveu. Você também pode mover um computador de um grupo configurado para um grupo não configurado, fazendo com que você remova todas as regras de controle de aplicativo que foram aplicadas ao computador.
+
+1. Abra o painel do Azure defender e, na área proteção avançada, selecione **controles de aplicativo adaptáveis**.
 
 1. Na página **controles de aplicativo adaptáveis** , na guia **configurada** , selecione o grupo que contém o computador a ser movido.
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a81b3016f86c6fd7de646ccbdbf533685471ac3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77430934"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894791"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurar uma política de segurança no Azure Policy usando a API REST
 
@@ -122,12 +122,12 @@ Este exemplo mostra como remover uma atribuição:
 |Criptografia do SQL |monitora o banco de dados SQL não criptografado na Central de Segurança do Azure |sqlEncryptionMonitoringEffect| 
 |Auditoria do SQL |monitora o banco de dados SQL não auditado na Central de Segurança do Azure |sqlAuditingMonitoringEffect|
 |Atualizações do sistema |monitora atualizações de sistemas ausentes na Central de Segurança do Azure |systemUpdatesMonitoringEffect|
-|Criptografia do armazenamento |audita a criptografia de blob ausente para contas de armazenamento |storageEncryptionMonitoringEffect|
+|Criptografia do armazenamento |Auditar a criptografia de blob ausente para contas de armazenamento |storageEncryptionMonitoringEffect|
 |Acesso à rede JIT |Monitorar um possível acesso JIT (just-in-time) de rede na central de segurança do Azure |jitNetworkAccessMonitoringEffect |
-|Controles de aplicativo adaptáveis |monitora a possível lista de permissões de aplicativo na Central de Segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
+|Controles de aplicativo adaptáveis |Monitorar possíveis listas de permissões de aplicativo na central de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |monitora o acesso permissivo à rede na Central de Segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |monitora a vulnerabilidades do sistema operacional na Central de Segurança do Azure |systemConfigurationsMonitoringEffect| 
-|Endpoint Protection |monitora o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
+|Endpoint Protection |Monitorar o Endpoint Protection ausente na Central de Segurança do Azure |endpointProtectionMonitoringEffect |
 |Criptografia de disco |monitora discos não criptografados da VM na Central de Segurança do Azure |diskEncryptionMonitoringEffect|
 |Avaliação de vulnerabilidade |monitora vulnerabilidades de máquinas virtuais na Central de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
 |Firewall do aplicativo Web |monitora o aplicativo Web desprotegido na Central de Segurança do Azure |webApplicationFirewallMonitoringEffect |

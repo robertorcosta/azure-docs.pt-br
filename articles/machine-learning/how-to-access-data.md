@@ -11,15 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 08685a6ebfcbfced91c3685635c40ff48030fe38
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669575"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893475"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conectar aos serviços de armazenamento do Azure
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, saiba como **se conectar aos serviços de armazenamento do Azure por meio de Azure Machine Learning repositórios de**armazenamento. Os armazenamentos de dados conectam-se com segurança ao serviço de armazenamento do Azure sem colocar suas credenciais de autenticação e a integridade da fonte original em risco. Eles armazenam informações de conexão, como a sua ID de assinatura e a autorização de token em seu [Key Vault](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que você possa acessar o armazenamento com segurança sem precisar embuti-los em seus scripts. Você pode usar o [Azure Machine Learning SDK do Python](#python) ou o [Azure Machine Learning Studio](#studio) para criar e registrar armazenamentos de datastores.
 
@@ -54,7 +53,7 @@ Você precisará de:
     Quando você cria um espaço de trabalho, um contêiner de BLOBs do Azure e um compartilhamento de arquivos do Azure são automaticamente registrados como repositórios de armazenamento no espaço de trabalho. Seus nomes são `workspaceblobstore` e `workspacefilestore`, respectivamente. O `workspaceblobstore` é usado para armazenar artefatos de espaço de trabalho e seus logs de experimento do Machine Learning. Ele também é definido como o **repositório de armazenamento padrão** e não pode ser excluído do espaço de trabalho. O `workspacefilestore` é usado para armazenar blocos de anotações e scripts de R autorizados por meio da [instância de computação](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files).
     
     > [!NOTE]
-    > O designer do Azure Machine Learning (versão prévia) criará um armazenamento de dados chamado **azureml_globaldatasets** automaticamente quando você abrir um exemplo na página inicial do designer. Esse armazenamento de dados contém apenas conjuntos de dados de amostra. **Não** use esse armazenamento de dados para acesso a dados confidenciais.
+    > O designer de Azure Machine Learning criará um repositório de armazenamento chamado **azureml_globaldatasets** automaticamente quando você abrir um exemplo na página inicial do designer. Esse armazenamento de dados contém apenas conjuntos de dados de amostra. **Não** use esse armazenamento de dados para acesso a dados confidenciais.
 
 <a name="matrix"></a>
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 313f10c77da499f4c405134028b975900d2d2a9e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590227"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894554"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorar a identidade e acesso
 
@@ -66,6 +66,4 @@ Habilitar a MFA requer [permissões de locatário do Azure AD](https://docs.micr
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recurso do Azure, confira os seguintes artigos:
 
-- [Protegendo suas máquinas e aplicativos na Central de segurança do Azure](security-center-virtual-machine-protection.md)
 - [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md)
-- [Proteger seus dados na Central de segurança do Azure e o serviço do SQL Azure](security-center-sql-service-recommendations.md)

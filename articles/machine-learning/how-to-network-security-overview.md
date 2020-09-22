@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 57746b833e238bbd0cc99ba103f710a9239ee5ba
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663709"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893181"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -63,22 +63,6 @@ As próximas cinco seções mostram como proteger o cenário de rede descrito ac
 1. Proteja o [**ambiente inferência**](#secure-the-inferencing-environment).
 1. Opcionalmente: [**habilitar a funcionalidade do estúdio**](#optional-enable-studio-functionality).
 1. Definir [ **configurações de firewall**](#configure-firewall-settings)
-
-> [!TIP]
->  Algumas combinações de rede virtual e serviços do Azure exigem um espaço de trabalho do Enterprise Edition. Use a tabela a seguir para entender quais cenários exigem a edição Enterprise:
->
-> | Cenário | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | Nenhuma rede virtual ou Link Privado | ✔ | ✔ |
-> | Workspace sem Link Privado. Outros recursos (exceto o Registro de Contêiner do Azure) em uma rede virtual | ✔ | ✔ |
-> | Workspace sem Link Privado. Outros recursos com Link Privado | ✔ | |
-> | Workspace com Link Privado. Outros recursos (exceto o Registro de Contêiner do Azure) em uma rede virtual | ✔ | ✔ |
-> | Workspace e qualquer outro recurso com Link Privado | ✔ | |
-> | Workspace com Link Privado. Outros recursos sem Link Privado ou rede virtual | ✔ | ✔ |
-> | Registro de Contêiner do Azure em uma rede virtual | ✔ | |
-> | Chaves gerenciadas pelo cliente para workspace | ✔ | |
->
-
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>Proteger o espaço de trabalho e os recursos associados
 
