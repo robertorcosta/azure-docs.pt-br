@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: be725c574c54dfc298a900d3c043559d484d1bc7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0a1b8eaee0a483fb4ce09a33d3c7ca9fe6f980e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117841"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884349"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-postgresql"></a>Validando a criptografia de dados para o Azure Database para PostgreSQL
 
@@ -19,7 +19,7 @@ Este artigo ajuda você a validar que a criptografia de dados usando a chave ger
 
 ## <a name="check-the-encryption-status"></a>Verificar o status de criptografia
 
-### <a name="from-portal"></a>Do portal
+### <a name="from-portal"></a>No portal
 
 1. Se você quiser verificar se a chave do cliente é usada para criptografia, siga estas etapas:
 
@@ -37,7 +37,7 @@ Este artigo ajuda você a validar que a criptografia de dados usando a chave ger
 
 2. Na portal do Azure, se você puder garantir que a chave de criptografia esteja definida, os dados serão criptografados usando a chave de clientes usada no portal do Azure.
 
-  ![Visão geral da política de acesso](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Visão geral da política de acesso":::
 
 ### <a name="from-cli"></a>Da CLI
 

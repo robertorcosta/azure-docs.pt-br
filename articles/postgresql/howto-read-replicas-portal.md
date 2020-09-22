@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 8ca4d3d2d52e79dbcaaa15eba5794a4d2d28366a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 623b9c1eccefe5d7e6027ddbed61c89720d98e9a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274536"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884470"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerenciar réplicas de leitura no banco de dados do Azure para PostgreSQL-servidor único do portal do Azure
 
@@ -39,17 +39,17 @@ O servidor precisa ser reiniciado após uma alteração desse parâmetro. Intern
 
 2. No menu do servidor, selecione **replicação**. Se o suporte à replicação do Azure for definido como pelo menos **réplica**, você poderá criar réplicas de leitura. 
 
-3. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Selecione **Salvar**.
+3. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Clique em **Salvar**.
 
-   ![Banco de dados do Azure para PostgreSQL-replicação – definir réplica e salvar](./media/howto-read-replicas-portal/set-replica-save.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/set-replica-save.png" alt-text="Banco de dados do Azure para PostgreSQL-replicação – definir réplica e salvar":::
 
 4. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
 
-   ![Banco de dados do Azure para PostgreSQL-replicação-confirmar reinicialização](./media/howto-read-replicas-portal/confirm-restart.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-restart.png" alt-text="Banco de dados do Azure para PostgreSQL-replicação-confirmar reinicialização":::
 
 5. Você receberá duas notificações de portal do Azure quando a operação for concluída. Há uma notificação para atualizar o parâmetro do servidor. Há outra notificação para a reinicialização do servidor que segue imediatamente.
 
-   ![Notificações de êxito](./media/howto-read-replicas-portal/success-notifications.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/success-notifications.png" alt-text="Notificações de êxito":::
 
 6. Atualize a página de portal do Azure para atualizar a barra de ferramentas de replicação. Agora você pode criar réplicas de leitura para este servidor.
    
@@ -63,15 +63,15 @@ Para criar uma réplica de leitura, siga estas etapas:
 
 3. Selecione **para adicionar réplica**.
 
-   ![Adicionar uma réplica](./media/howto-read-replicas-portal/add-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/add-replica.png" alt-text="Adicionar uma réplica":::
 
 4. Insira um nome para a réplica de leitura. 
 
-    ![Nome da réplica](./media/howto-read-replicas-portal/name-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/name-replica.png" alt-text="Nome da réplica":::
 
 5. Selecione um local para a réplica. O local padrão é o mesmo que o do servidor mestre.
 
-    ![Selecionar um local](./media/howto-read-replicas-portal/location-replica.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/location-replica.png" alt-text="Selecionar um local":::
 
    > [!NOTE]
    > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o artigo [conceitos de réplica de leitura](concepts-read-replicas.md). 
@@ -80,7 +80,7 @@ Para criar uma réplica de leitura, siga estas etapas:
 
 Depois que a réplica de leitura é criada, ela pode ser exibida na janela **Replicação**:
 
-![Exibir a nova réplica na janela Replicação](./media/howto-read-replicas-portal/list-replica.png)
+:::image type="content" source="./media/howto-read-replicas-portal/list-replica.png" alt-text="Exibir a nova réplica na janela Replicação":::
  
 
 > [!IMPORTANT]
@@ -102,15 +102,15 @@ Para interromper a replicação entre um servidor mestre e uma réplica de leitu
 
 3. Selecione o servidor de réplica para o qual interromper a replicação.
 
-   ![Selecionar a réplica](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Selecionar a réplica":::
  
 4. Selecione **Parar replicação**.
 
-   ![Selecionar interromper a replicação](./media/howto-read-replicas-portal/select-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-stop-replication.png" alt-text="Selecione parar replicação":::
  
 5. Selecione **OK** para interromper a replicação.
 
-   ![Confirme para interromper a replicação](./media/howto-read-replicas-portal/confirm-stop-replication.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-stop-replication.png" alt-text="Confirme para interromper a replicação":::
  
 
 ## <a name="delete-a-master-server"></a>Excluir um servidor mestre
@@ -125,11 +125,11 @@ Para excluir um servidor do portal do Azure, siga estas etapas:
 
 2. Abra a página **Visão geral** para o servidor. Selecione **Excluir**.
 
-   ![Na página Visão geral do servidor, selecione para excluir o servidor mestre](./media/howto-read-replicas-portal/delete-server.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-server.png" alt-text="Na página Visão geral do servidor, selecione para excluir o servidor mestre":::
  
 3. Insira o nome do servidor mestre para excluir. Selecione **Excluir** para confirmar a exclusão do servidor mestre.
 
-   ![Confirme para excluir o servidor mestre](./media/howto-read-replicas-portal/confirm-delete.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete.png" alt-text="Confirme para excluir o servidor mestre":::
  
 
 ## <a name="delete-a-replica"></a>Excluir uma réplica
@@ -137,7 +137,7 @@ Você pode excluir uma réplica de leitura semelhante a como exclui um servidor 
 
 - No portal do Azure, abra a página **Visão geral** para a réplica de leitura. Selecione **Excluir**.
 
-   ![Na página de Visão geral de réplica, selecione para excluir a réplica](./media/howto-read-replicas-portal/delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/delete-replica.png" alt-text="Na página de Visão geral de réplica, selecione para excluir a réplica":::
  
 Você também pode excluir a réplica de leitura usando a janela **Replicação** seguindo estas etapas:
 
@@ -147,15 +147,15 @@ Você também pode excluir a réplica de leitura usando a janela **Replicação*
 
 3. Selecione a réplica de leitura a excluir.
 
-   ![Selecione a réplica a excluir](./media/howto-read-replicas-portal/select-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica.png" alt-text="Selecione a réplica a excluir":::
  
 4. Selecione **excluir réplica**.
 
-   ![Selecionar excluir réplica](./media/howto-read-replicas-portal/select-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-delete-replica.png" alt-text="Selecionar Excluir réplica":::
  
 5. Insira o nome da réplica a excluir. Selecione **Excluir** para confirmar a exclusão da réplica.
 
-   ![Confirme a exclusão da réplica](./media/howto-read-replicas-portal/confirm-delete-replica.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/confirm-delete-replica.png" alt-text="Confirme a exclusão da réplica":::
  
 
 ## <a name="monitor-a-replica"></a>Monitorar uma réplica
@@ -166,9 +166,9 @@ A métrica **Retardo Máximo Entre Réplicas** mostra o retardo em bytes entre o
 
 1.  No portal do Azure, selecione o servidor mestre do Banco de Dados do Azure para PostgreSQL.
 
-2.  Selecione **métricas**. Na janela **métricas** , selecione **atraso máximo entre réplicas**.
+2.  Selecione **Métricas**. Na janela **métricas** , selecione **atraso máximo entre réplicas**.
 
-    ![Monitorar o retardo máximo entre réplicas](./media/howto-read-replicas-portal/select-max-lag.png)
+    :::image type="content" source="./media/howto-read-replicas-portal/select-max-lag.png" alt-text="Monitorar o retardo máximo entre réplicas":::
  
 3.  Para sua **Agregação**, selecione **Máx**.
 
@@ -178,9 +178,9 @@ A métrica **Retardo da Réplica** mostra o tempo decorrido desde a última tran
 
 1. No portal do Azure, selecione a réplica de leitura do Banco de Dados do Azure para PostgreSQL.
 
-2. Selecione **métricas**. Na janela **métricas** , selecione **atraso de réplica**.
+2. Selecione **Métricas**. Na janela **métricas** , selecione **atraso de réplica**.
 
-   ![Monitorar o retardo da réplica](./media/howto-read-replicas-portal/select-replica-lag.png)
+   :::image type="content" source="./media/howto-read-replicas-portal/select-replica-lag.png" alt-text="Monitorar o retardo da réplica":::
  
 3. Para sua **Agregação**, selecione **Máx**. 
  

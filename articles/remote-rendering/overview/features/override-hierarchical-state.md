@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024393"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884166"
 ---
 # <a name="hierarchical-state-override"></a>Substituição de estado hierárquico
 
@@ -45,6 +45,10 @@ O conjunto fixo de estados que podem ser substituídos é:
   ![Opção de estrutura de tópicos usada para realçar uma parte selecionada](./media/selection-outline.png)
 
 * **`DisableCollision`**: A geometria é isenta de [consultas espaciais](spatial-queries.md). O **`Hidden`** sinalizador não afeta o sinalizador de estado de colisão, portanto, esses dois sinalizadores geralmente são definidos juntos.
+
+* **`UseCutPlaneFilterMask`**: Use uma máscara de bits de filtro individual para controlar a seleção do plano de recorte. Esse sinalizador determina se a máscara de filtro individual deve ser usada ou herdada de seu pai. A própria máscara de bit de filtro é definida por meio da `CutPlaneFilterMask` propriedade. Para obter informações detalhadas sobre como a filtragem funciona, consulte o [parágrafo planos de corte seletivo](cut-planes.md#selective-cut-planes).
+![Planos de corte seletivo](./media/selective-cut-planes.png)
+
 
 > [!TIP]
 > Como alternativa para desativar as consultas de visibilidade e espaciais para um subgrafo completo, o `enabled` estado de um objeto de jogo pode ser alternado. Se uma hierarquia estiver desabilitada, isso terá preferência sobre qualquer `HierarchicalStateOverrideComponent` .
