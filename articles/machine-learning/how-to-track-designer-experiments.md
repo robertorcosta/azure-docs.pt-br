@@ -1,5 +1,5 @@
 ---
-title: Métricas de log no designer (versão prévia)
+title: Métricas de log no designer
 titleSuffix: Azure Machine Learning
 description: Monitore seus experimentos do Azure ML designer. Habilite o registro em log usando o módulo executar script Python e exiba os resultados registrados no estúdio.
 services: machine-learning
@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950401"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885968"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Habilitar o log em pipelines do designer de Azure Machine Learning (versão prévia)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Habilitar o log em pipelines do designer de Azure Machine Learning
+
 
 Neste artigo, você aprende a adicionar o código de registro em log a pipelines de designer. Você também aprenderá a exibir esses logs usando o portal da Web do Azure Machine Learning Studio.
 
@@ -78,5 +78,6 @@ Depois que a execução do pipeline for concluída, você poderá ver o *Mean_Ab
 
 Neste artigo, você aprendeu a usar os logs no designer. Para as próximas etapas, consulte estes artigos relacionados:
 
-* Saiba como solucionar problemas de pipelines de designer, consulte [Debug & solucionar problemas de pipelines de ml](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview).
+
+* Saiba como solucionar problemas de pipelines de designer, consulte [Debug & solucionar problemas de pipelines de ml](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Saiba como usar o SDK do Python para registrar métricas na experiência de criação do SDK, consulte [habilitar o log nas execuções de treinamento do Azure ml](how-to-track-experiments.md).

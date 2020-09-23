@@ -4,12 +4,12 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933776"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979438"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -55,7 +55,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 
 2. Depois de especificar qual recurso usar, você pode escolher como deseja que o Application Insights colete dados por plataforma para seu aplicativo. O monitoramento de aplicativos ASP.NET é ativado por padrão com dois níveis diferentes de coleção.
 
-    ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options-new.png)
+    ![Captura de tela mostra a página Application Insights extensões de site com criar novo recurso selecionado.](./media/azure-web-apps/choose-options-new.png)
  
  Veja abaixo um resumo dos dados coletados para cada rota:
         

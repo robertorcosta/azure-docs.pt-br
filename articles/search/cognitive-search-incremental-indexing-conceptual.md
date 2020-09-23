@@ -8,17 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 5596a2db32a0fe5b6b5eddf3ae20501e6edb0b99
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935374"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971637"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enriquecimento e Caching incrementais no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT] 
-> O enriquecimento incremental está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A [API REST versões 2019-05-06-Preview e 2020-06-30-Preview](search-api-preview.md) fornecem esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
+> O enriquecimento incremental está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [As versões de visualização da API REST](search-api-preview.md) fornecem esse recurso. Não há suporte para Portal ou SDK do .NET no momento.
 
 O *enriquecimento incremental* é um recurso que se destina a [habilidades](cognitive-search-working-with-skillsets.md). Ele aproveita o armazenamento do Azure para salvar a saída de processamento emitida por um pipeline de enriquecimento para reutilização em execuções futuras do indexador. Sempre que possível, o indexador reutiliza qualquer saída armazenada em cache que ainda é válida. 
 
@@ -166,7 +167,7 @@ A versão da API REST `2020-06-30-Preview` fornece aprimoramentos incrementais p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-O aprimoramento incremental é um recurso poderoso que estende o controle de alterações para o habilidades e o enriquecimento de ia. O enriquecimento de AIncremental permite a reutilização de conteúdo processado existente à medida que você itera sobre o design do skillset.
+O aprimoramento incremental é um recurso poderoso que estende o controle de alterações para o habilidades e o enriquecimento de ia. O enriquecimento incremental permite a reutilização de conteúdo processado existente à medida que você itera sobre o design do skillset.
 
 Como uma próxima etapa, habilite o Caching em um indexador existente ou adicione um cache ao definir um novo indexador.
 

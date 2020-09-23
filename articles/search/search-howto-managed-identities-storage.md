@@ -1,25 +1,22 @@
 ---
-title: Configurar uma conexão com uma conta de armazenamento usando uma identidade gerenciada (versão prévia)
+title: Configurar uma conexão com uma conta de armazenamento usando uma identidade gerenciada
 titleSuffix: Azure Cognitive Search
-description: Saiba como configurar uma conexão de indexador com uma conta de armazenamento do Azure usando uma identidade gerenciada (versão prévia)
+description: Saiba como configurar uma conexão de indexador para uma conta de armazenamento do Azure usando uma identidade gerenciada
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917968"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971509"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada (versão prévia)
-
-> [!IMPORTANT] 
-> O suporte para configurar uma conexão com uma fonte de dados usando uma identidade gerenciada está atualmente em visualização pública. A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção.
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurar uma conexão com uma conta de armazenamento do Azure usando uma identidade gerenciada
 
 Esta página descreve como configurar uma conexão de indexador com uma conta de armazenamento do Azure usando uma identidade gerenciada, em vez de fornecer credenciais na cadeia de conexão do objeto da fonte de dados.
 
@@ -66,9 +63,9 @@ Nesta etapa, você dará permissão ao seu serviço do Azure Cognitive Search pa
 
     ![Adicionar a atribuição de função Acesso a Dados e Leitor](./media/search-managed-identities/add-role-assignment-reader-and-data-access.png "Adicionar a atribuição de função Acesso a Dados e Leitor")
 
-### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
+### <a name="3---create-the-data-source"></a>3 – Criar a fonte de dados
 
-A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
+A [API REST](/rest/api/searchservice/create-data-source), portal do Azure e o [SDK do .net](/dotnet/api/microsoft.azure.search.models.datasource) oferecem suporte à cadeia de conexão de identidade gerenciada. Veja abaixo um exemplo de como criar uma fonte de dados para indexar dados de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerenciada. O formato da cadeia de conexão de identidade gerenciada é o mesmo para a API REST, o SDK do .NET e o portal do Azure.
 
 Ao indexar de uma conta de armazenamento, a fonte de dados deve ter as seguintes propriedades obrigatórias:
 
@@ -150,6 +147,7 @@ Para obter mais informações sobre como definir as agendas do indexador, confir
 ## <a name="see-also"></a>Confira também
 
 Saiba mais sobre os indexadores de armazenamento do Azure:
+
 * [Indexador de blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexador do Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 * [Indexador de tabela do Azure](search-howto-indexing-azure-tables.md)

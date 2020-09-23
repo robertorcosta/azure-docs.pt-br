@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566277"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979682"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para uma assinatura ou grupo de recursos diferente
 
@@ -40,9 +40,9 @@ Soluções que devem ser removidas para que você possa desvincular sua conta de
 
 >[!IMPORTANT]
 > **Clientes do Azure Sentinel:**
-> - Depois de implantado em um espaço de trabalho, o Azure Sentinel **atualmente não dá suporte** à movimentação desse espaço de trabalho para outros grupos de recursos ou assinaturas. 
+> - Após a implantação em um workspace, atualmente o Azure Sentinel **não dá suporte** para mover o workspace para outros grupos de recursos ou assinaturas. 
 >
->   Se você já tiver movido o espaço de trabalho, desabilite todas as regras ativas em **análise** e habilite-as novamente após cinco minutos. Isso deve ser eficaz na maioria dos casos, porém, para reiterar, ele não tem suporte e é quase retirado por seu próprio risco.
+>   Se você já tiver movido o workspace, desabilite todas as regras ativas em **Análise** e habilite-as novamente após cinco minutos. Isso deve ser eficaz na maioria dos casos, porém, para reiterar, não há suporte para esse procedimento e ele traz riscos.
 
 ### <a name="delete-solutions-in-azure-portal"></a>Excluir soluções no portal do Azure
 Use o procedimento a seguir para remover as soluções usando o portal do Azure:
@@ -96,7 +96,7 @@ Use o procedimento a seguir para mover seu espaço de trabalho usando o portal d
 4. Selecione uma **assinatura** de destino e um **grupo de recursos**. Se você estiver movendo o espaço de trabalho para outro grupo de recursos na mesma assinatura, você não verá a opção de **assinatura** .
 5. Clique em **OK** para mover o espaço de trabalho e os recursos selecionados.
 
-    ![Portal](media/move-workspace/portal.png)
+    ![Captura de tela mostra o painel Visão geral no espaço de trabalho Log Analytics com opções para alterar o grupo de recursos e o nome da assinatura.](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Para mover seu espaço de trabalho usando o PowerShell, use o [move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) como no exemplo a seguir:

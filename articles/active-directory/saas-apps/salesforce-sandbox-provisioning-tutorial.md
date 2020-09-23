@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4666768d7e975e976601810bbbfadb1685fa91ff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5fa40e954c84d4d2d70974bc799a198c6bf7d3e9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543516"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979755"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário
 
@@ -63,7 +63,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![provisionamento](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a página de provisionamento do Salesforce sandbox, com o modo de provisionamento definido como automático e outros valores que você pode definir.](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
 1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    

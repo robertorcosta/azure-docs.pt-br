@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: bbd6f2021a20ff488402bb9d1367feb57c34f582
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6ad3e0f3077e6f65642496d4da097fa713bddd53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896667"
+ms.locfileid: "90979078"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Prever demanda com machine learning automatizado
 
@@ -236,7 +236,7 @@ Confira este artigo para obter as etapas de como criar um esquema compatível co
 + Saiba mais sobre o [aprendizado de máquina automatizado](concept-automated-ml.md).
 + Para saber mais sobre métricas e gráficos de classificação, confira o artigo [Noções básicas sobre os resultados de machine learning automatizado](how-to-understand-automated-ml.md#classification).
 + Saiba mais sobre a [personalização](how-to-configure-auto-features.md#featurization).
-+ Saiba mais sobre a [criação de perfil de dados](how-to-use-automated-ml-for-ml-models.md#profile).
++ Saiba mais sobre a [criação de perfil de dados](how-to-connect-data-ui.md#profile).
 
 >[!NOTE]
 > Este conjunto de dados de compartilhamento de bicicletas foi modificado para este tutorial. Esse conjunto de dados foi disponibilizado como parte de uma [competição da Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) e estava originalmente disponível por meio da [Capital Bikeshare](https://www.capitalbikeshare.com/system-data). Também pode ser encontrado no [Banco de dados de machine learning do UCI](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

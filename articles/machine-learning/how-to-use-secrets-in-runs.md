@@ -11,21 +11,21 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5c7568b0914b5e60d1a47971424f1f04f41745da
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e984c0c43dcc47c3e11a36f3d5c32bf2ddb9973a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646956"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902327"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Usar segredos de credencial de autenticação em Azure Machine Learning execuções de treinamento
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a usar os segredos no treinamento em execução com segurança. As informações de autenticação, como seu nome de usuário e senha, são segredos. Por exemplo, se você se conectar a um banco de dados externo a fim de consultar dado de treinamento, você precisará passar seu nome de usuário e senha para o contexto de execução remota. Codificar esses valores em scripts de treinamento em texto não criptografado é inseguro, pois ele exporia o segredo. 
 
 Em vez disso, seu espaço de trabalho Azure Machine Learning tem um recurso associado chamado de [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Use esta Key Vault para passar segredos para execuções remotas com segurança por meio de um conjunto de APIs no SDK do Azure Machine Learning Python.
 
-O fluxo básico para usar segredos é:
+O fluxo padrão para usar segredos é:
  1. No computador local, faça logon no Azure e conecte-se ao seu espaço de trabalho.
  2. No computador local, defina um segredo no Key Vault do espaço de trabalho.
  3. Enviar uma execução remota.
