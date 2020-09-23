@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 2164f6d6b346eda185e8a38720677ad50f2e8c89
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f69ba6e1c5fdfc04fac6fed8487b246f9af72fa2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650675"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889950"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implantar um modelo usando uma imagem de base do Docker personalizada
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como usar uma imagem de base do Docker personalizada ao implantar modelos treinados com Azure Machine Learning.
 
@@ -184,7 +184,7 @@ Para obter mais informações sobre como carregar imagens existentes para um reg
 
 Para usar uma imagem personalizada, você precisará das seguintes informações:
 
-* O __nome da imagem__. Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` é o caminho para uma imagem básica do Docker fornecida pela Microsoft.
+* O __nome da imagem__. Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` é o caminho para uma imagem simples do Docker fornecida pela Microsoft.
 
     > [!IMPORTANT]
     > Para imagens personalizadas que você criou, certifique-se de incluir todas as marcas que foram usadas com a imagem. Por exemplo, se a imagem foi criada com uma marca específica, como `:v1` . Se você não usou uma marca específica ao criar a imagem, uma marca de `:latest` foi aplicada.
@@ -202,7 +202,7 @@ A Microsoft fornece várias imagens do Docker em um repositório publicamente ac
 
 | Imagem | Descrição |
 | ----- | ----- |
-| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagem básica para Azure Machine Learning |
+| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagem principal para Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contém tempo de execução ONNX para CPU inferência |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contém o tempo de execução ONNX e CUDA para GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contém ONNX Runtime e TensorRT para GPU |

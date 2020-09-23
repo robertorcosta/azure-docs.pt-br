@@ -1,6 +1,6 @@
 ---
-title: Log de tíquete de suporte para Azure Stack Edge, Azure Data Box Gateway | Microsoft Docs
-description: Saiba como solicitar suporte de log para problema relacionados a pedidos do Azure Stack Edge ou do Data Box Gateway.
+title: Log de tíquete de suporte para Azure Stack Edge pro, Gateway do Azure Data Box | Microsoft Docs
+description: Saiba como registrar em log a solicitação de suporte para problemas relacionados às suas ordens do Azure Stack Edge pro ou Gateway do Data Box.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 4d513471e288c1aadbf70b24ef367965a0b69a80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9df729277934e074e1e8cc92126e777336708586
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339902"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904523"
 ---
-# <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Abrir um tíquete de suporte para Azure Stack Edge e Azure Data Box Gateway
+# <a name="open-a-support-ticket-for-azure-stack-edge-pro-and-azure-data-box-gateway"></a>Abra um tíquete de suporte para Azure Stack Edge pro e Gateway do Azure Data Box
 
-Este artigo se aplica ao Azure Stack Edge e ao Azure Data Box Gateway que são gerenciados pelo serviço Azure Stack Edge/Azure Data Box Gateway. Se você encontrar algum problema com sua solução, é possível criar uma solicitação de serviço para suporte técnico. Este artigo orienta você sobre:
+Este artigo se aplica a Azure Stack o Edge pro e Gateway do Azure Data Box ambos são gerenciados pelo serviço pro/Gateway do Azure Data Box do Azure Stack Edge. Se você encontrar algum problema com sua solução, é possível criar uma solicitação de serviço para suporte técnico. Este artigo orienta você sobre:
 
 * Como criar uma solicitação de suporte.
 * Como gerenciar o ciclo de vida de uma solicitação de suporte de dentro do portal.
@@ -26,13 +26,13 @@ Este artigo se aplica ao Azure Stack Edge e ao Azure Data Box Gateway que são g
 
 Execute as seguintes etapas para criar uma solicitação de suporte:
 
-1. Vá para o pedido do seu Azure Stack Edge ou do seu Data Box Gateway. Navegue para a seção **Suporte + Solução de problemas** e depois selecione **Nova solicitação de suporte**.
+1. Acesse a ordem do Azure Stack Gateway do Data Box do Edge pro ou do. Navegue para a seção **Suporte + Solução de problemas** e depois selecione **Nova solicitação de suporte**.
 
 2. Em **Nova solicitação de suporte** na guia **Básico**, execute as etapas a seguir:
 
     1. Na lista suspensa **Tipo de problema**, selecione **Técnico**.
     2. Escolha sua **Assinatura**.
-    3. Em **Serviço**, verifique **Meus serviços**. Na lista suspensa, selecione **Azure Stack Edge e Data Box Gateway**.
+    3. Em **Serviço**, verifique **Meus serviços**. Na lista suspensa, selecione **Azure Stack Edge pro e gateway do data Box**.
     4. Selecione seu **recurso**. Isso corresponde ao nome do seu pedido.
     5. Escreva um breve **Resumo** do problema que você está enfrentando. 
     6. Selecione o **tipo de problema**.
@@ -98,5 +98,5 @@ Depois de criar um tíquete de suporte, você pode gerenciar o ciclo de vida do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [Solucionar problemas relacionados ao Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+Saiba como [solucionar problemas relacionados ao Azure Stack Edge pro](azure-stack-edge-troubleshoot.md).
 Saiba como [Solucionar problemas relacionados ao serviço de Data Box Gateway](data-box-gateway-troubleshoot.md).

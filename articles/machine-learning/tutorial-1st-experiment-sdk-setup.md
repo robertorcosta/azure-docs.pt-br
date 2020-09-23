@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Experimento em notebooks Jupyter (Python)'
-titleSuffix: Machine Learning - Azure
-description: Neste tutorial, você começará a usar o SDK de Python do Azure Machine Learning em execução em notebooks Jupyter.  Na parte 1, você cria um espaço de trabalho no qual gerenciará experimentos e modelos de ML.
+title: 'Tutorial: Introdução a Jupyter Notebooks (Python)'
+titleSuffix: Azure Machine Learning
+description: Tutoriais de Instalação para Jupyter Notebook.  Crie um workspace do Azure Machine Learning, clone Jupyter Notebooks no workspace e crie uma instância de computação na qual você executa os notebooks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,44 +10,42 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ff23a42d9b96b8411d8b2f82ab8303e2a8a69953
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: de52013628f5d02bedcf72a99e0fad25cabe5d8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852711"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896907"
 ---
-# <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutorial: Introdução à criação de seu primeiro experimento de ML com o SDK de Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Introdução ao Azure Machine Learning em Jupyter Notebooks
 
-Neste tutorial, você concluirá as etapas de ponta a ponta para começar a usar o SDK de Python do Azure Machine Learning em execução em notebooks Jupyter. Este tutorial é **parte um de uma série de tutoriais de duas partes** e aborda a configuração e instalação do ambiente Python, bem como a criação de um workspace para gerenciar seus experimentos e modelos de machine learning. [**A parte dois**](tutorial-1st-experiment-sdk-train.md) se baseia nisso para treinar vários modelos de machine learning e apresentar o processo de gerenciamento de modelos usando o Azure Machine Learning Studio e o SDK.
+Neste tutorial, você conclui as etapas para começar a usar o Azure Machine Learning com Jupyter Notebooks em uma [estação de trabalho gerenciada baseada em nuvem (instância de computação)](concept-compute-instance.md). Este tutorial é um precursor para todos os outros tutoriais de Jupyter Notebook.
 
 Neste tutorial, você:
 
 > [!div class="checklist"]
-> * Criar um [Workspace do Azure Machine Learning](concept-workspace.md) para usar no próximo tutorial.
+> * Crie um [Workspace do Azure Machine Learning](concept-workspace.md) para usar em outros tutoriais do Jupyter Notebook.
 > * Clonar o notebook de tutoriais em sua pasta no workspace.
 > * Criar uma instância de computação baseada em nuvem com o SDK do Python do Azure Machine Learning instalado e pré-configurado.
-
 
 Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente hoje mesmo a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 
-Um Workspace do Azure Machine Learning é o recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de machine learning. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
+Um Workspace do Azure Machine Learning é o recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de machine learning. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço.
 
-Você cria um workspace pelo portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure. 
+Você cria um workspace pelo portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 > Anote seu **workspace** e sua **assinatura**. Você precisará dessas informações para criar o experimento no local certo. 
 
 ## <a name="run-notebook-in-your-workspace"></a><a name="azure"></a>Executar o notebook em seu workspace
 
-Este tutorial usa o servidor de notebook em nuvem em seu workspace para uma experiência pré-configurada e sem instalação. Use [seu próprio ambiente](how-to-configure-environment.md#local) se preferir ter controle sobre seu ambiente, pacotes e dependências.
+O Azure Machine Learning inclui um servidor de notebook de nuvem em seu workspace para uma experiência pré-configurada sem necessidade de instalação. Use [seu próprio ambiente](tutorial-1st-experiment-sdk-setup-local.md) se preferir ter controle sobre seu ambiente, pacotes e dependências.
 
- Acompanhe o tutorial com este vídeo ou use as etapas detalhadas abaixo para clonar e executar o tutorial em seu workspace. 
+ Acompanhe o tutorial com este vídeo ou use as etapas detalhadas abaixo para clonar e executar o notebook do tutorial em seu workspace.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
@@ -80,12 +78,11 @@ Conclua a configuração do experimento a seguir e execute as etapas no Azure Ma
     > [!IMPORTANT]
     > Você pode exibir notebooks na pasta **samples**, mas não pode executar um notebook partindo dela.  Para executar um notebook, abra a versão clonada do notebook na seção **Arquivos do Usuário**.
     
-1. Selecione o arquivo **tutorial-1st-experiment-sdk-train.ipynb** na pasta **tutorials/create-first-ml-experiment**.
+1. Selecione o arquivo **tutorial-1st-experiment-sdk-train.ipynb** na pasta **tutorials/image-classification-mnist-data**.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Abrir a pasta tutoriais":::
 
-
-1. Na barra superior, selecione uma instância de computação a ser usada para executar o notebook. Essas VMs são pré-configuradas com [tudo o que você precisa para executar Azure Machine Learning](concept-compute-instance.md#contents). 
+1. Na barra superior, selecione uma instância de computação a ser usada para executar o notebook. Essas VMs são pré-configuradas com [tudo o que você precisa para executar Azure Machine Learning](concept-compute-instance.md#contents).
 
 1. Se nenhuma VM for encontrada, selecione **+ Adicionar** para criar a VM da instância de computação. 
 
@@ -107,17 +104,11 @@ Caso você tenha widgets personalizados ou prefira usar o Jupyter/o JupyterLab, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você concluiu estas tarefas:
-
-* Criou um Workspace do Azure Machine Learning.
-* Criou e configurou um servidor de notebook em nuvem no seu workspace.
-
-Na **parte dois** do tutorial, você executa o código em `tutorial-1st-experiment-sdk-train.ipynb` para treinar um modelo de machine learning. 
+Agora que você tem um ambiente de desenvolvimento configurado, continue para treinar um modelo em um Jupyter Notebook:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Treinar seu primeiro modelo](tutorial-1st-experiment-sdk-train.md)
+> [Tutorial: Treinar modelos de classificação de imagem usando dados MNIST e scikit-learn](tutorial-train-models-with-aml.md)
 
-> [!IMPORTANT]
-> Se não planeja seguir a parte 2 deste tutorial ou nenhum outro tutorial, você deve [interromper a VM do servidor de notebook na nuvem](tutorial-1st-experiment-sdk-train.md#clean-up-resources) quando não a estiver usando para reduzir o custo.
+<a name="stop-compute-instance"></a> Se você não planeja seguir nenhum outro tutorial por enquanto, você deve interromper a VM do servidor de notebook na nuvem enquanto não o está usando para reduzir o custo:
 
-
+[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]

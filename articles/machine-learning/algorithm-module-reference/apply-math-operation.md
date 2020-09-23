@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456736"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898898"
 ---
 # <a name="apply-math-operation"></a>Aplicar operação matemática
 
-Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo do designer de Azure Machine Learning.
 
 Use a operação aplicar matemática para criar cálculos que são aplicados a colunas numéricas no conjunto de dados de entrada. 
 
@@ -138,7 +138,7 @@ Retorna e elevado à potência do valor na coluna selecionada. Isso é o mesmo q
 
 Retorna o exponencial de base 2 dos argumentos, resolvendo para y = x * 2<sup>t</sup> , em que t é uma coluna de valores que contém expoentes.  
 
-Em **conjunto de colunas**, selecione a coluna que contém os valores de expoente t.
+Em  **conjunto de colunas**, selecione a coluna que contém os valores de expoente t.
 
 Para **Exp2** , você pode especificar um segundo argumento x, que pode ser uma constante ou outra coluna de valores. No **segundo tipo de argumento**, indique se você fornecerá o multiplicador x como uma constante ou um valor em uma coluna.  
 
@@ -258,7 +258,7 @@ Operação|Núm1|Núm2|Coluna de resultado|Valor do resultado|
 |Subtração|1|5|Subtrair (Num2_Num1)|4|
 |Subtração|0|1|Subtrair (Num2_Num1)|0|
 |Divisão|1|5|Dividir (Num2_Num1)|5|
-|Divisão|0|1|Dividir (Num2_Num1)|Infinity|
+|Divisão|0|1|Dividir (Num2_Num1)|Infinito|
 
 ### <a name="add"></a>Adicionar
 
@@ -306,7 +306,7 @@ Retorna a parte fracionária dos valores na **Coluna definida**, até a precisã
 
 Retorna a parte fracionária dos valores na **Coluna definida**, até a precisão especificada.  
 
-### <a name="remainder"></a>Restante
+### <a name="remainder"></a>Resto
 
 Retorna o restante para os valores na **Coluna definida**.  
 

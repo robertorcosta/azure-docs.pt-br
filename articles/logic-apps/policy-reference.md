@@ -1,16 +1,16 @@
 ---
 title: Definições de políticas internas para os Aplicativos Lógicos do Azure
 description: Lista as definições de políticas internas do Azure Policy para os Aplicativos Lógicos do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 ms.suite: integration
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c21ae2e508cca36966772e7a11c3bfa8c76b7125
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4a64c91da238935fc6ddef866d10e43b839b95d1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005030"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976845"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-logic-apps"></a>Definições internas do Azure Policy para os Aplicativos Lógicos do Azure
 
