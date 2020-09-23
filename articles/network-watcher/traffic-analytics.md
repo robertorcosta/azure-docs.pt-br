@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747521"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967496"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -339,7 +339,7 @@ Distribuição de tráfego por gateway de Aplicativo e Load Balancer, topologia,
  - Saber qual sub-rede está conversando com qual gateway de Aplicativo ou Load Balancer. Se você observar conversas inesperadas, poderá corrigir a configuração.
  - Se redes não autorizadas estiverem conversando com um gateway de Aplicativo ou Load Balancer, você poderá corrigi-lo, configurando as regras NSG para bloquear as redes não autorizadas. 
 
-    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![Captura de tela mostra uma topologia de sub-rede com distribuição de tráfego para uma sub-rede de gateway de aplicativo em relação aos fluxos.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Exibir as portas e máquinas virtuais que recebem tráfego da internet
 

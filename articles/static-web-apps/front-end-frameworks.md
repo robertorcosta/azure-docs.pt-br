@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075964"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905363"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurar estruturas e bibliotecas de front-end com a visualização de aplicativos Web estáticos do Azure
 
@@ -35,6 +35,7 @@ A intenção das colunas da tabela é explicada pelos seguintes itens:
 | [Universal angular](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
 | [Aurelia](https://aurelia.io/) | `dist` | N/D |
 | [Backbone.js](https://backbonejs.org/) | `/` | N/D |
+| [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | N/D |
 | [Ember](https://emberjs.com/) | `dist` | N/D |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
 | [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
@@ -46,7 +47,7 @@ A intenção das colunas da tabela é explicada pelos seguintes itens:
 | [KnockoutJS](https://knockoutjs.com/) | `dist` | N/D |
 | [LitElement](https://lit-element.polymer-project.org/) | `dist` | N/D |
 | [Marko](https://markojs.com/) | `public` | N/D |
-| [Meteor](https://www.meteor.com/) | `bundle` | N/D |
+| [Meteoro](https://www.meteor.com/) | `bundle` | N/D |
 | [Mithril](https://mithril.js.org/) | `dist` | N/D |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | N/D |
 | [Preact](https://preactjs.com/) | `build` | N/D |

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 6682d9426ed3fe011fe5c493ec34fcdf0a2b35b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095657"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905246"
 ---
-# <a name="poisson-regression"></a>Regressão Poisson
+# <a name="poisson-regression"></a>Regressão de Poisson
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de regressão Poisson em um pipeline. A regressão Poisson é destinada à previsão de valores numéricos, normalmente conta. Portanto, você deve usar este módulo para criar seu modelo de regressão somente se os valores que você está tentando prever se ajustarem às seguintes condições:
 
@@ -49,7 +49,7 @@ Como a variável de resposta tem uma distribuição Poisson, o modelo faz difere
 
 ## <a name="how-to-configure-poisson-regression"></a>Como configurar a regressão Poisson
 
-1. Adicione o módulo **regressão Poisson** ao seu pipeline no designer (versão prévia). Você pode encontrar esse módulo em **algoritmos de Machine Learning**, na categoria **regressão** .
+1. Adicione o módulo **regressão Poisson** ao seu pipeline no designer. Você pode encontrar esse módulo em **algoritmos de Machine Learning**, na categoria **regressão** .
 
 2. Adicione um DataSet que contém dados de treinamento do tipo correto. 
 

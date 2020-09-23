@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462387"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904734"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 
@@ -132,7 +132,7 @@ Se você enfrentar problemas ao carregar o painel central de segurança, certifi
 
 ## <a name="contacting-microsoft-support"></a>Entrando em contato com o Suporte da Microsoft
 
-Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo. Outros, você também pode encontrar documentados na [página pública de perguntas e respostas da Microsoft](https://docs.microsoft.com/answers/topics/azure-security-center.html) da Central de Segurança. No entanto, se você precisar de mais solução de problemas, poderá abrir uma nova solicitação de suporte usando o **portal do Azure**, conforme mostrado abaixo:
+Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo, outros, que você também pode encontrar documentados na central de segurança da [Microsoft Q&uma página](https://docs.microsoft.com/answers/topics/azure-security-center.html). No entanto, se você precisar de mais solução de problemas, poderá abrir uma nova solicitação de suporte usando o **portal do Azure**, conforme mostrado abaixo:
 
 ![Suporte da Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 

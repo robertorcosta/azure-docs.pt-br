@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fc681b57824f5db7b6a24fbd55351f774dc515da
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: e1285d62d036ebda46348ae1c1a3f8aa0db50243
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668856"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882749"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Criar & usar ambientes de software no Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, saiba como criar e gerenciar [ambientes](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)de Azure Machine Learning. Use os ambientes para acompanhar e reproduzir as dependências de software de seus projetos à medida que elas evoluem.
 
@@ -405,7 +405,7 @@ Este [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningN
 
 ## <a name="create-and-manage-environments-with-the-cli"></a>Criar e gerenciar ambientes com a CLI
 
-A [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) espelha a maior parte da funcionalidade do SDK do Python. Você pode usá-lo para criar e gerenciar ambientes. Os comandos que discutimos nesta seção demonstram a funcionalidade básica.
+A [CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md) espelha a maior parte da funcionalidade do SDK do Python. Você pode usá-lo para criar e gerenciar ambientes. Os comandos que discutimos nesta seção demonstram a funcionalidade fundamental.
 
 O comando a seguir aplica Scaffold os arquivos para uma definição de ambiente padrão no diretório especificado. Esses arquivos são arquivos JSON. Eles funcionam como a classe correspondente no SDK. Você pode usar os arquivos para criar novos ambientes com configurações personalizadas. 
 

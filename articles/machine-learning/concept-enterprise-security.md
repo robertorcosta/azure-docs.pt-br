@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a89115d69943ff63d403edff942677b134e7f2a8
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024376"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905746"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para o Azure Machine Learning
 
@@ -63,7 +63,6 @@ A tabela a seguir lista algumas das principais operações do Azure Machine Lear
 | ---- |:----:|:----:|:----:|
 | Criar workspace | ✓ | ✓ | |
 | Compartilhar o workspace | ✓ | |  |
-| Atualizar o workspace para a edição Enterprise | ✓ | |
 | Criar destino de computação | ✓ | ✓ | |
 | Anexar destino de computação | ✓ | ✓ | |
 | Anexar armazenamento de dados | ✓ | ✓ | |
@@ -105,7 +104,7 @@ O Azure Machine Learning cria um aplicativo adicional (o nome começa com `aml-`
 
 O Azure Machine Learning depende de outros serviços do Azure para recursos de computação. Os recursos de computação (destinos de computação) são usados para treinar e implantar modelos. Você pode criar esses destinos de computação em uma rede virtual. Por exemplo, você pode usar a Máquina Virtual de Ciência de Dados do Azure para treinar um modelo e implantá-lo no AKS.  
 
-Para obter mais informações, consulte [visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md).
+Para obter mais informações, confira [Visão geral de isolamento de rede virtual e privacidade](how-to-network-security-overview.md).
 
 Você também pode habilitar o Link Privado do Azure para seu workspace. O Link Privado permite restringir as comunicações ao seu workspace a partir de uma Rede Virtual do Azure. Para obter mais informações, consulte [Como configurar o Link Privado](how-to-configure-private-link.md).
 

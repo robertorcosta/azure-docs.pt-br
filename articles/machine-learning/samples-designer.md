@@ -1,30 +1,30 @@
 ---
-title: Pipelines de exemplo e conjuntos de dados para o designer (versão prévia)
+title: Pipelines de exemplo e conjuntos de dados para o designer
 titleSuffix: Azure Machine Learning
 description: Use amostras no designer do Azure Machine Learning para iniciar rapidamente seus pipelines de aprendizado de máquina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
-ms.date: 03/29/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.custom: designer
-ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812930"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889745"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Pipelines e conjuntos de dados de exemplo para o designer do Azure Machine Learning (versão prévia)
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipelines e conjuntos de dados de exemplo para o designer do Azure Machine Learning
 
 Use os exemplos internos do designer do Azure Machine Learning para começar rapidamente a criar os próprios pipelines de aprendizado de máquina. O [repositório GitHub](https://github.com/Azure/MachineLearningDesigner) do designer do Azure Machine Learning contém uma documentação detalhada para ajudar você a entender alguns cenários comuns de aprendizado de máquina.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
-* Um workspace do Azure Machine Learning com o SKU Enterprise.
+* Uma assinatura do Azure. Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree)
+* Um Workspace do Azure Machine Learning 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -67,8 +67,8 @@ Explore esses exemplos internos de regressão.
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
-| [Amostra 1: regressão – previsão de preços de automóveis (básica)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Preveja os preços de carros usando a regressão linear. |
-| [Amostra 2: regressão – previsão de preço de automóveis (avançada)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Preveja os preços de carros usando a floresta de decisão e os regressores de árvore de decisão aumentada. Compare os modelos para encontrar o melhor algoritmo.
+| [Regressão – previsão de preços de automóveis (básica)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Preveja os preços de carros usando a regressão linear. |
+| [Regressão – previsão de preço de automóveis (avançada)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Preveja os preços de carros usando a floresta de decisão e os regressores de árvore de decisão aumentada. Compare os modelos para encontrar o melhor algoritmo.
 
 ## <a name="classification"></a>classificação
 
@@ -76,11 +76,19 @@ Explore esses exemplos internos de classificação. Saiba mais sobre as amostras
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
-| [Amostra 3: classificação binária com seleção de recursos – previsão de receita](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Preveja a receita como alta ou baixa usando uma árvore de decisão aumentada de duas classes. Use a correlação de Pearson para selecionar recursos.
-| [Amostra 4: classificação binária com script Python personalizado – previsão de risco de crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Classifique os pedidos de crédito como de alto ou baixo risco. Use o módulo Executar Script Python para ponderar seus dados.
-| [Amostra 5: classificação binária – previsão de relacionamento com o cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Preveja a rotatividade de clientes usando árvores de decisão aumentadas de duas classes. Use o SMOTE para fazer a amostragem dos dados polarizados.
-| [Amostra 7: classificação de textos – conjunto de dados SP 500 da Wikipédia](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Classifique os tipos de empresas com base nos artigos da Wikipédia com a regressão logística multiclasse. |
-| Amostra 12: Classificação multiclasse – reconhecimento de letras | Crie um conjunto de classificadores binários para classificar letras escritas. |
+| [Classificação binária com seleção de recursos – previsão de receita](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Preveja a receita como alta ou baixa usando uma árvore de decisão aumentada de duas classes. Use a correlação de Pearson para selecionar recursos.
+| [Classificação binária com script Python personalizado – previsão de risco de crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Classifique os pedidos de crédito como de alto ou baixo risco. Use o módulo Executar Script Python para ponderar seus dados.
+| [Classificação binária – previsão de relacionamento com o cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Preveja a rotatividade de clientes usando árvores de decisão aumentadas de duas classes. Use o SMOTE para fazer a amostragem dos dados polarizados.
+| [Classificação de textos – conjunto de dados SP 500 da Wikipédia](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Classifique os tipos de empresas com base nos artigos da Wikipédia com a regressão logística multiclasse. |
+| Classificação multiclasse – reconhecimento de letras | Crie um conjunto de classificadores binários para classificar letras escritas. |
+
+## <a name="computer-vision"></a>Visual computacional
+
+Explore esses exemplos de pesquisa visual computacional internos. Saiba mais sobre as amostras sem os links de documentação abrindo as amostras e vendo os comentários do módulo.
+
+| Titulo do exemplo | Descrição | 
+| --- | --- |
+| Recomendação baseada em Wide & Deep – previsão de classificação de restaurante | Crie um mecanismo de recomendação de restaurante usando avaliações e recursos do usuário do restaurante/usuário.|
 
 ## <a name="recommender"></a>Sistema de recomendação
 
@@ -88,7 +96,7 @@ Explore esses exemplos internos de sistema de recomendação. Saiba mais sobre a
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
-| Amostra 10: recomendação – tweets de classificação de filmes | Crie um mecanismo de recomendação de filmes com base nos títulos e na classificação de filmes. |
+| Classificação de imagem usando DenseNet | Use módulos da pesquisa visual computacional para criar o modelo de classificação de imagem com base no PyTorch DenseNet.| 
 
 ## <a name="utility"></a>Utilitário
 
@@ -96,10 +104,11 @@ Saiba mais sobre as amostras que descrevem os recursos e os utilitários de apre
 
 | Titulo do exemplo | Descrição | 
 | --- | --- |
-| [Amostra 6: usar um script R personalizado – previsão de atraso de voos](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) |
-| Amostra 8: validação cruzada para classificação binária – previsão de receita de adulto | Use a validação cruzada para criar um classificador binário para a receita de adulto.
-| Amostra 9: Importância do recurso de permuta | Use a importância do recurso de permuta para computar pontuações de importância para o conjunto de dados de teste. 
-| Amostra 11: ajustar parâmetros para classificação binária – previsão de receita de adulto | Use os hiperparâmetros do modelo de ajuste para encontrar hiperparâmetros ideais para a criação de um classificador binário. |
+| Classificação binária usando modelo do Vowpal Wabbit – previsão de renda adulta | O Vowpal Wabbit é um sistema de machine learning que vai além dos limites do machine learning com técnicas como aprendizado online, hashing, allreduce, reductions, learning2search, ativo e interativo. Este exemplo mostra como usar o modelo Vowpal Wabbit para criar um modelo de classificação binária. 
+| [Usar um script R personalizado – previsão de atraso de voo](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | Use o script do R personalizado para prever se um voo de passageiros agendado sofrerá um atraso superior a 15 minutos.
+| validação cruzada para classificação binária – previsão de receita de adulto | Use a validação cruzada para criar um classificador binário para a receita de adulto.
+| Importância do recurso de permuta | Use a importância do recurso de permuta para computar pontuações de importância para o conjunto de dados de teste. 
+| ajustar parâmetros para classificação binária – previsão de receita de adulto | Use os hiperparâmetros do modelo de ajuste para encontrar hiperparâmetros ideais para a criação de um classificador binário. |
 
 ## <a name="datasets"></a>Conjunto de dados
 
@@ -129,5 +138,5 @@ Os conjuntos de dados de exemplo estão disponíveis na categoria **Conjuntos de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conheça os conceitos básicos da análise preditiva e do aprendizado de máquina com o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
+Conheça os conceitos fundamentais da análise preditiva e do machine learning com o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md)
 

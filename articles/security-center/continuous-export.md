@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433918"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905631"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exporte alertas e recomendações
 
@@ -33,8 +33,8 @@ Usando essas ferramentas, você pode:
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Disponível|
-|Refere|Camada gratuita|
+|Estado da versão:|GA (em disponibilidade geral)|
+|Refere|Gratuita|
 |Funções e permissões necessárias:|**Função de administrador de segurança** no grupo de recursos (ou **proprietário**)<br>Também deve ter permissões de gravação para o recurso de destino|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos), outros gov|
 |||
@@ -125,11 +125,11 @@ Além disso, se você quiser mover os dados exportados continuamente automaticam
 
 Se você quiser analisar os dados da central de segurança do Azure dentro de um espaço de trabalho Log Analytics ou usar alertas do Azure junto com a central de segurança, configure a exportação contínua para seu espaço de trabalho Log Analytics.
 
-Para exportar para um espaço de trabalho do Log Analytics, você deve ter as soluções de Log Analytics da central de segurança habilitadas no seu espaço de trabalho. Se você estiver usando a portal do Azure, a solução de camada gratuita da central de segurança será habilitada automaticamente quando você habilitar a exportação contínua. No entanto, se você estiver configurando suas configurações de exportação contínua de forma programática, deverá selecionar manualmente o tipo de preço gratuito ou Standard para o espaço de trabalho necessário em **configurações de preço &**.  
+Para exportar para um espaço de trabalho do Log Analytics, você deve ter as soluções de Log Analytics da central de segurança habilitadas no seu espaço de trabalho. Se você estiver usando a portal do Azure, a solução gratuita da central de segurança será habilitada automaticamente quando você habilitar a exportação contínua. No entanto, se você estiver configurando suas configurações de exportação contínua de forma programática, será necessário ativar ou desativar manualmente o Azure defender de dentro da página de **configurações de preços &** .
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabelas e esquemas
 
-Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations* , respectivamente. O nome da solução de Log Analytics que contém essas tabelas depende se você está na camada gratuita ou Standard (consulte [preços](security-center-pricing.md)): segurança (' segurança e auditoria ') ou SecurityCenterFree.
+Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations* , respectivamente. O nome da solução de Log Analytics que contém essas tabelas depende se você tem o Azure defender habilitado: segurança (' Segurança e Auditoria ') ou SecurityCenterFree.
 
 ![A tabela * SecurityAlert * no Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 

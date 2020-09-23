@@ -372,6 +372,8 @@
       href: /azure/cloud-adoption-framework/get-started/
     - name: Centro de arquitetura
       href: /azure/architecture/
+    - name: Benefício Híbrido do Azure
+      href: azure-hybrid-benefit-linux.md
 - name: Guias de instruções
   items:
     - name: Criar VMs

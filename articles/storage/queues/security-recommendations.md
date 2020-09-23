@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: ee3808684ab2548999d71fe0d31fa9a160cd9347
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70bb96da858c94fbd2c75d56cda4e705f2ffa3ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200057"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986632"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendações de segurança para armazenamento de filas
 
@@ -30,7 +30,7 @@ A central de segurança do Azure analisa periodicamente o estado de segurança d
 | Recomendação | Comentários | Central de Segurança |
 |-|----|--|
 | Usar o modelo de implantação Azure Resource Manager | Crie novas contas de armazenamento usando o modelo de implantação de Azure Resource Manager para aprimoramentos de segurança importantes, incluindo controle de acesso superior (RBAC) e auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso a Azure Key Vault para segredos e autenticação baseada no Azure AD e autorização para acesso a dados e recursos do armazenamento do Azure. Se possível, migre as contas de armazenamento existentes que usam o modelo de implantação clássico para usar Azure Resource Manager. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](/azure/azure-resource-manager/resource-group-overview). | - |
-| Habilitar a proteção avançada contra ameaças para todas as suas contas de armazenamento | A proteção avançada contra ameaças para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são disparados na central de segurança do Azure quando ocorrem anomalias na atividade e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. Para obter mais informações, consulte [proteção avançada contra ameaças para o armazenamento do Azure](../common/storage-advanced-threat-protection.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
+| Habilitar a proteção avançada contra ameaças para todas as suas contas de armazenamento | A proteção avançada contra ameaças para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são disparados na central de segurança do Azure quando ocorrem anomalias na atividade e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. Para obter mais informações, consulte [proteção avançada contra ameaças para o armazenamento do Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 | Limitar tokens de SAS (assinatura de acesso compartilhado) a conexões HTTPS somente | Exigir HTTPS quando um cliente usa um token SAS para acessar os dados da fila ajuda a minimizar o risco de espionagem. Para obter mais informações, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso

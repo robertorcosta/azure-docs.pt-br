@@ -10,17 +10,16 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: cad1c8b7250ddf1e675145e764abcc90b4db9d86
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 616cdb1d0940ea6f64c3be3d687adaa9c2a98cc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889971"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do aprendizado de máquina
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, você aprende a solucionar problemas e depurar [pipelines do Machine Learning](concept-ml-pipelines.md) no [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) e no [Designer de Azure Machine Learning (versão prévia)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+Neste artigo, você aprenderá a depurar e solucionar problemas de [pipelines do Machine Learning](concept-ml-pipelines.md) no [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) e no [Designer de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer). As informações são fornecidas sobre como:
 
 ## <a name="troubleshooting-tips"></a>Dicas de solução de problemas
 
@@ -108,31 +107,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### <a name="finding-and-reading-pipeline-log-files"></a>Localizando e lendo arquivos de log de pipeline
-
-O arquivo de log `70_driver_log.txt` contém: 
-
-* Todas as instruções impressas durante a execução do script
-* O rastreamento de pilha para o script 
-
-Para localizar esse e outros arquivos de log no portal, primeiro clique no pipeline executado no seu espaço de trabalho.
-
-![Página de lista de execução de pipeline](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Navegue até a página de detalhes da execução do pipeline.
-
-![Página de detalhes da execução do pipeline](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Clique no módulo para a etapa específica. Navegue até a guia **logs** . Outros logs incluem informações sobre o processo de compilação da imagem do ambiente e os scripts de preparação de etapa.
-
-![Guia log da página detalhes da execução do pipeline](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Execuções para *pipelines publicados* podem ser encontradas na guia **pontos de extremidade** em seu espaço de trabalho. Execuções para *pipelines não publicados* podem ser encontradas em **experimentos** ou **pipelines**.
-
-Para obter mais informações sobre registro em log e rastreamento de um `ParallelRunStep` , consulte [debug and Troubleshoot ParallelRunStep](how-to-debug-parallel-run-step.md).
-
-## <a name="logging-in-azure-machine-learning-designer-preview"></a>Registrando em log Azure Machine Learning designer (versão prévia)
+## <a name="azure-machine-learning-designer"></a>Designer do Azure Machine Learning
 
 Para pipelines criados no designer, você pode encontrar o arquivo de **70_driver_log** na página de criação ou na página de detalhes de execução de pipeline.
 
