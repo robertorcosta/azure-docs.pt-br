@@ -9,17 +9,42 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/04/2020
-ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/22/2020
+ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500344"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900600"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de versão do Azure SQL Edge 
 
 Este artigo descreve o que há de novo e o que mudou em todas as novas compilações do Azure SQL Edge.
+
+## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
+
+### <a name="sql-engine-build-number---15020001549"></a>Número de Build do mecanismo SQL-15.0.2000.1549
+
+### <a name="whats-new"></a>Novidades
+1. Imagens de contêiner baseadas no Ubuntu 18, 4. 
+2. Suporte para `IGNORE NULL` e `RESPECT NULL` sintaxe com `LAST_VALUE()` e `FIRST_VALUE()` funções. 
+3. Melhorias de confiabilidade para prever com ONNX.
+4. Suporte para limpeza baseada em política de retenção de dados.      
+   - Suporte para limpeza otimizada para índices columnstore clusterizados.
+5. Novo suporte a recursos 
+   - Recuperação rápida
+   - Ajuste automático de consultas
+
+### <a name="fixes"></a>Correções
+1. Mensagens de erro adicionais e detalhes para solução de problemas de operações de streaming de TSQL. 
+2. Melhorias para preservar a vida útil da bateria no modo ocioso. 
+3. Correções do mecanismo de streaming TSQL: 
+   - Limpeza do trabalho de streaming interrompido 
+   - Correções para melhorias de localização e manipulação de Unicode
+4. Limpeza baseada em política de retenção de dados
+   - Correções para a criação de política de retenção e cenários de limpeza.
+5. Correções para tarefas de temporizador em segundo plano para melhorar a economia de energia para o modo de baixa energia.
+
 
 ## <a name="ctp-23"></a>CTP 2.3
 ### <a name="sql-engine-build-number---15020001549"></a>Número de Build do mecanismo SQL-15.0.2000.1549
@@ -33,7 +58,7 @@ Este artigo descreve o que há de novo e o que mudou em todas as novas compilaç
 
 ### <a name="fixes"></a>Correções
 1. Mensagens de erro adicionais e detalhes para solução de problemas de operações de streaming de TSQL. 
-2. Imporvements para preservar a vida útil da bateria no modo ocioso. 
+2. Melhorias para preservar a vida útil da bateria no modo ocioso. 
 3. Correções do mecanismo de streaming TSQL: 
    - Corrigir o problema de marca d' água presa com a janela de salto com Subfluxo 
    - Corrigir o tratamento de exceção de estrutura para garantir que ele seja coletado como um erro de ação do usuário

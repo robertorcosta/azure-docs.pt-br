@@ -1,6 +1,6 @@
 ---
 title: Parâmetros de tempo de pastas de trabalho do Azure Monitor
-description: Simplifique a emissão de relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
+description: Saiba como definir parâmetros de tempo para permitir que os usuários definam o contexto de tempo de análise. Os parâmetros de tempo são usados por quase todos os relatórios.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658006"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972872"
 ---
 # <a name="workbook-time-parameters"></a>Parâmetros de tempo da pasta de trabalho
 
@@ -25,9 +25,9 @@ Os parâmetros de hora permitem que os usuários definam o contexto de tempo de 
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`TimeRange`
-    2. Tipo de parâmetro:`Time range picker`
-    3. Necessário:`checked`
+    1. Nome do parâmetro: `TimeRange`
+    2. Tipo de parâmetro: `Time range picker`
+    3. Necessário: `checked`
     4. Intervalos de tempo disponíveis: última hora, últimas 12 horas, últimas 24 horas, últimas 48 horas, últimos 3 dias, últimos 7 dias e permitir seleção de intervalo de tempo personalizado
 5. Escolha ' salvar ' na barra de ferramentas para criar o parâmetro.
 
@@ -48,7 +48,7 @@ Os parâmetros de hora permitem que os usuários definam o contexto de tempo de 
 
 ### <a name="in-kql"></a>Em KQL
 1. Adicione um controle de consulta à pasta de trabalho e selecione um recurso de Application Insights.
-2. No KQL, insira um filtro de escopo de tempo usando o parâmetro:`| where timestamp {TimeRange}`
+2. No KQL, insira um filtro de escopo de tempo usando o parâmetro: `| where timestamp {TimeRange}`
 3. Isso expande o tempo de avaliação de consulta para `| where timestamp > ago(1d)` , que é o valor de intervalo de tempo do parâmetro.
 4. Execute a consulta para ver os resultados
 
@@ -56,7 +56,7 @@ Os parâmetros de hora permitem que os usuários definam o contexto de tempo de 
 
 ### <a name="in-text"></a>Em texto 
 1. Adicione um controle de texto à pasta de trabalho.
-2. Na redução, insira`The chosen time range is {TimeRange:label}`
+2. Na redução, insira `The chosen time range is {TimeRange:label}`
 3. Escolha a _edição concluída_
 4. O controle de texto mostrará o texto: _o intervalo de tempo escolhido é das últimas 24 horas_
 

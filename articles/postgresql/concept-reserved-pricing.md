@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 9c5d6359ce0e79fce2e80911ff78d19cc88162b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81180cc0d9cc7754e5a3e935c09441995f16c56a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208698"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907562"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>Pagar antecipadamente pelo banco de dados do Azure para PostgreSQL-recursos de computação de servidor único com capacidade reservada
 
@@ -46,7 +46,7 @@ Por exemplo, suponhamos que você esteja executando um banco de dados PostgreSQL
 4. Preencha os campos obrigatórios. Bancos de dados novos ou existentes que correspondem aos atributos que você selecionar qualificar para obter o desconto de capacidade reservada. O número real de seus servidores do banco de dados do Azure para PostgreSQL que obtém o desconto depende do escopo e da quantidade selecionada.
 
 
-![Visão geral de preços reservados](media/concepts-reserved-pricing/postgresql-reserved-price.png)
+:::image type="content" source="media/concepts-reserved-pricing/postgresql-reserved-price.png" alt-text="Visão geral de preços reservados":::
 
 
 A tabela a seguir descreve os campos obrigatórios.
@@ -69,7 +69,7 @@ A tabela a seguir descreve os campos obrigatórios.
 
 A flexibilidade de tamanho do vCore ajuda você a aumentar ou diminuir dentro de uma região e nível de desempenho sem perder o benefício de capacidade reservada. 
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

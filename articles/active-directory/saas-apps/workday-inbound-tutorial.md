@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018094"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974376"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático do usuário
 
@@ -258,7 +258,7 @@ Use as etapas abaixo para configurar uma conta de serviço que pode ser usada pa
 > Se você quiser limitar o agente de provisionamento para criar e ler somente usuários de uma determinada UO para fins de teste, é recomendável delegar o controle no nível de UO apropriado durante execuções de teste.
 
 4. Clique em **Avançar** na tela de boas-vindas. 
-5. Na tela **Selecionar usuários ou grupos** , adicione o usuário de domínio que você criou na etapa 2. Clique em **Avançar**.
+5. Na tela **Selecionar usuários ou grupos** , adicione o usuário de domínio que você criou na etapa 2. Clique em **Próximo**.
    >[!div class="mx-imgBorder"]
    >![Adicionar tela](./media/workday-inbound-tutorial/delegation-wizard-01.png "Adicionar tela")
 
@@ -373,7 +373,7 @@ Transfira o instalador do agente baixado para o host do servidor e siga as etapa
 1. Verifique a instalação do Agente e verifique se ele está em execução abrindo o Snap-In de “Serviços” e procurando pelo Serviço chamado “Agente de Provisionamento do Microsoft Azure AD Connect”
 
    >[!div class="mx-imgBorder"]
-   >![Captura de tela do agente de provisionamento do Microsoft Azure AD Connect em execução em serviços](./media/workday-inbound-tutorial/services.png)
+   >![Captura de tela do agente de provisionamento do Microsoft Azure AD Connect em execução em serviços.](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: No aplicativo de provisionamento, configure a conectividade com o Workday e o Active Directory
 Nesta etapa, estabelecemos a conectividade com o Workday e o Active Directory no portal do Azure. 
@@ -390,8 +390,8 @@ Nesta etapa, estabelecemos a conectividade com o Workday e o Active Directory no
    
      | Formato de URL | Versão da API WWS usada | Alterações de XPATH necessárias |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v 21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | Não |
+     | https://####.workday.com/ccx/service/tenantName | v 21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v 21.1 | No |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Sim |
 
       > [!NOTE]

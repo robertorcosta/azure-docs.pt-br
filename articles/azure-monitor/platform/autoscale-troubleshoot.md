@@ -4,12 +4,12 @@ description: Rastreamento de problemas com o dimensionamento automático do Azur
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751341"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979036"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solucionando problemas do dimensionamento automático do Azure
  
@@ -47,7 +47,7 @@ Temos uma configuração simples de dimensionamento automático para um conjunto
 
 Vamos examinar as métricas do serviço de dimensionamento automático.
  
-![Exemplo de CPU percentual do conjunto de dimensionamento de máquinas virtuais](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Captura de tela mostra um exemplo de CPU percentual do conjunto de dimensionamento de máquinas virtuais.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![Exemplo de CPU percentual do conjunto de dimensionamento de máquinas virtuais](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -72,7 +72,7 @@ Se o valor do **fluxo de saída por instância** for maior que 10, o serviço de
 
 Nesse caso, o valor da métrica observada do mecanismo de dimensionamento automático é calculado como o valor de métrica real dividido pelo número de instâncias. Se o valor da métrica observada for menor que o limite, nenhuma ação de expansão será iniciada. 
  
-![Exemplo de gráficos de métricas de dimensionamento automático do conjunto de escala](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Captura de tela mostra a página média de fluxos de saída com um exemplo de gráficos de métricas de dimensionamento automático de conjunto de dimensionamento de máquinas virtuais.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![Exemplo de gráficos de métricas de dimensionamento automático do conjunto de escala](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 

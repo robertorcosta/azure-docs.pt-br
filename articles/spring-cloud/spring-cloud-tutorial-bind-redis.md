@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: c21a6a2a42aa7417ddb53afd3beda735b54cff3d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: ef77ba6e34f2a699c8c4f06fde8cb602ae98c728
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299126"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885665"
 ---
 # <a name="bind-azure-cache-for-redis-to-your-azure-spring-cloud-application"></a>Associar o Cache do Azure para Redis ao aplicativo do Azure Spring Cloud 
+
+**Este artigo aplica-se a:** ✔️ Java
 
 Em vez de configurar manualmente seus aplicativos Spring Boot, associe automaticamente serviços do Azure selecionados aos seus aplicativos usando o Azure Spring Cloud. Este artigo mostra como associar seu aplicativo ao Cache do Azure para Redis.
 

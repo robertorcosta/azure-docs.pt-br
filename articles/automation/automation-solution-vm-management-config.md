@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266705"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987210"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar Iniciar/Parar VMs fora do horário comercial
 
@@ -139,17 +139,17 @@ Para alterar as notificações por email depois que a ação Iniciar/Parar VMs f
 
 1. No portal do Azure, navegue até **Monitor** e **Grupos de ação**. Selecione o grupo de ações chamado **StartStop_VM_Notication**.
 
-    ![Página Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/azure-monitor.png)
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Captura de tela da página monitorar-grupos de ações.":::
 
 2. Na página StartStop_VM_Notification, clique em **Editar detalhes** em **Detalhes**. Isso abre a página Email/SMS/Push/Voz. Atualize o endereço de email e clique em **OK** para salvar suas alterações.
 
-    ![Página Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/change-email.png)
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Captura de tela da página email/SMS/Push/voz mostrando um exemplo de endereço de email atualizado.":::
 
     Como alternativa, você pode adicionar mais ações no grupo de ações. Para saber mais sobre grupos de ações, confira [grupos de ações](../azure-monitor/platform/action-groups.md)
 
 A seguir está um email de exemplo que é enviado quando o recurso desliga as máquinas virtuais.
 
-![Página Gerenciamento de Atualizações de Automação](media/automation-solution-vm-management/email.png)
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Captura de tela de um email de exemplo enviado quando o recurso desliga as máquinas virtuais.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Adicionar ou excluir VMs
 

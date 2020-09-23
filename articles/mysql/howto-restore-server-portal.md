@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421077"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902786"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor no Banco de Dados do Azure para MySQL usando o Portal do Azure
 
@@ -32,16 +32,16 @@ Escolha entre configurar o servidor para backups com redundância local ou backu
 
 Ao criar um servidor por meio do portal do Azure, a janela **Tipo de Preço** é onde você seleciona backups **Com Redundância Local** ou **Com Redundância Geográfica** para o servidor. Essa janela também é onde você seleciona o **Período de Retenção de Backup**: quanto tempo (em número de dias) você deseja que os backups de servidor sejam armazenados.
 
-   ![Tipo de preço - Escolher redundância de backup](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Tipo de preço - Escolher redundância de backup":::
 
 Para saber mais sobre como definir esses valores de durante a criação, confira o [guia de início rápido do Banco de Dados do Azure para servidor MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
 O período de retenção de backup pode ser alterado em um servidor por meio das seguintes etapas:
-1. Entre no [portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. Selecione seu servidor de Banco de Dados do Azure para MySQL. Essa ação abre a página **Visão geral** do runbook.
 3. Selecione **Tipo de Preço** no menu, em **CONFIGURAÇÕES**. Usando o controle deslizante, você pode alterar o **Período de Retenção de Backup** entre 7 e 35 dias, conforme a sua preferência.
 Na captura de tela abaixo, ele foi aumentado para 34 dias.
-![Período de retenção de backup aumentado](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Período de retenção de backup aumentado":::
 
 4. Clique em **OK** para confirmar a alteração.
 
@@ -57,11 +57,11 @@ As etapas a seguir restauram o exemplo de servidor para um ponto anterior:
 
 2. Na barra de ferramentas da página **Visão geral** do servidor, selecione **Restaurar**.
 
-   ![Banco de Dados do Azure para MySQL - Visão geral - botão Restaurar](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Banco de Dados do Azure para MySQL - Visão geral - botão Restaurar":::
 
 3. Preencha o formulário Restaurar com as informações necessárias:
 
-   ![Banco de Dados do Azure para MySQL - Informações de restauração](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Banco de Dados do Azure para MySQL - Informações de restauração":::
    - **Ponto de restauração**: selecione o ponto para o qual você deseja restaurar.
    - **Servidor de destino**: forneça um nome para o novo servidor.
    - **Local**: não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.

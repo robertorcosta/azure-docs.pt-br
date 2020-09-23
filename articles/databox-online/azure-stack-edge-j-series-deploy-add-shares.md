@@ -1,6 +1,6 @@
 ---
-title: Tutorial para transferir dados a compartilhar com uma GPU do Azure Stack Edge | Microsoft Docs
-description: Saiba como adicionar e conectar-se a compartilhamentos no dispositivo de GPU do Azure Stack Edge.
+title: Tutorial para transferir dados a compartilhar com uma GPU do Azure Stack Edge Pro | Microsoft Docs
+description: Saiba como adicionar e conectar-se a compartilhamentos no dispositivo de GPU do Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4d7453ba34a7bc1dd26d0201f604c9028974c1a2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 3c0a72c9daa72cffcfe2e5e45bbb6214a13e0a7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268920"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891114"
 ---
-# <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-gpu"></a>Tutorial: Transferir dados por meio de compartilhamentos com uma GPU do Azure Stack Edge
+# <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados por meio de compartilhamentos com uma GPU do Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este tutorial descreve como adicionar e conectar-se a compartilhamentos no dispositivo Azure Stack Edge. Depois de adicionar os compartilhamentos, o Azure Stack Edge pode transferir dados para o Azure.
+Este tutorial descreve como adicionar e conectar-se a compartilhamentos no dispositivo Azure Stack Edge Pro. Depois de adicionar os compartilhamentos, o Azure Stack Edge Pro pode transferir dados para o Azure.
 
 Esse procedimento leva cerca de 10 minutos para ser concluído.
 
@@ -33,11 +33,11 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de adicionar compartilhamentos ao Azure Stack Edge, verifique se:
+Antes de adicionar compartilhamentos ao Azure Stack Edge Pro, verifique o seguinte:
 
-* Você instalou o seu dispositivo físico conforme descrito em [Instalar o Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* Você instalou o seu dispositivo físico conforme descrito em [Instalar o Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
-* Você ativou o dispositivo físico conforme descrito em [Ativar o Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+* Você ativou o dispositivo físico conforme descrito em [Ativar o Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 ## <a name="add-a-share"></a>Adicionar um compartilhamento
 
@@ -66,7 +66,7 @@ Para criar um compartilhamento, siga o procedimento a seguir:
     O tipo de serviço selecionado depende de qual formato você deseja que os dados usem no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de blocos no Azure, selecionamos **Blob de Blocos**. Se você selecionar o **Blob de Páginas**, deverá garantir que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
 
    > [!IMPORTANT]
-   > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
     e. Crie um contêiner de blob ou use um existente na lista suspensa. Se for criar um contêiner de blob, forneça um nome de contêiner. Se um contêiner ainda não existir, ele será criado na conta de armazenamento com o nome do compartilhamento criado recentemente.
    
@@ -120,7 +120,7 @@ No cliente Windows que você está usando para se conectar ao dispositivo, execu
 
 ### <a name="connect-to-an-smb-share"></a>Conectar-se a um compartilhamento SMB
 
-No seu cliente do Windows Server conectado ao seu dispositivo Azure Stack Edge, conecte-se a um compartilhamento SMB inserindo os comandos:
+No seu cliente do Windows Server conectado ao seu dispositivo Azure Stack Edge Pro, conecte-se a um compartilhamento SMB inserindo os comandos:
 
 
 1. Em uma janela Comando, digite:
@@ -158,7 +158,7 @@ No seu cliente do Windows Server conectado ao seu dispositivo Azure Stack Edge, 
 
 ### <a name="connect-to-an-nfs-share"></a>Conectar-se a um compartilhamento NFS
 
-No cliente Linux conectado ao seu dispositivo Azure Stack Edge, siga o procedimento abaixo:
+No cliente Linux conectado ao seu dispositivo Azure Stack Edge Pro, siga o procedimento abaixo:
 
 1. Verifique se o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, use o seguinte comando:
 
@@ -166,7 +166,7 @@ No cliente Linux conectado ao seu dispositivo Azure Stack Edge, siga o procedime
 
     Para obter mais informações, vá para [Instalar cliente NFSv4](https://help.ubuntu.com/community/NFSv4Howto).
 
-2. Após o cliente NFS ser instalado, monte o compartilhamento NFS criado em seu dispositivo Azure Stack Edge usando o seguinte comando:
+2. Após o cliente NFS ser instalado, monte o compartilhamento NFS criado em seu dispositivo Azure Stack Edge Pro usando o seguinte comando:
 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
 
@@ -176,7 +176,7 @@ No cliente Linux conectado ao seu dispositivo Azure Stack Edge, siga o procedime
     > O uso da opção `sync` ao montar compartilhamentos melhora as taxas de transferência de arquivos grandes.
     > Antes de montar os compartilhamentos, verifique se os diretórios que atuarão como pontos de montagem no computador local já foram criados. Esses diretórios não devem conter arquivos nem subpastas.
 
-    O exemplo a seguir mostra como se conectar via NFS a um compartilhamento em seu dispositivo Azure Stack Edge. O IP do dispositivo é `10.10.10.60`. O compartilhamento `mylinuxshare2` é montado no ubuntuVM. O ponto de montagem do compartilhamento é `/home/azurestackedgeubuntuhost/edge`.
+    O exemplo a seguir mostra como se conectar via NFS a um compartilhamento em seu dispositivo Azure Stack Edge Pro. O IP do dispositivo é `10.10.10.60`. O compartilhamento `mylinuxshare2` é montado no ubuntuVM. O ponto de montagem do compartilhamento é `/home/azurestackedgeubuntuhost/edge`.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/azurestackedgeubuntuhost/Edge`
 
@@ -188,15 +188,15 @@ No cliente Linux conectado ao seu dispositivo Azure Stack Edge, siga o procedime
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você viu os seguintes tópicos sobre o Azure Stack Edge:
+Neste tutorial, você viu os seguintes tópicos sobre o Azure Stack Edge Pro:
 
 > [!div class="checklist"]
 > * Adicionar um compartilhamento
 > * Conectar-se para compartilhar
 
-Para saber como transformar seus dados usando o Azure Stack Edge, prossiga para o próximo tutorial:
+Para saber como transformar seus dados usando o Azure Stack Edge Pro, prossiga para o próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Transformar dados com o Azure Stack Edge](./azure-stack-edge-j-series-deploy-configure-compute.md)
+> [Transformar dados com o Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
 
 
