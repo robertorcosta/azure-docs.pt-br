@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325518"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983606"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizando dados do Monitor do Azure
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de log e métrica armazenados no Azure Monitor.
@@ -21,7 +21,7 @@ Visualizações como tabelas e gráficos podem ajudá-lo a analisar seus dados d
 ## <a name="workbooks"></a>Pastas de trabalho
 [As pastas de trabalho](./platform/workbooks-overview.md) são documentos interativos que fornecem informações detalhadas sobre seus dados, investigação e colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são guias de solução de problemas e postmortem de incidentes.
 
-![Pasta de trabalho](media/visualizations/workbook.png)
+![O diagrama mostra capturas de tela de várias páginas de uma pasta de trabalho, incluindo a análise de exibições de página, uso e tempo gasto na página.](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Vantagens
 - Suporta métricas e logs.
@@ -39,7 +39,7 @@ Visualizações como tabelas e gráficos podem ajudá-lo a analisar seus dados d
 ## <a name="azure-dashboards"></a>Painéis do Azure
 Os [painéis do Azure](../azure-portal/azure-portal-dashboards.md) são a principal tecnologia de painéis do Azure. Eles são particularmente úteis para fornecer um único painel de controle sobre sua infraestrutura e serviços do Azure, permitindo que você identifique rapidamente problemas importantes.
 
-![Painel](media/visualizations/dashboard.png)
+![Captura de tela mostra um exemplo de um painel do Azure com informações personalizáveis.](media/visualizations/dashboard.png)
 
 Aqui está uma explicação em vídeo sobre como criar painéis.
 
@@ -88,7 +88,7 @@ Aqui está uma explicação em vídeo sobre como criar painéis.
 ## <a name="grafana"></a>Grafana
 [Grafana](https://grafana.com/) é uma plataforma aberta que se destaca em painéis operacionais. É particularmente útil para detectar, isolar e triar incidentes operacionais. Você pode adicionar [o plug-in da fonte de dados do Grafana Azure Monitor](platform/grafana-plugin.md) à sua assinatura do Azure para que ela visualize seus dados de métricas do Azure.
 
-![Grafana](media/visualizations/grafana.png)
+![Captura de tela mostra visualizações Grafana.](media/visualizations/grafana.png)
 
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas.
@@ -120,7 +120,7 @@ Você pode acessar os dados nos dados de log e métrica do Azure Monitor por mei
 As [exibições no Azure Monitor](platform/view-designer.md) permitem que você crie visualizações personalizadas com os dados de log. Elas são usadas pelas [soluções de monitoramento](insights/solutions.md) para apresentar os dados coletados.
 
 
-![Visualizar](media/visualizations/view.png)
+![Captura de tela mostra um bloco de solução de monitoramento de contêiner e a exibição detalhada de Azure Monitor que é aberta quando você o seleciona.](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas para dados de log.

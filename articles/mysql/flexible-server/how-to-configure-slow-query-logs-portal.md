@@ -1,0 +1,72 @@
+---
+title: Configurar logs de consulta lentos-portal do Azure-banco de dados do Azure para MySQL-servidor flexível
+description: Este artigo descreve como configurar e acessar os logs lentos no banco de dados do Azure para MySQL servidor flexível do portal do Azure.
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.topic: how-to
+ms.date: 9/21/2020
+ms.openlocfilehash: 1416efaa325ced623b5c7514f2f9953dc0bd2781
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90933750"
+---
+# <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar e acessar logs de consulta lentos para o banco de dados do Azure para MySQL-servidor flexível usando o portal do Azure
+
+> [!IMPORTANT]
+> O Banco de Dados do Azure para MySQL – Servidor Flexível está atualmente na versão prévia pública.
+
+Você pode configurar, listar e baixar os [logs de consulta lenta](concepts-slow-query-logs.md) do banco de dados do Azure para MySQL do servidor flexível do portal do Azure.
+
+## <a name="prerequisites"></a>Pré-requisitos
+As etapas neste artigo exigem que você tenha um [servidor flexível](quickstart-create-server-portal.md).
+
+## <a name="configure-logging"></a>Configurar o registro em log
+Configure o acesso aos logs de consulta lenta do MySQL. 
+
+1. Entre no [portal do Azure](https://portal.azure.com/).
+
+1. Selecione seu servidor flexível.
+
+1. Na seção **configurações** na barra lateral, selecione **parâmetros do servidor**.
+   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot of Server logs options":::-->
+
+1. Atualize o parâmetro **slow_query_log** como **ativado**.
+
+1. Altere quaisquer outros parâmetros necessários (por exemplo, `long_query_time`, `log_slow_admin_statements`). Consulte os documentos de [logs de consulta lenta](./concepts-slow-query-logs.md#configure-slow-query-logging) para obter mais parâmetros.  
+
+1. Clique em **Salvar**. 
+
+   <!-- :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot of slow query log parameters and save."::: -->
+
+Na página **parâmetros do servidor** , você pode retornar à lista de logs fechando a página.
+
+## <a name="set-up-diagnostics"></a>Configurar o diagnóstico
+
+Logs de consulta lentos são integrados com Azure Monitor configurações de diagnóstico para permitir que você direcione seus logs para Azure Monitor logs, hubs de eventos ou armazenamento do Azure.
+
+1. Na seção **monitoramento** na barra lateral, selecione **configurações de diagnóstico**  >  **Adicionar configurações de diagnóstico**.
+
+   <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings options":::-->
+
+1. Forneça um nome de configuração de diagnóstico.
+
+1. Especifique quais destinos enviarão os logs de consulta lentos (conta de armazenamento, Hub de eventos ou espaço de trabalho Log Analytics).
+
+1. Selecione **MySqlSlowLogs** como o tipo de log.
+    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options":::-->
+
+1. Depois de configurar os coletores de dados para canalizar os logs de consulta lentos, selecione **salvar**.
+    <!--:::image type="content" source="./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png" alt-text="Screenshot of Diagnostic settings configuration options, with Save highlighted":::-->
+
+1. Acesse os logs de consulta lento explorando-os nos coletores de dados que você configurou. Pode levar até 10 minutos para que os logs sejam exibidos.
+
+Se você canalizasse seus logs de auditoria para Azure Monitor logs (Log Analytics), consulte algumas [consultas de exemplo](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) que você pode usar para análise. 
+
+## <a name="next-steps"></a>Próximas etapas
+<!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->
+- Saiba mais sobre [logs de consulta lentos](concepts-slow-query-logs.md)
+- Para obter mais informações sobre as definições de parâmetro e o log do MySQL, consulte a documentação do MySQL em [logs](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+- Saiba mais sobre [os logs de auditoria](concepts-audit-logs.md)

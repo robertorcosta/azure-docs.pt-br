@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 158b66d63292a1ffb503f3f87eddfd33a2b09b71
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554474"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983963"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: configurando o Netsuite para o provisionamento automático de usuário
 
@@ -62,7 +62,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Defina o **Modo de Provisionamento** como **Automático**. 
 
-    ![provisionamento](./media/netsuite-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a página de provisionamento do NetSuite, com o modo de provisionamento definido como automático e outros valores que você pode definir.](./media/netsuite-provisioning-tutorial/provisioning.png)
 
 1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    

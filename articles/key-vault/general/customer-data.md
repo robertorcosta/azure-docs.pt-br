@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189916"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983236"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 
-O Azure Key Vault recebe os dados do cliente durante a criação ou atualização de cofres, chaves, segredos, certificados e contas de armazenamento gerenciadas. Esses dados de cliente estarão diretamente visíveis no portal do Azure e por meio da API REST. Os dados do cliente podem ser editados ou excluídos por atualizar ou excluir o objeto que contém os dados.
+Azure Key Vault recebe dados do cliente durante a criação ou atualização de cofres, pools HSM gerenciados, chaves, segredos, certificados e contas de armazenamento gerenciado. Esses dados de cliente estarão diretamente visíveis no portal do Azure e por meio da API REST. Os dados do cliente podem ser editados ou excluídos por atualizar ou excluir o objeto que contém os dados.
 
 Os logs de acesso do sistema são gerados quando um usuário ou aplicativo acessa o Cofre de Chaves. Os logs detalhados de acesso detalhados estão disponíveis para clientes que usam o Azure Insights.
 
@@ -52,7 +52,7 @@ Os logs de diagnóstico do Azure Key Vault que contêm dados pessoais podem ser 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Log de Azure Key Vault](logging.md))
+- [Logs do Cofre da Chave do Azure](logging.md)
 
 - [Visão geral de exclusão reversível do Azure Key Vault](soft-delete-cli.md)
 

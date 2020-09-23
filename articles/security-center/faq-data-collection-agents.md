@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011847"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894821"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
 
@@ -29,9 +29,9 @@ A Central de Segurança coleta dados das VMs (máquinas virtuais) do Azure, dos 
 
 Não. Os workspaces criados pela Central de Segurança, embora sejam configurados para os logs do Azure Monitor por cobrança de nó, não incorrerão em encargos de logs do Azure Monitor. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace:
 
-- **Camada gratuita**: a Central de Segurança instala a solução 'SecurityCenterFree' no workspace padrão. Você não será cobrado pela Camada gratuita.
+- **Azure defender desativado** – a central de segurança habilita a solução ' SecurityCenterFree ' no espaço de trabalho padrão. Você não será cobrado se o Azure defender estiver desativado.
 
-- **Camada Standard**: a Central de Segurança habilita a solução 'Security' no workspace padrão.
+- O **Azure defender em** – central de segurança habilita a solução ' segurança ' no espaço de trabalho padrão.
 
 Para saber mais sobre preços, confira [preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -164,7 +164,7 @@ Se você remover a Extensão de Monitoramento da Microsoft, a Central de Seguran
 
 Você pode desligar o provisionamento automático para suas assinaturas na política de segurança, mas isso não é recomendado. Desativar o provisionamento automático limita as recomendações e os alertas da Central de Segurança. Para desabilitar o provisionamento automático:
 
-1. Se sua assinatura estiver configurada para a camada Standard, abra a política de segurança para essa assinatura e selecione a camada **gratuita** .
+1. Se sua assinatura tiver o Azure defender habilitado, abra a política de segurança para essa assinatura e selecione **Azure defender desativado**.
 
    ![Tipo de preço][1]
 

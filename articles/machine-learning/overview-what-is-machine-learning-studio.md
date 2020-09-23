@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 4f6252ffbb880e347a89594cb267fb99d576dc7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89039268"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902929"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 
@@ -34,13 +34,13 @@ O estúdio oferece várias experiências de criação, dependendo do tipo de pro
 
   Escreva e execute seu código em [servidores gerenciados do Jupyter Notebook](how-to-run-jupyter-notebooks.md) que estão diretamente integrados no estúdio. 
 
-+ **Azure Machine Learning Designer (versão prévia)**
++ **Designer do Azure Machine Learning**
 
   Use o designer para treinar e implantar modelos de machine learning sem nenhuma codificação. Arraste e solte conjuntos de dados e módulos para criar pipelines de ML. Experimente o [tutorial do designer](tutorial-designer-automobile-price-train-score.md).
 
     ![Exemplo do Azure Machine Learning Designer](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **Interface do usuário de machine learning automatizado (versão prévia)**
++ **Interface do usuário de machine learning automatizado**
 
   Saiba como criar [experimentos de ML automatizado](tutorial-first-experiment-automated-ml.md) com uma interface fácil de usar. 
 
@@ -82,7 +82,7 @@ A tabela a seguir resume as principais diferenças entre o ML Studio (clássico)
 
 | Recurso | ML Studio (clássico) | Azure Machine Learning |
 |---| --- | --- |
-| Interface de "arrastar e soltar" | Experiência clássica | Experiência atualizada – [Designer do Azure Machine Learning (versão prévia)](concept-designer.md) <br/>(Requer o workspace Enterprise) | 
+| Interface de "arrastar e soltar" | Experiência clássica | Experiência atualizada – [Designer do Azure Machine Learning](concept-designer.md)| 
 | SDKs de código | Sem suporte | Totalmente integrado com as SDKs para [R](tutorial-1st-r-experiment.md) e para [Python do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/) |
 | Experimento | Escalável (limite de 10 GB para dados de treinamento) | Escala com destino de computação |
 | Destinos de computação de treinamento | Destino de computação proprietário, apenas suporte à CPU | Ampla gama de [destinos de computação de treinamento](concept-compute-target.md#train) personalizáveis. Inclui suporte à GPU e à CPU | 

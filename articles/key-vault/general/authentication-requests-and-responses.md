@@ -2,22 +2,40 @@
 title: Autenticação, solicitações e respostas
 description: Saiba como o Azure Key Vault usa solicitações e respostas formatadas por JSON e sobre a autenticação necessária para usar um cofre de chaves.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191787"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983256"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, solicitações e respostas
+
+Azure Key Vault fornece dois tipos de contêineres para armazenar e gerenciar segredos para seus aplicativos de nuvem:
+
+|Tipo de contêiner|Tipos de objeto com suporte|Ponto de extremidade do plano de dados|
+|--|--|--|
+| **Cofres**|<ul><li>Chaves protegidas por software</li><li>Chaves protegidas por HSM (com SKU Premium)</li><li>Certificados</li><li>Chaves de conta de armazenamento</li></ul> | https://{Vault-Name}. Vault. Azure. net
+|**HSM gerenciado** |<ul><li>Chaves protegidas por HSM</li></ul> | https://{HSM-Name}. managedhsm. Azure. net
+
+Aqui estão os sufixos de URL usados para acessar cada tipo de objeto
+
+|Tipo de objeto|Sufixo da URL|
+|--|--|
+|Chaves protegidas por software| /keys |
+|Chaves protegidas por HSM| /keys |
+|Segredos|/secrets|
+|Certificados| /certificates|
+|Chaves de conta de armazenamento|/storageaccounts
+||
 
 O Azure Key Vault oferece suporte a solicitações e respostas no formato JSON. As solicitações para o Azure Key Vault são direcionadas para uma URL válida do Azure Key Vault usando HTTPS com alguns parâmetros de URL e corpos de solicitação e resposta codificados com JSON.
 
@@ -36,7 +54,9 @@ Este tópico aborda informações específicas para o serviço do Azure Key Vaul
 
 - Para assinar (SIGN) uma chave chamada TESTKEY em um Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  A autoridade para uma solicitação para um Key Vault sempre é como segue,  `https://{keyvault-name}.vault.azure.net/`  
+- A autoridade para uma solicitação para um Key Vault sempre é como segue,  
+  - Para cofres: `https://{keyvault-name}.vault.azure.net/`
+  - Para HSMs gerenciados: `https://{HSM-name}.managedhsm.azure.net/`
 
   As chaves são sempre armazenadas no caminho /keys, os segredos são sempre armazenados no caminho /secrets.  
 
