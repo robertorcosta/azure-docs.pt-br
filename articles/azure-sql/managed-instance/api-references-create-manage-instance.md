@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cc2930422bf644f217737d0f0ba585c243575ee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4627c094c3913d01f06c237b133e1ed0ea4ed2e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502997"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969789"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência de API gerenciada para o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,6 +44,8 @@ Para criar e gerenciar instâncias gerenciadas com o Azure PowerShell, use os se
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Retorna informações sobre uma instância gerenciada.|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Define propriedades para uma instância gerenciada.|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Remove uma instância gerenciada.|
+|[Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation)|Obtém uma lista de operações de gerenciamento executadas na instância gerenciada ou em uma operação específica.|
+|[Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation)|Cancela a operação de gerenciamento específica executada na instância gerenciada.|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Cria um banco de dados do SQL Instância Gerenciada.|
 |[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Retorna informações sobre um banco de dados do SQL Instância Gerenciada.|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Remove um banco de dados SQL Instância Gerenciada.|
@@ -63,6 +65,9 @@ Para criar e configurar instâncias gerenciadas com [CLI do Azure](/cli/azure), 
 |[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtém os detalhes de uma instância gerenciada.|
 |[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Atualiza uma instância gerenciada.|
 |[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Remove uma instância gerenciada.|
+|[AZ SQL mi List op](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_list)|Obtém uma lista de operações de gerenciamento executadas na instância gerenciada.|
+|[AZ SQL mi op show](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_show)|Obtém a operação de gerenciamento específica executada na instância gerenciada.|
+|[AZ SQL mi op Cancel](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Cancela a operação de gerenciamento específica executada na instância gerenciada.|
 |[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Cria um banco de dados gerenciado.|
 |[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Lista os bancos de dados gerenciados disponíveis.|
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaura um banco de dados gerenciado.|
@@ -78,16 +83,16 @@ Para criar e configurar bancos de dados de instância após a criação da inst�
 > [!IMPORTANT]
 > Você não pode criar ou excluir uma instância gerenciada usando o Transact-SQL.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Cria um novo banco de dados de instância no SQL Instância Gerenciada. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica um banco de dados de instância no SQL Instância Gerenciada.|
+|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|Cria um novo banco de dados de instância no SQL Instância Gerenciada. Você deve estar conectado ao banco de dados mestre para criar um novo banco de dados.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |Modifica um banco de dados de instância no SQL Instância Gerenciada.|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>API REST: criar e configurar instâncias gerenciadas
 
 Para criar e configurar instâncias gerenciadas, use essas solicitações da API REST.
 
-| Comando | Description |
+| Comando | Descrição |
 | --- | --- |
 |[Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Cria ou atualiza uma instância gerenciada.|
 |[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Exclui uma instância gerenciada.|
@@ -95,6 +100,9 @@ Para criar e configurar instâncias gerenciadas, use essas solicitações da API
 |[Managed Instances - List](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Retorna uma lista de instâncias gerenciadas em uma assinatura.|
 |[Managed Instances - List By Resource Group](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Retorna uma lista de instâncias gerenciadas em um grupo de recursos.|
 |[Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Atualiza uma instância gerenciada.|
+|[Instância Gerenciada operações-listar por Instância Gerenciada](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Obtém uma lista de operações de gerenciamento executadas na instância gerenciada.|
+|[Operações de Instância Gerenciada-obter](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Obtém a operação de gerenciamento específica executada na instância gerenciada.|
+|[Operações de Instância Gerenciada-cancelar](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Cancela a operação de gerenciamento específica executada na instância gerenciada.|
 
 ## <a name="next-steps"></a>Próximas etapas
 

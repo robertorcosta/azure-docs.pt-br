@@ -1,14 +1,14 @@
 ---
 title: Visão geral do exemplo de blueprint do Nível de Impacto 5 do DoD
 description: Visão geral do exemplo de Nível de Impacto 5 do DoD. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do Nível de Impacto 5 do DoD.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 0889da5f0eb9d177589d8ebc6a9a17b61fec624b
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 15e2c5990ba32363441f8ca7cd19672cadc16d51
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85804359"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978087"
 ---
 # <a name="overview-of-the-dod-impact-level-5-blueprint-sample"></a>Visão geral do exemplo de blueprint do Nível de Impacto 5 do DoD
 

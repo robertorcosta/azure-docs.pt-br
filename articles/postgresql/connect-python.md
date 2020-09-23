@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: a9303909eb98fc0ff2d7582fa7f5807a879e7958
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182675"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901818"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar o Python para se conectar e consultar dados no Banco de Dados do Azure para PostgreSQL – servidor único
 
@@ -46,7 +46,7 @@ A conexão com um Banco de Dados do Azure para PostgreSQL requer o nome do servi
    
    Você também precisa da sua senha de administrador. Se a esquecer, será possível redefini-la nessa página. 
    
-   ![Nome do servidor do Banco de Dados do Azure para PostgreSQL](./media/connect-python/1-connection-string.png)
+   :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Nome do servidor do Banco de Dados do Azure para PostgreSQL":::
 
 ## <a name="how-to-run-the-python-examples"></a>Como executar os exemplos de Python
 
@@ -105,7 +105,7 @@ conn.close()
 
 Quando o código é executado com êxito, ele produz a seguinte saída:
 
-![Saída de linha de comando](media/connect-python/2-example-python-output.png)
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Saída de linha de comando":::
 
 ## <a name="read-data"></a>Ler dados
 O exemplo de código a seguir conecta-se ao seu Banco de Dados do Azure para PostgreSQL e usa [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) com a instrução **SELECT** do SQL para leitura de dados. Essa função aceita uma consulta e retorna um conjunto de resultados a ser iterado usando [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

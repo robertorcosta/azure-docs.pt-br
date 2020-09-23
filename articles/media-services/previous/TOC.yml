@@ -323,11 +323,12 @@
           items:
             - name: Predefinição de tarefa
               href: indexer-task-preset.md
+    - name: Analisar conteúdo
+      items:
         - name: Processar com o Editor Facial
           href: media-services-face-redaction.md
-          items:
-            - name: Passo a passo do Editor Facial
-              href: media-services-redactor-walkthrough.md
+        - name: Passo a passo do Editor Facial
+          href: media-services-redactor-walkthrough.md
     - name: Configurar telemetria
       href: media-services-telemetry-overview.md
       items:

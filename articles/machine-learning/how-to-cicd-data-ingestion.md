@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 47b41e807c4d7b9a9fce6591da6655db74f483f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228878"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971257"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um pipeline de ingestão de dados
 
@@ -168,11 +168,11 @@ labels = np.array(data['target'])
 
 Esse nome é diferente para os ambientes ***dev***, ***QA***, ***UAT***e ***prod*** . Em um pipeline complexo com várias atividades, pode haver várias propriedades personalizadas. É uma boa prática coletar todos esses valores em um único local e defini-los como ***variáveis***de pipeline:
 
-![ADF – variáveis](media/how-to-cicd-data-ingestion/adf-variables.png)
+![Captura de tela mostra um bloco de anotações chamado PrepareData e M L executar pipeline chamado M L executar pipeline na parte superior, com a guia variáveis selecionada abaixo com a opção de adicionar novas variáveis, cada uma com um nome, tipo e valor padrão.](media/how-to-cicd-data-ingestion/adf-variables.png)
 
 As atividades de pipeline podem se referir às variáveis de pipeline ao mesmo tempo em que as utilizam:
 
-![ADF-Notebook-parâmetros](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
+![A captura de tela mostra um bloco de anotações chamado PrepareData e M L executar pipeline chamado M L executar pipeline na parte superior, com a guia Configurações selecionada abaixo.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
 O espaço de trabalho Azure Data Factory ***não*** expõe variáveis de pipeline como parâmetros de modelos de Azure Resource Manager por padrão. O espaço de trabalho usa o [modelo de parametrização padrão](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) que determina quais propriedades de pipeline devem ser expostas como Azure Resource Manager parâmetros de modelo. Para adicionar variáveis de pipeline à lista, atualize a `"Microsoft.DataFactory/factories/pipelines"` seção do [modelo de parametrização padrão](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) com o trecho a seguir e coloque o arquivo JSON de resultado na raiz da pasta de origem:
 

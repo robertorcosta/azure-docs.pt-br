@@ -5,14 +5,14 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814383"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891475"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é o Link do Azure Synapse para Azure Cosmos DB (versão prévia)?
 
@@ -40,7 +40,6 @@ O Link do Azure Synapse permite que você acesse diretamente o repositório anal
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Insights quase em tempo real sobre seus dados operacionais
 
 Agora você pode obter insights detalhados sobre seus dados operacionais quase em tempo real, usando o Link do Azure Synapse. Os sistemas baseados em ETL tendem a ter maior latência para analisar seus dados operacionais, o que ocorre devido às muitas camadas necessárias para extrair, transformar e carregar os dados operacionais. Com a integração nativa do repositório analítico de Azure Cosmos DB com o Azure Synapse Analytics, você pode analisar dados operacionais em tempo quase real ao habilitar novos cenários de negócios. 
-
 
 ### <a name="no-impact-on-operational-workloads"></a>Sem impacto nas cargas de trabalho operacionais
 
@@ -91,7 +90,7 @@ Você pode consultar os dados do repositório analítico do Azure Cosmos DB simu
 
 Essa integração habilita os seguintes cenários de HTAP para diferentes usuários:
 
-* Um engenheiro de BI que deseja modelar e publicar um relatório para acessar os dados operacionais no Azure Cosmos DB diretamente por meio do SQL do Synapse.
+* Um engenheiro de BI que deseja modelar e publicar um relatório de Power BI para acessar os dados operacionais ao vivo em Azure Cosmos DB diretamente por meio do Synapse SQL.
 
 * Um analista de dados que deseja obter insights a partir dados operacionais em um contêiner do Azure Cosmos DB por meio de consultas com o SQL do Synapse, da leitura dos dados em escala e da combinação dessas descobertas com outras fontes de dados.
 
@@ -115,16 +114,15 @@ Nesses casos, o Link do Synapse fornece uma experiência de análise mais integr
 
 O Link do Synapse não será recomendado se você estiver procurando requisitos de data warehouse de dados tradicionais, como alta simultaneidade, gerenciamento de carga de trabalho e persistência de agregações em várias fontes de dados. Para obter mais informações, consulte [cenários comuns que podem ser capacitados com o Link do Azure Synapse para Azure Cosmos DB](synapse-link-use-cases.md).
 
-
 ## <a name="limitations"></a>Limitações
 
-* Durante a versão prévia pública, há suporte para o Link do Azure Synapse apenas para a API de SQL (Core) do Azure Cosmos DB. O suporte para a API do Azure Cosmos DB para o MongoDB e API do Cassandra está em versão prévia restrita atualmente. Para solicitar acesso à versão prévia restrita, envie um email para a [equipe do Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* O link Synapse do Azure tem suporte para a API do Azure Cosmos DB SQL (núcleo) e a API do Azure Cosmos DB para MongoDB. O suporte para API do Cassandra está atualmente em uma versão prévia restrita. Para solicitar acesso à versão prévia restrita, envie um email para a [equipe do Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-* No momento, você pode habilitar o repositório analítico apenas para novos contêineres (em contas novas e existentes do Azure Cosmos DB).
-
-* Na visualização, para contas de banco de dados habilitadas para o Synapse link, não há suporte para backup e restauração de contêineres. Se você tiver cargas de trabalho de produção que exigem a funcionalidade de backup e restauração, recomendamos não habilitar o link Synapse nessas contas de banco de dados. 
+* Atualmente, o repositório analítico só pode ser habilitado para novos contêineres. Para usar o repositório analítico para contêineres existentes, migre dados de seus contêineres existentes para novos contêineres usando [Azure Cosmos DB ferramentas de migração](cosmosdb-migrationchoices.md). Você pode habilitar o link Synapse em contas de Azure Cosmos DB novas e existentes.
 
 * O acesso ao repositório analítico do Azure Cosmos DB com o SQL do Synapse sem servidor está atualmente em versão prévia restrita. Para solicitar acesso, envie um email para a [equipe do Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+* Na visualização, para contas de banco de dados habilitadas para o Synapse link, não há suporte para backup e restauração de contêineres. Se você tiver cargas de trabalho que exigem a funcionalidade de backup e restauração, recomendamos não habilitar o link Synapse nessas contas de banco de dados. 
 
 * O acesso ao repositório analítico do Azure Cosmos DB com o SQL do Synapse não está disponível atualmente.
 

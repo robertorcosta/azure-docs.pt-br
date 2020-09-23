@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
-ms.openlocfilehash: 24ca9d84e8e05b2ffe093dc54963c1ac39464105
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1853bbb0e44526988b34ed23126664c5a2285a7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119609"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907515"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Crescimento automático do armazenamento usando o portal do Azure no banco de dados do Azure para PostgreSQL-servidor único
 Este artigo descreve como você pode configurar um banco de dados do Azure para armazenamento de servidor PostgreSQL para crescer sem afetar a carga de trabalho.
@@ -32,13 +32,13 @@ Siga estas etapas para definir o crescimento automático do armazenamento do ser
 
 3. Na seção **crescimento automático** , selecione **Sim** para habilitar o crescimento automático do armazenamento.
 
-    ![Banco de dados do Azure para PostgreSQL-Settings_Pricing_tier-aumento automático](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Banco de dados do Azure para PostgreSQL-Settings_Pricing_tier-aumento automático":::
 
 4. Clique em **OK** para salvar as alterações.
 
 5. Uma notificação confirmará que o crescimento automático foi habilitado com êxito.
 
-    ![Banco de dados do Azure para PostgreSQL-êxito no crescimento automático](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Banco de dados do Azure para PostgreSQL-êxito no crescimento automático":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

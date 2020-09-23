@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: ef39d04b980d4f9c7f5baf11bc047acf6239f803
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 43b85ba58ed7163a896054ab9e77ddf82e3461a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118538"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902797"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Proteção Avançada contra Ameaças para o Banco de Dados do Azure para MySQL
 
@@ -34,7 +34,7 @@ A Proteção Avançada contra Ameaças faz parte da oferta de Segurança Avança
    - Habilite a Proteção Avançada contra Ameaças no servidor.
    - Em **Configurações de Proteção Avançada contra Ameaças**, na caixa de texto **Enviar alertas para**, forneça a lista de endereços de email para receber alertas de segurança em caso de detecção de atividades anômalas em banco de dados.
   
-   ![Configurar detecção de ameaças](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
+   :::image type="content" source="./media/howto-database-threat-protection-portal/set-up-threat-protection.png" alt-text="Configurar detecção de ameaças":::
 
 ## <a name="explore-anomalous-database-activities"></a>Explorar atividades anômalas em banco de dados
 
@@ -42,15 +42,15 @@ Você receberá uma notificação por email na detecção das atividades anormai
  
 1. Clique no link **Exibir alertas recentes** no email para iniciar o portal do Azure e mostrar a página de alertas da Central de Segurança do Azure, que fornece uma visão geral das ameaças ativas detectadas no Banco de Dados SQL.
     
-    ![Relatórios de atividades anômalas](./media/howto-database-threat-protection-portal/anomalous-activity-report.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Relatórios de atividades anômalas":::
 
     Exibir ameaças ativas:
 
-    ![Ameaças ativas](./media/howto-database-threat-protection-portal/active-threats.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Ameaças ativas":::
 
 2. Clique em um alerta específico para obter os detalhes e as ações adicionais para investigar essa ameaça e corrigir ameaças futuras.
     
-    ![Alerta específico](./media/howto-database-threat-protection-portal/specific-alert.png)
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Alerta específico":::
 
 ## <a name="explore-threat-detection-alerts"></a>Explorar os alertas de detecção de ameaças
 
@@ -58,7 +58,7 @@ A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central 
 
 Clique em **Alerta de detecção de ameaças** para iniciar a página de alertas da Central de Segurança do Azure e ter uma visão geral das ameaças SQL ativas detectadas no banco de dados.
 
-   ![Alerta de detecção de ameaças](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Alerta de detecção de ameaças":::
    
 
 ## <a name="next-steps"></a>Próximas etapas

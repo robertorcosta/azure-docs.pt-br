@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: f068f91a104c15099809343438cc925fb8856248
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 1a29b8cfbc07e1232ffee788da8d195d39b9ca93
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146854"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531635"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux usando um contêiner personalizado
 
@@ -254,7 +254,7 @@ Um aplicativo de funções no Azure gerencia a execução das funções em seu p
 1. Crie o aplicativo do Functions usando o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create). No exemplo a seguir, substitua `<storage_name>` pelo nome usado na seção anterior para a conta de armazenamento. Além disso, substitua `<app_name>` por um nome exclusivo globalmente que for adequado para você e `<docker_id>` pela ID do Docker.
 
     ```azurecli
-    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --runtime <functions runtime stack> --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
     O parâmetro *deployment-container-image-name* especifica a imagem a ser usada para o aplicativo de funções. Você pode usar o comando [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para exibir informações sobre a imagem usada para a implantação. Use também o comando [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para implantação com base em outra imagem.

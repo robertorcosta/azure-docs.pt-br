@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: fe562b8202c508c13f4127d14aeb5f994d15f962
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c5e81b07bf43b86543af546ab5453563e7cf4004
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649614"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886218"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizado no Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste guia, vamos mostrar como definir várias configurações dos seus experimentos de machine learning automatizado com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). O aprendizado de máquina automatizado escolhe um algoritmo e hiperparâmetros para você e gera um modelo pronto para implantação. Há várias opções que você pode usar para configurar experimentos de aprendizado de máquina automatizados.
 
@@ -312,7 +312,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 Há algumas opções que você pode definir para encerrar seu experimento.
 
-|Critérios| descrição
+|Critérios| description
 |----|----
 Nenhum &nbsp; critério | Se você não definir nenhum parâmetro de saída, o experimento continuará até que nenhum outro progresso seja feito em sua métrica primária.
 Após &nbsp; um &nbsp; período &nbsp; de &nbsp; tempo| Use `experiment_timeout_minutes` em suas configurações para definir por quanto tempo, em minutos, seu experimento deve continuar a ser executado. <br><br> Para ajudar a evitar falhas de tempo limite de experimento, há um mínimo de 15 minutos ou 60 minutos se a linha por tamanho de coluna exceder 10 milhões.

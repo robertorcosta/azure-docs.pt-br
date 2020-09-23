@@ -13,12 +13,12 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 10c7abf7349a3b2419e81459866920f20c3af6f7
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ca32426b2f3f6251d699c9249b8c6dfdc8fdb4eb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901922"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Início Rápido: Usar o Node.js para conectar-se e consultar dados no Banco de Dados do Azure para PostgreSQL – servidor único
 
@@ -52,7 +52,7 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 
 1. No painel **Visão geral** do servidor, anote o **Nome do servidor** e **Nome do usuário administrador**. Se você esquecer sua senha, também poderá redefini-la nesse painel.
 
-   ![Cadeia de conexão do Banco de Dados do Azure para PostgreSQL](./media/connect-nodejs/server-details-azure-database-postgresql.png)
+   :::image type="content" source="./media/connect-nodejs/server-details-azure-database-postgresql.png" alt-text="Cadeia de conexão do Banco de Dados do Azure para PostgreSQL":::
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Executar o código JavaScript no Node.js
 Você pode iniciar o Node.js do shell bash, do Terminal ou do prompt de comando do Windows digitando `node` e executar o exemplo de código JavaScript interativamente copiando-o e colando-o no prompt. Como alternativa, você pode salvar o código JavaScript em um arquivo de texto e iniciar `node filename.js` com o nome do arquivo como um parâmetro para executá-lo.

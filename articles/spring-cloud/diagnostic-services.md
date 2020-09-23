@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086108"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892569"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar logs e métricas com configurações de diagnóstico
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analisar os logs e as métricas com qualquer um dos seguintes serviços:
 
@@ -25,7 +27,7 @@ Usando a funcionalidade de diagnóstico do Azure Spring Cloud, você pode analis
 Escolha a categoria de log e a categoria de métrica que você deseja monitorar.
 
 > [!TIP]
-> Deseja apenas transmitir seus logs? Confira este [CLI do Azure comando](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)!
+> Deseja apenas transmitir seus logs? Confira este [CLI do Azure comando](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)!
 
 ## <a name="logs"></a>Logs
 
@@ -106,7 +108,7 @@ Há vários métodos para exibir os logs e as métricas, conforme descrito nos c
     | limit 50
     ```
 > [!NOTE]
-> `==`diferencia maiúsculas de minúsculas, mas `=~` não é.
+> `==` diferencia maiúsculas de minúsculas, mas `=~` não é.
 
 Para saber mais sobre a linguagem de consulta usada no Log Analytics, consulte [Azure monitor consultas de log](../azure-monitor/log-query/query-language.md).
 
@@ -176,7 +178,7 @@ AppPlatformLogsforSpring
 
 O Azure Monitor fornece amplo suporte para consultar logs de aplicativos usando Log Analytics. Para saber mais sobre esse serviço, confira [introdução às consultas de log em Azure monitor](../azure-monitor/log-query/get-started-queries.md). Para obter mais informações sobre como criar consultas para analisar os logs do aplicativo, consulte [visão geral das consultas de log no Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes
 
 ### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Como converter rastreamentos de pilha Java de várias linhas em uma única linha?
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 Talvez você possa usar a mesma estratégia para outras bibliotecas de log Java.
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md)

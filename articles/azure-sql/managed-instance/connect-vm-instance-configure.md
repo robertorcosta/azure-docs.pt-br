@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 72d5a722e6c1e6b936c6ec0386036317e887bb92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542646"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969829"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Início rápido: configurar uma VM do Azure para se conectar ao Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ A maneira mais fácil de criar uma máquina virtual cliente com todas as ferrame
 
 1. Verifique se você está conectado ao portal do Azure em outra guia do navegador. Em seguida, selecione o seguinte botão para criar uma máquina virtual do cliente e instalar SQL Server Management Studio:
 
-   [![Imagem mostrando um botão rotulado como "implantar no Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
+   [![Imagem mostrando um botão rotulado como "Implantar no Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Preencha o formulário usando as informações na tabela a seguir:
 
@@ -110,7 +110,7 @@ As etapas a seguir mostram como se conectar à sua máquina virtual recém-criad
 
 1. Após a conclusão da implantação, vá para o recurso da máquina virtual.
 
-    ![VM](./media/connect-vm-instance-configure/vm.png)  
+    ![Captura de tela mostra a portal do Azure com a página Visão geral de uma máquina virtual selecionada e conexão realçada.](./media/connect-vm-instance-configure/vm.png)  
 
 2. Selecione **Conectar**.
 

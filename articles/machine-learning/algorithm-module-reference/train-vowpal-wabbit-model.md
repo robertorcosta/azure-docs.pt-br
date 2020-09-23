@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 34caefba5bae660ca150f6e447b1d59b7174c768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907800"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Treinar o modelo Vowpal Wabbit
-Este artigo descreve como usar o módulo **modelo de Wabbit de treinamento Vowpal** no designer de Azure Machine Learning (versão prévia) para criar um modelo de aprendizado de máquina usando Vowpal Wabbit.  
+Este artigo descreve como usar o módulo **modelo de Wabbit de treinamento do Vowpal** no designer de Azure Machine Learning para criar um modelo de aprendizado de máquina usando Vowpal Wabbit.  
 
 Para usar o Vowpal Wabbit para aprendizado de máquina, formate sua entrada de acordo com os requisitos do Vowpal wabbit e prepare os dados no formato necessário. Use este módulo para especificar argumentos de linha de comando Vowpal Wabbit. 
 
@@ -112,7 +112,7 @@ Em geral, há suporte para todos, exceto para um conjunto limitado de argumentos
 
 Não há suporte para os seguintes parâmetros:
 
--   As opções de entrada/saída especificadas em[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   As opções de entrada/saída especificadas em [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      Essas propriedades já estão configuradas automaticamente pelo módulo.  
   

@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: ae2d91233df25885bdfd765481f4bb6a1a36da37
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970043"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para Serviço de Aplicativo do Azure
 
@@ -51,7 +51,7 @@ No painel de navegação à esquerda da página do aplicativo, role até a seç�
 
 A camada atual do aplicativo é realçada por uma borda azul. Verifique se o aplicativo não está na camada **F1**. Não há suporte para DNS personalizado na camada **F1**. 
 
-![Verificar tipo de preço](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Captura de tela do menu de navegação à esquerda da página do aplicativo com escalar verticalmente (plano do serviço de aplicativo) selecionado.":::
 
 Se o plano de serviço de aplicativo não está no **F1** camada, feche o **expandir** página e ir para [comprar o domínio](#buy-the-domain).
 
@@ -61,7 +61,7 @@ Selecione qualquer uma das camadas não gratuitas (**D1**, **B1**, **B2**, **B3*
 
 Clique em **Aplicar**.
 
-![Verificar tipo de preço](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Captura de tela dos tipos de preço de domínio personalizado na categoria produção com a guia produção, plano B1 e o botão Aplicar realçado.":::
 
 Quando você receber a notificação a seguir, a operação de escala terá sido concluída.
 

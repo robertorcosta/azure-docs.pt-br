@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049785"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979379"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
@@ -79,12 +79,12 @@ Para o Profiler funcionar corretamente:
    1. No menu **Ferramentas**, selecione **Painel do WebJobs**.  
       O painel **WebJobs** é aberto. 
    
-      ![trabalho Web do criador de perfil]   
+      ![Captura de tela mostra o painel trabalhos Web, que exibe o nome, o status e a hora da última execução dos trabalhos.][profiler-webjob]   
    
    1. Para exibir os detalhes do webjob, incluindo o log, selecione o link **ApplicationInsightsProfiler3** .  
      O painel **Detalhes do WebJob Contínuo**.
 
-      ![Criador de perfil de trabalho Web de log]
+      ![Captura de tela mostra o painel de detalhes do WebJob contínuo.][profiler-webjob-log]
 
 Se você não conseguir descobrir por que o criador de perfil não está funcionando para você, poderá baixar o log e enviá-lo para nossa equipe para obter assistência serviceprofilerhelp@microsoft.com . 
     
@@ -168,7 +168,7 @@ Para verificar as configurações que foram usadas para configurar o Diagnóstic
 
 1. Verifique se o iKey na linha de comando do Profiler está correto. 
 
-1. Usando o caminho encontrado noconfig.jsanterior *no* arquivo, verifique o arquivo de log do criador de perfil, chamado **bootstrapn. log**. Ele exibe as informações de depuração que indicam as configurações que o Profiler está usando. Ele também exibe mensagens de erro e de status do Profiler.  
+1. Usando o caminho encontrado noconfig.jsanterior * no* arquivo, verifique o arquivo de log do criador de perfil, chamado **bootstrapn. log**. Ele exibe as informações de depuração que indicam as configurações que o Profiler está usando. Ele também exibe mensagens de erro e de status do Profiler.  
 
     Para VMs, o arquivo geralmente está aqui:
     ```
@@ -191,5 +191,5 @@ Se seu aplicativo se conectar à Internet por meio de um proxy ou um firewall, t
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[trabalho Web do criador de perfil]:./media/profiler-troubleshooting/Profiler-webjob.png
-[Criador de perfil de trabalho Web de log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
+[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png

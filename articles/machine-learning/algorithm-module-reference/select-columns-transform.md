@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a5264c14294f84858cd489f5892b8cdd19e117d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3a0b904d65e6597c058ccf05ec837696e9ca20e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79455903"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893630"
 ---
 # <a name="select-columns-transform"></a>Selecionar colunas para transformação
 
-Este artigo descreve como usar o módulo selecionar colunas de transformação no designer de Azure Machine Learning (versão prévia). A finalidade do módulo selecionar colunas de transformação é garantir que um conjunto de colunas consistente e previsível seja usado em operações de aprendizado de máquina downstream.
+Este artigo descreve como usar o módulo selecionar colunas de transformação no designer de Azure Machine Learning. A finalidade do módulo selecionar colunas de transformação é garantir que um conjunto de colunas consistente e previsível seja usado em operações de aprendizado de máquina downstream.
 
 Esse módulo é útil para tarefas como pontuação, que exigem colunas específicas. As alterações nas colunas disponíveis podem interromper o pipeline ou alterar os resultados.
 

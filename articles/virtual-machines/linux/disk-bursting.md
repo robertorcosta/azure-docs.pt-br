@@ -3,16 +3,17 @@ title: Intermitência de disco gerenciado
 description: Saiba mais sobre intermitência de disco para discos do Azure e intermitência de disco para máquinas virtuais do Azure
 author: albecker1
 ms.author: albecker
-ms.date: 06/02/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 4408b7d442ce3f4fbb1ea61031295375ae036493
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: references_regions
+ms.openlocfilehash: 107b1cbde35ef639883f86153859679a834735a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494540"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891831"
 ---
 # <a name="managed-disk-bursting"></a>Intermitência de disco gerenciado
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -20,6 +21,10 @@ ms.locfileid: "86494540"
 ## <a name="virtual-machine-level-bursting"></a>Intermitência no nível da máquina virtual
 O suporte à intermitência no nível da VM está habilitado em todas as regiões na nuvem pública nos seguintes tamanhos com suporte: 
 - [Lsv2-series](../lsv2-series.md)
+
+A intermitência de nível de VM também está disponível na EUA Central ocidental para os seguintes tamanhos com suporte:
+- [Dsv3-series](../dv3-dsv3-series.md)
+- [Série Esv3](../ev3-esv3-series.md)
 
 A intermitência é habilitada por padrão para máquinas virtuais que dão suporte a ela.
 

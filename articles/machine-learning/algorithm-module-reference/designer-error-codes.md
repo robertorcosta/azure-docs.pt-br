@@ -1,7 +1,7 @@
 ---
-title: Solucionar problemas de erros do módulo designer (versão prévia)
+title: Solucionar problemas de erros do módulo do designer
 titleSuffix: Azure Machine Learning
-description: Solucionar problemas de códigos de erro do módulo no designer de Azure Machine Learning (versão prévia)
+description: Solucionar problemas de códigos de erro do módulo no designer de Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 023a28c6f1d89d0975ff8ecac2466c51c05fa9da
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876913"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908097"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (versão prévia)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
-Este artigo descreve as mensagens de erro e os códigos de exceção no designer do Azure Machine Learning (versão prévia) para ajudar você a solucionar problemas de pipelines de machine learning.
+Este artigo descreve as mensagens de erro e os códigos de exceção no designer de Azure Machine Learning para ajudá-lo a solucionar problemas de pipelines do Machine Learning.
 
 Você pode encontrar a mensagem de erro no designer seguindo estas etapas:  
 
