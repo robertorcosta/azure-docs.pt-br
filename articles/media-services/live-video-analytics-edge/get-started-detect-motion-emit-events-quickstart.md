@@ -3,12 +3,12 @@ title: Introdução à Análise de Vídeo ao vivo no IoT Edge – Azure
 description: Este início rápido mostra como começar a usar a Análise Dinâmica de Vídeo no IoT Edge. Saiba como detectar movimento em um fluxo de vídeo ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568040"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884944"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Início Rápido: Introdução – Análise de Vídeo ao vivo no IoT Edge
 
@@ -84,6 +84,9 @@ Siga estas instruções para se conectar ao seu hub IoT usando a extensão do Az
 Se a conexão for bem-sucedida, a lista de dispositivos de borda será mostrada. Deve haver pelo menos um dispositivo chamado **lva-sample-device**. Agora, você pode gerenciar seus dispositivos do IoT Edge e interagir com o Hub IoT do Azure por meio do menu de contexto. Para exibir os módulos implantados no dispositivo de borda, em **lva-sample-device**, expanda o nó **Módulos**.
 
 ![Nó lva-sample-device](./media/quickstarts/lva-sample-device-node.png)
+
+> [!TIP]
+> Se você tiver [implantado manualmente a Análise Dinâmica de Vídeo no IoT Edge](deploy-iot-edge-device.md) por conta própria em um dispositivo de borda (como um ARM64), verá o módulo aparecer nesse dispositivo no Hub IoT do Azure. Você pode selecionar esse módulo e seguir o restante das etapas abaixo.
 
 ## <a name="use-direct-method-calls"></a>Usar chamadas de método direto
 

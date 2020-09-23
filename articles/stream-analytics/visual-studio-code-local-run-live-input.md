@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 1b2268426b66ddb9ffdd48d6901ab991e76cb95c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037436"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892159"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testar Stream Analytics consultas localmente contra entrada de fluxo ao vivo usando Visual Studio Code
 
@@ -21,39 +21,39 @@ Você pode usar as ferramentas de Azure Stream Analytics para Visual Studio Code
 
 * Instale o [SDK do .NET Core](https://dotnet.microsoft.com/download) e reinicie o Visual Studio Code.
 
-* Use [este guia de início rápido](quick-create-vs-code.md) para aprender a criar um trabalho de Stream Analytics usando Visual Studio Code.
+* Use [este guia de início rápido](quick-create-visual-studio-code.md) para aprender a criar um trabalho de Stream Analytics usando Visual Studio Code.
 
 ## <a name="define-a-live-stream-input"></a>Definir uma entrada de fluxo ao vivo
 
 1. Clique com o botão direito do mouse na pasta **Entradas** do projeto do Stream Analytics. Em seguida, selecione **ASA: Adicionar Entrada** no menu de contexto.
 
-   ![Adicionar entrada por meio da pasta Entradas](./media/quick-create-vs-code/add-input-from-inputs-folder.png)
+   ![Adicionar entrada por meio da pasta Entradas](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
    Você também pode selecionar **Ctrl + Shift + P** para abrir a paleta de comandos e inserir **asa: Adicionar entrada**.
 
-   ![Adicionar uma entrada do Stream Analytics no Visual Studio Code](./media/quick-create-vs-code/add-input.png)
+   ![Adicionar uma entrada do Stream Analytics no Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Escolha um tipo de fonte de entrada na lista suspensa.
 
-   ![Selecionar o hub IoT como a opção de entrada](./media/quick-create-vs-code/iot-hub.png)
+   ![Selecionar o hub IoT como a opção de entrada](./media/quick-create-visual-studio-code/iot-hub.png)
 
 3. Se você adicionou a entrada por meio da paleta de comandos, escolha o script de consulta do Stream Analytics que usará a entrada. Ele deverá ser populado automaticamente com o caminho de arquivo para **myASAproj.asaql**.
 
-   ![Selecionar um script do Stream Analytics no Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
+   ![Selecionar um script do Stream Analytics no Visual Studio Code](./media/quick-create-visual-studio-code/asa-script.png)
 
 4. Escolha **Selecionar em suas Assinaturas do Azure** no menu suspenso.
 
-    ![Seleção nas assinaturas](./media/quick-create-vs-code/add-input-select-subscription.png)
+    ![Seleção nas assinaturas](./media/quick-create-visual-studio-code/add-input-select-subscription.png)
 
 5. Configure o arquivo JSON recém-gerado. Use o recurso CodeLens para ajudar você a inserir uma cadeia de caracteres, fazer uma seleção em uma lista suspensa ou alterar o texto diretamente no arquivo. A captura de tela a seguir mostra **Selecionar em suas Assinaturas** como um exemplo.
 
-   ![Configurar a entrada no Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+   ![Configurar a entrada no Visual Studio Code](./media/quick-create-visual-studio-code/configure-input.png)
 
 ## <a name="preview-input"></a>Visualizar a entrada
 
 Para verificar se os dados de entrada estão chegando, selecione **Visualizar dados** em seu arquivo de configuração de entrada ao vivo na linha superior. Alguns dados de entrada vêm de um hub IoT e são mostrados na janela de visualização. A visualização pode levar alguns segundos para aparecer.
 
- ![Visualizar a entrada dinâmica](./media/quick-create-vs-code/preview-live-input.png)
+ ![Visualizar a entrada dinâmica](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## <a name="run-queries-locally"></a>Executar consultas localmente
 

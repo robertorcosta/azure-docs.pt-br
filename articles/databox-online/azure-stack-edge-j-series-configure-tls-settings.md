@@ -1,6 +1,6 @@
 ---
-title: Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU de borda
-description: Descreve como configurar o TLS 1,2 em clientes Windows que acessam Azure Stack dispositivo de GPU de borda.
+title: Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU pro de borda
+description: Descreve como configurar o TLS 1,2 em clientes Windows que acessam Azure Stack dispositivo de GPU pro Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf6b591ef3158a5944b1ebeb37dd0ef5935f7215
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268495"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891176"
 ---
-# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-device"></a>Configurar o TLS 1,2 em clientes Windows que acessam Azure Stack dispositivo de borda
+# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configurar o TLS 1,2 em clientes Windows que acessam Azure Stack dispositivo pro Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Se você estiver usando um cliente Windows para acessar seu dispositivo Azure Stack Edge, será necessário configurar o TLS 1,2 em seu cliente. Este artigo fornece recursos e diretrizes para configurar o TLS 1,2 em seu cliente Windows. 
+Se você estiver usando um cliente Windows para acessar seu dispositivo Azure Stack Edge pro, será necessário configurar o TLS 1,2 em seu cliente. Este artigo fornece recursos e diretrizes para configurar o TLS 1,2 em seu cliente Windows. 
 
 As diretrizes fornecidas aqui se baseiam no teste realizado em um cliente que executa o Windows Server 2016.
 

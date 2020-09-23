@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 56a03d6f1e4684da797b733d6041309acdac65c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 674c906a4316ec92101f3f2028a57aa82db3f504
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888146"
+ms.locfileid: "90981994"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configurar contêineres do Docker Pesquisa Visual Computacional
 
@@ -118,7 +118,7 @@ Substitua {_argument_name_} pelos seus próprios valores:
 Os exemplos do Docker a seguir são para o contêiner de leitura.
 
 
-# <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+# <a name="version-30-preview"></a>[Versão prévia 3.0](#tab/version-3)
 
 ### <a name="basic-example"></a>Exemplo básico
 
@@ -141,7 +141,7 @@ ApiKey={API_KEY}
 Logging:Console:LogLevel:Default=Information
 ```
 
-# <a name="version-31"></a>[Versão 3.1](#tab/version-3-1)
+# <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-1)
 
 ### <a name="basic-example"></a>Exemplo básico
 

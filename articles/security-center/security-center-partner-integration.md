@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 40b96cac4c9ad638373fbb75f736dc7eded42b43
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180840"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883926"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -35,11 +35,11 @@ Atualmente, as soluções de segurança integradas incluem a avaliação de vuln
 > [!NOTE]
 > A central de segurança não instala o agente de Log Analytics em dispositivos virtuais de parceiros, pois a maioria dos fornecedores de segurança proíbe agentes externos em execução em seus dispositivos.
 
-Para saber mais sobre a integração das ferramentas de verificação de vulnerabilidade do Qualys, incluindo um scanner interno disponível para clientes da camada Standard, consulte [avaliações de vulnerabilidade para suas máquinas virtuais do Azure](deploy-vulnerability-assessment-vm.md).
+Para saber mais sobre a integração das ferramentas de verificação de vulnerabilidade do Qualys, incluindo um scanner interno disponível para clientes do Azure defender, consulte [avaliações de vulnerabilidade para suas máquinas virtuais do Azure](deploy-vulnerability-assessment-vm.md).
 
 A Central de Segurança também oferece análise de vulnerabilidades para:
 
-* Bancos de dados SQL - confira [Explorar relatórios de avaliação de vulnerabilidades no painel de avaliação de vulnerabilidades](security-center-iaas-advanced-data.md#explore-vulnerability-assessment-reports)
+* Bancos de dados SQL - confira [Explorar relatórios de avaliação de vulnerabilidades no painel de avaliação de vulnerabilidades](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
 * Imagens do registro de contêiner do Azure-consulte [integração do registro de contêiner do Azure com a central de segurança (versão prévia)](azure-container-registry-integration.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Como as soluções de segurança são integradas
@@ -78,7 +78,7 @@ Selecione **Exibir** para obter informações adicionais e opções, como:
    - **Console de solução** – abre a experiência de gerenciamento para esta solução.
    - **Vincular VM** – abre a página vincular aplicativos. Nela, você pode conectar recursos à solução de parceiro.
    - **Excluir solução**
-   - **Configure**
+   - **Configurar**
 
    ![Detalhes da solução de parceiro](./media/security-center-partner-integration/partner-solutions-detail.png)
 
@@ -88,7 +88,7 @@ Selecione **Exibir** para obter informações adicionais e opções, como:
 A central de segurança descobre automaticamente as soluções de segurança em execução no Azure, mas não está conectada à central de segurança e exibe as soluções na seção **soluções descobertas** . Essas soluções incluem soluções do Azure, como [Azure ad Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)e soluções de parceiros.
 
 > [!NOTE]
-> A camada Standard da central de segurança é necessária no nível da assinatura para o recurso de soluções descobertas. Consulte [preços](security-center-pricing.md) para saber mais sobre os tipos de preço.
+> Habilite o **Azure defender** no nível de assinatura para o recurso de soluções descobertas. Consulte [preços](security-center-pricing.md) para saber mais sobre os tipos de preço.
 >
 
 Selecione **conectar** em uma solução para integrar com a central de segurança e ser notificado sobre alertas de segurança.

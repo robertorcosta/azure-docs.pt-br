@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7586cca21d470bcb0cf637ca0370f5dfcb59406
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711078"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901104"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizar a política de proteção de informações do SQL na Central de Segurança do Azure (Visualizar)
  
@@ -56,7 +56,7 @@ Para personalizar a política de proteção de informações do seu locatário d
  
 4. As etiquetas são listadas por ordem crescente de sensibilidade. Para alterar a classificação entre marcadores, arraste os rótulos para reordená-los na tabela ou use os botões **Mover para cima** e **Mover para baixo** para alterar a ordem. 
  
-    ![Configurar a política de proteção de informações](./media/security-center-info-protection-policy/move-up.png)
+    ![Lista de rótulos](./media/security-center-info-protection-policy/move-up.png)
  
 5. Clique em **salvar** na parte superior da tela quando tiver terminado.
  
@@ -66,7 +66,7 @@ Para personalizar a política de proteção de informações do seu locatário d
 1. Você pode gerenciar e personalizar os tipos de informações clicando em **gerenciar tipos de informações**.
 2. Para adicionar uma nova **tipo de informação**, selecione **criar o tipo de informação** no menu superior. Você pode configurar um nome, descrição e pesquisar cadeias de caracteres padrão para o **tipo de informação**. As sequências padrão de pesquisa podem, opcionalmente, usar palavras-chave com caracteres curinga (usando o caractere '%'), que o mecanismo de descoberta automatizada usa para identificar dados confidenciais em seus bancos de dados, com base nos metadados das colunas.
  
-    ![Configurar a política de proteção de informações](./media/security-center-info-protection-policy/info-types.png)
+    ![Criar tipo de informação](./media/security-center-info-protection-policy/info-types.png)
  
 3. Você também pode configurar os **Tipos de informações** internos adicionando cadeias de padrões de pesquisa adicionais, desabilitando algumas das cadeias existentes ou alterando a descrição. Você não pode excluir **tipos de informações** internos ou editar seus nomes. 
 4. ** Os tipos de informação ** são listados em ordem de classificação de descoberta ascendente, o que significa que os tipos mais altos na lista tentarão corresponder primeiro. Para alterar a classificação entre os tipos de informação, arraste os tipos para o ponto certo na tabela ou use os botões **Mover para cima** e **Mover para baixo** para alterar a ordem. 
