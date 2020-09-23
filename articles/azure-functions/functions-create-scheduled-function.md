@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123361"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973095"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é disparada por um temporizador
 
@@ -44,7 +44,7 @@ Seu novo aplicativo de funções está pronto para uso. Em seguida, você criar�
 
 1. Configure o novo gatilho com as configurações especificadas na tabela abaixo da imagem e, depois, selecione **Criar Função**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Selecione o gatilho de timer no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Captura de tela mostra a nova página de função com o modelo de gatilho de temporizador selecionado." border="true":::
     
     | Configuração | Valor sugerido | Descrição |
     |---|---|---|

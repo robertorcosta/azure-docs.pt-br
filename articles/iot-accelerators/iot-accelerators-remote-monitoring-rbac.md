@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: b32e0a60e099b5ad184f8919be3f93646c3a68b3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 817bc7624bb3a6b69d56265e40681287b7fc09fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018137"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969589"
 ---
 # <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Configurar o controle de acesso baseado em função no acelerador de solução de monitoramento remoto
 
@@ -62,7 +62,7 @@ Como um proprietário de aplicativo do Azure Active Directory Domain Services, v
 
 1. Verifique se você é proprietário do aplicativo clicando no aplicativo e, em seguida, clicando em **Proprietários**. Na captura de tela a seguir o **admin do Contoso** é um proprietário do aplicativo **contoso-rm4**:
 
-    ![Proprietários](media/iot-accelerators-remote-monitoring-rbac/owners.png)
+    ![Captura de tela mostra a opção gerenciar proprietários selecionada, que exibe os proprietários do aplicativo contoso r m 4.](media/iot-accelerators-remote-monitoring-rbac/owners.png)
 
     Se você não for um proprietário, precisará solicitar um proprietário existente para adicioná-lo à lista. Somente os proprietários podem atribuir funções de aplicativo, como **Admin** ou **Somente Leitura** a outros usuários.
 

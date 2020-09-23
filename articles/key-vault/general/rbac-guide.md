@@ -9,14 +9,17 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419258"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972259"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)
+
+> [!NOTE]
+> Key Vault provedor de recursos dá suporte a dois tipos de recursos: **cofres** e **HSMs gerenciados**. O controle de acesso descrito neste artigo se aplica somente a **cofres**. Para saber mais sobre o controle de acesso para HSM gerenciado, consulte [controle de acesso HSM gerenciado](../managed-hsm/access-control.md).
 
 O Azure RBAC (controle de acesso baseado em função) do Azure é um sistema de autorização criado em [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) que fornece gerenciamento de acesso refinado de recursos do Azure.
 
@@ -61,10 +64,6 @@ Para obter mais informações sobre as definições de funções internas do Azu
 O novo modelo de permissão do RBAC do Azure para o Key Vault fornece uma alternativa ao modelo de permissões de política de acesso do cofre. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Habilitar permissões do RBAC do Azure no Key Vault
-
-Durante a visualização, você deve usar a marca de recurso do RBAC do Azure (Microsoft_Azure_KeyVault_RBACEnabled = true) para ver as novas opções do modelo de permissão.
-
-https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > A configuração do modelo de permissão do RBAC do Azure invalida todas as permissões de políticas de acesso. Isso pode causar interrupções quando funções equivalentes do Azure não são atribuídas.

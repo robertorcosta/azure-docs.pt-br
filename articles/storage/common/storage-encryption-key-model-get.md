@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 11e08427067efa5e7bd33b8d08d84443444a190b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 17be7cb8e3330a9bd0391e0750f5e37ac64b0484
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078258"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971001"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinar qual modelo de chave de criptografia de armazenamento do Azure está em uso para a conta de armazenamento
 
@@ -33,7 +33,7 @@ Para obter mais informações sobre chaves de criptografia, consulte [criptograf
 
 Para determinar se uma conta de armazenamento está usando chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente para criptografia, use uma das abordagens a seguir.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para verificar o modelo de criptografia para a conta de armazenamento usando o portal do Azure, siga estas etapas:
 
@@ -79,4 +79,4 @@ Se o valor da propriedade **keySource** for `Microsoft.Storage` , a conta será 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
-- [Usar chaves gerenciadas pelo cliente com Azure Key Vault para gerenciar a criptografia de armazenamento do Azure](encryption-customer-managed-keys.md)
+- [Chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure](customer-managed-keys-overview.md)

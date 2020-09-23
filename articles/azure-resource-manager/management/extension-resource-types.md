@@ -2,13 +2,13 @@
 title: Tipos de recursos de extensão
 description: Lista os tipos de recursos do Azure são usados para estender os recursos de outros tipos de recursos.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 3a3fbc531750bec4b16e38f1fe79f613c1b94f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/22/2020
+ms.openlocfilehash: 8b80c63d361f3ad8199fd669178f7bf88dabe02e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80754860"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969742"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipos de recursos que estendem funcionalidades de outros recursos
 
@@ -21,17 +21,22 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. Advisor/supressões
 - Microsoft. AlertsManagement/alertas
 - Microsoft. AlertsManagement/alertsSummary
+- Microsoft. Authorization/accessReviewScheduleDefinitions
+- Microsoft. Authorization/accessReviewScheduleSettings
 - Microsoft. Authorization/checkAccess
 - Microsoft. Authorization/denyAssignments
 - Microsoft. Authorization/findOrphanRoleAssignments
 - Microsoft.Authorization/locks
 - Microsoft. Authorization/Permissions
-- Microsoft. Authorization/policyAssignments
+- Microsoft.Authorization/policyAssignments
 - Microsoft. Authorization/policyDefinitions
+- Microsoft. Authorization/policyExemptions
 - Microsoft. Authorization/policySetDefinitions
+- Microsoft. Authorization/privateLinkAssociations
 - Microsoft.Authorization/roleAssignments
 - Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
+- Microsoft. automanage/configurationProfileAssignments
 - Microsoft. billing/billingPeriods
 - Microsoft. billing/billingPermissions
 - Microsoft. billing/billingRoleAssignments
@@ -39,40 +44,44 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. billing/createBillingRoleAssignment
 - Microsoft. Blueprint/blueprintAssignments
 - Microsoft. Blueprint/plantas
+- Microsoft. ChangeAnalysis/resourceChanges
 - Microsoft. consumo/AggregatedCost
 - Microsoft. consumo/saldos
 - Microsoft. consumo/orçamentos
 - Microsoft. consumo/encargos
 - Microsoft. consumo/CostTags
+- Microsoft. consumo/créditos
+- Microsoft. consumo/eventos
 - Microsoft. consumo/previsões
+- Microsoft. consumo/muitos
 - Microsoft. consumo/Marketplaces
 - Microsoft. consumo/OperationResults
 - Microsoft. consumo/OperationStatus
 - Microsoft. consumo/Pricesheets
+- Microsoft. consumo/produtos
 - Microsoft. consumo/ReservationDetails
+- Microsoft. consumo/ReservationRecommendationDetails
 - Microsoft. consumo/ReservationRecommendations
 - Microsoft. consumo/ReservationSummaries
 - Microsoft. consumo/ReservationTransactions
 - Microsoft. consumo/marcas
+- Microsoft. consumo/locatários
 - Microsoft. consumo/termos
 - Microsoft. consumo/UsageDetails
-- Microsoft. consumo/créditos
-- Microsoft. consumo/eventos
-- Microsoft. consumo/muitos
-- Microsoft. consumo/produtos
-- Microsoft. consumo/locatários
 - Microsoft. ContainerInstance/serviceAssociationLinks
 - Microsoft. CostManagement/alertas
 - Microsoft. CostManagement/orçamentos
+- Microsoft. CostManagement/costAllocationRules
 - Microsoft. CostManagement/Dimensions
 - Microsoft. CostManagement/Exports
 - Microsoft. CostManagement/ExternalSubscriptions
 - Microsoft. CostManagement/Forecast
+- Microsoft. CostManagement/insights
 - Microsoft. CostManagement/Query
 - Microsoft. CostManagement/Reportconfigs
 - Microsoft. CostManagement/Reports
-- Microsoft. CostManagement/views
 - Microsoft. CostManagement/showbackRules
+- Microsoft. CostManagement/views
 - Microsoft.CustomProviders/associations
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
@@ -88,17 +97,19 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. insights/diagnosticSettingsCategories
 - Microsoft. insights/EventTypes
 - Microsoft. insights/extendedDiagnosticSettings
+- Microsoft. insights/generateLiveToken
 - Microsoft. insights/guestDiagnosticSettingsAssociation
 - Microsoft. insights/logDefinitions
 - Microsoft. insights/logs
+- Microsoft. insights/metricbaselines
 - Microsoft. insights/metricDefinitions
 - Microsoft. insights/metricNamespaces
-- Microsoft. insights/metricbaselines
 - Microsoft. insights/métricas
 - Microsoft. insights/minhas pastas de trabalho
 - Microsoft. insights/topologia
 - Microsoft. insights/transações
 - Microsoft. insights/vmInsightsOnboardingStatuses
+- Microsoft. KubernetesConfiguration/Extensions
 - Microsoft. KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
 - Microsoft. Maintenance/configurationAssignments
@@ -108,12 +119,13 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. Managedservices/registrationDefinitions
 - Microsoft. OperationalInsights/storageInsightConfigs
 - Microsoft. OperationsManagement/managementassociations
+- Microsoft. PolicyInsights/atestados
 - Microsoft. PolicyInsights/policyEvents
 - Microsoft. PolicyInsights/policyStates
 - Microsoft. PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 - Microsoft. Recoveryservices/backupProtectedItems
-- Microsoft. Recoveryservices/replicationEligibilityResults    
+- Microsoft. Recoveryservices/replicationEligibilityResults
 - Microsoft. ResourceHealth/availabilityStatuses
 - Microsoft. ResourceHealth/childAvailabilityStatuses
 - Microsoft. ResourceHealth/childResources
@@ -122,20 +134,23 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. ResourceHealth/Notifications
 - Microsoft. Resources/links
 - Microsoft. Resources/Tags
-- Segurança/conformidade da Microsoft
-- Microsoft. Security/InformationProtectionPolicies
 - Microsoft. Security/adaptiveNetworkHardenings
 - Microsoft. Security/advancedThreatProtectionSettings
 - Microsoft. Security/assessmentMetadata
 - Microsoft. Security/avaliações
 - Microsoft. Security/complianceResults
+- Segurança/conformidade da Microsoft
 - Microsoft. Security/dataCollectionAgents
 - Microsoft. Security/deviceSecurityGroups
-- Microsoft. Security/networkData
+- Microsoft. Security/InformationProtectionPolicies
+- Microsoft. Security/iotSensors
+- Microsoft. Security/jitPolicies
 - Microsoft. Security/serverVulnerabilityAssessments
+- Microsoft. Security/sqlVulnerabilityAssessments
 - Microsoft. SecurityInsights/agregações
-- Microsoft. SecurityInsights/alertRuleTemplates
 - Microsoft. SecurityInsights/alertRules
+- Microsoft. SecurityInsights/alertRuleTemplates
+- Microsoft. SecurityInsights/automationRules
 - Microsoft. SecurityInsights/bookmarks
 - Microsoft. SecurityInsights/casos
 - Microsoft. SecurityInsights/dataconnecters
@@ -145,6 +160,8 @@ Um recurso de extensão é um recurso que o adiciona aos recursos de outro recur
 - Microsoft. SecurityInsights/Incidents
 - Microsoft. SecurityInsights/officeConsents
 - Microsoft. SecurityInsights/Settings
+- Microsoft. SecurityInsights/threatIntelligence
+- Microsoft. SecurityInsights/watchlists
 - Microsoft. SoftwarePlan/hybridUseBenefits
 - Microsoft. Subscription/CreateSubscription
 - Microsoft. support/supporttickets

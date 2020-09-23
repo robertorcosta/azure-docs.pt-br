@@ -1,18 +1,18 @@
 ---
-title: O que há de novo no agente de servidores habilitados para Arc do Azure (versão prévia)
-description: Este artigo tem notas de versão para o agente de servidores habilitados para Arc do Azure (versão prévia). Para muitos dos problemas resumidos, há links para detalhes adicionais.
+title: O que há de novo no agente de servidores habilitados para Arc do Azure
+description: Este artigo tem notas de versão para o agente de servidores habilitados para o Azure Arc. Para muitos dos problemas resumidos, há links para detalhes adicionais.
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 3b739401603f6dc18b9f48fb3cb6e28023a051ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532164"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908155"
 ---
-# <a name="whats-new-with-azure-arc-enabled-servers-preview-agent"></a>O que há de novo no agente de servidores habilitados para Arc do Azure (versão prévia)
+# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>O que há de novo no agente de servidores habilitados para Arc do Azure
 
-O agente de computador conectado de servidores habilitados para Arc (visualização) do Azure recebe melhorias em uma base contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
+O agente de máquina conectado de servidores habilitados para Arc do Azure recebe melhorias em uma base contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
 - As versões mais recentes
 - Problemas conhecidos
@@ -60,4 +60,4 @@ Se você estiver usando uma versão mais antiga do agente do Linux e o tiver con
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Antes de avaliar ou habilitar servidores habilitados para Arc (versão prévia) em vários computadores híbridos, examine [Visão geral do agente do Computador Conectado](agent-overview.md) para entender os requisitos, os detalhes técnicos sobre o agente e os métodos de implantação.
+Antes de avaliar ou habilitar servidores habilitados para Arc em vários computadores híbridos, examine [Visão geral do agente do Computador Conectado](agent-overview.md) para entender os requisitos, os detalhes técnicos sobre o agente e os métodos de implantação.
