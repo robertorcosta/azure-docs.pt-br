@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: abd1bc9b53c303d094d74683da0d6e3fad4d715f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318634"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887467"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Implantar o modelo de ML no SQL do Azure no Edge usando ONNX 
 
@@ -225,4 +225,4 @@ Insira o código Python a seguir no notebook do Azure Data Studio e execute-o.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como usar os modelos do ONNX no SQL do Azure no Edge, confira [Aprendizado de máquina e IA com ONNX no SQL no Edge (versão prévia)](onnx-overview.md).
+Para obter mais informações sobre como usar os modelos do ONNX no SQL do Azure no Edge, confira [Machine learning e IA com ONNX no SQL no Edge](onnx-overview.md).

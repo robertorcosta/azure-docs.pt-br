@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: c31f3c998df918466e707c95f041592051e8251c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045307"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903821"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Depurar Azure Stream Analytics consultas localmente usando o diagrama de trabalho no Visual Studio Code
 
@@ -27,7 +27,7 @@ Um script Azure Stream Analytics é usado para transformar dados de entrada para
 
 ### <a name="start-local-testing"></a>Iniciar teste local
 
-Use este guia de [início rápido](quick-create-vs-code.md) para aprender a criar um trabalho de Stream Analytics usando Visual Studio Code ou [exportar um trabalho existente para um projeto local](visual-studio-code-explore-jobs.md). As credenciais para entradas e saídas são preenchidas automaticamente para trabalhos exportados.
+Use este guia de [início rápido](quick-create-visual-studio-code.md) para aprender a criar um trabalho de Stream Analytics usando Visual Studio Code ou [exportar um trabalho existente para um projeto local](visual-studio-code-explore-jobs.md). As credenciais para entradas e saídas são preenchidas automaticamente para trabalhos exportados.
 
 Se você quiser testar a consulta com dados de entrada locais, siga estas [instruções](visual-studio-code-local-run.md). Se você quiser testar com a entrada ao vivo, configure a mudança de [entrada](stream-analytics-add-inputs.md) para a próxima etapa. 
 
@@ -59,7 +59,7 @@ Nesta seção, você explora as métricas disponíveis para cada parte do diagra
 3. Selecione o nome da fonte de dados de entrada no menu suspenso para ver as métricas de entrada. A fonte de entrada na captura de tela abaixo é chamada de *aspas*. Para obter mais informações sobre as métricas de entrada, consulte [entender Stream Analytics monitoramento de trabalho e como monitorar consultas](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
-   > ![Métricas do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
+   > ![Métricas de entrada do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
 
 4. Selecione uma etapa de consulta no diagrama de trabalho ou selecione o nome da etapa na lista suspensa para ver as métricas de nível de etapa. O atraso da marca d' água é a única métrica de etapa disponível.
 
@@ -108,7 +108,7 @@ Selecione **Resumo do trabalho** na parte superior direita do diagrama de trabal
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Início rápido: criar um trabalho de Stream Analytics usando Visual Studio Code](quick-create-vs-code.md)
+* [Início rápido: criar um trabalho de Stream Analytics usando Visual Studio Code](quick-create-visual-studio-code.md)
 * [Explorar Azure Stream Analytics com Visual Studio Code](visual-studio-code-explore-jobs.md)
 * [Testar consultas do Stream Analytics localmente com os dados de exemplo usando o Visual Studio Code](visual-studio-code-local-run.md)
 * [Testar Azure Stream Analytics trabalhos localmente com a entrada ao vivo usando Visual Studio Code](visual-studio-code-local-run-live-input.md)

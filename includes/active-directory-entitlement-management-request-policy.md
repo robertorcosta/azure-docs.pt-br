@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156737"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025137"
 ---
 ## <a name="for-users-in-your-directory"></a>Para usuários em seu diretório
 
@@ -207,3 +207,33 @@ Por exemplo, se você tiver listado Alice e Bob como os primeiros Aprovadores, l
     ![Pacote de acesso-configuração de política de habilitação de política](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Clique em **Próximo**.
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>Adicionar informações do solicitante (versão prévia) a um pacote do Access
+
+1. Vá para a guia **informações do solicitante** e clique na subguia **perguntas** .
+ 
+1. Digite o que você deseja solicitar ao solicitante, também conhecido como cadeia de caracteres de exibição, para a pergunta na caixa de **pergunta** .
+
+    ![Pacote de acesso-configuração de informações do solicitante de habilitação de política](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. Se você quiser adicionar suas próprias opções de localização, clique em **Adicionar localização**.
+    1. Uma vez no painel **Adicionar localizações para pergunta** , selecione o **código de idioma** para o idioma no qual você está localizando a pergunta.
+    1. No idioma configurado, digite a pergunta na caixa de **texto localizada** .
+    1. Depois de adicionar todas as localizações necessárias, clique em **salvar**.
+
+    ![Pacote de acesso-política-configurar texto localizado](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Selecione o **formato de resposta** no qual você deseja que os solicitantes respondam. Os formatos de resposta incluem: *texto curto*, *várias opções*e *texto longo*.
+ 
+    ![Pacote de acesso-política-selecione Exibir e editar formato de resposta de múltipla escolha](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. Ao selecionar várias opções, clique no botão **Exibir e editar** para configurar as opções de resposta.
+    1. Depois de selecionar Exibir e editar, o painel **Exibir/editar pergunta** será aberto.
+    1. Digite as opções de resposta que você deseja fornecer ao solicitante ao responder a pergunta nas caixas **valores de resposta** .
+    1. Digite quantas respostas forem necessárias e clique em **salvar**.
+    
+    ![Opções de pacote de acesso-política-inserir várias seleções](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. Para exigir que os solicitantes respondam a essa pergunta ao solicitar acesso a um pacote do Access, clique na caixa de seleção em **obrigatório**.
+
+1. Clique em Avançar

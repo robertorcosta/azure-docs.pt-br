@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/11/2020
-ms.openlocfilehash: 8a988895cd8999d15c32d7056d35abf40aeaba7e
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: a37fbee4361d4a87c43a42cae66c425eba1e0877
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420686"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887045"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurar parâmetros de servidor no banco de dados do Azure para MySQL usando o portal do Azure
 
@@ -21,13 +21,13 @@ O Banco de Dados do Azure para MySQL dá suporte à configuração de alguns par
 
 1. Faça logon no portal do Azure e, em seguida, localize o seu Banco de Dados do Azure para MySQL Server.
 2. Na seção **CONFIGURAÇÕES**, clique em **Parâmetros do servidor** para abrir a página de parâmetros do servidor para o servidor do Banco de Dados do Azure para MySQL.
-![Página de parâmetros do servidor do Portal do Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+:::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Página de parâmetros do servidor do portal do Azure":::
 3. Localize as configurações que você precisa ajustar. Examine a coluna **Descrição** para entender a finalidade e os valores permitidos.
-![Enumerar a lista suspensa](./media/howto-server-parameters/3-toggle_parameter.png)
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Enumerar a lista suspensa":::
 4. Clique em  **salvar** para salvar as alterações.
-![Clique em salvar ou descartar mudanças](./media/howto-server-parameters/4-save_parameters.png)
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Clique em salvar ou descartar mudanças":::
 5. Se você tiver salvo os novos valores para os parâmetros, você sempre pode reverter tudo o que fazer com os valores padrão selecionando **Redefinir tudo para o padrão**.
-![Redefinir tudo para padrão](./media/howto-server-parameters/5-reset_parameters.png)
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Redefinir tudo para padrão":::
 
 ## <a name="setting-parameters-not-listed"></a>Parâmetros de configuração não listados
 
@@ -41,7 +41,7 @@ Se o parâmetro de servidor que você deseja atualizar não estiver listado no p
 4. Clique em **Salvar** para salvar as alterações.
 
 >[!Note]
-> `init_connect` pode ser usado para alterar parâmetros que não exigem SUPER privilégio (s) no nível da sessão. Para verificar se você pode definir o parâmetro usando `init_connect` , execute o `set session parameter_name=YOUR_DESIRED_VALUE;` comando e se ele se desconectar com **acesso negado; você precisa de privilégios de super privilégio** , não é possível definir o parâmetro usando ' init_connect '.
+> `init_connect` pode ser usado para mudar parâmetros que não exigem privilégio(s) SUPER no nível da sessão. Para verificar se você pode definir o parâmetro usando `init_connect`, execute o comando `set session parameter_name=YOUR_DESIRED_VALUE;` e, se ele apresentar o erro **Acesso negado, você precisa de privilégios SUPER**, não será possível definir o parâmetro usando "init_connect".
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro de fuso horário
 
@@ -69,7 +69,7 @@ SELECT name FROM mysql.time_zone_name;
 
 O fuso horário de nível global pode ser configurado na página **Parâmetros do servidor** no portal do Azure. O exemplo abaixo configura o fuso horário global para o valor "EUA/Pacífico".
 
-![Definir o parâmetro de fuso horário](./media/howto-server-parameters/timezone.png)
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Definir o parâmetro de fuso horário":::
 
 ### <a name="setting-the-session-level-time-zone"></a>Configurar o fuso horário do nível de sessão
 

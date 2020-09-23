@@ -1,6 +1,6 @@
 ---
 title: Implantar e fazer previsões com ONNX
-description: Saiba como treinar um modelo, convertê-lo em ONNX, implantá-lo no Azure SQL Edge (versão prévia) ou no Azure SQL Instância Gerenciada (versão prévia) e, em seguida, executar uma previsão nativa nos dados usando o modelo ONNX carregado.
+description: Saiba como treinar um modelo, convertê-lo em ONNX, implantá-lo no Azure SQL Edge ou no Azure SQL Instância Gerenciada (versão prévia) e, em seguida, executar a previsão nativa nos dados usando o modelo ONNX carregado.
 keywords: implantar o SQL no Edge
 ms.prod: sql
 ms.technology: machine-learning
@@ -8,22 +8,22 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: eeb50f682c8b3b225c6574b5276722b79465a511
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718774"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886819"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Implantar e fazer previsões com um modelo ONNX
 
-Neste guia de início rápido, você aprenderá a treinar um modelo, convertê-lo em ONNX, implantá-lo no [Azure SQL Edge (versão prévia)](onnx-overview.md) ou no [Azure SQL instância gerenciada (versão prévia)](../azure-sql/managed-instance/machine-learning-services-overview.md)e, em seguida, executar uma previsão nativa nos dados usando o modelo ONNX carregado.
+Neste guia de início rápido, você aprenderá a treinar um modelo, convertê-lo em ONNX, implantá-lo no [Azure SQL Edge](onnx-overview.md) ou no [Azure SQL instância gerenciada (versão prévia)](../azure-sql/managed-instance/machine-learning-services-overview.md)e, em seguida, executar uma previsão nativa nos dados usando o modelo ONNX carregado.
 
 Este guia de início rápido baseia-se no **scikit-learn** e usa o [conjunto de dados de moradia de Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Se você estiver usando o Azure SQL Edge e não tiver implantado um módulo do Azure SQL Edge, siga as etapas de [implantar o SQL Edge (versão prévia) usando o portal do Azure](deploy-portal.md).
+* Se você estiver usando o Azure SQL Edge e não tiver implantado um módulo do Azure SQL Edge, siga as etapas de [implantar o SQL Edge usando o portal do Azure](deploy-portal.md).
 
 * Instale o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
