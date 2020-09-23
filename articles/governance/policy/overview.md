@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Azure Policy
 description: O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir e gerenciar definições de política em seu ambiente do Azure.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044185"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905963"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
@@ -18,8 +18,7 @@ Casos de uso comuns do Azure Policy incluem implementar a governança para consi
 
 ## <a name="overview"></a>Visão geral
 
-O Azure Policy avalia os recursos no Azure comparando as propriedades desses recursos com as regras de negócio. Essas regras de negócio, descritas em [Formato JSON](./concepts/definition-structure.md), são conhecidas como [definições de política](#policy-definition). Para simplificar o gerenciamento, várias regras de negócio podem ser agrupadas para formar uma [iniciativa de política](#initiative-definition) (às vezes chamada de _policySet_). Depois que as regras de negócios tiverem sido formadas, a definição ou a iniciativa da política será [atribuída](#assignments) a qualquer escopo de recursos compatível com o Azure, como [grupos de gerenciamento](../management-groups/overview.md), assinaturas, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) ou recursos individuais. A atribuição se aplica a todos os recursos dentro do [escopo](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição.
-Os subescopos podem ser excluídos, se necessário.
+O Azure Policy avalia os recursos no Azure comparando as propriedades desses recursos com as regras de negócio. Essas regras de negócio, descritas em [Formato JSON](./concepts/definition-structure.md), são conhecidas como [definições de política](#policy-definition). Para simplificar o gerenciamento, várias regras de negócio podem ser agrupadas para formar uma [iniciativa de política](#initiative-definition) (às vezes chamada de _policySet_). Depois que as regras de negócios tiverem sido formadas, a definição ou a iniciativa da política será [atribuída](#assignments) a qualquer escopo de recursos compatível com o Azure, como [grupos de gerenciamento](../management-groups/overview.md), assinaturas, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) ou recursos individuais. A atribuição se aplica a todos os recursos dentro do [escopo do Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição. Os subescopos podem ser excluídos, se necessário. Para obter mais informações, confira [Escopo no Azure Policy](./concepts/scope.md).
 
 O Azure Policy usa um [formato JSON](./concepts/definition-structure.md) para formar a lógica que a avaliação usa para determinar se um recurso está em conformidade ou não. As definições incluem metadados e a regra de política. A regra definida pode usar funções, parâmetros, operadores lógicos, condições e [aliases](./concepts/definition-structure.md#aliases) de propriedade para corresponder exatamente ao cenário desejado. A regra de política determina quais recursos no escopo da atribuição são avaliados.
 

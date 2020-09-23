@@ -1,6 +1,6 @@
 ---
-title: Definir Azure Resource Manager senha no dispositivo de GPU do Azure Stack Edge
-description: Descreve como se conectar ao Azure Resource Manager em execução em sua GPU do Azure Stack Edge usando o Azure PowerShell.
+title: Definir Azure Resource Manager senha em seu dispositivo de GPU pro Azure Stack Edge
+description: Descreve como se conectar ao Azure Resource Manager em execução em sua GPU do Azure Stack Edge pro usando o Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6a59510b342f7ebd3969a4bb4fcfd75fffd04804
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254144"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904483"
 ---
-# <a name="set-azure-resource-manager-password-on-azure-stack-edge-gpu-device"></a>Definir Azure Resource Manager senha em Azure Stack dispositivo de GPU de borda
+# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Definir Azure Resource Manager senha no dispositivo Azure Stack GPU pro Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -122,7 +122,7 @@ O procedimento para definir a senha pode ser diferente dependendo se você usa o
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Use as cadeias de caracteres seguras geradas acima como parâmetros no cmdlet Set-AzDataBoxEdgeUser para redefinir a senha. Use o mesmo grupo de recursos que você usou ao criar o Azure Stack borda/Gateway do Data Box recurso.
+    Use as cadeias de caracteres seguras geradas acima como parâmetros no cmdlet Set-AzDataBoxEdgeUser para redefinir a senha. Use o mesmo grupo de recursos que você usou ao criar o recurso Azure Stack Edge pro/Gateway do Data Box.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 006aab66eb220c3bb74794ba78bf1495583b653e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0dcede7e6c15fbc0bae39370431d14696cb4026e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648312"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905656"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Implantar seu modelo existente com Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprende a registrar e implantar um modelo de aprendizado de máquina que você treinou fora Azure Machine Learning. Você pode implantar o como um serviço Web ou um dispositivo IoT Edge.  Depois de implantado, você pode monitorar seu modelo e detectar descompasso de dados em Azure Machine Learning. 
 
@@ -100,7 +100,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 + [Como usar ambientes](how-to-use-environments.md).
 + Referência de [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true) .
@@ -274,7 +274,7 @@ Para obter mais informações sobre a implantação, consulte [como e onde impla
 
 ## <a name="request-response-consumption"></a>Consumo de solicitação-resposta
 
-Após a implantação, o URI de pontuação é exibido. Esse URI pode ser usado por clientes para enviar solicitações ao serviço. O exemplo a seguir é um cliente Python básico que envia dados para o serviço e exibe a resposta:
+Após a implantação, o URI de pontuação é exibido. Esse URI pode ser usado por clientes para enviar solicitações ao serviço. O exemplo a seguir é um cliente Python simples que envia dados para o serviço e exibe a resposta:
 
 ```python
 import requests

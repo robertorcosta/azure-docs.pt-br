@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 642186ef4af43127ba0d6eb6950f09e069eb79ca
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6f557ac8476224cdb8414b2a45952d8f7d34513d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649290"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905003"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a monitorar as execuções de Azure Machine Learning e exibir seus logs. Antes de poder exibir os logs, você precisa habilitá-los primeiro. Para obter mais informações, consulte [habilitar o registro em log nas execuções de treinamento do Azure ml](how-to-track-experiments.md).
 
@@ -129,7 +129,7 @@ Use os métodos a seguir nas APIs de registro para influenciar que o estúdio vi
 
 Experimente estas próximas etapas para aprender a usar o Azure Machine Learning:
 
-* Saiba como [acompanhar experimentos e habilitar logs no designer de Azure Machine Learning (versão prévia)](how-to-track-designer-experiments.md).
+* Saiba como [acompanhar experimentos e habilitar logs no designer de Azure Machine Learning](how-to-track-designer-experiments.md).
 
 * Veja um exemplo de como registrar o melhor modelo e implantá-lo no tutorial [Treinar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 

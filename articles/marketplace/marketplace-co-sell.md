@@ -4,61 +4,56 @@ description: O programa de venda conjunta para parceiros da Central de Parceiros
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: palanis-MSFT
-ms.author: palanis
-ms.date: 05/19/2020
-ms.openlocfilehash: 4a7f3b143df4a177bba67d3556d224ec7c806244
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+author: vamahtan
+ms.author: vamahtan
+ms.date: 09/15/2020
+ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260366"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984614"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
-Você pode usar o programa Microsoft co-revenda para trabalhar diretamente conosco em oportunidades de vendas em conjunto. O programa ajuda você a alcançar uma vasta comunidade de clientes e a criar novas oportunidades de vendas para acelerar o crescimento de seus negócios.
+Você pode usar o programa de venda conjunta para trabalhar diretamente com os vendedores da Microsoft sobre as oportunidades de vendas em conjunto e para desbloquear os benefícios adicionais de negócios e de merchandising em vendas por meio do Marketplace comercial.
 
-## <a name="co-sell-channels"></a>Canais de venda conjunta
+O programa de venda conjunta está disponível para **software criado com sua propriedade intelectual (IP) como ofertas em pacotes reproduzíveis** e para **serviços com a tecnologia Microsoft incorporada**. A maioria dos tipos de oferta no programa de venda conjunta também está disponível no Marketplace comercial. Ofertas que atendem a requisitos adicionais tornam-se uma **oferta de venda pronta** ou de **incentivados**.
 
-Você pode revender suas soluções por meio de três canais:
+- As ofertas **prontas para venda conjuntas** são expostas aos vendedores de campo da Microsoft. Ao trabalhar com os vendedores da Microsoft, o programa de venda conjunta ajuda você a alcançar uma vasta comunidade de clientes gerenciados da Microsoft para colaborar em oportunidades de vendas que aceleram o crescimento de seus negócios.
 
-* Diretamente aos clientes no Microsoft AppSource ou no Azure Marketplace.
-* Em colaboração com outros parceiros.
-* Em colaboração com os vendedores da Microsoft.
+<ul>
 
-O programa de venda conjunta está disponível para **Serviços** com a tecnologia da Microsoft incorporada e para **soluções de propriedade intelectual (IP)** do pacote reproduzíveis.
+![Diagrama que mostra como a venda conjunta ocorre quando possíveis clientes são compartilhados, aceitos e conquistados em relação aos clientes gerenciados pela Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell-v2.png)
+</ul>
 
-Algumas soluções de IP podem ser qualificadas para incentivos do Microsoft seller quando são vendidas e implantadas com êxito com as equipes de vendas de campo da Microsoft.
+- **Co-vender incentivados** As soluções de IP podem ganhar incentivos para os vendedores de campo da Microsoft quando são vendidos em colaboração com as equipes de vendas da Microsoft, além dos benefícios do Marketplace listados abaixo.</li></ul>
 
-![Diagrama que mostra como a venda conjunta ocorre quando possíveis clientes são compartilhados, aceitos e conquistados em relação aos clientes gerenciados pela Microsoft.](./media/marketplace-publishers-guide/marketplace-co-sell.png)
+## <a name="marketplace-benefits-for-incentivized-offers"></a>Benefícios do Marketplace para ofertas do incentivados
 
-## <a name="azure-ip-co-sell-incentivized-offers"></a>Azure IP co-vender ofertas de incentivados
+Ofertas que atingem o status de **incentivados de venda de IP do Azure para** obter esses benefícios adicionais do Marketplace:
 
-As ofertas no programa de venda conjunta estão **prontas para** venda ou venda de **incentivados**, dependendo dos requisitos que eles atendem.
-
-As soluções de IP do Azure que atingem o status **incentivados de venda adicional** desbloqueiam estes benefícios:
-
-* A taxa de serviço do Marketplace é reduzida de 20% a 10% das vendas cobradas. Esse desconto se aplica às ofertas de IaaS e SaaS vendidas por meio do Microsoft Commercial Marketplace. Consulte [taxa de serviço reduzida](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) para obter mais detalhes.
-* Os parceiros do CSP (provedor de soluções na nuvem) recebem um incentivo de vendas de 10% para vender suas ofertas de SaaS e IaaS. Saiba mais sobre o CSP no [programa de provedor de soluções na nuvem](cloud-solution-providers.md).
-* Suas ofertas de revenda de IP do Azure de incentivados irão contribuir para o compromisso de consumo do Azure dos clientes, quando eles forem adquiridos no mercado comercial. Os clientes qualificados verão a oferta marcada como **benefício do Azure qualificada** nas lojas online. Consulte [benefício do compromisso de consumo do Azure](azure-consumption-commitment-benefit.md) para obter mais detalhes.
-* As ofertas recebem um selo de soluções preferenciais da Microsoft nas lojas online. O emblema promove a qualidade, o desempenho e a capacidade de atender às necessidades do cliente em uma área vertical ou de solução do setor. Saiba mais em [soluções preferenciais no Microsoft AppSource e no Azure Marketplace](preferred-solutions.md).
+* A taxa de serviço do Marketplace é reduzida de 20% a 10%. Esse desconto se aplica à oferta de IaaS ou SaaS vendida por meio do Marketplace comercial. Consulte [taxa de serviço reduzida](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) para obter mais detalhes.
+* Os parceiros do CSP (provedor de soluções na nuvem) recebem um incentivo de 10% para vender sua oferta de IaaS ou SaaS. Saiba mais sobre o programa CSP no [programa do provedor de soluções na nuvem](cloud-solution-providers.md).
+* As vendas de sua oferta por meio do Marketplace comercial irão contribuir para os compromissos de consumo do Azure dos clientes. Os clientes qualificados verão a oferta marcada como **"benefício do Azure qualificado"** no portal do Azure. Consulte [benefício do compromisso de consumo do Azure](azure-consumption-commitment-benefit.md) para obter mais detalhes.
+* Sua oferta receberá um selo de **"soluções preferenciais"** nas vitrines. O emblema promove a qualidade, o desempenho e a capacidade de atender às necessidades do cliente em uma área vertical ou de solução do setor. Saiba mais em [soluções preferenciais no Microsoft AppSource e no Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Requisitos e etapas de publicação de venda conjunta
 
-A tabela a seguir lista as etapas e os requisitos para tornar sua oferta covenda pronta ou de venda incentivados.
+A tabela a seguir lista as etapas e os requisitos para que seu Marketplace ofereça a oferta de co-venda pronta ou de venda de incentivados. Nem todos os tipos de oferta do Marketplace comercial são configuráveis para venda ainda no Partner Center. Você pode consultar a [opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) para obter as informações mais recentes. 
 
-|Etapa    |Tipo de solução    |Requisitos    |Status de venda conjunta    |
+|Etapa    |Tipo de oferta    |Requisitos    |Status de venda conjunta    |
 |----    |-------------    |------------    |---------------   |
-|<ol><li> Crie um perfil comercial no Partner Center e publique sua oferta no Marketplace comercial.</li>|IP e serviços|<ul><li>A oferta atende aos requisitos de publicação do Marketplace comercial.</li><li>Você tem um perfil comercial completo no Partner Center.</li>|Não está pronto.|
-|<ol start=2><li>Opcional: aceitar o canal do provedor de soluções na nuvem.</li>|IP e serviços|<ul><li>A oferta está configurada para revendedores CSP. Consulte o [programa do provedor de soluções na nuvem](cloud-solution-providers.md)</li>|Não está pronto.|
-|<ol start=3><li>Enviar materiais necessários para a venda de produtos</li>|IP|<ul><li>A oferta tem contato de vendas para cada país qualificado.</li><li>Lista de materiais necessária: cliente One-pager, baralho de apresentação do cliente (opcional), URL da página de aterrissagem da solução, URL do canal de mídia social ou outro (por exemplo, um estudo de caso).|Co-venda pronta|
-||Serviços|<ul><li>A oferta tem contato de vendas para cada país qualificado.</li><li>Lista de materiais necessária: cliente One-pager, baralho de apresentação do cliente (opcional), URL da página de aterrissagem da solução, URL do canal de mídia social ou outro (por exemplo, um estudo de caso).</li><li>Competência Gold ativa</li>|Co-venda pronta|
-|<ol start=4lo><li>Qualificar-se para incentivos do Microsoft seller</li>|Incentivo de IP do Azure qualificado|<ul><li>No nível da organização, atenda ou exceda um limite de US $ $100000 de TTM (12 meses à direita) ou, se a oferta for proficada, um limite de receita cobrado de US $ $100000. O limite pode ser atingido por meio de uma combinação de soluções do Azure.</li><li>A solução deve ser criada com mais de 50% de código IP repetível no Azure.</li>|Co-vender incentivados|
-||Business Applications incentivo qualificado|<ul><li>Você tem um registro ativo na camada Premium do ISV Connect.</li>|Co-vender incentivados|
+|<ol start=1><li> Crie uma conta no Partner Center e publique sua oferta no Marketplace comercial.</li>|Tudo|<li>A oferta atende aos requisitos de publicação do Marketplace comercial.</li><li>Você tem um perfil comercial completo no Partner Center.</li>|Não está pronto.|
+|<ol start=2><li>Envie materiais de venda necessários.</li>|Ofertas de IP *com a* [opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Carregar materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Contato de vendas para cada país qualificado.</li><li>Lista de materiais: cliente One-pager, baralho de apresentação do cliente (opcional), URL da página de aterrissagem da solução, URL do canal de mídia social ou outro (por exemplo, um estudo de caso).|Co-venda pronta|
+||Ofertas de IP *sem* [a opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.|Co-venda pronta|
+||Serviços de Consultoria|<li>Solicite [o trabalho com um especialista em nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer a documentação de venda necessária.</li><li>Competência do Gold ativa.</li>|Co-venda pronta|
+|<ol start=3><li>Qualificar-se para os incentivos de venda conjunta de IP</li>|Aplicativos do Azure, contêineres do Azure, módulos de IoT Edge, SaaS, VMs|Após a obtenção de uma venda pronta, há dois requisitos adicionais: <ul> Requisito 1: Obtenha um destes:<ul><li>*No nível da organização:* encontre ou exceda $100000 USD de receita consumida do Azure durante os 12 meses à direita.</li><li>*No nível da oferta:* receita cobrada do Marketplace cumulativo de us $ $100000.</li></ul><br>Requisito 2: mais de 50% da infraestrutura da sua oferta deve ser executado no Azure:<ul><li>Ofertas de IP *com* a [opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): carregue um diagrama de arquitetura com seus documentos de venda conjuntas no Partner Center para análise.</li><li>Ofertas de IP *sem* a [opção de venda conjunta no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): carregue um diagrama de arquitetura para OCP GTM.|Incentivados de venda de IP do Azure|
+||Dynamics|<li>Você tem um registro ativo na camada Premium do ISV Connect.</li>|Business Applications covenda incentivados|
 
-## <a name="co-sell-your-offer"></a>Venda de sua oferta em conjunto
+## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Como enviar materiais de vendas em conjunto no Partner Center
 
-Comece sua jornada de venda conjunta diretamente no Partner Center, seguindo as etapas abaixo. Para obter mais detalhes, consulte [a opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+Inicie sua jornada de venda conjunta diretamente no Partner Center seguindo as etapas abaixo. Para obter mais detalhes, consulte [a opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
 
 1. Entre no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No painel esquerdo, selecione **Commercial Marketplace**  >  **visão geral**do Marketplace comercial e, em seguida, selecione a oferta que você deseja vender.
@@ -70,7 +65,7 @@ Comece sua jornada de venda conjunta diretamente no Partner Center, seguindo as 
 
     [![Esta imagem mostra o local da televenda com a guia Microsoft.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
 
-1. Forneça detalhes sobre sua oferta e carregue os materiais de apoio na seção **documentos** . Os vendedores da Microsoft usarão essas informações para recomendar e vender sua oferta.
+1. Forneça detalhes sobre sua oferta e o material de upload na seção **documentos** . Os vendedores da Microsoft usarão essas informações para recomendar e vender sua oferta.
  
    [![Esta imagem mostra a seção de documentos na guia de venda conjunta.](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
 
@@ -85,5 +80,5 @@ Comece sua jornada de venda conjunta diretamente no Partner Center, seguindo as 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a [venda com a Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-* Saiba mais sobre a [opção de venda conjunta na Central de Parceiros](./partner-center-portal/commercial-marketplace-co-sell.md).
-* Leia o [Guia de Participação de Parceiros de Venda Conjunta](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).
+* Saiba mais sobre a [opção de venda conjunta no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+* Leia o [manual da co-venda](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

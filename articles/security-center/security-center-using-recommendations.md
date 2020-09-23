@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 347c539abbe90119a74394eeb748af12d30d0b15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569043"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904676"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Usar as recomendações da Central de Segurança do Azure para aprimorar a segurança
 
@@ -41,7 +41,7 @@ David, da segurança de TI da Contoso, já optou por integrar a Central de Segur
 
 A Central de Segurança analisa o estado de segurança dos recursos do Azure da Contoso e aplica as políticas de segurança padrão automaticamente. Quando a central de segurança identifica possíveis vulnerabilidades de segurança, ele cria **recomendações** com base nos controles definidos na política de segurança. 
 
-David executa a camada Standard de segurança do Azure, em todas as suas assinaturas, para obter o pacote completo de recomendações e recursos de segurança disponíveis. Jeff também integra todos os servidores locais existentes que ainda não foram migrados para a nuvem para que eles possam aproveitar o suporte híbrido da central de segurança em seus servidores [Windows](quick-onboard-windows-computer.md) e [Linux](quick-onboard-linux-computer.md) .
+David executa a segurança do Azure com o Azure defender habilitado, em todas as suas assinaturas para obter o pacote completo de recomendações e recursos de segurança disponíveis. Jeff também integra todos os servidores locais existentes que ainda não foram migrados para a nuvem para que eles possam aproveitar o suporte híbrido da central de segurança em seus [servidores Windows e Linux](quickstart-onboard-machines.md).
 
 Jeff é proprietário da carga de trabalho de nuvem. Jeff é responsável por aplicar controles de segurança de acordo com as políticas de segurança da Contoso. 
 
@@ -60,9 +60,9 @@ Como parte de suas atividades diárias de monitoramento, Jeff entra no Azure e a
 
 3. Jeff precisa decidir com quais recomendações deseja lidar primeiro. Então Jeff clica em Pontuação segura e começa a lidar com recomendações com base na quantidade de ti que melhora sua [Pontuação segura](secure-score-security-controls.md).
 
-4. Como Jeff tem muitos servidores e VMs conectadas, ele decide se concentrar em **Computação e aplicativos**.
+4. Como Jeff tem muitas VMs conectadas, Jeff decide se concentrar em seus computadores no [inventário de ativos](asset-inventory.md).
 
-5. Quando Jeff clica em **computação e aplicativos**, eles veem uma lista de recomendações e manipula-os de acordo com o impacto de Pontuação segura.
+5. Quando Jeff abre o inventário de ativos, uma lista de recomendações é exibida. Jeff os manipula de acordo com o impacto de Pontuação segura.
 
 6. Jeff tem várias VMs voltadas para a Internet e, como suas portas são expostas, eles estão preocupados com o fato de um invasor poder ter controle sobre os servidores. Portanto, Jeff escolhe usar o [**acesso à VM just-in-time**](security-center-just-in-time.md).
 

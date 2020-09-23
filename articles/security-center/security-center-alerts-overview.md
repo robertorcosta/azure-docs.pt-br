@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278132"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905469"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
 Na Central de Segurança do Azure, há uma variedade de alertas para vários tipos de recursos diferentes. A Central de Segurança gera alertas para recursos implantados no Azure e também para recursos implantados em ambientes de nuvens híbrida e locais.
 
-Os alertas de segurança são disparados por detecções avançadas e estão disponíveis apenas na camada Standard da central de segurança do Azure. Há uma avaliação gratuita disponível. Você pode atualizar da página de **configurações de & de preços** . Saiba mais sobre os [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
+Os alertas de segurança são disparados por detecções avançadas e estão disponíveis somente com o Azure defender. Há uma avaliação gratuita disponível. Você pode atualizar da página de **configurações de & de preços** . Saiba mais sobre os [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="respond-to-todays-threats"></a>Responder às ameaças <a name="respond-threats"> </a> atuais
 
@@ -45,7 +45,7 @@ Usando incidentes, a Central de Segurança fornece uma única exibição de uma 
 
 ## <a name="how-does-security-center-detect-threats"></a>Como a Central de Segurança detecta ameaças? <a name="detect-threats"> </a>
 
-Os pesquisadores de segurança da Microsoft estão constantemente à procura de ameaças. Devido à presença global da Microsoft na nuvem e localmente, eles têm acesso a um conjunto expansivo de telemetria. A coleção diversa e abrangente de conjuntos de dados permite a descoberta de novos padrões de ataque e tendências em seus produtos de consumidor e empresariais no local, bem como em serviços online. Como resultado, a Central de Segurança pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Isso ajuda a acompanhar o ritmo de um ambiente de ameaças que muda rapidamente.
+Os pesquisadores de segurança da Microsoft estão constantemente à procura de ameaças. Devido à nossa presença global na nuvem e no local, temos acesso a um conjunto extenso de telemetria. A coleção de grandes e diversificações de conjuntos de clientes nos permite descobrir novos padrões de ataque e tendências em nossos produtos de negócios e empresas locais, bem como nossa serviços online. Como resultado, a Central de Segurança pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Isso ajuda a acompanhar o ritmo de um ambiente de ameaças que muda rapidamente.
 
 A fim de detectar ameaças e reduzir os falsos positivos, a Central de Segurança coleta, analisa e integra os dados de registro dos recursos do Azure e da rede. Ele também funciona com soluções de parceiros conectadas, como firewall e soluções de proteção de ponto de extremidade. A Central de Segurança analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças.
 
@@ -90,6 +90,5 @@ Esses esforços combinados culminam em detecções novas e aprimoradas de que vo
 
 Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na Central de Segurança. Para obter mais informações, consulte:
 
-* [Proteção contra ameaças na Central de Segurança do Azure](threat-protection.md) - para obter uma breve descrição das fontes dos alertas de segurança exibidos pela Central de Segurança do Azure 
-* **Alertas de segurança no Log de Atividades do Azure** - além de estarem disponíveis no portal do Azure ou programaticamente, os alertas de segurança e incidentes são auditados como eventos no [Log de Atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para saber mais sobre o esquema de eventos, confira [Alertas de segurança no log de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
+- **Alertas de segurança no Log de Atividades do Azure** - além de estarem disponíveis no portal do Azure ou programaticamente, os alertas de segurança e incidentes são auditados como eventos no [Log de Atividades do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Para saber mais sobre o esquema de eventos, confira [Alertas de segurança no log de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
 

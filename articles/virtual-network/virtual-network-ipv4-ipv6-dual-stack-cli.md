@@ -1,7 +1,7 @@
 ---
 title: Implantar aplicativo IPv6 dual stack-CLI básica Load Balancer
 titlesuffix: Azure Virtual Network
-description: Este artigo mostra como implantar um aplicativo IPv6 dual stack na rede virtual do Azure usando CLI do Azure.
+description: Saiba como implantar um aplicativo de pilha dupla (IPv4 + IPv6) com o Load Balancer básico usando CLI do Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 885d36786c804de069a9d1e6ebf031e9ffc3d32a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2746397e2aa97f3c8c3b98d1c7be65b083dcc425
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086480"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983817"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli"></a>Implantar um aplicativo de pilha dupla IPv6 usando a CLI do Load Balancer básica
 

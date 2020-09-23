@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207359"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986232"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à solução de problemas do recurso no Observador de Rede do Azure
 
 Os Gateways de Rede Virtual fornecem conectividade entre os recursos locais e outras redes virtuais no Azure. Para garantir que a comunicação não seja quebrada, é essencial monitorar os gateways e suas conexões. O Observador de Rede fornece a capacidade de solucionar problemas das conexões e dos gateways. Essa capacidade pode ser chamada pelo Portal, pelo PowerShell, pela CLI do Azure ou pela API REST. Quando chamado, o Observador de Rede diagnostica a integridade da conexão ou do gateway e retorna os resultados adequados. A solicitação é uma transação de longa execução. Os resultados são retornados quando o diagnóstico for concluído.
 
-![portal][2]
+![Captura de tela mostra diagnósticos V P N do observador de rede.][2]
 
 ## <a name="results"></a>Resultados
 
@@ -54,9 +54,9 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | PlannedMaintenance |  A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
-| PlatformInActive | Há um problema com a plataforma. | Não|
-| ServiceNotRunning | O serviço subjacente não está em execução. | Não|
-| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| Não|
+| PlatformInActive | Há um problema com a plataforma. | No|
+| ServiceNotRunning | O serviço subjacente não está em execução. | No|
+| NoConnectionsFoundForGateway | Não existem conexões no gateway. Essa falha é apenas um aviso.| No|
 | ConnectionsNotConnected | As conexões não estão conectadas. Essa falha é apenas um aviso.| Sim|
 | GatewayCPUUsageExceeded | O uso de CPU do gateway atual é > 95%. | Sim |
 
@@ -68,9 +68,9 @@ As tabelas a seguir mostram os diversos tipos de falha (id em resultados da list
 | GatewayNotFound | Não é possível localizar o gateway ou o gateway não está provisionado |Não|
 | PlannedMaintenance | A instância do gateway está em manutenção  |Não|
 | UserDrivenUpdate | Essa falha ocorre quando uma atualização de um usuário está em andamento. A atualização pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | Não |
-| ConnectionEntityNotFound | A configuração da conexão está ausente | Não |
-| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |Não|
+| VipUnResponsive | Essa falha ocorre quando a instância primária do gateway não pode ser acessada devido a uma falha de investigação de integridade. | No |
+| ConnectionEntityNotFound | A configuração da conexão está ausente | No |
+| ConnectionIsMarkedDisconnected | A conexão está marcada como "desconectada" |No|
 | ConnectionNotConfiguredOnGateway | O serviço subjacente não tem a conexão configurada. | Sim |
 | ConnectionMarkedStandby | O serviço subjacente está marcado como em espera.| Sim|
 | Autenticação | Incompatibilidade de chave pré-compartilhada | Sim|
@@ -105,7 +105,7 @@ Os arquivos de log para solução de problemas de recursos são armazenados em u
 > [!NOTE]
 > Em alguns casos, somente um subconjunto dos arquivos de log é gravado no armazenamento.
 
-Para obter instruções sobre como baixar os arquivos de contas de armazenamento do Azure, confira [Introdução ao armazenamento de Blobs do Azure usando o .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Mais informações sobre Gerenciador de Armazenamento podem ser encontradas aqui no seguinte link: [Gerenciador de armazenamento](https://storageexplorer.com/)
+Para obter instruções sobre como baixar arquivos de contas de armazenamento do Azure, consulte Introdução ao [armazenamento de BLOBs do Azure usando o .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Gerenciador de armazenamento. Mais informações sobre Gerenciador de Armazenamento podem ser encontradas aqui no seguinte link: [Gerenciador de armazenamento](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4ccf89a4dcb2c91cfdd96b20d74b7f31596b6249
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650837"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898270"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a configurar um ambiente de desenvolvimento para trabalhar com Azure Machine Learning. Azure Machine Learning é independente da plataforma. O único requisito rígido para seu ambiente de desenvolvimento é o Python 3. Um ambiente isolado como Anaconda ou Virtualenv também é recomendado.
 
@@ -61,7 +61,7 @@ Não há nada para instalar ou configurar para uma instância de computação.  
 
 Para saber mais sobre as instâncias de computação, incluindo como instalar pacotes, consulte [instâncias de computação](concept-compute-instance.md).
 
-Para parar de incorrer em encargos de computação, [interrompa a instância de computação](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+Para parar de incorrer em encargos de computação, [interrompa a instância de computação](tutorial-1st-experiment-bring-data.md#clean-up-resources).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Máquina Virtual de Ciência de Dados
 
@@ -285,7 +285,7 @@ Crie um [cluster do databricks](https://docs.microsoft.com/azure/azure-databrick
 
 Use estas configurações:
 
-| Setting |Aplica-se a| Valor |
+| Configuração |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |always| nomedoseucluster |
 | Databricks Runtime |always|Tempo de execução não ML 6,5 (escala 2,11, Spark 2.4.3) |

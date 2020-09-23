@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 description: Encontre respostas para algumas das perguntas mais comuns sobre o AKS (Serviço de Kubernetes do Azure).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927140"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905337"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -175,6 +175,10 @@ Confirme se a entidade de serviço não expirou.  Confira: [Entidade de serviço
 
 Confirme se a entidade de serviço não expirou.  Confira: [Entidade de serviço do AKS](./kubernetes-service-principal.md) e [Credenciais de atualização do AKS](./update-credentials.md).
 
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>Posso dimensionar meu cluster AKS para zero?
+Você pode [interromper completamente um cluster AKS em execução](start-stop-cluster.md), economizando nos respectivos custos de computação. Além disso, você também pode optar por [dimensionar ou dimensionar automaticamente todos ou `User` pools de nós específicos](scale-cluster.md#scale-user-node-pools-to-0) para 0, mantendo apenas a configuração de cluster necessária.
+Não é possível dimensionar diretamente os [pools de nós do sistema](use-system-pools.md) para 0.
+
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Posso usar as APIs do conjunto de dimensionamento de máquinas virtuais para executar uma operação de escala manual?
 
 Não. Não há suporte para operações de escala por meio das APIs do conjunto de dimensionamento de máquinas virtuais. Use as APIs do AKS (`az aks scale`).
@@ -193,7 +197,7 @@ Não. O AKS é um serviço gerenciado e não há suporte para o processamento do
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>O AKS armazena dados de clientes fora da região do cluster?
 
-O recurso para habilitar o armazenamento de dados do cliente em uma única região está disponível no momento apenas na região do Sudeste Asiático (Cingapura) da área geográfica do Pacífico Asiático. Para todas as outras regiões, os dados do cliente são armazenados em área geográfica.
+O recurso para habilitar o armazenamento de dados do cliente em uma única região está disponível no momento apenas na região do Sudeste Asiático (Cingapura) da área geográfica do Pacífico Asiático. Para todas as outras regiões, os dados do cliente são armazenados na Área geográfica.
 
 <!-- LINKS - internal -->
 
