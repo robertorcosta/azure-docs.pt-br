@@ -1,6 +1,6 @@
 ---
-title: Permissões da função de administrador personalizada disponíveis – Azure AD | Microsoft Docs
-description: Permissões de função de administrador personalizado para delegar o gerenciamento de identidade.
+title: Permissões de função personalizada para registro de aplicativo-Azure AD | Microsoft Docs
+description: Delegar permissões de função de administrador personalizado para gerenciar registros de aplicativo.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732099"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967693"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtipos de registro de aplicativo e permissões no Azure Active Directory
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de registro de aplicativo para funções personalizadas no Azure Active Directory
 
 Este artigo contém as permissões de registro de aplicativo disponíveis no momento para definições de função personalizadas no Azure Active Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Permissões para gerenciar aplicativos de diretório único
+## <a name="permissions-for-managing-single-tenant-applications"></a>Permissões para gerenciar aplicativos de locatário único
 
-Ao escolher as permissões para sua função personalizada, você tem a opção de conceder acesso para gerenciar somente aplicativos de diretório único. Os aplicativos de diretório único estão disponíveis somente para usuários na organização do Azure AD em que o aplicativo está registrado. Os aplicativos de diretório único são definidos como tendo os **tipos de conta com suporte** definidos como "contas neste diretório organizacional somente". Na API do Graph, os aplicativos de diretório único têm a propriedade signInAudience definida como "AzureADMyOrg".
+Ao escolher as permissões para sua função personalizada, você tem a opção de conceder acesso para gerenciar somente aplicativos de locatário único. os aplicativos de locatário único estão disponíveis somente para usuários na organização do Azure AD em que o aplicativo está registrado. os aplicativos de locatário único são definidos como tendo os **tipos de conta com suporte** definidos como "contas neste diretório organizacional somente". Na API do Graph, os aplicativos de locatário único têm a propriedade signInAudience definida como "AzureADMyOrg".
 
-Para conceder acesso para gerenciar somente aplicativos de diretório único, use as permissões abaixo com o subtipo **Applications. MyOrganization**. Por exemplo, Microsoft. Directory/Applications. MyOrganization/Basic/Update.
+Para conceder acesso para gerenciar somente aplicativos de locatário único, use as permissões abaixo com o subtipo **Applications. MyOrganization**. Por exemplo, Microsoft. Directory/Applications. MyOrganization/Basic/Update.
 
 Consulte a [visão geral das funções personalizadas](roles-custom-overview.md) para obter uma explicação do que significa o subtipo de termos gerais, a permissão e o conjunto de propriedades. As informações a seguir são específicas para os registros do aplicativo.
 
@@ -95,7 +95,7 @@ Concede as mesmas permissões que Microsoft. Directory/Applications/Standard/Rea
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. Directory/Applications/myproperties/Update
 
-Capacidade de atualizar todas as propriedades em aplicativos de diretório único e vários diretórios.
+Capacidade de atualizar todas as propriedades em aplicativos de locatário único e multilocatário.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>Microsoft. Directory/Applications. MyOrganization/Propriedade/Update
 
@@ -103,7 +103,7 @@ Concede as mesmas permissões que Microsoft. Directory/Applications/myproperties
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
-Capacidade de atualizar a propriedade de tipo de conta com suporte (signInAudience) em aplicativos de diretório único e vários diretórios.
+Capacidade de atualizar a propriedade de tipo de conta com suporte (signInAudience) em aplicativos de locatário único e multilocatário.
 
 ![Essa permissão concede acesso à propriedade tipo de conta com suporte de registro de aplicativo na página autenticação](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -139,7 +139,7 @@ Capacidade de atualizar as propriedades de certificados e segredos de cliente em
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>Microsoft. Directory/Applications. MyOrganization/Credentials/Update
 
-Concede as mesmas permissões que Microsoft. Directory/Applications/Credentials/Update, mas somente para aplicativos de diretório único.
+Concede as mesmas permissões que Microsoft. Directory/Applications/Credentials/Update, mas somente para aplicativos de locatário único.
 
 #### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 

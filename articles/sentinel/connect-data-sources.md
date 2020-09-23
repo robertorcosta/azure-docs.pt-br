@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 4618bb4ba65c48808bc738b51c90a6fd04f0eca3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659625"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895792"
 ---
 # <a name="connect-data-sources"></a>Conectar fontes de dados
 
@@ -38,6 +38,7 @@ Depois de habilitar o Azure Sentinel, a primeira coisa que você precisa fazer �
 
    ![Próximas etapas para conectores](./media/collect-data/data-insights.png)
  
+
 ## <a name="data-connection-methods"></a>Métodos de conexão de dados
 
 O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
@@ -49,7 +50,7 @@ O Azure Sentinel dá suporte aos métodos de conexão de dados a seguir:
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Microsoft defender para identidade](connect-azure-atp.md) (anteriormente, proteção avançada contra ameaças do Azure)
     - [Proteção de Informações do Azure](connect-azure-information-protection.md)
-    - [Azure defender](connect-azure-security-center.md) (anteriormente a central de segurança do Azure)
+    - [Central de segurança do Azure](connect-azure-security-center.md) -alertas de soluções do Azure defender
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Servidor de nomes de domínio](connect-dns.md)
     - [Office 365](connect-office-365.md)
@@ -135,7 +136,7 @@ Como alternativa, você pode implantar o agente manualmente em uma VM do Azure e
 | WindowsFirewall | [Conectar Firewall do Windows](connect-windows-firewall.md) | &#10003; | |
 | AADIP SecurityAlert  | [Conectar Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
 | AATP SecurityAlert  | [Conectar o Microsoft defender para identidade](connect-azure-atp.md) (anteriormente Azure ATP) | &#10003; | |
-| ASC SecurityAlert  | [Conectar o Azure defender](connect-azure-security-center.md) (anteriormente a central de segurança do Azure)  | &#10003; | |
+| ASC SecurityAlert  | [Conectar alertas do Azure defender](connect-azure-security-center.md) da central de segurança do Azure  | &#10003; | |
 | MCAS SecurityAlert  | [Conectar Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon (Evento) | [Conectar Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conectar Eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Obter o Analisador Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | A coleção do Sysmon não está instalada por padrão em máquinas virtuais. Para obter mais informações sobre como instalar o Agente do Sysmon, confira [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |

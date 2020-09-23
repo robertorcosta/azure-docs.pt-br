@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070489"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967463"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Criar uma conta que dê suporte a chaves gerenciadas pelo cliente para tabelas e filas
 
-O Armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, o armazenamento de filas e o armazenamento de tabelas usam uma chave que tem como escopo o serviço e é gerenciada pela Microsoft. Você também pode optar por usar chaves gerenciadas pelo cliente para criptografar dados de fila ou de tabela. Para usar chaves gerenciadas pelo cliente com filas e tabelas, você deve primeiro criar uma conta de armazenamento que usa uma chave de criptografia com escopo para a conta, e não para o serviço. Depois de criar uma conta que usa a chave de criptografia da conta para dados de fila e tabela, você pode configurar chaves gerenciadas pelo cliente com Azure Key Vault para essa conta de armazenamento.
+O Armazenamento do Azure criptografa todos os dados em uma conta de armazenamento em repouso. Por padrão, o armazenamento de filas e o armazenamento de tabelas usam uma chave que tem como escopo o serviço e é gerenciada pela Microsoft. Você também pode optar por usar chaves gerenciadas pelo cliente para criptografar dados de fila ou de tabela. Para usar chaves gerenciadas pelo cliente com filas e tabelas, você deve primeiro criar uma conta de armazenamento que usa uma chave de criptografia com escopo para a conta, e não para o serviço. Depois de criar uma conta que usa a chave de criptografia da conta para dados de fila e tabela, você pode configurar chaves gerenciadas pelo cliente para essa conta de armazenamento.
 
 Este artigo descreve como criar uma conta de armazenamento que se baseia em uma chave que tem como escopo a conta. Quando a conta é criada pela primeira vez, a Microsoft usa a chave de conta para criptografar os dados na conta e a Microsoft gerencia a chave. Posteriormente, você pode configurar chaves gerenciadas pelo cliente para a conta para aproveitar esses benefícios, incluindo a capacidade de fornecer suas próprias chaves, atualizar a versão da chave, girar as chaves e revogar controles de acesso.
 
@@ -215,11 +215,7 @@ O exemplo de JSON a seguir cria uma conta de armazenamento v2 de uso geral confi
 
 ---
 
-Depois de criar uma conta que dependa da chave de criptografia da conta, consulte um dos artigos a seguir para configurar as chaves gerenciadas pelo cliente com o Azure Key Vault:
-
-- [Configurar chaves gerenciadas pelo cliente com o Azure Key Vault, usando o portal do Azure](storage-encryption-keys-portal.md)
-- [Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando o PowerShell](storage-encryption-keys-powershell.md)
-- [Configurar chaves gerenciadas pelo cliente com Azure Key Vault usando CLI do Azure](storage-encryption-keys-cli.md)
+Depois de criar uma conta que dependa da chave de criptografia da conta, você pode configurar chaves gerenciadas pelo cliente que são armazenadas em Azure Key Vault ou em Key Vault modelo de segurança de hardware gerenciado (HSM) (versão prévia). Para saber como armazenar chaves gerenciadas pelo cliente em um cofre de chaves, consulte [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault](customer-managed-keys-configure-key-vault.md). Para saber como armazenar chaves gerenciadas pelo cliente em um HSM gerenciado, consulte [Configurar a criptografia com chaves gerenciadas pelo cliente armazenadas em Azure Key Vault HSM gerenciado (versão prévia)](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="verify-the-account-encryption-key"></a>Verificar a chave de criptografia da conta
 
@@ -254,5 +250,6 @@ N/D
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md) 
+- [Criptografia do Armazenamento do Azure para dados em repouso](storage-service-encryption.md)
+- [Chaves gerenciadas pelo cliente para criptografia de armazenamento do Azure](customer-managed-keys-overview.md)
 - [O que é Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

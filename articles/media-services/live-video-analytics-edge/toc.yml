@@ -51,6 +51,10 @@
         - name: Com OVMS via extensão HTTP
           displayName: 'intel, OpenVINO'
           href: use-intel-openvino-tutorial.md
+        - name: Usar Visão Personalizada
+          href: custom-vision-tutorial.md
+        - name: Usar a Análise Espacial
+          href: spatial-analysis-tutorial.md
 - name: Exemplos
   items:
     - name: Exemplos de método direto C#
@@ -89,6 +93,8 @@
       href: manage-recording-policy-how-to.md
     - name: Invocar métodos diretos com o portal
       href: use-azure-portal-to-invoke-direct-methods.md
+    - name: Implantar no Azure Stack Edge
+      href: deploy-azure-stack-edge-how-to.md
     - name: Solucionar problemas
       href: troubleshoot-how-to.md
 - name: Referência

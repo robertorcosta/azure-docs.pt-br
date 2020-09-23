@@ -10,15 +10,15 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661630"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897340"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um workspace para o Azure Machine Learning com a CLI do Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a criar um workspace do Azure Machine Learning usando a CLI do Azure. A CLI do Azure fornece comandos para gerenciar recursos do Azure. A extensão de machine learning para a CLI fornece comandos para trabalhar com recursos do Azure Machine Learning.
 
@@ -35,7 +35,7 @@ Neste artigo, você aprenderá a criar um workspace do Azure Machine Learning us
 > [!IMPORTANT]
 > Se você estiver usando o Azure Cloud Shell, ignore esta seção. O Cloud Shell autentica automaticamente você usando a conta que você faz logon em sua assinatura do Azure.
 
-Há várias maneiras de se autenticar em sua assinatura do Azure por meio da CLI. O mais básico é autenticar-se interativamente usando um navegador. Para se autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
+Há várias maneiras de se autenticar em sua assinatura do Azure por meio da CLI. O mais simples é autenticar-se interativamente usando um navegador. Para se autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
 
 ```azurecli-interactive
 az login
@@ -109,9 +109,6 @@ Para obter mais informações sobre como trabalhar com grupos de recursos, confi
 
 Para criar um workspace no qual os __serviços são criados automaticamente__, use o seguinte comando:
 
-> [!TIP]
-> Os comandos desta seção criam um workspace básico de edição. Para criar um workspace corporativo, use a opção `--sku enterprise` com o comando `az ml workspace create`. Para obter mais informações sobre as edições do Azure Machine Learning, consulte [O que é o Azure Machine Learning?](overview-what-is-azure-ml.md#sku).
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -161,7 +158,7 @@ Para obter mais informações sobre como usar um ponto de extremidade privado e 
 
 Por padrão, as métricas e os metadados para o espaço de trabalho são armazenados em uma instância Azure Cosmos DB que a Microsoft mantém. Esses dados são criptografados usando chaves gerenciadas pela Microsoft. 
 
-Se você estiver criando uma versão __empresarial__ do Azure Machine Learning, poderá usar o fornecer sua própria chave. Isso cria a instância de Azure Cosmos DB que armazena métricas e metadados em sua assinatura do Azure. Use o `--cmk-keyvault` parâmetro para especificar o Azure Key Vault que contém a chave e `--resource-cmk-uri` para especificar a URL da chave no cofre.
+Em vez de usar a chave gerenciada pela Microsoft, você pode usar o fornecer sua própria chave. Isso cria a instância de Azure Cosmos DB que armazena métricas e metadados em sua assinatura do Azure. Use o `--cmk-keyvault` parâmetro para especificar o Azure Key Vault que contém a chave e `--resource-cmk-uri` para especificar a URL da chave no cofre.
 
 > [!IMPORTANT]
 > Antes de usar `--cmk-keyvault` os `--resource-cmk-uri` parâmetros e, você deve primeiro executar as seguintes ações:

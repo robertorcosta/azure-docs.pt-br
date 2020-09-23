@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de política
 description: Descreve a definição de atribuição de política usada por Azure Policy para relacionar definições de política e parâmetros a recursos para avaliação.
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520706"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904085"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -61,7 +61,7 @@ A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o res
 
 Essa propriedade tem os seguintes valores:
 
-|Mode |Valor JSON |Type |Corrigir manualmente |Entrada do log de atividades |Descrição |
+|Modo |Valor JSON |Tipo |Corrigir manualmente |Entrada do log de atividades |Descrição |
 |-|-|-|-|-|-|
 |habilitado |Padrão |string |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
 |Desabilitado |DoNotEnforce |string |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
@@ -70,7 +70,10 @@ Se **imposiçãomode** não for especificado em uma definição de política ou 
 
 ## <a name="excluded-scopes"></a>Escopos excluídos
 
-O **escopo** da atribuição inclui todos os contêineres de recursos filho e recursos filho. Se um contêiner de recursos filho ou um recurso filho não deve ter a definição aplicada, cada um pode ser excluído da avaliação definindo não **escopos**. Essa propriedade é uma matriz para habilitar a exclusão de um ou mais contêineres de recursos ou recursos da avaliação. os não **escopos** podem ser adicionados ou atualizados após a criação da atribuição inicial.
+O **escopo** da atribuição inclui todos os contêineres de recursos filho e recursos filho. Se um contêiner de recursos filho ou um recurso filho não deve ter a definição aplicada, cada um pode ser _excluído_ da avaliação definindo não **escopos**. Essa propriedade é uma matriz para habilitar a exclusão de um ou mais contêineres de recursos ou recursos da avaliação. os não **escopos** podem ser adicionados ou atualizados após a criação da atribuição inicial.
+
+> [!NOTE]
+> Um recurso _excluído_ é diferente de um recurso _isento_ . Para obter mais informações, consulte [entender o escopo em Azure Policy](./scope.md).
 
 ## <a name="policy-definition-id"></a>ID de definição de política
 

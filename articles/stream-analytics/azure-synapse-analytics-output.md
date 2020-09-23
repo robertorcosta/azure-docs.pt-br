@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 5d281bf33542354e2904805deed2f1deaf2725a2
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875571"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90881886"
 ---
-# <a name="azure-synapse-analytics-output-from-azure-stream-analytics-preview"></a>Saída do Azure Synapse Analytics de Azure Stream Analytics (versão prévia)
+# <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Saída do Azure Synapse Analytics de Azure Stream Analytics
 
 O [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (anteriormente, SQL Data Warehouse) é um serviço de análise ilimitado que reúne o data warehouse empresarial e a análise de Big Data. 
 
@@ -44,4 +44,4 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
 * [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)
+* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

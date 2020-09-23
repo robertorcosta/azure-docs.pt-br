@@ -1,6 +1,6 @@
 ---
-title: Usando o banco de dados SQL DACPAC e pacotes BACPAC-Azure SQL Edge (versão prévia)
-description: Saiba mais sobre como usar o dacpacs e o bacpacs no Azure SQL Edge (versão prévia)
+title: Usando o banco de dados SQL DACPAC e pacotes BACPAC-Azure SQL Edge
+description: Saiba como usar o dacpacs e o bacpacs no Azure SQL Edge
 keywords: SQL no Edge, sqlpackage
 services: sql-edge
 ms.service: sql-edge
@@ -9,37 +9,29 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 52c8e9586d8ee53cdaac28cb1c48d2927d82c2ed
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6c8be6e67b1d7b919d6ea221c473c8975e559658
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462751"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887483"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Pacotes DACPAC e BACPAC do banco de dados SQL no SQL Edge
 
-O SQL do Azure no Edge (versão prévia) é um mecanismo de banco de dados relacional otimizado projetado para implantações de IoT e de borda. Ele foi criado com base nas versões mais recentes do Mecanismo de Banco de Dados do Microsoft SQL Server, que fornece funcionalidades de desempenho, segurança e processamento de consulta líderes do setor. Juntamente com as funcionalidades de gerenciamento de banco de dados relacional líderes do setor do SQL Server, o SQL do Azure no Edge fornece a funcionalidade de streaming interno para análise em tempo real e processamento de eventos complexos.
+O SQL do Azure no Edge é um mecanismo otimizado de banco de dados relacional projetado para implantações de IoT e borda. Ele foi criado com base nas versões mais recentes do Microsoft SQL Mecanismo de Banco de Dados, que fornece recursos de desempenho, segurança e processamento de consulta líderes do setor. Juntamente com as funcionalidades de gerenciamento de banco de dados relacional líderes do setor do SQL Server, o SQL do Azure no Edge fornece a funcionalidade de streaming interno para análise em tempo real e processamento de eventos complexos.
 
-O Azure SQL Edge também fornece uma implementação nativa de SqlPackage.exe que permite que você implante um [banco de dados SQL DACPAC e](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) um pacote BACPAC durante a implantação do SQL Edge. Os dacpacs do Banco de Dados SQL podem ser implantados no SQL no Edge usando o parâmetro SqlPackage exposto por meio da opção `module twin's desired properties` do módulo do SQL no Edge:
+O Azure SQL Edge também fornece uma implementação nativa de SqlPackage.exe que permite que você implante um [banco de dados SQL DACPAC e](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) um pacote BACPAC durante a implantação do SQL Edge. 
 
-```json
-{
-    "properties.desired":
-    {
-        "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-        "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-    }
-}
-```
-
-|Campo | Descrição |
-|------|-------------|
-| SqlPackage | URI do armazenamento de BLOBs do Azure para o arquivo *. zip* que contém o DAC ou o pacote BACPAC do banco de dados SQL. O arquivo zip pode conter vários pacotes de DAC ou arquivos bacpac.
-| ASAJobInfo | URI de armazenamento de blobs do Azure para o trabalho do ASA no Edge.
+Os pacotes dacpac e bacpac do banco de dados SQL podem ser implantados no SQL Edge usando a `MSSQL_PACKAGE` variável de ambiente. A variável de ambiente pode ser configurada com qualquer um dos seguintes.  
+- Um local de pasta local dentro do contêiner SQL que contém os arquivos dacpac e bacpac. Essa pasta pode ser mapeada para um volume de host usando pontos de montagem ou contêineres de volume de dados. 
+- Um caminho de arquivo local dentro do mapeamento do contêiner SQL para o dacpac ou o arquivo bacpac. Esse caminho de arquivo pode ser mapeado para um volume de host usando pontos de montagem ou contêineres de volume de dados. 
+- Um caminho de arquivo local dentro do mapeamento do contêiner SQL para um arquivo zip que contém os arquivos dacpac ou bacpac. Esse caminho de arquivo pode ser mapeado para um volume de host usando pontos de montagem ou contêineres de volume de dados. 
+- Uma URL SAS de blob do Azure para um arquivo zip que contém o dacpac e os arquivos bacpac.
+- Uma URL SAS de blob do Azure para um dacpac ou um arquivo bacpac. 
 
 ## <a name="use-a-sql-database-dac-package-with-sql-edge"></a>Usar um pacote de DAC do Banco de Dados SQL com o SQL no Edge
 
-Para usar um pacote de DAC do banco de dados SQL `(*.dacpac)` ou um arquivo BACPAC `(*.bacpac)` com o SQL Edge, siga estas etapas:
+Para implantar (ou importar) um pacote de DAC do banco de dados SQL `(*.dacpac)` ou um arquivo BACPAC `(*.bacpac)` usando o armazenamento de BLOBs do Azure e um arquivo zip, siga as etapas abaixo. 
 
 1. Crie/Extraia um pacote de DAC ou exporte um arquivo Bacpac usando o mecanismo mencionado abaixo. 
     - Crie ou extraia um pacote de DAC do Banco de Dados SQL. Consulte [Extrair um DAC de um banco de dados](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) para obter informações sobre como gerar um pacote de DAC para um banco de dados do SQL Server existente.
@@ -59,34 +51,22 @@ Para usar um pacote de DAC do banco de dados SQL `(*.dacpac)` ou um arquivo BACP
 
     4. Na página de dispositivos **Dispositivo do IoT Edge**, selecione **Definir Módulo**.
 
-    5. Na página **Definir módulos**, selecione **Configurar** no módulo do SQL no Edge.
+    5. Na página **definir módulos** e clique no módulo Azure SQL Edge.
 
-    6. No painel **Módulos Personalizados do IoT Edge**, selecione **Definir propriedades desejadas do módulo gêmeo**. Atualize as propriedades desejadas para incluir o URI da opção `SQLPackage`, conforme mostrado no exemplo a seguir.
+    6. No painel **atualizar IOT Edge módulo** , selecione **variáveis de ambiente**. Adicione a `MSSQL_PACKAGE` variável de ambiente e especifique a URL SAS gerada na etapa 3 acima como o valor para a variável de ambiente. 
 
-        > [!NOTE]
-        > O URI do SAS no JSON a seguir é apenas um exemplo. Substitua o URI pelo URI real da sua implantação.
+    7. Selecione **Atualização**.
 
-        ```json
-            {
-                "properties.desired":
-                {
-                    "SqlPackage": "<<<SAS URL for the *.zip file containing the dacpac and/or the bacpac files",
-                }
-            }
-        ```
+    8. Na página **definir módulos** , selecione **revisar + criar**.
 
-    7. Clique em **Salvar**.
+    9. Na página **definir módulos** , selecione **criar**.
 
-    8. Na página **Definir módulos**, selecione **Avançar**.
+5. Após a atualização do módulo, os arquivos de pacote são baixados, descompactados e implantados na instância do SQL Edge.
 
-    9. Na página **Definir módulos**, selecione **Avançar** e **Enviar**.
-
-5. Após a atualização do módulo, o arquivo de pacote é baixado, descompactado e implantado na instância do SQL Edge.
-
-Em cada reinicialização do contêiner do Azure SQL Edge, o `*.dacpac` pacote de arquivos é baixado e avaliado quanto a alterações. Se uma nova versão do arquivo dacpac for encontrada, as alterações serão implantadas no banco de dados no SQL no Edge. Arquivos Bacpac 
+Em cada reinicialização do contêiner do Azure SQL Edge, o SQL Edge tenta baixar o pacote de arquivo compactado e avaliar as alterações. Se uma nova versão do arquivo dacpac for encontrada, as alterações serão implantadas no banco de dados no SQL no Edge.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Implantar o SQL no Edge por meio do portal do Azure](deploy-portal.md).
 - [Transmitir dados](stream-data.md)
-- [Machine learning e IA com o ONNX no SQL no Edge (versão prévia)](onnx-overview.md)
+- [Machine learning e IA com o ONNX no SQL no Edge](onnx-overview.md)

@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888947"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerenciar pools de nós do sistema no serviço kubernetes do Azure (AKS)
 
-No AKS (serviço kubernetes do Azure), os nós da mesma configuração são agrupados em *pools de nós*. Os pools de nós contêm as VMs subjacentes que executam seus aplicativos. Os pools de nó do sistema e os pools de nó do usuário são dois modos de pool de nó diferentes para seus clusters AKS. Os pools de nó do sistema servem a principal finalidade de hospedar pods críticos do sistema, como CoreDNS e tunnelfront. Os pools de nó de usuário servem a principal finalidade de hospedar o pods do aplicativo. No entanto, os pods de aplicativo podem ser agendados em pools de nós do sistema se você quiser ter apenas um pool no cluster AKS. Cada cluster AKS deve conter pelo menos um pool de nós do sistema com pelo menos um nó.
+No AKS (serviço kubernetes do Azure), os nós da mesma configuração são agrupados em *pools de nós*. Os pools de nós contêm as VMs subjacentes que executam seus aplicativos. Os pools de nó do sistema e os pools de nó do usuário são dois modos de pool de nó diferentes para seus clusters AKS. Os pools de nós do sistema atendem à principal finalidade de hospedar pods críticos do sistema, como `CoreDNS` e `metrics-server` . Os pools de nó de usuário servem a principal finalidade de hospedar o pods do aplicativo. No entanto, os pods de aplicativo podem ser agendados em pools de nós do sistema se você quiser ter apenas um pool no cluster AKS. Cada cluster AKS deve conter pelo menos um pool de nós do sistema com pelo menos um nó.
 
 > [!Important]
 > Se você executar um pool de nós de sistema único para o cluster AKS em um ambiente de produção, recomendamos que você use pelo menos três nós para o pool de nós.
@@ -164,13 +164,13 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > Para usar pools de nó de sistema em clusters AKS antes da versão de API 2020-03-02, adicione um novo pool de nós do sistema e, em seguida, exclua o pool de nós padrão original.
 
-Anteriormente, você não podia excluir o pool de nós do sistema, que era o pool de nós padrão inicial em um cluster AKS. Agora você tem a flexibilidade de excluir qualquer pool de nós de seus clusters. Como os clusters AKS exigem pelo menos um pool de nós do sistema, você deve ter pelo menos dois pools de nó do sistema no cluster AKS antes de poder excluir um deles.
+Você deve ter pelo menos dois pools de nós do sistema no cluster AKS antes de poder excluir um deles.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para excluir o cluster, use o comando [AZ Group Delete][az-group-delete] para excluir o grupo de recursos AKs:
 

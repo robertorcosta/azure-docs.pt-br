@@ -11,15 +11,15 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141118"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897413"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com o Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá sobre os limites pré-configurados dos recursos do Azure para sua assinatura [Azure Machine Learning](overview-what-is-azure-ml.md) e quais cotas você pode gerenciar. Esses limites são estabelecidos para evitar estouros de orçamento devido a fraudes e respeitar as restrições de capacidade do Azure. 
 
@@ -99,8 +99,6 @@ Para definir cotas no nível do workspace, acesse qualquer workspace em sua assi
 
 
 > [!NOTE]
-> Esse é um recurso somente da Edição Enterprise. Se tiver um workspace da [Edição Básica ou Enterprise](overview-what-is-azure-ml.md#sku) em sua assinatura, você poderá usar isso para definir apenas cotas em seus workspaces corporativos. Seus workspaces básicos continuarão a ter a cota de nível de assinatura, que é o comportamento padrão.
->
 > Você precisa de permissões de nível de assinatura para definir a cota no nível do workspace. Isso é imposto para que os proprietários de workspaces individuais não editem ou aumentem suas cotas e comecem a interferir em recursos separados para outro workspace. Portanto, um administrador de assinatura é quem tem mais capacidade para alocar e distribuir essas cotas entre workspaces.
 
 

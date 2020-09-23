@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895381"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -77,7 +77,7 @@ Use **displayName** e **description** para identificar a definição de polític
 > [!NOTE]
 > Durante a criação ou a atualização de uma definição de política, **id**, **type** e **name** são definidos por propriedades externas ao JSON e não são necessários no arquivo JSON. O fetch da definição de política por meio do SDK retorna a as propriedades **id**, **type** e **name** como parte do JSON, mas cada uma delas é uma informação somente leitura relacionada à definição de política.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Embora a propriedade **Type** não possa ser definida, há três valores que são retornados pelo SDK e visíveis no Portal:
 
@@ -206,8 +206,10 @@ Durante a criação de uma iniciativa ou política, é necessário especificar o
 
 Se o local da definição for:
 
-- **Assinatura**: somente os recursos dentro dessa assinatura podem ser atribuídos à política.
-- **Grupo de gerenciamento**: somente os recursos dentro de grupos de gerenciamento secundários e assinaturas secundárias podem ser atribuídos à política. Se você planeja aplicar a definição de política a várias assinaturas, o local deve ser um grupo de gerenciamento que contém a assinatura.
+- Os recursos somente de **assinatura** dentro dessa assinatura podem ser atribuídos à definição de política.
+- Recursos somente de **grupo de gerenciamento** dentro de grupos de gerenciamento filho e assinaturas filho podem ser atribuídos à definição de política. Se você planeja aplicar a definição de política a várias assinaturas, o local deve ser um grupo de gerenciamento que contém cada assinatura.
+
+Para obter mais informações, consulte [entender o escopo em Azure Policy](./scope.md#definition-location).
 
 ## <a name="policy-rule"></a>Regra de política
 
@@ -576,16 +578,16 @@ Todas as [funções de modelo do Resource Manager](../../../azure-resource-manag
 A função a seguir está disponível para uso em uma regra de política, mas difere do uso em um modelo de Azure Resource Manager (modelo ARM):
 
 - `utcNow()` -Ao contrário de um modelo de ARM, essa propriedade pode ser usada fora do _DefaultValue_.
-  - Retorna uma cadeia de caracteres que é definida com a data e a hora atuais no formato DateTime universal ISO 8601 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - Retorna uma cadeia de caracteres que é definida como a data e a hora atuais no formato universal ISO 8601 DateTime `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 As seguintes funções estão disponíveis apenas em regras de política:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime**: [obrigatório] cadeia de caracteres; cadeia de caracteres no formato DateTime universal ISO 8601 'yyyy-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: [obrigatório] inteiro; número de dias a ser adicionado
+  - **DateTime**: [Required] String-String no formato de data/hora Universal ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
+  - **numberOfDaysToAdd**: [obrigatório] número inteiro de dias para adicionar.
 - `field(fieldName)`
   - **fieldName**: [obrigatório] cadeia de caracteres; nome do [field](#fields) a ser recuperado
-  - Retorna o valor desse campo do recurso que está sendo avaliado pela condição If
+  - Retorna o valor desse campo do recurso que está sendo avaliado pela condição if.
   - `field` é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Retorna a versão da API da solicitação que disparou a avaliação da política (exemplo: `2019-09-01`).

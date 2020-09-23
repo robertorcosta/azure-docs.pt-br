@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75354429"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903837"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implantar um trabalho do Azure Stream Analytics com CI/CD usando o Azure Pipelines
 Esse tutorial descreve como configurar a integração e a implantação contínua para um trabalho do Azure Stream Analytics usando o Azure Pipelines. 
@@ -26,8 +26,12 @@ Neste tutorial, você aprenderá como:
 > * Criar um pipeline de lançamento no Azure Pipelines
 > * Implantar e atualizar automaticamente um aplicativo
 
+> [!NOTE]
+> A CI/CD do NuGet está sendo preterida. Para obter informações sobre como migrar para o npm mais recente, confira a [Visão geral de integração e implantação contínuas](cicd-overview.md)
+
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, verifique se você tem:
+
+Antes de começar, execute as seguintes etapas:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e as cargas de trabalho de **Desenvolvimento do Azure** ou **Armazenamento e processamento de dados**.
@@ -63,9 +67,9 @@ Compartilhe os arquivos de origem do aplicativo em um projeto no Azure DevOps pa
     A publicação do repositório cria um novo projeto na sua organização com o mesmo nome do repositório local. Para criar o repositório em um projeto existente, clique em **Avançado** ao lado do nome do **Repositório** e escolha um projeto. Você pode exibir seu código no navegador escolhendo **Vê-lo na Web**.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurar entrega contínua com o Azure DevOps
-Um pipeline de build do Azure Pipelines descreve um fluxo de trabalho composto por etapas de build que são executadas sequencialmente. Saiba mais sobre os [pipelines de build do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
+Um pipeline de build do Azure Pipelines descreve um fluxo de trabalho composto por etapas de build que são executadas sequencialmente. Saiba mais sobre os [pipelines de build do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
 
-Um pipeline de lançamento do Azure Pipelines descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usados juntos, o pipeline de lançamento e o pipeline de build executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre os [pipelines de lançamento](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) do Azure Pipelines.
+Um pipeline de lançamento do Azure Pipelines descreve um fluxo de trabalho que implanta um pacote de aplicativos em um cluster. Quando usados juntos, o pipeline de lançamento e o pipeline de build executam todo o fluxo de trabalho, começando com os arquivos de origem e terminando com um aplicativo em execução em seu cluster. Saiba mais sobre os [pipelines de lançamento](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true) do Azure Pipelines.
 
 ### <a name="create-a-build-pipeline"></a>Criar um pipeline de build
 Abra um navegador da Web e navegue até o projeto que você acabou de criar no [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -121,7 +125,7 @@ Abra um navegador da Web e navegue até o projeto que você acabou de criar no [
     |Grupo de recursos  |  Insira um nome de grupo de recursos.   |
     |Modelo  | [O caminho da sua solução]\bin\Debug\Deploy\\[O nome do seu projeto].JobTemplate.json   |
     |Parâmetros de modelo  | [O caminho da sua solução]\bin\Debug\Deploy\\[O nome do seu projeto].JobTemplate.parameters.json   |
-    |Substituir parâmetros de modelo  | Digite os parâmetros de modelo para substituir a na caixa de texto. Exemplo, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Essa propriedade é opcional, mas seu build apresentará erros se parâmetros principais não forem substituídos.    |
+    |Substituir parâmetros de modelo  | Digite os parâmetros de modelo para substituir a na caixa de texto. Exemplo, `–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)`. Essa propriedade é opcional, mas seu build apresentará erros se parâmetros principais não forem substituídos.    |
     
     ![Defina propriedades para a Implantação do Grupo de Recursos do Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
@@ -151,7 +155,7 @@ O push das alterações para o Azure DevOps Services dispara um build automatica
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, poderá interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste tutorial usando as seguintes etapas:
+Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste tutorial usando as seguintes etapas:
 
 1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado.  
 2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
