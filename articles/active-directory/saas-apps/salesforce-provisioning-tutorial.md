@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 66bba0d4825300a6cead2453a67518af631234b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543497"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979781"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
 
@@ -67,7 +67,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![provisionamento](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a página de provisionamento do Salesforce, com o modo de provisionamento definido como automático e outros valores que você pode definir.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
 

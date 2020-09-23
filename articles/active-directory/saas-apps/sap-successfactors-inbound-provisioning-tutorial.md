@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 62716d5061d7c5e6ed8c64a0ce00a780f35c10be
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017992"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979840"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: configurar o SAP SuccessFactors para Active Directory provisionamento de usuário 
 O objetivo deste tutorial é mostrar as etapas que você precisa executar para provisionar usuários do SuccessFactors Employee central no Active Directory (AD) e no Azure AD, com write-back opcional de endereço de email para SuccessFactors. 
@@ -234,7 +234,7 @@ Transfira o instalador do agente baixado para o host do servidor e siga as etapa
    
 1. Verifique a instalação do Agente e verifique se ele está em execução abrindo o Snap-In de “Serviços” e procurando pelo Serviço chamado “Agente de Provisionamento do Microsoft Azure AD Connect”
   
-   ![Captura de tela do agente de provisionamento do Microsoft Azure AD Connect em execução em serviços](./media/workday-inbound-tutorial/services.png)
+   ![Captura de tela do agente de provisionamento do Microsoft Azure AD Connect em execução em serviços.](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Parte 3: no aplicativo de provisionamento, configure a conectividade com o SuccessFactors e o Active Directory
 Nesta etapa, estabelecemos a conectividade com SuccessFactors e Active Directory no portal do Azure. 
