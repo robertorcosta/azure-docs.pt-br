@@ -1,6 +1,6 @@
 ---
 title: Instalar o TmaxSoft OpenFrame em máquinas virtuais do Azure
-description: Rehospede suas cargas de trabalho de mainframe do IBM z/OS usando o ambiente TmaxSoft OpenFrame em VMs (máquinas virtuais) do Azure.
+description: Saiba como configurar um ambiente OpenFrame no Azure adequado para desenvolvimento, demonstrações, testes ou cargas de trabalho de produção.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987480"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 
@@ -460,7 +460,7 @@ Para instalar o ODBC:
 
      Por padrão, o unixODBC é instalado em/usr/local, portanto, `--prefix` passa um valor para alterar o local. Da mesma forma, os arquivos de configuração são instalados em/etc por padrão, portanto, `--sysconfdir` passa o valor do local desejado.
 
-4. Executar makefile:`[oframe7@ofdemo unixODBC-2.3.4]$ make`
+4. Executar makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
 5. Copie o arquivo executável no diretório do programa após a compilação. Por exemplo:
 
@@ -945,7 +945,7 @@ O sortimento é um utilitário usado em transações em lote para classificar da
      export PATH
      ```
 
-6. Para executar o perfil bash, no prompt de comando, digite:`. .bash_profile`
+6. Para executar o perfil bash, no prompt de comando, digite: `. .bash_profile`
 
 7. Crie o arquivo de configuração. Por exemplo:
 

@@ -1,6 +1,6 @@
 ---
-title: Monitorar seu dispositivo do Azure Stack Edge por meio do painel do kubernetes | Microsoft Docs
-description: Descreve como acessar e usar o painel do kubernetes para monitorar seu dispositivo do Azure Stack Edge.
+title: Monitorar seu dispositivo pro Edge Azure Stack por meio do painel do kubernetes | Microsoft Docs
+description: Descreve como acessar e usar o painel do kubernetes para monitorar seu dispositivo pro Edge Azure Stack.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297800"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899207"
 ---
-# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Use o painel do kubernetes para monitorar seu Azure Stack dispositivo de GPU de borda
+# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Use o painel do kubernetes para monitorar seu dispositivo de GPU pro do Azure Stack Edge
 
-Este artigo descreve como acessar e usar o painel do kubernetes para monitorar o dispositivo de GPU do Azure Stack Edge. Para monitorar seu dispositivo, você pode usar gráficos no portal do Azure, exibir o painel do kubernetes ou executar `kubectl` comandos por meio da interface do PowerShell do dispositivo. 
+Este artigo descreve como acessar e usar o painel do kubernetes para monitorar seu dispositivo de GPU pro do Azure Stack Edge. Para monitorar seu dispositivo, você pode usar gráficos no portal do Azure, exibir o painel do kubernetes ou executar `kubectl` comandos por meio da interface do PowerShell do dispositivo. 
 
 Este artigo se concentra apenas nas tarefas de monitoramento que podem ser executadas no painel do kubernetes.
 
@@ -35,7 +35,7 @@ Neste artigo, você aprenderá como:
 
 O painel do kubernetes é uma interface do usuário baseada na Web que você pode usar para solucionar problemas de seus aplicativos em contêineres. O painel do kubernetes é uma alternativa baseada na interface do usuário para a `kubectl` linha de comando kubernetes. Para obter mais informações, consulte [painel do kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-No dispositivo Azure Stack Edge, você pode usar o painel do kubernetes no modo *somente leitura* para obter uma visão geral dos aplicativos em execução no dispositivo Azure Stack Edge, exibir o status dos recursos do cluster kubernetes e ver os erros que ocorreram no dispositivo.
+No dispositivo Azure Stack Edge pro, você pode usar o painel do kubernetes no modo *somente leitura* para obter uma visão geral dos aplicativos em execução no dispositivo pro Azure Stack Edge, exibir o status dos recursos de cluster do kubernetes e ver os erros que ocorreram no dispositivo.
 
 ## <a name="access-dashboard"></a>Painel do Access
 
@@ -54,19 +54,19 @@ O painel do kubernetes é *somente leitura* e é executado no nó mestre kuberne
     1. Selecione as reticências **...**. Procure e aponte para o `kubeconfig` que você baixou anteriormente no sistema local. Escolha **Entrar**.
         ![Navegue até o arquivo kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
-6. Agora você pode exibir o painel do kubernetes para seu dispositivo de borda Azure Stack no modo somente leitura.
+6. Agora você pode exibir o painel do kubernetes para seu dispositivo pro Edge Azure Stack no modo somente leitura.
 
     ![Página principal do painel kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-main-page-1.png)
 
 ## <a name="view-module-status"></a>Exibir status do módulo
 
-Os módulos de computação são contêineres que têm uma lógica de negócios implementada. Você pode usar o painel para verificar se um módulo de computação foi implantado com êxito em seu dispositivo de Azure Stack Edge.
+Os módulos de computação são contêineres que têm uma lógica de negócios implementada. Você pode usar o painel para verificar se um módulo de computação foi implantado com êxito em seu dispositivo Azure Stack Edge pro.
 
 PARA exibir o status do módulo, siga estas etapas no painel:
 
 1. No painel esquerdo do painel, vá para **namespace**. Filtre pelo namespace onde IoT Edge módulos são exibidos, nesse caso, **iotedge**.
 1. No painel esquerdo, vá para cargas de **trabalho > implantações**.
-1. No painel direito, você verá todos os módulos implantados em seu dispositivo. Nesse caso, um módulo GettingStartedWithGPU foi implantado na borda Azure Stack. Você pode ver que o módulo foi implantado.
+1. No painel direito, você verá todos os módulos implantados em seu dispositivo. Nesse caso, um módulo GettingStartedWithGPU foi implantado no Azure Stack Edge pro. Você pode ver que o módulo foi implantado.
 
     ![Exibir implantação de módulo](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-module-deployment-1.png)
 
@@ -81,7 +81,7 @@ Para obter o endereço IP, siga estas etapas no painel:
 
 1. No painel esquerdo do painel, vá para **namespace**. Filtre pelo namespace em que um serviço externo é implantado, nesse caso, **iotedge**.
 1. No painel esquerdo, vá para **descoberta e balanceamento de carga > serviços**.
-1. No painel direito, você verá todos os serviços que estão em execução no `iotedge` namespace em seu dispositivo Azure Stack Edge.
+1. No painel direito, você verá todos os serviços que estão em execução no `iotedge` namespace em seu dispositivo Azure Stack Edge pro.
 
     ![Obter o IP para serviços externos](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-get-ip-external-service-1.png)
 
@@ -104,7 +104,7 @@ Para exibir os logs de contêiner, siga estas etapas no painel:
 
 ## <a name="view-cpu-memory-usage"></a>Exibir CPU, uso de memória
 
-O painel do kubernetes para o dispositivo Azure Stack Edge também tem um [complemento do servidor de métricas](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) que agrega o uso de CPU e de memória entre os recursos do kubernetes.
+O painel do kubernetes para o dispositivo Azure Stack Edge pro também tem um [complemento do servidor de métricas](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) que agrega o uso de CPU e de memória entre os recursos do kubernetes.
  
 Por exemplo, você pode exibir a CPU e a memória consumidas entre implantações em todos os namespaces. 
 

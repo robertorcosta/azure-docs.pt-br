@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: da48b593b8f645566b2f9775fabc5d8e62e625b6
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8b07d19ca88a2d680a4f9efbb85fcf60b895a2b3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661568"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907590"
 ---
 # <a name="submit-a-training-run-to-a-compute-target"></a>Enviar uma execução de treinamento para um destino de computação
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a usar vários ambientes de treinamento ([destinos de computação](concept-compute-target.md)) para treinar seu modelo de aprendizado de máquina.
 

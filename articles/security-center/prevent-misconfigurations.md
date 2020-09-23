@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: ceafbe1fd1682fc5e92ab3048ed09866fb9ebbdf
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570417"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906390"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Evitar configurações incorretas com recomendações de aplicação/negação
 
@@ -24,10 +24,9 @@ Esse recurso pode ajudar a manter suas cargas de trabalho seguras e estabilizar 
 A imposição de uma configuração segura, com base em uma recomendação específica, é oferecida em dois modos:
 
 - Usando o efeito de **negação** de Azure Policy, você pode interromper a criação de recursos não íntegros
-
 - Usando a opção **impor** , você pode aproveitar o efeito de **DeployIfNotExist** da política do Azure e corrigir automaticamente os recursos sem conformidade após a criação
- 
-Isso está disponível para as recomendações de segurança selecionadas e pode ser encontrado na parte superior da página de detalhes do recurso.
+
+Isso pode ser encontrado na parte superior da página de detalhes do recurso para obter as recomendações de segurança selecionadas (consulte [recomendações com as opções Deny/Force](#recommendations-with-denyenforce-options)).
 
 ## <a name="prevent-resource-creation"></a>Impedir a criação de recursos
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3455503570d09daedc5e34cba0bf36d71ddcdcbc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120636"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988105"
 ---
 # <a name="hyperscale-service-tier"></a>Tipo de serviço de Hiperescala
 
@@ -228,7 +228,7 @@ Essas são as limitações atuais da camada de serviço de hiperescala a partir 
 | Migração para Hiperescala é, no momento, uma operação unidirecional | Depois que um banco de dados é migrado para o subdimensionamento, ele não pode ser migrado diretamente para uma camada de serviço não hiperescala. No momento, a única maneira de migrar um banco de dados de hiperescala para não hiperescala é exportar/importar usando um arquivo bacpac ou outras tecnologias de movimentação de dados (cópia em massa, Azure Data Factory, Azure Databricks, SSIS etc.) Exportação/importação de Bacpac do portal do Azure, do PowerShell usando [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) ou [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), de CLI do Azure usando [AZ SQL DB Export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) e [AZ SQL DB Import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)e da [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) não tem suporte. A importação/exportação de Bacpac para bancos de dados de hiperescala menores (até 200 GB) é suportada usando o SSMS e [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) versão 18,4 e posterior. Para bancos de dados maiores, a exportação/importação de bacpac pode levar muito tempo e pode falhar por vários motivos.|
 | Migração de bancos de dados com objetos OLTP na memória | O hiperscale dá suporte a um subconjunto de objetos OLTP na memória, incluindo tipos de tabela com otimização de memória, variáveis de tabela e módulos compilados nativamente. No entanto, quando qualquer tipo de objeto OLTP na memória estiver presente no banco de dados que está sendo migrado, não haverá suporte para a migração de camadas de serviço Premium e Comercialmente Crítico para hiperescala. Para migrar esse banco de dados para um subdimensionamento, todos os objetos OLTP na memória e suas dependências devem ser descartados. Depois que o banco de dados é migrado, esses objetos podem ser recriados. Tabelas duráveis e não duráveis com otimização de memória não têm suporte no momento em hiperescala e devem ser recriadas como tabelas de disco.|
 | Replicação geográfica  | Você ainda não pode configurar a replicação geográfica para a hiperescala do banco de dados SQL do Azure. |
-| Cópia de banco de dados | Você ainda não pode usar a cópia de banco de dados para criar um novo banco de dados na hiperescala do SQL do Azure. |
+| Cópia de banco de dados | A cópia do banco de dados em hiperescala agora está em visualização pública. |
 | Integração do TDE/AKV | A criptografia de banco de dados transparente usando Azure Key Vault (comumente conhecida como traga sua própria chave ou BYOK) está em visualização no momento. |
 | Recursos de banco de dados inteligente | Com exceção da opção "forçar plano", todas as outras opções de ajuste automático ainda não têm suporte em hiperescala: as opções podem parecer estar habilitadas, mas não haverá recomendações ou ações feitas. |
 | Insights de Desempenho de Consulta | No momento, não há suporte para informações de desempenho de consulta para bancos de dados de hiperescala. |

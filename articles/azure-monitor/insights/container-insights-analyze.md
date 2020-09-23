@@ -3,12 +3,12 @@ title: Kubernetes monitoramento com Azure Monitor para contêineres | Microsoft 
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166630"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988136"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorar o desempenho do cluster kubernetes com Azure Monitor para contêineres
 
@@ -69,20 +69,20 @@ A tabela a seguir fornece uma análise do cálculo que controla os Estados de in
 | Cluster monitorado |Status |Disponibilidade |
 |-------|-------|-----------------|
 |**Pod do usuário**| | |
-| |Healthy |100% |
+| |Íntegros |100% |
 | |Aviso |90 – 99% |
 | |Crítico |<90% |
-| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
 |**Pod do sistema**| | |
-| |Healthy |100% |
+| |Íntegros |100% |
 | |Aviso |N/D |
 | |Crítico |<100% |
-| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
 |**Nó** | | |
-| |Healthy |>85% |
+| |Íntegros |>85% |
 | |Aviso |60 – 84% |
 | |Crítico |<60% |
-| |Desconhecido |Se não tiver sido relatado nos últimos 30 minutos |
+| |Unknown |Se não tiver sido relatado nos últimos 30 minutos |
 
 Na lista de clusters, você pode fazer uma busca detalhada na página do **cluster** selecionando o nome do cluster. Em seguida, vá para a página de desempenho de **nós** selecionando o acúmulo de nós na coluna **nós** para esse cluster específico. Ou, você pode fazer uma busca detalhada na página de desempenho de **controladores** selecionando o acúmulo da coluna **pods do usuário** ou pods do **sistema** .
 
@@ -161,7 +161,7 @@ Instâncias de contêiner do Azure nós virtuais que executam o sistema operacio
 
 Em um nó expandido, você pode fazer drill-down do Pod ou contêiner que é executado no nó para o controlador para exibir os dados de desempenho filtrados para esse controlador. Selecione o valor na coluna **controlador** para o nó específico.
 
-![Exemplo de drill down do nó para o controlador na exibição de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
+![Captura de tela mostra a busca detalhada de nó para controlador no modo de exibição de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Selecione controladores ou contêineres na parte superior da página para examinar o status e a utilização de recursos para esses objetos. Para examinar a utilização de memória, na lista suspensa **métrica** , selecione **conjunto de trabalho** **memória RSS** ou memória. **RSS de Memória** só tem suporte para a versão do Kubernetes 1.8 e posteriores. Caso contrário, você exibirá valores para **min &nbsp; % ** como *Nan &nbsp; % *, que é um valor de tipo de dados numérico que representa um valor indefinido ou inrepresentado.
 
@@ -189,9 +189,9 @@ Essas informações podem ajudá-lo a identificar rapidamente se você tem um eq
 
 As informações apresentadas quando você exibe a guia **nós** é descrita na tabela a seguir.
 
-| Coluna | Descrição |
+| Column | Descrição |
 |--------|-------------|
-| Nome | O nome do host. |
+| Name | O nome do host. |
 | Status | Exibição de Kubernetes do status do nó. |
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%  | Percentual médio de nós com base no percentil pela duração selecionada. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | Valor real dos nós médios com base no percentil durante o tempo de duração selecionado. O valor médio é medido do limite de CPU/memória definido para um nó. Para pods e contêineres, é o valor médio relatado pelo host. |
@@ -232,9 +232,9 @@ Selecione o valor na coluna **nó** para o controlador específico.
 
 As informações exibidas quando você exibe controladores são descritas na tabela a seguir.
 
-| Coluna | Descrição |
+| Column | Descrição |
 |--------|-------------|
-| Nome | O nome do controlador.|
+| Name | O nome do controlador.|
 | Status | O status de rollup dos contêineres após a conclusão da execução com status, como *OK*, *encerrado*, *com falha*, *parado*ou em *pausa*. Se o contêiner estiver em execução, mas o status não tiver sido exibido corretamente ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%| Média de rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max  | Rollup da média de milinúcleo de CPU ou desempenho da memória do contêiner para o percentil selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
@@ -246,7 +246,7 @@ As informações exibidas quando você exibe controladores são descritas na tab
 
 Os ícones no campo status indicam o status online dos contêineres.
 
-| Ícone | Status |
+| ícone | Status |
 |--------|-------------|
 | ![Ícone de status de execução pronto](./media/container-insights-analyze/containers-ready-icon.png) | Execução (Pronto)|
 | ![Ícone de status aguardando ou pausado](./media/container-insights-analyze/containers-waiting-icon.png) | Aguardando ou em pausa|
@@ -269,9 +269,9 @@ Em um contêiner, você pode fazer drill down até um pod ou nó para exibir dad
 
 As informações exibidas quando você exibe contêineres são descritas na tabela a seguir.
 
-| Coluna | Descrição |
+| Column | Descrição |
 |--------|-------------|
-| Nome | O nome do controlador.|
+| Name | O nome do controlador.|
 | Status | Status dos contêineres, se houver. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;% | O rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | O rollup da média do desempenho de memória ou do milinúcleo da CPU do contêiner para o percentual selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
@@ -283,7 +283,7 @@ As informações exibidas quando você exibe contêineres são descritas na tabe
 
 Os ícones no campo status indicam os status online de pods, conforme descrito na tabela a seguir.
 
-| Ícone | Status |
+| ícone | Status |
 |--------|-------------|
 | ![Ícone de status de execução pronto](./media/container-insights-analyze/containers-ready-icon.png) | Execução (Pronto)|
 | ![Ícone de status aguardando ou pausado](./media/container-insights-analyze/containers-waiting-icon.png) | Aguardando ou em pausa|

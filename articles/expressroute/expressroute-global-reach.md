@@ -5,14 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 8c6ed19a585bc1ebae65045cd1cc4c442f113597
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.custom: references_regions
+ms.openlocfilehash: e3f9105037c049a53f1b7b99da96dd857070fcc7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651493"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987618"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global do ExpressRoute
 O ExpressRoute é uma maneira privada e resiliente de conectar suas redes locais ao Microsoft Cloud. Você pode acessar muitos serviços de nuvem da Microsoft, como o Azure e Microsoft 365 de seu data center particular ou sua rede corporativa. Por exemplo, é possível ter uma filial em São Francisco com um circuito ExpressRoute no Vale do Silício e outra filial em Londres com um circuito ExpressRoute na mesma cidade. Ambas as filiais têm conectividade de alta velocidade com os recursos do Azure no oeste dos EUA e Sul do Reino Unido. No entanto, as filiais não podem se conectar e enviar dados diretamente entre si. Em outras palavras, 10.0.1.0/24 pode enviar dados para a rede 10.0.3.0/24 e 10.0.4.0/24, mas não para a rede 10.0.2.0/24.
@@ -29,10 +30,27 @@ O Alcance Global do ExpressRoute foi desenvolvido para complementar a implementa
 ![Diagrama que mostra um caso de uso para Alcance Global de rota expressa.][3]
 
 ## <a name="availability"></a>Disponibilidade 
-O ExpressRoute Alcance Global tem suporte na maioria das regiões em que o ExpressRoute tem suporte no momento. Você pode consultar os [provedores de conectividade do ExpressRoute](expressroute-locations-providers.md#partners) para as regiões com suporte atuais. 
+O ExpressRoute Alcance Global tem suporte nos seguintes locais. 
 
 > [!NOTE] 
 > Para habilitar o ExpressRoute Alcance Global entre [regiões geopolítica diferentes](expressroute-locations-providers.md#locations), seus circuitos devem ser **SKU Premium**.
+
+* Austrália
+* Canadá
+* França
+* Alemanha
+* RAE de Hong Kong
+* Irlanda
+* Japão
+* Coreia do Sul
+* Países Baixos
+* Nova Zelândia
+* Noruega
+* Singapura
+* Suécia
+* Suíça
+* Reino Unido
+* Estados Unidos
 
 ## <a name="next-steps"></a>Próximas etapas
 - Exiba o [alcance global perguntas frequentes](expressroute-faqs.md#globalreach).

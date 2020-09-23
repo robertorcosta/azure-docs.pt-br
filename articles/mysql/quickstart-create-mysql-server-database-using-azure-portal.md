@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: 840e7769e8a242314b10562684c942a2468ea5ad
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705139"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906561"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Início Rápido: Criar um servidor do Banco de Dados do Azure para MySQL no portal do Azure
 
@@ -34,12 +34,12 @@ Siga estas etapas para criar um Banco de Dados do Azure para o servidor MySQL:
 
   
 >[!div class="mx-imgBorder"]
-> ![Opção do Banco de Dados do Azure para MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Opção do Banco de Dados do Azure para MySQL":::
 
 3. Preencha o formulário de detalhes sobre o novo servidor com as seguintes informações:
     
 >[!div class="mx-imgBorder"]
-> ![Criar formulário de servidor](./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/4-create-form.png" alt-text="Criar formulário de servidor":::
 
 **Configuração** | **Valor sugerido** | **Descrição do campo** 
 ---|---|---
@@ -67,7 +67,7 @@ Por padrão, os seguintes bancos de dados são criados em seu servidor: **inform
 Por padrão, o servidor criado é protegido com um firewall e não pode ser acessado publicamente. Para permitir acesso ao seu IP, acesse o recurso de servidor no portal do Azure e selecione **Segurança da conexão** no menu do lado esquerdo do recurso de servidor. Se você não souber como encontrar seu recurso, confira [Como abrir um recurso](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 >[!div class="mx-imgBorder"]
-> ![Segurança da conexão – Regras de firewall](./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png)
+> :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Segurança da conexão – Regras de firewall":::
    
 Agora selecione **Adicionar o endereço IP do cliente atual** e escolha **Salvar**. Você pode adicionar IPs extras ou fornecer um intervalo de IP para se conectar ao seu servidor por meio desses IPs. Para obter mais informações, confira [Como gerenciar regras de firewall no servidor do Banco de Dados do Azure para MySQL](./concepts-firewall-rules.md)
 
@@ -83,7 +83,7 @@ Você pode escolher [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.ht
     >Se você estiver iniciando o Cloud Shell pela primeira vez, verá um prompt que solicitará a criação de um grupo de recursos na conta de armazenamento. Essa é uma etapa única e será anexada automaticamente para todas as sessões. 
 
    >[!div class="mx-imgBorder"]
-   > ![Exibição Completa do portal Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
+   > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png" alt-text="Exibição Completa do portal Cloud Shell":::
 2. Execute este comando no terminal do Azure Cloud Shell. Substitua os valores pelos nomes reais do servidor e de logon do usuário administrador. O nome de usuário do administrador exige '@\<servername>', conforme mostrado abaixo para o Banco de Dados do Azure para MySQL  
 
   ```azurecli-interactive
@@ -136,7 +136,7 @@ Você criou com êxito um servidor do Banco de Dados do Azure para MySQL em um g
 
 Para excluir o servidor, clique no botão **Excluir** na página **Visão geral** do servidor, conforme mostrado abaixo:
 > [!div class="mx-imgBorder"]
-> ![Excluir seus recursos](media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+> :::image type="content" source="media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png" alt-text="Excluir seus recursos":::
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

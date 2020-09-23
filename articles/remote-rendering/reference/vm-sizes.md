@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8843f24f27f8973ad99989f743d1b3fae568679e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997142"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988050"
 ---
 # <a name="server-sizes"></a>Tamanhos de servidor
 
@@ -23,7 +23,7 @@ A renderização remota com `Standard` o servidor de tamanho tem um tamanho máx
 
 Quando o renderizador ativado em um tamanho de servidor ' padrão ' atinge essa limitação, ele alterna o processamento para um plano de fundo quadriculado:
 
-![Quadriculado](media/checkerboard.png)
+![Captura de tela mostra uma grade de quadrados pretos e brancos com um menu ferramentas.](media/checkerboard.png)
 
 ## <a name="specify-the-server-size"></a>Especificar o tamanho do servidor
 

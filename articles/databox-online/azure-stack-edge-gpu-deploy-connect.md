@@ -1,6 +1,6 @@
 ---
-title: Tutorial para se conectar, configurar e ativar um dispositivo do Azure Stack Edge com GPU no portal do Azure | Microsoft Docs
-description: O tutorial para implantar a GPU do Azure Stack Edge instrui como se conectar, configurar e ativar seu dispositivo físico.
+title: Tutorial para se conectar, configurar e ativar um dispositivo do Azure Stack Edge Pro com GPU no portal do Azure | Microsoft Docs
+description: Saiba como conectar o dispositivo do Azure Stack Edge com uma GPU integrada usando a IU da Web local.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/29/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3b500a7d93d19bcc0cd9c23d64ad079f0abfd353
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: f069f711ccf5672041ea6f3b15a52fa2b3ba2022
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421349"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900029"
 ---
-# <a name="tutorial-connect-to-azure-stack-edge-with-gpu"></a>Tutorial: Conectar-se ao Azure Stack Edge com GPU
+# <a name="tutorial-connect-to-azure-stack-edge-pro-with-gpu"></a>Tutorial: Conectar-se ao Azure Stack Edge Pro com GPU
 
-Este tutorial descreve como você faz para conectar o dispositivo do Azure Stack Edge com uma GPU integrada usando a IU da Web local.
+Este tutorial descreve como você faz para conectar o dispositivo do Azure Stack Edge Pro com uma GPU integrada usando a IU da Web local.
 
 O processo de conexão pode levar cerca de cinco minutos para ser concluído.
 
@@ -32,14 +32,14 @@ Neste tutorial, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de instalar e configurar o dispositivo do Azure Stack Edge com uma GPU, verifique se você fez o seguinte:
+Antes de instalar e configurar o dispositivo do Azure Stack Edge Pro com uma GPU, verifique se você fez o seguinte:
 
-* Você instalou o dispositivo físico conforme detalhado em [Instalar o Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+* Você instalou o dispositivo físico conforme detalhado em [Instalar o Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Conectar-se para a configuração de interface do usuário da web local
 
-1. Configure o adaptador Ethernet no computador usado para conectar-se ao dispositivo Azure Stack Edge com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
+1. Configure o adaptador Ethernet no computador usado para conectar-se ao dispositivo Azure Stack Edge Pro com um endereço IP estático de 192.168.100.5 e sub-rede 255.255.255.0.
 
 2. Conecte o computador à porta 1 do seu dispositivo. Se você conectar o computador diretamente ao seu dispositivo (sem um comutador), use um cabo cruzado ou um adaptador USB Ethernet. Use a ilustração a seguir para identificar a PORTA 1 em seu dispositivo.
 
@@ -60,7 +60,7 @@ Antes de instalar e configurar o dispositivo do Azure Stack Edge com uma GPU, ve
 
 5. Entrar para a web da interface do usuário do seu dispositivo. A senha padrão é *Senha1*. 
    
-    ![Página de entrada do dispositivo Azure Stack Edge](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Página de entrada do dispositivo Azure Stack Edge Pro](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. No prompt, altere a senha de administrador do dispositivo.  
     A nova senha deve conter entre 8 e 16 caracteres. Deve conter três dos seguintes caracteres: maiúscula, minúscula, numérica e caracteres especiais.
@@ -77,7 +77,7 @@ Neste tutorial, você aprendeu a:
 > * Conectar-se a um dispositivo físico
 
 
-Para saber como definir as configurações de rede em seu dispositivo do Azure Stack Edge, confira:
+Para saber como definir as configurações de rede em seu dispositivo do Azure Stack Edge Pro, confira:
 
 > [!div class="nextstepaction"]
 > [Configurar a rede](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)

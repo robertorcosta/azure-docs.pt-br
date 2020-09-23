@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118521"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905801"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validando a criptografia de dados para o Azure Database para MySQL
 
@@ -19,7 +19,7 @@ Este artigo ajuda você a validar que a criptografia de dados usando a chave ger
 
 ## <a name="check-the-encryption-status"></a>Verificar o status de criptografia
 
-### <a name="from-portal"></a>Do portal
+### <a name="from-portal"></a>No portal
 
 1. Se você quiser verificar se a chave do cliente é usada para criptografia, siga estas etapas:
 
@@ -37,7 +37,7 @@ Este artigo ajuda você a validar que a criptografia de dados usando a chave ger
 
 2. Na portal do Azure, se você puder garantir que a chave de criptografia esteja definida, os dados serão criptografados usando a chave de clientes usada no portal do Azure.
 
-  ![Visão geral da política de acesso](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Visão geral da política de acesso":::
 
 ### <a name="from-cli"></a>Da CLI
 

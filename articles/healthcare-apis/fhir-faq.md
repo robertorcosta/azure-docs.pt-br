@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 252abcac6e9e39930593c1b110bf6d55ffdfc33f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 36945d998bf00d7b229b5ae3cce1958953ade601
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843514"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978612"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a API do Azure para FHIR
 
@@ -49,7 +49,24 @@ Do ponto de vista do desenvolvimento, todos os recursos são implantados no Micr
 SMART (aplicativos médicos substituíveis e tecnologia reutilizável) em FHIR é um conjunto de especificações abertas para integrar aplicativos de parceiros com servidores FHIR e outros sistemas de ti de saúde, como registros eletrônicos de integridade e trocas de informações de integridade. Ao criar um aplicativo inteligente no FHIR, você pode garantir que seu aplicativo possa ser acessado e utilizado por uma infinidade de sistemas diferentes.
 Autenticação e API do Azure para FHIR. Para saber mais sobre o SMART, visite o [Smart Health IT](https://smarthealthit.org/).
 
-## <a name="azure-iot-connector-for-fhir-preview"></a>Conector do Azure IoT para FHIR (versão prévia)
+### <a name="can-i-create-a-custom-fhir-resource"></a>Posso criar um recurso personalizado do FHIR?
+
+Não permitimos recursos de FHIR personalizados. Se precisar de um recurso FHIR personalizado, você poderá criar um recurso personalizado sobre o [recurso básico](http://www.hl7.org/fhir/basic.html) com extensões. 
+
+### <a name="are-extensions-supported-on-azure-api-for-fhir"></a>Há suporte para [extensões](https://www.hl7.org/fhir/extensibility.html) na API do Azure para FHIR?
+
+Permitimos que você carregue dados JSON FHIR válidos no servidor. Se você quiser armazenar a definição de estrutura que define a extensão, poderá salvá-la como um recurso de definição de estrutura. No momento, não é possível Pesquisar nas extensões.
+
+### <a name="what-is-the-limit-on-_count"></a>Qual é o limite de _count?
+
+O limite atual da contagem é 100.
+
+### <a name="are-there-any-limitations-on-the-group-export-functionality"></a>Há alguma limitação sobre a funcionalidade de exportação de grupo?
+
+Para a exportação de grupo, só exportamos as referências incluídas do grupo, e não todas as características do [recurso de grupo](https://www.hl7.org/fhir/group.html).
+
+
+## <a name="azure-iot-connector-for-fhir-preview"></a>Conector IoT do Azure para FHIR (versão prévia)
 
 ### <a name="what-is-iomt"></a>O que é o IoMT?
 IoMT significa Internet de coisas médicas e é uma categoria de dispositivos IoT que capturam e trocam dados de saúde e bem-estar com outros sistemas de ti de saúde em uma rede. Alguns exemplos de dispositivos IoMT incluem dispositivos fitness e clínicos vestíveis, sensores de monitoramento, rastreadores de atividade, quiosques de atendimento ou até mesmo uma pílula inteligente.
@@ -88,6 +105,6 @@ Neste artigo, você leu algumas das perguntas frequentes sobre a API do Azure pa
 >[!div class="nextstepaction"]
 >[Recursos de FHIR com suporte](fhir-features-supported.md)
 
-* No portal do Azure, o conector do IoT do Azure para FHIR é conhecido como conector IoT (versão prévia).
+*No portal do Azure, o Conector IoT do Azure para FHIR é chamado de Conector IoT (versão prévia).
 
 FHIR é uma marca registrada da HL7, usada com permissão da HL7.

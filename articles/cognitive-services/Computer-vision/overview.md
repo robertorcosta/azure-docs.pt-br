@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: computer vision, computer vision applications, computer vision service
-ms.openlocfilehash: f613080ec24fdfc4c739d4d0494aa2f3c36705cd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323055"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907071"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Pesquisa Visual Computacional?
 
@@ -92,7 +92,11 @@ Use a Pesquisa Visual Computacional para [detectar conteúdo para adulto](concep
 
 ## <a name="use-containers"></a>Usar contêineres
 
-[Use contêineres da Pesquisa Visual Computacional](computer-vision-how-to-install-containers.md) para reconhecer um texto impresso e manuscrito localmente pela instalação de um contêiner do Docker padronizado mais próximo aos dados.
+Use os contêineres do Docker da Pesquisa Visual Computacional para empregar o serviço no local. Atualmente, há dois contêineres disponíveis:
+
+* O [contêiner de leitura da Pesquisa Visual Computacional](computer-vision-how-to-install-containers.md) permite que você reconheça textos impressos e manuscritos nas imagens.
+
+* O [contêiner de análise espacial da Pesquisa Visual Computacional](spatial-analysis-container.md) permite que você analise vídeos de streaming em tempo real para entender as relações espaciais existentes entre as pessoas e a movimentação delas nos ambientes físicos.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 

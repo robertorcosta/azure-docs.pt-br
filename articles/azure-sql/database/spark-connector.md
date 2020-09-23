@@ -11,12 +11,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/02/2020
-ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 46fa489c5a72c3de923f5281cc9be205925dd42d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421298"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988088"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Acelere a análise de Big Data em tempo real usando o conector do Spark
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ O fluxo de dados é o seguinte:
 
 O diagrama a seguir ilustra o fluxo de dados.
 
-   ![Arquitetura](./media/spark-connector/architecture.png)
+   ![O diagrama mostra o fluxo descrito, com um nó mestre conectando-se diretamente ao banco de dados e se conectando a três nós de trabalho, que se conectam ao banco de dados.](./media/spark-connector/architecture.png)
 
 ### <a name="build-the-spark-connector"></a>Criar o conector do Spark
 

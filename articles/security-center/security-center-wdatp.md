@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 28242341ddd21adea33e56c3e1f35f0677e5921a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569077"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907366"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
 
@@ -28,11 +28,11 @@ A central de segurança do Azure integra-se à [ATP (proteção avançada contra
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|**Disponibilidade geral**|
-|Refere|Camada padrão|
+|Estado da versão:|GA (em disponibilidade geral)|
+|Refere|Requer o [Azure defender](security-center-pricing.md)|
 |Computadores com suporte:|![Sim](./media/icons/yes-icon.png) Máquinas do Azure executando o Windows<br>![Sim](./media/icons/yes-icon.png) Computadores do Arc do Azure executando o Windows|
 |Funções e permissões necessárias:|Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura**ou colaborador da **assinatura**|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens públicas do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![No](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens públicas do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![No](./media/icons/no-icon.png) China gov, outros gov|
 |||
 
 
@@ -57,7 +57,7 @@ Ao integrar o defender ATP à central de segurança do Azure, você também pode
 
 ## <a name="platform-support"></a>Suporte a plataforma
 
-O Microsoft defender ATP na central de segurança dá suporte à detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1. Para VMs do Azure, você precisa de uma assinatura de camada Standard e para VMs não Azure, você precisa da camada Standard somente no nível do espaço de trabalho.
+O Microsoft defender ATP na central de segurança dá suporte à detecção no Windows Server 2016, 2012 R2 e 2008 R2 SP1. Para VMs do Azure, você precisa de um para habilitar o Azure defender em sua assinatura e para VMs não Azure, você precisa que o Azure defender seja habilitado somente no nível do espaço de trabalho.
 
 O monitoramento do ponto de extremidade do servidor usando essa integração foi desabilitado para clientes do Office 365 GCC.
 
@@ -74,24 +74,25 @@ Para integrar servidores à central de segurança, clique em **ir para a central
 
 1. Na área de **integração** , selecione ou crie um espaço de trabalho no qual armazenar os dados.
 
-2. Se você não conseguir ver todos os seus espaços de trabalho, pode ser devido à falta de permissões, verifique se o espaço de trabalho está definido como tipo de preço padrão de segurança do Azure. Para obter mais informações, consulte [atualizar para a camada Standard da central de segurança para aumentar a segurança](security-center-pricing.md).
+2. Se você não conseguir ver todos os seus espaços de trabalho, pode ser devido à falta de permissões, verifique se o espaço de trabalho está protegido pelo Azure defender.
     
 3. Selecione **adicionar servidores** para exibir instruções sobre como instalar o agente de log Analytics. 
 
-4. Após a integração, monitore as máquinas **Computação e aplicativos**.
+4. Após a integração, você pode monitorar os computadores no [inventário de ativos](asset-inventory.md).
 
    ![Integrar computadores](media/security-center-wdatp/onboard-computers.png)
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Habilitar a integração do Microsoft defender ATP
 
-Para exibir se a integração do Microsoft defender ATP está habilitada, selecione preços da **central de segurança**  >  **& configurações** > clique em sua assinatura.
+Para exibir se a integração do Microsoft defender ATP está habilitada, selecione preços da **central de segurança**  >  **& configurações** > selecione sua assinatura.
+
 Aqui você pode ver as integrações habilitadas no momento.
 
   ![Página de configurações de detecção de ameaças da central de segurança do Azure com integração do Microsoft defender ATP habilitada](media/security-center-wdatp/enable-integrations.png)
 
-- Se você já integrou os servidores à camada Standard da Central de Segurança do Azure, nenhuma ação adicional é necessária. A central de segurança do Azure integrará automaticamente os servidores ao Microsoft defender ATP. A integração pode levar até 24 horas.
+- Se você já tiver habilitado o Azure defender, nenhuma ação adicional será necessária. A central de segurança do Azure integrará automaticamente os servidores ao Microsoft defender ATP. A integração pode levar até 24 horas.
 
-- Se você nunca integrou os servidores à camada Standard da Central de Segurança do Azure, integre-os à Central de Segurança do Azure como de costume.
+- Se você nunca tiver integrado os servidores à central de segurança do Azure, integre-os à central de segurança do Azure e habilite o Azure defender como de costume.
 
 - Se você tiver integrado os servidores por meio do Microsoft defender ATP:
   - Veja a documentação para obter diretrizes sobre [como remover computadores de servidor](https://go.microsoft.com/fwlink/p/?linkid=852906).
