@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 48c05bf7b4cbecb09ef3bb113832974bee4bc6b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e6653f8f26f90b6ea7f911efab40ec7a3e0c2a60
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518768"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906787"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas na Versão Prévia do serviço Aplicativos Web Estáticos do Azure
 
@@ -28,11 +28,11 @@ O tópico de roteamento é bastante semelhante aos conceitos de autenticação e
 
 Consulte o [exemplo de arquivo de rota](#example-route-file) para obter detalhes.
 
-## <a name="location"></a>Localização
+## <a name="location"></a>Location
 
 O arquivo _routes.json_ deve existir na raiz da pasta de artefatos do build do aplicativo. Se o seu aplicativo Web inclui uma etapa de compilação que copia os arquivos de compilação de uma pasta específica para a sua pasta de artefato de compilação, então o arquivo _routes.json_ precisa existir nessa pasta específica.
 
-A tabela a seguir lista o local apropriado para colocar seu arquivo _routes.json_ para uma série de estruturas e bibliotecas JavaScript de front-end.
+A tabela a seguir lista o local apropriado para colocar seu _routes.jsno_ arquivo para uma série de estruturas e bibliotecas de front-end.
 
 |Estrutura / biblioteca | Location  |
 |---------|----------|
@@ -40,6 +40,9 @@ A tabela a seguir lista o local apropriado para colocar seu arquivo _routes.json
 | React   | _público_  |
 | Svelte  | _público_   |
 | Vue     | _público_ |
+| Blazor  | _wwwroot_ |
+
+A tabela acima é apenas um representante de algumas estruturas e bibliotecas compatíveis com os aplicativos Web estáticos do Azure. Consulte [Configurar estruturas e bibliotecas de front-end](./front-end-frameworks.md) para obter mais informações.
 
 ## <a name="defining-routes"></a>Definir rotas
 
@@ -47,8 +50,8 @@ As rotas são definidas no arquivo _routes.json_ como uma matriz de regras de ro
 
 | Propriedade de regra  | Obrigatório | Valor padrão | Comentário                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Sim      | N/D          | O padrão de rota solicitado pelo chamador.<ul><li>Há suporte para [curingas](#wildcards) no final dos caminhos de rota. Por exemplo, a rota _admin/\*_ corresponde a qualquer rota sob o caminho de _administrador_.<li>O arquivo padrão de uma rota é _index. html_.</ul>|
-| `serve`        | Não       | n/d          | Define o arquivo ou caminho retornado da solicitação. O caminho e o nome do arquivo podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, o caminho solicitado será usado. Não há suporte para parâmetros de QueryString; `serve`os valores devem apontar para os arquivos reais.  |
+| `route`        | Sim      | n/d          | O padrão de rota solicitado pelo chamador.<ul><li>Há suporte para [curingas](#wildcards) no final dos caminhos de rota. Por exemplo, a rota _admin/\*_ corresponde a qualquer rota sob o caminho de _administrador_.<li>O arquivo padrão de uma rota é _index. html_.</ul>|
+| `serve`        | Não       | n/d          | Define o arquivo ou caminho retornado da solicitação. O caminho e o nome do arquivo podem ser diferentes do caminho solicitado. Se um `serve` valor não for definido, o caminho solicitado será usado. Não há suporte para parâmetros de QueryString; `serve` os valores devem apontar para os arquivos reais.  |
 | `allowedRoles` | Não       | anônimo     | Uma matriz de nomes de função. <ul><li>Os caracteres válidos incluem `a-z`, `A-Z`, `0-9` e `_`.<li>A função interna `anonymous` se aplica a todos os usuários não autenticados.<li>A função interna `authenticated` se aplica a todos os usuários não conectados.<li>Os usuários devem pertencer a pelo menos uma função.<li>As funções são comparadas usando o operador _OR_. Se um usuário estiver em qualquer uma das funções listadas, o acesso será concedido.<li>Os usuários individuais são associados a funções por meio de [convites](authentication-authorization.md).</ul> |
 | `statusCode`   | Não       | 200           | A resposta do [código de status HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) para a solicitação. |
 
@@ -106,7 +109,7 @@ Você também pode proteger rotas com caracteres curinga. No exemplo a seguir, q
 
 ## <a name="fallback-routes"></a>Rotas de fallback
 
-As estruturas ou bibliotecas JavaScript de front-end geralmente dependem do roteamento do lado do cliente para navegação do aplicativo Web. Essas regras de roteamento do lado do cliente atualizam o local da janela do navegador sem fazer solicitações de volta ao servidor. Se você atualizar a página ou navegar diretamente para os locais gerados pelas regras de roteamento do lado do cliente, uma rota de fallback do lado do servidor será necessária para atender à página HTML apropriada.
+Aplicativos de página única, se estiverem usando estruturas de JavaScript de front-end ou bibliotecas ou plataformas Webassembly, como o mais alto, muitas vezes dependem do roteamento do lado do cliente para a navegação do aplicativo Web. Essas regras de roteamento do lado do cliente atualizam o local da janela do navegador sem fazer solicitações de volta ao servidor. Se você atualizar a página ou navegar diretamente para os locais gerados pelas regras de roteamento do lado do cliente, uma rota de fallback do lado do servidor será necessária para atender à página HTML apropriada.
 
 Uma rota de fallback comum é mostrada no seguinte exemplo:
 
@@ -186,6 +189,9 @@ As considerações a seguir são importantes ao trabalhar com tipos MIME:
 
 - As chaves não podem ser nulas ou vazias ou ter mais de 50 caracteres
 - Os valores não podem ser nulos ou vazios ou ter mais de 1000 caracteres
+
+> [!NOTE]
+> Os aplicativos Web estáticos compreendem aplicativos mais Incrivelmenteos e os tipos MIME esperados para os arquivos WASM e DLL, não é necessário adicionar mapeamentos para eles.
 
 ## <a name="default-headers"></a>Cabeçalhos padrão
 

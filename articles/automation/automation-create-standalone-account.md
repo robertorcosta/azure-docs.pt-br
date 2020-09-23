@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186581"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987275"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 
@@ -59,7 +59,7 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
    > [!NOTE]
    > Se você receber a mensagem a seguir no painel Adicionar Conta de Automação, a sua conta não é membro da função Administradores da assinatura nem um coadministrator da assinatura.
    >
-   > ![Aviso Adicionar Conta de Automação](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Captura de tela do prompt ' você não tem permissões para criar uma conta Executar como no Azure Active Directory. '":::
 
 1. No painel Adicionar Conta de Automação, insira um nome para a nova conta de Automação no campo **Nome**. Depois de escolher um nome você não pode alterá-lo. 
 
@@ -74,7 +74,7 @@ Para criar uma conta da Automação do Azure no portal do Azure, execute as segu
    > [!NOTE]
    > Se optar por não criar a conta Executar como selecionando **Não** em **Criar conta Executar como do Azure**, será exibida uma mensagem no painel Adicionar Conta de Automação. Embora a conta seja criada no portal do Azure, ela não tem uma identidade de autenticação correspondente em sua assinatura do modelo de implantação clássico ou no serviço de diretório da assinatura do Azure Resource Manager. Portanto, a conta de Automação não tem acesso aos recursos em sua assinatura. Isso impede que runbooks que referenciam essa conta possam se autenticar e executar tarefas nos recursos nesses modelos de implantação.
    >
-   > ![Aviso Adicionar Conta de Automação](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Captura de tela do prompt com a mensagem ' você optou por não criar uma conta Executar como. '":::
    >
    > Enquanto a entidade de serviço não for criada, a função Colaborador não será atribuída.
    >
@@ -105,4 +105,4 @@ As contas Executar como Clássicas do Azure não são mais criadas por padrão q
 * Para começar a usar runbooks do PowerShell, veja [Tutorial: Criação de um runbook do PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para começar a usar runbooks de Fluxo de Trabalho PowerShell, veja [Tutorial: Criação de um runbook de Fluxo de Trabalho do PowerShell](learn/automation-tutorial-runbook-textual.md).
 * Para começar a usar runbooks do Python 2, veja [Tutorial: Criação de um runbook do Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet do PowerShell, confira [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

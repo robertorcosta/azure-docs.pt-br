@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: d2d3c94985f099c7a0ab92efab564415f5cd81bb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3ede38edd9d24114eb4d0939ff9d4586a2d31daa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096028"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978149"
 ---
-# <a name="azure-time-series-insights-gen2-use-cases"></a>Azure Time Series Insights casos de uso do Gen2
+# <a name="azure-time-series-insights-gen2-use-cases"></a>Casos de uso do Azure Time Series Insights Gen2
 
 Este artigo resume vários casos de uso comuns para Azure Time Series Insights Gen2. As recomendações neste artigo servem como um ponto de partida para desenvolver seus aplicativos e soluções com Azure Time Series Insights Gen2.
 
@@ -66,7 +66,7 @@ Há três maneiras principais de interagir com os dados armazenados no Azure Tim
 
 Use Azure Time Series Insights Gen2 para monitorar a integridade, o uso e o desempenho dos equipamentos em escala e medir a eficiência operacional. Azure Time Series Insights Gen2 ajuda a gerenciar cargas de trabalho de IoT diversificadas e imprevisíveis sem sacrificar o desempenho de ingestão ou consulta.
 
-[![Visão geral](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
+[![A captura de tela mostra os dispositivos e os dados de aplicativos, o processamento de fluxo, a eficiência operacional, a inteligência/informações e a análise avançada no Azure Time Series Insights Gen2.](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 Streaming e processamento contínuo de dados provenientes de processos operacionais podem transformar com sucesso qualquer negócio quando combinados com a tecnologia ou a solução certa. Geralmente, essas soluções são uma combinação de vários sistemas. Eles permitem a exploração e a análise de dados que são alterados constantemente, especialmente no realm de IoT, e compartilham um padrão comum.
 

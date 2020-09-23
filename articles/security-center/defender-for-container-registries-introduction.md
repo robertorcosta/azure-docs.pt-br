@@ -3,16 +3,16 @@ title: Azure defender para registros de contêiner-os benefícios e recursos
 description: Saiba mais sobre os benefícios e recursos do Azure defender para registros de contêiner.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d312e3bd2933d1dce2cdaebf858fedf47105e45d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 742d230d6ed1535bada9c35219d2ddf68fd64ae1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933785"
+ms.locfileid: "90977156"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure defender para registros de contêiner
 

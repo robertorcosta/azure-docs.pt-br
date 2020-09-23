@@ -1,6 +1,6 @@
 ---
-title: Implantar VMs em seu dispositivo de GPU do Azure Stack Edge via Azure PowerShell
-description: Descreve como criar e gerenciar máquinas virtuais (VMs) em um dispositivo Azure Stack Edge usando Azure PowerShell.
+title: Implantar VMs em seu dispositivo de GPU pro Azure Stack Edge via Azure PowerShell
+description: Descreve como criar e gerenciar máquinas virtuais (VMs) em um dispositivo Azure Stack Edge pro usando o Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,53 +8,53 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: ab303dd42d9064a9fa1392e27adc361d5b761cf0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256116"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890640"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell-script"></a>Implantar VMs em seu dispositivo de GPU do Azure Stack Edge via script Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Implantar VMs em seu dispositivo Azure Stack Edge pro GPU via script Azure PowerShell
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este tutorial descreve como criar e gerenciar uma VM em seu dispositivo Azure Stack Edge usando um script Azure PowerShell.
+Este tutorial descreve como criar e gerenciar uma VM em seu dispositivo Azure Stack Edge pro usando um script Azure PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar a criar e gerenciar uma VM em seu dispositivo Azure Stack Edge usando esse script, você precisará certificar-se de ter concluído os pré-requisitos listados nas etapas a seguir:
+Antes de começar a criar e gerenciar uma VM em seu dispositivo Azure Stack Edge pro usando esse script, você precisará certificar-se de ter concluído os pré-requisitos listados nas etapas a seguir:
 
-### <a name="for-azure-stack-edge-device-via-the-local-web-ui"></a>Para Azure Stack dispositivo de borda por meio da interface do usuário da Web local
+### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>Para Azure Stack dispositivo pro Edge por meio da interface do usuário da Web local
 
-1. Você concluiu as configurações de rede em seu dispositivo Azure Stack Edge, conforme descrito na [etapa 1: configurar Azure Stack dispositivo de borda](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. Você concluiu as configurações de rede em seu dispositivo Azure Stack Edge pro, conforme descrito na [etapa 1: configurar Azure Stack dispositivo pro Edge](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
-2. Habilitada uma interface de rede para computação. Esse IP de interface de rede é usado para criar um comutador virtual para a implantação de VM. As etapas a seguir orientarão você durante o processo:
+2. Você habilitou um adaptador de rede para computação. Esse IP do adaptador de rede é usado para criar um comutador virtual para a implantação da VM. As seguintes etapas descreverão o processo:
 
-    1. Vá para as **configurações de computação**. Selecione a interface de rede que será usada para criar um comutador virtual.
+    1. Vá para as **configurações de computação**. Selecione o adaptador de rede que será usado para criar um comutador virtual.
 
         > [!IMPORTANT] 
         > Você só pode configurar uma porta para computação.
 
-    2. Habilite a computação na interface de rede. Azure Stack Edge cria e gerencia um comutador virtual correspondente a esse adaptador de rede.
+    2. Habilite a computação no adaptador de rede. Azure Stack o Edge pro cria e gerencia um comutador virtual correspondente a esse adaptador de rede.
 
-3. Você criou e instalou todos os certificados em seu dispositivo Azure Stack Edge e no repositório de raiz confiável do seu cliente. Siga o procedimento descrito na [etapa 2: criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. Você criou e instalou todos os certificados em seu dispositivo Azure Stack Edge pro e no repositório de raiz confiável do seu cliente. Siga o procedimento descrito na [Etapa 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
 ### <a name="for-your-windows-client"></a>Para seu cliente Windows
 
 1. Você definiu o protocolo de Internet virtual (VIP) de serviços consistentes do Azure na sua página de **rede** na interface do usuário da Web local do dispositivo. Você precisa adicionar este VIP a:
 
-    - O arquivo de host no cliente, ou,
-    - A configuração do servidor DNS
+    - Ao arquivo de host no cliente OU
+    - À configuração do servidor DNS
     
     > [!IMPORTANT]
-    > Recomendamos que você modifique a configuração do servidor DNS para resolução de nome de ponto de extremidade.
+    > Recomendamos que você modifique a configuração do servidor DNS para a resolução de nome do ponto de extremidade.
 
-    1. Inicie o **bloco de notas** como administrador (é necessário ter privilégios de administrador para salvar o arquivo) e, em seguida, abra o arquivo de **hosts** localizado em `C:\Windows\System32\Drivers\etc` .
+    1. Inicie o **Bloco de notas** como administrador (é necessário ter privilégios de Administrador para salvar o arquivo) e abra o arquivo **hosts** localizado em `C:\Windows\System32\Drivers\etc`.
     
-        ![Arquivo de hosts do Windows Explorer](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
+        ![Arquivo hosts do Windows Explorer](media/azure-stack-edge-j-series-connect-resource-manager/hosts-file.png)
     
-    2. Adicione as seguintes entradas ao arquivo de **hosts** substituindo pelos valores apropriados para seu dispositivo:
+    2. Adicione as seguintes entradas ao arquivo **hosts** substituindo-as por valores apropriados para seu dispositivo:
     
         ```
         <Azure consistent services VIP> login.<appliance name>.<DNS domain>
@@ -65,7 +65,7 @@ Antes de começar a criar e gerenciar uma VM em seu dispositivo Azure Stack Edge
 
     3. Use a imagem a seguir para referência. Salve o arquivo **hosts**.
 
-        ![arquivo de hosts no bloco de notas](media/azure-stack-edge-j-series-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
+        ![Arquivo hosts no Bloco de notas](media/azure-stack-edge-j-series-deploy-virtual-machine-cli-python/hosts-screenshot-boxed.png)
 
 2. [Baixe o script do PowerShell](https://aka.ms/ase-vm-powershell) usado neste procedimento.
 

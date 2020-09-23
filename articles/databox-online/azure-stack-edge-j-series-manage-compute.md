@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de computação da GPU do Edge Azure Stack | Microsoft Docs
-description: Descreve como gerenciar as configurações de computação de borda, como gatilho, módulos, exibir configuração de computação, remover a configuração por meio do portal do Azure em sua GPU de borda do Azure Stack.
+title: Gerenciamento de computação da GPU pro do Edge Azure Stack | Microsoft Docs
+description: Descreve como gerenciar as configurações de computação de borda, como gatilho, módulos, exibir a configuração de computação, remover a configuração por meio do portal do Azure em sua GPU do Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ea52c393ec9897d43714d69ff448038b65ee555
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 58e199cc3c09e6b4ff333fb53c047598b1ec9b5f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268784"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890592"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge-gpu"></a>Gerenciar a computação em sua GPU do Azure Stack Edge
+# <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gerenciar a computação em sua GPU do Azure Stack Edge pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo descreve como gerenciar a computação em seu Azure Stack Edge. É possível gerenciar a computação pelo portal do Azure ou pela IU da Web local. Use o portal do Azure para gerenciar módulos, gatilhos e configuração de computação e a IU da Web local para gerenciar configurações de computação.
+Este artigo descreve como gerenciar a computação em seu Azure Stack Edge pro. É possível gerenciar a computação pelo portal do Azure ou pela IU da Web local. Use o portal do Azure para gerenciar módulos, gatilhos e configuração de computação e a IU da Web local para gerenciar configurações de computação.
 
 Neste artigo, você aprenderá como:
 
@@ -30,7 +30,7 @@ Neste artigo, você aprenderá como:
 
 ## <a name="manage-triggers"></a>Gerenciar disparadores
 
-Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu dispositivo no qual você pode executar uma ação. Por exemplo, quando um arquivo é criado em um compartilhamento, ele é um evento. Gatilhos acionam os eventos. Para seu Azure Stack Edge, os gatilhos podem estar em resposta a eventos de arquivo ou a um agendamento.
+Os eventos são coisas que acontecem dentro de seu ambiente de nuvem ou em seu dispositivo no qual você pode executar uma ação. Por exemplo, quando um arquivo é criado em um compartilhamento, ele é um evento. Gatilhos acionam os eventos. Para o Azure Stack Edge pro, os gatilhos podem estar em resposta a eventos de arquivo ou a um agendamento.
 
 - **Arquivo**: esses gatilhos estão em resposta a eventos de arquivo, como a criação de um arquivo, a modificação de um arquivo.
 - **Agendado**: esses gatilhos estão em resposta a uma agenda que você pode definir com uma data de início, uma hora de início e o intervalo de repetição.
@@ -84,7 +84,7 @@ A lista de gatilhos também é atualizada para refletir a exclusão.
 
 ## <a name="manage-compute-configuration"></a>Gerenciar configuração da computação
 
-Use o portal do Azure para exibir a configuração de computação, remover uma configuração de computação existente ou para atualizar a configuração de computação para sincronizar as chaves de acesso para o dispositivo IoT e o dispositivo de IoT Edge para seu Azure Stack Edge.
+Use o portal do Azure para exibir a configuração de computação, remover uma configuração de computação existente ou para atualizar a configuração de computação para sincronizar as chaves de acesso para o dispositivo IoT e o dispositivo de IoT Edge para o Azure Stack Edge pro.
 
 ### <a name="view-compute-configuration"></a>Exibir configuração de computação
 
@@ -113,11 +113,11 @@ Siga estas etapas no portal do Azure para remover a configuração de computaç�
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Sincronizar as chaves de acesso do dispositivo IoT e IoT Edge
 
-Quando você configura a computação em seu Azure Stack Edge, um dispositivo IoT e um dispositivo de IoT Edge são criados. Esses dispositivos recebem chaves de acesso simétricas automaticamente. Como uma melhor prática de segurança, essas chaves são trocadas regularmente por meio do serviço de Hub IoT.
+Quando você configura a computação no Azure Stack Edge pro, um dispositivo IoT e um dispositivo de IoT Edge são criados. Esses dispositivos recebem chaves de acesso simétricas automaticamente. Como uma melhor prática de segurança, essas chaves são trocadas regularmente por meio do serviço de Hub IoT.
 
 Para trocar essas chaves, é possível acessar o serviço de Hub IoT que você criou e selecione o dispositivo IoT ou IoT Edge. Cada dispositivo tem uma chave de acesso primária e uma secundária. Atribua a chave de acesso primária à chave de acesso secundária e gere novamente a chave de acesso primária.
 
-Se o dispositivo IoT e IoT Edge as chaves do dispositivo tiverem sido girados, você precisará atualizar a configuração em seu Azure Stack Edge para obter as últimas chaves de acesso. A sincronização ajuda o dispositivo obter as chaves mais recentes para seu dispositivo IoT e IoT Edge. O Azure Stack Edge usa apenas as chaves de acesso primárias.
+Se o dispositivo IoT e IoT Edge as chaves do dispositivo tiverem sido girados, você precisará atualizar a configuração em seu Azure Stack Edge pro para obter as últimas chaves de acesso. A sincronização ajuda o dispositivo obter as chaves mais recentes para seu dispositivo IoT e IoT Edge. Azure Stack o Edge pro usa apenas as chaves de acesso primárias.
 
 Siga estas etapas no portal do Azure para sincronizar as chaves de acesso para seu dispositivo.
 
@@ -133,4 +133,4 @@ Siga estas etapas no portal do Azure para sincronizar as chaves de acesso para s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [solucionar problemas de seu Azure Stack Edge](azure-stack-edge-gpu-troubleshoot.md).
+- Saiba como [solucionar problemas do Azure Stack Edge pro](azure-stack-edge-gpu-troubleshoot.md).

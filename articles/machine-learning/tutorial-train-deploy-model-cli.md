@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 07edfa2bca25a9f3e8d985cfe36987ff04ca950f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144015"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906652"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treinar e implantar um modelo da CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste tutorial, você usa a extensão de machine learning para a CLI do Azure para treinar, registrar e implantar um modelo.
 
-Os scripts de treinamento do Python neste tutorial usam [scikit-learn](https://scikit-learn.org/) para treinar um modelo básico. O foco deste tutorial não está nos scripts nem no modelo, mas no processo de usar a CLI para trabalhar com o Azure Machine Learning.
+Os scripts de treinamento do Python neste tutorial usam [scikit-learn](https://scikit-learn.org/) para treinar um modelo simples. O foco deste tutorial não está nos scripts nem no modelo, mas no processo de usar a CLI para trabalhar com o Azure Machine Learning.
 
 Saiba como executar as seguintes ações:
 
@@ -75,7 +75,7 @@ O repositório contém os seguintes arquivos, que são usados para implantar o m
 
 ## <a name="connect-to-your-azure-subscription"></a>Conecte-se à sua assinatura do Azure
 
-Há várias maneiras de se autenticar em sua assinatura do Azure por meio da CLI. O mais básico é autenticar-se interativamente usando um navegador. Para se autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
+Há várias maneiras de se autenticar em sua assinatura do Azure por meio da CLI. O mais simples é autenticar-se interativamente usando um navegador. Para se autenticar interativamente, abra uma linha de comando ou terminal e use o seguinte comando:
 
 ```azurecli-interactive
 az login
@@ -101,7 +101,7 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner básico de recursos na plataforma do Azure. Ao trabalhar com o Azure Machine Learning, o grupo de recursos conterá seu workspace do Azure Machine Learning. Ele também conterá outros serviços do Azure usados pelo workspace. Por exemplo, se você treinar seu modelo usando um recurso de computação baseado em nuvem, esse recurso será criado no grupo de recursos.
+Um grupo de recursos é um contêiner de recursos na plataforma do Azure. Ao trabalhar com o Azure Machine Learning, o grupo de recursos conterá seu workspace do Azure Machine Learning. Ele também conterá outros serviços do Azure usados pelo workspace. Por exemplo, se você treinar seu modelo usando um recurso de computação baseado em nuvem, esse recurso será criado no grupo de recursos.
 
 Para __criar um grupo de recursos__, use o comando a seguir. Substitua `<resource-group-name>` pelo nome a ser usado para esse grupo de recursos. Substitua `<location>` pela região do Azure a ser usada para este grupo de recursos:
 

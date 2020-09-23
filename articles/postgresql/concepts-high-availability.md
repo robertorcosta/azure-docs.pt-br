@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0d723e1613e96f0aea243eace8ece3f0473e3742
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547674"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884450"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Alta disponibilidade no banco de dados do Azure para PostgreSQL – servidor único
 O banco de dados do Azure para PostgreSQL – serviço de servidor único fornece um alto nível de disponibilidade garantido com o SLA (contrato de nível de serviço) com suporte financeiro de [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) de tempo de atividade. O banco de dados do Azure para PostgreSQL fornece alta disponibilidade durante eventos planejados, como a operação de computação de escala iniciada pelo do usuário, e também quando ocorrem eventos não planejados, como hardware subjacente, software ou falhas de rede. O banco de dados do Azure para PostgreSQL pode se recuperar rapidamente das circunstâncias mais críticas, garantindo praticamente nenhum tempo de inatividade do aplicativo ao usar esse serviço.
@@ -29,7 +29,7 @@ O banco de dados do Azure para PostgreSQL é adequado para a execução de dados
 ## <a name="planned-downtime-mitigation"></a>Mitigação de tempo de inatividade planejada
 O banco de dados do Azure para PostgreSQL é projetado para fornecer alta disponibilidade durante operações de tempo de inatividade planejadas. 
 
-![exibição do dimensionamento elástico no PostgreSQL do Azure](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="exibição do dimensionamento elástico no PostgreSQL do Azure":::
 
 1. Aumentar e reduzir os servidores de banco de dados PostgreSQL em segundos
 2. O gateway que atua como um proxy para rotear o cliente se conecta ao servidor de banco de dados apropriado
@@ -49,7 +49,7 @@ Aqui estão alguns cenários de manutenção planejada:
 O tempo de inatividade não planejado pode ocorrer como resultado de falhas imprevistas, incluindo falhas de hardware subjacentes, problemas de rede e bugs de software. Se o servidor de banco de dados ficar inativo inesperadamente, um novo servidor de banco de dados será provisionado automaticamente em segundos. O armazenamento remoto é anexado automaticamente ao novo servidor de banco de dados. O mecanismo PostgreSQL executa a operação de recuperação usando WAL e arquivos de banco de dados e abre o servidor de banco de dados para permitir que os clientes se conectem. As transações não confirmadas são perdidas e precisam ser repetidas pelo aplicativo. Embora não seja possível evitar um tempo de inatividade não planejado, o banco de dados do Azure para PostgreSQL reduz o tempo de inatividade realizando automaticamente operações de recuperação no servidor de banco de dados e nas camadas de armazenamento sem exigir intervenção humana. 
 
 
-![exibição de alta disponibilidade no PostgreSQL do Azure](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="exibição de alta disponibilidade no PostgreSQL do Azure":::
 
 1. Servidores PostgreSQL do Azure com recursos de dimensionamento rápido.
 2. Gateway que atua como um proxy para rotear conexões de cliente para o servidor de banco de dados apropriado

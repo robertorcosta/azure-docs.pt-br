@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cde479e50c67006a9ef1668ba68b211c3a9af93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477571"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907910"
 ---
 # <a name="join-data"></a>Unir dados
 
-Este artigo descreve como usar o módulo **unir dados** no designer de Azure Machine Learning (versão prévia) para mesclar dois DataSets usando uma operação de junção de estilo de banco de dados.  
+Este artigo descreve como usar o módulo **ingressar dados** no designer de Azure Machine Learning para mesclar dois DataSets usando uma operação de junção de estilo de banco de dado.  
 
 ## <a name="how-to-configure-join-data"></a>Como configurar dados de junção
 

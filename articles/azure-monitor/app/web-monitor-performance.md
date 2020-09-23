@@ -4,12 +4,12 @@ description: Introdução ao Application Insights. Analise o uso, disponibilidad
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323444"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987157"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitore o desempenho em aplicativos da web
 
@@ -112,11 +112,11 @@ Use a experiência de investigação de desempenho para examinar operações em 
 
 Para obter uma melhor noção das experiências do usuário para essa operação, podemos selecionar um intervalo de tempo maior. Em seguida, podemos também restringir o tempo para uma janela de tempo específica em que a operação foi lenta. No exemplo a seguir, mudamos do intervalo de tempo de 24 horas padrão para o intervalo de tempo de 7 dias e então aplicamos zoom na janela de tempo de 9:47 a 12:47 entre terça-feira (dia 12) e quarta-feira (dia 13). Tanto a distribuição de duração quanto o número de amostras e de rastreamentos do criador de perfil foram atualizados no lado direito.
 
-![Três picos de duração de GET Customers/Details num intervalo de 7 dias com uma janela de tempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Captura de tela mostra o desempenho (visualização) com três picos de duração no intervalo de 7 dias com uma janela de tempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 Para restringir para as experiências lentas, aplicamos zoom em seguida às durações que se enquadram entre o 95º e o 99º percentis. Elas representam 4% das interações do usuário que foram lentas.
 
-![Três picos de duração de GET Customers/Details num intervalo de 7 dias com uma janela de tempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![A captura de tela mostra obter clientes/detalhes três picos de duração no intervalo de 7 dias com uma janela de tempo.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 Podemos agora examinar os exemplos representativos clicando no botão Amostras ou então os rastreamentos de criador de perfil representativos clicando no botão Rastreamentos do Criador de Perfil. Neste exemplo, há quatro rastreamentos que foram coletados para GET Customers/Details na duração do intervalo e da janela de tempo de interesse.
 
@@ -126,7 +126,7 @@ Podemos agora examinar os exemplos representativos clicando no botão Amostras o
 
 A experiência de investigação de desempenho mostra insights relevantes ao lado do conjunto de amostra em que você decidiu se concentrar. É a melhor maneira de examinar todas as informações disponíveis é mudar para um intervalo de tempo de 30 dias e, em seguida, selecionar Geral para ver insights de todas as operações do mês anterior.
 
-![Três picos de duração de GET Customers/Details num intervalo de 7 dias com uma janela de tempo](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![A captura de tela mostra o desempenho (versão prévia) com a janela geral aberta e informações selecionadas.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>Próximas etapas
