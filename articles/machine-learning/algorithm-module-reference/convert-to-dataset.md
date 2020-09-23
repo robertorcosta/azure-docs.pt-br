@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 7df783f15280d9f5ba3330afaf504f3259aeccf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646265"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898701"
 ---
 # <a name="convert-to-dataset"></a>Converter em conjunto de dados
 
-Este artigo descreve como usar o módulo converter para conjunto de dados no designer de Azure Machine Learning (versão prévia) para converter todos os dados de um pipeline para o formato interno do designer.
+Este artigo descreve como usar o módulo converter em conjunto de dados no Azure Machine Learning designer para converter todos os dados de um pipeline para o formato interno do designer.
   
 A conversão não é necessária na maioria dos casos. Azure Machine Learning converte dados implicitamente em seu formato de conjunto de dado nativo quando qualquer operação é executada nos dados. 
 

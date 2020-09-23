@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial de instalação: desempacotar, cabear e montar em rack um dispositivo físico de GPU do Azure Stack Edge | Microsoft Docs'
-description: O segundo tutorial sobre como instalar a GPU do Azure Stack Edge envolve desempacotamento, montagem em rack e cabeamento do dispositivo físico.
+title: 'Tutorial de instalação: desempacotar, cabear e montar em rack um dispositivo físico de GPU do Azure Stack Edge Pro | Microsoft Docs'
+description: O segundo tutorial sobre como instalar a GPU do Azure Stack Edge Pro envolve desempacotamento, montagem em rack e cabeamento do dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
+ms.openlocfilehash: b9f3b564e36939197acd532a37f9a6098fbc870f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421366"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900018"
 ---
-# <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Tutorial: instalar o Azure Stack Edge com GPU
+# <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>Tutorial: instalar o Azure Stack Edge Pro com GPU
 
-Este tutorial descreve como instalar um dispositivo físico do Azure Stack Edge com uma GPU. O procedimento de instalação envolve desempacotamento, montagem em rack e cabeamento do dispositivo. 
+Este tutorial descreve como instalar um dispositivo físico do Azure Stack Edge Pro com uma GPU. O procedimento de instalação envolve desempacotamento, montagem em rack e cabeamento do dispositivo. 
 
 A instalação poderá levar cerca de duas horas para ser concluída.
 
@@ -37,12 +37,12 @@ Os pré-requisitos de instalação de um dispositivo físico são os seguintes:
 
 Antes de começar, verifique se:
 
-* Você concluiu todas as etapas descritas em [Preparar a implantação do Azure Stack Edge com GPU](azure-stack-edge-gpu-deploy-prep.md).
+* Você concluiu todas as etapas descritas em [Preparar a implantação do Azure Stack Edge Pro com GPU](azure-stack-edge-gpu-deploy-prep.md).
     * Você criou um recurso do Azure Stack Edge para implantar seu dispositivo.
     * Você já gerou a chave de ativação para ativar seu dispositivo com o recurso do Azure Stack Edge.
 
  
-### <a name="for-the-azure-stack-edge-physical-device"></a>Para o dispositivo físico do Azure Stack Edge
+### <a name="for-the-azure-stack-edge-pro-physical-device"></a>Para o dispositivo físico do Azure Stack Edge Pro
 
 Antes de implantar um dispositivo:
 
@@ -58,7 +58,7 @@ Antes de implantar um dispositivo:
 
 Antes de começar:
 
-- Examine os requisitos de rede para implantar o Azure Stack Edge e configure a rede de datacenter de acordo com os requisitos. Para saber mais, veja [Requisitos de rede do Azure Stack Edge](azure-stack-edge-system-requirements.md#networking-port-requirements).
+- Examine os requisitos de rede para implantar o Azure Stack Edge Pro e configure a rede de datacenter de acordo com os requisitos. Para saber mais, veja [Requisitos de rede do Azure Stack Edge Pro](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Garanta que a largura de banda mínima da Internet seja de 20 Mbps para o funcionamento ideal do dispositivo.
 
@@ -70,7 +70,7 @@ Este dispositivo é fornecido em uma única caixa. Conclua as etapas a seguir pa
 1. Coloque a caixa em uma superfície plana e nivelada.
 2. Inspecione a caixa e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver gravemente danificada, não a abra. Contate o Suporte da Microsoft para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
 3. Abra a caixa. Depois de abrir a caixa, verifique se você tem estes itens:
-    - Um compartimento de dispositivo Azure Stack Edge
+    - Um compartimento de dispositivo Azure Stack Edge Pro
     - Dois cabos de alimentação
     - Um conjunto de kit de trilho
     - Um livreto Informações sobre Regulamentação, Segurança e Meio-ambiente
@@ -83,7 +83,7 @@ Caso não tenha recebido todos os itens listados aqui, [Entre em contato com Sup
 O dispositivo precisa ser instalado em um rack padrão de 19 polegadas. Use o procedimento a seguir para montar o dispositivo em um rack padrão de 19 polegadas.
 
 > [!IMPORTANT]
-> Os dispositivos Azure Stack Edge devem ser montados em rack para a operação apropriada.
+> Os dispositivos Azure Stack Edge Pro devem ser montados em rack para a operação apropriada.
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -157,11 +157,11 @@ Localize os componentes para instalação do conjunto do kit de trilho:
 
 ## <a name="cable-the-device"></a>Cabear o dispositivo
 
-Passe os cabos e conecte o dispositivo. Os procedimentos a seguir explicam como cabear o dispositivo Azure Stack Edge para energia e rede.
+Passe os cabos e conecte o dispositivo. Os procedimentos a seguir explicam como cabear o dispositivo Azure Stack Edge Pro para energia e rede.
 
 Antes de começar o cabeamento do dispositivo, você precisará do seguinte:
 
-- Seu dispositivo físico Azure Stack Edge, desempacotado e montado em rack.
+- Seu dispositivo físico Azure Stack Edge Pro, desempacotado e montado em rack.
 - Dois cabos de alimentação.
 - Pelo menos um cabo de rede RJ-45 de 1 GbE para conectar-se à interface de gerenciamento. Há duas interfaces de rede de 1 GbE, uma de gerenciamento e uma de dados, no dispositivo.
 - Um cabo de cobre SFP+ de 25 GbE para cada interface de rede de dados a ser configurado. Pelo menos um adaptador de rede de dados da PORTA 2, PORTA 3, PORTA 4, PORTA 5 ou PORTA 6 precisa estar conectado à Internet (com conectividade com o Azure).  
@@ -171,9 +171,9 @@ Antes de começar o cabeamento do dispositivo, você precisará do seguinte:
 > [!NOTE]
 > - Se você está conectando somente um adaptador de rede de dados, recomendamos que você use um adaptador de rede de 25/10 GbE, como a PORTA 3, a PORTA 4, a PORTA 5 ou a PORTA 6, para enviar dados para o Azure. 
 > - Para melhor desempenho e para lidar com grandes volumes de dados, considere a possibilidade de se conectar a todas as portas de dados.
-> - O dispositivo Azure Stack Edge deve estar conectado à rede de datacenter de modo que possa ingerir dados de servidores de fonte de dados.
+> - O dispositivo Azure Stack Edge Pro deve estar conectado à rede de datacenter de modo que possa ingerir dados de servidores de fonte de dados.
 
-No dispositivo Azure Stack Edge:
+No dispositivo Azure Stack Edge Pro:
 
 - O painel frontal tem unidades de disco e um botão de energia.
 
@@ -232,7 +232,7 @@ Execute as etapas a seguir para cabear o dispositivo para obter energia e rede.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você viu tópicos do Azure Stack Edge, como:
+Neste tutorial, você viu tópicos do Azure Stack Edge Pro, como:
 
 > [!div class="checklist"]
 > * Desempacotar o dispositivo
@@ -242,4 +242,4 @@ Neste tutorial, você viu tópicos do Azure Stack Edge, como:
 Vá para o próximo tutorial para aprender a se conectar ao seu dispositivo.
 
 > [!div class="nextstepaction"]
-> [Conectar o Azure Stack Edge](./azure-stack-edge-gpu-deploy-connect.md)
+> [Conectar o Azure Stack Edge Pro](./azure-stack-edge-gpu-deploy-connect.md)

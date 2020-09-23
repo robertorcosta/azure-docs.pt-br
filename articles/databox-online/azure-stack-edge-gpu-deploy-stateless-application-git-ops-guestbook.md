@@ -1,6 +1,6 @@
 ---
-title: Implantar o aplicativo de livro de visitas do PHP no Arc habilitado kubernetes no dispositivo de GPU de borda Azure Stack | Microsoft Docs
-description: Descreve como implantar um aplicativo sem monitoração de estado do livro de visitas do PHP com Redis usando o GitOps em um cluster de kubernetes habilitado para Arc do seu dispositivo Azure Stack Edge.
+title: Implantar o aplicativo de livro de visitas do PHP em Arc habilitado kubernetes no dispositivo de GPU pro Azure Stack Edge | Microsoft Docs
+description: Descreve como implantar um aplicativo sem monitoração de estado do livro de visitas do PHP com Redis usando o GitOps em um cluster de kubernetes habilitado para Arc do seu dispositivo Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319285"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899555"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Implantar um aplicativo sem estado do livro de visitas do PHP com o Redis em um cluster kubernetes habilitado para Arc na GPU de borda Azure Stack
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um aplicativo sem monitoração de estado do PHP com Redis em um cluster kubernetes habilitado para Arc na GPU pro Azure Stack Edge
 
 Este artigo mostra como criar e implantar um aplicativo Web simples de várias camadas usando o kubernetes e o Arc do Azure. Este exemplo consiste nos seguintes componentes:
 
@@ -23,9 +23,9 @@ Este artigo mostra como criar e implantar um aplicativo Web simples de várias c
 - Várias instâncias de Redis replicadas para atender às leituras
 - Várias instâncias de front-end da Web
 
-A implantação é feita usando GitOps no cluster do kubernetes habilitado para ARC em seu dispositivo Azure Stack Edge. 
+A implantação é feita usando GitOps no cluster do kubernetes habilitado para ARC em seu dispositivo Azure Stack Edge pro. 
 
-Este procedimento destina-se a aqueles que revisaram as [cargas de trabalho do kubernetes no dispositivo Azure Stack Edge](azure-stack-edge-gpu-kubernetes-workload-management.md) e estão familiarizados com os conceitos do [que é o Azure Arc habilitado kubernetes (versão prévia)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+Este procedimento destina-se a aqueles que revisaram as [cargas de trabalho do kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e estão familiarizados com os conceitos do [que é o Azure Arc habilitado kubernetes (versão prévia)](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -34,30 +34,30 @@ Antes de implantar o aplicativo sem estado, verifique se você concluiu os segui
 
 ### <a name="for-device"></a>Para dispositivo
 
-1. Você tem credenciais de entrada para um dispositivo de borda Azure Stack de 1 nó.
+1. Você tem credenciais de entrada para um dispositivo Azure Stack Edge pro de 1 nó.
     1. O dispositivo está ativado. Consulte [ativar o dispositivo](azure-stack-edge-gpu-deploy-activate.md).
     1. O dispositivo tem a função de computação configurada por meio de portal do Azure e tem um cluster kubernetes. Consulte [Configurar computação](azure-stack-edge-gpu-deploy-configure-compute.md).
 
-1. Você habilitou o arco do Azure no cluster kubernetes existente em seu dispositivo e tem um recurso de arco do Azure correspondente no portal do Azure. Para obter etapas detalhadas, consulte [habilitar o arco do Azure no dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
+1. Você habilitou o arco do Azure no cluster kubernetes existente em seu dispositivo e tem um recurso de arco do Azure correspondente no portal do Azure. Para obter etapas detalhadas, consulte [habilitar o Azure Arc no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).
 
 ### <a name="for-client-accessing-the-device"></a>Para cliente que acessa o dispositivo
 
-1. Você tem um sistema cliente Windows que será usado para acessar o dispositivo do Azure Stack Edge.
+1. Você tem um sistema cliente Windows que será usado para acessar o dispositivo Azure Stack Edge pro.
   
     - O cliente está executando o Windows PowerShell 5,0 ou posterior. Para baixar a versão mais recente do Windows PowerShell, acesse [instalar o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Você também pode ter qualquer outro cliente com um [sistema operacional com suporte](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Este artigo descreve o procedimento ao usar um cliente do Windows. 
     
-1. Você concluiu o procedimento descrito em [acessar o cluster kubernetes no dispositivo Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md). Você:
+1. Você concluiu o procedimento descrito em [acessar o cluster kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Você:
     
     - Instalado `kubectl` no cliente  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - Verifique se a `kubectl` versão do cliente está distorcida sem mais de uma versão da versão mestre do kubernetes em execução no dispositivo Azure Stack Edge. 
+    - Verifique se a `kubectl` versão do cliente está distorcida sem mais de uma versão da versão mestre do kubernetes em execução no dispositivo pro Edge Azure Stack. 
       - Use `kubectl version` para verificar a versão do kubectl em execução no cliente. Anote a versão completa.
-      - Na interface do usuário local do seu dispositivo Azure Stack Edge, acesse **visão geral** e anote o número do software kubernetes. 
+      - Na interface do usuário local do seu dispositivo Azure Stack Edge pro, acesse **visão geral** e anote o número do software kubernetes. 
       - Verifique essas duas versões para compatibilidade com o mapeamento fornecido na versão do kubernetes com suporte <!--insert link-->.
 
-1. Você tem uma [configuração GitOps que pode ser usada para executar uma implantação do Azure Arc](https://github.com/kagoyal/dbehaikudemo). Neste exemplo, você usará os seguintes `yaml` arquivos para implantar em seu dispositivo do Azure Stack Edge.
+1. Você tem uma [configuração GitOps que pode ser usada para executar uma implantação do Azure Arc](https://github.com/kagoyal/dbehaikudemo). Neste exemplo, você usará os seguintes `yaml` arquivos para implantar em seu dispositivo Azure Stack Edge pro.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -107,7 +107,7 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
     ![Ir para configurações](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
-## <a name="verify-deployment"></a>Verificar a implantação
+## <a name="verify-deployment"></a>Verificar implantação
 
 A implantação por meio da configuração GitOps cria um `demotestguestbook` namespace conforme especificado nos arquivos de implantação `yaml` localizados no repositório git.
 
@@ -176,4 +176,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [usar o painel do kubernetes para monitorar implantações em seu dispositivo de Azure Stack Edge](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)
+Saiba como [usar o painel do kubernetes para monitorar implantações em seu dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md)

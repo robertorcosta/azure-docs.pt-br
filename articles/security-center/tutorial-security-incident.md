@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076392"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901085"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: Responder a incidentes de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para lhe avisar a existência de atividades mal-intencionadas. Além disso, você pode integrar à Central de Segurança alertas de outros produtos e serviços de segurança, bem como criar alertas personalizados com base em indicadores próprios ou fontes de inteligência. Após a geração de um alerta, é necessária uma ação rápida para investigação e correção da questão. Neste tutorial, você aprenderá a:
@@ -32,7 +32,7 @@ A Central de Segurança analisa continuamente as cargas de trabalho de nuvem hí
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para acompanhar os recursos abordados neste tutorial, você precisará usar um tipo de preço Standard da Central de Segurança. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Integração da sua assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você sobre como fazer upgrade para Standard.
+Para acompanhar os recursos abordados neste tutorial, você deve ter o Azure Defender habilitado. Você pode experimentar o Azure Defender sem custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Introdução à Central de Segurança](security-center-get-started.md) explica passo a passo como atualizar.
 
 ## <a name="scenario"></a>Cenário
 A Contoso migrou recentemente alguns dos seus recursos locais para o Azure, incluindo uma linha de cargas de trabalho de negócios e bancos de dados SQL baseada em máquinas virtuais. No momento, a principal Equipe de Resposta a Incidentes de Segurança de Computação (CSIRT) da Contoso tem um problema para investigar os problemas de segurança devido à inteligência de segurança não estar integrada em suas ferramentas atuais de resposta a incidentes. Essa falta de integração apresenta um problema durante a detecção (muitos falsos positivos) e durante os estágios de avaliação e diagnóstico. Como parte da migração, eles decidiram optar pela Central de Segurança para ajudar a resolver o problema.
@@ -68,13 +68,13 @@ A Central de Segurança fornece uma visualização unificada de todos os alertas
 
    ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. Na lista de alertas, clique em um incidente de segurança, que é uma coleção de alertas, para saber mais sobre o incidente. A tela **Incidente de segurança detectado** abre.
+2. Na lista de alertas, selecione um incidente de segurança, que é uma coleção de alertas, para saber mais sobre o incidente. A tela **Incidente de segurança detectado** abre.
 
-   ![Incidente de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Incidente de segurança detectado](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Nessa tela, você tem a descrição do incidente de segurança na parte superior e a lista de alertas que fazem parte do incidente. Clique no alerta que você deseja continuar investigando para obter mais informações.
 
-   ![Incidente de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Detalhes do alerta do incidente](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    O tipo de alerta pode variar, leia [Noções básicas sobre os alertas de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) para obter mais detalhes sobre o tipo de alerta e as etapas de correção possíveis. Para os alertas que podem ser ignorados com segurança, clique com o botão direito no alerta e selecione a opção **Ignorar**:
 
@@ -99,13 +99,12 @@ Para executar uma pesquisa, abra o painel da **Central de Segurança**, clique e
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se planejar continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando o nível Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
+Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se pretender continuar trabalhando com os próximos tutoriais e inícios rápidos, mantenha o provisionamento automático e o Azure Defender habilitados. Se não pretende continuar ou se deseja desabilitar o Azure Defender:
 
-1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
-2. Selecione a assinatura ou a política que você deseja retornar para Gratuita. A **Política de segurança** abre.
-3. Em **COMPONENTES DE POLÍTICA**, selecione **Tipo de preços**.
-4. Selecione **Gratuita** para alterar a assinatura da camada Standard para a Camada gratuita.
-5. Clique em **Salvar**.
+1. retorne ao menu principal da Central de Segurança e selecione **Preços e configurações**.
+1. Selecione a assinatura para a qual deseja fazer downgrade.
+1. Configure o **Azure Defender** como desativado.
+1. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
 

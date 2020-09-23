@@ -1,6 +1,6 @@
 ---
-title: Implantar VMs em seu dispositivo de GPU do Azure Stack Edge via Azure PowerShell
-description: Descreve como criar e gerenciar máquinas virtuais (VMs) em um dispositivo de GPU Azure Stack Edge usando Azure PowerShell.
+title: Implantar VMs em seu dispositivo de GPU pro Azure Stack Edge via Azure PowerShell
+description: Descreve como criar e gerenciar máquinas virtuais (VMs) em um dispositivo de GPU pro Azure Stack Edge usando Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: aa492acdedc2d131d28c894031de2181e87a2f3e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461707"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890707"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Implantar VMs em seu dispositivo de GPU do Azure Stack Edge via Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Implantar VMs em seu dispositivo de GPU pro Azure Stack Edge via Azure PowerShell
 
 <!--[!INCLUDE [azure-stack-edge-gateway-deploy-vm-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]-->
 
-Este tutorial descreve como criar e gerenciar uma VM em seu dispositivo Azure Stack Edge usando Azure PowerShell.
+Este tutorial descreve como criar e gerenciar uma VM em seu dispositivo Azure Stack Edge pro usando o Azure PowerShell.
 
 ## <a name="vm-deployment-workflow"></a>Fluxo de trabalho de implantação da VM
 
@@ -128,7 +128,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Somente as contas de armazenamento local, como o armazenamento com redundância local (Standard_LRS ou Premium_LRS), podem ser criadas via Azure Resource Manager. Para criar contas de armazenamento em camadas, consulte as etapas em [Adicionar, conectar-se a contas de armazenamento em seu Azure Stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Somente as contas de armazenamento local, como o armazenamento com redundância local (Standard_LRS ou Premium_LRS), podem ser criadas via Azure Resource Manager. Para criar contas de armazenamento em camadas, consulte as etapas em [Adicionar, conectar-se a contas de armazenamento em seu Azure Stack Edge pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Um exemplo de saída é mostrado abaixo.
 
@@ -193,7 +193,7 @@ Se você estiver usando *https*, precisará instalar os certificados apropriados
 
 Copie as imagens de disco a serem usadas em blobs de páginas na conta de armazenamento local que você criou nas etapas anteriores. Você pode usar uma ferramenta como [AzCopy](../storage/common/storage-use-azcopy-v10.md) para carregar o VHD na conta de armazenamento que você criou nas etapas anteriores. 
 
-Antes de usar o AzCopy, verifique se o [AzCopy está configurado corretamente](#configure-azcopy) para uso com a versão da API REST do armazenamento de BLOBs que você está usando com seu dispositivo de borda de Azure Stack.
+Antes de usar o AzCopy, verifique se o [AzCopy está configurado corretamente](#configure-azcopy) para uso com a versão da API REST do armazenamento de BLOBs que você está usando com seu dispositivo Azure Stack Edge pro.
 
 ```powershell
 AzCopy /Source:<sourceDirectoryForVHD> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Y /S /V /NC:32  /BlobType:page /destType:blob 
@@ -445,11 +445,11 @@ The public IP in this case will be the same as the private IP that you passed du
 
 ## <a name="manage-vm"></a>Gerenciar VM
 
-A seção a seguir descreve algumas das operações comuns em toda a VM que você criará em seu dispositivo de Azure Stack Edge.
+A seção a seguir descreve algumas das operações comuns em toda a VM que você criará em seu dispositivo Azure Stack Edge pro.
 
 ### <a name="list-vms-running-on-the-device"></a>Listar VMs em execução no dispositivo
 
-Para retornar uma lista de todas as VMs em execução no dispositivo Azure Stack Edge, execute o comando a seguir.
+Para retornar uma lista de todas as VMs em execução no dispositivo Azure Stack Edge pro, execute o comando a seguir.
 
 
 `Get-AzureRmVM -ResourceGroupName <String> -Name <String>`
@@ -502,7 +502,7 @@ Para obter mais informações sobre esse cmdlet, vá para o [cmdlet Remove-Azure
 
 O tamanho da VM determina a quantidade de recursos de computação, como memória, CPU e GPU que estão disponíveis para a VM. As máquinas virtuais devem ser criadas usando um tamanho de VM adequado para a carga de trabalho. Embora todos os computadores sejam executados no mesmo hardware, os tamanhos de máquina têm limites diferentes para o acesso ao disco, o que pode ajudá-lo a gerenciar o acesso geral ao disco em suas VMs. Se uma carga de trabalho aumentar, uma máquina virtual existente também poderá ser redimensionada.
 
-As seguintes VMs da série Dv2 padrão têm suporte para a criação no dispositivo Azure Stack Edge.
+As VMs da série Dv2 padrão a seguir têm suporte para a criação no dispositivo Azure Stack Edge pro.
 
 ### <a name="dv2-series"></a>Série Dv2
 |Tamanho     |vCPU     |Memória (GiB) | Armazenamento temporário (GiB)  | Taxa de transferência máxima do disco do so (IOPS) | Taxa de transferência máxima de armazenamento temporário (IOPS) | Máximo de discos de dados/taxa de transferência (IOPS) | Máximo de NICs |
@@ -547,9 +547,9 @@ Não há suporte para extensão, conjuntos de dimensionamento, conjuntos de disp
 
 ## <a name="configure-azcopy"></a>Configurar o AzCopy
 
-Ao instalar a versão mais recente do AzCopy, você precisará configurar o AzCopy para garantir que ele corresponda à versão da API REST do armazenamento de BLOBs do seu dispositivo Azure Stack Edge.
+Ao instalar a versão mais recente do AzCopy, você precisará configurar o AzCopy para garantir que ele corresponda à versão da API REST do armazenamento de BLOBs do seu dispositivo Azure Stack Edge pro.
 
-No cliente usado para acessar seu dispositivo Azure Stack Edge, configure uma variável global para corresponder à versão da API REST do armazenamento de BLOBs.
+No cliente usado para acessar seu dispositivo Azure Stack Edge pro, configure uma variável global para corresponder à versão da API REST do armazenamento de BLOBs.
 
 ### <a name="on-windows-client"></a>No cliente Windows 
 

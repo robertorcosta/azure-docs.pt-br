@@ -7,20 +7,17 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: f901833caf0623de643e0372c53658fa7da8c8be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 09/22/2020
+ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463400"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971416"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Acessando dados em contas de armazenamento com segurança por meio de exceção de serviço confiável
 
 Os indexadores que acessam dados em contas de armazenamento podem usar a funcionalidade de [exceção de serviço confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para acessar dados com segurança. Esse mecanismo oferece aos clientes que não conseguem conceder [acesso ao indexador por meio de regras de firewall IP](search-indexer-howto-access-ip-restricted.md) uma alternativa simples, segura e gratuita para acessar dados em contas de armazenamento.
-
-> [!NOTE]
-> O acesso à conta de armazenamento por meio da identidade atribuída do sistema de um serviço de pesquisa ainda está em versão prévia. Esse recurso de visualização é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Etapa 1: configurar a conexão com a conta de armazenamento por meio de identidade
 

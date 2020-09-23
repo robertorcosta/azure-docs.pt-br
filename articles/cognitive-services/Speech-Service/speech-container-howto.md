@@ -10,28 +10,40 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: aahi
-ms.openlocfilehash: b242530b09f399a84f10a40ea35e21c1119f52b1
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b51319716035cc4f59d50922846b067f4eda31d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320997"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900478"
 ---
-# <a name="install-and-run-speech-service-containers-preview"></a>Instalar e executar contêineres do serviço de fala (versão prévia)
+# <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala 
 
 Os contêineres permitem executar algumas das APIs de serviço de Fala no seu ambiente. Contêineres são excelentes para especificar requisitos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um contêiner de Fala.
 
-Os contêineres de Fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para capacidades robustas de nuvem e localidade de borda. Há cinco contêineres diferentes disponíveis. Os dois contêineres padrão são Text **-to-Text**e conversão de **texto em fala**. Os dois contêineres personalizados são **fala personalizada para texto** e **texto em fala personalizado**. O **texto para fala neural** também fornece mais declarações natural, por meio do uso de um modelo mais avançado. Os contêineres de fala têm o mesmo [preço](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que os serviços de fala do Azure baseados em nuvem.
+Os contêineres de Fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para capacidades robustas de nuvem e localidade de borda. Há vários contêineres disponíveis, que usam o mesmo [preço](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) que os serviços de fala do Azure baseados em nuvem.
+
 
 > [!IMPORTANT]
-> Atualmente, todos os contêineres de fala são oferecidos como parte de uma [Visualização pública "restrita"](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Um comunicado será feito quando os contêineres de fala progredirem para disponibilidade geral (GA).
+> Os seguintes contêineres de fala agora estão disponíveis para o público geral:
+> * Padrão de fala para texto
+> * Fala Personalizada para texto
+> * Conversão de texto em fala padrão
+> 
+> Os seguintes contêineres de fala estão na visualização restrita.
+> * Conversão de texto em fala personalizada
+> * Detecção de Idioma de fala 
+> * Texto em fala neural
+>
+> Para usar os contêineres de fala, você deve enviar uma solicitação online e fazer com que ela seja aprovada. Consulte a seção **solicitar aprovação para executar o contêiner** abaixo para obter mais informações.
 
 | Função | Recursos | Última |
 |--|--|--|
-| Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.4.0 |
-| Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.4.0 |
-| Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.6.0 |
-| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.6.0 |
+| Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.3.1 |
+| Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.3.1 |
+| Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.5.0 |
+| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.5.0 |
+| Detecção de Idioma de fala | Detectar o idioma falado nos arquivos de áudio. | 1,0 |
 | Texto em fala neural | Converte o texto em voz natural usando uma tecnologia de rede neural profunda, permitindo uma fala mais natural sintetizada. | 1.1.0 |
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
@@ -45,16 +57,6 @@ Os seguintes pré-requisitos antes de usar os contêineres de fala:
 | Mecanismo do Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
 | Recurso de fala | Para usar esses contêineres, será necessário ter:<br><br>Um recurso de _fala_ do Azure para obter a chave de API e o URI de ponto de extremidade associados. Ambos os valores estão disponíveis nas páginas visão geral de **fala** e chaves de portal do Azure. Eles são necessários para iniciar o contêiner.<br><br>**{Api_key}**: uma das duas chaves de recurso disponíveis na página **chaves**<br><br>**{ENDPOINT_URI}**: o ponto de extremidade conforme fornecido na página **visão geral** |
-
-
-## <a name="request-access-to-the-container-registry"></a>Solicitar acesso ao Registro de contêiner
-
-Preencha e envie o [formulário de solicitação](https://aka.ms/cognitivegate) para solicitar acesso ao contêiner. 
-
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -82,6 +84,7 @@ A tabela a seguir descreve a alocação mínima e recomendada de recursos para c
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 | Conversão de texto em fala | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
 | Conversão de texto em fala personalizada | 1 núcleo, 2 GB de memória | 2 núcleos, 3 GB de memória |
+| Detecção de Idioma de fala | 1 núcleo, 1 GB de memória | 1 núcleo, 1 GB de memória |
 | Texto em fala neural | 6 núcleos, 12 GB de memória | 8 núcleos, 16 GB de memória |
 
 * Cada núcleo precisa ser de pelo menos 2,6 GHz (gigahertz) ou mais rápido.
@@ -91,6 +94,13 @@ Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que s
 > [!NOTE]
 > O mínimo e recomendado são baseados nos limites do Docker, *não* nos recursos da máquina host. Por exemplo, os contêineres de conversão de texto na memória mapeiam partes de um modelo de linguagem grande e é *recomendável* que todo o arquivo caiba na memória, que é de 4-6 GB adicionais. Além disso, a primeira execução de qualquer um dos contêineres pode levar mais tempo, pois os modelos estão sendo paginados na memória.
 
+## <a name="request-approval-to-the-run-the-container"></a>Solicitar aprovação para executar o contêiner
+
+Preencha e envie o [formulário de solicitação](https://aka.ms/cognitivegate) para solicitar acesso ao contêiner. 
+
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
+
+
 ## <a name="get-the-container-image-with-docker-pull"></a>Obter a imagem de contêiner com `docker pull`
 
 As imagens de contêiner para fala estão disponíveis no registro de contêiner a seguir.
@@ -99,31 +109,37 @@ As imagens de contêiner para fala estão disponíveis no registro de contêiner
 
 | Contêiner | Repositório |
 |-----------|------------|
-| Conversão de fala em texto | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
+| Conversão de fala em texto | `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest` |
 
 # <a name="custom-speech-to-text"></a>[Fala Personalizada para texto](#tab/cstt)
 
 | Contêiner | Repositório |
 |-----------|------------|
-| Fala Personalizada para texto | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
+| Fala Personalizada para texto | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
 
 # <a name="text-to-speech"></a>[Conversão de texto em fala](#tab/tts)
 
 | Contêiner | Repositório |
 |-----------|------------|
-| Conversão de texto em fala | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+| Conversão de texto em fala | `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest` |
 
 # <a name="neural-text-to-speech"></a>[Texto em fala neural](#tab/ntts)
 
 | Contêiner | Repositório |
 |-----------|------------|
-| Texto em fala neural | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest` |
+| Texto em fala neural | `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest` |
 
 # <a name="custom-text-to-speech"></a>[Conversão de texto em fala personalizada](#tab/ctts)
 
 | Contêiner | Repositório |
 |-----------|------------|
-| Conversão de texto em fala personalizada | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest` |
+| Conversão de texto em fala personalizada | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest` |
+
+# <a name="speech-language-detection"></a>[Detecção de Idioma de fala](#tab/lid)
+
+| Contêiner | Repositório |
+|-----------|------------|
+| Detecção de Idioma de fala | `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest` |
 
 ***
 
@@ -138,7 +154,7 @@ As imagens de contêiner para fala estão disponíveis no registro de contêiner
 Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
 ```
 
 > [!IMPORTANT]
@@ -167,7 +183,7 @@ Para todas as localidades com suporte do contêiner de **fala a texto** , consul
 Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest
 ```
 
 > [!NOTE]
@@ -180,7 +196,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest
 ```
 
 > [!IMPORTANT]
@@ -212,7 +228,7 @@ Para todas as localidades com suporte e as vozes correspondentes do contêiner d
 Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest
 ```
 
 > [!IMPORTANT]
@@ -244,11 +260,21 @@ Para todas as localidades com suporte e as vozes correspondentes do contêiner d
 Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest
 ```
 
 > [!NOTE]
 > O `locale` e o `voice` para contêineres de fala personalizados são determinados pelo modelo personalizado ingerido pelo contêiner.
+
+# <a name="speech-language-detection"></a>[Detecção de Idioma de fala](#tab/lid)
+
+#### <a name="docker-pull-for-the-speech-language-detection-container"></a>Pull do Docker para o contêiner de Detecção de Idioma de fala
+
+Use o comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para baixar uma imagem de contêiner do registro de visualização de contêiner.
+
+```Docker
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest
+```
 
 ***
 
@@ -269,7 +295,7 @@ Para executar o contêiner padrão de *fala em texto* , execute o comando a segu
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -295,7 +321,7 @@ A chave e o ponto de extremidade são passados para o contêiner de fala como ar
 
 ```bash
 docker run -it --rm -p 5000:5000 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest \
+mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
@@ -344,7 +370,7 @@ Para executar o contêiner de *fala personalizada para texto* , execute o seguin
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -367,7 +393,7 @@ Para executar o contêiner padrão de *conversão de texto em fala* , execute o 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -386,7 +412,7 @@ Para executar o contêiner de *conversão de texto em fala neural* , execute o c
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
-containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -425,7 +451,7 @@ Para executar o contêiner de *texto em fala personalizado* , execute o seguinte
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -442,6 +468,34 @@ Esse comando:
 * Se o modelo personalizado tiver sido baixado anteriormente, o `ModelId` será ignorado.
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.
 
+# <a name="language-detection"></a>[Detecção de Idioma](#tab/lid)
+
+Para executar o contêiner de *detecção de idioma de fala* , execute o comando a seguir `docker run` .
+
+```bash
+docker run --rm -it -p 5003:5003 --memory 1g --cpus 1 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Esse comando: 
+
+* Executa um contêiner de detecção de idioma de fala da imagem de contêiner.
+* Aloca 1 núcleos de CPU e 1 gigabyte (GB) de memória.
+* Expõe a porta TCP 5003 e aloca um pseudo-TTY para o contêiner.
+* Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.
+
+Se você quiser executar esse contêiner com o contêiner de fala em texto, poderá usar essa [imagem do Docker](https://hub.docker.com/r/antsu/on-prem-client). Depois que os dois contêineres tiverem sido iniciados, use este comando de execução do Docker para executar `speech-to-text-with-languagedetection-client` .
+
+```Docker
+docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-text-with-languagedetection-client ./audio/LanguageDetection_en-us.wav --host localhost --lport 5003 --sport 5000
+```
+
+> [!NOTE]
+> Aumentar o número de chamadas simultâneas pode afetar a confiabilidade e a latência. Para detecção de idioma, recomendamos um máximo de quatro chamadas simultâneas usando 1 CPU com e 1GB de memória. Para hosts com 2 CPUs e 2GB de memória, recomendamos um máximo de 6 chamadas simultâneas.
+
 ***
 
 > [!IMPORTANT]
@@ -455,7 +509,7 @@ Esse comando:
 | Contêineres | URL do host do SDK | Protocolo |
 |--|--|--|
 | Padrão de fala-para-texto e Fala Personalizada para texto | `ws://localhost:5000` | WS |
-| Conversão de texto em fala (incluindo Standard, personalizada e neural) | `http://localhost:5000` | HTTP |
+| Conversão de texto em fala (incluindo padrão, personalizada e neural), detecção de idioma | `http://localhost:5000` | HTTP |
 
 Para obter mais informações sobre como usar os protocolos do WSS e HTTPS, consulte [segurança do contêiner](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
@@ -624,6 +678,7 @@ Neste artigo, você aprendeu os conceitos e o fluxo de trabalho para baixar, ins
   * *Conversão de texto em fala*
   * *Conversão de texto em fala personalizada*
   * *Texto em fala neural*
+  * *Detecção de Idioma de fala*
 * As imagens de contêiner são baixadas do registro de contêiner no Azure.
 * Imagens de contêiner são executadas no Docker.
 * Se estiver usando a API REST (somente conversão de texto em fala) ou o SDK (fala-para-texto ou conversão de texto em fala), especifique o URI do host do contêiner. 

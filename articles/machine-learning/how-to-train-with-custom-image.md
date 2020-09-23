@@ -10,21 +10,20 @@ author: saachigopal
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2289a761d4e266c305c2868e9f234871624ae528
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d90b56366cb22e80162983c982e861de608e4e9e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661312"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893106"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Treinar um modelo usando uma imagem personalizada do Docker
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, saiba como usar uma imagem personalizada do Docker ao treinar modelos com Azure Machine Learning. 
 
 Os scripts de exemplo neste artigo são usados para classificar imagens de animais de estimação criando uma rede neural de convolução. 
 
-Embora Azure Machine Learning forneça uma imagem base padrão do Docker, você também pode usar ambientes de Azure Machine Learning para especificar uma imagem base específica, como um conjunto de imagens de [base de ml do Azure](https://github.com/Azure/AzureML-Containers) mantidas ou sua própria [imagem personalizada](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image#create-a-custom-base-image). As imagens de base personalizadas permitem que você gerencie de perto suas dependências e mantenha um controle mais rígido sobre as versões de componentes ao executar trabalhos de treinamento. 
+Embora Azure Machine Learning forneça uma imagem base padrão do Docker, você também pode usar ambientes de Azure Machine Learning para especificar uma imagem base específica, como um conjunto de imagens de [base de ml do Azure](https://github.com/Azure/AzureML-Containers) mantidas ou sua própria [imagem personalizada](how-to-deploy-custom-docker-image.md#create-a-custom-base-image). As imagens de base personalizadas permitem que você gerencie de perto suas dependências e mantenha um controle mais rígido sobre as versões de componentes ao executar trabalhos de treinamento. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 Execute este código em qualquer um destes ambientes:
@@ -101,11 +100,11 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### <a name="create-or-attach-existing-amlcompute"></a>Criar ou anexar AmlCompute existentes
-Você precisará criar um [destino de computação](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#compute-target) para treinar seu modelo. Neste tutorial, você criará AmlCompute como seu recurso de computação de treinamento.
+Você precisará criar um [destino de computação](concept-azure-machine-learning-architecture.md#compute-targets) para treinar seu modelo. Neste tutorial, você criará AmlCompute como seu recurso de computação de treinamento.
 
 A criação de AmlCompute leva aproximadamente 5 minutos. Se o AmlCompute com esse nome já estiver em seu espaço de trabalho, esse código ignorará o processo de criação.
 
-Assim como ocorre com outros serviços do Azure, há limites em determinados recursos (por exemplo, AmlCompute) associados ao serviço de Azure Machine Learning. Leia [Este artigo](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas) sobre os limites padrão e como solicitar mais cota. 
+Assim como ocorre com outros serviços do Azure, há limites em determinados recursos (por exemplo, AmlCompute) associados ao serviço de Azure Machine Learning. Leia [Este artigo](how-to-manage-quotas.md) sobre os limites padrão e como solicitar mais cota. 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -132,7 +131,7 @@ print(compute_target.get_status().serialize())
 ```
 
 ### <a name="create-a-scriptrunconfig"></a>Criar um ScriptRunConfig
-Este ScriptRunConfig irá configurar seu trabalho para execução no destino de [computação](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets#compute-targets-for-training)desejado.
+Este ScriptRunConfig irá configurar seu trabalho para execução no destino de [computação](how-to-set-up-training-targets.md)desejado.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -160,4 +159,4 @@ Para obter mais informações sobre como personalizar seu ambiente Python, consu
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você treinou um modelo usando uma imagem personalizada do Docker. Consulte estes outros artigos para saber mais sobre Azure Machine Learning.
 * [Rastrear métricas de execução](how-to-track-experiments.md) durante o treinamento
-* [Implante um modelo](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image) usando uma imagem personalizada do Docker.
+* [Implante um modelo](how-to-deploy-custom-docker-image.md) usando uma imagem personalizada do Docker.
