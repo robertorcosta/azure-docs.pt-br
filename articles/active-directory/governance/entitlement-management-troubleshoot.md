@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460789"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979419"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Solucionar problemas de gerenciamento de direitos do Azure AD
 
@@ -75,7 +75,7 @@ Este artigo descreve alguns itens que você deve verificar para ajudá-lo a solu
 
 ### <a name="view-a-requests-delivery-errors"></a>Exibir os erros de entrega de uma solicitação
 
-**Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo, Gerenciador de pacotes de acesso ou Gerenciador de atribuição de pacotes de acesso
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
@@ -103,7 +103,7 @@ Você só pode reprocessar uma solicitação que tenha um status de **entrega co
 
 - Se o erro não foi corrigido durante a janela de avaliações, o status da solicitação pode ser **entrega com falha** ou **parcialmente entregue**. Em seguida, você pode usar o botão **Reprocessar** . Você terá sete dias para reprocessar a solicitação.
 
-**Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo, Gerenciador de pacotes de acesso ou Gerenciador de atribuição de pacotes de acesso
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
@@ -121,7 +121,7 @@ Você só pode reprocessar uma solicitação que tenha um status de **entrega co
 
 Você só pode cancelar uma solicitação pendente que ainda não foi entregue ou cuja entrega falhou. Caso contrário, o botão **Cancelar** estaria esmaecido.
 
-**Função de pré-requisito:** Administrador global, Administrador de usuário, Proprietário do catálogo ou Gerenciador de pacote de acesso
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo, Gerenciador de pacotes de acesso ou Gerenciador de atribuição de pacotes de acesso
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 

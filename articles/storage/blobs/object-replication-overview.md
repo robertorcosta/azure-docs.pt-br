@@ -10,12 +10,12 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0d03b2708bfd4aac2565b303ddce44f50be65ef9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ee76c1692049d5b25e85b6780fbcf78f7ebfdd2f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612334"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987045"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicação de objeto para BLOBs de blocos
 
@@ -68,7 +68,7 @@ Você também pode especificar um ou mais filtros como parte de uma regra de rep
 
 Os contêineres de origem e de destino devem existir para que você possa especificá-los em uma regra. Depois de criar a política de replicação, o contêiner de destino torna-se somente leitura. Qualquer tentativa de gravar no contêiner de destino falha com o código de erro 409 (conflito). No entanto, você pode chamar a operação [definir camada de blob](/rest/api/storageservices/set-blob-tier) em um blob no contêiner de destino para movê-lo para a camada de arquivo morto. Para obter mais informações sobre a camada de arquivo, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](storage-blob-storage-tiers.md#archive-access-tier).
 
-## <a name="billing"></a>Cobrança 
+## <a name="billing"></a>Cobrança
 
 A replicação de objeto incorre em custos adicionais de transações de leitura e gravação em relação às contas de origem e de destino, bem como encargos de saída para a replicação de dados da conta de origem para a conta de destino e leitura de encargos para processar o feed de alterações.
 

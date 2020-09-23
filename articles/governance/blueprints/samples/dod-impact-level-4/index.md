@@ -1,14 +1,14 @@
 ---
 title: Visão geral do exemplo de blueprint do Nível de Impacto 4 do DoD
 description: Visão geral do exemplo de Nível de Impacto 4 do DoD. Este exemplo de blueprint ajuda os clientes a avaliar controles específicos do Nível de Impacto 4 do DoD.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 1c06cd738b9a63cb7a3ec14ef48bb8ae7c6dd6cb
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 1fbcbbf1ca12e9cb235a79ace0e7de82c3c8cbcc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978384"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Visão geral do exemplo de blueprint do Nível de Impacto 4 do DoD
 

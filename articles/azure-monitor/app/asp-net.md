@@ -3,12 +3,12 @@ title: Configurar análise de aplicativo Web do ASP.NET com o Azure Application 
 description: Configure ferramentas de análise de desempenho, de disponibilidade e do comportamento do usuário para seu site ASP.NET, hospedado localmente ou no Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c07e7c8e7bd710cb591719fe8d53a3bad6ca2ee0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475525"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973792"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para seu site ASP.NET
 
@@ -42,7 +42,7 @@ Tela de Configuração do Application Insights:
 
 Selecione **Introdução**.
 
-![Captura de tela de registrar seu aplicativo com o Application Insights](./media/asp-net/00004-start-free.png)
+![Captura de tela mostra a página Application Insights e o botão de introdução.](./media/asp-net/00004-start-free.png)
 
 Se você deseja definir o grupo de recursos ou o local onde os dados estão armazenado, clique **configurações**. Grupos de recursos são usados para controlar o acesso aos dados. Por exemplo, se você tiver vários aplicativos que fazem parte do mesmo sistema, você pode colocar seus dados do Application Insights no mesmo grupo de recursos.
 
@@ -113,7 +113,7 @@ O recurso do Azure que recebe a telemetria do seu aplicativo é identificado por
 
 ## <a name="upgrade-to-future-sdk-versions"></a>Atualizar para versões futuras do SDK
 
-* [Notas sobre a versão](./release-notes.md)
+* [Notas de Versão](./release-notes.md)
 
 Para atualizar para uma nova versão do SDK, abra o **Gerenciador de pacotes NuGet**e filtre os pacotes instalados. Selecione **Microsoft.ApplicationInsights.Web** e escolha **Atualizar**.
 

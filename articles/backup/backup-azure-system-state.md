@@ -3,12 +3,12 @@ title: Fazer backup de estado do sistema para o Windows Azure
 description: Saiba como fazer backup do estado do sistema de computadores Windows Server no Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376483"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975493"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Fazer backup de estado do sistema para o Windows Azure
 
@@ -40,7 +40,7 @@ Quando você criar um cofre de Serviços de Recuperação, certifique-se de que 
 
     ![Opções de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [com redundância geográfica](../storage/common/storage-redundancy.md) e [com redundância local](../storage/common/storage-redundancy.md) nesta [Visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
+    Por padrão, seu cofre tem armazenamento com redundância geográfica. Se você usar o Azure como um ponto de extremidade de armazenamento de backup principal, continue a usar **Georredundante**. Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure. Leia [mais sobre as](../storage/common/storage-redundancy.md#geo-redundant-storage)opções de armazenamento com redundância local e com redundância de [zona](../storage/common/storage-redundancy.md#zone-redundant-storage) [localmente](../storage/common/storage-redundancy.md#locally-redundant-storage) nesta [visão geral](../storage/common/storage-redundancy.md)de Unificação de armazenamento.
 
 Agora que você criou um cofre, configure-o para fazer backup do Estado do Sistema do Windows.
 
@@ -181,7 +181,7 @@ Depois que o backup inicial for concluído, o status **Trabalho concluído** apa
 
   ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
-## <a name="questions"></a>Dúvidas?
+## <a name="questions"></a>Perguntas?
 
 Se você tiver dúvidas, [envie-nos seus comentários](https://feedback.azure.com/forums/258995-azure-backup).
 

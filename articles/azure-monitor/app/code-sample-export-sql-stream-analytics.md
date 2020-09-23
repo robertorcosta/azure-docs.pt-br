@@ -3,12 +3,12 @@ title: Exportar para o SQL do Azure Application Insights | Microsoft Docs
 description: Exportar dados continuamente do Application Insights para o SQL usando o Stream Analytics
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 9c559a61794b36ea1bc33abc14271151fbea9d4c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979458"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
 Este artigo mostra como mover os dados de telemetria do [aplicativo Azure insights][start] para o Azure SQL Database usando a exportação e a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) [contínuas][export] . 
@@ -133,21 +133,21 @@ Neste exemplo, estamos usando dados de modos de exibição de página. Para ver 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância do Azure Stream Analytics
 No [Portal do Azure](https://portal.azure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
 
-![Configurações do Stream analytics](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![Captura de tela mostra a página de trabalho do Stream Analytics com o botão criar realçado.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![Novo trabalho do Stream Analytics](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 Após a criação do novo trabalho, escolha **Ir para o recurso**.
 
-![Configurações do Stream analytics](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![Captura de tela mostra a mensagem implantação bem-sucedida e ir para o botão recurso.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Adicionar uma nova entrada
 
-![Configurações do Stream analytics](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![Captura de tela mostra a página entradas com o botão Adicionar selecionado.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Defina a entrada do seu blob de Exportação Contínua:
 
-![Configurações do Stream analytics](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![Captura de tela mostra a nova janela de entrada com as opções de menu suspenso de alias de entrada, origem e conta de armazenamento selecionadas.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamento, previamente anotada. Defina isso como a chave da conta de armazenamento.
 

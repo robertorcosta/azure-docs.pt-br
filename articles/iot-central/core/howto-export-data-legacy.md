@@ -7,20 +7,20 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 1202e46f2ea12db62062ac50b8e83b51fe9e5ca0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428112"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974425"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados (herdada)
 
 > [!Note]
 > Este artigo descreve os recursos de exportação de dados herdados no IoT Central.
 >
-> - Para obter informações sobre os novos recursos de exportação de dados de visualização, consulte [exportar dados de IOT para destinos de nuvem usando a exportação de dados (versão prévia)](./howto-export-data.md).
-> - Para saber mais sobre as diferenças entre os recursos de exportação de dados de visualização e exportação de dados herdados, consulte a [tabela de comparação](./howto-export-data.md#comparison-of-legacy-data-export-and-preview-data-export).
+> - Para obter informações sobre os novos recursos de exportação de dados de visualização, consulte [exportar dados de IOT para destinos de nuvem usando a exportação de dados](./howto-export-data.md).
+> - Para saber mais sobre as diferenças entre os recursos de exportação de dados de visualização e exportação de dados herdados, consulte a [tabela de comparação](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 Este artigo descreve como usar o recurso de exportação de dados no Azure IoT Central. Esse recurso permite exportar os dados continuamente para os **hubs de eventos do**Azure, o **barramento de serviço do Azure**ou as instâncias **do armazenamento de BLOBs do Azure** . A exportação de dados usa o formato JSON e pode incluir telemetria, informações do dispositivo e informações do modelo do dispositivo. Use os dados exportados para:
 
