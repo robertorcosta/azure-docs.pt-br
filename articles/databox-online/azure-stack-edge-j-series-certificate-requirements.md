@@ -1,6 +1,6 @@
 ---
-title: Requisitos de certificados e solução de problemas com o Azure Stack Edge | Microsoft Docs
-description: Descreve os requisitos de certificados e a solução de problemas de erros de certificado com Azure Stack dispositivo de borda.
+title: Requisitos de certificados e solução de problemas com o Azure Stack Edge pro | Microsoft Docs
+description: Descreve os requisitos de certificados e a solução de problemas de erros de certificado com o Azure Stack dispositivo pro Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: alkohli
-ms.openlocfilehash: b24b745a53b632ce32cda37058363bf974d400b3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e67b507baf1c3271a7fe32318597722e52fd3890
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268255"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891386"
 ---
 # <a name="certificate-requirements"></a>Requisitos de certificado
 
-Este artigo descreve os requisitos de certificado que devem ser atendidos antes que os certificados possam ser instalados em seu dispositivo Azure Stack Edge. Os requisitos estão relacionados a certificados PFX, autoridade emissora, nome da entidade do certificado e nome alternativo da entidade e algoritmos de certificado com suporte.
+Este artigo descreve os requisitos de certificado que devem ser atendidos antes que os certificados possam ser instalados em seu dispositivo Azure Stack Edge pro. Os requisitos estão relacionados a certificados PFX, autoridade emissora, nome da entidade do certificado e nome alternativo da entidade e algoritmos de certificado com suporte.
 
 ## <a name="certificate-issuing-authority"></a>Autoridade emissora de certificado
 
@@ -56,7 +56,7 @@ Os certificados devem ter o seguinte nome de assunto e requisitos de nome altern
     |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de Blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Interface do usuário local| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
     |Nó|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
@@ -64,13 +64,13 @@ Os certificados devem ter o seguinte nome de assunto e requisitos de nome altern
     
 ## <a name="pfx-certificate"></a>Certificado PFX
 
-Os certificados PFX instalados em seu dispositivo Azure Stack Edge devem atender aos seguintes requisitos:
+Os certificados PFX instalados em seu dispositivo Azure Stack Edge pro devem atender aos seguintes requisitos:
 
 * Quando você obtém seus certificados da autoridade SSL, o certifica-se de obter a cadeia de assinatura completa para os certificados.
 
 * Ao exportar um certificado PFX, certifique-se de ter selecionado a opção **incluir todos os certificados na cadeia, se possível** .
 
-* Use um certificado PFX para ponto de extremidade, interface do usuário local, nó, VPN e Wi-Fi, pois as chaves pública e privada são necessárias para Azure Stack borda. A chave privada deve ter o atributo de chave do computador local definido.
+* Use um certificado PFX para ponto de extremidade, interface do usuário local, nó, VPN e Wi-Fi, pois as chaves pública e privada são necessárias para Azure Stack o Edge pro. A chave privada deve ter o atributo de chave do computador local definido.
 
 * A criptografia PFX do certificado deve ser 3DES. Essa é a criptografia padrão usada ao exportar de um cliente do Windows 10 ou do repositório de certificados do Windows Server 2016. Para obter mais informações relacionadas ao 3DES, consulte [Triple DES](https://en.wikipedia.org/wiki/Triple_DES).
 
@@ -78,7 +78,7 @@ Os certificados PFX instalados em seu dispositivo Azure Stack Edge devem atender
 
 * Os arquivos PFX de certificado devem ter valores de *autenticação de servidor (1.3.6.1.5.5.7.3.1)* e *autenticação de cliente (1.3.6.1.5.5.7.3.2)* no campo *uso avançado de chave* .
 
-* As senhas para todos os arquivos PFX de certificado devem ser as mesmas no momento da implantação se você estiver usando a ferramenta Azure Stack Readiness Checker. Para obter mais informações, consulte [criar certificados para sua borda de Azure Stack usando a ferramenta Verificador de prontidão do Hub do Azure Stack](azure-stack-edge-j-series-create-certificates-tool.md).
+* As senhas para todos os arquivos PFX de certificado devem ser as mesmas no momento da implantação se você estiver usando a ferramenta Azure Stack Readiness Checker. Para obter mais informações, consulte [criar certificados para seu Azure Stack Edge pro usando a ferramenta Verificador de prontidão do Hub do Azure Stack](azure-stack-edge-j-series-create-certificates-tool.md).
 
 * A senha para o PFX do certificado deve ser uma senha complexa. Anote essa senha porque ela é usada como um parâmetro de implantação.
 
@@ -86,9 +86,9 @@ Para obter mais informações, consulte [Exportar certificados PFX com a chave p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Usar certificados com o Azure Stack Edge](azure-stack-edge-j-series-manage-certificates.md)
+[Usar certificados com o Azure Stack Edge pro](azure-stack-edge-j-series-manage-certificates.md)
 
-[Criar certificados para sua borda de Azure Stack usando a ferramenta Verificador de prontidão do Hub Azure Stack](azure-stack-edge-j-series-create-certificates-tool.md)
+[Criar certificados para seu Azure Stack Edge pro usando a ferramenta Verificador de prontidão do Hub Azure Stack](azure-stack-edge-j-series-create-certificates-tool.md)
 
 [Exportar certificados PFX com a chave privada](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key)
 

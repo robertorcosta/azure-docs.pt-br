@@ -1,6 +1,6 @@
 ---
-title: Implantar aplicativo sem monitoração de kubernetes em Azure Stack dispositivo de GPU de borda usando kubectl | Microsoft Docs
-description: Descreve como criar e gerenciar uma implantação de aplicativo sem estado do kubernetes usando o kubectl em um dispositivo Microsoft Azure Stack Edge.
+title: Implantar um aplicativo sem estado do kubernetes no dispositivo Azure Stack GPU pro Edge usando kubectl | Microsoft Docs
+description: Descreve como criar e gerenciar uma implantação de aplicativo sem estado kubernetes usando o kubectl em um dispositivo Microsoft Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268852"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890736"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Implantar um aplicativo sem monitoração de estado kubernetes por meio do kubectl em seu dispositivo de GPU do Azure Stack Edge
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Implantar um aplicativo sem monitoração de estado kubernetes por meio do kubectl em seu dispositivo de GPU pro Azure Stack Edge
 
 Este artigo descreve como implantar um aplicativo sem estado usando comandos kubectl em um cluster kubernetes existente. Este artigo também orienta você pelo processo de criação e configuração de pods em seu aplicativo sem estado.
 
@@ -23,13 +23,13 @@ Este artigo descreve como implantar um aplicativo sem estado usando comandos kub
 
 Para poder criar um cluster kubernetes e usar a `kubectl` ferramenta de linha de comando, você precisa garantir que:
 
-- Você tem credenciais de entrada para um dispositivo de borda Azure Stack de 1 nó.
+- Você tem credenciais de entrada para um dispositivo Azure Stack Edge pro de 1 nó.
 
-- O Windows PowerShell 5,0 ou posterior está instalado em um sistema cliente Windows para acessar o dispositivo de borda Azure Stack. Você também pode ter qualquer outro cliente com um sistema operacional com suporte. Este artigo descreve o procedimento ao usar um cliente do Windows. Para baixar a versão mais recente do Windows PowerShell, vá para [instalando o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- O Windows PowerShell 5,0 ou posterior está instalado em um sistema cliente Windows para acessar o dispositivo pro Azure Stack Edge. Você também pode ter qualquer outro cliente com um sistema operacional com suporte. Este artigo descreve o procedimento ao usar um cliente do Windows. Para baixar a versão mais recente do Windows PowerShell, vá para [instalando o Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- A computação é habilitada no dispositivo Azure Stack Edge. Para habilitar a computação, vá para a página **computação** na interface do usuário local do dispositivo. Em seguida, selecione uma interface de rede que você deseja habilitar para a computação. Selecione **Habilitar**. Habilitar resultados de computação na criação de um comutador virtual em seu dispositivo nessa interface de rede. Para obter mais informações, consulte [habilitar a rede de computação em seu Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- A computação é habilitada no dispositivo Azure Stack Edge pro. Para habilitar a computação, vá para a página **computação** na interface do usuário local do dispositivo. Em seguida, selecione uma interface de rede que você deseja habilitar para a computação. Selecione **Habilitar**. Habilitar resultados de computação na criação de um comutador virtual em seu dispositivo nessa interface de rede. Para obter mais informações, consulte [habilitar a rede de computação em seu Azure Stack Edge pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
-- Seu dispositivo do Azure Stack Edge tem um servidor de cluster kubernetes em execução que é a versão v 1.9 ou posterior. Para obter mais informações, consulte [criar e gerenciar um cluster kubernetes no dispositivo Microsoft Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- O dispositivo pro Edge Azure Stack tem um servidor de cluster kubernetes em execução que é a versão v 1.9 ou posterior. Para obter mais informações, consulte [criar e gerenciar um cluster kubernetes no dispositivo Microsoft Azure Stack Edge pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - Você instalou o `kubectl` .
 
@@ -43,7 +43,7 @@ Antes de começar, você deve ter:
 4. A configuração do usuário foi salva para `C:\Users\<username>\.kube` .
 5. Instalado `kubectl` .
 
-Agora você pode começar a executar e gerenciar implantações de aplicativo sem monitoração de estado em um dispositivo Azure Stack Edge. Antes de começar a usar `kubectl` o, você precisa verificar se tem a versão correta do `kubectl` .
+Agora você pode começar a executar e gerenciar implantações de aplicativo sem monitoração de estado em um dispositivo Azure Stack Edge pro. Antes de começar a usar `kubectl` o, você precisa verificar se tem a versão correta do `kubectl` .
 
 ### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Verifique se você tem a versão correta do kubectl e configure a configuração
 
@@ -109,7 +109,7 @@ Um pod é a unidade de execução básica de um aplicativo kubernetes, a menor e
 
 O tipo de aplicativo sem estado que você cria é uma implantação de servidor Web nginx.
 
-Todos os comandos kubectl que você usa para criar e gerenciar implantações de aplicativo sem estado precisam especificar o namespace associado à configuração. Você criou o namespace enquanto estiver conectado ao cluster no dispositivo Azure Stack Edge no tutorial [criar e gerenciar um cluster kubernetes no dispositivo Microsoft Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md) com o `New-HcsKubernetesNamespace` .
+Todos os comandos kubectl que você usa para criar e gerenciar implantações de aplicativo sem estado precisam especificar o namespace associado à configuração. Você criou o namespace enquanto estava conectado ao cluster no dispositivo Azure Stack Edge pro no tutorial [criar e gerenciar um cluster kubernetes no dispositivo Microsoft Azure Stack Edge pro](azure-stack-edge-gpu-create-kubernetes-cluster.md) com o `New-HcsKubernetesNamespace` .
 
 Para especificar o namespace em um comando kubectl, use `kubectl <command> -n <namespace-string>` .
 

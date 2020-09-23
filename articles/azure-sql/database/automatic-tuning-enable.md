@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373497"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981455"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitar o ajuste automático no portal do Azure para monitorar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ No nível do servidor, você pode escolher entre herdar ou não a configuração
 
 Para habilitar o ajuste automático em um [servidor](logical-servers.md) no banco de dados SQL do Azure, navegue até o servidor na portal do Azure e, em seguida, selecione **ajuste automático** no menu.
 
-![Servidor](./media/automatic-tuning-enable/server.png)
+![A captura de tela mostra o ajuste automático no portal do Azure, onde você pode aplicar opções para um servidor.](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Observe que a opção **DROP_INDEX** no momento não é compatível com aplicativos que usam a alternância de partição e dicas de índice e não deve ser habilitada nesses casos. Não há suporte para a remoção de índices não utilizados para as camadas de serviço Premium e Comercialmente Crítico.
@@ -77,7 +77,7 @@ Para habilitar o ajuste automático em um **único banco de dados**, navegue at�
 
 As configurações de ajustes automático individuais podem ser definidas separadamente para cada banco de dados. Manualmente, você pode configurar uma opção de ajuste automático individual ou especificar que uma opção herde as configurações do servidor.
 
-![Banco de dados](./media/automatic-tuning-enable/database.png)
+![A captura de tela mostra o ajuste automático no portal do Azure, onde você pode aplicar opções para um único banco de dados.](./media/automatic-tuning-enable/database.png)
 
 Observe que a opção DROP_INDEX no momento não é compatível com aplicativos que usam dicas de índice e de alternância de partição e não deve ser habilitada nesses casos.
 
