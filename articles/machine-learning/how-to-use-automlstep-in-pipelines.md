@@ -11,15 +11,15 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: eb28ee0adb3c23a44936cbc940ee9bcddfd11141
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6b239ab14437083b74f4501eabb588e929152431
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647411"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897251"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usar o ML automatizado em um pipeline de Azure Machine Learning no Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 O recurso ML automatizado do Azure Machine Learning ajuda a descobrir modelos de alto desempenho sem a necessidade de reimplementar todas as abordagens possíveis. Combinado com pipelines de Azure Machine Learning, você pode criar fluxos de trabalho implantáveis que podem descobrir rapidamente o algoritmo que funciona melhor para seus dados. Este artigo mostrará como unir com eficiência uma etapa de preparação de dados a uma etapa de ML automatizada. O ML automatizado pode descobrir rapidamente o algoritmo que funciona melhor para seus dados, enquanto coloca você no caminho de MLOps e operacionalização do ciclo de vida do modelo com pipelines.
 
@@ -29,7 +29,7 @@ O recurso ML automatizado do Azure Machine Learning ajuda a descobrir modelos de
 
 * Um Workspace do Azure Machine Learning. Confira [Criar um Workspace do Azure Machine Learning](how-to-manage-workspace.md).  
 
-* Familiaridade básica com o [aprendizado de máquina automatizado](concept-automated-ml.md) do Azure e recursos de [pipeline de aprendizado de máquina](concept-ml-pipelines.md) e SDK.
+* Familiaridade com as instalações e o SDK dos [pipelines](concept-ml-pipelines.md) de aprendizado de máquina e do Machine Learning [automatizados](concept-automated-ml.md) do Azure.
 
 ## <a name="review-automated-mls-central-classes"></a>Examinar as classes centrais do ML automatizado
 
@@ -368,7 +368,7 @@ Ocasionalmente, você pode ver o uso `X` de recursos de dados e `y` Rótulos de 
 
 ## <a name="register-the-model-generated-by-automated-ml"></a>Registrar o modelo gerado por ML automatizado 
 
-A última etapa em um pipeline de ML básico é registrar o modelo criado. Ao adicionar o modelo ao registro de modelo do espaço de trabalho, ele estará disponível no portal e poderá ter controle de versão. Para registrar o modelo, escreva outro `PythonScriptStep` que receba a `model_data` saída do `AutoMLStep` .
+A última etapa em um pipeline ML simples é registrar o modelo criado. Ao adicionar o modelo ao registro de modelo do espaço de trabalho, ele estará disponível no portal e poderá ter controle de versão. Para registrar o modelo, escreva outro `PythonScriptStep` que receba a `model_data` saída do `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>Escreva o código para registrar o modelo
 

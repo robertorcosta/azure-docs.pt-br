@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651257"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886323"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como o Azure Machine Learning funciona: Arquitetura e conceitos
 
@@ -193,7 +193,7 @@ Para obter um exemplo de implantação de um modelo como um serviço web, consul
 
 #### <a name="real-time-endpoints"></a>Pontos de extremidade em tempo real
 
-Quando você implanta um modelo treinado no designer (versão prévia), você pode [implantar o modelo como um ponto de extremidade em tempo real](tutorial-designer-automobile-price-deploy.md). Um ponto de extremidade em tempo real geralmente recebe uma única solicitação por meio do ponto de extremidade REST e retorna uma previsão em tempo real. Isso está em contraste com o processamento em lotes, que processa vários valores de uma vez e salva os resultados após a conclusão para um repositório de armazenamento.
+Ao implantar um modelo treinado no designer, você pode [implantar o modelo como um ponto de extremidade em tempo real](tutorial-designer-automobile-price-deploy.md). Um ponto de extremidade em tempo real geralmente recebe uma única solicitação por meio do ponto de extremidade REST e retorna uma previsão em tempo real. Isso está em contraste com o processamento em lotes, que processa vários valores de uma vez e salva os resultados após a conclusão para um repositório de armazenamento.
 
 #### <a name="pipeline-endpoints"></a>Pontos de extremidade do pipeline
 
@@ -229,7 +229,7 @@ O [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) f
 
 O estúdio também é onde você acessa as ferramentas interativas que fazem parte do Azure Machine Learning:
 
-+ [Designer de Azure Machine Learning (versão prévia)](concept-designer.md) para executar etapas de fluxo de trabalho sem escrever código
++ [Azure Machine Learning designer](concept-designer.md) para executar etapas de fluxo de trabalho sem escrever código
 + Experiência na Web para o [aprendizado de máquina automatizado](concept-automated-ml.md)
 + [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) para escrever e executar seu próprio código em servidores integrados do Jupyter notebook.
 + [Dados rotulando projetos](how-to-create-labeling-projects.md) para criar, gerenciar e monitorar projetos para rotular seus dados
@@ -242,6 +242,7 @@ O estúdio também é onde você acessa as ferramentas interativas que fazem par
 
 +  Interaja com o serviço em qualquer ambiente Python com o [SDK do Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interaja com o serviço em qualquer ambiente do R com o [SDK do Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (versão prévia).
++ Use [Azure Machine Learning designer](concept-designer.md) para executar as etapas do fluxo de trabalho sem escrever código. 
 + Use [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) para automação.
 + O [Acelerador de Solução de Muitos Modelos](https://aka.ms/many-models) (versão prévia) é baseado no Azure Machine Learning e permite treinar, operar e gerenciar centenas ou até milhares de modelos de machine learning.
 

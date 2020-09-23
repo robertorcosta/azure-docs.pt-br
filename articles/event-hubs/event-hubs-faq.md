@@ -2,13 +2,13 @@
 title: Perguntas frequentes - Hubs de Eventos | Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para os Hubs de Eventos do Azure e suas respostas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/16/2020
+ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89288960"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883394"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -55,6 +55,9 @@ Você pode configurar o período de retenção para os dados capturados em sua c
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como monitorar meus Hubs de Eventos?
 Os Hubs de Eventos emitem métricas exaustivas que fornecem o estado de seus recursos ao [Azure Monitor](../azure-monitor/overview.md). Eles também permitem a avaliação da integridade geral do serviço do Hubs de Eventos, não apenas no nível do namespace, mas também no nível da entidade. Saiba qual monitoramento é oferecido para os [Hubs de Eventos do Azure](event-hubs-metrics-azure-monitor.md).
 
+### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Onde os hubs de eventos do Azure armazenam dados do cliente?
+Os hubs de eventos do Azure armazenam dados do cliente. Esses dados são armazenados automaticamente por hubs de eventos em uma única região, portanto, esse serviço atende automaticamente aos requisitos de residência de dados de região, incluindo aqueles especificados na [central de confiabilidade](https://azuredatacentermap.azurewebsites.net/).
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir no firewall? 
 Você pode usar os seguintes protocolos com o Barramento de Serviço do Azure para enviar e receber mensagens:
 
@@ -78,9 +81,9 @@ Para localizar os endereços IP corretos a serem adicionados à lista de permiss
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote o endereço IP retornado em `Non-authoritative answer`. Ele só mudaria se você restaurasse o namespace em um cluster diferente.
+2. Anote o endereço IP retornado em `Non-authoritative answer`. 
 
-Se você usar a redundância de zona para seu namespace, precisará executar algumas etapas adicionais: 
+Se você usar a **redundância de zona** para seu namespace, precisará executar algumas etapas adicionais: 
 
 1. Primeiro, execute nslookup no namespace.
 
@@ -94,9 +97,12 @@ Se você usar a redundância de zona para seu namespace, precisará executar alg
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+
+    > [!NOTE]
+    > O endereço IP retornado pelo `nslookup` comando não é um endereço IP estático. No entanto, ela permanece constante até que a implantação subjacente seja excluída ou movida para um cluster diferente.
 3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>Onde posso encontrar o IP do cliente enviando ou recebendo mensagens para o namespace?
+### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Onde posso encontrar o IP do cliente enviando ou recebendo mensagens para o namespace?
 Primeiro, habilite a [filtragem de IP](event-hubs-ip-filtering.md) no namespace. 
 
 Em seguida, habilite os logs de diagnóstico para [eventos de conexão de rede virtual dos hubs de eventos](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguindo as instruções em [Habilitar logs de diagnóstico](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Você verá o endereço IP para o qual a conexão é negada.

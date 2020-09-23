@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170251"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883231"
 ---
 # <a name="train-pytorch-model"></a>Treinar modelo de Pytorch
 
-Este artigo descreve como usar o módulo de **modelo Train Pytorch** no designer de Azure Machine Learning (versão prévia) para treinar modelos do Pytorch como o DenseNet. O treinamento ocorre depois que você define um modelo e define seus parâmetros e requer dados rotulados. 
+Este artigo descreve como usar o módulo de **modelo Train Pytorch** no designer de Azure Machine Learning para treinar modelos Pytorch como DenseNet. O treinamento ocorre depois que você define um modelo e define seus parâmetros e requer dados rotulados. 
 
 ## <a name="how-to-use-train-pytorch-model"></a>Como usar o modelo Train Pytorch 
 
@@ -58,7 +58,7 @@ Após a execução do pipeline ser concluída, para usar o modelo de pontuação
 ## <a name="technical-notes"></a>Observações técnicas
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome               | Tipo                    | Description                              |
+| Nome               | Tipo                    | Descrição                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Modelo não treinado    | UntrainedModelDirectory | Modelo não treinado, exigir pytorch         |
 | Conjunto de dados de treinamento   | ImageDirectory          | Conjunto de dados de treinamento                         |
@@ -66,17 +66,17 @@ Após a execução do pipeline ser concluída, para usar o modelo de pontuação
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Nome          | Intervalo            | Type    | Padrão | Descrição                              |
+| Name          | Intervalo            | Type    | Padrão | Descrição                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
-| Épocas        | >0               | Integer | 5       | Selecione a coluna que contém a coluna de rótulo ou de resultado |
-| Tamanho do lote    | >0               | Integer | 16      | Quantas instâncias para treinar em um lote   |
-| Taxa de aprendizado | >= double.Épsilon | Float   | 0.001   | A taxa de aprendizagem inicial do otimizador Descendente do gradiente estocástico. |
+| Épocas        | >0               | Inteiro | 5       | Selecione a coluna que contém a coluna de rótulo ou de resultado |
+| Tamanho do lote    | >0               | Inteiro | 16      | Quantas instâncias para treinar em um lote   |
+| Taxa de aprendizado | >= double.Épsilon | Float   | 0,001   | A taxa de aprendizagem inicial do otimizador Descendente do gradiente estocástico. |
 | Propagação aleatória   | Qualquer              | Integer | 1       | A propagação para o gerador de número aleatório usado pelo modelo. |
-| Paciência      | >0               | Integer | 3       | Quantas épocas para o treinamento de parada antecipada   |
+| Paciência      | >0               | Inteiro | 3       | Quantas épocas para o treinamento de parada antecipada   |
 
 ###  <a name="outputs"></a>Saídas  
 
-| Nome          | Tipo           | Description   |
+| Nome          | Tipo           | Descrição   |
 | ------------- | -------------- | ------------- |
 | Modelo treinado | ModelDirectory | Modelo treinado |
 

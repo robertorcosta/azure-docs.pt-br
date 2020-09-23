@@ -8,14 +8,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.date: 09/23/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496206"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889137"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -34,7 +34,7 @@ Para visualizar e obter uma análise do que está acontecendo em seu ambiente, p
 
 - A barra de ferramentas na parte superior informa quantos eventos você obteve no período selecionado e compara com as 24 horas anteriores. A barra de ferramentas informa quantos alertas foram disparados com base nesses eventos (o número pequeno representa a mudança nas últimas 24 horas) e informa, para esses eventos, quantos estão abertos, em andamento e fechados. Verifique se não houve um aumento ou queda significativa no número de eventos. Se houve uma queda, é possível que uma conexão tenha parado de se reportar ao Azure Sentinel. Se houve um aumento, pode ter ocorrido algo suspeito. Verifique se há novos alertas.
 
-   ![Funil do Azure Sentinel](./media/qs-get-visibility/funnel.png)
+   ![Contadores do Azure Sentinel](./media/qs-get-visibility/funnel.png)
 
 O corpo principal da página de visão geral fornece insight rápido sobre o status de segurança do workspace:
 
@@ -42,14 +42,13 @@ O corpo principal da página de visão geral fornece insight rápido sobre o sta
 
 - **Eventos mal-intencionados em potencial**: Quando se detecta tráfego de fontes que são conhecidas como mal-intencionadas, o Azure Sentinel alerta no mapa. Se você vir cor de laranja, trata-se de tráfego de entrada: alguém está tentando acessar sua organização de um endereço IP mal-intencionado conhecido. Se você vir uma atividade de saída (vermelha), significará que dados da sua rede estão saindo da organização para um endereço IP mal-intencionado conhecido.
 
-   ![Mapa do Azure Sentinel](./media/qs-get-visibility/map.png)
+   ![Mapa de tráfego mal-intencionado](./media/qs-get-visibility/map.png)
 
-
-- **Incidentes recentes**: Para exibir os incidentes recentes, a gravidade deles e o número de alertas associados com o incidente. Se você vir um pico repentino em um tipo específico de alerta, poderá significar que um ataque ativo está em execução no momento. Por exemplo, se você tiver um pico repentino de 20 eventos Pass-the-Hash do ATP do Azure, é possível que alguém esteja tentando atacá-lo no momento.
+- **Incidentes recentes**: Para exibir os incidentes recentes, a gravidade deles e o número de alertas associados com o incidente. Se você vir um pico repentino em um tipo específico de alerta, poderá significar que um ataque ativo está em execução no momento. Por exemplo, se você tiver um pico repentino de 20 eventos pass-the-hash do Microsoft Defender para Identidade (anteriormente, ATP do Azure), é possível que alguém esteja tentando atacar você.
 
 - **Anomalias na fonte de dados**: Analistas de dados da Microsoft criaram modelos que pesquisam constantemente anomalias nos dados de suas fontes de dados. Se não houver anomalias, nada será exibido. Se anomalias forem detectadas, você deverá examinar para ver o que aconteceu. Por exemplo, clique no pico na atividade do Azure. É possível clicar em **Gráfico** para ver quando o pico aconteceu e, em seguida, filtrar por atividades que ocorreram durante esse período para ver o que causou o pico.
 
-   ![Mapa do Azure Sentinel](./media/qs-get-visibility/anomolies.png)
+   ![Fontes de dados anormais](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>Usar pastas de trabalho internas<a name="dashboards"></a>
 
@@ -64,10 +63,10 @@ Pastas de trabalho internas oferecem dados integrados de suas fontes de dados co
 
    - Adicione uma pasta de trabalho para seu firewall. Por exemplo, adicione a pasta de trabalho Palo Alto. A pasta de trabalho analisa o tráfego do firewall, fornecendo correlações entre eventos de ameaças e dados do firewall, além de realçar os eventos suspeitos em entidades. As pastas de trabalho fornecem informações sobre tendências no tráfego e permitem fazer busca detalhada e filtrar os resultados. 
 
-      ![Painel Pal Alto](./media/qs-get-visibility/palo-alto-week-query.png)
+      ![Painel Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Para personalizar as pastas de trabalho, edite a consulta principal ![botão](./media/qs-get-visibility/edit-query-button.png). É possível clicar no botão ![botão](./media/qs-get-visibility/go-to-la-button.png) para acessar o [Log Analytics e editar a consulta encontrada](../azure-monitor/log-query/get-started-portal.md). Também é possível selecionar as reticências (...) e **Personalizar dados do bloco**, o que permite editar o filtro de tempo principal ou remover os blocos específicos da pasta de trabalho.
+Para personalizar as pastas de trabalho, edite a consulta principal ![botão edição de consulta](./media/qs-get-visibility/edit-query-button.png). É possível clicar no botão ![botão Log Analytics](./media/qs-get-visibility/go-to-la-button.png) para acessar o [Log Analytics e editar a consulta encontrada](../azure-monitor/log-query/get-started-portal.md). Também é possível selecionar as reticências (...) e **Personalizar dados do bloco**, o que permite editar o filtro de tempo principal ou remover os blocos específicos da pasta de trabalho.
 
 Para obter mais informações sobre como trabalhar com consultas, confira [Tutorial: Dados visuais no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

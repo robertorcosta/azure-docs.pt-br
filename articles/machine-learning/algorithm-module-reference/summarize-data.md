@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
-ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477435"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898219"
 ---
 # <a name="summarize-data"></a>Resumir dados
 
-Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo do designer de Azure Machine Learning.
 
 Use o módulo resumir dados para criar um conjunto de medidas estatísticas padrão que descrevem cada coluna na tabela de entrada.
 
@@ -53,11 +53,11 @@ O relatório do módulo pode incluir as estatísticas a seguir.
 |**Contagem de valor exclusivo**|Número de valores exclusivos na coluna|
 |**Contagem de valor ausente**|Número de valores exclusivos na coluna|
 |**Min**|Valor mais baixo na coluna|  
-|**Maximizar**|Valor mais alto na coluna|
-|**Significa**|Média de todos os valores de coluna|
+|**Max**|Valor mais alto na coluna|
+|**Mean**|Média de todos os valores de coluna|
 |**Desvio médio**|Desvio médio de valores de coluna|
 |**Primeiro quartil**|Valor no primeiro quartil|
-|**Cuja**|Valor da coluna mediana|
+|**Mediana**|Valor da coluna mediana|
 |**Terceiro quartil**|Valor no terceiro quartil|
 |**Modo**|Modo de valores de coluna|
 |**Range**|Inteiro que representa o número de valores entre os valores máximo e mínimo|

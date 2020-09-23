@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650736"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886197"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurar divisões de dados e validação cruzada no Machine Learning automatizado
 
@@ -37,7 +37,7 @@ Para este artigo, você precisa,
 
 * Um Workspace do Azure Machine Learning. Para criar o workspace, consulte [Criar um Workspace do Azure Machine Learning](how-to-manage-workspace.md).
 
-* Familiaridade com a configuração de um experimento de aprendizado de máquina automatizado com o SDK do Azure Machine Learning. Siga o [tutorial](tutorial-auto-train-models.md) ou as [instruções](how-to-configure-auto-train.md) para ver os padrões básicos de design de experimentos de machine learning automatizado.
+* Familiaridade com a configuração de um experimento de aprendizado de máquina automatizado com o SDK do Azure Machine Learning. Siga o [tutorial](tutorial-auto-train-models.md) ou [instruções](how-to-configure-auto-train.md) para ver os padrões fundamentais de design de teste de Machine Learning automatizado.
 
 * Uma compreensão da validação cruzada e dos dados de treinamento/validação são divididas como conceitos de ML. Para obter uma explicação de alto nível,
 

@@ -11,15 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661926"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893409"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerenciar acesso a um workspace do Azure Machine Learning
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, você aprenderá a gerenciar o acesso a um espaço de trabalho do Azure Machine Learning. O [controle de acesso baseado em função do Azure (RBAC do Azure)](/azure/role-based-access-control/overview) é usado para gerenciar o acesso aos recursos do Azure. Os usuários em seu Azure Active Directory recebem funções específicas, que concedem acesso aos recursos. O Azure fornece funções internas e a capacidade de criar funções personalizadas.
 
@@ -135,7 +134,6 @@ A tabela a seguir é um resumo de Azure Machine Learning atividades e as permiss
 | Atividade | Escopo de nível de assinatura | Escopo no nível do grupo de recursos | Escopo no nível do espaço de trabalho |
 | ----- | ----- | ----- | ----- |
 | Criar novo workspace | Não obrigatório | Proprietário ou colaborador | N/A (torna-se proprietário ou herda uma função de escopo maior após a criação) |
-| Atualizar a edição do espaço de trabalho | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/write` |
 | Solicitar cota de Amlcompute de nível de assinatura ou definir cota de nível de espaço de trabalho | Proprietário, ou colaborador, ou função personalizada </br>permitindo que `/locations/updateQuotas/action`</br> no escopo da assinatura | Não autorizado | Não autorizado |
 | Criar novo cluster de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
 | Criar nova instância de computação | Não obrigatório | Não obrigatório | Proprietário, colaborador ou função personalizada, permitindo: `/workspaces/computes/write` |
@@ -301,7 +299,6 @@ Sim, aqui estão alguns cenários comuns com definições de função propostas 
 
     * Criando um novo workspace
     * Atribuindo cotas de nível de espaço de trabalho ou de assinatura
-    * Atualizando a edição do espaço de trabalho
 
     O administrador do espaço de trabalho também não pode criar uma nova função. Ele só pode atribuir funções internas ou personalizadas existentes dentro do escopo de seu espaço de trabalho:
 
@@ -415,11 +412,7 @@ Você precisa ter permissões em todo o escopo da nova definição de função. 
 
 > [!NOTE]
 > As atualizações de função podem levar 15 minutos a uma hora para serem aplicadas em todas as atribuições de função nesse escopo.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. Posso definir uma função que impede a atualização da edição do espaço de trabalho? 
 
-Sim, você pode definir uma função que impede a atualização da edição do espaço de trabalho. Como a atualização do espaço de trabalho é uma chamada de PATCH no objeto de espaço de trabalho, você faz isso colocando a seguinte ação na `"NotActions"` matriz em sua definição JSON: 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quais permissões são necessárias para executar operações de cota em um espaço de trabalho? 
 

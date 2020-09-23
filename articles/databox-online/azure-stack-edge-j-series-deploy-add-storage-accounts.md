@@ -1,6 +1,6 @@
 ---
-title: Tutorial para transferir dados para uma conta de armazenamento com uma GPU do Azure Stack Edge | Microsoft Docs
-description: Saiba como adicionar e se conectar a contas de armazenamento local e do Edge em dispositivo de GPU do Azure Stack Edge.
+title: Tutorial para transferir dados para uma conta de armazenamento com uma GPU do Azure Stack Edge Pro | Microsoft Docs
+description: Saiba como adicionar e se conectar a contas de armazenamento local e do Edge em dispositivo de GPU do Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 66c09b7fa0eb8fbf709441da5996fb2237b3e284
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256389"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891052"
 ---
-# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-gpu"></a>Tutorial: Transferir dados por meio de contas de armazenamento com uma GPU do Azure Stack Edge 
+# <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados por meio de contas de armazenamento com uma GPU do Azure Stack Edge Pro 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este tutorial descreve como adicionar e conectar-se a contas de compartilhamento no dispositivo do Azure Stack Edge. Depois de adicionar as contas de armazenamento, o Azure Stack Edge poderá transferir dados para o Azure.
+Este tutorial descreve como adicionar e conectar-se a contas de compartilhamento no dispositivo do Azure Stack Edge Pro. Depois de adicionar as contas de armazenamento, o Azure Stack Edge Pro poderá transferir dados para o Azure.
 
 Esse procedimento pode levar cerca de 30 minutos para ser concluído.
 
@@ -33,11 +33,11 @@ Neste tutorial, você aprenderá como:
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar contas de armazenamento ao Azure Stack Edge, verifique se:
+Para adicionar contas de armazenamento ao Azure Stack Edge Pro, verifique se:
 
-- Você instalou o seu dispositivo físico conforme descrito em [Instalar o Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
+- Você instalou o seu dispositivo físico conforme descrito em [Instalar o Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
 
-- Você ativou o dispositivo físico conforme descrito em [Ativar o Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Você ativou o dispositivo físico conforme descrito em [Ativar o Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
 ## <a name="add-an-edge-storage-account"></a>Adicionar uma conta de armazenamento do Edge
@@ -135,7 +135,7 @@ Cada uma dessas etapas é descrita nas seções a seguir.
 
 ### <a name="get-certificate"></a>Obter certificado
 
-Acessar o Armazenamento de Blobs via HTTPS requer um certificado SSL para o dispositivo. Você também carregará esse certificado no dispositivo do Azure Stack Edge como um arquivo *.pfx* com uma chave privada anexada a ele. Para obter mais informações sobre como criar (apenas para fins de teste e desenvolvimento) e carregar esses certificados em seu dispositivo do Azure Stack Edge, acesse:
+Acessar o Armazenamento de Blobs via HTTPS requer um certificado SSL para o dispositivo. Você também carregará esse certificado no dispositivo do Azure Stack Edge Pro como um arquivo *.pfx* com uma chave privada anexada a ele. Para obter mais informações sobre como criar (apenas para fins de teste e desenvolvimento) e carregar esses certificados em seu dispositivo do Azure Stack Edge Pro, acesse:
 
 - [Criar o certificado do ponto de extremidade do blob](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional).
 - [Carregar o certificado do ponto de extremidade do blob](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
@@ -167,15 +167,15 @@ Siga as etapas para [Configurar e verificar a conexão que você usou ao se cone
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você viu os seguintes tópicos sobre o Azure Stack Edge:
+Neste tutorial, você viu os seguintes tópicos sobre o Azure Stack Edge Pro:
 
 > [!div class="checklist"]
 > * Adicionar uma conta de armazenamento
 > * Conectar-se a uma conta de armazenamento
 
-Para saber como transformar seus dados usando o Azure Stack Edge, prossiga para o próximo tutorial:
+Para saber como transformar seus dados usando o Azure Stack Edge Pro, prossiga para o próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Transformar dados com o Azure Stack Edge](./azure-stack-edge-j-series-deploy-configure-compute.md)
+> [Transformar dados com o Azure Stack Edge Pro](./azure-stack-edge-j-series-deploy-configure-compute.md)
 
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 29934758ab729e0fb888c10b7f834da3d0bf7fb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456073"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898508"
 ---
 # <a name="one-vs-all-multiclass"></a>Multiclasse uma-vs-todas
 
-Este artigo descreve como usar o módulo Multiclasse Um contra Todos no designer de Azure Machine Learning (versão prévia). O objetivo é criar um modelo de classificação que possa prever várias classes, usando a abordagem *um-versus-tudo* .
+Este artigo descreve como usar o módulo Multiclasse Um contra Todos no Azure Machine Learning designer. O objetivo é criar um modelo de classificação que possa prever várias classes, usando a abordagem *um-versus-tudo* .
 
 Esse módulo é útil para criar modelos que preveem três ou mais resultados possíveis, quando o resultado depende de variáveis de previsão contínuas ou categóricas. Esse método também permite usar métodos de classificação binária para problemas que exigem várias classes de saída.
 

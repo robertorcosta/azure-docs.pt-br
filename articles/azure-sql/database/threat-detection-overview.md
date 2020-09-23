@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-ms.date: 02/05/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 07a39edcb7a5605759ae70a014549863a038de1c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0f0dde0da69ad225e39292681fc079aba4b81203
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437047"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885146"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Proteção avançada contra ameaças para o banco de dados SQL do Azure, o SQL Instância Gerenciada e o Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Proteção avançada contra ameaças para o [banco de dados SQL do](sql-database-paas-overview.md)Azure, o [Azure SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md) e o [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
-A proteção avançada contra ameaças faz parte da oferta de [segurança de dados avançada](advanced-data-security.md) , que é um pacote unificado para recursos avançados de segurança do SQL. A Proteção Avançada contra Ameaças pode ser acessada e gerenciada por meio do portal central da ADS do SQL.
+A proteção avançada contra ameaças faz parte da oferta do [Azure defender para SQL](azure-defender-for-sql.md) , que é um pacote unificado para recursos avançados de segurança do SQL. A proteção avançada contra ameaças pode ser acessada e gerenciada por meio do Azure defender central para o portal do SQL.
 
 ## <a name="overview"></a>Visão geral
 
@@ -55,19 +55,15 @@ Você receberá uma notificação por email na detecção das atividades anormai
 
 ## <a name="explore-alerts-in-the-azure-portal"></a>Explorar alertas no portal do Azure
 
-A proteção avançada contra ameaças integra seus alertas à [central de segurança do Azure](https://azure.microsoft.com/services/security-center/). Blocos de proteção avançada contra ameaças do SQL Live no banco de dados e nas folhas de anúncios do SQL no portal do Azure acompanhar o status das ameaças ativas.
+A proteção avançada contra ameaças integra seus alertas à [central de segurança do Azure](https://azure.microsoft.com/services/security-center/). Blocos de proteção avançada contra ameaças do SQL Live no banco de dados e SQL Azure as lâminas do defender no portal do Azure acompanhar o status das ameaças ativas.
 
 Clique em **alerta de proteção avançada contra ameaças** para iniciar a página de alertas da central de segurança do Azure e obtenha uma visão geral das ameaças do SQL ativas detectadas no banco de dados.
-
-   ![Alerta de proteção avançada contra ameaças](./media/threat-detection-overview/threat_detection_alert.png)
-
-   ![Alert2 de proteção avançada contra ameaças](./media/threat-detection-overview/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [proteção avançada contra ameaças no banco de dados SQL do azure & Azure Synapse](threat-detection-configure.md).
 - Saiba mais sobre a [proteção avançada contra ameaças no Azure SQL instância gerenciada](../managed-instance/threat-detection-configure.md).
-- Saiba mais sobre a [segurança de dados avançada](advanced-data-security.md).
+- Saiba mais sobre o [Azure defender para SQL](azure-defender-for-sql.md).
 - Saiba mais sobre a [auditoria do banco de dados SQL do Azure](../../azure-sql/database/auditing-overview.md)
 - Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Para obter mais informações sobre preços, consulte a [página de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/)  

@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2232aa46b0586ca62e80c8b9002271a67e4021c1
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0217766c92ddcd1907eca2c6702d91b02e06c03
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651118"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893647"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são pipelines Azure Machine Learning?
 
@@ -95,7 +95,7 @@ Um pipeline do Azure ML está associado a um espaço de trabalho Azure Machine L
 
 ### <a name="a-simple-python-pipeline"></a>Um pipeline Python simples
 
-Este trecho de código mostra os objetos e as chamadas necessárias para criar e executar um básico `Pipeline` :
+Este trecho de código mostra os objetos e as chamadas necessárias para criar e executar um `Pipeline` :
 
 ```python
 ws = Workspace.from_config() 
@@ -152,7 +152,7 @@ As principais vantagens de usar pipelines para seus fluxos de trabalho de aprend
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os pipelines do Azure ML são um recurso poderoso que começa a fornecer valor nos primeiros estágios de desenvolvimento. O valor aumenta conforme a equipe e o projeto crescem. Este artigo explicou como pipelines são especificados com o SDK Azure Machine Learning Python e orquestrados no Azure. Você viu algum código-fonte básico e foi introduzido em algumas das `PipelineStep` classes disponíveis. Você deve ter uma noção de quando usar pipelines do Azure ML e como o Azure os executa. 
+Os pipelines do Azure ML são um recurso poderoso que começa a fornecer valor nos primeiros estágios de desenvolvimento. O valor aumenta conforme a equipe e o projeto crescem. Este artigo explicou como pipelines são especificados com o SDK Azure Machine Learning Python e orquestrados no Azure. Você viu um código-fonte simples e foi introduzido em algumas das `PipelineStep` classes disponíveis. Você deve ter uma noção de quando usar pipelines do Azure ML e como o Azure os executa. 
 
 
 + Saiba como [criar seu primeiro pipeline](how-to-create-your-first-pipeline.md).

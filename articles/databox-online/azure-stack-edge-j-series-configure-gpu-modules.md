@@ -1,6 +1,6 @@
 ---
-title: Executar um módulo de GPU em Microsoft Azure Stack dispositivo de GPU de borda | Microsoft Docs
-description: Descreve como configurar e executar um módulo na GPU em um dispositivo Azure Stack Edge por meio do portal do Azure.
+title: Executar um módulo de GPU no dispositivo Microsoft Azure Stack GPU pro Edge | Microsoft Docs
+description: Descreve como configurar e executar um módulo na GPU em um dispositivo Azure Stack Edge pro por meio do portal do Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 419b8beb866711e80b4366df4398eb248256021b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8b9f1180639f638e72fdea2f87958628a2e9e86b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266945"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891458"
 ---
-# <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-device"></a>Configurar e executar um módulo na GPU no dispositivo Azure Stack Edge
+# <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Configurar e executar um módulo na GPU no dispositivo Azure Stack Edge pro
 
-O dispositivo do Azure Stack Edge contém uma ou mais GPU (unidade de processamento gráfico). As GPUs são uma opção popular para cálculos de ia, pois oferecem recursos de processamento paralelo e são mais rápidas na renderização de imagens do que nas CPUs (unidades de processamento central). Para obter mais informações sobre a GPU contida no dispositivo Azure Stack Edge, acesse [Azure Stack especificações técnicas do dispositivo do Edge](azure-stack-edge-gpu-technical-specifications-compliance.md).
+O dispositivo pro Edge Azure Stack contém uma ou mais GPU (unidade de processamento gráfico). As GPUs são uma opção popular para cálculos de ia, pois oferecem recursos de processamento paralelo e são mais rápidas na renderização de imagens do que nas CPUs (unidades de processamento central). Para obter mais informações sobre a GPU contida em seu dispositivo Azure Stack Edge pro, acesse [Azure Stack especificações técnicas do dispositivo do Edge pro](azure-stack-edge-gpu-technical-specifications-compliance.md).
 
-Este artigo descreve como configurar e executar um módulo na GPU em seu dispositivo Azure Stack Edge. Neste artigo, você usará os **dígitos** do módulo de contêiner disponíveis publicamente escritos para GPUs NVIDIA T4. Esse procedimento pode ser usado para configurar outros módulos publicados pela NVIDIA para essas GPUs.
+Este artigo descreve como configurar e executar um módulo na GPU em seu dispositivo Azure Stack Edge pro. Neste artigo, você usará os **dígitos** do módulo de contêiner disponíveis publicamente escritos para GPUs NVIDIA T4. Esse procedimento pode ser usado para configurar outros módulos publicados pela NVIDIA para essas GPUs.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se:
 
-1. Você tem acesso a um dispositivo de borda com Azure Stack de 1 nó habilitado por GPU. Este dispositivo está ativado com um recurso no Azure.  
+1. Você tem acesso a um dispositivo Azure Stack Edge pro de 1 nó com GPU habilitado. Este dispositivo está ativado com um recurso no Azure.  
 
 ## <a name="configure-module-to-use-gpu"></a>Configurar o módulo para usar a GPU
 
-Para configurar um módulo para usar a GPU em seu Azure Stack dispositivo de borda para executar um módulo, siga estas etapas.
+Para configurar um módulo para usar a GPU em seu dispositivo Azure Stack Edge pro para executar um módulo, siga estas etapas.
 
 1. No portal do Azure, vá para o recurso associado ao seu dispositivo. 
 
@@ -54,7 +54,7 @@ Para configurar um módulo para usar a GPU em seu Azure Stack dispositivo de bor
 
     ![Configurar o módulo para usar a GPU 6](media/azure-stack-edge-j-series-configure-gpu-modules/configure-gpu-2.png)
 
-    No painel direito, você verá o dispositivo IoT Edge associado ao dispositivo Azure Stack Edge. Isso corresponde ao dispositivo IoT Edge que você criou na etapa anterior ao criar o recurso do Hub IoT. 
+    No painel direito, você verá o dispositivo IoT Edge associado ao dispositivo Azure Stack Edge pro. Isso corresponde ao dispositivo IoT Edge que você criou na etapa anterior ao criar o recurso do Hub IoT. 
     
 6. Selecione este dispositivo IoT Edge.
 

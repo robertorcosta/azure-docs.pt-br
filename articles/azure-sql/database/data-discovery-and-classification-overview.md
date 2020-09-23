@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004096"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886507"
 ---
 # <a name="data-discovery--classification"></a>Descoberta e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,8 +30,6 @@ Seus dados mais confidenciais podem incluir informações comerciais, financeira
 - Ajudando a atender aos padrões de privacidade de dados e requisitos de conformidade regulatória.
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 - Controlando o acesso e protegendo a segurança de bancos de dados que contêm um dado altamente confidencial.
-
-A classificação de & de descoberta de dados faz parte da oferta de [segurança de dados avançada](advanced-data-security.md) , que é um pacote unificado para recursos avançados de segurança do Azure SQL. Você pode acessar e gerenciar a descoberta de dados & classificação por meio da seção central do **SQL Advanced Data Security** do portal do Azure.
 
 > [!NOTE]
 > Para obter informações sobre SQL Server locais, consulte [classificação de & de descoberta de dados do SQL](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -79,31 +77,23 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
 1. Vá para o [Portal do Azure](https://portal.azure.com).
 
-2. Vá para **segurança de dados avançada** no título **segurança** no painel do banco de dados SQL do Azure. Selecione **segurança de dados avançada**e, em seguida, selecione o cartão **Data Discovery & classificação** .
+1. Vá para **descoberta de dados & classificação** no título segurança em seu painel de banco de dados SQL do Azure. A guia Visão geral inclui um resumo do estado de classificação atual do banco de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que você também pode filtrar para mostrar apenas partes de esquema, tipos de informações e rótulos específicos. Se você ainda não classificou nenhuma coluna, [pule para a etapa 4](#step-4).
 
-   ![Painel de segurança de dados avançado no portal do Azure](./media/data-discovery-and-classification-overview/data_classification.png)
+1. Para baixar um relatório no formato do Excel, selecione **Exportar** no menu superior do painel.
 
-3. Na página **classificação de data Discovery &** , a guia **visão geral** inclui um resumo do estado de classificação atual do banco de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que você também pode filtrar para mostrar apenas partes de esquema, tipos de informações e rótulos específicos. Se você ainda não classificou nenhuma coluna, [pule para a etapa 5](#step-5).
-
-   ![Resumo do estado atual de classificação](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
-
-4. Para baixar um relatório no formato do Excel, selecione **Exportar** no menu superior do painel.
-
-5. <a id="step-5"></a>Para começar a classificar seus dados, selecione a guia **classificação** na página **classificação de & de dados data Discovery** .
+1. <a id="step-4"></a>Para começar a classificar seus dados, selecione a guia **classificação** na página **classificação de & de dados data Discovery** .
 
     O mecanismo de classificação verifica o banco de dados em busca de colunas que contenham dado potencialmente confidenciais e fornece uma lista de classificações de coluna recomendadas.
 
-6. Exibir e aplicar recomendações de classificação:
+1. Exibir e aplicar recomendações de classificação:
 
    - Para exibir a lista de classificações de coluna recomendadas, selecione o painel recomendações na parte inferior do painel.
 
    - Para aceitar uma recomendação para uma coluna específica, marque a caixa de seleção na coluna à esquerda da linha relevante. Para marcar todas as recomendações como aceitas, marque a caixa de seleção mais à esquerda no cabeçalho da tabela de recomendações.
 
-       ![Revisar e selecionar na lista de recomendações de classificação](./media/data-discovery-and-classification-overview/6_data_classification_recommendations_list.png)
-
    - Para aplicar as recomendações selecionadas, selecione **aceitar recomendações selecionadas**.
 
-7. Você também pode classificar colunas manualmente, como uma alternativa ou além da classificação baseada em recomendação:
+1. Você também pode classificar colunas manualmente, como uma alternativa ou além da classificação baseada em recomendação:
 
    1. Selecione **Adicionar classificação** no menu superior do painel.
 
@@ -111,13 +101,11 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
    1. Selecione **Adicionar classificação** na parte inferior da janela de contexto.
 
-      ![Selecione uma coluna para classificar](./media/data-discovery-and-classification-overview/9_data_classification_manual_classification.png)
-
-8. Para concluir sua classificação e rotular de forma persistente (marca) as colunas do banco de dados com os novos metadados de classificação, selecione **salvar** no menu superior da janela.
+1. Para concluir sua classificação e rotular de forma persistente (marca) as colunas do banco de dados com os novos metadados de classificação, selecione **salvar** no menu superior da janela.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoria de acesso a dados confidenciais
 
-Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Este é um exemplo:
+Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Aqui está um exemplo:
 
 ![Log de auditoria](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
@@ -191,6 +179,5 @@ Você pode usar a API REST para gerenciar programaticamente as classificações 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre a [segurança de dados avançada](advanced-data-security.md).
 - Considere configurar a [auditoria do SQL Azure](../../azure-sql/database/auditing-overview.md) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
 - Para uma apresentação que inclui a descoberta de dados & classificação, consulte [descobrindo, classificando, rotulando & protegendo dados SQL | Dados expostos](https://www.youtube.com/watch?v=itVi9bkJUNc).
