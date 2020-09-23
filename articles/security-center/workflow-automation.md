@@ -6,16 +6,16 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/13/2020
+ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: ff358f3c90edfcdabb5a1225ad1efa122818b070
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375254"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904656"
 ---
-# <a name="workflow-automation"></a>Automação do fluxo de trabalho
+# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Criar respostas automáticas para alertas e recomendações com a automação do fluxo de trabalho
 
 Cada programa de segurança inclui vários fluxos de trabalho para resposta a incidentes. Esses processos podem incluir a notificação de stakeholders relevantes, a inicialização de um processo de gerenciamento de alterações e a aplicação de etapas de correção específicas. Os especialistas em segurança recomendam que você automatize o máximo possível de etapas desses procedimentos. A automação reduz a sobrecarga. Ele também pode melhorar sua segurança, garantindo que as etapas do processo sejam feitas de forma rápida, consistente e de acordo com seus requisitos predefinidos.
 
@@ -30,8 +30,8 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Disponível|
-|Refere|Camada gratuita|
+|Estado da versão:|GA (em disponibilidade geral)|
+|Refere|Gratuita|
 |Funções e permissões necessárias:|**Função de administrador de segurança** ou **proprietário** no grupo de recursos<br>Também deve ter permissões de gravação para o recurso de destino<br><br>Para trabalhar com fluxos de trabalho de aplicativos lógicos do Azure, você também deve ter as seguintes funções/permissões de aplicativos lógicos:<br> - Permissões de [operador de aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) são necessárias ou acesso de leitura/gatilho do aplicativo lógico (essa função não pode criar ou editar aplicativos lógicos; *executar* apenas os existentes)<br> - As permissões de [colaborador do aplicativo lógico](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) são necessárias para a criação e modificação do aplicativo lógico<br>Se você quiser usar conectores de aplicativos lógicos, talvez precise de credenciais adicionais para entrar em seus respectivos serviços (por exemplo, suas instâncias de Outlook/equipes/margem de atraso)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Sim](./media/icons/yes-icon.png) China gov, outros gov|
 |||
@@ -42,7 +42,7 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 
 1. Na barra lateral da central de segurança, selecione **automação de fluxo de trabalho**.
 
-    [![Lista de automaçãos de fluxo de trabalho](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista de automaçãos de fluxo de trabalho":::
 
     Nessa página, você pode criar novas regras de automação, bem como habilitar, desabilitar ou excluir aquelas existentes.
 
@@ -53,7 +53,7 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
     1. Os gatilhos que iniciarão esse fluxo de trabalho automático. Por exemplo, talvez você queira que seu aplicativo lógico seja executado quando um alerta de segurança que contenha "SQL" for gerado.
     1. O aplicativo lógico que será executado quando suas condições de disparo forem atendidas. 
 
-        [![Lista de automaçãos de fluxo de trabalho](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Adicionar painel de automação de fluxo de trabalho":::
 
 1. Na seção ações, clique em **criar um novo** para iniciar o processo de criação do aplicativo lógico.
 
@@ -101,7 +101,7 @@ Para exibir os esquemas de eventos brutos dos alertas de segurança ou eventos d
 
 Neste artigo, você aprendeu a criar aplicativos lógicos, automatizar sua execução na central de segurança e executá-los manualmente. 
 
-Para obter outros materiais relacionados, consulte: 
+Para obter material relacionado, consulte: 
 
 - [O módulo Microsoft Learn sobre como usar a automação de fluxo de trabalho para automatizar uma resposta de segurança](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)

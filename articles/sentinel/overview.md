@@ -14,14 +14,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: ebc9756afc43648f2b44ca317abe3373807f4efa
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564627"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889198"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -43,7 +43,7 @@ Aproveitando a gama completa de serviços existentes do Azure, o Azure Sentinel 
 
 ## <a name="connect-to-all-your-data"></a>Conecte-se a todos os seus dados
 
-Para a integração do Azure Sentinel, você precisa primeiro [se conectar às suas fontes de segurança](connect-data-sources.md). O Azure Sentinel vem com uma série de conectores para soluções da Microsoft, disponíveis prontas para o uso e fornecendo integração em tempo real, incluindo soluções de Proteção contra Ameaças da Microsoft 365, e fontes do Microsoft 365, tais como Office 365, Azure AD, Azure ATP, Microsoft Cloud App Security e muito mais. Além disso, existem conectores internos no ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar formato comum de eventos, Syslog ou API REST para conectar suas fontes de dados ao Azure Sentinel.  
+Para a integração do Azure Sentinel, você precisa primeiro [se conectar às suas fontes de segurança](connect-data-sources.md). O Azure Sentinel vem com vários conectores para soluções da Microsoft, disponíveis prontamente e fornecendo integração em tempo real, incluindo as soluções do Microsoft 365 Defender (anteriormente conhecido como Proteção contra Ameaças da Microsoft) e fontes do Microsoft 365, incluindo o Office 365, Azure AD, Microsoft Defender para Identidade (anteriormente, ATP do Azure), Microsoft Cloud App Security e muito mais. Além disso, existem conectores internos no ecossistema de segurança mais amplo para soluções que não são da Microsoft. Você também pode usar formato comum de eventos, Syslog ou API REST para conectar suas fontes de dados ao Azure Sentinel. 
 
 ![Coletores de dados](./media/collect-data/collect-data-page.png)
 
@@ -82,13 +82,13 @@ Em versão prévia no momento, as ferramentas de [investigação profunda](tutor
 
 Use as [ferramentas de pesquisa e consulta para buscas eficientes](hunting.md) do Azure Sentinel, baseadas na estrutura MITRE, que permitem buscar proativamente ameaças à segurança nas fontes de dados de sua organização, antes do disparo de um alerta. Depois de descobrir qual consulta de busca fornece insights de alto valor sobre possíveis ataques, crie também regras de detecção personalizadas baseadas na sua consulta e revele esses insights como alertas de incidentes de segurança para seus respondentes. É possível criar indicadores para eventos interessantes durante a busca. Assim, poderá retornar a eles posteriormente, compartilhá-los com outras pessoas e agrupá-los com outros eventos correlacionados para criar um incidente convincente para investigação.
 
-![Buscando](./media/overview/hunting.png)
+![Visão geral do recurso de busca](./media/overview/hunting.png)
 
 ## <a name="community"></a>Comunidade
 
 A comunidade do Azure Sentinel é um recurso eficiente para automação e detecção de ameaças. Os analistas de segurança da Microsoft criam e adicionam constantemente novas pastas de trabalho, guias estratégicos, consultas de busca e muito mais, publicando-os na comunidade para uso em seu ambiente. É possível baixar o conteúdo de exemplo no [repositório](https://aka.ms/asicommunity) GitHub privado da comunidade para criar pastas de trabalho personalizadas, consultas de busca, notebooks e guias estratégicos para o Azure Sentinel. 
 
-![Comunidade](./media/overview/community.png)
+![Explore a comunidade de usuários](./media/overview/community.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

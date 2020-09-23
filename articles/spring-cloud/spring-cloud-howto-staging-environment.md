@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5333dd45cee58821d89cd49c44d3c5bba4cd9115
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500395"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888466"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurar um ambiente de preparo no Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java
 
 Este artigo discute como configurar uma implantação de preparo usando o padrão de implantação azul-verde no Azure Spring Cloud. A implantação em azul / verde é um padrão de entrega contínua do DevOps do Azure que se baseia em manter uma versão existente (azul) ativa, enquanto uma nova (verde) é implantada. Este artigo mostra como colocar essa implantação de preparo em produção sem alterar diretamente a implantação de produção.
 
@@ -103,3 +105,7 @@ Como alternativa, exclua a implantação de preparo do CLI do Azure executando o
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
 ```
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md)

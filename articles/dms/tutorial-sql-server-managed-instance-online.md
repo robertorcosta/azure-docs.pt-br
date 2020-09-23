@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 08/04/2020
-ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ce63d86c3256646782775c84636c4d248e0a6735
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553300"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984335"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: migrar SQL Server para um SQL do Azure Instância Gerenciada online usando DMS
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá como:
 
 > [!IMPORTANT]
 > Para migrações online do SQL Server para o SQL Instância Gerenciada usando o serviço de migração de banco de dados do Azure, você deve fornecer o backup completo do banco de dados e os backups de log subsequentes no compartilhamento de rede SMB que o serviço pode usar para migrar seus bancos de dados. O Serviço de Migração de Banco de Dados do Azure não inicia backups, mas em vez disso, usa os backups existentes, que você já possa ter como parte de seu plano de recuperação de desastre, para a migração.
-> Lembre-se de fazer [backups usando a opção WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Além disso, lembre-se de não acrescentar vários backups (ou seja, completo e t-log) em uma única mídia de backup; faça cada backup em um arquivo de backup separado. Por fim, você pode usar backups compactados para reduzir a probabilidade de ocorrência de problemas potenciais associados à migração de backups de grande porte.
+> Lembre-se de fazer [backups usando a opção WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017&preserve-view=true). Além disso, lembre-se de não acrescentar vários backups (ou seja, completo e t-log) em uma única mídia de backup; faça cada backup em um arquivo de backup separado. Por fim, você pode usar backups compactados para reduzir a probabilidade de ocorrência de problemas potenciais associados à migração de backups de grande porte.
 
 > [!NOTE]
 > Usar o Serviço de Migração de Banco de Dados do Azure para executar uma migração online exige a criação de uma instância com base no tipo de preço Premium.
@@ -245,7 +245,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
     É possível expandir ainda mais as categorias de logon e banco de dados para monitorar o status da migração dos respectivos objetos de servidor.
 
-   ![Atividade de migração em andamento](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
+   ![Status da atividade de migração](media/tutorial-sql-server-to-managed-instance-online/dms-monitor-migration-extend2.png)
 
 ## <a name="performing-migration-cutover"></a>Executar a substituição de migração
 
@@ -264,7 +264,7 @@ Depois que o backup completo do banco de dados é restaurado na instância de de
     ![Preparar para a substituição completa](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
 
     > [!IMPORTANT]
-    > Após a transferência, a disponibilidade do SQL Instância Gerenciada com Comercialmente Crítico camada de serviço pode levar significativamente mais tempo do que Uso Geral, pois três réplicas secundárias precisam ser propagadas para o grupo de alta disponibilidade AlwaysOn. Essa duração de operação depende do tamanho dos dados, para obter mais informações, consulte [duração das operações de gerenciamento](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
+    > Após a transferência, a disponibilidade do SQL Instância Gerenciada com Comercialmente Crítico camada de serviço pode levar significativamente mais tempo do que Uso Geral, pois três réplicas secundárias precisam ser propagadas para o grupo de alta disponibilidade AlwaysOn. Essa duração de operação depende do tamanho dos dados, para obter mais informações, consulte [duração das operações de gerenciamento](../azure-sql/managed-instance/management-operations-overview.md#duration).
 
 5. Quando o status de migração do banco de dados mostrar **concluído**, conecte seus aplicativos à nova instância de destino do SQL instância gerenciada.
 

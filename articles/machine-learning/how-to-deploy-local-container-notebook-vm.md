@@ -11,16 +11,16 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: e4a62b9892af661f74df5b49ff4a451fb673b4e1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7992283c1652199d665aad07c027b88e9489ddf0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325756"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889839"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implantar um modelo para Azure Machine Learning instâncias de computação
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como usar Azure Machine Learning para implantar um modelo como um serviço Web em sua instância de computação do Azure Machine Learning. Use instâncias de computação se uma das seguintes condições for verdadeira:
 
@@ -52,9 +52,9 @@ Um bloco de anotações de exemplo que demonstra implantações locais está inc
     * VM do notebook: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score` . 
     * Instância de computação: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
-    Por exemplo: 
-    * VM do notebook:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
-    * Instância de computação:`https://vm-name-6789.northcentralus.instances.azureml.net/score`
+    Por exemplo, 
+    * VM do notebook: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Instância de computação: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## <a name="test-the-service"></a>Teste o serviço
 

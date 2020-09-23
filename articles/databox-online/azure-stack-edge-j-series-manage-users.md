@@ -1,6 +1,6 @@
 ---
-title: Azure Stack GPU do Edge gerenciar usuários | Microsoft Docs
-description: Descreve como usar o portal do Azure para gerenciar usuários em sua GPU de borda do Azure Stack.
+title: Azure Stack Edge pro GPU gerenciar usuários | Microsoft Docs
+description: Descreve como usar o portal do Azure para gerenciar usuários em sua GPU do Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8400f134c7a2b9da32c04e15e42a54f697b9cea6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5f7e8c09a09084b28278667cdeaf94f7e38908cd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254178"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904510"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge"></a>Use o portal do Azure para gerenciar usuários em sua borda do Azure Stack
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-stack-edge-pro"></a>Use o portal do Azure para gerenciar usuários em seu Azure Stack Edge pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo descreve como gerenciar usuários em seu Azure Stack Edge. Você pode gerenciar o Azure Stack Edge por meio da portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar, modificar ou excluir usuários.
+Este artigo descreve como gerenciar usuários em seu Azure Stack Edge pro. Você pode gerenciar o Azure Stack Edge pro via portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar, modificar ou excluir usuários.
 
 Neste artigo, você aprenderá como:
 

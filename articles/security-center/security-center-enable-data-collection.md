@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905488"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de Segurança coleta dados das VMs (máquinas virtuais) do Azure, dos Conjuntos de Dimensionamento de Máquinas Virtuais, dos contêineres de IaaS e de computadores não Azure (inclusive os locais) para monitorar as vulnerabilidades e ameaças de segurança. Os dados são coletados usando o agente do Log Analytics, que lê uma variedade de configurações e logs de eventos relacionados à segurança do computador e copia os dados para o seu workspace visando a análise. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado.
@@ -34,20 +34,23 @@ Para coletar os dados dos computadores, é preciso ter o agente do Log Analytics
 Quando o provisionamento automático estiver habilitado, a Central de Segurança implantará o agente do Log Analytics em todas as VMs do Azure compatíveis, bem como naquelas que forem criadas. O provisionamento automático é recomendado, mas você pode instalar o agente manualmente se necessário. Confira [Instalação manual do agente do Log Analytics](#manual-agent).
 
 
+
 Para habilitar o provisionamento automático do agente de Log Analytics:
-1. No menu da Central de Segurança no portal, selecione **Preço e configurações**.
-2. Selecione a assinatura relevante.
 
-   ![Selecionar uma assinatura][7]
+1. No menu da Central de Segurança, selecione **Preço e configurações**.
+1. Selecione a assinatura relevante.
+1. Na página **Coleta de dados**, defina o **Provisionamento automático** como **Ativado**.
+1. Selecione **Salvar**.
 
-3. Selecione **Coleção de Dados**.
-4. Em **Provisionamento Automático**, selecione **Ativar** para habilitar o provisionamento automático.
-5. Clique em **Salvar**. O agente será implantado em todas as VMs em 15 minutos. 
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitar o provisionamento automático do agente do Log Analytics":::
 
 >[!TIP]
 > Se for necessário provisionar um workspace, a instalação do agente poderá levar até 25 minutos.
 
-   ![Habilitar o provisionamento automático][1]
+Com o agente implantado em seus computadores, a Central de Segurança pode fornecer recomendações adicionais relacionadas ao status de atualização do sistema, configurações de segurança do SO, proteção de ponto de extremidade, além de gerar alertas de segurança adicionais.
+
+>[!NOTE]
+> A configuração do provisionamento automático como **Desativado** não removerá o agente do Log Analytics das VMs do Azure em que o agente já houver sido provisionado. Desabilitar o provisionamento automático limita o monitoramento de segurança dos seus recursos.
 
 >[!NOTE]
 > - Para obter instruções sobre como provisionar uma instalação já existente, veja [Provisionamento automático em caso de uma instalação de agente pré-existente](#preexisting).
@@ -78,7 +81,7 @@ Para selecionar um workspace criados pela Central de Segurança:
 1. A Central de segurança habilitará automaticamente uma solução da Central de Segurança no workspace por tipo de preço definido para a assinatura. 
 
 > [!NOTE]
-> O tipo de preço do Log Analytics para workspaces criados pela Central de Segurança não afeta a cobrança da Central de Segurança. A cobrança da Central de Segurança sempre se baseia na sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace. Para a Camada gratuita, a Central de Segurança instala a solução *SecurityCenterFree* no workspace padrão. Para a camada Standard, a central de segurança habilita a solução de *segurança* no espaço de trabalho padrão.
+> O tipo de preço do Log Analytics para workspaces criados pela Central de Segurança não afeta a cobrança da Central de Segurança. A cobrança da Central de Segurança sempre se baseia na sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace. Para assinaturas sem o Azure defender, a central de segurança habilita a solução *SecurityCenterFree* no espaço de trabalho padrão. Para assinaturas com o Azure defender, a central de segurança habilita a solução de *segurança* no espaço de trabalho padrão.
 > O armazenamento de dados no Log Analytics pode gerar cobranças adicionais. Para saber mais, confira a [página de preço](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para saber mais sobre as contas existentes de Log Analytics, confira [Clientes existentes do Log Analytics](./faq-azure-monitor-logs.md).
@@ -97,7 +100,7 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
 
 1. Em **Configuração do workspace padrão**, selecione **Usar outro workspace**.
 
-   ![Selecionar um workspace existente][2]
+   ![Usar outro workspace][2]
 
 2. No menu suspenso, selecione um workspace para armazenar os dados coletados.
 
@@ -117,23 +120,28 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
    >
    >
 
-   - Selecione **Cancelar** para cancelar a operação.
+   - Para cancelar a operação, selecione **Cancelar**.
 
-     ![Selecionar um workspace existente][3]
+     ![Revisar opções para reconfigurar VMs monitoradas][3]
 
-5. Selecione o tipo de preço para o workspace desejado que você pretende definir no agente do Log Analytics. <br>Para usar um workspace existente, defina o tipo de preço do workspace. Isso instalará uma solução da Central de Segurança no workspace, se ainda não existir.
+5. Selecione se o espaço de trabalho terá o Azure defender habilitado.
 
-    a.  No menu principal da Central de Segurança, selecione **Preço e configurações**.
+    Para usar um workspace existente, defina o tipo de preço do workspace. Isso instalará uma solução da Central de Segurança no workspace, se ainda não existir.
+
+    1. No menu principal da Central de Segurança, selecione **Preço e configurações**.
      
-    b.  Selecione o workspace desejado ao qual você pretende conectar o agente.
-        ![Selecione o workspace][7] c. Defina o tipo de preço.
-        ![Selecione o tipo de preço][9]
+    1. Selecione o espaço de trabalho ao qual você conectará o agente.
+
+    1. Selecione **Azure defender no** ou **Azure defender desativado**.
+
    
    >[!NOTE]
    >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
 
+
 ## <a name="cross-subscription-workspace-selection"></a>Seleção de workspace entre assinaturas
 Ao selecionar um workspace para armazenar os dados, todos os workspaces em todas as assinaturas estarão disponíveis. A seleção do workspace entre assinaturas permite coletar dados de máquinas virtuais em execução em assinaturas diferentes e armazená-los no workspace de sua preferência. Essa seleção será útil se você utilizar um workspace centralizado na sua organização e quiser usá-lo para coleta de dados de segurança. Para obter mais informações sobre como gerenciar workspaces, consulte [Gerenciar o acesso ao workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+
 
 
 ## <a name="data-collection-tier"></a>Camada de coleta de dados
@@ -150,7 +158,7 @@ A seleção de uma camada de coleta de dados na Central de Segurança do Azure a
 
 
 > [!NOTE]
-> Esses conjuntos de eventos de segurança estão disponíveis somente na camada Standard da central de segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
+> Esses conjuntos de eventos de segurança estão disponíveis somente com o Azure defender. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
 Esses conjuntos foram projetados para lidar com cenários típicos. Avalie qual atende às suas necessidades antes de implementá-los.
 >
 >
@@ -244,19 +252,16 @@ Há diversas maneiras de instalar o agente do Log Analytics manualmente. Verifiq
 
 1. Opcionalmente, crie um espaço de trabalho.
 
-1. Defina o espaço de trabalho no qual você está instalando o agente de Log Analytics para o tipo de preço Standard:
+1. Habilite o Azure defender no espaço de trabalho no qual você está instalando o agente de Log Analytics:
 
-    1. No menu da central de segurança, selecione **preços & configurações**.
+    1. No menu da Central de Segurança, selecione **Preço e configurações**.
 
     1. Defina o espaço de trabalho no qual você está instalando o agente. Verifique se que o workspace está na mesma assinatura usada na Central de Segurança e se você tem permissões de leitura/gravação no workspace.
 
-    1. Defina o tipo de preço padrão e selecione **salvar**.
-
-        ![Definir um espaço de trabalho para o tipo de preço Standard](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+    1. Defina Azure defender como ativado e selecione **salvar**.
 
        >[!NOTE]
        >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
-   > 
 
 1. Se você quiser implantar os agentes em novas VMs usando um modelo do Resource Manager, instale o agente de Log Analytics:
 
@@ -308,7 +313,6 @@ Este artigo mostrou como a coleta de dados e o provisionamento automático na Ce
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 [7]: ./media/security-center-enable-data-collection/select-subscription.png
 [8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png

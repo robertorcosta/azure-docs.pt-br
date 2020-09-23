@@ -4,14 +4,14 @@ description: Saiba como configurar um provedor do OpenID Connect como um provedo
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
-ms.openlocfilehash: 89164061a968e37f928f8c21f5323c418e85361f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413911"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983869"
 ---
-# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configurar seu serviço de aplicativo ou Azure Functions aplicativo para fazer logon usando um provedor do OpenID Connect (versão prévia)
+# <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>Configure o serviço de aplicativo ou o aplicativo do Azure Functions para fazer logon usando um provedor do OpenID Connect (versão prévia)
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -53,7 +53,7 @@ Se você não conseguir usar um documento de metadados de configuração, será 
 Esta seção explicará como atualizar a configuração para incluir o novo IDP. Segue um exemplo de configuração.
 
 1. No `identityProviders` objeto, adicione um `openIdConnectProviders` objeto se ele ainda não existir.
-1. No `openIdConnectProviders` objeto, adicione uma chave para seu novo provedor. Esse é um nome amigável usado para referenciar o provedor no restante da configuração. Por exemplo, se você quisesse exigir que todas as solicitações fossem autenticadas com esse provedor, você definiria `globalValidation.unauthenticatedClientAction` como "RedirectToLoginPage" e configuraria `globalValidation.unauthenticatedClientAction` esse mesmo nome amigável.
+1. No `openIdConnectProviders` objeto, adicione uma chave para seu novo provedor. Esse é um nome amigável usado para referenciar o provedor no restante da configuração. Por exemplo, se você quisesse exigir que todas as solicitações fossem autenticadas com esse provedor, você definiria `globalValidation.unauthenticatedClientAction` como "RedirectToLoginPage" e configuraria `redirectToProvider` esse mesmo nome amigável.
 1. Atribua um objeto a essa chave com um `registration` objeto dentro dele e, opcionalmente, um `login` objeto:
     
     ```json

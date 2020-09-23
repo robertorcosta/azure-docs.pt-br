@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 808cf713cc34f90224cb3d5ce8a714fbafdcedbc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202936"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984255"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para o armazenamento de blobs
 
@@ -30,7 +30,7 @@ A central de segurança do Azure analisa periodicamente o estado de segurança d
 | Recomendação | Comentários | Central de Segurança |
 |-|----|--|
 | Usar o modelo de implantação Azure Resource Manager | Crie novas contas de armazenamento usando o modelo de implantação de Azure Resource Manager para aprimoramentos de segurança importantes, incluindo controle de acesso superior (RBAC) e auditoria, implantação e governança baseadas no Resource Manager, acesso a identidades gerenciadas, acesso a Azure Key Vault para segredos e autenticação baseada no Azure AD e autorização para acesso a dados e recursos do armazenamento do Azure. Se possível, migre as contas de armazenamento existentes que usam o modelo de implantação clássico para usar Azure Resource Manager. Para obter mais informações sobre Azure Resource Manager, consulte [Azure Resource Manager visão geral](/azure/azure-resource-manager/resource-group-overview). | - |
-| Habilitar a proteção avançada contra ameaças para todas as suas contas de armazenamento | A proteção avançada contra ameaças para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são disparados na central de segurança do Azure quando ocorrem anomalias na atividade e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. Para obter mais informações, consulte [proteção avançada contra ameaças para o armazenamento do Azure](../common/storage-advanced-threat-protection.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
+| Habilitar o Azure defender para todas as suas contas de armazenamento | O Azure defender para o armazenamento do Azure fornece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Os alertas de segurança são disparados na central de segurança do Azure quando ocorrem anomalias na atividade e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças. Para obter mais informações, consulte [Configurar o Azure defender para o armazenamento do Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 | Ativar a exclusão reversível para dados de BLOB | A exclusão reversível permite recuperar dados de blob após sua exclusão. Para obter mais informações sobre exclusão reversível, consulte [exclusão reversível para BLOBs de armazenamento do Azure](storage-blob-soft-delete.md). | - |
 | Armazene dados críticos para os negócios em BLOBs imutáveis | Configure as políticas de retenção baseadas em tempo e as isenções legais para armazenar dados de BLOB em um estado de WORM (gravar uma vez, ler muitos). Os BLOBs armazenados immutably podem ser lidos, mas não podem ser modificados ou excluídos durante a duração do intervalo de retenção. Para obter mais informações, consulte [armazenar dados de blob críticos para os negócios com armazenamento imutável](storage-blob-immutable-storage.md). | - |
 | Limitar tokens de SAS (assinatura de acesso compartilhado) a conexões HTTPS somente | Exigir HTTPS quando um cliente usa um token SAS para acessar dados de blob ajuda a minimizar o risco de espionagem. Para obter mais informações, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)](../common/storage-sas-overview.md). | - |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9fbd63e1b46b837350be720fadf68777927f9bff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516292"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904751"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações por email para alertas de segurança 
 
@@ -39,10 +39,10 @@ Para evitar o alerta fadiga, a central de segurança limita o volume de emails e
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Disponível|
-|Refere|Camada gratuita|
+|Estado da versão:|GA (em disponibilidade geral)|
+|Refere|Gratuita|
 |Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário da assinatura** |
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov (parcial)<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov (parcial)<br>![No](./media/icons/no-icon.png) China gov, outros gov|
 |||
 
 

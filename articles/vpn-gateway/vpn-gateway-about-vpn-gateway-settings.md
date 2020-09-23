@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: cc9cb06c2154202f319d57aa77700a356ffe19c1
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419564"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976220"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre definições de configuração do Gateway de VPN
 
@@ -27,8 +27,6 @@ Os valores neste artigo aplicam gateways VPN (gateways de rede virtual que usam 
 * Para gateways redundantes de zona, consulte [Sobre gateways redundantes de zona](about-zone-redundant-vnet-gateways.md).
 
 * Para WAN virtual, consulte [Sobre a WAN virtual](../virtual-wan/virtual-wan-about.md).
-
-
 
 ## <a name="gateway-types"></a><a name="gwtype"></a>Tipos de gateway
 
@@ -152,9 +150,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>Gateways de rede locais
 
- Um gateway de rede local e diferente de um gateway de rede virtual. Ao criar uma configuração de gateway de VPN, o gateway de rede local geralmente representa sua localização no local. No modelo de implantação clássico, o gateway de rede local era conhecido como um Site Local.
+Um gateway de rede local e diferente de um gateway de rede virtual. Ao criar uma configuração de gateway de VPN, o gateway de rede local geralmente representa a rede no local e o dispositivo VPN correspondente. No modelo de implantação clássico, o gateway de rede local era conhecido como um Site Local.
 
-Você dá ao gateway de rede local um nome e o endereço IP público do dispositivo VPN local e especifica os prefixos de endereço que estão localizados no caminho local. O Azure examina os prefixos de endereço de destino para o tráfego de rede, consulta a configuração que você especificou para o gateway de rede local e roteia os pacotes adequadamente. Você também especifica os gateways de rede para configurações de rede virtual para rede virtual que usam uma conexão de gateway de VPN.
+Você dá um nome ao gateway de rede local, o endereço IP público ou o FQDN (nome de domínio totalmente qualificado) do dispositivo VPN local e especifica os prefixos de endereço que estão localizados no local. O Azure examina os prefixos de endereço de destino para o tráfego de rede, consulta a configuração que você especificou para o gateway de rede local e roteia os pacotes adequadamente. Se você usar o Border Gateway Protocol (BGP) em seu dispositivo VPN, você fornecerá o endereço IP do par de BGP do seu dispositivo VPN e o número do sistema autônomo (ASN) da sua rede local. Você também especifica os gateways de rede para configurações de rede virtual para rede virtual que usam uma conexão de gateway de VPN.
 
 O seguinte exemplo de PowerShell cria um novo gateway de rede local:
 

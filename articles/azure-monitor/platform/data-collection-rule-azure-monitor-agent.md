@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640830"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968400"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurar a coleta de dados para o agente de Azure Monitor (versão prévia)
 As regras de coleta de dados (DCR) definem os dados que chegam ao Azure Monitor e especificam onde devem ser enviados. Este artigo descreve como criar uma regra de coleta de dados para coletar dados de máquinas virtuais usando o agente de Azure Monitor.
@@ -26,7 +26,7 @@ Para aplicar um DCR a uma máquina virtual, crie uma associação para a máquin
 
 Por exemplo, considere um ambiente com um conjunto de máquinas virtuais que executam um aplicativo de linha de negócios e outras em execução SQL Server. Você pode ter uma regra de coleta de dados padrão que se aplica a todas as máquinas virtuais e a regras de coleta de dados separadas que coletam dados especificamente para o aplicativo de linha de negócios e para SQL Server. As associações para as máquinas virtuais para as regras de coleta de dados se assemelhariam ao diagrama a seguir.
 
-![Associações](media/data-collection-rule-azure-monitor-agent/associations.png)
+![O diagrama mostra as máquinas virtuais que hospedam aplicativos de linha de negócios e SQL Server associadas a regras de coleta de dados denominada Central-i t-padrão e LOB-app para aplicativos de linha de negócios e central-i t-default e s q l para SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
 
 ## <a name="create-using-the-azure-portal"></a>Criar usando o portal do Azure
 Você pode usar o portal do Azure para criar uma regra de coleta de dados e associar máquinas virtuais em sua assinatura a essa regra. O agente de Azure Monitor será instalado automaticamente e uma identidade gerenciada criada para qualquer máquina virtual que ainda não tiver sido instalada.

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 4a62520a9807cd99b5c353c32bb13058fc471a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771352"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904732"
 ---
-# <a name="azure-security-center-readiness-roadmap"></a>Roteiro de Preparação da Central de Segurança do Azure
+# <a name="azure-security-center-readiness-roadmap"></a>Roteiro de preparação da central de segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
 
 ## <a name="understanding-security-center"></a>Noções básicas sobre a Central de Segurança
@@ -29,12 +29,12 @@ A Central de Segurança do Azure fornece gerenciamento de segurança unificado e
 Use os seguintes recursos para começar com a Central de Segurança.
 
 Artigos
-* [Introdução à Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* [Guia de início rápido da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introdução à Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Guia de início rápido da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
 vídeos
-* [Vídeo de introdução rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
-* [Visão geral dos recursos de resposta, de detecção e de prevenção da Central de Segurança](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
+- [Vídeo de introdução rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
+- [Visão geral dos recursos de resposta, de detecção e de prevenção da Central de Segurança](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>Planejamento e operações
 
@@ -42,20 +42,16 @@ Para tirar total proveito da Central de Segurança, é importante entender como 
 
 Use os recursos a seguir para ajudá-lo durante os processos de planejamento e de operações.
 
-Artigo
-* [Guia de planejamento e operações da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Guia de planejamento e operações da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Integração de computadores à Central de Segurança
-A Central de Segurança detecta automaticamente as assinaturas ou workspaces do Azure não habilitados para a Central de Segurança Standard. Isso inclui assinaturas do Azure usando a Central de Segurança Gratuita e workspaces que não têm a solução da Segurança habilitada.
+A central de segurança detecta automaticamente quaisquer assinaturas ou espaços de trabalho do Azure não protegidos pelo Azure defender. Isso inclui assinaturas do Azure usando a central de segurança gratuita e espaços de trabalho que não têm a solução de segurança habilitada.
 
 Use os recursos a seguir para ajudá-lo durante os processos de integração.
 
-Artigo
-* [Integração à Central de Segurança do Azure Standard para uma segurança aprimorada](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
-
-Vídeo
-* [Central de Segurança do Azure híbrido - visão geral](https://youtu.be/NMa4L_M597k)
+- [Integrar computadores não Azure](quickstart-onboard-machines.md)
+- [Central de Segurança do Azure híbrido - visão geral](https://youtu.be/NMa4L_M597k)
 
 ## <a name="mitigating-security-issues-using-security-center"></a>Como eliminar problemas de segurança usando a Central de Segurança
 A Central de segurança coleta, analisa e integra automaticamente os dados de registro de seus recursos do Azure, da rede e das soluções de parceiros conectados, como firewall e soluções de proteção de ponto de extremidade, a fim de detectar ameaças reais e reduzir os falsos positivos.
@@ -63,14 +59,13 @@ A Central de segurança coleta, analisa e integra automaticamente os dados de re
 Use os recursos a seguir para ajudá-lo a gerenciar alertas de segurança e a proteger seus recursos.
 
 Artigos    
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Protegendo suas máquinas e aplicativos na Central de segurança do Azure](security-center-virtual-machine-protection.md)
-* [Protegendo sua rede na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Monitoramento da integridade de segurança na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
+- [Protegendo sua rede na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Proteção dos dados e do serviço SQL do Azure na Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
 Vídeo    
-* [Como eliminar problemas de segurança usando a Central de Segurança do Azure](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
+- [Como eliminar problemas de segurança usando a Central de Segurança do Azure](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>Central de Segurança para resposta a incidentes
 Para reduzir os custos e danos, é importante ter um plano de resposta a incidentes em vigor antes que um ataque ocorra. A Central de Segurança do Azure pode ser usada em diferentes estágios de uma resposta a incidentes.
@@ -119,6 +114,4 @@ Artigos
 ## <a name="community-resources"></a>Recursos da comunidade
 
 * [UserVoice da Central de Segurança](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Página de perguntas frequentes da Microsoft para a Central de Segurança](https://docs.microsoft.com/answers/topics/azure-security-center.html)
-
-
+* [P&uma página para A central de segurança](https://docs.microsoft.com/answers/topics/azure-security-center.html)

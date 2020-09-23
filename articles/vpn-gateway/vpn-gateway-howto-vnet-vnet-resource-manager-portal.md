@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: b14f3c241fd21d3d4f9c4e17ae95d8048139cec1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 12ab54e51b26c4b3d77f5518d4e4f44efe34affd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442864"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983305"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurar uma conexão de gateway de VPN de VNet para VNet usando o portal do Azure
 
@@ -178,7 +178,7 @@ Em seguida, crie uma conexão de VNet4 para VNet1. No portal, localize o gateway
    ![Verificar conexões](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "Verificar conexões")
 3. Na coluna **nome** , selecione uma das conexões para exibir mais informações. Quando dados começarem a fluir, você verá valores de **Entrada de dados** e de **Saída de dados**.
 
-   ![Status](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Status")
+   ![Captura de tela mostra um grupo de recursos que tem valores de entrada e saída de dados.](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Status")
 
 ## <a name="add-additional-connections"></a>Adicionar conexões extras
 

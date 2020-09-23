@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de compartilhamento de GPU do Edge Azure Stack | Microsoft Docs
-description: Descreve como usar o portal do Azure para gerenciar compartilhamentos em sua GPU de borda do Azure Stack.
+title: Gerenciamento de compartilhamento de GPU do Edge pro do Azure Stack | Microsoft Docs
+description: Descreve como usar o portal do Azure para gerenciar compartilhamentos em sua GPU do Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,25 +8,25 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6448ac002482751052310532989278e3b88b5915
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268835"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904697"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Use o portal do Azure para gerenciar compartilhamentos no seu Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Use o portal do Azure para gerenciar compartilhamentos em seu Azure Stack Edge pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo descreve como gerenciar compartilhamentos em seu Azure Stack Edge. Você pode gerenciar o Azure Stack Edge por meio da portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar, excluir, atualizar compartilhamentos ou sincronizar a chave de armazenamento para a conta de armazenamento associada aos compartilhamentos.
+Este artigo descreve como gerenciar compartilhamentos no Azure Stack Edge pro. Você pode gerenciar o Azure Stack Edge pro via portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar, excluir, atualizar compartilhamentos ou sincronizar a chave de armazenamento para a conta de armazenamento associada aos compartilhamentos.
 
 ## <a name="about-shares"></a>Sobre compartilhamentos
 
-Para transferir dados para o Azure, você precisa criar compartilhamentos em seu Azure Stack Edge. Os compartilhamentos que você adiciona no dispositivo Azure Stack Edge podem ser compartilhamentos locais ou compartilhamentos que enviam dados por push para a nuvem.
+Para transferir dados para o Azure, você precisa criar compartilhamentos em seu Azure Stack Edge pro. Os compartilhamentos que você adiciona no dispositivo Azure Stack Edge pro podem ser compartilhamentos locais ou compartilhamentos que enviam dados por push para a nuvem.
 
  - **Compartilhamentos locais**: Use esses compartilhamentos quando desejar que os dados sejam processados localmente no dispositivo.
- - **Compartilhamentos**: Use esses compartilhamentos quando desejar que os dados do dispositivo sejam enviados automaticamente para sua conta de armazenamento na nuvem. Todas as funções de nuvem, como **Atualizar** e **Sincronizar chaves de armazenamento**, se aplicam a esses compartilhamentos.
+ - **Compartilhamentos**: Use esses compartilhamentos quando desejar que os dados do dispositivo sejam enviados automaticamente para sua conta de armazenamento na nuvem. Todas as funções de nuvem, como **Atualizar** e **sincronizar chaves de armazenamento** , se aplicam aos compartilhamentos.
 
 
 ## <a name="add-a-share"></a>Adicionar um compartilhamento
@@ -45,7 +45,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
 4. Forneça um **Conta de armazenamento** na qual o compartilhamento resida. Um contêiner será criado na conta de armazenamento com o nome do compartilhamento se o contêiner já não existir. Se o contêiner já existir, ele será usado.
 
-5. Na lista suspensa, escolha o **Serviço de armazenamento** entre blob de blocos, blobs de páginas ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nessa instância, queremos que os dados residam como blobs de blocos no Azure, portanto, selecionamos **Blob de Blocos**. Se escolher **blob de páginas**, você deverá garantir que seus dados estejam alinhados em 512 bytes. Use **Blob de páginas** para VHDs ou VHDX que são sempre alinhados com 512 bytes.
+5. Na lista suspensa, escolha o **serviço de armazenamento** do blob de blocos, BLOB de páginas ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nessa instância, queremos que os dados residam como BLOBs de blocos no Azure, portanto, selecionamos **blob de blocos**. Se escolher **blob de páginas**, você deverá garantir que seus dados estejam alinhados em 512 bytes. Use o **blob de páginas** para VHDS ou VHDX que são sempre 512 bytes alinhados.
 
 6. Esta etapa depende do tipo de compartilhamento criado, SMB ou NFS.
     - **Se estiver criando compartilhamento SMB**: no campo **Todos os usuários locais com privilégios**, escolha **Criar novo** ou **Usar existente**. Se a criação for de um novo usuário local, forneça o **nome de usuário**, a **senha** e então confirme a senha. Isso atribui as permissões ao usuário local. Depois de atribuir as permissões aqui, você pode usar o Gerenciador de Arquivos para modificar essas permissões.
@@ -74,7 +74,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 3. Escolha um **Tipo** para o compartilhamento. O tipo pode ser **SMB** ou **NFS**, sendo SMB o padrão. SMB é o padrão para clientes do Windows e NFS é usado para clientes Linux. Dependendo da escolha entre compartilhamentos SMB ou NFS, as opções apresentadas serão ligeiramente diferentes.
 
    > [!IMPORTANT]
-   > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 4. Para acessar com facilidade os compartilhamentos por meio dos módulos de computação de borda, use o ponto de montagem local. Selecione **Usar o compartilhamento com a computação de borda** para que o módulo do Edge possa usar a computação com o ponto de montagem local.
 
@@ -96,7 +96,7 @@ Execute as etapas a seguir no portal do Azure para criar um compartilhamento.
 
 ## <a name="mount-a-share"></a>Montar um compartilhamento
 
-Se você criou um compartilhamento antes de configurar a computação no dispositivo Azure Stack Edge, será necessário montar o compartilhamento. Siga as etapas a seguir para montar um compartilhamento.
+Se você criou um compartilhamento antes de configurar a computação no dispositivo Azure Stack Edge pro, será necessário montar o compartilhamento. Siga as etapas a seguir para montar um compartilhamento.
 
 
 1. Na portal do Azure, vá para o recurso de borda do Azure Stack e vá para **Gateway > compartilhamentos**. Na lista de compartilhamentos, selecione o compartilhamento que você deseja montar. A coluna **Usados para computação** mostrará o status como **Desabilitado** para o compartilhamento selecionado.

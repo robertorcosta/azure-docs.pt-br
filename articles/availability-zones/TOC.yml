@@ -95,6 +95,10 @@
       items:
         - name: O que são zonas de borda?
           href: ../networking/edge-zones-overview.md
+    - name: Documentação do Azure Orbital
+      items:
+        - name: O que é o Azure Orbital?
+          href: ../networking/azure-orbital-overview.md
 - name: Recuperação de desastre
   items:
     - name: Como usar o Azure Site Recovery

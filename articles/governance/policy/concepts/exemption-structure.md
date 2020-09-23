@@ -3,12 +3,12 @@ title: Detalhes da estrutura de isenção de política
 description: Descreve a definição de isenção de política usada pelo Azure Policy para isentar recursos da avaliação de iniciativas ou definições.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3e6a6c9bc7993161697187b6131994c1973b49d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933102"
+ms.locfileid: "90968053"
 ---
 # <a name="azure-policy-exemption-structure"></a>Azure Policy estrutura de isenção
 
@@ -99,11 +99,12 @@ Este campo deve ser o nome do caminho completo de uma atribuição de política 
 
 Se `policyAssignmentId` for para uma atribuição de iniciativa, a `policyDefinitionReferenceIds` Propriedade poderá ser usada para especificar quais definições de política na iniciativa a que o recurso de entidade tem uma isenção. Como o recurso pode ser isento de uma ou mais definições de política incluídas, essa propriedade é uma _matriz_. Os valores devem corresponder aos valores na definição de iniciativa nos `policyDefinitions.policyDefinitionReferenceId` campos.
 
-## <a name="required-permissions"></a>Permissões necessárias
+## <a name="exemption-category"></a>Categoria de isenção
 
-As permissões do RBAC do Azure necessárias para gerenciar objetos de isenção de política estão no `Microsoft.Authorization/policyExemptions` grupo de operações. As funções internas de [colaborador de diretiva de recurso](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) e administrador de [segurança](../../../role-based-access-control/built-in-roles.md#security-admin) têm as `read` permissões e o gravador de dados de informações de `write` [política (versão prévia)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) tem a `read` permissão.
+Existem duas categorias de isenção e são usadas para agrupar isenções:
 
-As isenções têm medidas de segurança adicionais devido ao impacto da concessão de uma isenção. Além de exigir a `Microsoft.Authorization/policyExemptions/write` operação na hierarquia de recursos ou recurso individual, o criador de uma isenção deve ter o `exempt/Action` verbo na atribuição de destino.
+- **Atenuado**: a isenção é concedida porque a intenção da política é atendida por meio de outro método.
+- **Renúncia**: a isenção é concedida porque o estado de não conformidade do recurso é temporariamente aceito. Outro motivo para usar essa categoria é para uma hierarquia de recursos ou recursos que deve ser excluída de uma ou mais definições em uma iniciativa, mas não deve ser excluída de toda a iniciativa.
 
 ## <a name="expiration"></a>Expiração
 
@@ -111,6 +112,12 @@ Para definir quando uma hierarquia de recursos ou um recurso individual não é 
 
 > [!NOTE]
 > As isenções de política não são excluídas quando a `expiresOn` data é atingida. O objeto é preservado para manutenção de registro, mas a isenção não é mais atendida.
+
+## <a name="required-permissions"></a>Permissões necessárias
+
+As permissões do RBAC do Azure necessárias para gerenciar objetos de isenção de política estão no `Microsoft.Authorization/policyExemptions` grupo de operações. As funções internas de [colaborador de diretiva de recurso](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) e administrador de [segurança](../../../role-based-access-control/built-in-roles.md#security-admin) têm as `read` permissões e o gravador de dados de informações de `write` [política (versão prévia)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) tem a `read` permissão.
+
+As isenções têm medidas de segurança adicionais devido ao impacto da concessão de uma isenção. Além de exigir a `Microsoft.Authorization/policyExemptions/write` operação na hierarquia de recursos ou recurso individual, o criador de uma isenção deve ter o `exempt/Action` verbo na atribuição de destino.
 
 ## <a name="next-steps"></a>Próximas etapas
 
