@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203559"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906703"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Treinar e implantar um modelo do TensorFlow de classificação de imagem usando a extensão do Azure Machine Learning para Visual Studio Code (versão prévia)
 
@@ -61,7 +61,7 @@ A primeira coisa que você precisa fazer para criar um aplicativo no Azure Machi
 1. Selecione **Criar um grupo de recursos**. 
 1. Dê ao grupo de recursos o nome "TeamWorkspace-rg" e pressione **Enter**. 
 1. Escolha uma localização para seu workspace. É recomendável escolher uma localização mais próxima da localização em que você pretende implantar o modelo. Por exemplo, “Oeste dos EUA 2”.
-1. Quando precisar selecionar o tipo de workspace, escolha **Básico** para criar um workspace básico. Para obter mais informações sobre as diferentes ofertas de workspace, confira [Visão geral do Azure Machine Learning](./overview-what-is-azure-ml.md#sku).
+1. Quando for solicitado a selecionar o tipo de workspace, escolha **básico**.
 
 Neste ponto, é feita uma solicitação ao Azure para criar um workspace em sua conta. Após alguns minutos, o novo workspace será exibido no nó da sua assinatura. 
 

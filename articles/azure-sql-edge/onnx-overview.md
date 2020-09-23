@@ -1,6 +1,6 @@
 ---
-title: Machine learning e IA com o ONNX no SQL do Azure no Edge (versão prévia)
-description: O aprendizado de máquina no SQL do Azure no Edge (versão prévia) é compatível com os modelos no formato ONNX (Open Neural Network Exchange). O ONNX é um formato aberto que você pode usar para trocar modelos entre várias estruturas e ferramentas de aprendizado de máquina.
+title: Aprendizado de máquina e ia com ONNX no Azure SQL Edge
+description: O Machine Learning no Azure SQL Edge dá suporte a modelos no formato de troca de rede neural aberto (ONNX). O ONNX é um formato aberto que você pode usar para trocar modelos entre várias estruturas e ferramentas de aprendizado de máquina.
 keywords: Implantar o SQL no Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2db6c728ac35c6fc2f1fee1a602725371e448104
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 47c040b0fad0211af413141a5b16b587d41d3b08
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368049"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907139"
 ---
-# <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Machine learning e IA com o ONNX no SQL no Edge (versão prévia)
+# <a name="machine-learning-and-ai-with-onnx-in-sql-edge"></a>Machine learning e IA com o ONNX no SQL no Edge
 
-O aprendizado de máquina no SQL do Azure no Edge (versão prévia) é compatível com os modelos no formato [ONNX (Open Neural Network Exchange)](https://onnx.ai/). O ONNX é um formato aberto que você pode usar para trocar modelos entre várias [estruturas e ferramentas de aprendizado de máquina](https://onnx.ai/supported-tools).
+O Machine Learning no Azure SQL Edge dá suporte a modelos no formato de [troca de rede neural aberto (ONNX)](https://onnx.ai/) . O ONNX é um formato aberto que você pode usar para trocar modelos entre várias [estruturas e ferramentas de aprendizado de máquina](https://onnx.ai/supported-tools).
 
 ## <a name="overview"></a>Visão geral
 
@@ -55,4 +55,4 @@ As entradas do modelo devem ser estruturadas de forma que cada entrada para o mo
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Implantar o SQL do Azure no Edge por meio do portal do Azure](deploy-portal.md)
-- [Implantar um modelo ONNX no SQL do Azure no Edge (versão prévia)](deploy-onnx.md)
+- [Implantar um modelo ONNX no Azure SQL Edge ](deploy-onnx.md)

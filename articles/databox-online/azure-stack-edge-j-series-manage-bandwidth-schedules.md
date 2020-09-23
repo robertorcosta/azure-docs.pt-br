@@ -1,6 +1,6 @@
 ---
-title: Azure Stack a GPU de borda gerenciar agendas de largura de banda | Microsoft Docs
-description: Descreve como usar o portal do Azure para gerenciar agendas de largura de banda em sua GPU de borda do Azure Stack.
+title: Azure Stack Edge pro GPU gerenciar agendas de largura de banda | Microsoft Docs
+description: Descreve como usar o portal do Azure para gerenciar agendas de largura de banda em sua GPU do Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b9edb4f694a5ff7d15b06be41cc20db3b64b97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: faf78e9f7efb83c5f28538e18ed081378d120848
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265687"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890672"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-gpu"></a>Usar o portal do Azure para gerenciar agendamentos de largura de banda em sua GPU de borda do Azure Stack 
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Usar o portal do Azure para gerenciar agendamentos de largura de banda em sua GPU do Azure Stack Edge pro 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo descreve como gerenciar agendas de largura de banda em seu Azure Stack Edge. As agendas de largura de banda permitem configurar o uso da largura de banda da rede em diferentes agendamentos ao longo das horas do dia. Essas agendas podem ser aplicadas às operações de download e upload de seu dispositivo para a nuvem.
+Este artigo descreve como gerenciar agendas de largura de banda em seu Azure Stack Edge pro. As agendas de largura de banda permitem configurar o uso da largura de banda da rede em diferentes agendamentos ao longo das horas do dia. Essas agendas podem ser aplicadas às operações de download e upload de seu dispositivo para a nuvem.
 
-Você pode adicionar, modificar ou excluir os agendamentos de largura de banda para seu Azure Stack Edge por meio do portal do Azure.
+Você pode adicionar, modificar ou excluir as agendas de largura de banda para seu Azure Stack Edge pro por meio do portal do Azure.
 
 Neste artigo, você aprenderá como:
 
@@ -42,9 +42,9 @@ Para adicionar um agendamento, siga as etapas a seguir no portal do Azure.
 
 3. Em **Adicionar agendamento**: 
 
-   1. Informe o **Dia de início**, o **Dia de término**, a **Hora de início** e a **Hora de término** da agenda.
-   2. Marque a opção **Dia todo** caso o agendamento deva ser executado pelo dia todo.
-   3. **Taxa de largura de banda** é a largura de banda em Megabits por segundo (Mbps) usada pelo dispositivo em operações que envolvem a nuvem (uploads e downloads). Forneça um número entre 20 e 2.147.483.647 para este campo.
+   1. Forneça o **dia de início**, o **dia de término**, a hora de **início**e a **hora de término** da agenda.
+   2. Marque a opção **todos os dias** se essa agenda deve ser executada o dia inteiro.
+   3. A **taxa de largura de banda** é a largura de banda em megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvem a nuvem (tanto carregamentos quanto downloads). Forneça um número entre 20 e 2.147.483.647 para este campo.
    4. Marque a opção de largura de banda **Ilimitada** se você não quiser restringir o download e o upload de dados.
    5. Selecione **Adicionar**.
 
@@ -73,7 +73,7 @@ Execute as etapas a seguir para editar uma agenda de largura de banda.
 
 ## <a name="delete-a-schedule"></a>excluir uma agenda
 
-Execute as etapas a seguir para excluir uma agenda de largura de banda associada ao dispositivo Azure Stack Edge.
+Execute as etapas a seguir para excluir uma agenda de largura de banda associada ao dispositivo Azure Stack Edge pro.
 
 1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **largura de banda**.  
 

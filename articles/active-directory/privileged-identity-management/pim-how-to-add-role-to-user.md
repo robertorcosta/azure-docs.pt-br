@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421375"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985155"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções do Azure AD no Privileged Identity Management
 
@@ -75,6 +75,30 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
     ![Nova atribuição - Notificação](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
+## <a name="assign-a-role-with-restricted-scope"></a>Atribuir uma função com escopo restrito
+
+Para determinadas funções, o escopo das permissões concedidas pode ser restrito a uma única unidade de administração, entidade de serviço ou aplicativo. Esse procedimento é um exemplo de como atribuir uma função que tenha o escopo de uma unidade administrativa. Para obter uma lista de funções que dão suporte a escopo por meio da unidade administrativa, consulte [atribuir funções no escopo a uma unidade administrativa](../users-groups-roles/roles-admin-units-assign-roles.md). Este recurso está sendo lançado no momento para as organizações do Azure AD.
+
+1. Entre no centro de [Administração do Azure Active Directory](https://aad.portal.azure.com) com permissões de administrador de função com privilégios.
+
+1. Selecione **Azure Active Directory**  >  **funções e administradores**.
+
+1. Selecione o **administrador do usuário**.
+
+    ![O comando adicionar atribuição está disponível quando você abre uma função no portal](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. Selecione **Adicionar atribuições**.
+
+    ![Quando uma função dá suporte a escopo, você pode selecionar um escopo](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. Na página **Adicionar atribuições** , você pode:
+
+   - Selecione um usuário ou grupo a ser atribuído à função
+   - Selecione o escopo da função (nesse caso, unidades administrativas)
+   - Selecionar uma unidade administrativa para o escopo
+
+Para obter mais informações sobre como criar unidades administrativas, consulte [Adicionar e remover unidades administrativas](../users-groups-roles/roles-admin-units-manage.md).
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Atualizar ou remover uma atribuição de função existente
 
 Siga estas etapas para atualizar ou remover uma atribuição de função existente.
@@ -101,7 +125,7 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
 1. Selecione **funções** ou **Membros**.
 
-    ![Funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![abrir funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Selecione **Adicionar membro** para abrir **adicionar membros gerenciados**.
 
@@ -111,7 +135,7 @@ Siga estas etapas para tornar um usuário qualificado para uma função de admin
 
 1. Selecione **selecionar Membros**, selecione os usuários que você deseja atribuir à função e, em seguida, selecione **selecionar**.
 
-    ![Selecione uma função](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selecione um usuário ou grupo para atribuir](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Em **adicionar membros gerenciados**, selecione **OK** para adicionar o usuário à função.
 
@@ -169,7 +193,7 @@ Siga estas etapas para remover um usuário específico de uma função de admini
 
 1. Na mensagem que solicita que você confirme, selecione **Sim**.
 
-    ![Remover uma função](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Confirmar a remoção](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     A atribuição de função será removida.
 

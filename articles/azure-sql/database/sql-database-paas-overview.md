@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
-ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.reviewer: ''
+ms.date: 09/21/2020
+ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612090"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907046"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é o Banco de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Zonas de Disponibilidade do Azure tenta se proteger contra a interrupção de um
 
 Na verdade, o [SLA (](https://azure.microsoft.com/support/legal/sla/) contrato de nível de serviço) do Azure, equipado com uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução 24/7. A plataforma Azure gerencia totalmente todos os bancos de dados e garante que não haja perda e um alto percentual de disponibilidade de dados. O Azure controla automaticamente a aplicação de patches, potenciais falhas subjacentes de hardware, software ou rede, a implantação de correções de bug, failovers, upgrades de banco de dados e outras tarefas de manutenção. A disponibilidade padrão é obtida por uma separação de camadas de computação e armazenamento. A disponibilidade Premium é obtida com a integração da computação e do armazenamento em um único nó para o desempenho e, em seguida, a implementação de uma tecnologia semelhante à Always On grupos de disponibilidade. Para conferir uma discussão completa sobre os recursos de alta disponibilidade do Banco de Dados SQL do Azure, veja [Disponibilidade do Banco de Dados SQL](high-availability-sla.md). 
 
-Além disso, o banco de dados SQL fornece recursos internos de [continuidade de negócios e escalabilidade global](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Elas incluem:
+Além disso, o banco de dados SQL fornece recursos internos de [continuidade de negócios e escalabilidade global](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Eles incluem:
 
 - [Backups automáticos](automated-backups-overview.md):
 
@@ -165,11 +165,8 @@ O banco de dados SQL fornece uma variedade de [recursos internos de segurança e
 
 ### <a name="advance-threat-protection"></a>Proteção avançada contra ameaças
 
-A Segurança de Dados Avançada do SQL é um pacote unificado de funcionalidades avançadas de segurança do SQL. Ele inclui a funcionalidade de descoberta e classificação de dados confidenciais, o gerenciamento de vulnerabilidades de banco de dado e a detecção de atividades anormais que podem indicar uma ameaça ao seu banco de dados. Fornece um local único para habilitar e gerenciar essas funcionalidades.
+O Azure defender para SQL é um pacote unificado para recursos avançados de segurança do SQL. Ele inclui a funcionalidade para gerenciar suas vulnerabilidades de banco de dados e detectar atividades anormais que podem indicar uma ameaça ao seu banco de dados. Fornece um local único para habilitar e gerenciar essas funcionalidades.
 
-- [Descoberta e classificação de dados](data-discovery-and-classification-overview.md):
-
-  Esse recurso fornece recursos incorporados ao banco de dados SQL do Azure para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos. Ele fornece visibilidade sobre o estado de classificação do banco de dados e controla o acesso a dados confidenciais no banco e além de suas bordas.
 - [Avaliação de vulnerabilidade](sql-vulnerability-assessment.md):
 
   Esse serviço pode descobrir, controlar e ajudá-lo a corrigir possíveis vulnerabilidades de banco de dados. Fornece visibilidade sobre o estado de segurança e inclui etapas de ação para resolver problemas de segurança e aperfeiçoar as fortificações do banco de dados.
@@ -185,6 +182,10 @@ A [auditoria](../../azure-sql/database/auditing-overview.md) rastreia eventos de
 
 O Banco de Dados SQL ajuda a proteger seus dados com criptografia. Para dados em movimento, ele usa a [segurança da camada de transporte](https://support.microsoft.com/kb/3135244). Para dados em repouso, ele usa a [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Para dados em uso, ele usa [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
+### <a name="data-discovery-and-classification"></a>Descoberta e classificação de dados
+
+A [descoberta e a classificação de dados](data-discovery-and-classification-overview.md) fornece recursos internos do banco de dados SQL do Azure para descobrir, classificar, rotular e proteger os dados confidenciais em seus bancos. Ele fornece visibilidade sobre o estado de classificação do banco de dados e controla o acesso a dados confidenciais no banco e além de suas bordas.
+
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e autenticação multifator
 
 O Banco de Dados SQL permite gerenciar centralmente as identidades de usuário do banco de dados e de outros serviços da Microsoft com a [integração do Azure Active Directory](authentication-aad-overview.md). Esse recurso simplifica o gerenciamento de permissão e aprimora a segurança. O Azure Active Directory dá suporte à [autenticação multifator](authentication-mfa-ssms-overview.md) para aumentar a segurança de dados e aplicativos, ao mesmo tempo em que dá suporte a um processo de logon único.
@@ -196,7 +197,7 @@ O Banco de Dados SQL torna a compilação e o gerenciamento de aplicativos mais 
 |Ferramenta|Descrição|
 |:---|:---|
 |[O portal do Azure](https://portal.azure.com/)|Um aplicativo baseado na Web para gerenciar todos os serviços do Azure.|
-|[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de banco de dados de plataforma cruzada que é executada no Windows, no MacOS e no Linux.|
+|[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de banco de dados de plataforma cruzada que é executada no Windows, no macOS e no Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Um aplicativo cliente gratuito e que pode ser baixado para gerenciar qualquer infraestrutura do SQL, de SQL Server para o banco de dados SQL.|
 |[SQL Server Data Tools no Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Um aplicativo cliente gratuito e que pode ser baixado para o desenvolvimento de SQL Server bancos de dados relacionais, bancos de dados no banco de dados SQL do Azure, pacotes de Integration Services, modelos de Analysis Services data e relatórios de Reporting Services.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código aberto gratuito, que pode ser baixado para Windows, macOS e Linux. Ele dá suporte a extensões, incluindo a [extensão MSSQL](https://aka.ms/mssql-marketplace) para consultar Microsoft SQL Server, banco de dados SQL do Azure e análise de Synapse do Azure Azure (anteriormente SQL data warehouse).|

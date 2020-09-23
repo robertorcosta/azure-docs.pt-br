@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/26/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c8694c90fedccbecee1fee09e7146bf2d0aaa6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 37fad118fe314b1392c31906a3f0a0989e39d876
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601156"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969413"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Criar, listar ou excluir uma identidade gerenciada atribuída pelo usuário usando chamadas à API REST
 
@@ -34,10 +34,23 @@ Neste artigo, você aprenderá como criar, listar e excluir uma identidade geren
 
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md). **Revise a [diferença entre uma identidade gerenciada atribuída ao sistema e atribuída ao usuário](overview.md#managed-identity-types)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Se você estiver usando o Windows, instale o [subsistema do Windows para Linux](/windows/wsl/about) ou use o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal do Azure.
-- Se você usa o [subsistema do Windows para Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest) ou um [SO de distribuição do Linux](/cli/azure/install-azure-cli), [instale o console local da CLI do Azure](/windows/wsl/about).
-- Se você estiver usando console local da CLI do Azure, entre no Azure usando `az login` com uma conta associada à assinatura do Azure que você quer para implantar ou recuperar informações de identidade gerenciada atribuída ao usuário.
-- Recupere um token de acesso do Portador usando `az account get-access-token` para executar as seguintes operações de identidade gerenciada atribuída ao usuário.
+- Você pode executar todos os comandos neste artigo na nuvem ou localmente:
+    - Para executar na nuvem, use o [Azure cloud Shell](../../cloud-shell/overview.md).
+    - Para executar localmente, instale a [rotação](https://curl.haxx.se/download.html) e a [CLI do Azure](/cli/azure/install-azure-cli).
+
+## <a name="obtain-a-bearer-access-token"></a>Obter um token de acesso de portador
+
+1. Se estiver em execução localmente, entre no Azure por meio do CLI do Azure:
+
+    ```
+    az login
+    ```
+
+1. Obter um token de acesso usando [AZ Account Get-Access-token](/cli/azure/account#az_account_get_access_token)
+
+    ```azurecli-interactive
+    az account get-access-token
+    ```
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerenciada atribuída ao usuário 
 
@@ -67,7 +80,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 |Name  |Descrição  |
 |---------|---------|
-|local     | Obrigatórios. Local do recurso.        |
+|local     | Necessário. Local do recurso.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>Listar identidades gerenciadas atribuídas ao usuário
 
@@ -91,7 +104,7 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 Para excluir uma identidade gerenciada atribuída ao usuário, a conta precisa da atribuição de função [Colaborador de Identidade Gerenciada](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 > [!NOTE]
-> A exclusão de uma identidade gerenciada atribuída ao usuário não removerá a referência de nenhum recurso ao qual foi atribuída. Para remover uma identidade gerenciada atribuída ao usuário de uma VM usando CURL, consulte [Remover uma identidade atribuída ao usuário de uma VM do Azure](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> A exclusão de uma identidade gerenciada atribuída ao usuário não removerá a referência de nenhum recurso ao qual foi atribuída. Para remover uma identidade gerenciada atribuída ao usuário de uma VM usando CURL, consulte [Remover uma identidade atribuída ao usuário de uma VM do Azure](qs-configure-rest-vm.md#remove-a-user-assigned-managed-identity-from-an-azure-vm).
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701425"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907176"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Transmitir dados como entrada no Stream Analytics
 
@@ -30,12 +30,12 @@ O Stream Analytics oferece suporte à compactação em todas as fontes de entrad
 
 ## <a name="create-edit-or-test-inputs"></a>Criar, editar ou testar entradas
 
-Você pode usar o [Portal do Azure](stream-analytics-quick-create-portal.md), o [Visual Studio](stream-analytics-quick-create-vs.md) e o [Visual Studio Code](quick-create-vs-code.md) para adicionar e exibir ou editar entradas existentes no trabalho de streaming. Além disso, você pode testar conexões de entrada e [consultas de teste](stream-analytics-manage-job.md#test-your-query) de dados de exemplo no portal do Azure, no [Visual Studio](stream-analytics-vs-tools-local-run.md) e no [Visual Studio Code](visual-studio-code-local-run.md). Ao gravar uma consulta, você lista a entrada na cláusula FROM. Você pode obter a lista de entradas disponíveis na página **Consulta** no portal. Se você quiser usar várias entradas, poderá usar `JOIN` para associá-las ou codificar várias consultas `SELECT`.
+Você pode usar o [Portal do Azure](stream-analytics-quick-create-portal.md), o [Visual Studio](stream-analytics-quick-create-vs.md) e o [Visual Studio Code](quick-create-visual-studio-code.md) para adicionar e exibir ou editar entradas existentes no trabalho de streaming. Além disso, você pode testar conexões de entrada e [consultas de teste](stream-analytics-manage-job.md#test-your-query) de dados de exemplo no portal do Azure, no [Visual Studio](stream-analytics-vs-tools-local-run.md) e no [Visual Studio Code](visual-studio-code-local-run.md). Ao gravar uma consulta, você lista a entrada na cláusula FROM. Você pode obter a lista de entradas disponíveis na página **Consulta** no portal. Se você quiser usar várias entradas, poderá usar `JOIN` para associá-las ou codificar várias consultas `SELECT`.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Transmitir dados dos Hubs de Eventos
 
-Os Hubs de Eventos do Azure fornecem ingestores de eventos altamente escalonável de publicação/assinatura. Um Hub de Eventos pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Juntos, os Hubs de Eventos e o Stream Analytics fornecem uma solução de ponta a ponta para análise em tempo real. Os Hubs de Eventos permitem que você envie eventos para o Azure em tempo real, e os trabalhos do Stream Analytics podem processá-los em tempo real. Por exemplo, você pode enviar cliques da Web, leituras do sensor ou eventos de log online para Hubs de Eventos. Em seguida, você pode criar trabalhos do Stream Analytics para usar Hubs de Eventos como os fluxos de dados de entrada para filtragem, agregação e correlação em tempo real.
+Os hubs de eventos do Azure fornecem investidores de eventos de publicação/assinatura altamente escalonáveis. Um Hub de Eventos pode incluir milhões de eventos por segundo, para que você possa processar e analisar grandes quantidades de dados produzidos por seus aplicativos e dispositivos conectados. Juntos, os Hubs de Eventos e o Stream Analytics fornecem uma solução de ponta a ponta para análise em tempo real. Os Hubs de Eventos permitem que você envie eventos para o Azure em tempo real, e os trabalhos do Stream Analytics podem processá-los em tempo real. Por exemplo, você pode enviar cliques da Web, leituras do sensor ou eventos de log online para Hubs de Eventos. Em seguida, você pode criar trabalhos do Stream Analytics para usar Hubs de Eventos como os fluxos de dados de entrada para filtragem, agregação e correlação em tempo real.
 
 `EventEnqueuedUtcTime` é o carimbo de data/hora da chegada de um evento em um hub de eventos e é o carimbo de data/hora padrão de eventos provenientes dos Hubs de Eventos para o Stream Analytics. Para processar os dados como uma transmissão usando um carimbo de data/hora na carga do evento, você deve usar a palavra-chave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics).
 
@@ -143,7 +143,7 @@ As entradas formatadas em CSV exigem uma linha de cabeçalho para definir os cam
 > [!NOTE]
 > O Stream Analytics não dá suporte para a adição de conteúdo a um arquivo de blob existente. O Stream Analytics exibirá cada arquivo apenas uma vez e quaisquer alterações que ocorram no arquivo após o trabalho ter lido os dados não serão processados. A prática recomendada é carregar todos os dados para um arquivo de blob de uma vez e, em seguida, adicionar outros eventos mais recentes em um arquivo diferente, o novo arquivo de blob.
 
-Em cenários em que muitos blobs são continuamente adicionados e o Stream Analytics está processando os blobs à medida que são adicionados, é possível que alguns sejam ignorados em raros casos devido à granularidade do `BlobLastModifiedTime`. Você pode mitigar isso carregando blobs com pelo menos dois segundos de diferença. Se essa opção não for viável, use os Hubs de Eventos para transmitir grandes volumes de eventos.
+Em cenários em que muitos BLOBs são adicionados continuamente e Stream Analytics está processando os BLOBs à medida que eles são adicionados, é possível que alguns BLOBs sejam ignorados em casos raros devido à granularidade do `BlobLastModifiedTime` . Você pode mitigar isso carregando blobs com pelo menos dois segundos de diferença. Se essa opção não for viável, use os Hubs de Eventos para transmitir grandes volumes de eventos.
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Configurar o Armazenamento de Blobs como uma entrada de dados 
 

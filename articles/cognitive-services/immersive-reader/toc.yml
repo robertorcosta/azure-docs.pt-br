@@ -1,14 +1,9 @@
 - name: Documentação da Leitura Avançada
   href: index.yml
-- name: Visão geral
-  items:
-    - name: O que é a Leitura Avançada?
-      href: Overview.md
-- name: Inícios rápidos
-  expanded: true
-  items:
-    - name: Como usar a biblioteca de clientes
-      href: ./quickstarts/client-libraries.md
+- name: O que é a Leitura Avançada?
+  href: Overview.md
+- name: Guia de Início Rápido
+  href: ./quickstarts/client-libraries.md
 - name: Tutoriais
   items:
     - name: Iniciar a Leitura Avançada (Android)

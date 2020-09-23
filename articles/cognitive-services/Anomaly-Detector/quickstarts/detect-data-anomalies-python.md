@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-python
-ms.openlocfilehash: 38c2b3cdf40f1924a36ffd84d9dc5f9b2f7f319d
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 7bfe10ea5e0e95bcabf02243bb8b7172a5aec08d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245699"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906746"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Início Rápido: Detectar anomalias nos dados de série temporal usando o Python e a API REST do Detector de Anomalias
 
-Use este início rápido para começar a usar os dois modos de detecção da API do Detector de Anomalias para detectar anomalias nos dados da série temporal. Este aplicativo Python envia duas solicitações de API contendo dados de série temporal formatados em JSON e obtém as respostas.
+Use este início rápido para começar a usar os dois modos de detecção da API do Detector de Anomalias para detectar anomalias nos dados da série temporal. Este aplicativo Python envia solicitações de API contendo dados de série temporal formatados em JSON e obtém as respostas.
 
 | Solicitação de API                                        | Saída do aplicativo                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Detectar anomalias como um lote                        | A resposta JSON contendo o status de anomalias (e outros dados) para cada ponto de dados nos dados de série temporal e as posições de quaisquer anomalias detectadas. |
-| Detectar o status de anomalias do último ponto de dados | A resposta JSON contendo o status de anomalias (e outros dados) para o ponto de dados mais recente nos dados da série temporal.                                                                                                                                         |
+| Detectar o status de anomalias do último ponto de dados | A resposta JSON contendo o status de anomalias (e outros dados) para o ponto de dados mais recente nos dados da série temporal.|
+| Detectar pontos de alteração que marcam novas tendências de dados | A resposta JSON que contém os pontos de alteração detectados nos dados de série temporal. |
 
  Embora esse aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. Você pode encontrar o código-fonte deste Início Rápido no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py).
 
@@ -54,6 +55,7 @@ Use este início rápido para começar a usar os dois modos de detecção da API
     |---------|---------|
     |Detecção em lote    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detecção no ponto de dados mais recente     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | Detecção de ponto de alteração | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-python[initial endpoint and key variables](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=vars)]
 
@@ -73,7 +75,7 @@ Use este início rápido para começar a usar os dois modos de detecção da API
 
 ## <a name="detect-anomalies-as-a-batch"></a>Detectar anomalias como um lote
 
-1. Crie um método chamado `detect_batch()` para detectar anomalias nos dados como um lote. Chame o método `send_request()` criado acima com seu ponto de extremidade, sua URL, sua chave de assinatura e seus dados JSON.
+1. Crie um método chamado `detect_batch()` para detectar anomalias nos dados como um lote. Chame o método `send_request()` criado acima com o ponto de extremidade, a URL, a chave de assinatura e os dados JSON que pertencem a você.
 
 2. Chame `json.dumps()` no resultado para formatá-lo e imprimi-lo no console.
 
@@ -85,11 +87,23 @@ Use este início rápido para começar a usar os dois modos de detecção da API
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detectar o status de anomalias do último ponto de dados
 
-1. Crie um método chamado `detect_latest()` para determinar se o ponto de dados mais recente da série de tempo é uma anomalia. Chame o método `send_request()` acima com seu ponto de extremidade, sua url, sua chave de assinatura e seus dados json.
+1. Crie um método chamado `detect_latest()` para determinar se o ponto de dados mais recente da série de tempo é uma anomalia. Chame o método `send_request()` acima com o seu ponto de extremidade, a URL, a chave de assinatura e os dados JSON que pertencem a você.
 
 2. Chame `json.dumps()` no resultado para formatá-lo e imprimi-lo no console.
 
     [!code-python[Latest point detection](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectLatest)]
+
+## <a name="detect-change-points-in-the-data"></a>Detectar pontos de alteração nos dados
+
+1. Crie um método chamado `detect_change_point()` para detectar anomalias nos dados como um lote. Chame o método `send_request()` criado acima com o ponto de extremidade, a URL, a chave de assinatura e os dados JSON que pertencem a você.
+
+2. Chame `json.dumps()` no resultado para formatá-lo e imprimi-lo no console.
+
+3. Se a resposta contiver o campo `code`, imprima o código de erro e a mensagem de erro.
+
+4. Caso contrário, localize as posições de anomalias no conjunto de dados. O campo `isChangePoint` da resposta contém um valor booliano que indica se um determinado ponto de dados é uma anomalia. Itere pela lista e imprima o índice de qualquer valor `True`. Esses valores correspondem aos índices dos pontos de alteração de tendência, caso algum tenha sido encontrado.
+
+    [!code-python[detect change points](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectChangePoint)]
 
 ## <a name="send-the-request"></a>Enviar a solicitação
 
@@ -102,5 +116,6 @@ Chame os métodos de detecção de anomalias criados acima.
 Uma resposta bem-sucedida é retornada no formato JSON. Clique nos links abaixo para exibir a resposta JSON no GitHub:
 * [Exemplo de resposta de detecção em lote](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Exemplo de resposta de detecção do ponto mais recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Exemplo de resposta de detecção do ponto de alteração](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

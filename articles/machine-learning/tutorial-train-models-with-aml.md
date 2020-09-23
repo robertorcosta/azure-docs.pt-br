@@ -10,15 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 402eaec50d273c4d8d9215f53fa433d0db4332e8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 1af5ab33497ad8694752db17e874b883e60c942c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649905"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906660"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Treinar modelos de classificação de imagem usando dados MNIST e scikit-learn 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste tutorial, você treina um modelo de machine learning em recursos remotos de computação. Você usará o fluxo de trabalho de treinamento e implantação para o Azure Machine Learning em um Jupyter Notebook em Python.  Você pode usar o notebook como um modelo para treinar seu próprio modelo de aprendizado de máquina com seus próprios dados. Este tutorial é **parte uma de uma série de tutoriais de duas partes**.  
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751712"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907042"
 ---
 # <a name="group-data-into-bins-module"></a>Agrupar dados em um módulo de compartimentos
 
-Este artigo descreve como usar o módulo Agrupar dados em compartimentos no designer do Azure Machine Learning (versão prévia), para agrupar números ou alterar a distribuição de dados contínuos.
+Este artigo descreve como usar os dados de grupo em um módulo de compartimentos no Azure Machine Learning designer, para agrupar números ou alterar a distribuição de dados contínuos.
 
 O módulo Agrupar dados em compartimentos dá suporte a várias opções para dados compartimentalização. Você pode personalizar como as bordas de compartimento são definidas e como os valores são particionados nos compartimentos. Por exemplo, você pode:  
 
@@ -50,7 +50,7 @@ Como há muitas maneiras de agrupar dados, tudo personalizável, recomendamos qu
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Como configurar Agrupar dados em compartimentos
 
-1. Adicione os dados do grupo ao módulo de **compartimentos** ao seu pipeline no designer (versão prévia). Você pode encontrar esse módulo na categoria **Transformação de Dados**.
+1. Adicione os dados do grupo ao módulo de **compartimentos** ao seu pipeline no designer. Você pode encontrar esse módulo na categoria **Transformação de Dados**.
 
 2. Conecte o conjunto de dados que tem os valores numéricos ao compartimento. A quantificação só pode ser aplicada a colunas que contêm dados numéricos. 
 

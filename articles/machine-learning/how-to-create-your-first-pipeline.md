@@ -11,16 +11,16 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 968685b64b1412751ca990842d95e9d2ffb251a6
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 15e1af35def6a3cb6ffaf5df2db53326fba60bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650560"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883062"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a criar e executar um [pipeline de Machine Learning](concept-ml-pipelines.md) usando o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Use **pipelines ml** para criar um fluxo de trabalho que junte-se a várias fases de ml. Em seguida, publique esse pipeline para acessar ou compartilhar mais tarde com outras pessoas. Acompanhe pipelines ML para ver como seu modelo está sendo executado no mundo real e para detectar descompasso de dados. Os pipelines ML são ideais para cenários de pontuação em lote, usando várias computações, reutilizando etapas em vez de executá-las novamente, bem como compartilhar fluxos de trabalho de AM com outras pessoas.
 

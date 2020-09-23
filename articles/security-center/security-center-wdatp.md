@@ -32,7 +32,7 @@ A central de segurança do Azure integra-se à [ATP (proteção avançada contra
 |Refere|Requer o [Azure defender](security-center-pricing.md)|
 |Computadores com suporte:|![Sim](./media/icons/yes-icon.png) Máquinas do Azure executando o Windows<br>![Sim](./media/icons/yes-icon.png) Computadores do Arc do Azure executando o Windows|
 |Funções e permissões necessárias:|Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura**ou colaborador da **assinatura**|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![No](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens públicas do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![No](./media/icons/no-icon.png) China gov, outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens públicas do Azure<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
 |||
 
 

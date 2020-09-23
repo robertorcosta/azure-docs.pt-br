@@ -1,21 +1,90 @@
 ---
-title: Como preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
-description: Saiba como preparar um aplicativo Spring Java para implantação no Azure Spring Cloud.
+title: Como preparar um aplicativo para implantação no Azure Spring Cloud
+description: Saiba como preparar um aplicativo para implantação no Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 02/03/2020
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 59318cca33ba1607498546161764aa3aaaaea13e
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: ff0582e3c4f654ed2a7f5efdc9ce8fd7a226595a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90014931"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906832"
 ---
-# <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo Spring Java para implantação no Azure Spring Cloud
+# <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo para implantação no Azure Spring Cloud
 
+::: zone pivot="programming-language-csharp"
+O Azure Spring Cloud fornece serviços robustos para hospedar, monitorar, dimensionar e atualizar um aplicativo Steeltoe. Este artigo mostra como preparar um aplicativo Steeltoe existente para implantação no Azure Spring Cloud. 
+
+Este artigo explica as dependências, a configuração e o código necessários para executar um aplicativo Steeltoe do .NET Core no Azure Spring Cloud. Para obter informações sobre como implantar um aplicativo no Azure Spring Cloud, consulte [implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md).
+
+>[!Note]
+> O suporte do Steeltoe para o Azure Spring Cloud é oferecido atualmente como uma visualização pública. As ofertas de visualização pública permitem que os clientes experimentem os novos recursos antes do lançamento oficial.  Os serviços e recursos de visualização pública não são destinados ao uso em produção.  Para obter mais informações sobre o suporte durante as visualizações, consulte as [perguntas frequentes](https://azure.microsoft.com/support/faq/) ou arquivo a [solicitação de suporte](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+##  <a name="supported-versions"></a>Versões com suporte
+
+O Azure Spring Cloud dá suporte a:
+
+* .NET Core 3.1
+* Steeltoe 2,4
+
+## <a name="dependencies"></a>Dependências
+
+Instale o pacote [Microsoft. Azure. SpringCloud. Client](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) .
+
+## <a name="update-programcs"></a>Atualizar Program.cs
+
+No `Program.Main` método, chame o `UseAzureSpringCloudService` método:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .UseAzureSpringCloudService();
+```
+
+## <a name="enable-eureka-server-service-discovery"></a>Habilitar descoberta de serviço do servidor Eureka
+
+Na fonte de configuração que será usada quando o aplicativo for executado no Azure Spring Cloud, defina `spring.application.name` com o mesmo nome que o aplicativo de nuvem Spring do Azure no qual o projeto será implantado.
+
+Por exemplo, se você implantar um projeto do .NET chamado `EurekaDataProvider` para um aplicativo de nuvem Spring do Azure chamado `planet-weather-provider` o *appSettings.jsno* arquivo deverá incluir o seguinte JSON:
+
+```json
+"spring": {
+  "application": {
+    "name": "planet-weather-provider"
+  }
+}
+```
+
+## <a name="use-service-discovery"></a>Usar descoberta de serviço
+
+Para chamar um serviço usando a descoberta de serviço do servidor Eureka, faça solicitações HTTP para `http://<app_name>` onde `app_name` é o valor do `spring.application.name` aplicativo de destino. Por exemplo, o código a seguir chama o `planet-weather-provider` serviço:
+
+```csharp
+using (var client = new HttpClient(discoveryHandler, false))
+{
+    var responses = await Task.WhenAll(
+        client.GetAsync("http://planet-weather-provider/weatherforecast/mercury"),
+        client.GetAsync("http://planet-weather-provider/weatherforecast/saturn"));
+    var weathers = await Task.WhenAll(from res in responses select res.Content.ReadAsStringAsync());
+    return new[]
+    {
+        new KeyValuePair<string, string>("Mercury", weathers[0]),
+        new KeyValuePair<string, string>("Saturn", weathers[1]),
+    };
+}
+```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 Este tópico mostra como preparar um aplicativo Java Spring existente para implantação no Azure Spring Cloud. Se configurado corretamente, o Azure Spring Cloud fornecerá serviços robustos para monitorar, dimensionar e atualizar seu aplicativo Java Spring Cloud.
 
 Antes de executar este exemplo, experimente o [guia de início rápido básico](spring-cloud-quickstart.md).
@@ -244,3 +313,4 @@ Inclua as seguintes dependências `spring-cloud-starter-sleuth` e `spring-cloud-
 Neste tópico, você aprendeu a configurar o aplicativo Spring Java para implantação no Azure Spring Cloud. Para saber como configurar uma instância de servidor de configuração, consulte [Configurar uma instância de servidor de configuração](spring-cloud-tutorial-config-server.md).
 
 Mais exemplos estão disponíveis no GitHub: [Exemplos do Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
+::: zone-end
