@@ -6,19 +6,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 02/28/2018
-ms.openlocfilehash: 7a7a98818ba565aad9f2404c77682171514c7573
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: a2410328b068be6bc5af358fa72ee20eead4c8ed
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117977"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907469"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-postgresql---single-server-via-the-azure-portal"></a>Configurar parâmetros de servidor no banco de dados do Azure para PostgreSQL-servidor único por meio do portal do Azure 
 Você pode listar, exibir e atualizar os parâmetros de configuração de um Banco de Dados do Azure para servidor PostgreSQL via portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de instruções, você precisa:
-- [Servidor do Banco de Dados do Azure para PostgreSQL](quickstart-create-server-database-portal.md)
+- [Banco de dados do Azure para servidor PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="viewing-and-editing-parameters"></a>Exibir e editar parâmetros
 1. Abra o [Portal do Azure](https://portal.azure.com).
@@ -26,22 +26,22 @@ Para seguir este guia de instruções, você precisa:
 2. Selecione seu servidor de Banco de Dados do Azure para PostgreSQL.
 
 3. Sob a seção **configurações**, selecione **parâmetros de servidor**. A página mostra uma lista de parâmetros, valores e descrições.
-![Página de visão geral de parâmetros](./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png)
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png" alt-text="Página de visão geral de parâmetros":::
 
 4. Selecione o botão **suspenso** para ver os possíveis valores para parâmetros de tipo enumerado como client_min_messages.
-![Enumerar a lista suspensa](./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png)
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png" alt-text="Enumerar a lista suspensa":::
 
 5. Selecione ou passe o mouse sobre o botão **i** (informações) para ver o intervalo de valores possíveis para parâmetros numéricos como cpu_index_tuple_cost.
-![Botão informação](./media/howto-configure-server-parameters-in-portal/4-information-button.png)
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/4-information-button.png" alt-text="Botão informação":::
 
 6. Se necessário, use a **caixa de pesquisa** para restringir rapidamente a um parâmetro específico. A busca está no nome e na descrição dos parâmetros.
-![Pesquisar resultados](./media/howto-configure-server-parameters-in-portal/5-search.png)
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/5-search.png" alt-text="Resultados da pesquisa":::
 
 7. Altere os valores de parâmetro que você deseja ajustar. Todas as alterações feitas nessa sessão são realçadas em roxo. Depois de alterar os valores, você pode selecionar **Salvar**. Ou então, você pode **Descartar** suas alterações.
-![Clique em salvar ou descartar mudanças](./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png)
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png" alt-text="Clique em salvar ou descartar mudanças":::
 
 8. Se você tiver salvo os novos valores para os parâmetros, você sempre pode reverter tudo o que fazer com os valores padrão selecionando **Redefinir tudo para o padrão**.
-![Redefinir tudo para padrão](./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png)
+:::image type="content" source="./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png" alt-text="Redefinir tudo para padrão":::
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre:

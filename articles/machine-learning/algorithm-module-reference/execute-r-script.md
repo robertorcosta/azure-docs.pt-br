@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337833"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907998"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
-Este artigo descreve como usar o módulo executar script R para executar o código R em seu pipeline do Azure Machine Learning designer (versão prévia).
+Este artigo descreve como usar o módulo executar script R para executar o código R em seu pipeline de Azure Machine Learning designer.
 
 Com o R, você pode executar tarefas que os módulos existentes não dão suporte atualmente, como: 
 - Criar transformações de dados personalizadas
@@ -360,7 +360,7 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | askpass      | 1,1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
-| base         | 3.0      | 
+| base         | 3.5.1      | 
 | base64enc    | 0.1-3      | 
 | BH           | 1.69.0-1   | 
 | bindr        | 0.1.1      | 
@@ -378,11 +378,11 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | cluster      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
-| compiler     | 3.0      | 
+| compiler     | 3.5.1      | 
 | crayon       | 1.3.4      | 
 | curl         | 3.3        | 
 | data.table   | 1.12.2     | 
-| conjuntos de dados     | 3.0      | 
+| conjuntos de dados     | 3.5.1      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
 | digest       | 0.6.19     | 
@@ -401,9 +401,9 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | glue         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
-| elemento gráfico     | 3.0      | 
-| grDevices    | 3.0      | 
-| grade         | 3.0      | 
+| elemento gráfico     | 3.5.1      | 
+| grDevices    | 3.5.1      | 
+| grade         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | haven        | 2.1.0      | 
@@ -415,7 +415,7 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | iterators    | 1.0.10     | 
 | jsonlite     | 1.6        | 
 | KernSmooth   | 2.23-15    | 
-| knitr        | 1,23       | 
+| knitr        | 1.23       | 
 | labeling     | 0.3        | 
 | lattice      | 0,20-38    | 
 | lava         | 1.6.5      | 
@@ -425,9 +425,9 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | markdown     | 1          | 
 | MASS         | 7.3-51.4   | 
 | Matriz       | 1.2-17     | 
-| methods      | 3.0      | 
+| methods      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
-| mime         | 0.7        | 
+| mime         | 0,7        | 
 | ModelMetrics | 1.2.2      | 
 | modelr       | 0.1.4      | 
 | munsell      | 0.5.0      | 
@@ -435,7 +435,7 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | nnet         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
 | openssl      | 1.4        | 
-| parallel     | 3.0      | 
+| parallel     | 3.5.1      | 
 | pillar       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
@@ -464,31 +464,31 @@ Os seguintes pacotes de R pré-instalados estão disponíveis no momento:
 | rmarkdown    | 1.13       | 
 | ROCR         | 1.0-7      | 
 | rpart        | 4.1-15     | 
-| rstudioapi   | 0.1        | 
+| rstudioapi   | 0,1        | 
 | rvest        | 0.3.4      | 
 | scales       | 1.0.0      | 
 | selectr      | 0.4-1      | 
 | spatial      | 7.3-11     | 
-| splines      | 3.0      | 
+| splines      | 3.5.1      | 
 | SQUAREM      | 2017.10-1  | 
-| stats        | 3.0      | 
-| stats4       | 3.0      | 
+| stats        | 3.5.1      | 
+| stats4       | 3.5.1      | 
 | stringi      | 1.4.3      | 
 | stringr      | 1.3.1      | 
 | survival     | 2,44-1.1   | 
 | sys          | 3.2        | 
-| tcltk        | 3.0      | 
+| tcltk        | 3.5.1      | 
 | tibble       | 2.1.3      | 
 | tidyr        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
 | tidyverse    | 1.2.1      | 
 | timeDate     | 3043.102   | 
 | tinytex      | 0.13       | 
-| tools        | 3.0      | 
+| tools        | 3.5.1      | 
 | tseries      | 0,10 a 47    | 
 | TTR          | 0.23-4     | 
 | utf8         | 1.1.4      | 
-| utils        | 3.0      | 
+| utils        | 3.5.1      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
 | whisker      | 0.3-2      | 

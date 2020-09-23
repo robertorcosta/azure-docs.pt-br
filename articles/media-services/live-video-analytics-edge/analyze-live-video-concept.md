@@ -3,12 +3,12 @@ title: Analisando o vídeo ao vivo sem qualquer gravação-Azure
 description: Um grafo de mídia pode ser usado apenas para extrair análises de um fluxo de vídeo ao vivo, sem precisar gravá-la na borda ou na nuvem. Este artigo discute esse conceito.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: d59e2e9e309f0ed6a65e001557dcd9dd8af90da2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5dda18b68cb19d29623f2120fe07d7cc617f0c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566714"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893028"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analisando o vídeo ao vivo sem nenhuma gravação
 
@@ -40,7 +40,7 @@ Nesse grafo de mídia, o nó do processador de filtro de taxa de quadros reduz a
 Um aprimoramento deste exemplo é usar um processador de detector de movimento à frente do nó do processador de filtro de taxa de quadros. Isso reduzirá a carga no serviço de inferência, já que ela é usada somente quando há atividade de movimento no vídeo.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="Análise de vídeo ao vivo com base no movimento de quadros detectados por meio do módulo inferência externo":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Análise de vídeo ao vivo com base no movimento de quadros detectados por meio do módulo inferência externo":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

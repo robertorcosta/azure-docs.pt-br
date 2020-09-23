@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133492"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885571"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparação de recursos do Azure Stream Analytics
 
-Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem e no IoT Edge usando [portal do Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-vs-code.md). As tabelas neste artigo mostram quais recursos têm suporte em cada plataforma para ambos os tipos de trabalho.
+Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem e no IoT Edge usando [portal do Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-visual-studio-code.md). As tabelas neste artigo mostram quais recursos têm suporte em cada plataforma para ambos os tipos de trabalho.
 
 > [!NOTE]
 > As ferramentas do Visual Studio e do Visual Studio Code não são compatíveis com trabalhos nas regiões Leste da China, Norte da China, Alemanha Central e Nordeste da Alemanha.
@@ -45,7 +45,7 @@ Com o Azure Stream Analytics, você pode criar soluções de streaming na nuvem 
 |UDF e UDA do JavaScript     |Sim         |Sim         |Somente Windows         |
 |Serviço Machine Learning     |Sim        |Sim         |Não         |
 |Machine Learning Studio     |Sim, mas a consulta não pode ser testada        |Sim |Não         |
-|Nível de Compatibilidade     |1.0</br>1,1</br>1,2 (padrão)         |1.0</br>1,1</br>1,2 (padrão)           |1.0</br>1,1</br>1,2 (padrão)           |
+|Nível de Compatibilidade     |1,0</br>1,1</br>1,2 (padrão)         |1,0</br>1,1</br>1,2 (padrão)           |1,0</br>1,1</br>1,2 (padrão)           |
 |Funções internas de detecção de anomalias baseadas em ML     |Sim         |Sim         |Sim         |
 |Funções geoespaciais internas     |Sim         |Sim         |Sim         |
 

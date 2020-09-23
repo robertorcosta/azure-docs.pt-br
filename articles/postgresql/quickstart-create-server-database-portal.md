@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/27/2020
-ms.openlocfilehash: 9b3e1916301d6346defd6ebeab2f3784882f2d5f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0c390c64db8c5833f5bc5bf2be3367cb63127a0f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798849"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902656"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Início Rápido: Criar um servidor do Banco de Dados do Azure para PostgreSQL usando o portal do Azure
 
@@ -34,17 +34,17 @@ Para criar um servidor do Banco de Dados do Azure para PostgreSQL:
 2. Selecione **Bancos de Dados** > **Banco de Dados do Azure para PostgreSQL**.
 
    > [!div class="mx-imgBorder"]
-   > ![Captura de tela que mostra "Banco de Dados do Azure para PostgreSQL" no menu.](./media/quickstart-create-database-portal/1-create-database.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Captura de tela que mostra Banco de Dados do Azure para PostgreSQL no menu.":::
 
 3. Selecione a opção de implantação **Servidor único**.
 
    > [!div class="mx-imgBorder"]
-   > ![Captura de tela da seleção da opção de implantação de servidor único para o Banco de Dados do Azure para PostgreSQL.](./media/quickstart-create-database-portal/select-deployment-option.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/select-deployment-option.png" alt-text="Captura de tela da seleção da opção de implantação de servidor único para o Banco de Dados do Azure para PostgreSQL.":::
 
 4. Preencha o formulário **Informações Básicas** com as informações a seguir.
 
    > [!div class="mx-imgBorder"]
-   > ![Captura de tela que mostra a guia Informações Básicas para criar um servidor único.](./media/quickstart-create-database-portal/create-basics.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="Captura de tela que mostra a guia Informações Básicas para criar um servidor único.":::
 
    Configuração|Valor sugerido|Descrição
    ---|---|---
@@ -71,7 +71,7 @@ Um banco de dados vazio, **postgres**, é criado. Você também encontrará um b
 Por padrão, o servidor que você cria não é publicamente acessível. Você precisa conceder permissões ao seu endereço IP. Acesse o recurso de servidor no portal do Azure e selecione **Segurança da conexão** no menu do lado esquerdo do recurso de servidor. Caso não tenha certeza de como localizar seu recurso, confira [Abrir recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 > [!div class="mx-imgBorder"]
-> ![Captura de tela que mostra as regras de firewall da segurança de conexão.](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
+> :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Captura de tela que mostra as regras de firewall da segurança de conexão.":::
   
 Selecione **Adicionar o endereço IP do cliente atual** e escolha **Salvar**. Adicione mais endereços IP ou forneça um intervalo de IP para se conectar ao seu servidor nesses endereços IP. Para obter mais informações, confira [Regras de firewall do Banco de Dados do Azure para PostgreSQL](./concepts-firewall-rules.md).
    
@@ -90,7 +90,7 @@ Use o [psql](http://postgresguide.com/utilities/psql.html) ou o [pgAdmin](https:
    > Se você estiver abrindo o Cloud Shell pela primeira vez, verá um aviso que solicitará a criação de um grupo de recursos e uma conta de armazenamento. Essa é uma etapa única e será anexada automaticamente para todas as sessões. 
 
    > [!div class="mx-imgBorder"]
-   > ![Captura de tela que mostra as informações do servidor e o ícone para abrir o Azure Cloud Shell.](media/quickstart-create-database-portal/use-in-cloud-shell.png)
+   > :::image type="content" source="media/quickstart-create-database-portal/use-in-cloud-shell.png" alt-text="Captura de tela que mostra as informações do servidor e o ícone para abrir o Azure Cloud Shell.":::
 
 3. Execute o comando a seguir no terminal do Azure Cloud Shell. Substitua os valores pelos nomes reais do servidor e de logon do usuário administrador. Use o banco de dados vazio **postgres** com o usuário administrador neste formato: `<admin-username>@<servername>`.
 
@@ -143,7 +143,7 @@ Para excluir o grupo de recursos:
 Para excluir o servidor, selecione o botão **Excluir** na página **Visão geral** do servidor:
 
 > [!div class="mx-imgBorder"]
-> ![Captura de tela que mostra o botão usado para excluir um servidor.](media/quickstart-create-database-portal/12-delete.png)
+> :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="Captura de tela que mostra o botão usado para excluir um servidor.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

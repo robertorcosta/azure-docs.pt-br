@@ -10,16 +10,16 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 97119f3ec370894183c4aee44ff8a5bd6e5ea93b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d3a7b04e6169df21ad30017b72f70ff667429b23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647138"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902381"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Reinforcement Learning (versão prévia) com Azure Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!NOTE]
 > O Reinforcement Learning do Azure Machine Learning é, no momento, uma versão prévia do recurso. Somente as estruturas Ray e RLlib têm suporte no momento.

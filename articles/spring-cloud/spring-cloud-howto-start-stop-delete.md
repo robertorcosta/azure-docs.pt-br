@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 17dd83ba7df469e12e0569e670d71b9068bb2a9f
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 479daa9a94247ada30c54a9c5df3471035765087
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297511"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908279"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Iniciar, parar e excluir seu aplicativo do Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 Este guia explica como alterar o estado de um aplicativo no Azure Spring Cloud usando o portal do Azure ou o CLI do Azure.
 
@@ -30,7 +32,7 @@ Depois de implantar um aplicativo, você pode iniciá-lo, pará-lo e excluí-lo 
 ## <a name="using-the-azure-cli"></a>Usando a CLI do Azure
 
 > [!NOTE]
-> Você pode usar parâmetros opcionais e configurar padrões com a CLI do Azure. Saiba mais sobre o CLI do Azure lendo [nossa documentação de referência](/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest).  
+> Você pode usar parâmetros opcionais e configurar padrões com a CLI do Azure. Saiba mais sobre o CLI do Azure lendo [nossa documentação de referência](/cli/azure/ext/spring-cloud/spring-cloud?view=azure-cli-latest&preserve-view=true).  
 
 Primeiro, instale a extensão do Azure Spring Cloud para o CLI do Azure da seguinte maneira:
 
