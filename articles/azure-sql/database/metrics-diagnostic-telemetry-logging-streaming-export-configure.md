@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 51d86e51d89bdaf83be4a722d0350b35d2146cff
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085592"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973036"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configurar a exportação de streaming do banco de dados SQL do Azure e telemetria de diagnóstico do SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Essa telemetria de diagnóstico pode ser transmitida para um dos seguintes recur
 
 Essa telemetria de diagnóstico transmitida para um desses destinos pode ser usada para medir a utilização de recursos e as estatísticas de execução de consulta para facilitar o monitoramento do desempenho.
 
-![Arquitetura](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
+![O diagrama mostra muitos bancos de dados SQL e bancos de dados em instâncias gerenciadas enviando telemetria para Diagnóstico do Azure, que encaminha informações para Análise de SQL do Azure, Hub de eventos e armazenamento.](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
 
 ## <a name="enable-and-configure-the-streaming-export-of-diagnostic-telemetry"></a>Habilitar e configurar a exportação de streaming da telemetria de diagnóstico
 
@@ -127,7 +127,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de pool
 7. Marque a caixa de seleção para telemetria de diagnóstico de pool elástico: métricas **básicas** .
    ![Configura o diagnóstico para pools elásticos](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-elasticpool-selection.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 9. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados dentro do pool elástico que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
 > [!IMPORTANT]
@@ -156,7 +156,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um banco de dados 
 8. Para uma experiência de monitoramento avançada, com base em um minuto, marque a caixa de seleção para métricas **básicas** .
 
    ![Configurar o diagnóstico para o banco de dados SQL do Azure](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-sql-selection.png)
-9. Selecione **Salvar**.
+9. Clique em **Salvar**.
 10. Repita essas etapas para cada banco de dados que você deseja monitorar.
 
 > [!TIP]
@@ -192,7 +192,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de inst
 
    ![Configurar o diagnóstico para a instância gerenciada](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-container-mi-selection.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 9. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados de instância dentro da instância gerenciada que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
 > [!IMPORTANT]
@@ -220,7 +220,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um banco de dados 
 5. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 6. Marque as caixas de seleção para telemetria de diagnóstico de banco de dados: **Sqlsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**e **erros**.
    ![Configurar o diagnóstico para bancos de dados de instância](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/diagnostics-settings-database-mi-selection.png)
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 8. Repita essas etapas para cada banco de dados de instância que você deseja monitorar.
 
 > [!TIP]
@@ -471,7 +471,7 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 
 #### <a name="resource-usage-stats-for-managed-instances"></a>Estatísticas de uso de recursos para instâncias gerenciadas
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure|
@@ -496,7 +496,7 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 
 #### <a name="query-store-runtime-statistics"></a>Estatísticas de runtime do Repositório de consultas
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
@@ -547,7 +547,7 @@ Saiba mais sobre [repositório de consultas dados de estatísticas de tempo de e
 
 #### <a name="query-store-wait-statistics"></a>Estatísticas de espera do Repositório de consultas
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
@@ -585,7 +585,7 @@ Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consult
 
 #### <a name="errors-dataset"></a>Conjunto de dados de erros
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
@@ -604,8 +604,8 @@ Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consult
 |ResourceId|URI de recurso |
 |Mensagem|Mensagem de erro em texto sem formatação |
 |user_defined_b|É o bit de erro definido pelo usuário |
-|error_number_d|Código do erro |
-|Severity|Gravidade do erro |
+|error_number_d|Código de erro |
+|Gravidade|Gravidade do erro |
 |state_d|Estado do erro |
 |query_hash_s|Hash de consulta da consulta com falha, se disponível |
 |query_plan_hash_s|Hash do plano de consulta da consulta com falha, se disponível |
@@ -614,7 +614,7 @@ Saiba mais sobre [as mensagens de erro do SQL](https://docs.microsoft.com/sql/re
 
 #### <a name="database-wait-statistics-dataset"></a>Conjunto de dados das estatísticas de espera do banco de dados
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
@@ -643,7 +643,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 #### <a name="time-outs-dataset"></a>Conjunto de dados de tempos limite
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
@@ -666,7 +666,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 #### <a name="blockings-dataset"></a>Conjunto de dados de boqueios
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
@@ -690,7 +690,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 #### <a name="deadlocks-dataset"></a>Conjunto de dados de deadlocks
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
@@ -711,7 +711,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 
 #### <a name="automatic-tuning-dataset"></a>Conjunto de dados de ajuste automático
 
-|Property|Descrição|
+|Propriedade|Descrição|
 |---|---|
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
@@ -752,7 +752,7 @@ Para saber como habilitar o registro em log e entender as categorias de métrica
 
 Para saber mais sobre os Hubs de Evento, leia:
 
-- [O que é Hub de Eventos do Azure?](../../event-hubs/event-hubs-about.md)
+- [O que são os Hubs de Eventos do Azure?](../../event-hubs/event-hubs-about.md)
 - [Introdução aos Hubs de Eventos](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Para saber como configurar alertas com base na telemetria do log Analytics, consulte:

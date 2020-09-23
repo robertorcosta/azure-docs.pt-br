@@ -1,6 +1,6 @@
 ---
 title: Parâmetros de recurso de pastas de trabalho Azure Monitor
-description: Simplifique a emissão de relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
+description: Saiba como usar parâmetros de recurso para permitir a separação de recursos em pastas de trabalho. Use os parâmetros de recurso para definir o escopo do qual obter os dados.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504984"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972862"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recurso da pasta de trabalho
 
@@ -27,12 +27,12 @@ Os valores dos seletores de recursos podem vir do contexto da pasta de trabalho,
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`Applications`
-    2. Tipo de parâmetro:`Resource picker`
-    3. Necessário:`checked`
-    4. Permitir várias seleções:`checked`
-5. Obter dados de:`Workbook Resources`
-6. Incluir somente tipos de recurso:`Application Insights`
+    1. Nome do parâmetro: `Applications`
+    2. Tipo de parâmetro: `Resource picker`
+    3. Necessário: `checked`
+    4. Permitir várias seleções: `checked`
+5. Obter dados de: `Workbook Resources`
+6. Incluir somente tipos de recurso: `Application Insights`
 7. Escolha ' salvar ' na barra de ferramentas para criar o parâmetro.
 
 ![Imagem mostrando a criação de um parâmetro de recurso usando recursos de pasta de trabalho](./media/workbooks-resources/resource-create.png)
@@ -42,13 +42,13 @@ Os valores dos seletores de recursos podem vir do contexto da pasta de trabalho,
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`Applications`
-    2. Tipo de parâmetro:`Resource picker`
-    3. Necessário:`checked`
-    4. Permitir várias seleções:`checked`
-5. Obter dados de:`Query`
-    1. Tipo de consulta:`Azure Resource Graph`
-    2. Assinaturas`Use default subscriptions`
+    1. Nome do parâmetro: `Applications`
+    2. Tipo de parâmetro: `Resource picker`
+    3. Necessário: `checked`
+    4. Permitir várias seleções: `checked`
+5. Obter dados de: `Query`
+    1. Tipo de consulta: `Azure Resource Graph`
+    2. Assinaturas `Use default subscriptions`
     3. No controle de consulta, adicione este trecho
     ```kusto
     where type == 'microsoft.insights/components'
@@ -68,11 +68,11 @@ Os valores dos seletores de recursos podem vir do contexto da pasta de trabalho,
 2. Escolha _adicionar parâmetros_ nos links na pasta de trabalho.
 3. Clique no botão azul _Adicionar parâmetro_ .
 4. No novo painel de parâmetros que aparece, digite:
-    1. Nome do parâmetro:`Applications`
-    2. Tipo de parâmetro:`Resource picker`
-    3. Necessário:`checked`
-    4. Permitir várias seleções:`checked`
-5. Obter dados de:`JSON`
+    1. Nome do parâmetro: `Applications`
+    2. Tipo de parâmetro: `Resource picker`
+    3. Necessário: `checked`
+    4. Permitir várias seleções: `checked`
+5. Obter dados de: `JSON`
     1. No controle de conteúdo, adicione este trecho de JSON
     ```json
     [
