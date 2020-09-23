@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: df7b8d23b68e8040e9a7485565b8d7b35cf378d6
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 16ec78d6d4d2ceb9498cc25d482c24ccdc6b9f56
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667592"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901185"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
 
@@ -31,9 +31,10 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 
 
+
 ## <a name="alerts-for-windows-machines"></a><a name="alerts-windows"></a>Alertas para computadores Windows
 
-[Mais detalhes e observações](threat-protection.md#windows-machines)
+[Mais detalhes e observações](defender-for-servers-introduction.md)
 
 |Alerta|Descrição|Intenção ([saiba mais](#intentions))|Severity|
 |----|----|:----:|--|
@@ -125,7 +126,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-linux-machines"></a><a name="alerts-linux"></a>Alertas para computadores Linux
 
-[Mais detalhes e observações](threat-protection.md#linux-machines)
+[Mais detalhes e observações](defender-for-servers-introduction.md)
 
 |Alerta|Descrição|Intenção ([saiba mais](#intentions))|Severity|
 |----|----|:----:|--|
@@ -217,7 +218,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-azure-app-service"></a><a name="alerts-azureappserv"></a>Alertas do Serviço de Aplicativo do Azure
 
-[Mais detalhes e observações](threat-protection.md#app-services)
+[Mais detalhes e observações](defender-for-app-service-introduction.md)
 
 | Alerta                                                                                            | Descrição                                                                                                                                                                                                                                                                                                                                                                           | Intenção ([saiba mais](#intentions)) | Severity |
 |---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -242,7 +243,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-containers---azure-kubernetes-service-clusters"></a><a name="alerts-akscluster"></a>Alertas para contêineres – Clusters do Serviço de Kubernetes do Azure
 
-[Mais detalhes e observações](threat-protection.md#azure-containers)
+[Mais detalhes e observações](defender-for-kubernetes-introduction.md)
 
 | Alerta                                                   | Descrição                                                                                                                                                                                                                                                                                                 | Intenção ([saiba mais](#intentions)) | Severity |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -260,7 +261,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-containers---host-level"></a><a name="alerts-containerhost"></a>Alertas para contêineres – nível de host
 
-[Mais detalhes e observações](threat-protection.md#azure-containers)
+[Mais detalhes e observações](defender-for-kubernetes-introduction.md)
 
 | Alerta                                              | Descrição                                                                                                                                                                                                                                                                                                | Intenção ([saiba mais](#intentions)) | Severity |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -276,7 +277,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-sql-database-and-azure-synapse-analytics"></a><a name="alerts-sql-db-and-warehouse"></a>Alertas para o banco de dados SQL e o Azure Synapse Analytics
 
-[Mais detalhes e observações](threat-protection.md#data-sql)
+[Mais detalhes e observações](defender-for-sql-introduction.md)
 
 | Alerta                                           | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                 | Intenção ([saiba mais](#intentions)) | Severity |
 |-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -292,7 +293,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-azure-storage"></a><a name="alerts-azurestorage"></a>Alertas para Armazenamento do Azure
 
-[Mais detalhes e observações](threat-protection.md#azure-storage)
+[Mais detalhes e observações](defender-for-storage-introduction.md)
 
 | Alerta                                                         | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Intenção ([saiba mais](#intentions)) | Severity |
 |---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -315,7 +316,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-azure-cosmos-db-preview"></a><a name="alerts-azurecosmos"></a>Alertas do Azure Cosmos DB (Versão Prévia)
 
-[Mais detalhes e observações](threat-protection.md#cosmos-db)
+[Mais detalhes e observações](other-threat-protections.md#cosmos-db)
 
 | Alerta                                                         | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Intenção ([saiba mais](#intentions)) | Severity |
 |---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -326,7 +327,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-azure-network-layer"></a><a name="alerts-azurenetlayer"></a>Alertas da camada de rede do Azure
 
-[Mais detalhes e observações](threat-protection.md#network-layer)
+[Mais detalhes e observações](other-threat-protections.md#network-layer)
 
 | Alerta                                                                 | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Intenção ([saiba mais](#intentions)) | Severity |
 |-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -351,7 +352,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-azure-resource-manager-preview"></a><a name="alerts-azureresourceman"></a>Alertas do Azure Resource Manager (versão prévia)
 
-[Mais detalhes e observações](threat-protection.md#management-layer)
+[Mais detalhes e observações](other-threat-protections.md#management-layer)
 
 | Alerta                                                                          | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Intenção ([saiba mais](#intentions)) | Severity |
 |--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -368,9 +369,9 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 |                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                    |          |
 
 
-## <a name="alerts-for-azure-key-vault-preview"></a><a name="alerts-azurekv"></a>Alertas para Azure Key Vault (versão prévia)
+## <a name="alerts-for-azure-key-vault"></a><a name="alerts-azurekv"></a>Alertas para Azure Key Vault
 
-[Mais detalhes e observações](threat-protection.md#azure-keyvault)
+[Mais detalhes e observações](defender-for-key-vault-introduction.md)
 
 | Alerta                                                        | Descrição                                                                                                                                                                                                                                                                                                                            | Intenção ([saiba mais](#intentions)) | Severity |
 |--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -388,7 +389,7 @@ Na parte inferior desta página, há uma tabela que descreve a cadeia de elimina
 
 ## <a name="alerts-for-azure-ddos-protection"></a><a name="alerts-azureddos"></a>Alertas da Proteção contra DDoS do Azure
 
-[Mais detalhes e observações](threat-protection.md#azure-ddos)
+[Mais detalhes e observações](other-threat-protections.md#azure-ddos)
 
 | Alerta                                   | Descrição                                                          | Intenção ([saiba mais](#intentions)) | Severity |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
@@ -425,7 +426,6 @@ As tentativas de kill chain com suporte da Central de Segurança são baseadas n
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre os alertas, confira o seguinte:
 
-* [Proteção contra ameaças na Central de Segurança do Azure](threat-protection.md)
-* [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)
-* [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
-* [Exportar alertas e recomendações de segurança (versão prévia)](continuous-export.md)
+- [Alertas na Central de Segurança do Azure](security-center-alerts-overview.md)
+- [Gerencie e responda a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md)
+- [Exportar alertas e recomendações de segurança (versão prévia)](continuous-export.md)

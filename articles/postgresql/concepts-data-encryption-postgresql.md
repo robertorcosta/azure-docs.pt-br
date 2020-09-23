@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064784"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902145"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados de servidor único do Banco de Dados do Azure para PostgreSQL com uma chave gerenciada pelo cliente
 
@@ -24,7 +24,7 @@ O Key Vault é um sistema de gerenciamento de chaves externas baseado em nuvem. 
 > [!NOTE]
 > Esse recurso está disponível em todas as regiões do Azure nas quais o servidor único do Banco de Dados do Azure para PostgreSQL dá suporte aos tipos de preço "Uso Geral" e "Otimizado para Memória". Para obter outras limitações, consulte a seção [limitação](concepts-data-encryption-postgresql.md#limitations) .
 
-## <a name="benefits"></a>Vantagens
+## <a name="benefits"></a>Benefícios
 
 A criptografia de dados com chaves gerenciadas pelo cliente para um servidor único para PostgreSQL fornece os seguintes benefícios:
 
@@ -43,7 +43,7 @@ As DEKs, criptografadas com as KEKs, são armazenadas separadamente. Somente uma
 
 ## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>Como funciona a criptografia de dados com uma chave gerenciada pelo cliente
 
-![Diagrama que mostra uma visão geral de Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png" alt-text="Diagrama que mostra uma visão geral de Bring Your Own Key":::
 
 Para que um servidor PostgreSQL use chaves gerenciadas pelo cliente armazenadas no Key Vault para criptografia da DEK, um administrador do Key Vault fornece os seguintes direitos de acesso ao servidor:
 
@@ -79,7 +79,7 @@ Quando você estiver usando a criptografia de dados usando uma chave gerenciada 
 * Verifique se o Key Vault e o servidor único do Banco de Dados do Azure para PostgreSQL residem na mesma região, para garantir um acesso mais rápido para as operações de encapsulamento e desencapsulamento da DEK.
 * Bloqueie o Azure Key Vault para apenas **ponto de extremidade privado e redes selecionadas** e permita somente serviços *confiáveis da Microsoft* para proteger os recursos.
 
-    ![trusted-service-with-AKV](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
 
 Veja recomendações para configurar uma chave gerenciada pelo cliente:
 

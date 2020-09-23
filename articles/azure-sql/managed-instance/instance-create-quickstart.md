@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1899baa927bffdaedd1d7ee00f442c449480fc04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533862"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986846"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Início Rápido: criar uma instância gerenciada da Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -124,7 +124,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 > 3. Selecione a operação de implantação da Instância Gerenciada de SQL em andamento.
 
 > [!IMPORTANT]
-> - A criação da Instância Gerenciada de SQL é uma operação de execução longa que pode levar algumas horas por vez, dependendo de circunstâncias específicas. Confira [Duração das operações de gerenciamento](management-operations-overview.md#management-operations-duration) para ver os horários de criação típicos.
+> - A criação da Instância Gerenciada de SQL é uma operação de execução longa que pode levar algumas horas por vez, dependendo de circunstâncias específicas. Confira [Duração das operações de gerenciamento](management-operations-overview.md#duration) para ver os horários de criação típicos.
 > - O início da criação da Instância Gerenciada de SQL pode ser atrasado em casos em que existem outras operações de impacto, como operações de restauração ou dimensionamento de execução longa em outras Instâncias Gerenciadas na mesma sub-rede. Para saber mais, confira [Operações de gerenciamento com impacto cruzado](management-operations-overview.md#management-operations-cross-impact).
 > - Para poder obter o status da criação da instância gerenciada, você precisa ter **permissões de leitura** no grupo de recursos. Se você não tiver essa permissão ou se revogá-la enquanto a instância gerenciada estiver no processo de criação, isso poderá fazer com que a Instância Gerenciada de SQL não fique visível na lista de implantações do grupo de recursos.
 >

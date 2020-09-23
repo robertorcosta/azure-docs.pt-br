@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076035"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892556"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação de desastre no Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 Este artigo explica algumas estratégias para proteger seus aplicativos do Azure Spring Cloud contra tempo de inatividade.  Qualquer região ou data center pode enfrentar tempo de inatividade causado por desastres regionais, mas o planejamento cuidadoso pode reduzir o impacto sobre seus clientes.
 
@@ -62,3 +64,8 @@ Este é o perfil do gerenciador de tráfego:
 4. Crie um registro CNAME na zona de DNS: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
 
 5. Agora, o ambiente está completamente configurado. Os clientes devem conseguir acessar o aplicativo via: bcdr-test.contoso.com
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md)
+ 

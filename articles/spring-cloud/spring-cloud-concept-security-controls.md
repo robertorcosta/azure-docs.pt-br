@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 2e001e5e927d9d4c5dc4c3eb74f7b5ad33617b99
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1472da4c87dc4579a30290460fb7811cf228be47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037569"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892491"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controles de segurança para o serviço do Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+
 Os controles de segurança são internos no serviço de nuvem Spring do Azure.
 
 Um controle de segurança é uma qualidade ou um recurso de um serviço do Azure que contribui para a capacidade do serviço de prevenir, detectar e responder a vulnerabilidades de segurança.  Para cada controle, usamos *Sim* ou *não* para indicar se ele está em vigor no momento para o serviço.  Usamos *N/A* para um controle que não é aplicável ao serviço. 
@@ -32,3 +35,7 @@ Um controle de segurança é uma qualidade ou um recurso de um serviço do Azure
 | Controle de segurança | Sim/Não | Observações | Documentação |
 |:-------------|:-------|:-------------------------------|:----------------------|
 | Marca de serviço | Sim | Use a marca de serviço **AzureSpringCloud** para definir os controles de acesso à rede de saída em [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) ou no [Firewall do Azure](https://docs.microsoft.com/azure/firewall/service-tags), para permitir o tráfego para aplicativos do Azure Spring Cloud.<br><br>*Observação:* Atualmente, somente a nova instância do serviço de nuvem do Azure Spring criada depois de 2020/07/14 dá suporte à marca de serviço **AzureSpringCloud** . | [Marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [Início Rápido: Implantar seu primeiro aplicativo do Azure Spring Cloud](spring-cloud-quickstart.md)

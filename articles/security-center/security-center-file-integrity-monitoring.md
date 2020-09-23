@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 910d98558e5b949a76202cce48c2a210531d5c35
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9e8bd56655adfa1f7cdb769ac6cd282193b1bcf2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459786"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901368"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na Central de Segurança do Azure
 Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central de Segurança do Azure usando este passo a passo.
@@ -28,10 +28,10 @@ Saiba como configurar o FIM (Monitoramento de Integridade de Arquivo) na Central
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Disponível|
-|Refere|Camada padrão|
+|Estado da versão:|GA (em disponibilidade geral)|
+|Refere|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|O **proprietário do espaço de trabalho** pode habilitar/desabilitar o fim (para obter mais informações, consulte [funções do Azure para log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>O **leitor** pode exibir os resultados.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![No](./media/icons/no-icon.png) China gov, outros gov|
 |||
 
 
@@ -50,7 +50,7 @@ O Monitoramento de Integridade de Arquivo da Central de Segurança valida a inte
 A Central de Segurança recomenda entidades para serem monitoradas, nas quais você pode facilmente habilitar o FIM. Você também pode definir suas próprias políticas de FIM ou entidades para serem monitoradas. Este passo a passo mostra como fazer isso.
 
 > [!NOTE]
-> O recurso de monitoramento de integridade de arquivo (FIM) funciona para computadores e VMs com Windows e Linux e está disponível na camada Standard da central de segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
+> O recurso de monitoramento de integridade de arquivo (FIM) funciona para computadores e VMs com Windows e Linux e está disponível somente quando o **Azure defender para servidores** está habilitado. Consulte [preços](security-center-pricing.md) para saber mais. O FIM carrega dados no espaço de trabalho do Log Analytics. Encargos de dados se aplicam, com base na quantidade de dados que você carregar. Consulte [Preço do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 
 O FIM usa a solução de Controle de Alterações do Azure para controlar e identificar as alterações em seu ambiente. Quando o monitoramento de integridade de arquivo estiver habilitado, você terá um recurso de **controle de alterações** do tipo **solução**. Para obter detalhes de frequência de coleta de dados, consulte [Detalhes de coleta de dados do Controle de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para Controle de Alterações do Azure.
 
@@ -94,13 +94,18 @@ A central de segurança fornece a seguinte lista de itens recomendados para moni
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\PublicProfile|
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile|
 
-## <a name="using-file-integrity-monitoring"></a>Usando o Monitoramento de Integridade de Arquivo
-1. Abra o painel **Central de Segurança**.
-2. No painel esquerdo, em **Defesa da nuvem avançada**, selecione **Monitoramento de Integridade de Arquivo**.
-![Painel da Central de Segurança][1]
 
-O **Monitoramento de Integridade do Arquivo** é aberto.
-  ![Painel da Central de Segurança][2]
+## <a name="using-file-integrity-monitoring"></a>Usando o Monitoramento de Integridade de Arquivo
+
+1. Abra o painel **do Azure defender** .
+
+1. Na área **proteção avançada** , selecione **monitoramento de integridade de arquivo**.
+
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Iniciando o FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+
+
+    O **Monitoramento de Integridade do Arquivo** é aberto.
+    ![Painel da Central de Segurança][2]
 
 As informações a seguir são fornecidas para cada workspace:
 
@@ -112,26 +117,28 @@ As informações a seguir são fornecidas para cada workspace:
 Os botões a seguir também podem ser mostrados para um workspace:
 
 - ![Ícone Habilitar][3] Indica que o FIM não está habilitado para o workspace. Selecionar o workspace permite que você habilite o FIM em todos os computadores no workspace.
-- ![Ícone do plano ][4] de atualização indica que o espaço de trabalho ou a assinatura não está em execução na camada Standard da central de segurança. Para usar o recurso do FIM, sua assinatura deve estar em execução na Standard.  Selecionar o workspace permite que você faça a atualização para Standard. Para saber mais sobre a camada Standard e como atualizar, consulte [atualizar para a camada Standard da central de segurança para aumentar a segurança](security-center-pricing.md).
+- ![Ícone do plano de atualização][4] Indica que o espaço de trabalho ou a assinatura não está protegido pelo Azure defender. Para usar o recurso FIM, sua assinatura deve ser protegida pelo Azure defender.  Selecionar o espaço de trabalho permite que você atualize.
 - Um espaço em branco (não há nenhum botão) significa que o FIM já está habilitado no workspace.
 
-Em **Monitoramento de Integridade de Arquivo**, você pode selecionar um workspace para habilitar o FIM para ele, exibir o painel do Monitoramento de Integridade de Arquivo para esse workspace ou [atualizar](security-center-pricing.md) o workspace para Standard.
+Em **monitoramento de integridade de arquivo**, você pode selecionar um espaço de trabalho para habilitar o fim desse espaço de trabalho, exibir o painel de monitoramento de integridade de arquivo para esse espaço de trabalho ou [Atualizar](security-center-pricing.md) o espaço de trabalho para usar o Azure defender.
 
 ## <a name="enable-fim"></a>Habilitar o FIM
 Para habilitar o FIM em um workspace:
 
 1. Em **Monitoramento de Integridade de Arquivo**, selecione um workspace com o botão **habilitar**.
-2. **Habilitar o monitoramento de integridade de arquivo** é aberta exibindo o número de computadores Windows e Linux no workspace.
+
+1. **Habilitar o monitoramento de integridade de arquivo** é aberta exibindo o número de computadores Windows e Linux no workspace.
 
    ![Habilitar o monitoramento de integridade de arquivo][5]
 
    As configurações recomendadas para Windows e Linux também são listadas.  Expanda **Arquivos do Windows**, **Registro** e **Arquivos do Linux** para ver a lista completa de itens recomendados.
 
-3. Desmarque qualquer entidade recomendada à qual não deseja aplicar o FIM.
-4. Selecione **Aplicar o monitoramento de integridade de arquivo** para habilitar o FIM.
+1. Desmarque qualquer entidade recomendada à qual não deseja aplicar o FIM.
+
+1. Selecione **Aplicar o monitoramento de integridade de arquivo** para habilitar o FIM.
 
 > [!NOTE]
-> Você pode alterar as configurações a qualquer momento. Consulte Editar entidades monitoradas abaixo para saber mais.
+> Você pode alterar as configurações a qualquer momento. Consulte [Editar entidades monitoradas](#edit-monitored-entities) abaixo para saber mais.
 
 
 ## <a name="view-the-fim-dashboard"></a>Exibir o painel do FIM

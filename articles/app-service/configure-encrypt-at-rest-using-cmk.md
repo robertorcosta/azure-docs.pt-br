@@ -1,14 +1,14 @@
 ---
 title: Criptografar a origem do aplicativo em repouso
-description: Criptografe os dados do aplicativo no armazenamento do Azure e implante-os como um arquivo de pacote.
+description: Saiba como criptografar os dados do aplicativo no armazenamento do Azure e implantá-los como um arquivo de pacote.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 7e5e809fe8b670ae6ec5bfd15e54f9a8019e76d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62bb1e51bada155b98fe46740662b86b753d44fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79408736"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978479"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Criptografia em repouso usando chaves gerenciadas pelo cliente
 
@@ -20,7 +20,7 @@ Criptografar os dados de aplicativo de seu aplicativo Web em repouso requer uma 
 
 ## <a name="set-up-encryption-at-rest"></a>Configurar a criptografia em repouso
 
-### <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
+### <a name="create-an-azure-storage-account"></a>Criar uma conta do Armazenamento do Azure
 
 Primeiro, [crie uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) e [criptografe-a com chaves gerenciadas pelo cliente](../storage/common/encryption-customer-managed-keys.md). Depois que a conta de armazenamento for criada, use o [Gerenciador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote.
 

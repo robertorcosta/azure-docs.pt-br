@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0fc4e9a794429e7f1c1609fac287e67dabb3c878
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875576"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891990"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI saída de Azure Stream Analytics
 
@@ -20,7 +20,7 @@ Você pode usar o [Power BI](https://powerbi.microsoft.com/) como saída de um t
 
 A saída do Power BI do Stream Analytics atualmente não está disponível nas regiões Azure China 21Vianet e Azure Alemanha (T-Systems International).
 
-## <a name="ouput-configuration"></a>Configuração de saída
+## <a name="output-configuration"></a>Configuração de saída
 
 A tabela a seguir lista nomes de propriedade e suas descrições para configurar a saída do Power BI.
 
@@ -68,7 +68,7 @@ Anterior/atual | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String | String | Double
 Double | Double | String | String | Double
-String | Cadeia de caracteres | Cadeia de caracteres | Cadeia de caracteres | String 
+String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
@@ -82,4 +82,4 @@ Para o tamanho do lote de saída, confira [Power bi limites da API REST](https:/
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
 * [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)
+* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

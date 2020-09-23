@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921190"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970684"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,13 +35,13 @@ Use as etapas a seguir para encontrar recomendações de desempenho no portal do
 
 As recomendações de desempenho são exibidas na tabela semelhante à exibida na figura a seguir:
 
-![Recomendações](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Captura de tela mostra as recomendações de desempenho em uma tabela com a descrição de ação e recomendação.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 As recomendações são classificadas de acordo com seu impacto em potencial no desempenho nas seguintes categorias:
 
 | Impacto | Descrição |
 |:--- |:--- |
-| Alta |Recomendações de alto impacto devem fornecer o impacto mais significativo no desempenho. |
+| Alto |Recomendações de alto impacto devem fornecer o impacto mais significativo no desempenho. |
 | Médio |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
 | Baixo |Recomendações de baixo impacto devem fornecer um desempenho melhor do que seria obtido sem elas, mas as melhorias podem não ser significativas. |
 
@@ -129,10 +129,10 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 
 | Status | Descrição |
 |:--- |:--- |
-| Pendente |O comando Aplicar recomendação foi recebido e está programado para execução. |
+| Pending (Pendente) |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |
 | Validando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
-| Sucesso |A recomendação foi aplicada com êxito e benefícios foram calculados. |
+| Êxito |A recomendação foi aplicada com êxito e benefícios foram calculados. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |
 | Revertida |A recomendação foi revertida. |
@@ -172,4 +172,4 @@ Monitore suas recomendações e continue a aplicá-las para refinar o desempenho
 
 * [Repositório de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)
+* [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/overview.md)

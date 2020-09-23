@@ -8,14 +8,14 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442098"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885182"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -231,7 +231,7 @@ Atribua apenas as [permissões](https://docs.microsoft.com/sql/relational-databa
        - [CRIAR FUNÇÃO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. Criar usuários necessários
-       - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+       - [CRIAR USUÁRIO](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
     1. Adicionar usuários como membros a funções
        - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTERAR FUNÇÃO DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -647,7 +647,7 @@ A proteção avançada contra ameaças permite que você detecte e responda a am
 
 **Práticas recomendadas**:
 
-- Configure o [ADS (segurança de dados avançada)](advanced-data-security.md#getting-started-with-ads)   para um servidor específico ou uma instância gerenciada. Você também pode configurar anúncios para todos os servidores e instâncias gerenciadas em uma assinatura alternando para a [camada Standard da central de segurança do Azure](../../security-center/security-center-pricing.md).
+- Configure o [Azure defender para SQL](azure-defender-for-sql.md)   para um servidor específico ou uma instância gerenciada. Você também pode configurar o Azure defender para SQL para todos os servidores e instâncias gerenciadas em uma assinatura alternando para a [camada Standard da central de segurança do Azure](../../security-center/security-center-pricing.md).
 
 - Para uma experiência de investigação completa, é recomendável habilitar a [auditoria do banco de dados SQL](../../azure-sql/database/auditing-overview.md). Com a auditoria, você pode acompanhar eventos de banco de dados e gravá-los em um log de auditoria em uma conta de armazenamento do Azure ou no espaço de trabalho do Azure Log Analytics.
 
