@@ -5,12 +5,12 @@ ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c4c20579f2306b61741f3c6ab1549285271435a3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d722d420597bb459d3e7b6d2ca33fdc49bfe6f09
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123144"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981579"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função disparada pelo Armazenamento de Filas do Azure
 
@@ -89,7 +89,7 @@ Agora que você tem uma fila de armazenamento, você pode testar a função adic
 
 1. Selecione **Adicionar mensagem** e digite "Olá, Mundo!" em **Mensagem de texto**. Selecione **OK**.
 
-    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Navegue até a fila myqueue-items no portal do Azure." border="true":::
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Captura de tela mostra o botão Adicionar mensagem selecionado e o campo texto da mensagem realçado." border="true":::
 
 1. Aguarde alguns segundos, depois volte para seus logs de função e verifique se a nova mensagem foi lida da fila.
 

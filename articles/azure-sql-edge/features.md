@@ -1,6 +1,6 @@
 ---
-title: Recursos com suporte do SQL do Azure no Edge (versão prévia)
-description: Saiba mais sobre os recursos com suporte do Azure SQL Edge (versão prévia).
+title: Recursos com suporte do Azure SQL Edge
+description: Saiba mais sobre os detalhes dos recursos com suporte no Azure SQL Edge.
 keywords: introdução ao SQL no Edge, o que é o SQL no Edge, visão geral do SQL no Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,21 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 646ce94587a9aa1bb8fd20a28b84658994b25cf1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462693"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886532"
 ---
-# <a name="supported-features-of-azure-sql-edge-preview"></a>Recursos com suporte do SQL do Azure no Edge (versão prévia) 
+# <a name="supported-features-of-azure-sql-edge"></a>Recursos com suporte do Azure SQL Edge 
 
-O Azure SQL Edge é criado com base na versão mais recente do Mecanismo de Banco de Dados do Microsoft SQL Server no Linux. Ele dá suporte a um subconjunto dos recursos com suporte no SQL Server 2019 no Linux, além de alguns recursos que atualmente não têm suporte ou estão disponíveis no SQL Server 2019 no Linux (ou no SQL Server no Windows).
+O Azure SQL Edge é criado com base na versão mais recente do SQL Mecanismo de Banco de Dados. Ele dá suporte a um subconjunto dos recursos com suporte no SQL Server 2019 no Linux, além de alguns recursos que atualmente não têm suporte ou estão disponíveis no SQL Server 2019 no Linux (ou no SQL Server no Windows).
 
 Para obter uma lista completa dos recursos com suporte no SQL Server em Linux, consulte [Edições e recursos com suporte do SQL Server 2019 em Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-editions-and-components-2019). Para edições e recursos com suporte do SQL Server no Windows, consulte [edições e recursos com suporte do SQL Server 2019 (15. x)](https://docs.microsoft.com/sql/sql-server/editions-and-components-of-sql-server-version-15).
-
-> [!NOTE]
-> O Azure SQL Edge está atualmente em visualização e, como tal, não deve ser usado em ambientes de produção. A Microsoft pode recomendar a execução do Azure SQL Edge em ambientes de produção, dependendo da validação da implantação e de seus cenários de caso de uso.
 
 ## <a name="azure-sql-edge-editions"></a>Edições do Azure SQL Edge
 
@@ -36,9 +33,7 @@ O SQL do Azure no Edge está disponível com duas edições ou planos de softwar
 
 ## <a name="operating-system"></a>Sistema operacional
 
-Os contêineres do Azure SQL Edge atualmente são baseados no Ubuntu 16, 4 e, como tal, só há suporte para execução em hosts do Docker que executam o Ubuntu 16, 4 LTS (recomendado) ou o Ubuntu 18, 4 LTS. É possível executar contêineres de borda do SQL do Azure em outros hosts de sistema operacional, por exemplo, ele pode ser executado em outras distribuições do Linux ou no Windows (usando Docker CE ou Docker EE), no entanto, a Microsoft não recomenda que você faça isso, pois essa configuração pode não ser exaustivamente testada.
-
-No momento, o SQL do Azure no Edge só tem suporte para implantação por meio de Azure IoT Edge. Para obter mais informações, consulte [Azure IOT Edge sistemas com suporte](https://docs.microsoft.com/azure/iot-edge/support).
+Os contêineres do Azure SQL Edge são baseados no Ubuntu 18, 4 e, como tal, só têm suporte para execução em hosts do Docker que executam o Ubuntu 18, 4 LTS (recomendado) ou o Ubuntu 20, 4 LTS. É possível executar contêineres de borda do SQL do Azure em outros hosts de sistema operacional, por exemplo, ele pode ser executado em outras distribuições do Linux ou no Windows (usando Docker CE ou Docker EE), no entanto, a Microsoft não recomenda que você faça isso, pois essa configuração pode não ser exaustivamente testada.
 
 A configuração recomendada para executar o Azure SQL Edge no Windows é configurar uma VM do Ubuntu no host do Windows e, em seguida, executar o Azure SQL Edge dentro da VM do Linux.
 
@@ -46,7 +41,7 @@ O sistema de arquivos recomendado e com suporte para o Azure SQL Edge é EXT4 e 
 
 ## <a name="hardware-support"></a>Suporte a hardware
 
-O Azure SQL Edge requer um processador de 64 bits (x64 ou ARM64), com um mínimo de um processador e um GB de RAM no host. Embora o volume de memória de inicialização do SQL do Azure no Edge esteja perto de 500 MB, a memória adicional é necessária para outros módulos de IoT Edge em execução no dispositivo de borda. Os requisitos reais de memória e de CPU para o Azure SQL Edge variam de acordo com a complexidade da carga de trabalho e do volume de dados que estão sendo processados. Ao escolher um hardware para sua solução, a Microsoft recomenda que você execute testes de desempenho extensivos para garantir que as características de desempenho necessárias para sua solução sejam atendidas.  
+O Azure SQL Edge requer um processador de 64 bits (x64 ou ARM64), com um mínimo de um processador e um GB de RAM no host. Embora a superfície de memória de inicialização do Azure SQL Edge esteja próxima de 450MB, a memória adicional é necessária para outros módulos IoT Edge ou processos em execução no dispositivo de borda. Os requisitos reais de memória e de CPU para o Azure SQL Edge variam de acordo com a complexidade da carga de trabalho e do volume de dados que estão sendo processados. Ao escolher um hardware para sua solução, a Microsoft recomenda que você execute testes de desempenho extensivos para garantir que as características de desempenho necessárias para sua solução sejam atendidas.  
 
 ## <a name="azure-sql-edge-components"></a>Componentes do Azure SQL Edge
 
@@ -76,6 +71,7 @@ A lista a seguir inclui os SQL Server 2019 em recursos do Linux que atualmente n
 | &nbsp; | PolyBase. Observe que você pode configurar o Azure SQL Edge como um destino para tabelas externas no polybase. |
 | &nbsp; | Extensibilidade de linguagem por meio de Java e Spark. |
 | &nbsp; | Integração de Active Directory. |
+| &nbsp; | Redução Automática do banco de dados. A propriedade de redução automática de um banco de dados pode ser definida usando o `ALTER DATABASE <database_name> SET AUTO_SHRINK ON` comando, no entanto, essa alteração não tem efeito. A tarefa de redução automática não será executada no banco de dados. Os usuários ainda podem reduzir os arquivos de banco de dados usando os comandos ' DBCC '. |
 | &nbsp; | Instantâneos de banco de dados. |
 | &nbsp; | Suporte para memória persistente. |
 | &nbsp; | Microsoft Coordenador de Transações Distribuídas. |

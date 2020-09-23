@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 6b40130fb1d965abf76ba9ed1f6ebd45d94c8e01
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0a0420b470ee6bf0c7fbb9885e496eaabaf7ef4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651017"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893531"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Treinar modelos com Azure Machine Learning
 
@@ -32,7 +32,7 @@ O Azure Machine Learning fornece várias maneiras de treinar seus modelos, desde
 
 + [Azure Machine Learning SDK para r](#r-sdk): o SDK para r usa o pacote reticulate para associar ao SDK do Python Azure Machine Learning. Isso permite que você acesse os principais objetos e métodos implementados no SDK do Python de qualquer ambiente do R.
 
-+ **Designer**: o designer do Azure Machine Learning (versão prévia) fornece um ponto de entrada fácil para o machine learning para a criação de provas de conceito ou para usuários com pouca experiência em codificação. Ele permite treinar modelos usando uma interface do usuário baseada na Web do tipo “arrastar e soltar”. Você pode usar o código do Python como parte do design ou treinar modelos sem escrever nenhum código.
++ **Designer**: o designer de Azure Machine Learning fornece um ponto de entrada fácil para o aprendizado de máquina para a criação de conceitos de prova ou para usuários com pouca experiência de codificação. Ele permite treinar modelos usando uma interface do usuário baseada na Web do tipo “arrastar e soltar”. Você pode usar o código do Python como parte do design ou treinar modelos sem escrever nenhum código.
 
 + **CLI**: a CLI de machine learning fornece comandos para tarefas comuns com o Azure Machine Learning e é geralmente usada para **scripts e automatização de tarefas**. Por exemplo, quando você tiver criado um pipeline ou script de treinamento, poderá usar a CLI para iniciar a execução de treinamento em uma agenda ou quando os arquivos de dados usados para treinamento forem atualizados. Para modelos de treinamento, ela fornece comandos que enviam trabalhos de treinamento. Ela pode enviar trabalhos usando pipelines ou configurações de execução.
 

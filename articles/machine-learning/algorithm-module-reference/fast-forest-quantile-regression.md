@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 5f00164e90d625c5343103290e9272f15d164cd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87096018"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907949"
 ---
 # <a name="fast-forest-quantile-regression"></a>Regressão rápida de quantil de floresta
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para criar um modelo de regressão de Quantil de floresta rápida em um pipeline. A regressão rápida de Quantil de floresta é útil se você deseja entender mais sobre a distribuição do valor previsto, em vez de obter um único valor de previsão média. Esse método tem muitos aplicativos, incluindo:  
   
@@ -32,7 +32,7 @@ Esse algoritmo de regressão é um método de aprendizado **supervisionado** , o
 
 ## <a name="more-about-quantile-regression"></a>Mais informações sobre regressão de Quantil
 
-Há muitos tipos diferentes de regressão. No sentido mais básico, a regressão significa o ajuste de um modelo para um destino expressado como vetor numérico. No entanto, os estatísticos têm desenvolvido métodos cada vez mais avançados de regressão.
+Há muitos tipos diferentes de regressão. Simplificando, a regressão significa ajustar um modelo a um destino expresso como um vetor numérico. No entanto, os estatísticos têm desenvolvido métodos cada vez mais avançados de regressão.
 
 A definição mais simples de *Quantil* é um valor que divide um conjunto de dados em grupos de tamanho igual; assim, os valores de Quantil marcam os limites entre os grupos. Estatisticamente, quantis são valores obtidos em intervalos regulares do inverso da função de distribuição cumulativa (CDF) de uma variável aleatória.
 

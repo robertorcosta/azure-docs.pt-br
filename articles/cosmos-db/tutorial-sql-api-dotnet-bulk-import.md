@@ -1,19 +1,19 @@
 ---
-title: Importar dados em massa para a conta da API do SQL do Azure Cosmos DB usando o SDK do .Net
+title: Importar dados em massa para a conta da API do SQL do Azure Cosmos DB usando o SDK do .NET
 description: Saiba como importar ou ingerir dados para o Azure Cosmos DB criando um aplicativo de console do .NET que otimiza a taxa de transferência provisionada (RU/s) necessária para importar dados
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b16402f809da18588b26995e7129d2f27575b48d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019242"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981930"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importar dados em massa para a conta da API do SQL do Azure Cosmos DB usando o SDK do .NET
 
@@ -86,7 +86,7 @@ O aplicativo de exemplo precisa autenticar sua conta do Azure Cosmos. Para auten
 1.  Navegue até a conta do Azure Cosmos.
 1.  Abra o painel **Chaves** e copie o **URI** e a **CHAVE PRIMÁRIA** da sua conta.
 
-Se você estiver usando o Emulador do Azure Cosmos DB, obtenha as [credenciais do emulador deste artigo](local-emulator.md#authenticating-requests).
+Se você estiver usando o Emulador do Azure Cosmos DB, obtenha as [credenciais do emulador deste artigo](local-emulator.md#authenticate-requests).
 
 ## <a name="step-5-initialize-the-cosmosclient-object-with-bulk-execution-support"></a>Etapa 5: Inicializar o objeto CosmosClient com suporte a execução em massa
 

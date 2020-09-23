@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2020
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 6cd69d1f5330e4967a31ac77359e046f461270cf
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a16afcafa03ef2ab8642316db560e30a473a526b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883712"
 ---
 # <a name="connect-windows-security-events"></a>Conectar eventos de segurança do Windows 
 
@@ -43,10 +43,10 @@ O conector de eventos de segurança permite que você transmita todos os eventos
     | **Comum** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702 e 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729 , 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902 e 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137 , 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 > [!NOTE]
-> A coleta de eventos de segurança no contexto de um único espaço de trabalho pode ser configurada no Azure defender (anteriormente, a central de segurança do Azure) ou no Azure Sentinel, mas não ambos. Se você estiver integrando o Azure Sentinel em um espaço de trabalho que já está executando o Azure defender e estiver definido para coletar eventos de segurança, você terá duas opções:
-> - Deixe a coleção de eventos de segurança no Azure defender como está. Você poderá consultar e analisar esses eventos no Azure Sentinel, bem como no Azure defender. No entanto, não será possível monitorar o status de conectividade do conector ou alterar sua configuração no Azure Sentinel. Se isso for importante para você, considere a segunda opção.
+> A coleta de eventos de segurança no contexto de um único espaço de trabalho pode ser configurada a partir da central de segurança do Azure ou do Azure Sentinel, mas não ambos. Se você estiver integrando o Azure Sentinel em um espaço de trabalho que já está obtendo alertas do Azure defender da central de segurança do Azure e estiver definido para coletar eventos de segurança, você terá duas opções:
+> - Deixe a coleção de eventos de segurança na central de segurança do Azure como está. Você poderá consultar e analisar esses eventos no Azure Sentinel, bem como no Azure defender. No entanto, não será possível monitorar o status de conectividade do conector ou alterar sua configuração no Azure Sentinel. Se isso for importante para você, considere a segunda opção.
 >
-> - [Desabilite a coleta de eventos de segurança](../security-center/security-center-enable-data-collection.md) no Azure defender e, em seguida, adicione o conector de eventos de segurança no Azure Sentinel. Assim como na primeira opção, você poderá consultar e analisar eventos no Azure Sentinel e no Azure defender, mas agora será capaz de monitorar o status de conectividade do conector ou alterar sua configuração no-e somente no Azure Sentinel.
+> - [Desabilite a coleta de eventos de segurança](../security-center/security-center-enable-data-collection.md) na central de segurança do Azure e, em seguida, adicione o conector de eventos de segurança no Azure Sentinel. Assim como na primeira opção, você poderá consultar e analisar eventos no Azure Sentinel e no Azure defender/ASC, mas agora será capaz de monitorar o status de conectividade do conector ou alterar sua configuração no-e somente no Azure Sentinel.
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Configurar o conector de eventos de segurança do Windows
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658560"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886389"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é AutoML (machine learning automatizado)?
 
@@ -78,8 +78,6 @@ Usando o **Azure Machine Learning**, você pode criar e executar seus experiment
 
    * Para ter uma experiência limitada ou sem código, experimente a experiência na Web do Azure Machine Learning Studio em [https://ml.azure.com](https://ml.azure.com/)  
    * Para desenvolvedores Python, confira o [SDK do Python do Azure Machine Learning](how-to-configure-auto-train.md) 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **Especifique a origem e o formato dos dados de treinamento rotulados**: Matrizes Numpy ou dataframe do Pandas
 
@@ -172,25 +170,25 @@ Considere esses prós e contras ao optar por usar a computação local versus re
 
 ### <a name="feature-availability"></a>Disponibilidade de recursos 
 
- Mais recursos estão disponíveis quando você usa a computação remota, conforme mostrado na tabela abaixo. Alguns desses recursos estão disponíveis somente em um workspace corporativo.
+ Mais recursos estão disponíveis quando você usa a computação remota, conforme mostrado na tabela abaixo. 
 
-| Recurso                                                    | Remote | Local | Exige <br>Workspace corporativo |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| Streaming de dados (suporte a dados grandes, de até 100 GB)          | ✓      |       | ✓                             |
-| Definição de recursos de texto baseada em DNN-BERT e treinamento             | ✓      |       | ✓                             |
-| Suporte de GPU pronto para uso (treinamento e inferência)        | ✓      |       | ✓                             |
-| Suporte à classificação e rotulagem de imagens                  | ✓      |       | ✓                             |
-| Modelos Auto-ARIMA, Prophet e ForecastTCN para previsão | ✓      |       | ✓                             |
-| Várias execuções/iterações em paralelo                       | ✓      |       | ✓                             |
-| Criar modelos com interpretabilidade na interface do usuário da experiência na Web do AutoML Studio      | ✓      |       | ✓                             |
-| Personalização da engenharia de recursos em uma interface do usuário da experiência na Web do Studio                        | ✓      |       | ✓                              |
-| Ajuste de hiperparâmetros do Azure ML                             | ✓      |       |                               |
-| Suporte ao fluxo de trabalho do Pipeline do Azure ML                         | ✓      |       |                               |
-| Continuar uma execução                                             | ✓      |       |                               |
-| Previsão                                                | ✓      | ✓     | ✓                             |
-| Criar e executar experimentos em notebooks                    | ✓      | ✓     |                               |
-| Registrar e visualizar as informações e métricas do experimento na interface do usuário | ✓      | ✓     |                               |
-| Verificadores de integridade dos dados                                            | ✓      | ✓     |                               |
+| Recurso                                                    | Remote | Local | 
+|------------------------------------------------------------|--------|-------|
+| Streaming de dados (suporte a dados grandes, de até 100 GB)          | ✓      |       | 
+| Definição de recursos de texto baseada em DNN-BERT e treinamento             | ✓      |       |
+| Suporte de GPU pronto para uso (treinamento e inferência)        | ✓      |       |
+| Suporte à classificação e rotulagem de imagens                  | ✓      |       |
+| Modelos Auto-ARIMA, Prophet e ForecastTCN para previsão | ✓      |       | 
+| Várias execuções/iterações em paralelo                       | ✓      |       |
+| Criar modelos com interpretabilidade na interface do usuário da experiência na Web do AutoML Studio      | ✓      |       |
+| Personalização da engenharia de recursos em uma interface do usuário da experiência na Web do Studio| ✓      |       |
+| Ajuste de hiperparâmetros do Azure ML                             | ✓      |       |
+| Suporte ao fluxo de trabalho do Pipeline do Azure ML                         | ✓      |       |
+| Continuar uma execução                                             | ✓      |       |
+| Previsão                                                | ✓      | ✓     |
+| Criar e executar experimentos em notebooks                    | ✓      | ✓     |
+| Registrar e visualizar as informações e métricas do experimento na interface do usuário | ✓      | ✓     |
+| Verificadores de integridade dos dados                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>Muitos modelos 
 

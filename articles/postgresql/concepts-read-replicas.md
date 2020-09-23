@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f093d9b1a67d5e6836fc7f760b0336c9923f5186
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611119"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902079"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Ler réplicas no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -38,7 +38,7 @@ Você pode criar uma réplica de leitura em uma região diferente da do servidor
 
 Você pode ter um servidor mestre em qualquer [região do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo da sua região mestra.
 
-[ ![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Ler regiões de réplica":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você sempre pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre está localizado. Estas são as regiões de réplica universal:

@@ -1,6 +1,6 @@
 ---
-title: Habilitar e desabilitar políticas de retenção de dados – Azure SQL Edge (versão prévia)
-description: Saiba como habilitar e desabilitar políticas de retenção de dados no Azure SQL Edge (versão prévia)
+title: Habilitar e desabilitar políticas de retenção de dados – Azure SQL Edge
+description: Saiba como habilitar e desabilitar políticas de retenção de dados no Azure SQL Edge
 keywords: Borda do SQL, retenção de dados
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9787f2cfa87a16d9e7dd1753e4389977c6753b81
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550597"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902493"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Habilitar e desabilitar políticas de retenção de dados
 
@@ -23,9 +23,6 @@ Este tópico descreve como habilitar e desabilitar políticas de retenção de d
 ## <a name="enable-data-retention-for-a-database"></a>Habilitar a retenção de dados para um banco de dado
 
 O exemplo a seguir mostra como habilitar a retenção de dados usando [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
-
-> [!NOTE]
-> Para habilitar o recurso de retenção de dados no Azure SQL Edge (versão prévia), habilite o TF 12825 como uma opção de inicialização ou use o comando DBCC TRACEize. Para obter mais informações sobre como habilitar sinalizadores de rastreamento usando um arquivo MSSQL. conf, consulte [Configurar usando um arquivo MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file). 
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -64,7 +61,7 @@ A `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 
     - Datetime
     - DateTime2
     - DateTimeOffset
-- RETENTION_PERIOD-um valor inteiro seguido por um descritor de unidade. As unidades permitidas são dia, semana, mês e ano.
+- RETENTION_PERIOD-um valor inteiro seguido por um descritor de unidade. As unidades permitidas são dia, dias, semana, semanas, mês, meses, ano e anos.
 
 O exemplo a seguir mostra como habilitar a retenção de dados para a tabela usando [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
 
@@ -98,9 +95,9 @@ A configuração de retenção de dados no banco de dado e na tabela são usadas
 |Opção de banco de dados | Opção de tabela | Comportamento |
 |----------------|--------------|----------|
 | OFF | OFF | A política de retenção de dados está desabilitada e a limpeza automática e manual de registros antigos está desabilitada.|
-| OFF | ATIVADO  | A política de retenção de dados está habilitada para a tabela, no entanto, a limpeza automática e manual de registros antigos está desabilitada. |
+| OFF | ATIVADO  | A política de retenção de dados está habilitada para a tabela. A limpeza automática de registros obsoletos está desabilitada, mas o método de limpeza manual pode ser usado para limpar registros obsoletos. |
 | ATIVADO | OFF | A política de retenção de dados está habilitada no nível do banco de dado. No entanto, como a opção está desabilitada no nível de tabela, não há nenhuma limpeza baseada em retenção de linhas antigas.|
-| ATIVADO | ATIVADO | A política de retenção de dados está habilitada para o banco de dados e as tabelas. A limpeza automática/manual de registros antigos está habilitada |
+| ATIVADO | ATIVADO | A política de retenção de dados está habilitada para o banco de dados e as tabelas. A limpeza automática de registros obsoletos está habilitada. |
 
 ## <a name="disable-data-retention-on-a-table"></a>Desabilitar a retenção de dados em uma tabela 
 

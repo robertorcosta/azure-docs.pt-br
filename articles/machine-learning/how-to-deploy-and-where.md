@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fd58adf9e845e296725131da96c3319a72895cb8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b77d48fa8af8be05123ee17f218ddb4ae5e8af98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645693"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886227"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implantar modelos com o Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como implantar o modelo de aprendizado de máquina como um serviço Web na nuvem do Azure ou para Azure IoT Edge dispositivos.
 
@@ -350,9 +350,9 @@ A tabela a seguir descreve os diferentes Estados de serviço:
 
 | Estado WebService | Descrição | Estado final?
 | ----- | ----- | ----- |
-| Transição | O serviço está em processo de implantação. | Não |
-| Unhealthy | O serviço foi implantado, mas está inacessível no momento.  | Não |
-| Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | Não |
+| Transição | O serviço está em processo de implantação. | No |
+| Unhealthy | O serviço foi implantado, mas está inacessível no momento.  | No |
+| Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | No |
 | Failed (Falha) | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
 | Íntegros | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
 

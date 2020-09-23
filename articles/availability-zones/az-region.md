@@ -4,15 +4,15 @@ description: Para criar aplicativos altamente disponíveis e resilientes no Azur
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 09/18/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: cf1fc81ea63db21d2e864c00e1987eec3d376b59
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: d7a158d91295aedc14f1f913ae152c496066fab5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853153"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891680"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiões que dão suporte a Zonas de Disponibilidade no Azure
 
@@ -24,36 +24,36 @@ Os serviços que estão disponíveis em cada região, juntamente com o próximo 
 
 ## <a name="americas"></a>Américas
 
-| Serviço | Centro dos EUA | Leste dos EUA | Leste dos EUA 2 | Oeste dos EUA 2 |
-| --- | :---: | :---: | :---: | :---: |
+| Serviço | Centro dos EUA | Leste dos EUA | Leste dos EUA 2 | Oeste dos EUA 2 | Canadá Central
+| --- | :---: | :---: | :---: | :---: | :---: |
 | **Computação** |  |  |  |  |
-| Máquinas Virtuais do Linux             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Máquinas Virtuais do Windows           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Conjuntos de Dimensionamento de Máquinas Virtuais         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| ILB ambientes de serviço de Azure App | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Serviço de Kubernetes do Azure           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Máquinas Virtuais do Linux             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Máquinas Virtuais do Windows           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Conjuntos de Dimensionamento de Máquinas Virtuais         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| ILB ambientes de serviço de Azure App | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Serviço de Kubernetes do Azure           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Storage** |  |  |  |  |
-| Managed Disks                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Armazenamento com redundância de zona             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Managed Disks                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Armazenamento com redundância de zona             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Rede** |  |  |  |  |
-| Endereço IP padrão                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Standard Load Balancer             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Gateway de VPN                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Gateway do ExpressRoute               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Gateway de aplicativo (v2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Firewall do Azure                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Endereço IP padrão                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Standard Load Balancer             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Gateway de VPN                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Gateway do ExpressRoute               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Gateway de aplicativo (v2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Firewall do Azure                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Bancos de dados** |  |  |  |  |
-| Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Banco de Dados SQL                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (visualização) |
-| Cache Redis do Azure              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Banco de Dados SQL                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | : heavy_check_mark: (visualização) | :heavy_check_mark: |
+| Cache do Azure para Redis              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Análise** |  |  |  |  |
-| Hubs de Eventos                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Hubs de Eventos                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Integração** |  |  |  |  |
-| Barramento de Serviço (somente Camada Premium)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Grade de Eventos                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Barramento de Serviço (somente Camada Premium)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Grade de Eventos                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Identidade** |  |  |  |  |
-| Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |   |
 
 ## <a name="europe"></a>Europa
 
@@ -78,7 +78,7 @@ Os serviços que estão disponíveis em cada região, juntamente com o próximo 
 | **Bancos de dados** |  |  |  |  |
 | Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Banco de Dados SQL                       | :heavy_check_mark: | : heavy_check_mark: (visualização) | :heavy_check_mark: | :heavy_check_mark: |
-| Cache Redis do Azure              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Cache do Azure para Redis              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Análise** |  |  |  |  |
 | Hubs de Eventos                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -86,18 +86,18 @@ Os serviços que estão disponíveis em cada região, juntamente com o próximo 
 | Barramento de Serviço (somente Camada Premium)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Grade de Eventos                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Identidade** |  |  |  |  |
-| Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 
 ## <a name="asia-pacific"></a>Pacífico Asiático
 
-| Serviço | Japan East | Sudeste Asiático | Leste da Austrália |
+| Serviço | Leste do Japão | Sudeste Asiático | Leste da Austrália |
 | --- | :---: | :---: | :---: |
 | **Computação** |  |  |  |
 | Máquinas Virtuais do Linux             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Máquinas Virtuais do Windows           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Conjuntos de Dimensionamento de Máquinas Virtuais         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| ILB ambientes de serviço de Azure App | :heavy_check_mark: | :heavy_check_mark: |  |
-| Serviço de Kubernetes do Azure           | :heavy_check_mark: | :heavy_check_mark: |  |
+| ILB ambientes de serviço de Azure App | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Serviço de Kubernetes do Azure           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Storage** |  |  |  |
 | Managed Disks                      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Armazenamento com redundância de zona             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -107,30 +107,29 @@ Os serviços que estão disponíveis em cada região, juntamente com o próximo 
 | Gateway de VPN                        | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Gateway do ExpressRoute               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Gateway de aplicativo (v2)           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Firewall do Azure                     | :heavy_check_mark: | :heavy_check_mark: |  |
+| Firewall do Azure                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Bancos de dados** |  |  |  |
-| Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: |  |
+| Azure Data Explorer                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Banco de Dados SQL                       | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Cache Redis do Azure              | :heavy_check_mark: | :heavy_check_mark: |  |
+| Cache do Azure para Redis              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Cosmos DB                    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Análise** |  |  |  |
 | Hubs de Eventos                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Integração** |  |  |  |
 | Barramento de Serviço (somente Camada Premium)    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Grade de Eventos                         | :heavy_check_mark: | :heavy_check_mark: |  |
+| Grade de Eventos                         | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Identidade** |  |  |  |
 | Azure AD Domain Services           | :heavy_check_mark: | :heavy_check_mark: |  |
 
-## <a name="other"></a>Outros
+## <a name="other"></a>Outro
 
 O Azure também oferece suporte Zonas de Disponibilidade nas seguintes regiões:
 
 - Gov. dos EUA – Virgínia
 - Norte da África do Sul
 - Centro-Sul dos Estados Unidos
-- Canadá Central
 
-Para saber mais sobre o suporte a Zonas de Disponibilidade nessas quatro regiões, entre em contato com seu representante do cliente ou vendas da Microsoft ou abra uma solicitação de suporte técnico.
+Para saber mais sobre o suporte a Zonas de Disponibilidade nessas três regiões, entre em contato com seu representante do cliente ou vendas da Microsoft ou abra uma solicitação de suporte técnico.
 
 ## <a name="next-steps"></a>Próximas etapas
 

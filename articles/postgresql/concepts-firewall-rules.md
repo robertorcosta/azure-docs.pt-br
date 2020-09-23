@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 38edbfcb8800843b43678e99d6817595ccba3235
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7048fac4804e16ae70145c8fadc1cd6e0859fcfc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071532"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903905"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Regras de firewall no banco de dados do Azure para PostgreSQL-servidor único
 O firewall de servidor do banco de dados do Azure para PostgreSQL impede todo o acesso ao servidor de banco de dados até que você especifique quais computadores têm permissão. O firewall concede acesso ao servidor com base no endereço IP de origem de cada solicitação.
@@ -23,7 +23,7 @@ Para configurar seu firewall, você deve criar regras de firewall que especifiqu
 Todo acesso de banco de dados ao seu Banco de Dados do Azure para servidor PostgreSQL é bloqueado por padrão pelo firewall. Para começar a usar o servidor de outro computador, especifique uma ou mais regras de firewall no nível do servidor para permitir o acesso ao seu servidor. Use as regras de firewall para especificar quais intervalos de endereços IP da Internet permitir. O acesso em si ao site do Portal do Azure não é afetado pelas regras de firewall.
 As tentativas de conexão da Internet e do Azure devem passar primeiramente pelo firewall antes de poderem acessar seu Banco de Dados PostgreSQL, conforme exibido no diagrama a seguir:
 
-![Fluxo de exemplo de como funciona o firewall](media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Fluxo de exemplo de como funciona o firewall":::
 
 ## <a name="connecting-from-the-internet"></a>Conectando pela Internet
 As regras de firewall no nível do servidor se aplicam a todos os bancos de dados no mesmo servidor do Banco de Dados do Azure para PostgreSQL. Se o endereço IP da solicitação estiver dentro de um dos intervalos especificados nas regras de firewall no nível do servidor, a conexão será concedida.
@@ -40,7 +40,7 @@ Se um endereço IP de saída fixo não estiver disponível para seu serviço do 
 > A opção **permitir acesso aos serviços do Azure** configura o firewall para permitir todas as conexões do Azure, incluindo conexões das assinaturas de outros clientes. Ao selecionar essa opção, verifique se as permissões de logon e de usuário limitam o acesso somente a usuários autorizados.
 > 
 
-![Configurar Permitir o acesso aos serviços do Azure](media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurar Permitir o acesso aos serviços do Azure":::
 
 ### <a name="connecting-from-a-vnet"></a>Conectando de uma VNet
 Para se conectar com segurança ao banco de dados do Azure para servidor PostgreSQL de uma VNet, considere o uso de [pontos de extremidade de serviço de VNet](./concepts-data-access-and-security-vnet.md). 
@@ -69,7 +69,7 @@ Considere os seguintes pontos quando o acesso ao Banco de Dados do Microsoft Azu
 
 * **Não é possível se conectar do recurso do Azure com o IP permitido:** Verifique se o ponto de extremidade de serviço **Microsoft. SQL** está habilitado para a sub-rede da qual você está se conectando. Se **o Microsoft. SQL** estiver habilitado, ele indicará que você só deseja usar [regras de ponto de extremidade de serviço de VNet](concepts-data-access-and-security-vnet.md) nessa sub-rede.
 
-   Por exemplo, você poderá ver o erro a seguir se estiver se conectando de uma VM do Azure em uma sub-rede que tem **o Microsoft. SQL** habilitado, mas não tem nenhuma regra de VNet correspondente:`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+   Por exemplo, você poderá ver o erro a seguir se estiver se conectando de uma VM do Azure em uma sub-rede que tem **o Microsoft. SQL** habilitado, mas não tem nenhuma regra de VNet correspondente:  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar e gerenciar regras de firewall do Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-manage-firewall-using-portal.md)
