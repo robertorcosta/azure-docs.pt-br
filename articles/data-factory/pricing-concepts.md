@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087177"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983618"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas de preços do Data Factory por meio de exemplos
 
@@ -38,7 +38,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 
 3. Um gatilho de agenda para executar o pipeline a cada hora.
 
-   ![Cenário1](media/pricing-concepts/scenario1.png)
+   ![O diagrama mostra um pipeline com um gatilho de agendamento. No pipeline, a atividade de cópia flui para um conjunto de dados de entrada, que flui para um serviço vinculado S3 S e A atividade de cópia também flui para um conjunto de dados de saída, que flui para um serviço vinculado do armazenamento do Azure.](media/pricing-concepts/scenario1.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
@@ -69,7 +69,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 2. Uma atividade do Azure Databricks para a transformação de dados.
 3. Um gatilho de agenda para executar o pipeline a cada hora.
 
-![Cenário2](media/pricing-concepts/scenario2.png)
+![O diagrama mostra um pipeline com um gatilho de agendamento. No pipeline, a atividade de cópia flui para um conjunto de dados de entrada, um conjunto de dados de saída e uma atividade do databricks, que é executada em Azure Databricks. O conjunto de dados de entrada flui para um serviço vinculado S3 S. O conjunto de resultados de saída flui para um serviço vinculado do armazenamento do Azure.](media/pricing-concepts/scenario2.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |
@@ -103,7 +103,7 @@ Para executar o cenário, você precisará criar um pipeline com os seguintes it
 3. Uma atividade do Azure Databricks para a transformação de dados.
 4. Um gatilho de agenda para executar o pipeline a cada hora.
 
-![Cenário3](media/pricing-concepts/scenario3.png)
+![O diagrama mostra um pipeline com um gatilho de agendamento. No pipeline, a atividade de cópia flui para um conjunto de dados de entrada, um conjunto de dados de saída e uma atividade de pesquisa que flui para uma atividade do databricks, que é executada em Azure Databricks. O conjunto de dados de entrada flui para um serviço vinculado S3 S. O conjunto de resultados de saída flui para um serviço vinculado do armazenamento do Azure.](media/pricing-concepts/scenario3.png)
 
 | **Operações** | **Tipos e unidades** |
 | --- | --- |

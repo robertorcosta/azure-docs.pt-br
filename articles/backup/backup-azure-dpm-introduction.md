@@ -3,12 +3,12 @@ title: Preparar o servidor DPM para fazer backup de cargas de trabalho
 description: Neste artigo, saiba como preparar os backups do System Center Data Protection Manager (DPM) para o Azure usando o serviço de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021027"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975455"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -61,7 +61,7 @@ Você pode escolher entre o armazenamento com redundância geográfica e armazen
 
 - Por padrão, seu cofre tem armazenamento com redundância geográfica.
 - Se o cofre for seu backup principal, deixe a opção definida como armazenamento com redundância geográfica. Se você quiser uma opção mais barata que não seja tão durável, use o procedimento a seguir para configurar o armazenamento com redundância local.
-- Saiba mais sobre o [armazenamento do Azure](../storage/common/storage-redundancy.md), e as opções de armazenamento com [redundância geográfica](../storage/common/storage-redundancy.md) e [redundância local](../storage/common/storage-redundancy.md).
+- Saiba mais sobre o [armazenamento do Azure](../storage/common/storage-redundancy.md)e as opções de armazenamento com redundância [de zona](../storage/common/storage-redundancy.md#zone-redundant-storage) e redundância [geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) [local](../storage/common/storage-redundancy.md#locally-redundant-storage) .
 - Modifique as configurações de armazenamento antes do backup inicial. Se você já fez o backup de um item, pare de fazer o backup no cofre antes de modificar as configurações de armazenamento.
 
 Para editar a configuração de replicação de armazenamento:
@@ -165,7 +165,7 @@ Todos os computadores cujo backup é feito pelo Backup do Azure devem ter o agen
 
 7. Selecione **registrar** para registrar o servidor DPM no cofre.
 
-Depois que o servidor for registrado com êxito no cofre, agora você estará pronto para iniciar o backup em Microsoft Azure. Você precisará configurar o grupo de proteção no console do DPM para fazer backup de cargas de trabalho no Azure. [Saiba como](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) implantar grupos de proteção.
+Depois que o servidor for registrado com êxito no cofre, agora você estará pronto para iniciar o backup em Microsoft Azure. Você precisará configurar o grupo de proteção no console do DPM para fazer backup de cargas de trabalho no Azure. [Saiba como](/system-center/dpm/create-dpm-protection-groups) implantar grupos de proteção.
 
 ## <a name="troubleshoot-vault-credentials"></a>Solucionar problemas de credenciais do cofre
 

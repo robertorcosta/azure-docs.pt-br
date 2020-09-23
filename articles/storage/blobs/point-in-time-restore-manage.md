@@ -1,32 +1,29 @@
 ---
-title: Habilitar e gerenciar a restauração pontual para blobs de blocos (versão prévia)
+title: Executar uma restauração pontual em dados de blob de blocos
 titleSuffix: Azure Storage
-description: Saiba como usar a restauração pontual (versão prévia) para restaurar um conjunto de blobs de bloco para um estado anterior.
+description: Saiba como usar a restauração pontual para restaurar um conjunto de blobs de blocos para seu estado anterior em um determinado momento.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 140e1203a29dcebec9d6483e73e906591b2213fb
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 226e35452e4b266c3c0a698505d47ab9a53b9761
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068462"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984374"
 ---
-# <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Habilitar e gerenciar a restauração pontual para blobs de blocos (versão prévia)
+# <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Executar uma restauração pontual em dados de blob de blocos
 
-Você pode usar a restauração pontual (visualização) para restaurar um conjunto de blobs de bloco para um estado anterior. Este artigo descreve como habilitar a restauração pontual para uma conta de armazenamento com o PowerShell. Ele também mostra como executar uma operação de restauração com o PowerShell.
+Você pode usar a restauração pontual para restaurar um ou mais conjuntos de blobs de blocos para um estado anterior. Este artigo descreve como habilitar a restauração pontual para uma conta de armazenamento e como executar uma operação de restauração.
 
-Para obter mais informações e saber como se registrar para a versão prévia, consulte [Restauração pontual para blobs de blocos (versão prévia)](point-in-time-restore-overview.md).
+Para saber mais sobre a restauração pontual, consulte [restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> A restauração pontual dá suporte a operações de restauração somente em blobs de blocos. Não é possível restaurar operações em contêineres. Se você excluir um contêiner da conta de armazenamento chamando a operação [Excluir contêiner](/rest/api/storageservices/delete-container) durante a versão prévia de restauração pontual, esse contêiner não poderá ser restaurado com uma operação de restauração. Durante a versão prévia, em vez de excluir um contêiner, exclua blobs individuais se você quiser restaurá-los.
-
-> [!IMPORTANT]
-> A versão prévia de restauração pontual é destinada apenas para uso fora de produção.
+> A restauração pontual dá suporte a operações de restauração somente em blobs de blocos. Não é possível restaurar operações em contêineres. Se você excluir um contêiner da conta de armazenamento chamando a operação [excluir contêiner](/rest/api/storageservices/delete-container) , esse contêiner não poderá ser restaurado com uma operação de restauração. Em vez de excluir um contêiner, exclua BLOBs individuais se você quiser restaurá-los.
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Habilitar e configurar a restauração pontual
 
@@ -36,7 +33,10 @@ Antes de habilitar e configurar a restauração pontual, habilite seus pré-requ
 - [Habilitar e desabilitar o feed de alterações](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
 - [Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+> [!IMPORTANT]
+> Habilitar a exclusão reversível, o feed de alterações e o controle de versão de blob pode resultar em encargos adicionais. Para obter mais informações, consulte [exclusão reversível para BLOBs](soft-delete-blob-overview.md), [suporte ao feed de alterações no armazenamento de BLOBs do Azure](storage-blob-change-feed.md)e [controle de versão de blob](versioning-overview.md).
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para configurar a restauração pontual com o portal do Azure, siga estas etapas:
 
@@ -44,7 +44,7 @@ Para configurar a restauração pontual com o portal do Azure, siga estas etapas
 1. Em **configurações**, escolha **proteção de dados**.
 1. Selecione **ativar a restauração pontual** . Quando você seleciona essa opção, a exclusão reversível para BLOBs, controle de versão e feed de alteração também são habilitadas.
 1. Defina o ponto de restauração máximo para a restauração pontual, em dias. Esse número deve ser pelo menos um dia menor que o período de retenção especificado para exclusão reversível do blob.
-1. Salve as alterações.
+1. Salve suas alterações.
 
 A imagem a seguir mostra uma conta de armazenamento configurada para a restauração pontual com um ponto de restauração de sete dias atrás e um período de retenção para exclusão reversível de blob de 14 dias.
 
@@ -52,23 +52,9 @@ A imagem a seguir mostra uma conta de armazenamento configurada para a restaura�
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para configurar a restauração pontual com o PowerShell, primeiro instale o módulo de visualização AZ. Storage versão 1.14.1-Preview ou uma versão posterior do módulo de visualização. Remova todas as outras versões do módulo AZ. Storage.
+Para configurar a restauração pontual com o PowerShell, primeiro instale o módulo [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) versão 2.6.0 ou posterior. Em seguida, chame o comando Enable-AzStorageBlobRestorePolicy para habilitar a restauração pontual para a conta de armazenamento.
 
-Verifique se você instalou a versão 2.2.4.1 ou posterior do PowerShellGet. Para determinar qual versão está instalada no momento, execute o seguinte comando:
-
-```powershell
-Get-InstalledModule PowerShellGet
-```
-
-Em seguida, instale o módulo de visualização AZ. Storage. O comando a seguir instala a versão [2.5.2-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.5.2-preview) do módulo AZ. Storage:
-
-```powershell
-Install-Module -Name Az.Storage -RequiredVersion 2.5.2-preview -AllowPrerelease
-```
-
-Para obter mais informações sobre como instalar Azure PowerShell, consulte [instalar o powershellget](/powershell/scripting/gallery/installing-psget) e [instalar o Azure PowerShell com o PowerShellGet](/powershell/azure/install-az-ps).
-
-Para configurar a restauração pontual do Azure com o PowerShell, chame o comando Enable-AzStorageBlobRestorePolicy. O exemplo a seguir habilita a exclusão reversível e define o período de retenção de exclusão reversível, habilita o feed de alterações e, em seguida, habilita a restauração pontual. Antes de executar o exemplo, use o portal do Azure ou um modelo de Azure Resource Manager para habilitar também o controle de versão de blob.
+O exemplo a seguir habilita a exclusão reversível e define o período de retenção de exclusão reversível, habilita o feed de alterações e, em seguida, habilita a restauração pontual. Antes de executar o exemplo, use o portal do Azure ou um modelo de Azure Resource Manager para habilitar também o controle de versão de blob.
 
 Lembre-se de substituir os valores entre colchetes angulares pelos seus próprios valores quando executar o exemplo:
 
@@ -116,7 +102,7 @@ Não há suporte para caracteres curinga em um intervalo de lexicográfica. Quai
 
 Você pode restaurar blobs nos contêineres `$root` e `$web` especificando-os explicitamente em um intervalo passado para uma operação de restauração. Os contêineres `$root` e `$web` são restaurados apenas se forem especificados explicitamente. Outros contêineres do sistema não podem ser restaurados.
 
-Somente os blobs de blocos são restaurados. Blobs de páginas e blobs de acréscimo não são incluídos em uma operação de restauração. Para obter mais informações sobre as limitações relacionadas a blobs de acréscimo, consulte [problemas conhecidos](#known-issues).
+Somente os blobs de blocos são restaurados. Blobs de páginas e blobs de acréscimo não são incluídos em uma operação de restauração. Para obter mais informações sobre as limitações relacionadas a blobs de acréscimo, consulte [restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md).
 
 > [!IMPORTANT]
 > Ao executar uma operação de restauração, o armazenamento do Azure bloqueia operações de dados nos BLOBs nos intervalos que estão sendo restaurados durante a operação. As operações de leitura, gravação e exclusão são bloqueadas no local principal. Por esse motivo, as operações como os contêineres de listagem no portal do Azure podem não ser executadas conforme o esperado enquanto a operação de restauração está em andamento.
@@ -127,7 +113,7 @@ Somente os blobs de blocos são restaurados. Blobs de páginas e blobs de acrés
 
 Você pode restaurar todos os contêineres na conta de armazenamento para retorná-los ao estado anterior em um determinado momento.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para restaurar todos os contêineres e blobs na conta de armazenamento com o portal do Azure, siga estas etapas:
 
@@ -141,13 +127,30 @@ Para restaurar todos os contêineres e blobs na conta de armazenamento com o por
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para restaurar todos os contêineres e blobs na conta de armazenamento com o PowerShell, chame o comando **Restore-AzStorageBlobRange** , omitindo o `-BlobRestoreRange` parâmetro. O exemplo a seguir restaura os contêineres na conta de armazenamento para seu estado 12 horas antes de agora:
+Para restaurar todos os contêineres e blobs na conta de armazenamento com o PowerShell, chame o comando **Restore-AzStorageBlobRange** . Por padrão, o comando **Restore-AzStorageBlobRange** é executado de forma assíncrona e retorna um objeto do tipo **PSBlobRestoreStatus** que você pode usar para verificar o status da operação de restauração.
+
+O exemplo a seguir restaura de forma assíncrona os contêineres na conta de armazenamento para seu estado 12 horas antes do momento atual e verifica algumas das propriedades da operação de restauração:
 
 ```powershell
 # Specify -TimeToRestore as a UTC value
-Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+$restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12)
+
+# Get the status of the restore operation.
+$restoreOperation.Status
+# Get the ID for the restore operation.
+$restoreOperation.RestoreId
+# Get the restore point in UTC time.
+$restoreOperation.Parameters.TimeToRestore
+```
+
+Para executar a operação de restauração de forma síncrona, inclua o parâmetro **-WaitForComplete** no comando. Quando o parâmetro **-WaitForComplete** estiver presente, o PowerShell exibirá uma mensagem que inclui a ID de restauração da operação e, em seguida, bloqueará a execução até que a operação de restauração seja concluída. Tenha em mente que o período de tempo exigido por uma operação de restauração depende da quantidade de dados a serem restaurados e uma grande operação de restauração pode levar até uma hora para ser concluída.
+
+```powershell
+Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -TimeToRestore (Get-Date).AddHours(-12) -WaitForComplete
 ```
 
 ---
@@ -156,7 +159,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 Você pode restaurar um ou mais intervalos de lexicográfica de BLOBs dentro de um único contêiner ou em vários contêineres para retornar esses BLOBs para seu estado anterior em um determinado momento.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para restaurar um intervalo de BLOBs em um ou mais contêineres com o portal do Azure, siga estas etapas:
 
@@ -184,18 +187,18 @@ A operação de restauração mostrada na imagem executa as seguintes ações:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para restaurar um único intervalo de BLOBs, chame o comando **Restore-AzStorageBlobRange** e especifique um intervalo lexicográfica de nomes de contêiner e BLOB para o `-BlobRestoreRange` parâmetro. Por exemplo, para restaurar os blobs em um único contêiner chamado *exemplo-contêiner*, você pode especificar um intervalo que comece com *exemplo-contêiner* e termine com *exemplo-contêiner1*. Não há nenhum requisito para os contêineres nomeados nos intervalos de início e de término existirem. Como o final do intervalo é exclusivo, mesmo que a conta de armazenamento inclua um contêiner chamado *exemplo-contêiner1*, somente o contêiner chamado *exemplo-contêiner* será restaurado:
+Para restaurar um único intervalo de BLOBs, chame o comando **Restore-AzStorageBlobRange** e especifique um intervalo lexicográfica de nomes de contêiner e BLOB para o `-BlobRestoreRange` parâmetro. Por exemplo, para restaurar os BLOBs em um único contêiner chamado *Container1*, você pode especificar um intervalo que comece com *Container1* e termine com *container2*. Não há nenhum requisito para os contêineres nomeados nos intervalos de início e de término existirem. Como o final do intervalo é exclusivo, mesmo que a conta de armazenamento inclua um contêiner chamado *container2*, somente o contêiner chamado *Container1* será restaurado:
 
 ```powershell
-$range = New-AzStorageBlobRangeToRestore -StartRange sample-container `
-    -EndRange sample-container1
+$range = New-AzStorageBlobRangeToRestore -StartRange container1 `
+    -EndRange container2
 ```
 
 Para especificar um subconjunto de BLOBs em um contêiner a ser restaurado, use uma barra (/) para separar o nome do contêiner do padrão de prefixo de BLOB. Por exemplo, o intervalo a seguir seleciona blobs em um único contêiner cujos nomes começam com as letras *d* até *f*:
 
 ```powershell
-$range = New-AzStorageBlobRangeToRestore -StartRange sample-container/d `
-    -EndRange sample-container/g
+$range = New-AzStorageBlobRangeToRestore -StartRange container1/d `
+    -EndRange container1/g
 ```
 
 Em seguida, forneça o intervalo para o comando **Restore-AzStorageBlobRange** . Especifique o ponto de restauração fornecendo um valor UTC **DateTime** para o parâmetro `-TimeToRestore`. O exemplo a seguir restaura os blobs no intervalo especificado para seu estado 3 dias antes de agora:
@@ -208,7 +211,15 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-Para restaurar vários intervalos de blobs de blocos, especifique uma matriz de intervalos para o parâmetro `-BlobRestoreRange`. O exemplo a seguir especifica dois intervalos para restaurar o conteúdo completo de *Container1* e *Container4*:
+Por padrão, o comando **Restore-AzStorageBlobRange** é executado de forma assíncrona. Quando você inicia uma operação de restauração de forma assíncrona, o PowerShell exibe imediatamente uma tabela de propriedades para a operação:  
+
+```powershell
+Status     RestoreId                            FailureReason Parameters.TimeToRestore     Parameters.BlobRanges
+------     ---------                            ------------- ------------------------     ---------------------
+InProgress 459c2305-d14a-4394-b02c-48300b368c63               2020-09-15T23:23:07.1490859Z ["container1/d" -> "container1/g"]
+```
+
+Para restaurar vários intervalos de blobs de blocos, especifique uma matriz de intervalos para o parâmetro `-BlobRestoreRange`. O exemplo a seguir especifica dois intervalos para restaurar o conteúdo completo de *Container1* e *Container4* para seu estado 24 horas atrás e salva o resultado em uma variável:
 
 ```powershell
 # Specify a range that includes the complete contents of container1.
@@ -218,43 +229,26 @@ $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 `
 $range2 = New-AzStorageBlobRangeToRestore -StartRange container4 `
     -EndRange container5
 
-Restore-AzStorageBlobRange -ResourceGroupName $rgName `
+$restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddMinutes(-30) `
+    -TimeToRestore (Get-Date).AddHours(-24) `
     -BlobRestoreRange @($range1, $range2)
+
+# Get the status of the restore operation.
+$restoreOperation.Status
+# Get the ID for the restore operation.
+$restoreOperation.RestoreId
+# Get the blob ranges specified for the operation.
+$restoreOperation.Parameters.BlobRanges
 ```
+
+Para executar a operação de restauração de forma síncrona e bloquear a execução até que ela seja concluída, inclua o parâmetro **-WaitForComplete** no comando.
 
 ---
 
-### <a name="restore-block-blobs-asynchronously-with-powershell"></a>Restaurar blobs de blocos de forma assíncrona com o PowerShell
-
-Para executar uma operação de restauração de forma assíncrona, adicione o `-AsJob` parâmetro à chamada para **Restore-AzStorageBlobRange** e armazene o resultado da chamada em uma variável. O comando **Restore-AzStorageBlobRange** retorna um objeto do tipo **AzureLongRunningJob**. Você pode verificar a propriedade **State** desse objeto para determinar se a operação de restauração foi concluída. O valor da propriedade de **estado** pode estar **em execução** ou **concluído**.
-
-O exemplo a seguir mostra como chamar uma operação de restauração de forma assíncrona:
-
-```powershell
-$job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
-    -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddMinutes(-5) `
-    -AsJob
-
-# Check the state of the job.
-$job.State
-```
-
-Para aguardar a conclusão da operação de restauração depois que ela estiver em execução, chame o comando [Wait-Job](/powershell/module/microsoft.powershell.core/wait-job) , conforme mostrado no exemplo a seguir:
-
-```powershell
-$job | Wait-Job
-```
-
-## <a name="known-issues"></a>Problemas conhecidos
-
-Para um subconjunto de operações de restauração em que os blobs de acréscimo estão presentes, a operação de restauração falhará. A Microsoft recomenda que você não execute uma restauração pontual durante a visualização se os blobs de acréscimo estiverem presentes na conta.
-
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Restauração pontual para blobs de blocos (versão prévia)](point-in-time-restore-overview.md)
+- [Restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md)
 - [Exclusão reversível](soft-delete-overview.md)
-- [Feed de alterações (versão prévia)](storage-blob-change-feed.md)
+- [Feed de alterações](storage-blob-change-feed.md)
 - [Controle de versão de BLOB](versioning-overview.md)

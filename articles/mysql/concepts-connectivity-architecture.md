@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 440007767835de4641fb828b41d572f35997acd2
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064461"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896393"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -19,20 +19,20 @@ Este artigo explica a arquitetura de conectividade do banco de dados do Azure pa
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 A conexão com o banco de dados do Azure para MySQL é estabelecida por meio de um gateway que é responsável por rotear conexões de entrada para o local físico do servidor em nossos clusters. O diagrama a seguir ilustra o fluxo de tráfego.
 
-![Visão geral da arquitetura de conectividade](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+:::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="Visão geral da arquitetura de conectividade":::
 
 Como o cliente se conecta ao banco de dados, ele obtém uma cadeia de conexão que se conecta ao gateway. Esse gateway tem um endereço IP público que escuta a porta 3306. Dentro do cluster de banco de dados, o tráfego é encaminhado para o banco de dados do Azure apropriado para MySQL. Portanto, para se conectar ao servidor, como de redes corporativas, é necessário abrir o Firewall do lado do cliente para permitir que o tráfego de saída seja capaz de alcançar nossos gateways. Abaixo, você pode encontrar uma lista completa dos endereços IP usados por nossos gateways por região.
 
 ## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Banco de dados do Azure para endereços IP do gateway MySQL
 A tabela a seguir lista os IPs primários e secundários do banco de dados do Azure para o gateway MySQL para todas as regiões de data. O endereço IP primário é o endereço IP atual do gateway e o segundo endereço IP é um endereço IP de failover em caso de falha do primário. Conforme mencionado, os clientes devem permitir a saída para os dois endereços IP. O segundo endereço IP não escuta em nenhum serviço até que seja ativado pelo banco de dados do Azure para MySQL para aceitar conexões.
 
-| **Nome da região** | **Endereços IP do gateway** |
+| **Nome da Região** | **Endereços IP do gateway** |
 |:----------------|:-------------|
 | Austrália Central| 20.36.105.0     |
 | Central2 da Austrália     | 20.36.113.0   |
 | Leste da Austrália | 13.75.149.87, 40.79.161.1     |
 | Sudeste da Austrália |191.239.192.109, 13.73.109.251   |
-| Brazil South | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
+| Sul do Brasil | 104.41.11.5, 191.233.201.8, 191.233.200.16  |
 | Canadá Central |40.85.224.249  |
 | Leste do Canadá | 40.86.226.166    |
 | Centro dos EUA | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38     |
@@ -50,7 +50,7 @@ A tabela a seguir lista os IPs primários e secundários do banco de dados do Az
 | Centro da Índia | 104.211.96.159     |
 | Sul da Índia | 104.211.224.146  |
 | Oeste da Índia | 104.211.160.80    |
-| Japan East | 13.78.61.196, 191.237.240.43  |
+| Leste do Japão | 13.78.61.196, 191.237.240.43  |
 | Oeste do Japão | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | Coreia Central | 52.231.32.42   |
 | Sul da Coreia | 52.231.200.86    |

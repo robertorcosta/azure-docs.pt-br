@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e9d7c99a123bd92bf55a33c8d1faaf7da55d3e36
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566243"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889034"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Início Rápido: Integração do Azure Sentinel
 
 Neste início rápido, saiba como integrar o Azure Sentinel. 
 
-Para a integração do Azure Sentinel, primeiro você precisa habilitar o Azure Sentinel e depois conectar suas fontes de dados. O Azure Sentinel é fornecido com uma série de conectores para soluções da Microsoft, disponíveis prontas para uso e fornecendo integração em tempo real, incluindo soluções de Proteção contra Ameaças da Microsoft, fontes do Microsoft 365 (incluindo o Office 365), o Azure AD, o ATP do Azure, o Microsoft Cloud App Security, entre outros. Além disso, existem conectores internos no ecossistema de segurança mais amplo para soluções que não são da Microsoft. Use também o CEF (Formato Comum de Evento), o Syslog ou a API REST para conectar suas fontes de dados ao Azure Sentinel.  
+Para a integração do Azure Sentinel, primeiro você precisa habilitar o Azure Sentinel e depois conectar suas fontes de dados. O Azure Sentinel vem com vários conectores para soluções da Microsoft, disponíveis prontamente e fornecendo integração em tempo real, incluindo as soluções do Microsoft 365 Defender (anteriormente conhecido como Proteção contra Ameaças da Microsoft), fontes do Microsoft 365 (incluindo o Office 365), Azure AD, Microsoft Defender para Identidade (anteriormente, ATP do Azure), Microsoft Cloud App Security, alertas do Azure Defender da Central de Segurança do Azure e muito mais. Além disso, existem conectores internos no ecossistema de segurança mais amplo para soluções que não são da Microsoft. Use também o CEF (Formato Comum de Evento), o Syslog ou a API REST para conectar suas fontes de dados ao Azure Sentinel. 
 
 Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de trabalho criadas por especialistas que mostram insights com base em seus dados. Essas pastas de trabalho podem ser facilmente personalizadas de acordo com suas necessidades.
 
@@ -45,13 +45,13 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
 
 1. Pesquise e selecione o **Azure Sentinel**.
 
-   ![pequisa](./media/quickstart-onboard/search-product.png)
+   ![Pesquisa de serviços](./media/quickstart-onboard/search-product.png)
 
 1. Selecione **Adicionar**.
 
 1. Selecione o workspace que você quer usar ou crie um novo. Você pode executar o Azure Sentinel em mais de um workspace, mas os dados são isolados em um único workspace.
 
-   ![pequisa](./media/quickstart-onboard/choose-workspace.png)
+   ![Escolher um workspace](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Os workspaces padrão criados pela Central de Segurança do Azure não serão exibidos na lista. Você não pode instalar o Azure Sentinel neles.
@@ -64,7 +64,6 @@ Depois de conectar suas fontes de dados, escolha em uma galeria de pastas de tra
    >   Se você já tiver movido o workspace, desabilite todas as regras ativas em **Análise** e habilite-as novamente após cinco minutos. Isso deve ser eficaz na maioria dos casos, porém, para reiterar, não há suporte para esse procedimento e ele traz riscos.
 
 1. Selecione **Adicionar o Azure Sentinel**.
-  
 
 ## <a name="connect-data-sources"></a>Conectar fontes de dados
 

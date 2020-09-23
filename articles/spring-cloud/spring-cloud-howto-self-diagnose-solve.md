@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: d8f3b4d57f00ef33bbf566c36babafd83be9a5df
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9d572545f589475dc2b460db90329fe8b0a838c2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299619"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904298"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Como diagnosticar e solucionar problemas automaticamente no Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+
 O Azure Spring Cloud Diagnostics é uma experiência interativa para ajudá-lo a solucionar problemas de seu aplicativo. Nenhuma configuração é necessária. Quando você encontrar problemas, o Azure Spring Cloud Diagnostics indica o que está errado e o orienta a informações que ajudam a solucionar o problema.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -25,7 +28,7 @@ Para concluir este tutorial, você precisará:
 * Pelo menos um aplicativo já criado na instância de serviço.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Navegue até a página de diagnóstico
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 2. Vá até a página **Visão geral** do Azure Spring Cloud.
 3. Abra **diagnosticar e solucionar problemas** no menu no lado esquerdo da página.
 

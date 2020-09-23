@@ -4,18 +4,18 @@ description: Saiba mais sobre a engenharia de software sustentável no AKS (serv
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: bc2240b3cb8508109f6dd25c4c80ff31ba197cfd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89083016"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984974"
 ---
-# <a name="sustainable-software-engineering-principals-in-azure-kubernetes-service-aks"></a>Entidades de engenharia de software sustentáveis no serviço de kubernetes do Azure (AKS)
+# <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Princípios de engenharia de software sustentável no serviço de kubernetes do Azure (AKS)
 
-As entidades de engenharia de software sustentáveis são um conjunto de competências para ajudá-lo a definir, criar e executar aplicativos sustentáveis. O objetivo geral é reduzir seu espaço de carbono de todos os aspectos do seu aplicativo. O [projeto princípios. Green][principals-green] tem uma visão geral das entidades de engenharia de software sustentável.
+Os princípios de engenharia de software sustentável são um conjunto de competências para ajudá-lo a definir, criar e executar aplicativos sustentáveis. O objetivo geral é reduzir seu espaço de carbono de todos os aspectos do seu aplicativo. O [projeto princípios. Green][principles-green] tem uma visão geral dos princípios da engenharia de software sustentável.
 
-Uma ideia importante entender sobre a engenharia de software sustentável é que ela é uma mudança nas prioridades e no foco. Em muitos casos, o software é projetado e executado de forma a se concentrar no desempenho rápido e na baixa latência. A engenharia de software sustentável se concentra em reduzir o máximo possível de emissões de carbono. Em alguns casos, a aplicação de entidades de engenharia de software sustentáveis pode proporcionar um desempenho mais rápido ou menor latência, como ao reduzir a viagem de rede total. Em outros casos, reduzir as emissões de carbono pode causar um desempenho mais lento ou maior latência, como atrasar cargas de trabalho de baixa prioridade. Antes de considerar a aplicação de entidades de engenharia de software sustentáveis ao seu aplicativo, examine as prioridades, as necessidades e as compensações de seu aplicativo.
+Uma ideia importante entender sobre a engenharia de software sustentável é que ela é uma mudança nas prioridades e no foco. Em muitos casos, o software é projetado e executado de forma a se concentrar no desempenho rápido e na baixa latência. A engenharia de software sustentável se concentra em reduzir o máximo possível de emissões de carbono. Em alguns casos, a aplicação de princípios de engenharia de software sustentável pode proporcionar um desempenho mais rápido ou menor latência, como ao reduzir a viagem de rede total. Em outros casos, reduzir as emissões de carbono pode causar um desempenho mais lento ou maior latência, como atrasar cargas de trabalho de baixa prioridade. Antes de considerar a aplicação de princípios de engenharia de software sustentável ao seu aplicativo, examine as prioridades, as necessidades e as compensações de seu aplicativo.
 
 ## <a name="measure-and-optimize"></a>Medir e otimizar
 
@@ -74,4 +74,4 @@ Saiba mais sobre os recursos do AKS mencionados neste artigo:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principals-green]: https://principles.green/
+[principles-green]: https://principles.green/

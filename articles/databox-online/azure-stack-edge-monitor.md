@@ -1,6 +1,6 @@
 ---
-title: Monitorar o dispositivo do Azure Stack Edge | Microsoft Docs
-description: Descreve como usar o portal do Azure e a IU da Web local para monitorar o Azure Stack Edge.
+title: Monitorar seu dispositivo pro Edge Azure Stack | Microsoft Docs
+description: Descreve como usar o portal do Azure e a interface do usuário da Web local para monitorar seu Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339545"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904407"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Monitorar o Azure Stack Edge
+# <a name="monitor-your-azure-stack-edge-pro"></a>Monitore seu Azure Stack Edge pro
 
-Este artigo descreve como monitorar o Azure Stack Edge. Para monitorar seu dispositivo, use o portal do Azure ou a IU da Web local. Use o portal do Azure para exibir eventos do dispositivo, configurar e gerenciar alertas e exibir métricas. Use a IU da Web local em seu dispositivo físico para exibir o status de hardware dos vários componentes do dispositivo.
+Este artigo descreve como monitorar seu Azure Stack Edge pro. Para monitorar seu dispositivo, use o portal do Azure ou a IU da Web local. Use o portal do Azure para exibir eventos do dispositivo, configurar e gerenciar alertas e exibir métricas. Use a IU da Web local em seu dispositivo físico para exibir o status de hardware dos vários componentes do dispositivo.
 
 Neste artigo, você aprenderá como:
 

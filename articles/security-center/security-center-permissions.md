@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: e5728b220f12c3305aa896e64010fc7e5828d6fb
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: ed73c4781b9fd9926e12910ca1eb2f71d2b99245
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067215"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904820"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões na Central de Segurança do Azure
 
@@ -44,7 +44,7 @@ A tabela a seguir exibe as funções e as ações permitidas na Central de Segur
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Editar política de segurança|-|✔|-|-|✔|
 |Adicionar/atribuir iniciativas (incluindo) padrões de conformidade regulatória)|-|-|-|-|✔|
-|Alterar o tipo de preço da assinatura|-|✔|-|-|✔|
+|Habilitar/desabilitar o Azure defender|-|✔|-|-|✔|
 |Habilitar/desabilitar provisionamento automático|-|✔|-|✔|✔|
 |Aplicar as recomendações de segurança a um recurso</br> (e usar [correção rápida!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Ignorar alertas|-|✔|-|✔|✔|
