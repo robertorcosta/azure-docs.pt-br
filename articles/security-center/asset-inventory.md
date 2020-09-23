@@ -7,13 +7,13 @@ services: security-center
 ms.author: memildin
 ms.date: 08/11/2020
 ms.service: security-center
-ms.topic: conceptual
-ms.openlocfilehash: f3a542cd62c3d593dbc0cce7982d47222e9a7c88
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.topic: how-to
+ms.openlocfilehash: dfba8bc1713e14099413a6c01d0af8508ba0eb73
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181096"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895129"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore e gerencie seus recursos com o inventário de ativos e as ferramentas de gerenciamento
 
@@ -25,22 +25,25 @@ Quando qualquer recurso tiver recomendações pendentes, eles aparecerão no inv
 
 Use esta exibição e seus filtros para resolver tais perguntas como:
 
-- Quais das minhas assinaturas da camada Standard têm recomendações pendentes?
+- Quais das minhas assinaturas com o Azure defender habilitadas têm recomendações pendentes?
 - Quais dos meus computadores com a marca ' produção ' estão faltando o agente de Log Analytics?
-- Quantos de meus computadores, marcados com uma marca específica, têm recomendações pendentes?
+- Quantas minhas máquinas marcadas com uma marca específica têm recomendações pendentes?
 - Quantos recursos em um grupo de recursos específico têm conclusões de segurança de um serviço de avaliação de vulnerabilidade?
 
 As possibilidades de gerenciamento de ativos para essa ferramenta são substanciais e continuam crescendo. 
+
+> [!TIP]
+> As recomendações de segurança são as mesmas da página **recomendações** , mas aqui são filtradas para o tipo de recurso específico que você selecionou. Para obter mais informações sobre como resolver recomendações, consulte [implementando recomendações de segurança na central de segurança do Azure](security-center-recommendations.md).
 
 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspecto|Detalhes|
 |----|:----|
-|Estado da versão:|Versão Prévia|
+|Estado da versão:|GA (em disponibilidade geral)|
 |Refere|Gratuita|
 |Funções e permissões necessárias:|todos os usuários|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 
@@ -56,7 +59,7 @@ A página inventário fornece as seguintes ferramentas:
 
 - **Filtros** – os vários filtros na parte superior da página fornecem uma maneira de refinar rapidamente a lista de recursos de acordo com a pergunta que você está tentando responder. Por exemplo, se você quisesse responder à pergunta *quais dos meus computadores com a marca "produção" estão sem o agente de log Analytics?* você pode combinar o filtro de **monitoramento de agente** com o filtro de **marcas** , conforme mostrado no seguinte clipe:
 
-    ![Filtragem para recursos de produção que não são monitorados](./media/asset-inventory/filtering-to-prod-unmonitored.gif)
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtragem para recursos de produção que não são monitorados":::
 
     Assim que você aplicou filtros, os valores de resumo são atualizados para se relacionar aos resultados da consulta. 
 
@@ -69,8 +72,9 @@ A página inventário fornece as seguintes ferramentas:
 
 - **Opções de gerenciamento de ativos** – o inventário permite que você execute consultas de descoberta complexas. Quando você encontrar os recursos que correspondem às suas consultas, o inventário fornecerá atalhos para operações como:
 
-    - Atribuir marcas aos recursos filtrados – marque as caixas de seleção ao lado dos recursos que você deseja marcar
-    - Carregar novos servidores para a central de segurança-Use o botão de barra de ferramentas **adicionar servidores não Azure**
+    - Atribuir marcas aos recursos filtrados – marque as caixas de seleção ao lado dos recursos que você deseja marcar.
+    - Carregar novos servidores para a central de segurança-Use o botão de barra de ferramentas **adicionar servidores não Azure** .
+    - Automatizar cargas de trabalho com aplicativos lógicos do Azure – use o botão **disparar aplicativo lógico** para executar um aplicativo lógico em um ou mais recursos. Seus aplicativos lógicos precisam ser preparados antecipadamente e aceitam o tipo de gatilho relevante (solicitação HTTP). [Saiba mais sobre os aplicativos lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Como funciona o inventário de ativos?
@@ -86,11 +90,11 @@ Usando a [linguagem de consulta Kusto (KQL)](https://docs.microsoft.com/azure/da
 
 1. Na barra lateral da central de segurança, selecione **inventário**.
 
-1. Opcionalmente, para exibir um recurso específico, insira o nome na caixa **Filtrar por nome** .
+1. Use a caixa **Filtrar por nome** para exibir um recurso específico ou use os filtros conforme descrito abaixo.
 
 1. Selecione as opções relevantes nos filtros para criar a consulta específica que você deseja executar.
 
-    ![Filtros do inventário](./media/asset-inventory/inventory-filters.png)
+    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opções de filtragem do inventário" lightbox="./media/asset-inventory/inventory-filters.png":::
 
     Por padrão, os recursos são classificados pelo número de recomendações de segurança ativas.
 
@@ -106,19 +110,24 @@ Usando a [linguagem de consulta Kusto (KQL)](https://docs.microsoft.com/azure/da
     > [!TIP]
     > As **conclusões de segurança contêm** e os filtros de **marcas** só aceitam um único valor. Para filtrar por mais de um, use **adicionar filtros**.
 
-1. Para usar o filtro **tipo de preço** , selecione uma ou mais opções (gratuita, parcial ou padrão):
+1. Para usar o filtro **do Azure defender** , selecione uma ou mais opções (desativar, ativar ou parcial):
 
-    - Recursos **gratuitos** que estão no tipo de preço gratuito
-    - **Standard** -recursos que estão no tipo de preço Standard
-    - **Parcial** -isso se aplica a assinaturas que estão no tipo de preço Standard, mas que têm alguns dos planos de segurança opcionais desabilitados. Por exemplo, a assinatura a seguir está na camada Standard, mas tem cinco elementos da camada Standard desabilitada. 
+    - **Fora** dos recursos que não são protegidos por um plano do Azure defender. Você pode clicar com o botão direito do mouse em qualquer um deles e atualizá-los:
 
-        ![Assinatura no tipo de preço Standard (parcial)](./media/asset-inventory/pricing-tier-partial.png)
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Atualizar um recurso para o Azure defender do clique com o botão direito" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+
+    - **No** -recursos que são protegidos por um plano do Azure defender
+    - **Parcial** -isso se aplica a **assinaturas** que têm alguns, mas não todos os planos do Azure defender desabilitados. Por exemplo, a assinatura a seguir tem cinco planos do Azure defender desabilitados. 
+
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Assinatura parcialmente no Azure defender":::
 
 1. Para examinar melhor os resultados da consulta, selecione os recursos que lhe interessam.
 
-1. Opcionalmente, selecione **Exibir no Gerenciador de grafo de recursos** para abrir a consulta no Gerenciador de grafo de recursos.
+1. Para exibir as opções de filtro selecionadas atualmente como uma consulta no Gerenciador de grafo de recursos, selecione **Exibir no Gerenciador de grafo de recursos**.
 
     ![Consulta de inventário em ARG](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+
+1. Para executar um aplicativo lógico definido anteriormente com 
 
 1. Se você definiu alguns filtros e deixou a página aberta, a central de segurança não atualizará os resultados automaticamente. As alterações nos recursos não afetarão os resultados exibidos, a menos que você recarregue a página manualmente ou selecione **Atualizar**.
 
@@ -127,22 +136,19 @@ Usando a [linguagem de consulta Kusto (KQL)](https://docs.microsoft.com/azure/da
 
 ### <a name="why-arent-all-of-my-subscriptions-machines-storage-accounts-etc-shown"></a>Por que todas as minhas assinaturas, máquinas, contas de armazenamento, etc. são mostradas?
 
-A exibição de inventário lista os recursos de uma perspectiva do CSPM (gerenciamento de postura de segurança na nuvem). Os filtros não retornam todos os recursos em seu ambiente; somente aqueles com recomendações pendentes (ou ' ativas '). 
+A exibição de inventário lista os recursos conectados da central de segurança de uma perspectiva do CSPM (gerenciamento de postura de segurança na nuvem). Os filtros não retornam todos os recursos em seu ambiente; somente aqueles com recomendações pendentes (ou ' ativas '). 
 
-Por exemplo, se você tiver nove assinaturas, mas apenas oito têm recomendações no momento, ao filtrar por **tipo de recurso = assinaturas** , você verá apenas as oito assinaturas com recomendações ativas:
+Por exemplo, a captura de tela a seguir mostra um usuário com acesso a 38 assinaturas, mas somente 10 atualmente têm recomendações. Então, quando eles são filtrados por **tipo de recurso = assinaturas**, somente essas 10 assinaturas com recomendações ativas aparecem no inventário:
 
-![Nem todas as sub-rotinas retornaram quando não há nenhuma recomendação ativa](./media/asset-inventory/filtered-subscriptions-some.png)
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Nem todas as sub-rotinas retornaram quando não há nenhuma recomendação ativa":::
 
-
-### <a name="why-do-some-of-my-resources-show-blank-values-in-the-pricing-or-agent-monitoring-columns"></a>Por que alguns dos meus recursos mostram valores em branco nas colunas de monitoramento de preço ou de agente?
+### <a name="why-do-some-of-my-resources-show-blank-values-in-the-azure-defender-or-agent-monitoring-columns"></a>Por que alguns dos meus recursos mostram valores em branco nas colunas de monitoramento do Azure defender ou agente?
 
 Nem todos os recursos monitorados da central de segurança têm agentes. Por exemplo, contas de armazenamento do Azure ou recursos de PaaS, como discos, aplicativos lógicos, análise de Data Lake e Hub de eventos.
 
 Quando o monitoramento de preços ou agentes não for relevante para um recurso, nada será mostrado nessas colunas de inventário.
 
-![Alguns recursos mostram informações em branco nas colunas de monitoramento ou de preços do agente](./media/asset-inventory/agent-pricing-blanks.png)
-
-
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Alguns recursos mostram informações em branco nas colunas de monitoramento do agente ou do Azure defender":::
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -151,5 +157,4 @@ Este artigo descreveu a página inventário de ativos da central de segurança d
 Para obter mais informações sobre as ferramentas relacionadas, consulte as seguintes páginas:
 
 - [Grafo de recursos do Azure (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-
 - [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)

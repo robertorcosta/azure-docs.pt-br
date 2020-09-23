@@ -2,28 +2,32 @@
 title: Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge – Azure
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/09/2020
+ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526316"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887230"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
 
 Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu dispositivo IoT Edge. Você faria isso, por exemplo, se tiver acesso a um computador Linux local e/ou tiver criado anteriormente uma conta dos serviços de mídia do Azure.
 
+> [!NOTE]
+> O suporte para dispositivos ARM64 está disponível em análise de vídeo ao vivo em IoT Edge Builds `1.0.4` e mais recentes.
+> O suporte para executar o runtime do Azure IoT Edge em dispositivos ARM64 está em [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um computador Linux que atenda às restrições de HW/SW para análise de vídeo ao vivo
+* Um dispositivo x86-64 ou ARM64 executando um dos [sistemas operacionais Linux com suporte](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
 * Assinatura do Azure para a qual você tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
 * [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registrar IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
 * [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Criar uma conta de Serviços de Mídia do Azure](../latest/create-account-howto.md)
 
-    * Use uma destas regiões: leste dos EUA 2, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
+    * Use uma destas regiões: leste dos EUA 2, leste dos EUA, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.
     * É recomendável que você use contas de armazenamento de uso geral v2 (GPv2)
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configurando recursos do Azure para usar a análise de vídeo ao vivo
@@ -81,7 +85,6 @@ sudo chown -R edgeuser /var/media
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Implantar módulo de borda de análise de vídeo ao vivo
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 A análise de vídeo ao vivo em IoT Edge expõe as propriedades de módulo '/' que estão documentadas no [esquema de configuração do módulo](module-twin-configuration-schema.md)/. 
 
 ### <a name="deploy-using-the-azure-portal"></a>Implantar usando o portal do Azure
@@ -252,4 +255,4 @@ Em seguida, vamos testar o exemplo invocando um método direto. Leia [métodos d
 Experimente o [início rápido: introdução-análise de vídeo ao vivo em IOT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]
-> No comando, você executará a seguir, usará seu `device-id` em vez do padrão `lva-sample-device` .
+> Se você continuar com o início rápido acima, ao invocar os métodos diretos usando Visual Studio Code, você usará o dispositivo que foi adicionado ao Hub IoT por este artigo, em vez do padrão `lva-sample-device` .

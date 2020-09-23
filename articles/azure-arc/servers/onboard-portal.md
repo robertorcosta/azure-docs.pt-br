@@ -1,19 +1,19 @@
 ---
 title: Conectar computadores híbridos ao Azure por meio do portal do Azure
-description: Neste artigo, você aprende a instalar o agente e a conectar computadores ao Azure usando os servidores habilitados para Arc do Azure (versão prévia) do portal do Azure.
-ms.date: 08/07/2020
+description: Neste artigo, você aprende a instalar o agente e a conectar computadores ao Azure usando os servidores habilitados para Arc do Azure da portal do Azure.
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 23415bc648ae31b9073adb71d6f066a28c144c9d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7435256dda68b2689aeb19b237f499d50b418055
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213507"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887603"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Conectar computadores híbridos ao Azure por meio do portal do Azure
 
-Você pode habilitar os servidores habilitados para Arc do Azure (versão prévia) para um ou um pequeno número de computadores Windows ou Linux em seu ambiente executando um conjunto de etapas manualmente. Ou você pode usar um método automatizado executando um script de modelo que fornecemos. Esse script automatiza o download e a instalação de ambos os agentes.
+Você pode habilitar os servidores habilitados para Arc do Azure para um ou um pequeno número de computadores Windows ou Linux em seu ambiente executando um conjunto de etapas manualmente. Ou você pode usar um método automatizado executando um script de modelo que fornecemos. Esse script automatiza o download e a instalação de ambos os agentes.
 
 Esse método exige que você tenha permissões de administrador no computador para instalar e configurar o agente. No Linux, usando a conta raiz, e no Windows, você é membro do grupo local de administradores.
 
@@ -27,14 +27,14 @@ O script usado para automatizar o download e a instalação e para estabelecer a
 
 1. No navegador, acesse o [portal do Azure](https://aka.ms/hybridmachineportal).
 
-1. Na página **Computadores – Azure Arc**, selecione **Adicionar** no canto superior esquerdo ou a opção **Criar computador – Azure Arc** na parte inferior do painel central.
+1. Na página **servidores – arco do Azure** , selecione **Adicionar** na parte superior esquerda.
 
-1. Na página **Selecionar um método**, selecione o bloco **Adicionar computadores usando o script interativo** e, em seguida, selecione **Gerar script**.
+1. Na página **selecionar um método** , selecione o bloco **adicionar servidores usando o script interativo** e, em seguida, selecione **gerar script**.
 
 1. Na página **Gerar script**, selecione a assinatura e o grupo de recursos nos quais você deseja que o computador seja gerenciado no Azure. Selecione uma localização do Azure em que os metadados do computador serão armazenados.
 
     >[!NOTE]
-    >Os servidores habilitados para Arc do Azure (versão prévia) oferecem suporte apenas às seguintes regiões:
+    >Os servidores habilitados para Arc do Azure oferecem suporte apenas às seguintes regiões:
     >- EastUS
     >- WestUS2
     >- WestEurope
@@ -42,15 +42,21 @@ O script usado para automatizar o download e a instalação e para estabelecer a
     >
     >Examine considerações adicionais ao selecionar uma região [aqui](overview.md#supported-regions) no artigo de Visão geral.
 
-1. Na página **Gerar script**, na lista suspensa **Sistema operacional**, selecione o sistema operacional no qual o script será executado.
+1. Na página **pré-requisitos** , examine as informações e selecione **Avançar: detalhes do recurso**.
 
-1. Se o computador estiver se comunicando por meio de um servidor proxy para se conectar à Internet, selecione **Próximo: Servidor Proxy**.
+1. Na página **detalhes do recurso** , forneça o seguinte:
 
-1. Na guia **Servidor proxy**, especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`.
+    1. Na lista suspensa **grupo de recursos** , selecione o grupo de recursos do qual o computador será gerenciado.
+    1. Na lista suspensa **região** , selecione a região do Azure para armazenar os metadados dos servidores.
+    1. Na lista suspensa **sistema operacional** , selecione o sistema operacional no qual o script será configurado para execução.
+    1. Se a máquina estiver se comunicando por meio de um servidor proxy para se conectar à Internet, especifique o endereço IP do servidor proxy ou o nome e o número da porta que o computador usará para se comunicar com o servidor proxy. Digite o valor no formato `http://<proxyURL>:<proxyport>`.
+    1. Selecione **Avançar: Marcas**.
 
-1. Selecione **Examinar + gerar**.
+1. Na página **marcas** , examine as marcas de **local físico** padrão sugeridas e insira um valor ou especifique uma ou mais **marcas personalizadas** para dar suporte aos seus padrões.
 
-1. Na guia **Examinar + gerar**, examine as informações de resumo e, em seguida, selecione **Baixar**. Se você ainda precisar fazer alterações, selecione **Anterior**.
+1. Selecione **Avançar: baixar e executar script**.
+
+1. Na página **baixar e executar script** , examine as informações de resumo e, em seguida, selecione **baixar**. Se você ainda precisar fazer alterações, selecione **Anterior**.
 
 ## <a name="install-and-validate-the-agent-on-windows"></a>Instalar e validar o agente no Windows
 
@@ -147,7 +153,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificar a conexão com o Azure Arc
 
-Depois de instalar o agente e configurá-lo para se conectar aos servidores habilitados para Arc do Azure (versão prévia), vá para o portal do Azure para verificar se o servidor foi conectado com êxito. Veja seus computadores no [portal do Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para se conectar aos servidores habilitados para Arc do Azure, vá para a portal do Azure para verificar se o servidor foi conectado com êxito. Veja seus computadores no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ![Uma conexão de servidor bem-sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -155,4 +161,4 @@ Depois de instalar o agente e configurá-lo para se conectar aos servidores habi
 
 - Saiba como gerenciar seu computador usando o [Azure Policy](../../governance/policy/overview.md) para itens como [configurar convidados](../../governance/policy/concepts/guest-configuration.md) de VM, verificar se o computador está relatando ao workspace do Log Analytics esperado, habilitar o monitoramento com o [Azure Monitor em VMs](../../azure-monitor/insights/vminsights-enable-policy.md) e muito mais.
 
-- Saiba mais sobre o [Agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). O agente do Log Analytics para Windows e Linux é necessário quando você deseja monitorar proativamente o sistema operacional e as cargas de trabalho em execução no computador, o gerencia usando os runbooks de automação ou soluções como o Gerenciamento de Atualizações ou usa outros serviços do Azure como a [Central de Segurança do Azure](../../security-center/security-center-intro.md).
+- Saiba mais sobre [o [agente de log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando você deseja coletar dados de monitoramento do sistema operacional e da carga de trabalho, gerenciá-los usando runbooks de automação ou recursos como Gerenciamento de Atualizações ou usar outros serviços do Azure, como a [central de segurança do Azure](../../security-center/security-center-intro.md).

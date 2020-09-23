@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b733ef771444e080eb794b300e75d4396c3ef674
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a30f2b2fcefcc944db35271bd75b6467f7590a2c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079166"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902881"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Leia réplicas no Banco de Dados do Azure para MySQL
 
@@ -22,7 +22,7 @@ As réplicas são novos servidores que você gerencia de modo semelhante aos ser
 Para saber mais sobre recursos e problemas de replicação do MySQL, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> Comunicação sem tendência
+> Comunicação livre de desvio
 >
 > A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
 >
@@ -42,7 +42,7 @@ Você pode criar uma réplica de leitura em uma região diferente da do servidor
 
 Você pode ter um servidor mestre em qualquer [região do Banco de Dados do Azure para MySQL](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  Um servidor mestre pode ter uma réplica em sua região emparelhada ou nas regiões de réplica universal. A figura abaixo mostra quais regiões de réplica estão disponíveis dependendo da sua região mestra.
 
-[ ![Ler regiões de réplica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Ler regiões de réplica":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões de réplica universal
 Você pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente de onde o servidor mestre estiver localizado. As regiões de réplica universal compatíveis incluem:
@@ -112,7 +112,7 @@ Saiba como [interromper a replicação para uma réplica](howto-read-replicas-po
 
 Não há nenhum failover automatizado entre servidores mestre e de réplica. 
 
-Como a replicação é assíncrona, há um atraso entre o mestre e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor mestre e a latência entre os data centers. Na maioria dos casos, a latência de réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
+Como a replicação é assíncrona, há um atraso entre o mestre e a réplica. A quantidade de latência pode ser influenciada por vários fatores, como a intensidade da carga de trabalho em execução no servidor mestre e a latência entre os data centers. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Você pode acompanhar o retardo de replicação real usando o *retardo de réplica*de métrica, que está disponível para cada réplica. Essa métrica mostra o tempo desde a última transação reproduzida. É recomendável que você identifique o que é o retardo médio, observando o atraso da réplica em um período de tempo. Você pode definir um alerta na latência de réplica, de modo que, se ele ficar fora do intervalo esperado, você poderá executar uma ação.
 
 > [!Tip]
 > Se você realizar o failover para a réplica, o retardo no momento em que você desvincular a réplica do mestre indicará a quantidade de dados perdidos.

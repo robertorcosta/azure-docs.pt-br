@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aa9ec5454935816e733c1607e006ba1c30476cac
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: ba4b8f1d3aaa9b06f3bc24e9e267f6778734152a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875567"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903736"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas do barramento de serviço de Azure Stream Analytics
 
@@ -54,9 +54,9 @@ Você pode anexar colunas de consulta às suas mensagens de saída como propried
 
 ## <a name="system-properties"></a>Propriedades do sistema
 
-Você pode anexar colunas de consulta como [propriedades do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) às suas mensagens da fila ou do tópico do Barramento de Serviço de saída.
+Você pode anexar colunas de consulta como [propriedades do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) às suas mensagens da fila ou do tópico do Barramento de Serviço de saída.
 
-Essas colunas não entram no conteúdo, em vez disso, a [propriedade do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage correspondente é preenchida com os valores da coluna de consulta.
+Essas colunas não entram no conteúdo, em vez disso, a [propriedade do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage correspondente é preenchida com os valores da coluna de consulta.
 Estas propriedades do sistema têm suporte: `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 Os valores de cadeia de caracteres dessas colunas são analisados como o tipo de valor de propriedade do sistema correspondente, e quaisquer falhas de análise são tratadas como erros de dados.
@@ -83,4 +83,4 @@ Isso define a `MessageId` nas mensagens de fila do barramento de serviço com os
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando um modelo do Resource Manager](quick-create-azure-resource-manager.md)
 * [Início rápido: criar um trabalho de Stream Analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Início Rápido: Criar um trabalho do Azure Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)
+* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906795"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974701"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados em um espaço de trabalho Log Analytics no Azure Monitor (visualização)
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906795"
 
 O recurso **campos personalizados** do Azure monitor permite que você estenda os registros existentes em seu espaço de trabalho log Analytics adicionando seus próprios campos pesquisáveis.  Os campos personalizados são populados automaticamente por meio dos dados extraídos de outras propriedades no mesmo registro.
 
-![Visão geral](media/custom-fields/overview.png)
+![O diagrama mostra um registro original associado a um registro modificado em um espaço de trabalho Log Analytics com pares de valor de propriedade adicionados à propriedade original no registro modificado.](media/custom-fields/overview.png)
 
 Por exemplo, o registro de exemplo abaixo tem dados úteis escondidos na descrição do evento. A extração desses dados em uma propriedade separada torna-o disponível para ações como classificação e filtragem.
 
@@ -81,7 +81,7 @@ A seção a seguir explica passo a passo um exemplo completo de criação de cam
 
 Inserimos a seguinte consulta para retornar todos os eventos do Gerenciador de Controle de Serviço que têm uma ID de Evento de 7036, que é o evento que indica um serviço iniciando ou parando.
 
-![Consulta](media/custom-fields/query.png)
+![Captura de tela mostra uma consulta para uma origem e ID do evento.](media/custom-fields/query.png)
 
 Em seguida, selecionamos e expandimos qualquer registro com a ID de evento 7036.
 

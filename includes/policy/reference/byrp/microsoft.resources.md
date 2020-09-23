@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8118a34eaf2de594bdc3c13719aa8533471df20d
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 2718a9ff3fe693c697f240c6f330d9162d0c32be
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90022541"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967186"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -59,5 +59,5 @@ ms.locfileid: "90022541"
 |[O Observador de Rede deve ser habilitado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. O monitoramento de nível do cenário permite diagnosticar problemas em um modo de exibição de nível de rede de ponta a ponta. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 |[Exigir uma marca e seu valor em grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F8ce3da23-7156-49e4-b145-24f95f9dcb46) |Impõe uma marca necessária e seu valor em grupos de recursos. |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupRequireTagAndValue_Deny.json) |
 |[Exigir uma marca em grupos de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96670d01-0a4d-4649-9c89-2d3abc0a5025) |Aplica a existência de uma marca em grupos de recursos. |deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupRequireTag_Deny.json) |
-|[As entidades de serviço devem ser usadas para proteger suas assinaturas em vez de certificados de gerenciamento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6646a0bd-e110-40ca-bb97-84fcee63c414) |Os certificados de gerenciamento permitem que qualquer pessoa que se autentique com eles gerencie as assinaturas a que estão associadas. Para gerenciar assinaturas com mais segurança, o uso de entidades de serviço com o Resource Manager é recomendado para limitar o impacto de um comprometimento de certificado. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UseServicePrincipalToProtectSubscriptions.json) |
+|[As entidades de serviço devem ser usadas para proteger suas assinaturas em vez dos certificados de gerenciamento](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6646a0bd-e110-40ca-bb97-84fcee63c414) |Os certificados de gerenciamento permitem que qualquer pessoa que os utilize para autenticação gerencie as assinaturas às quais eles estão associados. Para gerenciar assinaturas com mais segurança, o uso de entidades de serviço com o Resource Manager é recomendado para limitar o impacto do comprometimento de um certificado. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UseServicePrincipalToProtectSubscriptions.json) |
 |[Deve haver mais de um proprietário atribuído à sua assinatura](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F09024ccc-0c5f-475e-9457-b7c0d9ed487b) |Recomenda-se designar mais de um proprietário de assinatura para ter redundância de acesso de administrador. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_DesignateMoreThanOneOwner_Audit.json) |

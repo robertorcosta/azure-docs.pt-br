@@ -1,14 +1,14 @@
 ---
 title: Visão geral de cofres de Serviços de Recuperação
-description: Uma visão geral e a comparação entre os cofres de Serviços de Recuperação e os cofres de Backup do Azure.
+description: Uma visão geral dos cofres dos serviços de recuperação.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889610"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975157"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -30,7 +30,7 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups 
 
 - O backup do Azure manipula automaticamente o armazenamento para o cofre. Veja como [as configurações de armazenamento podem ser alteradas](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- Para saber mais sobre a redundância de armazenamento, consulte estes artigos sobre redundância [geográfica](../storage/common/storage-redundancy.md) e [local](../storage/common/storage-redundancy.md) .
+- Para saber mais sobre a redundância de armazenamento, consulte esses artigos sobre redundância [geográfica](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) e [zonal](../storage/common/storage-redundancy.md#zone-redundant-storage) .
 
 ## <a name="encryption-settings-in-the-recovery-services-vault"></a>Configurações de criptografia no cofre dos serviços de recuperação
 

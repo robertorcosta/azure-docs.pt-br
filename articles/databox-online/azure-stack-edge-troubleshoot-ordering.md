@@ -1,6 +1,6 @@
 ---
-title: Usar o portal do Azure para solucionar problemas de Azure Stack ordenação de borda | Microsoft Docs
-description: Descreve como solucionar problemas de Azure Stack ordenação de borda.
+title: Use o portal do Azure para solucionar problemas de ordenação do Azure Stack Edge pro | Microsoft Docs
+description: Descreve como solucionar problemas Azure Stack ordenação do Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055938"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903643"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Solucionar problemas de ordenação do Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Solucionar problemas de ordenação do Azure Stack Edge pro
 
-Este artigo descreve como solucionar problemas de Azure Stack ordenação de borda.
+Este artigo descreve como solucionar problemas Azure Stack ordenação do Edge pro.
 
 Neste tutorial, você aprenderá como:
 
@@ -59,7 +59,7 @@ Para obter mais informações, consulte [registrar provedores de recursos](azure
 
 ## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Microsoft. DataBoxEdge não registrado para assinatura
 
-**Erro:** No portal do Azure, selecione uma assinatura a ser usada para Azure Stack borda ou Gateway do Data Box e obtenha o seguinte erro:
+**Erro:** No portal do Azure, selecione uma assinatura a ser usada para Azure Stack o Edge pro ou Gateway do Data Box e obtenha o seguinte erro:
 
 *Provedor (es) de recursos: Microsoft. DataBoxEdge não está registrado para &lt; o nome da assinatura da assinatura &gt; e você não tem permissões para registrar um provedor de recursos para o &lt; nome &gt; da assinatura da assinatura*.
 
@@ -75,4 +75,4 @@ Para obter mais informações, consulte [registrar provedores de recursos](azure
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre como [solucionar problemas de Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+* Saiba mais sobre como [solucionar problemas do Azure Stack Edge pro](azure-stack-edge-troubleshoot.md).

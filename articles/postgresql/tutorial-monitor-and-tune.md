@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
-ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 05435aae727c84a5f3eb886274f9d286627e399e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74774730"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895084"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Tutorial: Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
 
@@ -40,7 +40,7 @@ O [Repositório de Consultas](concepts-query-store.md) captura um histórico das
 
 4. Definir **pg_qs.query_capture_mode** a **superior** para começar a coletar dados de desempenho de consulta. Definir **pgms_wait_sampling.query_capture_mode** à **todos os** para iniciar a coltar as estatísticas de espera. Salve.
    
-   ![Parâmetros de consulta do servidor Repositório de Consultas](./media/tutorial-performance-intelligence/query-store-parameters.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-store-parameters.png" alt-text="Parâmetros de consulta do servidor Repositório de Consultas":::
 
 5. Permita que o primeiro lote de dados persista no banco de dados **azure_sys** por até 20 minutos.
 
@@ -52,7 +52,7 @@ A visualização da [Análise de Desempenho de Consultas](concepts-query-perform
 
 2. A guia **consultas de Longa execução** mostra as 5 consultas superiores por duração média por execução, agregadas em intervalos de 15 minutos. 
    
-   ![Página de aterrissagem de Análise de Desempenho de Consultas](./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-landing-page.png" alt-text="Página de aterrissagem de Análise de Desempenho de Consultas":::
 
    Você pode exibir mais consultas, selecionando a partir do **Número de consultas** lista suspensa. As cores do gráfico pode ser alteradas para uma ID de consulta específica ao fazer isso.
 
@@ -64,7 +64,7 @@ A visualização da [Análise de Desempenho de Consultas](concepts-query-perform
 
 6. Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
    
-   ![Estatísticas de espera de Análise de Desempenho de Consultas](./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de espera de Análise de Desempenho de Consultas":::
 
 ### <a name="permissions"></a>Permissões
 **Permissões do Proprietário** ou **Colaborador** necessárias para exibir o texto das consultas na Análise de Desempenho de Consultas **Leitor** podem exibir gráficos e tabelas, mas não o texto da consulta.
@@ -75,7 +75,7 @@ O recurso das [Recomendações de Desempenho](concepts-performance-recommendatio
 
 1. Abra **Recomendações de Desempenho** da seção **suporte + solução de problemas** da barra de menus, na página do portal do Azure para seu servidor PostgreSQL.
    
-   ![Página das Recomendações de Desempenho](./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-landing-page.png" alt-text="Página das Recomendações de Desempenho":::
 
 2. Selecione **Analisar** e escolha um banco de dados. Isso iniciará a análise.
 
@@ -85,7 +85,7 @@ O recurso das [Recomendações de Desempenho](concepts-performance-recommendatio
 
 5. Uma recomendação mostrará informações sobre os relevantes **banco de dados**, **tabela**, **coluna**, e **tamanho de índice**.
 
-   ![Recomendações de Desempenho](./media/tutorial-performance-intelligence/performance-recommendations-result.png)
+   :::image type="content" source="./media/tutorial-performance-intelligence/performance-recommendations-result.png" alt-text="Recomendações de Desempenho":::
 
 6. Para implementar a recomendação, copie o texto da consulta e executá-lo do seu cliente de escolha.
 

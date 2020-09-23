@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 12/18/2019
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 9237e670dd8d43c4036f996c477948944718e3aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053707"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887501"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detector de Anomalias?
 
@@ -35,6 +35,7 @@ Com o Detector de Anomalias, você pode detectar anomalias automaticamente em to
 |---------|---------|
 |Detecte anomalias conforme elas ocorrem em tempo real. | Detecte anomalias em seus dados de streaming usando pontos de vistos anteriormente para determinar se pelo menos um é uma anomalia. Essa operação gera um modelo usando os pontos de dados que você envia e determina se o ponto de destino é uma anomalia. Ao chamar a API com cada novo ponto de dados que você gera, você pode monitorar seus dados conforme eles são criados. |
 |Detecte anomalias em todo o conjunto de dados como um lote. | Use sua série temporal para detectar todas as anomalias que podem existir em seus dados. Essa operação gera um modelo usando todos os seus dados de série temporal, analisando cada ponto com o mesmo modelo.         |
+|Detecte os pontos de alteração em todo o conjunto de dados como um lote. | Use a série temporal para detectar qualquer ponto de alteração de tendência existente nos dados. Essa operação gera um modelo usando todos os seus dados de série temporal, analisando cada ponto com o mesmo modelo.    |
 | Obtenha informações adicionais sobre seus dados. | Obtenha detalhes úteis sobre seus dados e todas as anomalias observadas, incluindo valores esperados, limites de anomalias e posições. |
 | Ajuste os limites de detecção de anomalias. | A API do Detector de Anomalias criará automaticamente limites para a detecção de anomalias. Ajuste esses limites para aumentar ou diminuir a sensibilidade da API a anomalias de dados e ajustar melhor seus dados. |
 
@@ -45,7 +46,7 @@ Para executar a demonstração, você precisa criar um recurso de Detector de An
 
 ## <a name="notebook"></a>Notebook
 
-Para saber como chamar a API do Detector de Anomalias, experimente este [Notebook do Azure](https://aka.ms/adNotebook). Este Jupyter Notebook hospedado na Web mostra como enviar uma solicitação à API e visualizar o resultado.
+Para saber como chamar a API do Detector de Anomalias, experimente este [Notebook](https://aka.ms/adNotebook). Este Jupyter Notebook mostra como enviar uma solicitação de API e visualizar o resultado.
 
 Para executar o Notebook, conclua as seguintes etapas:
 
@@ -92,4 +93,4 @@ Você pode ler o artigo [Serviço de detecção de anomalias da série temporal 
 
 * [Início Rápido: Detectar anomalias nos dados de série temporal usando a API REST do Detector de Anomalias](quickstarts/detect-data-anomalies-csharp.md)
 * A [demonstração online](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) da API do Detector de Anomalias
-* A [referência da API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) do Detector de Anomalias
+* A [referência da API REST](https://aka.ms/anomaly-detector-rest-api-ref) do Detector de Anomalias

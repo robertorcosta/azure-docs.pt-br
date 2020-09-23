@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 4/11/2020
 ms.topic: how-to
-ms.openlocfilehash: df6e7435d072cc88e82f3dc9a323a5b21145c432
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bd72866e3e3db21691fda6aaec864a76af7414a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037249"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903715"
 ---
 # <a name="intellisense-in-azure-stream-analytics-tools-for-visual-studio-code"></a>IntelliSense no Azure Stream Analytics Tools para Visual Studio Code
 
@@ -71,6 +71,6 @@ Esse problema é causado pela configuração de entrada ausente que fornece dado
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-vs-code.md)
+* [Início rápido: criar um trabalho de Azure Stream Analytics no Visual Studio Code](quick-create-visual-studio-code.md)
 * [Testar consultas do Stream Analytics localmente com os dados de exemplo usando o Visual Studio Code](visual-studio-code-local-run.md)
 * [Testar Stream Analytics consultas localmente contra entrada de fluxo ao vivo usando Visual Studio Code](visual-studio-code-local-run-live-input.md)

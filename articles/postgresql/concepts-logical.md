@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213679"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903885"
 ---
 # <a name="logical-decoding"></a>Decodificação lógica
  
@@ -50,13 +50,13 @@ O servidor precisa ser reiniciado após uma alteração desse parâmetro. Intern
 
 ### <a name="using-azure-portal"></a>Usando o Portal do Azure
 
-1. Defina o suporte de replicação do Azure como **lógico**. Selecione **Salvar**.
+1. Defina o suporte de replicação do Azure como **lógico**. Clique em **Salvar**.
 
-   ![Banco de dados do Azure para PostgreSQL-replicação-suporte à replicação do Azure](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Banco de dados do Azure para PostgreSQL-replicação-suporte à replicação do Azure":::
 
 2. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
 
-   ![Banco de dados do Azure para PostgreSQL-replicação-confirmar reinicialização](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Banco de dados do Azure para PostgreSQL-replicação-confirmar reinicialização":::
 
 
 ## <a name="start-logical-decoding"></a>Iniciar decodificação lógica

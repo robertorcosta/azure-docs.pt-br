@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
-ms.openlocfilehash: a47b641f4f5049beb605490122a33d407ac3e222
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044355"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903786"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Testar consultas do Stream Analytics localmente com os dados de exemplo usando o Visual Studio Code
 
@@ -21,7 +21,7 @@ Você pode usar as ferramentas de Azure Stream Analytics para Visual Studio Code
 
 * Instale o [SDK do .NET Core](https://dotnet.microsoft.com/download) e reinicie o Visual Studio Code.
 
-* Use este guia de [início rápido](quick-create-vs-code.md) para aprender a criar um trabalho de Stream Analytics usando Visual Studio Code.
+* Use este guia de [início rápido](quick-create-visual-studio-code.md) para aprender a criar um trabalho de Stream Analytics usando Visual Studio Code.
 
 ## <a name="prepare-sample-data"></a>Preparar os dados de exemplo
 
@@ -31,17 +31,17 @@ Primeiro, você precisa preparar arquivos de dados de entrada de exemplo. Se voc
 
 2. Depois que os dados forem mostrados, clique em **salvar como** para salvar os dados em um arquivo local.
 
- ![Visualizar a entrada dinâmica](./media/quick-create-vs-code/preview-live-input.png)
+ ![Visualizar a entrada dinâmica](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## <a name="define-a-local-input"></a>Definir uma entrada local
 
 1. Clique em **input.jsna** pasta entradas em seu projeto Stream Analytics. Em seguida, selecione **Adicionar entrada local** na linha superior.
 
-    ![Adicionar entrada local do projeto](./media/quick-create-vs-code/add-input-from-project.png)
+    ![Adicionar entrada local do projeto](./media/quick-create-visual-studio-code/add-input-from-project.png)
 
     Você também pode usar **Ctrl + Shift + P** para abrir a paleta de comandos e inserir **asa: Adicionar entrada**.
 
-   ![Adicionar entrada do Stream Analytics no VS Code](./media/quick-create-vs-code/add-input.png)
+   ![Adicionar entrada do Stream Analytics no VS Code](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Selecione **entrada local**.
 
@@ -55,7 +55,7 @@ Primeiro, você precisa preparar arquivos de dados de entrada de exemplo. Se voc
 
     ![Adicionar um novo alias de entrada local do ASA](./media/vscode-local-run/new-local-input-alias.png)
 
-5. NaLocalInput_Input.jsgerada recentemente **no** arquivo, insira o caminho do arquivo no qual o arquivo de dados local está localizado.
+5. NaLocalInput_Input.jsgerada recentemente ** no** arquivo, insira o caminho do arquivo no qual o arquivo de dados local está localizado.
 
     ![Insira o caminho do arquivo local no Visual Studio](./media/vscode-local-run/local-file-path.png)
 

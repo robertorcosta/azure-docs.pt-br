@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067164"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967231"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelo
 
@@ -94,13 +94,19 @@ Se essa suposição não for verdadeira de um modelo específico, esse parâmetr
 
 * `deduplicateMaterials` – esse parâmetro habilita ou desabilita a eliminação de duplicação automática de materiais que compartilham as mesmas propriedades e texturas. A eliminação de duplicação ocorre depois de as substituições de material terem sido processadas. Ele é habilitado por padrão.
 
+* Se, mesmo após a eliminação de duplicação, um modelo tiver mais de 65.535 materiais, o serviço tentará mesclar materiais com propriedades semelhantes. Como último recurso, todos os materiais que excederem o limite serão substituídos por um material de erro vermelho.
+
+![Imagem mostra dois cubos de 68.921 triângulos coloridos.](media/mat-dedup.png?raw=true)
+
+Dois cubos de 68.921 triângulos coloridos. Esquerda: antes da eliminação de duplicação com 68.921 materiais de cor. Direita: após a eliminação de duplicação com 64.000 materiais de cor. O limite é de 65.535 materiais. (Consulte [limites](../../reference/limits.md).)
+
 ### <a name="color-space-parameters"></a>Parâmetros de espaço de cores
 
 O mecanismo de renderização espera que os valores de cores estejam em um espaço linear.
 Caso um modelo seja definido por meio do uso do espaço gama, essas opções deverão ser definidas como true.
 
 * `gammaToLinearMaterial` – converte cores de material do espaço gama para um espaço linear.
-* `gammaToLinearVertex`-Converter :::no-loc text="vertex"::: cores de espaço gama em espaço linear
+* `gammaToLinearVertex` -Converter :::no-loc text="vertex"::: cores de espaço gama em espaço linear
 
 > [!NOTE]
 > Em arquivos FBX, essas configurações são definidas como `true` por padrão. Em todos os outros tipos de arquivo, o padrão é `false`.
@@ -139,11 +145,11 @@ O modo `none` tem a menor sobrecarga do runtime, além de tempos de carregamento
 
 ### <a name="node-meta-data"></a>Metadados do nó
 
-* `metadataKeys`-Permite especificar chaves de propriedades de metadados de nó que você deseja manter no resultado da conversão. Você pode especificar chaves exatas ou chaves curinga. As chaves curinga são do formato "ABC *" e correspondem a qualquer chave que comece com "ABC". Os tipos de valor de metadados com suporte são `bool` ,, `int` `float` e `string` .
+* `metadataKeys` -Permite especificar chaves de propriedades de metadados de nó que você deseja manter no resultado da conversão. Você pode especificar chaves exatas ou chaves curinga. As chaves curinga são do formato "ABC *" e correspondem a qualquer chave que comece com "ABC". Os tipos de valor de metadados com suporte são `bool` ,, `int` `float` e `string` .
 
     Para arquivos GLTF, esses dados são provenientes do [objeto extras em nós](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Para Arquivos FBX, esses dados são provenientes dos `Properties70` dados em `Model nodes` . Consulte a documentação da sua ferramenta de ativo 3D para obter mais detalhes.
 
-### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::ao
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex"::: ao
 
 É possível ajustar o :::no-loc text="vertex"::: formato para uma malha, a fim de trocar a precisão pela economia de memória. Um volume de memória menor permite que você carregue modelos maiores ou obtenha um melhor desempenho. Porém, dependendo dos seus dados, o formato incorreto pode afetar significativamente a qualidade da renderização.
 
@@ -194,7 +200,7 @@ Os formatos a seguir são permitidos para os respectivos componentes:
 
 Os volumes de memória dos formatos são os seguintes:
 
-| Formatar | Descrição | Bytes por:::no-loc text="vertex"::: |
+| Formatar | Descrição | Bytes por :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|Precisão do ponto flutuante completo de dois componentes|8
 |16_16_FLOAT|Precisão de meio ponto flutuante de dois componentes|4
@@ -241,9 +247,9 @@ O [Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) tem modos de clon
 
 ![Clonagem em 3ds Max](./media/3dsmax-clone-object.png)
 
-* **`Copy`**: Nesse modo, a malha é clonada, portanto, nenhuma instanciação é usada ( `numMeshPartsInstanced` = 0).
-* **`Instance`**: Os dois objetos compartilham a mesma malha, portanto, a instanciação é usada ( `numMeshPartsInstanced` = 1).
-* **`Reference`**: Modificadores distintos podem ser aplicados às geometrias, portanto, o exportador escolhe uma abordagem conservadora e não usa instanciação ( `numMeshPartsInstanced` = 0).
+* **`Copy`** : Nesse modo, a malha é clonada, portanto, nenhuma instanciação é usada ( `numMeshPartsInstanced` = 0).
+* **`Instance`** : Os dois objetos compartilham a mesma malha, portanto, a instanciação é usada ( `numMeshPartsInstanced` = 1).
+* **`Reference`** : Modificadores distintos podem ser aplicados às geometrias, portanto, o exportador escolhe uma abordagem conservadora e não usa instanciação ( `numMeshPartsInstanced` = 0).
 
 
 ### <a name="depth-based-composition-mode"></a>Modo de composição com base em profundidade
@@ -259,8 +265,8 @@ Conforme discutido na seção [práticas recomendadas para alterações de forma
 Dependendo do tipo de cenário, a quantidade de dados de textura pode exceder a memória usada para dados de malha. Os modelos Photogrammetry são candidatos.
 A configuração de conversão não fornece uma maneira de reduzir verticalmente as texturas automaticamente. Se necessário, o dimensionamento de textura deve ser feito como uma etapa de pré-processamento do lado do cliente. No entanto, a etapa de conversão escolhe um [formato de compactação de textura](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)adequado:
 
-* `BC1`para texturas de cores opacas
-* `BC7`para texturas de cores de origem com canal alfa
+* `BC1` para texturas de cores opacas
+* `BC7` para texturas de cores de origem com canal alfa
 
 Como `BC7` o formato tem duas vezes o espaço de memória comparado a `BC1` , é importante certificar-se de que as texturas de entrada não forneçam um canal alfa desnecessariamente.
 

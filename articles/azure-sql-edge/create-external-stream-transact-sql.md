@@ -1,6 +1,6 @@
 ---
-title: ALTER EXTERNAL STREAM (Transact-SQL) – SQL do Azure no Edge (visualização)
-description: Saiba mais sobre a instrução CREATE EXTERNAL STREAM no SQL do Azure no Edge (visualização)
+title: CRIAR fluxo externo (Transact-SQL)-Azure SQL Edge
+description: Saiba mais sobre a instrução CREATE EXTERNAL STREAM no Azure SQL Edge
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489537"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888161"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -100,7 +100,7 @@ WITH  ( <with_options> )
    - Para local do objeto de fluxo do armazenamento de BLOBs do Azure refere-se ao padrão de caminho a ser usado dentro do contêiner de BLOB. Para obter mais informações sobre esse recurso, consulte (/articles/Stream-Analytics/Stream-Analytics-define-Outputs.MD # BLOB-Storage-and-Azure-data-Lake-Gen2)
 
 - **INPUT_OPTIONS**: especificar opções como pares de chave-valor para serviços como Kafka, IOT Edge Hub que são entradas para streaming de consultas
-    - PARTIÇÕES: número de partições definidas para um tópico
+    - PARTIÇÕES: número de partições definidas para um tópico. O número máximo de partições que podem ser usadas é limitado a 32.
       - Aplica-se a fluxos de entrada Kafka
     - CONSUMER_GROUP: Os hubs IoT e de eventos limitam a 5 o número de leitores em um grupo de consumidores. Deixar esse campo vazio usará o grupo de consumidores '$Default'.
       - Reservado para uso futuro. Não se aplica ao Azure SQL Edge.  
@@ -247,6 +247,5 @@ WITH
 
 ## <a name="see-also"></a>Confira também
 
-- [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md) 
 

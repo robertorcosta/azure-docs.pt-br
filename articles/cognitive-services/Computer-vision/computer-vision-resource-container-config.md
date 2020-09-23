@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 765001ae7380ff2e99e6b390930b94302ce506bf
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 56a03d6f1e4684da797b733d6041309acdac65c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433680"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888146"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configurar contêineres do Docker Pesquisa Visual Computacional
 
@@ -33,10 +33,10 @@ O contêiner também tem as seguintes definições de configuração específica
 
 |Obrigatório|Configuração|Finalidade|
 |--|--|--|
-|Não|ReadEngineConfig:ResultExpirationPeriod|Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
-|Não|Cache: Redis|Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
-|Não|Fila: RabbitMQ|Habilita RabbitMQ para tarefas de expedição. A configuração é útil quando vários contêineres de leitura são colocados atrás de um balanceador de carga.|
-|Não|Armazenamento::D ocumentStore:: MongoDB|Habilita o MongoDB para armazenamento de resultado permanente.|
+|No|ReadEngineConfig:ResultExpirationPeriod|Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
+|No|Cache: Redis|Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
+|No|Fila: RabbitMQ|Habilita RabbitMQ para tarefas de expedição. A configuração é útil quando vários contêineres de leitura são colocados atrás de um balanceador de carga.|
+|No|Armazenamento::D ocumentStore:: MongoDB|Habilita o MongoDB para armazenamento de resultado permanente.|
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
@@ -60,7 +60,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 Lembre-se de adicionar o `vision/v1.0` Roteamento ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
-|Obrigatório| Nome | Tipo de dados | Descrição |
+|Obrigatório| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -88,7 +88,7 @@ Os contêineres de Pesquisa Visual Computacional não usam montagens de entrada 
 
 A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, a localização de montagem do [computador host](computer-vision-how-to-install-containers.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões da localização de montagem do host. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | String | Os contêineres de Pesquisa Visual Computacional não usam isso.|
 |Opcional| `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -117,26 +117,55 @@ Substitua {_argument_name_} pelos seus próprios valores:
 
 Os exemplos do Docker a seguir são para o contêiner de leitura.
 
+
+# <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+
 ### <a name="basic-example"></a>Exemplo básico
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
 
 ### <a name="logging-example"></a>Exemplo de log 
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.0 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# <a name="version-31"></a>[Versão 3.1](#tab/version-3-1)
+
+### <a name="basic-example"></a>Exemplo básico
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### <a name="logging-example"></a>Exemplo de log 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

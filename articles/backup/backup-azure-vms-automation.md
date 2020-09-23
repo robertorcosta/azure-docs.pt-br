@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e4564ba2b6109296a7383fb4b056c2f4b1890fda
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178124"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975095"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -96,7 +96,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md) ou o [grs (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção BackupStorageRedundancy para o testvault está definida como GeoRedundant.
+3. Especifique o tipo de redundância de armazenamento a usar. Você pode usar o [LRS (armazenamento com redundância local)](../storage/common/storage-redundancy.md#locally-redundant-storage), o [grs (armazenamento com redundância geográfica)](../storage/common/storage-redundancy.md#geo-redundant-storage)ou o [ZRS (armazenamento com redundância de zona)](../storage/common/storage-redundancy.md#zone-redundant-storage). O exemplo a seguir mostra que a opção **-BackupStorageRedundancy** para o *testvault* está definida como **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -104,7 +104,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     ```
 
    > [!TIP]
-   > Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, é conveniente armazenar o objeto de cofre dos serviços de recuperação de backup em uma variável.
+   > Muitos cmdlets do Backup do Azure exigem o objeto do cofre dos Serviços de Recuperação como entrada. Por esse motivo, é conveniente armazenar o objeto de backup do cofre dos Serviços de Recuperação em uma variável.
    >
    >
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Depois de definir a política de proteção, você deve habilitar a política para um item. Use [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) para habilitar a proteção. Habilitar a proteção envolve dois objetos – o item e a política. Depois de a política ter sido associada ao cofre, o fluxo de trabalho de backup será disparado no momento definido no agendamento da política.
 
 > [!IMPORTANT]
-> Ao usar o PowerShell para habilitar o backup para várias VMs de uma vez, verifique se uma única política não tem mais de 100 VMs associadas a ela. Essa é uma [melhor prática recomendada](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Atualmente, o cliente do PowerShell não bloqueia explicitamente se há mais de 100 VMs, mas a verificação está planejada para ser adicionada no futuro.
+> Ao usar o PowerShell para habilitar o backup para várias VMs de uma vez, verifique se uma única política não tem mais de 100 VMs associadas a ela. Essa é uma [melhor prática recomendada](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Atualmente, o cliente PowerShell não bloqueia explicitamente se há mais de 100 VMs, mas há planos de adicionar essa verificação no futuro.
 
 Os exemplos a seguir permitem a proteção do item, V2VM, usando a política NewPolicy. Os exemplos diferem com base em se a VM está criptografada e em qual tipo de criptografia.
 

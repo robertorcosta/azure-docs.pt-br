@@ -1,6 +1,6 @@
 ---
-title: Conectar e consultar o SQL do Azure no Edge (visualização)
-description: Saiba como se conectar e consultar o Azure SQL Edge (versão prévia).
+title: Conectar e consultar o Azure SQL Edge
+description: Saiba como se conectar e consultar o Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
-ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373106"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888241"
 ---
-# <a name="connect-and-query-azure-sql-edge-preview"></a>Conectar e consultar o SQL do Azure no Edge (visualização)
+# <a name="connect-and-query-azure-sql-edge"></a>Conectar e consultar o Azure SQL Edge
 
 No Azure SQL Edge, depois de implantar um contêiner, você pode se conectar ao mecanismo de banco de dados de qualquer um dos seguintes locais:
 
@@ -64,7 +64,7 @@ As [ferramentas de linha de comando SQL Server](https://docs.microsoft.com/sql/l
     ```
 
     > [!TIP]
-    > Você nem sempre precisa especificar a ID do contêiner inteiro. Você só precisa especificar caracteres suficientes para identificá-la exclusivamente. Portanto, neste exemplo, pode ser suficiente usar `e6` ou `e69` , em vez da ID completa.
+    > Você nem sempre precisa especificar toda a ID do contêiner. Você só precisa especificar caracteres suficientes para identificá-la exclusivamente. Portanto, neste exemplo, pode ser suficiente usar `e6` ou `e69` , em vez da ID completa.
 
 2. Quando você estiver dentro do contêiner, conecte-se localmente com o sqlcmd. O sqlcmd não está no caminho por padrão, portanto, você precisa especificar o caminho completo.
 

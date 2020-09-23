@@ -1,6 +1,6 @@
 ---
-title: Configurar replicação para o SQL do Azure no Edge (versão prévia)
-description: Saiba como configurar a replicação para o Azure SQL Edge (versão prévia).
+title: Configurar a replicação para o Azure SQL Edge
+description: Saiba como configurar a replicação para o Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667872"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888418"
 ---
-# <a name="configure-replication-to-azure-sql-edge-preview"></a>Configurar replicação para o SQL do Azure no Edge (versão prévia) 
+# <a name="configure-replication-to-azure-sql-edge"></a>Configurar a replicação para o Azure SQL Edge 
 
 Você pode configurar uma instância do Azure SQL Edge como o Assinante de push para replicação transacional unidirecional ou replicação de instantâneo. Esta instância não pode atuar como o Publicador ou o distribuidor para uma configuração de replicação transacional. Observe que o Azure SQL Edge não dá suporte à replicação de mesclagem, replicação ponto a ponto ou publicação Oracle.
 
@@ -24,7 +24,7 @@ Você pode configurar uma instância do Azure SQL Edge como o Assinante de push 
   
 - A instância do Azure SQL Edge deve ser um assinante de push para um Publicador.
 - O Publicador e o distribuidor podem ser:
-   - Uma instância do SQL Server em execução no local ou uma instância do SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [SQL Server na visão geral de Máquinas Virtuais do Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). SQL Server instâncias devem estar usando uma versão posterior à SQL Server 2016.
+   - Uma instância do SQL Server em execução no local ou uma instância do SQL Server em execução em uma máquina virtual do Azure. Para obter mais informações, veja [SQL Server na visão geral de Máquinas Virtuais do Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). SQL Server instâncias devem estar usando uma versão posterior à SQL Server 2016.
    - Uma instância do Azure SQL Instância Gerenciada. O SQL Instância Gerenciada pode hospedar bancos de dados de Publicador, distribuidor e Assinante. Para obter mais informações, veja [Replicação com a Instância Gerenciada do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - O banco de dados de distribuição e os agentes de replicação não podem ser colocados em uma instância do Azure SQL Edge.  
