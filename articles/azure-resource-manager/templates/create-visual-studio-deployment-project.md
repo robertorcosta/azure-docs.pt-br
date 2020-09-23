@@ -3,12 +3,12 @@ title: Criar e implantar projetos do grupo de recursos do Visual Studio
 description: Use o Visual Studio para criar um projeto do grupo de recursos do Azure e implantar os recursos no Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76152724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985255"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
@@ -23,7 +23,7 @@ Nesta seção, você cria um projeto do Grupo de Recursos do Azure com um modelo
 1. No Visual Studio, escolha **arquivo** > **novo** > **projeto**.
 1. Selecione o modelo de projeto **Grupo de Recursos do Azure** e **Avançar**.
 
-    ![Criar projeto](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Captura de tela mostra a janela criar um novo projeto com o grupo de recursos do Azure e o botão Avançar realçado.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. Dê um nome ao seu projeto. As outras configurações padrão provavelmente não precisam ser modificadas, mas é bom revisá-las para verificar se funcionam para seu ambiente. Ao terminar, selecione **Criar**.
 
@@ -65,7 +65,7 @@ Nesta seção, você cria um projeto do Grupo de Recursos do Azure com um modelo
 
 1. Você pode adicionar um recurso selecionando o botão **Adicionar Recurso** na parte superior da janela Estrutura de Tópicos JSON ou clicando com o botão direito em **recursos** e selecionando **Adicionar Novo Recurso**.
 
-   ![Adicionar recurso](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![Captura de tela mostra a janela de estrutura de tópicos JSON com a opção Adicionar novo recurso realçada.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. Selecione **Conta de Armazenamento** e forneça um nome a ela. Forneça um nome que não tenha mais de 11 caracteres e contenha apenas números e letras minúsculas.
 
@@ -189,7 +189,7 @@ Neste ponto, você implantou a infraestrutura de seu aplicativo, mas não há ne
 
 1. Agora, você precisa certificar-se de que seu projeto de grupo de recursos esteja ciente do novo projeto. Volte ao seu projeto de grupo de recursos (ExampleAppDeploy). Clique com botão direito do mouse em **Referências** e selecione **Adicionar Referência**.
 
-    ![Adicionar referência](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![Captura de tela mostra o menu ExampleAppDeploy com a opção Adicionar referência realçada.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. Selecione o projeto de aplicativo Web que você criou.
 
@@ -364,7 +364,7 @@ Você não está limitado apenas aos recursos disponíveis por meio da interface
 
 1. Depois que a implantação for concluída, exiba o painel no portal. Selecione **Painel** e escolha o que você implantou.
 
-   ![Painel personalizado](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![Captura de tela mostra a página de painel com um painel personalizado de exemplo realçado.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. Você vê o painel personalizado.
 

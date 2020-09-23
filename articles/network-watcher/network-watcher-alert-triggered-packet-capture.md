@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738049"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975059"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
 
@@ -30,7 +30,7 @@ Os recursos implantados no Azure estão em execução 24/7. Você e sua equipe n
 
 Usando o Observador de Rede, Alertas e Funções de dentro do ecossistema do Azure, você pode responder proativamente com dados e ferramentas para resolver problemas em sua rede.
 
-![Cenário][scenario]
+![O diagrama mostra a extensão do observador de rede em uma máquina virtual que flui para os segmentos T C P enviados > erro 100, que flui para Azure Functions, que flui para o observador de rede, que flui para a extensão do observador de rede.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -90,7 +90,7 @@ A primeira etapa é criar uma função do Azure para processar o alerta e criar 
     |**Configuração** | **Valor** | **Detalhes** |
     |---|---|---|
     |**Cenário**|Habilitação|Tipo de cenário|
-    |**Nomeie sua função**|AlertPacketCapturePowerShell|Nome da função|
+    |**Nomear sua função**|AlertPacketCapturePowerShell|Nome da função|
     |**Nível de autorização**|Função|Nível de autorização para a função|
 
 ![Exemplo de funções][functions1]
@@ -252,7 +252,7 @@ $Encryptedpassword
 
 1. Adicione as variáveis de ambiente e seus valores às configurações do aplicativo e selecione **Salvar**.
 
-    ![Configurações do aplicativo][functions12]
+    ![Configurações de aplicativo][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>Adicione o PowerShell para a função
 
@@ -350,7 +350,7 @@ Vá até uma máquina virtual existente e adicione uma regra de alerta. Mais doc
   |**Condição**|Maior que| A condição para usar ao avaliar a métrica.|
   |**Limite**|100| O valor da métrica que dispara o alerta. Esse valor deve ser definido como um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período no qual procurar o limite na métrica.|
-  |**webhook**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
+  |**Webhook**|[URL do webhook do aplicativo de funções]| A URL de webhook do aplicativo de funções que foi criada nas etapas anteriores.|
 
 > [!NOTE]
 > A métrica de segmentos TCP não está habilitada por padrão. Saiba mais sobre como habilitar outras métricas visitando [Habilitar o monitoramento e o diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

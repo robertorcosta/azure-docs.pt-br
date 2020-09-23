@@ -11,20 +11,20 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b6b4be2eb2cd490d525046541f68a45d87a8e638
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646968"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906686"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Criar um pipeline do Azure Machine Learning para pontuação de lote
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste tutorial avançado, você aprende a criar um pipeline no Azure Machine Learning para executar um trabalho de pontuação em lotes. Os pipelines de aprendizado de máquina otimizam o fluxo de trabalho com velocidade, portabilidade e reutilização, de modo que você possa se concentrar no aprendizado de máquina em vez de na infraestrutura e na automação. Depois de criar e publicar um pipeline, você configurará um ponto de extremidade REST que poderá ser usado para disparar o pipeline por meio de qualquer biblioteca HTTP em qualquer plataforma. 
 
-O exemplo usa um modelo de rede neural convolucional [Inception-V3](https://arxiv.org/abs/1512.00567) pré-treinado implementado no Tensorflow para classificar imagens sem rótulo. [Saiba mais sobre pipelines de aprendizado de máquina](concept-ml-pipelines.md).
+Neste tutorial avançado, você aprende a criar um [pipeline do Azure Machine Learning](concept-ml-pipelines.md) para executar um trabalho de pontuação em lotes. Os pipelines de aprendizado de máquina otimizam o fluxo de trabalho com velocidade, portabilidade e reutilização, de modo que você possa se concentrar no aprendizado de máquina em vez de na infraestrutura e na automação. Depois de criar e publicar um pipeline, você configurará um ponto de extremidade REST que poderá ser usado para disparar o pipeline por meio de qualquer biblioteca HTTP em qualquer plataforma. 
+
+O exemplo usa um modelo de rede neural convolucional [Inception-V3](https://arxiv.org/abs/1512.00567) pré-treinado implementado no Tensorflow para classificar imagens sem rótulo. 
 
 Neste tutorial, você completa as seguintes tarefas:
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768377"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906528"
 ---
 # <a name="query-performance-insight"></a>Análise de Desempenho de Consultas 
 
@@ -30,7 +30,7 @@ A visualização da [Análise de Desempenho de Consultas](concepts-query-perform
 
 Na página do portal do servidor do banco de dados do Azure para PostgreSQL, selecione análise de **desempenho de consultas** na seção **desempenho inteligente** da barra de menus.
 
-![Consultas de execução longa da Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Consultas de execução longa da Análise de Desempenho de Consultas":::
 
 A guia **consultas de longa execução** mostra as cinco principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Você pode exibir mais consultas selecionando na lista suspensa **número de consultas** . As cores do gráfico pode ser alteradas para uma ID de consulta específica ao fazer isso.
 
@@ -40,7 +40,7 @@ A tabela abaixo do gráfico contém mais detalhes sobre as consultas de execuç�
 
 Selecione a guia das **Estatísticas de Espera** guia para exibir as visualizações correspondentes em espera no servidor.
 
-![Estatísticas de esperas de Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Estatísticas de esperas de Análise de Desempenho de Consultas":::
 
 ## <a name="considerations"></a>Considerações
 * Análise de Desempenho de Consultas não está disponível para [réplicas de leitura](concepts-read-replicas.md).

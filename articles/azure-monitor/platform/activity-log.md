@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516134"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983207"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
 O log de atividades é um [log de plataforma](platform-logs-overview.md) no Azure que fornece informações sobre eventos de nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
@@ -156,7 +156,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Cada blob PT1H.json contém um blob JSON de eventos que ocorreram dentro de uma hora especificada na URL do blob (por exemplo, h=12). Durante a hora presente, os eventos são acrescentados ao arquivo PT1H.json conforme eles ocorrem. O valor de minuto (m = 00) é sempre 00, pois os eventos do log de recursos são divididos em BLOBs individuais por hora.
 
-Cada evento é armazenado na PT1H.jsno arquivo com o seguinte formato que usa um esquema de nível superior comum, mas, caso contrário, é exclusivo para cada categoria, conforme descrito no [esquema do log de atividades](activity-log-schema.md).
+Cada evento é armazenado na PT1H.jsno arquivo com o seguinte formato que usa um esquema de nível superior comum, mas, caso contrário, é exclusivo para cada categoria, conforme descrito no  [esquema do log de atividades](activity-log-schema.md).
 
 ``` JSON
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
@@ -172,7 +172,7 @@ Perfis de log são o método herdado para enviar o log de atividades para o arma
 1. No menu **Azure monitor** na portal do Azure, selecione log de **atividades**.
 3. Clique em **Configurações do Diagnóstico**.
 
-   ![Configurações de diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
+   ![Configurações de Diagnóstico](media/diagnostic-settings-subscription/diagnostic-settings.png)
 
 4. Clique na faixa roxa para a experiência herdada.
 
@@ -201,12 +201,12 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
 
     | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
-    | Nome |Sim |Nome de seu perfil de log. |
-    | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
-    | serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | Name |Sim |Nome de seu perfil de log. |
+    | StorageAccountId |No |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
+    | serviceBusRuleId |No |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Localização |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
     | RetentionInDays |Sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
-    | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
+    | Categoria |No |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
 
 ### <a name="example-script"></a>Script de exemplo
 Veja a seguir um exemplo de script do PowerShell para criar um perfil de log que grava o log de atividades em uma conta de armazenamento e no Hub de eventos.
@@ -259,7 +259,7 @@ O método herdado para enviar o log de atividades para um Log Analytics espaço 
 1. Na seção **fontes de dados de espaço de trabalho** do menu do espaço de trabalho, selecione **log de atividades do Azure**.
 1. Clique na assinatura que você deseja conectar.
 
-    ![Workspaces](media/activity-log-collect/workspaces.png)
+    ![Captura de tela mostra Log Analytics espaço de trabalho com um log de atividades do Azure selecionado.](media/activity-log-collect/workspaces.png)
 
 1. Clique em **conectar** para conectar o log de atividades na assinatura ao espaço de trabalho selecionado. Se a assinatura já estiver conectada a outro espaço de trabalho, clique em **Desconectar** primeiro para desconectá-la.
 

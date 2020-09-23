@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/03/2020
-ms.openlocfilehash: 46f7c7185de559fb6b6545eb8f1b2113aa0ec4b2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085001"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986014"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -31,12 +31,13 @@ Estes são os limites de definição de um único aplicativo lógico:
 | Gatilhos por fluxo de trabalho | 10 | Ao trabalhar no modo de exibição de código, não no designer |
 | Limite de casos de escopo do comutador | 25 | |
 | Variáveis por fluxo de trabalho | 250 | |
-| Caracteres por expressão | 8\.192 | |
-| Tamanho máximo para `trackedProperties` | 16.000 caracteres |
 | Nome para `action` ou `trigger` | 80 caracteres | |
+| Caracteres por expressão | 8\.192 | |
 | Comprimento de `description` | 256 caracteres | |
-| Máximo `parameters` | 50 | |
-| Máximo `outputs` | 10 | |
+| Número máximo de `parameters` | 50 | |
+| Número máximo de `outputs` | 10 | |
+| Tamanho máximo para `trackedProperties` | 16.000 caracteres |
+| Ação de código embutido-número máximo de caracteres de código | 1.024 caracteres <p>Para um limite de caracteres de 100.000, crie seus aplicativos lógicos com Visual Studio Code e a [extensão de **aplicativo lógico do Azure** de visualização](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 

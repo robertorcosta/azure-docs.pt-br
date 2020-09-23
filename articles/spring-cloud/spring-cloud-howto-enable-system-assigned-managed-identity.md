@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c092052e05f355838f3853fa7376b46ef743de7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299638"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888569"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como habilitar uma identidade gerenciada atribuída pelo sistema para o aplicativo Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+
 Identidades gerenciadas para recursos do Azure fornecem uma identidade gerenciada automaticamente no Azure Active Directory para um recurso do Azure, como seu aplicativo de nuvem Spring do Azure. Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código.
 
 Este artigo mostra como habilitar e desabilitar identidades gerenciadas atribuídas pelo sistema para um aplicativo de nuvem do Azure Spring, usando o portal do Azure e a CLI (disponível na versão 0.2.4).
@@ -81,7 +84,8 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Como usar identidades gerenciadas com o SDK do Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+
 * [Acesse Azure Key Vault com identidades gerenciadas no iniciador do Spring boot](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Saiba mais sobre identidades gerenciadas para recursos do Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Como usar identidades gerenciadas com o SDK do Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 

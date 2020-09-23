@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0718151039d88ffb76a07ce082c08fb011dab88b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652203"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061590"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Tutorial: Mover os recursos do Banco de Dados SQL do Azure para outra região
 
@@ -77,7 +77,6 @@ Selecione os recursos que deseja mover.
 
 3. Em **Mover recursos** > **Origem + Destino**, selecione a assinatura e a região de origem.
 4. Em **Destino**, selecione a região para a qual deseja mover os recursos. Em seguida, clique em **Próximo**.
-5. Em **Região de metadados**, selecione onde deseja armazenar os metadados sobre os recursos que você está movendo. Um grupo de recursos é criado especificamente para essa finalidade. Em seguida, clique em **Próximo**.
 
     ![Página para selecionar a região de origem e de destino](./media/tutorial-move-region-sql/source-target.png)
 

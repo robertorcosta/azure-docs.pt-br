@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 07/6/2020
-ms.openlocfilehash: d62fd0a23a5f5553f27c7a399eb17d06d427a6f3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6c878aa0e4a9d5caa22f7cd94c438f22a81d2ab
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108780"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90881873"
 ---
 # <a name="what-is-azure-stream-analytics"></a>O que é o Azure Stream Analytics?
 
@@ -57,7 +57,7 @@ Para acessar toda a lista de saídas do Stream Analytics, confira [Compreender a
 
 ## <a name="programmer-productivity"></a>Produtividade do programador
 
-O Azure Stream Analytics usa uma linguagem de consulta baseada em SQL simples que foi aumentada com restrições temporais avançadas para analisar os dados em movimento. Para definir as transformações de trabalho, use uma [Linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) simples e declarativa que permite criar consultas temporais e análises complexas usando constructos SQL simples. Como a linguagem de consulta do Stream Analytics é consistente com a linguagem SQL, basta estar familiarizado com a linguagem SQL para começar a criar trabalhos. Você também pode criar trabalhos usando ferramentas de desenvolvedor, como o Azure PowerShell, as [ferramentas do Visual Studio para o Stream Analytics](stream-analytics-tools-for-visual-studio-install.md), a [extensão do Visual Studio Code no Stream Analytics](quick-create-vs-code.md) ou modelos do Azure Resource Manager. O uso de ferramentas de desenvolvedor permite a você criar consultas de transformação offline e usar o [pipeline CI/CD](stream-analytics-tools-for-visual-studio-cicd.md) para enviar trabalhos ao Azure.
+O Azure Stream Analytics usa uma linguagem de consulta baseada em SQL simples que foi aumentada com restrições temporais avançadas para analisar os dados em movimento. Para definir as transformações de trabalho, use uma [Linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) simples e declarativa que permite criar consultas temporais e análises complexas usando constructos SQL simples. Como a linguagem de consulta do Stream Analytics é consistente com a linguagem SQL, basta estar familiarizado com a linguagem SQL para começar a criar trabalhos. Você também pode criar trabalhos usando ferramentas de desenvolvedor, como o Azure PowerShell, as [ferramentas do Visual Studio para o Stream Analytics](stream-analytics-tools-for-visual-studio-install.md), a [extensão do Visual Studio Code no Stream Analytics](quick-create-visual-studio-code.md) ou modelos do Azure Resource Manager. O uso de ferramentas de desenvolvedor permite a você criar consultas de transformação offline e usar o [pipeline CI/CD](stream-analytics-tools-for-visual-studio-cicd.md) para enviar trabalhos ao Azure.
 
 A linguagem de consulta do Stream Analytics oferece uma ampla variedade de funções para analisar e processar os dados de streaming. Essa linguagem de consulta dá suporte a manipulação simples de dados, funções de agregação e análise, [funções geoespaciais](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [correspondência de padrões](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) e [detecção de anomalias](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection). Você pode editar consultas no portal e testá-las usando os dados de exemplo que são extraídos do fluxo ativo.
 
@@ -106,4 +106,4 @@ Agora você tem uma visão geral do Azure Stream Analytics. Em seguida, você po
 * [Criar um trabalho do Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md).
 * [Criar um trabalho do Stream Analytics usando o Azure PowerShell](stream-analytics-quick-create-powershell.md).
 * [Criar um trabalho do Stream Analytics usando o Visual Studio](stream-analytics-quick-create-vs.md).
-* [Criar um trabalho do Stream Analytics usando o Visual Studio Code](quick-create-vs-code.md).
+* [Criar um trabalho do Stream Analytics usando o Visual Studio Code](quick-create-visual-studio-code.md).

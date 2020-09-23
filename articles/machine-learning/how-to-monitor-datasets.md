@@ -11,15 +11,15 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4b2b435be2a39b6e31a7f44fa6acbe7e1bc9c2c0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d60a963f8ad4b29d3c282d30e6aca9973208860b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661667"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905157"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > A detecção de descompasso de dados em DataSets está atualmente em visualização pública.
@@ -37,9 +37,6 @@ Com os monitores Azure Machine Learning DataSet (versão prévia), você pode:
 Um [conjunto de informações do Azure Machine Learning](how-to-create-register-datasets.md) é usado para criar o monitor. O DataSet deve incluir uma coluna timestamp.
 
 Você pode exibir as métricas de descompasso de dados com o SDK do Python ou no Azure Machine Learning Studio.  Outras métricas e informações estão disponíveis por meio do recurso de [informações aplicativo Azure](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) associadas ao espaço de trabalho Azure Machine Learning.
-
-> [!Important]
-> O monitoramento de descompasso de dados com o SDK está disponível em todas as edições. No entanto, monitorar a descompasso de dados por meio do estúdio na Web é apenas a Enterprise Edition.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -135,7 +132,6 @@ dset = dset.register(ws, 'target')
 Para obter um exemplo completo de como usar a `timeseries` característica de conjuntos de valores, consulte o [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou a documentação do SDK dos conjuntos de [valores](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 Se você criar seu conjunto de dados usando o Azure Machine Learning Studio, certifique-se de que o caminho para os data contém informações de carimbo de data/hora, inclua todas as subpastas com dados e defina o formato da partição.
 
@@ -209,15 +205,13 @@ monitor = monitor.enable_schedule()
 Para obter um exemplo completo de como configurar um `timeseries` conjunto de dados e um detector de descompasso de dado, consulte nosso [bloco de anotações de exemplo](https://aka.ms/datadrift-notebook).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a> Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-Para configurar alertas em seu monitor de conjunto de negócios, o espaço de trabalho que contém o conjunto de um para o qual você deseja criar um monitor deve ter recursos de Enterprise Edition.
+1. Navegue até a [página inicial do estúdio](https://ml.azure.com).
+1. Selecione a guia **conjuntos de valores** à esquerda. 
+1. Selecione **monitores de DataSet**.
+   ![Lista de monitores](./media/how-to-monitor-datasets/monitor-list.png)
 
-Depois que a funcionalidade do espaço de trabalho for confirmada, navegue até a [página inicial do estúdio](https://ml.azure.com) e selecione a guia **conjuntos de valores** à esquerda. Selecione **monitores de DataSet**.
-
-![Lista de monitores](./media/how-to-monitor-datasets/monitor-list.png)
-
-Clique no botão **+ criar monitor** e prossiga com o assistente clicando em **Avançar**.  
+1. Clique no botão **+ criar monitor** e prossiga com o assistente clicando em **Avançar**.  
 
 :::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Criar um assistente de monitor":::
 
@@ -227,14 +221,14 @@ Clique no botão **+ criar monitor** e prossiga com o assistente clicando em **A
 
 * **Configurações do monitor**.  Essas configurações são para o pipeline monitor do conjunto de DataSet agendado, que será criado. 
 
-    | Setting | Descrição | Dicas | Mutável | 
+    | Configuração | Descrição | Dicas | Mutável | 
     | ------- | ----------- | ---- | ------- |
-    | Nome | Nome do monitor de DataSet. | | Não |
+    | Name | Nome do monitor de DataSet. | | No |
     | Recursos | Lista de recursos que serão analisados para descompasso de dados ao longo do tempo. | Definido como um ou mais recursos de saída do modelo para medir a descompasso de conceito. Não inclua recursos que naturalmente se descompassom ao longo do tempo (mês, ano, índice, etc.). Você pode aterrar e monitorar o descompasso de dados existente depois de ajustar a lista de recursos. | Sim | 
     | Destino de computação | Azure Machine Learning o destino de computação para executar os trabalhos do monitor de conjunto de trabalho. | | Sim | 
     | Habilitar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite a agenda para analisar os dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | Sim | 
-    | Frequência | A frequência que será usada para agendar o trabalho de pipeline e analisar os dados históricos se estiver executando um aterramento. As opções incluem diário, semanal ou mensal. | Cada execução compara dados no DataSet de destino de acordo com a frequência: <li>Diário: comparar o dia completo mais recente no conjunto de entrada de destino com linha de base <li>Semanalmente: comparar a semana concluída mais recente (segunda-feira a domingo) no conjunto de entrada de destino com linha de base <li>Mensal: comparar o mês completo mais recente no conjunto de entrada de destino com linha de base | Não | 
-    | Latency | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
+    | Frequência | A frequência que será usada para agendar o trabalho de pipeline e analisar os dados históricos se estiver executando um aterramento. As opções incluem diário, semanal ou mensal. | Cada execução compara dados no DataSet de destino de acordo com a frequência: <li>Diário: comparar o dia completo mais recente no conjunto de entrada de destino com linha de base <li>Semanalmente: comparar a semana concluída mais recente (segunda-feira a domingo) no conjunto de entrada de destino com linha de base <li>Mensal: comparar o mês completo mais recente no conjunto de entrada de destino com linha de base | No | 
+    | Latency | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | No | 
     | Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
     | Limite | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim |
 

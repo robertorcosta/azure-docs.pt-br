@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ce4c44ef17f456a776fde3addc5ec4ed29c8ebbd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fd6894ea90dc6cb3cc721438ba73a94b43c36a5b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434445"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983694"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -67,7 +67,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureInformationProtection** | Proteção de Informações do Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty**. | Saída | Não | Não |
 | **AzureIoTHub** | Hub IoT do Azure. | Saída | Não | Não |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Observação:* essa marca tem uma dependência na marca **AzureActiveDirectory**. | Saída | Sim | Sim |
-| **AzureLoadBalancer** | O balanceador de carga de infraestrutura do Azure. A marca é traduzida para o [endereço IP virtual do host](security-overview.md#azure-platform-considerations) (168.63.129.16), no qual as sondas de integridade do Azure se originam. Não inclui o tráfego para o recurso Azure Load Balancer. Se não estiver usando o Azure Load Balancer, você poderá substituir essa regra. | Ambos | Não | Não |
+| **AzureLoadBalancer** | O balanceador de carga de infraestrutura do Azure. A marca é traduzida para o [endereço IP virtual do host](security-overview.md#azure-platform-considerations) (168.63.129.16), no qual as sondas de integridade do Azure se originam. Isso inclui apenas o tráfego de investigação, não o tráfego real para o recurso de back-end. Se não estiver usando o Azure Load Balancer, você poderá substituir essa regra. | Ambos | Não | Não |
 | **AzureMachineLearning** | Azure Machine Learning. | Ambos | Não | Sim |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon e métricas personalizadas (pontos de extremidade GiG).<br/><br/>*Observação:* para Log Analytics, essa marca tem uma dependência na marca **Armazenamento** . | Saída | Não | Sim |
 | **AzureOpenDatasets** | Conjunto de Dados em Aberto no Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **AzureFrontDoor.Frontend** e **Storage**. | Saída | Não | Não |

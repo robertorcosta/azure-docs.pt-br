@@ -1,6 +1,6 @@
 ---
-title: Gerenciar dados históricos com a política de retenção-Azure SQL Edge (versão prévia)
-description: Saiba como gerenciar dados históricos com a política de retenção no Azure SQL Edge (versão prévia)
+title: Gerenciar dados históricos com a política de retenção-Azure SQL Edge
+description: Saiba como gerenciar dados históricos com a política de retenção no Azure SQL Edge
 keywords: Borda do SQL, retenção de dados
 services: sql-edge
 ms.service: sql-edge
@@ -9,22 +9,21 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9acec467819f159623176edf2f3f763a55019eb4
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550604"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888134"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Gerenciar dados históricos com a política de retenção
 
 A retenção de dados pode ser habilitada no banco de dado e qualquer uma das tabelas subjacentes individualmente, permitindo que os usuários criem políticas de envelhecimento flexíveis para suas tabelas e bancos de dados. A aplicação da retenção de dados é simples: ela requer que apenas um parâmetro seja definido durante a criação da tabela ou como parte de uma operação ALTER TABLE. 
 
-Depois que a política de retenção de dados é definidas pelo para um banco de dado e a tabela subjacente, uma tarefa de temporizador de tempo em segundo plano é executada para remover registros obsoletos da tabela habilitada para retenção de dados. A identificação de linhas correspondentes e sua remoção da tabela ocorrem de forma transparente, na tarefa em segundo plano que é agendada e executada pelo sistema. A condição de idade para as linhas da tabela é verificada com base na coluna usada como `filter_column` na definição da tabela. Se o período de retenção, por exemplo, for definido como uma semana, as linhas da tabela qualificadas para limpeza atenderão à seguinte condição: 
+Depois que a política de retenção de dados é definidas pelo para um banco de dado e a tabela subjacente, uma tarefa de temporizador de tempo em segundo plano é executada para remover registros obsoletos da tabela habilitada para retenção de dados. A identificação de linhas correspondentes e sua remoção da tabela ocorrem de forma transparente, na tarefa em segundo plano que é agendada e executada pelo sistema. A condição de idade para as linhas da tabela é verificada com base na coluna usada como `filter_column` na definição da tabela. Se o período de retenção, por exemplo, for definido como uma semana, as linhas da tabela qualificadas para limpeza atenderão a uma das seguintes condições: 
 
-```sql
-filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
-```
+- Se a coluna de filtro usar o tipo de dados DATETIMEOFFSET, a condição será `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- Caso contrário, a condição será `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## <a name="data-retention-cleanup-phases"></a>Fases de limpeza de retenção de dados
 
@@ -37,7 +36,7 @@ A operação de limpeza de retenção de dados é composta por duas fases.
 
 ## <a name="manual-cleanup"></a>Limpeza manual
 
-Dependendo das configurações de retenção de dados em uma tabela e da natureza da carga de trabalho no banco de dados, é possível que o thread de limpeza automática não remova completamente todas as linhas obsoletas durante sua execução. Para ajudá-lo e permitir que os usuários removam manualmente as linhas obsoletas, o `sys.sp_cleanup_data_retention` procedimento armazenado foi introduzido no Azure SQL Edge (versão prévia). 
+Dependendo das configurações de retenção de dados em uma tabela e da natureza da carga de trabalho no banco de dados, é possível que o thread de limpeza automática não remova completamente todas as linhas obsoletas durante sua execução. Para ajudá-lo e permitir que os usuários removam manualmente as linhas obsoletas, o `sys.sp_cleanup_data_retention` procedimento armazenado foi introduzido no Azure SQL Edge. 
 
 Esse procedimento armazenado usa três parâmetros. 
     - Nome do esquema-nome do esquema de propriedade da tabela. Esse é um parâmetro necessário. 
@@ -67,18 +66,20 @@ A excelente compactação de dados e a limpeza de retenção eficiente tornam o 
 
 ## <a name="monitoring-data-retention-cleanup"></a>Monitorando a limpeza de retenção de dados
 
-As operações de limpeza da política de retenção de dados podem ser monitoradas usando eventos estendidos (XEvents) no Azure SQL Edge (versão prévia). Para obter mais informações sobre eventos estendidos, consulte [visão geral do XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+As operações de limpeza da política de retenção de dados podem ser monitoradas usando eventos estendidos (XEvents) no Azure SQL Edge. Para obter mais informações sobre eventos estendidos, consulte [visão geral do XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
 
 Os seis eventos estendidos a seguir ajudam a acompanhar o estado das operações de limpeza. 
 
-| Nome | Descrição |
+| Name | Descrição |
 |------| ------------|
 | data_retention_task_started  | Ocorre quando uma tarefa em segundo plano para limpeza de tabelas com a política de retenção é iniciada. |
 | data_retention_task_completed  | Ocorre quando a tarefa em segundo plano para limpeza de tabelas com política de retenção termina. |
 | data_retention_task_exception  | Ocorre quando a tarefa em segundo plano para limpeza de tabelas com política de retenção falha fora do processo de limpeza de retenção específico da tabela. |
 | data_retention_cleanup_started  | Ocorre quando o processo de limpeza da tabela com a política de retenção de dados é iniciado. |
 | data_retention_cleanup_exception  | Ocorre falha no processo de limpeza da tabela com a política de retenção. |
-| data_retention_cleanup_completed  | Ocorre quando o processo de limpeza da tabela com a política de retenção de dados termina. |
+| data_retention_cleanup_completed  | Ocorre quando o processo de limpeza da tabela com a política de retenção de dados termina. |  
+
+Além disso, um novo tipo de buffer de anéis chamado `RING_BUFFER_DATA_RETENTION_CLEANUP` foi adicionado à exibição de gerenciamento dinâmico sys. dm_os_ring_buffers. Este modo de exibição pode ser usado para monitorar as operações de limpeza de retenção de dados. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

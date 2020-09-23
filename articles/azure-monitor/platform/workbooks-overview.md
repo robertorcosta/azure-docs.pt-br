@@ -1,6 +1,6 @@
 ---
 title: Visão geral das Pastas de Trabalho do Azure Monitor
-description: Simplifique a emissão de relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas
+description: Saiba como as pastas de trabalho fornecem uma tela flexível para análise de dados e a criação de relatórios visuais avançados dentro do portal do Azure.
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d6ac552640b4a557c51b674624e6a4493241e0ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657948"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977569"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor pastas de trabalho
 

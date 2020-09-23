@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749718"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983640"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Métricas e logs de WAN virtual do Azure
 
@@ -60,9 +60,9 @@ As etapas a seguir ajudam a localizar e exibir as métricas:
 
 2. Selecione **VPN (site a site)** para localizar um gateway site a site, **ExpressRoute** para localizar um gateway de ExpressRoute ou VPN de **usuário (ponto a site)** para localizar um gateway de ponto a site. Na página, você pode ver as informações do gateway. Copie essas informações. Você o usará posteriormente para exibir o diagnóstico usando Azure Monitor.
 
-3. Selecione **métricas**.
+3. Selecione **Métricas**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="métricas":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="Captura de tela mostra um painel V P N do site a site com o modo de exibição Azure Monitor selecionado.":::
 
 4. Na página **métricas** , você pode exibir as métricas nas quais está interessado.
 

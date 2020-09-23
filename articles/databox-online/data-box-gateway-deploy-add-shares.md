@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4e54f5254d38bca9c8ff30d5b7cefbe3fde69576
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923468"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904364"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferir dados com o Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Para criar um compartilhamento, realize o seguinte procedimento:
 
     3. Forneça uma conta de armazenamento na qual o compartilhamento residirá. Se um contêiner ainda não existir, ele será criado na conta de armazenamento com o nome do compartilhamento criado recentemente. Se o contêiner já existir, esse contêiner será usado.
        > [!IMPORTANT]
-       > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+       > Se você estiver usando a conta de Armazenamento do Azure com um dispositivo do Azure Stack Edge Pro ou do Data Box Gateway, assegure que não existam políticas de imutabilidade definidas nessa conta. Para obter mais informações, confira [Definir e gerenciar políticas de imutabilidade para o armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     4. Escolha o **Serviço de armazenamento** entre blob de blocos, blobs de página ou arquivos. O tipo do serviço escolhido depende do formato escolhido para os dados que residirão no Azure. Por exemplo, nesta instância, queremos que os dados residam como blocos de blob no Azure e, portanto, vamos escolher o Blob de Blocos. Se escolher o Blob de Páginas, você deverá fazer com que seus dados sejam alinhados com 512 bytes. Por exemplo, um VHDX sempre é alinhado com 512 bytes.
    
@@ -115,7 +115,7 @@ No cliente do Windows Server conectado ao Data Box Gateway, conecte-se a um comp
 
 ### <a name="connect-to-an-nfs-share"></a>Conectar-se a um compartilhamento NFS
 
-No cliente Linux conectado ao seu dispositivo Azure Stack Edge, siga o procedimento abaixo:
+No cliente Linux conectado ao seu dispositivo Azure Stack Edge Pro, siga o procedimento abaixo:
 
 1. Verifique se o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, use o seguinte comando:
 
