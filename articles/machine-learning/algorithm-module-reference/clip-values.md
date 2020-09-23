@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 6466cea9fe04bb308a670cb03fd3de5314758142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99fb41542dff28997438881abad71da11e927a78
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456600"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898816"
 ---
 # <a name="clip-values"></a>Recortar valores
 
-Este artigo descreve um módulo do designer de Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo do designer de Azure Machine Learning.
 
 Use o módulo valores de clipe para identificar e, opcionalmente, substituir valores de dados que estão acima ou abaixo de um limite especificado com uma média, uma constante ou outro valor substituto.  
 
@@ -116,7 +116,7 @@ Agora, experimente o mesmo pipeline usando 60 como o limite superior do percenti
   
 |Dados originais|Substituir por ausente|Substituir por limite|  
 |-------------------|--------------------------|----------------------------|  
-|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|VERDADEIRO<br /><br /> TRUE<br /><br /> 3, FALSO<br /><br /> 4, FALSO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, FALSO<br /><br /> 8, FALSO<br /><br /> 9, FALSO<br /><br /> VERDADEIRO|4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO| 
+|1<br /><br /> 2<br /><br /> 3<br /><br /> 4<br /><br /> 5<br /><br /> 6<br /><br /> 7<br /><br /> 8<br /><br /> 9<br /><br /> 10|TRUE<br /><br /> TRUE<br /><br /> 3, FALSO<br /><br /> 4, FALSO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, FALSO<br /><br /> 8, FALSO<br /><br /> 9, FALSO<br /><br /> TRUE|4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 4, VERDADEIRO<br /><br /> 5, FALSO<br /><br /> 6, FALSO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO<br /><br /> 7, VERDADEIRO| 
  
 ## <a name="next-steps"></a>Próximas etapas
 

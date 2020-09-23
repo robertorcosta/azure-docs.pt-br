@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753885"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898603"
 ---
 # <a name="convert-word-to-vector-module"></a>Converter palavra em módulo vetorial
 
-Este artigo descreve como usar a palavra converter em módulo vetorial no Azure Machine Learning designer (versão prévia) para executar estas tarefas:
+Este artigo descreve como usar a palavra converter em módulo vetorial no Azure Machine Learning designer para executar estas tarefas:
 
 - Aplique vários modelos de Word2Vec (Word2Vec, FastText, diferenciada modelo pretreinado) na Corpus de texto que você especificou como entrada.
 - Gere um vocabulário com incorporações de palavras.
@@ -55,7 +55,7 @@ Este módulo requer um conjunto de um DataSet que contém uma coluna de texto. O
 
     Como esse módulo cria um vocabulário a partir do texto, o conteúdo das colunas é diferente, o que leva a conteúdo de vocabulário diferente. É por isso que o módulo aceita apenas uma coluna de destino.
 
-4. Para a **estratégia Word2Vec**, escolha entre **diferenciada modelo de inglês pretreinado**, **Gensim Word2Vec**e **Gensim FastText**.
+4. Para a  **estratégia Word2Vec**, escolha entre **diferenciada modelo de inglês pretreinado**, **Gensim Word2Vec**e **Gensim FastText**.
 
 5. Se a **estratégia Word2Vec** for **Gensim Word2Vec** ou **Gensim FastText**:
 
@@ -93,7 +93,7 @@ O módulo tem uma saída:
 
 + **Vocabulário com incorporações**: contém o vocabulário gerado, junto com a inserção de cada palavra. Uma dimensão ocupa uma coluna.
 
-O exemplo a seguir ilustra como funciona a palavra converter em módulo de vetor. Ele aplica esse módulo com as configurações padrão ao conjunto de módulos (em inglês) da Wikipédia SP 500, fornecido em Azure Machine Learning (versão prévia).
+O exemplo a seguir ilustra como funciona a palavra converter em módulo de vetor. Ele aplica esse módulo com as configurações padrão para o conjunto de módulos (conjuntos de de SP 500) da Wikipédia pré-processado fornecido no Azure Machine Learning.
 
 ### <a name="source-dataset"></a>Conjunto de dados de origem
 
@@ -149,4 +149,4 @@ Esta seção contém dicas e respostas para perguntas frequentes.
 
 Confira o [conjunto de módulos disponíveis](module-reference.md) no Azure Machine Learning. 
 
-Para obter uma lista de erros específicos para os módulos do designer (versão prévia), consulte [Machine Learning códigos de erro](designer-error-codes.md).
+Para obter uma lista de erros específicos para os módulos do designer, consulte [Machine Learning códigos de erro](designer-error-codes.md).

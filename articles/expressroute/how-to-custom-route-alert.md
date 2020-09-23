@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4a116d06f5feb3fe402e7f64b9bccd5531b210c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986578"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorar rotas anunciadas
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 Quando você executa o script do PowerShell, uma lista de valores é coletada:
  
-* Grupo de recursos
+* Resource group
 
 * Nome do gateway de ExpressRoute
 
@@ -299,7 +299,7 @@ No gatilho agendamento de recorrência, você pode definir o fuso horário e uma
 
 No final da configuração do fluxo de trabalho, você pode verificar a consistência da frequência de recorrência executando o fluxo de trabalho algumas vezes e, em seguida, verificando o resultado no **histórico de execuções**.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Recorrência" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Captura de tela mostra os valores de intervalo de recorrência e de frequência." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. criar um trabalho
 
@@ -320,7 +320,7 @@ Um aplicativo lógico acessa outros aplicativos, serviços e a plataforma, por m
 
 5. Na página **criar trabalho** , a entidade de serviço deve ter a função "leitor" no **grupo de recursos** que hospeda a conta de automação e "operador de trabalho de automação" na **conta de automação**. Além disso, verifique se você adicionou o **nome do runbook** como um novo parâmetro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Funções" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Captura de tela mostra criar valores de trabalho em recorrência, onde você pode verificar o nome do runbook." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="4-get-the-job-output"></a><a name="output"></a>4. obter a saída do trabalho
 
@@ -343,7 +343,7 @@ As informações contidas na saída da ' ação de criação do trabalho de auto
 
 3. Clique dentro da caixa de **conteúdo** . Quando a lista de conteúdo dinâmico for exibida, selecione **conteúdo**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Conteúdo" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Captura de tela mostra a caixa de diálogo analisar JSON com o conteúdo selecionado." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. A análise de um JSON requer um esquema. O esquema pode ser gerado usando a saída do runbook de automação. Abra uma nova sessão do navegador da Web, execute o runbook de automação e pegue a saída. Retorne à ação **aplicativos lógicos de análise de dados JSON** . Na parte inferior da página, selecione **usar conteúdo de exemplo para gerar o esquema**.
 
@@ -363,7 +363,7 @@ Nesta etapa do fluxo de trabalho, criamos uma condição para enviar um alarme p
 
 1. Na **ação obter saída do trabalho**, selecione **nova etapa**. Na caixa de pesquisa, localize e selecione **variáveis**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Variáveis":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Captura de tela mostra a caixa de diálogo escolher uma ação com variável na caixa de pesquisa e variáveis selecionadas.":::
 
 2. Na lista **ações** , selecione a ação **inicializar variável** .
 
@@ -371,7 +371,7 @@ Nesta etapa do fluxo de trabalho, criamos uma condição para enviar um alarme p
 
 3. Especifique o nome da variável. Para **tipo**, selecione **cadeia de caracteres**. O **valor** da variável será atribuído posteriormente no fluxo de trabalho.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Cadeia de caracteres" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="A captura de tela mostra analisar JSON associado à variável Initialize, onde você pode inserir um nome, tipo e valor." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="7-create-a-for-each-action"></a><a name="cycles-json"></a>7. criar uma ação "para cada"
 
@@ -379,7 +379,7 @@ Depois que o JSON é analisado, a ação **analisar operações de dados JSON** 
 
 1. Em **inicializar variável**, selecione **Adicionar uma ação**. Na caixa de pesquisa, digite "for each" como filtro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Controle":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Captura de tela mostra a caixa de diálogo escolher uma ação com para cada na caixa de pesquisa e o controle selecionado.":::
 
 2. Na lista **ações** , selecione a ação **para cada controle**.
 
@@ -387,7 +387,7 @@ Depois que o JSON é analisado, a ação **analisar operações de dados JSON** 
 
 3. Clique na caixa de texto **selecionar uma saída de etapas anteriores** . Quando a lista de **conteúdo dinâmico** for exibida, selecione o **corpo**, que é a saída do JSON analisado.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Corpo":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Captura de tela mostra a variável inicializada associada a para cada, que contém a caixa de texto selecionar uma saída de etapas anteriores.":::
 
 4. Para cada elemento do corpo JSON, queremos definir uma condição. No grupo de ações, selecione **controle**.
 

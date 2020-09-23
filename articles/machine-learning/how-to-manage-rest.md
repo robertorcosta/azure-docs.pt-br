@@ -10,16 +10,16 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8c97ee9782f728e39175ed2517b64020ca4169f4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 39000a34d1d19026ce406eeb996f89d1acc7ea04
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649404"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897367"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e excluir recursos do Azure ML usando REST
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Há várias maneiras de gerenciar seus recursos do Azure ML. Você pode usar o [portal](https://portal.azure.com/), a [interface de linha de comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)ou o SDK do [python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Ou, você pode escolher a API REST. A API REST usa verbos HTTP de uma maneira padrão para criar, recuperar, atualizar e excluir recursos. A API REST funciona com qualquer linguagem ou ferramenta que possa fazer solicitações HTTP. A estrutura direta do REST geralmente o torna uma boa opção nos ambientes de script e na automação de MLOps. 
 
@@ -423,5 +423,5 @@ O workspace do Azure Machine Learning usa o ACR (Registro de Contêiner do Azure
 ## <a name="next-steps"></a>Próximas etapas
 
 - Explore a [referência da API REST do AzureML](https://docs.microsoft.com/rest/api/azureml/)completa.
-- Saiba como usar o Studio & designer para [prever o preço do automóvel com o designer (versão prévia)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Saiba como usar o designer para [prever o preço do automóvel com o designer](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
 - Explore [Azure Machine Learning com notebooks Jupyter](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

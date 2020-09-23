@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 361199bd380b126ec41fb8a5587a2ebd78cd6f24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cc367b86507d6d819608795851052e8a0c1c73b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84447604"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890315"
 ---
 # <a name="score-model"></a>Pontuar Modelo
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para gerar previsões usando um modelo de classificação ou regressão treinado.
 

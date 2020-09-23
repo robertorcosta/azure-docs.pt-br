@@ -11,15 +11,15 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 8d357cea7ce809c2df6b35e08ac7da7e9d3795e9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890004"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Como depurar e solucionar problemas de ParallelRunStep
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a depurar e solucionar problemas da classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) do [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
@@ -29,7 +29,7 @@ Consulte a seção [Testar scripts localmente](how-to-debug-pipelines.md#debug-s
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depurar scripts do contexto remoto
 
-A transição da depuração de um script de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um passo difícil. Para obter informações sobre como localizar seus logs no portal, a seção [Pipelines do Machine Learning em scripts de depuração de um contexto remoto](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). As informações contidas nessa seção também se aplicam a um ParallelRunStep.
+A transição da depuração de um script de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um passo difícil. Para obter informações sobre como localizar seus logs no portal, a seção [Pipelines do Machine Learning em scripts de depuração de um contexto remoto](how-to-debug-pipelines.md). As informações contidas nessa seção também se aplicam a um ParallelRunStep.
 
 Por exemplo, o arquivo de log `70_driver_log.txt` contém informações do controlador que inicia o código ParallelRunStep.
 

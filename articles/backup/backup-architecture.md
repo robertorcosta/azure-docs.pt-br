@@ -3,12 +3,12 @@ title: Visão geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos usados pelo serviço de Backup do Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824025"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986487"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes de backup do Azure
 
@@ -35,18 +35,22 @@ Saiba mais sobre [o que você pode fazer](backup-overview.md) backup e sobre [ce
 
 ## <a name="where-is-data-backed-up"></a>Onde os dados são armazenados em backup?
 
-O backup do Azure armazena dados de backup em um cofre dos serviços de recuperação. Um cofre é uma entidade de armazenamento online no Azure que é usada para armazenar dados, como cópias de backup, pontos de recuperação e políticas de backup.
+O backup do Azure armazena dados de backup em cofres-recuperar cofres de serviços e cofres de backup. Um cofre é uma entidade de armazenamento online no Azure que é usada para armazenar dados, como cópias de backup, pontos de recuperação e políticas de backup.
 
-Os cofres dos serviços de recuperação têm os seguintes recursos:
+Os cofres têm os seguintes recursos:
 
 - Os cofres facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento.
-- Em cada assinatura do Azure, você pode criar até 500 cofres.
 - Você pode monitorar itens com backup em um cofre, incluindo VMs do Azure e computadores locais.
 - Você pode gerenciar o acesso ao cofre com o [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/role-assignments-portal.md).
 - Você especifica como os dados no cofre são replicados para redundância:
-  - **LRS (armazenamento com redundância local)**: para se proteger contra falhas em um datacenter, você pode usar o lRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md).
-  - **Armazenamento com redundância geográfica (GRS)**: para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md).
+  - **LRS (armazenamento com redundância local)**: para se proteger contra falhas em um datacenter, você pode usar o lRS. O LRS replica os dados para uma unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Armazenamento com redundância geográfica (GRS)**: para proteger contra interrupções em toda a região, você pode usar o grs. O GRS Replica seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **ZRS (armazenamento com redundância de zona)**: Replica seus dados em [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantindo a resiliência e a resistência dos dados na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Por padrão, os cofres dos serviços de recuperação usam GRS.
+
+Os cofres dos serviços de recuperação têm os seguintes recursos adicionais:
+
+- Em cada assinatura do Azure, você pode criar até 500 cofres.
 
 ## <a name="backup-agents"></a>Agentes de backup
 
@@ -106,7 +110,7 @@ Fazer backup de discos com eliminação de duplicação | | | ![Parcialmente][ye
 
 - Uma política de backup é criada por cofre.
 - Uma política de backup pode ser criada para o backup das seguintes cargas de trabalho: VMs do Azure, SQL em VMs do Azure, SAP HANA em VMs do Azure e compartilhamentos de arquivos do Azure. A política para backup de arquivos e pastas usando o agente MARS é especificada no console do MARS.
-  - Compartilhamento de Arquivo do Azure
+  - Compartilhamento de arquivos do Azure
 - Uma política pode ser atribuída a muitos recursos. Uma política de backup de VM do Azure pode ser usada para proteger várias VMs do Azure.
 - Uma política consiste em dois componentes
   - Agenda: Ao fazer o backup

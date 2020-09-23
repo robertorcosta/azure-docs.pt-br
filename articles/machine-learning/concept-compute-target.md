@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651203"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883209"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -68,7 +68,7 @@ Quando criados, esses recursos de computação são automaticamente parte do seu
 
 
 > [!NOTE]
-> Quando um cluster de computação está ocioso, ele é dimensionado em escala para 0 nós, portanto, você não paga quando não está em uso.  Uma *instância*de computação, no entanto, é sempre ativada e não faz dimensionamento automático.  Você deve [interromper a instância de computação](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando não a estiver usando para evitar custo extra. 
+> Quando um cluster de computação está ocioso, ele é dimensionado em escala para 0 nós, portanto, você não paga quando não está em uso.  Uma *instância*de computação, no entanto, é sempre ativada e não faz dimensionamento automático.  Você deve [interromper a instância de computação](concept-compute-instance.md#managing-a-compute-instance) quando não a estiver usando para evitar custo extra. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos de VM com suporte
 
