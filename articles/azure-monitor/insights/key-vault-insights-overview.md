@@ -1,23 +1,23 @@
 ---
-title: Monitorar Key Vault com Azure Monitor para Key Vault (versão prévia) | Microsoft Docs
+title: Monitorar Key Vault com Azure Monitor para Key Vault | Microsoft Docs
 description: Este artigo descreve o Azure Monitor para Key Vaults.
 services: azure-monitor
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/13/2019
-ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.date: 09/10/2020
+ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069791"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894511"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoramento do serviço do Key Vault com Azure Monitor para Key Vault (versão prévia)
-O Azure Monitor para Key Vault (versão prévia) fornece monitoramento abrangente de key vaults, fornecendo uma exibição unificada das solicitações, desempenho, falhas e latência do Key Vault.
-Este artigo ajudará a entender como integrar e personalizar a experiência do Azure Monitor para Key Vault (versão prévia).
+# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorando o serviço de cofre de chaves com Azure Monitor para Key Vault
+Azure Monitor para Key Vault fornece monitoramento abrangente de seus cofres de chaves, fornecendo uma exibição unificada de suas solicitações de Key Vault, desempenho, falhas e latência.
+Este artigo o ajudará a entender como integrar e personalizar a experiência de Azure Monitor para Key Vault.
 
-## <a name="introduction-to-azure-monitor-for-key-vault-preview"></a>Introdução ao Azure Monitor para Key Vault (versão prévia)
+## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introdução ao Azure Monitor para Key Vault
 
 Antes de saltar para a experiência, você deve entender como ela apresenta e visualiza informações.
 -    **Na perspectiva de escala**, mostrando uma exibição de instantâneo do desempenho com base nas solicitações, no detalhamento de falhas e em uma visão geral das operações e da latência.
@@ -49,7 +49,7 @@ Para exibir a utilização e as operações de seus cofres de chaves em todas as
 
 1. Entre no [Portal do Azure](https://portal.azure.com/)
 
-2. Selecione **Monitor** no painel esquerdo do portal do Azure e, na seção Insights, selecione **Key Vaults (versão prévia)** .
+2. Selecione **Monitor** no painel esquerdo na portal do Azure e, na seção insights, selecione **cofres de chaves**.
 
 ![Captura de tela da experiência de visão geral com vários grafos](./media/key-vaults-insights-overview/overview.png)
 
@@ -83,7 +83,7 @@ Para acessar o Azure Monitor para Key Vault diretamente em um key vault:
 
 1. Na portal do Azure, selecione Key Vaults.
 
-2. Na lista, escolha um key vault. Na seção Monitoramento, escolha Insights (versão prévia).
+2. Na lista, escolha um key vault. Na seção monitoramento, escolha insights.
 
 Essas exibições também podem ser acessadas selecionando o nome do recurso de um key vault na pasta de trabalho do Azure Monitor.
 
@@ -140,7 +140,7 @@ As personalizações são salvas em uma pasta de trabalho personalizada para evi
 
 Você pode configurar as pastas de trabalho Visão geral ou Falhas de várias assinaturas e key vaults para definir o escopo para uma assinatura ou key vault específico em cada execução, seguindo as etapas abaixo:
 
-1. Selecione **Monitor** no portal e, em seguida, selecione **Key Vaults (versão prévia)** no painel esquerdo.
+1. Selecione **Monitor** no portal e, em seguida, selecione **cofres de chaves** no painel esquerdo.
 2. Na pasta de trabalho **Visão geral**, na barra de comandos, selecione **Editar**.
 3. Selecione na lista suspensa **Assinaturas** uma ou mais assinaturas que você deseja usar como o padrão. Lembre-se de que a pasta de trabalho permite selecionar até 10 assinaturas no total.
 4. Selecione na lista suspensa **Key Vaults** uma ou mais contas que você deseja usar como padrão. Lembre-se de que a pasta de trabalho permite selecionar até 200 contas de armazenamento no total.
@@ -150,11 +150,11 @@ Você pode configurar as pastas de trabalho Visão geral ou Falhas de várias as
 
 Para obter diretrizes gerais de solução de problemas, consulte o [artigo de solução de problemas](troubleshoot-workbooks.md)de informações baseadas na pasta de trabalho dedicada.
 
-Esta seção ajuda no diagnóstico e na solução de alguns dos problemas mais comuns que você pode encontrar ao usar o Azure Monitor para Key Vault (versão prévia). Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
+Esta seção o ajudará com o diagnóstico e a solução de problemas de alguns dos problemas comuns que você pode encontrar ao usar o Azure Monitor para Key Vault. Use a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas ou falhas de desempenho
 
-Para ajudar a solucionar os problemas relacionados ao key vault identificados com o Azure Monitor para Key Vault (versão prévia), confira a documentação [Azure Key Vault](../../key-vault/index.yml).
+Para ajudar a solucionar problemas relacionados ao cofre de chaves que você identifica com Azure Monitor para Key Vault, consulte a [documentação do Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Por que só posso ver os cofres de chaves 200
 

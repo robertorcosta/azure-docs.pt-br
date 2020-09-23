@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 97c21ca300ee070b2cebaa01a585c1618899b1eb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: fa0c2f5bb00122b40fb4f4ea06b7cf55c0248904
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687097"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025172"
 ---
 
-![Visão geral](../../../media/quickstarts/overview-grpc.png)
+![Visão geral](../../../media/quickstarts/gRPC-extension.svg)
 
 O diagrama mostra como os sinais fluem neste guia de início rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](../../../media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de detecção de movimento](../../../media-graph-concept.md#motion-detection-processor). Esse processador detectará o movimento e, após a detecção, enviará por push quadros de vídeo para o nó do [processador de extensão gRPC](../../../media-graph-concept.md#grpc-extension-processor).
 

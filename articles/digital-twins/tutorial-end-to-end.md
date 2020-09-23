@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0b7e277518337072659bf5ccddd3436c05ff5201
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401768"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563787"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -162,13 +162,13 @@ Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure,
 
 No Azure Cloud Shell, use o comando a seguir para definir uma configuração de aplicativo que seu aplicativo de funções usará para fazer referência à sua instância de Gêmeos Digitais do Azure.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Use o comando a seguir para criar a identidade gerenciada pelo sistema. Anote o campo *principalId* na saída.
 
-```azurecli-interactive
+```azurecli
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
@@ -203,7 +203,7 @@ Os Gêmeos Digitais do Azure foram criados para trabalhar com o [Hub IoT](../iot
 
 No Azure Cloud Shell, use este comando para criar um hub IoT:
 
-```azurecli-interactive
+```azurecli
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -242,7 +242,7 @@ Esta seção cria uma representação do dispositivo no Hub IoT com a ID *thermo
 
 No Azure Cloud Shell, crie um dispositivo no Hub IoT com o seguinte comando:
 
-```azurecli-interactive
+```azurecli
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -330,7 +330,7 @@ Nesta seção, você cria um tópico da grade de eventos e, em seguida, cria um 
 
 No Azure Cloud Shell, execute o comando a seguir para criar um tópico da grade de eventos:
 
-```azurecli-interactive
+```azurecli
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
@@ -441,7 +441,7 @@ Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos 
 > [!IMPORTANT]
 > A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 

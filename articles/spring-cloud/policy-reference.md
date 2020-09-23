@@ -1,20 +1,22 @@
 ---
 title: Definições de políticas internas para o Azure Spring Cloud
 description: Lista as definições de políticas internas do Azure Policy para o Azure Spring Cloud. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-reference, devx-track-java
-ms.openlocfilehash: 8bd1d29ecc499f2b619e577692e86fa774f03151
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 40842a10da9d0bfaf4b1326b099f8b361cc8f916
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007648"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983981"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-spring-cloud"></a>Definições internas do Azure Policy para o Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 Esta página é um índice de definições de políticas internas do [Azure Policy](../governance/policy/overview.md) para o Azure Spring Cloud. Para obter políticas internas adicionais do Azure Policy para outros serviços, confira [Definições internas do Azure Policy](../governance/policy/samples/built-in-policies.md).
 

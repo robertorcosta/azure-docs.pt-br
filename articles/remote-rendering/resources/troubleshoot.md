@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014584"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982967"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -37,7 +37,7 @@ Se você estiver trabalhando em um laptop com duas GPUs, é possível que a GPU 
 
 ## <a name="retrieve-sessionconversion-status-fails"></a>Falha ao recuperar sessão/status de conversão
 
-O envio de comandos da API REST com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. O código de status HTTP no caso de limitação é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5-10 segundos entre as chamadas subsequentes**.
+O envio de comandos da API REST com muita frequência fará com que o servidor seja limitado e retorne a falha eventualmente. O código de status HTTP no caso de limitação é 429 ("muitas solicitações"). Como regra geral, deve haver um atraso de **5 a 10 segundos entre as chamadas subsequentes**.
 
 Observe que esse limite não afeta apenas as chamadas da API REST quando chamado diretamente, mas também suas contrapartes do C#/C + +, como `Session.GetPropertiesAsync` , `Session.RenewAsync` ou `Frontend.GetAssetConversionStatusAsync` .
 
@@ -156,7 +156,8 @@ O Azure Remote Rendering conecta-se ao pipeline de renderização do Unity para 
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão quadriculado é renderizado após o carregamento do modelo
 
-Se a imagem renderizada tiver esta aparência: ![ quadriculado ](../reference/media/checkerboard.png) , o renderizador atingirá os [limites do polígono para o tamanho da configuração padrão](../reference/vm-sizes.md). Para mitigar, alterne para o tamanho da configuração **Premium** ou reduza o número de polígonos visíveis.
+Se a imagem renderizada for parecida com esta: a ![ captura de tela mostra uma grade de quadrados pretos e brancos com um menu ferramentas.](../reference/media/checkerboard.png)
+em seguida, o renderizador atinge os [limites do polígono para o tamanho da configuração padrão](../reference/vm-sizes.md). Para mitigar, alterne para o tamanho da configuração **Premium** ou reduza o número de polígonos visíveis.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada no Unity está de cabeça para baixo
 
@@ -216,7 +217,7 @@ Se as etapas acima tiverem sido esgotadas e o combate a z restante for inaceitá
 
 O ARR tem um recurso para determinar se as superfícies poderiam ser z-luta: [realce de xadrez](../overview/features/z-fighting-mitigation.md). Você também pode determinar visualmente o que causa o combate ao z. A primeira animação a seguir mostra um exemplo de perda de precisão de profundidade na distância e a segunda mostra um exemplo de superfícies de quase coplanar:
 
-![profundidade-precisão-z-combatendo](./media/depth-precision-z-fighting.gif)  ![coplanar-z-combatendo](./media/coplanar-z-fighting.gif)
+![Animação mostra um exemplo de perda de precisão de profundidade na distância.](./media/depth-precision-z-fighting.gif)  ![Animação mostra um exemplo de superfícies de quase coplanar.](./media/coplanar-z-fighting.gif)
 
 Compare esses exemplos com o combate ao z para determinar a causa ou, opcionalmente, seguir este fluxo de trabalho passo a passo:
 

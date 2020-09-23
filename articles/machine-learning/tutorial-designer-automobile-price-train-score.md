@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Prever preços de carro com o designer (versão prévia)'
+title: 'Tutorial: Prever preços de carro com o designer'
 titleSuffix: Azure Machine Learning
 description: Saiba como treinar, pontuar e implantar um modelo de machine learning usando uma interface do tipo "arrastar e soltar". Este tutorial é a primeira parte de uma série de duas partes sobre a previsão de preços de automóveis usando a regressão linear.
 author: peterclu
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812976"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896707"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço de automóvel com o designer (versão prévia)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço de automóvel com o designer
+
 
 Neste tutorial de duas partes, você aprenderá a usar o designer do Azure Machine Learning para treinar e implantar um modelo de machine learning que prevê o preço de qualquer carro. O designer é uma ferramenta do tipo "arrastar e soltar" que permite criar modelos de machine learning sem nenhuma linha de código.
 
@@ -49,10 +49,6 @@ Para criar um pipeline do Azure Machine Learning, você precisa de um workspace 
 ### <a name="create-a-new-workspace"></a>Criar um novo workspace
 
 Para usar o designer, primeiro você precisa de um Workspace do Azure Machine Learning. O workspace é o recurso de nível superior para Azure Machine Learning; ele fornece um local centralizado para trabalhar com todos os artefatos que você cria no Azure Machine Learning.
-
-Caso você tenha um workspace do Azure Machine Learning com uma edição Enterprise, [passe para a próxima seção](#create-the-pipeline).
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
@@ -94,7 +90,7 @@ Você pode definir um **Destino de computação padrão** para o pipeline inteir
 
 Há vários conjuntos de dados de exemplo incluídos no designer para que você possa fazer experimentos. Neste tutorial, use os **Dados de preços de automóveis (brutos)** . 
 
-1. À esquerda da tela do pipeline há uma paleta de conjuntos de dados e módulos. Selecione **Conjuntos de Dados** e, em seguida, veja a seção **Amostras** para ver os conjuntos de dados de exemplo disponíveis.
+1. À esquerda da tela do pipeline há uma paleta de conjuntos de dados e módulos. Selecione **Conjuntos de dados de exemplo** para exibir os conjuntos de dados de exemplo disponíveis.
 
 1. Selecione o conjunto de dados **Dados de preços de automóveis (Brutos)** e arraste-o para a tela.
 

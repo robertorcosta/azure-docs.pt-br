@@ -11,15 +11,15 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: efe2f062cc75fb05484fe810a3ae16c07e93339b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651747"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896782"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Usar aprendizado de máquina automatizado para prever tarifas de táxi
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste tutorial, você usará o machine learning automatizado no Azure Machine Learning para criar um modelo de regressão a fim de prever preços de tarifa de táxi na cidade de Nova York. Esse processo aceita dados de treinamento e configurações e itera automaticamente por meio de combinações de configurações de hiperparâmetro, modelos e métodos de normalização/padronização de diferentes recursos para chegar ao melhor modelo.
 

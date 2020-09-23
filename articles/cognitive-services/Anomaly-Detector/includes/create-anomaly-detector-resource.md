@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8dbe36693e551bd03022f4a00044b75b912c834a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8f93e0ffe74ade79059fc845788faf36ab5b4f13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875089"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025106"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Criar um recurso do Detector de Anomalias
 
@@ -28,15 +28,14 @@ ms.locfileid: "80875089"
     |Location|Selecione qualquer localização próxima e disponível|
     |Camada de preços|`F0` – o tipo de preço mínimo|
     |Grupo de recursos|Selecione um grupo de recursos disponível|
-    |Caixa de seleção de confirmação de visualização (obrigatório)|Se você leu ou não o aviso de **Visualização**|
 
 1. Clique em **Criar** e aguarde até que o recurso seja criado. Depois de criado, navegue até a página de recursos
 1. Coletar configurado `endpoint` e uma chave de API:
 
     |Guia de recursos no portal|Configuração|Valor|
     |--|--|--|
-    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a`https://westus2.api.cognitive.microsoft.com/`|
-    |**Chaves**|Chave de API|Cópia 1 das duas chaves. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Visão geral**|Ponto de extremidade|Copie o ponto de extremidade. Ele é semelhante a `https://westus2.api.cognitive.microsoft.com/`|
+    |**Chaves**|Chave de API|Cópia 1 das duas chaves. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
 
 
 

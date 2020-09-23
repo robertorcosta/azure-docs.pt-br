@@ -10,20 +10,17 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047816"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896463"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste tutorial, você aprenderá a criar um modelo de classificação básica sem escrever nenhuma linha de código usando o machine learning automatizado no estúdio do Azure Machine Learning. Este modelo de classificação prevê se um cliente assinará um depósito a prazo fixo com uma instituição financeira.
 
->[!IMPORTANT]
-> A experiência de machine learning automatizado no estúdio do Azure Machine Learning está em versão prévia. Alguns recursos podem não ter suporte ou ter funcionalidades limitadas.
+Neste tutorial, você aprenderá a criar um modelo de classificação simples sem escrever nenhuma linha de código usando o machine learning automatizado no Azure Machine Learning Studio. Este modelo de classificação prevê se um cliente assinará um depósito a prazo fixo com uma instituição financeira.
 
 Com o aprendizado de máquina automatizado, você pode automatizar tarefas intensivas e demoradas. O aprendizado de máquina automatizado itera rapidamente em muitas combinações de algoritmos e hiperparâmetros para ajudar você a encontrar o melhor modelo com base em uma métrica de sucesso de sua escolha.
 
@@ -47,9 +44,9 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 
 Um Workspace do Azure Machine Learning é o recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de machine learning. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
 
-Crie um workspace **Edição Enterprise** por meio do portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure.
+Crie um workspace pelo portal do Azure, um console baseado na Web para gerenciar seus recursos do Azure.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Anote seu **workspace** e sua **assinatura**. Você precisará dessas informações para criar o experimento no local certo. 

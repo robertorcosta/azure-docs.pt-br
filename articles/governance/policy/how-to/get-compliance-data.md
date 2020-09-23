@@ -1,14 +1,14 @@
 ---
 title: Obter dados de conformidade da política
 description: Efeitos e avaliações do Azure Policy determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos do Azure.
-ms.date: 08/10/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 57e508048b5e628911db90b0b6835f88b5ebd8fb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2ab75bdab0dcf910da91eb60b5f0cf23892d6c51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648345"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895432"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obter dados de conformidade de recursos do Azure
 
@@ -30,11 +30,13 @@ Os resultados de um ciclo de avaliação concluído estão disponíveis no Prove
 
 As avaliações de políticas atribuídas e iniciativas ocorrem como resultado de diversos eventos:
 
-- Uma política ou iniciativa foi recentemente atribuída a um escopo. Demora cerca de 30 minutos para que a atribuição seja aplicada ao escopo definido. Após a aplicação, o ciclo de avaliação começa para recursos dentro desse escopo na política ou iniciativa recentemente atribuída e, dependendo dos efeitos usados pela política ou iniciativa, os recursos serão marcados como em conformidade ou sem conformidade. Uma política ou iniciativa grande avaliada em um grande escopo de recursos pode levar tempo. Como tal, não há nenhuma expectativa predefinida de quando o ciclo de avaliação é concluído. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
+- Uma política ou iniciativa foi recentemente atribuída a um escopo. Demora cerca de 30 minutos para que a atribuição seja aplicada ao escopo definido. Depois de aplicado, o ciclo de avaliação começa para os recursos dentro desse escopo em relação à política ou iniciativa atribuída recentemente e, dependendo dos efeitos usados pela política ou iniciativa, os recursos são marcados como em conformidade, não compatível ou isento. Uma política ou iniciativa grande avaliada em um grande escopo de recursos pode levar tempo. Como tal, não há nenhuma expectativa predefinida de quando o ciclo de avaliação é concluído. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
 
 - Uma política ou iniciativa já atribuída a um escopo foi atualizada. O ciclo de avaliação e o tempo desse cenário são iguais aos de uma nova atribuição a um escopo.
 
 - Um recurso é implantado ou atualizado dentro de um escopo com uma atribuição via Azure Resource Manager, API REST ou um SDK com suporte. Nesse cenário, o evento de efeito (anexar, auditar, negar, implantar) e as informações de status compatíveis com o recurso individual ficam disponíveis no portal e nos SDKs por volta de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
+
+- Uma [isenção de política](../concepts/exemption-structure.md) é criada, atualizada ou excluída. Nesse cenário, a atribuição correspondente é avaliada para o escopo de isenção definido.
 
 - Ciclo de avaliação de conformidade padrão. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma política ou iniciativa de muitos recursos pode demorar, portanto, não há uma expectativa predefinida de quando o ciclo de avaliação é concluído. Após a conclusão, os resultados de conformidade atualizados estarão disponíveis no Portal e nos SDKs.
 
@@ -127,8 +129,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Como funciona a conformidade
 
-Em uma atribuição, é um recurso **incompatível** se ele não segue as regras de política ou iniciativa.
-A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
+Em uma atribuição, um recurso não é **compatível** se não seguir as regras de política ou de iniciativa e não estiver _isento_. A tabela a seguir mostra como os diferentes efeitos da política funcionam com a avaliação da condição para o estado de conformidade resultante:
 
 | Estado do recurso | Efeito | Avaliação da política | Estado de conformidade |
 | --- | --- | --- | --- |
@@ -137,8 +138,7 @@ A tabela a seguir mostra como os diferentes efeitos da política funcionam com a
 | Novo | Auditoria, AuditIfNotExist\* | True | Sem conformidade |
 | Novo | Auditoria, AuditIfNotExist\* | Falso | Em conformidade |
 
-\* Os efeitos de Acrescentar, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja TRUE.
-Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
+\* Os efeitos Modify, Append, DeployIfNotExist e AuditIfNotExist exigem que a instrução IF seja verdadeira. Os efeitos também exigem que a condição de existência seja FALSE para não estar em conformidade. Quando TRUE, a condição IF dispara a avaliação da condição de existência para os recursos relacionados.
 
 Por exemplo, suponha que você tenha um grupo de recursos – ContsoRG, com algumas contas de armazenamento (realçadas em vermelho) que são expostas para redes públicas.
 
@@ -146,22 +146,23 @@ Por exemplo, suponha que você tenha um grupo de recursos – ContsoRG, com algu
    Diagrama mostrando imagens para cinco contas de armazenamento no grupo de recursos contoso R G.  As contas de armazenamento um e três são azuis, enquanto as contas de armazenamento dois, quatro e cinco são vermelhas.
 :::image-end:::
 
-Neste exemplo, você precisa estar atento aos riscos de segurança. Agora que você criou uma atribuição de política, ela é avaliada em relação a todas as contas de armazenamento no grupo de recursos ContosoRG. Ele audita as três contas de armazenamento não compatíveis, consequentemente alterando seus estados para **Não compatíveis.**
+Neste exemplo, você precisa estar atento aos riscos de segurança. Agora que você criou uma atribuição de política, ela é avaliada para todas as contas de armazenamento incluídas e não isentas no grupo de recursos ContosoRG. Ele audita as três contas de armazenamento não compatíveis, consequentemente alterando seus estados para **Não compatíveis.**
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagrama de conformidade da conta de armazenamento no grupo de recursos contoso R G." border="false":::
    Diagrama mostrando imagens para cinco contas de armazenamento no grupo de recursos contoso R G. As contas de armazenamento um e três agora têm marcas de seleção verdes abaixo delas, enquanto as contas de armazenamento dois, quatro e cinco agora têm sinais de aviso vermelhos abaixo delas.
 :::image-end:::
 
-Além de **Compatível** e **Não compatível**, as políticas e os recursos têm três outros estados:
+Além de serem **compatíveis** e **não compatíveis**, as políticas e os recursos têm quatro outros Estados:
 
-- **Conflitante**: duas ou mais políticas existem com regras conflitantes. Por exemplo, duas políticas que acrescentam a mesma tag com valores diferentes.
+- **Isentar**: o recurso está no escopo de uma atribuição, mas tem uma [isenção definida](../concepts/exemption-structure.md).
+- **Conflito**: existem duas ou mais definições de política com regras conflitantes. Por exemplo, duas definições acrescentam a mesma marca com valores diferentes.
 - **Não foi iniciado**: O ciclo de avaliação não foi iniciado para a política ou o recurso.
 - **Não registrado**: o Provedor de Recursos do Azure Policy não foi registrado ou a conta conectada não tem permissão para ler dados de conformidade.
 
-O Azure Policy usa os campos **tipo** e **nome** na definição para determinar se um recurso é uma correspondência. Quando o recurso é correspondido, é considerado aplicável e com um status **Compatível** ou **Não compatível**. Se o **tipo** ou o **nome** for a única propriedade na definição, então todos os recursos serão considerados aplicáveis e serão avaliados.
+O Azure Policy usa os campos **tipo** e **nome** na definição para determinar se um recurso é uma correspondência. Quando o recurso corresponde, ele é considerado aplicável e tem um status de em **conformidade**, **não compatível**ou **isento**. Se o **tipo** ou o **nome** for a única propriedade na definição, todos os recursos incluídos e não isentos serão considerados aplicáveis e serão avaliados.
 
-A porcentagem de conformidade é determinada pela divisão de **recursos** Compatíveis pelo _total de recursos_.
-_O total de recursos_ é definido como a soma dos recursos **Em conformidade**, **Não-compatível** e **Conflito**. Os números gerais de conformidade são a soma de recursos distintos que são **Compatíveis** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **Não compatível**. A conformidade geral do recurso é 95 (19 de 20).
+A porcentagem de conformidade é determinada pela divisão de recursos em **conformidade** e **isentos** pelo _total de recursos_. _O total de recursos_ é definido como a soma dos recursos **compatíveis**, **não compatíveis**, **isentos**e **conflitantes** . Os números de conformidade geral são a soma de recursos distintos que são **compatíveis** ou **isentos** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **Não compatível**.
+A conformidade geral do recurso é 95 (19 de 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Captura de tela de detalhes de conformidade de política da página conformidade." border="false":::
 
