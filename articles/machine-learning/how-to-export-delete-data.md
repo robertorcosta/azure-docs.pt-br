@@ -11,16 +11,16 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4aa0cecb380f75080abe471a4c414029436c57d6
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b27675f152132a015a6dc6f5aea35aff036e1a63
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645952"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897549"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou excluir dados do workspace no serviço do Machine Learning
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 No Azure Machine Learning, você pode exportar ou excluir os dados do espaço de trabalho usando a interface gráfica do portal ou o SDK do Python. Este artigo descreve as duas opções.
 
@@ -82,7 +82,7 @@ model_output_port.download('.', show_progress=True)
 
 Os seguintes recursos de aprendizado de máquina podem ser excluídos usando o SDK do Python: 
 
-| Type | Chamada de função | Observações | 
+| Tipo | Chamada de função | Observações | 
 | --- | --- | --- |
 | `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` para propagar a exclusão |
 | `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model(class)?view=azure-ml-py#&preserve-view=truedelete--) | | 

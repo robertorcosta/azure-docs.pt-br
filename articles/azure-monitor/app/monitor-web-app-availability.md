@@ -4,12 +4,12 @@ description: Configure testes da web no Application Insights. Obtenha alertas se
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310269"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986033"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorar a disponibilidade de qualquer site
 
@@ -78,7 +78,7 @@ Os resultados do teste de disponibilidade podem ser visualizados com exibições
 
 Depois de alguns minutos, clique em **Atualizar** para ver os resultados do teste.
 
-![exibição Linha](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Captura de tela mostra a página disponibilidade com o botão atualizar realçado.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 A exibição dispersão mostra exemplos dos resultados de teste que têm detalhes da etapa de teste de diagnóstico neles. O mecanismo de teste armazena detalhes de diagnóstico para testes com falhas. Para testes bem-sucedidos, detalhes de diagnóstico são armazenados para um subconjunto das execuções. Passe o mouse sobre qualquer um dos pontos verdes/vermelhos para ver o teste, o nome do teste e o local.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: duau
-ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 52aba71ba289a1b5479a6a9eaef7e07418b563fd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401462"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986368"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Criar ExpressRoute direto usando o portal do Azure
 
@@ -97,7 +97,7 @@ As etapas a seguir ajudam a criar um circuito de ExpressRoute do fluxo de trabal
 
 1. Na seção **configurações** diretas do ExpressRoute, selecione **circuitos**e, em seguida, selecione **+ Adicionar**. 
 
-    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Adicionar" lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
+    :::image type="content" source="./media/how-to-expressroute-direct-portal/add.png" alt-text="Captura de tela mostra as configurações do ExpressRoute com circuitos selecionados e adicionadas realçadas." lightbox="./media/how-to-expressroute-direct-portal/add-expand.png":::
 
 1. Defina as configurações na página **configuração** .
 

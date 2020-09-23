@@ -29,6 +29,8 @@
       href: fusion.md
     - name: Estender o Azure Sentinel entre workspaces e locatários
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: Normalizar os dados entre tabelas
+      href: normalization.md
     - name: Segurança
       items:
         - name: Linha de base de segurança
@@ -54,17 +56,19 @@
               href: connect-azure-ad-identity-protection.md
             - name: Proteção de Informações do Azure
               href: connect-azure-information-protection.md
-            - name: Microsoft Defender ATP
+            - name: Microsoft 365 Defender
+              href: connect-microsoft-365-defender.md
+            - name: Microsoft Defender para ponto de extremidade (anteriormente MDATP)
               href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: ATP do Azure
+            - name: Microsoft Defender para identidade (anteriormente ATP do Azure)
               href: connect-azure-atp.md
             - name: Proteção contra DDoS do Azure
               href: connect-azure-ddos-protection.md
             - name: Firewall do Azure
               href: connect-azure-firewall.md
-            - name: Central de Segurança do Azure
+            - name: Alertas do Azure Defender do ASC
               href: connect-azure-security-center.md
-            - name: Central de Segurança do Azure para IoT
+            - name: Azure Defender (anteriormente ASC) para IoT
               href: connect-asc-iot.md
             - name: WAF (Firewall do Aplicativo Web) do Azure
               href: connect-azure-waf.md
@@ -118,6 +122,8 @@
               href: connect-vmware-carbon-black.md
             - name: Zimperium Mobile Threat Defense
               href: connect-zimperium-mtd.md
+            - name: Conectar usando Logstash
+              href: connect-logstash.md
             - name: Soluções baseadas em CEF
               href: connect-common-event-format.md
               items:
@@ -181,6 +187,8 @@
   items:
     - name: APIs REST
       href: 'https://docs.microsoft.com/rest/api/securityinsights/'
+    - name: Esquema de normalização de rede
+      href: normalization-schema.md
 - name: Recursos
   items:
     - name: Recursos úteis

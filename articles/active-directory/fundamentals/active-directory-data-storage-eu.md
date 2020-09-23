@@ -9,26 +9,30 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 874df2cc17e291cb6811ca07d01237f01b523860
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565031"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985910"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
 Os dados de identidade são armazenados pelo Azure AD em uma localização geográfica com base no endereço fornecido pela sua organização ao assinar um serviço online da Microsoft, como o Microsoft 365 e o Azure. Para obter informações sobre onde os dados de identidade são armazenados, você pode usar a seção [onde os dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) da central de confiabilidade da Microsoft.
 
 Para clientes que forneceram um endereço na Europa, o Azure AD mantém a maioria dos dados de identidade em datacenters europeus. Este documento fornece informações sobre todos os dados armazenados fora da Europa pelos serviços do Azure AD.
 
-## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Microsoft Azure a autenticação multifator (MFA)
-    
-- Toda a autenticação de dois fatores que usa chamadas telefônicas ou o SMS origina-se de data centers dos EUA e também é roteada por provedores globais.
-- As notificações por push que usam o aplicativo Microsoft Authenticator são originadas de datacenters dos EUA. Além disso, os serviços específicos de fornecedores de dispositivos também podem entrar em jogo e esses serviços talvez fora da Europa.
-- Códigos OATH sempre são validados nos EUA. 
+## <a name="microsoft-azure-multi-factor-authentication"></a>Autenticação Multifator do Microsoft Azure
+
+Para a autenticação multifator do Azure baseada em nuvem, a autenticação é concluída no datacenter mais próximo ao usuário. Os data centers para a autenticação multifator do Azure existem no América do Norte, na Europa e no Pacífico Asiático.
+
+* A autenticação multifator usando chamadas telefônicas se originam de data centers dos EUA e são roteadas por provedores globais.
+* A autenticação multifator usando o SMS é roteada por provedores globais.
+* As solicitações de autenticação multifator usando o Microsoft Authenticator notificações por push de aplicativo originadas de datacenters da UE são processadas em datacenters da UE.
+    * Serviços específicos do fornecedor do dispositivo, como notificações por push da Apple, podem estar fora da Europa.
+* As solicitações de autenticação multifator que usam códigos OATH originados de data centers da UE são validadas na UE.
 
 Para obter mais informações sobre quais informações do usuário são coletadas pelo Azure Servidor de Autenticação Multifator (servidor MFA) e pela MFA do Azure baseada em nuvem, consulte [coleta de dados do usuário da autenticação multifator do Azure](../authentication/howto-mfa-reporting-datacollection.md).
 

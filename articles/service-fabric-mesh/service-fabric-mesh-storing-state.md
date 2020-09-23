@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246819"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984121"
 ---
 # <a name="state-management-with-service-fabric"></a>Gerenciamento de estado com o Service Fabric
 
@@ -22,7 +22,7 @@ Com o serviço de Malha do Service Fabric, você pode facilmente implantar um no
 
 Contêineres frequentemente usam discos temporários. Discos temporários são efêmeros, no entanto, você obtém um novo disco temporário e perde as informações quando um contêiner falha. Também é difícil de compartilhar informações sobre discos temporários com outros contêineres. Os volumes são diretórios que são montados dentro de suas instâncias de contêiner que você pode usar para manter o estado. Os volumes oferecem armazenamento de arquivos de finalidade geral e permitem a você ler/gravar arquivos usando APIs de arquivo de E/S de disco normal. O recurso de Volume descreve como montar um diretório e qual armazenamento de backup usar. Você pode escolher o armazenamento do Azure File ou disco de Volume do Service Fabric para armazenar dados.
 
-![Volumes][image3]
+![O diagrama mostra o serviço, que flui para o volume, que flui para Service Fabric volume confiável em um disco local replicado e para o volume de arquivos do Azure no armazenamento em rede.][image3]
 
 ### <a name="service-fabric-reliable-volume"></a>Reliable Volume do Service Fabric
 

@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017729"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986415"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -45,7 +45,7 @@ Sim. Para mover um cofre dos Serviços de Recuperação, consulte este [artigo](
 
 Não. Os dados de backup armazenados em um cofre não podem ser movidos para um cofre diferente.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Posso alterar de GRS para LRS depois de um backup?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Posso alterar a configuração de redundância de armazenamento após um backup?
 
 O tipo de replicação de armazenamento por padrão é definido como GRS (armazenamento com redundância geográfica). Depois de configurar o backup, a opção de modificar é desabilitada e não pode ser alterada.
 

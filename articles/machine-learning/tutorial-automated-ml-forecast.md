@@ -10,20 +10,17 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd6f2021a20ff488402bb9d1367feb57c34f582
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092267"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896667"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Prever demanda com machine learning automatizado
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 Neste tutorial, você usará machine learning automatizado, ou ML automatizado, no Azure Machine Learning Studio para criar um modelo de previsão de série temporal para prever a demanda de aluguel para um serviço de compartilhamento de bicicletas.
-
->[!IMPORTANT]
-> A experiência de ML automatizado no estúdio do Azure Machine Learning está em versão prévia. Alguns recursos podem não ter suporte ou ter funcionalidades limitadas.
 
 Para ver um exemplo de modelo de classificação, confira [Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
@@ -38,8 +35,8 @@ Neste tutorial, você aprenderá a fazer as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um workspace do Azure Machine Learning da edição Enterprise. Caso não tenha um workspace, [crie um workspace da edição Enterprise](how-to-manage-workspace.md). 
-    * O machine learning automatizado no Azure Machine Learning Studio só está disponível para workspaces da edição Enterprise. 
+* Um Workspace do Azure Machine Learning. Confira [Criar um Workspace do Azure Machine Learning](how-to-manage-workspace.md). 
+
 * Baixe o arquivo de dados [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Introdução ao Azure Machine Learning Studio

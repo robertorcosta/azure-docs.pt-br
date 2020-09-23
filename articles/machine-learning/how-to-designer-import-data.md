@@ -1,7 +1,7 @@
 ---
-title: Importar dados para o designer (versão prévia)
+title: Importar dados para o designer
 titleSuffix: Azure Machine Learning
-description: Saiba como importar dados para o designer de Azure Machine Learning (versão prévia) de várias fontes de dados.
+description: Saiba como importar dados para o designer de Azure Machine Learning de várias fontes de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006977"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985602"
 ---
-# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importar dados para o designer de Azure Machine Learning (versão prévia)
+# <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de Azure Machine Learning
 
 Neste artigo, você aprenderá a importar seus próprios dados para o designer para criar soluções personalizadas. Há duas maneiras de importar dados para o designer: 
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a importar seus próprios dados para o designer p
 
 ### <a name="register-a-dataset"></a>Registrar um conjunto de dados
 
-Você pode registrar conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#datasets-sdk) ou [visualmente no Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
+Você pode registrar conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#datasets-sdk) ou [visualmente no Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 Além disso, é possível registrar o resultado de qualquer módulo do designer como um conjunto de dados.
 
@@ -68,7 +68,7 @@ Embora seja recomendável usar os conjuntos de dados para importar dados, també
 Para obter informações detalhadas sobre como usar o módulo Importar Dados, consulte a [página de referência Importar Dados](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Se o conjunto de dados tiver muitas colunas, você poderá encontrar o seguinte erro: "Falha na validação devido à limitação de tamanho". Para evitar isso, [registre o conjunto de dados na interface Conjuntos de dados](how-to-create-register-datasets.md#datasets-ui).
+> Se o conjunto de dados tiver muitas colunas, você poderá encontrar o seguinte erro: "Falha na validação devido à limitação de tamanho". Para evitar isso, [registre o conjunto de dados na interface Conjuntos de dados](how-to-connect-data-ui.md#create-datasets).
 
 ## <a name="supported-sources"></a>Fontes compatíveis
 
@@ -107,4 +107,4 @@ Se o seu espaço de trabalho estiver em uma rede virtual, você deverá executar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Aprenda as noções básicas do designer com o [Tutorial: Prever preço de automóvel com o designer](tutorial-designer-automobile-price-train-score.md).
+Aprenda os conceitos básicos do designer com este [tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md).

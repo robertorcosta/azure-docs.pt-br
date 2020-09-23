@@ -1,6 +1,6 @@
 ---
-title: Criar um trabalho de streaming do T-SQL no Azure SQL Edge (versão prévia)
-description: Saiba mais sobre como criar trabalhos de Stream Analytics no Azure SQL Edge (versão prévia).
+title: Criar um trabalho de streaming do T-SQL no Azure SQL Edge
+description: Saiba mais sobre como criar Stream Analytics trabalhos no Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,19 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321710"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888103"
 ---
-# <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Criar um trabalho de Azure Stream Analytics no Azure SQL Edge (versão prévia) 
+# <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Criar um trabalho de streaming de dados no Azure SQL Edge 
 
-Este artigo explica como criar um trabalho de streaming T-SQL no Azure SQL Edge (versão prévia). Você cria os objetos de entrada e saída de fluxo externo e, em seguida, define a consulta do trabalho de streaming como parte da criação do trabalho de streaming.
-
-> [!NOTE]
-> Para habilitar o recurso de streaming do T-SQL no Azure SQL Edge, habilite o TF 11515 como uma opção de inicialização ou use o comando [DBCC traceize]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) . Para obter mais informações sobre como habilitar sinalizadores de rastreamento usando um arquivo MSSQL. conf, consulte [Configurar usando um arquivo MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file).
+Este artigo explica como criar um trabalho de streaming do T-SQL no Azure SQL Edge. Você cria os objetos de entrada e saída de fluxo externo e, em seguida, define a consulta do trabalho de streaming como parte da criação do trabalho de streaming.
 
 ## <a name="configure-the-external-stream-input-and-output-objects"></a>Configurar os objetos de entrada e saída de fluxo externo
 
@@ -251,9 +248,9 @@ O trabalho de streaming pode ter um dos seguintes status:
 | Processando | O trabalho de streaming está em execução e processando as entradas. Indica um estado de integridade para o trabalho de fluxo. |
 | Degradado | O trabalho de streaming está em execução, mas houve alguns erros não fatais durante o processamento de entrada. O trabalho de entrada continuará em execução, mas removerá as entradas que encontrar erros. |
 | Parado | O trabalho de fluxo foi interrompido. |
-| Com falha | Falha no trabalho de streaming. Em geral indica um erro fatal durante o processamento. |
+| Failed (Falha) | Falha no trabalho de streaming. Em geral indica um erro fatal durante o processamento. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Exibir metadados associados a trabalhos de streaming no SQL do Azure no Edge (Versão Prévia)](streaming-catalog-views.md) 
+- [Exibir metadados associados a trabalhos de streaming no Azure SQL Edge](streaming-catalog-views.md) 
 - [Criar um fluxo externo](create-external-stream-transact-sql.md)

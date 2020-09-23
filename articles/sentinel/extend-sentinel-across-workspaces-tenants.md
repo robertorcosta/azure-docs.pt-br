@@ -1,6 +1,6 @@
 ---
 title: Estenda o Azure Sentinel entre espaços de trabalho e locatários | Microsoft Docs
-description: Como estender os recursos de análise do Sentinela do Azure entre espaços de trabalho e locatários.
+description: Como usar o Azure Sentinel para consultar e analisar dados entre espaços de trabalho e locatários.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9e0fe46e0a7382c0adcfa1f1f781f282e9e77942
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: b899069a03b39d068f2b4059cf26d3baf1f3beae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019318"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905424"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estender o Azure Sentinel entre workspaces e locatários
 

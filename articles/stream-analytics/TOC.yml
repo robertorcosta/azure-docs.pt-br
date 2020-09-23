@@ -4,8 +4,8 @@
   items:
     - name: O que é o Stream Analytics?
       href: stream-analytics-introduction.md
-    - name: Padrões da solução de ponta a ponta
-      href: stream-analytics-solution-patterns.md
+    - name: Cluster do Stream Analytics
+      href: cluster-overview.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -23,7 +23,11 @@
         - name: Visual Studio
           href: stream-analytics-quick-create-vs.md
         - name: Visual Studio Code
-          href: quick-create-vs-code.md
+          href: quick-create-visual-studio-code.md
+    - name: Criar um cluster
+      items:
+        - name: Portal do Azure
+          href: create-cluster.md
 - name: Tutoriais
   items:
     - name: 1 – Criar/gerenciar um trabalho
@@ -42,6 +46,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Conceitos
   items:
+    - name: Padrões da solução de ponta a ponta
+      href: stream-analytics-solution-patterns.md
     - name: Escolher uma tecnologia de análise de streaming
       href: streaming-technologies.md
     - name: Escolher uma ferramenta de desenvolvimento do trabalho
@@ -145,6 +151,14 @@
   items:
     - name: Gerenciar
       items:
+        - name: Clusters
+          items:
+            - name: Criar e excluir pontos de extremidade privados
+              href: private-endpoints.md
+            - name: Adicionar e remover trabalhos
+              href: manage-jobs-cluster.md
+            - name: Dimensionar tamanho do cluster
+              href: scale-cluster.md
         - name: Trabalhos de dimensionamento automático
           href: stream-analytics-autoscale.md
         - name: Atualizar credenciais
@@ -234,6 +248,14 @@
           href: stream-analytics-cicd-api.md
         - name: Exportar e implantar com o Azure Resource Manager
           href: resource-manager-export.md
+    - name: Integração contínua e implantação
+      items:
+        - name: Visão geral de CI/CD
+          href: cicd-overview.md
+        - name: 'Criar, testar e implantar com o PowerShell'
+          href: cicd-tools.md
+        - name: Configurar um pipeline com o Azure DevOps
+          href: set-up-cicd-pipeline.md
     - name: Visual Studio
       items:
         - name: Instalar ferramentas
@@ -260,8 +282,6 @@
           href: visual-studio-code-local-run-live-input.md
         - name: Depurar consultas usando o diagrama de trabalho
           href: debug-locally-using-job-diagram-vs-code.md
-        - name: Configurar pipeline de CI/CD
-          href: setup-cicd-vs-code.md
         - name: Explorar trabalhos
           href: visual-studio-code-explore-jobs.md
         - name: Campos de JobConfig.json

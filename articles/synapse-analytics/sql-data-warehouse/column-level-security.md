@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1364da4849a07100ac28644a51409837012f93cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208086"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986224"
 ---
 # <a name="column-level-security"></a>Segurança de Nível da Coluna
 
@@ -28,9 +28,9 @@ Desde que esse vídeo foi postado, a [segurança em nível de linha](/sql/relati
 
 A segurança em nível de coluna simplifica o design e a codificação da segurança em seu aplicativo, permitindo que você restrinja o acesso às colunas para proteger dados confidenciais. Por exemplo, garantir que usuários específicos possam acessar apenas certas colunas de uma tabela pertinente ao seu departamento. A lógica de restrição de acesso é localizado na camada de banco de dados, em vez de longe dos dados em outra camada de aplicativo. O banco de dados aplica as restrições de acesso sempre que houver uma tentativa de acessar dados em qualquer camada. Essa restrição torna a segurança mais robusta e confiável, reduzindo a área de superfície do sistema de segurança como um todo. Além disso, a segurança em nível de coluna também elimina a necessidade de introduzir modos de exibição para filtrar colunas para impor restrições de acesso em usuários.
 
-Você pode implementar a segurança em nível de coluna com a instrução T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Com este mecanismo, há suporte para autenticação SQL e o Azure Active Directory (AAD).
+Você pode implementar a segurança em nível de coluna com a instrução T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Com esse mecanismo, há suporte para a autenticação do SQL e do Azure Active Directory (Azure AD).
 
-![cls](./media/column-level-security/cls.png)
+![O diagrama mostra uma tabela esquemático com a primeira coluna entre um cadeado fechado e suas células cor laranja, enquanto as outras colunas são células brancas.](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Sintaxe
 

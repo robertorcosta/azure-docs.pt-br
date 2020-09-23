@@ -1,6 +1,6 @@
 ---
 title: 'Script do PowerShell: listar convites de compartilhamento de dados do Azure enviados a um consumidor | Microsoft Docs'
-description: Este script do PowerShell aceita convites de um compartilhamento de dados existente.
+description: Saiba como esse script do PowerShell Obtém convites enviados a um consumidor e veja um exemplo do script que você pode usar.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 157b844afd9d59b6c03c7ae8585bc2182370d3a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f0374ba5b98c145359d18143584e23fc543c552
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70307143"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985625"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>Usar o PowerShell para obter um convite de compartilhamento de dados
 

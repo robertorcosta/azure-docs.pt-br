@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: ff327372a0ec22ca6291615ca64f01a4aa5807be
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 239fc9de991066ec0603247abafae36a618d534f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646228"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889864"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implantar um modelo de aprendizado de máquina para Azure Functions (versão prévia)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como implantar um modelo de Azure Machine Learning como um aplicativo de funções no Azure Functions.
 
@@ -45,7 +45,7 @@ Com Azure Machine Learning, você pode criar imagens do Docker de modelos de apr
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implantação
 
-Antes de implantar o, você deve definir o que é necessário para executar o modelo como um serviço Web. A lista a seguir descreve os itens básicos necessários para uma implantação:
+Antes de implantar o, você deve definir o que é necessário para executar o modelo como um serviço Web. A lista a seguir descreve os principais itens necessários para uma implantação:
 
 * Um __script de entrada__. Esse script aceita solicitações, pontua a solicitação usando o modelo e retorna os resultados.
 

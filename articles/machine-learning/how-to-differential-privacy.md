@@ -11,16 +11,16 @@ ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.openlocfilehash: 2182c9bc7588947ece5a309018359a8bcfa3ff41
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 355d96fe5a617effab89fbd038f7f1785215f88f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320197"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897681"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Usar a privacidade diferencial no Azure Machine Learning (versão prévia)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como aplicar as melhores práticas de privacidade diferencial aos modelos do Azure Machine Learning usando os pacotes WhiteNoise Python.
 
@@ -156,7 +156,7 @@ Você pode usar a biblioteca para compor gráficos de análise mais complexos, c
 | SUM           |            | Imputação |
 | Variância/Covariância |      | Transformar  |
 
-Consulte o [notebook básico de análise de dados](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) para obter mais detalhes.
+Consulte o [notebook de análise de dados](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) para obter mais detalhes.
 
 ## <a name="approximate-utility-of-differentially-private-releases"></a>Utilidade aproximada de lançamentos diferencialmente privados
 

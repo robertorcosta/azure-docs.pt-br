@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307192"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897560"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem 
 
@@ -111,7 +111,7 @@ Se o projeto for do tipo "Identificação do Objeto (Caixas Delimitadoras)", voc
 1. Selecione a ferramenta **Caixa retangular**![ferramenta Caixa retangular](./media/how-to-label-images/rectangular-box-tool.png) ou selecione "R".
 3. Clique com o mouse e arraste uma seleção diagonalmente no alvo para criar uma caixa delimitadora aproximada. Para ajustar a caixa delimitadora, arraste as bordas ou os cantos.
 
-![Uma captura de tela mostra a criação de uma caixa delimitadora básica.](./media/how-to-label-images/bounding-box-sequence.png)
+![Criação da caixa delimitadora](./media/how-to-label-images/bounding-box-sequence.png)
 
 Para excluir uma caixa delimitadora, clique no alvo em formato de X exibido ao lado da caixa delimitadora após a criação.
 
