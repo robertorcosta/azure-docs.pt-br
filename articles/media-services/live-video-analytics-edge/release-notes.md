@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo em notas de versão IoT Edge – Azure
 description: Este tópico fornece notas de versão de análise de vídeo ao vivo sobre versões IoT Edge, melhorias, correções de bugs e problemas conhecidos.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: feab7755dea69a932fe40df59e0dd35f3f826553
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0bdf11cd99d99067dc53dde7d55fd37b96a382c9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645818"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882725"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Análise de vídeo ao vivo em notas de versão IoT Edge
 
@@ -21,6 +21,31 @@ Este artigo fornece informações sobre:
 * Correções de bug
 * Funcionalidades preteridas
 
+<hr width=100%>
+
+## <a name="september-22-2020"></a>22 de setembro de 2020
+
+Esta marca de versão para a atualização de setembro de 2020 do módulo é:
+
+```
+mcr.microsoft.com/media/live-video-analytics:1.0.4
+```
+
+> [!NOTE]
+> Nos guias de início rápido e tutoriais, os manifestos de implantação usam uma marca de 1 (Live-Video-Analytics: 1). Portanto, simplesmente reimplantar esses manifestos deve atualizar o módulo em seus dispositivos de > de borda.
+
+### <a name="module-updates"></a>Atualizações de módulo
+
+* Um novo nó de extensão de grafo, o [MediaGraphCognitiveServicesVisionExtension](custom-vision-tutorial.md) está disponível para integração com o [módulo de análise espacial](spatial-analysis-tutorial.md)(versão prévia) dos serviços cognitivas.
+* Suporte adicionado para dispositivos Linux ARM64-use [as etapas manuais](deploy-iot-edge-device.md) para implantar nesses dispositivos.
+
+### <a name="documentation-updates"></a>Atualizações na documentação
+
+* [As instruções](deploy-azure-stack-edge-how-to.md) estão disponíveis para usar a análise de vídeo ao vivo em IOT Edge em dispositivos Azure Stack Edge.
+* Novo tutorial sobre como desenvolver modelos de visão de computador específicos do cenário usando [visão personalizada serviço](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) e usá-lo para [analisar o vídeo ao vivo](custom-vision-tutorial.md) em tempo real.
+
+<hr width=100%>
+
 ## <a name="august-19-2020"></a>19 de agosto de 2020
 
 Esta marca de versão para a atualização de agosto de 2020 do módulo é:
@@ -32,7 +57,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > Nos guias de início rápido e tutoriais, os manifestos de implantação usam uma marca de 1 (Live-Video-Analytics: 1). Portanto, simplesmente reimplantar esses manifestos deve atualizar o módulo em seus dispositivos de > de borda.
 
-### <a name="new-features"></a>Novos recursos 
+### <a name="module-updates"></a>Atualizações de módulo
 
 * Agora você pode obter alto desempenho de transferência de conteúdo de dados entre a análise de vídeo ao vivo no IoT Edge e sua extensão personalizada usando a estrutura gRPC. Consulte [isso](analyze-live-video-use-your-grpc-model-quickstart.md) para começar.
 * Implantação regional mais ampla da análise de vídeo ao vivo e apenas o serviço de nuvem foi atualizado.  
@@ -43,6 +68,8 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 ### <a name="bug-fixes"></a>Correções de bug 
 
 * Remover o uso de uma extensão do Azure preterida no script de configuração
+
+<hr width=100%>
 
 ## <a name="july-13-2020"></a>13 de julho de 2020
 
@@ -55,11 +82,15 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 > [!NOTE]
 > Nos guias de início rápido e tutoriais, os manifestos de implantação usam uma marca de 1 (Live-Video-Analytics: 1). Portanto, simplesmente reimplantar esses manifestos deve atualizar o módulo em seus dispositivos de > de borda.
 
-### <a name="new-features"></a>Novos recursos
+### <a name="module-updates"></a>Atualizações de módulo
+
 * Agora você pode criar topologias de grafo que têm um nó de coletor de ativos, bem como um nó de coletor de arquivos downstream de um nó de processador de porta de sinal. Consulte [isso](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) para obter um exemplo.
 
 ### <a name="bug-fixes"></a>Correções de bug
+
 * Melhorias na validação das propriedades desejadas
+
+<hr width=100%>
 
 ## <a name="june-1-2020"></a>1º de junho de 2020
 
@@ -70,6 +101,7 @@ Esta versão é a primeira versão de visualização pública da análise de ví
 ```
 
 ### <a name="supported-functionalities"></a>Funcionalidades com suporte
+
 * Analise fluxos de vídeo ao vivo usando os módulos de ia de sua escolha e, opcionalmente, grave vídeo no dispositivo de borda ou na nuvem
 * Use em sistemas operacionais Linux AMD64 [com suporte](../../iot-edge/support.md) pelo IOT Edge
 * Implantar e configurar o módulo por meio do Hub IoT usando portal do Azure ou Visual Studio Code
@@ -83,7 +115,6 @@ Esta versão é a primeira versão de visualização pública da análise de ví
     *   GraphInstanceSet
     *   GraphInstanceDelete
     *   GraphInstanceList
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

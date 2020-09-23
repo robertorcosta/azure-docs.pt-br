@@ -7,15 +7,15 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536048"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087382"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Azure Key Vault
 
@@ -27,7 +27,6 @@ Este guia fornece instruções passo a passo para configurar redes virtuais e fi
 > [!NOTE]
 > Esteja ciente das seguintes limitações de configuração:
 > * Um máximo de 127 regras da rede virtual e 127 regras de IPv4 são permitidas. 
-> * Intervalos de endereços pequenos que usam tamanhos de prefixo "/31" ou "/32" não têm suporte. Em vez disso, esses intervalos devem ser configurados usando regras de endereço IP individuais.
 > * Regras de rede IP somente são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (conforme definido na RFC 1918) não são permitidos em regras de IP. Redes privadas incluem endereços que começam com **10.** , **172.16-31** e **192.168.** . 
 > * Atualmente, somente há suporte para endereços IPv4.
 

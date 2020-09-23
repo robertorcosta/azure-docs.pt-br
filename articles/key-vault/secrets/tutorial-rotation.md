@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378008"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086838"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
@@ -24,7 +24,7 @@ A melhor maneira de se autenticar nos serviços do Azure é usando uma [identida
 
 Este tutorial mostra como automatizar a rotação periódica de segredos para bancos de dados e serviços que usam um conjunto de credenciais de autenticação. Especificamente, este tutorial realiza a rotação das senhas do SQL Server armazenadas no Azure Key Vault usando uma função disparada pela notificação da Grade de Eventos do Azure:
 
-![Diagrama de solução de rotação](../media/rotate1.png)
+![Diagrama de solução de rotação](../media/rotate-1.png)
 
 1. Trinta dias antes da data de validade de um segredo, o Key Vault publica o evento de "expiração próxima" na Grade de Eventos.
 1. A Grade de Eventos verifica as assinaturas de eventos e usa HTTP POST para chamar o ponto de extremidade do aplicativo de funções assinado para o evento.
@@ -49,7 +49,7 @@ O link de implantação abaixo poderá ser usado se você não tiver um Key Vaul
 1. Selecione **Examinar + criar**.
 1. Escolha **Criar**
 
-    ![Criar um grupo de recursos](../media/rotate2.png)
+    ![Criar um grupo de recursos](../media/rotate-2.png)
 
 Agora você terá um Key Vault e uma instância do SQL Server. Você pode verificar essa configuração na CLI do Azure executando o seguinte comando:
 
@@ -91,7 +91,7 @@ O aplicativo de funções requer estes componentes:
 1. Selecione **Examinar + criar**.
 1. Selecione **Criar**.
 
-   ![Selecione Examinar + criar](../media/rotate3.png)
+   ![Selecione Examinar + criar](../media/rotate-3.png)
 
 Depois de concluir as etapas anteriores, você terá uma conta de armazenamento, um farm de servidores e um aplicativo de funções. Você pode verificar essa configuração na CLI do Azure executando o seguinte comando:
 
@@ -207,11 +207,11 @@ A criação de um segredo com uma data de validade curta publicará um evento `S
 
 Para verificar se a rotação do segredo foi realizada, acesse **Key Vault** > **Segredos**:
 
-![Acessar Segredos](../media/rotate8.png)
+![Acessar Segredos](../media/rotate-8.png)
 
 Abra o segredo **sqlPassword** e veja as versões originais e com rotação:
 
-![Abrir o segredo sqluser](../media/rotate9.png)
+![Abrir o segredo sqluser](../media/rotate-9.png)
 
 ### <a name="create-a-web-app"></a>Criar um aplicativo Web
 
@@ -245,6 +245,6 @@ Quando o aplicativo for aberto no navegador, você verá o **Valor Secreto Gerad
 ## <a name="learn-more"></a>Saiba mais
 
 - Tutorial: [Rotação para recursos com dois conjuntos de credenciais](tutorial-rotation-dual.md)
-- Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure (versão prévia)](../general/event-grid-overview.md)
+- Visão geral: [Monitoramento do Key Vault com a Grade de Eventos do Azure](../general/event-grid-overview.md)
 - Como fazer: [Receber emails quando o status do cofre de chaves secreto é alterado](../general/event-grid-logicapps.md)
-- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault (versão prévia)](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos da Grade de Eventos do Azure para o Azure Key Vault](../../event-grid/event-schema-key-vault.md)

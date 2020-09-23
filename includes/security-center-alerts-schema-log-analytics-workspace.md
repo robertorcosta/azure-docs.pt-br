@@ -32,11 +32,11 @@ ms.locfileid: "79538825"
 |**Isincident**|Determina se o alerta é um incidente ou um alerta regular. Um incidente é um alerta de segurança que agrega vários alertas em um incidente de segurança|
 |**ProcessingEndTime**|Carimbo de data/hora UTC em que o alerta foi criado|
 |**ProductComponentName**|Adicional O nome de um componente dentro do produto que gerou o alerta.|
-|**NomeDoProduto**|constante (' Central de segurança do Azure ')|
+|**ProductName**|constante (' Central de segurança do Azure ')|
 |**ProviderName**|unused|
 |**RemediationSteps**|Itens de ação manual a serem necessários para corrigir a ameaça de segurança|
 |**Identificação**|Identificador completo do recurso afetado|
-|**Severidade**|A severidade do alerta (alta/média/baixa/informativa)|
+|**Gravidade**|A severidade do alerta (alta/média/baixa/informativa)|
 |**SourceComputerId**|um GUID exclusivo para o servidor afetado (se o alerta for gerado no servidor)|
 |**SourceSystem**|unused|
 |**StartTime**|A hora de início do alerta (a hora do primeiro evento que contribui para o alerta)|

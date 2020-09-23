@@ -3,12 +3,12 @@ title: Entender o escopo no Azure Policy
 description: Descreve o conceito de escopo no Azure Resource Manager e como ele se aplica a Azure Policy para controlar quais recursos Azure Policy são avaliados.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dee5d2bdbcb5aa86e293652af3bc5008f56b7877
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933692"
+ms.locfileid: "90984434"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Entender o escopo no Azure Policy
 
@@ -34,6 +34,8 @@ Uma atribuição tem várias propriedades que definem um escopo. O uso dessas pr
 - Inclusão-uma hierarquia de recursos ou recurso individual deve ser avaliado quanto à conformidade pela definição. A `properties.scope` propriedade em um objeto de atribuição determina o que incluir e avaliar para fins de conformidade. Para obter mais informações, consulte [definição de atribuição](./assignment-structure.md).
 
 - Exclusão-uma hierarquia de recursos ou recurso individual não deve ser avaliado quanto à conformidade pela definição. A `properties.notScopes` propriedade _array_ em um objeto de atribuição determina o que excluir. Os recursos dentro desses escopos não são avaliados ou incluídos na contagem de conformidade. Para obter mais informações, consulte [definição de atribuição – escopos excluídos](./assignment-structure.md#excluded-scopes).
+
+Além das propriedades na atribuição de política, é o objeto de [isenção de política](./exemption-structure.md) . As isenções aprimoram a história do escopo fornecendo um método para identificar uma parte de uma atribuição para não ser avaliada.
 
 - Isenção (**gratuito no recurso de visualização** )-uma hierarquia de recursos ou recurso individual deve ser avaliado quanto à conformidade pela definição, mas não será avaliado por um motivo, como ter uma renúncia ou ser atenuado por meio de outro método. Os recursos nesse estado são mostrados como **isentos** em relatórios de conformidade para que possam ser acompanhados. O objeto de isenção é criado na hierarquia de recursos ou recurso individual como um objeto filho, que determina o escopo da isenção. Uma hierarquia de recursos ou recurso individual pode ser isento de várias atribuições. A isenção pode ser configurada para expirar em uma agenda usando a `expiresOn` propriedade. Para obter mais informações, consulte [definição de isenção](./exemption-structure.md).
 

@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d26f1cdd6184ca10c3a7b9c9a7dc5724cc5e8129
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b8eec72666eadf90a401dc8f0adb77df77dbf782
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266299"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969300"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>Exibir a entidade de serviço de uma identidade gerenciada usando CLI do Azure
 
@@ -34,12 +34,9 @@ Neste artigo, você aprende como exibir a entidade de serviço de uma identidade
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md).
 - Caso ainda não tenha uma conta do Azure, [inscreva-se para obter uma conta gratuita](https://azure.microsoft.com/free/).
 - Habilite a [identidade designada pelo sistema em uma máquina virtual](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) ou [aplicativo](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
-- Para executar os exemplos de script da CLI, você tem três opções:
-    - Usar o [Azure Cloud Shell](../../cloud-shell/overview.md) no Portal do Azure (confira a próxima seção).
-    - Usar o Azure Cloud Shell inserido por meio do botão "Experimentar", localizado no canto superior direito de cada bloco de código.
-    - [Instale a última versão da CLI do Azure](/cli/azure/install-azure-cli), se você preferir usar um console de CLI local e entrar no Azure usando `az login`
- 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Para executar os scripts de exemplo, você tem duas opções:
+    - Use o [Azure cloud Shell](../../cloud-shell/overview.md), que você pode abrir usando o botão **experimentar** no canto superior direito dos blocos de código.
+    - Execute os scripts localmente instalando a versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli)e, em seguida, entre no Azure usando [AZ login](/cli/azure/reference-index#az-login). Use uma conta associada à assinatura do Azure na qual você gostaria de criar recursos.   
 
 ## <a name="view-the-service-principal"></a>Exibir a entidade de serviço
 

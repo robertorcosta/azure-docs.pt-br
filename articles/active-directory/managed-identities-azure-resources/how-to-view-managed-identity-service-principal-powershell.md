@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a9da4689a1b5579f90a1df0feb487e50d57a9d98
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2f9ac119a3365eff39fe1a65ff8b553d3900b117
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269209"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969315"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Exibir a entidade de serviço de uma identidade gerenciada usando o PowerShell
 
@@ -36,13 +36,15 @@ Neste artigo, você aprende a exibir a entidade de serviço de uma identidade ge
 - Se você não estiver familiarizado com identidades gerenciadas para recursos do Azure, confira a [seção de visão geral](overview.md).
 - Caso ainda não tenha uma conta do Azure, [inscreva-se para obter uma conta gratuita](https://azure.microsoft.com/free/).
 - Habilite a [identidade designada pelo sistema em uma máquina virtual](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) ou [aplicativo](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
-- Instalar a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)
+- Para executar os scripts de exemplo, você tem duas opções:
+    - Use o [Azure cloud Shell](../../cloud-shell/overview.md), que você pode abrir usando o botão **experimentar** no canto superior direito dos blocos de código.
+    - Execute os scripts localmente instalando a versão mais recente do [Azure PowerShell](/powershell/azure/install-az-ps)e, em seguida, entre no Azure usando `Connect-AzAccount` .
 
 ## <a name="view-the-service-principal"></a>Exibir a entidade de serviço
 
 O comando a seguir demonstra como exibir a entidade de serviço de um aplicativo ou VM com identidade atribuída pelo sistema habilitada. Substitua `<VM or application name>` pelos seus próprios valores.
 
-```powershell
+```azurepowershell-interactive
 Get-AzADServicePrincipal -DisplayName <VM or application name>
 ```
 

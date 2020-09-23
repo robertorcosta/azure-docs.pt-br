@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Consulte como ingerir mensagens de telemetria do dispositivo do Hub IoT.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 8/11/2020
+ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7e6c200f0bec90fb73122e50885f2e6ad7420aeb
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564382"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983347"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingerir telemetria do Hub IoT no gêmeos digital do Azure
 
@@ -31,20 +31,20 @@ Antes de continuar com este exemplo, você precisará configurar os seguintes re
 
 ### <a name="example-telemetry-scenario"></a>Cenário de telemetria de exemplo
 
-Este "como" descreve como enviar mensagens do Hub IoT para o Azure digital gêmeos usando uma função do Azure. Há muitas configurações possíveis e estratégias de correspondência que você pode usar para isso, mas o exemplo deste artigo contém as seguintes partes:
-* Um dispositivo de termômetro no Hub IoT, com uma ID de dispositivo conhecida.
+Este "como" descreve como enviar mensagens do Hub IoT para o Azure digital gêmeos usando uma função do Azure. Há muitas configurações possíveis e estratégias de correspondência que você pode usar para enviar mensagens, mas o exemplo deste artigo contém as seguintes partes:
+* Um dispositivo de termômetro no Hub IoT, com uma ID de dispositivo conhecida
 * Um teledigital para representar o dispositivo, com uma ID correspondente
 
 > [!NOTE]
 > Este exemplo usa uma correspondência de ID direta entre a ID do dispositivo e uma ID de mesa digital correspondente, mas é possível fornecer mapeamentos mais sofisticados do dispositivo para seu número de mesa (como com uma tabela de mapeamento).
 
-Sempre que um evento de telemetria de temperatura é enviado pelo dispositivo de termômetro, a propriedade de *temperatura* da folha de atualização digital deve ser atualizada. Este cenário é descrito em um diagrama abaixo:
+Sempre que um evento de telemetria de temperatura é enviado pelo dispositivo termostato, uma função do Azure processa a telemetria e a propriedade de *temperatura* de uma folha de atualização digital deve ser atualizada. Este cenário é descrito em um diagrama abaixo:
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Um diagrama que mostra um gráfico de fluxo. No gráfico, um dispositivo de Hub IoT envia a telemetria de temperatura por meio do Hub IoT para uma função do Azure, que atualiza uma propriedade de temperatura em um gêmeos no Azure digital." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Adicionar um modelo e um "r"
 
-Você precisará de um entrelaçamento para atualizar com as informações do Hub IoT.
+Você pode adicionar/carregar um modelo usando o comando da CLI abaixo e, em seguida, criar um entrelaçamento usando esse modelo que será atualizado com informações do Hub IoT.
 
 O modelo tem a seguinte aparência:
 ```JSON
@@ -129,7 +129,9 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### <a name="update-your-azure-function-code"></a>Atualizar seu código de função do Azure
 
-Agora que você entendeu o código dos exemplos anteriores, abra o Visual Studio e substitua o código da função do Azure por este código de exemplo.
+Agora que você entendeu o código dos exemplos anteriores, abra sua função do Azure na seção [*pré-requisitos*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) no Visual Studio. (Se você não tiver uma função do Azure, visite o link nos pré-requisitos para criar uma agora).
+
+Substitua o código da função do Azure por este código de exemplo.
 
 ```csharp
 using System;
@@ -191,21 +193,52 @@ namespace IotHubtoTwins
     }
 }
 ```
+Salve o código de função e publique o aplicativo de funções no Azure. Você pode fazer isso consultando [*publicar a aplicativo de funções*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) seção de [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md).
+
+Após uma publicação bem-sucedida, você verá a saída na janela de comando do Visual Studio, conforme mostrado abaixo:
+
+```cmd
+1>------ Build started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
+1>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
+2>------ Publish started: Project: adtIngestFunctionSample, Configuration: Release Any CPU ------
+2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\bin\Release\netcoreapp3.1\bin\adtIngestFunctionSample.dll
+2>adtIngestFunctionSample -> C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\Out\
+2>Publishing C:\Users\source\repos\Others\adtIngestFunctionSample\adtIngestFunctionSample\obj\Release\netcoreapp3.1\PubTmp\adtIngestFunctionSample - 20200911112545669.zip to https://adtingestfunctionsample20200818134346.scm.azurewebsites.net/api/zipdeploy...
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Publish: 1 succeeded, 0 failed, 0 skipped ==========
+```
+Você também pode verificar seu status do processo de publicação no [portal do Azure](https://portal.azure.com/). Pesquise seu _grupo de recursos_ e navegue até o _log de atividades_ e procure _obter perfil de publicação de aplicativo Web_ na lista e verifique se o status foi bem-sucedido.
+
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Captura de tela da portal do Azure que mostra o status do processo de publicação.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Conectar sua função ao Hub IoT
 
-1. Configure um destino de evento para dados de Hub. Na [portal do Azure](https://portal.azure.com/), navegue até a instância do Hub IOT. Em **eventos**, crie uma assinatura para sua função do Azure. 
+Configure um destino de evento para dados de Hub.
+Na [portal do Azure](https://portal.azure.com/), navegue até a instância do Hub IOT que você criou na seção [*pré-requisitos*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) . Em **eventos**, crie uma assinatura para sua função do Azure.
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Captura de tela da portal do Azure que mostra a adição de uma assinatura de evento.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Captura de tela da portal do Azure que mostra a adição de uma assinatura de evento.":::
 
-2. Na página **criar assinatura de evento** , preencha os campos da seguinte maneira:
-    1. Em **nome**, nomeie a assinatura como você deseja.
-    2. Em **esquema de evento**, escolha **esquema de grade de eventos**.
-    3. Em **nome do tópico do sistema**, escolha um nome exclusivo.
-    4. Em **tipos de evento**, escolha **telemetria do dispositivo** como o tipo de evento para filtrar.
-    5. Em **detalhes do ponto de extremidade**, selecione sua função do Azure como um ponto de extremidade.
+Na página **criar assinatura de evento** , preencha os campos da seguinte maneira:
+  1. Em **nome**, nomeie a assinatura como você deseja.
+  2. Em **esquema de evento**, escolha _esquema de grade de eventos_.
+  3. Em **tipos de evento**, escolha a caixa de seleção _telemetria do dispositivo_ e desmarque outros tipos de evento.
+  4. Em **tipo de ponto de extremidade**, selecione _Azure function_.
+  5. Em **ponto de extremidade**, escolha _selecionar um_ link de ponto de extremidade para criar um ponto de extremidade.
+    
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Captura de tela da portal do Azure para criar os detalhes da assinatura do evento":::
 
-    :::image type="content" source="media/how-to-ingest-iot-hub-data/event-subscription-2.png" alt-text="Captura de tela da portal do Azure que mostra os detalhes da assinatura do evento":::
+Na página _selecionar função do Azure_ que é aberta, verifique os detalhes abaixo.
+ 1. **Assinatura**: sua assinatura do Azure
+ 2. **Grupo de recursos**: seu grupo de recursos
+ 3. **Aplicativo de funções**: o nome do aplicativo de funções
+ 4. **Slot**: _produção_
+ 5. **Função**: selecione a função do Azure na lista suspensa.
+
+Salve seus detalhes selecionando o botão _confirmar seleção_ .            
+      
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Captura de tela da portal do Azure para selecionar o Azure function":::
+
+Selecione o botão _criar_ para criar a assinatura de evento.
 
 ## <a name="send-simulated-iot-data"></a>Enviar dados de IoT simulados
 

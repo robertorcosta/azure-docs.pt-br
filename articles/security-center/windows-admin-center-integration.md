@@ -8,20 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277486"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906347"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Proteger os recursos do centro de administração do Windows com a central de segurança
 
 O centro de administração do Windows é uma ferramenta de gerenciamento para seus servidores Windows. É um único local para que os administradores de sistema acessem a maioria das ferramentas de administração mais usadas. No centro de administração do Windows, você pode integrar diretamente seus servidores locais à central de segurança do Azure. Você pode exibir um resumo de suas recomendações de segurança e alertas diretamente na experiência do centro de administração do Windows.
 
 > [!NOTE]
-> Sua assinatura do Azure e o espaço de trabalho Log Analytics associado precisam ter a camada Standard da central de segurança habilitada para habilitar a integração do centro de administração do Windows.
-> A camada Standard será gratuita pelos primeiros 30 dias se você ainda não o tiver usado na assinatura e no espaço de trabalho. Para obter mais informações, consulte [a página de informações de preços](security-center-pricing.md).
+> Sua assinatura do Azure e o espaço de trabalho Log Analytics associado precisam ter o Azure defender habilitado para habilitar a integração do centro de administração do Windows.
+> O Azure defender será gratuito pelos primeiros 30 dias se você ainda não o tiver usado na assinatura e no espaço de trabalho. Para obter mais informações, consulte [a página de informações de preços](security-center-pricing.md).
 >
 
 Quando você tiver integrado com êxito um servidor do centro de administração do Windows à central de segurança do Azure, poderá:
@@ -46,8 +46,8 @@ Ao combinar essas duas ferramentas, a central de segurança se torna seu único 
 1. Siga as instruções para conectar o servidor à central de segurança. Depois de inserir os detalhes e a confirmação necessários, a central de segurança fará as alterações de configuração necessárias para garantir que todas as seguintes opções sejam verdadeiras:
     * Um gateway do Azure está registrado.
     * O servidor tem um espaço de trabalho para relatar e uma assinatura associada.
-    * A solução de Log Analytics da camada Standard da central de segurança está habilitada no espaço de trabalho. Essa solução fornece os recursos da camada Standard da central de segurança para *todos os* servidores e máquinas virtuais que se reportam a esse espaço de trabalho.
-    * O preço da camada Standard da central de segurança para a máquina virtual está habilitado na assinatura.
+    * A solução de Log Analytics da central de segurança está habilitada no espaço de trabalho. Essa solução fornece recursos do Azure defender para *todos os* servidores e máquinas virtuais que se reportam a este espaço de trabalho.
+    * O Azure defender para servidores está habilitado na assinatura.
     * O agente de Log Analytics está instalado no servidor e configurado para relatar para o espaço de trabalho selecionado. Se o servidor já se reportar a outro espaço de trabalho, ele também será configurado para relatar para o espaço de trabalho selecionado recentemente.
 
     > [!NOTE]
@@ -63,12 +63,8 @@ Uma vez integrado, você pode exibir seus alertas e recomendações diretamente 
 ## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Exibir recomendações e alertas de segurança para servidores gerenciados do centro de administração do Windows na central de segurança
 Na central de segurança do Azure:
 
-* Para exibir as recomendações de segurança para todos os seus servidores do centro de administração do Windows, abra **computação & aplicativos** e clique na guia **VMs e computadores** . Filtre a lista por recurso "servidor", conforme mostrado aqui:
-
-    [![Exibir recomendações de segurança para servidores gerenciados do centro de administração do Windows](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+* Para exibir as recomendações de segurança para todos os seus servidores do centro de administração do Windows, abra [inventário de ativos](asset-inventory.md) e filtre para o tipo de computador que você deseja investigar. Selecione a guia **VMs e computadores** .
 
 * Para exibir alertas de segurança para todos os servidores do centro de administração do Windows, abra **alertas de segurança**. Clique em **Filtrar** e verifique se **somente** "não Azure" está selecionado:
 
-    ![Filtrar alertas de segurança para servidores gerenciados do centro de administração do Windows](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
-
-    [![Exibir alertas de segurança para servidores gerenciados do centro de administração do Windows](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrar alertas de segurança para servidores gerenciados do centro de administração do Windows" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::
