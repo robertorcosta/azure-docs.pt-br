@@ -1,6 +1,6 @@
 ---
-title: Usar o portal do Azure para solucionar problemas de Azure Stack Edge | Microsoft Docs
-description: Saiba como solucionar problemas em seu Azure Stack Edge. Você pode executar o diagnóstico, coletar informações de suporte e usar logs para solucionar problemas.
+title: Use o portal do Azure para solucionar problemas do Azure Stack Edge pro | Microsoft Docs
+description: Saiba como solucionar problemas em seu Azure Stack Edge pro. Você pode executar o diagnóstico, coletar informações de suporte e usar logs para solucionar problemas.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134557"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903649"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Solucionar problemas de Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Solucionar problemas do Azure Stack Edge pro
 
-Este artigo descreve como solucionar problemas em seu Azure Stack Edge. 
+Este artigo descreve como solucionar problemas em seu Azure Stack Edge pro. 
 
 Neste artigo, você aprenderá como:
 
@@ -65,7 +65,7 @@ Quaisquer erros ocorridos durante os processos de upload e de atualização são
 
       ![Conectar-se e exibir conteúdo do compartilhamento](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Selecione a _pasta Microsoft Azure Stack Edge_. Esta pasta tem duas subpastas:
+2. Selecione a _pasta Microsoft Azure Stack Edge pro_. Esta pasta tem duas subpastas:
 
     * Faça upload da pasta que contém os arquivos de log para erros de upload.
     * Atualize a pasta para erros durante a atualização.

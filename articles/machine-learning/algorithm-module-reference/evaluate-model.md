@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285944"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908060"
 ---
 # <a name="evaluate-model-module"></a>Módulo Avaliar modelo
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia).
+Este artigo descreve um módulo no designer de Azure Machine Learning.
 
 Use este módulo para medir a precisão de um modelo treinado. Você fornece um conjunto de dados que contém pontuações geradas por um modelo, e o módulo **Avaliar modelo** calcula um conjunto de métricas de avaliação padrão do setor.
   

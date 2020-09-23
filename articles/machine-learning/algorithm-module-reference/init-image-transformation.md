@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487943"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907879"
 ---
 # <a name="init-image-transformation"></a>Transformação da Imagem de Inicialização
 
-Este artigo descreve como usar o módulo de **transformação init Image** no Azure Machine Learning designer (versão prévia), para inicializar a transformação de imagem para especificar como você deseja que a imagem seja transformada.
+Este artigo descreve como usar o módulo de **transformação init Image** no Azure Machine Learning designer, para inicializar a transformação de imagem para especificar como você deseja que a imagem seja transformada.
 
 ## <a name="how-to-configure-init-image-transformation"></a>Como configurar a transformação de imagem de inicialização
 
@@ -67,29 +67,29 @@ Consulte [https://pytorch.org/docs/stable/torchvision/transforms.html](https://p
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Nome                    | Intervalo   | Type    | Padrão | Descrição                              |
+| Name                    | Intervalo   | Type    | Padrão | Descrição                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Redimensionar                  | Qualquer     | Booliano | verdadeiro    | Redimensionar a imagem PIL de entrada para o tamanho determinado |
-| Tamanho                    | >= 1     | Integer | 256     | Especificar o tamanho de saída desejado          |
+| Tamanho                    | >= 1     | Inteiro | 256     | Especificar o tamanho de saída desejado          |
 | Cortar central             | Qualquer     | Booliano | verdadeiro    | Corta a imagem PIL determinada no centro  |
-| Tamanho do corte               | >= 1     | Integer | 224     | Especificar o tamanho de saída desejado do corte |
-| Pad                     | Qualquer     | Boolean | Falso   | Preencha a imagem PIL determinada em todos os lados com o valor de "pad" fornecido |
-| Preenchimento                 | >= 0     | Integer | 0       | Preenchimento em cada borda                   |
-| Tremulação de cor            | Qualquer     | Boolean | Falso   | Alterar aleatoriamente o brilho, o contraste e a saturação de uma imagem |
-| Escala de cinza               | Qualquer     | Boolean | Falso   | Converter imagem em escala de cinza               |
-| Corte redimensionado aleatório     | Qualquer     | Boolean | Falso   | Cortar a imagem PIL específica para o tamanho aleatório e a taxa de proporção |
-| Tamanho aleatório             | >= 1     | Integer | 256     | Tamanho de saída esperado de cada borda        |
-| Corte aleatório             | Qualquer     | Boolean | Falso   | Cortar a imagem PIL determinada em um local aleatório |
-| Tamanho de corte aleatório        | >= 1     | Integer | 224     | Tamanho de saída desejado do corte          |
+| Tamanho do corte               | >= 1     | Inteiro | 224     | Especificar o tamanho de saída desejado do corte |
+| Pad                     | Qualquer     | Booliano | Falso   | Preencha a imagem PIL determinada em todos os lados com o valor de "pad" fornecido |
+| Preenchimento                 | >= 0     | Inteiro | 0       | Preenchimento em cada borda                   |
+| Tremulação de cor            | Qualquer     | Booliano | Falso   | Alterar aleatoriamente o brilho, o contraste e a saturação de uma imagem |
+| Escala de cinza               | Qualquer     | Booliano | Falso   | Converter imagem em escala de cinza               |
+| Corte redimensionado aleatório     | Qualquer     | Booliano | Falso   | Cortar a imagem PIL específica para o tamanho aleatório e a taxa de proporção |
+| Tamanho aleatório             | >= 1     | Inteiro | 256     | Tamanho de saída esperado de cada borda        |
+| Corte aleatório             | Qualquer     | Booliano | Falso   | Cortar a imagem PIL determinada em um local aleatório |
+| Tamanho de corte aleatório        | >= 1     | Inteiro | 224     | Tamanho de saída desejado do corte          |
 | Inverter horizontal aleatório  | Qualquer     | Booliano | verdadeiro    | Inverta horizontalmente a imagem PIL determinada aleatoriamente com uma determinada probabilidade |
-| Inverter vertical aleatório    | Qualquer     | Boolean | Falso   | Virar verticalmente a imagem PIL determinada aleatoriamente com uma determinada probabilidade |
-| Rotação aleatória         | Qualquer     | Boolean | Falso   | Girar a imagem por ângulo                |
-| Graus de rotação aleatória | [0180] | Integer | 0       | Intervalo de graus do qual selecionar          |
-| Afinidade aleatória           | Qualquer     | Boolean | Falso   | Transformação afim aleatória da invariável do centro de manutenção de imagem |
-| Graus de afinidade aleatória   | [0180] | Integer | 0       | Intervalo de graus do qual selecionar          |
-| Escala de cinza aleatória        | Qualquer     | Boolean | Falso   | Converter aleatoriamente a imagem em escala de cinza com a probabilidade 0,1 |
-| Perspectiva aleatória      | Qualquer     | Boolean | Falso   | Executa a transformação em perspectiva da imagem PIL determinada aleatoriamente com a probabilidade 0,5 |
-| Apagamento aleatório          | Qualquer     | Boolean | Falso   | Seleciona aleatoriamente uma região de retângulo em uma imagem e apaga seus pixels com a probabilidade 0,5 |
+| Inverter vertical aleatório    | Qualquer     | Booliano | Falso   | Virar verticalmente a imagem PIL determinada aleatoriamente com uma determinada probabilidade |
+| Rotação aleatória         | Qualquer     | Booliano | Falso   | Girar a imagem por ângulo                |
+| Graus de rotação aleatória | [0180] | Inteiro | 0       | Intervalo de graus do qual selecionar          |
+| Afinidade aleatória           | Qualquer     | Booliano | Falso   | Transformação afim aleatória da invariável do centro de manutenção de imagem |
+| Graus de afinidade aleatória   | [0180] | Inteiro | 0       | Intervalo de graus do qual selecionar          |
+| Escala de cinza aleatória        | Qualquer     | Booliano | Falso   | Converter aleatoriamente a imagem em escala de cinza com a probabilidade 0,1 |
+| Perspectiva aleatória      | Qualquer     | Booliano | Falso   | Executa a transformação em perspectiva da imagem PIL determinada aleatoriamente com a probabilidade 0,5 |
+| Apagamento aleatório          | Qualquer     | Booliano | Falso   | Seleciona aleatoriamente uma região de retângulo em uma imagem e apaga seus pixels com a probabilidade 0,5 |
 
 ###  <a name="output"></a>Saída  
 

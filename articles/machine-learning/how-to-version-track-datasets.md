@@ -11,15 +11,15 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fe56427e93650fbaca397bbbb27d32f730b1f7f3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 21969f52223a4e0c7de6ee26c0a6f9e2f96366b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651761"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902346"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de testes de versão e acompanhamento em experimentos
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a controlar a versão e o acompanhamento de conjuntos de Azure Machine Learning para reprodução. O controle de versão do conjunto de dados é uma maneira de marcar o estado de seus dados de forma que você possa aplicar uma versão específica do conjunto para experimentos futuros.
 

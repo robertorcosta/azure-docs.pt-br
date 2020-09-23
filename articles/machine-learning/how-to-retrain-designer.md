@@ -1,7 +1,7 @@
 ---
-title: Readaptação de modelos usando o designer do Azure Machine Learning (versão prévia)
+title: Treinar novamente modelos usando o designer de Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Saiba como readaptar modelos com pipelines publicados no designer do Azure Machine Learning (versão prévia).
+description: Saiba como treinar novamente modelos com pipelines publicados no Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661602"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905677"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Readaptação de modelos com o designer do Azure Machine Learning (versão prévia)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Readaptação de modelos com o Azure Machine Learning designer
+
 
 Neste artigo de instruções, você aprenderá a usar o designer do Azure Machine Learning para readaptar um modelo de machine learning. Você usará pipelines publicados para automatizar seu fluxo de trabalho e definir parâmetros para treinar seu modelo para novos dados. 
 
@@ -32,12 +32,12 @@ Neste artigo, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um workspace do Azure Machine Learning com o SKU Enterprise.
-* Conclua a parte 1 desta série de instruções, [Transformação de dados no designer](how-to-designer-transform-data.md).
+* Um Workspace do Azure Machine Learning
+* Concluir a parte 1 desta série de instruções, [transformar dados no designer](how-to-designer-transform-data.md)
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-Este artigo também pressupõe que você tenha conhecimentos básicos sobre a criação de pipelines no designer. Para obter uma introdução guiada, conclua o [tutorial](tutorial-designer-automobile-price-train-score.md). 
+Este artigo também pressupõe que você tenha algum conhecimento sobre a criação de pipelines no designer. Para obter uma introdução guiada, conclua o [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Amostra do pipeline
 

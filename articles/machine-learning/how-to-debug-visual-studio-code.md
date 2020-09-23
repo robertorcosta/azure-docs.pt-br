@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 08859eb87431b59e8be68369ce8f3876aa7d9f21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530294"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907621"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuração interativa com Visual Studio Code
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como depurar interativamente Azure Machine Learning pipelines e implantações usando Visual Studio Code (VS Code) e [depugpy](https://github.com/microsoft/debugpy/).
 
@@ -109,7 +109,7 @@ Para habilitar a depuração, faça as seguintes alterações no (s) script (es)
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-O exemplo de Python a seguir mostra um `train.py` arquivo básico que habilita a depuração:
+O exemplo de Python a seguir mostra um `train.py` arquivo simples que habilita a depuração:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.

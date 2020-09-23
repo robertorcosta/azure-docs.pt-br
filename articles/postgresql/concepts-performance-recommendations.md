@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ce3843752ebd6ed56281f6699783181b52fdc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768462"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903872"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recomendações de desempenho no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -27,13 +27,13 @@ O recurso das [Recomendações de Desempenho](concepts-performance-recommendatio
 
 Abra **recomendações de desempenho** na seção de **desempenho inteligente** da barra de menus na página portal do Azure para o servidor PostgreSQL.
 
-![Página das Recomendações de Desempenho](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Página das Recomendações de Desempenho":::
 
 Selecione **Analisar** e escolha um banco de dados que iniciará a análise. Dependendo de sua carga de trabalho, a análise de th pode levar vários minutos para ser concluída. Quando a análise for concluída, haverá uma notificação no portal. A análise executa um exame profundo do banco de dados. Recomendamos que você execute a análise fora dos períodos de pico. 
 
 A janela **recomendações** mostrará uma lista de recomendações, se alguma for encontrada.
 
-![Nova página de recomendações de desempenho](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nova página de recomendações de desempenho":::
 
 As recomendações não são aplicadas automaticamente. Para aplicar a recomendação, copie o texto da consulta e execute-o no cliente de sua escolha. Lembre-se de testar e monitorar para avaliar a recomendação. 
 

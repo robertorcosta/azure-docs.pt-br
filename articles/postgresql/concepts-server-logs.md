@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5515c21d89b01576bb6aae8c9d480b439dc1507
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392804"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902709"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Logs no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -23,7 +23,7 @@ O log de auditoria é disponibilizado por meio de uma extensão Postgres, pgaudi
 ## <a name="configure-logging"></a>Configurar o registro em log 
 Você pode configurar o log padrão do postgres no servidor usando os parâmetros do servidor de registro em log. Em cada servidor de banco de dados do Azure para PostgreSQL `log_checkpoints` e `log_connections` estão ativados por padrão. Há parâmetros adicionais que você pode ajustar para atender às suas necessidades de registro em log: 
 
-![Banco de Dados do Azure para PostgreSQL – parâmetros de registro em log](./media/concepts-server-logs/log-parameters.png)
+:::image type="content" source="./media/concepts-server-logs/log-parameters.png" alt-text="Banco de Dados do Azure para PostgreSQL – parâmetros de registro em log":::
 
 Para saber mais sobre os parâmetros de log do Postgres, visite as seções [quando registrar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) e [o que registrar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) na documentação do Postgres. A maioria dos parâmetros de log Postgres, mas não todos, estão disponíveis para configurar no banco de dados do Azure para PostgreSQL.
 
@@ -126,5 +126,5 @@ A tabela a seguir descreve os campos para o tipo **PostgreSQLLogs** . Dependendo
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como acessar logs no [portal do Azure](howto-configure-server-logs-in-portal.md) ou na [CLI do Azure](howto-configure-server-logs-using-cli.md).
-- Saiba mais sobre o [preço do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+- Saiba mais sobre [preços de Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 - Saiba mais sobre [os logs de auditoria](concepts-audit.md)

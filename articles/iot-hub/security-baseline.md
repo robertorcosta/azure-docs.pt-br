@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 314004d2b62d5616c1d7925b82fd9f050d0a1fd0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441792"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906912"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Linha de base de segurança do Azure para o Hub IoT do Azure
 
@@ -71,7 +71,7 @@ A proteção contra DDoS do Azure básica já está habilitada e disponível sem
 
 - [Filtro de IP do Hub IoT](iot-hub-ip-filtering.md)
 
-- [Central de segurança do Azure para comunicação de endereço IP suspeito de IoT](../asc-for-iot/concept-security-alerts.md)
+- [Central de segurança do Azure para comunicação de endereço IP suspeito de IoT](../defender-for-iot/concept-security-alerts.md)
 
 - [Gerenciar a proteção contra DDoS do Azure básica](../virtual-network/ddos-protection-overview.md)
 
@@ -234,7 +234,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Monitorar a integridade do Hub IoT do Azure](iot-hub-monitor-resource-health.md)
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
-- [Central de segurança do Azure para alertas de IoT](../asc-for-iot/concept-security-alerts.md)
+- [Central de segurança do Azure para alertas de IoT](../defender-for-iot/concept-security-alerts.md)
 
 - [Como alertar sobre dados de log do log Analytics](../azure-monitor/learn/tutorial-response.md)
 

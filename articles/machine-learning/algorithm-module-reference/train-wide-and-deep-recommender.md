@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420882"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907783"
 ---
 # <a name="train-wide--deep-recommender"></a>Treinar amplo & Recomendador profundo
-Este artigo descreve como usar o módulo de recomendação **& Deep Wide de treinamento** no Azure Machine Learning designer (versão prévia) para treinar um modelo de recomendações. Esse módulo baseia-se em amplo & aprendizado profundo, que é proposto pelo Google.
+Este artigo descreve como usar o módulo de recomendação **& Deep Wide de treinamento** no Azure Machine Learning designer, para treinar um modelo de recomendações. Esse módulo baseia-se em amplo & aprendizado profundo, que é proposto pelo Google.
 
 O módulo **treinamento amplo & profundo de recomendação** lê um conjunto de módulos de percurso de classificação de usuário-item e, opcionalmente, alguns recursos de usuário e item. Ele retorna um recomendador profundo & de larga experiência.  Você pode usar o modelo treinado para gerar previsões ou recomendações de classificação usando o módulo de [recomendação de Pontuação e de profundidade](score-wide-and-deep-recommender.md) .  
 
@@ -77,14 +77,14 @@ O conjunto de dados de recursos de item deve conter identificadores de item na p
 
 Por exemplo, um conjunto típico de recursos de item pode ser assim:  
 
-|FilmeID|Título|Idioma original|Gêneros|Ano|
+|FilmeID|Título|Idioma original|Gêneros|Year|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|O Godfather|Inglês|Drama|1972|
 |31381|Saiu com o vento|Inglês|Histórico|1939|
 
 ### <a name="train-the-model"></a>Treinar o modelo
 
-1.  Adicione o módulo **treinamento largo e profundo** ao seu experimento no designer (versão prévia) e conecte-o ao conjunto de testes de treinamento.  
+1.  Adicione o módulo **treinamento largo e profundo** ao seu experimento no designer e conecte-o ao conjunto de testes de treinamento.  
   
 2. Se você tiver um conjunto de usuários separado de recursos de usuário e/ou recursos de item, conecte-os ao módulo de **recomendação de treinamento amplo e profundo** .  
   

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
-ms.openlocfilehash: 916d23670e1db22efe43e2966d96aa1c82f1852a
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: b88a9477c9d63becb32bc95ca78b4a8117168a47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782151"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907764"
 ---
 # <a name="tune-model-hyperparameters"></a>Ajustar os hiperparâmetros de modelo
 
-Este artigo descreve como usar o módulo ajustar hiperparâmetros de modelo no designer de Azure Machine Learning (versão prévia). O objetivo é determinar os hiperparâmetros ideais para um modelo de aprendizado de máquina. O módulo cria e testa vários modelos usando diferentes combinações de configurações. Ele compara métricas em todos os modelos para obter as combinações de configurações. 
+Este artigo descreve como usar o módulo ajustar hiperparâmetros de modelo no designer de Azure Machine Learning. O objetivo é determinar os hiperparâmetros ideais para um modelo de aprendizado de máquina. O módulo cria e testa vários modelos usando diferentes combinações de configurações. Ele compara métricas em todos os modelos para obter as combinações de configurações. 
 
 O *parâmetro* de termos e *hiperparâmetro* podem ser confusos. Os *parâmetros* do modelo são o que você definiu no painel direito do módulo. Basicamente, esse módulo executa uma *varredura de parâmetro* sobre as configurações de parâmetro especificadas. Ele aprende um conjunto ideal de _hiperparâmetros_, que podem ser diferentes para cada árvore de decisão, conjunto de informações ou método de regressão específico. O processo de encontrar a configuração ideal às vezes é chamado de *ajuste*. 
 

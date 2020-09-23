@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 0feeec3b5b87e415f25f4cb75e53d9001b022445
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319246"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900294"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar contêineres de serviço de fala
 
@@ -50,7 +50,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 - Portal do Azure: visão geral **da fala** , rotulada `Endpoint`
 
-| Obrigatório | Nome | Tipo de dados | Descrição |
+| Obrigatório | Name | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
 | Sim | `Billing` | String | URI do ponto de extremidade de cobrança. Para obter mais informações sobre como obter o URI de cobrança, consulte [coletando parâmetros necessários](speech-container-howto.md#gathering-required-parameters). Para saber mais e para obter uma lista completa de pontos de extremidade regionais, confira [Nomes de subdomínio personalizados para Serviços Cognitivos](../cognitive-services-custom-subdomains.md). |
 
@@ -78,7 +78,7 @@ Os contêineres de fala padrão não usam montagens de entrada ou de saída para
 
 A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, o local de montagem do [computador host](speech-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões de local de montagem do host.
 
-| Opcional | Nome | Tipo de dados | Descrição |
+| Opcional | Name | Tipo de dados | Descrição |
 | -------- | ---- | --------- | ----------- |
 | Não permitido | `Input` | String | Os contêineres de fala padrão não usam isso. Os contêineres de fala personalizados usam [montagens de volume](#volume-mount-settings).                                                                                    |
 | Opcional | `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output` |
@@ -136,7 +136,7 @@ Os exemplos do Docker a seguir são para o contêiner de fala.
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -146,7 +146,7 @@ ApiKey={API_KEY}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
@@ -160,7 +160,7 @@ Logging:Console:LogLevel:Default=Information
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -172,7 +172,7 @@ ApiKey={API_KEY}
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -186,7 +186,7 @@ Logging:Console:LogLevel:Default=Information
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -196,7 +196,7 @@ ApiKey={API_KEY}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
@@ -210,7 +210,7 @@ Logging:Console:LogLevel:Default=Information
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -222,7 +222,7 @@ ApiKey={API_KEY}
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -236,7 +236,7 @@ Logging:Console:LogLevel:Default=Information
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
-containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -246,7 +246,30 @@ ApiKey={API_KEY}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
-containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+## <a name="speech-language-detection"></a>[Detecção de Idioma de fala](#tab/lid)
+
+### <a name="basic-example-for-speech-language-detection"></a>Exemplo básico para detecção de idioma de fala
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example-for-speech-language-detection"></a>Exemplo de log para detecção de idioma de fala
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \

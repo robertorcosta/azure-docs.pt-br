@@ -1,6 +1,6 @@
 ---
-title: Entender a rede kubernetes no dispositivo Azure Stack Edge | Microsoft Docs
-description: Descreve como o kubernetes Networking funciona em um dispositivo Azure Stack Edge.
+title: Entender a rede kubernetes no dispositivo pro Edge Azure Stack | Microsoft Docs
+description: Descreve como o kubernetes Networking funciona em um dispositivo Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 4eab89710e031ead0a3758afd2367e60d26f395b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 001304ad6eda27db2285aaa9ad8b28929e2a04f8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268118"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899326"
 ---
-# <a name="kubernetes-networking-in-your-azure-stack-edge-gpu-device"></a>Rede kubernetes em seu dispositivo de GPU do Azure Stack Edge
+# <a name="kubernetes-networking-in-your-azure-stack-edge-pro-gpu-device"></a>Rede kubernetes em seu dispositivo de GPU pro Azure Stack Edge
 
-No dispositivo Azure Stack Edge, um cluster kubernetes é criado quando você configura a função de computação. Depois que o cluster kubernetes é criado, os aplicativos em contêineres podem ser implantados no cluster kubernetes em pods. Há maneiras distintas de que a rede é usada para o pods em seu cluster kubernetes. 
+Em seu dispositivo Azure Stack Edge pro, um cluster kubernetes é criado quando você configura a função de computação. Depois que o cluster kubernetes é criado, os aplicativos em contêineres podem ser implantados no cluster kubernetes em pods. Há maneiras distintas de que a rede é usada para o pods em seu cluster kubernetes. 
 
-Este artigo descreve a rede em um cluster kubernetes em geral e, especificamente, no contexto de seu dispositivo Azure Stack Edge. 
+Este artigo descreve a rede em um cluster kubernetes em geral e, especificamente, no contexto de seu dispositivo Azure Stack Edge pro. 
 
 ## <a name="networking-requirements"></a>Requisitos de rede
 
@@ -59,9 +59,9 @@ For discovery of applications within the cluster, Kubernetes cluster has a
 When an application or the end user would first use the IP address associated with the service of type load balancer to discover the service. Then it would use the label select `app = WS` to discover the pods associated with the application. The `kube-proxy` component would then distribute the traffic and ensure that it hits one of the web server application pods. If the web server app wanted to talk to the database app, then it would simply use the name of the service and using the name and the DNS server pod, resolve the name to an IP address. Again using labels and label selector, it would discover the pods associated with the database application. The `kube-proxy` would then distribute the traffic across each of the database app nodes.-->
 
 
-## <a name="kubernetes-networking-on-azure-stack-edge"></a>Rede kubernetes na borda Azure Stack
+## <a name="kubernetes-networking-on-azure-stack-edge-pro"></a>Rede kubernetes no Azure Stack Edge pro
 
-Calico, Metallb e DNS principal são todos os componentes que estão instalados para rede em seu Azure Stack Edge. 
+Calico, Metallb e DNS principal são todos os componentes que estão instalados para rede em seu Azure Stack Edge pro. 
 
 - O **Calico** atribui um endereço IP de um intervalo de IP privado para cada pod e configura a rede para esses pods para que o pod em um nó possa se comunicar com o pod em outro nó. 
 - O **Metallb** é executado em um pod no cluster e atribui o endereço IP aos serviços do balanceador de carga de tipo. Os endereços IP do balanceador de carga são escolhidos do intervalo de IP do serviço fornecido por meio da interface do usuário local. 
@@ -80,8 +80,8 @@ A atribuição de IP é para:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para configurar a rede kubernetes em seu Azure Stack Edge, consulte:
+Para configurar a rede kubernetes em seu Azure Stack Edge pro, consulte:
 
-- [Expor um aplicativo sem estado externamente em seu Azure Stack Edge via IOT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
+- [Expor um aplicativo sem estado externamente em seu Azure Stack Edge pro via IOT Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md).
 
-- [Expor um aplicativo sem estado externamente em seu Azure Stack Edge via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Expor um aplicativo sem estado externamente em seu Azure Stack Edge pro via kuebctl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).

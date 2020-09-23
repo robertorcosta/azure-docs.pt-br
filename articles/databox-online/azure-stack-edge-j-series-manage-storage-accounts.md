@@ -1,6 +1,6 @@
 ---
-title: Gerenciamento de conta de armazenamento da GPU do Edge Azure Stack | Microsoft Docs
-description: Descreve como usar o portal do Azure para gerenciar a conta de armazenamento em seu Azure Stack Edge.
+title: Gerenciamento de conta de armazenamento do Azure Stack Edge pro GPU | Microsoft Docs
+description: Descreve como usar o portal do Azure para gerenciar a conta de armazenamento em seu Azure Stack Edge pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 3b190a108651f4b127c2f009c383613922a59018
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254281"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904538"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Use o portal do Azure para gerenciar contas de armazenamento de borda no seu Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Use o portal do Azure para gerenciar contas de armazenamento de borda em seu Azure Stack Edge pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo descreve como gerenciar contas de armazenamento de borda em seu Azure Stack Edge. Você pode gerenciar o Azure Stack Edge por meio da portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar ou excluir contas de armazenamento de borda em seu dispositivo.
+Este artigo descreve como gerenciar contas de armazenamento de borda em seu Azure Stack Edge pro. Você pode gerenciar o Azure Stack Edge pro via portal do Azure ou por meio da interface do usuário da Web local. Use o portal do Azure para adicionar ou excluir contas de armazenamento de borda em seu dispositivo.
 
 ## <a name="about-edge-storage-accounts"></a>Sobre contas de armazenamento de borda
 
-Você pode transferir dados de seu dispositivo Azure Stack Edge por meio dos protocolos SMB, NFS ou REST. Para transferir dados para o armazenamento de BLOBs usando as APIs REST, você precisa criar contas de armazenamento de borda em seu Azure Stack Edge. 
+Você pode transferir dados de seu dispositivo Azure Stack Edge pro por meio dos protocolos SMB, NFS ou REST. Para transferir dados para o armazenamento de BLOBs usando as APIs REST, você precisa criar contas de armazenamento de borda em seu Azure Stack Edge pro. 
 
-As contas de armazenamento de borda que você adiciona no dispositivo de borda Azure Stack são mapeadas para contas de armazenamento do Azure. Todos os dados gravados nas contas de armazenamento de borda são automaticamente enviados para a nuvem.
+As contas de armazenamento de borda que você adiciona no dispositivo Azure Stack Edge pro são mapeadas para contas de armazenamento do Azure. Todos os dados gravados nas contas de armazenamento de borda são automaticamente enviados para a nuvem.
 
 Um diagrama detalhando os dois tipos de contas e como os dados fluem de cada uma dessas contas para o Azure é mostrado abaixo:
 
@@ -34,13 +34,13 @@ Um diagrama detalhando os dois tipos de contas e como os dados fluem de cada uma
 Neste artigo, você aprenderá como:
 
 > [!div class="checklist"]
-> * Adicionar uma conta de armazenamento de borda
+> * Adicionar uma conta de armazenamento do Edge
 > * Excluir uma conta de armazenamento de borda
 
 
-## <a name="add-an-edge-storage-account"></a>Adicionar uma conta de armazenamento de borda
+## <a name="add-an-edge-storage-account"></a>Adicionar uma conta de armazenamento do Edge
 
-Para criar uma conta de armazenamento de borda, execute o seguinte procedimento:
+Para criar uma conta de armazenamento do Edge, execute o seguinte procedimento:
 
 [!INCLUDE [Add an Edge storage account](../../includes/azure-stack-edge-gateway-add-storage-account.md)]
 

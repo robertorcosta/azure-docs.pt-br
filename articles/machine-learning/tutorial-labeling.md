@@ -10,15 +10,15 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 60dd9631df0b997ce39134002bdb6ed9f69336ed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319262"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906708"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagens de várias classes 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este tutorial mostra como gerenciar o processo de rotulagem (também conhecido como marcação) de imagens a serem usadas como dados para a criação de modelos de machine learning. A rotulagem de dados no Azure Machine Learning está em versão prévia pública.
 
@@ -130,7 +130,7 @@ Selecione **Avançar** para continuar.
 
 1. Selecione **Avançar**.
 
-1. Se você estiver usando um workspace Enterprise, verá uma seção de **rotulagem assistida por ML**.  Mantenha a caixa de seleção desmarcada. A rotulagem assistida por ML requer mais dados do que você usará neste tutorial.
+1. Na seção **Rotulagem assistida por ML**, deixe a caixa de seleção desmarcada. A rotulagem assistida por ML requer mais dados do que você usará neste tutorial.
 
 1. Selecione **Criar projeto**.
 

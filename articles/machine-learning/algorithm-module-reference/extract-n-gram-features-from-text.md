@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477605"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907979"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair recursos de N-Gram de referência de módulo de texto
 
-Este artigo descreve um módulo no designer do Azure Machine Learning (versão prévia). Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
+Este artigo descreve um módulo no designer de Azure Machine Learning. Use o módulo extrair recursos N-Gram de texto para *Personalizar* dados de texto não estruturados. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuração dos recursos de extrair N-Gram do módulo de texto
 

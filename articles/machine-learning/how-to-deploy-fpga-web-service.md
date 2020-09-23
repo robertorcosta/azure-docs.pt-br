@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 06/03/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: a5f56beb179f7c72fe66c7423999201f3460b143
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7637cc911ea2fbb950a18c2c8d91f5c3eaf02c23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646291"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905076"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>O que são FPGA (matrizes de portão programável por campo) e como implantar
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este artigo fornece uma introdução às FPGA (matrizes de portão programável por campo) e mostra como implantar seus modelos usando [Azure Machine Learning](overview-what-is-azure-ml.md) em um FPGA do Azure.
 
@@ -389,7 +389,7 @@ for top in sorted_results[:5]:
     print(classes_entries[top[0]], 'confidence:', top[1])
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Exclua o serviço Web, a imagem e o modelo (deve ser feito nesta ordem, pois há dependências).
 
