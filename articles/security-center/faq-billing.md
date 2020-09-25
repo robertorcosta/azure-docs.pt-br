@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 82462af3f1fc939cb30730360f75303cb1be9432
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cf90065ad40ca46068700473ad71b598619764ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301458"
 ---
 # <a name="billing-questions"></a>Perguntas sobre cobrança
 
@@ -27,7 +27,7 @@ A central de segurança é oferecida com e sem o Azure defender:
 
 - **Sem o Azure defender**, a central de segurança fornece visibilidade do estado de segurança de seus recursos do Azure, política básica de segurança, recomendações de segurança e integração com produtos e serviços de segurança de parceiros.
 
-- O **Azure defender** adiciona recursos de proteção contra ameaças que incluem alertas de segurança, inteligência contra ameaças, análise comportamental, detecção de anomalias e relatórios de atribuição de ameaças. Você pode iniciar uma avaliação gratuita de 30 dias do Azure defender. Para atualizar, selecione [Tipo de Preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+- O **Azure defender** adiciona recursos de proteção contra ameaças que incluem alertas de segurança, inteligência contra ameaças, análise comportamental, detecção de anomalias e relatórios de atribuição de ameaças. Você pode iniciar uma avaliação gratuita de 30 dias do Azure defender. [Saiba mais sobre a atualização](security-center-pricing.md).
 
 ## <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Como posso controlar quem na minha organização habilitou alterações no Azure defender na central de segurança do Azure
 As assinaturas do Azure podem ter vários administradores com permissões para alterar as configurações de preços. Para descobrir qual usuário realizou uma alteração, use o log de atividades do Azure. 

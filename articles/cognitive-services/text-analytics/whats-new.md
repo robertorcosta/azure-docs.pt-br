@@ -10,16 +10,40 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930903"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271164"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 O API de Análise de Texto é atualizado em uma base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece informações sobre novas versões e recursos.
+
+## <a name="september-2020"></a>Setembro de 2020
+
+### <a name="general-api-updates"></a>Atualizações de API gerais
+
+* Lançamento de uma nova URL para a visualização pública do Análise de Texto v 3.1 para dar suporte a atualizações nos seguintes pontos de extremidade de reconhecimento de entidade nomeado V3: 
+    * `/pii` o ponto de extremidade agora inclui a nova `redactedText` propriedade no JSON de resposta onde as entidades PII detectadas no texto de entrada são substituídas por um `*` para cada caractere dessas entidades.
+    * `/linking` o ponto de extremidade agora inclui a `bingID` propriedade no JSON de resposta para entidades vinculadas.
+* Os seguintes pontos de extremidade da API de visualização do Análise de Texto foram desativados em 4º de setembro de 2020:
+    * v 2.1-visualização
+    * v3.0–versão prévia
+    * v 3.0-visualização. 1
+    
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o API de Análise de Texto v 3.1-Preview. 2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+
+### <a name="text-analytics-for-health-container-updates"></a>Análise de Texto para atualizações de contêiner de integridade
+
+As atualizações a seguir são específicas para a versão de setembro do Análise de Texto apenas para o contêiner de integridade.
+* Uma nova imagem de contêiner com `1.1.013530001-amd64-preview` a marca com a nova versão de modelo foi `2020-09-03` liberada para o repositório containerpreview. 
+* Essa versão do modelo fornece melhorias no reconhecimento de entidades, detecção de abreviação e aprimoramentos de latência.
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre o Análise de Texto para integridade](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -31,7 +55,7 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
 * Um erro HTTP 400 agora será retornado para solicitações de API v3 que excedem os [limites de dados](concepts/data-limits.md)publicados. 
 * Os pontos de extremidade que retornam um deslocamento agora dão suporte ao `stringIndexType` parâmetro opcional, que ajusta o retornado `offset` e os `length` valores para corresponder a um [esquema de índice de cadeia de caracteres](concepts/text-offsets.md)com suporte.
 
-### <a name="text-analytics-for-health-container-august-updates"></a>Análise de Texto para atualizações de agosto do contêiner de integridade
+### <a name="text-analytics-for-health-container-updates"></a>Análise de Texto para atualizações de contêiner de integridade
 
 As atualizações a seguir são específicas para a versão de agosto do Análise de Texto apenas para o contêiner de integridade.
 
@@ -147,7 +171,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
     * Habilidade
 
 * Reconhecimento dos seguintes tipos de entidade de informações pessoais (somente em inglês):
-    * Person
+    * Pessoa
     * Organização
     * Idade como um subtipo em quantidade
     * Data como um subtipo em DateTime
@@ -170,7 +194,7 @@ Tipos de entidade adicionais agora estão disponíveis no serviço de visualiza�
 * [Versão do modelo](concepts/model-versioning.md) `2019-10-01` , que inclui:
     * Detecção expandida e categorização de entidades encontradas no texto. 
     * Reconhecimento dos seguintes novos tipos de entidade:
-        * Número de telefone
+        * Número do telefone
         * Endereço IP
 
 A vinculação de entidades dá suporte a inglês e espanhol. O suporte ao idioma NER varia de acordo com o tipo de entidade.
@@ -191,7 +215,7 @@ Ele dá suporte a Inglês ( `en` ), japonês (), `ja` chinês simplificado ( `zh
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o API de Análise de Texto?](overview.md)  
+* [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de usuário de exemplo](text-analytics-user-scenarios.md)
 * [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Detecção de idioma](how-tos/text-analytics-how-to-language-detection.md)

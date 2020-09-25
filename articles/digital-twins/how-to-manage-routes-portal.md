@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987300"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252826"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
@@ -27,9 +27,9 @@ Você também pode gerenciar pontos de extremidade e rotas com as [APIs do Event
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Você precisará de uma **conta do Azure** (você pode configurar uma gratuitamente [aqui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-scripted.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
+* Você precisará de uma **instância do gêmeos digital do Azure** em sua assinatura do Azure. Se você ainda não tiver uma instância, poderá criar uma usando as etapas em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Faça com que os seguintes valores da configuração sejam úteis para uso posterior neste artigo:
     - Nome da instância
-    - Grupo de recursos
+    - Resource group
 
 Você pode encontrar esses detalhes no [portal do Azure](https://portal.azure.com) depois de configurar sua instância. Faça logon no portal e procure o nome da sua instância na barra de pesquisa do Portal.
  
@@ -58,7 +58,7 @@ Depois de criar o tópico, você pode vinculá-lo ao Azure digital gêmeos na p�
 
 No menu instância, selecione _pontos de extremidade_. Em seguida, na página *pontos de extremidade* a seguir, selecione *+ criar um ponto de extremidade*. 
 
-Na página *criar um ponto de extremidade* que é aberta, você pode criar um ponto de extremidade do tipo _grade de eventos_ selecionando o botão de opção correspondente. Preencha os outros detalhes: Insira um nome para o ponto de extremidade no campo _nome_ , escolha sua _assinatura_ na lista suspensa e escolha o tópico da _grade de eventos_ pré-criado no terceiro menu suspenso.
+Na página *criar um ponto de extremidade* que é aberta, você pode criar um ponto de extremidade do tipo _grade de eventos_ selecionando o botão de opção correspondente. Preencha os outros detalhes: Insira um nome para o ponto de extremidade no campo _nome_ , escolha sua _assinatura_ na lista suspensa e escolha o tópico da  _grade de eventos_ pré-criado no terceiro menu suspenso.
 
 Em seguida, crie seu ponto de extremidade ao pressionar _salvar_.
 
@@ -133,8 +133,8 @@ Uma definição de rota de evento contém estes elementos:
 * O nome da rota que você deseja usar
 * O nome do ponto de extremidade que você deseja usar
 * Um filtro que define quais eventos são enviados para o ponto de extremidade
-    - Para desabilitar a rota para que nenhum evento seja enviado, use um valor de filtro de`false`
-    - Para habilitar uma rota sem filtragem específica, use um valor de filtro de`true`
+    - Para desabilitar a rota para que nenhum evento seja enviado, use um valor de filtro de `false`
+    - Para habilitar uma rota sem filtragem específica, use um valor de filtro de `true`
     - Para obter detalhes sobre qualquer outro tipo de filtro, consulte a seção [*filtrar eventos*](#filter-events) abaixo.
 
 Uma única rota pode permitir que várias notificações e tipos de eventos sejam selecionados.

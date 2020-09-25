@@ -4,14 +4,14 @@ description: Saiba mais sobre como consultar e acessar propriedades JSON aninhad
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83699132"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270842"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Trabalhando com JSON no Azure Cosmos DB
 
@@ -138,6 +138,34 @@ WHERE EXISTS(
     WHERE n.checkingAccount < 0
 )
 ```
+
+## <a name="difference-between-null-and-undefined"></a>Diferença entre nulo e indefinido
+
+Se uma propriedade não estiver definida em um item, seu valor será `undefined` . Uma propriedade com o valor `null` deve ser explicitamente definida e atribuir um `null` valor.
+
+Por exemplo, considere este item de exemplo:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+Neste exemplo, a propriedade `isRegistered` tem um valor de `undefined` porque ela é omitida do item. A propriedade `creationDate` tem um `null` valor.
+
+O Azure Cosmos DB dá suporte a duas funções de sistema de verificação de tipo úteis para `null` `undefined` Propriedades e:
+
+* [Is_null](sql-query-is-null.md) -verifica se um valor de propriedade é `null`
+* [IS_DEFINED](sql-query-is-defined.md) -verifica se um valor de propriedade está definido
+
+Você pode aprender sobre os [operadores com suporte](sql-query-operators.md) e seus comportamentos `null` e `undefined` valores.
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Palavras-chave reservadas e caracteres especiais em JSON
 

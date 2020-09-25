@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259213"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Tutorial para configurar o Onfido com o Azure Active Directory B2C
 
@@ -94,7 +94,7 @@ As configurações do aplicativo podem ser configuradas no [serviço de aplicati
 
 1. Configurar um [contêiner de armazenamento de BLOBs em sua conta de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 
-2. Armazene os arquivos de interface do usuário da pasta de interface do usuário em seu contêiner de BLOB.
+2. Armazene os arquivos de interface do usuário da [pasta de interface do usuário](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) em seu contêiner de BLOB.
 
 3. Permita o acesso CORS ao contêiner de armazenamento criado seguindo estas instruções:
 
@@ -124,7 +124,7 @@ As configurações do aplicativo podem ser configuradas no [serviço de aplicati
 
 #### <a name="replace-the-configuration-values"></a>Substituir os valores de configuração
 
-Nas políticas personalizadas fornecidas, localize os seguintes espaços reservados e substitua pelos valores correspondentes da sua instância.
+Nas [políticas personalizadas](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)fornecidas, localize os seguintes espaços reservados e substitua pelos valores correspondentes da sua instância.
 
 | Espaço reservado | Substituir pelo valor | Exemplo  |
 |:---------------|:----------------|:-------------------|
@@ -138,7 +138,7 @@ Nas políticas personalizadas fornecidas, localize os seguintes espaços reserva
 |{your_ui_file_base_url}| URL do local em que suas pastas de interface do usuário **ocean_blue**, **dist**e **ativos** estão localizadas | https://yourstorage.blob.core.windows.net/UI/|
 | {your_app_service_URL}                                 | URL do serviço de aplicativo que você configurou                                             | `https://yourapp.azurewebsites.net`          |
 
-* O app insights pode estar em um locatário diferente. Esta etapa é opcional. Remova os TechnicalProfiles e OrchestrationSteps correspondentes se não forem necessários.
+* O app insights pode estar em um locatário diferente. Essa etapa é opcional. Remova os TechnicalProfiles e OrchestrationSteps correspondentes se não forem necessários.
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>Parte 4-configurar a política de Azure AD B2C
 

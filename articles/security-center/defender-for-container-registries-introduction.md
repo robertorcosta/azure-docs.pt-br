@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 742d230d6ed1535bada9c35219d2ddf68fd64ae1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6254b78ad19e7034f78f7891d57a3474fee0c602
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977156"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301904"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure defender para registros de contêiner
 
@@ -64,14 +64,11 @@ A imagem é extraída do registro. Em seguida, ele é executado em uma área res
 
 A central de segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a central de segurança a marca como tal. A central de segurança gera recomendações de segurança apenas para imagens que têm problemas a serem resolvidos. Notificando apenas quando há problemas, a central de segurança reduz o potencial para alertas informativos indesejados.
 
-### <a name="how-often-does-security-center-scan-my-images"></a>Com que frequência a central de segurança verifica minhas imagens?
-As verificações de imagem são disparadas em cada Push ou importação e, se a imagem tiver sido retirada nos últimos 30 dias. 
-
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Posso obter os resultados da verificação por meio da API REST?
 Sim. Os resultados estão sob a [API REST de subavaliações](/rest/api/securitycenter/subassessments/list/). Além disso, você pode usar o grafo de recursos do Azure (ARG), a API do tipo Kusto para todos os seus recursos: uma consulta pode buscar uma verificação específica.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quais tipos de registro são verificados? Quais tipos são cobrados?
-A seção disponibilidade lista os tipos de registros de contêiner com suporte pelo Azure defender para registros de contêiner. 
+Para obter uma lista dos tipos de registros de contêiner com suporte pelo Azure defender para registros de contêiner, consulte [disponibilidade](defender-for-container-registries-usage.md#availability).
 
 Se você conectar registros sem suporte à sua assinatura do Azure, eles não serão verificados e você não será cobrado por eles.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900268"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253183"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é o repositório analítico do Azure Cosmos DB (versão prévia)?
 
@@ -60,7 +60,7 @@ Não há nenhum impacto no desempenho de suas cargas de trabalho transacionais d
 
 ### <a name="auto-sync"></a>Sincronização automática
 
-A sincronização automática refere-se à capacidade totalmente gerenciada do Azure Cosmos DB em que as inserções, atualizações e exclusões em relação a dados operacionais são sincronizadas automaticamente do repositório transacional para o repositório analítico em tempo quase real dentro de 5 minutos.
+A sincronização automática refere-se ao recurso totalmente gerenciado de Azure Cosmos DB onde as inserções, atualizações, exclusões em dados operacionais são sincronizadas automaticamente do armazenamento transacional para o repositório analítico em tempo quase real. A latência de sincronização automática geralmente é de 2 minutos. Em casos de banco de dados de produtividade compartilhado com um grande número de contêineres, a latência de sincronização automática de contêineres individuais pode ser maior e levar até 5 minutos. Gostaríamos de saber mais sobre como essa latência se adapta a seus cenários. Para isso, entre em contato com a [equipe de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
 O recurso de sincronização automática, junto com o repositório analítico, fornece os seguintes benefícios principais:
 
@@ -138,7 +138,7 @@ salary: 1000000
 }
 ```
 
-A propriedade folha `streetName` dentro do objeto aninhado `address` será representada no esquema de repositório analítico como uma coluna `address.object.streetName.int32` . O tipo de dados é adicionado como um sufixo à coluna. Dessa forma, se outro documento for adicionado ao armazenamento transacional onde o valor da propriedade folha `streetNo` for "123" (Observe que é uma cadeia de caracteres), o esquema do repositório analítico evoluirá automaticamente sem alterar o tipo de uma coluna gravada anteriormente. Uma nova coluna adicionada ao repositório analítico como `address.object.streetName.string` onde esse valor de "123" é armazenado.
+A propriedade folha `streetNo` dentro do objeto aninhado `address` será representada no esquema de repositório analítico como uma coluna `address.object.streetNo.int32` . O tipo de dados é adicionado como um sufixo à coluna. Dessa forma, se outro documento for adicionado ao armazenamento transacional onde o valor da propriedade folha `streetNo` for "123" (Observe que é uma cadeia de caracteres), o esquema do repositório analítico evoluirá automaticamente sem alterar o tipo de uma coluna gravada anteriormente. Uma nova coluna adicionada ao repositório analítico como `address.object.streetNo.string` onde esse valor de "123" é armazenado.
 
 **Tipo de dados para mapa de sufixo**
 
@@ -149,7 +149,7 @@ Aqui está um mapa de todos os tipos de dados de propriedade e suas representaç
 | Double |  ". float64" |    24,99|
 | Array | ". array" |    ["a", "b"]|
 |Binário | ". Binary" |0|
-|Booliano    | ". bool"   |verdadeiro|
+|Booliano    | ". bool"   |Verdadeiro|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Nulo   | ". NULL"   | null|

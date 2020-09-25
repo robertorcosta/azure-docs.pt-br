@@ -3,12 +3,12 @@ title: Autenticar com identidade gerenciada
 description: Forneça acesso a imagens em seu registro de contêiner privado usando uma identidade gerenciada do Azure atribuída pelo usuário ou pelo sistema.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e5fd8ead989838c0ba74b42a9766bc63936379fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a144f0e865cfc9bf857752eed65dbe5cda88bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537894"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253455"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Use uma identidade gerenciada do Azure para autenticar para um registro de contêiner do Azure 
 
@@ -230,6 +230,8 @@ Você deve ver uma mensagem `Login succeeded`. Você pode executar os comandos `
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
+> [!NOTE]
+> As identidades de serviço gerenciado atribuídas pelo sistema podem ser usadas para interagir com o ACRs e o serviço de aplicativo pode usar identidades de serviço gerenciadas atribuídas pelo sistema. No entanto, não é possível combiná-los, pois o serviço de aplicativo não pode usar o MSI para se comunicar com um ACR. A única maneira é habilitar o administrador no ACR e usar o nome de usuário/senha do administrador.
 
 ## <a name="next-steps"></a>Próximas etapas
 

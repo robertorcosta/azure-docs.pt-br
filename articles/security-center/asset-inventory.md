@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: e62973c83db90df2857186fe6a556278a3c41a7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302036"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore e gerencie seus recursos com o inventário de ativos e as ferramentas de gerenciamento
 
@@ -43,7 +43,7 @@ As possibilidades de gerenciamento de ativos para essa ferramenta são substanci
 |Estado da versão:|GA (em disponibilidade geral)|
 |Refere|Gratuita|
 |Funções e permissões necessárias:|todos os usuários|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 
@@ -54,7 +54,7 @@ A página inventário fornece as seguintes ferramentas:
 - **Resumos** -antes de definir qualquer filtro, uma faixa de valores proeminente na parte superior da exibição de inventário mostra:
 
     - **Total de recursos**: o número total de recursos conectados à central de segurança.
-    - **Recursos não íntegros**: recursos com recomendações de segurança ativas. [Saiba mais sobre as recomendações de segurança](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+    - **Recursos não íntegros**: recursos com recomendações de segurança ativas. [Saiba mais sobre as recomendações de segurança](security-center-recommendations.md).
     - **Recursos não monitorados**: recursos com problemas de monitoramento de agente-eles têm o agente de log Analytics implantado, mas o agente não está enviando dados ou tem outros problemas de integridade.
 
 - **Filtros** – os vários filtros na parte superior da página fornecem uma maneira de refinar rapidamente a lista de recursos de acordo com a pergunta que você está tentando responder. Por exemplo, se você quisesse responder à pergunta *quais dos meus computadores com a marca "produção" estão sem o agente de log Analytics?* você pode combinar o filtro de **monitoramento de agente** com o filtro de **marcas** , conforme mostrado no seguinte clipe:

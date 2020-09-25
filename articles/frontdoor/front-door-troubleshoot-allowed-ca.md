@@ -1,6 +1,6 @@
 ---
 title: Autoridade de certificação permitida para habilitar HTTPS personalizado na porta frontal do Azure
-description: Se você estiver usando seu próprio certificado para habilitar HTTPS em um domínio personalizado, deverá usar uma AC (autoridade de certificação) permitida para criá-lo.
+description: Se você estiver usando seu próprio certificado para habilitar o HTTPS em um domínio de 0Custom de porta frontal do Azure, você deverá usar uma autoridade de certificação (CA) permitida para criá-lo.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: duau
-ms.openlocfilehash: 7bdef37561687b49b030d8237472c0d35f945c13
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 973df2505eefc2a46aa105b874f32b61fe6e8b36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399116"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269787"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-front-door"></a>Autoridades de certificação permitidas para habilitar o HTTPS personalizado na porta frontal do Azure
 

@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: e72875135243733a6acf03bb3aa6fb9405392d9d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a7fb97f1036515f82fa3e61c18f95eadf0af704d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933721"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301696"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure defender para kubernetes
 
@@ -31,7 +31,7 @@ A detecção de ameaças no nível de host para seus nós AKS do Linux estará d
 |Estado da versão:|GA (em disponibilidade geral)|
 |Refere|O **Azure defender para kubernetes** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
 |Funções e permissões necessárias:|O **administrador de segurança** pode ignorar alertas.<br>**O leitor de segurança** pode exibir as conclusões.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Quais são os benefícios do Azure defender para kubernetes?
@@ -44,14 +44,14 @@ A Central de Segurança fornece proteção contra ameaças em diferentes níveis
 
 - **Nível de host (fornecido pelo Azure defender para servidores)** -usando o mesmo agente de log Analytics que a central de segurança usa em outras VMS, o Azure defender monitora seus nós AKs do Linux em busca de atividades suspeitas, como detecção de Shell da Web e conexão com endereços IP suspeitos conhecidos. O agente também monitora a análise específica de contêiner, como a criação de contêiner privilegiado, acesso suspeito a servidores de API e servidores Secure Shell (SSH) em execução dentro de um contêiner do Docker.
 
-    Para obter uma lista dos alertas de nível de host AKS, consulte a [tabela de referência de alertas](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost).
+    Para obter uma lista dos alertas de nível de host AKS, consulte a [tabela de referência de alertas](alerts-reference.md#alerts-containerhost).
 
     >[!IMPORTANT]
     > Se você optar por não instalar os agentes em seus hosts, receberá apenas um subconjunto dos benefícios da proteção contra ameaças e dos alertas de segurança. Você ainda receberá alertas relacionados a análises de rede e comunicações com servidores mal-intencionados.
 
 - **Nível de cluster AKs (fornecido pelo Azure defender para kubernetes)** – no nível do cluster, a proteção contra ameaças baseia-se na análise dos logs de auditoria do kubernetes. Para habilitar esse monitoramento **sem agente** , habilite o Azure defender. Para gerar alertas nesse nível, a Central de Segurança monitora seus serviços gerenciados pelo AKS usando os logs recuperados pelo AKS. Exemplos de eventos nesse nível incluem painéis expostos do Kubernetes, a criação de funções com altos privilégios e a criação de montagens confidenciais.
 
-    Para obter uma lista dos alertas no nível do cluster AKS, confira a [Tabela de referência de alertas](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster).
+    Para obter uma lista dos alertas no nível do cluster AKS, confira a [Tabela de referência de alertas](alerts-reference.md#alerts-akscluster).
 
     >[!NOTE]
     > A Central de Segurança gera alertas de segurança para ações e implantações do Serviço de Kubernetes do Azure que ocorrem após a opção Kubernetes ser habilitada nas configurações de assinatura. 

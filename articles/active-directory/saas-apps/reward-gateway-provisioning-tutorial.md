@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 298ca69a659bec2d5262b344c274fac7371390f1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f908e37c7785744c2f26b6a9cd542ccde228eb38
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534339"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255717"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Tutorial: configurar o gateway de recompensa para provisionamento automático de usuário
 
@@ -53,15 +53,15 @@ Antes de configurar o gateway de recompensa para o provisionamento automático d
 
 1. Entre no seu [console de administração do gateway de recompensa](https://rewardgateway.photoshelter.com/login/). Clique em **Integrações**.
 
-    ![Premiar console de administração do gateway](media/reward-gateway-provisioning-tutorial/image00.png)
+    ![Captura de tela do console de administração do gateway de recompensa com a opção integrações chamada out.](media/reward-gateway-provisioning-tutorial/image00.png)
 
 2.  Selecione **minha integração**.
 
-    ![Premiar console de administração do gateway](media/reward-gateway-provisioning-tutorial/image001.png)
+    ![Captura de tela das duas opções de integração com a opção minhas integrações chamada out.](media/reward-gateway-provisioning-tutorial/image001.png)
 
 3.  Copie os valores da **URL scim (v2)** e do **token de portador OAuth**. Esses valores serão inseridos no campo URL do locatário e token secreto na guia provisionamento do aplicativo de gateway de recompensa na portal do Azure.
 
-    ![Premiar console de administração do gateway](media/reward-gateway-provisioning-tutorial/image03.png)
+    ![Captura de tela do painel minhas integrações com a caixa de texto token de portador OAuth chamada out.](media/reward-gateway-provisioning-tutorial/image03.png)
 
 ## <a name="add-reward-gateway-from-the-gallery"></a>Adicionar o Reward Gateway da Galeria
 
@@ -104,11 +104,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira a **URL scim (v2)** e os valores de **token de portador OAuth** recuperados anteriormente na **URL do locatário** e no **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao gateway de recompensa. Se a conexão falhar, verifique se sua conta de gateway de recompensa tem permissões de administrador e tente novamente.
 
@@ -122,11 +122,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para recompensar o gateway**.
 
-    ![Premiar console de administração do gateway](media/reward-gateway-provisioning-tutorial/user-mappings.png)
+    ![Captura de tela da seção mapeamentos com a opção sincronizar Azure Active Directory usuários para recompensar gateway chamada out.](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para recompensar o gateway na seção de **mapeamento de atributo** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no gateway de recompensa para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Premiar console de administração do gateway](media/reward-gateway-provisioning-tutorial/user-attributes.png)
+    ![Captura de tela da seção mapeamentos de atributo com seis mapeamentos exibidos.](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

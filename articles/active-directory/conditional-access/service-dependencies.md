@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 09/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f1e97c8a53604edca7b803933139362a763a7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c6592add5e33ba240c0f1d9fdbd23d82adfe5229
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258601"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>O que são dependências de serviço no Azure Active Directory acesso condicional? 
 
@@ -25,9 +25,9 @@ Com as políticas de acesso condicional, você pode especificar os requisitos de
 Quando você acessa um site ou serviço diretamente, o impacto de uma política relacionada normalmente é fácil de avaliar. Por exemplo, se você tiver uma política que exija o MFA (autenticação multifator) para o SharePoint Online configurado, a MFA será imposta para cada entrada no portal da Web do SharePoint. No entanto, nem sempre é um avanço direto para avaliar o impacto de uma política, pois há aplicativos de nuvem com dependências para outros aplicativos de nuvem. Por exemplo, o Microsoft Teams pode fornecer acesso a recursos no SharePoint Online. Portanto, ao acessar o Microsoft Teams em nosso cenário atual, você também está sujeito à política do SharePoint MFA. 
 
 > [!TIP]
-> Usar o aplicativo [office 365 (versão prévia)](concept-conditional-access-cloud-apps.md#office-365-preview) direcionará todos os aplicativos do Office para evitar problemas com dependências de serviço na pilha do Office.
+> Usar o aplicativo do [office 365](concept-conditional-access-cloud-apps.md#office-365) direcionará todos os aplicativos do Office para evitar problemas com dependências de serviço na pilha do Office.
 
-## <a name="policy-enforcement"></a>Aplicação de políticas 
+## <a name="policy-enforcement"></a>Imposição de política 
 
 Se você tiver uma dependência de serviço configurada, a política poderá ser aplicada usando a aplicação de ligação antecipada ou de associação tardia. 
 
@@ -40,7 +40,7 @@ O diagrama a seguir ilustra as dependências do MS Teams Service. Setas sólidas
 
 Como prática recomendada, você deve definir políticas comuns entre aplicativos e serviços relacionados sempre que possível. Ter uma postura de segurança consistente fornece a melhor experiência do usuário. Por exemplo, a definição de uma política comum no Exchange Online, no SharePoint Online, no Microsoft Teams e no Skype for Business reduz significativamente as solicitações inesperadas que podem surgir de políticas diferentes sendo aplicadas aos serviços downstream. 
 
-Uma ótima maneira de fazer isso com aplicativos na pilha do Office é usar o [office 365 (versão prévia)](concept-conditional-access-cloud-apps.md#office-365-preview) em vez de direcionar aplicativos individuais.
+Uma ótima maneira de fazer isso com aplicativos na pilha do Office é usar o [aplicativo do office 365](concept-conditional-access-cloud-apps.md#office-365) , em vez de direcionar aplicativos individuais.
 
 A tabela abaixo lista as dependências de serviço adicionais, onde os aplicativos cliente devem satisfazer  
 

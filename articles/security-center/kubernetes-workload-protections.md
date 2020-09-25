@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 332c33ce46298e5338587cd4d001466d30c1a9e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301345"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger as cargas de trabalho do Kubernetes
 
@@ -39,7 +39,7 @@ A central de segurança oferece mais recursos de segurança de contêiner se voc
 |Refere|Gratuita|
 |Funções e permissões necessárias:|**Proprietário** ou **administrador de segurança** para editar uma atribuição<br>**Leitor** para exibir as recomendações|
 |Clusters com suporte|Kubernetes v 1.14 (ou superior) é necessário<br>Nenhum recurso PodSecurityPolicy (antigo modelo PSP) nos clusters<br>Não há suporte para nós do Windows|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 
@@ -69,12 +69,12 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
 
     | Nome da recomendação                                                                   | Controle de segurança                         | Configuração necessária |
     |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Limites de memória e CPU do contêiner devem ser aplicados (visualização)                          | Proteger aplicativos contra ataques de DDoS | No                     |
-    | Contêineres com privilégios devem ser evitados (versão prévia)                                     | Gerenciar acesso e permissões            | No                     |
-    | O sistema de arquivos raiz imutável (somente leitura) deve ser imposto para contêineres (versão prévia)     | Gerenciar acesso e permissões            | No                     |
-    | O contêiner com elevação de privilégio deve ser evitado (versão prévia)                       | Gerenciar acesso e permissões            | No                     |
-    | Os contêineres em execução como usuário raiz devem ser evitados (visualização)                           | Gerenciar acesso e permissões            | No                     |
-    | Os contêineres que compartilham namespaces de host confidenciais devem ser evitados (visualização)              | Gerenciar acesso e permissões            | No                     |
+    | Limites de memória e CPU do contêiner devem ser aplicados (visualização)                          | Proteger aplicativos contra ataques de DDoS | Não                     |
+    | Contêineres com privilégios devem ser evitados (versão prévia)                                     | Gerenciar acesso e permissões            | Não                     |
+    | O sistema de arquivos raiz imutável (somente leitura) deve ser imposto para contêineres (versão prévia)     | Gerenciar acesso e permissões            | Não                     |
+    | O contêiner com elevação de privilégio deve ser evitado (versão prévia)                       | Gerenciar acesso e permissões            | Não                     |
+    | Os contêineres em execução como usuário raiz devem ser evitados (visualização)                           | Gerenciar acesso e permissões            | Não                     |
+    | Os contêineres que compartilham namespaces de host confidenciais devem ser evitados (visualização)              | Gerenciar acesso e permissões            | Não                     |
     | Os recursos do Linux com privilégios mínimos devem ser impostos para contêineres (versão prévia)       | Gerenciar acesso e permissões            | **Sim**                |
     | O uso de montagens de volume HostPath Pod deve ser restrito a uma lista conhecida (versão prévia)    | Gerenciar acesso e permissões            | **Sim**                |
     | Os contêineres devem escutar somente em portas permitidas (versão prévia)                              | Restringir o acesso não autorizado à rede     | **Sim**                |
@@ -95,11 +95,15 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
     1. Clique em **Salvar**.
 
 
-1. Para impor qualquer uma das recomendações, defina a **negação** na guia **parâmetros** de política de segurança da central de segurança:
+1. Para impor qualquer uma das recomendações, 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opção Deny para o parâmetro Azure Policy":::
+    1. Abra a página de detalhes de recomendação e selecione **negar**:
 
-    Isso negará qualquer solicitação não compatível para seus clusters AKS
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opção Deny para o parâmetro Azure Policy":::
+
+        Isso abrirá o painel em que o escopo será definido. 
+
+    1. Quando você tiver definido o escopo, selecione **alterar para negar**.
 
 1. Para ver quais recomendações se aplicam aos seus clusters:
 

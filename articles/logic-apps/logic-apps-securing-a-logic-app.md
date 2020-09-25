@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/19/2020
+ms.openlocfilehash: 8023f3d7730a617ec502c8f181bad1fc27627694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269158"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -75,6 +75,8 @@ Cada URL contém o parâmetro de consulta `sp`, `sv` e `sig`, conforme descrito 
 | `sig` | Especifica a assinatura a ser usada para autenticar o acesso ao gatilho. Essa assinatura é gerada usando o algoritmo SHA256 com uma chave de acesso secreta em todos os caminhos de URL e propriedades. Nunca exposta ou publicada, essa chave é mantida criptografada e armazenada com o aplicativo lógico. Seu aplicativo lógico autoriza somente gatilhos que contenham uma assinatura válida criada com a chave secreta. |
 |||
 
+Chamadas de entrada para um ponto de extremidade de solicitação podem usar apenas um esquema de autorização, SAS ou [Azure Active Directory autenticação aberta](#enable-oauth). Embora o uso de um esquema não desabilite o outro esquema, o uso de ambos os esquemas ao mesmo tempo causa um erro porque o serviço não sabe qual esquema deve ser escolhido.
+
 Para mais informações sobre como proteger o acesso com SAS, confira estas seções neste tópico:
 
 * [Regenerar chaves de acesso](#access-keys)
@@ -121,62 +123,62 @@ No corpo, inclua a propriedade `KeyType` como `Primary` ou `Secondary`. Essa pro
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Habilitar o OAuth do Azure AD (Open Authorization do Azure Active Directory)
 
-Se seu aplicativo lógico começar com um [gatilho de solicitação](../connectors/connectors-native-reqres.md), você poderá habilitar [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml) definindo ou adicionando uma política de autorização para chamadas de entrada para o gatilho de solicitação.
+Para chamadas de entrada para um ponto de extremidade que é criado por um gatilho baseado em solicitação, você pode habilitar [Azure Active Directory autenticação aberta (Azure ad OAuth)](../active-directory/develop/index.yml) definindo ou adicionando uma política de autorização para seu aplicativo lógico. Dessa forma, as chamadas de entrada usam [tokens de acesso](../active-directory/develop/access-tokens.md) OAuth para autorização.
 
-Antes de habilitar essa autenticação, revise estas considerações:
+Quando seu aplicativo lógico recebe uma solicitação de entrada que inclui um token de acesso OAuth, o serviço de aplicativos lógicos do Azure compara as declarações do token com as declarações especificadas por cada política de autorização. Se houver uma correspondência entre as declarações do token e todas as declarações em pelo menos uma política, a autorização terá sucesso na solicitação de entrada. O token pode ter mais declarações do que o número especificado pela política de autorização.
 
-* A chamada de entrada para o gatilho de solicitação pode usar apenas um esquema de autorização, o OAuth do Azure AD usando um token de autenticação, que tem suporte apenas para o gatilho de solicitação ou usando uma [URL de SAS (assinatura de acesso compartilhado)](#sas) que não é possível usar ambos os esquemas.
+Antes de habilitar o OAuth do Azure AD, examine estas considerações:
 
-  Embora o uso de um esquema não desabilite o outro esquema, o uso de ambos ao mesmo tempo causa um erro porque o serviço não sabe qual esquema deve ser escolhido. Além disso, somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens de autenticação OAuth, que têm suporte apenas para o gatilho de solicitação. O token de autenticação deve especificar `Bearer-type` no cabeçalho Authorization.
+* Uma chamada de entrada para o ponto de extremidade de solicitação pode usar apenas um esquema de autorização, o OAuth do Azure AD ou a [SAS (assinatura de acesso compartilhado)](#sas). Embora o uso de um esquema não desabilite o outro esquema, o uso de ambos os esquemas ao mesmo tempo causa um erro porque o serviço de aplicativos lógicos não sabe qual esquema deve ser escolhido.
+
+* Somente esquemas de autorização de [tipo de portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) têm suporte para tokens de acesso OAuth do Azure AD, o que significa que o `Authorization` cabeçalho do token de acesso deve especificar o `Bearer` tipo.
 
 * Seu aplicativo lógico é limitado a um número máximo de políticas de autorização. Cada política de autorização também tem um número máximo de [declarações](../active-directory/develop/developer-glossary.md#claim). Para obter mais informações, confira [Limites e configuração para Aplicativos Lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Uma política de autorização deve incluir pelo menos a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) como a ID do emissor do Azure AD. Para obter mais informações sobre tokens de acesso, consulte [tokens de acesso da plataforma de identidade da Microsoft](../active-directory/develop/access-tokens.md).
+* Uma política de autorização deve incluir pelo menos a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` (OAuth v2) como a ID do emissor do Azure AD.
 
-Quando seu aplicativo lógico recebe uma solicitação de entrada que inclui um token de autenticação OAuth, os aplicativos lógicos do Azure comparam as declarações do token com as declarações em cada política de autorização. Se houver uma correspondência entre as declarações do token e todas as declarações em pelo menos uma política, a autorização terá sucesso na solicitação de entrada. O token pode ter mais declarações do que o número especificado pela política de autorização.
+  Por exemplo, suponha que seu aplicativo lógico tenha uma política de autorização que exija dois tipos de declaração, **público** e **emissor**. Esta [seção de conteúdo](../active-directory/develop/access-tokens.md#payload-claims) de exemplo para um token de acesso decodificado inclui os dois tipos de declaração em que `aud` é o valor **público** e `iss` é o valor do **emissor** :
 
-Por exemplo, suponha que seu aplicativo lógico tenha uma política de autorização que exija dois tipos de declaração, **emissor** e **público**. Este exemplo de [token de acesso](../active-directory/develop/access-tokens.md) decodificado inclui ambos os tipos de declaração:
-
-```json
-{
-   "aud": "https://management.core.windows.net/",
-   "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
-   "iat": 1582056988,
-   "nbf": 1582056988,
-   "exp": 1582060888,
-   "_claim_names": {
-      "groups": "src1"
-   },
-   "_claim_sources": {
-      "src1": {
-         "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
-    }
-   },
-   "acr": "1",
-   "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
-   "amr": [
-      "rsa",
-      "mfa"
-   ],
-   "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
-   "appidacr": "2",
-   "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
-   "family_name": "Sophia Owen",
-   "given_name": "Sophia Owen (Fabrikam)",
-   "ipaddr": "167.220.2.46",
-   "name": "sophiaowen",
-   "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
-   "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
-   "puid": "1003000000098FE48CE",
-   "scp": "user_impersonation",
-   "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
-   "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "unique_name": "SophiaOwen@fabrikam.com",
-   "upn": "SophiaOwen@fabrikam.com",
-   "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
-   "ver": "1.0"
-}
-```
+  ```json
+  {
+      "aud": "https://management.core.windows.net/",
+      "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
+      "iat": 1582056988,
+      "nbf": 1582056988,
+      "exp": 1582060888,
+      "_claim_names": {
+         "groups": "src1"
+      },
+      "_claim_sources": {
+         "src1": {
+            "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
+         }
+      },
+      "acr": "1",
+      "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
+      "amr": [
+         "rsa",
+         "mfa"
+      ],
+      "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
+      "appidacr": "2",
+      "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
+      "family_name": "Sophia Owen",
+      "given_name": "Sophia Owen (Fabrikam)",
+      "ipaddr": "167.220.2.46",
+      "name": "sophiaowen",
+      "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
+      "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
+      "puid": "1003000000098FE48CE",
+      "scp": "user_impersonation",
+      "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
+      "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "unique_name": "SophiaOwen@fabrikam.com",
+      "upn": "SophiaOwen@fabrikam.com",
+      "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
+      "ver": "1.0"
+   }
+   ```
 
 <a name="define-authorization-policy-portal"></a>
 
@@ -190,7 +192,7 @@ Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azur
 
    ![Selecione "Autorização" > "Adicionar política"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Forneça informações sobre a política de autorização especificando os [tipos de declaração](../active-directory/develop/developer-glossary.md#claim) e os valores que seu aplicativo lógico espera no token de autenticação apresentado por cada chamada de entrada para o gatilho de solicitação:
+1. Forneça informações sobre a política de autorização especificando os [tipos de declaração](../active-directory/develop/developer-glossary.md#claim) e os valores que seu aplicativo lógico espera no token de acesso apresentado por cada chamada de entrada para o gatilho de solicitação:
 
    ![Fornecer informações para a política de autorização](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
@@ -210,14 +212,27 @@ Para habilitar o OAuth do Azure AD para seu aplicativo lógico no portal do Azur
 
 1. Quando terminar, selecione **Salvar**.
 
+1. Para incluir o `Authorization` cabeçalho do token de acesso nas saídas do gatilho baseado em solicitação, consulte [incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação](#include-auth-header).
+
 <a name="define-authorization-policy-template"></a>
 
 #### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definir a política de autorização no modelo de Azure Resource Manager
 
-Para habilitar o OAuth do Azure AD no modelo ARM para implantar seu aplicativo lógico, na `properties` seção para a [definição de recurso do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), adicione um `accessControl` objeto, se não houver nenhum, que contenha um `triggers` objeto. No `triggers` objeto, adicione um `openAuthenticationPolicies` objeto em que você define uma ou mais políticas de autorização seguindo esta sintaxe:
+Para habilitar o OAuth do Azure AD no modelo ARM para implantar seu aplicativo lógico, siga estas etapas e a sintaxe abaixo:
 
-> [!NOTE]
-> No mínimo, a `claims` matriz deve incluir a `iss` declaração, que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração.
+1. Na `properties` seção para a [definição de recurso do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), adicione um `accessControl` objeto, se não houver nenhum, que contenha um `triggers` objeto.
+
+   Para obter mais informações sobre o `accessControl` objeto, consulte [restringir os intervalos de IP de entrada no modelo de Azure Resource Manager](#restrict-inbound-ip-template) e a referência de modelo de fluxos de [trabalho Microsoft. Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+
+1. No `triggers` objeto, adicione um `openAuthenticationPolicies` objeto que contém o `policies` objeto em que você define uma ou mais políticas de autorização.
+
+1. Forneça um nome para a política de autorização, defina o tipo de política como `AAD` e inclua uma `claims` matriz na qual você especifique um ou mais tipos de declaração.
+
+   No mínimo, a `claims` matriz deve incluir o tipo de declaração do emissor em que você define a propriedade da Declaração `name` como `iss` e define o `value` para começar com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração.
+
+1. Para incluir o `Authorization` cabeçalho do token de acesso nas saídas do gatilho baseado em solicitação, consulte [incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação](#include-auth-header).
+
+Aqui está a sintaxe a seguir:
 
 ```json
 "resources": [
@@ -256,7 +271,30 @@ Para habilitar o OAuth do Azure AD no modelo ARM para implantar seu aplicativo l
 ],
 ```
 
-Para obter mais informações sobre a `accessControl` seção, consulte [restringir os intervalos de IP de entrada no modelo de Azure Resource Manager](#restrict-inbound-ip-template) e a referência de modelo de fluxos de [trabalho Microsoft. Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+<a name="include-auth-header"></a>
+
+#### <a name="include-authorization-header-in-request-trigger-outputs"></a>Incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação
+
+Para aplicativos lógicos que [habilitam Azure Active Directory autenticação aberta (Azure ad OAuth)](#enable-oauth) para autorizar chamadas de entrada para acessar gatilhos baseados em solicitação, você pode habilitar o gatilho de solicitação ou saídas de gatilho de webhook http para incluir o `Authorization` cabeçalho do token de acesso OAuth. Na definição de JSON subjacente do gatilho, adicione e defina a `operationOptions` propriedade como `IncludeAuthorizationHeadersInOutputs` . Aqui está um exemplo para o gatilho de solicitação:
+
+```json
+"triggers": {
+   "manual": {
+      "inputs": {
+         "schema": {}
+      },
+      "kind": "Http",
+      "type": "Request",
+      "operationOptions": "IncludeAuthorizationHeadersInOutputs"
+   }
+}
+```
+
+Para saber mais, consulte esses tópicos:
+
+* [Referência de esquema para tipos de ação e gatilho – gatilho de solicitação](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)
+* [Referência de esquema para tipos de ação e gatilho-gatilho de webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [Referência de esquema para tipos de ação e gatilho-opções de operação](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)
 
 <a name="azure-api-management"></a>
 
@@ -896,7 +934,7 @@ Em gatilhos de solicitação, você pode usar [Azure Active Directory autentica�
 | Propriedade (designer) | Propriedade (JSON) | Obrigatório | Valor | Descrição |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticação** | `type` | Sim | **OAuth do Active Directory** <br>ou <br>`ActiveDirectoryOAuth` | O tipo de autenticação a ser usado. Os Aplicativos Lógicos do Azure atualmente seguem o [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Autoridade** | `authority` | Não | <*URL-for-authority-token-issuer*> | A URL para a autoridade que fornece o token de autenticação. Por padrão, esse valor é `https://login.windows.net`. |
+| **Autoridade** | `authority` | Não | <*URL-for-authority-token-issuer*> | A URL para a autoridade que fornece o token de acesso. Por padrão, esse valor é `https://login.windows.net`. |
 | **Locatário** | `tenant` | Sim | <*tenant-ID*> | A ID do locatário para o locatário do Azure AD |
 | **Público-alvo** | `audience` | Sim | <*resource-to-authorize*> | O recurso que você deseja usar para autorização, por exemplo, `https://management.core.windows.net/` |
 | **ID do Cliente** | `clientId` | Sim | <*client-ID*> | A ID do cliente para o aplicativo solicitando a autorização |

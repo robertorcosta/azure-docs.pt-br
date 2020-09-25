@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 09/13/2020
 ms.author: memildin
-ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 416968229e37fe6474da38df5402b0cebf02d54c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905631"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301968"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exporte alertas e recomendações
 
@@ -77,7 +77,7 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
 O recurso de exportação contínua pode ser configurado e gerenciado por meio da [API de automação](https://docs.microsoft.com/rest/api/securitycenter/automations)da central de segurança do Azure. Use esta API para criar ou atualizar automaçãos para exportar para qualquer um dos seguintes destinos possíveis:
 
 - Hub de Eventos do Azure
-- Workspace do Log Analytics
+- Espaço de trabalho do Log Analytics
 - Aplicativos Lógicos do Azure 
 
 A API fornece funcionalidade adicional não disponível no portal do Azure, por exemplo:

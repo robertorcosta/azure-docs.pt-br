@@ -3,17 +3,17 @@ title: Azure defender para SQL-os benefícios e recursos
 description: Saiba mais sobre os benefícios e recursos do Azure defender para SQL.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: e76fd33ccca73394c4ee48b3737db8b93a990659
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dcdbc3efba53f78890816721b6659aa69553d6ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301594"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure defender para SQL
 
@@ -26,7 +26,7 @@ O Azure defender para SQL inclui dois planos do Azure defender que estendem o [p
 |Estado da versão:|**Azure defender para servidores de banco de dados SQL do Azure** – disponibilidade geral (GA)<br>**Azure defender para SQL Servers em computadores** – versão prévia|
 |Refere|Os dois planos que formam o **Azure defender para SQL** são cobrados conforme mostrado na [página de preços](security-center-pricing.md)|
 |Versões protegidas do SQL:|Banco de Dados SQL do Azure <br>Instância Gerenciada do Azure SQL<br>Azure Synapse Analytics (antigo SQL DW)<br>SQL Server (todas as versões com suporte)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![No](./media/icons/no-icon.png) China gov, outros gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>O que o Azure defender para SQL protege?

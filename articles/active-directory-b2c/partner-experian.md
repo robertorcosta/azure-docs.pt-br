@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259366"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar o Experian com o Azure Active Directory B2C
 
@@ -77,7 +77,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1-implantar a API
 
-Implante o código de API fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Você precisará da URL do serviço implantado para configurar o Azure AD com as configurações necessárias.
@@ -117,7 +117,7 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 ### <a name="part-5---replace-the-configuration-values"></a>Parte 5-substituir os valores de configuração
 
-Nas políticas personalizadas fornecidas, localize os seguintes espaços reservados e substitua pelos valores correspondentes da sua instância
+Nas [políticas personalizadas](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy)fornecidas, localize os seguintes espaços reservados e substitua pelos valores correspondentes da sua instância
 
 |                      Espaço reservado                       |                                   Substituir pelo valor                                 |                   Exemplo                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

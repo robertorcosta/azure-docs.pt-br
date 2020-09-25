@@ -3,12 +3,12 @@ title: Tópicos e filas do Barramento de Serviço como manipuladores de eventos 
 description: Descreve como você pode usar tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270161"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Tópicos e filas do Barramento de Serviço como manipuladores de eventos para eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa alguma ação adicional para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Barramento de Serviço do Azure** é um deles. 
@@ -51,7 +51,7 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>Propriedades da mensagem
-Se você usar um **tópico ou uma fila do Barramento de Serviço** como um manipulador de eventos para eventos da Grade de Eventos, defina os seguintes cabeçalhos de mensagem: 
+Se você usar um **tópico ou uma fila do barramento de serviço** como um manipulador de eventos para eventos da grade de eventos, essas são as propriedades que você recebe nos cabeçalhos de mensagem: 
 
 | Nome da propriedade | Descrição |
 | ------------- | ----------- | 
@@ -156,6 +156,9 @@ A ID do sistema interno da mensagem será mantida na entrega do evento para que 
     }
 }
 ```
+
+> [!NOTE]
+> Não há suporte para a entrega de eventos a uma fila ou um tópico de barramento serv do Azure em **outro locatário** . 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Manipuladores de eventos](event-handlers.md) para obter uma lista dos manipuladores de eventos compatíveis. 

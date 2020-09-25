@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0eed3b6d68e8bfe62e9589b2ef4074df92445095
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258772"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para florestas de recursos no Azure Active Directory Domain Services
 
@@ -99,12 +99,12 @@ Por exemplo, quando uma relação de confiança de floresta unidirecional é cri
 Antes de criar uma relação de confiança de floresta, você precisa verificar se tem a infraestrutura de DNS (sistema de nomes de domínio) correta em vigor. As relações de confiança de floresta só podem ser criadas quando uma das seguintes configurações de DNS está disponível:
 
 * Um único servidor DNS raiz é o servidor DNS raiz para ambos os namespaces DNS da floresta-a zona raiz contém delegações para cada um dos namespaces DNS e as dicas de raiz de todos os servidores DNS incluem o servidor DNS raiz.
-* Onde não há nenhum servidor DNS raiz compartilhado, e os servidores DNS raiz para cada namespace DNS da floresta usam encaminhadores condicionais DNS para cada namespace DNS para rotear consultas para nomes no outro namespace.
+* Quando não há nenhum servidor DNS raiz compartilhado e os servidores DNS raiz em cada namespace DNS da floresta usam encaminhadores condicionais DNS para cada namespace DNS para rotear consultas para nomes no outro namespace.
 
     > [!IMPORTANT]
     > Azure AD Domain Services floresta de recursos deve usar essa configuração de DNS. A hospedagem de um namespace DNS diferente do namespace DNS da floresta de recursos não é um recurso do Azure AD Domain Services. Os encaminhadores condicionais são a configuração correta.
 
-* Onde não há nenhum servidor DNS raiz compartilhado, e os servidores DNS raiz para cada namespace DNS da floresta são usados zonas secundárias do DNS são configurados em cada namespace DNS para rotear consultas para nomes no outro namespace.
+* Quando não há nenhum servidor DNS raiz compartilhado e os servidores DNS raiz em cada namespace DNS de floresta são usados, as zonas secundárias de DNS são configuradas em cada namespace DNS para rotear consultas para nomes no outro namespace.
 
 Para criar uma relação de confiança de floresta, você deve ser membro do grupo Admins. do domínio (no domínio raiz da floresta) ou do grupo Administradores de empresa em Active Directory. Cada relação de confiança é atribuída a uma senha que os administradores em ambas as florestas devem conhecer. Os membros de administradores corporativos em ambas as florestas podem criar as relações de confiança em ambas as florestas de uma só vez e, nesse cenário, uma senha criptograficamente aleatória é automaticamente gerada e gravada para ambas as florestas.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb62d3b7ebe3ba6f4551602c7867575e74dca70
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258635"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como: exigir dispositivos gerenciados para acesso ao aplicativo de nuvem com acesso condicional
 
@@ -109,7 +109,7 @@ As organizações devem concluir as seguintes etapas para exigir o uso de um dis
 1. Em **Atribuições**, selecione **Usuários e grupos**.
    1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
    1. Selecione **Concluído**.
-1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365 (versão preliminar)** .
+1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **Office 365**.
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.

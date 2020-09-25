@@ -2,13 +2,13 @@
 title: Função do Azure como um manipulador de eventos para os eventos da Grade de Eventos do Azure
 description: Descreve como você pode usar as funções do Azure como manipuladores de eventos para os eventos da Grade de Eventos.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 8e48949bb5fecdf370fdf23146209ad757ffa062
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/18/2020
+ms.openlocfilehash: 87aeb78729dcc7bec9f193fab389e5c0952e63d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270297"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Função do Azure como um manipulador de eventos para os eventos da Grade de Eventos
 
@@ -39,14 +39,40 @@ Para obter mais informações, consulte [Gatilho da Grade de Eventos para o Azur
             "properties": 
             {
                 "resourceId": "/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Web/sites/<FUNCTION APP NAME>/functions/<FUNCTION NAME>",
-                "maxEventsPerBatch": 1,
-                "preferredBatchSizeInKilobytes": 64
+                "maxEventsPerBatch": 10,
+                "preferredBatchSizeInKilobytes": 6400
             }
         },
         "eventDeliverySchema": "EventGridSchema"
     }
 }
 ```
+
+## <a name="enable-batching"></a>Habilitar o envio em lote
+Para obter uma taxa de transferência mais alta, habilite o envio em lote na assinatura. Se você estiver usando o portal do Azure, poderá definir o máximo de eventos por lote e o tamanho de lote preferencial em quilobytes bytes no momento da criação de uma assinatura ou após a criação. 
+
+Você pode definir configurações de lote usando o modelo portal do Azure, PowerShell, CLI ou Resource Manager. 
+
+### <a name="azure-portal"></a>Portal do Azure
+No momento da criação de uma assinatura na interface do usuário, na página **criar assinatura de evento** , alterne para a guia **recursos avançados** e defina valores para **máximo de eventos por lote** e **tamanho de lote preferencial em kilobytes**. 
+    
+:::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Habilitar o envio em lote no momento da criação de uma assinatura":::
+
+Você pode atualizar esses valores para uma assinatura existente na guia **recursos** da página de **Tópicos da grade de eventos** . 
+
+:::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Habilitar o envio em lote após a criação":::
+
+### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
+Você pode definir **maxEventsPerBatch** e **preferredBatchSizeInKilobytes** em um modelo de Azure Resource Manager. Para obter mais informações, consulte [referência de modelo do Microsoft. EventGrid eventSubscriptions](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions).
+
+### <a name="azure-cli"></a>CLI do Azure
+Você pode usar o comando [AZ eventgrid Event-Subscription Create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) ou [AZ eventgrid Event-Subscription Update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `--max-events-per-batch` ou `--preferred-batch-size-in-kilobytes` .
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Você pode usar o cmdlet [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) ou [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) para definir configurações relacionadas ao lote usando os seguintes parâmetros: `-MaxEventsPerBatch` ou `-PreferredBatchSizeInKiloBytes` .
+
+> [!NOTE]
+> Não há suporte para a entrega de eventos a uma função do Azure em **outro locatário** . 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Manipuladores de eventos](event-handlers.md) para obter uma lista dos manipuladores de eventos compatíveis. 

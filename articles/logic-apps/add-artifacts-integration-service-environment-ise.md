@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269736"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicionar recursos ao ISE (ambiente do serviço de integração) nos aplicativos lógicos do Azure
 
@@ -40,7 +40,7 @@ Para criar aplicativos lógicos que são executados em seu ISE (ambiente do serv
 
 1. Forneça informações sobre o aplicativo lógico que você deseja criar, por exemplo:
 
-   ![Selecionar o ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Captura de tela que mostra a janela "criar" aplicativo lógico com informações de exemplo inseridas.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
@@ -121,7 +121,7 @@ Para usar conectores personalizados no ISE, crie esses conectores personalizados
 
 1. Na lista **local** , na seção **ambientes do serviço de integração** , selecione o mesmo ISE que seus aplicativos lógicos usam e selecione **criar**, por exemplo:
 
-   ![Selecionar o ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![Captura de tela que mostra a janela "criar conector personalizado de aplicativos lógicos" com informações de exemplo selecionadas.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. Selecione o novo conector personalizado e, em seguida, selecione **Editar**, por exemplo:
 

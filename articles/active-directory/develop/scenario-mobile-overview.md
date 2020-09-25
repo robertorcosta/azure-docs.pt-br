@@ -13,31 +13,24 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f90f7f23fbdf10b91d8dfc7cd00cca83cd32fbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70ddc2191cc06a1bede87adc5940e0f7dea63384
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257530"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: aplicativo móvel que chama APIs da Web
 
 Saiba como criar um aplicativo móvel que chama as APIs Web.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Introdução
 
-Crie seu primeiro aplicativo móvel e experimente um início rápido.
+Se você ainda não fez isso, crie seu primeiro aplicativo concluindo um início rápido:
 
-> [!div class="nextstepaction"]
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Android](./quickstart-v2-android.md)
->
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo iOS](./quickstart-v2-ios.md)
->
-> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Xamarin iOS e Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+- [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Android](./quickstart-v2-android.md)
+- [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo iOS](./quickstart-v2-ios.md)
+- [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Xamarin Ios e Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) (github)
 
 ## <a name="overview"></a>Visão geral
 
@@ -60,7 +53,11 @@ Tenha em mente as seguintes considerações ao criar um aplicativo móvel na pla
 - No iOS e no Android, o MSAL pode usar um navegador externo para conectar usuários. O navegador externo pode aparecer na parte superior do seu aplicativo.
 - Nunca use um segredo em um aplicativo móvel. Nesses aplicativos, os segredos podem ser acessados por todos os usuários.
 
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Registro de aplicativo](scenario-mobile-app-registration.md)
+> [Registro do aplicativo](scenario-mobile-app-registration.md)

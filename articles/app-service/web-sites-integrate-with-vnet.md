@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 8f356cb935f1cf63408b6fbc604f139439022a4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 433d519cc71b8bb218569679c94142658f3c9416
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255223"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 
@@ -54,6 +54,10 @@ Os aplicativos do Serviço de Aplicativo são hospedados em funções de trabalh
 
 Quando a Integração VNET regional está habilitada, o aplicativo faz chamadas de saída à Internet por meio dos mesmos canais como de costume. Os endereços de saída listados no portal de propriedades do aplicativo são os endereços ainda usados pelo seu aplicativo. O que é alterado para o aplicativo são as chamadas aos serviços protegidos pelo ponto de extremidade de serviço ou os endereços RFC 1918 que são incluídos na VNET. Se WEBSITE_VNET_ROUTE_ALL for definido como 1, todo o tráfego de saída poderá ser enviado para a VNET.
 
+> [!NOTE]
+> `WEBSITE_VNET_ROUTE_ALL` Não tem suporte atualmente em contêineres do Windows.
+> 
+
 O recurso dá suporte a apenas uma interface virtual por trabalho. Uma interface virtual por trabalho significa uma Integração VNET regional por Plano do Serviço de Aplicativo. Todos os aplicativos no mesmo Plano do Serviço de Aplicativo podem usar a mesma Integração VNET. Se você precisar que um aplicativo se conecte a uma VNET adicional, precisará criar outro Plano do Serviço de Aplicativo. A interface virtual usada não é um recurso ao qual os clientes têm acesso direto.
 
 Devido à natureza de como essa tecnologia opera, o tráfego usado com a Integração VNET não é exibido no Observador de Rede do Azure nem nos logs de fluxo do NSG.
@@ -72,7 +76,8 @@ A Integração VNET exigida pelo gateway dá suporte à conexão com uma VNET em
 Não é possível usar a Integração VNET exigida pelo gateway:
 
 * Com uma VNET conectada ao Azure ExpressRoute.
-* De um aplicativo Linux
+* De um aplicativo Linux.
+* De um [contêiner do Windows](quickstart-custom-container.md).
 * Para acessar os recursos protegidos pelo ponto de extremidade de serviço.
 * Com um gateway de coexistência que dê suporte ao ExpressRoute e a VPNs ponto a site ou site a site.
 

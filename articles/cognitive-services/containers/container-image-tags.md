@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 4a98007917e95b1880661fe35bfd3f85f633e9a3
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 5d2ff25762f28c19b6d389a779fb455de3c84f3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253761"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Marcas de imagem de contêiner de serviços cognitivas do Azure
 
@@ -33,7 +33,7 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 |-------------------------------|:------|
 | `latest`                      |       |
 
-## <a name="computer-vision"></a>Pesquisa Visual Computacional
+## <a name="computer-vision"></a>Visual Computacional
 
 A imagem de contêiner de OCR de [Pesquisa Visual computacional][cv-containers] leitura pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-read` . O nome da imagem de contêiner totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-read` .
 
@@ -62,7 +62,7 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |
 
-## <a name="face"></a>Detecção Facial
+## <a name="face"></a>Face
 
 A imagem de contêiner de [face][fa-containers] pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-face` . O nome da imagem de contêiner totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-face` .
 
@@ -120,6 +120,8 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 | Marcas de imagem            | Observações |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.5.0-amd64`         |       |
+| `2.4.0-amd64-preview` |       |
 | `2.3.1-amd64-preview` |       | 
 | `2.3.0-amd64-preview` |       |
 | `2.2.0-amd64-preview` |       |
@@ -137,6 +139,8 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 | Marcas de imagem            | Observações |
 |-----------------------|:------|
 | `latest`              |       |
+| `1.7.0-amd64`         |       |
+| `1.6.0-amd64-preview` |       |
 | `1.6.0-amd64-preview` |       |
 | `1.5.0-amd64-preview` |       |
 | `1.4.0-amd64-preview` |       |
@@ -145,13 +149,52 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 ## <a name="speech-to-text"></a>Conversão de fala em texto
 
 A imagem de contêiner de [fala em texto][sp-stt] pode ser encontrada no `containerpreview.azurecr.io` registro de contêiner. Ele reside no `microsoft` repositório e é nomeado `cognitive-services-speech-to-text` . O nome da imagem de contêiner totalmente qualificado é, `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` .
-A versão da *Virgínia do governo dos EUA* de imagens de fala para texto tem suporte em v 2.4.0 e pode ser encontrada em `containerpreview.azurecr.io/microsoft/fairfax/cognitive-services-speech-to-text` .
+As imagens 2.5.0 de fala em texto são compatíveis com a *Virgínia do governo dos EUA*. Use o ponto de extremidade de cobrança do *Virgínia do governo dos EUA* e as chaves de API para experimentar.
 
 Essa imagem de contêiner tem as seguintes marcas disponíveis:
 
 | Marcas de imagem                  | Observações                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Imagem de contêiner com a `en-US` localidade. |
+| `2.5.0-amd64-ar-ae`         | Imagem de contêiner com a `ar-AE` localidade. |
+| `2.5.0-amd64-ar-eg`         | Imagem de contêiner com a `ar-EG` localidade. |
+| `2.5.0-amd64-ar-kw`         | Imagem de contêiner com a `ar-KW` localidade. |
+| `2.5.0-amd64-ar-qa`         | Imagem de contêiner com a `ar-QA` localidade. |
+| `2.5.0-amd64-ar-sa`         | Imagem de contêiner com a `ar-SA` localidade. |
+| `2.5.0-amd64-ca-es`         | Imagem de contêiner com a `ca-ES` localidade. |
+| `2.5.0-amd64-da-dk`         | Imagem de contêiner com a `da-DK` localidade. |
+| `2.5.0-amd64-de-de`         | Imagem de contêiner com a `de-DE` localidade. |
+| `2.5.0-amd64-en-au`         | Imagem de contêiner com a `en-AU` localidade. |
+| `2.5.0-amd64-en-ca`         | Imagem de contêiner com a `en-CA` localidade. |
+| `2.5.0-amd64-en-gb`         | Imagem de contêiner com a `en-GB` localidade. |
+| `2.5.0-amd64-en-in`         | Imagem de contêiner com a `en-IN` localidade. |
+| `2.5.0-amd64-en-nz`         | Imagem de contêiner com a `en-NZ` localidade. |
+| `2.5.0-amd64-en-us`         | Imagem de contêiner com a `en-US` localidade. |
+| `2.5.0-amd64-es-es`         | Imagem de contêiner com a `es-ES` localidade. |
+| `2.5.0-amd64-es-mx`         | Imagem de contêiner com a `es-MX` localidade. |
+| `2.5.0-amd64-fi-fi`         | Imagem de contêiner com a `fi-FI` localidade. |
+| `2.5.0-amd64-fr-ca`         | Imagem de contêiner com a `fr-CA` localidade. |
+| `2.5.0-amd64-fr-fr`         | Imagem de contêiner com a `fr-FR` localidade. |
+| `2.5.0-amd64-gu-in`         | Imagem de contêiner com a `gu-IN` localidade. |
+| `2.5.0-amd64-hi-in`         | Imagem de contêiner com a `hi-IN` localidade. |
+| `2.5.0-amd64-it-it`         | Imagem de contêiner com a `it-IT` localidade. |
+| `2.5.0-amd64-ja-jp`         | Imagem de contêiner com a `ja-JP` localidade. |
+| `2.5.0-amd64-ko-kr`         | Imagem de contêiner com a `ko-KR` localidade. |
+| `2.5.0-amd64-mr-in`         | Imagem de contêiner com a `mr-IN` localidade. |
+| `2.5.0-amd64-nb-no`         | Imagem de contêiner com a `nb-NO` localidade. |
+| `2.5.0-amd64-nl-nl`         | Imagem de contêiner com a `nl-NL` localidade. |
+| `2.5.0-amd64-pl-pl`         | Imagem de contêiner com a `pl-PL` localidade. |
+| `2.5.0-amd64-pt-br`         | Imagem de contêiner com a `pt-BR` localidade. |
+| `2.5.0-amd64-pt-pt`         | Imagem de contêiner com a `pt-PT` localidade. |
+| `2.5.0-amd64-ru-ru`         | Imagem de contêiner com a `ru-RU` localidade. |
+| `2.5.0-amd64-sv-se`         | Imagem de contêiner com a `sv-SE` localidade. |
+| `2.5.0-amd64-ta-in`         | Imagem de contêiner com a `ta-IN` localidade. |
+| `2.5.0-amd64-te-in`         | Imagem de contêiner com a `te-IN` localidade. |
+| `2.5.0-amd64-th-th`         | Imagem de contêiner com a `th-TH` localidade. |
+| `2.5.0-amd64-tr-tr`         | Imagem de contêiner com a `tr-TR` localidade. |
+| `2.5.0-amd64-zh-cn`         | Imagem de contêiner com a `zh-CN` localidade. |
+| `2.5.0-amd64-zh-hk`         | Imagem de contêiner com a `zh-HK` localidade. |
+| `2.5.0-amd64-zh-tw`         | Imagem de contêiner com a `zh-TW` localidade. |
 | `2.4.0-amd64-ar-ae-preview` | Imagem de contêiner com a `ar-AE` localidade. |
 | `2.4.0-amd64-ar-eg-preview` | Imagem de contêiner com a `ar-EG` localidade. |
 | `2.4.0-amd64-ar-kw-preview` | Imagem de contêiner com a `ar-KW` localidade. |
@@ -591,6 +634,87 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 | Marcas de imagem                                  | Observações                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaRUS` voz.         |
+| `1.7.0-amd64-ar-eg-hoda`                    | Imagem de contêiner com a `ar-EG` localidade e a `ar-EG-Hoda` voz.            |
+| `1.7.0-amd64-ar-sa-naayf`                   | Imagem de contêiner com a `ar-SA` localidade e a `ar-SA-Naayf` voz.           |
+| `1.7.0-amd64-bg-bg-ivan`                    | Imagem de contêiner com a `bg-BG` localidade e a `bg-BG-Ivan` voz.            |
+| `1.7.0-amd64-ca-es-herenarus`               | Imagem de contêiner com a `ca-ES` localidade e a `ca-ES-HerenaRUS` voz.       |
+| `1.7.0-amd64-cs-cz-jakub`                   | Imagem de contêiner com a `cs-CZ` localidade e a `cs-CZ-Jakub` voz.           |
+| `1.7.0-amd64-da-dk-hellerus`                | Imagem de contêiner com a `da-DK` localidade e a `da-DK-HelleRUS` voz.        |
+| `1.7.0-amd64-de-at-michael`                 | Imagem de contêiner com a `de-AT` localidade e a `de-AT-Michael` voz.         |
+| `1.7.0-amd64-de-ch-karsten`                 | Imagem de contêiner com a `de-CH` localidade e a `de-CH-Karsten` voz.         |
+| `1.7.0-amd64-de-de-hedda`                   | Imagem de contêiner com a `de-DE` localidade e a `de-DE-Hedda` voz.           |
+| `1.7.0-amd64-de-de-heddarus`                | Imagem de contêiner com a `de-DE` localidade e a `de-DE-Hedda` voz.           |
+| `1.7.0-amd64-de-de-stefan-apollo`           | Imagem de contêiner com a `de-DE` localidade e a `de-DE-Stefan-Apollo` voz.   |
+| `1.7.0-amd64-el-gr-stefanos`                | Imagem de contêiner com a `el-GR` localidade e a `el-GR-Stefanos` voz.        |
+| `1.7.0-amd64-en-au-catherine`               | Imagem de contêiner com a `en-AU` localidade e a `en-AU-Catherine` voz.       |
+| `1.7.0-amd64-en-au-hayleyrus`               | Imagem de contêiner com a `en-AU` localidade e a `en-AU-HayleyRUS` voz.       |
+| `1.7.0-amd64-en-ca-heatherrus`              | Imagem de contêiner com a `en-CA` localidade e a `en-CA-HeatherRUS` voz.      |
+| `1.7.0-amd64-en-ca-linda`                   | Imagem de contêiner com a `en-CA` localidade e a `en-CA-Linda` voz.           |
+| `1.7.0-amd64-en-gb-george-apollo`           | Imagem de contêiner com a `en-GB` localidade e a `en-GB-George-Apollo` voz.   |
+| `1.7.0-amd64-en-gb-hazelrus`                | Imagem de contêiner com a `en-GB` localidade e a `en-GB-HazelRUS` voz.        |
+| `1.7.0-amd64-en-gb-susan-apollo`            | Imagem de contêiner com a `en-GB` localidade e a `en-GB-Susan-Apollo` voz.    |
+| `1.7.0-amd64-en-ie-sean`                    | Imagem de contêiner com a `en-IE` localidade e a `en-IE-Sean` voz.            |
+| `1.7.0-amd64-en-in-heera-apollo`            | Imagem de contêiner com a `en-IN` localidade e a `en-IN-Heera-Apollo` voz.    |
+| `1.7.0-amd64-en-in-priyarus`                | Imagem de contêiner com a `en-IN` localidade e a `en-IN-PriyaRUS` voz.        |
+| `1.7.0-amd64-en-in-ravi-apollo`             | Imagem de contêiner com a `en-IN` localidade e a `en-IN-Ravi-Apollo` voz.     |
+| `1.7.0-amd64-en-us-benjaminrus`             | Imagem de contêiner com a `en-US` localidade e a `en-US-BenjaminRUS` voz.     |
+| `1.7.0-amd64-en-us-guy24krus`               | Imagem de contêiner com a `en-US` localidade e a `en-US-Guy24kRUS` voz.       |
+| `1.7.0-amd64-en-us-aria24krus`              | Imagem de contêiner com a `en-US` localidade e a `en-US-Aria24kRUS` voz.      |
+| `1.7.0-amd64-en-us-ariarus`                 | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaRUS` voz.         |
+| `1.7.0-amd64-en-us-zirarus`                 | Imagem de contêiner com a `en-US` localidade e a `en-US-ZiraRUS` voz.         |
+| `1.7.0-amd64-es-es-helenarus`               | Imagem de contêiner com a `es-ES` localidade e a `es-ES-HelenaRUS` voz.       |
+| `1.7.0-amd64-es-es-laura-apollo`            | Imagem de contêiner com a `es-ES` localidade e a `es-ES-Laura-Apollo` voz.    |
+| `1.7.0-amd64-es-es-pablo-apollo`            | Imagem de contêiner com a `es-ES` localidade e a `es-ES-Pablo-Apollo` voz.    |
+| `1.7.0-amd64-es-mx-hildarus`                | Imagem de contêiner com a `es-MX` localidade e a `es-MX-HildaRUS` voz.        |
+| `1.7.0-amd64-es-mx-raul-apollo`             | Imagem de contêiner com a `es-MX` localidade e a `es-MX-Raul-Apollo` voz.     |
+| `1.7.0-amd64-fi-fi-heidirus`                | Imagem de contêiner com a `fi-FI` localidade e a `fi-FI-HeidiRUS` voz.        |
+| `1.7.0-amd64-fr-ca-caroline`                | Imagem de contêiner com a `fr-CA` localidade e a `fr-CA-Caroline` voz.        |
+| `1.7.0-amd64-fr-ca-harmonierus`             | Imagem de contêiner com a `fr-CA` localidade e a `fr-CA-HarmonieRUS` voz.     |
+| `1.7.0-amd64-fr-ch-guillaume`               | Imagem de contêiner com a `fr-CH` localidade e a `fr-CH-Guillaume` voz.       |
+| `1.7.0-amd64-fr-fr-hortenserus`             | Imagem de contêiner com a `fr-FR` localidade e a `fr-FR-HortenseRUS` voz.     |
+| `1.7.0-amd64-fr-fr-julie-apollo`            | Imagem de contêiner com a `fr-FR` localidade e a `fr-FR-Julie-Apollo` voz.    |
+| `1.7.0-amd64-fr-fr-paul-apollo`             | Imagem de contêiner com a `fr-FR` localidade e a `fr-FR-Paul-Apollo` voz.     |
+| `1.7.0-amd64-he-il-asaf`                    | Imagem de contêiner com a `he-IL` localidade e a `he-IL-Asaf` voz.            |
+| `1.7.0-amd64-hi-in-hemant`                  | Imagem de contêiner com a `hi-IN` localidade e a `hi-IN-Hemant` voz.          |
+| `1.7.0-amd64-hi-in-kalpana-apollo`          | Imagem de contêiner com a `hi-IN` localidade e a `hi-IN-Kalpana-Apollo` voz.  |
+| `1.7.0-amd64-hi-in-kalpana`                 | Imagem de contêiner com a `hi-IN` localidade e a `hi-IN-Kalpana` voz.         |
+| `1.7.0-amd64-hr-hr-matej`                   | Imagem de contêiner com a `hr-HR` localidade e a `hr-HR-Matej` voz.           |
+| `1.7.0-amd64-hu-hu-szabolcs`                | Imagem de contêiner com a `hu-HU` localidade e a `hu-HU-Szabolcs` voz.        |
+| `1.7.0-amd64-id-id-andika`                  | Imagem de contêiner com a `id-ID` localidade e a `id-ID-Andika` voz.          |
+| `1.7.0-amd64-it-it-cosimo-apollo`           | Imagem de contêiner com a `it-IT` localidade e a `it-IT-Cosimo-Apollo` voz.   |
+| `1.7.0-amd64-it-it-luciarus`                | Imagem de contêiner com a `it-IT` localidade e a `it-IT-LuciaRUS` voz.        |
+| `1.7.0-amd64-ja-jp-ayumi-apollo`            | Imagem de contêiner com a `ja-JP` localidade e a `ja-JP-Ayumi-Apollo` voz.    |
+| `1.7.0-amd64-ja-jp-harukarus`               | Imagem de contêiner com a `ja-JP` localidade e a `ja-JP-HarukaRUS` voz.       |
+| `1.7.0-amd64-ja-jp-ichiro-apollo`           | Imagem de contêiner com a `ja-JP` localidade e a `ja-JP-Ichiro-Apollo` voz.   |
+| `1.7.0-amd64-ko-kr-heamirus`                | Imagem de contêiner com a `ko-KR` localidade e a `ko-KR-HeamiRUS` voz.        |
+| `1.7.0-amd64-ms-my-rizwan`                  | Imagem de contêiner com a `ms-MY` localidade e a `ms-MY-Rizwan` voz.          |
+| `1.7.0-amd64-nb-no-huldarus`                | Imagem de contêiner com a `nb-NO` localidade e a `nb-NO-HuldaRUS` voz.        |
+| `1.7.0-amd64-nl-nl-hannarus`                | Imagem de contêiner com a `nl-NL` localidade e a `nl-NL-HannaRUS` voz.        |
+| `1.7.0-amd64-pl-pl-paulinarus`              | Imagem de contêiner com a `pl-PL` localidade e a `pl-PL-PaulinaRUS` voz.      |
+| `1.7.0-amd64-pt-br-daniel-apollo`           | Imagem de contêiner com a `pt-BR` localidade e a `pt-BR-Daniel-Apollo` voz.   |
+| `1.7.0-amd64-pt-br-heloisarus`              | Imagem de contêiner com a `pt-BR` localidade e a `pt-BR-HeloisaRUS` voz.      |
+| `1.7.0-amd64-pt-pt-heliarus`                | Imagem de contêiner com a `pt-PT` localidade e a `pt-PT-HeliaRUS` voz.        |
+| `1.7.0-amd64-ro-ro-andrei`                  | Imagem de contêiner com a `ro-RO` localidade e a `ro-RO-Andrei` voz.          |
+| `1.7.0-amd64-ru-ru-ekaterinarus`            | Imagem de contêiner com a `ru-RU` localidade e a `ru-RU-EkaterinaRUS` voz.    |
+| `1.7.0-amd64-ru-ru-irina-apollo`            | Imagem de contêiner com a `ru-RU` localidade e a `ru-RU-Irina-Apollo` voz.    |
+| `1.7.0-amd64-ru-ru-pavel-apollo`            | Imagem de contêiner com a `ru-RU` localidade e a `ru-RU-Pavel-Apollo` voz.    |
+| `1.7.0-amd64-sk-sk-filip`                   | Imagem de contêiner com a `sk-SK` localidade e a `sk-SK-Filip` voz.           |
+| `1.7.0-amd64-sl-si-lado`                    | Imagem de contêiner com a `sl-SI` localidade e a `sl-SI-Lado` voz.            |
+| `1.7.0-amd64-sv-se-hedvigrus`               | Imagem de contêiner com a `sv-SE` localidade e a `sv-SE-HedvigRUS` voz.       |
+| `1.7.0-amd64-ta-in-valluvar`                | Imagem de contêiner com a `ta-IN` localidade e a `ta-IN-Valluvar` voz.        |
+| `1.7.0-amd64-te-in-chitra`                  | Imagem de contêiner com a `te-IN` localidade e a `te-IN-Chitra` voz.          |
+| `1.7.0-amd64-th-th-pattara`                 | Imagem de contêiner com a `th-TH` localidade e a `th-TH-Pattara` voz.         |
+| `1.7.0-amd64-tr-tr-sedarus`                 | Imagem de contêiner com a `tr-TR` localidade e a `tr-TR-SedaRUS` voz.         |
+| `1.7.0-amd64-vi-vn-an`                      | Imagem de contêiner com a `vi-VN` localidade e a `vi-VN-An` voz.              |
+| `1.7.0-amd64-zh-cn-huihuirus`               | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-HuihuiRUS` voz.       |
+| `1.7.0-amd64-zh-cn-kangkang-apollo`         | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-Kangkang-Apollo` voz. |
+| `1.7.0-amd64-zh-cn-yaoyao-apollo`           | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-Yaoyao-Apollo` voz.   |
+| `1.7.0-amd64-zh-hk-danny-apollo`            | Imagem de contêiner com a `zh-HK` localidade e a `zh-HK-Danny-Apollo` voz.    |
+| `1.7.0-amd64-zh-hk-tracy-apollo`            | Imagem de contêiner com a `zh-HK` localidade e a `zh-HK-Tracy-Apollo` voz.    |
+| `1.7.0-amd64-zh-hk-tracyrus`                | Imagem de contêiner com a `zh-HK` localidade e a `zh-HK-TracyRUS` voz.        |
+| `1.7.0-amd64-zh-tw-hanhanrus`               | Imagem de contêiner com a `zh-TW` localidade e a `zh-TW-HanHanRUS` voz.       |
+| `1.7.0-amd64-zh-tw-yating-apollo`           | Imagem de contêiner com a `zh-TW` localidade e a `zh-TW-Yating-Apollo` voz.   |
+| `1.7.0-amd64-zh-tw-zhiwei-apollo`           | Imagem de contêiner com a `zh-TW` localidade e a `zh-TW-Zhiwei-Apollo` voz.   |
 | `1.6.0-amd64-ar-eg-hoda-preview`            | Imagem de contêiner com a `ar-EG` localidade e a `ar-EG-Hoda` voz.            |
 | `1.6.0-amd64-ar-sa-naayf-preview`           | Imagem de contêiner com a `ar-SA` localidade e a `ar-SA-Naayf` voz.           |
 | `1.6.0-amd64-bg-bg-ivan-preview`            | Imagem de contêiner com a `bg-BG` localidade e a `bg-BG-Ivan` voz.            |
@@ -616,8 +740,8 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 | `1.6.0-amd64-en-in-ravi-apollo-preview`     | Imagem de contêiner com a `en-IN` localidade e a `en-IN-Ravi-Apollo` voz.     |
 | `1.6.0-amd64-en-us-benjaminrus-preview`     | Imagem de contêiner com a `en-US` localidade e a `en-US-BenjaminRUS` voz.     |
 | `1.6.0-amd64-en-us-guy24krus-preview`       | Imagem de contêiner com a `en-US` localidade e a `en-US-Guy24kRUS` voz.       |
-| `1.6.0-amd64-en-us-aria24krus-preview`      | Imagem de contêiner com a `en-US` localidade e a `en-US-Aria24kRUS` voz.     |
-| `1.6.0-amd64-en-us-ariarus-preview`         | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaRUS` voz.        |
+| `1.6.0-amd64-en-us-aria24krus-preview`      | Imagem de contêiner com a `en-US` localidade e a `en-US-Aria24kRUS` voz.      |
+| `1.6.0-amd64-en-us-ariarus-preview`         | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaRUS` voz.         |
 | `1.6.0-amd64-en-us-zirarus-preview`         | Imagem de contêiner com a `en-US` localidade e a `en-US-ZiraRUS` voz.         |
 | `1.6.0-amd64-es-es-helenarus-preview`       | Imagem de contêiner com a `es-ES` localidade e a `es-ES-HelenaRUS` voz.       |
 | `1.6.0-amd64-es-es-laura-apollo-preview`    | Imagem de contêiner com a `es-ES` localidade e a `es-ES-Laura-Apollo` voz.    |

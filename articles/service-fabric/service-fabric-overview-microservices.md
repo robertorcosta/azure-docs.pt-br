@@ -4,12 +4,12 @@ description: Uma visão geral sobre por que criar aplicativos de nuvem com uma a
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: b8fbe5096014b116c3d5c5deaa7615874135d001
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4345c919e73e57667fb3b9c90c42224326bc3552
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246013"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300761"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microserviços para a criação de aplicativos
 
@@ -138,6 +138,9 @@ Visite o centro de arquitetura do Azure para obter orientação sobre como [proj
 O Azure Service Fabric surgiu quando a Microsoft fez a transição da entrega de produtos in a box, que normalmente eram monolíticos, para fornecer serviços. A experiência de criação e operação de serviços grandes, como o banco de dados SQL do Azure e Azure Cosmos DB, Service Fabric moldado. A plataforma evoluiu ao longo do tempo conforme mais serviços o adotaram. O Service Fabric tinha que ser executado não apenas no Azure, mas também em implantações autônomas do Windows Server.
 
 ***O objetivo do Service Fabric é resolver os problemas difíceis de criar e executar um serviço e usar recursos de infraestrutura com eficiência, para que as equipes possam resolver problemas de negócios usando uma abordagem de microserviços.***
+
+Este breve vídeo apresenta o Service Fabric e os microsserviços:
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 O Service Fabric ajuda você a criar aplicativos que usam uma abordagem de micros serviços, fornecendo:
 

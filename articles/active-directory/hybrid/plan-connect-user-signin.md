@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657156"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299903"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
@@ -179,7 +179,7 @@ Se você selecionou a opção de conexão do usuário **Federação com o AD FS*
 
 Na próxima página, você deverá fornecer as credenciais do Azure AD.
 
-![Conecte-se ao AD do Azure](./media/plan-connect-user-signin/changeusersignin2.png)
+![Captura de tela que mostra onde você deve digitar as credenciais do Azure AD.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 Na página **Entrada de usuário**, selecione a entrada do usuário desejada.
 

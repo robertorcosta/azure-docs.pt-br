@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395427"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252622"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoramento, alertas e métricas do ExpressRoute
 
@@ -36,14 +36,14 @@ Depois que uma métrica for selecionada, a agregação padrão será aplicada. O
 |Disponibilidade de BGP|Disponibilidade|<ui><li> Par (roteador de ExpressRoute primário/secundário)</ui></li><ui><li> Tipo de emparelhamento</ui></li>|ExpressRoute|
 |BitsInPerSecond|Tráfego|<ui><li> Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute direto)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct|
 |BitsOutPerSecond|Tráfego| <ui><li>Tipo de emparelhamento (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute direto) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
-|Utilização da CPU|Desempenho| <ui><li>Instância</ui></li>|Gateway de rede virtual do ExpressRoute|
-|Pacotes por segundo|Desempenho| <ui><li>Instância</ui></li>|Gateway de rede virtual do ExpressRoute|
+|Utilização da CPU|Desempenho| <ui><li>Cópia</ui></li>|Gateway de rede virtual do ExpressRoute|
+|Pacotes por segundo|Desempenho| <ui><li>Cópia</ui></li>|Gateway de rede virtual do ExpressRoute|
 |GlobalReachBitsInPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
 |GlobalReachBitsOutPerSecond|Tráfego|<ui><li>Circuito emparelhado skey (chave de serviço)</ui></li>|Alcance Global|
 |AdminState|Conectividade física|Link|ExpressRoute Direct|
 |LineProtocol|Conectividade física|Link|ExpressRoute Direct|
-|RxLightLevel|Conectividade física|<ui><li>Criar</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Conectividade física|<ui><li>Criar</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
+|RxLightLevel|Conectividade física|<ui><li>Link</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
+|TxLightLevel|Conectividade física|<ui><li>Link</ui></li><ui><li>Estreita</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >Usar *GlobalGlobalReachBitsInPerSecond* e *GlobalGlobalReachBitsOutPerSecond* só será visível se pelo menos uma conexão alcance global for estabelecida.
 >
@@ -154,6 +154,19 @@ Você pode exibir pacotes por segundo atravessando o gateway.
 Nos **Critérios de Alerta**, você pode selecionar **Log de Atividades** para o tipo de sinal e selecione o sinal.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="logs de atividade":::
+
+## <a name="additional-metrics-in-log-analytics"></a>Métricas adicionais no Log Analytics
+
+Você também pode exibir as métricas de ExpressRoute navegando até o recurso de circuito do ExpressRoute e selecionando a guia *logs* . Para qualquer métrica que você consultar, a saída conterá as colunas abaixo.
+
+|**Coluna**|**Tipo**|**Descrição**|
+| --- | --- | --- |
+|TimeGrain|string|PT1M (os valores de métrica são enviados a cada minuto)|
+|Contagem|real|Geralmente igual a 2 (cada MSEE envia um único valor de métrica a cada minuto)|
+|Mínimo|real|O mínimo dos dois valores de métrica enviados por Push por dois MSEEs|
+|Máximo|real|O máximo dos dois valores de métrica enviados por push pelos dois MSEEs|
+|Média|real|Igual a (mínimo + máximo)/2|
+|Total|real|Soma dos dois valores de métrica de ambos os MSEEs (o valor principal para se concentrar para a métrica consultada)|
   
 ## <a name="next-steps"></a>Próximas etapas
 

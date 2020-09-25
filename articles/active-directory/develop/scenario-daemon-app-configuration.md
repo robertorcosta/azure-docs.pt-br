@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/08/2020
+ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ad5c2ad76f9ab98a6ad284a0bb50f3a611dc9a00
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257666"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplicativo daemon que chama a configuração de código de APIs da Web
 
@@ -51,16 +51,13 @@ Em bibliotecas MSAL, as credenciais do cliente (segredo ou certificado) são pas
 
 O arquivo de configuração define:
 
-- A autoridade ou a ID de locatário e a instância de nuvem.
+- A instância de nuvem e a ID de locatário, que juntos compõem a *autoridade*.
 - A ID do cliente que você obteve do registro do aplicativo.
 - Um segredo do cliente ou um certificado.
 
-> [!NOTE]
-> Os trechos de código .net no restante do artigo [configuração](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs) de referência do exemplo [Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
-
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-[appsettings.jsno](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) exemplo de [daemon do console do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) .
+Aqui está um exemplo de como definir a configuração em um [*appsettings.jsno*](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/daemon-console/appsettings.json) arquivo. Este exemplo é obtido do exemplo de código do [daemon do console do .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) no github.
 
 ```json
 {
@@ -124,9 +121,9 @@ Referencie o pacote MSAL no código do aplicativo.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-Adicione o pacote NuGet [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) ao seu aplicativo.
+Adicione o pacote NuGet [Microsoft. Identity. Client](https://www.nuget.org/packages/Microsoft.Identity.Client) ao seu aplicativo e, em seguida, adicione uma `using` diretiva em seu código para fazer referência a ele.
+
 No MSAL.NET, o aplicativo cliente confidencial é representado pela `IConfidentialClientApplication` interface.
-Use o namespace MSAL.NET no código-fonte.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -167,6 +164,23 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
            .WithClientSecret(config.ClientSecret)
            .WithAuthority(new Uri(config.Authority))
            .Build();
+```
+
+O `Authority` é uma concatenação da instância de nuvem e da ID de locatário, por exemplo `https://login.microsoftonline.com/contoso.onmicrosoft.com` ou `https://login.microsoftonline.com/eb1ed152-0000-0000-0000-32401f3f9abd` . No *appsettings.jsno* arquivo mostrado na seção [arquivo de configuração](#configuration-file) , eles são representados pelos `Instance` valores e `Tenant` , respectivamente.
+
+No exemplo de código, o trecho anterior foi obtido de, `Authority` é uma propriedade na classe  [AuthenticationConfig](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/ffc4a9f5d9bdba5303e98a1af34232b434075ac7/1-Call-MSGraph/daemon-console/AuthenticationConfig.cs#L61-L70) e é definido como tal:
+
+```csharp
+/// <summary>
+/// URL of the authority
+/// </summary>
+public string Authority
+{
+    get
+    {
+        return String.Format(CultureInfo.InvariantCulture, Instance, Tenant);
+    }
+}
 ```
 
 # <a name="python"></a>[Python](#tab/python)

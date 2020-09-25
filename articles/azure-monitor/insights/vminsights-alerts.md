@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/23/2020
-ms.openlocfilehash: 987537d8497b3d8f2728941334d8328320ec6997
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be469ab3b05c54ebc5afa6bd6d129efd8d4ba692
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80289596"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254798"
 ---
 # <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Como criar alertas de Azure Monitor para VMs
 [Alertas no Azure monitor](../platform/alerts-overview.md) notificá-lo proativamente de dados e padrões interessantes em seus dados de monitoramento. O Azure Monitor para VMs não inclui regras de alerta pré-configuradas, mas você pode criar suas próprias com base nos dados coletados. Este artigo fornece orientação sobre como criar regras de alerta, incluindo um conjunto de consultas de exemplo.
@@ -22,8 +22,8 @@ Azure Monitor tem [tipos diferentes de regras de alerta](../platform/alerts-over
 
 Há dois tipos de alertas de log no Azure Monitor:
 
-- [Número de alertas de resultados](../platform/alerts-unified-log.md#number-of-results-alert-rules) crie um único alerta quando uma consulta retornar pelo menos um número especificado de registros. Eles são ideais para dados não numéricos, como eventos do Windows e de syslog coletados pelo [agente de log Analytics](../platform/log-analytics-agent.md) ou para analisar tendências de desempenho em vários computadores.
-- Os [alertas de medição de métricas](../platform/alerts-unified-log.md#metric-measurement-alert-rules) criam um alerta separado para cada registro em uma consulta com um valor que exceda um limite definido na regra de alerta. Essas regras de alerta são ideais para os dados de desempenho coletados pelo Azure Monitor para VMs, já que eles podem criar alertas individuais para cada computador.
+- [Número de alertas de resultados](../platform/alerts-unified-log.md#count-of-the-results-table-rows) crie um único alerta quando uma consulta retornar pelo menos um número especificado de registros. Eles são ideais para dados não numéricos, como eventos do Windows e de syslog coletados pelo [agente de log Analytics](../platform/log-analytics-agent.md) ou para analisar tendências de desempenho em vários computadores.
+- Os [alertas de medição de métricas](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) criam um alerta separado para cada registro em uma consulta com um valor que exceda um limite definido na regra de alerta. Essas regras de alerta são ideais para os dados de desempenho coletados pelo Azure Monitor para VMs, já que eles podem criar alertas individuais para cada computador.
 
 
 ## <a name="alert-rule-walkthrough"></a>Instruções de regra de alerta

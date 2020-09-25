@@ -3,16 +3,16 @@ title: Isentar um recurso das recomendações de segurança da central de segura
 description: Saiba como isentar um recurso de recomendações de segurança e a pontuação segura
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b4d043812800bec1070624382755aeb355ea595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933711"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301526"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Isentar um recurso de recomendações e pontuação segura
 
@@ -33,7 +33,7 @@ O recurso será listado como não aplicável e o motivo será mostrado como "ise
 |Estado da versão:|Versão Prévia|
 |Refere|Essa é uma funcionalidade de política do Azure Premium que é oferecida para clientes do Azure defender sem custo adicional. Para outros usuários, os encargos podem ser aplicados no futuro.|
 |Funções e permissões necessárias:|**Proprietário da assinatura** ou **colaborador da política** para criar uma isenção<br>Para criar uma regra, você precisa de permissões para editar políticas no Azure Policy.<br>Saiba mais em [permissões de RBAC no Azure Policy](../governance/policy/overview.md#rbac-permissions-in-azure-policy).|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 
@@ -62,7 +62,7 @@ O recurso será listado como não aplicável e o motivo será mostrado como "ise
 
     :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modificando uma isenção":::
 
-    O motivo para cada isenção é incluído na tabela. 
+    O motivo para cada isenção é incluído na tabela (1).
 
     Para modificar ou excluir uma isenção, selecione o menu de reticências ("...") conforme mostrado (2).
 

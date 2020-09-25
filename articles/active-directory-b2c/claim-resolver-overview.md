@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201168"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259628"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -51,7 +51,7 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {Culture:LanguageName} | As duas letras do código ISO para o idioma. | en |
 | {Culture:LCID}   | O LCID do código de idioma. | 1046 |
 | {Culture:RegionName} | As duas letras do código ISO para a região. | EUA |
-| {Culture:RFC5646} | O código de idioma RFC5646. | pt-BR |
+| {Culture:RFC5646} | O código de idioma RFC5646. | en-US |
 
 ### <a name="policy"></a>Política
 
@@ -113,6 +113,7 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 | Declaração | Descrição | Exemplo |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | O token de acesso. | N/D |
+| {oauth2: refresh_token} | O token de atualização. | N/D |
 
 
 ### <a name="saml"></a>SAML
@@ -122,8 +123,8 @@ Qualquer nome de parâmetro incluído como parte de uma solicitação OIDC ou OA
 | {SAML: AuthnContextClassReferences} | O `AuthnContextClassRef` valor do elemento, da solicitação SAML. | urn: Oasis: names: TC: SAML: 2.0: AC: classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | O `Format` atributo, do `NameIDPolicy` elemento da solicitação SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | {SAML: emissor} |  O `Issuer` valor do elemento SAML da solicitação SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | True |
-| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | True |
+| {SAML: AllowCreate} | O `AllowCreate` valor do atributo, do `NameIDPolicy` elemento da solicitação SAML. | Verdadeiro |
+| {SAML: ForceAuthn} | O `ForceAuthN` valor do atributo, do `AuthnRequest` elemento da solicitação SAML. | Verdadeiro |
 | {SAML: ProviderName} | O `ProviderName` valor do atributo, do `AuthnRequest` elemento da solicitação SAML.| Contoso.com |
 | {SAML: Relaystate} | O parâmetro de cadeia de caracteres da consulta `RelayState`.| 
 

@@ -3,17 +3,17 @@ title: Azure defender para Key Vault-os benefícios e recursos
 description: Saiba mais sobre os benefícios e recursos do Azure defender para Key Vault.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 06818e443568918e2ee87bbfbec81836ea85648b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 78a522922f8580003e2d2ff588cbf10dbf5fff9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301764"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introdução ao Azure defender para Key Vault
 
@@ -27,7 +27,7 @@ Habilite o **Azure defender para Key Vault** para proteção de ameaças avança
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
 |Refere|O **Azure defender para Key Vault** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-key-vault"></a>Quais são os benefícios do Azure defender para Key Vault?
@@ -42,6 +42,11 @@ Quando receber um alerta do Azure defender para Key Vault, recomendamos que voc�
 Os alertas são exibidos na página **segurança** do Key Vault, no painel do Azure defender e na página de alertas da central de segurança.
 
 :::image type="content" source="./media/defender-for-key-vault-intro/key-vault-security-page.png" alt-text="Página de segurança do Azure Key Vault":::
+
+
+> [!TIP]
+> Você pode simular os alertas do Azure defender para Key Vault seguindo as instruções em [validando Azure Key Vault detecção de ameaças na central de segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

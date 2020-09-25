@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263271"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256578"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
 
@@ -37,9 +37,9 @@ O fluxo de entrada mais básico tem as etapas mostradas no diagrama seguinte. Ca
 
 O OpenID Connect descreve um documento de metadados [(RFC)](https://openid.net/specs/openid-connect-discovery-1_0.html) que contém a maioria das informações necessárias para que um aplicativo faça logon. Isso inclui informações como as URLs a serem usadas e o local das chaves de assinatura públicas do serviço. Você pode encontrar este documento acrescentando o caminho do documento de descoberta à URL da autoridade:
 
-Caminho do documento de descoberta:`/.well-known/openid-configuration`
+Caminho do documento de descoberta: `/.well-known/openid-configuration`
 
-Autoridades`https://login.microsoftonline.com/{tenant}/v2.0`
+Autoridades `https://login.microsoftonline.com/{tenant}/v2.0`
 
 O `{tenant}` pode ter um de quatro valores:
 
@@ -249,7 +249,7 @@ Os parâmetros de resposta significam a mesma coisa, independentemente do fluxo 
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `token` | O token que será usado para chamar o ponto de extremidade de UserInfo.|
+| `access_token` | O token que será usado para chamar o ponto de extremidade de UserInfo.|
 | `token_type` | Sempre "portador" |
 | `expires_in`| Quanto tempo até que o token de acesso expire, em segundos. |
 | `scope` | As permissões concedidas no token de acesso.  Observe que, como o ponto de extremidade de UserInfo é hospedado no MS Graph, pode haver escopos de grafo adicionais listados aqui (por exemplo, User. Read) se eles foram concedidos anteriormente ao aplicativo.  Isso ocorre porque um token para um determinado recurso sempre inclui todas as permissões atualmente concedidas ao cliente.  |

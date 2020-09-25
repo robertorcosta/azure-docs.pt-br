@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: f550cb4e9069055da6569492b35fc7fe75d70980
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594043"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258052"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerações sobre o uso do Xamarin iOS com MSAL.NET
 
@@ -81,7 +81,7 @@ Para obter mais informações, consulte a [documentação de direitos do IOS](ht
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Habilitar o compartilhamento de cache de token em aplicativos iOS
 
-A partir do MSAL 2. x, você pode especificar um grupo de acesso do conjunto de chaves para manter o cache do token entre vários aplicativos. Essa configuração permite que você compartilhe o cache do token entre vários aplicativos que têm o mesmo grupo de acesso do conjunto de chaves. Você pode compartilhar o sinal de dinheiro entre aplicativos [Adal.net](https://aka.ms/adal-net) , aplicativos MSAL.net Xamarin. Ios e aplicativos Ios nativos que foram desenvolvidos em [Adal. ObjC](https://github.com/AzureAD/azure-activedirectory-library-for-objc) ou [MSAL. ObjC](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
+A partir do MSAL 2. x, você pode especificar um grupo de acesso do conjunto de chaves para manter o cache do token entre vários aplicativos. Essa configuração permite que você compartilhe o cache do token entre vários aplicativos que têm o mesmo grupo de acesso do conjunto de chaves. Você pode compartilhar o cache de token entre aplicativos [Adal.net](https://aka.ms/adal-net) , aplicativos MSAL.net Xamarin. Ios e aplicativos Ios nativos que foram desenvolvidos em [Adal. ObjC](https://github.com/AzureAD/azure-activedirectory-library-for-objc) ou [MSAL. ObjC](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
 
 Ao compartilhar o cache de token, você permite o SSO (logon único) entre todos os aplicativos que usam o mesmo grupo de acesso do conjunto de chaves.
 

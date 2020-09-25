@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
-ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268716"
 ---
 # <a name="co-sell-partner-engagement"></a>Participação de parceiros de venda conjunta
 
@@ -36,7 +36,7 @@ Ofertas que atingem o status de **incentivados de venda de IP do Azure para** ob
 * A taxa de serviço do Marketplace é reduzida de 20% a 10%. Esse desconto se aplica à oferta de IaaS ou SaaS vendida por meio do Marketplace comercial. Consulte [taxa de serviço reduzida](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) para obter mais detalhes.
 * Os parceiros do CSP (provedor de soluções na nuvem) recebem um incentivo de 10% para vender sua oferta de IaaS ou SaaS. Saiba mais sobre o programa CSP no [programa do provedor de soluções na nuvem](cloud-solution-providers.md).
 * As vendas de sua oferta por meio do Marketplace comercial irão contribuir para os compromissos de consumo do Azure dos clientes. Os clientes qualificados verão a oferta marcada como **"benefício do Azure qualificado"** no portal do Azure. Consulte [benefício do compromisso de consumo do Azure](azure-consumption-commitment-benefit.md) para obter mais detalhes.
-* Sua oferta receberá um selo de **"soluções preferenciais"** nas vitrines. O emblema promove a qualidade, o desempenho e a capacidade de atender às necessidades do cliente em uma área vertical ou de solução do setor. Saiba mais em [soluções preferenciais no Microsoft AppSource e no Azure Marketplace](preferred-solutions.md).
+* As ofertas que atingem o **IP do Azure covendem incentivados** ou Business Applications o status de **incentivados de covenda** receberão uma notificação de **"soluções preferenciais"** nas vitrines. A notificação promove a qualidade, o desempenho e a capacidade da oferta de atender às necessidades do cliente em uma determinada área vertical ou de solução do setor. Saiba mais em [soluções preferenciais no Microsoft AppSource e no Azure Marketplace](preferred-solutions.md).
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Requisitos e etapas de publicação de venda conjunta
 

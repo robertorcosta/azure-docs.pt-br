@@ -3,16 +3,16 @@ title: Azure defender para servidores-os benefícios e recursos
 description: Saiba mais sobre os benefícios e recursos do Azure defender para servidores.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 29f15aa7d1cbcd260ce44f6083138681ceb9fd79
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d0e75ab8a2e4d853fa2edc66174502dd3a7930e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933719"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301662"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure defender para servidores
 
@@ -81,9 +81,9 @@ Os recursos de detecção e proteção de ameaças fornecidos com o Azure defend
 
 Você pode simular alertas baixando um dos seguintes guias estratégicos:
 
-- Para Windows: [guia estratégico da central de segurança do Azure: alertas de segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+- Para Windows: [guia estratégico da central de segurança do Azure: alertas de segurança](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Security%20Alerts%20Playbook_v2.pdf)
 
-- Para Linux: [guia estratégico da central de segurança do Azure: detecções do Linux](https://gallery.technet.microsoft.com/Azure-Security-Center-0ac8a5ef).
+- Para Linux: [guia estratégico da central de segurança do Azure: detecções do Linux](https://github.com/Azure/Azure-Security-Center/blob/master/Simulations/Azure%20Security%20Center%20Linux%20Detections_v2.pdf).
 
 
 
