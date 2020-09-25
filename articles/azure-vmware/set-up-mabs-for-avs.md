@@ -3,16 +3,16 @@ title: Configurar Servidor de Backup do Azure para a solução VMware do Azure
 description: Configure seu ambiente de solução do Azure VMware para fazer backup de máquinas virtuais usando Servidor de Backup do Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 516f4a2fa92740897e186a782e276fc6d40fc925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255002"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar Servidor de Backup do Azure para a solução VMware do Azure
 
-Servidor de Backup do Azure é um sistema de backup e recuperação empresarial robusto que contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre). Durante a visualização da solução Azure VMware, você pode configurar somente o backup em nível de máquina virtual (VM) usando Servidor de Backup do Azure. 
+Servidor de Backup do Azure é um sistema de backup e recuperação empresarial robusto que contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre). Durante a solução Azure VMware, você pode configurar somente o backup em nível de máquina virtual (VM) usando Servidor de Backup do Azure. 
 
 Servidor de Backup do Azure pode armazenar dados de backup em:
 
@@ -34,7 +34,7 @@ Neste artigo, ajudamos você a preparar seu ambiente de solução do Azure VMwar
 - **Backup sem agente:** Servidor de Backup do Azure não exige que um agente seja instalado no servidor vCenter ou ESXi para fazer backup da máquina virtual. Em vez disso, forneça apenas o endereço IP ou FQDN (nome de domínio totalmente qualificado) e as credenciais de entrada usadas para autenticar o servidor VMware com o Servidor de Backup do Azure.
 - **Backup integrado à nuvem:** Servidor de Backup do Azure protege as cargas de trabalho em disco e na nuvem. O fluxo de trabalho de backup e recuperação do Servidor de Backup do Azure ajuda a gerenciar a retenção de longo prazo e o backup externo.
 - **Detectar e proteger VMs gerenciadas pelo vCenter:** Servidor de Backup do Azure detecta e protege as VMs implantadas em um vCenter ou em um servidor ESXi. Servidor de Backup do Azure também detecta VMs gerenciadas pelo vCenter para que você possa proteger grandes implantações.
-- **Autoproteção em nível de pasta:** o vCenter permite organizar suas VMs em pastas de VM. O Servidor de Backup do Azure detecta essas pastas e você pode usá-la para proteger as VMs no nível da pasta, que inclui todas as subpastas. Ao proteger pastas, Servidor de Backup do Azure não apenas protege as VMs nessa pasta, mas também protege as VMs adicionadas posteriormente. O Servidor de Backup do Azure detecta novas VMs diariamente e as protege automaticamente. Conforme você organiza suas VMs em pastas recursivas, Servidor de Backup do Azure detecta e protege automaticamente as novas VMs implantadas nas pastas recursivas.
+- **Autoproteção em nível de pasta:** o vCenter permite organizar suas VMs em pastas de VM. Servidor de Backup do Azure detecta essas pastas. Você pode usá-lo para proteger as VMs no nível da pasta, que inclui todas as subpastas. Ao proteger pastas, Servidor de Backup do Azure não apenas protege as VMs nessa pasta, mas também protege as VMs adicionadas posteriormente. O Servidor de Backup do Azure detecta novas VMs diariamente e as protege automaticamente. Conforme você organiza suas VMs em pastas recursivas, Servidor de Backup do Azure detecta e protege automaticamente as novas VMs implantadas nas pastas recursivas.
 - **Servidor de backup do Azure continua a proteger as VMs do VMotion no cluster:** À medida que as VMs são vMotion para balanceamento de carga no cluster, Servidor de Backup do Azure automaticamente detecta e continua a proteção da VM.
 - **Recuperar os arquivos necessários mais rápido:** Servidor de Backup do Azure pode recuperar arquivos ou pastas de uma VM do Windows sem recuperar toda a VM.
 
@@ -68,7 +68,7 @@ Certifique-se de [Configurar a rede para sua nuvem privada do VMware no Azure](t
 
 ### <a name="determine-the-size-of-the-virtual-machine"></a>Determinar o tamanho da máquina virtual
 
-Você deve criar uma máquina virtual do Windows na rede virtual que você criou na etapa anterior. Ao escolher um servidor para executar o Servidor de Backup do Azure, comece com uma imagem da galeria do Windows Server 2019 datacenter. O tutorial [criar sua primeira máquina virtual do Windows na portal do Azure o](../virtual-machines/windows/quick-create-portal.md) ajudará a começar com a VM recomendada no Azure, mesmo que você nunca tenha usado o Azure.
+Crie uma máquina virtual do Windows na rede virtual que você criou na etapa anterior. Ao escolher um servidor para executar o Servidor de Backup do Azure, comece com uma imagem da galeria do Windows Server 2019 datacenter. O tutorial [criar sua primeira máquina virtual do Windows na portal do Azure o](../virtual-machines/windows/quick-create-portal.md) ajudará a começar com a VM recomendada no Azure, mesmo que você nunca tenha usado o Azure.
 
 A tabela a seguir resume o número máximo de cargas de trabalho protegidas para cada tamanho de máquina virtual Servidor de Backup do Azure. As informações são baseadas no desempenho e em testes de escala internos com valores canônicos para o tamanho da carga de trabalho e a variação. O tamanho real da carga de trabalho pode ser maior, mas deve ser acomodado pelos discos anexados à máquina virtual Servidor de Backup do Azure.
 
@@ -140,7 +140,7 @@ Um cofre dos serviços de recuperação é uma entidade de armazenamento que arm
 
 1. No menu esquerdo, selecione **Todos os serviços**.
 
-   ![No menu à esquerda, selecione todos os serviços.](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![No menu esquerdo, selecione Todos os serviços.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. Na caixa de diálogo **todos os serviços** , insira **serviços de recuperação** e selecione **cofres dos serviços de recuperação** na lista.
 
@@ -183,8 +183,6 @@ A opção de replicação de armazenamento permite que você escolha entre o arm
 1. Em **Configurações**, selecione **Propriedades**. Em **configuração de backup**, selecione **Atualizar**.
 
 1. Selecione o tipo de replicação de armazenamento e selecione **salvar**.
-
-   ![Defina a configuração de armazenamento para o novo cofre.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Baixar e instalar o pacote de software
 
@@ -309,7 +307,7 @@ Se você baixou o pacote de software para um servidor diferente, copie os arquiv
    * **Banco de dados**: **DatabaseName** deve ser **reportserver \<SQLInstanceName> $**.
    * **URL do portal da Web**: o **diretório Virtual** deve ser **Reports_ \<SQLInstanceName> **.
 
-   [Saiba mais](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
+   Saiba mais sobre a [configuração do SSRS](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode).
 
    > [!NOTE]
    > Os [termos do Microsoft Online Services](https://www.microsoft.com/licensing/product-licensing/products) (OST) governam o licenciamento para SQL Server usado como banco de dados para servidor de backup do Azure. De acordo com o OST, SQL Server agrupadas com Servidor de Backup do Azure podem ser usadas somente como o banco de dados para Servidor de Backup do Azure.

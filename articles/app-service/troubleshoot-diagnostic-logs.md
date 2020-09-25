@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469925"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264364"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -185,16 +185,16 @@ Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), voc
 
 A tabela a seguir mostra os tipos de log e as descrições com suporte: 
 
-| Tipo de log | Suporte do Windows | Suporte para Linux (Docker) | Descrição |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | Sim | Saída padrão e erro padrão |
-| AppServiceHTTPLogs | Sim | Sim | Logs do Web Server |
-| AppServiceEnvironmentPlatformLogs | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
-| AppServiceAuditLogs | Sim | Sim | Atividade de logon via FTP e kudu |
-| AppServiceFileAuditLogs | Sim | TBD | Alterações de arquivo feitas no conteúdo do site; disponível somente para a camada Premium e acima |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Logs de aplicativo |
-| AppServiceIPSecAuditLogs  | Sim | Sim | Solicitações de regras de IP |
-| AppServicePlatformLogs  | TBA | Sim | Logs de contêiner |
+| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Descrição |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | TBA | TBA | Sim | Sim | Saída padrão e erro padrão |
+| AppServiceHTTPLogs | Sim | TBA | Sim | Sim | Logs do Web Server |
+| AppServiceEnvironmentPlatformLogs | Sim | N/D | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
+| AppServiceAuditLogs | Sim | TBA | Sim | Sim | Atividade de logon via FTP e kudu |
+| AppServiceFileAuditLogs | Sim | TBA | TBA | TBA | Alterações de arquivo feitas no conteúdo do site; disponível somente para a camada Premium e acima |
+| AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | Logs de aplicativo |
+| AppServiceIPSecAuditLogs  | Sim | TBA | Sim | Sim | Solicitações de regras de IP |
+| AppServicePlatformLogs  | TBA | TBA | Sim | Sim | Logs de operação do contêiner |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximas etapas
 * [Consultar logs com o Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

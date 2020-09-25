@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 02/10/2020
+ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 5551655843b8d3ed5b6d70f5d6ed3a0eb4d0e92f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5f51ffc3135ff35214a2c5c40cce1f2b3fcaf33e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290868"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Previsão do tempo usando os dados do sensor do Hub IoT no Azure Machine Learning
 
@@ -46,6 +46,10 @@ Saiba como usar o Azure Machine Learning para fazer uma previsão do tempo (poss
   - Um hub IoT do Azure em sua assinatura.
   - O aplicativo cliente que envia mensagens para o hub IoT do Azure.
 - Uma conta [Azure Machine Learning Studio (clássico)](https://studio.azureml.net/).
+- Uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts), uma conta **v2 de uso geral** , é preferida, mas qualquer conta de armazenamento do Azure que dê suporte ao armazenamento de BLOBs do Azure também funcionará.
+
+> [!Note]
+> Este artigo usa Azure Stream Analytics e vários outros serviços pagos. Os encargos extras são incorridos no Azure Stream Analytics quando os dados devem ser transferidos nas regiões do Azure. Por esse motivo, seria bom garantir que seu grupo de recursos, Hub IoT e conta de armazenamento do Azure, bem como o espaço de trabalho Machine Learning Studio (clássico) e Azure Stream Analytics trabalho adicionado posteriormente neste tutorial, estejam localizados na mesma região do Azure. Você pode verificar o suporte regional para Azure Machine Learning Studio e outros serviços do Azure na [página disponibilidade do produto do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>Implantar o modelo de previsão do tempo como um serviço Web
 
@@ -59,7 +63,7 @@ Nesta seção, você obtém o modelo previsão do tempo do Galeria de IA do Azur
 
    ![Abra a página do modelo de previsão do tempo na Galeria de IA do Azure](media/iot-hub-weather-forecast-machine-learning/weather-prediction-model-in-azure-ai-gallery.png)
 
-1. Clique em **Abrir no Studio (clássico)** no Microsoft Azure Machine Learning Studio (clássico).
+1. Selecione **abrir no Studio (clássico)** para abrir o modelo no Microsoft Azure Machine Learning Studio (clássico). Selecione uma região próxima ao Hub IoT e o espaço de trabalho correto no pop-up da **cópia do teste da Galeria** .
 
    ![Abrir o modelo de previsão do tempo no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/open-ml-studio.png)
 
@@ -67,7 +71,7 @@ Nesta seção, você obtém o modelo previsão do tempo do Galeria de IA do Azur
 
 Para que o modelo se comporte corretamente, os dados de temperatura e umidade devem ser conversíveis em dados numéricos. Nesta seção, você adiciona um módulo R-script ao modelo previsão do tempo que remove as linhas que têm valores de dados para temperatura ou umidade que não podem ser convertidas em valores numéricos.
 
-1. No lado esquerdo da janela Azure Machine Learning Studio, clique na seta para expandir o painel de ferramentas. Insira "Executar" na caixa de pesquisa. Selecione o módulo **Executar R-script**.
+1. No lado esquerdo da janela Azure Machine Learning Studio, selecione a seta para expandir o painel Ferramentas. Insira "Executar" na caixa de pesquisa. Selecione o módulo **Executar R-script**.
 
    ![Selecione o módulo Executar R-script](media/iot-hub-weather-forecast-machine-learning/select-r-script-module.png)
 
@@ -98,21 +102,21 @@ Para que o modelo se comporte corretamente, os dados de temperatura e umidade de
 
 Nesta seção, você valida o modelo, configura um serviço Web preditivo com base no modelo e, em seguida, implanta o serviço Web.
 
-1. Clique em **Executar** para validar as etapas no modelo. A conclusão dessa etapa pode levar alguns minutos.
+1. Selecione **executar** para validar as etapas no modelo. A conclusão dessa etapa pode levar alguns minutos.
 
    ![Execute o experimento para validar as etapas](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. Clique em **CONFIGURAR SERVIÇO WEB** > **Serviço Web Preditivo**. O diagrama de experimento preditivo é aberto.
+1. Selecione **configurar serviço Web de previsão de serviço Web**  >  **Predictive Web Service**. O diagrama de experimento preditivo é aberto.
 
    ![Implante o modelo de previsão do tempo no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
-1. No diagrama de experimento preditivo, exclua a conexão entre o módulo **Entrada do serviço Web** e o **Conjunto de dados do clima** na parte superior. Em seguida, arraste o módulo **Entrada do serviço Web** em algum lugar próximo ao módulo **Modelo de Pontuação** e conecte-o conforme mostrado:
+1. No diagrama de experimento preditiva, exclua a conexão entre o módulo **entrada do serviço Web** e as **colunas selecionadas no conjunto** de dados na parte superior. Em seguida, arraste o módulo **Entrada do serviço Web** em algum lugar próximo ao módulo **Modelo de Pontuação** e conecte-o conforme mostrado:
 
-   ![Conectar dois módulos no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![Conectar dois módulos no Azure Machine Learning Studio (clássico)](media/iot-hub-weather-forecast-machine-learning/connect-modules-azure-machine-learning-studio.png)
 
-1. Clique em **EXECUTAR** para validar as etapas no modelo.
+1. Selecione **executar** para validar as etapas no modelo.
 
-1. Clique em **IMPLANTAR SERVIÇO WEB** para implantar o modelo como um serviço Web.
+1. Selecione **implantar serviço Web** para implantar o modelo como um serviço Web.
 
 1. No painel do modelo, baixe o **Excel 2010 ou a pasta de trabalho anterior** de **SOLICITAÇÃO/RESPOSTA**.
 
@@ -129,45 +133,53 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
 
 ### <a name="create-a-stream-analytics-job"></a>Criar um trabalho de Stream Analytics
 
-1. No [Portal do Azure](https://portal.azure.com/), clique em **Criar um recurso** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
+1. Na [portal do Azure](https://portal.azure.com/), selecione **criar um recurso**. Digite "trabalho do Stream Analytics" na caixa de pesquisa e selecione **Stream Analytics trabalho** na lista suspensa resultados. Quando o painel **Stream Analytics trabalho** for aberto, selecione **criar**.
 1. Insira as seguintes informações para o trabalho.
 
    **Nome do trabalho**: O nome do trabalho. O nome deve ser globalmente exclusivo.
+
+   **Assinatura**: selecione sua assinatura se ela for diferente do padrão.
 
    **Grupo de recursos**: Use o mesmo grupo de recursos usado pelo hub IoT.
 
    **Localização**: Use o mesmo local do grupo de recursos.
 
-   **Fixar no painel**: Marque essa opção para facilitar o acesso ao hub IoT no painel.
+   Deixe todos os outros campos em seu padrão.
 
-   ![Criar um trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/7_create-stream-analytics-job-azure.png)
+   ![Criar um trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/create-stream-analytics-job.png)
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada ao trabalho do Stream Analytics
 
 1. Abra o trabalho do Stream Analytics.
-1. Em **Topologia do Trabalho**, clique em **Entradas**.
-1. No **entradas** painel, clique em **adicionar**e, em seguida, insira as seguintes informações:
+1. Em **Topologia do trabalho**, selecione **Entradas**.
+1. No painel **entradas** , selecione **Adicionar entrada de fluxo**e, em seguida, selecione **Hub IOT** na lista suspensa. No painel **novo entrada** , escolha **selecionar Hub IOT em suas assinaturas** e insira as seguintes informações:
 
    **Alias de entrada**: O alias exclusivo para a entrada.
 
-   **Fonte**: Selecione **Hub IoT**.
+   **Assinatura**: selecione sua assinatura se ela for diferente do padrão.
+
+   **Hub IOT**: selecione o Hub IOT da sua assinatura.
+
+   **Nome da política de acesso compartilhado**: selecione  **serviço**. (Você também pode usar **iothubowner**.)
 
    **Grupo de consumidores**: Selecione o grupo de consumidores criado.
 
-   ![Adicionar uma entrada ao trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
+   Deixe todos os outros campos em seu padrão.
 
-1. Clique em **Criar**.
+   ![Adicionar uma entrada ao trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/add-input-stream-analytics-job.png)
+
+1. Clique em **Salvar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída ao trabalho do Stream Analytics
 
-1. Em **Topologia do Trabalho**, clique em **Saídas**.
-1. No **saídas** painel, clique em **adicionar**e, em seguida, insira as seguintes informações:
+1. Em **Topologia do trabalho**, selecione **Saídas**.
+1. No painel **saídas** , selecione **Adicionar**e, em seguida, selecione **armazenamento de blob/data Lake Storage** na lista suspensa. No painel **nova saída** , escolha o **armazenamento selecionado em suas assinaturas** e insira as seguintes informações:
 
    **Alias de saída**: o alias exclusivo para a saída.
 
-   **Coletor**: Selecione **Armazenamento de Blobs**.
+   **Assinatura**: selecione sua assinatura se ela for diferente do padrão.
 
    **Conta de armazenamento**: A conta de armazenamento do armazenamento de blobs. Você pode criar uma conta de armazenamento ou usar uma existente.
 
@@ -175,32 +187,28 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
 
    **Formato de serialização do evento**: Selecione **CSV**.
 
-   ![Adicionar uma saída ao trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/9_add-output-stream-analytics-job-azure.png)
+   ![Adicionar uma saída ao trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/add-output-stream-analytics-job.png)
 
-1. Clique em **Criar**.
+1. Clique em **Salvar**.
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Adicionar uma função ao trabalho do Stream Analytics para chamar o serviço Web implantado
 
-1. Em **Topologia de Trabalho**, clique em **Funções** > **Adicionar**.
-1. Insira as seguintes informações:
+1. Em **topologia do trabalho**, selecione **funções**.
+1. No painel **funções** , selecione **Adicionar**e, em seguida, selecione **Azure ml Studio** na lista suspensa. (Verifique se você selecionou o **azure ml Studio**, não o **serviço do Azure ml**.) No painel **nova função** , escolha as **configurações da função fornecer Azure Machine Learning manualmente** e insira as seguintes informações:
 
    **Alias da função**: Digite `machinelearning`.
-
-   **Tipo de função**: Selecione **Azure ML**.
-
-   **Opção de importação**: **Selecione Importar de uma assinatura diferente**.
 
    **URL**: Insira a URL DO SERVIÇO WEB que você anotou da pasta de trabalho do Excel.
 
    **Chave**: Insira a TECLA DE ACESSO anotada da pasta de trabalho do Excel.
 
-   ![Adicionar uma função ao trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
+   ![Adicionar uma função ao trabalho do Stream Analytics no Azure](media/iot-hub-weather-forecast-machine-learning/add-function-stream-analytics-job.png)
 
-1. Clique em **Criar**.
+1. Clique em **Salvar**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta do trabalho do Stream Analytics
 
-1. Em **Topologia do Trabalho**, clique em **Consulta**.
+1. Em **Topologia do trabalho**, selecione **Consulta**.
 1. Substitua o código existente pelo seguinte código:
 
    ```sql
@@ -216,13 +224,16 @@ Nesta seção, você valida o modelo, configura um serviço Web preditivo com ba
 
    Substitua `[YourOutputAlias]` pelo alias de saída do trabalho.
 
-1. Clique em **Save** (Salvar).
+1. Selecione **Salvar consulta**.
+
+> [!Note]
+> Se você selecionar **testar consulta**, verá a seguinte mensagem: não há suporte para o teste de consulta com funções de Machine Learning. Modifique a consulta e tente novamente. Você pode ignorar essa mensagem com segurança e selecionar **OK** para fechar a caixa de mensagem. Certifique-se de salvar a consulta antes de prosseguir para a próxima seção.
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 
-No trabalho do Stream Analytics, clique em **Iniciar** > **Agora** > **Iniciar**. Depois que o trabalho é iniciado com êxito, o status do trabalho muda de **parado** para **executando**.
+No trabalho Stream Analytics, selecione **visão geral** no painel esquerdo. Em seguida, selecione **Iniciar**  >  **agora**  >  **Iniciar**. Depois que o trabalho é iniciado com êxito, o status do trabalho muda de **parado** para **executando**.
 
-![Executar o trabalho do Stream Analytics](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Executar o trabalho do Stream Analytics](media/iot-hub-weather-forecast-machine-learning/run-stream-analytics-job.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Usar o Gerenciador de Armazenamento do Microsoft Azure para exibir a previsão do tempo
 
@@ -232,7 +243,7 @@ Execute o aplicativo cliente para iniciar a coleta e o envio de dados de tempera
 1. Abra o Gerenciador de Armazenamento do Azure.
 1. Entre em sua conta do Azure.
 1. Selecione sua assinatura.
-1. Clique em sua assinatura > **Contas de Armazenamento** > sua conta de armazenamento > **Contêineres de Blobs** > seu contêiner.
+1. Selecione sua assinatura > **contas de armazenamento** > sua conta de armazenamento > **contêineres de blob** > seu contêiner.
 1. Fala o download de um arquivo .csv para ver o resultado. A última coluna registra a possibilidade de chuva.
 
    ![Obter resultados da previsão do tempo com o Azure Machine Learning](media/iot-hub-weather-forecast-machine-learning/weather-forecast-result.png)

@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c64a42c66a3b1c1810c17347e18979d599b36b6f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8dd6ab5bcb42765c995e8cd767358be5e62aa0b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933075"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288386"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-on-demand-in-azure-synapse-link-preview"></a>Consultar dados de Azure Cosmos DB usando SQL sob demanda no link Synapse do Azure (versão prévia)
 
-O SQL Server (anteriormente SQL sob demanda) permite que você analise dados em seus contêineres de Azure Cosmos DB que estão habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe de T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta de BI e ad hoc por meio da interface T-SQL.
+O SQL Serverless (anteriormente SQL sob demanda) permite que você analise dados em seus contêineres de Azure Cosmos DB que estão habilitados com o [link Synapse do Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) quase em tempo real sem afetar o desempenho de suas cargas de trabalho transacionais. Ele oferece uma sintaxe de T-SQL familiar para consultar dados do [armazenamento analítico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta de BI e ad hoc por meio da interface T-SQL.
 
 > [!NOTE]
 > O suporte para consultar Azure Cosmos DB repositório analítico com o SQL sob demanda está atualmente em visualização restrita. 
@@ -85,7 +85,7 @@ FROM OPENROWSET(
 
 ## <a name="explicitly-specify-schema"></a>Especificar explicitamente o esquema
 
-Embora a capacidade de inferência de esquema automática no `OPENROWSET` forneça um querience simples e fácil de usar, seus cenários de negócios podem exigir que você especifique explicitamente o esquema para ler apenas as propriedades relevantes dos dados de Azure Cosmos DB.
+Embora a capacidade de inferência de esquema automática no `OPENROWSET` forneça um querience simples e fácil de usar, seus cenários de negócios podem exigir que você especifique explicitamente o esquema para propriedades relevantes somente leitura dos dados de Azure Cosmos DB.
 
 `OPENROWSET` permite especificar explicitamente quais propriedades você deseja ler dos dados no contêiner e especificar seus tipos de dados. Vamos imaginar que importamos alguns dados do [conjunto de dados ECDC COVID](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) com a seguinte estrutura para Azure Cosmos DB:
 
@@ -118,7 +118,7 @@ Examine as [regras para mapeamentos de tipo SQL](#azure-cosmos-db-to-sql-type-ma
 
 ## <a name="querying-nested-objects-and-arrays"></a>Consultando objetos aninhados e matrizes
 
-Azure Cosmos DB permite que você represente modelos de dados mais complexos, compondo-os como objetos ou matrizes aninhados. O recurso de sincronização automática do link do Synapse para Azure Cosmos DB gerencia a representação do esquema no repositório analítico, que inclui o tratamento de tipos de dados aninhados, permitindo consultas avançadas do SQL sob demanda.
+Azure Cosmos DB permite que você represente modelos de dados mais complexos, compondo-os como objetos ou matrizes aninhados. O recurso AutoSync do link do Synapse para Azure Cosmos DB gerencia a representação do esquema no repositório analítico, que inclui o tratamento de tipos de dados aninhados, permitindo consultas avançadas do SQL sob demanda.
 
 Por exemplo, o conjunto de dados de [cabo-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) tem documentos JSON seguindo a seguinte estrutura:
 
@@ -179,7 +179,7 @@ Saiba mais sobre como analisar [tipos de dados complexos no link do Synapse](../
 
 ## <a name="flattening-nested-arrays"></a>Mesclando matrizes aninhadas
 
-Azure Cosmos DB dados podem ter submatrizes aninhadas, como a matriz de autores do conjunto de dados [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
+Azure Cosmos DB dados podem ter submatrizes aninhadas, como a matriz do autor do conjunto de dados [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) :
 
 ```json
 {
@@ -236,14 +236,14 @@ Informações complementares de um epidemi de eco... | `[{"first":"Nicolas","las
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB para mapeamentos de tipo SQL
 
-É importante primeiro observar que, embora Azure Cosmos DB armazenamento transacional seja independente de esquema, o armazenamento analítico é esquematizados para otimizar o desempenho de consultas analíticas. Com a capacidade de sincronização automática do link do Synapse, o Azure Cosmos DB gerencia a representação do esquema no repositório analítico, que inclui o tratamento de tipos de dados aninhados. Como o SQL sob demanda consulta o repositório analítico, é importante entender como mapear Azure Cosmos DB tipos de dados de entrada para tipos de dados SQL.
+É importante primeiro observar que, embora Azure Cosmos DB armazenamento transacional seja independente de esquema, o armazenamento analítico é esquematizados para otimizar o desempenho de consultas analíticas. Com o recurso AutoSync do link do Synapse, o Azure Cosmos DB gerencia a representação do esquema no repositório analítico, que inclui o tratamento de tipos de dados aninhados. Como o SQL sob demanda consulta o repositório analítico, é importante entender como mapear Azure Cosmos DB tipos de dados de entrada para tipos de dados SQL.
 
 Azure Cosmos DB contas da API do SQL (Core) dão suporte a tipos de propriedade JSON de número, Cadeia de caracteres, booliano, nulo, objeto aninhado ou matriz. Você precisaria escolher tipos SQL que correspondam a esses tipos de JSON se estiver usando a `WITH` cláusula in `OPENROWSET` . Veja abaixo os tipos de coluna SQL que devem ser usados para diferentes tipos de propriedade no Azure Cosmos DB.
 
 | Tipo de propriedade Azure Cosmos DB | Tipo de coluna SQL |
 | --- | --- |
 | Booliano | bit |
-| Inteiro | BIGINT |
+| Integer | BIGINT |
 | Decimal | FLOAT |
 | String | varchar (agrupamento de banco de dados UTF8) |
 | Data e hora (cadeia de caracteres formatada em ISO) | varchar (30) |

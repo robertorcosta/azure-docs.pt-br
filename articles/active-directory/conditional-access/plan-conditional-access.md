@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561526"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258669"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planejar uma implantação de acesso condicional
 
@@ -262,7 +262,7 @@ O padrão de nomenclatura ajuda você a localizar as políticas e a entender a f
 
 * Quando ela se aplica (se aplicável)
 
-![Padrão de nomenclatura](media/plan-conditional-access/11.png)
+![Captura de tela que mostra os padrões de nomenclatura para políticas.](media/plan-conditional-access/11.png)
 
 **Exemplo**; Uma política para exigir MFA para usuários de marketing que acessam o aplicativo Dynamics CRP de redes externas pode ser:
 

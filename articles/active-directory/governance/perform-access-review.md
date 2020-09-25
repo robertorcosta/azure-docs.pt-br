@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7e03ba5e7a4a24ee3114946230f78a64ea3d42cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299959"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265674"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos e aplicativos nas revisões de acesso do Azure AD
 
@@ -37,7 +37,7 @@ Você pode iniciar o processo de revisão de acesso do email de notificação ou
 
 1. Procure um email da Microsoft solicitando que você examine o acesso. Aqui está um email de exemplo para examinar o acesso de um grupo.
 
-    ![Email de exemplo da Microsoft para revisar o acesso a um grupo](./media/perform-access-review/access-review-email.png)
+    ![Captura de tela que mostra um email de exemplo da Microsoft para revisar o acesso a um grupo.](./media/perform-access-review/access-review-email.png)
 
 1. Clique no link **Iniciar revisão** para abrir a revisão de acesso.
 
@@ -54,7 +54,7 @@ Você pode iniciar o processo de revisão de acesso do email de notificação ou
         > [!NOTE]
         > Se o bloco de **revisões de acesso** não estiver visível, não haverá nenhuma análise de acesso a ser executada para essa organização e nenhuma ação será necessária no momento.
 
-        ![Lista de revisões de acesso pendente para aplicativos e grupos](./media/perform-access-review/access-reviews-list.png)
+        ![Captura de tela que mostra a lista de revisões de acesso pendentes para aplicativos e grupos.](./media/perform-access-review/access-reviews-list.png)
 
     1. Clique no link **Iniciar revisão** para a revisão de acesso que você deseja executar.
 
@@ -99,7 +99,7 @@ Para fazer análises de acesso mais fáceis e rápidas para você, também forne
 
 1. Na barra azul na parte inferior da página, clique em **aceitar recomendações**.
 
-    ![Abrir a listagem de revisão de acesso mostrando o botão aceitar recomendações](./media/perform-access-review/accept-recommendations.png)
+    ![Captura de tela que mostra a listagem de revisão de acesso aberto com o botão "aceitar recomendações" selecionado.](./media/perform-access-review/accept-recommendations.png)
 
     Você verá um resumo das ações recomendadas.
 

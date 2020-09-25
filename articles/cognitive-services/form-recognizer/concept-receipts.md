@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 00709ca5e842e51edbf5b26c53fe0a18e80bb896
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751987"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262341"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recebimento
 
@@ -29,7 +29,7 @@ A extração automática de dados dessas confirmações pode ser complicada. Os 
 
 Usando o OCR (reconhecimento óptico de caracteres) e nosso modelo de recebimento precompilado, a API de recebimento permite esses cenários de processamento de recebimento e extrai dados dos recibos, por exemplo, nome do comerciante, gorjeta, total, itens de linha e muito mais. Com essa API, não há necessidade de treinar um modelo que você apenas envia o recibo para a API de análise de recebimento e os dados são extraídos.
 
-![exemplo de recebimento](./media/contoso-receipt-small.png)
+![exemplo de recibo](./media/contoso-receipt-small.png)
 
 ## <a name="what-does-the-receipt-api-do"></a>O que a API de recebimento faz? 
 
@@ -74,14 +74,11 @@ A API de recebimento também retorna as seguintes informações:
   > Entrada de idioma 
   >
   > Confirmação predefinida v 2.1-Preview. 1 tem um parâmetro de solicitação opcional para especificar uma localidade de recebimento de outros mercados em inglês. Para recibos de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), você pode especificar a localidade para obter resultados aprimorados. Se nenhuma localidade for especificada em v 2.1-Preview. 1, o modelo usará como padrão o modelo EN-US.
-  
- ### <a name="input-requirements"></a>Requisitos de entrada 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-receipt-operation"></a>A operação de análise de recebimento
 
-A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) usa uma imagem ou um PDF de um recibo como entrada e extrai os valores de intrest e texto. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
+A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) usa uma imagem ou um PDF de um recibo como entrada e extrai os valores de interesse e texto. A chamada retorna um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é uma URL que contém a ID de resultado a ser usada na próxima etapa.
 
 |Cabeçalho de resposta| URL do resultado |
 |:-----|:----|
@@ -456,7 +453,10 @@ A API de recebimento também alimenta o [recurso de processamento de recibo AIBu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Siga o guia de início rápido para começar o [início rápido do Python da API de recebimento](./quickstarts/python-receipts.md).
-- Saiba mais sobre a [API REST do reconhecedor de formulário](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api).
-- Saiba mais sobre o [reconhecedor de formulário](overview.md).
+- Preencha um guia de [início rápido da biblioteca de cliente do reconhecedor de formulário](quickstarts/client-library.md) para começar a gravar um aplicativo de processamento de recibo com o reconhecedor de formulário no idioma de sua escolha.
+- Ou siga o guia de [início rápido do Python da API de recebimento](./quickstarts/python-receipts.md) para reconhecer recibos usando a API REST.
 
+## <a name="see-also"></a>Confira também
+
+* [O que é o Reconhecimento de Formulários?](./overview.md)
+* [Documentos de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)

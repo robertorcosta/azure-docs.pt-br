@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2b7acb1ad6fbe0beb4d79ee2a833561f0829664c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 392ecff2ab120e713a07d130493a4a8339dae5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296188"
 ---
 # <a name="options"></a>Opções #
 
@@ -51,7 +51,7 @@ Se a reprodução automática for verdadeira, o vídeo começará a ser reproduz
 > [!NOTE]
 > Essa opção não tem suporte em dispositivos móveis como Windows Phone, Apple iOS e Android. Os dispositivos móveis bloqueiam a funcionalidade de reprodução automática para evitar o uso de planos de dados mensais do consumidor (geralmente caros). Um usuário tocar/clicar é necessário para iniciar o vídeo nesse caso.
 
-`<video autoplay ...>`or`{ "autoplay": true }`
+`<video autoplay ...>`or `{ "autoplay": true }`
 
 ### <a name="poster"></a>pôster ###
 O atributo pôster define a imagem que é exibida antes do início da reprodução do vídeo. Isso geralmente é um quadro do vídeo ou uma tela de título personalizada. Assim que o usuário clica em reproduzir, a imagem desaparece.
@@ -93,11 +93,11 @@ Ao definir essa opção como verdadeiro, o elemento de vídeo assumirá a largur
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`a opção substitui `width` as configurações explícitas e `height` . Essa opção só está disponível na versão Player de Mídia do Azure `2.0.0` e posterior.
+`fluid` a opção substitui `width` as configurações explícitas e `height` . Essa opção só está disponível na versão Player de Mídia do Azure `2.0.0` e posterior.
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
-`playbackSpeed`a opção controla o controle playbackSpeed e o conjunto de configurações de velocidade de reprodução disponíveis para o usuário. `playbackSpeed`usa um objeto. Para habilitar o controle de velocidade de reprodução na barra de controle, a propriedade `enabled` do objeto precisa ser definida como true. Um exemplo de como habilitar a velocidade de reprodução na marcação:
+`playbackSpeed` a opção controla o controle playbackSpeed e o conjunto de configurações de velocidade de reprodução disponíveis para o usuário. `playbackSpeed` usa um objeto. Para habilitar o controle de velocidade de reprodução na barra de controle, a propriedade `enabled` do objeto precisa ser definida como true. Um exemplo de como habilitar a velocidade de reprodução na marcação:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 

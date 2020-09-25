@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1beb2065f1823135981545e42d499c5429b87c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7e4da2051ab84cebff5aae857c02907f7b58e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84031607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263616"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Tutorial: configurar a replicação geográfica ativa e o failover no portal do Azure (banco de dados SQL do Azure)
 
@@ -55,12 +55,12 @@ Depois que o banco de dados secundário for criado e propagado, os dados começa
     ![Configurar a replicação geográfica](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Selecione ou configure o servidor e o tipo de preço do banco de dados secundário.
 
-    ![Configurar secundário](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![Criar formulário secundário](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. Opcionalmente, você pode adicionar um banco de dados secundário a um pool elástico. Para criar o banco de dados secundário em um pool, clique em **pool elástico** e selecione um pool no servidor de destino. Um pool já deve existir no servidor de destino. Esse fluxo de trabalho não cria um pool.
 5. Clique em **Criar** para adicionar o secundário.
 6. O banco de dados secundário é criado e começa o processo de propagação.
 
-    ![Configurar secundário](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![mapa de secundários](./media/active-geo-replication-configure-portal/seeding0.png)
 7. Quando o processo de propagação for concluído, o banco de dados secundário exibirá seu status.
 
     ![Propagação concluída](./media/active-geo-replication-configure-portal/seeding-complete.png)

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5955bc35acfaf8f877e68db083871c353a3ce326
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f9df17afe8b6d25df3d9dcc5f4eec0b9a028404f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253999"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -88,7 +88,7 @@ Esses são os parâmetros necessários para cada uma dessas operações de anál
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `zones` | list| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -121,7 +121,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `lines` | list| Lista de linhas.|
 | `name` | string| Nome amigável para esta linha.|
@@ -152,7 +152,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `zones` | list| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -184,7 +184,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `zones` | list| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -206,7 +206,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro DETECTOR_NODE_CONFIG qu
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
 | `gpu_index` | string| O índice de GPU no qual esta operação será executada.|
 | `do_calibration` | string | Indica que a calibragem está ativada. `do_calibration` deve ser verdadeiro para **cognitivaservices. Vision. spatialanalysis-persondistance** para funcionar corretamente.|
@@ -304,7 +304,7 @@ Exemplo de JSON para uma saída de evento por esta operação.
 }
 ```
 
-| Nome do campo de evento | Tipo| Descrição|
+| Nome do campo de evento | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID do evento|
 | `type` | string| Tipo de evento|
@@ -316,7 +316,7 @@ Exemplo de JSON para uma saída de evento por esta operação.
 | `zone` | string | O campo "Name" do polígono que representa a zona que foi cruzada|
 | `trigger` | string| O tipo de gatilho é ' Event ' ou ' interval ' dependendo do valor de `trigger` no SPACEANALYTICS_CONFIG|
 
-| Nome do campo de detecções | Tipo| Descrição|
+| Nome do campo de detecções | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID de detecção|
 | `type` | string| Tipo de detecção|
@@ -325,10 +325,10 @@ Exemplo de JSON para uma saída de evento por esta operação.
 | `points` | collection| Pontos superior esquerdo e inferior direito quando o tipo de região é RECTANGLE |
 | `confidence` | FLOAT| Confiança do algoritmo|
 
-| Nome do campo SourceInfo | Tipo| Descrição|
+| Nome do campo SourceInfo | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID da Câmera|
-| `timestamp` | Data| Data UTC quando a carga JSON foi emitida|
+| `timestamp` | date| Data UTC quando a carga JSON foi emitida|
 | `width` | INT | Largura do quadro do vídeo|
 | `height` | INT | Altura do quadro do vídeo|
 | `frameId` | INT | Identificador de quadro|
@@ -338,10 +338,10 @@ Exemplo de JSON para uma saída de evento por esta operação.
 | `focalLength` | FLOAT | O comprimento focal da câmera em pixels. Isso é inferido da calibragem automática. |
 | `tiltUpAngle` | FLOAT | O ângulo de inclinação da câmera da vertical. Isso é inferido da calibragem automática.|
 
-| Nome do campo SourceInfo | Tipo| Descrição|
+| Nome do campo SourceInfo | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID da Câmera|
-| `timestamp` | Data| Data UTC quando a carga JSON foi emitida|
+| `timestamp` | date| Data UTC quando a carga JSON foi emitida|
 | `width` | INT | Largura do quadro do vídeo|
 | `height` | INT | Altura do quadro do vídeo|
 | `frameId` | INT | Identificador de quadro|
@@ -399,7 +399,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
     "schemaVersion": "1.0"
 }
 ```
-| Nome do campo de evento | Tipo| Descrição|
+| Nome do campo de evento | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID do evento|
 | `type` | string| Tipo de evento|
@@ -409,7 +409,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 | `status` | string| Direção de cruzamentos de linha, ' CrossLeft ' ou ' CrossRight '|
 | `zone` | string | O campo "nome" da linha que foi cruzada|
 
-| Nome do campo de detecções | Tipo| Descrição|
+| Nome do campo de detecções | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID de detecção|
 | `type` | string| Tipo de detecção|
@@ -418,10 +418,10 @@ Exemplo de JSON para a saída de detecções por esta operação.
 | `points` | collection| Pontos superior esquerdo e inferior direito quando o tipo de região é RECTANGLE |
 | `confidence` | FLOAT| Confiança do algoritmo|
 
-| Nome do campo SourceInfo | Tipo| Descrição|
+| Nome do campo SourceInfo | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID da Câmera|
-| `timestamp` | Data| Data UTC quando a carga JSON foi emitida|
+| `timestamp` | date| Data UTC quando a carga JSON foi emitida|
 | `width` | INT | Largura do quadro do vídeo|
 | `height` | INT | Altura do quadro do vídeo|
 | `frameId` | INT | Identificador de quadro|
@@ -484,7 +484,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 }
 ```
 
-| Nome do campo de evento | Tipo| Descrição|
+| Nome do campo de evento | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID do evento|
 | `type` | string| Tipo de evento|
@@ -494,7 +494,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 | `status` | string| Direção de cruzamentos de polígono, ' Enter ' ou ' Exit '|
 | `zone` | string | O campo "Name" do polígono que representa a zona que foi cruzada|
 
-| Nome do campo de detecções | Tipo| Descrição|
+| Nome do campo de detecções | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID de detecção|
 | `type` | string| Tipo de detecção|
@@ -595,7 +595,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 }
 ```
 
-| Nome do campo de evento | Tipo| Descrição|
+| Nome do campo de evento | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID do evento|
 | `type` | string| Tipo de evento|
@@ -610,7 +610,7 @@ Exemplo de JSON para a saída de detecções por esta operação.
 | `zone` | string | O campo "Name" do polígono que representa a zona que foi monitorada para distancing entre as pessoas|
 | `trigger` | string| O tipo de gatilho é ' Event ' ou ' interval ' dependendo do valor de `trigger` no SPACEANALYTICS_CONFIG|
 
-| Nome do campo de detecções | Tipo| Descrição|
+| Nome do campo de detecções | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID de detecção|
 | `type` | string| Tipo de detecção|
@@ -620,10 +620,10 @@ Exemplo de JSON para a saída de detecções por esta operação.
 | `confidence` | FLOAT| Confiança do algoritmo|
 | `centerGroundPoint` | 2 valores float| `x`, os `y` valores com as coordenadas do local inferido da pessoa no chão em pés. `x` é distância da câmera perpendicular ao plano de imagem da câmera projetado no chão em pés. `y` a distância da câmera é paralela ao plano de imagem projetado no chão em pés.|
 
-| Nome do campo SourceInfo | Tipo| Descrição|
+| Nome do campo SourceInfo | Type| Descrição|
 |---------|---------|---------|
 | `id` | string| ID da Câmera|
-| `timestamp` | Data| Data UTC quando a carga JSON foi emitida|
+| `timestamp` | date| Data UTC quando a carga JSON foi emitida|
 | `width` | INT | Largura do quadro do vídeo|
 | `height` | INT | Altura do quadro do vídeo|
 | `frameId` | INT | Identificador de quadro|
@@ -644,7 +644,7 @@ Você pode desejar integrar a detecção de análise espacial ou eventos em seu 
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Implantando operações de análise espacial em escala (várias câmeras)
 
-Para obter o melhor desempenho e a utilização das GPUs, você pode implantar qualquer operação de análise espacial em várias câmeras usando instâncias de grafo. Abaixo está um exemplo para executar a operação cognitivaservices. Vision. spatialanalysis-personcount em cinco (5) câmeras.
+Para obter o melhor desempenho e utilização das GPUs, você pode implantar qualquer operação de análise espacial em várias câmeras usando instâncias de grafo. Abaixo está um exemplo para executar a `cognitiveservices.vision.spatialanalysis-personcount` operação em cinco câmeras.
 
 ```json
  "properties.desired": {
@@ -725,9 +725,9 @@ Para obter o melhor desempenho e a utilização das GPUs, você pode implantar q
       }
   }
   ```
-| Nome | Tipo| Descrição|
+| Nome | Type| Descrição|
 |---------|---------|---------|
-| `batch_size` | INT | Indica o número de câmeras que serão usadas nessa operação.|
+| `batch_size` | INT | Indica o número de câmeras que serão usadas na operação. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

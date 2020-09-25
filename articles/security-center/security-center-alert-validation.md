@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: cf73b3949b0a0dc1e76ebdebb191af0a33ce22ff
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: ac76ce5d4fb788e6c2fb3dc9ec01c8d88bfb55cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268056"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta na central de segurança do Azure
 Este documento ensina você a verificar se o sistema está configurado corretamente para os alertas da Central de Segurança do Azure.
@@ -62,16 +62,16 @@ Depois que o agente da central de segurança estiver instalado no computador, si
 
 ## <a name="validate-alerts-on-kubernetes"></a>Validar alertas no kubernetes <a name="validate-kubernetes"></a>
 
-Se você estiver usando o recurso de visualização da central de segurança de integração do serviço kubernetes do Azure, execute o seguinte comando kubectl para testar se os alertas estão funcionando:
+Se você integrou o serviço kubernetes do Azure com a central de segurança, poderá testar se os alertas estão funcionando com o seguinte comando kubectl:
 
 ```kubectl get pods --namespace=asc-alerttest-662jfi039n```
 
-Para obter mais informações sobre a integração do serviço kubernetes do Azure e da central de segurança do Azure, consulte [Este artigo](azure-kubernetes-service-integration.md).
+Para obter mais informações sobre como defender seus nós e clusters do kubernetes, consulte [introdução ao Azure defender para kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 Este artigo apresentou a você o processo de validação de alertas. Agora que você está familiarizado com esse tipo de validação, experimente os seguintes artigos:
 
 * [Validando Azure Key Vault detecção de ameaças na central de segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
-* [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) -saiba como gerenciar alertas e responder a incidentes de segurança na central de segurança.
+* [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md) -saiba como gerenciar alertas e responder a incidentes de segurança na central de segurança.
 * [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
-* [Noções básicas sobre alertas de segurança na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) -saiba mais sobre os diferentes tipos de alertas de segurança.
+* [Noções básicas sobre alertas de segurança na central de segurança do Azure](security-center-alerts-type.md) -saiba mais sobre os diferentes tipos de alertas de segurança.

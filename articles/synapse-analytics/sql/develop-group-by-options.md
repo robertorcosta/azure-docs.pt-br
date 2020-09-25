@@ -11,19 +11,19 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: ad2b13fbfbd9871a55efb1826fa1e978d4eeb453
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032292"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289162"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Opções de agrupar por no Synapse SQL
 O Synapse SQL permite desenvolver soluções implementando diferentes opções agrupar por. 
 
 ## <a name="what-does-group-by-do"></a>O que o GROUP BY faz
 
-A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) agrega dados a um conjunto de linhas de resumo.
+A cláusula T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) agrega dados a um conjunto de linhas de resumo.
 
 O SQL sob demanda dá suporte a todo o intervalo de opções agrupar por. O pool SQL dá suporte a um número limitado de opções GROUP BY.
 
@@ -57,7 +57,7 @@ GROUP BY ROLLUP (
 Usando ROLLUP, o exemplo anterior solicita as agregações a seguir:
 
 * país e região
-* País
+* País/Região
 * Grande Total
 
 Para substituir o ROLLUP e retornar os mesmos resultados, você pode usar UNION ALL e especificar explicitamente as agregações necessárias:
@@ -124,7 +124,7 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-A imagem a seguir mostra os resultados de [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest):
+A imagem a seguir mostra os resultados de [CREATE TABLE como SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ![Agrupar por cubo](./media/develop-group-by-options/develop-group-by-cube.png)
 

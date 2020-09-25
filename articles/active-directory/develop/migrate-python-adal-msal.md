@@ -1,8 +1,8 @@
 ---
 title: Guia de migração do Python ADAL para MSAL | Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como migrar seu aplicativo Python da ADAL (biblioteca de autenticação do Azure Active Directory) para a MSAL (biblioteca de autenticação da Microsoft) para Python.
 services: active-directory
-titleSuffix: Microsoft identity platform
 author: rayluo
 manager: CelesteDG
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
-ms.reviewer: rayluo, nacanuma, twhitney
+ms.reviewer: rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8dcd2b55d177c533336842293b2aedaef6b4222c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 574615a6b6e4b399605ca1863c0f764f814b2bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119905"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258295"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração do ADAL para MSAL para Python
 
@@ -50,7 +50,7 @@ Para obter mais detalhes sobre os diferentes tipos de escopos, consulte [permiss
 
 ### <a name="error-handling"></a>Tratamento de erros
 
-A ADAL (biblioteca de autenticação Azure Active Directory) para Python usa a exceção `AdalError` para indicar que há um problema. O MSAL para o Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte [MSAL para tratamento de erros do Python](./msal-handling-exceptions.md?tabs=python).
+A ADAL (biblioteca de autenticação Azure Active Directory) para Python usa a exceção `AdalError` para indicar que há um problema. O MSAL para o Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte  [MSAL para tratamento de erros do Python](./msal-handling-exceptions.md?tabs=python).
 
 ### <a name="api-changes"></a>Alterações de API
 

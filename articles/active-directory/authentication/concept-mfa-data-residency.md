@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/24/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1b8673dd98ab66714c54720ea1d909a90e117c18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970668"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266421"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residência de dados e dados do cliente para Autenticação Multifator do Azure
 
@@ -28,7 +28,7 @@ O serviço de autenticação multifator do Azure tem data centers nos EUA, Europ
 
 * A autenticação multifator usando chamadas telefônicas se originam de data centers dos EUA e são roteadas por provedores globais.
 * As solicitações de autenticação de usuário de uso geral de outras regiões, como Europa ou Austrália, são processadas no momento com base no local do usuário.
-* As notificações por push usando o aplicativo Microsoft Authenticator originam os datacenters regionais com base no local do usuário.
+* As notificações por push usando o aplicativo Microsoft Authenticator são processadas no momento nos data centers regionais com base no local do usuário.
     * Serviços específicos do fornecedor do dispositivo, como notificações por push da Apple, podem estar fora do local do usuário.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dados pessoais armazenados pela Autenticação Multifator do Azure

@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016258"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294811"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -37,6 +37,7 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-the-feature) o recurso em seu locatário.
 - Adicionar a URL de serviço do Azure AD ( `https://autologon.microsoftazuread-sso.com` ) à zona de sites confiáveis em vez da zona de intranet local *impede que os usuários entrem*.
 - O SSO contínuo dá suporte aos tipos de criptografia AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 para Kerberos. É recomendável que o tipo de criptografia para a conta AzureADSSOAcc $ seja definido como AES256_HMAC_SHA1 ou um dos tipos AES versus RC4 para segurança adicional. O tipo de criptografia é armazenado no atributo msDS-SupportedEncryptionTypes da conta no seu Active Directory.  Se o tipo de criptografia da conta AzureADSSOAcc $ for definido como RC4_HMAC_MD5 e você quiser alterá-lo para um dos tipos de criptografia AES, certifique-se de que você primeiro se sobreponha à chave de descriptografia do Kerberos da conta AzureADSSOAcc $, conforme explicado no [documento de perguntas frequentes](how-to-connect-sso-faq.md) sob a pergunta relevante; caso contrário, o SSO contínuo não ocorrerá.
+-  Se você tiver mais de uma floresta com relação de confiança de floresta, habilitar o SSO em uma das florestas permitirá o SSO em todas as florestas confiáveis. Se você habilitar o SSO em uma floresta em que o SSO já está habilitado, receberá um erro informando que o SSO já está habilitado na floresta.
 
 ## <a name="check-status-of-feature"></a>Verificar o status do recurso
 

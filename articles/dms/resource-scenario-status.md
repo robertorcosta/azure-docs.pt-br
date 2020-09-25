@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 4e6f8a115e996ac6862f2fb04e5050b94f9f823b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 77c54d6ea463b5a8a4952d243886b80f38312d27
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132745"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291479"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 
@@ -45,7 +45,7 @@ As tabelas a seguir mostram quais cenários de migração têm suporte ao usar o
 
 A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dados do Azure em migrações offline.
 
-| Destino  | Origem | Suporte | Status |
+| Destino  | Fonte | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | SQL para RDS | X |  |
@@ -67,7 +67,7 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 
 A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dados do Azure em migrações online.
 
-| Destino  | Origem | Suporte | Status |
+| Destino  | Fonte | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **BD SQL do Azure** | SQL Server | ✔ | GA |
 |   | SQL para RDS | ✔ | GA |

@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef9d0eb3dd97795f3b6757759679351f857891ab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288062"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Suporte a agrupamento de banco de dados para Synapse SQL
 
@@ -24,7 +24,7 @@ Você pode alterar o agrupamento de banco de dados padrão do portal do Azure ao
 Você pode especificar o agrupamento padrão do banco de dados do Synapse SQL sob demanda no momento da criação usando a instrução CREATE DATABASE.
 
 ## <a name="change-collation"></a>Alterar agrupamento
-Para alterar o agrupamento padrão do banco de dados do pool SQL, você atualiza simples para o campo agrupamento na experiência de provisionamento. Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar maiúsculas de minúsculas, bastaria renomear o agrupamento de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
+Para alterar o agrupamento padrão do banco de dados do pool SQL, atualize para o campo agrupamento na experiência de provisionamento. Por exemplo, se você quisesse alterar o agrupamento padrão para diferenciar maiúsculas de minúsculas, renomearia o agrupamento de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
 
 Para alterar o agrupamento padrão do banco de dados do SQL sob demanda, você pode usar a instrução ALTER DATABASE.
 
@@ -98,7 +98,7 @@ Para alterar o agrupamento padrão do banco de dados do SQL sob demanda, você p
 *    Japanese_XJIS_140_CS_AS_KS
 *    Japanese_XJIS_140_CS_AS_KS_WS
 
-Além disso, o pool do SQL não oferece suporte aos seguintes tipos de agrupamento:
+Além disso, o pool do SQL não dá suporte aos seguintes tipos de agrupamento:
 
 *    SQL_EBCDIC1141_CP1_CS_AS
 *    SQL_EBCDIC277_2_CP1_CS_AS

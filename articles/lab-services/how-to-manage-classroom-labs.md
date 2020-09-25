@@ -3,12 +3,12 @@ title: Gerenciar laboratórios de salas de aula no Azure Lab Services | Microsof
 description: Saiba como criar e configurar um laboratório de sala de aula, exibir todos os laboratórios de sala de aula, compartilhar o link de registro com um usuário de laboratório, ou excluir um laboratório.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251670"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e excluir um laboratório de sala de aula. Isso também mostra como exibir todos os laboratórios de sala de aula em uma conta de laboratório. 
@@ -32,7 +32,7 @@ Para configurar um laboratório de sala de aula em uma conta de laboratório, vo
     1. Revise o **preço total por hora** exibido na página. 
     1. Clique em **Salvar**.
 
-        ![Janela Novo laboratório](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Captura de tela que mostra a janela "novo laboratório".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > Você verá uma opção para selecionar um local para o laboratório se a conta do laboratório tiver sido configurada para a opção [permitir que o criador do laboratório escolha a localização do laboratório](allow-lab-creator-pick-lab-location.md). 

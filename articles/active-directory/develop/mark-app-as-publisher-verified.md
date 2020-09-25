@@ -12,16 +12,16 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258329"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marcar seu aplicativo como “editor verificado”
 
-Quando um aplicativo é marcado como editor verificado, isso significa que o editor verificou sua identidade usando uma conta do Microsoft Partner Network (MPN) e associou essa conta do MPN ao registro de aplicativo. Este artigo descreve como concluir o processo de [verificação do Publicador](publisher-verification-overview.md) .
+Quando um registro de aplicativo tem um Publicador verificado, isso significa que o editor do aplicativo [verificou](/partner-center/verification-responses) sua identidade usando sua conta de Microsoft Partner Network (MPN) e associou essa conta MPN ao registro do aplicativo. Este artigo descreve como concluir o processo de [verificação do Publicador](publisher-verification-overview.md) .
 
 ## <a name="quickstart"></a>Guia de Início Rápido
 Se você já estiver inscrito no Microsoft Partner Network (MPN) e tiver atendido aos [pré-requisitos](publisher-verification-overview.md#requirements), poderá começar imediatamente: 
@@ -42,9 +42,9 @@ Verifique se você atendeu aos [pré-requisitos](publisher-verification-overview
 
 1. Verifique se você está conectado usando a [autenticação multifator](../fundamentals/concept-fundamentals-mfa-get-started.md) a uma conta organizacional (Azure AD) que está autorizada a fazer alterações nos aplicativos que você deseja marcar como Publicador verificado e na conta MPN no Partner Center.
 
-    - No Azure AD, esse usuário deve ser um membro de uma das seguintes funções: administrador de aplicativos, administrador de aplicativos de nuvem, administrador global. 
+    - No Azure AD, esse usuário deve ser um membro de uma das seguintes [funções](../users-groups-roles/directory-assign-admin-roles.md): administrador de aplicativos, administrador de aplicativos de nuvem, administrador global. 
 
-    - No Partner Center, esse usuário deve ter as seguintes funções: Administrador de MPN, administrador de contas ou um administrador global (essa é uma função compartilhada controlada no Azure Active Directory). 
+    - No Partner Center, esse usuário deve ter as seguintes [funções](/partner-center/permissions-overview): Administrador de MPN, administrador de contas ou um administrador global (essa é uma função compartilhada controlada no Azure Active Directory). 
 
 1. Navegue até o portal de registro do aplicativo:  
 

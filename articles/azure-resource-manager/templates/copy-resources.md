@@ -2,23 +2,23 @@
 title: Implantar várias instâncias de recursos
 description: Use a operação de cópia e matrizes em um modelo de Azure Resource Manager para implantar o tipo de recurso muitas vezes.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/21/2020
+ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293961"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recurso em modelos ARM
 
 Este artigo mostra como criar mais de uma instância de um recurso em seu modelo de Azure Resource Manager (ARM). Ao adicionar o elemento **copiar** à seção recursos do modelo, você pode definir dinamicamente o número de recursos a serem implantados. Você também evita a repetição da sintaxe do modelo.
 
-Você também pode usar copiar com [Propriedades](copy-properties.md), [variáveis](copy-variables.md) e [saídas](copy-outputs.md).
+Você também pode usar copiar com [Propriedades](copy-properties.md), [variáveis](copy-variables.md)e [saídas](copy-outputs.md).
 
 Caso precise especificar se um recurso é ou não implantado, confira [Elemento condition](conditional-resource-deployment.md).
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 O elemento Copy tem o seguinte formato geral:
 
@@ -85,7 +85,7 @@ O exemplo a seguir cria o número de contas de armazenamento especificadas no pa
 }
 ```
 
-Observe que o nome de cada recurso inclui a função `copyIndex()`, que retorna a iteração atual no loop. `copyIndex()`é baseado em zero. Assim, o seguinte exemplo:
+Observe que o nome de cada recurso inclui a função `copyIndex()`, que retorna a iteração atual no loop. `copyIndex()` é baseado em zero. Assim, o seguinte exemplo:
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -155,6 +155,8 @@ Se você quiser retornar valores dos recursos implantados, poderá usar [Copiar 
 Por padrão, o Gerenciador de Recursos cria os recursos em paralelo. Ele não aplica nenhum limite ao número de recursos implantados em paralelo, além do limite total de 800 recursos no modelo. A ordem em que eles são criados não é garantida.
 
 No entanto, convém especificar que os recursos são implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, convém balancear as atualizações para que apenas um determinado número seja atualizado por vez. Para implantar em série mais de uma instância de um recurso, defina `mode` para **serial** e `batchSize` para o número de instâncias a serem implantadas de cada vez. Com o modo serial, o Resource Manager cria uma dependência em instâncias anteriores no loop de modo que não inicie um lote até que o lote anterior esteja concluído.
+
+O valor de `batchSize` não pode exceder o valor de `count` no elemento de cópia.
 
 Por exemplo, para implantar em série duas contas de armazenamento por vez, use:
 

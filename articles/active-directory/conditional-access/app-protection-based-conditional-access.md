@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601938"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266035"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como fazer: Exigir políticas de proteção de aplicativo e um aplicativo cliente aprovado para acesso ao aplicativo em nuvem com acesso condicional
 
@@ -51,7 +51,7 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
 1. Em **Atribuições**, selecione **Usuários e grupos**.
    1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
    1. Selecione **Concluído**.
-1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365 (versão preliminar)** .
+1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **Office 365**.
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.
@@ -102,7 +102,7 @@ As organizações devem concluir as etapas a seguir para exigir o uso de um apli
 1. Em **Atribuições**, selecione **Usuários e grupos**.
    1. Em **Incluir**, selecione **Todos os usuários** ou os **usuários e grupos** específicos aos quais você deseja aplicar essa política. 
    1. Selecione **Concluído**.
-1. Em **Aplicativos de nuvem ou ações** > **Incluir**, selecione **Office 365 (versão preliminar)** .
+1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **Office 365**.
 1. Em **Condições**, selecione **Plataformas de dispositivo**.
    1. Defina **Configurar** como **Sim**.
    1. Inclua **Android** e **iOS**.

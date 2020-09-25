@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 54d33b849f809dbe1ebefbbc3d2f63db6877e86e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90994001"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296664"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conectar-se a dados com o Azure Machine Learning Studio
 
@@ -24,14 +24,14 @@ Neste artigo, saiba como acessar seus dados com o [Azure Machine Learning Studio
 
 A tabela a seguir define e resume os benefícios de armazenamentos e conjuntos de tabelas. 
 
-||Descrição| Benefícios|   
+|Objeto|Descrição| Benefícios|   
 |---|---|---|
-|Armazenamentos de dados| Conecte-se com segurança ao seu serviço de armazenamento no Azure, armazenando as informações de conexão, como sua ID de assinatura e autorização de token em seu [Key Vault](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho | Como suas informações são armazenadas com segurança, você <br><br> <li> Não &nbsp; Coloque &nbsp; &nbsp; as credenciais de autenticação ou as fontes de dados originais em risco. <li> Não é mais necessário embuti-los em código em seus scripts.
+|Armazenamentos de dados| Conecte-se com segurança ao seu serviço de armazenamento no Azure, armazenando as informações de conexão, como sua ID de assinatura e autorização de token em seu [Key Vault](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho | Como suas informações são armazenadas com segurança, você <br><br> <li> Não &nbsp; Coloque &nbsp; &nbsp; as credenciais de autenticação &nbsp; ou as &nbsp; &nbsp; fontes de dados originais em risco. <li> Não é mais necessário embuti-los em código em seus scripts.
 |Conjunto de dados| Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dados com uma cópia de seus metadados. Com conjuntos de os, você pode, <br><br><li> Acesse dados durante o treinamento do modelo.<li> Compartilhe dados e colabore com outros usuários.<li> Aproveite as bibliotecas de software livre, como o pandas, para a exploração de dados. | Como os conjuntos de dados são avaliados lentamente, e eles permanecem em seu local existente, você <br><br><li>Mantenha uma única cópia de dados em seu armazenamento.<li> Não incorrer nenhum custo de armazenamento extra <li> Não arrisque a alteração acidental de suas fontes de dados originais.<li>Melhorar as velocidades de desempenho de fluxo de trabalho ML. 
 
 Para entender onde os armazenamentos e conjuntos de dados se ajustam no fluxo de trabalho geral de acesso a data do Azure Machine Learning, consulte o artigo [dados de acesso seguro](concept-data.md#data-workflow) .
 
-Para uma experiência de código inicial, consulte os seguintes artigos para usar o [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) para:
+Para uma experiência de código inicial, consulte os seguintes artigos para usar o [SDK do Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) para:
 * [Conecte-se aos serviços de armazenamento do Azure com armazenamentos de](how-to-access-data.md)Data. 
 * [Crie Azure Machine Learning conjuntos de valores](how-to-create-register-datasets.md). 
 
@@ -112,22 +112,22 @@ Especificamente, o Azure Machine Learning perfil de dados do conjunto inclui:
 >[!NOTE]
 > Entradas em branco são exibidas para recursos com tipos irrelevantes.
 
-Estatística|Descrição
-------|------
-Recurso| Nome da coluna que está sendo resumida.
-Perfil| Visualização em linha baseada no tipo inferido. Por exemplo, cadeias de caracteres, boolianos e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isso permite que você obtenha uma compreensão rápida da distribuição dos dados.
-Distribuição de tipos| Contagem de valor em linha de tipos dentro de uma coluna. Os nulos são do seu próprio tipo, portanto, essa visualização é útil para detectar valores ímpares ou ausentes.
-Type|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, boolianos, datas e decimais.
-Mín| Valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (como, Boolianos).
-Max| Valor máximo da coluna. 
-Contagem| Quantidade total de entradas ausentes e não ausentes na coluna.
-Sem contagem faltando| Quantidade de entradas na coluna que não estão ausentes. Cadeias de caracteres e erros vazios são tratados como valores, portanto, eles não contribuirão para a “contagem de não ausentes”.
-Quantis| Valores aproximados em cada quantil para fornecer uma noção da distribuição dos dados.
-Média| Média aritmética ou média da coluna.
-Desvio padrão| Medida da quantidade de dispersão ou variação dos dados dessa coluna.
-Variance| A medida de quão difundidos estão os dados dessa coluna em comparação ao valor médio. 
-Distorção| Medida de quão diferentes os dados dessa coluna são em comparação a uma distribuição normal.
-Curtose| Medida de quão profundamente conectados os dados dessa coluna estão em comparação a uma distribuição normal.
+|Estatística|Descrição
+|------|------
+|Recurso| Nome da coluna que está sendo resumida.
+|Perfil| Visualização em linha baseada no tipo inferido. Por exemplo, cadeias de caracteres, boolianos e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isso permite que você obtenha uma compreensão rápida da distribuição dos dados.
+|Distribuição de tipos| Contagem de valor em linha de tipos dentro de uma coluna. Os nulos são do seu próprio tipo, portanto, essa visualização é útil para detectar valores ímpares ou ausentes.
+|Type|Tipo inferido da coluna. Os valores possíveis incluem: cadeias de caracteres, boolianos, datas e decimais.
+|Mín| Valor mínimo da coluna. Entradas em branco aparecem para recursos cujo tipo não tem uma ordenação inerente (como, Boolianos).
+|Max| Valor máximo da coluna. 
+|Contagem| Quantidade total de entradas ausentes e não ausentes na coluna.
+|Sem contagem faltando| Quantidade de entradas na coluna que não estão ausentes. Cadeias de caracteres e erros vazios são tratados como valores, portanto, eles não contribuirão para a “contagem de não ausentes”.
+|Quantis| Valores aproximados em cada quantil para fornecer uma noção da distribuição dos dados.
+|Média| Média aritmética ou média da coluna.
+|Desvio padrão| Medida da quantidade de dispersão ou variação dos dados dessa coluna.
+|Variance| A medida de quão difundidos estão os dados dessa coluna em comparação ao valor médio. 
+|Distorção| Medida de quão diferentes os dados dessa coluna são em comparação a uma distribuição normal.
+|Curtose| Medida de quão profundamente conectados os dados dessa coluna estão em comparação a uma distribuição normal.
 
 ## <a name="storage-access-and-permissions"></a>Acesso e permissões de armazenamento
 

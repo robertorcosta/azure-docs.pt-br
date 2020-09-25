@@ -7,19 +7,22 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bac476cfbe78ad6fcf73b6a2319581cc60524a57
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289864"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar site estático no Armazenamento do Microsoft Azure
 
 Você pode fornecer conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente de um contêiner em uma conta GPv2 do Armazenamento do Microsoft Azure. Para saber mais, confira [Hospedagem de site estático no Armazenamento do Microsoft Azure](storage-blob-static-website.md).
 
 Este artigo mostra como habilitar a hospedagem estática de sites usando o portal do Azure, a CLI do Azure ou o PowerShell.
+
+> [!NOTE]
+> Certifique-se de criar uma conta de armazenamento padrão de uso geral v2. Os sites estáticos não estão disponíveis em nenhum outro tipo de conta de armazenamento.
 
 ## <a name="enable-static-website-hosting"></a>Habilitar hospedagem de sites estáticos
 

@@ -3,12 +3,12 @@ title: Definir configurações de diagnóstico de cofre em escala
 description: Definir Log Analytics configurações de diagnóstico para todos os cofres em um determinado escopo usando Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293077"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Definir configurações de diagnóstico de cofre em escala
 
@@ -34,7 +34,7 @@ Para atribuir a política para cofres no escopo necessário, siga as etapas abai
 
 1. Entre no portal do Azure e navegue até o painel de **política** .
 2. Selecione **definições** no menu à esquerda para obter uma lista de todas as políticas internas nos recursos do Azure.
-3. Filtre a lista para **Category = Monitoring**. Localize a política denominada **[Preview]: implantar configurações de diagnóstico para o cofre dos serviços de recuperação para log Analytics espaço de trabalho para categorias específicas de recursos**.
+3. Filtre a lista para **Category = backup**. Localize a política denominada **[Preview]: implantar configurações de diagnóstico para o cofre dos serviços de recuperação para log Analytics espaço de trabalho para categorias específicas de recursos**.
 
     ![Painel de definição de política](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

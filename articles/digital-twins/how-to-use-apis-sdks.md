@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: aac5c937ab2f80dcbe1567a3817b056a6285cf17
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 9812724b62717440160b9db8604a65ab787f3a9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252656"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -61,6 +61,8 @@ Para usar as APIs do plano de dados:
 * Você pode usar o SDK do **JavaScript** . Para usar o SDK do JavaScript...
    - Você pode exibir e instalar o pacote em NPM: [biblioteca de cliente do gêmeos do Azure digital para JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
    - Você pode exibir a [documentação de referência do SDK](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
+* Você pode usar o SDK do **JavaScript** . Para usar o SDK do JavaScript...
+   - Você pode exibir e instalar o pacote do Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
 * Você pode gerar um SDK para outro idioma usando o REST. Siga as instruções em [*como criar SDKs personalizados para o Azure digital gêmeos com o REST*](how-to-create-custom-sdks.md).
 
 Você também pode exercitar as APIs do plano de datas interagindo com o gêmeos digital do Azure por meio da [CLI](how-to-use-cli.md).
@@ -298,7 +300,7 @@ A partir daqui, você pode exibir as métricas para sua instância e criar exibi
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte como usar as APIs para configurar uma instância e autenticação do gêmeos digital do Azure:
-* [*Como: configurar uma instância e uma autenticação*](how-to-set-up-instance-scripted.md)
+* [*Como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md)
 
 Ou então, percorra as etapas para criar um aplicativo cliente como aquele usado nestas instruções:
 * [*Tutorial: Codificar um aplicativo cliente*](tutorial-code.md)

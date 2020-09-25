@@ -3,16 +3,22 @@ title: Service Fabric do Azure – usando referências de keyvault de aplicativo
 description: Este artigo explica como usar o suporte do Service-Fabric KeyVaultReference para segredos do aplicativo.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f1ac3ac50c5ac7cbabb03561c5db7f9c14150de4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246156"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261134"
 ---
-#  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
+# <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Suporte do KeyVaultReference para aplicativos Service Fabric (versão prévia)
 
 Um desafio comum ao criar aplicativos em nuvem é como armazenar com segurança os segredos exigidos pelo seu aplicativo. Por exemplo, talvez você queira armazenar as credenciais do repositório de contêiner no keyvault e fazer referência a ela no manifesto do aplicativo. Service Fabric KeyVaultReference usa Service Fabric identidade gerenciada e facilita a referência a segredos do keyvault. O restante deste artigo fornece detalhes sobre como usar Service Fabric KeyVaultReference e inclui alguns usos típicos.
+
+> [!IMPORTANT]
+> O uso deste recurso de visualização não é recomendado em ambientes de produção.
+
+> [!NOTE]
+> O recurso de visualização de referência do keyvault dá suporte apenas a segredos com [controle de versão](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) . Não há suporte para segredos sem versão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -90,14 +96,14 @@ Digamos que o aplicativo precise ler a senha do banco de dados de back-end armaz
 
 - Adicionar uma seção a settings.xml
 
-    Definir `DBPassword` parâmetro com tipo `KeyVaultReference` e valor`<KeyVaultURL>`
+    Definir `DBPassword` parâmetro com tipo `KeyVaultReference` e valor `<KeyVaultURL>`
 
     ```xml
     <Section Name="dbsecrets">
         <Parameter Name="DBPassword" Type="KeyVaultReference" Value="https://vault200.vault.azure.net/secrets/dbpassword/8ec042bbe0ea4356b9b171588a8a1f32"/>
     </Section>
     ```
-- Faça referência à nova seção no ApplicationManifest.xml`<ConfigPackagePolicies>`
+- Faça referência à nova seção no ApplicationManifest.xml `<ConfigPackagePolicies>`
 
     ```xml
     <ServiceManifestImport>

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7bf9e7a4c17134a47cbaafbc2bde25d467c6a978
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255692"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Tutorial: configurar o Signagelive para o provisionamento automático de usuário
 
@@ -95,11 +95,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção credenciais de administrador, insira ` https://samlapi.signagelive.com/scim/v2` a **URL de locatário**. No campo **token secreto** , insira o valor do **token de portador** fornecido pela equipe de desenvolvimento de engenharia. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Signagelive. Se a conexão falhar, verifique se sua conta do Signagelive tem permissões de administrador e tente novamente.
     ![URL do locatário + token](common/provisioning-testconnection-tenanturltoken.png)
@@ -112,19 +112,19 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Signagelive**.
 
-    ![Mapeamentos de usuário Signagelive](media/signagelive-provisioning-tutorial/usermapping.png)
+    ![Captura de tela da seção mapeamentos com a opção Synchronize Azure Active Directory Users to Signagelive chamada out.](media/signagelive-provisioning-tutorial/usermapping.png)
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para o Signagelive na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Signagelive para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de usuário do Signagelive](media/signagelive-provisioning-tutorial/userattribute.png)
+    ![Captura de tela da seção mapeamentos de atributo com sete mapeamentos exibidos.](media/signagelive-provisioning-tutorial/userattribute.png)
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory grupo para Signagelive**.
 
-    ![Mapeamentos de usuário Signagelive](media/signagelive-provisioning-tutorial/groupmapping.png)
+    ![Captura de tela da seção mapeamentos com a opção Synchronize Azure Active Directory Group para Signagelive chamada out.](media/signagelive-provisioning-tutorial/groupmapping.png)
 
 11. Examine os atributos de grupo que são sincronizados do Azure AD para o Signagelive na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de grupo no Signagelive para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Atributos de usuário do Signagelive](media/signagelive-provisioning-tutorial/groupattribute.png)
+    ![Captura de tela da seção mapeamentos de atributo com três mapeamentos exibidos.](media/signagelive-provisioning-tutorial/groupattribute.png)
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

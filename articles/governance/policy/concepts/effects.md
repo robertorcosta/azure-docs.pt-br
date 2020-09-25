@@ -1,14 +1,14 @@
 ---
 title: Entender como funcionam os efeitos
 description: As definições do Azure Policy têm vários efeitos que determinam como a conformidade é gerenciada e relatada.
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251996"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos do Azure Policy
 
@@ -22,9 +22,9 @@ Atualmente, estes efeitos têm suporte em uma definição de política:
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Desabilitado](#disabled)
-- [Modify](#modify)
+- [Modificar](#modify)
 
-Os seguintes efeitos estão sendo _preteridos_:
+Os seguintes efeitos foram _preteridos_:
 
 - [EnforceOPAConstraint](#enforceopaconstraint)
 - [EnforceRegoPolicy](#enforceregopolicy)
@@ -374,8 +374,8 @@ Quando **enforcementMode** é _Disabled_, os recursos ainda são avaliados. Não
 
 Esse efeito é usado com um _modo_ de definição de política de `Microsoft.Kubernetes.Data`. Ele é usado para passar as regras de controle de admissão do Gatekeeper v3 definidas com a [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) para [OPA (Open Policy Agent)](https://www.openpolicyagent.org/) para clusters Kubernetes no Azure.
 
-> [!NOTE]
-> [Azure Policy para Kubernetes](./policy-for-kubernetes.md) está em versão prévia e só dá suporte a pools de nós do Linux e definições de política internas. As definições de políticas internas estão na categoria **Kubernetes**. As definições de política de visualização limitada com efeito **EnforceOPAConstraint** e a categoria de **serviço kubernetes** relacionado estão sendo _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> As definições de política de visualização limitada com efeito **EnforceOPAConstraint** e a categoria de **serviço kubernetes** relacionado são _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>Avaliação do EnforceOPAConstraint
 
@@ -430,8 +430,8 @@ Exemplo: regra de controle de admissão do Gatekeeper V3 para definição de lim
 
 Esse efeito é usado com um _modo_ de definição de política de `Microsoft.ContainerService.Data`. Ele é usado para passar as regras de controle de admissão do Gatekeeper v2 definidas com o [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) para [OPA (Open Policy Agent)](https://www.openpolicyagent.org/) no [Serviço de Kubernetes do Azure](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [Azure Policy para Kubernetes](./policy-for-kubernetes.md) está em versão prévia e só dá suporte a pools de nós do Linux e definições de política internas. As definições de políticas internas estão na categoria **Kubernetes**. As definições de política de visualização limitadas com o efeito **EnforceRegoPolicy** e a categoria relacionada do **Serviço de Kubernetes** estão sendo _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> As definições de política de visualização limitadas com o efeito **EnforceRegoPolicy** e a categoria relacionada do **Serviço de Kubernetes** foram _preteridas_. Em vez disso, use a _auditoria_ de efeitos e a _negação_ com o modo do provedor de recursos `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>Avaliação de EnforceRegoPolicy
 

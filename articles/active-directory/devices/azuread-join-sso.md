@@ -1,6 +1,6 @@
 ---
 title: Como o SSO para recursos locais funciona em dispositivos associados ao Azure AD | Microsoft Docs
-description: Saiba como configurar dispositivos adicionados ao Azure Active Directory híbrido.
+description: Saiba como estender a experiência de SSO Configurando dispositivos ingressados no Azure Active Directory híbrido.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 149b01401cd6feb7610510efeb1ad9a3c69f3ecf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256455"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como o SSO para recursos locais funciona em dispositivos associados ao Microsoft Azure Active Directory
 
@@ -28,7 +28,7 @@ Este artigo explica como isso funciona.
 
  Se as máquinas Unidas do Azure AD não estiverem conectadas à rede da sua organização, uma VPN ou outra infraestrutura de rede será necessária. O SSO local requer comunicação de linha de visão com seus controladores de domínio AD DS locais.
 
-## <a name="how-it-works"></a>Como funciona 
+## <a name="how-it-works"></a>Como ele funciona 
 
 Com um dispositivo associado ao Azure Active Directory, seus usuários já têm uma experiência de SSO para os aplicativos na nuvem em seu ambiente. Se o seu ambiente tiver um Azure AD e um AD local, talvez você queira expandir o escopo de sua experiência de SSO para seus aplicativos de LOB (linha de negócios) locais, compartilhamentos de arquivos e impressoras.
 

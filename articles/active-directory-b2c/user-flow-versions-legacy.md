@@ -1,6 +1,6 @@
 ---
 title: Versões de fluxo de usuário herdadas no Azure Active Directory B2C | Microsoft Docs
-description: Saiba mais sobre as versões de fluxos de usuário disponíveis no Azure Active Directory B2C.
+description: Saiba mais sobre as versões herdadas dos fluxos de usuário disponíveis no Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 67ce6ab611e8d32c320320976ff2eba932f761a2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3471b9988b154ccb38dc56545e769a7179a4026f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505777"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258703"
 ---
 # <a name="legacy-user-flow-versions-in-azure-active-directory-b2c"></a>Versões de fluxo de usuário herdadas no Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Na tabela a seguir, a menos que um fluxo de usuário seja identificado como **re
 
 ## <a name="v1"></a>V1
 
-| Fluxo de usuário | Recomendadas | Descrição |
+| Fluxo de usuário | Recomendado | Descrição |
 | --------- | ----------- | ----------- |
 | Redefinição de senha | Sim | Permite que um usuário escolha uma nova senha após verificar seu email. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
 | Edição de perfil | Sim | Permite que o usuário configure seus atributos de usuário. Usando este fluxo de usuário, você pode configurar: <ul><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li></ul> |
@@ -39,13 +39,13 @@ Na tabela a seguir, a menos que um fluxo de usuário seja identificado como **re
 
 ## <a name="v11"></a>V1.1
 
-| Fluxo de usuário | Recomendadas | Descrição |
+| Fluxo de usuário | Recomendado | Descrição |
 | --------- | ----------- | ----------- |
 | Redefinição de senha v 1.1 | Não | Permite que um usuário escolha uma nova senha depois de verificar seu email (novo layout de página disponível). Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
 
 ## <a name="v2"></a>V2
 
-| Fluxo de usuário | Recomendadas | Descrição |
+| Fluxo de usuário | Recomendado | Descrição |
 | --------- | ----------- | ----------- |
 | Redefinição de senha v2 | Não | Permite que um usuário escolha uma nova senha após verificar seu email. Usando este fluxo de usuário, você pode configurar: <ul><li>[Autenticação multifator](custom-policy-multi-factor-authentication.md)</li><li>Configurações de compatibilidade de token</li><li>[Restrição de idade](basic-age-gating.md)</li><li>[requisitos de complexidade de senha](user-flow-password-complexity.md)</li></ul> |
 | Edição de perfil v2 | Sim | Permite que o usuário configure seus atributos de usuário. Usando este fluxo de usuário, você pode configurar: <ul><li>[Tempo de vida do token](tokens-overview.md)</li><li>Configurações de compatibilidade de token</li><li>Comportamento da sessão</li></ul> |

@@ -1,5 +1,5 @@
 ---
-title: Atribuir e listar funções com o escopo de unidade administrativa (visualização)-Azure Active Directory | Microsoft Docs
+title: Atribuir e listar funções com escopo de unidade administrativa-Azure Active Directory | Microsoft Docs
 description: Usando unidades administrativas para restringir o escopo de atribuições de função no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/10/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264909"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções com escopo a uma unidade administrativa
 
@@ -105,4 +105,4 @@ Request body
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Usar grupos de nuvem para gerenciar atribuições de função](roles-groups-concept.md)
-- [Solucionando problemas de funções atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)
+- [Solução de problemas de funções atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)

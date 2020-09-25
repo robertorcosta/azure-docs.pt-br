@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/28/2020
+ms.date: 09/24/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 54d02b3189825d08716b73b7250efd4e3f334aa0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6a716aef65cc81c5558a214c1ee5f93180810977
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234730"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266676"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de aplicativo no status de quarentena
 
@@ -45,6 +45,7 @@ Há três maneiras de verificar se um aplicativo está em quarentena:
   - Verifique se você especificou um **email de notificação** válido na configuração de provisionamento para o aplicativo.
   - Verifique se não há nenhuma filtragem de spam na caixa de entrada de email de notificação.
   - Certifique-se de que você não cancelou a assinatura dos emails.
+  - Verificar emails de azure-noreply@microsoft.com
 
 ## <a name="why-is-my-application-in-quarantine"></a>Por que meu aplicativo está em quarentena?
 

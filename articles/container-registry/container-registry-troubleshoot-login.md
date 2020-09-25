@@ -3,12 +3,12 @@ title: Solucionar problemas de logon no registro
 description: Sintomas, causas e resolução de problemas comuns ao fazer logon em um registro de contêiner do Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8fbb96be8223001ac52db47788c31609e9b86e35
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227046"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253347"
 ---
 # <a name="troubleshoot-registry-login"></a>Solucionar problemas de logon do registro
 
@@ -107,7 +107,7 @@ Links relacionados:
 * [Logon com o token no escopo do repositório](container-registry-repository-scoped-permissions.md)
 * [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 * [Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Criar um novo segredo do aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [Criar um novo segredo do aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Autenticação do Azure AD e códigos de autorização](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>Verifique se as credenciais não expiraram
@@ -140,7 +140,7 @@ Se você não resolver o problema aqui, consulte as opções a seguir.
 
 * Outros tópicos de solução de problemas de registro incluem:
   * [Solucionar problemas de rede com o registro](container-registry-troubleshoot-access.md)
-  * [Solucionar problemas de desempenho do registro](container-registry-troubleshoot-performance.md)
+  * [Solucionar problemas de desempenho de registro](container-registry-troubleshoot-performance.md)
 * Opções de [suporte da Comunidade](https://azure.microsoft.com/support/community/)
 * [P e R da Microsoft](https://docs.microsoft.com/answers/products/)
 * [Abrir um tíquete de suporte](https://azure.microsoft.com/support/create-ticket/) -com base nas informações fornecidas, um diagnóstico rápido pode ser executado para falhas de autenticação no registro

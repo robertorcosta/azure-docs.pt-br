@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088316"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256884"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Solucionar problemas de verificação do editor
 Se você não conseguir concluir o processo ou estiver experimentando um comportamento inesperado com a [verificação do Publicador](publisher-verification-overview.md), comece fazendo o seguinte se estiver recebendo erros ou observando um comportamento inesperado: 
@@ -150,31 +150,45 @@ Veja a seguir uma lista dos códigos de erro potenciais que você pode receber, 
 
 ### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
 
-A ID de MPN fornecida (<MPNID>) não existe ou você não tem acesso a ela. Forneça uma ID de MPN válida e tente novamente. 
+A ID de MPN fornecida (<MPNID>) não existe ou você não tem acesso a ela. Forneça uma ID de MPN válida e tente novamente.
+    
+Geralmente causado pelo usuário conectado que não é membro da função apropriada para a conta do MPN no Partner Center-consulte [os requisitos](publisher-verification-overview.md#requirements) para obter uma lista de funções qualificadas e veja [problemas comuns](#common-issues) para obter mais informações. Também pode ser causado pelo locatário no qual o aplicativo está registrado não está sendo adicionado à conta MPN ou uma ID de MPN inválida.
 
 ### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
 
-A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente. 
+A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente.
+    
+Geralmente causado quando uma ID MPN é fornecida e corresponde a uma PLA (conta de local de parceiro). Somente contas globais do parceiro têm suporte. Confira [estrutura de conta do Partner Center](/partner-center/account-structure) para obter mais detalhes.
 
 ### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
 
-A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente. 
+A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente.
+    
+Geralmente causado pela ID de MPN incorreta que está sendo fornecida.
 
 ### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
 
 A ID de MPN (<MPNID>) fornecida não concluiu o processo de verificação. Conclua esse processo no Partner Center e tente novamente. 
+    
+Geralmente causado pelo momento em que a conta MPN não concluiu o processo de [verificação](/partner-center/verification-responses) .
 
 ### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
 
 A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente. 
+   
+Geralmente causado pela ID de MPN incorreta que está sendo fornecida.
 
 ### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
 
-A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente. 
+A ID de MPN fornecida (<MPNID>) é inválida. Forneça uma ID de MPN válida e tente novamente.
+    
+Geralmente causado pela ID de MPN incorreta que está sendo fornecida.
 
 ### <a name="applicationnotfound"></a>ApplicationNotFound  
 
-Não é possível localizar o aplicativo de destino (<AppId>). Forneça uma ID de aplicativo válida e tente novamente. 
+Não é possível localizar o aplicativo de destino (<AppId>). Forneça uma ID de aplicativo válida e tente novamente.
+    
+Geralmente causado quando a verificação está sendo executada via API do Graph, e a ID do aplicativo fornecido está incorreta. Observação-a ID do aplicativo deve ser fornecida, não a AppId/ClientId.
 
 ### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
 
@@ -188,13 +202,19 @@ Não há suporte para essa funcionalidade em um locatário verificado por email.
 
 O aplicativo de destino ( \<AppId\> ) deve ter um conjunto de domínios do Publicador. Defina um domínio do editor e tente novamente.
 
+Ocorre quando um [domínio do Publicador](howto-configure-publisher-domain.md) não está configurado no aplicativo.
+
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 
 O domínio do editor do aplicativo (<publisherDomain>) não corresponde ao domínio usado para executar a verificação por email no Partner Center (<pcDomain>). Verifique se esses domínios correspondem e tente novamente. 
+    
+Ocorre quando nem o domínio do [Editor](howto-configure-publisher-domain.md) do aplicativo nem um dos [domínios personalizados](../fundamentals/add-custom-domain.md) adicionados ao locatário do Azure ad correspondem ao domínio usado para executar a verificação de email no Partner Center.
 
 ### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
 
 Você não está autorizado a definir a propriedade de editor verificado neste aplicativo (<AppId>) 
+  
+Geralmente causado pelo usuário conectado que não é membro da função apropriada para a conta MPN no Azure AD – consulte [os requisitos](publisher-verification-overview.md#requirements) para obter uma lista de funções qualificadas e veja [problemas comuns](#common-issues) para obter mais informações.
 
 ### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
 
@@ -202,7 +222,11 @@ A ID do MPN não foi fornecida no corpo da solicitação ou o tipo de conteúdo 
 
 ### <a name="msanotsupported"></a>MSANotSupported  
 
-Não há suporte para esse recurso em contas de consumidor da Microsoft. Somente os aplicativos registrados no Azure AD por um usuário do Azure AD têm suporte. 
+Não há suporte para esse recurso em contas de consumidor da Microsoft. Somente os aplicativos registrados no Azure AD por um usuário do Azure AD têm suporte.
+
+### <a name="interactionrequired"></a>InteractionRequired
+
+Ocorre quando a autenticação multifator não foi executada antes de tentar adicionar um Publicador verificado ao aplicativo. Consulte [problemas comuns](#common-issues) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -216,4 +240,4 @@ Se você revisou todas as informações anteriores e ainda continua recebendo um
 - Tenantid onde o aplicativo está registrado
 - ID MPN
 - Solicitação REST sendo feita 
-- Código de erro e mensagem sendo retornada 
+- Código de erro e mensagem sendo retornada

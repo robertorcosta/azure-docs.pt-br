@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7567302be8d717cda3627af303128bfb704bd014
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: cfce5b42d37908d0ba89cff9c4831cb25b968524
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170132"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259315"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Tutorial para configurar o IDology com o Azure Active Directory B2C 
 
@@ -67,7 +67,7 @@ O diagrama de arquitetura a seguir mostra a implementação.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1-implantar a API
 
-Implante o código de API fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implante o [código de API](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/Api) fornecido em um serviço do Azure. O código pode ser publicado no Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 Você precisará da URL do serviço implantado para configurar o Azure AD com as configurações necessárias.
 
@@ -75,7 +75,7 @@ Você precisará da URL do serviço implantado para configurar o Azure AD com as
 
 As configurações do aplicativo podem ser [configuradas no serviço de aplicativo no Azure](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings). Com esse método, as configurações podem ser configuradas com segurança sem verificá-las em um repositório. Você precisará fornecer as seguintes configurações para a API REST:
 
-| Configurações do aplicativo | Origem | Observações |
+| Configurações do aplicativo | Fonte | Observações |
 | :-------- | :------------| :-----------|
 |IdologySettings:ApiUsername | Configuração da conta do IDology |     |
 |IdologySettings:ApiPassword | Configuração da conta do IDology |     |

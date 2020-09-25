@@ -1,14 +1,16 @@
 ---
 title: Pontuação de recompensa – Personalizador
 description: A pontuação da recompensa indica como foi o resultado da escolha de personalização, RewardActionID, para o usuário. O valor da pontuação de recompensa é determinado pela sua lógica de negócios, com base em observações do comportamento do usuário. O personalizador treina seus modelos de machine learning avaliando as recompensas.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 58ce4d7593b23807f4b31e3e71cbfdcd873b1fcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253489"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Pontuações de recompensa indicam o sucesso da personalização
 

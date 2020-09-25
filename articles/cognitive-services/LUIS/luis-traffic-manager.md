@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**.
 author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-javascript, devx-track-azurepowershell
+ms.custom: seodec18, devx-track-js, devx-track-azurepowershell
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 96d844d52fa554b7f9a467ae59d8ed4ccd2f6ee2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 827dec47fa6ea3925513b2b3aadfb103a2b58c72
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298381"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Usar o Gerenciador de Tráfego do Microsoft Azure para gerenciar a cota do ponto de extremidade entre chaves
 O LUIS (Reconhecimento vocal) oferece a capacidade de aumentar a cota de solicitação do ponto de extremidade além da cota de uma única chave. Isso é feito criando mais chaves para o LUIS e adicionando-as ao aplicativo LUIS na página **Publicar** na seção **Recursos e Chaves**.
@@ -104,7 +104,7 @@ Para criar o perfil do Gerenciador de Tráfego do Leste dos EUA, há várias eta
     |-Type|ExternalEndpoints|Para obter mais informações, confira [Traffic Manager endpoint][traffic-manager-endpoints] (Ponto de extremidade do Gerenciador de Tráfego) |
     |-Target|eastus.api.cognitive.microsoft.com|Este é o domínio do ponto de extremidade LUIS.|
     |-EndpointLocation|"eastus"|Região do ponto de extremidade|
-    |-EndpointStatus|Habilitada|Habilitar ponto de extremidade quando ele for criado|
+    |-EndpointStatus|habilitado|Habilitar ponto de extremidade quando ele for criado|
 
     A resposta bem-sucedida tem a seguinte aparência:
 
@@ -173,7 +173,7 @@ Para criar o perfil do Gerenciador de Tráfego do Oeste dos EUA, siga as mesmas 
     |-Type|ExternalEndpoints|Para obter mais informações, confira [Traffic Manager endpoint][traffic-manager-endpoints] (Ponto de extremidade do Gerenciador de Tráfego) |
     |-Target|westus.api.cognitive.microsoft.com|Este é o domínio do ponto de extremidade LUIS.|
     |-EndpointLocation|"westus"|Região do ponto de extremidade|
-    |-EndpointStatus|Habilitada|Habilitar ponto de extremidade quando ele for criado|
+    |-EndpointStatus|habilitado|Habilitar ponto de extremidade quando ele for criado|
 
     A resposta bem-sucedida tem a seguinte aparência:
 
@@ -239,7 +239,7 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
     |-TrafficManagerProfile|$parentprofile|Perfil ao qual atribuir este ponto de extremidade|
     |-Type|NestedEndpoints|Para obter mais informações, consulte [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$eastprofile.Id|ID do perfil filho|
-    |-EndpointStatus|Habilitada|Status do ponto de extremidade após ser adicionado ao pai|
+    |-EndpointStatus|habilitado|Status do ponto de extremidade após ser adicionado ao pai|
     |-EndpointLocation|"eastus"|[Nome da região do Azure](https://azure.microsoft.com/global-infrastructure/regions/) do recurso|
     |-MinChildEndpoints|1|Número mínimo de pontos de extremidade filho|
 
@@ -276,7 +276,7 @@ Crie o perfil pai do Gerenciador de Tráfego e vincule dois perfis filho do Gere
     |-TrafficManagerProfile|$parentprofile|Perfil ao qual atribuir este ponto de extremidade|
     |-Type|NestedEndpoints|Para obter mais informações, consulte [Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/Add-azTrafficManagerEndpointConfig). |
     |-TargetResourceId|$westprofile.Id|ID do perfil filho|
-    |-EndpointStatus|Habilitada|Status do ponto de extremidade após ser adicionado ao pai|
+    |-EndpointStatus|habilitado|Status do ponto de extremidade após ser adicionado ao pai|
     |-EndpointLocation|"westus"|[Nome da região do Azure](https://azure.microsoft.com/global-infrastructure/regions/) do recurso|
     |-MinChildEndpoints|1|Número mínimo de pontos de extremidade filho|
 
@@ -368,7 +368,7 @@ Para gerenciar o tráfego entre pontos de extremidade, é necessário inserir um
 
 Habilitar [logs de diagnóstico](../../traffic-manager/traffic-manager-diagnostic-logs.md) do Gerenciador de Tráfego para ver por que o status do ponto de extremidade está degradado.
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 Remova as duas chaves de ponto de extremidade de LUIS, os três perfis do Gerenciador de Tráfego e o grupo de recursos que continha esses cinco recursos. Isso é feito no portal do Azure. Exclua os cinco recursos da lista de recursos. Em seguida, exclua o grupo de recursos.
 
 ## <a name="next-steps"></a>Próximas etapas

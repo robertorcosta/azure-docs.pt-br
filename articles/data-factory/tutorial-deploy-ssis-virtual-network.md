@@ -1,6 +1,6 @@
 ---
 title: Tutorial para configurar um tempo de execução de integração do Azure-SSIS para ingressar em uma rede virtual
-description: Saiba como unir um tempo de execução de integração do Azure-SSIS a uma rede virtual do Azure.
+description: Saiba como unir um tempo de execução de integração do Azure-SSIS para ingressar em uma rede virtual do Azure.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2bd2fa9badc7c299099b647e1f67c50e997024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118154"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292295"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configurar um IR (tempo de execução de integração) do SSIS (Azure-SQL Server Integration Services) para ingressar em uma rede virtual
 
@@ -110,7 +110,7 @@ Depois de configurar sua rede virtual Azure Resource Manager ou rede virtual cl�
 
    ![Lista de fábricas de dados](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Selecione o data factory com o Azure-SSIS IR na lista. Você verá a home page do seu data factory. Selecione o bloco **criar & monitor** . Você visualiza a interface do usuário do Data Factory em uma guia separada.
+1. Selecione o data factory com o Azure-SSIS IR na lista. Você verá a home page do seu data factory. Selecione o bloco **Criar e Monitorar**. Você visualiza a interface do usuário do Data Factory em uma guia separada.
 
    ![Página inicial do data factory](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
