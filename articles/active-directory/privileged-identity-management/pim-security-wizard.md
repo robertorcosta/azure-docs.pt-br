@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005883"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335877"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Descoberta e insights (visualização) para funções do Azure AD (anteriormente conhecido como assistente de segurança)
 
@@ -29,9 +29,9 @@ Se você estiver começando com o PIM (Privileged Identity Management) em sua or
 
 Antes que sua organização comece a usar Privileged Identity Management, todas as atribuições de função são permanentes. Os usuários sempre estão em suas funções atribuídas mesmo quando não precisam de seus privilégios. A descoberta e as informações (versão prévia), que substitui o antigo assistente de segurança, mostra uma lista de funções privilegiadas e quantos usuários estão atualmente nessas funções. Você pode listar as atribuições de uma função para saber mais sobre os usuários atribuídos se um ou mais deles não forem familiares.
 
-: heavy_check_mark: a **Microsoft recomenda** que você mantenha duas contas de interrupção que são atribuídas permanentemente à função de administrador global que não requer autenticação multifator ao entrar. Você pode usá-los em qualquer cenário de interrupção ou, caso nenhum seja capaz de elevar sua função de administrador global.
+: heavy_check_mark: a **Microsoft recomenda** que você mantenha duas contas de vidro de interrupção que são atribuídas permanentemente à função de administrador global. Verifique se essas contas não exigem o mesmo mecanismo de autenticação multifator que suas contas administrativas normais para entrar, conforme descrito em [gerenciar contas de acesso de emergência no Azure ad](../users-groups-roles/directory-emergency-access.md).
 
-Além disso, mantenha as atribuições de função permanentes se um usuário tiver um conta Microsoft (em outras palavras, uma conta que use para entrar nos serviços da Microsoft, como o Skype ou Outlook.com). Se você precisar que a autenticação multifator seja ativada nessa função, o usuário será bloqueado.
+Além disso, mantenha as atribuições de função permanentes se um usuário tiver um conta Microsoft (em outras palavras, uma conta que use para entrar nos serviços da Microsoft, como o Skype ou Outlook.com). Se você precisar de autenticação multifator para um usuário com um conta Microsoft para ativar uma atribuição de função, o usuário será bloqueado.
 
 ## <a name="open-discovery-and-insights-preview"></a>Abrir descoberta e insights (versão prévia)
 
@@ -49,7 +49,7 @@ Além disso, mantenha as atribuições de função permanentes se um usuário ti
 
 1. Examine a lista de atribuições de função de administrador global.
 
-    ![Reduzir os administradores globais-painel de funções mostrando todos os membros](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Reduzir os administradores globais – painel funções mostrando todos os administradores globais](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Selecione **Avançar** para selecionar os usuários ou grupos que você deseja tornar qualificados e, em seguida, selecione **tornar qualificado** ou **remover atribuição**.
 

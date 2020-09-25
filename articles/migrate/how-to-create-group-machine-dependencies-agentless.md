@@ -3,12 +3,12 @@ title: Configurar a análise de dependência sem agente na avaliação do servid
 description: Configure a análise de dependência sem agente na avaliação do servidor de migrações para Azure.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 164cc20632faa1d444d06da6688000e9b40d7e76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536431"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275584"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências do computador (sem agente)
 
@@ -25,7 +25,7 @@ Este artigo descreve como configurar a análise de dependência sem agente em mi
 
 - No modo de exibição de análise de dependência, não é possível adicionar ou remover um servidor de um grupo no momento.
 - Um mapa de dependências para um grupo de servidores não está disponível no momento.
-- A coleta de dados de dependência pode ser configurada simultaneamente para servidores 400. Você pode analisar um número maior de servidores por meio do sequenciamento em lotes de 400.
+- A coleta de dados de dependência pode ser configurada simultaneamente para servidores 1000. Você pode analisar um número maior de servidores por meio do sequenciamento em lotes de 1000.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -50,14 +50,14 @@ Adicione a conta de usuário ao dispositivo.
 2. Navegue até o painel **fornecer detalhes do vCenter** .
 3. Em **descobrir aplicativo e dependências em VMs**, clique em **Adicionar credenciais**
 3. Escolha o **sistema operacional**, forneça um nome amigável para a conta e a senha do **nome de usuário** / **Password**
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 7. Clique em **salvar e iniciar descoberta**.
 
     ![Adicionar conta de usuário da VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
 
 ## <a name="start-dependency-discovery"></a>Iniciar descoberta de dependência
 
-Escolha os computadores nos quais você deseja habilitar a descoberta de dependência.
+Escolha os computadores nos quais você deseja habilitar a descoberta de dependência. 
 
 1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Clique no ícone **análise de dependência** .
@@ -68,7 +68,7 @@ Escolha os computadores nos quais você deseja habilitar a descoberta de depend�
 
     ![Iniciar descoberta de dependência](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
-Você pode visualizar dependências em cerca de seis horas após iniciar a descoberta de dependência.
+Você pode visualizar dependências em cerca de seis horas após iniciar a descoberta de dependência. Se você quiser habilitar vários computadores, poderá usar o [PowerShell](#start-or-stop-dependency-discovery-using-powershell) para fazer isso.
 
 ## <a name="visualize-dependencies"></a>Visualizar dependências
 
@@ -125,7 +125,7 @@ Porta de destino | Número da porta no computador de destino
 
 ## <a name="stop-dependency-discovery"></a>Parar descoberta de dependência
 
-Escolha os computadores nos quais você deseja parar a descoberta de dependência.
+Escolha os computadores nos quais você deseja parar a descoberta de dependência. 
 
 1. Em **migrações para Azure: avaliação de servidor**, clique em **servidores descobertos**.
 2. Clique no ícone **análise de dependência** .
@@ -133,6 +133,114 @@ Escolha os computadores nos quais você deseja parar a descoberta de dependênci
 3. Na página **remover servidores** , escolha o **dispositivo** que está descobrindo as VMs nas quais você procura parar a descoberta de dependência.
 4. Na lista computador, selecione os computadores.
 5. Clique em **remover servidores**.
+
+Se você quiser parar a dependência em vários computadores, poderá usar o [PowerShell](#start-or-stop-dependency-discovery-using-powershell) para fazer isso.
+
+
+### <a name="start-or-stop-dependency-discovery-using-powershell"></a>Iniciar ou parar a descoberta de dependências usando o PowerShell
+
+Baixe o módulo do PowerShell do repositório de [exemplos Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) no github.
+
+
+#### <a name="log-in-to-azure"></a>Fazer logon no Azure
+
+1. Faça logon em sua assinatura do Azure usando o cmdlet Connect-AzAccount.
+
+    ```PowerShell
+    Connect-AzAccount
+    ```
+    Se estiver usando o Azure governamental, use o comando a seguir.
+    ```PowerShell
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
+    ```
+
+2. Selecione a assinatura na qual você criou o projeto de migrações para Azure 
+
+    ```PowerShell
+    select-azsubscription -subscription "Fabrikam Demo Subscription"
+    ```
+
+3. Importar o módulo AzMig_Dependencies do PowerShell baixado
+
+    ```PowerShell
+    Import-Module .\AzMig_Dependencies.psm1
+    ```
+
+#### <a name="enable-or-disable-dependency-data-collection"></a>Habilitar ou desabilitar a coleta de dados de dependência
+
+1. Obtenha a lista de VMs do VMware descobertas em seu projeto de migrações para Azure usando os comandos a seguir. No exemplo a seguir, o nome do projeto é FabrikamDemoProject e o grupo de recursos ao qual ele pertence é FabrikamDemoRG. A lista de computadores será salva no FabrikamDemo_VMs.csv
+
+    ```PowerShell
+    Get-AzMigDiscoveredVMwareVMs -ResourceGroupName "FabrikamDemoRG" -ProjectName "FabrikamDemoProject" -OutputCsvFile "FabrikamDemo_VMs.csv"
+    ```
+
+    No arquivo, você pode ver o nome de exibição da VM, o status atual da coleção de dependências e a ID do ARM de todas as VMs descobertas. 
+
+2. Para habilitar ou desabilitar dependências, crie um arquivo CSV de entrada. O arquivo deve ter uma coluna com o cabeçalho "ARM ID". Todos os cabeçalhos adicionais no arquivo CSV serão ignorados. Você pode criar o CSV usando o arquivo gerado na etapa anterior. Crie uma cópia do arquivo mantendo as VMs nas quais você deseja habilitar ou desabilitar dependências. 
+
+    No exemplo a seguir, a análise de dependência está sendo habilitada na lista de VMs no arquivo de entrada FabrikamDemo_VMs_Enable.csv.
+
+    ```PowerShell
+    Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Enable.csv -Enable
+    ```
+
+    No exemplo a seguir, a análise de dependência está sendo desabilitada na lista de VMs no arquivo de entrada FabrikamDemo_VMs_Disable.csv.
+
+    ```PowerShell
+    Set-AzMigDependencyMappingAgentless -InputCsvFile .\FabrikamDemo_VMs_Disable.csv -Disable
+    ```
+
+## <a name="visualize-network-connections-in-power-bi"></a>Visualizar conexões de rede no Power BI
+
+As migrações para Azure oferecem um modelo de Power BI que você pode usar para visualizar conexões de rede de vários servidores ao mesmo tempo e filtrar por processo e servidor. Para visualizar, carregue o Power BI com dados de dependência de acordo com as instruções abaixo.
+
+1. Baixe o módulo do PowerShell e o modelo de Power BI do repositório de [exemplos Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) no github.
+
+2. Faça logon no Azure usando as instruções abaixo: 
+- Faça logon em sua assinatura do Azure usando o cmdlet Connect-AzAccount.
+
+    ```PowerShell
+    Connect-AzAccount
+    ```
+
+- Se estiver usando o Azure governamental, use o comando a seguir.
+
+    ```PowerShell
+    Connect-AzAccount -EnvironmentName AzureUSGovernment
+    ```
+
+- Selecione a assinatura na qual você criou o projeto de migrações para Azure 
+
+    ```PowerShell
+    select-azsubscription -subscription "Fabrikam Demo Subscription"
+    ```
+
+3. Importar o módulo AzMig_Dependencies do PowerShell baixado
+
+    ```PowerShell
+    Import-Module .\AzMig_Dependencies.psm1
+    ```
+
+4. Execute o comando a seguir. Esse comando baixa os dados de dependências em um CSV e os processa para gerar uma lista de dependências exclusivas que podem ser usadas para visualização no Power BI. No exemplo abaixo, o nome do projeto é FabrikamDemoProject e o grupo de recursos ao qual ele pertence é FabrikamDemoRG. As dependências serão baixadas para computadores descobertos pelo FabrikamAppliance. As dependências exclusivas serão salvas em FabrikamDemo_Dependencies.csv
+
+    ```PowerShell
+    Get-AzMigDependenciesAgentless -ResourceGroup FabrikamDemoRG -Appliance FabrikamAppliance -ProjectName FabrikamDemoProject -OutputCsvFile "FabrikamDemo_Dependencies.csv"
+    ```
+
+5. Abrir o modelo de Power BI baixado
+
+6. Carregue os dados de dependência baixados em Power BI.
+    - Abra o modelo no Power BI.
+    - Clique em **obter dados** na barra de ferramentas. 
+    - Escolha **texto/CSV** de fontes de dados comuns.
+    - Escolha o arquivo de dependências baixado.
+    - Clique em **Carregar**.
+    - Você verá que uma tabela é importada com o nome do arquivo CSV. Você pode ver a tabela na barra campos à direita. Renomeie-o para AzMig_Dependencies
+    - Clique em atualizar na barra de ferramentas.
+
+    O gráfico conexões de rede e o nome do servidor de origem, o nome do servidor de destino, o nome do processo de origem, as segmentações do nome do processo de destino devem acender com os dados importados.
+
+7. Visualize o mapa da filtragem de conexões de rede por servidores e processos. Salve o arquivo.
 
 
 ## <a name="next-steps"></a>Próximas etapas

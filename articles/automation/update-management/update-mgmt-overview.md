@@ -3,14 +3,14 @@ title: Visão geral do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo fornece uma visão geral do recurso Gerenciamento de Atualizações que implementa atualizações para seus computadores com Windows e com Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 09/22/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4a753cd139db9dec23c82346704382979aeaa0de
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 314012467da532002529a3f561b192876602b46e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335425"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -59,7 +59,7 @@ O Gerenciamento de Atualizações relata o grau de atualização do computador c
 
 Você pode implantar e instalar atualizações de software em computadores que precisam de atualizações, criando uma implantação agendada. As atualizações classificadas como opcionais não são incluídas no escopo de implantação para computadores com Windows. Somente as atualizações necessárias são incluídas no escopo de implantação.
 
-A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis. Ele faz isso especificando explicitamente determinados computadores ou selecionando um grupo de [computadores](../../azure-monitor/platform/computer-groups.md) baseado em pesquisas de log de um conjunto específico de computadores (ou em uma [consulta do Azure] Update-MGMT-view-logs.MD) que seleciona dinamicamente VMs do Azure com base em critérios especificados). Esses grupos diferem da [configuração de escopo](../../azure-monitor/insights/solution-targeting.md), que é usada para controlar o direcionamento de computadores que recebem a configuração para habilitar o Gerenciamento de Atualizações. Isso impede que eles executem e relatem a conformidade de atualizações e instalem atualizações necessárias aprovadas.
+A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis. Ele faz isso especificando explicitamente determinados computadores ou selecionando um [grupo de computadores](../../azure-monitor/platform/computer-groups.md) com base em pesquisas de log de um conjunto específico de computadores (ou em uma [consulta do Azure](update-mgmt-query-logs.md) que seleciona dinamicamente as VMs do Azure com base em critérios especificados). Esses grupos diferem da [configuração de escopo](../../azure-monitor/insights/solution-targeting.md), que é usada para controlar o direcionamento de computadores que recebem a configuração para habilitar o Gerenciamento de Atualizações. Isso impede que eles executem e relatem a conformidade de atualizações e instalem atualizações necessárias aprovadas.
 
 Ao definir uma implantação, você também pode especificar uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Esse período é chamado de janela de manutenção. Um período de 20 minutos da janela de manutenção é reservado para reinicializações, supondo que uma seja necessária e você tenha selecionado a opção de reinicialização apropriada. Se a aplicação de patch demorar mais do que o esperado e houver menos de 20 minutos na janela de manutenção, uma reinicialização não ocorrerá.
 

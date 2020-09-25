@@ -3,7 +3,7 @@ title: Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure | 
 description: Execute rapidamente o Oracle Data Guard no ambiente do Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: kegorman
+ms.openlocfilehash: f8a40f87b8fdaa2adf445392bd598dd8133aae4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083371"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335894"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure 
 
@@ -282,7 +282,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Ative o flashback (o que torna a recuperação muito mais fácil) e defina o \_ \_ Gerenciamento de arquivos em espera como automático. Saia do SQL * Plus depois disso.
+Ative o flashback (o que torna a recuperação muito mais fácil) e defina o \_ \_ Gerenciamento de arquivos em espera como automático. saia do SQL * Plus depois disso.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;

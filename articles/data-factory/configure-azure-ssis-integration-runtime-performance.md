@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523308"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276655"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurar o Microsoft Integration Runtime do Azure-SSIS para alto desempenho
 
@@ -122,8 +122,7 @@ O eixo y é o número de pacotes que concluíram a execução em uma hora. Obser
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando você já estiver utilizando um nó de trabalho avançado para executar pacotes, aumentar o **AzureSSISMaxParallelExecutionsPerNode** poderá aumentar a taxa de transferência geral do runtime de integração. Para nós Standard_D1_v2, há suporte para execuções paralelas 1-4 por nó. Para todos os outros tipos de nós, são suportados 1-Max (2 x número de núcleos, 8) execuções paralelas por nó. Se você quiser **AzureSSISMaxParallelExecutionsPerNode** além do valor máximo com suporte, poderá abrir um tíquete de suporte e poderemos aumentar o valor máximo para você e depois disso, você precisará usar o Azure PowerShell para atualizar o **AzureSSISMaxParallelExecutionsPerNode**.
-É possível estimar o valor apropriado com base no custo do pacote e nas seguintes configurações para os nós de trabalho. Para obter mais informações, consulte [Tamanhos das máquinas virtuais para uso geral](../virtual-machines/windows/sizes-general.md).
+Quando você já estiver utilizando um nó de trabalho avançado para executar pacotes, aumentar o **AzureSSISMaxParallelExecutionsPerNode** poderá aumentar a taxa de transferência geral do runtime de integração. Se desejar aumentar o valor máximo, você precisará usar Azure PowerShell para atualizar **AzureSSISMaxParallelExecutionsPerNode**. É possível estimar o valor apropriado com base no custo do pacote e nas seguintes configurações para os nós de trabalho. Para obter mais informações, consulte [Tamanhos das máquinas virtuais para uso geral](../virtual-machines/windows/sizes-general.md).
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Desempenho de rede esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

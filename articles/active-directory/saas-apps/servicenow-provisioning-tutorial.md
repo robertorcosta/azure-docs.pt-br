@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: b4ee17ba6587c38efb6da15117a5c55dc5abb873
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: bddb33210f3b1d76a89ce18ddf6884898905f388
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979729"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286379"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configurar o ServiceNow para o provisionamento automático de usuários
 
@@ -93,11 +93,11 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **Credenciais do Administrador**, insira as credenciais de administrador e o nome de usuário do ServiceNow. Clique em **Testar Conexão** para verificar se o Azure AD pode se conectar ao ServiceNow. Se a conexão falhar, verifique se a conta do ServiceNow tem permissões de Administrador e tente novamente.
 

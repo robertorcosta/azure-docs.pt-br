@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325055"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurar um ponto de extremidade público na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -40,7 +40,7 @@ Devido à sensibilidade dos dados que estão em uma instância gerenciada, a con
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Habilitando o ponto de extremidade público para uma instância gerenciada no portal do Azure
 
-1. Inicie o portal do Azure em<https://portal.azure.com/.>
+1. Inicie o portal do Azure em <https://portal.azure.com/.>
 1. Abra o grupo de recursos com a instância gerenciada e selecione a **instância gerenciada do SQL** na qual você deseja configurar o ponto de extremidade público.
 1. Nas configurações de **segurança** , selecione a guia **rede virtual** .
 1. Na página configuração de rede virtual, selecione **habilitar** e, em seguida, o ícone **salvar** para atualizar a configuração.
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Permitir tráfego de ponto de extremidade público no grupo de segurança de rede
 
-1. Se você tiver a página de configuração da instância gerenciada ainda aberta, navegue até a guia **visão geral** . caso contrário, volte para o recurso de **instância gerenciada do SQL** . Selecione o link **rede virtual/sub-rede** , que levará você para a página de configuração de rede virtual.
+1. Se você tiver a página de configuração da instância gerenciada ainda aberta, navegue até a guia **visão geral** . Caso contrário, volte para o recurso de **instância gerenciada do SQL** . Selecione o link **rede virtual/sub-rede** , que levará você para a página de configuração de rede virtual.
 
     ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
 
@@ -102,7 +102,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Intervalos de portas de destino**     |3342         |Porta de destino do escopo para 3342, que é o ponto de extremidade TDS público da instância gerenciada |
     |**Protocolo**     |TCP         |O SQL Instância Gerenciada usa o protocolo TCP para TDS |
     |**Ação**     |Allow         |Permitir o tráfego de entrada para a instância gerenciada por meio do ponto de extremidade público |
-    |**Priority**     |1300         |Verifique se essa regra é de prioridade mais alta do que a regra de **deny_all_inbound** |
+    |**Prioridade**     |1300         |Verifique se essa regra é de prioridade mais alta do que a regra de **deny_all_inbound** |
 
     ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
 

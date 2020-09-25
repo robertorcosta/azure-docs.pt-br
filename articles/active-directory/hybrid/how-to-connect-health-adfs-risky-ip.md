@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306388"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório de IP arriscado (visualização pública)
 AD FS clientes podem expor pontos de extremidade de autenticação de senha à Internet para fornecer serviços de autenticação para que os usuários finais acessem aplicativos SaaS, como Microsoft 365. Nesse caso, é possível que um ator mal-intencionado tente fazer logons em seu sistema de AD FS adivinhando a senha do usuário final e obtendo acesso aos recursos do aplicativo. O AD FS fornece a funcionalidade de bloqueio de conta de extranet para evitar esses tipos de ataque desde a sua versão no Windows Server 2012 R2. Se você estiver usando uma versão inferior, recomendamos fortemente que atualize seu sistema do AD FS para o Windows Server 2016. <br />
@@ -39,7 +39,7 @@ Além disso, é possível que um único endereço IP tente vários logons em rel
 > 
 
 ## <a name="what-is-in-the-report"></a>O que há no relatório?
-Os endereços IP do cliente de atividade de entrada com falha são agregados por meio de servidores proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+Os endereços IP do cliente de atividade de entrada com falha são agregados por meio de servidores proxy de aplicativo Web. Cada item no Relatório de IP arriscado mostra informações agregadas sobre atividades de entrada do AD FS com falha que excedem o limite designado. Ele fornece as seguintes informações: ![ captura de tela que mostra um relatório IP arriscado com cabeçalhos de coluna realçado.](./media/how-to-connect-health-adfs/report4a.png)
 
 | Item do relatório | Descrição |
 | ------- | ----------- |
@@ -52,7 +52,7 @@ Os endereços IP do cliente de atividade de entrada com falha são agregados por
 
 Por exemplo, o item de relatório abaixo indica, da janela de 18h às 19h em 28/2/2018, que o endereço IP <i>104.2XX.2XX.9</i> não teve erros de senha incorreta e 284 erros de bloqueio de extranet. 14 usuários exclusivos foram afetados dentro dos critérios. O evento de atividade excedeu o limite horário definido para o relatório. 
 
-![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4b.png)
+![Captura de tela que mostra um exemplo de uma entrada de relatório IP arriscada.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - Apenas atividades ultrapassando o limite designado serão exibidas na lista de relatórios. 
@@ -60,7 +60,7 @@ Por exemplo, o item de relatório abaixo indica, da janela de 18h às 19h em 28/
 > - Esse relatório de alerta não mostra endereços IP privado ou endereços IP do Exchange. Eles ainda são incluídos na lista de exportação. 
 >
 
-![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
+![Captura de tela que mostra o relatório de IP arriscado com as opções "baixar", "configurações de notificação" e "configurações de limite" realçadas.](./media/how-to-connect-health-adfs/report4c.png)
 
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Endereços IP do balanceador de carga na lista
 Atividades de entrada com falha agregadas ao balanceador de carga e limite de alerta atingido. Se você está vendo endereços IP do balanceador de carga, é muito provável que o seu balanceador de carga externo não esteja enviando o endereço IP do cliente ao passar a solicitação para o servidor proxy do aplicativo Web. Configure o balanceador de carga corretamente para encaminhar o endereço IP do cliente. 

@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289890"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287400"
 ---
-# <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planejar seu ambiente de Azure Time Series Insights Gen2
+# <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planejar o ambiente do Azure Time Series Insights Gen2
 
 Este artigo descreve as práticas recomendadas para planejar e começar rapidamente usando o Azure Time Series Insights Gen2.
 
@@ -69,10 +69,7 @@ Você pode selecionar até três chaves para diferenciar exclusivamente seus rec
 
 A propriedade **timestamp** também é importante. É possível designar essa propriedade ao adicionar origens de eventos. Cada origem de evento tem uma propriedade opcional de carimbo de data/hora usada para rastrear origens de eventos ao longo do tempo. Os valores de carimbo de data/hora diferenciam maiúsculas de minúsculas e precisam estar formatados de acordo com a especificação individual de cada origem de evento.
 
-> [!TIP]
-> Verifique os requisitos de formatação e análise das origens de evento.
-
-Quando deixado em branco, o Tempo de Enfileiramento do Evento de uma origem do evento é usado como o carimbo de data/hora do evento. Se você enviar dados históricos ou eventos em lote, personalizar a propriedade carimbo de data/hora será mais útil que o padrão Tempo de Enfileiramento do Evento. Para obter mais informações, leia sobre como [adicionar fontes de eventos no Hub IOT do Azure](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Quando deixado em branco, a hora em que o evento foi enfileirado no Hub IoT ou no Hub de eventos é usada como o carimbo de data/hora do evento. Em geral, os usuários devem optar por personalizar a propriedade Timestamp e usar a hora em que o sensor ou a marca gerou a leitura, em vez do tempo enfileirado do Hub. Para obter mais informações e ler sobre deslocamentos de fuso horário, leia [carimbo de data/hora de origem do evento](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## <a name="understand-the-time-series-model"></a>Entenda o modelo de série temporal
 
@@ -91,7 +88,7 @@ Uma boa regra prática:
 * Armazene metadados no seu modelo de série temporal.
 * Verifique se o modo de série temporal, os campos de instância e os eventos incluem apenas as informações necessárias, como uma ID de série temporal ou uma propriedade Timestamp.
 
-Para obter mais informações, leia [eventos de forma](./time-series-insights-send-events.md#supported-json-shapes).
+Para obter mais informações e entender como os eventos serão mesclados e armazenados, leia as [regras de escape e mesclagem JSON](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

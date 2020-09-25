@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825436"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287314"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um contêiner de perfil com arquivos do Azure e AD DS
 
@@ -29,7 +29,7 @@ Primeiro, você precisará configurar uma conta de armazenamento de arquivos do 
 
 Para configurar uma conta de armazenamento:
 
-1. Entre no Portal do Azure.
+1. Entre no portal do Azure.
 
 2. Pesquise por **conta de armazenamento** na barra de pesquisa.
 
@@ -56,7 +56,7 @@ Para criar um compartilhamento de arquivos:
 
 1. Selecione **Ir para o recurso**.
 
-2. Na página Visão geral, selecione **compartilhamentos de arquivos**.
+2. Na página Visão geral, selecione **Compartilhamentos de arquivos**.
 
 3. Selecione **+ compartilhamentos de arquivos**, crie um novo compartilhamento de arquivos denominado **perfis**e, em seguida, insira uma cota apropriada ou deixe o campo em branco para nenhuma cota.
 
@@ -102,7 +102,7 @@ Para atribuir permissões de RBAC (controle de acesso baseado em função):
 
      Para atribuir permissões de usuários nos seus perfis do FSLogix, siga estas mesmas instruções. No entanto, quando chegar à etapa 5, selecione **Storage File data colaborador de compartilhamento SMB** .
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Atribuir permissões de usuários no compartilhamento de arquivos do Azure
 
@@ -154,7 +154,7 @@ Para configurar suas permissões NTFS:
 2. Execute o seguinte comando para montar o compartilhamento de arquivos do Azure e atribuir a ele uma letra de unidade:
 
      ```cmd
-     net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
+     net use <desired-drive-letter>: <UNC-path> <SA-key> /user:Azure\<SA-name>
      ```
 
 3. Execute o seguinte comando para examinar as permissões de acesso para o compartilhamento de arquivos do Azure:
@@ -212,7 +212,7 @@ Para configurar o FSLogix em sua VM host de sessão:
 
 6. Reinicie a VM.
 
-## <a name="testing"></a>Teste
+## <a name="testing"></a>Testando
 
 Depois de instalar e configurar o FSLogix, você pode testar sua implantação entrando com uma conta de usuário que tenha sido atribuída a um grupo de aplicativos ou área de trabalho no pool de hosts. Verifique se a conta de usuário com a qual você se conecta tem permissão no compartilhamento de arquivos.
 

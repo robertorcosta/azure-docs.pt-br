@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6d77855f095c59b47156af735f4581076ce5a09c
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
-ms.translationtype: MT
+ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272497"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com SQL Server em máquinas virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,10 +46,10 @@ Em ambientes clusterizados tradicionais locais, um cluster de failover do Window
 
 SQL Server em VMs do Azure oferece várias opções como uma solução de armazenamento compartilhado para uma implantação de instâncias de cluster de failover SQL Server: 
 
-||[Discos compartilhados do Azure](../../../virtual-machines/windows/disks-shared.md)|[Compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[S2D (Espaços de Armazenamento Diretos)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Discos compartilhados do Azure](../../../virtual-machines/windows/disks-shared.md)|[Compartilhamentos de arquivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaços de Armazenamento Diretos (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
-|**Versão mínima do SQL Server**|Todos|SQL Server 2012|SQL Server 2016|
+|**Versão mínima do SO**| Tudo |Windows Server 2012|Windows Server 2016|
+|**Versão mínima do SQL Server**|Tudo|SQL Server 2012|SQL Server 2016|
 |**Disponibilidade de VM com suporte** |Conjuntos de disponibilidade com grupos de posicionamento de proximidade |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
 |**Dá suporte a FileStream**|Sim|Não|Sim |
 |**Cache de blob do Azure**|Não|Não|Sim|

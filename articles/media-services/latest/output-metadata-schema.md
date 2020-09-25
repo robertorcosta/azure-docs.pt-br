@@ -1,6 +1,6 @@
 ---
 title: Esquema de metadados de saída dos Serviços de Mídia do Azure | Microsoft Docs
-description: Este artigo fornece uma visão geral do esquema de metadados de saída dos serviços de mídia do Azure.
+description: Este artigo fornece uma visão geral do esquema de metadados de saída dos serviços de mídia do Azure v3.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 66f4e426ee6d77b9faa1efab3deb3d7ee4baf47d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: aa6d4edc4348fa850eeb7e8d91ce0791ee4c7170
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289361"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336404"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 
@@ -56,7 +56,7 @@ Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas e
 | **Perfil** |Perfil H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Profile": "High"` |
 | **Level** |Nível H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Level": "3.2"`|
 | **Largura**<br />Obrigatório |Largura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Tamanho**<br />Obrigatório |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **Altura**<br />Obrigatório |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
 | **DisplayAspectRatioNumerator**<br />Obrigatório|Numerador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
 | **DisplayAspectRatioDenominator**<br />Obrigatório |Denominador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
 | **Quadros**<br />Obrigatório |Medida de taxa de quadros de vídeo em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|

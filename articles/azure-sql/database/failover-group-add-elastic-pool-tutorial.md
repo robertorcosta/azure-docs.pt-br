@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 80fa5b7264d675317fba3cc12fa5049bdea76906
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0c4a3c97649f168d339f5209cc10a46f56e97381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042570"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335170"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: adicionar um pool elástico do banco de dados SQL do Azure a um grupo de failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -147,7 +147,7 @@ Crie seu grupo de failover usando o portal do Azure.
     - **Nome do grupo de failover**: digite um nome de grupo de failover exclusivo, como `failovergrouptutorial` .
     - **Servidor secundário**: selecione a opção para *definir as configurações necessárias* e, em seguida, escolha **criar um novo servidor**. Como alternativa, você pode escolher um servidor já existente como o servidor secundário. Depois de inserir os seguintes valores para o novo servidor secundário, selecione **selecionar**.
         - **Nome do servidor**: digite um nome exclusivo para o servidor secundário, como `mysqlsecondary` .
-        - **Logon de administrador do servidor**: tipo`azureuser`
+        - **Logon de administrador do servidor**: tipo `azureuser`
         - **Senha**: digite uma senha complexa que atenda aos requisitos de senha.
         - **Local**: escolha um local na lista suspensa, como `East US` . Esse local não pode ser o mesmo local que o servidor primário.
 
@@ -348,14 +348,14 @@ Esta parte do tutorial usa os seguintes cmdlets do PowerShell:
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Limpe os recursos excluindo o grupo de recursos.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Procure o grupo de recursos no [portal do Azure](https://portal.azure.com).
-1. Selecione **excluir grupo de recursos** para excluir todos os recursos no grupo, bem como o próprio grupo de recursos.
+1. Selecione  **excluir grupo de recursos** para excluir todos os recursos no grupo, bem como o próprio grupo de recursos.
 1. Digite o nome do grupo de recursos, `myResourceGroup` , na caixa de texto e, em seguida, selecione **excluir** para excluir o grupo de recursos.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

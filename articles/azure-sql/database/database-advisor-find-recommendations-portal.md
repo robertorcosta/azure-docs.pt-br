@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 0e13d69b8d821267a993cd2ca9a3b6d0d686ccf9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90970684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284526"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Pending (Pendente) |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |
 | Validando |A recomendação foi aplicada com êxito e o serviço está medindo os benefícios. |
-| Êxito |A recomendação foi aplicada com êxito e benefícios foram calculados. |
+| Sucesso |A recomendação foi aplicada com êxito e benefícios foram calculados. |
 | Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Este pode ser um problema temporário ou, possivelmente, uma alteração de esquema na tabela, tornando o script inválido. |
 | Revertendo |A recomendação foi aplicada, mas foi considerada não funcional e está sendo revertida automaticamente. |
 | Revertida |A recomendação foi revertida. |

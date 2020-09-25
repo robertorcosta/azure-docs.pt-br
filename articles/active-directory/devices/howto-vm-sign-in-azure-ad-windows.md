@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287093"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -49,7 +49,7 @@ No momento, há suporte para as seguintes distribuições do Windows durante a v
 - Windows 10 1809 e posterior
 
 > [!IMPORTANT]
-> A conexão remota com VMs Unidas ao Azure AD é permitida somente em computadores Windows 10 que são ingressados no Azure ad ou Azure AD híbrido ingressado no **mesmo** diretório que a VM. 
+> A conexão remota com VMs Unidas ao Azure AD só é permitida em computadores Windows 10 que estejam registrados no Azure AD (iniciando o Windows 10 20H1), ingressado no Azure ad ou Azure AD híbrido ingressado no **mesmo** diretório que a VM. 
 
 No momento, há suporte para as seguintes regiões do Azure durante a versão prévia desse recurso:
 
@@ -224,7 +224,7 @@ Agora você está conectado à máquina virtual do Azure do Windows Server 2019 
 > [!NOTE]
 > Você pode salvar o. Arquivo RDP localmente no seu computador para iniciar futuras conexões de área de trabalho remota para sua máquina virtual em vez de ter que navegar até a página de visão geral da máquina virtual no portal do Azure e usando a opção conectar.
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Solucionar problemas de implantação
 

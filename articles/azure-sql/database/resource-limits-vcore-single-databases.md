@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/21/2020
-ms.openlocfilehash: bb69d48fe4e65d0fc27db027aecab0f1a745e8d5
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e67675d0d3fb5f96b35eba0085003b00595d8214
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325268"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra de vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|320|640|1280|1920|2560|
-|Taxa máxima de logs (MBps)|3.8|7.5|15|22,5|30|
+|Taxa máxima de logs (MBps)|3.8|7,5|15|22,5|30|
 |Máximo de trabalhos simultâneos (solicitações)|75|150|300|450|600|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
@@ -251,7 +251,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|320|640|960|1280|1600|1920|
-|Taxa máxima de logs (MBps)|3,75|7.5|11,25|15|18,75|22,5|
+|Taxa máxima de logs (MBps)|3,75|7,5|11,25|15|18,75|22,5|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -303,7 +303,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) está dispo
 |Tipo de armazenamento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de dados máximo *|640|1280|1920|2560|3200|3840|4480|
-|Taxa máxima de logs (MBps)|7.5|15|22,5|30|30|30|30|
+|Taxa máxima de logs (MBps)|7,5|15|22,5|30|30|30|30|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|600|800|1000|1200|1.400|
 |Máximo de sessões simultâneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
