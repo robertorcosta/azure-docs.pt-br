@@ -5,24 +5,46 @@ author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/03/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 47f74b551919177b13f5a72d6eedeae3c77b9f14
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 639672bdeff2f833c280a041e497197286c9ff24
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951656"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885703"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Início Rápido: Configurar o servidor de configuração do Azure Spring Cloud
 
+O Azure Spring Cloud Config Server é um serviço de configuração centralizado para sistemas distribuídos. Ele usa uma camada de repositório conectável que atualmente dá suporte a armazenamento local, Git e Subversion. Neste guia de início rápido, você configura o Config Server para obter dados de um repositório Git.
+
+::: zone pivot="programming-language-csharp"
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Conclua o guia de início rápido anterior nesta série: [Provisionar o serviço Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
+
+## <a name="azure-spring-cloud-config-server-procedures"></a>Procedimentos do Azure Spring Cloud Config Server
+
+Configure seu servidor de configuração com o local do repositório Git para o projeto executando o comando a seguir. Substitua `<service instance name>` pelo nome do serviço criado anteriormente. O valor padrão para o nome da instância de serviço que você definiu no guia de início rápido anterior não funciona com esse comando.
+
+```azurecli
+az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples --search-paths steeltoe-sample/config
+```
+
+Esse comando diz para o servidor de configuração para localizar os dados de configuração na pasta [steeltoe-sample/config](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/steeltoe-sample/config) do repositório de aplicativos de exemplo. Como o nome do aplicativo que obterá os dados de configuração é `planet-weather-provider`, o arquivo que será usado é [planet-weather-provider.yml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/steeltoe-sample/config/planet-weather-provider.yml).
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
 O Azure Spring Cloud Config Server é um serviço de configuração centralizado para sistemas distribuídos. Ele usa uma camada de repositório conectável que atualmente dá suporte a armazenamento local, Git e Subversion.  Configure o Config Server para implantar aplicativos de microsserviço no Azure Spring Cloud.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Inscrever-se em uma assinatura do Azure](https://azure.microsoft.com/free/)
-* (Opcional) [Instale a CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e instale a extensão do Azure Spring Cloud com o comando: `az extension add --name spring-cloud`
+* (Opcional) [Instale a CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) e instale a extensão do Azure Spring Cloud com o comando: `az extension add --name spring-cloud`
 * (Opcional) [Instale o Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [conecte-se](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="azure-spring-cloud-config-server-procedures"></a>Procedimentos do Azure Spring Cloud Config Server
@@ -50,7 +72,25 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ```
 
 ---
+::: zone-end
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se você pretende avançar para o próximo início rápido desta série, pule esta etapa.
+
+Nesses guias de início rápido, você criou recursos do Azure que continuarão acumulando encargos se permanecerem em sua assinatura. Se você não pretende avançar para o próximo início rápido e acredita que não precisará desses recursos no futuro, exclua o grupo de recursos usando o portal ou executando o seguinte comando no Cloud Shell:
+
+```azurecli
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
+
+Em um início rápido anterior, você também definiu o nome do grupo de recursos padrão. Se você não pretende avançar para o próximo início rápido, desmarque esse padrão executando o seguinte comando da CLI:
+
+```azurecli
+az configure --defaults group=
+```
 
 ## <a name="next-steps"></a>Próximas etapas
+
 > [!div class="nextstepaction"]
 > [Compilar e implantar aplicativos](spring-cloud-quickstart-deploy-apps.md)

@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688446"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892885"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implantar o Azure Spring Cloud na rede virtual do Azure (injeção de VNet)
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
 
 Este tutorial explica como implantar uma instância de serviço de nuvem do Azure Spring Cloud em sua rede virtual. Isso às vezes é chamado de injeção de VNet.  
 
@@ -38,7 +40,7 @@ A rede virtual na qual você implanta sua instância de serviço do Azure Spring
 * **sub-redes**: a rede virtual deve incluir duas sub-redes dedicadas a uma instância de serviço do Azure Spring Cloud: 
     * Uma do Runtime de Serviço
     * Um para seus Aplicativos de Microsserviço do Spring Boot. 
-    * Há uma relação um-para-um entre essas sub-redes e uma instância de serviço do Azure Spring Cloud. Não é possível compartilhar várias instâncias de serviço em uma sub-rede. Você deve usar novas sub-redes para cada instância de serviço que implantar.
+    * Há uma relação um-para-um entre essas sub-redes e uma instância de serviço do Azure Spring Cloud. Você deve usar uma nova sub-rede para cada instância de serviço implantada e cada sub-rede pode incluir apenas uma única instância de serviço.
 * **Espaço de endereço**: Um bloco CIDR de até /28 para a sub-rede do Runtime de Serviço e outro bloco CIDR de até /24 para a sub-rede de Aplicativos de Microsserviço do Spring Boot.
 * **Tabela de rotas**: as sub-redes não devem ter uma tabela de rotas existente associada.
 

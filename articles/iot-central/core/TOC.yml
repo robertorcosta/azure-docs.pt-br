@@ -109,7 +109,7 @@
           href: howto-run-a-job.md
     - name: Transformar
       items:
-        - name: Exportar dados para destinos de nuvem (versão prévia)
+        - name: Exportar dados para destinos de nuvem
           href: howto-export-data.md
         - name: Exportar dados para destinos de nuvem (herdado)
           href: howto-export-data-legacy.md

@@ -768,6 +768,8 @@
                   href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
                 - name: Guia pós-migração
                   href: mongodb-post-migration.md
+            - name: Atualizar do MongoDB 3.2 para o 3.6
+              href: mongodb-version-upgrade.md
             - name: Obtenha a cadeia de conexão
               href: connect-mongodb-account.md
             - name: Conectar usando Studio 3T
@@ -944,7 +946,7 @@
               href: table-sdk-python.md
             - name: APIs REST de armazenamento de tabelas
               href: /rest/api/storageservices/table-service-rest-api
-    - name: API Etcd
+    - name: API etcd
       items:
         - name: Visão geral
           items:
@@ -1108,7 +1110,7 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Feed de alterações – Amostra de Java Assíncrono
           href: create-sql-api-java-changefeed.md
-    - name: Análise com o Link do Azure Synapse
+    - name: Análise e BI com o Link do Azure Synapse
       items:
         - name: Configurar o Link do Azure Synapse
           href: configure-synapse-link.md
@@ -1116,6 +1118,8 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Consultar com o Spark do Azure Synapse
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Usar o Power BI com o Link do Synapse
+          href: synapse-link-power-bi.md
     - name: Análise interna com o Apache Spark
       items:
         - name: Conector do Azure Databricks Spark
@@ -1198,12 +1202,16 @@
           href: monitor-cosmos-db-reference.md
         - name: Log de aplicativo com Aplicativos Lógicos
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: Desenvolver localmente
+    - name: Desenvolver localmente com o emulador
       items:
-        - name: Use o emulador
+        - name: Instalar e usar o emulador
           href: local-emulator.md
-        - name: Exportar certificados
+        - name: Exportar certificados de emulador
           href: local-emulator-export-ssl-certificates.md
+        - name: Parâmetros de linha de comando do emulador
+          href: emulator-command-line-parameters.md
+        - name: Solução de problemas do emulador
+          href: troubleshoot-local-emulator.md
         - name: Extensão Visual Studio Code
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Configurar o pipeline de CI/CD do Azure DevOps

@@ -7,15 +7,177 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8931c22c3656cf9708756153268ab1d9d87b8343
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 94caa879aa005f8f41e44b8a56400e87f6174247
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050821"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908345"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Início Rápido: Criar e implantar aplicativos no Azure Spring Cloud
 
+::: zone pivot="programming-language-csharp"
+Neste guia de início rápido, você cria e implanta aplicativos de microatendimento no Azure Spring Cloud usando o CLI do Azure.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Conclua os guias de início rápido anteriores nesta série:
+
+  * [Provisionar o serviço Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
+  * [Configurar o servidor de configuração do Azure Spring Cloud](spring-cloud-quickstart-setup-config-server.md).
+
+## <a name="download-the-sample-app"></a>Baixar o aplicativo de exemplo
+
+Se você estiver usando o Azure Cloud Shell até este ponto, alterne para um prompt de comando local para as etapas a seguir.
+
+1. Crie uma pasta e clone o repositório de aplicativo de exemplo.
+
+   ```console
+   mkdir source-code
+   ```
+
+   ```console
+   cd source-code
+   ```
+
+   ```console
+   git clone https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples
+   ```
+
+1. Navegue até o diretório do repositório.
+
+   ```console
+   cd Azure-Spring-Cloud-Samples
+   ```
+
+## <a name="deploy-planetweatherprovider"></a>Implantar PlanetWeatherProvider
+
+1. Crie um aplicativo para o projeto PlanetWeatherProvider em sua instância do Azure Spring Cloud.
+
+   ```azurecli
+   az spring-cloud app create --name planet-weather-provider --runtime-version NetCore_31
+   ```
+
+   Para habilitar o registro de serviço automático, você deu ao aplicativo o mesmo nome que o valor de `spring.application.name` no arquivo *appsettings.json* do projeto:
+
+   ```json
+   "spring": {
+     "application": {
+       "name": "planet-weather-provider"
+     }
+   }
+   ```
+
+   Este comando pode levar vários minutos para ser executado.
+
+1. Altere o diretório para a pasta do projeto `PlanetWeatherProvider`.
+
+   ```console
+   cd steeltoe-sample/src/planet-weather-provider
+   ```
+
+1. Crie os binários e o arquivo *.zip* a ser implantado.
+
+   ```console
+   dotnet publish -c release -o ./publish
+   ```
+
+   > [!TIP]
+   > O arquivo de projeto contém o seguinte XML para empacotar os binários em um arquivo *.zip* depois de gravá-los na pasta *./publish*:
+   >
+   > ```xml
+   > <Target Name="Publish-Zip" AfterTargets="Publish">
+   >   <ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/publish-deploy-planet.zip" Overwrite="true" />
+   > </Target>
+   > ```
+
+1. Implantar no Azure.
+
+   Verifique se o prompt de comando está na pasta do projeto antes de executar o comando a seguir.
+
+   ```console
+   az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
+   ```
+
+   A opção `--main-entry` especifica o caminho relativo da pasta raiz do arquivo *.zip* para o arquivo *.dll* que contém o ponto de entrada do aplicativo. Depois que o serviço carrega o arquivo *.zip*, ele extrai todos os arquivos e pastas e tenta executar o ponto de entrada no arquivo *.dll* especificado.
+
+   Este comando pode levar vários minutos para ser executado.
+
+## <a name="deploy-solarsystemweather"></a>Implantar SolarSystemWeather
+
+1. Crie outro aplicativo em sua instância do Azure Spring Cloud, desta vez, para o projeto SolarSystemWeather:
+
+   ```azurecli
+   az spring-cloud app create --name solar-system-weather --runtime-version NetCore_31
+   ```
+
+   `solar-system-weather` é o nome especificado no arquivo *appsettings.json* do projeto `SolarSystemWeather`.
+
+   Este comando pode levar vários minutos para ser executado.
+
+1. Altere o diretório para o projeto `SolarSystemWeather`.
+
+   ```console
+   cd ../solar-system-weather
+   ```
+
+1. Crie os binários e o arquivo *.zip* a ser implantado.
+
+   ```console
+   dotnet publish -c release -o ./publish
+   ```
+
+1. Implantar no Azure.
+
+   ```console
+   az spring-cloud app deploy -n solar-system-weather --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.dll --artifact-path ./publish-deploy-solar.zip
+   ```
+   
+   Este comando pode levar vários minutos para ser executado.
+
+## <a name="assign-public-endpoint"></a>Atribuir ponto de extremidade público
+
+Para testar o aplicativo, envie uma solicitação HTTP GET para o aplicativo `solar-system-weather` de um navegador.  Para fazer isso, você precisa de um ponto de extremidade público para a solicitação.
+
+1. Para atribuir o ponto de extremidade, execute o comando a seguir.
+
+   ```azurecli
+   az spring-cloud app update -n solar-system-weather --is-public true
+   ```
+
+1. Para obter a URL do ponto de extremidade, execute o comando a seguir.
+
+   Windows:
+
+   ```azurecli
+   az spring-cloud app show -n solar-system-weather -o table
+   ```
+
+   Linux:
+
+   ```azurecli
+   az spring-cloud app show --name solar-system-weather | grep url
+   ```
+
+## <a name="test-the-application"></a>Testar o aplicativo
+
+Envie uma solicitação GET para o aplicativo `solar-system-weather`. Em um navegador, vá até a URL pública com `/weatherforecast` acrescentado ao final dela. Por exemplo:
+
+```
+https://servicename-solar-system-weather.azuremicroservices.io/weatherforecast
+```
+
+A saída é JSON:
+
+```json
+[{"Key":"Mercury","Value":"very warm"},{"Key":"Venus","Value":"quite unpleasant"},{"Key":"Mars","Value":"very cool"},{"Key":"Saturn","Value":"a little bit sandy"}]
+```
+
+essa resposta mostra que ambos os aplicativos de microsserviço estão funcionando. O aplicativo `SolarSystemWeather` retorna os dados recuperados do aplicativo `PlanetWeatherProvider`.
+::: zone-end
+
+::: zone pivot="programming-language-java"
 Este documento explica como criar e implantar aplicativos de microsserviço no Azure Spring Cloud usando:
 * CLI do Azure
 * Plug-in Maven
@@ -25,10 +187,10 @@ Antes da implantação com a CLI do Azure ou o Maven, conclua os exemplos que [p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
+* [Instalar o JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
 * [Inscrever-se em uma assinatura do Azure](https://azure.microsoft.com/free/)
-* (Opcional) [Instale a CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e instale a extensão do Azure Spring Cloud com o comando: `az extension add --name spring-cloud`
-* (Opcional) [Instale o Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [conecte-se](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Opcional) [Instale a CLI do Azure versão 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) e instale a extensão do Azure Spring Cloud com o comando: `az extension add --name spring-cloud`
+* (Opcional) [Instalar o Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [conectar-se](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="deployment-procedures"></a>Procedimentos de implantação
 
@@ -111,7 +273,7 @@ Precisamos de uma maneira de acessar o aplicativo por meio de um navegador da We
 
 ### <a name="generate-configurations-and-deploy-to-the-azure-spring-cloud"></a>Gerar configurações e implantar no Azure Spring Cloud
 
-1. Gere configurações executando o comando a seguir na pasta raiz de PiggyMetrics que contém o POM pai. Se você já tiver entrado com a CLI do Azure, o comando selecionará automaticamente as credenciais. Caso contrário, ele fará com que você entre com as instruções de prompt. Confira a nossa [página wiki](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) para obter mais detalhes.
+1. Gere configurações executando o comando a seguir na pasta raiz de PiggyMetrics que contém o POM pai. Se você já tiver entrado com a CLI do Azure, o comando selecionará automaticamente as credenciais. Caso contrário, ele fará com que você entre com as instruções de prompt. Para obter mais informações, confira nossa [página do wiki](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
     ```
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
@@ -148,7 +310,7 @@ Para implantar no Azure, você precisa entrar com a sua conta do Azure com o Azu
 
     ![Implantar no Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. No campo **Nome**, acrescentar *:gateway* ao **Nome** existente fará referência à configuração.
+1. No campo **Nome**, acrescente *:gateway* ao **Nome** existente.
 1. Na caixa de texto **Artefato**, selecione *com.piggymetrics:gateway:1.0-SNAPSHOT*.
 1. Na caixa de texto **Assinatura**, verifique a sua assinatura.
 1. Na caixa de texto **Spring Cloud**, selecione a instância do Azure Spring Cloud criada em [Provisionar a instância do Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
@@ -189,15 +351,25 @@ Também é possível navegar pelo portal do Azure para localizar a URL.
 
     ![Navegar pelo aplicativo segundo](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
+::: zone-end
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
-Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. Se você acha que não precisará desses recursos no futuro, exclua o grupo de recursos por meio do portal ou executando o seguinte comando no Cloud Shell:
+
+Se você pretende avançar para o próximo início rápido desta série, pule esta etapa.
+
+Nesses guias de início rápido, você criou recursos do Azure que continuarão acumulando encargos se permanecerem em sua assinatura. Se você não pretende avançar para o próximo início rápido e acredita que não precisará desses recursos no futuro, exclua o grupo de recursos usando o portal ou executando o seguinte comando no Cloud Shell:
+
 ```azurecli
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
-Nas etapas anteriores, você também define o nome do grupo de recursos padrão. Para limpar o padrão, execute o seguinte comando no Cloud Shell:
+
+Em um início rápido anterior, você também definiu o nome do grupo de recursos padrão. Se você não pretende avançar para o próximo início rápido, desmarque esse padrão executando o seguinte comando da CLI:
+
 ```azurecli
 az configure --defaults group=
 ```
+
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Logs, Métricas e Rastreamento](spring-cloud-quickstart-logs-metrics-tracing.md)
+

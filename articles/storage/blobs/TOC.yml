@@ -137,14 +137,14 @@
             - name: Criptografia do Armazenamento do Azure em repouso
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
-                - name: Chaves gerenciadas pelo cliente com o Azure Key Vault
-                  href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Chaves fornecidas pelo cliente na solicitação
-                  href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Criptografia com chaves gerenciadas pelo cliente
+                  href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Criptografia de solicitação com chaves fornecidas pelo cliente
+                  href: encryption-customer-provided-keys.md
+                - name: Escopos de criptografia
+                  href: encryption-scope-overview.md
             - name: Blobs imutáveis
               href: storage-blob-immutable-storage.md
-            - name: Proteção avançada contra ameaças
-              href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Controles de segurança interna
               href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Usar pontos de extremidade privados do Azure
@@ -380,19 +380,17 @@
                   items:
                     - name: Verificar o modelo de chave de criptografia para a conta
                       href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Configurar chaves de criptografia gerenciadas pelo cliente
+                    - name: Configurar a criptografia com chaves gerenciadas pelo cliente
                       items:
-                        - name: Portal
-                          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: PowerShell
-                          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: CLI do Azure
-                          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Armazenar chaves gerenciadas pelo cliente em um cofre de chaves
+                          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Armazenar chaves gerenciadas pelo cliente em um HSM gerenciado
+                          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Fornecer uma chave de criptografia em uma solicitação
                   href: storage-blob-customer-provided-key.md
                 - name: Gerenciar escopos de criptografia
                   href: encryption-scope-manage.md
-                - name: Habilitar a criptografia de infraestrutura para uma conta de armazenamento
+                - name: Habilitar a criptografia de infraestrutura para a conta
                   href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurar criptografia do lado do cliente
               items:
@@ -414,6 +412,8 @@
                       href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Configurar a versão do TLS para um aplicativo cliente
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurar o Azure Defender para proteção contra ameaças
+              href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Definir e gerenciar políticas de imutabilidade
               href: storage-blob-immutability-policies-manage.md
         - name: Gerenciar redundância de dados

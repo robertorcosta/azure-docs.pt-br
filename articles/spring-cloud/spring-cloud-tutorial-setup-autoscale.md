@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e4494762c4652d3db66940dddebb13c3ab03af3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449362"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905381"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configurar o dimensionamento automático para aplicativos de microsserviço
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C#
+
 O dimensionamento automático é um recurso interno do Azure Spring Cloud que ajuda os aplicativos de microsserviço a apresentarem seu melhor desempenho diante de alterações de demanda. Isso inclui modificar o número de CPUs virtuais, memória e instâncias de aplicativo. Este artigo descreve como configurar o Dimensionamento automático para seus aplicativos usando o portal do Microsoft Azure ou a CLI do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -68,4 +71,4 @@ Se você estiver na camada básica e restringido por um ou mais desses limites, 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Visão geral do dimensionamento automático no Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Monitoramento do dimensionamento automático na CLI do Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [Monitoramento do dimensionamento automático na CLI do Azure](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)

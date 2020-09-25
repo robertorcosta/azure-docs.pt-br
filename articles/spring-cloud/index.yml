@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação do Azure Spring Cloud
-summary: O Azure Spring Cloud fornece um serviço gerenciado que permite aos desenvolvedores de Java criar e executar facilmente microsserviços baseados em Spring-boot no Azure, sem alterações de código.
+summary: O Azure Spring Cloud fornece um serviço gerenciado que permite executar microsserviços no Azure usando Spring-boot ou Steeltoe (versão prévia) sem alterações de código.
 metadata:
   title: Azure Spring Cloud
-  description: O Azure Spring Cloud fornece um serviço gerenciado que permite aos desenvolvedores de Java criar e executar facilmente microsserviços baseados em Spring-boot no Azure, sem alterações de código.
+  description: O Azure Spring Cloud fornece um serviço gerenciado que permite executar microsserviços no Azure usando Spring-boot ou Steeltoe (versão prévia) sem alterações de código.
   services: spring-cloud
   ms.service: spring-cloud
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: bmitchell287
   ms.author: brendm
   ms.date: 09/26/2019
-  ms.openlocfilehash: 277d058427cc9527e6ed71ed252a4930489353fd
-  ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+  ms.openlocfilehash: 1c1f45ab0f589634446a7d329f69609797071b36
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89049886"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90902955"
 landingContent:
 - title: Sobre o Azure Spring Cloud
   linkLists:
@@ -32,11 +32,11 @@ landingContent:
     links:
     - text: Guia de início rápido – Implantar o seu primeiro aplicativo Azure Spring Cloud
       url: spring-cloud-quickstart.md
-    - text: Introdução ao aplicativo de exemplo Piggy Metrics
+    - text: Introdução ao aplicativo de exemplo PiggyMetrics
       url: spring-cloud-quickstart-sample-app-introduction.md
   - linkListType: tutorial
     links:
-    - text: Preparar um aplicativo Spring Java para implantação
+    - text: Preparar um aplicativo Spring ou Steeltoe para implantação
       url: spring-cloud-tutorial-prepare-app-deployment.md
 - title: Configurar o serviço
   linkLists:

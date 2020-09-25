@@ -10,24 +10,34 @@
       items:
         - name: Introdução
           href: get-started.md
+          displayName: 'get, started'
         - name: 1 Criar um workspace do Synapse
           href: get-started-create-workspace.md
+          displayName: 'get, started'
         - name: 2 Analisar usando um pool de SQL
           href: get-started-analyze-sql-pool.md
+          displayName: 'get, started'
         - name: 3 Analisar usando o Spark
           href: get-started-analyze-spark.md
+          displayName: 'get, started'
         - name: 4 Analisar usando o SQL sob demanda
           href: get-started-analyze-sql-on-demand.md
+          displayName: 'get, started'
         - name: 5 Analisar dados em uma conta de armazenamento
           href: get-started-analyze-storage.md
+          displayName: 'get, started'
         - name: 6 Orquestrar com pipelines
           href: get-started-pipelines.md
+          displayName: 'get, started'
         - name: 7 Visualizar com o Power BI
           href: get-started-visualize-power-bi.md
+          displayName: 'get, started'
         - name: 8 Monitorar
           href: get-started-monitor.md
+          displayName: 'get, started'
         - name: 9 Explorar o Centro de Conhecimento
           href: get-started-knowledge-center.md
+          displayName: 'get, started'
     - name: Roteiro
       href: overview-cheat-sheet.md
     - name: Perguntas frequentes
@@ -48,16 +58,16 @@
       href: quickstart-power-bi.md
     - name: Como criar pools
       items:
-        - name: Como criar um notebook do Apache Spark usando ferramentas da Web
-          href: quickstart-apache-spark-notebook.md
-        - name: Como criar um pool do Apache Spark usando o portal do Azure
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Criar um pool do Apache Spark usando o Synapse Studio
-          href: quickstart-create-apache-spark-pool-studio.md
-        - name: Criar um pool de SQL usando o portal do Azure
-          href: quickstart-create-sql-pool-portal.md
         - name: Criar um pool de SQL usando o Synapse Studio
           href: quickstart-create-sql-pool-studio.md
+        - name: Criar um pool de SQL usando o portal do Azure
+          href: quickstart-create-sql-pool-portal.md
+        - name: Criar um notebook
+          href: quickstart-apache-spark-notebook.md
+        - name: Criar um pool do Spark com o portal do Azure
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Criar um pool do Spark usando o Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
     - name: Carregar dados com pools de SQL
       items:
         - name: Instrução COPY

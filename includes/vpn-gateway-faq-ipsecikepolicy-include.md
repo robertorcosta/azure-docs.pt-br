@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346305"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025055"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>A política de IPsec/IKE personalizada tem suporte em todos os SKUs de Gateway de VPN do Azure?
 A política de IPsec/IKE personalizada tem suporte em todas as SKUs do Azure, exceto pela SKU básica.
@@ -31,7 +31,7 @@ A tabela a seguir lista os algoritmos de criptografia com suporte e restrições
 | ---              | ---                                                                           |
 | Criptografia IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
 | Integridade do IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
-| Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, nenhum |
+| Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, nenhum  |
 | Criptografia IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, nenhum      |
 | Integridade do IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | Grupo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, nenhum                              |
@@ -100,11 +100,14 @@ Sim, você pode aplicar a política personalizada em conexões entre locais de I
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>É necessário especificar a mesma política em ambos os recursos de conexão de VNet para VNet?
 Sim. Um túnel de VNet para VNet consiste em dois recursos de conexão no Azure, uma para cada sentido. Faça com que ambos os recursos de conexão tenham a mesma política; caso contrário, a conexão de VNet para VNet não se estabelecerá.
 
+### <a name="what-is-the-default-dpd-timeout-value-can-i-specify-a-different-dpd-timeout"></a>Qual é o valor do tempo limite de DPD padrão? Posso especificar um tempo limite de DPD diferente?
+O tempo limite de DPD padrão é de 45 segundos. Você pode especificar um valor de tempo limite de DPD diferente em cada conexão IPsec ou VNet a VNet entre 9 segundos e 3600 segundos.
+
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>A política de IPsec/IKE personalizada funciona em conexão de ExpressRoute?
 Não. A política IPsec/IKE só funciona em conexões VNet para VNet e VPN S2S por meio de gateways de VPN do Azure.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Como fazer para criar conexões com o tipo de protocolo IKEv1 ou IKEv2?
-Conexões IKEv1 podem ser criadas em todas as SKUs de tipo de VPN RouteBased, exceto o SKU básico, SKU Standard e outros [SKUs herdados](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku). Você pode especificar o tipo de protocolo de conexão IKEv1 ou IKEv2 ao criar conexões. Se você não especificar um tipo de protocolo de conexão, o IKEv2 será usado como opção padrão quando aplicável. Para obter mais informações, consulte a documentação do [cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Para obter informações sobre os tipos de SKU e sobre o suporte para IKEv1/IKEv2, confira [Conectar gateways a dispositivos VPN com base em políticas](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+Conexões IKEv1 podem ser criadas em todos os SKUs do tipo VPN RouteBased, exceto pelo SKU Básico, SKU Standard e outros [SKUs herdados](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-skus-legacy#gwsku). Você pode especificar o tipo de protocolo de conexão IKEv1 ou IKEv2 ao criar conexões. Se você não especificar um tipo de protocolo de conexão, o IKEv2 será usado como opção padrão quando aplicável. Para obter mais informações, consulte a documentação do [cmdlet do PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?). Para obter informações sobre os tipos de SKU e sobre o suporte para IKEv1/IKEv2, confira [Conectar gateways a dispositivos VPN com base em políticas](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>O tráfego entre conexões IKEv1 e IKEv2 é permitido?
 Sim. O tráfego entre conexões IKEv1 e IKEv2 tem suporte.

@@ -13,7 +13,7 @@
     - name: Criar e executar microsserviços
       expanded: true
       items:
-        - name: Introdução aos aplicativos de exemplo
+        - name: Introdução ao aplicativo de exemplo
           href: spring-cloud-quickstart-sample-app-introduction.md
         - name: Provisionar o serviço Azure Spring Cloud
           href: spring-cloud-quickstart-provision-service-instance.md
@@ -37,8 +37,6 @@
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Nome DNS personalizado
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Usar o IntelliJ para implantar aplicativos do Azure Spring Cloud
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Provisionar uma instância do Azure Spring Cloud com o Terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: CI/CD com Jenkins
