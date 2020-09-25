@@ -14,12 +14,12 @@ ms.date: 09/08/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.custom: contperfq1
-ms.openlocfilehash: 81a3412c9531878d257d16cfb068c713695584d4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 76f3ba000a9bde4a306d19e8281ebeb41f1616e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335860"
 ---
 # <a name="network-security-groups"></a>Grupos de segurança de rede
 <a name="network-security-groups"></a>
@@ -42,7 +42,7 @@ Um grupo de segurança de rede pode conter nenhuma ou quantas regras você desej
 |Intervalo de portas     |Você pode especificar uma porta individual ou um intervalo de portas. Por exemplo, você pode especificar 80 ou 10000-10005. A especificação de intervalos permite que você crie menos regras de segurança. As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar várias portas ou intervalos de porta na mesma regra de segurança em grupos de segurança de rede criados pelo modelo de implantação clássica.   |
 |Ação     | Permitir ou negar        |
 
-As regras de segurança do grupo de segurança de rede são avaliadas por prioridade usando as informações de 5 tuplas (origem, porta de origem, destino, porta de destino e protocolo) para permitir ou negar o tráfego. Um registro de fluxo é criado para as conexões existentes. A comunicação é permitida ou negada com base no estado de conexão do registro de fluxo. O registro de fluxo permite que um grupo de segurança de rede seja com estado. Se você especificar uma regra de segurança de saída para algum endereço pela porta 80, por exemplo, não será necessário especificar uma regra de segurança de entrada para a resposta ao tráfego de saída. Você precisa especificar uma regra de segurança de entrada se a comunicação for iniciada externamente. O oposto também é verdadeiro. Se o tráfego de entrada é permitido por uma porta, não é necessário especificar uma regra de segurança de saída para responder ao tráfego pela porta.
+As regras de segurança do grupo de segurança de rede são avaliadas por prioridade usando as informações de 5 tuplas (origem, porta de origem, destino, porta de destino e protocolo) para permitir ou negar o tráfego. Você não pode criar duas regras de segurança com a mesma prioridade e direção. Um registro de fluxo é criado para as conexões existentes. A comunicação é permitida ou negada com base no estado de conexão do registro de fluxo. O registro de fluxo permite que um grupo de segurança de rede seja com estado. Se você especificar uma regra de segurança de saída para algum endereço pela porta 80, por exemplo, não será necessário especificar uma regra de segurança de entrada para a resposta ao tráfego de saída. Você precisa especificar uma regra de segurança de entrada se a comunicação for iniciada externamente. O oposto também é verdadeiro. Se o tráfego de entrada é permitido por uma porta, não é necessário especificar uma regra de segurança de saída para responder ao tráfego pela porta.
 
 As conexões existentes podem não ser interrompidas quando você remove uma regra de segurança que habilitou o fluxo. Os fluxos de tráfego são interrompidos quando as conexões são interrompidas e nenhum tráfego está fluindo em qualquer direção por pelo menos alguns minutos.
 

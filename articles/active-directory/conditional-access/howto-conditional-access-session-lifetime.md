@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601666"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265928"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar o gerenciamento da sessão de autenticação com Acesso Condicional
 
@@ -89,6 +89,8 @@ O acesso condicional é um recurso Azure AD Premium e requer uma licença Premiu
 
 > [!WARNING]
 > Se você estiver usando o recurso de [tempo de vida de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, observe que não há suporte para a criação de duas políticas diferentes para a mesma combinação de usuário ou aplicativo: uma com esse recurso e outra com o recurso de tempo de vida de token configurável. A Microsoft planeja desativar o recurso de tempo de vida de token configurável em 1º de maio de 2020 e substituí-lo pelo recurso de gerenciamento de sessão de autenticação de acesso condicional.  
+>
+> Antes de habilitar a frequência de entrada, verifique se outras configurações de reautenticação estão desabilitadas em seu locatário. Se "lembrar MFA em dispositivos confiáveis" estiver habilitado, certifique-se de desabilitá-lo antes de usar a frequência de entrada, pois usar essas duas configurações em conjunto pode levar à solicitação de usuários inesperadamente. Para saber mais sobre prompts de reautenticação e tempo de vida da sessão, consulte o artigo [otimizar prompts de reautenticação e entender o tempo de vida da sessão para a autenticação multifator do Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: controle de frequência de entrada
 

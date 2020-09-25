@@ -1,16 +1,16 @@
 ---
 title: Desempenho e escala nas Funções Duráveis – Azure
-description: Introdução à extensão de Durable Functions do Azure Functions.
+description: Saiba mais sobre as características exclusivas de dimensionamento da extensão de Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 56a9861f0e25e1dcdf741cfdf5c8830dd9b6fc1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325803"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 

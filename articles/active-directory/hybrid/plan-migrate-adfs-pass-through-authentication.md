@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661893"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335962"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação de passagem do Azure Active Directory
 
@@ -100,7 +100,7 @@ Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 
 Verifique quaisquer configurações que possam ter sido personalizadas para sua documentação de implantação e design de federação. Especificamente, procure as personalizações em **PreferredAuthenticationProtocol**, **SupportsMfa** e **PromptLoginBehavior**.
 
-Para obter mais informações, confira estes tópicos:
+Para obter mais informações, consulte estes artigos:
 
 * [Prompt do AD FS = suporte ao parâmetro de logon](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
 * [Set-MsolDomainAuthentication](/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
@@ -128,7 +128,7 @@ Esta seção descreve considerações sobre implantação e detalhes de como usa
 
 Antes de converter a identidade federada para a identidade gerenciada, examine com mais detalhes como você usa atualmente AD FS para o Azure AD, Microsoft 365 e outros aplicativos (confianças de terceira parte confiável). Especificamente, considere os cenários descritos na tabela a seguir:
 
-| Se | Então |
+| If | Então |
 |-|-|
 | Você planeja continuar usando AD FS com outros aplicativos (além do Azure AD e Microsoft 365). | Depois de converter seus domínios, você usará tanto o AD FS quanto o Azure AD. Considere a experiência do usuário. Em alguns cenários, os usuários podem ser solicitados a autenticar duas vezes: uma vez ao Azure AD (em que um usuário obtém acesso SSO a outros aplicativos, como Microsoft 365), e novamente para todos os aplicativos que ainda estão associados a AD FS como uma relação de confiança de terceira parte confiável. |
 | Sua instância do AD FS é muito personalizada e depende das configurações de personalização específicas no arquivo onload.js (por exemplo, se você tiver alterado a experiência de conexão para que os usuários usem apenas um formato **SamAccountName** para o nome de usuário, em vez de um nome UPN, ou sua organização tiver aplicado fortemente a identidade de marca à experiência de conexão). O arquivo onload.js não pode ser duplicado no Azure AD. | Antes de continuar, verifique se que o Azure AD pode atender aos seus atuais requisitos de personalização. Para obter mais informações e diretrizes, veja as seções sobre identidade visual do AD FS e personalização do AD FS.|
@@ -283,9 +283,9 @@ Avançar. implantar métodos de autenticação adicionais:
 
 4. Execute a instalação do agente de autenticação. Durante a instalação, você deve inserir as credenciais de uma conta de Administrador Global.
 
-   ![Captura de tela que mostra o botão Instalar na página do Pacote do Agente de Autenticação do Microsoft Azure AD Connect](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Captura de tela que mostra o botão de instalação que você usa para executar o pacote do agente de autenticação Microsoft Azure AD Connect.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-   ![Captura de tela que mostra a página de entrada](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Captura de tela que mostra a página de entrada da Microsoft.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. Quando o agente de autenticação estiver instalado, você poderá voltar para a página de integridade do agente de autenticação de passagem para verificar o status dos agentes adicionais.
 
@@ -327,7 +327,7 @@ Primeiro, habilite a autenticação de passagem:
    * **Logon único contínuo** está definido como **Habilitado**.
    * **Autenticação de passagem** está definida como **Habilitada**.
    
-   ![Captura de tela que mostra as configurações na seção de Entrada do usuário](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+   ![Captura de tela que mostra as configurações a serem verificadas na seção de entrada do usuário.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. Selecione **autenticação de passagem** e verifique se o status é **ativo**.<br />
    
    Se o agente de autenticação não estiver ativo, conclua algumas [etapas de solução de problemas](./tshoot-connect-pass-through-authentication.md) antes de continuar com o processo de conversão de domínio na próxima etapa. Você correrá o risco de causar uma interrupção de autenticação se converter seus domínios antes de validar que os agentes de autenticação de passagem estão instalados com êxito e que têm o status **Ativo** no portal do Azure.
@@ -368,7 +368,7 @@ Conclua a conversão usando o módulo PowerShell do Azure AD:
    * **Logon único contínuo** está definido como **Habilitado**.
    * **Autenticação de passagem** está definida como **Habilitada**.<br />
 
-   ![Captura de tela que mostra as configurações na seção de Entrada do usuário](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
+   ![Captura de tela que mostra as configurações na seção de entrada do usuário no portal do Azure AD.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>Testes e próximas etapas
 

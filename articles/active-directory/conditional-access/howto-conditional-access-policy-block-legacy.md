@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b4a0a411f51eed3a262ee59eb8e93b983755af3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2499a89907eb63f01adbc80a6d206911c09c1259
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265945"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Bloquear a autenticação herdada
 
@@ -26,7 +26,7 @@ Devido ao maior risco associado aos protocolos de autenticação herdada, a Micr
 
 As etapas a seguir ajudarão a criar uma política de Acesso Condicional para o bloqueio de solicitações de autenticação herdada. Inicialmente essa política é colocada em [modo somente de relatório](howto-conditional-access-insights-reporting.md) para que os administradores possam determinar o impacto que ela terá sobre os usuários existentes. Quando os administradores tiverem certeza de que a política está sendo aplicada conforme pretendido, poderão mudar para **Ativada** ou preparar a implantação adicionando alguns grupos específicos e excluindo outros.
 
-1. Entre no **Portal do Azure** como administrador global.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de Acesso Condicional.
 1. Procure **Azure Active Directory** > **Segurança** > **Acesso Condicional**.
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.

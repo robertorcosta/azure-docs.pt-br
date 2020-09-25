@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 10108fdf4f2b7090eaeaa4b378992c2e94d3b04c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489571"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325378"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Banco de dados SQL do Azure e arquitetura de conectividade do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,7 +80,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Central2 da Austrália   | 20.36.113.0 |
 | Leste da Austrália       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| Brazil South         | 104.41.11.5, 191.233.200.14 |
+| Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Leste do Canadá          | 40.86.226.166, 52.242.30.154 |
 | Centro dos EUA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
@@ -98,7 +98,7 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Centro da Índia        | 104.211.96.159     |
 | Sul da Índia          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80     |
-| Japan East           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
+| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
 | Coreia Central        | 52.231.32.42       |
 | Sul da Coreia          | 52.231.200.86      |

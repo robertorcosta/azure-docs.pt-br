@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d225511bb78a5773ce4ed5866f6ffc1257921e96
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d4ab3bccf281928be2b55eb5a36ae20a0aa8a08a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032156"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288708"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Projetar tabelas usando o SQL Synapse
 
@@ -61,7 +61,7 @@ Um [esquema em estrela](https://en.wikipedia.org/wiki/Star_schema) organiza dado
 
 ## <a name="schema-names"></a>Nomes de esquema
 
-Os esquemas são uma boa maneira de agrupar objetos que são usados de maneira semelhante. O código a seguir cria um [esquema definido pelo usuário](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) chamado WWI.
+Os esquemas são uma boa maneira de agrupar objetos que são usados de maneira semelhante. O código a seguir cria um [esquema definido pelo usuário](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) chamado WWI.
 
 ```sql
 CREATE SCHEMA wwi;
@@ -69,7 +69,7 @@ CREATE SCHEMA wwi;
 
 ## <a name="table-names"></a>Nomes da tabela
 
-Se você estiver migrando vários bancos de dados de uma solução local para o pool do SQL, a prática recomendada é migrar todas as tabelas de fatos, dimensões e integração para um esquema de pool do SQL. Por exemplo, você pode armazenar todas as tabelas no exemplo [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) data warehouse em um esquema chamado WWI.
+Se você estiver migrando vários bancos de dados de uma solução local para o pool do SQL, a prática recomendada é migrar todas as tabelas de fatos, dimensões e integração para um esquema de pool do SQL. Por exemplo, você pode armazenar todas as tabelas no exemplo [WideWorldImportersDW](/sql/samples/wide-world-importers-dw-database-catalog?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) data warehouse em um esquema chamado WWI.
 
 Para mostrar a organização das tabelas no pool SQL, você pode usar fact, Dim e int como prefixos para os nomes de tabela. A tabela a seguir mostra alguns dos nomes de esquema e de tabela para WideWorldImportersDW.  
 
@@ -108,7 +108,7 @@ Para o SQL sob demanda, você pode usar [CETAS](develop-tables-cetas.md) para sa
 
 ## <a name="data-types"></a>Tipos de dados
 
-O pool SQL oferece suporte aos tipos de dados usados com mais frequência. Para obter uma lista dos tipos de dados com suporte, consulte [tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) na instrução CREATE TABLE. Para obter mais informações sobre como usar tipos de dados, consulte [tipos de dados](../sql/develop-tables-data-types.md).
+O pool SQL oferece suporte aos tipos de dados usados com mais frequência. Para obter uma lista dos tipos de dados com suporte, consulte [tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes&preserve-view=true) na instrução CREATE TABLE. Para obter mais informações sobre como usar tipos de dados, consulte [tipos de dados](../sql/develop-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tabelas distribuídas
 
@@ -144,7 +144,7 @@ A categoria de tabela geralmente determina a opção ideal para distribuição d
 |:---------------|:--------------------|
 | Fato           | Use a distribuição de hash com índice columnstore clusterizado. O desempenho melhora quando duas tabelas de hash são unidas na mesma coluna de distribuição. |
 | Dimensão      | Use a replicada para tabelas menores. Se as tabelas forem grandes demais para serem armazenadas em cada nó de computação, use a distribuição de hash. |
-| Preparo        | Use um round robin para a tabela de preparo. A carga com CTAS é rápida. Depois que os dados estiverem na tabela de preparo, use INSERT... Selecione para mover os dados para tabelas de produção. |
+| Staging        | Use um round robin para a tabela de preparo. A carga com CTAS é rápida. Depois que os dados estiverem na tabela de preparo, use INSERT... Selecione para mover os dados para tabelas de produção. |
 
 ## <a name="partitions"></a>Partições
 
@@ -153,7 +153,7 @@ No pool do SQL, uma tabela particionada armazena e executa operações nas linha
 Você também pode manter os dados por meio de alternância de partição. Como os dados no pool SQL já estão distribuídos, muitas partições podem reduzir o desempenho da consulta. Para saber mais informações, confira [Diretrizes de particionamento](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  
 
 > [!TIP]
-> Quando a partição muda para partições de tabela que não estão vazias, considere usar a opção TRUNCATE_TARGET na instrução [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) se os dados existentes forem truncados.
+> Quando a partição muda para partições de tabela que não estão vazias, considere usar a opção TRUNCATE_TARGET na instrução [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) se os dados existentes forem truncados.
 
 O código a seguir alterna os dados diários transformados em uma partição SalesFact e substitui todos os dados existentes.
 
@@ -190,7 +190,7 @@ Por padrão, o pool do SQL armazena uma tabela como um índice columnstore clust
 > [!TIP]
 > Uma tabela de heap pode ser especialmente útil para carregar dados transitórios, como uma tabela de preparo, que é transformada em uma tabela final.
 
-Para obter uma lista de recursos columnstore, confira [Quais são as novidades dos índices columnstores](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Para melhorar o desempenho do índice columnstore, confira [Como maximizar a qualidade do rowgroup para índices columnstore](../sql/data-load-columnstore-compression.md).
+Para obter uma lista de recursos columnstore, confira [Quais são as novidades dos índices columnstores](/sql/relational-databases/indexes/columnstore-indexes-what-s-new?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Para melhorar o desempenho do índice columnstore, confira [Como maximizar a qualidade do rowgroup para índices columnstore](../sql/data-load-columnstore-compression.md).
 
 ## <a name="statistics"></a>Estatísticas
 
@@ -209,10 +209,10 @@ Você pode criar uma tabela como uma nova tabela vazia. Você também pode criar
 
 | Instrução T-SQL | Descrição |
 |:----------------|:------------|
-| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela vazia com a definição de todas as opções e colunas da tabela. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela externa. A definição da tabela é armazenada no pool do SQL. Os dados da tabela são armazenados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage. |
-| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Popula uma tabela nova com os resultados de uma instrução selecionada. Os tipos de dados e colunas de tabela baseiam-se nos resultados da instrução selecionada. Para importar dados, essa instrução pode selecionar de uma tabela externa. |
-| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma tabela externa nova exportando os resultados de uma instrução selecionada para um local externo.  O local é o armazenamento de BLOBs do Azure ou o Azure Data Lake Storage. |
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Cria uma tabela vazia com a definição de todas as opções e colunas da tabela. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Cria uma tabela externa. A definição da tabela é armazenada no pool do SQL. Os dados da tabela são armazenados no armazenamento de BLOBs do Azure ou Azure Data Lake Storage. |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Popula uma tabela nova com os resultados de uma instrução selecionada. Os tipos de dados e colunas de tabela baseiam-se nos resultados da instrução selecionada. Para importar dados, essa instrução pode selecionar de uma tabela externa. |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | Cria uma tabela externa nova exportando os resultados de uma instrução selecionada para um local externo.  O local é o armazenamento de BLOBs do Azure ou o Azure Data Lake Storage. |
 
 ## <a name="align-source-data-with-the-data-warehouse"></a>Alinhar dados de origem com o data warehouse
 
@@ -227,20 +227,20 @@ Se os dados forem provenientes de vários armazenamentos de dados, você poderá
 
 O pool SQL oferece suporte a muitos, mas não a todos, dos recursos de tabela oferecidos por outros bancos de dados.  A lista a seguir mostra alguns dos recursos de tabela que não têm suporte no pool do SQL.
 
-- Chave estrangeira, verificar [restrições de tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Colunas computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Exibições indexadas](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Sequência](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Colunas esparsas](/sql/relational-databases/tables/use-sparse-columns?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- Chave estrangeira, verificar [restrições de tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Colunas computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Exibições indexadas](/sql/relational-databases/views/create-indexed-views?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Sequência](/sql/t-sql/statements/create-sequence-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Colunas esparsas](/sql/relational-databases/tables/use-sparse-columns?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 - Chaves substitutas, implementar com [identidade](../sql-data-warehouse/sql-data-warehouse-tables-identity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Sinônimos](/sql/t-sql/statements/create-synonym-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Gatilhos](/sql/t-sql/statements/create-trigger-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Índices exclusivos](/sql/t-sql/statements/create-index-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Tipos definidos pelo usuário](/sql/relational-databases/native-client/features/using-user-defined-types?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Sinônimos](/sql/t-sql/statements/create-synonym-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Gatilhos](/sql/t-sql/statements/create-trigger-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Índices exclusivos](/sql/t-sql/statements/create-index-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [Tipos definidos pelo usuário](/sql/relational-databases/native-client/features/using-user-defined-types?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="table-size-queries"></a>Consultas do tamanho da tabela
 
-Uma maneira simples de identificar o espaço e as linhas consumidas por uma tabela em cada uma das distribuições 60 é usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Uma maneira simples de identificar o espaço e as linhas consumidas por uma tabela em cada uma das distribuições 60 é usar [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');

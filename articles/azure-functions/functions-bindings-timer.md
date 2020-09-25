@@ -7,16 +7,16 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563068"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325786"
 ---
-# <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions 
+# <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions
 
-Este artigo explica como trabalhar com gatilhos de temporizador no Azure Functions. Um gatilho de temporizador permite executar uma função em uma agenda. 
+Este artigo explica como trabalhar com gatilhos de temporizador no Azure Functions. Um gatilho de temporizador permite executar uma função em uma agenda.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -80,6 +80,21 @@ public static void Run(TimerInfo myTimer, ILogger log)
 }
 ```
 
+# <a name="java"></a>[Java](#tab/java)
+
+A função de exemplo a seguir é disparada e executada a cada cinco minutos. A anotação `@TimerTrigger` na função define o agendamento usando o mesmo formato de cadeia de caracteres que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. Um [objeto de timer](#usage) é passado para a função.
@@ -111,9 +126,44 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+O exemplo a seguir demonstra como configurar o *function.jsem* e *run.ps1* arquivo para um gatilho de temporizador no [PowerShell](./functions-reference-powershell.md).
+
+```json
+{
+  "bindings": [
+    {
+      "name": "Timer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```powershell
+# Input bindings are passed in via param block.
+param($Timer)
+
+# Get the current universal time in the default string format.
+$currentUTCtime = (Get-Date).ToUniversalTime()
+
+# The 'IsPastDue' property is 'true' when the current function invocation is later than scheduled.
+if ($Timer.IsPastDue) {
+    Write-Host "PowerShell timer is running late!"
+}
+
+# Write an information log with the current time.
+Write-Host "PowerShell timer trigger function ran! TIME: $currentUTCtime"
+```
+
+Uma instância do [objeto de timer](#usage) é passada como o primeiro argumento para a função.
+
 # <a name="python"></a>[Python](#tab/python)
 
-O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita na *function.jsno* arquivo. A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo * __init__. py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente. 
+O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita na *function.jsno* arquivo. A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo * __init__. py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -145,21 +195,6 @@ def main(mytimer: func.TimerRequest) -> None:
     logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
-# <a name="java"></a>[Java](#tab/java)
-
-A função de exemplo a seguir é disparada e executada a cada cinco minutos. A anotação `@TimerTrigger` na função define o agendamento usando o mesmo formato de cadeia de caracteres que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
-
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 */5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
-}
-```
-
 ---
 
 ## <a name="attributes-and-annotations"></a>Atributos e anotações
@@ -188,14 +223,6 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 O script C# não dá suporte a atributos.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-O JavaScript não dá suporte a atributos.
-
-# <a name="python"></a>[Python](#tab/python)
-
-O Python não dá suporte a atributos.
-
 # <a name="java"></a>[Java](#tab/java)
 
 A anotação `@TimerTrigger` na função define o agendamento usando o mesmo formato de cadeia de caracteres que as [expressões CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression).
@@ -210,6 +237,18 @@ public void keepAlive(
      context.getLogger().info("Timer is triggered: " + timerInfo);
 }
 ```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+O JavaScript não dá suporte a atributos.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Não há suporte para atributos pelo PowerShell.
+
+# <a name="python"></a>[Python](#tab/python)
+
+O Python não dá suporte a atributos.
 
 ---
 
@@ -229,7 +268,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Recomendamos a configuração **runOnStartup** para `true` em produção. Usar essa configuração faz com que código seja executado em momentos altamente imprevisíveis. Em determinadas configurações de produção, essas execuções extras podem resultar em custos significativamente mais altos para aplicativos hospedados em planos de consumo. Por exemplo, com **runOnStartup** habilitado, o gatilho é invocado sempre que seu aplicativo de funções é dimensionado. Verifique se você compreender totalmente o comportamento de produção de suas funções antes de habilitar **runOnStartup** em produção.   
+> Recomendamos a configuração **runOnStartup** para `true` em produção. Usar essa configuração faz com que código seja executado em momentos altamente imprevisíveis. Em determinadas configurações de produção, essas execuções extras podem resultar em custos significativamente mais altos para aplicativos hospedados em planos de consumo. Por exemplo, com **runOnStartup** habilitado, o gatilho é invocado sempre que seu aplicativo de funções é dimensionado. Verifique se você compreender totalmente o comportamento de produção de suas funções antes de habilitar **runOnStartup** em produção.
 
 ## <a name="usage"></a>Uso
 
@@ -250,8 +289,7 @@ Quando uma função de gatilho de temporizador é invocada, um objeto de tempori
 
 A propriedade `IsPastDue` é `true` quando a invocação da função atual é posterior ao agendado. Por exemplo, uma reinicialização do aplicativo de função pode causar a perda de uma invocação.
 
-
-## <a name="ncrontab-expressions"></a>Expressões NCRONTAB 
+## <a name="ncrontab-expressions"></a>Expressões NCRONTAB
 
 Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCrontab) para interpretar as expressões NCronTab. Uma expressão NCRONTAB é semelhante a uma expressão CRON, exceto que ela inclui um sexto campo adicional no início a ser usado para a precisão de tempo em segundos:
 
@@ -300,12 +338,12 @@ Ao contrário de uma expressão CRON, um valor `TimeSpan` especifica o intervalo
 
 Expresso como uma cadeia de caracteres, o formato `TimeSpan` é `hh:mm:ss` quando `hh` é menor que 24. Quando os dois primeiros dígitos são 24 ou superior, o formato é `dd:hh:mm`. Estes são alguns exemplos:
 
-|Exemplo |Quando disparado  |
-|---------|---------|
-|"01:00:00" | a cada hora        |
-|"00:01:00"|a cada minuto         |
-|"24:00:00" | a cada 24 dias        |
-|"1,00:00:00" | Todos os dias        |
+| Exemplo      | Quando disparado |
+|--------------|----------------|
+| "01:00:00"   | a cada hora     |
+| "00:01:00"   | a cada minuto   |
+| "24:00:00"   | a cada 24 dias  |
+| "1,00:00:00" | Todos os dias      |
 
 ## <a name="scale-out"></a>Escalabilidade horizontal
 
@@ -315,7 +353,7 @@ Se um aplicativo de funções se expandir para várias instâncias, apenas uma �
 
 Se você estiver compartilhando contas de armazenamento entre aplicativos de funções que não são implantados no serviço de aplicativo, talvez seja necessário atribuir explicitamente a ID do host a cada aplicativo.
 
-| Versão do Functions | Setting                                              |
+| Versão do Functions | Configuração                                              |
 | ----------------- | ---------------------------------------------------- |
 | 2. x (e superior)  | A variável de ambiente `AzureFunctionsWebHost__hostid` |
 | 1.x               | `id` em *host.jsem*                                  |

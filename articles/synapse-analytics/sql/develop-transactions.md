@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288606"
 ---
 # <a name="use-transactions-in-sql-pool"></a>Usar transações no pool do SQL
 
@@ -29,10 +29,10 @@ Como era esperado, o pool de SQL oferece suporte a transações como parte da ca
 
 O pool de SQL implementa transações ACID. O nível de isolamento do suporte transacional usa como padrão READ UNCOMMITTED.  Você pode alterá-lo para to READ COMMITTED SNAPSHOT ISOLATION selecionando ON na opção de banco de dados READ_COMMITTED_SNAPSHOT para um banco de dados do usuário quando conectado ao banco de dados mestre.  
 
-Após a habilitação, todas as transações nesse banco de dados serão executadas em READ COMMITTED SNAPSHOT ISOLATION, e a configuração READ UNCOMMITTED no nível da sessão não será respeitada. Confira [Opções ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) para detalhes.
+Após a habilitação, todas as transações nesse banco de dados serão executadas em READ COMMITTED SNAPSHOT ISOLATION, e a configuração READ UNCOMMITTED no nível da sessão não será respeitada. Confira [Opções ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) para detalhes.
 
 ## <a name="transaction-size"></a>Tamanho da transação
-Uma única transação de modificação de dados é limitada em tamanho. O limite é aplicado por distribuição. Portanto, a alocação total pode ser calculada multiplicando o limite pela contagem de distribuição. 
+Uma única transação de modificação de dados é limitada em tamanho. O limite é aplicado por distribuição. Dessa forma, a alocação total pode ser calculada multiplicando o limite pela contagem de distribuição. 
 
 Para chegar a uma aproximação do número máximo de linhas na transação, divida o limite de distribuição pelo tamanho total de cada linha. Para colunas de tamanho variável, considere o uso de um tamanho médio de coluna em vez do tamanho máximo.
 
@@ -81,7 +81,7 @@ Na tabela abaixo, foram feitas as seguintes suposições:
 
 O limite de tamanho de transação é aplicado por transação ou operação. Ele não é aplicado em todas as transações simultâneas. Portanto, cada transação tem permissão para gravar essa quantidade de dados no log.
 
-Para otimizar e minimizar a quantidade de dados gravados no log, consulte o artigo [Transactions best practices](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)(Melhores práticas de transações).
+Para otimizar e minimizar a quantidade de dados gravados no log, consulte o artigo [práticas recomendadas de transações](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) .
 
 > [!WARNING]
 > O tamanho máximo de transações só pode ser obtido para tabelas distribuídas HASH ou ROUND_ROBIN nas quais o espalhamento de dados é uniforme. Se a transação estiver gravando dados de maneira distorcida nas distribuições, provavelmente, o limite será alcançado antes do tamanho máximo de transações.
@@ -134,11 +134,11 @@ SELECT @xact_state AS TransactionState;
 
 O código anterior oferece a seguinte mensagem de erro:
 
-Msg 111233, Nível 16, Estado 1, Linha 1 111233; a transação atual foi anulada, e as alterações pendentes foram revertidas. Causa: Uma transação em um estado somente de reversão não foi revertida explicitamente antes de uma instrução DDL, DML ou SELECT.
+Msg 111233, Nível 16, Estado 1, Linha 1 111233; a transação atual foi anulada, e as alterações pendentes foram revertidas. Causa: uma transação em um estado somente de reversão não foi explicitamente revertida antes de uma instrução DDL, DML ou SELECT.
 
 Você não receberá a saída das funções ERROR_*.
 
-No pool de SQL, o código precisa ser ligeiramente alterado:
+No pool SQL, o código precisa ser ligeiramente alterado:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,21 +181,19 @@ Tudo o que mudou é que o ROLLBACK da transação deve ocorrer antes da leitura 
 
 ## <a name="error_line-function"></a>Função Error_line()
 
-Também vale a pena observar que o pool de SQL não implementa nem aceita a função ERROR_LINE(). Se você tiver isso em seu código, será necessário removê-lo para que ele fique em conformidade com o pool de SQL. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Para obter mais detalhes, consulte o artigo [LABEL](develop-label.md).
+Também vale a pena observar que o pool de SQL não implementa nem aceita a função ERROR_LINE(). Se você tiver essa função em seu código, precisará removê-la para estar em conformidade com o pool do SQL. Em vez disso, use rótulos de consulta em seu código para implementar a funcionalidade equivalente. Para obter mais informações, consulte o artigo [rótulo](develop-label.md) .
 
 ## <a name="use-of-throw-and-raiserror"></a>Uso de THROW e RAISERROR
 
 THROW é a implementação mais moderna para lançar exceções no pool de SQL, mas também há suporte para RAISERROR. No entanto, existem algumas diferenças que valem a pena prestar atenção.
 
-* Os números das mensagens de erro definidas pelo usuário não podem estar no intervalo de 100.000 a 150.000 para THROW
+* Números de mensagens de erro definidas pelo usuário não podem estar no intervalo 100.000-150.000 para THROW
 * As mensagens de erro do RAISERROR são fixadas em 50.000
 * Não há suporte para o uso de sys.messages
 
 ## <a name="limitations"></a>Limitações
 
-O pool de SQL tem algumas outras restrições relacionadas a transações.
-
-Elas são as seguintes:
+O pool de SQL tem algumas outras restrições relacionadas a transações. Elas são as seguintes:
 
 * Sem transações distribuídas
 * Não há transações aninhadas permitidas

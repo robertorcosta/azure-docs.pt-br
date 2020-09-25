@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 7addc87f3096a75a55d0ea3b5804fd0006d5cb8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336030"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows usando os comandos de reparo da Máquina Virtual do Azure
 
@@ -77,7 +77,7 @@ Para obter a documentação e as instruções adicionais, confira [az vm repair]
 3. Execute `az vm repair create`. Esse comando criará uma cópia do disco do sistema operacional para a VM não funcional, criará uma VM de reparo em um novo grupo de recursos e anexará a cópia do disco do sistema operacional.  A VM de reparo terá o mesmo tamanho e região que a VM não funcional especificada. O grupo de recursos e o nome da VM usados em todas as etapas serão para a VM não funcional. Se sua VM estiver usando Azure Disk Encryption o comando tentará desbloquear o disco criptografado para que ele seja acessível quando anexado à VM de reparo.
 
    ```azurecli-interactive
-   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
+   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
 4. Execute `az vm repair run`. Este comando executará o script de reparo especificado no disco anexado por meio da VM de reparo. Se o guia de solução de problemas que você está usando especificou uma ID de execução, use-a aqui. Caso contrário, você pode usar `az vm repair list-scripts` para ver os scripts de reparo disponíveis. O grupo de recursos e o nome da VM usados aqui são para a VM não funcional usada na etapa 3.

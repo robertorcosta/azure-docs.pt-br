@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b06120437555ec71bc431cb1429120cb5e1987f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: be6040b8b84a4b86746d62bd2f1c07f0ffea0a3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933166"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336285"
 ---
 # <a name="manage-scheduled-maintenance-settings-for-azure-database-for-postgresql--flexible-server"></a>Gerenciar configurações de manutenção agendadas para o banco de dados do Azure para PostgreSQL – servidor flexível
  
@@ -31,9 +31,9 @@ Para concluir este guia de instruções, você precisa:
  
 ## <a name="notifications-about-scheduled-maintenance-events"></a>Notificações sobre eventos de manutenção agendada
  
-Você pode usar a integridade do serviço do Azure para [exibir notificações](/azure/service-health/service-notifications.md) sobre a manutenção agendada futura e realizada em seu servidor flexível. Você também pode [Configurar](/azure/service-health/resource-health-alert-monitor-guide.md) alertas na integridade do serviço do Azure para obter notificações sobre eventos de manutenção.
+Você pode usar a integridade do serviço do Azure para [exibir notificações](../../service-health/service-notifications.md) sobre a manutenção agendada futura e realizada em seu servidor flexível. Você também pode [Configurar](../../service-health/resource-health-alert-monitor-guide.md) alertas na integridade do serviço do Azure para obter notificações sobre eventos de manutenção.
  
 ## <a name="next-steps"></a>Próximas etapas  
  
 * Saiba mais sobre [a manutenção agendada no banco de dados do Azure para PostgreSQL – servidor flexível](concepts-maintenance.md)
-* Saiba mais sobre a [integridade do serviço do Azure](/azure/service-health/overview.md)
+* Saiba mais sobre a [integridade do serviço do Azure](../../service-health/overview.md)
