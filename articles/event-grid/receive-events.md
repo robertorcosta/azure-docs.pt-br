@@ -3,13 +3,13 @@ title: Receber eventos da Grade de Eventos do Azure em um ponto de extremidade H
 description: Descreve como validar um ponto de extremidade HTTP, receber e desserializar os eventos da Grade de Eventos do Azure
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 119e72b830c538df0cabf68ecea8cf78bae3029a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 42cf237f0c2fbe091307625fde70613ab9173b0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326466"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Receber eventos em um ponto de extremidade HTTP
 

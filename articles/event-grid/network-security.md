@@ -1,16 +1,16 @@
 ---
 title: Segurança de rede para recursos da grade de eventos do Azure
-description: Este artigo descreve como configurar o acesso de pontos de extremidade privados
+description: Este artigo descreve como usar marcas de serviço para saída, regras de firewall de IP para entrada e pontos de extremidade privados para entrada com a grade de eventos do Azure.
 author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119235"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326449"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança de rede para recursos da grade de eventos do Azure
 Este artigo descreve como usar os seguintes recursos de segurança com a grade de eventos do Azure: 
@@ -85,7 +85,7 @@ A tabela a seguir descreve os vários Estados da conexão de ponto de extremidad
 | ------------------ | -------------------------------|
 | Aprovado           | Sim                            |
 | Rejeitado           | Não                             |
-| Pendente            | Não                             |
+| Pending (Pendente)            | Não                             |
 | Desconectado       | Não                             |
 
 Para que a publicação seja bem-sucedida, o estado de conexão do ponto de extremidade privado deve ser **aprovado**. Se uma conexão for rejeitada, ela não poderá ser aprovada usando o portal do Azure. A única possibilidade é excluir a conexão e criar uma nova, em vez disso.

@@ -2,14 +2,16 @@
 title: IA (Inteligência Artificial)
 description: O LUIS usa inteligência artificial (ia) para fornecer reconhecimento de linguagem aos seus dados, com base no esquema que você definiu.
 ms.topic: conceptual
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.date: 08/07/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: bdcede01ec6bab5f8b43d89ff40d588a011d5dfb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2586bf2d31ef28c662ad88bde3718541bb21a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751355"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327197"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Inteligência artificial em Reconhecimento vocal (LUIS)
 
@@ -39,7 +41,7 @@ O processamento de idioma natural está disponível para seu aplicativo LUIS das
 * Pré ou pós-processamento do expressão de consulta fornecido por outros [Serviços cognitivas](../Welcome.md) , como:
     * [Transferência](../translator/translator-info-overview.md)
 
-## <a name="natural-language-understanding-nlu"></a>NLU (reconhecimento de linguagem natural)
+## <a name="natural-language-understanding-nlu"></a>NLU (Reconhecimento de idioma natural)
 
 O NLU é a capacidade de _transformar_ uma instrução linguística em uma representação que lhe permita entender naturalmente seus usuários. A compreensão do idioma natural continua sendo um problema muito desafiador e é definida como um problema do _ia-Hard_ .
 
