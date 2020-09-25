@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 08/03/2020
-ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/16/2020
+ms.openlocfilehash: 41a43abc3ebae0dad6892bebd06cf995cce143f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986014"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322403"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -283,7 +283,7 @@ Estes são os limites da mensagem que se aplicam aos protocolos B2B:
 
 | Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
-| AS2 | v2 - 100MB<br>v1 - 50MB | v2 - 200MB <br>v1 - 50MB | Aplicável ao decodificar e codificar |
+| AS2 | v2 - 100MB<br>v1-25 MB | v2 - 200MB <br>v1-25 MB | Aplicável ao decodificar e codificar |
 | X12 | 50 MB | 50 MB | Aplicável ao decodificar e codificar |
 | EDIFACT | 50 MB | 50 MB | Aplicável ao decodificar e codificar |
 ||||

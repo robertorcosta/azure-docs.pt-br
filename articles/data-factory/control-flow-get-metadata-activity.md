@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: c761cf1265ad61517a9d0123b932d31b27d157dd
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613495"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297599"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
 
@@ -33,9 +33,9 @@ A seguinte funcionalidade está disponível no fluxo de controle:
 - Você pode usar a saída da atividade obter metadados em expressões condicionais para executar a validação.
 - Você pode disparar um pipeline quando uma condição é satisfeita por meio do until loop.
 
-## <a name="capabilities"></a>Funcionalidades
+## <a name="capabilities"></a>Capacidades
 
-A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é 2 MB.
+A atividade obter metadados usa um conjunto de dados como uma entrada e retorna informações de metadados como saída. Atualmente, há suporte para os seguintes conectores e metadados recuperáveis correspondentes. O tamanho máximo dos metadados retornados é de cerca de 4 MB.
 
 >[!NOTE]
 >Se você executar a atividade obter metadados em um tempo de execução de integração auto-hospedado, os recursos mais recentes terão suporte na versão 3,6 ou posterior.
@@ -87,7 +87,7 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 | contentMD5 | MD5 do arquivo. Aplicável somente a arquivos. |
 | estrutura | Estrutura de dados do arquivo ou tabela de banco de dado relacional. Valor retornado é uma lista de nomes de coluna e tipos de coluna. |
 | ColumnCount | Número de colunas no arquivo ou na tabela relacional. |
-| exists| Se existe um arquivo, uma pasta ou uma tabela. Observe que `exists` , se for especificado na lista de campos obter metadados, a atividade não falhará mesmo que o arquivo, a pasta ou a tabela não exista. Em vez disso, `exists: false` é retornado na saída. |
+| exists| Se existe um arquivo, uma pasta ou uma tabela. Se `exists` for especificado na lista de campos obter metadados, a atividade não falhará mesmo que o arquivo, a pasta ou a tabela não exista. Em vez disso, `exists: false` é retornado na saída. |
 
 >[!TIP]
 >Quando você quiser validar que existe um arquivo, pasta ou tabela, especifique `exists` na lista de campos de atividade obter metadados. Em seguida, você pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campos, a atividade obter metadados falhará se o objeto não for encontrado.

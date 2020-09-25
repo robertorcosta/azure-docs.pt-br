@@ -5,12 +5,12 @@ description: Saiba como criar dinamicamente um volume persistente com Arquivos d
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 0c11748c6faa0b94ff84dfc944e475116a2a1bd4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299257"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Crie e use, dinamicamente, um volume persistente com Arquivos do Azure no AKS (Serviço de Kubernetes do Azure)
 
@@ -33,6 +33,7 @@ Uma classe de armazenamento é usada para definir como um compartilhamento de ar
 * *Standard_ZRS*: armazenamento com redundância de zona (ZRS) padrão
 * *Standard_RAGRS*: armazenamento com redundância geográfica e acesso de leitura padrão (RA-GRS)
 * *Premium_LRS* – Armazenamento com redundância local (LRS) premium.
+* *Premium_ZRS* -armazenamento com redundância de zona Premium (ZRS)
 
 > [!NOTE]
 > O serviço Arquivos do Azure dá suporte ao armazenamento premium em clusters do AKS que executam o Kubernetes 1.13 ou superior, o compartilhamento de arquivo premium mínimo é de 100 GB

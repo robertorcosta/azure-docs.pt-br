@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 4599346cd4538151f6c758253f1f1bf29bafdcbf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9faa9dcd664f5dc8b7b0b633eedd19431a4b826
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322199"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Compreendendo as alterações na autoridade de certificação raiz para o banco de dados do Azure para MySQL
 
@@ -30,6 +30,7 @@ O novo certificado será usado a partir de 26 de outubro de 2020 (10/26/2020). S
 Todos os aplicativos que usam SSL/TLS e verificam se o certificado raiz precisa atualizar o certificado raiz. Você pode identificar se suas conexões verificam o certificado raiz examinando a cadeia de conexão.
 -   Se a cadeia de conexão incluir `sslmode=verify-ca` ou `sslmode=verify-full` , você precisará atualizar o certificado.
 -   Se a cadeia de conexão incluir `sslmode=disable` ,, `sslmode=allow` `sslmode=prefer` ou `sslmode=require` , você não precisará atualizar os certificados. 
+-  Se estiver usando conectores de Java e sua cadeia de conexão incluir useSSL = false ou requireSSL = false, você não precisará atualizar os certificados.
 -   Se a cadeia de conexão não especificar sslmode, você não precisará atualizar os certificados.
 
 Se você estiver usando um cliente que abstrai a cadeia de conexão, examine a documentação do cliente para entender se ele verifica os certificados.

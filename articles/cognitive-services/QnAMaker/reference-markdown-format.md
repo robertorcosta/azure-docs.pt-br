@@ -3,12 +3,12 @@ title: Formato de redução-QnA Maker
 description: A seguir está a lista de formatos de redução que você pode usar no texto de resposta de QnA Maker.
 ms.topic: reference
 ms.date: 03/19/2020
-ms.openlocfilehash: 38532783c38263b3f1364e30125414958eab1394
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d5bf8342b3e595ed4b381ec5104a0c82f0d7ecc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321026"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Formato de redução com suporte no texto de resposta QnA Maker
 
@@ -38,7 +38,7 @@ Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA M
 |Negrito e itálico|`***text***`|`How can I create a ***QnA Maker*** bot?`|![formato para negrito e itálico](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |URL em negrito para o link|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formato para URL em negrito](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |URL de itálico para o link|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato para URL de itálico](./media/qnamaker-concepts-datasources/format-url-italics.png)|
-|Símbolos de redução de escape|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![formato para URL de itálico](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Símbolos de redução de escape|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![Formato para símbolos de redução de escape.](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Lista ordenada|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>O exemplo anterior usa a numeração automática incorporada à redução.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>O exemplo anterior usa a numeração explícita.|![formato da lista ordenada](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |Lista não ordenada|`\n * item1 \n * item2`<br>ou<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![formato da lista não ordenada](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
 |Listas aninhadas|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Você pode aninhar listas ordenadas e não ordenadas juntas. A guia, `\t` , indica o nível de recuo do elemento filho.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![formato da lista não ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![formato da lista ordenada aninhada](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|

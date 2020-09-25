@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 03/19/2020
+ms.date: 09/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92c3e0d77a26db406e24d6d2fa07e96349613634
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274037"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -68,7 +68,7 @@ Sim! Você pode criar uma política de acesso condicional que impede que todos o
 3. Em **gerenciar**, selecione **segurança**.
 4. Em **proteger**, selecione **acesso condicional**. Selecione **Nova política**.
 5. Na página **novo** , na caixa de texto **nome** , insira um nome para a política (por exemplo, "bloquear convidados de acessar o portal").
-6. Em **Atribuições**, selecione **Usuários e grupos**.
+6. Em **Atribuições**, selecione **Usuários e Grupos**.
 7. Na guia **incluir** , escolha **Selecionar usuários e grupos**e, em seguida, selecione **todos os usuários convidados e externos (versão prévia)**.
 9. Selecione **Concluído**.
 10. Na página **novo** , na seção **atribuições** , selecione **aplicativos de nuvem ou ações**.
@@ -116,6 +116,9 @@ Se o parceiro tiver um locatário do Azure AD que está federado à infraestrutu
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Achei que o Azure AD B2B não aceitava endereços de email gmail.com e outlook.com nem que o B2C fosse usado para esses tipos de contas.
 Estamos removendo as diferenças entre a colaboração B2B e B2C (entre clientes) em termos de quais identidades têm suporte. A identidade usada não é uma boa razão para escolher entre usar B2B ou usar B2C. Para obter informações sobre como escolher sua opção de colaboração, consulte [Comparação da colaboração B2B e B2C no Azure Active Directory](compare-with-b2c.md).
+
+### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Uma conta local Azure AD B2C pode ser convidada para um locatário do Azure AD para colaboração B2B?
+Não. Uma conta local Azure AD B2C pode ser usada apenas para entrar no locatário Azure AD B2C. A conta não pode ser usada para entrar em um locatário do Azure AD. Não há suporte para convidar uma conta local Azure AD B2C para um locatário do Azure AD para colaboração B2B.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quais aplicativos e serviços fornecem suporte aos usuários convidados B2B do Azure?
 Todos os aplicativos integrados ao Azure AD podem dar suporte a usuários convidados do Azure B2B, mas eles devem usar um ponto de extremidade configurado como um locatário para autenticar usuários convidados. Talvez você também precise [personalizar as declarações](claims-mapping.md) no token SAML que é emitido quando um usuário convidado se autentica no aplicativo. 

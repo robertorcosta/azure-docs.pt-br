@@ -3,12 +3,12 @@ title: Determinar as causas de não conformidade
 description: Quando um recurso não está em conformidade, há muitos motivos possíveis. Saiba como descobrir o que causou a não conformidade.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648573"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334167"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas de não conformidade
 
@@ -106,9 +106,15 @@ A matriz a seguir mapeia cada _motivo_ possível para a [condição](../concepts
 
 ## <a name="compliance-details-for-guest-configuration"></a>Detalhes de conformidade para configuração de convidado
 
-Para políticas _auditIfNotExists_ na categoria _Configuração de convidado_, pode haver várias configurações avaliadas dentro da VM e você precisará exibir os detalhes por configuração. Por exemplo, se você estiver auditando uma lista de políticas de senha e apenas uma delas tiver o status de _Não conformidade_, será preciso saber quais políticas de senha específicas estão fora de conformidade e por quê.
+Para políticas de _auditIfNotExists_ na categoria de _configuração de convidado_ , pode haver várias configurações avaliadas dentro da máquina virtual e você precisará exibir os detalhes por configuração. Por exemplo, se você estiver auditando uma lista de políticas de senha e apenas uma delas tiver o status de _Não conformidade_, será preciso saber quais políticas de senha específicas estão fora de conformidade e por quê.
 
-Você também pode não ter acesso para entrar na VM diretamente, mas precisa relatar por que a VM _não está em conformidade_.
+Você também pode não ter acesso para entrar na máquina virtual diretamente, mas precisa relatar por que a máquina virtual _não está em conformidade_.
+
+## <a name="compliance-details-for-resource-provider-modes"></a>Detalhes de conformidade para modos de provedor de recursos
+
+Para atribuições com um [modo de provedor de recursos](../concepts/definition-structure.md#resource-manager-modes), selecione o recurso _sem conformidade_ para abrir uma exibição mais profunda. Na guia **conformidade do componente** , são informações adicionais específicas do modo do provedor de recursos na política atribuída, mostrando o **componente** _não compatível_ e a **ID do componente**.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Captura de tela da guia conformidade do componente e detalhes de conformidade para uma atribuição de modo do provedor de recursos." border="false":::
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -211,7 +217,7 @@ Os dados do histórico de alterações são fornecidos pelo [Azure Resource Grap
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Revise os exemplos em [amostras do Azure Policy](../samples/index.md).
+- Revise os exemplos em [Exemplos do Azure Policy](../samples/index.md).
 - Revise a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Revisar [Compreendendo os efeitos da política](../concepts/effects.md).
 - Entenda como [criar políticas de forma programática](programmatically-create.md).

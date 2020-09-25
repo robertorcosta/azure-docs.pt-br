@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f0f0d61788d7ac9b242dbc176a125b45753d2578
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d88b8f2a6cc66e239706677bd1ebfe01bccd49af
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555113"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322020"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: configurar o figma para o provisionamento automático de usuário
 
@@ -110,11 +110,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira `https://www.figma.com/scim/v2/<TenantID>` a **URL de locatário** em que **tenantid** é o valor que você recuperou do figma anteriormente. Insira o valor do **token de API** no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao figma. Se a conexão falhar, verifique se sua conta do figma tem permissões de administrador e tente novamente.
 

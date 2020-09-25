@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265979"
 ---
 # <a name="conditional-access-block-access"></a>Acesso condicional: bloquear acesso
 
@@ -38,7 +38,7 @@ As políticas de Acesso Condicional são ferramentas avançadas, recomendamos ex
 
 ## <a name="create-a-conditional-access-policy"></a>Criar uma política de Acesso Condicional
 
-As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto para o [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) , se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente de relatório](howto-conditional-access-insights-reporting.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores se sentem confortáveis de que as políticas se aplicam conforme pretendido, eles podem alterná-los para **ativado**.
+As etapas a seguir ajudarão a criar políticas de acesso condicional para bloquear o acesso a todos os aplicativos, exceto para o [Office 365](concept-conditional-access-cloud-apps.md#office-365) , se os usuários não estiverem em uma rede confiável. Essas políticas são colocadas no [modo somente de relatório](howto-conditional-access-insights-reporting.md) para iniciar, para que os administradores possam determinar o impacto que eles terão sobre os usuários existentes. Quando os administradores se sentem confortáveis de que as políticas se aplicam conforme pretendido, eles podem alterná-los para **ativado**.
 
 A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplicativos Microsoft 365 se não estiver em um local confiável.
 
@@ -52,7 +52,7 @@ A primeira política bloqueia o acesso a todos os aplicativos, exceto para aplic
    1. Selecione **Concluído**.
 1. Em **aplicativos de nuvem ou ações**, selecione as seguintes opções:
    1. Em **incluir**, selecione **todos os aplicativos de nuvem**.
-   1. Em **excluir**, selecione **Office 365 (versão prévia)**, selecione **selecionar**e **concluído**.
+   1. Em **excluir**, selecione **Office 365**, selecione **selecionar**e **concluído**.
 1. Em **Condições**:
    1. Em **Condições** > **Localização**.
       1. Defina **Configurar** como **Sim**
@@ -72,7 +72,7 @@ Uma segunda política é criada abaixo para exigir a autenticação multifator o
    1. Em **Incluir**, selecione **Todos os usuários**.
    1. Em **Excluir**, selecione **Usuários e grupos** e escolha o acesso de emergência ou as contas de interrupção da sua organização. 
    1. Selecione **Concluído**.
-1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **selecionar aplicativos**, escolha **Office 365 (versão prévia)** e selecione **selecionar**e, em seguida, **concluído**.
+1. Em **aplicativos de nuvem ou ações**  >  **incluem**, selecione **selecionar aplicativos**, **escolha Office 365**e selecione **selecionar**e, em seguida, **concluído**.
 1. Em **Access controls**  >  **concessão**de controles de acesso, selecione **conceder acesso**.
    1. Selecione **exigir autenticação multifator** e **exigir que o dispositivo seja marcado como em conformidade** selecione **selecionar**.
    1. Certifique-se **de que exigir que todos os controles selecionados** esteja selecionado.

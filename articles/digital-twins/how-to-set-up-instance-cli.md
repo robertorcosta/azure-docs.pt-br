@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e9a78690128c2406277ab4e8fb6e6e4625d2787f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bb5ff0bf7347b87fdc3a103a03f9ff58279a367d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89280087"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320755"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (CLI)
 
@@ -132,7 +132,7 @@ Aqui está um trecho da saída deste comando, mostrando informações sobre o re
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Primeiro, verifique se as configurações de seu *manifest.jscarregado em* foram definidas corretamente no registro. Para fazer isso, selecione *manifesto* na barra de menus para exibir o código do manifesto do registro do aplicativo. Role até a parte inferior da janela de código e procure os campos de sua *manifest.jsem* `requiredResourceAccess` :
+Em seguida, verifique se as configurações de seu *manifest.jscarregado em* foram definidas corretamente no registro. Para fazer isso, selecione *manifesto* na barra de menus para exibir o código do manifesto do registro do aplicativo. Role até a parte inferior da janela de código e procure os campos de sua *manifest.jsem* `requiredResourceAccess` :
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
@@ -151,7 +151,7 @@ Anote a ID do *aplicativo (cliente)* e a *ID do diretório (locatário)* mostrad
 ## <a name="next-steps"></a>Próximas etapas
 
 Teste as chamadas de API REST individuais em sua instância usando os comandos da CLI do Azure digital gêmeos: 
-* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
 
 Ou então, consulte Como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:

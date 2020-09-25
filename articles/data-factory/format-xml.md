@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: 12e6ae9dd14ebafb1da6bfbcfef64e2d65e876d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531705"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334286"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML no Azure Data Factory
 
@@ -85,7 +85,9 @@ As propriedades a seguir têm suporte na seção *** \* origem \* *** da ativida
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | O tipo de formatSettings deve ser definido como **XmlReadSettings**. | Sim      |
 | validationmode | Especifica se o esquema XML deve ser validado.<br>Os valores permitidos são **nenhum** (padrão, sem validação), **XSD** (validar usando xsd), **DTD** (validar usando DTD). | Não |
+| namespaces | Se é para habilitar o namespace ao analisar os arquivos XML. Os valores permitidos são: **true** (padrão), **false**. | Não |
 | namespacePrefixes | URI de namespace para mapeamento de prefixo, que é usado para nomear campos ao analisar o arquivo XML.<br/>Se um arquivo XML tiver namespace e namespace estiver habilitado, por padrão, o nome do campo será o mesmo que no documento XML.<br>Se houver um item definido para o URI do namespace neste mapa, o nome do campo será `prefix:fieldName` . | Não |
+| detectDataType | Se os tipos de dados inteiro, duplo e booliano devem ser detectados. Os valores permitidos são: **true** (padrão), **false**.| Não |
 | compactproperties | Um grupo de propriedades sobre como descompactar dados para um determinado codec de compactação. | Não       |
 | preserveZipFileNameAsFolder<br>(*em `compressionProperties` -> `type` como `ZipDeflateReadSettings` *)  | Aplica-se quando o conjunto de dados de entrada é configurado com compactação **ZipDeflate** . Indica se o nome do arquivo zip de origem deve ser preservado como estrutura de pastas durante a cópia.<br>-Quando definido como **true (padrão)**, data Factory grava arquivos descompactados em `<path specified in dataset>/<folder named as source zip file>/` .<br>-Quando definido como **false**, data Factory grava arquivos descompactados diretamente no `<path specified in dataset>` . Verifique se você não tem nomes de arquivo duplicados em arquivos zip de origem diferentes para evitar a corrida ou comportamento inesperado.  | Não |
 | preserveCompressionFileNameAsFolder<br>(*em `compressionProperties` -> `type` como `TarGZipReadSettings` *) | Aplica-se quando o conjunto de dados de entrada é configurado com compactação **TarGzip** . Indica se o nome do arquivo compactado de origem deve ser preservado como estrutura de pastas durante a cópia.<br>-Quando definido como **true (padrão)**, data Factory grava arquivos descompactados em `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Quando definido como **false**, data Factory grava arquivos descompactados diretamente no `<path specified in dataset>` . Verifique se você não tem nomes de arquivo duplicados em arquivos de origem diferentes para evitar a corrida ou comportamento inesperado. | Não |
@@ -109,6 +111,7 @@ A tabela abaixo lista as propriedades com suporte por uma origem XML. Você pode
 | Modo de validação | Especifica se o esquema XML deve ser validado. | Não | `None` (padrão, sem validação)<br>`xsd` (validar usando XSD)<br>`dtd` (validar usando DTD). | validationmode |
 | Namespaces | Se é para habilitar o namespace ao analisar os arquivos XML. | Não | `true` (padrão) ou `false` | namespaces |
 | Pares de prefixo de namespace | URI de namespace para mapeamento de prefixo, que é usado para nomear campos ao analisar o arquivo XML.<br/>Se um arquivo XML tiver namespace e namespace estiver habilitado, por padrão, o nome do campo será o mesmo que no documento XML.<br>Se houver um item definido para o URI do namespace neste mapa, o nome do campo será `prefix:fieldName` . | Não | Matriz com padrão`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Exemplo de script de origem XML
 

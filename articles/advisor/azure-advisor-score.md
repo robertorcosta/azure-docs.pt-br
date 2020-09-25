@@ -3,12 +3,12 @@ title: Otimizar cargas de trabalho do Azure usando a Pontuação do supervisor
 description: Use a Pontuação do supervisor para aproveitar ao máximo o Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 720a2b358e35d776a7233452eee2bd69b521654f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056227"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335612"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Otimizar cargas de trabalho do Azure usando a Pontuação do supervisor
 
@@ -28,28 +28,33 @@ Para tirar o máximo proveito do Azure, é crucial entender onde você está em 
 ## <a name="how-to-consume-advisor-score"></a>Como consumir a Pontuação do supervisor
 O Advisor exibe a pontuação geral do consultor e a divisão para categorias do supervisor, em percentuais. Uma pontuação de 100% em qualquer categoria significa que todos os seus recursos avaliados pelo Advisor seguem as práticas recomendadas que o Advisor recomenda. Na outra extremidade do espectro, uma pontuação de 0% significa que nenhum dos seus recursos avaliados pelo Advisor seguem as recomendações do Advisor. Usando esses detalhamentos de pontuação, você pode facilmente alcançar o fluxo abaixo:
 * A **Pontuação do supervisor** para ajudá-lo a fazer uma linha de base de como sua carga de trabalho/assinaturas está fazendo com base na pontuação do supervisor. Você também pode ver as tendências históricas para entender o que é sua tendência.
-* **Pontuações de categoria do Advisor** para ajudá-lo a entender quais categorias precisam de mais atenção e ajuda com a priorização
-* **Possível aumento da Pontuação** de cada recomendação para ajudá-lo a priorizar suas ações de correção para cada categoria
+* As **pontuações de categoria do Advisor** de cada recomendação informarão quais recomendações pendentes melhorarão a sua pontuação mais. Esses valores refletem o peso da recomendação e nossa facilidade prevista de implementação para garantir que você possa obter o máximo de valor com seu tempo e ajuda com a priorização
+* **Impacto da Pontuação de categoria** de cada recomendação para ajudá-lo a priorizar suas ações de correção para cada categoria
 
-A contribuição de cada recomendação para sua pontuação é mostrada claramente na página Visão geral do portal do Azure. Você pode aumentar sua pontuação adotando as práticas recomendadas, e você pode priorizar as recomendações que têm maior **Pontuação potencial aumentar** para fazer o progresso mais rápido com o tempo que você tem.  
+A contribuição de cada recomendação para sua pontuação de categoria é mostrada claramente na página de Pontuação do supervisor na portal do Azure. Você pode aumentar cada Pontuação de categoria pelo ponto de porcentagem listado na coluna impacto da pontuação da categoria. Esse valor reflete o peso da recomendação dentro da categoria e a facilidade de implementação prevista para resolver os frutas potencialmente de baixa interrupções. Concentrar-se nas recomendações com o maior impacto de Pontuação ajudará você a aumentar o progresso com o tempo.  
 
 ![Impacto da Pontuação do supervisor](./media/advisor-score-2.png)
 
-Como a metodologia de Pontuação do Advisor aplica peso extra a recursos mais caros com recomendações demoradas, você pode aumentar o progresso corrigindo os recursos com o maior custo de varejo primeiro. Caso qualquer recomendação do Advisor não seja relevante para um recurso individual, você pode ignorar essas recomendações para excluí-las do cálculo de Pontuação e enviar comentários para o Advisor para melhorar suas recomendações. 
+Caso qualquer uma das recomendações do Advisor não seja relevante para um recurso individual, você pode adiar ou ignorar essas recomendações e elas serão excluídas do cálculo de pontuação da próxima atualização. O Advisor também usará essa entrada como comentários adicionais para melhorar o modelo.
 
 ## <a name="how-is-advisor-score-calculated"></a>Como a Pontuação do supervisor é calculada?
 O Advisor exibe as pontuações de categoria e sua pontuação geral do consultor como porcentagens. Uma pontuação de 100% em qualquer categoria significa todos os seus recursos, *avaliados pelo Advisor*, siga as práticas recomendadas que o Advisor recomenda. Na outra extremidade do espectro, uma pontuação de 0% significa que nenhum dos seus recursos, avaliados pelo Advisor, seguem as recomendações do Advisor. 
 **Cada uma das cinco categorias tem uma pontuação potencial mais alta de 100.** A pontuação geral do consultor é calculada como uma soma de cada Pontuação de categoria aplicável, dividida pela soma da Pontuação potencial mais alta de todas as categorias aplicáveis. Para a maioria das assinaturas, isso significa que o Advisor soma a pontuação de cada categoria e divide por 500. No entanto, **cada Pontuação de categoria é calculada somente se você usar os recursos que são avaliados pelo Advisor.**
 
+**Exemplo de cálculo de Pontuação do Advisor**
+* Pontuação de assinatura única: essa é a média simples de todas as pontuações de categoria do Advisor para sua assinatura. Se as pontuações de categoria do supervisor forem de custo = 73, Reliabilit = 85, excelência operacional = 77, desempenho = 100; a **Pontuação do supervisor** seria (73 + 85 + 77 + 100)/(4x100) = 0,84 ou 84%.
+* Pontuação de várias assinaturas: quando várias assinaturas são selecionadas, a pontuação geral do consultor que geramos são pontuações de categoria agregadas ponderadas. Aqui, cada Pontuação de categoria do supervisor é agregada com base nos recursos consumidos pelas assinaturas. Assim que tivermos as pontuações de categoria agregadas ponderadas, faremos uma média simples de fornecer uma pontuação geral para assinaturas. 
+
+
 ### <a name="scoring-methodology"></a>Metodologia de Pontuação: 
 O cálculo da Pontuação do supervisor pode ser resumido em quatro etapas:
-1. O Advisor calcula o **custo diário de varejo dos recursos afetados**, que são os recursos em suas assinaturas que têm pelo menos uma recomendação no Advisor.
-2. O Advisor calcula o **custo diário de varejo dos recursos avaliados**, que são os recursos monitorados pelo Advisor, independentemente de terem alguma recomendação ou não. 
-3. Para cada tipo de recomendação, o Advisor calcula a **taxa de recursos íntegros**, que é o custo dos recursos afetados divididos pelo custo dos recursos avaliados.
+1. O Advisor calcula o **custo de varejo dos recursos afetados**, que são os recursos em suas assinaturas que têm pelo menos uma recomendação no Advisor.
+2. O Advisor calcula o **custo de varejo dos recursos avaliados**, que são os recursos monitorados pelo Advisor, independentemente de terem ou não recomendações. 
+3. Para cada tipo de recomendação, o Advisor calcula a **taxa de recursos íntegros**, que é o custo de varejo dos recursos afetados divididos pelo custo de varejo dos recursos avaliados.
 4. O Advisor aplica três pesos adicionais à taxa de recursos íntegros em cada categoria:
-* As recomendações com maior impacto são ponderadas mais pesadas do que aquelas com menor impacto.
-* Os recursos com recomendações duradouras conterão mais em relação à sua pontuação.
-* Os recursos que você ignorar no Advisor serão removidos inteiramente do seu cálculo de pontuação. 
+  * As recomendações com maior impacto são ponderadas mais pesadas do que aquelas com menor impacto.
+  * Os recursos com recomendações duradouras conterão mais em relação à sua pontuação.
+  * Os recursos que você adiar ou ignorar no Advisor serão removidos inteiramente do seu cálculo de pontuação. 
     
 O Advisor aplica esse modelo a um nível de categoria do Advisor (a segurança usa o modelo de [Pontuação segura](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) ), fornecendo a Pontuação do consultor para cada categoria e uma média simples produz a pontuação final do consultor.
 
@@ -57,19 +62,25 @@ O Advisor aplica esse modelo a um nível de categoria do Advisor (a segurança u
 ## <a name="advisor-score-faq"></a>Perguntas frequentes sobre a Pontuação do supervisor
 * **Com que frequência a minha pontuação é atualizada?**
 Sua pontuação é atualizada pelo menos uma vez por dia. 
-* **É necessário exibir as recomendações no Advisor para obter um ponto para a minha Pontuação?**
-Não. Sua pontuação reflete se você adotar práticas recomendadas que o Advisor recomenda, mesmo se você nunca exibir essas recomendações no Advisor e adotar práticas recomendadas proativamente.  
-* **Como o Advisor calcula o custo diário de varejo dos recursos em uma assinatura?**
-O Advisor usa as tarifas de *pagamento conforme* o uso publicadas na página de preços do Azure.com, que não reflete nenhum desconto aplicável, multiplicado pela quantidade de utilização no último dia em que o recurso foi alocado. Omitir os descontos do cálculo do custo do recurso torna a Pontuação do supervisor comparável entre assinaturas, locatários e registros onde os descontos podem variar. 
+* **Por que algumas recomendações têm um valor "-" vazio na coluna impacto da pontuação da categoria?** O Advisor não inclui imediatamente novas recomendações ou aquelas com alterações recentes no modelo de pontuação. Após um curto período de avaliação, normalmente algumas semanas, elas serão incluídas na pontuação. 
+* **Por que o impacto da Pontuação de custo é maior para algumas recomendações, mesmo que elas tenham menor economia potencial?**
+Sua pontuação de custo reflete a economia potencial de recursos subutilizados e a facilidade prevista de implementar essas recomendações. Por exemplo, o peso extra é aplicado aos recursos afetados que ficam ociosos por um tempo maior, mesmo que a economia potencial seja menor. 
+* **Por que não tenho uma pontuação para uma ou mais categorias ou assinaturas?**
+O Advisor gerará uma pontuação apenas para as categorias e assinaturas que têm recursos que são avaliados pelo Advisor.
 * **E se uma recomendação não for relevante?**
 Se você ignorar uma recomendação do Advisor, ele será omitido do cálculo da sua pontuação. Ignorar recomendações também ajudará o Advisor a melhorar a qualidade das recomendações.
 * **Por que minha pontuação foi alterada?** A classificação pode ser alterada se você corrigir recursos impactados adotando as práticas recomendadas que o Advisor recomenda. Se você ou qualquer pessoa com permissões em sua assinatura tiver modificado ou criado novos recursos, você também poderá ver flutuações na sua pontuação, pois sua pontuação é baseada em uma taxa de recursos impactados pelo custo em relação ao custo total de todos os recursos.
-* **Minha pontuação depende de quanto eu gasto no Azure?**
-Não. A pontuação foi projetada para controlar o tamanho de uma combinação de assinatura e de serviço. 
+* **Como o Advisor calcula o custo de varejo dos recursos em uma assinatura?**
+O Advisor usa as tarifas de pagamento conforme o uso publicadas na página de preços do Azure.com, que não reflete nenhum desconto aplicável, multiplicado pela quantidade de utilização no último dia em que o recurso foi alocado. Omitir os descontos do cálculo do custo do recurso torna a Pontuação do supervisor comparável entre assinaturas, locatários e registros onde os descontos podem variar. 
+* **É necessário exibir as recomendações no Advisor para obter pontos para minha Pontuação?** Não. Sua pontuação reflete se você adotar práticas recomendadas que o Advisor recomenda, mesmo se você adotar essas práticas recomendadas proativamente e nunca exibir suas recomendações no Advisor.
 * **A metodologia de Pontuação diferencia as cargas de trabalho de produção e desenvolvimento/teste?**
 Não, não por enquanto, mas você pode ignorar recomendações em recursos individuais se esses recursos forem usados para desenvolvimento e teste e a recomendação não se aplicar.
 * **Posso comparar pontuações entre uma assinatura com recursos 100 e uma assinatura com recursos de 100.000?**
 A metodologia de pontuação foi projetada para controlar o número de recursos em uma combinação de assinatura e de serviço, portanto, as assinaturas com menos recursos podem ter pontuações maiores ou menores do que as assinaturas com mais recursos. 
+* **O que isso significa quando vejo "em breve" na coluna de impacto de Pontuação?**
+Isso significa que essa é uma nova recomendação e ainda estamos trabalhando para colocá-la em nosso modelo de Pontuação do Advisor. Depois que essa nova recomendação for considerada no cálculo de pontuação, você verá o valor de impacto de Pontuação para sua recomendação.  
+* **Minha pontuação depende de quanto eu gasto no Azure?**
+Não, sua pontuação não é necessariamente uma reflexão de quanto você gasta, e gastos desnecessários resultarão em uma pontuação de custo menor.
 
 ## <a name="how-to-access-advisor"></a>Como acessar o Advisor
 A Pontuação do supervisor está em visualização pública no portal do Azure. Você precisa ir para a seção do assistente e encontrar a Pontuação do supervisor como o segundo item de menu na barra de navegação à esquerda. 

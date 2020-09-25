@@ -3,12 +3,12 @@ title: Referência host.json para o Azure Functions 2.x
 description: Documentação de referência do arquivo host.json do Azure Functions com o runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055285"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321842"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
 
@@ -162,14 +162,14 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 | isEnabled | true | Habilita ou desabilita a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número de destino de itens de telemetria registrados por segundo em cada host do servidor. Se seu aplicativo for executado em vários hosts, reduza esse valor para permanecer dentro da taxa de destino de tráfego geral. | 
 | evaluationInterval | 01:00:00 | O intervalo no qual a taxa atual de telemetria é reavaliada. Avaliação é executada como uma média móvel. Talvez você queira reduzir esse intervalo se a sua telemetria estiver sujeita a picos repentinos. |
-| initialSamplingPercentage| 1.0 | A porcentagem de amostragem inicial aplicada no início do processo de amostragem para variar dinamicamente a porcentagem. Não reduza o valor enquanto estiver depurando. |
+| initialSamplingPercentage| 100.0 | A porcentagem de amostragem inicial aplicada no início do processo de amostragem para variar dinamicamente a porcentagem. Não reduza o valor enquanto estiver depurando. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | Quando o valor da porcentagem de amostragem é alterado, essa propriedade determina quanto tempo depois Application Insights tem permissão para aumentar a porcentagem de amostragem novamente para capturar mais dados. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | Quando o valor da porcentagem de amostragem é alterado, essa propriedade determina quanto tempo depois Application Insights tem permissão para reduzir a porcentagem de amostragem novamente para capturar menos dados. |
-| minSamplingPercentage | 0.1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem de amostragem mínima permitida. |
-| maxSamplingPercentage | 0.1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem máxima de amostragem permitida. |
+| minSamplingPercentage | 0,1 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem de amostragem mínima permitida. |
+| maxSamplingPercentage | 100.0 | À medida que a porcentagem de amostragem varia, essa propriedade determina a porcentagem máxima de amostragem permitida. |
 | movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Use um valor menor ou igual a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
-| excludedTypes | nulo | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
-| includedTypes | nulo | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
+| excludedTypes | null | Uma lista delimitada por ponto e vírgula de tipos que você não deseja que sejam amostrados. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
+| includedTypes | null | Uma lista delimitada por ponto e vírgula dos tipos que você deseja que sejam amostrados; uma lista vazia implica todos os tipos. Tipo listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , `Event` , `Exception` ,, `PageView` `Request` e `Trace` . As instâncias dos tipos especificados são amostradas; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights. httpAutoCollectionOptions
 
@@ -185,7 +185,7 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
-| agentEndpoint | nulo | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
+| agentEndpoint | null | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
 | captureSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | O limite do número de solicitações com falha para solicitar instantâneos antes que o processador de telemetria seja desabilitado.|
 | handleUntrackedExceptions | true | Habilita ou desabilita o rastreamento de exceções que não são controladas pela telemetria do Application Insights. |
@@ -199,14 +199,14 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 | problemCounterResetInterval | 24:00:00 | Com que frequência os contadores de problema são redefinidos em um intervalo de um minuto a sete dias. Quando esse intervalo é atingido, todas as contagens de problemas são redefinidas para zero. Problemas existentes que já atingiram o limite para fazer instantâneos, mas que ainda não geraram o número de instantâneos em `maximumSnapshotsRequired` , permanecem ativos. |
 | provideAnonymousTelemetry | true | Determina se o uso anônimo e a telemetria de erro devem ser enviados à Microsoft. Essa telemetria poderá ser usada se você entrar em contato com a Microsoft para ajudar a solucionar problemas com o Depurador de Instantâneos. Ele também é usado para monitorar padrões de uso. |
 | reconnectInterval | 00:15:00 | Com que frequência reconectamos ao ponto de extremidade de Depurador de Instantâneos. O intervalo permitido é de um minuto a um dia. |
-| shadowCopyFolder | nulo | Especifica a pasta a ser usada para binários de cópia de sombra. Se não estiver definido, as pastas especificadas pelas seguintes variáveis de ambiente serão tentadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
+| shadowCopyFolder | null | Especifica a pasta a ser usada para binários de cópia de sombra. Se não estiver definido, as pastas especificadas pelas seguintes variáveis de ambiente serão tentadas em ordem: Fabric_Folder_App_Temp, LOCALAPPDATA, APPDATA, TEMP. |
 | shareUploaderProcess | true | Se for true, apenas uma instância de SnapshotUploader coletará e carregará instantâneos para vários aplicativos que compartilham o InstrumentationKey. Se definido como false, o SnapshotUploader será exclusivo para cada tupla (ProcessName, InstrumentationKey). |
 | snapshotInLowPriorityThread | true | Determina se os instantâneos devem ou não ser processados em um thread de prioridade baixa e/s. A criação de um instantâneo é uma operação rápida, mas, para carregar um instantâneo no serviço de Depurador de Instantâneos, ele deve ser gravado primeiro no disco como um minidespejo. Isso acontece no processo de SnapshotUploader. Definir esse valor como true usa a e/s de baixa prioridade para gravar o minidespejo, que não concorrerá em seu aplicativo para recursos. Definir esse valor como false acelera a criação de minidespejos com a despesa de reduzir o seu aplicativo. |
 | snapshotsPerDayLimit | 30 | O número máximo de instantâneos permitido em um dia (24 horas). Esse limite também é imposto no lado do serviço Application Insights. Os carregamentos têm uma taxa limitada a 50 por dia por aplicativo (isto é, por chave de instrumentação). Esse valor ajuda a impedir a criação de instantâneos adicionais que eventualmente serão rejeitados durante o carregamento. Um valor de zero remove totalmente o limite, o que não é recomendado. |
 | snapshotsPerTenMinutesLimit | 1 | O número máximo de instantâneos permitido em 10 minutos. Embora não haja nenhum limite superior nesse valor, tome cuidado ao aumentá-lo nas cargas de trabalho de produção, pois isso pode afetar o desempenho do seu aplicativo. Criar um instantâneo é rápido, mas criar um minidespejo do instantâneo e carregá-lo para o serviço de Depurador de Instantâneos é uma operação muito mais lenta que conseguirá competir com seu aplicativo para recursos (CPU e e/s). |
-| tempFolder | nulo | Especifica a pasta para gravar minidespejos e arquivos de log do carregador. Se não for definido, *%Temp%\Dumps* será usado. |
+| tempFolder | null | Especifica a pasta para gravar minidespejos e arquivos de log do carregador. Se não for definido, *%Temp%\Dumps* será usado. |
 | thresholdForSnapshotting | 1 | Quantas vezes Application Insights precisa ver uma exceção antes de solicitar instantâneos. |
-| uploaderProxy | nulo | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
+| uploaderProxy | null | Substitui o servidor proxy usado no processo de carregador de instantâneo. Talvez seja necessário usar essa configuração se o aplicativo se conectar à Internet por meio de um servidor proxy. O Snapshot Collector é executado no processo do aplicativo e usará as mesmas configurações de proxy. No entanto, o carregador de instantâneos é executado como um processo separado e talvez seja necessário configurar o servidor proxy manualmente. Se esse valor for nulo, Snapshot Collector tentará detectar automaticamente o endereço do proxy examinando System .net. WebRequest. DefaultWebProxy e passando o valor para o carregador de instantâneos. Se esse valor não for nulo, a detecção automática não será usada e o servidor proxy especificado aqui deverá ser usado no carregador de instantâneos. |
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -283,7 +283,7 @@ Definições de configuração para [monitor de integridade de Host](https://git
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
 |counterThreshold|0.80|O limite no qual um contador de desempenho será considerado não íntegro.| 
 
-## <a name="http"></a>http
+## <a name="http"></a>HTTP
 
 As definições de configuração podem ser encontradas em [Associações e gatilhos HTTP](functions-bindings-http-webhook-output.md#hostjson-settings).
 

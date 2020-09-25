@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295015"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory logon único contínuo: início rápido
 
@@ -125,7 +125,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
 3. Navegue até política de **configuração de usuário**  >  **Policy**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  **Internet Control Panel**  >  **página segurança**do painel de controle Internet do Internet Explorer. Em seguida, selecione **Lista de atribuição de sites a zonas**.
-    ![Logon Único](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Captura de tela que mostra a "página de segurança" com "lista de atribuição de site a zona" selecionada.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Habilite a política e insira os valores a seguir na caixa de diálogo:
    - **Nome do valor**: a URL do Azure Active Directory para as quais os tíquetes Kerberos são encaminhados.
    - **Valor** (dados): **1** indica a zona da Intranet.
@@ -142,15 +142,15 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 
 5. Selecione **OK** e, em seguida, **OK** novamente.
 
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Captura de tela que mostra a janela "Mostrar conteúdo" com uma atribuição de zona selecionada.](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Navegue até a política de **configuração de usuário**  >  **Policy**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  segurança da área de rede do painel de**controle**  >  **Security Page**  >  **da**Internet. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
 
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Captura de tela que mostra a página "zona da intranet" com a seleção de "permitir atualizações na barra de status por meio do script".](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Habilite a configuração de política e, em seguida, selecione **OK**.
 
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Captura de tela que mostra a janela "permitir atualizações na barra de status via script" com a configuração de política habilitada.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opção "Preferência de política de grupo" – etapas detalhadas
 
@@ -158,7 +158,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
 3. Navegue até **User Configuration**  >  **preferências**configuração do usuário  >  **configurações**  >  **do Windows registro**  >  **novo**  >  **item do registro**.
 
-    ![Logon único](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Captura de tela que mostra "registro" selecionado e "item do registro" selecionado.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Insira os seguintes valores nos campos apropriados e clique em **OK**.
    - **Caminho da Chave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,7 +166,7 @@ Há duas maneiras de modificar as configurações de zona de Intranet dos usuár
    - **Tipo de valor**: ***REG_DWORD***
    - **Dados do valor**: ***00000001***
  
-     ![Logon único](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Captura de tela que mostra a janela "novas propriedades do registro".](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Logon único](./media/how-to-connect-sso-quick-start/sso17.png)
 

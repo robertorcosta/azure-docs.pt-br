@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 2c5340b37d6b277c156189b1b99cb3143a5c3b15
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9516a32e89b9ad671cf705c8f520c73e28801c19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320584"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -33,9 +33,9 @@ Os dois planos usam o Azure AD (Azure Active Directory) para autenticação. Par
 
 Quando você cria um cofre de chaves em uma assinatura do Azure, ele é automaticamente associado ao locatário do Azure Active Directory da assinatura. Todos os chamadores em ambos os planos devem se registrar neste locatário e se autenticar para acessar o cofre de chaves. Em ambos os casos, o aplicativo pode acessar o Key Vault de duas maneiras:
 
-- **Somente aplicativo**: o aplicativo representa um trabalho de serviço ou em segundo plano. Essa identidade é o cenário mais comum para aplicativos que precisam acessar certificados, chaves ou segredos do cofre de chaves, periodicamente. Para que esse cenário funcione, o `objectId` do aplicativo deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
+- **Somente aplicativo**: o aplicativo representa um trabalho de serviço ou em segundo plano. Essa identidade é o cenário mais comum para aplicativos que periodicamente precisam acessar certificados, chaves ou segredos do cofre de chaves. Para que esse cenário funcione, o `objectId` do aplicativo deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
 - **Somente usuário**: o usuário acessa o cofre de chaves de qualquer aplicativo registrado no locatário. Exemplos deste tipo de acesso incluem o Azure PowerShell e o portal do Azure. Para que esse cenário funcione, o `objectId` do usuário deve ser especificado na política de acesso e `applicationId` _não_ deve ser especificado ou deve ser `null` .
-- **Application-Plus-User** (às vezes chamado de _identidade composta_): o usuário é solicitado a acessar o cofre de chaves de um aplicativo específico _e_ o aplicativo deve usar o fluxo de autenticação em nome de (obo) para representar o usuário. Para que esse cenário funcione, `applicationId` e `objectId` deve ser especificado na política de acesso. O `applicationId` identifica o aplicativo necessário e `objectId` identifica o usuário. Esta opção não está disponível no momento para o Azure RBAC do plano de dados (versão prévia)
+- **Application-Plus-User** (às vezes chamado de _identidade composta_): o usuário é solicitado a acessar o cofre de chaves de um aplicativo específico _e_ o aplicativo deve usar o fluxo de autenticação em nome de (obo) para representar o usuário. Para que esse cenário funcione, `applicationId` e `objectId` deve ser especificado na política de acesso. O `applicationId` identifica o aplicativo necessário e o `objectId` identifica o usuário. Atualmente, essa opção não está disponível para o Azure RBAC (visualização) do plano de dados.
 
 Em todos os tipos de acesso, o aplicativo é autenticado com o Azure AD. O aplicativo usa qualquer [método de autenticação compatível](../../active-directory/develop/authentication-scenarios.md) com base no tipo de aplicativo. O aplicativo adquire um token para um recurso no plano para conceder acesso. O recurso é um ponto de extremidade no plano de gerenciamento ou de dados, com base no ambiente do Azure. O aplicativo usa esse token e envia uma solicitação da API REST ao Key Vault. Para saber mais, examine o [fluxo de autenticação completo](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 

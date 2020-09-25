@@ -4,14 +4,14 @@ description: Saiba como interagir com recursos do kubernetes para gerenciar um c
 services: container-service
 author: laurenhughes
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: lahugh
-ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6a9567669445cb5aa94c1108051c961a216fabad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335595"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Acessar recursos do kubernetes da portal do Azure (versão prévia)
 
@@ -75,11 +75,25 @@ Esta seção aborda problemas comuns e etapas de solução de problemas.
 
 Para acessar os recursos do kubernetes, você deve ter acesso ao cluster do AKS, à API do kubernetes e aos objetos do kubernetes. Certifique-se de que você seja um administrador de cluster ou um usuário com as permissões apropriadas para acessar o cluster AKS. Para obter mais informações sobre a segurança do cluster, consulte [Opções de acesso e identidade para AKs][concepts-identity].
 
+>[!NOTE]
+> O modo de exibição de recursos kubernetes no portal do Azure só tem suporte de [clusters habilitados para AAD gerenciados](managed-aad.md) ou clusters não habilitados para AAD. Se você estiver usando um cluster habilitado para AAD gerenciado, seu usuário ou identidade do AAD precisará ter as respectivas associações de funções/função para acessar a API kubernetes, além da permissão para efetuar pull [do `kubeconfig` usuário ](control-kubeconfig-access.md).
+
 ### <a name="enable-resource-view"></a>Habilitar exibição de recursos
 
 Para os clusters existentes, talvez seja necessário habilitar a exibição de recursos kubernetes. Para habilitar o modo de exibição de recursos, siga os prompts no portal para o cluster.
 
 :::image type="content" source="media/kubernetes-portal/enable-resource-view.png" alt-text="Portal do Azure mensagem para habilitar a exibição de recursos kubernetes." lightbox="media/kubernetes-portal/enable-resource-view.png":::
+
+> [!TIP]
+> O recurso AKS para [**intervalos de IP autorizados do servidor de API**](api-server-authorized-ip-ranges.md) pode ser adicionado para limitar o acesso do servidor de API somente ao ponto de extremidade público do firewall. Outra opção para esses clusters é atualizar `--api-server-authorized-ip-ranges` para incluir o acesso a um computador cliente local ou intervalo de endereços IP (do qual o portal está sendo procurado). Para permitir esse acesso, você precisa do endereço IPv4 público do computador. Você pode encontrar esse endereço com o comando abaixo ou pesquisando "o que é meu endereço IP" em um navegador da Internet.
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

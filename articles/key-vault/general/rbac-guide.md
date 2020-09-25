@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4f943b11830c19ebb69dd501827deb158cecadf0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972259"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336744"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Key Vault com um controle de acesso baseado em função do Azure (versão prévia)
 
@@ -45,6 +45,8 @@ Mais sobre as diretrizes de gerenciamento de Azure Key Vault, consulte:
 - [Limites de serviço Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Funções internas do Azure para Key Vault operações do plano de dados (versão prévia)
+> [!NOTE]
+> `Key Vault Contributor` a função destina-se a operações do plano de gerenciamento para gerenciar cofres de chaves. Ele não permite acesso a chaves, segredos e certificados.
 
 | Função interna | Descrição | ID |
 | --- | --- | --- |

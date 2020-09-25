@@ -1,6 +1,6 @@
 ---
-title: Requisitos de sistema do Microsoft Azure Stack Edge pro | Microsoft Docs
-description: Saiba mais sobre os requisitos de software e de rede para seu Azure Stack Edge pro
+title: Requisitos de sistema do Microsoft Azure Stack Edge | Microsoft Docs
+description: Saiba mais sobre os requisitos de sistema para sua solução Microsoft Azure Stack Edge e para os clientes que se conectam ao Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 091d272ff00982a0d0a5ae44885a04cc62d7a4b4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320720"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos do sistema para o Azure Stack Edge pro com GPU 
 
@@ -40,7 +40,7 @@ Os requisitos de sistema para o Azure Stack Edge pro incluem:
 
 Quando gerenciados do Azure Stack, as seguintes contas de armazenamento em camadas têm suporte com interfaces SMB/NFS/REST.
 
-|Tipo  |Conta de armazenamento  |Comentários  |
+|Type  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|
 |Standard     |GPv1: BLOB de blocos         |         |
 |    |  Armazenamento de BLOBs: BLOB de blocos       | Com suporte apenas para NAS     |
@@ -71,7 +71,7 @@ O Azure IoT Edge permite a comunicação de saíde de um dispositivo do Edge loc
 
 Use a tabela a seguir para a configuração de porta dos servidores que hospedam o runtime do Azure IoT Edge:
 
-| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Diretrizes |
+| Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Orientação |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 

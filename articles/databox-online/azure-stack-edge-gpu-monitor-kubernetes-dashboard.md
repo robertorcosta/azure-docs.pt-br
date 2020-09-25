@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/29/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320822"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Use o painel do kubernetes para monitorar seu dispositivo de GPU pro do Azure Stack Edge
 
@@ -62,7 +62,7 @@ O painel do kubernetes é *somente leitura* e é executado no nó mestre kuberne
 
 Os módulos de computação são contêineres que têm uma lógica de negócios implementada. Você pode usar o painel para verificar se um módulo de computação foi implantado com êxito em seu dispositivo Azure Stack Edge pro.
 
-PARA exibir o status do módulo, siga estas etapas no painel:
+Para exibir o status do módulo, siga estas etapas no painel:
 
 1. No painel esquerdo do painel, vá para **namespace**. Filtre pelo namespace onde IoT Edge módulos são exibidos, nesse caso, **iotedge**.
 1. No painel esquerdo, vá para cargas de **trabalho > implantações**.
@@ -114,9 +114,9 @@ Você também pode filtrar por um namespace específico. No exemplo a seguir, vo
 
 ![Exibir o uso de memória e CPU para implantações do Azure Arc](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
 
-O servidor de métricas do kubernetes fornece pipelines de dimensionamento automático semelhantes aos do [dimensionador automático do pod horizontal](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+O servidor de métricas do kubernetes fornece pipelines de dimensionamento automático, como o [dimensionador automático de Pod horizontal](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como solucionar problemas do kubernetes <!--insert link-->.
+Saiba como [solucionar problemas de dispositivo](azure-stack-edge-gpu-troubleshoot.md).

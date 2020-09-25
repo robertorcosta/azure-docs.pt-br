@@ -1,14 +1,16 @@
 ---
 title: Configurar o comportamento de aprendizado
 description: O modo aprendiz dá a você confiança no serviço personalizador e em seus recursos de aprendizado de máquina, além de fornecer métricas para as quais o serviço recebe informações que podem ser aprendidas – sem arriscar o tráfego online.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: how-to
 ms.date: 05/01/2020
-ms.openlocfilehash: af38500fc439964f9928cdd08aae2380ee0d0a8a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 10e98cd2f0ad4793aa43f9bb3316c522b44f1d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303529"
 ---
 # <a name="configure-the-personalizer-learning-behavior"></a>Configurar o comportamento de aprendizagem do personalizador
 
@@ -69,4 +71,4 @@ Você não precisa fazer nenhuma alteração na classificação e recompensar as
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar configurações de modelo e aprendizado](how-to-manage-model.md)
+* [Gerenciar configurações de modelo e de aprendizado](how-to-manage-model.md)

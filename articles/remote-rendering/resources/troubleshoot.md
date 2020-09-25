@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322182"
 ---
 # <a name="troubleshoot"></a>Solucionar problemas
 
@@ -23,11 +23,7 @@ Esta página lista os problemas comuns que interferem no Azure Remote Rendering 
 
 ## <a name="client-cant-connect-to-server"></a>O cliente não pode se conectar ao servidor
 
-Verifique se os firewalls (no dispositivo, dentro de roteadores etc.) não bloqueiam as seguintes portas:
-
-* **50051 (TCP)** – necessária para a conexão inicial (handshake HTTP)
-* **8266 (TCP + UDP)** – necessária para transferência de dados
-* **5000 (TCP)** , **5433 (TCP)** , **8443 (TCP)** – necessárias para o [ArrInspector](tools/arr-inspector.md)
+Verifique se os firewalls (no dispositivo, dentro de roteadores, etc.) não bloqueiam as portas mencionadas nos [requisitos do sistema](../overview/system-requirements.md#network-ports).
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Erro ' `Disconnected: VideoFormatNotAvailable` '
 
@@ -152,7 +148,7 @@ Pode haver dois problemas com essa caixa delimitadora que resultam em uma geomet
 
 O Azure Remote Rendering conecta-se ao pipeline de renderização do Unity para fazer a composição do quadro com o vídeo e para fazer a reprojeção. Para verificar se esses ganchos existem, abra o menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Habilite-o e verifique se há duas entradas para o `HolographicRemotingCallbackPass` no pipeline:
 
-![Depurador de quadros do Unity](./media/troubleshoot-unity-pipeline.png)
+![Pipeline de renderização do Unity](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão quadriculado é renderizado após o carregamento do modelo
 
@@ -184,6 +180,12 @@ Vimos falhas falsas ao tentar compilar exemplos do Unity (início rápido, ShowC
 ### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>As compilações do Arm64 para projetos do Unity falham porque AudioPluginMsHRTF.dll está ausente
 
 O `AudioPluginMsHRTF.dll` para Arm64 foi adicionado ao pacote do *Windows Mixed Reality* *(com. Unity. XR. windowsmr. metro)* na versão 3.0.1. Verifique se você tem a versão 3.0.1 ou posterior instalada por meio do Gerenciador de pacotes do Unity. Na barra de menus do Unity, navegue até *janela > Gerenciador de pacotes* e procure o pacote do *Windows Mixed Reality* .
+
+## <a name="native-c-based-application-does-not-compile"></a>O aplicativo nativo baseado em C++ não compila
+
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Erro de ' biblioteca não encontrada ' para o aplicativo UWP ou dll
+
+Dentro do pacote NuGet do C++, há um `microsoft.azure.remoterendering.Cpp.targets` arquivo de arquivo que define qual é o tipo binário a ser usado. Para identificar `UWP` , as condições na verificação de arquivo para `ApplicationType == 'Windows Store'` . Portanto, é preciso garantir que esse tipo seja definido no projeto. Esse deve ser o caso ao criar um aplicativo UWP ou DLL por meio do assistente de projeto do Visual Studio.
 
 ## <a name="unstable-holograms"></a>Hologramas instáveis
 

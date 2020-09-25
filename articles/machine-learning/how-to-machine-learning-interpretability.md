@@ -11,12 +11,12 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 757646a1630443f297d4b7c538721e9facdc130c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d063af3ba3b9261100af5e48a2c507a80ac76d98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322352"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação de modelo na Azure Machine Learning (versão prévia)
 
@@ -39,20 +39,11 @@ A habilitação da capacidade de explicar um modelo de aprendizado de máquina �
 
 ## <a name="interpretability-with-azure-machine-learning"></a>Interpretabilidade com Azure Machine Learning
 
-As classes de interpretação são disponibilizadas por meio de vários pacotes do SDK: (saiba como [instalar pacotes do SDK para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
+As classes de interpretação são disponibilizadas por meio do seguinte pacote SDK: (saiba como [instalar pacotes SDK para Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true))
 
-* `azureml.interpret`, o pacote principal, contendo funcionalidades com suporte da Microsoft.
+* `azureml.interpret`, contém funcionalidades com suporte da Microsoft.
 
-* `azureml.contrib.interpret`, visualização e funcionalidades experimentais que você pode tentar.
-
-Use `pip install azureml-interpret` e `pip install azureml-contrib-interpret` para uso geral.
-
-
-> [!IMPORTANT]
-> O conteúdo no `contrib` namespace não tem suporte completo. Como as funcionalidades experimentais se tornam maduras, elas serão gradualmente movidas para o namespace principal.
-.
-
-
+Use `pip install azureml-interpret` para uso geral.
 
 ## <a name="how-to-interpret-your-model"></a>Como interpretar seu modelo
 

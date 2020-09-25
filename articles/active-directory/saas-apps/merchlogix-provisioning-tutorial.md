@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 6fe256660dc73aa411cf06e2b56ce9ef26934e2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273340"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: configurar o MerchLogix para o provisionamento automático de usuário
 
@@ -55,7 +55,7 @@ Antes de configurar o MerchLogix para o provisionamento automático de usuário 
 
 5. No painel de resultados, selecione **MerchLogix**e, em seguida, clique no botão **Adicionar** para adicionar o MerchLogix à lista de aplicativos SaaS.
 
-    ![Provisionamento do MerchLogix][4]
+    ![Captura de tela do botão Adicionar da seção de galé com a caixa de texto inserir um nome chamada.][4]
 
 ## <a name="assigning-users-to-merchlogix"></a>Atribuindo usuários ao MerchLogix
 
@@ -88,7 +88,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Provisionamento do MerchLogix](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+    ![Captura de tela da seção MerchLogix-Prisioning com a opção de provisionamento chamada out, o modo de provisionamento definido como Automatic e a opção Test Connection chamada out.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. Na seção **credenciais de administrador** :
 

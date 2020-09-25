@@ -3,13 +3,13 @@ title: Como monitorar os serviços Node.js com o Application Insights do Azure |
 description: Monitore o desempenho e diagnostique problemas em serviços do Node.js com o Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323287"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Como monitorar seus serviços do Node.js e aplicativos com o Application Insights
 
@@ -32,7 +32,7 @@ Antes de iniciar, verifique se você tem uma assinatura do Azure ou [obtenha uma
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
-### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a>Configurar um recurso de Application Insights
+### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configurar um recurso de Application Insights
 
 1. Entre no [portal do Azure][portal].
 2. [Criar um recurso do Application Insights](create-new-resource.md)
@@ -59,7 +59,7 @@ Inclua o SDK em seu aplicativo, para que ele possa coletar dados.
    ```javascript
    let appInsights = require('applicationinsights');
    ```
-4.  Você também pode fornecer um iKey por meio da variável de ambiente `APPINSIGHTS_INSTRUMENTATIONKEY` , em vez de passá-lo manualmente para `setup()` ou `new appInsights.TelemetryClient()` . Essa prática permite manter ikeys fora do código-fonte comprometido e também especificar ikeys diferentes para ambientes diferentes. Para configurar a chamada manualmente `appInsights.setup('[your ikey]');` .
+4.  Você também pode fornecer um iKey por meio da variável de ambiente `APPINSIGHTS_INSTRUMENTATIONKEY` , em vez de passá-lo manualmente para  `setup()` ou `new appInsights.TelemetryClient()` . Essa prática permite manter ikeys fora do código-fonte comprometido e também especificar ikeys diferentes para ambientes diferentes. Para configurar a chamada manualmente `appInsights.setup('[your ikey]');` .
 
     Para outras opções de configuração, confira as seções a seguir.
 
@@ -67,7 +67,7 @@ Inclua o SDK em seu aplicativo, para que ele possa coletar dados.
 
 5. Inicie a coleta e o envio de dados automaticamente chamando `appInsights.start();` .
 
-### <a name="monitor-your-app"></a><a name="monitor"></a>Monitorar seu aplicativo
+### <a name="monitor-your-app"></a><a name="monitor"></a> Monitorar seu aplicativo
 
 O SDK reúne automaticamente a telemetria sobre o tempo de execução de Node.js e alguns módulos de terceiros comuns. Use o aplicativo para gerar alguns desses dados.
 
@@ -110,7 +110,7 @@ Há alterações significativas entre as versões anteriores à versão 0,22 e p
 Em geral, você pode migrar com o seguinte:
 
 - Substitua referências a `appInsights.client` com `appInsights.defaultClient` .
-- Substituir referências a `appInsights.getClient()` por`new appInsights.TelemetryClient()`
+- Substituir referências a `appInsights.getClient()` por `new appInsights.TelemetryClient()`
 - Substitua todos os argumentos para os métodos Client. Track * por um único objeto que contém propriedades nomeadas como argumentos. Consulte a dica de tipo interno do IDE ou [TelemetryTypes](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes) para o objeto excetuado para cada tipo de telemetria.
 
 Se você acessar as funções de configuração do SDK sem encadear-las ao `appInsights.setup()` , agora poderá encontrar essas funções em `appInsights.Configurations` (por exemplo, `appInsights.Configuration.setAutoCollectDependencies(true)` ). Examine as alterações na configuração padrão na próxima seção.

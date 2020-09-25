@@ -3,12 +3,12 @@ title: Arquitetura do dispositivo de Migrações para Azure
 description: Fornece uma visão geral do dispositivo de Migrações para Azure usado na avaliação e migração de servidor.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514553"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322250"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura do dispositivo de Migrações para Azure
 
@@ -72,7 +72,7 @@ O dispositivo se comunica com servidores vCenter e hosts/cluster do Hyper-V usan
 2. **Coletar metadados e dados de desempenho**:
     - O dispositivo usa uma sessão de modelo CIM (CIM) para coletar dados de VM do Hyper-V do host Hyper-V na porta 5985.
     - O dispositivo se comunica com a porta 443 por padrão, para coletar dados de VM do VMware do vCenter Server.
-3. **Enviar dados**: o dispositivo envia os dados coletados para a avaliação de servidor de migrações para Azure e migração de servidor de migrações para Azure por meio da porta SSL 443. O dispositivo pode se conectar ao Azure pela Internet ou você pode usar o ExpressRoute com emparelhamento público/Microsoft.
+3. **Enviar dados**: o dispositivo envia os dados coletados para a avaliação de servidor de migrações para Azure e migração de servidor de migrações para Azure por meio da porta SSL 443. O dispositivo pode se conectar ao Azure pela Internet ou via ExpressRoute (requer emparelhamento da Microsoft).
     - Para dados de desempenho, o dispositivo coleta dados de utilização em tempo real.
         - Os dados de desempenho são coletados a cada 20 segundos para VMware e a cada 30 segundos para o Hyper-V, para cada métrica de desempenho.
         - Os dados coletados são acumulados para criar um único ponto de dados por 10 minutos.

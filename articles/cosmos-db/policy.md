@@ -1,23 +1,26 @@
 ---
 title: Use Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB
 description: Saiba como usar Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: a1b1c01f7cf720690decd9c7aac5fb14b92121ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320890"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Use Azure Policy para implementar governança e controles para recursos de Azure Cosmos DB
 
 O [Azure Policy](../governance/policy/overview.md) ajuda a reforçar os padrões de governança organizacional, a avaliar a conformidade dos recursos e a implementar a correção automática. Os casos de uso comuns incluem segurança, gerenciamento de custos e consistência de configuração.
 
 Definições de política interna do Azure Policy. Você pode criar definições de política personalizadas para cenários que não são abordados pelas definições de política internas. Para obter mais detalhes, confira a [documentação do Azure Policy](../governance/policy/overview.md).
+
+> [!IMPORTANT]
+> Azure Policy é imposta no nível do provedor de recursos para os serviços do Azure. Os SDKs do Cosmos DB podem executar a maioria das operações de gerenciamento em recursos de banco de dados, contêiner e taxa de transferência que ignoram o provedor de recursos Cosmos DB, ignorando assim qualquer política criada usando Azure Policy. Para garantir a imposição de políticas, consulte [impedindo alterações dos SDKs de Azure Cosmos DB](role-based-access-control.md#prevent-sdk-changes)
 
 ## <a name="assign-a-built-in-policy-definition"></a>Atribuir uma definição de política incorporada
 

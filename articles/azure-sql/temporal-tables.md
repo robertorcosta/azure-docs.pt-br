@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 219d3755794a09ef25cdb41afdbe154af3736538
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cebdbfc5bb84beb621e27725d0ec58308ba45efd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985475"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321383"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Introdução às tabelas temporais no banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -195,7 +195,7 @@ Como alternativa, use o [SSDT](/sql/ssdt/download-sql-server-data-tools-ssdt) ma
 
 Com as tabelas temporais versionadas pelo sistema, a tabela de histórico pode aumentar o tamanho do banco de dados mais do que as tabelas normais. Uma tabela de histórico grande e crescente pode se tornar um problema, tanto devido a custos de armazenamento puro, como por impor um desempenho imposto sobre consultas temporais. Portanto, o desenvolvimento de uma política de retenção de dados para o gerenciamento de dados na tabela de histórico é um aspecto importante do planejamento e do gerenciamento do ciclo de vida de cada tabela temporal. Com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada, você tem as seguintes abordagens para o gerenciamento de dado histórico na tabela temporal:
 
-- [Particionamento de tabela](/sql/relational-databases/tables/manage-retention-of-historical-data-in-system-versioned-temporal-tables#using-table-partitioning-approach)
+- [Particionamento de Tabela](/sql/relational-databases/tables/manage-retention-of-historical-data-in-system-versioned-temporal-tables#using-table-partitioning-approach)
 - [Script de Limpeza Personalizada](/sql/relational-databases/tables/manage-retention-of-historical-data-in-system-versioned-temporal-tables#using-custom-cleanup-script-approach)
 
 ## <a name="next-steps"></a>Próximas etapas

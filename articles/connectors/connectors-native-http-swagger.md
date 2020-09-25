@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831918"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271181"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Chamar pontos de extremidade REST com os Aplicativos Lógicos do Azure
 
@@ -28,11 +28,11 @@ Com os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) e o
 
   * O arquivo Swagger deve ser hospedado em uma URL HTTPS publicamente acessível.
 
-  * O arquivo Swagger deve ter o [CORS (compartilhamento de recursos entre origens)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) habilitado.
+  * O arquivo Swagger deve ter o [CORS (compartilhamento de recursos entre origens)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) habilitado.
 
   Para fazer referência a um arquivo Swagger que não está hospedado ou que não atende aos requisitos de segurança e entre origens, você pode [carregar o arquivo Swagger em um contêiner de blob em uma conta de armazenamento do Azure](#host-swagger) e habilitar o CORS nessa conta de armazenamento para que seja possível referenciar o arquivo.
 
-  Os exemplos neste tópico usam a [API de Detecção Facial dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/face/overview), que requer uma [conta no Serviços Cognitivos e uma chave de acesso](../cognitive-services/cognitive-services-apis-create-account.md).
+  Os exemplos neste tópico usam a [API de Detecção Facial dos Serviços Cognitivos](../cognitive-services/face/overview.md), que requer uma [conta no Serviços Cognitivos e uma chave de acesso](../cognitive-services/cognitive-services-apis-create-account.md).
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
@@ -54,17 +54,17 @@ Este gatilho interno envia uma solicitação HTTP a uma URL de um arquivo Swagge
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Inserir a URL para o ponto de extremidade do Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Captura de tela que mostra o designer do aplicativo lógico com o gatilho "H T T P + Swagger" e a propriedade "ponto de extremidade do Swagger U R L" definida como um valor U R L.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. Quando o designer mostrar as operações descritas pelo arquivo Swagger, selecione a operação que você deseja usar.
 
-   ![Operações no arquivo Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Captura de tela que mostra o designer do aplicativo lógico com o gatilho "H T T P + Swagger" e uma lista que exibe operações do Swagger.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Forneça os valores para os parâmetros de gatilho (que variam de acordo com a operação selecionada) que você deseja incluir na chamada do ponto de extremidade. Configure a recorrência para definir a frequência com que você deseja que o gatilho chame o ponto de extremidade.
 
    Este exemplo renomeia o gatilho para "gatilho HTTP + Swagger: Detecção Facial" para que a etapa tenha um nome mais descritivo.
 
-   ![Detalhes da operação](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Captura de tela que mostra o designer do aplicativo lógico com o gatilho "H T T P + Swagger" que exibe a operação "detecção de face".](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. Para adicionar outros parâmetros disponíveis, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros desejados.
 
@@ -118,7 +118,7 @@ Esta ação interna faz uma solicitação HTTP para a URL do arquivo Swagger que
 
 Você pode fazer referência a um arquivo Swagger que não está hospedado ou que não atende aos requisitos de segurança e entre origens carregando o arquivo no contêiner de blob em uma conta de armazenamento do Azure e habilitando o CORS nessa conta de armazenamento. Para criar, configurar e armazenar arquivos Swagger no Armazenamento do Azure, siga estas etapas:
 
-1. [Criar uma conta de Armazenamento do Azure](../storage/common/storage-create-storage-account.md).
+1. [Criar uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md).
 
 1. Agora, habilite o CORS para o blob. No menu da sua conta de armazenamento, selecione **CORS**. Na guia **Serviço Blob**, especifique estes valores e, em seguida, selecione **Salvar**.
 
@@ -166,3 +166,4 @@ Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP + S
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
+

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 9/17/2020
+ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321400"
 ---
 # <a name="azure-sql-database-serverless"></a>Banco de Dados SQL do Azure sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Ao contrário dos bancos de dados de computação provisionados, a memória do c
 
 Em bancos de dados de computação sem servidor e provisionados, as entradas de cache poderão ser removidas se toda a memória disponível for usada.
 
-Observe que quando a utilização da CPU é baixa, a utilização do cache ativo pode permanecer alta dependendo do padrão de uso e evitar a reclamação da memória.  Além disso, pode haver atraso adicional depois que a atividade do usuário for interrompida antes que a recuperação de memória ocorra devido a processos de plano de fundo periódicos respondendo à atividade anterior do usuário.  Por exemplo, as operações de exclusão geram registros fantasmas que são marcados para exclusão, mas não são fisicamente excluídos até que o processo de limpeza de fantasma seja executado, o que pode envolver a leitura de páginas de dados no cache.
+Observe que quando a utilização da CPU é baixa, a utilização do cache ativo pode permanecer alta dependendo do padrão de uso e evitar a reclamação da memória.  Além disso, pode haver atraso adicional depois que a atividade do usuário for interrompida antes que a recuperação de memória ocorra devido a processos de plano de fundo periódicos respondendo à atividade anterior do usuário.  Por exemplo, operações de exclusão e tarefas de limpeza QDS geram registros fantasmas que são marcados para exclusão, mas não são fisicamente excluídos até que o processo de limpeza de fantasma seja executado, o que pode envolver a leitura de páginas de dados no cache.
 
 #### <a name="cache-hydration"></a>Hidratação de cache
 

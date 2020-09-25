@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: f64f9b612ff47fb5c0b6e6202ad87f7660959100
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9e0da9e24a0bd32047d029879c4f0e110dc0c16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320788"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gerenciamento de carga de trabalho do kubernetes no dispositivo pro Edge Azure Stack
 
@@ -29,7 +29,7 @@ Os dois tipos comuns de cargas de trabalho que você pode implantar em seu dispo
 
     Você pode criar uma implantação do kubernetes para implantar um aplicativo sem estado no cluster. 
 
-- **Os aplicativos com estado** exigem que seu estado seja salvo. Os aplicativos com estado usam armazenamento persistente, como volumes persistentes, para salvar dados para uso pelo servidor ou por outros usuários. Exemplos de aplicativos com monitoração de estado incluem bancos de dados como o MongoDB.
+- **Os aplicativos com estado** exigem que seu estado seja salvo. Os aplicativos com estado usam armazenamento persistente, como volumes persistentes, para salvar dados para uso pelo servidor ou por outros usuários. Exemplos de aplicativos com estado incluem bancos de dados como o [Azure SQL Edge](../azure-sql-edge/overview.md) e o MongoDB.
 
     Você pode criar uma implantação do kubernetes para implantar um aplicativo com estado. 
 

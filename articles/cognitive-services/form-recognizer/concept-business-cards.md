@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004894"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334541"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartão de visita
 
@@ -62,7 +62,7 @@ O [cartão de visita de análise](https://westcentralus.dev.cognitive.microsoft.
 
 A segunda etapa é chamar a operação [obter resultado do cartão de negócios Get Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeBusinessCardResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de cartão de negócios. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
 
@@ -88,8 +88,8 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o nó "readResult
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                "lines": 
-                          {
+                   "lines": 
+                             {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,
@@ -389,7 +389,9 @@ A API do cartão de negócios também alimenta o [recurso de processamento do ca
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Siga o guia de início rápido para começar a [API de cartões de visita do Python início rápido](./quickstarts/python-business-cards.md)
-- Saiba mais sobre a [API REST do reconhecedor de formulário](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
-- Saiba mais sobre o [reconhecedor de formulário](overview.md)
+- Siga o [início rápido da API de cartões de visita do Python](./quickstarts/python-business-cards.md) para começar a reconhecer os cartões de visita.
 
+## <a name="see-also"></a>Confira também
+
+* [O que é o Reconhecimento de Formulários?](./overview.md)
+* [Documentos de referência da API REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)

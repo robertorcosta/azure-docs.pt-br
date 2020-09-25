@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265462"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configurar declarações de grupo para aplicativos com Azure Active Directory
 
@@ -78,11 +78,11 @@ Para configurar declarações de grupo para um aplicativo SAML de galeria ou nã
 
 Clique em **Adicionar uma declaração de grupo**  
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Captura de tela que mostra a página "declarações de atributos de usuário &" com a "adicionar uma declaração de grupo" selecionada.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Use os botões de opção para selecionar quais grupos devem ser incluídos no token
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Captura de tela que mostra a janela "declarações de grupo" com "grupos de segurança" selecionado.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Seleção | Descrição |
 |----------|-------------|
@@ -93,15 +93,15 @@ Use os botões de opção para selecionar quais grupos devem ser incluídos no t
 
 Por exemplo, para emitir todos os grupos de segurança dos quais o usuário é membro, selecione grupos de segurança
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Captura de tela que mostra a janela "declarações de grupo" com "grupos de segurança" selecionado e o menu suspenso "atributo de origem" aberto.](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Para emitir grupos usando Active Directory atributos sincronizados de Active Directory em vez de objectIDs do Azure AD, selecione o formato necessário na lista suspensa. Somente os grupos sincronizados do Active Directory serão incluídos nas declarações.
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Captura de tela que mostra o menu suspenso "atributo de origem" aberto.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 Para emitir somente grupos atribuídos ao aplicativo, selecione **grupos atribuídos ao aplicativo**
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Captura de tela que mostra a janela "declarações de grupo" com "grupos atribuídos ao aplicativo" selecionado.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 Os grupos atribuídos ao aplicativo serão incluídos no token.  Outros grupos dos quais o usuário é membro serão omitidos.  Com essa opção, os grupos aninhados não são incluídos e o usuário deve ser um membro direto do grupo atribuído ao aplicativo.
 
@@ -109,17 +109,17 @@ Para alterar os grupos atribuídos ao aplicativo, selecione o aplicativo na list
 
 Consulte o documento [atribuir um usuário ou grupo a um aplicativo empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md) para obter detalhes de como gerenciar a atribuição de grupos a aplicativos.
 
-### <a name="advanced-options"></a>Opções avançadas
+### <a name="advanced-options"></a>Opções Avançadas
 
 A maneira como as declarações de grupo são emitidas pode ser modificada pelas configurações em opções avançadas
 
 Personalizar o nome da declaração de Grupo: se selecionado, um tipo de declaração diferente pode ser especificado para declarações de grupo.   Insira o tipo de declaração no campo nome e o namespace opcional para a declaração no campo namespace.
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Captura de tela que mostra a seção "opções avançadas" com "personalizar o nome da declaração de grupo" selecionado e os valores de "nome" e "namespace" inseridos.](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Alguns aplicativos exigem que as informações de associação de grupo apareçam na declaração ' role '. Opcionalmente, você pode emitir os grupos do usuário como funções, marcando a caixa ' emitir grupos de declarações de função '.
 
-![interface do usuário de declarações](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Captura de tela que mostra a seção "opções avançadas" com "personalizar o nome da declaração de grupo" e "emitir grupos como declarações de função" selecionado.](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > Se a opção para emitir dados de grupo como funções for usada, somente os grupos aparecerão na declaração de função.  Qualquer função de aplicativo à qual o usuário está atribuído não aparecerá na declaração de função.

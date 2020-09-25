@@ -3,12 +3,12 @@ title: Hub de eventos como um manipulador de eventos para os eventos da Grade de
 description: Descreve como você pode usar os hubs de eventos como manipuladores de eventos para os eventos da Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fa8fdd66eb153f6a972753eb359261100f19cd15
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5e6a84c1737c6b8a575f47576aeb1d3d9efae6eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105822"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322556"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Hub de eventos como um manipulador de eventos para os eventos da Grade de Eventos do Azure
 Um manipulador de eventos é o local para o qual o evento é enviado. O manipulador usa uma ação para processar o evento. Vários serviços do Azure são automaticamente configurados para lidar com os eventos, e o **Hubs de Eventos do Azure** é um deles. 
@@ -24,7 +24,7 @@ Veja os exemplos a seguir:
 | [Modelo do Resource Manager: Criar um tópico personalizado de Grade de Eventos e enviar eventos para um hub de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo do Gerenciador de Recursos que cria uma assinatura para um tópico personalizado. Envia eventos para os Hubs de Eventos do Azure. |
 
 ## <a name="message-properties"></a>Propriedades da mensagem
-Se você usar um **hub de eventos** como um manipulador de eventos para eventos da Grade de Eventos, defina os seguintes cabeçalhos de mensagem: 
+Se você usar um **Hub de eventos** como um manipulador de eventos para eventos da grade de eventos, essas são as propriedades que você recebe nos cabeçalhos de mensagem: 
 
 | Nome da propriedade | Descrição |
 | ------------- | ----------- | 
@@ -81,6 +81,9 @@ Se você usar um **hub de eventos** como um manipulador de eventos para eventos 
     }
 }
 ```
+
+> [!NOTE]
+> Não há suporte para a entrega de eventos a um hub de eventos do Azure em **outro locatário** . 
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o artigo [Manipuladores de eventos](event-handlers.md) para obter uma lista dos manipuladores de eventos compatíveis. 

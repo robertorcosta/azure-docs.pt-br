@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660488"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322505"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para os Aplicativos Lógicos do Azure
 
@@ -114,7 +114,7 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
 
    Observe a ação **Adicionar a um cluster existente do gateway** para instalar gateways adicionais para [cenários de alta disponibilidade](#high-availability).
 
-1. Verifique a região do serviço de nuvem do gateway e o [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/) usado pela instalação do gateway. Por padrão, essa região é o mesmo local do locatário do Azure Active Directory da sua conta do Azure.
+1. Verifique a região do serviço de nuvem do gateway e a [instância de mensagens do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) que é usada pela instalação do seu gateway. Por padrão, essa região é o mesmo local do locatário do Azure Active Directory da sua conta do Azure.
 
    ![Confirmar região para serviço de gateway e barramento de serviço](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -140,7 +140,7 @@ Este artigo mostra como baixar, instalar e configurar o gateway de dados local p
 
 ## <a name="check-or-adjust-communication-settings"></a>Verificar ou ajustar as configurações de comunicação
 
-O gateway de dados local depende do [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição pode impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e o Barramento de Serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar. Para saber mais, consulte esses tópicos:
+O gateway de dados local depende do [sistema de mensagens do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) para conectividade de nuvem e estabelece as conexões de saída correspondentes à região do Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para acessar a Internet, essa restrição poderá impedir que o gateway de dados local se conecte ao serviço de nuvem do gateway e às mensagens do barramento de serviço do Azure. O gateway tem várias configurações de comunicação que você pode ajustar. Para saber mais, consulte esses tópicos:
 
 * [Ajustar configurações de comunicação para gateway de dados local](/data-integration/gateway/service-gateway-communication)
 * [Definir configurações de proxy para o gateway de dados local](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +206,7 @@ Os usuários na sua organização podem acessar dados locais para os quais eles 
 
 O gateway ajuda a possibilitar uma comunicação em segundo plano mais rápida e mais segura. Essa comunicação flui entre um usuário na nuvem, no serviço de nuvem do gateway e na sua fonte de dados local. O serviço de nuvem do gateway criptografa e armazena suas credenciais da fonte de dados e os detalhes do gateway. O serviço também encaminha consultas e seus resultados entre o usuário, o gateway e sua fonte de dados local.
 
-O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. O gateway retransmite dados de fontes locais em canais criptografados por meio do [Barramento de Serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). O barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam através do gateway são criptografados.
+O gateway funciona com firewalls e usa apenas conexões de saída. Todo o tráfego é originado como tráfego de saída seguro do agente de gateway. O gateway envia os dados de fontes locais em canais criptografados por meio de [mensagens do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md). O barramento de serviço cria um canal entre o gateway e o serviço de chamada, mas não armazena nenhum dado. Todos os dados que trafegam através do gateway são criptografados.
 
 ![Arquitetura do gateway de dados local](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +217,9 @@ Estas etapas descrevem o que acontece quando você interage com um elemento que 
 
 1. O serviço de nuvem cria uma consulta com as credenciais criptografadas para a fonte de dados. Em seguida, o serviço envia a consulta e as credenciais para a fila do gateway para processamento.
 
-1. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para o Barramento de Serviço do Azure.
+1. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para o sistema de mensagens do barramento de serviço do Azure.
 
-1. O Barramento de Serviço do Azure envia as solicitações pendentes ao gateway.
+1. As mensagens do barramento de serviço do Azure enviam as solicitações pendentes para o gateway.
 
 1. O gateway obtém a consulta, descriptografa as credenciais e conecta-se a uma ou mais fontes de dados com essas credenciais.
 

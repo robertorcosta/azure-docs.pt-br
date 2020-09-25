@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f2dc93767457bfb96a9457a73adb83c0ed965308
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322607"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Solução de problemas do Azure digital gêmeos: métricas
 
@@ -22,7 +22,7 @@ As métricas são habilitadas por padrão. Você pode exibir as métricas do gê
 
 ## <a name="how-to-view-azure-digital-twins-metrics"></a>Como exibir as métricas do gêmeos digital do Azure
 
-1. Crie uma instância de gêmeos digital do Azure. Você pode encontrar instruções sobre como configurar uma instância do gêmeos digital do Azure em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-scripted.md).
+1. Crie uma instância de gêmeos digital do Azure. Você pode encontrar instruções sobre como configurar uma instância do gêmeos digital do Azure em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md).
 
 2. Localize sua instância do gêmeos digital do Azure no [portal do Azure](https://portal.azure.com) (você pode abrir a página para ela digitando seu nome na barra de pesquisa do Portal). 
 
@@ -69,7 +69,7 @@ Métricas que têm a ver com a cobrança:
 | Métrica | Nome de exibição da métrica | Unidade | Tipo de agregação| Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Operações de API de cobrança (versão prévia) | Contagem | Total | Métrica de cobrança para a contagem de todas as solicitações de API feitas no serviço de Gêmeosção digital do Azure. | ID do medidor |
-| BillingMessagesProcessed | Mensagens de cobrança processadas (visualização) | Contagem | Total | Métrica de cobrança para o número de mensagens enviadas do Azure digital gêmeos para pontos de extremidade externos. | ID do medidor |
+| BillingMessagesProcessed | Mensagens de cobrança processadas (visualização) | Contagem | Total | Métrica de cobrança para o número de mensagens enviadas do Azure digital gêmeos para pontos de extremidade externos.<br><br>Para ser considerado uma única mensagem para fins de cobrança, uma carga não deve ter mais de 1 KB. Cargas maiores que isso serão contadas como mensagens adicionais em incrementos de 1 KB (portanto, uma mensagem entre 1 e 2 KB será contada como duas mensagens, entre 2 e 3 KB serão 3 mensagens e assim por diante).<br>Essa restrição também se aplica a respostas – portanto, uma chamada que retorna 1,5 KB no corpo da resposta, por exemplo, será cobrada como duas operações. | ID do medidor |
 | BillingQueryUnits | Unidades de consulta de cobrança (versão prévia) | Contagem | Total | O número de unidades de consulta, uma medida interna computada de uso de recursos de serviço, consumida para executar consultas. Também há uma API auxiliar disponível para medir as unidades de consulta: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | ID do medidor |
 
 #### <a name="ingress-metrics"></a>Métricas de entrada

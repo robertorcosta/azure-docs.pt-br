@@ -3,12 +3,12 @@ title: Conversas com vários desligamentos-QnA Maker
 description: Use prompts e contexto para gerenciar as várias ativações, conhecidas como Multiturn, para o bot de uma pergunta para outra. A passagem múltipla é a capacidade de ter uma conversa de frente e para trás, na qual o contexto da pergunta anterior influencia a próxima pergunta e resposta.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229339"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322828"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Usar avisos de acompanhamento para criar várias rodadas de uma conversa
 
@@ -52,7 +52,7 @@ Quando você seleciona essa opção, QnA Maker extrai a hierarquia presente na e
 
 A estrutura de vários folheios pode ser inferida apenas de URLs, arquivos PDF ou arquivos DOCX. Para obter um exemplo de estrutura, exiba uma imagem de um [arquivo PDF manual do usuário do Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![! [Exemplo de estrutura em um manual do usuário] (.. import-file-with-conversational-structure.png/Media/Conversational-context/)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="Captura de tela mostra um exemplo da estrutura em um manual do usuário." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### <a name="building-your-own-multi-turn-document"></a>Criando seu próprio documento de várias transformações
 
@@ -92,7 +92,7 @@ Selecione **Opções de exibição**e, em seguida, selecione **Mostrar contexto*
 
 O contexto de múltipla ativação é exibido na primeira coluna.
 
-![! [A coluna "contexto (visualização)"] (.. surface-manual-pdf-follow-up-prompt.png/Media/Conversational-context/)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Captura de tela mostra a seção de contexto realçada." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Na imagem anterior, **#1** indica texto em negrito na coluna, que significa a pergunta atual. A pergunta pai é o item superior na linha. As perguntas abaixo são os pares de perguntas e respostas vinculadas. Esses itens são selecionáveis, para que você possa ir imediatamente para os outros itens de contexto.
 
@@ -167,7 +167,7 @@ Quando você adiciona um novo par de perguntas e respostas à base de dados de c
 
     A pergunta pai exibe uma nova pergunta como uma de suas escolhas.
 
-    ![! [A coluna de contexto, para as duas perguntas, indica uma relação de aviso de acompanhamento] (.. child-prompt-created.png/Media/Conversational-context/)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Captura de tela mostra a coluna de contexto, para ambas as perguntas, indica uma relação de acompanhamento de aviso." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Depois de adicionar o prompt de acompanhamento, selecione **salvar e treinar** na barra de navegação superior.
 

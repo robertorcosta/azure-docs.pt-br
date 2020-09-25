@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: de475cbd7cbb0d8dbcda026109b0387da14bedff
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335123"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Suporte do mapa de origem para aplicativos JavaScript
 
 Application Insights dá suporte ao carregamento de mapas de origem para seu próprio contêiner de BLOB da conta de armazenamento.
-Os mapas de origem podem ser usados para unminify pilhas de chamadas encontradas na página de detalhes de transação de ponta a ponta. Qualquer exceção enviada pelo [SDK do JavaScript][ApplicationInsights-JS] ou pelo [SDK doNode.js][ApplicationInsights-Node.js] pode ser unminified com mapas de origem.
+Os mapas de origem podem ser usados para unminify pilhas de chamadas encontradas na página de detalhes de transação de ponta a ponta. Qualquer exceção enviada pelo [SDK do JavaScript][ApplicationInsights-JS] ou pelo [ SDK doNode.js][ApplicationInsights-Node.js] pode ser unminified com mapas de origem.
 
 ![Unminify uma pilha de chamadas vinculando-se a uma conta de armazenamento](./media/source-map-support/details-unminify.gif)
 
@@ -78,7 +78,7 @@ Qualquer usuário no portal que usa esse recurso deve ser pelo menos atribuído 
 
 1. Verifique se o mapa de origem correspondente é carregado para o contêiner de blob correto
 2. Verifique se o arquivo do mapa de origem é nomeado após o arquivo JavaScript para o qual ele é mapeado, com sufixo `.map` .
-    - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` procurará o blob chamado`main.4e2ca5fa.chunk.js.map`
+    - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` procurará o blob chamado `main.4e2ca5fa.chunk.js.map`
 3. Verifique o console do navegador para ver se algum erro está sendo registrado. Inclua isso em qualquer tíquete de suporte.
 
 ## <a name="next-steps"></a>Próximas etapas

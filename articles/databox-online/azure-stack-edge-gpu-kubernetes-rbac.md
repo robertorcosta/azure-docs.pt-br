@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1f194424a4030a2b829af6c8f5b97a3c200bd2e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0880ae64520997fc6b41ba4a7e8508d927235a8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899284"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320805"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-pro-gpu-device"></a>Controle de acesso baseado em função do kubernetes no seu dispositivo de GPU pro do Azure Stack Edge
 
@@ -42,7 +42,7 @@ O dispositivo pro Edge Azure Stack tem os seguintes namespaces:
     - Kube-sistema
     - metallb-sistema
     - DBE-namespace
-    - default
+    - padrão
     - kubernetes-painel
     - Kube-concessão de nó
     - Kube – público
@@ -91,25 +91,7 @@ Aqui está um diagrama que descreve a implementação do RBAC no dispositivo Azu
 
 Neste diagrama, Alice, Bob e Chuck têm acesso somente a namespaces de usuário atribuídos, que nesse caso são `ns1` , e, `ns2` `ns3` respectivamente. Nesses namespaces, eles têm acesso de administrador. O administrador de cluster, por outro lado, tem acesso de administrador aos namespaces do sistema e aos recursos de todo o cluster.
 
-Você pode usar `kubectl` comandos para criar namespaces e usuários, atribuir usuários a namespaces ou baixar `kubeconfig` arquivos. Este é um fluxo de trabalho de alto nível:
-
-1. Crie um namespace e um usuário.  
-
-    `New-HcsKubernetesNamespace -Namespace`  
-
-2. Crie um usuário.  
-
-    `New-HcsKubernetesUser -UserName`  
-
-3. Associe o namespace ao usuário que você criou.  
-
-    `Grant-HcsKubernetesNamespaceAccess -Namespace -UserName`  
-
-4. Salve a configuração do usuário no `C:\Users\<username>\.kube` .  
-
-5. Instale `kubectl` e inicie a implantação de aplicativos no `kubectl` . 
-
-Para obter instruções passo a passo detalhadas, acesse [kubernetes cluster via kuebctl em seu Azure Stack Edge pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+Como um usuário, você pode criar namespaces e usuários, atribuir usuários a namespaces ou baixar `kubeconfig` arquivos. Para obter instruções passo a passo detalhadas, acesse [kubernetes cluster via kuebctl em seu Azure Stack Edge pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 
 Ao trabalhar com namespaces e usuários em seus dispositivos Azure Stack Edge pro, as seguintes advertências se aplicam:

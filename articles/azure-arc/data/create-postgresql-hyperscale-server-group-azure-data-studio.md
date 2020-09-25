@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: af0cdb814433b739b15d79bec9cb399cf0a2fef7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933655"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273000"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Criar hiperescala do PostgreSQL habilitado para Arc do Azure usando o Azure Data Studio
 
@@ -42,6 +42,19 @@ Password:
 Namespace: arc
 Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting active context to `arc`
 ```
+
+## <a name="preliminary-and-temporary-step-for-openshift-users-only"></a>Etapa preliminar e temporária somente para usuários OpenShift
+
+Implemente esta etapa antes de passar para a próxima etapa. Para implantar o grupo de servidores de hiperescala PostgreSQL no Red Hat OpenShift em um projeto diferente do padrão, você precisa executar os seguintes comandos em seu cluster para atualizar as restrições de segurança. Esse comando concede os privilégios necessários para as contas de serviço que executarão o grupo de servidores de hiperescala PostgreSQL. A SCC (restrição de contexto de segurança) **_Arc-data-SCC_** é aquela que você adicionou quando implantou o controlador de dados de arco do Azure.
+
+```console
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
+```
+
+_**Server-Group-Name** é o nome do grupo de servidores que será implantado durante a próxima etapa._
+   
+Para obter mais detalhes sobre o SCCs no OpenShift, consulte a [documentação do OpenShift](https://docs.openshift.com/container-platform/4.2/authentication/managing-security-context-constraints.html).
+Agora você pode implementar a próxima etapa.
 
 ## <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
 
@@ -80,6 +93,5 @@ Em alguns minutos, sua criação deve ser concluída com êxito.
 
 - [Escalar horizontalmente seu banco de dados do Azure para o grupo de servidores de hiperescala do PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
 - [Configuração de armazenamento e conceitos de armazenamento kubernetes](storage-configuration.md)
-- [Expandindo declarações de volume persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recurso kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
 
