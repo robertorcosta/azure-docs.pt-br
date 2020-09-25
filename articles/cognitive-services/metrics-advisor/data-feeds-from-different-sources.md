@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: ''
+ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 343db078880f55701730e096c3da85a6a7e5428a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324460"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicionar feeds de dados de diferentes fontes de dados ao orientador de métricas
 
@@ -37,19 +37,19 @@ Use este artigo para encontrar as configurações e os requisitos para conectar 
 
 | Fontes de dados | Tipos de autenticação |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  Básico |
-|[**Armazenamento de BLOBs do Azure (JSON)**](#blob) | Básico<br>ManagedIdentity|
-|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Básico |
-|[**Data Explorer do Azure (Kusto)**](#kusto) | Básico<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br> |
-|[**Banco de dados SQL/SQL Server do Azure**](#sql) | Básico<br>ManagedIdentity<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br>AzureSQLConnectionString
-|[**Armazenamento de Tabelas do Azure**](#table) | Básico | 
-|[**ElasticSearch**](#es) | Básico |
-|[**Solicitação http**](#http) | Básico | 
-|[**InfluxDB (InfluxQL)**](#influxdb) | Básico |
-|[**MongoDB**](#mongodb) | Básico |
-|[**MySQL**](#mysql) | Básico |
-|[**PostgreSQL**](#pgsql)| Básico|
+|[**Azure Application Insights**](#appinsights)|  Basic |
+|[**Armazenamento de BLOBs do Azure (JSON)**](#blob) | Basic<br>ManagedIdentity|
+|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
+|[**Data Explorer do Azure (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br> |
+|[**Banco de dados SQL/SQL Server do Azure**](#sql) | Basic<br>ManagedIdentity<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br>AzureSQLConnectionString
+|[**Armazenamento de Tabelas do Azure**](#table) | Basic | 
+|[**ElasticSearch**](#es) | Basic |
+|[**Solicitação http**](#http) | Basic | 
+|[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
+|[**MongoDB**](#mongodb) | Basic |
+|[**MySQL**](#mysql) | Basic |
+|[**PostgreSQL**](#pgsql)| Basic|
 
 Crie uma **entidade de credencial** e use-a para autenticação em suas fontes de dados. As seções a seguir especificam os parâmetros necessários para a autenticação *básica* . 
 

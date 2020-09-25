@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab, sstein
+ms.reviewer: sstein
 ms.date: 07/21/2020
-ms.openlocfilehash: f71daab55139f6b4690df50472928db466774cb3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 345fd0df5b56bac164e78a540f8b26221294eabe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325288"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limites de recursos para pools elásticos usando o modelo de compra vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ Você pode definir a camada de serviço, o tamanho da computação (objetivo do 
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tamanho máximo de dados (GB)|512|756|1536|1536|1536|2.048|
-|Tamanho máximo de log|154|227|461|461|461|614|
+|Tamanho máximo do log|154|227|461|461|461|614|
 |Tamanho máximo de dados de TempDB (GB)|32|64|96|128|160|192|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
@@ -110,7 +110,7 @@ Você pode definir a camada de serviço, o tamanho da computação (objetivo do 
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Geração de computação|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
-|Memória (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
+|Memória (GB)|10.4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Número máximo de bancos de os por pool <sup>1</sup>|100|200|500|500|500|500|500|
 |Suporte de columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento OLTP na memória (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|

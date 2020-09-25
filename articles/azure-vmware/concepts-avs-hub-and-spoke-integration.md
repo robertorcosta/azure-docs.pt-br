@@ -3,12 +3,12 @@ title: Conceito – integrar uma implantação de solução do Azure VMware em u
 description: Saiba mais sobre as recomendações para integrar uma implantação de solução do Azure VMware a uma arquitetura de Hub e spoke existente ou nova no Azure.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 1862b98b40788b6b71d05eb4be43bdacd39e927f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a2007e159d23a02ca573fd833590651061c59973
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659213"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271725"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrar a solução do Azure VMware em uma arquitetura de Hub e spoke
 
@@ -109,7 +109,7 @@ Examine o artigo específico da solução Azure VMware no [Gateway de aplicativo
 
 Acesse o ambiente de solução do Azure VMware com Jumpbox, que é uma VM do Windows 10 ou do Windows Server implantada na sub-rede do serviço compartilhado dentro da rede virtual do Hub.
 
-Como prática recomendada de segurança, implante [Microsoft Azure](../bastion/index.yml) serviço de bastiões na rede virtual do Hub. A bastiões do Azure fornece acesso contínuo de RDP e SSH a VMs implantadas no Azure sem a necessidade de provisionar endereços IP públicos para esses recursos. Depois de provisionar o serviço de bastiões do Azure, você pode acessar a VM selecionada no portal do Azure. Depois de estabelecer a conexão, uma nova guia é aberta, mostrando a área de trabalho Jumpbox e, a partir dessa área de trabalho, você pode acessar o plano de gerenciamento de nuvem privada da solução Azure VMware.
+Como prática recomendada de segurança, implante [Microsoft Azure](../bastion/index.yml) serviço de bastiões na rede virtual do Hub. A bastiões do Azure fornece acesso contínuo de RDP e SSH a VMs implantadas no Azure sem a necessidade de provisionar endereços IP públicos para esses recursos. Depois de provisionar o serviço de bastiões do Azure, você pode acessar a VM selecionada no portal do Azure. Depois de estabelecer a conexão, uma nova guia é aberta, mostrando a área de trabalho Jumpbox em que você pode acessar o plano de gerenciamento de nuvem privada da solução Azure VMware.
 
 > [!IMPORTANT]
 > Não forneça um endereço IP público para a VM Jumpbox ou expor a porta 3389/TCP para a Internet pública. 
@@ -142,7 +142,7 @@ Os servidores de solução local e do Azure VMware podem ser configurados com en
 
 ## <a name="identity-considerations"></a>Considerações sobre identidade
 
-Para fins de identidade, a melhor abordagem é implantar pelo menos um controlador de domínio do AD no Hub, usando a sub-rede do serviço compartilhado, idealmente dois deles no modo distribuído por zona ou em um conjunto de disponibilidade de VM. Consulte [centro de arquitetura do Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) para estender seu domínio do AD local para o Azure.
+Para fins de identidade, a melhor abordagem é implantar pelo menos um controlador de domínio do AD no Hub, usando a sub-rede do serviço compartilhado. O ideal é dois deles em modo distribuído por zona ou em um conjunto de disponibilidade de VM. Consulte [centro de arquitetura do Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) para estender seu domínio do AD local para o Azure.
 
 Além disso, implante outro controlador de domínio no lado da solução do Azure VMware para atuar como identidade e origem do DNS no ambiente vSphere.
 

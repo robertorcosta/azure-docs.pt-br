@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 1690a844ff700a2975be8e972fd90ba71eeb937c
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f83baf7a038ad8cf17421c778deccbc7dc389d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707774"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325548"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
@@ -42,16 +42,19 @@ Azure NetApp Files fornece métricas sobre armazenamento alocado, uso de armazen
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Métricas de uso de volumes
 
-<!--
-- *Volume Quota Size*    
-    The quota size (GiB) the volume is provisioned with.   
-    This size is the size you selected during capacity pool creation. 
+<!-- ANF-5023: fixed version: 2020.08, 2020.09
+- *Percentage Volume Consumed Size*    
+    The percentage of the volume consumed, including snapshots.  
 -->
+- *Tamanho alocado do volume*   
+    O tamanho provisionado de um volume
+- *Tamanho da cota de volume*    
+    O tamanho da cota (GiB) em que o volume é provisionado.   
 - *Tamanho consumido por volume*   
-    O espaço lógico total usado em um volume (GiB).  
+    Tamanho lógico do volume (bytes usados).  
     Esse tamanho inclui espaço lógico usado por sistemas de arquivos ativos e instantâneos.  
 - *Tamanho do instantâneo de volume*   
-   O espaço lógico incremental usado por instantâneos em um volume.  
+   O tamanho de todos os instantâneos em um volume.  
 
 ## <a name="performance-metrics-for-volumes"></a>Métricas de desempenho para volumes
 
@@ -63,11 +66,28 @@ Azure NetApp Files fornece métricas sobre armazenamento alocado, uso de armazen
     O número de leituras para o volume por segundo.
 - *IOPS de gravação*   
     O número de gravações no volume por segundo.
+- *Ler MiB/s*   
+    Taxa de transferência de leitura em bytes por segundo.
+- *Gravar MiB/s*   
+    Taxa de transferência de gravação em bytes por segundo.
+
+<!-- ANF-4128; 2020.07
+- *Pool Provisioned Throughput*   
+    The total throughput a capacity pool can provide to its volumes based on "Pool Provisioned Size" and "Service Level".
+- *Pool Allocated to Volume Throughput*   
+    The total throughput allocated to volumes in a given capacity pool (that is, the total of the volumes' allocated throughput in the capacity pool).
+-->
+
+<!-- ANF-6443; future
+- *Pool Consumed Throughput*    
+    The total throughput being consumed by volumes in a given capacity pool.
+-->
+
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Métricas de replicação de volume
 
 - *O status de replicação do volume é íntegro*   
-    A condição da relação de replicação. 
+    A condição da relação de replicação. Um estado íntegro é indicado pelo `1` . Um estado não íntegro é indicado por `0` .
 
 - *A replicação de volume está sendo transtransferência*    
     Se o status da replicação do volume é ' Transferindo '. 

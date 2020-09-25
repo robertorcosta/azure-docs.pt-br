@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: b16ca0c396e2c406677af351cf6b1de2a3499353
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 06fca39b1170d36f22040ccf48eb02f948e47e41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543662"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304607"
 ---
 # <a name="tutorial-configure-peakon-for-automatic-user-provisioning"></a>Tutorial: configurar o pico para o provisionamento automático de usuário
 
@@ -56,11 +56,11 @@ Antes de configurar e habilitar o provisionamento automático de usuário, você
 
 2.  Selecione **integrações**.
     
-    ![Pico-provisão do funcionário](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
+    ![Captura de tela das opções de configuração com a opção integrações chamada out.](media/Peakon-provisioning-tutorial/Peakon-select-integration.png)
 
 3.  Habilite o **provisionamento de funcionários**.
 
-    ![Pico-provisão do funcionário](media/Peakon-provisioning-tutorial/peakon05.png)
+    ![Captura de tela da seção provisionamento de funcionários com a opção Habilitar chamada out.](media/Peakon-provisioning-tutorial/peakon05.png)
 
 4.  Copie os valores para a **URL do SCIM 2,0** e o **token de portador OAuth**. Esses valores serão inseridos no campo **URL do locatário** e **token secreto** na guia provisionamento do seu aplicativo de pico no portal do Azure.
 
@@ -105,11 +105,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira os valores de token de **portador OAuth** e **URL do scim 2,0** recuperados anteriormente na **URL do locatário** e no **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao pico. Se a conexão falhar, verifique se sua conta de pico tem permissões de administrador e tente novamente.
 

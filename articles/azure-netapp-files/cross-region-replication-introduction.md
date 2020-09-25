@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: e7d424435c29eb3e7a6779a7036816a7bedd2085
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278287"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicação entre regiões de volumes Azure NetApp Files
 
@@ -45,6 +45,7 @@ A replicação de volume Azure NetApp Files está disponível atualmente nos seg
 * Leste do Japão e oeste do Japão
 * Sul do Reino Unido e Centro-oeste da Alemanha
 * Sudeste Asiático e leste da Austrália
+* Índia central e sul da Índia
 
 ## <a name="service-level-objectives"></a>Objetivos de nível de serviço
 
@@ -110,10 +111,10 @@ O custo regular de capacidade de armazenamento Azure NetApp Files para o mês 2 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Requisitos e considerações para usar a replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Criar emparelhamento de replicação](cross-region-replication-create-peering.md)
-* [Exibir status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
+* [Criar um emparelhamento de replicação](cross-region-replication-create-peering.md)
+* [Exibir o status de integridade da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerenciar recuperação de desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
-* [Solução de problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
+* [Solucionar problemas de replicação entre regiões](troubleshoot-cross-region-replication.md)
 
 

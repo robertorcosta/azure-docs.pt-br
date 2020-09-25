@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 2feaf33f7bc31396764bfbaa3ae6291b6752e961
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 0f6f193f531be746d3ef4920b86855ffa49efda2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260437"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio (visualização) no Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Este artigo descreve como usar notebooks no Azure Synapse Studio.
 
 Há dois modos de criar um notebook. Você pode criar um notebook ou importar um existente para um workspace do Azure Synapse no **Pesquisador de Objetos**. Os notebooks do Azure Synapse Studio podem reconhecer arquivos IPYNB padrão do Jupyter Notebook.
 
-![synapse-create-import-notebook](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
+![criar bloco de anotações de importação](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook.png)
 
 ## <a name="develop-notebooks"></a>Desenvolver notebooks
 
@@ -80,7 +80,7 @@ Você pode usar várias linguagens em um notebook especificando o comando magic 
 
 A imagem a seguir é um exemplo de como você pode escrever uma consulta PySpark com o comando magic **%%pyspark** ou uma consulta SparkSQL com o comando magic **%%sql** em um notebook **Spark (Scala)** . Observe que a linguagem principal do notebook está definida como pySpark.
 
-   ![synapse-spark-magics](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
+   ![Comandos mágicos do Synapse Spark](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
 ### <a name="use-temp-tables-to-reference-data-across-languages"></a>Usar tabelas temporárias para fazer referência a dados entre linguagens
 
@@ -125,12 +125,12 @@ Os recursos do IntelliSense estão em níveis diferentes de maturidade para ling
 
 Você pode usar os botões de formatação da barra de ferramentas de células de texto para realizar ações de markdown comuns. Eles incluem texto em negrito, texto em itálico, inserção de trechos de código, inserção de lista não ordenada, inserção de lista ordenada e inserção de imagem da URL.
 
-  ![synapse-text-cell-toolbar](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
+  ![Barra de ferramentas de célula de texto Synapse](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar.png)
 
 ### <a name="undo-cell-operations"></a>Desfazer operações de célula
-Clique no botão **Desfazer** ou pressione **CTRL+Z** para revogar a operação de célula mais recente. Agora você pode desfazer até as 20 últimas ações do histórico da célula. 
+Selecione o botão **desfazer** ou pressione **Ctrl + Z** para revogar a operação de célula mais recente. Agora você pode desfazer até as 20 últimas ações do histórico da célula. 
 
-   ![synapse-undo-cells](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
+   ![Synapse desfazer células](./media/apache-spark-development-using-notebooks/synapse-undo-cells.png)
 
 ### <a name="move-a-cell"></a>Mover uma célula
 
@@ -149,13 +149,13 @@ Você também pode usar [teclas de atalho no modo de comando](#shortcut-keys-und
    ![delete-a-cell](./media/apache-spark-development-using-notebooks/synapse-delete-cell.png)
 
 ### <a name="collapse-a-cell-input"></a>Recolher uma entrada de célula
-Clique no botão de seta na parte inferior da célula atual para recolhê-la. Para expandi-la, clique no botão de seta enquanto a célula estiver recolhida.
+Selecione o botão de seta na parte inferior da célula atual para recolhê-lo. Para expandi-lo, selecione o botão de seta enquanto a célula está recolhida.
 
    ![collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-input.gif)
 
 ### <a name="collapse-a-cell-output"></a>Recolher uma saída de célula
 
-Clique no botão **Recolher saída** no canto superior esquerdo da saída da célula atual para recolhê-la. Para expandi-la, clique em **Mostrar saída da célula** enquanto a saída da célula está recolhida.
+Selecione o botão **recolher saída** no canto superior esquerdo da saída da célula atual para recolhê-la. Para expandi-lo, selecione a **saída mostrar célula** enquanto a saída da célula estiver recolhida.
 
    ![collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-collapse-cell-output.gif)
 
@@ -180,7 +180,7 @@ Há várias maneiras de executar o código em uma célula.
 
 
 ### <a name="run-all-cells"></a>Executar todas as células
-Clique no botão **Executar Tudo** para executar todas as células no notebook atual em sequência.
+Selecione o botão **executar tudo** para executar todas as células no bloco de anotações atual em sequência.
 
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
@@ -192,7 +192,7 @@ Para acessar o menu de ações adicionais de célula na extrema direita, selecio
 
 
 ### <a name="cancel-all-running-cells"></a>Cancelar todas as células em execução
-Clique no botão **cancelar tudo** para cancelar as células ou células em execução aguardando na fila. 
+Selecione o botão **cancelar tudo** para cancelar as células ou células em execução aguardando na fila. 
    ![cancelar-todas as células](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 ### <a name="cell-status-indicator"></a>Indicador de status de célula
@@ -204,7 +204,7 @@ Um status de execução de célula passo a passo é exibido abaixo da célula pa
 ### <a name="spark-progress-indicator"></a>Indicador de progresso do Spark
 
 O notebook do Azure Synapse Studio é baseado exclusivamente no Spark. As células de código são executadas remotamente no pool do Spark. Um indicador de progresso do trabalho do Spark é fornecido com uma barra de progresso em tempo real para ajudá-lo a entender o status de execução do trabalho.
-O número de tarefas por cada trabalho ou estágio ajuda a identificar o nível paralelo do seu trabalho do Spark. Você também pode analisar mais detalhadamente a interface do usuário do Spark de um trabalho específico (ou estágio) clicando no link no nome do trabalho (ou estágio).
+O número de tarefas por cada trabalho ou estágio ajuda a identificar o nível paralelo do seu trabalho do Spark. Você também pode analisar mais detalhadamente a interface do usuário do Spark de um trabalho específico (ou estágio) por meio da seleção do link no nome do trabalho (ou estágio).
 
 
 ![spark-progress-indicator](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
@@ -215,7 +215,7 @@ Você pode especificar a duração do tempo limite, o número e o tamanho dos ex
 
 [![gerenciamento de sessão](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
-Um recomendador de sessão do Spark agora está disponível no painel de configuração de sessão do Spark. Você pode selecionar um pool do Spark diretamente no painel de configuração de sessão e ver quantos nós estão usando e quantos executores restantes estão disponíveis. Essas informações podem ajudá-lo a definir o tamanho da sessão adequadamente, em vez de modificá-la de volta e para trás.
+Um recomendador de sessão do Spark agora está disponível no painel de configuração da sessão do Spark. Você pode selecionar um pool do Spark diretamente no painel de configuração de sessão e ver quantos nós estão usando e quantos executores restantes estão disponíveis. Essas informações podem ajudá-lo a definir o tamanho de sessão apropriado em vez de modificá-lo de volta e para trás.
 
 ![sessão-recomendado](./media/apache-spark-development-using-notebooks/synapse-spark-session-recommender.png)
 
@@ -277,23 +277,24 @@ Você pode acessar os dados na conta de armazenamento principal diretamente. Nã
 
 Uma exibição de resultados tabulares é fornecida com a opção para criar gráfico de barras, de linhas, de pizza, de dispersão e de área. Você pode visualizar seus dados sem precisar escrever código. Os gráficos podem ser personalizados nas **Opções de Gráfico**. 
 
-A saída dos comandos magic **%%sql** aparecem na exibição de tabela renderizada por padrão. Você pode chamar <code>display(df)</code> o Spark Dataframes ou a função RDD (redistribuída de conjuntos de tabelas resilientes) para produzir a exibição de tabela renderizada.
+A saída dos comandos magic **%%sql** aparecem na exibição de tabela renderizada por padrão. Você pode chamar <code>display(df)</code> no Spark Dataframes, nos quadros de tabela do pandas, na lista ou na função RDD (Distributed DataSets) para produzir a exibição de tabela renderizada.
 
    [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
 ### <a name="visualize-built-in-charts-from-large-scale-dataset"></a>Visualizar gráficos internos do conjunto de grandes escala 
 
-Por padrão, a <code>display(df)</code> função usará apenas as primeiras 1000 linhas dos dados para renderizar os gráficos. Verifique a **agregação em todos os resultados** e clique no botão **aplicar** , você aplicará a geração de gráfico do conjunto de um inteiro. Um trabalho do Spark será disparado quando a configuração do gráfico for alterada, demora um pouco para concluir o cálculo e renderizar o gráfico. 
+Por padrão, a <code>display(df)</code> função usará apenas as primeiras 1000 linhas dos dados para renderizar os gráficos. Verifique a **agregação em todos os resultados** e selecione o botão **aplicar** . você aplicará a geração de gráfico a partir do conjunto de um inteiro. Um trabalho do Spark será disparado quando a configuração do gráfico for alterada, demora um pouco para concluir o cálculo e renderizar o gráfico. 
     [![Builtin-gráficos-agregação-todos](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggregation-all.png#lightbox)
 
 
+
 ### <a name="visualize-data-statistic-information"></a>Visualizar informações de estatísticas de dados
-Você pode usar <code>display(df, summary = true)</code> para verificar o resumo de estatísticas de um determinado frame do Spark que inclui o nome da coluna, tipo de coluna, valores exclusivos e valores ausentes para cada coluna. Você também pode selecionar uma coluna específica para ver seu valor mínimo, valor máximo, valor médio e desvio padrão.
+Você pode usar <code>display(df, summary = True)</code> para verificar o resumo de estatísticas de um determinado frame do Spark que inclui o nome da coluna, tipo de coluna, valores exclusivos e valores ausentes para cada coluna. Você também pode selecionar uma coluna específica para ver seu valor mínimo, valor máximo, valor médio e desvio padrão.
     [![BuiltIn-gráficos-resumo ](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-summary.png#lightbox)
 
 ### <a name="render-html-or-interactive-libraries"></a>Renderizar bibliotecas em HTML ou interativas
 
-Você pode renderizar bibliotecas HTML ou interativas, como a **bokeh**, usando **displayHTML()** .
+Você pode renderizar código HTML, incluindo JavaScript, CSS, D3 ou bibliotecas interativas, como **bokeh**, usando o **displayHTML ()**.
 
 A imagem a seguir é um exemplo de como plotar glifos em um mapa usando **bokeh**.
 
@@ -349,7 +350,7 @@ Nas propriedades do notebook, você pode configurar se deseja incluir a saída d
    ![notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
 ## <a name="magic-commands"></a>Comandos magic
-Você pode usar seus comandos magic do Jupyter conhecidos nos notebooks do Azure Synapse Studio. Verifique a lista abaixo com os comandos magic disponíveis atuais. Conte-nos [seus casos de uso no GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que possamos continuar a criar mais comandos mágicos para atender às suas necessidades.
+Você pode usar comandos mágicos Jupyter familiares nos notebooks do Azure Synapse Studio. Examine a lista a seguir como os comandos mágicos disponíveis atuais. Conte-nos [seus casos de uso no GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que possamos continuar a criar mais comandos mágicos para atender às suas necessidades.
 
 Mágicas de linha disponíveis: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
 
@@ -360,23 +361,23 @@ Magics de célula disponíveis: [%%time](https://ipython.readthedocs.io/en/stabl
 
 ### <a name="add-a-notebook-to-a-pipeline"></a>Adicionar um bloco de anotações a um pipeline
 
-Clique no botão **Adicionar ao pipeline** no canto superior direito para adicionar um bloco de anotações a um pipeline existente ou criar um novo pipeline.
+Selecione o botão **Adicionar ao pipeline** no canto superior direito para adicionar um bloco de anotações a um pipeline existente ou criar um novo pipeline.
 
-![Adicionar ao pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
+![Adicionar bloco de anotações ao pipeline](./media/apache-spark-development-using-notebooks/add-to-pipeline.png)
 
 ### <a name="designate-a-parameters-cell"></a>Designar uma célula de parâmetros
 
-Para parametrizar seu notebook, selecione as reticências (...) para acessar o menu de ações de célula adicional na extrema direita. Em seguida, selecione **alternar célula de parâmetro** para designar a célula como a célula de parâmetros.
+Para parametrizar o bloco de anotações, selecione as reticências (...) para acessar o menu de ações de célula adicional na extrema direita. Em seguida, selecione **alternar célula de parâmetro** para designar a célula como a célula de parâmetros.
 
 ![alternar parâmetro](./media/apache-spark-development-using-notebooks/toggle-parameter-cell.png)
 
-Azure Data Factory procura a célula Parameters e trata essa célula como padrão para os parâmetros passados no momento da execução. O mecanismo de execução adicionará uma nova célula abaixo da célula Parameters com parâmetros de entrada para substituir os valores padrão. Quando não há nenhuma célula de parâmetros designada, a célula injetada será inserida na parte superior do bloco de anotações.
+Azure Data Factory procura a célula Parameters e trata essa célula como padrão para os parâmetros passados no momento da execução. O mecanismo de execução adicionará uma nova célula abaixo da célula Parameters com parâmetros de entrada para substituir os valores padrão. Quando uma célula Parameters não for designada, a célula injetada será inserida na parte superior do bloco de anotações.
 
 ### <a name="assign-parameters-values-from-a-pipeline"></a>Atribuir valores de parâmetros de um pipeline
 
 Depois de criar um bloco de anotações com parâmetros, você pode executá-lo de um pipeline com a atividade do Azure Synapse notebook. Depois de adicionar a atividade à tela do pipeline, você poderá definir os valores dos parâmetros na seção **parâmetros de base** na guia **configurações** . 
 
-![atribuir parâmetro](./media/apache-spark-development-using-notebooks/assign-parameter.png)
+![Atribuir um parâmetro](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
 Ao atribuir valores de parâmetro, você pode usar a [linguagem de expressão de pipeline](../../data-factory/control-flow-expression-language-functions.md) ou variáveis de [sistema](../../data-factory/control-flow-system-variables.md).
 
@@ -386,11 +387,11 @@ Ao atribuir valores de parâmetro, você pode usar a [linguagem de expressão de
 
 Semelhantemente aos Jupyter Notebooks, os notebooks do Azure Synapse Studio têm uma interface de usuário modal. O teclado faz coisas diferentes, dependendo de em qual modo a célula do notebook está. Os notebooks do Synapse Studio dão suporte aos seguintes dois modos de uma célula de código: modo de comando e modo de edição.
 
-1. Uma célula está no modo de comando quando não há um cursor de texto solicitando que você digite. Quando uma célula está no modo de comando, você pode editar o notebook como um todo, mas não pode digitar em células individuais. Entre no modo de comando pressionando `ESC` ou usando o mouse para clicar fora da área do editor de uma célula.
+1. Uma célula está no modo de comando quando não há um cursor de texto solicitando que você digite. Quando uma célula está no modo de comando, você pode editar o notebook como um todo, mas não pode digitar em células individuais. Insira o modo de comando pressionando `ESC` ou usando o mouse para selecionar fora da área do editor de uma célula.
 
    ![command-mode](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. O modo de edição é indicado por um cursor de texto solicitando que você digite na área do editor. Quando uma célula está no modo de edição, você pode digitar na célula. Entre no modo de edição pressionando `Enter` ou usando o mouse para clicar na área do editor de uma célula.
+2. O modo de edição é indicado por um cursor de texto solicitando que você digite na área do editor. Quando uma célula está no modo de edição, você pode digitar na célula. Insira o modo de edição pressionando `Enter` ou usando o mouse para selecionar na área do editor de uma célula.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

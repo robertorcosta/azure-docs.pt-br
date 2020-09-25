@@ -1,14 +1,16 @@
 ---
 title: Como funciona o Personalizador – Personalizador
 description: O _loop_ personalizador usa o Machine Learning para criar o modelo que prevê a ação principal para seu conteúdo. O modelo é treinado exclusivamente em seus dados que você enviou a ele com as chamadas de classificação e recompensa.
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: 836c207213ac52a60e27da6fc957418187059023
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77623768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303600"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
 
@@ -30,7 +32,7 @@ Você determina a pontuação de recompensa e envia essa pontuação para a API 
 
 A seguinte imagem mostra o fluxo de arquitetura das chamadas de Classificação e Recompensa:
 
-![texto alt](./media/how-personalizer-works/personalization-how-it-works.png "Como funciona a personalização")
+![Texto Alt](./media/how-personalizer-works/personalization-how-it-works.png "Como funciona a personalização")
 
 1. Você envia _ações com recursos_ e _recursos de contexto_ para a API de classificação.
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova, jovanpop
+ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 7b9c9fc6259656af77bf1ba1b95ccf190cbd85da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a629d230d63506a163cac0c530a1a8fbfed9627f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708613"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325072"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Início rápido: configurar uma conexão ponto a site com o Azure SQL Instância Gerenciada local
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Este guia de início rápido demonstra como se conectar ao Azure SQL Instância 
 
 Este início rápido:
 
-- Usa os recursos criados em [criar uma instância gerenciada](instance-create-quickstart.md) como ponto de partida.
+- Usa os recursos criados em  [criar uma instância gerenciada](instance-create-quickstart.md) como ponto de partida.
 - Requer o PowerShell 5,1 e Azure PowerShell 1.4.0 ou posterior no computador cliente local. Se necessário, consulte as instruções para [Instalando o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - Requer a versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) no computador cliente local.
 

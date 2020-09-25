@@ -2,66 +2,63 @@
 title: Implantar pacotes de aplicativos em nós de computação
 description: Use o recurso de pacotes de aplicativos do Lote do Azure para gerenciar facilmente vários aplicativos e versões para instalação nos nós de computação do Lote.
 ms.topic: how-to
-ms.date: 09/16/2020
-ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 0d705ca731c40563deaeb02c29da120211db7ff4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/24/2020
+ms.custom:
+- H1Hack27Feb2017
+- devx-track-csharp
+- contperfq1
+ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277692"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote
 
-O recurso de pacotes de aplicativos do lote do Azure ajuda você a gerenciar aplicativos de tarefas e sua implantação em nós de computação em seus pools. Os pacotes de aplicativos podem simplificar o código em sua solução de Lote e reduzir a sobrecarga exigida para gerenciar os aplicativos que suas tarefas executam. Com os pacotes de aplicativos, você pode carregar e gerenciar diversas versões dos aplicativos que suas tarefas executam, incluindo seus arquivos de suporte. Você pode implantar automaticamente um ou mais desses aplicativos nos nós de computação em seu pool.
-
-Os pacotes de aplicativos podem ajudar seus clientes a selecionar aplicativos para seus trabalhos, especificando a versão exata a ser usada ao processar trabalhos com seu serviço habilitado para lote. Você também pode fornecer a capacidade para que seus clientes carreguem e acompanhem seus próprios aplicativos em seu serviço.
+Os pacotes de aplicativos podem simplificar o código em sua solução de lote do Azure e facilitar o gerenciamento dos aplicativos que suas tarefas executam. Com os pacotes de aplicativos, você pode carregar e gerenciar várias versões de aplicativos que suas tarefas executam, incluindo seus arquivos de suporte. Você pode implantar automaticamente um ou mais desses aplicativos nos nós de computação em seu pool.
 
 As APIs para criar e gerenciar pacotes de aplicativos fazem parte da biblioteca [.NET do Gerenciamento do Lote](/dotnet/api/overview/azure/batch/management). As APIs para instalar pacotes de aplicativos em um nó de computação fazem parte da biblioteca [.NET do Lote](/dotnet/api/overview/azure/batch/client). Os recursos comparáveis estão nas APIs do lote disponível para outros idiomas.
 
-Este artigo explica como carregar e gerenciar pacotes de aplicativos no portal do Azure e como instalá-los em nós de computação de um pool com a biblioteca [.net do lote](/dotnet/api/overview/azure/batch/client) .
+Este artigo explica como carregar e gerenciar pacotes de aplicativos no portal do Azure. Ele também mostra como instalá-los em nós de computação de um pool com a biblioteca [.net do lote](/dotnet/api/overview/azure/batch/client) .
 
 ## <a name="application-package-requirements"></a>Requisitos do pacote de aplicativos
 
 Para usar pacotes de aplicativos, você deve [vincular uma conta de Armazenamento do Azure](#link-a-storage-account) à sua conta do Lote.
 
-Há restrições ao número de aplicativos e pacotes de aplicativos em uma conta do Lote, bem como ao tamanho máximo do pacote de aplicativos. Consulte [Cotas e limites para o serviço do Lote do Azure](batch-quota-limit.md) para obter detalhes sobre esses limites.
+Há restrições ao número de aplicativos e pacotes de aplicativos em uma conta do Lote, bem como ao tamanho máximo do pacote de aplicativos. Para obter mais informações, consulte [cotas e limites para o serviço de lote do Azure](batch-quota-limit.md).
 
 > [!NOTE]
-> Os pools do lote criados antes de 5 de julho de 2017 não dão suporte a pacotes de aplicativos (a menos que eles tenham sido criados após 10 de março de 2016 usando a configuração de serviços de nuvem).
->
-> O recurso de pacotes de aplicativos descrito aqui substitui o recurso Aplicativos do Lote, disponível nas versões anteriores do serviço.
+> Os pools do lote criados antes de 5 de julho de 2017 não dão suporte a pacotes de aplicativos (a menos que eles tenham sido criados após 10 de março de 2016 usando a configuração de serviços de nuvem). O recurso de pacotes de aplicativos descrito aqui substitui o recurso Aplicativos do Lote, disponível nas versões anteriores do serviço.
 
-## <a name="about-applications-and-application-packages"></a>Sobre aplicativos e pacotes de aplicativos
+## <a name="understand-applications-and-application-packages"></a>Entender aplicativos e pacotes de aplicativos
 
-No Lote do Azure, um *aplicativo* refere-se a um conjunto de binários com versão que podem ser baixados automaticamente para os nós de computação no pool. Um *pacote de aplicativos* refere-se a um conjunto específico desses binários, representando uma determinada versão do aplicativo.
+No Lote do Azure, um *aplicativo* refere-se a um conjunto de binários com versão que podem ser baixados automaticamente para os nós de computação no pool. Um aplicativo contém um ou mais *pacotes de aplicativos*, que representam versões diferentes do aplicativo.
+
+Cada *pacote de aplicativo* é um arquivo. zip que contém os binários do aplicativo e os arquivos de suporte. Há suporte apenas para o formato. zip.
 
 :::image type="content" source="media/batch-application-packages/app_pkg_01.png" alt-text="Diagrama mostrando uma exibição de alto nível de aplicativos e pacotes de aplicativos.":::
 
-Um *aplicativo* no lote contém um ou mais pacotes de aplicativos e especifica opções de configuração para o aplicativo. Por exemplo, um aplicativo pode especificar a versão do pacote de aplicativos padrão para instalar nos nós de computação e se seus pacotes podem ser atualizados ou excluídos.
-
-Um *pacote de aplicativos* é um arquivo. zip que contém os binários do aplicativo e os arquivos de suporte necessários para que as tarefas executem o aplicativo. Cada pacote de aplicativos representa uma versão específica do aplicativo. Há suporte apenas para o formato. zip.
-
-Você pode especificar pacotes de aplicativos nos níveis do pool ou da tarefa. Você pode especificar um ou mais desses pacotes e (opcionalmente) uma versão quando você cria uma tarefa ou um pool.
+Você pode especificar pacotes de aplicativos no nível do pool ou da tarefa.
 
 - **Pacotes de aplicativos do pool** são implantados em cada nó no pool. Os aplicativos são implantados quando um nó ingressa em um pool e quando ele é reinicializado ou tem a imagem recriada.
   
-    Os pacotes de aplicativos do pool são adequados quando todos os nós em um pool executam as tarefas de um trabalho. Você pode especificar um ou mais pacotes de aplicativos quando cria um pool e pode adicionar ou atualizar os pacotes de um pool existente. Se você atualizar os pacotes de aplicativos de um pool existente, deverá reiniciar os nós para instalar o novo pacote.
+    Os pacotes de aplicativos de pool são apropriados quando todos os nós em um pool executam as tarefas de um trabalho. Você pode especificar um ou mais pacotes de aplicativos a serem implantados ao criar um pool. Você também pode adicionar ou atualizar os pacotes de um pool existente. Para instalar um novo pacote em um pool existente, você deve reiniciar seus nós.
 
 - **pacotes de aplicativos de tarefa** são implantados somente em um nó de computação programado para executar uma tarefa, logo antes de executar a linha de comando da tarefa. Se o pacote de aplicativos especificado e a versão já estiverem no nó, ele não será reimplantado e o pacote existente será usado.
   
-    Os pacotes de aplicativos de tarefa são úteis nos ambientes de pool compartilhado, onde diferentes trabalhos são executados em um pool, e o pool não é excluído quando um trabalho é concluído. Se o trabalho tiver menos tarefas do que os nós no pool, pacotes de aplicativos de tarefa poderão minimizar a transferência de dados, pois o aplicativo é implantado apenas para os nós que executam tarefas.
+    Os pacotes de aplicativos de tarefas são úteis em ambientes de pool compartilhado, em que diferentes trabalhos são executados em um pool e o pool não é excluído quando um trabalho é concluído. Se seu trabalho tiver menos tarefas do que nós no pool, os pacotes de aplicativos de tarefa poderão minimizar a transferência de dados, já que seu aplicativo é implantado somente para os nós que executam tarefas.
   
-    Outros cenários que podem aproveitar os pacotes de aplicativos de tarefa são os trabalhos que executam um aplicativo grande, mas para um pequeno número de tarefas. Por exemplo, uma fase de pré-processamento ou uma tarefa de mesclagem na qual o aplicativo pré-processamento ou mesclagem é pesado pode beneficiar-se do uso de pacotes de aplicativos de tarefa.
+    Outros cenários que podem aproveitar os pacotes de aplicativos de tarefa são os trabalhos que executam um aplicativo grande, mas para um pequeno número de tarefas. Por exemplo, os aplicativos de tarefas podem ser úteis para um estágio de pré-processamento pesado ou uma tarefa de mesclagem.
 
-Com pacotes de aplicativos, a tarefa de inicialização do pool não precisa especificar uma longa lista de arquivos de recursos individuais para instalar nos nós. Não é preciso gerenciar manualmente diversas versões dos arquivos do aplicativo no Armazenamento do Azure nem em seus nós. E você não precisa preocupar-se com a geração de [URLs SAS](../storage/common/storage-sas-overview.md) para fornecer acesso aos arquivos em sua conta de Armazenamento. O Lote funciona em segundo plano com o Armazenamento do Azure para armazenar os pacotes de aplicativos e implantá-los nos nós de computação.
+Com pacotes de aplicativos, a tarefa de inicialização do pool não precisa especificar uma longa lista de arquivos de recursos individuais para instalar nos nós. Não é preciso gerenciar manualmente diversas versões dos arquivos do aplicativo no Armazenamento do Azure nem em seus nós. E você não precisa se preocupar em gerar [URLs SAS](../storage/common/storage-sas-overview.md) para fornecer acesso aos arquivos em sua conta de armazenamento. O Lote funciona em segundo plano com o Armazenamento do Azure para armazenar os pacotes de aplicativos e implantá-los nos nós de computação.
 
 > [!NOTE]
-> O tamanho total de uma tarefa de início deve ser menor ou igual a 32768 caracteres, incluindo arquivos de recurso e variáveis de ambiente. Se a tarefa de inicialização exceder esse limite, usar pacotes de aplicativos é outra opção. Você também pode criar um arquivo. zip contendo os arquivos de recurso, carregá-lo como um blob no armazenamento do Azure e descompactá-lo da linha de comando da tarefa inicial.
+> O tamanho total de uma tarefa de início deve ser menor ou igual a 32768 caracteres, incluindo arquivos de recurso e variáveis de ambiente. Se a tarefa inicial exceder esse limite, o uso de pacotes de aplicativos será outra opção. Você também pode criar um arquivo. zip contendo os arquivos de recurso, carregá-lo como um blob no armazenamento do Azure e descompactá-lo da linha de comando da tarefa inicial.
 
 ## <a name="upload-and-manage-applications"></a>Carregar e gerenciar aplicativos
 
-Você pode usar o [portal do Azure](https://portal.azure.com) ou as APIs de Gerenciamento do Lote para gerenciar os pacotes de aplicativos em sua conta do Lote. Nas próximas seções, primeiro vincularemos uma conta de Armazenamento e analisaremos como adicionar aplicativos e pacotes e como gerenciá-los com o portal.
+Você pode usar o [portal do Azure](https://portal.azure.com) ou as APIs de Gerenciamento do Lote para gerenciar os pacotes de aplicativos em sua conta do Lote. As seções a seguir explicam como vincular uma conta de armazenamento e como adicionar e gerenciar aplicativos e pacotes de aplicativos no portal do Azure.
 
 ### <a name="link-a-storage-account"></a>Vincular uma conta de armazenamento
 
@@ -74,7 +71,7 @@ Depois que você tiver vinculado as duas contas, o Lote poderá implantar automa
 > [!IMPORTANT]
 > Você não pode usar pacotes de aplicativos com contas de armazenamento do Azure configuradas com [regras de firewall](../storage/common/storage-network-security.md)ou com o **namespace hierárquico** definido como **habilitado**.
 
-O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado normalmente](https://azure.microsoft.com/pricing/details/storage/) pelos dados de blob de blocos e o tamanho de cada pacote não pode exceder o tamanho máximo do blob de blocos. Para obter mais informações, confira [Escalabilidade e metas de desempenho do Armazenamento do Azure para contas de armazenamento](../storage/blobs/scalability-targets.md). Para minimizar os custos, contente considerar o tamanho e o número de seus pacotes de aplicativos e remova periodicamente os pacotes preteridos.
+O serviço de Lote usa o Armazenamento do Azure para armazenar os pacotes de aplicativos como blobs de blocos. Você é [cobrado normalmente](https://azure.microsoft.com/pricing/details/storage/) pelos dados de blob de blocos e o tamanho de cada pacote não pode exceder o tamanho máximo do blob de blocos. Para obter mais informações, confira [Escalabilidade e metas de desempenho do Armazenamento do Azure para contas de armazenamento](../storage/blobs/scalability-targets.md). Para minimizar os custos, certifique-se de considerar o tamanho e o número de seus pacotes de aplicativos e remover periodicamente os pacotes preteridos.
 
 ### <a name="view-current-applications"></a>Exibir aplicativos atuais
 
@@ -88,19 +85,19 @@ A seleção dessa opção de menu abre a janela **aplicativos** . Essa janela ex
 - **Versão padrão**: se aplicável, a versão do aplicativo que será instalada se nenhuma versão for especificada ao implantar o aplicativo.
 - **Permitir atualizações**: especifica se as atualizações e exclusões do pacote são permitidas.
 
-Para ver a [estrutura de arquivos](files-and-directories.md) do pacote de aplicativos no nó de computação, navegue até sua conta do lote na portal do Azure. Selecione **pools** e, em seguida, selecione o pool que contém o nó de computação no qual você está interessado. Em seguida, selecione o nó de computação no qual o pacote de aplicativos está instalado e abra a pasta **aplicativos** .
+Para ver a [estrutura de arquivos](files-and-directories.md) do pacote de aplicativos em um nó de computação, navegue até sua conta do lote no portal do Azure. Selecione **pools**. em seguida, selecione o pool que contém o nó de computação. Selecione o nó de computação no qual o pacote de aplicativos está instalado e abra a pasta **aplicativos** .
 
 ### <a name="view-application-details"></a>Exibir detalhes do aplicativo
 
 Para ver os detalhes de um aplicativo, selecione-o na janela **aplicativos** . Você pode definir as configurações a seguir para seu aplicativo.
 
-- **Permitir atualizações**: indica se os pacotes de aplicativos podem ser [atualizados ou excluídos](#update-or-delete-an-application-package). O padrão é **Sim**. Se definido como **não**, as atualizações e exclusões do pacote não serão permitidas para o aplicativo, embora novas versões do pacote de aplicativos possam ser adicionadas.
+- **Permitir atualizações**: indica se os pacotes de aplicativos podem ser [atualizados ou excluídos](#update-or-delete-an-application-package). O padrão é **Sim**. Se definido como **não**, os pacotes de aplicativos existentes não poderão ser atualizados ou excluídos, mas novas versões de pacote de aplicativos ainda poderão ser adicionadas.
 - **Versão padrão**: o pacote de aplicativo padrão a ser usado quando o aplicativo for implantado, se nenhuma versão for especificada.
 - **Nome de exibição**: um nome amigável que sua solução de lote pode usar ao exibir informações sobre o aplicativo. Por exemplo, esse nome pode ser usado na interface do usuário de um serviço que você fornece para seus clientes por meio do lote.
 
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
 
-Para criar um novo aplicativo, você adiciona um pacote de aplicativos e especifica uma ID de aplicativo nova e exclusiva.
+Para criar um novo aplicativo, você adiciona um pacote de aplicativos e especifica uma ID de aplicativo exclusiva.
 
 Em sua conta do lote, selecione **aplicativos** e, em seguida, selecione **Adicionar**.
 
@@ -143,7 +140,7 @@ Agora que você aprendeu como gerenciar pacotes de aplicativos no portal do Azur
 
 ### <a name="install-pool-application-packages"></a>Instalar pacotes de aplicativos do pool
 
-Para instalar um pacote de aplicativos em todos os nós de computação em um pool, especifique uma ou mais referências do pacote de aplicativos para o pool. Os pacotes de aplicativo que você especifica para um pool são instalados em cada nó de computação quando esse nó se une ao pool, e quando o nó é reinicializado ou tem sua imagem refeita.
+Para instalar um pacote de aplicativos em todos os nós de computação em um pool, especifique uma ou mais referências do pacote de aplicativos para o pool. Os pacotes de aplicativos que você especificar para um pool são instalados em cada nó de computação que une o pool e em qualquer nó reinicializado ou com a imagem recriada.
 
 No .NET do lote, especifique um ou mais [CloudPool. ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudpool.applicationpackagereferences) ao criar um novo pool ou para um pool existente. A classe [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) especifica uma ID e versão do aplicativo para instalar nos nós de computação de um pool.
 
@@ -170,7 +167,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Se uma implantação do pacote de aplicativos falhar por algum motivo, o serviço do Lote marcará o nó como [inutilizável](/dotnet/api/microsoft.azure.batch.computenode.state) e nenhuma tarefa será agendada para a execução nesse nó. Nesse caso, você deve reiniciar o nó para reiniciar a implantação do pacote. A reinicialização do nó também habilita novamente nele o agendamento de tarefas.
+> Se uma implantação de pacote de aplicativos falhar, o serviço de lote marcará o nó como [inutilizável](/dotnet/api/microsoft.azure.batch.computenode.state)e nenhuma tarefa será agendada para execução nesse nó. Se isso acontecer, reinicie o nó para reinicializar a implantação do pacote. A reinicialização do nó também habilita novamente nele o agendamento de tarefas.
 
 ### <a name="install-task-application-packages"></a>Instalar pacotes de aplicativos de tarefa
 
@@ -246,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>Atualizar pacotes de aplicativos de um pool
 
-Se um pool existente já tiver sido configurado com um pacote de aplicativos, você poderá especificar um novo pacote para o pool. Se você especificar uma nova referência de pacote para um pool, o seguinte se aplicará:
+Se um pool existente já tiver sido configurado com um pacote de aplicativos, você poderá especificar um novo pacote para o pool. Isso significa:
 
 - O serviço de Lote instala o pacote recém-especificado em todos os novos nós que ingressam no pool e em qualquer nó existente que seja reinicializado ou cuja imagem seja refeita.
 - Os nós de computação que já estão no pool quando você atualiza as referências do pacote não instalam automaticamente o novo pacote de aplicativos. Esses nós de computação devem ser reinicializados ou ter sua imagem recriada para receber o novo pacote.

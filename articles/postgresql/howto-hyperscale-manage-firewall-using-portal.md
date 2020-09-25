@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884325"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275414"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gerenciar regras de firewall para o Banco de Dados do Azure para PostgreSQL – Hiperescala (Citus)
 As regras de firewall no nível do servidor podem ser usadas para gerenciar o acesso a um nó coordenador de Hiperescala (Citus) de um endereço IP especificado ou de um intervalo de endereços IP.
@@ -49,7 +49,7 @@ Como alternativa, clicar em **+ Adicionar 0.0.0.0 - 255.255.255.255** (à direit
 
 ## <a name="connecting-from-azure"></a>Conexão pelo Azure
 
-Há uma forma fácil de conceder ao Banco de dados de hiperescala acesso aos aplicativos hospedados no Azure (como um aplicativo dos Aplicativos Web do Azure ou aqueles em execução em uma VM do Azure). Basta definir a opção **Permitir que serviços e recursos do Azure acessem este grupo de servidores** como **Sim** no portal, no painel **Rede**, e clicar em **Salvar**.
+Há uma maneira fácil de conceder acesso ao banco de dados de hiperescala (Citus) a aplicativos hospedados no Azure (como um aplicativo de aplicativos Web do Azure ou aqueles em execução em uma VM do Azure). Basta definir a opção **Permitir que serviços e recursos do Azure acessem este grupo de servidores** como **Sim** no portal, no painel **Rede**, e clicar em **Salvar**.
 
 > [!IMPORTANT]
 > Esta opção configura o firewall para permitir todas as conexões do Azure, incluindo as conexões das assinaturas de outros clientes. Ao selecionar essa opção, verifique se as permissões de logon e de usuário limitam o acesso somente a usuários autorizados.

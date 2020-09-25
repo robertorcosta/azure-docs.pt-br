@@ -9,36 +9,35 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: da9445b12ce6f35d249fc3af1a4a0ef560ba35de
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905084"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276927"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Criar um conjunto de dados de treinamento para um modelo personalizado
 
-Ao usar o modelo personalizado do reconhecedor de formulário, você fornece seus próprios dados de treinamento para que o modelo possa treinar seus formulários específicos do setor. 
+Ao usar o modelo personalizado do reconhecedor de formulário, você fornece seus próprios dados de treinamento para a operação [treinar modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) , para que o modelo possa treinar seus formulários específicos do setor. Siga este guia para aprender a coletar e preparar dados para treinar o modelo com eficiência.
 
 Se você estiver treinando sem rótulos manuais, poderá usar cinco formulários preenchidos ou um formulário vazio (você deve incluir a palavra "Empty" no nome do arquivo) mais dois formulários preenchidos. Mesmo que você tenha formulários preenchidos suficientes, adicionar um formulário vazio ao seu conjunto de dados de treinamento pode melhorar a precisão do modelo.
 
 Se você quiser usar dados de treinamento rotulados manualmente, deverá começar com pelo menos cinco formulários preenchidos do mesmo tipo. Você ainda pode usar formulários sem rótulo e um formulário vazio além do conjunto de dados necessário.
 
+## <a name="custom-model-input-requirements"></a>Requisitos de entrada de modelo personalizado
+
+Primeiro, verifique se o conjunto de dados de treinamento segue os requisitos de entrada para o reconhecedor de formulário.
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
 ## <a name="training-data-tips"></a>Dicas de dados de treinamento
 
-É importante usar um conjunto de dados otimizado para treinamento. Use as dicas a seguir para garantir que você obtenha os melhores resultados da operação [treinar modelo personalizado](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) :
+Siga estas dicas adicionais para otimizar ainda mais seu conjunto de dados para treinamento.
 
 * Se possível, use documentos PDF baseados em texto em vez de documentos baseados em imagem. Os PDFs digitalizados são tratados como imagens.
 * Para formulários preenchidos, use exemplos que tenham todos os seus campos preenchidos.
 * Use os formulários com diferentes valores em cada campo.
 * Se suas imagens de formulário forem de qualidade inferior, use um conjunto de dados maior (10-15 imagens, por exemplo).
-* O tamanho total do conjunto de dados de treinamento pode ser de até 500 páginas.
-
-## <a name="general-input-requirements"></a>Requisitos de entrada gerais
-
-Verifique se o conjunto de dados de treinamento também segue os requisitos de entrada para todo o conteúdo do reconhecedor de formulário. 
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## <a name="upload-your-training-data"></a>Carregue seus dados de treinamento
 
@@ -73,7 +72,12 @@ Se você adicionar o conteúdo a seguir ao corpo da solicitação, a API será t
 
 Agora que você aprendeu como criar um conjunto de dados de treinamento, siga um guia de início rápido para treinar um modelo de reconhecedor de formulário personalizado e comece a usá-lo em seus formulários.
 
+* [Treinar um modelo e extrair dados de formulário usando a biblioteca de cliente](./quickstarts/client-library.md)
 * [Treinar um modelo e extrair dados de formulário usando a ondulação](./quickstarts/curl-train-extract.md)
 * [Treinar um modelo e extrair dados de formulário usando a API REST e o Python](./quickstarts/python-train-extract.md)
 * [Treine com rótulos usando a ferramenta de rotulagem de exemplo](./quickstarts/label-tool.md)
 * [Treinar com rótulos usando a API REST e o Python](./quickstarts/python-labeled-data.md)
+
+## <a name="see-also"></a>Confira também
+
+* [O que é o Reconhecimento de Formulários?](./overview.md)

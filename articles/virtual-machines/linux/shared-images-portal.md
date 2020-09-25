@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 30e61a9a8bf4d7f843db5e68278e4b10a3a8c023
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e65e5478c81a99db7789eab4d532ddd01ffc635a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318107"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307153"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Criar uma galeria de imagens compartilhada usando o portal
 
@@ -78,5 +78,5 @@ Você também pode criar um recurso de Galeria de imagens compartilhadas usando 
 - [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM por meio de uma Versão da Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
+Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](../troubleshooting-shared-images.md).
 

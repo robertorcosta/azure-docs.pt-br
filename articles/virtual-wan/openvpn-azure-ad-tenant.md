@@ -3,17 +3,17 @@ title: 'Locatário do Azure AD para conexões VPN de usuário: autenticação do
 description: Você pode usar a VPN do usuário da WAN virtual do Azure (ponto a site) para se conectar à sua VNet usando a autenticação do Azure AD
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: e88437dc03772348ebbe0d179afc7fd4ddd24bd9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f77d17881054440b01e30e738a8c38407c38b4a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306541"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Preparar Azure Active Directory locatário para conexões de protocolo VPN do usuário OpenVPN
 

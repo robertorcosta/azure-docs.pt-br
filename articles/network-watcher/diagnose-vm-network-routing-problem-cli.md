@@ -1,7 +1,7 @@
 ---
 title: Diagnosticar um problema de roteamento de rede VM-CLI do Azure
 titleSuffix: Azure Network Watcher
-description: Neste artigo, você aprenderá a diagnosticar um problema de roteamento da rede de máquina virtual com a funcionalidade de próximo salto do Observador de Rede do Azure.
+description: Neste artigo, você aprenderá como usar CLI do Azure para diagnosticar um problema de roteamento de rede de máquina virtual usando o recurso de próximo salto do observador de rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 889db5cdcb1807b859339eaf326e3cec7ea64b84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738797"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302206"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de roteamento de rede de máquina virtual - CLI do Azure
 

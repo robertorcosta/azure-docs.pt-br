@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: configurar o Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce.
+description: Conheça as etapas necessárias para executar no Salesforce e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273289"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
 

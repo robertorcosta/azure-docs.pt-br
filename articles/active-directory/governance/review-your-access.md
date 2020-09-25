@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 959837ff540fd95d186497858d7b9de1f8b1124d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274003"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos ou aplicativos nas revisões de acesso do Azure AD
 
@@ -65,13 +65,13 @@ Depois de abrir a revisão de acesso, você poderá ver seu acesso.
 
     Se a solicitação for revisar o acesso para outros, a página terá uma aparência diferente. Para obter mais informações, consulte [examinar o acesso a grupos ou aplicativos](perform-access-review.md).
 
-    ![Abra a revisão de acesso perguntando se você ainda precisa de acesso a um grupo](./media/review-your-access/perform-access-review.png)
+    ![Captura de tela que mostra uma revisão de acesso aberto que pergunta se você ainda precisa de acesso a um grupo.](./media/review-your-access/perform-access-review.png)
 
 1. Clique em **Sim** para manter seu acesso ou clique em **não** para remover o acesso.
 
 1. Se você clicar em **Sim**, talvez seja necessário especificar uma justificativa na caixa **motivo** .
 
-    ![Revisão de acesso concluída perguntando se você ainda precisa de acesso a um grupo](./media/review-your-access/perform-access-review-submit.png)
+    ![Captura de tela que mostra uma revisão de acesso concluída que pergunta se você ainda precisa de acesso a um grupo, com "Sim" selecionado.](./media/review-your-access/perform-access-review-submit.png)
 
 1. Clique em **Enviar**.
 

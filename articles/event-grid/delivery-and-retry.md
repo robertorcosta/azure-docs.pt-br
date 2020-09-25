@@ -3,12 +3,12 @@ title: Entrega e repetição da Grade de Eventos do Azure
 description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324086"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -91,9 +91,149 @@ Há um atraso de cinco minutos entre a última tentativa de entregar de um event
 
 Antes de configurar o local de mensagens mortas, você deve ter uma conta de armazenamento com um contêiner. É possível fornecer o ponto de extremidade para esse contêiner ao criar a assinatura do evento. O ponto de extremidade está no formato de: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Talvez você queira ser notificado quando um evento tiver sido enviado para o local de mensagens mortas. Para usar a Grade de Eventos para responder a eventos não entregues, [crie uma assinatura de evento](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) para o armazenamento de blob de mensagens mortas. Toda vez que seu armazenamento de blob de mensagens mortas recebe um evento não entregue, a Grade de Eventos notifica o manipulador. O manipulador responde com ações que você deseja executar para reconciliar eventos não entregues.
+Talvez você queira ser notificado quando um evento tiver sido enviado para o local de mensagens mortas. Para usar a Grade de Eventos para responder a eventos não entregues, [crie uma assinatura de evento](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) para o armazenamento de blob de mensagens mortas. Toda vez que seu armazenamento de blob de mensagens mortas recebe um evento não entregue, a Grade de Eventos notifica o manipulador. O manipulador responde com ações que você deseja executar para reconciliar eventos não entregues. Para obter um exemplo de como configurar um local de mensagens mortas e tentar políticas de repetição, veja [políticas de inatividade e repetição](manage-event-delivery.md).
 
-Para ver um exemplo de como configurar um local de mensagens mortas, confira [Dead letter and retry policies](manage-event-delivery.md) (Políticas de mensagens mortas e repetição).
+## <a name="delivery-event-formats"></a>Formatos de evento de entrega
+Esta seção fornece exemplos de eventos e eventos inativos em formatos de esquema de entrega diferentes (esquema de grade de eventos, esquema CloudEvents 1,0 e esquema personalizado). Para obter mais informações sobre esses formatos, consulte artigos sobre esquema de [grade de eventos](event-schema.md) e [eventos de nuvem 1,0](cloud-event-schema.md) . 
+
+### <a name="event-grid-schema"></a>Esquema da Grade de Eventos
+
+#### <a name="event"></a>Evento 
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/000000000-0000-0000-0000-00000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Evento de mensagens mortas
+
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    },
+
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T17:18:14.0265758Z",
+    "lastDeliveryAttemptTime": "2020-08-13T17:18:14.0465788Z" 
+}
+```
+
+### <a name="cloudevents-10-schema"></a>Esquema CloudEvents 1,0
+
+#### <a name="event"></a>Evento
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Evento de mensagens mortas
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    },
+
+    "deadletterreason": "MaxDeliveryAttemptsExceeded",
+    "deliveryattempts": 1,
+    "lastdeliveryoutcome": "NotFound",
+    "publishtime": "2020-08-13T21:21:36.4018726Z",
+}
+```
+
+### <a name="custom-schema"></a>Esquema personalizado
+
+#### <a name="event"></a>Evento
+
+```json
+{
+    "prop1": "my property",
+    "prop2": 5,
+    "myEventType": "fooEventType"
+}
+
+```
+
+#### <a name="dead-letter-event"></a>Evento de mensagens mortas
+```json
+{
+    "id": "8bc07e6f-0885-4729-90e4-7c3f052bd754",
+    "eventTime": "2020-08-13T18:11:29.4121391Z",
+    "eventType": "myEventType",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/00000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.EventGrid/topics/myCustomSchemaTopic",
+    "subject": "subjectDefault",
+  
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T18:11:29.4121391Z",
+    "lastDeliveryAttemptTime": "2020-08-13T18:11:29.4277644Z",
+  
+    "data": {
+        "prop1": "my property",
+        "prop2": 5,
+        "myEventType": "fooEventType"
+    }
+}
+```
+
 
 ## <a name="message-delivery-status"></a>Status de entrega da mensagem
 

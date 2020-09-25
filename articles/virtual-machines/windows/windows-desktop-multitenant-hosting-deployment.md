@@ -1,18 +1,18 @@
 ---
 title: Como implantar o Windows 10 no Azure com direitos de hospedagem multilocatário
-description: Saiba como maximizar os benefícios do Windows Software Assurance para colocar as licenças locais no Azure
+description: Saiba como maximizar seus benefícios do Windows Software Assurance para trazer licenças locais para o Azure com direitos de hospedagem multilocatário.
 author: xujing
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 40b5f4ee0c30e38c6cd5bd01c724ed783921670d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ceb8b8b31963317ccbbd1aee9f1b2606afc5a5db
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077428"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279018"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implantar o Windows 10 no Azure com direitos de hospedagem multilocatário 
 Para clientes com Windows 10 Enterprise E3/E5 por usuário ou por Acesso de Área de Trabalho Virtual do Windows por usuário (licenças de assinatura do usuário ou licenças complementares de assinatura do usuário), os direitos de hospedagem multilocatário para Windows 10 permitem que você coloque suas licenças do Windows 10 na nuvem e execute máquinas virtuais do Windows 10 no Azure sem necessidade de pagar por outra licença. Para obter mais informações, consulte [Hospedagem multilocatário para Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0d669d4232adca3348b51c2a48947e0dabf0a472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324052"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
@@ -100,6 +100,31 @@ Para bloquear seu aplicativo para aceitar o tráfego somente de sua porta de fre
 
 -    Execute uma operação GET na sua porta frontal com a versão da API `2020-01-01` ou superior. Na chamada à API, procure o `frontdoorID` campo. Filtre o cabeçalho de entrada '**X-Azure-FDID**' enviado pela porta frontal ao seu back-end com o valor como o do campo `frontdoorID` . Você também pode encontrar `Front Door ID` o valor na seção visão geral da página do portal de porta frontal. 
 
+- Aplique a filtragem de regra em seu servidor Web de back-end para restringir o tráfego com base no valor de cabeçalho ' X-Azure-FDID ' resultante.
+
+  Aqui está um exemplo de [Microsoft serviços de informações da Internet (IIS)](https://www.iis.net/):
+
+    ``` xml
+    <?xml version="1.0" encoding="UTF-8"?>
+    <configuration>
+        <system.webServer>
+            <rewrite>
+                <rules>
+                    <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                        <match url="*" />
+                        <conditions>
+                            <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                        </conditions>
+                        <action type="AbortRequest" />
+                    </rule>
+                </rules>
+            </rewrite>
+        </system.webServer>
+    </configuration>
+    ```
+
+
+
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>O IP anycast pode ser alterado durante o tempo de vida da minha porta frontal?
 
 O IP de anycast de front-end para sua porta frontal normalmente não deve ser alterado e pode permanecer estático durante o tempo de vida da porta frontal. No entanto, **não há nenhuma garantia** para o mesmo. Não use nenhuma dependência direta no IP.
@@ -132,6 +157,10 @@ A porta frontal do Azure (AFD) requer um IP público ou um nome DNS que possa se
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Quais são os vários tempos limite e limites para a porta frontal do Azure?
 
 Saiba mais sobre todos os [tempos limite e limites documentados para a porta frontal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+
+### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Quanto tempo leva para uma regra entrar em vigor depois de ser adicionada ao mecanismo de regras de porta frontal?
+
+A configuração do mecanismo de regras leva cerca de 10 a 15 minutos para concluir uma atualização. Você pode esperar que a regra tenha efeito assim que a atualização for concluída. 
 
 ## <a name="performance"></a>Desempenho
 

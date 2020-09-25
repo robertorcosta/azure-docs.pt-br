@@ -1,14 +1,16 @@
 ---
 title: Planejar seu aplicativo-LUIS
 description: Descreva intenções e entidades de aplicativo relevantes e crie seus planos de aplicativo no LUIS (Serviço Inteligente de Reconhecimento Vocal).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 38d80a77303e248ab137f87f8063b5cbc358f51a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 69f2048da0b4690d9de72e96e296edbd55c4cd9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892908"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309448"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planejar o esquema do aplicativo LUIS com a extração de dados e domínio do assunto
 
@@ -69,7 +71,7 @@ A `FlightAction` entidade seria estruturada no seguinte pseudocódigo de entidad
 * Vooaction
     * Ação
     * Origem
-    * Destino
+    * Destination
 
 Para ajudar a extração, adicione recursos às subentidades. Você escolherá seus recursos com base no vocabulário que espera ver no usuário declarações e os valores que você deseja que sejam retornados na resposta de previsão.
 

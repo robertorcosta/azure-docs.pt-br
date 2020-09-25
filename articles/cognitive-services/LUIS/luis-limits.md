@@ -1,14 +1,16 @@
 ---
 title: Limites-LUIS
 description: Este artigo contém os limites conhecidos do LUIS (Reconhecimento vocal) dos Serviços Cognitivos do Azure. LUIS tem várias áreas limites. O limite de modelo controla as intenções, as entidades e os recursos no LUIS. Limites de cota com base no tipo de chave. A combinação de teclado controla o site do LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324698"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o modelo e as chaves do LUIS
 LUIS tem várias áreas de limite. O primeiro é o [limite do modelo](#model-limits), que controla as intenções, as entidades e os recursos no Luis. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. Uma terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site Luis. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS.
@@ -26,7 +28,7 @@ Se seu aplicativo exceder os limites do modelo LUIS, considere o uso de um aplic
 | [Teste em lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
 | Lista explícita | 50 por aplicativo|
 | Entidades externas | sem limites |
-| [Intenções][intents]|500 por aplicativo: 499 tentativas personalizadas e a intenção _nenhuma_ necessária.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem fontes de expedição 500 correspondentes.|
+| [Tentativas][intents]|500 por aplicativo: 499 tentativas personalizadas e a intenção _nenhuma_ necessária.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem fontes de expedição 500 correspondentes.|
 | [Listar entidades](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
 | [entidades de aprendizado de máquina + funções](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade com a finalidade desse limite. Um exemplo é uma composição com uma entidade simples, que tem duas funções: 1 composição + 1 simples + 2 funções = 4 das entidades 330.<br>As subentidades podem ser aninhadas até 5 níveis.|
 |Modelo como um recurso| Número máximo de modelos que podem ser usados como um recurso para um modelo específico para ter 10 modelos. O número máximo de listas de frases usadas como um recurso para um modelo específico ter 10 listas de frases.|
@@ -106,7 +108,7 @@ A [integração de fala](../speech-service/how-to-recognize-intents-from-speech-
 
 ## <a name="keyboard-controls"></a>Controles de teclado
 
-|Entrada de teclado | Descrição |
+|Entrada por teclado | Descrição |
 |--|--|
 |Control+E|alterna entre tokens e entidades na lista de declarações|
 

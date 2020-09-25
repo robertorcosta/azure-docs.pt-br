@@ -2,18 +2,18 @@
 title: Criptografia do lado do servidor dos discos gerenciados do Azure - PowerShell
 description: O Armazenamento do Microsoft Azure protege os dados com criptografia em repouso, antes de enviá-los para clusters de armazenamento. Você pode contar com chaves gerenciadas pela Microsoft para a criptografia dos discos gerenciados ou usar chaves gerenciadas pelo cliente para gerenciar a criptografia com suas próprias chaves.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 49898f2215139c4460c639dc8caa3d2764082e34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274768"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Criptografia do Armazenamento em Disco do Azure no lado do servidor para o PowerShell
 
@@ -47,6 +47,10 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 - Se esse recurso estiver habilitado para o disco, não é possível desabilitá-lo.
     Se uma solução alternativa for necessária, você deve [copiar todos os dados](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) para um disco gerenciado totalmente diferente que não use chaves gerenciadas pelo cliente.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+#### <a name="supported-regions"></a>Regiões com suporte
+
+As chaves gerenciadas pelo cliente estão disponíveis em todas as regiões em que os discos gerenciados estão disponíveis.
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Criptografia em criptografia de host de ponta a ponta para os dados da VM
 

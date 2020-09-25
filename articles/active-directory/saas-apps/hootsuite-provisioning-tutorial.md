@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 83b2a497cbeda188a4329e634256746f48984a89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a67d61c5a7c8861b1e4462586e1e4dca9149ab4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305436"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar o HootSuite para provisionamento automático de usuários
 
@@ -78,13 +78,13 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 3. Selecione a guia **Provisionamento**. Clique em **Introdução**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
     ![Folha de introdução](./media/hootsuite-provisioning-tutorial/get-started.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **Credenciais de Administrador**, insira `https://platform.hootsuite.com/scim/v2` na URL do locatário. Insira o valor do token secreto de longa duração recuperado anteriormente na **Etapa 2**. Clique em **Testar Conexão** para verificar se o Azure AD pode se conectar ao HootSuite. Se a conexão falhar, verifique se sua conta do HootSuite tem permissões de administrador e tente novamente.
 

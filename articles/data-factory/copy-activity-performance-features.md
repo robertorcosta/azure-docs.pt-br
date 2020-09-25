@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440534"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324324"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Recursos de otimização de desempenho da atividade de cópia
 
@@ -124,31 +124,35 @@ Quando você especificar um valor para a `parallelCopies` propriedade, faça com
 
 ## <a name="staged-copy"></a>Cópia em etapas
 
-Ao copiar dados de um armazenamento de dados de origem para um armazenamento de dados do coletor, você pode escolher usar um armazenamento de Blobs como um armazenamento de preparação provisório. Esse preparo é especialmente útil nos seguintes casos:
+Ao copiar dados de um armazenamento de dados de origem para um armazenamento de dados de coletor, você pode optar por usar o armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2 como um armazenamento de preparo provisório. Esse preparo é especialmente útil nos seguintes casos:
 
-- **Você deseja ingerir dados de vários armazenamentos de dados para o Azure Synapse Analytics (anteriormente SQL Data Warehouse) por meio do polybase.** O Azure Synapse Analytics usa o polybase como um mecanismo de alta taxa de transferência para carregar uma grande quantidade de dados na análise de Synapse do Azure. Os dados de origem devem estar no armazenamento de BLOBs ou Azure Data Lake Store e devem atender a critérios adicionais. Quando você carrega dados de um armazenamento de dados diferente do armazenamento de Blobs ou do Azure Data Lake Store, pode ativar a cópia dos dados por meio do armazenamento de Blobs de preparo provisório. Nesse caso, Azure Data Factory executa as transformações de dados necessárias para garantir que ele atenda aos requisitos do polybase. Em seguida, ele usa o polybase para carregar dados no Azure Synapse Analytics com eficiência. Para obter mais informações, consulte [usar o polybase para carregar dados no Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+- **Você deseja ingerir dados de vários armazenamentos de dados para o Azure Synapse Analytics (anteriormente SQL Data Warehouse) por meio do polybase, copiar dados de/para floco de neve ou ingerir dados do Amazon redshift/HDFS forma definitiva.** Saiba mais detalhes em:
+  - [Use o polybase para carregar dados no Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+  - [Conector floco de neve](connector-snowflake.md)
+  - [Conector do Amazon redshift](connector-amazon-redshift.md)
+  - [HDFS connector](connector-hdfs.md) (Conector de HDFS)
+- **Você não quer abrir portas que não sejam a porta 80 e a porta 443 em seu firewall devido a políticas corporativas de ti.** Por exemplo, ao copiar dados de um armazenamento de dados local para um banco de dado SQL do Azure ou para uma análise de Synapse do Azure, você precisa ativar a comunicação TCP de saída na porta 1433 para o Firewall do Windows e o firewall corporativo. Nesse cenário, a cópia em etapas pode aproveitar o tempo de execução de integração auto-hospedado para primeiro copiar dados para um armazenamento de preparo via HTTP ou HTTPS na porta 443 e, em seguida, carregar os dados de preparo no banco de dados SQL ou no Azure Synapse Analytics. Nesse fluxo, você não precisa habilitar a porta 1433.
 - **Às vezes, demora um pouco para executar uma movimentação de dados híbrido (ou seja, copiar de um armazenamento de dados local para um armazenamento de dados de nuvem) em uma conexão de rede lenta.** Para melhorar o desempenho, você pode usar cópia em etapas para compactar os dados locais, de modo que leve menos tempo para mover dados para o armazenamento de dados de preparo na nuvem. Em seguida, você pode descompactar os dados no armazenamento de preparo antes de carregar no armazenamento de dados de destino.
-- **Você não quer abrir portas que não sejam a porta 80 e a porta 443 em seu firewall devido a políticas corporativas de ti.** Por exemplo, ao copiar dados de um armazenamento de dados local para um coletor de banco de dados SQL do Azure ou um coletor de análise do Azure Synapse, você precisa ativar a comunicação TCP de saída na porta 1433 para o Firewall do Windows e o firewall corporativo. Nesse cenário, a cópia preparada pode aproveitar o tempo de execução de integração auto-hospedado para primeiro copiar dados para uma instância de preparo de armazenamento de BLOBs por HTTP ou HTTPS na porta 443. Em seguida, ele pode carregar os dados no banco de dados SQL ou no Azure Synapse Analytics do armazenamento de blobs de preparo. Nesse fluxo, você não precisa habilitar a porta 1433.
 
 ### <a name="how-staged-copy-works"></a>Como funciona a cópia em etapas
 
-Quando você ativa o recurso de preparo, primeiro os dados são copiados do armazenamento de dados de origem para o armazenamento de blobs de preparo (traga seu próprio). Em seguida, os dados são copiados do armazenamento de dados de preparo para o armazenamento de dados do coletor. Azure Data Factory gerencia automaticamente o fluxo de duas etapas para você. Azure Data Factory também limpa dados temporários do armazenamento de preparo após a conclusão da movimentação de dados.
+Quando você ativa o recurso de preparo, primeiro os dados são copiados do armazenamento de dados de origem para o armazenamento de preparo (Traga seu próprio blob do Azure ou Azure Data Lake Storage Gen2). Em seguida, os dados são copiados do preparo para o armazenamento de dados do coletor. Azure Data Factory atividade de cópia gerencia automaticamente o fluxo de dois estágios para você e também limpa os dados temporários do armazenamento de preparo após a conclusão da movimentação de dados.
 
 ![Cópia em etapas](media/copy-activity-performance/staged-copy.png)
 
-Ao ativar a movimentação de dados usando um armazenamento de preparo, você pode especificar se deseja que os dados sejam compactados antes de mover os dados do armazenamento de dados de origem para um armazenamento de dados provisório ou de preparo e, em seguida, descompactados antes de mover dados de um armazenamento de dados provisório ou de preparo para o armazenamento de dados do coletor.
+Ao ativar a movimentação de dados usando um armazenamento de preparo, você pode especificar se deseja que os dados sejam compactados antes de mover os dados do armazenamento de dados de origem para o repositório de preparo e, em seguida, descompactados antes de mover dados de um armazenamento de dados provisório ou de preparo para o armazenamento de dados do coletor.
 
 No momento, não é possível copiar dados entre dois armazenamentos de dados que estão conectados por meio do IRs hospedado internamente diferente, nem com nem sem cópia preparada. Para esse cenário, você pode configurar duas atividades de cópia encadeadas explicitamente para copiar da origem para o preparo e, em seguida, do preparo para o coletor.
 
 ### <a name="configuration"></a>Configuração
 
-Defina a configuração **enableStaging** na atividade de cópia para especificar se deseja que os dados sejam preparados no armazenamento de BLOBs antes de carregá-los em um armazenamento de dados de destino. Ao definir **enableStaging** como `TRUE` , especifique as propriedades adicionais listadas na tabela a seguir. Você também precisa criar um armazenamento do Azure ou um serviço vinculado à assinatura de acesso compartilhado de armazenamento para preparação, se você não tiver um.
+Defina a configuração **enableStaging** na atividade de cópia para especificar se deseja que os dados sejam preparados no armazenamento antes de carregá-los em um armazenamento de dados de destino. Ao definir **enableStaging** como `TRUE` , especifique as propriedades adicionais listadas na tabela a seguir. 
 
 | Propriedade | Descrição | Valor padrão | Obrigatório |
 | --- | --- | --- | --- |
 | enableStaging |Especifique se você deseja copiar os dados por meio de um armazenamento de preparo provisório. |Falso |Não |
-| linkedServiceName |Especifique o nome de um serviço vinculado [AzureStorage](connector-azure-blob-storage.md#linked-service-properties), que se refere à instância do Armazenamento que você usa como um repositório de preparo provisório. <br/><br/> Você não pode usar o armazenamento com uma assinatura de acesso compartilhado para carregar dados no Azure Synapse Analytics por meio do polybase. Pode usar em todos os outros cenários. |N/D |Sim, quando **enableStaging** está definido para TRUE |
-| caminho |Especifique o caminho do armazenamento de Blobs que você deseja que contenha os dados preparados. Se você não fornecer um caminho, o serviço criará um contêiner para armazenar dados temporários. <br/><br/>  Especifique um caminho somente se você usar o Armazenamento com uma assinatura de acesso compartilhado ou precisar que os dados temporários fiquem em um local específico. |N/D |Não |
+| linkedServiceName |Especifique o nome de um [armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) serviço vinculado, que se refere à instância de armazenamento que você usa como um armazenamento de preparo provisório. |N/D |Sim, quando **enableStaging** está definido para TRUE |
+| caminho |Especifique o caminho que você deseja que contenha os dados preparados. Se você não fornecer um caminho, o serviço criará um contêiner para armazenar dados temporários. |N/D |Não |
 | enableCompression |Especifica se os dados devem ser compactados antes de serem copiados para o destino. Essa configuração reduz o volume de dados que são transferidos. |Falso |Não |
 
 >[!NOTE]
@@ -159,25 +163,24 @@ Aqui está uma definição de exemplo de uma atividade de cópia com as propried
 ```json
 "activities":[
     {
-        "name": "Sample copy activity",
+        "name": "CopyActivityWithStaging",
         "type": "Copy",
         "inputs": [...],
         "outputs": [...],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "OracleSource",
             },
             "sink": {
-                "type": "SqlSink"
+                "type": "SqlDWSink"
             },
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
+                "path": "stagingcontainer/path"
             }
         }
     }

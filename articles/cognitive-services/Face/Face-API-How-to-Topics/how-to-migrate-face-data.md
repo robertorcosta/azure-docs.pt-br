@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d52cd57d48a03c5dab8cb8098cd212e76ca76a1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6f6b2ed9357acf4dceeb960b1abdf6813987f657
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929067"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324885"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar seus dados de detecção facial para uma assinatura diferente de Detecção Facial
 
@@ -237,4 +237,3 @@ Em seguida, consulte a documentação de referência de API relevante, explore u
 - [Exemplo de instantâneo facial](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Adicionar faces](how-to-add-faces.md)
 - [Detectar faces em uma imagem](HowtoDetectFacesinImage.md)
-- [Identificar faces em imagens](HowtoIdentifyFacesinImage.md)

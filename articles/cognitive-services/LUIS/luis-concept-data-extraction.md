@@ -1,15 +1,17 @@
 ---
 title: Extração de dados-LUIS
 description: Extraia dados de texto expressão com intenções e entidades. Saiba que tipo de dados pode ser extraído de Reconhecimento vocal (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c69971b36bf945086d1a8f398043444071acea5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682198"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324817"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de um texto do enunciado com intenções e entidades
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chat bot para executar uma ação. Nas seções a seguir, saiba quais dados são retornados de intenções e entidades com exemplos de JSON.

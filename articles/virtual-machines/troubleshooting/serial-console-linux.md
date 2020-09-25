@@ -1,6 +1,6 @@
 ---
 title: Console serial do Azure para Linux | Microsoft Docs
-description: Console serial bidirecional para máquinas virtuais do Azure e Conjuntos de Dimensionamento de Máquinas Virtuais.
+description: Console serial bidirecional para máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais usando um exemplo do Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306864"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console serial do Azure para Linux
 
@@ -135,38 +135,38 @@ Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é recon
 
 **P. Como posso enviar comentários?**
 
-A. Fornecer comentários com a criação de um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria da máquina virtual https://feedback.azure.com.
+a. Fornecer comentários com a criação de um problema do GitHub em https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), você pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria da máquina virtual https://feedback.azure.com.
 
 **P. O console serial dá suporte para copiar/colar?**
 
-A. Sim. Use **Ctrl**+**Shift**+**C** e **Ctrl**+**Shift**+**V** para copiar e colar no terminal.
+a. Sim. Use **Ctrl**+**Shift**+**C** e **Ctrl**+**Shift**+**V** para copiar e colar no terminal.
 
-**P. posso usar o console serial em vez de uma conexão SSH?**
+**Perguntas. Posso usar o console serial em vez de uma conexão SSH?**
 
-A. Embora esse uso possa parecer tecnicamente possível, o console serial deve ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não é possível. Recomendamos não usar o console serial como substituto de SSH pelos seguintes motivos:
+a. Embora esse uso possa parecer tecnicamente possível, o console serial deve ser usado principalmente como uma ferramenta de solução de problemas em situações em que a conectividade via SSH não é possível. Recomendamos não usar o console serial como substituto de SSH pelos seguintes motivos:
 
 - O console serial não possui muita largura de banda como o SSH. Como é uma conexão somente de texto, mais interações com GUI são difíceis.
 - O acesso ao console serial é atualmente possível apenas usando um nome de usuário e senha. Como as chaves SSH são muito mais seguras do que combinações de nome de usuário / senha, do ponto de vista da segurança de login, recomendamos o SSH no console serial.
 
-**P. quem pode habilitar ou desabilitar o console serial para minha assinatura?**
+**Perguntas. Quem pode habilitar ou desabilitar o console serial para minha assinatura?**
 
-A. Para ativar ou desativar o console serial em um nível de assinatura, você deve ter permissões de gravação para a assinatura. As funções que têm permissão de gravação incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de gravação.
+a. Para ativar ou desativar o console serial em um nível de assinatura, você deve ter permissões de gravação para a assinatura. As funções que têm permissão de gravação incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de gravação.
 
-**P. quem pode acessar o console serial do meu conjunto de dimensionamento de máquinas virtuais/VM?**
+**Perguntas. Quem pode acessar o console serial do meu conjunto de dimensionamento de máquinas virtuais/VM?**
 
-A. Você deve ter a função colaborador da máquina virtual ou superior para uma VM ou conjunto de dimensionamento de máquinas virtuais para acessar o console serial.
+a. Você deve ter a função colaborador da máquina virtual ou superior para uma VM ou conjunto de dimensionamento de máquinas virtuais para acessar o console serial.
 
 **P. Meu console serial não está exibindo nada, o que eu faço?**
 
-A. Sua imagem provavelmente não está configurada corretamente para acesso ao console serial. Para obter informações sobre como configurar sua imagem para ativar o console serial, consulte [Disponibilidade de distribuição Linux do console serial](#serial-console-linux-distribution-availability).
+a. Sua imagem provavelmente não está configurada corretamente para acesso ao console serial. Para obter informações sobre como configurar sua imagem para ativar o console serial, consulte [Disponibilidade de distribuição Linux do console serial](#serial-console-linux-distribution-availability).
 
 **P. O console serial está disponível para conjuntos de escala de máquinas virtuais?**
 
 a. Sim. Confira [Console serial para Conjuntos de Dimensionamento de Máquinas Virtuais](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-**P. se eu configuro minha VM ou conjunto de dimensionamento de máquinas virtuais usando apenas a autenticação de chave SSH, ainda posso usar o console serial para se conectar à minha instância de VM/conjunto de dimensionamento de máquinas virtuais?**
+**Perguntas. Se eu configurar minha VM ou conjunto de dimensionamento de máquinas virtuais usando apenas a autenticação de chave SSH, ainda poderei usar o console serial para se conectar à minha instância de VM/conjunto de dimensionamento de máquinas virtuais?**
 
-A. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário / senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
+a. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário / senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use o console serial para [acessar o GRUB e o modo de usuário único](serial-console-grub-single-user-mode.md).

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325752"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -137,6 +137,10 @@ Ao criar/editar uma regra de alerta do Azure, use um grupo de ações que tenha 
 > [!NOTE]
 >
 > Para obter informações sobre os preços da Ação de ITSM, visite a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) dos Grupos de Ação.
+
+> [!NOTE]
+>
+> O campo Descrição curta na definição de regra de alerta é limitado a 40 caracteres quando ele é enviado usando a ação de ITSM.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar os dados de incidente e solicitação de alteração

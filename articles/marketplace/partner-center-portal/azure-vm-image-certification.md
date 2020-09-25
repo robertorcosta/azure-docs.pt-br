@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 751fbbb83f1ccb75cb84453f8c03296f6d1a786c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647827"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275772"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Validação de imagem de máquina virtual do Azure
 
@@ -20,7 +20,7 @@ Este artigo descreve como testar e enviar uma imagem de VM (máquina virtual) no
 
 Conclua estas etapas antes de enviar sua oferta de VM:
 
-- Implante uma VM do Azure usando sua imagem generalizada.
+- Implante uma VM do Azure usando sua imagem generalizada. Consulte aqui para obter mais informações sobre [imagens generalizadas](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image).
 - Execute as validações.
 
 ## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Implante uma VM do Azure usando sua imagem generalizada
@@ -599,7 +599,9 @@ Após a conclusão do teste automatizado, forneça informações adicionais sobr
 
 A última tela permite que você forneça mais informações, como informações de acesso SSH para uma imagem de VM do Linux e uma explicação para quaisquer avaliações com falha se você estiver procurando por exceções.
 
-Por fim, selecione Gerar Relatório para baixar os resultados do teste e os arquivos de log dos casos de teste juntamente com as respostas ao questionário. Salve os resultados no mesmo contêiner como seus VHDs.
+Por fim, selecione Gerar Relatório para baixar os resultados do teste e os arquivos de log dos casos de teste juntamente com as respostas ao questionário. 
+> [!Note]
+> Alguns Publicadores têm cenários em que as VMs precisam ser bloqueadas, pois têm software como firewalls instalados na VM. Nesse caso, os editores podem baixar a [ferramenta de teste certificada](https://aka.ms/AzureCertificationTestTool) aqui e fornecer o relatório no [suporte ao editor do Marketplace](https://aka.ms/marketplacepublishersupport)
 
 ## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Como usar o PowerShell para consumir a API de teste automático
 

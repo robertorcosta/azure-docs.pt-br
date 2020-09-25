@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dadffd6fe3e6b438b21900f957f0d4ef71bb23cb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cc0c8c40e370579100c562e0289c97e3f5ce4236
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661270"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274105"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerenciar e personalizar os Serviços de Federação do Active Directory usando o Azure AD Connect
 Este artigo descreve como gerenciar e personalizar os Serviços de Federação do Active Directory (AD FS) usando o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas comuns do AD FS que você pode precisar realizar para obter uma configuração completa de um farm do AD FS.
@@ -52,11 +52,11 @@ Você pode usar o Azure AD Connect para verificar a integridade atual da confian
    ![Reparar a relação de confiança do AAD e do ADFS](./media/how-to-connect-fed-management/RepairADTrust1.PNG)
 
 2. Na página **Conectar ao Azure AD**, forneça suas credenciais de administrador global do Azure AD e clique em **Avançar**.
-   ![Conecte-se ao AD do Azure](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
+   ![Captura de tela que mostra a página "conectar ao Azure AD" com as credenciais de exemplo inseridas.](./media/how-to-connect-fed-management/RepairADTrust2.PNG)
 
 3. Na página **Credenciais de acesso remoto** , digite as credenciais de administrador de domínio.
 
-   ![Credenciais de acesso remoto](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
+   ![Captura de tela que mostra a página "credenciais de acesso remoto" com as credenciais de exemplo inseridas.](./media/how-to-connect-fed-management/RepairADTrust3.PNG)
 
     Depois que você clicar em **Avançar**, o Azure AD Connect verificará a integridade do certificado e mostrará eventuais problemas.
 
@@ -64,7 +64,7 @@ Você pode usar o Azure AD Connect para verificar a integridade atual da confian
 
     A página **Pronto para configurar** mostra a lista de ações que serão executadas para reparar a confiança.
 
-    ![Pronto para configurar](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
+    ![Captura de tela que mostra a página "pronto para configurar" com uma lista de ações.](./media/how-to-connect-fed-management/RepairADTrust5.PNG)
 
 4. Clique em **Instalar** para reparar a relação de confiança.
 
@@ -98,7 +98,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
 2. Na página **Conectar ao Azure AD**, digite suas credenciais de administrador global do Azure AD e clique em **Avançar**.
 
-   ![Conecte-se ao AD do Azure](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
+   ![Captura de tela que mostra a página "conectar ao Azure AD" com as credenciais de exemplo inseridas.](./media/how-to-connect-fed-management/AddNewADFSServer2.PNG)
 
 3. Forneça as credenciais de administrador de domínio.
 
@@ -106,9 +106,9 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
 4. O Azure AD Connect solicita a senha do arquivo PFX que você forneceu ao configurar o novo farm do AD FS com o Azure AD Connect. Clique em **Digitar Senha** para fornecer a senha para o arquivo PFX.
 
-   ![Senha de certificado](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
+   ![Captura de tela que mostra a página "especificar certificado SSL" com a janela "senha do certificado" aberta.](./media/how-to-connect-fed-management/AddNewADFSServer4.PNG)
 
-    ![Especificar certificado TLS/SSL](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
+    ![Captura de tela que mostra a página "especificar certificado SSL" depois que uma senha para o arquivo PFX é inserida.](./media/how-to-connect-fed-management/AddNewADFSServer5.PNG)
 
 5. Na página **Servidores do AD FS** , insira o nome do servidor ou o endereço IP a ser adicionado ao farm do AD FS.
 
@@ -116,9 +116,9 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
 6. Clique em **Avançar** e passe pela página **Configurar** final. Após o Azure AD Connect terminar de adicionar os servidores no farm do AD FS, você terá a opção de verificar a conectividade.
 
-   ![Pronto para configurar](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
+   ![Captura de tela que mostra a página "pronto para configurar" com uma lista de ações a serem concluídas depois de clicar em "instalar".](./media/how-to-connect-fed-management/AddNewADFSServer7.PNG)
 
-    ![Instalação concluída](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
+    ![Captura de tela que mostra a página "instalação concluída" com a mensagem "a configuração da intranet foi verificada com êxito" exibida. ](./media/how-to-connect-fed-management/AddNewADFSServer8.PNG)
 
 ## <a name="add-an-ad-fs-wap-server"></a><a name="addwapserver"></a>Adicionar um servidor WAP AD FS 
 
@@ -131,7 +131,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
 2. Forneça as credenciais de administrador global do Azure.
 
-   ![Conecte-se ao AD do Azure](./media/how-to-connect-fed-management/wapserver2.PNG)
+   ![Captura de tela que mostra a página "conectar ao Azure AD" com um exemplo de nome de usuário e senha inseridos.](./media/how-to-connect-fed-management/wapserver2.PNG)
 
 3. Na página **Especificar certificado SSL**, forneça a senha para o arquivo PFX que você forneceu ao configurar o farm do AD FS com o Azure AD Connect.
    ![Senha de certificado](./media/how-to-connect-fed-management/WapServer3.PNG)
@@ -148,7 +148,7 @@ A configuração da ID de logon alternativa do AD FS consiste em duas etapas pri
 
 6. Na página **Pronto para configurar** , o assistente mostra a lista de ações que serão executadas.
 
-   ![Pronto para configurar](./media/how-to-connect-fed-management/WapServer7.PNG)
+   ![Captura de tela que mostra a página "pronto para configurar" com uma lista de ações a serem executadas.](./media/how-to-connect-fed-management/WapServer7.PNG)
 
 7. Clique em **Instalar** para concluir a configuração. Depois que a configuração for concluída, o assistente lhe dará a opção para verificar a conectividade com os servidores. Clique em **Verificar** para verificar a conectividade.
 

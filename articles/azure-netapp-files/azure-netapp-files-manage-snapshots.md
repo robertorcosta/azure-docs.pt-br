@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325682"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
@@ -65,7 +65,7 @@ O recurso de **política de instantâneo** está atualmente em visualização. S
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Você também pode usar comandos de CLI do Azure [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) e [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) para registrar o recurso e exibir o status do registro. 
+Você também pode usar [comandos de CLI do Azure](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política de instantâneo 
 
@@ -97,7 +97,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Salvar**.  
+4.  Clique em **Save** (Salvar).  
 
 Se você precisar criar políticas de instantâneo adicionais, repita a etapa 3.
 As políticas que você criou aparecem na página política de instantâneo.
@@ -151,7 +151,7 @@ No momento, você pode restaurar um instantâneo somente para um novo volume.
     ![Restaurar instantâneo para o novo volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 3. Na janela criar um volume, forneça informações para o novo volume:  
-    * **Nome**   
+    * **Name**   
         Especifique o nome para o volume que você está criando.  
         
         O nome precisa ser exclusivo em um grupo de recursos. Ele precisa ter, pelo menos, três caracteres.  Deve usar qualquer caractere alfanumérico.
@@ -221,6 +221,6 @@ Se você marcou a caixa de seleção Ocultar caminho do instantâneo quando crio
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Solucionar problemas de políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Vídeo de instantâneos de Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

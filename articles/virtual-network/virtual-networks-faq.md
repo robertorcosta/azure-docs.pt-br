@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: d39e66e205c592d58a93c1187a1c77269da9e7ad
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 171fc11c8de9cd53a7abd9602768a117341826ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89438221"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306593"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure (FAQ)
 
@@ -191,7 +191,7 @@ Sim. Todas as instâncias de função de VMs e Serviços de Nuvem implantados em
 ## <a name="azure-services-that-connect-to-vnets"></a>Serviços do Azure que se conectam a redes virtuais
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Posso usar os Aplicativos Web do Serviço de Aplicativo do Azure em uma rede virtual?
-Sim. Você pode implantar aplicativos Web dentro de uma VNet usando um ASE (Ambiente do Serviço de Aplicativo), conectar o back-end de seus aplicativos ao seu VNets com integração VNet e bloquear o tráfego de entrada para seu aplicativo com pontos de extremidade de serviço. Para obter mais informações, confira os seguintes artigos:
+Sim. Você pode implantar aplicativos Web dentro de uma VNet usando um ASE (Ambiente do Serviço de Aplicativo), conectar o back-end de seus aplicativos ao seu VNets com integração VNet e bloquear o tráfego de entrada para seu aplicativo com pontos de extremidade de serviço. Para obter mais informações, consulte os seguintes artigos:
 
 * [Recursos de rede do serviço de aplicativo](../app-service/networking-features.md)
 * [Criando Aplicativos Web em um Ambiente do Serviço de Aplicativo](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -266,7 +266,7 @@ Os recursos a seguir podem usar balanceadores de carga básicos, o que significa
 Você pode se conectar a esses recursos via ExpressRoute ou VNet a VNet por meio de gateways de VNet.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>É possível habilitar emparelhamento VNet se as redes virtuais pertencerem a assinaturas em diferentes locatários do Azure Active Directory?
-Sim. É possível estabelecer Emparelhamento de VNet (local ou global) se as assinaturas pertencerem a diferentes locatários do Azure Active Directory. Você pode fazer isso via PowerShell ou CLI. Ainda não há suporte para o portal.
+Sim. É possível estabelecer Emparelhamento de VNet (local ou global) se as assinaturas pertencerem a diferentes locatários do Azure Active Directory. Você pode fazer isso por meio do portal, do PowerShell ou da CLI.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>A conexão de emparelhamento VNet está no estado *Iniciado*, por que não consigo conectar?
 Se a conexão de emparelhamento estiver em um estado *iniciado* , isso significa que você criou apenas um link. Um link bidirecional deve ser criado para estabelecer uma conexão com êxito. Por exemplo, para emparelhar VNet A a VNet B, um vínculo deve ser criado da VNetA para VNetB e da VNetB para VNetA. A criação de ambos os links alterará o estado para *conectado*.

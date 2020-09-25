@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d578e089edbd99f8a0d37d805c297b42f60b3f4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9a11ff33245bf92e225f0f2382f6e873eab1338c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555652"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323752"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: configurar o sinal dinâmico para o provisionamento automático de usuário
 
@@ -90,11 +90,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** da conta do seu sinal dinâmico, conforme descrito na etapa 6.
 

@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324025"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
 
@@ -33,7 +33,7 @@ No segundo cenário, a Contoso deseja testar um novo dispositivo de lâmpada int
 
 | Nome                     | Valores                      |
 | ------------------------ | --------------------------- |
-| Color                    | White, Red, Blue            |
+| Cor                    | White, Red, Blue            |
 | Brilho               | 0 a 100                    |
 | Vida útil restante estimada | Contagem regressiva de 10.000 horas |
 
@@ -65,7 +65,7 @@ A tabela a seguir mostra o status inicial do dispositivo:
 
 | Nome                     | Valores |
 | ------------------------ | -------|
-| Cor inicial            | Branco  |
+| Cor inicial            | Branca  |
 | Brilho inicial       | 75     |
 | Vida útil restante inicial   | 10.000 |
 | Status de telemetria inicial | "on"   |
@@ -108,7 +108,7 @@ Baixe e descompacte o [microsserviço de adaptador de armazenamento](https://git
 
 Abra a pasta **remote-monitoring-services-dotnet-master\storage-adapter** no Visual Studio Code. Clique em qualquer botão **Restaurar** para corrigir todas as dependências não resolvidas.
 
-Abra o arquivo **Storage-Adapter/WebService/appsettings.ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentDBConnectionString** .
+Abra o arquivo **Storage-Adapter/WebService/appsettings.ini** e atribua sua cadeia de conexão Cosmos DB à variável **documentDBConnectionString**  .
 
 Para executar o microsserviço localmente, clique em **Depurar > Iniciar Depuração**.
 

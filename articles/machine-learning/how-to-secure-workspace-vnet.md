@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 4dc1f86ce7dbb060c747c4433f0c2b871ce5582d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 92975251955b608d9dd888328b54a4b40f4592d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907655"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275823"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
@@ -67,7 +67,7 @@ Nesta seção, você aprenderá a proteger uma conta de armazenamento do Azure u
 >
 > A conta de armazenamento padrão é provisionada automaticamente quando você cria um workspace.
 >
-> O parâmetro `storage_account` na função [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite que você especifique uma conta de armazenamento personalizada pela ID do recurso do Azure em contas de armazenamento não padrão.
+> O parâmetro `storage_account` na função [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) permite que você especifique uma conta de armazenamento personalizada pela ID do recurso do Azure em contas de armazenamento não padrão.
 
 Para usar uma conta de armazenamento do Azure para o workspace em uma rede virtual, siga as seguintes etapas:
 
@@ -180,6 +180,8 @@ Para usar o registro de contêiner do Azure dentro de uma rede virtual, você de
 
     Quando o ACR está atrás de uma rede virtual, o Azure Machine Learning não pode usá-lo para criar imagens do Docker diretamente. Em vez disso, o cluster de cálculo é usado para compilar as imagens.
 
+* Antes de usar o ACR com Azure Machine Learning em uma rede virtual, você deve abrir um incidente de suporte para habilitar essa funcionalidade. Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
 Depois que esses requisitos forem atendidos, use as etapas a seguir para habilitar o registro de contêiner do Azure.
 
 1. Localize o nome do registro de contêiner do Azure para seu espaço de trabalho, usando um dos seguintes métodos:
@@ -215,7 +217,7 @@ Depois que esses requisitos forem atendidos, use as etapas a seguir para habilit
     > [!IMPORTANT]
     > A conta de armazenamento, o cluster de cálculo e o Registro de Contêiner do Azure devem estar todos na mesma sub-rede da rede virtual.
     
-    Para obter mais informações, consulte a referência do método [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-).
+    Para obter mais informações, consulte a referência do método [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-).
 
 1. Aplique o modelo de Azure Resource Manager a seguir. Este modelo permite que seu workspace se comunique com o ACR.
 

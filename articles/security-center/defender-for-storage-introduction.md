@@ -3,16 +3,16 @@ title: Azure defender para armazenamento-os benefícios e recursos
 description: Saiba mais sobre os benefícios e recursos do Azure defender para armazenamento.
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 31d1bde1555f98164ccba32d4615ba51837c5ef7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c47c1cd464c9dc0ac8dc78f5d6f91f33481922a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933783"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307510"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introdução ao Azure defender para armazenamento
 
@@ -27,8 +27,8 @@ Essa camada de proteção permite que você resolva as ameaças *sem* exigir que
 |----|:----|
 |Estado da versão:|GA (em disponibilidade geral)|
 |Refere|O **Azure defender para armazenamento** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
-|Tipos de armazenamento protegidos|[Armazenamento de Blobs](https://azure.microsoft.com/services/storage/blobs/)<br>[Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![No](./media/icons/no-icon.png) China gov, outros gov|
+|Tipos de armazenamento protegidos|[Armazenamento de BLOBs](https://azure.microsoft.com/services/storage/blobs/)<br>[Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) China gov, outros gov|
 |||
 
 

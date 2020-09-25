@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe5eba72b507ebea6bc1012c567de70bc3deb5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720479"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261338"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de implantação do ciclo de vida do Processo de Ciência de Dados de Equipe
 
 Este artigo descreve as metas, as tarefas e as entregas associadas à implantação do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
    1. **Noções básicas sobre negócios**
-   2. **Compreensão e aquisição de dados**
+   2. **Aquisição e compreensão de dados**
    3. **Modelagem**
    4. **Implantação**
    5. **Aceitação do cliente**
@@ -46,11 +46,11 @@ Depois que você tiver um conjunto de modelos com um bom desempenho, eles poder�
 
    * Sites online
    * Planilhas 
-   * Dashboards
+   * Painéis
    * Aplicativos de linha de negócios 
    * Aplicativos de back-end 
 
-Para obter exemplos de operacionalização de modelos com um serviço Web do Azure Machine Learning, consulte [Implantar um serviço Web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). É uma prática recomendada integrar a telemetria e o monitoramento no modelo de produção e no pipeline de dados implantados. Essa prática ajuda com o relatório de status do sistema e a solução de problemas subsequentes.  
+Para obter exemplos de operacionalização de modelos com um serviço Web do Azure Machine Learning, consulte [Implantar um serviço Web do Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md). É uma prática recomendada integrar a telemetria e o monitoramento no modelo de produção e no pipeline de dados implantados. Essa prática ajuda com o relatório de status do sistema e a solução de problemas subsequentes.  
 
 ## <a name="artifacts"></a>Artifacts
 

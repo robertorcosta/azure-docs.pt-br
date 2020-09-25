@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277726"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Use grupos de failover automático para habilitar o failover transparente e coordenado de vários bancos de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Além disso, os grupos de failover automático fornecem pontos de extremidade de
 
 Quando você estiver usando grupos de failover automático com a política de failover automático, qualquer interrupção que afete os bancos de dados em um servidor ou instância gerenciada resultará em failover automático. Você pode gerenciar o grupo de failover automático usando:
 
-- [Portal do Azure](geo-distributed-application-configure-tutorial.md)
+- [Azure portal](geo-distributed-application-configure-tutorial.md)
 - [CLI do Azure: grupo de failover](scripts/add-database-to-failover-group-cli.md)
 - [PowerShell: grupo de failover](scripts/add-database-to-failover-group-powershell.md)
 - [API REST: grupo de failover](/rest/api/sql/failovergroups).
@@ -217,7 +217,7 @@ O grupo de failover automático precisa ser configurado na instância primária 
 
 O diagrama a seguir ilustra uma configuração típica de um aplicativo de nuvem com redundância geográfica usando uma instância gerenciada e um grupo de failover automático.
 
-![failover automático](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![diagrama de failover automático](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > Consulte [Adicionar instância gerenciada a um grupo de failover](../managed-instance/failover-group-add-instance-tutorial.md) para obter um tutorial passo a passo detalhado adicionando um instância gerenciada do SQL para usar o grupo de failover.
@@ -237,16 +237,16 @@ Para obter mais informações sobre como criar o SQL Instância Gerenciada secun
 
 Já que cada instância é isolada em sua própria rede virtual, o tráfego em duas vias entre essas redes virtuais deve ser permitido. Confira [Gateway de VPN do Azure](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Criando um grupo de failover entre instâncias gerenciadas em assinaturas diferentes
+### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Criação de um grupo de failover entre instâncias gerenciadas em assinaturas diferentes
 
 Você pode criar um grupo de failover entre instâncias gerenciadas do SQL em duas assinaturas diferentes, desde que as assinaturas estejam associadas ao mesmo [locatário Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Ao usar a API do PowerShell, você pode fazê-lo especificando o `PartnerSubscriptionId` parâmetro para o SQL instância gerenciada secundário. Ao usar a API REST, cada ID de instância incluída no `properties.managedInstancePairs` parâmetro pode ter sua própria SubscriptionId.
   
 > [!IMPORTANT]
-> Portal do Azure não oferece suporte à criação de grupos de failover em assinaturas diferentes. Além disso, para os grupos de failover existentes em diferentes assinaturas e/ou grupos de recursos, o failover não pode ser iniciado manualmente por meio do portal do SQL Instância Gerenciada primário. Em vez disso, inicie-o na instância do secundário geográfico.
+> Portal do Azure não oferece suporte à criação de grupos de failover em assinaturas diferentes. Além disso, para os grupos de failover existentes em diferentes assinaturas e/ou grupos de recursos, o failover não pode ser iniciado manualmente por meio do portal do SQL Instância Gerenciada primário. Em vez disso, inicie-o na instância secundária geográfica.
 
-### <a name="managing-failover-to-secondary-instance"></a>Gerenciando o failover para a instância secundária
+### <a name="managing-failover-to-secondary-instance"></a>Gerenciamento de failover para a instância secundária
 
-O grupo de failover gerenciará o failover de todos os bancos de dados no SQL Instância Gerenciada. Quando um grupo é criado, cada banco de dados na instância será replicado geograficamente automaticamente para o SQL Instância Gerenciada secundário. Não é possível usar grupos de failover para iniciar um failover parcial de um subconjunto dos bancos de dados.
+O grupo de failover gerenciará o failover de todos os bancos de dados na Instância Gerenciada de SQL. Quando um grupo é criado, cada banco de dados na instância será replicado geograficamente de modo automático para a Instância Gerenciada de SQL secundária. Não é possível usar grupos de failover para iniciar um failover parcial de um subconjunto dos bancos de dados.
 
 > [!IMPORTANT]
 > Se um banco de dados for removido do SQL Instância Gerenciada primário, ele também será descartado automaticamente no Instância Gerenciada SQL geograficamente secundário.
@@ -348,7 +348,7 @@ A configuração acima garantirá que o failover automático não bloqueie conex
 > [!IMPORTANT]
 > Para garantir a continuidade dos negócios para interrupções regionais, garanta redundância geográfica para bancos de dados e componentes de front-end.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Habilitando a replicação geográfica entre instâncias gerenciadas e suas VNets
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Habilitar a replicação geográfica entre instâncias gerenciadas e suas VNets
 
 Quando você configura um grupo de failover entre instâncias gerenciadas do SQL primárias e secundárias em duas regiões diferentes, cada instância é isolada usando uma rede virtual independente. Para permitir o tráfego de replicação entre esses VNets, verifique se esses pré-requisitos foram atendidos:
 
@@ -357,7 +357,7 @@ Quando você configura um grupo de failover entre instâncias gerenciadas do SQL
 - Sua instância secundária do SQL Instância Gerenciada deve estar vazia (nenhum banco de dados de usuário).
 - As redes virtuais usadas pelas instâncias do SQL Instância Gerenciada precisam ser conectadas por meio de um [Gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [rota expressa](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Quando duas redes virtuais se conectam por meio de uma rede local, verifique se não há nenhuma regra de firewall bloqueando as portas 5022 e 11000-11999. O Emparelhamento VNET Global não é compatível.
 - Os dois VNets SQL Instância Gerenciada não podem ter endereços IP sobrepostos.
-- Você precisa configurar seus NSG (grupos de segurança de rede) de modo que as portas 5022 e o intervalo 11000 ~ 12000 sejam abertos de entrada e saída para conexões da sub-rede da outra instância gerenciada. Isso é para permitir o tráfego de replicação entre as instâncias.
+- Você precisa configurar seus NSGs (Grupos de Segurança de Rede) de modo que as portas 5022 e o intervalo 11000~12000 sejam conexões abertas de entrada e saída para a sub-rede da outra instância gerenciada. Isso é para permitir o tráfego de replicação entre as instâncias.
 
    > [!IMPORTANT]
    > Regras de segurança de NSG mal configuradas resultam em operações de cópia de banco de dados paralisadas.
@@ -371,7 +371,7 @@ Quando você configura um grupo de failover entre instâncias gerenciadas do SQL
 
 Você pode atualizar ou fazer downgrade de um banco de dados primário para um tamanho da computação diferente (dentro da mesma camada de serviço, não entre Uso Geral e Comercialmente Crítico) sem desconectar nenhum banco de dados secundário. Ao atualizar, recomendamos que você atualize todos os bancos de dados secundários primeiro e, em seguida, atualize o primário. Ao fazer downgrade, inverta o pedido: faça o downgrade do primário primeiro e, em seguida, downgrade todos os bancos de dados secundários. Quando você atualiza ou faz downgrade do banco de dados para uma camada de serviço diferente essa recomendação é imposta.
 
-Essa sequência é recomendada especificamente para evitar o problema em que o secundário em uma SKU inferior é sobrecarregado e deve ser propagado novamente durante um processo de atualização ou de downgrade. Você também pode evitar o problema tornando o primário somente leitura, às custas de afetar todas as cargas de trabalho de leitura/gravação no primário.
+Essa sequência é recomendada especificamente para evitar o problema em que o secundário em uma SKU inferior fica sobrecarregado e deve ser propagado novamente durante um processo de atualização ou de downgrade. Você também pode evitar o problema tornando o primário somente leitura, em detrimento de afetar todas as cargas de trabalho de leitura/gravação em relação ao primário.
 
 > [!NOTE]
 > Se você criou um banco de dados secundário como parte da configuração do grupo de failover, não é recomendável fazer downgrade do banco de dados secundário. Isso é para garantir que sua camada de dados tenha capacidade suficiente para processar sua carga de trabalho normal após o failover ser ativado.
