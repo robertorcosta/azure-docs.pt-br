@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa79af1047862e8694fa6342942ffd0793bafcb6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334992"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Configurar e gerenciar a referência de conteúdo-banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,7 +38,7 @@ Neste artigo, você pode encontrar uma referência de conteúdo de vários guias
 - [Configurar a autenticação do Azure Active Directory (Azure AD)](authentication-aad-configure.md)
 - [Configurar o acesso condicional](conditional-access-configure.md)
 - [Autenticação multifator do Azure AD](authentication-mfa-ssms-overview.md)
-- [Configurar Autenticação Multifator](authentication-mfa-ssms-configure.md)
+- [Configurar a autenticação multifator](authentication-mfa-ssms-configure.md)
 - [Configurar a política de retenção temporal](temporal-tables-retention-policy.md)
 - [Configurar TDE com BYOK](transparent-data-encryption-byok-configure.md)
 - [Girar chaves BYOK da TDE](transparent-data-encryption-byok-key-rotation.md)

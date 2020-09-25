@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: b51319716035cc4f59d50922846b067f4eda31d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334660"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala 
 
@@ -37,13 +37,13 @@ Os contêineres de Fala permitem que os clientes criem uma arquitetura de aplica
 >
 > Para usar os contêineres de fala, você deve enviar uma solicitação online e fazer com que ela seja aprovada. Consulte a seção **solicitar aprovação para executar o contêiner** abaixo para obter mais informações.
 
-| Função | Recursos | Última |
+| Contêiner | Recursos | Última |
 |--|--|--|
-| Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.3.1 |
-| Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.3.1 |
-| Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.5.0 |
-| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.5.0 |
-| Detecção de Idioma de fala | Detectar o idioma falado nos arquivos de áudio. | 1,0 |
+| Conversão de fala em texto | Analisa sentimentos e transcreve gravações contínuas em tempo real ou de áudio em lotes com resultados intermediários.  | 2.5.0 |
+| Fala Personalizada para texto | Usar um modelo personalizado do [portal de fala personalizada](https://speech.microsoft.com/customspeech), transcreve gravações contínuas em tempo real ou de áudio em lotes em texto com resultados intermediários. | 2.5.0 |
+| Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.7.0 |
+| Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.7.0 |
+| Detecção de Idioma de fala | Detectar o idioma falado nos arquivos de áudio. | 1.0 |
 | Texto em fala neural | Converte o texto em voz natural usando uma tecnologia de rede neural profunda, permitindo uma fala mais natural sintetizada. | 1.1.0 |
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
@@ -78,7 +78,7 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 A tabela a seguir descreve a alocação mínima e recomendada de recursos para cada contêiner de fala.
 
-| Contêiner | Mínimo | Recomendadas |
+| Contêiner | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | Conversão de fala em texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
 | Fala Personalizada para texto | 2 núcleos, 2 GB de memória | 4 núcleos, 4 GB de memória |
@@ -96,7 +96,7 @@ Memória e núcleo correspondem às configurações `--cpus` e `--memory`, que s
 
 ## <a name="request-approval-to-the-run-the-container"></a>Solicitar aprovação para executar o contêiner
 
-Preencha e envie o [formulário de solicitação](https://aka.ms/cognitivegate) para solicitar acesso ao contêiner. 
+Preencha e envie o [formulário de solicitação](https://aka.ms/csgate) para solicitar acesso ao contêiner. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -468,7 +468,7 @@ Esse comando:
 * Se o modelo personalizado tiver sido baixado anteriormente, o `ModelId` será ignorado.
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.
 
-# <a name="language-detection"></a>[Detecção de Idioma](#tab/lid)
+# <a name="speech-language-detection"></a>[Detecção de Idioma de fala](#tab/lid)
 
 Para executar o contêiner de *detecção de idioma de fala* , execute o comando a seguir `docker run` .
 
@@ -482,7 +482,7 @@ ApiKey={API_KEY}
 
 Esse comando: 
 
-* Executa um contêiner de detecção de idioma de fala da imagem de contêiner.
+* Executa um contêiner de detecção de idioma de fala da imagem de contêiner. No momento, você não será cobrado pela execução desta imagem. 
 * Aloca 1 núcleos de CPU e 1 gigabyte (GB) de memória.
 * Expõe a porta TCP 5003 e aloca um pseudo-TTY para o contêiner.
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.
@@ -509,7 +509,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Contêineres | URL do host do SDK | Protocolo |
 |--|--|--|
 | Padrão de fala-para-texto e Fala Personalizada para texto | `ws://localhost:5000` | WS |
-| Conversão de texto em fala (incluindo padrão, personalizada e neural), detecção de idioma | `http://localhost:5000` | HTTP |
+| Conversão de texto em fala (incluindo Standard, personalizada e neural), detecção de idioma de fala | `http://localhost:5000` | HTTP |
 
 Para obter mais informações sobre como usar os protocolos do WSS e HTTPS, consulte [segurança do contêiner](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 

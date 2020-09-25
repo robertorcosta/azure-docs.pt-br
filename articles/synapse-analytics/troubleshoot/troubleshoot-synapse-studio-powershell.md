@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046670"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287705"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnosticar problemas de conectividade do Azure Synapse Studio (versão prévia) com o script do PowerShell
 
@@ -27,13 +27,13 @@ O Azure Synapse Studio (versão prévia) depende de um conjunto de pontos de ext
 
 ## <a name="troubleshooting-steps"></a>Etapas para solucionar problemas
 
-Clique com o botão direito do mouse no link a seguir e clique em "salvar destino como":
+Clique com o botão direito do mouse no link a seguir e selecione "salvar destino como":
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 Como alternativa, você pode abrir o link diretamente e salvar o arquivo de script aberto. Não salve o endereço do link acima, pois ele pode ser alterado no futuro.
 
-No explorador de arquivos, clique com o botão direito do mouse no arquivo de script baixado e clique em "executar com o PowerShell".
+No explorador de arquivos, clique com o botão direito do mouse no arquivo de script baixado e selecione "executar com o PowerShell".
 
 ![Executar o arquivo de script baixado com o PowerShell](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 

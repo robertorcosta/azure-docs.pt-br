@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.reviewer: jrasnick
+ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288096"
 ---
 # <a name="use-file-metadata-in-queries"></a>Usar metadados de arquivo em consultas
 
@@ -22,7 +22,7 @@ O SQL sob demanda pode endereçar vários arquivos e pastas conforme descrito no
 
 Em alguns casos, pode ser necessário saber qual fonte do arquivo ou pasta se correlaciona com uma linha específica no conjunto de resultados.
 
-Você pode usar as funções `filepath` e `filename` para retornar nomes de arquivo e/ou caminho no conjunto de resultados. Ou você pode usá-los para filtrar dados com base no nome do arquivo e/ou caminho da pasta. Essas funções são descritas na seção de sintaxe de [função filename](query-data-storage.md#filename-function) e [função filepath](query-data-storage.md#filepath-function). Abaixo, você encontrará descrições breves juntamente com alguns exemplos.
+Você pode usar as funções `filepath` e `filename` para retornar nomes de arquivo e/ou caminho no conjunto de resultados. Ou você pode usá-los para filtrar dados com base no nome do arquivo e/ou caminho da pasta. Essas funções são descritas na seção de sintaxe de [função filename](query-data-storage.md#filename-function) e [função filepath](query-data-storage.md#filepath-function). Nas seções a seguir, você encontrará descrições breves ao longo de exemplos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

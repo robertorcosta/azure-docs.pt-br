@@ -3,12 +3,12 @@ title: Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
 description: Saiba como habilitar uma imagem licenciada no Azure DevTest Labs usando o Portal do Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2b6e495be2257548782143517f5a970b424860c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286505"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276349"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
 
@@ -47,7 +47,7 @@ Habilite a implantação programática para uma imagem licenciada executando est
 
 1. Identifique uma imagem licenciada à qual você deseja que os usuários tenham acesso, mas cujos termos não foram aceitos. Por exemplo, você pode ver uma máquina virtual de ciência de dados que mostra um status de **Termos aceitos** ou **Revisão necessária dos termos**.
 
-    ![Janela Configurar Implantação Programática](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
+    ![Captura de tela que mostra Máquina Virtual de Ciência de Dados imagens com o status de oferta "de" termos aceitos "e" análise de termos necessário "](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
    > As VMs de ciência de dados são imagens de Máquinas Virtuais do Azure pré-instaladas, configuradas e testadas com várias ferramentas populares normalmente usadas para análise de dados, aprendizado de máquina e treinamento de inteligência artificial. [Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows](../machine-learning/data-science-virtual-machine/overview.md) fornece uma grande quantidade de informações sobre DSVMs.

@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes
+title: Perguntas frequentes (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325208"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Essa é uma limitação atual do componente subjacente que verifica o nome da su
 
 **Como posso dimensionar minha instância gerenciada?**
 
-Você pode dimensionar sua instância gerenciada de modelos [portal do Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [CLI do Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) ou [ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Você pode dimensionar sua instância gerenciada de modelos [portal do Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), [CLI do Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou [ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Posso mover meu Instância Gerenciada de uma região para outra?**
 
@@ -102,7 +102,7 @@ Sim, você pode. Para obter instruções, consulte [mover recursos entre regiõe
 
 **Como posso excluir meu Instância Gerenciada?**
 
-Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), [CLI do Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) ou [Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), [CLI do Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou [Resource Manager](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo leva para criar ou atualizar uma instância, ou para restaurar um banco de dados?**
 
@@ -135,9 +135,9 @@ A instância gerenciada oferece os mesmos níveis de desempenho por computação
 
 Uma opção é [exportar um banco de dados para BACPAC](../database/database-export.md) e, em seguida, [importar o arquivo BACPAC](../database/database-import.md). Essa é a abordagem recomendada caso o banco de dados seja menor que 100 GB.
 
-A [replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) poderá ser usada se todas as tabelas no banco de dados tiverem chaves *primárias* e não houver objetos OLTP na memória no banco de dados.
+A [replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) poderá ser usada se todas as tabelas no banco de dados tiverem chaves *primárias* e não houver objetos OLTP na memória no banco de dados.
 
-Os backups de COPY_ONLY nativos obtidos da instância gerenciada não podem ser restaurados para SQL Server porque a instância gerenciada tem uma versão de banco de dados superior em comparação com SQL Server. Para obter mais detalhes, consulte [backup somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15).
+Os backups de COPY_ONLY nativos obtidos da instância gerenciada não podem ser restaurados para SQL Server porque a instância gerenciada tem uma versão de banco de dados superior em comparação com SQL Server. Para obter mais detalhes, consulte [backup somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 **Como posso migrar minha instância de SQL Server para o SQL Instância Gerenciada?**
 
@@ -184,11 +184,11 @@ Para todas as opções possíveis para monitorar e alertar sobre o consumo e o d
 
 **Posso usar o SQL Profiler para rastreamento de desempenho?**
 
-Sim, o SQL Profiler tem suporte ou SQL Instância Gerenciada. Para obter mais detalhes, consulte [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+Sim, o SQL Profiler tem suporte ou SQL Instância Gerenciada. Para obter mais detalhes, consulte [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true).
 
 **Há suporte para Assistente do Banco de Dados e Análise de Desempenho de Consultas para bancos de dados Instância Gerenciada?**
 
-Não, não há suporte para eles. Você pode usar [DMVs](../database/monitoring-with-dmvs.md) e [repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) junto com o [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) e o [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) para monitorar seus bancos de dados.
+Não, não há suporte para eles. Você pode usar [DMVs](../database/monitoring-with-dmvs.md) e [repositório de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) junto com o [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) e o [XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) para monitorar seus bancos de dados.
 
 **Posso criar alertas de métrica no SQL Instância Gerenciada?**
 
@@ -228,7 +228,7 @@ Para acompanhar quando os backups automatizados foram executados no Instância G
 
 **Há suporte para backup sob demanda?**
 
-Sim, você pode criar um backup completo somente cópia em seu armazenamento de BLOBs do Azure, mas ele só poderá ser restaurável no Instância Gerenciada. Para obter detalhes, consulte [backup somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). No entanto, o backup somente cópia será impossível se o banco de dados for criptografado pelo TDE gerenciado pelo serviço, uma vez que o certificado usado para criptografia é inacessível. Nesse caso, use o recurso de restauração pontual para mover o banco de dados para outro Instância Gerenciada SQL ou alternar para a chave gerenciada pelo cliente.
+Sim, você pode criar um backup completo somente cópia em seu armazenamento de BLOBs do Azure, mas ele só poderá ser restaurável no Instância Gerenciada. Para obter detalhes, consulte [backup somente cópia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true). No entanto, o backup somente cópia será impossível se o banco de dados for criptografado pelo TDE gerenciado pelo serviço, uma vez que o certificado usado para criptografia é inacessível. Nesse caso, use o recurso de restauração pontual para mover o banco de dados para outro Instância Gerenciada SQL ou alternar para a chave gerenciada pelo cliente.
 
 **A restauração nativa (de arquivos. bak) Instância Gerenciada é suportada?**
 
@@ -390,7 +390,7 @@ Sim, há suporte para Transparent Data Encryption para SQL Instância Gerenciada
 
 **Posso aproveitar o modelo "Traga sua própria chave" para TDE?**
 
-Sim, Azure Key Vault para o cenário BYOK está disponível para Instância Gerenciada do Azure SQL. Para obter detalhes, consulte [Transparent Data Encryption com chave gerenciada pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+Sim, Azure Key Vault para o cenário BYOK está disponível para Instância Gerenciada do Azure SQL. Para obter detalhes, consulte [Transparent Data Encryption com chave gerenciada pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
 
 **Posso migrar um banco de dados SQL Server criptografado?**
 
@@ -509,6 +509,10 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 
 ## <a name="service-updates"></a>Atualizações de serviço
+
+**Qual é a alteração da AC raiz para o banco de dados SQL do Azure & SQL Instância Gerenciada?**
+
+Consulte [rotação de certificado para o banco de dados SQL do Azure & sql instância gerenciada](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
 
 **O que é um evento de manutenção planejada para o SQL Instância Gerenciada?**
 
