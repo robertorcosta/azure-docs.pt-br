@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f6a3ccbcdb3d29434b196dbf75dc61c4177de271
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284271"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
 
@@ -36,7 +36,7 @@ Quando você copia um banco de dados para um servidor diferente, a entidade de s
 
 Independentemente do servidor de destino, todos os usuários do banco de dados, suas permissões e seus SIDs (identificadores de segurança) são copiados para a cópia do banco de dados. O uso de [usuários de banco](logins-create-manage.md) de dados independente para o acesso ao data garante que o banco de dado copiado tenha as mesmas credenciais de usuário, para que depois que a cópia for concluída, você possa acessá-la imediatamente com as mesmas credenciais.
 
-Se você usar logons no nível do servidor para acesso a dados e copiar o banco de dado para um servidor diferente, o acesso baseado em logon poderá não funcionar. Isso pode acontecer porque os logons não existem no servidor de destino ou porque suas senhas e SIDs (identificadores de segurança) são diferentes. Para saber mais sobre como gerenciar logons ao copiar um banco de dados para um servidor diferente, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](active-geo-replication-security-configure.md). Depois que a operação de cópia para um servidor diferente for realizada com sucesso e antes que outros usuários sejam remapeados, somente o logon associado ao proprietário do banco de dados ou o administrador do servidor poderão fazer logon no banco de dados copiado. Para resolver logons e estabelecer o acesso a dados após a conclusão da operação de cópia, consulte [resolver logons](#resolve-logins).
+Se você usar logons no nível do servidor para acessar os dados e copiar o banco de dado para um servidor diferente, o acesso baseado em logon talvez não funcione. Isso pode acontecer porque os logons não existem no servidor de destino ou porque as senhas e SIDs (identificadores de segurança) são diferentes. Para saber mais sobre como gerenciar logons ao copiar um banco de dados para um servidor diferente, consulte [como gerenciar a segurança do banco de dados SQL do Azure após a recuperação de desastre](active-geo-replication-security-configure.md). Depois que a operação de cópia para um servidor diferente for realizada com sucesso e antes que outros usuários sejam remapeados, somente o logon associado ao proprietário do banco de dados ou o administrador do servidor poderão fazer logon no banco de dados copiado. Para resolver logons e estabelecer o acesso a dados após a conclusão da operação de cópia, consulte [resolver logons](#resolve-logins).
 
 ## <a name="copy-using-the-azure-portal"></a>Copiar usando o portal do Azure
 
@@ -171,7 +171,7 @@ Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de da
 
 Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](database-copy.md).
 
-| Código do erro | Severidade | Descrição |
+| Código do erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
 | 40635 |16 |O cliente com endereço IP “%.&#x2a;ls” está desabilitado temporariamente. |
 | 40637 |16 |A criação da cópia do banco de dados está desabilitada no momento. |

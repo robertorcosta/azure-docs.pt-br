@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 4d29b1301f66f2834c974bdcd2675cf1a672c742
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b669ef7856628f7e5d698edf674eee0b84845295
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323491"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: configurar o Druva para o provisionamento automático de usuário
 
@@ -109,11 +109,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5.  Na seção credenciais de administrador, insira `https://apis.druva.com/insync/scim` a **URL de locatário**. Insira o valor do **token de autenticação** no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Druva. Se a conexão falhar, verifique se sua conta do Druva tem permissões de administrador e tente novamente.
 

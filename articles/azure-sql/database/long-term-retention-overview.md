@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 4b2324c480ef81ef241f4d639c22c2ed4dd1545b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: c4c19850cda158afdb888188d3f99b7d93195aa5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808840"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334847"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retenção de longo prazo-banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -79,7 +79,7 @@ Se você estiver usando grupos de failover ou replicação geográfica ativa com
 > [!NOTE]
 > Quando o banco de dados primário original se recuperar da indisponibilidade que causou o failover, ele se tornará um novo secundário. Portanto, a criação de backup não será retomada e a política de LTR existente não terá efeito até que torne-se primário novamente. 
 
-## <a name="sql-managed-instance-support"></a>Suporte ao SQL Instância Gerenciada
+## <a name="sql-managed-instance-support"></a>Suporte à Instância Gerenciada de SQL
 
 O uso da retenção de backup de longo prazo com o Azure SQL Instância Gerenciada tem as seguintes limitações:
 

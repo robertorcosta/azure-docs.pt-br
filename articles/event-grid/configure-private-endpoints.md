@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar pontos de extremidade privados
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa67ba8dbe8106c0311bafec07a1510ca0c25c3f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324137"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos de extremidade privados para os tópicos ou domínios da grade de eventos do Azure
 Você pode usar [pontos de extremidade privados](../private-link/private-endpoint-overview.md) para permitir a entrada de eventos diretamente de sua rede virtual para seus tópicos e domínios com segurança por meio de um [link privado](../private-link/private-link-overview.md) sem passar pela Internet pública. O ponto de extremidade privado usa um endereço IP do espaço de endereço de VNet para seu tópico ou domínio. Para obter mais informações conceituais, consulte [segurança de rede](network-security.md).
@@ -42,7 +42,7 @@ Esta seção mostra como usar o portal do Azure para criar um ponto de extremida
         3. Confirme se o **subrecurso de destino** está definido como **tópico** ou **domínio** (com base no tipo de recurso selecionado).    
         4. Selecione **Avançar: Botão Configuração >** na parte inferior da página. 
 
-            ![Ponto de extremidade privado – página de recursos](./media/configure-private-endpoints/resource-page.png)
+            ![Captura de tela que mostra a página "criar um ponto de extremidade privado-recurso".](./media/configure-private-endpoints/resource-page.png)
     2. Se você selecionar **conectar-se a um recurso usando uma ID de recurso ou um alias**, siga estas etapas:
         1. Insira a ID do recurso. Por exemplo: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. Para **recurso**, insira o **tópico** ou o **domínio**. 
@@ -108,7 +108,7 @@ Você pode rejeitar um ponto de extremidade privado que está no estado pendente
 
 1. Selecione o **ponto de extremidade privado** que você deseja rejeitar e selecione **rejeitar** na barra de ferramentas.
 
-    ![Ponto de extremidade privado-rejeitar](./media/configure-private-endpoints/reject-button.png)
+    ![Captura de tela que mostra a "rede – conexões de ponto de extremidade privado (versão prévia)" com "rejeitar" selecionado.](./media/configure-private-endpoints/reject-button.png)
 1. Na caixa de diálogo **rejeitar conexão** , insira um comentário (opcional) e selecione **Sim**. 
 
     ![Ponto de extremidade privado-rejeitar](./media/configure-private-endpoints/reject.png)
@@ -196,7 +196,7 @@ az network private-endpoint delete --resource-group <RESOURECE GROUP NAME> --nam
 #### <a name="sample-script"></a>Exemplo de script
 Aqui está um script de exemplo que cria os seguintes recursos do Azure:
 
-- Grupo de recursos
+- Resource group
 - Rede virtual
 - Sub-rede na rede virtual
 - Tópico da grade de eventos do Azure

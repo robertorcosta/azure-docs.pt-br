@@ -3,13 +3,13 @@ title: Implantar grupo de contêineres na rede virtual do Azure
 description: Saiba como implantar um grupo de contêineres em uma rede virtual do Azure nova ou existente usando a interface de linha de comando do Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c5eff486299a3974e8fb9b4b12d6bb74880c48d8
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.custom: devx-track-js
+ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569383"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303001"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implantar instâncias de contêiner em uma rede virtual do Azure
 

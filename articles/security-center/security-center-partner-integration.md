@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 40b96cac4c9ad638373fbb75f736dc7eded42b43
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9a781fd48b30ccb32b0a733e5aa1ac054b96dc12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883926"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323647"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrar soluções de segurança na Central de Segurança do Azure
 Este documento ajuda você a gerenciar soluções de segurança já conectadas à Central de Segurança do Azure e a adicionar novas.
@@ -40,7 +40,7 @@ Para saber mais sobre a integração das ferramentas de verificação de vulnera
 A Central de Segurança também oferece análise de vulnerabilidades para:
 
 * Bancos de dados SQL - confira [Explorar relatórios de avaliação de vulnerabilidades no painel de avaliação de vulnerabilidades](defender-for-sql-usage.md#explore-vulnerability-assessment-reports)
-* Imagens do registro de contêiner do Azure-consulte [integração do registro de contêiner do Azure com a central de segurança (versão prévia)](azure-container-registry-integration.md)
+* Imagens do registro de contêiner do Azure-consulte [usar o Azure defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens](defender-for-container-registries-usage.md)
 
 ## <a name="how-security-solutions-are-integrated"></a>Como as soluções de segurança são integradas
 As soluções de segurança do Azure implantadas da Central de Segurança serão conectadas automaticamente. Você também pode conectar outras fontes de dados de segurança, incluindo computadores executados localmente ou em outras nuvens.

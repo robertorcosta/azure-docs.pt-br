@@ -3,12 +3,12 @@ title: Editar uma base de dados de conhecimento – QnA Maker
 description: O QnA Maker permite que você gerencie o conteúdo de sua base de dados de conhecimento, fornecendo uma experiência de edição fácil de usar.
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 34eec343defa4614881e23543f2099040b866997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054010"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324613"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Editar pares de QnA na sua base de dados de conhecimento
 
@@ -65,14 +65,14 @@ A edição de texto completo do seu texto de resposta oferece uma redução do e
     |Imagem – adicione uma imagem disponível de uma URL pública.|CTRL+G|
     |Adicionar link à URL disponível publicamente.|CTRL+K|
     |Emoticon – adicionar de uma seleção de emoticons.|CTRL+E|
-    |Menu avançado – desfazer|Ctrl+Z|
+    |Menu avançado – desfazer|CTRL+Z|
     |Menu avançado – refazer|CTRL+Y|
 
 1. Adicione uma imagem à resposta usando o ícone de imagem na barra de ferramentas de Rich Text. O editor in-loco precisa da URL da imagem publicamente acessível e do texto alternativo para a imagem.
 
 
     > [!div class="mx-imgBorder"]
-    > ![Use o editor de Rich-Text para adicionar uma imagem publicamente acessível e seu texto ALT.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![Captura de tela mostra o editor in-loco com a URL da imagem publicamente acessível e texto alternativo para a imagem inserida.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Adicione um link a uma URL selecionando o texto na resposta, selecionando o ícone de link na barra de ferramentas ou selecionando o ícone vincular na barra de ferramentas e, em seguida, inserindo o novo texto e a URL.
 
@@ -113,7 +113,7 @@ Não é possível vincular pares de QnA nos metadados da resposta.
 Adicione pares de metadados selecionando primeiro **as opções de exibição**e, em seguida, selecionando **Mostrar metadados**. Isso exibe a coluna de metadados. Em seguida, selecione o **+** sinal para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
 
 Saiba mais sobre metadados no início rápido do portal QnA Maker para obter os metadados:
-* [Criação-adicionar metadados ao par QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Criação – adicionar metadados ao par de pergunta e resposta](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
 * [Previsão de consulta – filtrar respostas por metadados](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Salvar alterações nos pares de QnA

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/31/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a861a038cefec56dfaaed1aca443f494dc82680
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c65d77d2cf50a59f18f0007e809e9913c3a5ae13
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304213"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -155,8 +155,6 @@ No | O que ele pode fazer
 ### <a name="conditional-access-administrator"></a>[Administrador de acesso condicional](#conditional-access-administrator-permissions)
 
 Usuários com essa função têm a capacidade de gerenciar as configurações de Acesso Condicional do Azure Active Directory.
-> [!NOTE]
-> Para implantar a política de Acesso Condicional do Exchange ActiveSync no Azure, o usuário também deve ser um Administrador Global.
 
 ### <a name="customer-lockbox-access-approver"></a>[Aprovador de acesso do sistema de proteção de dados do cliente](#customer-lockbox-access-approver-permissions)
 

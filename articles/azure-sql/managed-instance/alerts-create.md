@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48dfc456616fa4876b7053483f7377eda21aabde
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695687"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283812"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Criar alertas para o Azure SQL Instância Gerenciada usando o portal do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Este artigo mostra como configurar alertas para bancos de dados no Azure SQL Instância Gerenciada Database usando o portal do Azure. Os alertas podem enviar um email, chamar um Web Hook, executar o Azure Function, runbook, chamar um sistema de tíquetes compatível com ITSM externo, ligar para você no telefone ou enviar uma mensagem de texto quando alguma métrica, como o tamanho do armazenamento de instância de exemplo ou o uso da CPU, atingir um limite predefinido. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.
+Este artigo mostra como configurar alertas para bancos de dados no Azure SQL Instância Gerenciada Database usando o portal do Azure. Os alertas podem enviar um email, chamar um web hook, executar o Azure Function, runbook, chamar um sistema de tíquetes compatível com ITSM externo, ligar para você no telefone ou enviar uma mensagem de texto quando alguma métrica, como o tamanho do armazenamento de instância ou a utilização da CPU, atingir um limite predefinido. Este artigo também fornece as práticas recomendadas para definir os períodos de alerta.
 
 
 ## <a name="overview"></a>Visão geral
@@ -56,7 +56,7 @@ As seguintes métricas de instância gerenciada estão disponíveis para a confi
 | Bytes de E/S lidos | Bytes de e/s lidos no período de tempo selecionado. | Bytes |
 | Bytes de E/S gravados | Bytes de e/s gravados no período de tempo selecionado. | Bytes |
 | Contagem de solicitações de E/S | Contagem de solicitações de e/s no período de tempo selecionado. | Numérico |
-| Espaço de armazenamento reservado | Máximo atual. espaço de armazenamento reservado para a instância gerenciada. Alterações com a operação de dimensionamento de recursos. | MB (megabytes) |
+| Espaço de armazenamento reservado | Espaço de armazenamento máximo atual reservado para a instância gerenciada. Alterações com a operação de dimensionamento de recursos. | MB (megabytes) |
 | Espaço de armazenamento usado | Espaço de armazenamento usado no período selecionado. Alterações com consumo de armazenamento por bancos de dados e a instância. | MB (megabytes) |
 | Contagem de núcleos virtuais | vCores provisionado para a instância gerenciada. Alterações com a operação de dimensionamento de recursos. | 4-80 (vCores) |
 

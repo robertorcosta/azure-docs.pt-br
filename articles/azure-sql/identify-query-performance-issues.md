@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345335"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284101"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detectáveis de afunilamentos de desempenho de consulta no banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -58,7 +58,7 @@ Um plano de qualidade inferior gerado pelo otimizador de consulta SQL pode ser a
 
 As seções a seguir discutem como resolver consultas com plano de execução de consulta de qualidade inferior.
 
-### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Consultas que têm problemas de PSP (plano sensível ao parâmetro)
+### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a> Consultas que têm problemas de PSP (plano sensível ao parâmetro)
 
 Um problema de PSP (plano sensível ao parâmetro) ocorre quando o otimizador de consulta gera um plano de execução de consulta que é ideal apenas para um valor de parâmetro específico (ou conjunto de valores) e o plano em cache não é ideal para valores de parâmetro que são usados em execuções consecutivas. Os planos que não são ideais podem causar problemas de desempenho de consulta e degradar a taxa de transferência geral da carga de trabalho.
 

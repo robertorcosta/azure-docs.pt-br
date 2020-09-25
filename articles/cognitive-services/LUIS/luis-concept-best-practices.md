@@ -1,15 +1,17 @@
 ---
 title: Práticas recomendadas para criar seu aplicativo LUIS
 description: Conheça as práticas recomendadas para obter os melhores resultados do modelo do aplicativo LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 6ab7b8db3e1bc1b1134c0e7ab6c14bd17f819935
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324868"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Práticas recomendadas para a criação de um aplicativo de reconhecimento de linguagem (LUIS)
 Use o processo de criação de aplicativos para criar seu aplicativo LUIS:
@@ -65,7 +67,7 @@ Considere os seguintes exemplos de declaração:
 |Reservar um voo|
 |Reservar um hotel|
 
-`Book a flight`e `Book a hotel` use o mesmo vocabulário de `book a ` . Esse formato é o mesmo, portanto, deve ser a mesma intenção com as diferentes palavras de `flight` e `hotel` como entidades extraídas.
+`Book a flight` e `Book a hotel` use o mesmo vocabulário de `book a ` . Esse formato é o mesmo, portanto, deve ser a mesma intenção com as diferentes palavras de `flight` e `hotel` como entidades extraídas.
 
 ## <a name="do-add-features-to-intents"></a>Adicionar recursos a tentativas
 

@@ -7,12 +7,12 @@ ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 32b482607827ee4420e39b1936586d64f9ea3139
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c9c54450788a89a7b1aadbb0b4682a60619c061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77651374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334592"
 ---
 # <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Acessar e gerenciar recursos do IBM DB2 usando aplicativos lógicos do Azure
 
@@ -157,7 +157,7 @@ Para efetuar fetch de um registro em uma tabela do banco de dados DB2, use a aç
    | **ID de área** | Sim | A ID do registro desejado, como "99999" neste exemplo |
    ||||
 
-   ![Selecionar tabela](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![Captura de tela que mostra a ação "obter linha (visualização)" com a lista "nome de tabela" aberta e o valor de "área" selecionado.](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
 
@@ -192,7 +192,7 @@ Para efetuar fetch de todos os registros em uma tabela do banco de dados DB2, us
 
 1. Abra a lista **Nome da tabela** e, em seguida, selecione a tabela desejada, que é "AREA" neste exemplo:
 
-   ![Selecionar tabela](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![Captura de tela que mostra a ação "obter linha (visualização)" com o valor "área" selecionado na lista "nome da tabela".](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. Para especificar um filtro ou uma consulta para resultados, escolha **Mostrar opções avançadas**.
 
@@ -241,7 +241,7 @@ Para adicionar um único registro a uma tabela do banco de dados DB2, use a aç�
 
    Por exemplo:
 
-   ![Selecionar tabela](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![Captura de tela que mostra o designer de aplicativos lógicos com a ação "Inserir linha (visualização)" e os valores de propriedade de exemplo.](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
 
@@ -289,7 +289,7 @@ Para atualizar um único registro em uma tabela do banco de dados DB2, use a aç
 
    Por exemplo:
 
-   ![Selecionar tabela](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![Captura de tela que mostra o designer de aplicativos lógicos com a ação "atualizar linha (visualização)" onde você seleciona uma tabela.](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
 
@@ -334,7 +334,7 @@ Para excluir um único registro de uma tabela do banco de dados DB2, use a açã
 
    Por exemplo:
 
-   ![Selecionar tabela](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![Captura de tela que mostra o designer de aplicativos lógicos com a ação "Excluir linha (visualização)" onde você seleciona uma tabela a ser excluída.](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. Quando terminar, selecione **Salvar** na barra de ferramentas do designer.
 
@@ -359,7 +359,7 @@ Expanda a ação **Excluir linha**.
 
 ## <a name="connector-reference"></a>Referência de conector
 
-Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](https://docs.microsoft.com/connectors/db2/).
+Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e limites, conforme descrito pelo arquivo Swagger do conector, consulte a [página de referência do conector](/connectors/db2/).
 
 > [!NOTE]
 > Para aplicativos lógicos em um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), a versão rotulada do ISE do conector usa os [limites de mensagem do ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) em vez disso.
@@ -367,3 +367,4 @@ Para obter mais detalhes técnicos sobre esse conector, como gatilhos, ações e
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
+

@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263225"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para a criação de grupos de disponibilidade Always On em SQL Server em máquinas virtuais do Azure
 
@@ -320,7 +320,7 @@ Após a reinicialização do controlador de domínio primário, você pode confi
     >A página **Opções de DNS** poderá avisar que não foi possível criar uma delegação para este servidor DNS. Você pode ignorar esse aviso em ambientes que não são de produção.
     >
 
-22. Selecione **Avançar** até que a caixa de diálogo atinja a verificação de **pré-requisitos** . Em seguida, escolha **Instalar**.
+22. Selecione **Avançar** até que a caixa de diálogo atinja a verificação de **pré-requisitos** . Em seguida, selecione **Instalar**.
 
 Depois que o servidor concluir as alterações de configuração, reinicie-o.
 
