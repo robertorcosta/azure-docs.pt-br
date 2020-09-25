@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d005b3a4712cfff0321e7a16f49c0e882cc9e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73824112"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282112"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implantar o OPC "an" em um projeto existente
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IOT do Azure industrial](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 O módulo OPC myé executado em IoT Edge e fornece vários serviços de borda para os serviços de registro e registros OPC.
 

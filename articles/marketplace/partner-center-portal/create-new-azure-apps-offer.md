@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: e7e7845b458d6d1a37b65fb79e0e7e9c13b0d07d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 512f901c33ebce4fef06629fe78976a071820c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646944"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251415"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicativo do Azure
 
@@ -197,7 +197,7 @@ Aqui está um exemplo de como as informações de oferta são exibidas no Azure 
 
 #### <a name="call-out-descriptions"></a>Descrições de chamada
 
-1. Title
+1. Título
 2. Descrição
 3. Links úteis
 4. Capturas de tela
@@ -559,7 +559,7 @@ Para permitir que o Test Drive seja implantado em seu nome, crie e forneça uma 
 * **ID de locatário do Azure ad** (obrigatório) – Insira sua ID de [locatário](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)do Azure Active Directory (AD)). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **Propriedades** e, em seguida, procure o número da **ID do diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode procurar a ID do locatário da sua organização usando uma URL de nome de domínio em:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nome do locatário do Azure AD** (necessário para o Dynamics 365) – insira seu nome do Azure AD (Active Directory). Para localizar esse nome, entre no [portal do Azure](https://portal.azure.com/), no canto superior direito, o nome do locatário estará listado abaixo do seu nome de conta.
 * **ID do aplicativo do Azure ad** (obrigatório) – Insira sua ID do [aplicativo](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD)). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **Registros de aplicativo** e, em seguida, procure o número da **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Active Directory segredo do cliente do aplicativo** (obrigatório) – Insira o [segredo do cliente](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)do aplicativo do Azure AD). Para encontrar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **Registros de aplicativo** e, em seguida, selecione seu aplicativo de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo do cliente**, insira uma descrição, selecione **Nunca** em **Expira em** e, em seguida, escolha **Adicionar**. Certifique-se de copiar o valor antes de sair desta página.)
+* **Azure Active Directory segredo do cliente do aplicativo** (obrigatório) – Insira o [segredo do cliente](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)do aplicativo do Azure AD). Para encontrar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **Registros de aplicativo** e, em seguida, selecione seu aplicativo de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo do cliente**, insira uma descrição, selecione **Nunca** em **Expira em** e, em seguida, escolha **Adicionar**. Certifique-se de copiar o valor antes de sair desta página.)
 
 Selecione **Salvar rascunho** antes de continuar.
 

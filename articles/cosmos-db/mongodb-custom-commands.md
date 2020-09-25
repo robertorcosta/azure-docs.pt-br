@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7b0ac1e301705b24d706638deb3ee0a15d49c87b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 4b069dea3f07477fcbca21e08166cdfad8cad2cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415084"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326721"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para MongoDB 
 
@@ -33,7 +33,7 @@ Os comandos de extensão a seguir fornecem a capacidade de criar e modificar rec
 * [Atualizar coleção](#update-collection)
 * [Obter coleção](#get-collection)
 
-## <a name="create-database"></a><a id="create-database"></a>Criar banco de dados
+## <a name="create-database"></a><a id="create-database"></a> Criar banco de dados
 
 O comando criar extensão de banco de dados cria um novo banco de dados MongoDB. O nome do banco de dados pode ser usado no contexto do banco de dados definido pelo `use database` comando. A tabela a seguir descreve os parâmetros no comando:
 
@@ -86,7 +86,7 @@ use test
 db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughput: 20000 } });
 ```
 
-## <a name="update-database"></a><a id="update-database"></a>Atualizar banco de dados
+## <a name="update-database"></a><a id="update-database"></a> Atualizar banco de dados
 
 O comando Atualizar extensão do banco de dados atualiza as propriedades associadas ao banco de dados especificado. A tabela a seguir descreve os parâmetros no comando:
 
@@ -129,7 +129,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 ```
 
 
-## <a name="get-database"></a><a id="get-database"></a>Obter banco de dados
+## <a name="get-database"></a><a id="get-database"></a> Obter banco de dados
 
 O comando obter extensão do banco de dados retorna o objeto de banco de dados. O nome do banco de dados é usado no contexto do banco de dados no qual o comando é executado.
 
@@ -154,7 +154,7 @@ Se o comando for executado com sucesso, a resposta conterá um documento com os 
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Status da resposta. 1 = = êxito. 0 = = falha.      |
 | `database`    |    `string`        |   Nome do banco de dados.      |
-|   `provisionedThroughput`  |    `int`      |    Taxa de transferência provisionada que é definida no banco de dados se o banco de dados estiver usando a [taxa de transferência manual no nível do banco de dados](set-throughput.md#set-throughput-on-a-database)     |
+|   `provisionedThroughput`  |    `int`      |    Taxa de transferência provisionada que é definida no banco de dados se o banco de dados estiver usando a  [taxa de transferência manual no nível do banco de dados](set-throughput.md#set-throughput-on-a-database)     |
 | `autoScaleSettings` | `Object` | Esse objeto contém os parâmetros de capacidade associados ao banco de dados se ele estiver usando o [modo de dimensionamento automático](provision-throughput-autoscale.md). O `maxThroughput` valor descreve a quantidade mais alta de unidades de solicitação para as quais o banco de dados será aumentado dinamicamente. |
 
 Se o comando falhar, uma resposta de comando personalizado padrão será retornada. Consulte a [saída padrão](#default-output) do comando personalizado para os parâmetros na saída.
@@ -195,7 +195,7 @@ Se o banco de dados tiver uma [taxa de transferência de dimensionamento automá
 }
 ```
 
-## <a name="create-collection"></a><a id="create-collection"></a>Criar coleção
+## <a name="create-collection"></a><a id="create-collection"></a> Criar coleção
 
 O comando criar extensão da coleção cria uma nova coleção do MongoDB. O nome do banco de dados é usado no contexto dos bancos de dados definido pelo `use database` comando. O formato do comando é o seguinte:
 
@@ -288,7 +288,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", shardKey: "a.b", autoScaleSettings: { maxThroughput: 20000 }});
 ```
 
-## <a name="update-collection"></a><a id="update-collection"></a>Atualizar coleção
+## <a name="update-collection"></a><a id="update-collection"></a> Atualizar coleção
 
 O comando Atualizar extensão da coleção atualiza as propriedades associadas à coleção especificada.
 
@@ -324,7 +324,7 @@ use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a name="get-collection"></a><a id="get-collection"></a>Obter coleção
+## <a name="get-collection"></a><a id="get-collection"></a> Obter coleção
 
 O comando Get Collection personalizado retorna o objeto da coleção.
 
@@ -413,7 +413,7 @@ Se a coleção estiver compartilhando a [taxa de transferência no nível do ban
 ```
 
 
-## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a>Saída padrão de um comando personalizado
+## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a> Saída padrão de um comando personalizado
 
 Se não for especificado, uma resposta personalizada conterá um documento com os seguintes campos:
 

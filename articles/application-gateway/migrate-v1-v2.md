@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 27e8eaa7b8171d6ccc43f6abc8a4b3d1017d30cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311590"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar Aplicativo Azure gateway e firewall do aplicativo Web da v1 para a v2
 
@@ -36,6 +36,8 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 * O novo gateway V2 tem novos endereços IP públicos e privados. Não é possível mover os endereços IP associados ao gateway v1 existente diretamente para a v2. No entanto, você pode alocar um endereço IP público ou privado existente (não alocado) para o novo gateway v2.
 * Você deve fornecer um espaço de endereço IP para outra sub-rede em sua rede virtual onde o gateway v1 está localizado. O script não pode criar o gateway V2 em nenhuma sub-rede existente que já tenha um gateway v1. No entanto, se a sub-rede existente já tiver um gateway v2, isso ainda poderá funcionar, desde que haja espaço de endereço IP suficiente.
+* Se você tiver um grupo de segurança de rede ou rotas definidas pelo usuário associadas à sub-rede de gateway v2, verifique se eles aderem aos requisitos de [NSG](../application-gateway/configuration-infrastructure.md#network-security-groups) e [requisitos de UDR](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) para uma migração bem-sucedida
+* Atualmente, não há suporte para [políticas de ponto de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) em uma sub-rede de gateway de aplicativo.
 * Para migrar uma configuração de TLS/SSL, você deve especificar todos os certificados TLS/SSL usados no seu gateway v1.
 * Se você tiver o modo FIPS habilitado para o seu gateway v1, ele não será migrado para seu novo gateway v2. O modo FIPS não tem suporte na v2.
 * v2 não dá suporte a IPv6, portanto, os gateways v1 habilitados para IPv6 não são migrados. Se você executar o script, ele poderá não ser concluído.
@@ -44,7 +46,7 @@ Há um script de Azure PowerShell disponível que faz o seguinte:
 
 ## <a name="download-the-script"></a>Baixar o script
 
-Baixe o script de migração do [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAppGWMigration).
+Baixe o script de migração do  [Galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
 ## <a name="use-the-script"></a>Usar o script
 

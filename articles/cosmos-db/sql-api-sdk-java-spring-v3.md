@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e5b92918d93109183740be555bb805877862407
-ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
+ms.openlocfilehash: f0cb3d5f9184bacef42a0258add6dd2461a71dd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/19/2020
-ms.locfileid: "90817863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326653"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring data Azure Cosmos DB V3 para a API de núcleo (SQL): notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -96,17 +96,6 @@ cosmos.queryMetricsEnabled=true
 
 ### <a name="document-operations"></a>Operações de documento
 
-Criar:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Create":::
-
-Excluir:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Delete":::
-
-# <a name="query"></a>[Consulta](#tab/queries)
-
-Consulta:
-:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Query":::
-
 ---
 
 ## <a name="resources"></a>Recursos
@@ -115,58 +104,7 @@ Consulta:
 
 * **Tutorial**: [tutorial do Spring data Azure Cosmos DB no GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
-## <a name="release-history"></a>Histórico de versões
-
-### <a name="300-beta2-september-17-2020"></a>3.0.0-beta. 2 (17 de setembro de 2020)
-
-#### <a name="new-features"></a>Novos recursos
-
-* ID do artefato atualizado para `azure-spring-data-cosmos` .
-* Dependência do Azure-Cosmos atualizada para `4.5.0` .
-* `Query Annotation` suporte para consultas nativas.
-* Suporte para Java 11.
-* Suporte adicionado para a chave de partição aninhada expondo o `partitionKeyPath` campo na `@Container` anotação.
-* Adicionado suporte para `limit` tipo de consulta que permite `top` e `first` deve ser usado ao definir APIs de repositório.
-
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
-
-* Corrigido o erro de chave de partição aninhada quando usado com `@GeneratedValue` anotação.
-
-### <a name="300-beta1-august-17-2020"></a>3.0.0-beta. 1 (17 de agosto de 2020)
-
-#### <a name="new-features"></a>Novos recursos
-
-* Atualiza a ID do grupo para `com.azure` .
-* Atualiza a ID do artefato para `azure-spring-data-2-3-cosmos` .
-* Atualiza a dependência do SDK do Azure-Cosmos para `4.3.2-beta.2` .
-* Adiciona suporte para entidades de auditoria: gerenciamento automático de `createdBy` `createdDate` campos,, `lastModifiedBy` e `lastModifiedDate` anotados.
-* Adiciona `@GeneratedValue` suporte de anotação para geração de ID automática para campos de ID do `String` tipo.
-* Adiciona suporte à configuração de vários bancos de dados para contas de Azure Cosmos DB único com vários bancos de dados e várias contas de Azure Cosmos DB com vários bancos de dados.
-* Adiciona suporte para `@Version` anotação em qualquer campo de cadeia de caracteres.
-* Atualiza os tipos de retorno da API de sincronização para `Iterable` tipos em vez de `List` .
-* Expõe `CosmosClientBuilder` da Azure Cosmos DB SDK como Spring Bean para a `@Configuration` classe.
-* Atualizações `CosmosConfig` para conter métricas de consulta e implementação do processador de diagnóstico de resposta.
-* Adiciona suporte para retornar o `Optional` tipo de dados para consultas de resultado único.
-
-#### <a name="renames"></a>Renomeia
-
-* `CosmosDbFactory` para o `CosmosFactory` .
-* `CosmosDBConfig` para o `CosmosConfig` .
-* `CosmosDBAccessException` para o `CosmosAccessException` .
-* `Document` anotação para `Container` anotação.
-* `DocumentIndexingPolicy` anotação para `CosmosIndexingPolicy` anotação.
-* `DocumentQuery` para o `CosmosQuery` .
-* aplicativo. Properties sinalizador `populateQueryMetrics` para `queryMetricsEnabled` .
-
-#### <a name="key-bug-fixes"></a>Correções de bug de chave
-
-* Agendamento da tarefa de log de diagnóstico para `Parallel` threads para evitar O bloqueio de threads de e/s de sub-rede.
-* Corrige o bloqueio otimista na operação de exclusão.
-* Corrige o problema com a cláusula de saída de consultas de escape `IN` .
-* Corrige o problema permitindo o `long` tipo de dados para `@Id` .
-* Corrige o problema permitindo `boolean` , `long` , `int` e `double` como tipos de dados para a `@PartitionKey` anotação.
-* Correções `IgnoreCase` e `AllIgnoreCase` palavras-chave para consultas de Ignorar maiúsculas e minúsculas.
-* Remove o valor de unidade de solicitação padrão de 4.000 quando contêineres são criados automaticamente.
+[!INCLUDE[Release notes](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md)]
 
 ## <a name="faq"></a>Perguntas frequentes
 

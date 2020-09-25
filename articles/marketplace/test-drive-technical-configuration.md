@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: a7afaf0da3bbb021d76c2d109cb385d86fd7c860
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9ba3d25a07e4d6c32bd14c315018f0d008032b73
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319840"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250480"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuração técnica de test drive
 
@@ -74,7 +74,7 @@ Para permitir que a Microsoft implante o test drive em seu nome, crie e forneça
 
 - **ID do aplicativo do Azure ad** (obrigatório) – Insira sua ID do [aplicativo](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)Azure Active Directory (AD)). Para localizar essa ID, entre no [portal do Azure](https://portal.azure.com/), selecione a guia Active Directory no menu à esquerda, selecione **registros de aplicativo**e procure o número de **ID do aplicativo** listado (como `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Segredo do cliente do aplicativo do Azure ad** (obrigatório) – Insira o [segredo do cliente](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)do aplicativo do Azure AD). Para encontrar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **Registros de aplicativo** e, em seguida, selecione seu aplicativo de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo do cliente**, insira uma descrição, selecione **Nunca** em **Expira em** e, em seguida, escolha **Adicionar**. Certifique-se de anotar o valor. Não navegue para fora da página antes de copiar o valor.
+- **Segredo do cliente do aplicativo do Azure ad** (obrigatório) – Insira o [segredo do cliente](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)do aplicativo do Azure AD). Para encontrar esse valor, entre no [portal do Azure](https://portal.azure.com/). Selecione a guia **Azure Active Directory** no menu à esquerda, selecione **Registros de aplicativo** e, em seguida, selecione seu aplicativo de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo do cliente**, insira uma descrição, selecione **Nunca** em **Expira em** e, em seguida, escolha **Adicionar**. Certifique-se de anotar o valor. Não navegue para fora da página antes de copiar o valor.
 
 ## <a name="test-drive-listings"></a>Testar listagens de unidades
 

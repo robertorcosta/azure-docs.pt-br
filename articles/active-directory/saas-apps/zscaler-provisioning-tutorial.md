@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: a3424a42e86b47d4103dd41ca143b5bc7be3796a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 52c18f8d51f18b9bc167a99fbafda2365824dfc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312066"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: configurar o Zscaler para o provisionamento automático de usuário
 
@@ -92,63 +92,63 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/provisioning-tab.png)
+    ![Captura de tela da barra lateral Zscaler do aplicativo empresarial de provisionamento com a opção de provisionamento realçada.](./media/zscaler-provisioning-tutorial/provisioning-tab.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/provisioning-credentials.png)
+    ![Captura de tela da página de provisionamento com o modo de provisionamento definido como automático.](./media/zscaler-provisioning-tutorial/provisioning-credentials.png)
 
 5. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** da sua conta do Zscaler, conforme descrito na etapa 6.
 
 6. Para obter a **URL do locatário** e o **token secreto**, navegue até **Administração > configurações de autenticação** na interface do usuário do portal do Zscaler e clique em **SAML** em **tipo de autenticação**.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/secret-token-1.png)
+    ![Captura de tela da página de configurações de autenticação.](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
     Clique em **Configurar SAML** para abrir as opções de **configuração de SAML** .
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/secret-token-2.png)
+    ![Captura de tela da caixa de diálogo Configurar S A M L com as caixas de texto base U R L e token de portador chamada out.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
     Selecione **habilitar provisionamento baseado em scim** para recuperar a **URL base** e o **token de portador**e, em seguida, salve as configurações. Copie a **URL base** para a **URL do locatário**e o token de **portador**  para o **token secreto** no portal do Azure.
 
 7. Ao preencher os campos mostrados na etapa 5, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Zscaler. Se a conexão falhar, verifique se sua conta do Zscaler tem permissões de administrador e tente novamente.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/test-connection.png)
+    ![Captura de tela da seção de credenciais de administrador com a opção de conexão de teste chamada out.](./media/zscaler-provisioning-tutorial/test-connection.png)
 
 8. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e selecione a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/notification.png)
+    ![Captura de tela da caixa de texto email de notificação.](./media/zscaler-provisioning-tutorial/notification.png)
 
 9. Clique em **Save** (Salvar).
 
 10. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para Zscaler**.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/user-mappings.png)
+    ![Captura de tela da seção mapeamentos com a opção sincronizar Azure Active Directory usuários com Zscaler realçada.](./media/zscaler-provisioning-tutorial/user-mappings.png)
 
 11. Examine os atributos de usuário que são sincronizados do Azure AD para o Zscaler na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Zscaler para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
+    ![Captura de tela da seção mapeamentos de atributo com sete mapeamentos exibidos.](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para Zscaler**.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/group-mappings.png)
+    ![Captura de tela da seção mapeamentos com a opção Synchronize Azure Active Directory groups to Zscaler realçada.](./media/zscaler-provisioning-tutorial/group-mappings.png)
 
 13. Examine os atributos de grupo que são sincronizados do Azure AD para o Zscaler na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no Zscaler para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/group-attribute-mappings.png)
+    ![Captura de tela da seção mapeamentos de atributo com três mapeamentos exibidos.](./media/zscaler-provisioning-tutorial/group-attribute-mappings.png)
 
 14. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](./../active-directory-saas-scoping-filters.md).
 
 15. Para habilitar o serviço de provisionamento do Azure AD para o Zscaler, altere o **status de provisionamento** para **ativado** na seção **configurações** .
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/provisioning-status.png)
+    ![Captura de tela da opção de status de provisionamento definida como on.](./media/zscaler-provisioning-tutorial/provisioning-status.png)
 
 16. Defina os usuários e/ou grupos que você deseja provisionar para o Zscaler escolhendo os valores desejados no **escopo** na seção **configurações** .
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/scoping.png)
+    ![Captura de tela da configuração de escopo com a opção sincronizar apenas usuários e grupos atribuídos realçada.](./media/zscaler-provisioning-tutorial/scoping.png)
 
 17. Quando estiver pronto para provisionar, clique em **Salvar**.
 
-    ![Provisionamento do Zscaler](./media/zscaler-provisioning-tutorial/save-provisioning.png)
+    ![Captura de tela da barra de Zscaler do aplicativo empresarial de provisionamento com a opção salvar chamada out.](./media/zscaler-provisioning-tutorial/save-provisioning.png)
 
 Essa operação inicia a sincronização inicial de todos os usuários e/ou grupos definidos no **Escopo** na seção **Configurações**. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de provisionamento do Microsoft Azure Active Directory esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para o relatório de atividade de provisionamento, que descreve todas as ações executadas pelo serviço de provisionamento do Azure AD no Zscaler.
 

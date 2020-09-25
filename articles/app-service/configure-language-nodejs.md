@@ -1,23 +1,23 @@
 ---
 title: Configurar aplicativos Node.js
 description: Saiba como configurar um aplicativo Node.js nas instâncias nativas do Windows ou em um contêiner do Linux predefinido, no serviço Azure App. Este artigo mostra as tarefas de configuração mais comuns.
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080106"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311828"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo de Node.js para o serviço Azure App
 
 Node.js aplicativos devem ser implantados com todas as dependências de NPM necessárias. O mecanismo de implantação do serviço de aplicativo é executado automaticamente `npm install --production` quando você implanta um [repositório git](deploy-local-git.md)ou um [pacote zip](deploy-zip.md) com a automação de compilação habilitada. No entanto, se você implantar seus arquivos usando [FTP/S](deploy-ftp.md), será necessário carregar os pacotes necessários manualmente.
 
-Este guia fornece os principais conceitos e instruções para os desenvolvedores de Node.js que se implantam no serviço de aplicativo. Se você nunca usou Azure App serviço, siga o guia de [início rápidoNode.js](quickstart-nodejs.md) e [Node.js com o MongoDB](tutorial-nodejs-mongodb-app.md) primeiro.
+Este guia fornece os principais conceitos e instruções para os desenvolvedores de Node.js que se implantam no serviço de aplicativo. Se você nunca usou Azure App serviço, siga o guia de [ início rápidoNode.js](quickstart-nodejs.md) e [Node.js com o MongoDB](tutorial-nodejs-mongodb-app.md) primeiro.
 
 ## <a name="show-nodejs-version"></a>Mostrar versão de Node.js
 
@@ -98,7 +98,7 @@ Se você implantar seu aplicativo usando pacotes Git ou zip com a automação de
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH`.
 
 > [!NOTE]
-> Conforme descrito em [NPM docs](https://docs.npmjs.com/misc/scripts), scripts chamados `prebuild` e `postbuild` executados antes e depois `build` , respectivamente, se especificados. `preinstall`e `postinstall` executar antes e depois `install` , respectivamente.
+> Conforme descrito em [NPM docs](https://docs.npmjs.com/misc/scripts), scripts chamados `prebuild` e `postbuild` executados antes e depois `build` , respectivamente, se especificados. `preinstall` e `postinstall` executar antes e depois `install` , respectivamente.
 
 `PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis de ambiente vazias por padrão. Para executar comandos pré-build, defina `PRE_BUILD_COMMAND`. Para executar comandos pós-build, defina `POST_BUILD_COMMAND`.
 

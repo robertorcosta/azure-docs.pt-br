@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282367"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -383,6 +383,17 @@ Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplic
 O gêmeos também pode ser gerenciado usando a CLI do gêmeos digital do Azure. Os comandos podem ser encontrados em [*How-to: Use the Azure digital gêmeos CLI*](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
+## <a name="view-all-digital-twins"></a>Exibir todos os gêmeos digitais
+
+Para exibir todas as gêmeos digitais em sua instância, use uma [consulta](how-to-query-graph.md). Você pode executar uma consulta com as [APIs de consulta](how-to-use-apis-sdks.md) ou os [comandos da CLI](how-to-use-cli.md).
+
+Aqui está o corpo da consulta básica que retornará uma lista de todos os gêmeos digitais na instância:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="next-steps"></a>Próximas etapas
 

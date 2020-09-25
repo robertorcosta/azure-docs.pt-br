@@ -1,7 +1,7 @@
 ---
 title: Suporte de idioma – API de Pesquisa na Web do Bing
 titleSuffix: Azure Cognitive Services
-description: Uma lista de idiomas naturais, países e regiões compatíveis com a API de Pesquisa de Notícias do Bing.
+description: Uma lista de idiomas, países e regiões naturais com suporte no API de Pesquisa na Web do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262817"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de idioma e região para a API de Pesquisa na Web do Bing
 
@@ -27,7 +27,7 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 
 ## <a name="countriesregions"></a>Países/regiões
 
-|País/região|Código|
+|País/Região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
@@ -43,7 +43,7 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 |RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|TI|
+|Itália|IT|
 |Japão|JP|
 |Coreia do Sul|KR|
 |Malásia|MY|
@@ -68,7 +68,7 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 
 ## <a name="markets"></a>Mercados
 
-|País/região|Linguagem|Código de mercado|
+|País/Região|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -107,8 +107,8 @@ Como alternativa, você pode especificar o mercado usando o parâmetro de consul
 |Suíça|Alemão|de-CH|
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|United Kingdom|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-BR|
+|Reino Unido|Inglês|en-GB|
+|Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|
 
 ## <a name="next-steps"></a>Próximas etapas

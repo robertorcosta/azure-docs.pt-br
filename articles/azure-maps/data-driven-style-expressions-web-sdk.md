@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311369"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo controladas por dados (SDK da Web)
 
@@ -44,7 +44,7 @@ O SDK da Web do Azure Maps dá suporte a muitos tipos de expressões. As express
 | Tipo de expressões | Descrição |
 |---------------------|-------------|
 | [Expressão de agregação](#aggregate-expression) | Uma expressão que define um cálculo que é processado em um conjunto de dados e pode ser usado com a `clusterProperties` opção de a `DataSource` . |
-| [Expressões booleanas](#boolean-expressions) | As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas. |
+| [Expressões boolianas](#boolean-expressions) | As expressões booleanas fornecem um conjunto de expressões de operadores boolianos para avaliar comparações boolianas. |
 | [Expressões de cores](#color-expressions) | As expressões de cor facilitam a criação e a manipulação de valores de cores. |
 | [Expressões condicionais](#conditional-expressions) | As expressões condicionais fornecem operações lógicas que são como instruções IF-. |
 | [Expressões de dados](#data-expressions) | Fornece acesso aos dados de propriedade em um recurso. |
@@ -98,6 +98,8 @@ As expressões de dados fornecem acesso aos dados de propriedade em um recurso.
 | `['length', string | array]` | número | Obtém o comprimento de uma cadeia de caracteres ou de uma matriz. |
 | `['in', boolean | string | number, array]` | booleano | Determina se um item existe em uma matriz |
 | `['in', substring, string]` | booleano | Determina se uma subcadeia de caracteres existe em uma cadeia de caracteres |
+| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | número | Retorna a primeira posição na qual um item pode ser encontrado em uma matriz ou uma subcadeia de caracteres pode ser encontrada em uma cadeia de caracteres ou `-1` se a entrada não puder ser encontrada. Aceita um índice opcional de onde começar a pesquisa. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string`\|matriz | Retorna um item de uma matriz ou de uma subcadeia de caracteres a partir de um índice de início especificado ou entre um índice inicial e um índice final, se definido. O valor de retorno é inclusivo do índice inicial, mas não do índice final. |
 
 **Exemplos**
 
@@ -151,8 +153,11 @@ Aqui estão alguns exemplos adicionais de como usar expressões de dados:
 //Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
 ['at', 1, ['at', 0, ['get', 'array2d']]]
 
-//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+//Check to see if a value is in an array "properties.abcArray.indexOf('a') !== -1" = true
 ['in', 'a', ['get', 'abcArray']]
+
+//Gets the index of the value 'b' in an array "properties.abcArray.indexOf('b')" = 1
+['index-of', 'b', ['get', 'abcArray']]
 
 //Get the length of an array "properties.abcArray.length" = 3
 ['length', ['get', 'abcArray']]
@@ -162,6 +167,12 @@ Aqui estão alguns exemplos adicionais de como usar expressões de dados:
 
 //Check that "fillColor" exists as a subproperty of "_style".
 ['has', 'fillColor', ['get', '_style']]
+
+//Slice an array starting at index 2 "properties.abcArray.slice(2)" = ['c']
+['slice', ['get', 'abcArray'], 2]
+
+//Slice a string from index 0 to index 4 "properties.entityType.slice(0, 4)" = 'rest'
+['slice', ['get', 'entityType'], 0, 4]
 ```
 
 ## <a name="math-expressions"></a>Expressões matemáticas
@@ -225,8 +236,8 @@ Ao comparar valores, a comparação é estritamente digitada. Os valores de tipo
 
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
-| `['! ', boolean]` | booleano | Negação lógica. Retorna `true` se a entrada é `false` e `false` se a entrada é `true` . |
-| `['!= ', value, value]` | booleano | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
+| `['!', boolean]` | booleano | Negação lógica. Retorna `true` se a entrada é `false` e `false` se a entrada é `true` . |
+| `['!=', value, value]` | booleano | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
 | `['<', value, value]` | booleano | Retorna `true` se a primeira entrada é estritamente menor do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
 | `['<=', value, value]` | booleano | Retorna `true` se a primeira entrada for menor ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
 | `['==', value, value]` | booleano | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |

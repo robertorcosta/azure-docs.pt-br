@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: c31cf0e5c655f53e8838c92f5463d3a85c2f6f65
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250650"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
 
-Neste artigo, você aprende sobre a engenharia de recursos e a função dela no aprimoramento de dados no aprendizado de máquina. Aprenda com exemplos ilustrativos desenhados de experimentos do [Azure Machine Learning Studio (clássico)](../studio/what-is-ml-studio.md). 
+Neste artigo, você aprende sobre a engenharia de recursos e a função dela no aprimoramento de dados no aprendizado de máquina. Aprenda com exemplos ilustrativos desenhados de experimentos do [Azure Machine Learning Studio (clássico)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
 * **Engenharia de recursos**: o processo de criação de recursos de dados brutos para aumentar a potência preditiva do algoritmo de aprendizado. Recursos de engenharia devem capturar informações adicionais que não sejam facilmente aparentes no conjunto de recursos original.
 * **Seleção de recursos**: o processo de seleção do subconjunto principal de recursos para reduzir a dimensionalidade do problema de treinamento.

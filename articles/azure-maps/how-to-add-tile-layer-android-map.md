@@ -4,16 +4,16 @@ description: Saiba como adicionar uma camada de bloco a um mapa. Veja um exemplo
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bae1d06f1b5a96ad99d970613d957ce75a0c1393
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311080"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicionar uma camada de bloco a um mapa usando o Azure Maps SDK do Android
 
@@ -35,7 +35,7 @@ A URL do bloco passada para uma camada de peça deve ser uma URL http/https para
 * `{z}` -Nível de zoom do bloco. Também precisa `{x}` e `{y}`.
 * `{quadkey}` - identificador quadkey de bloco baseado a convenção de nomenclatura do sistema de blocos Bing Maps.
 * `{bbox-epsg-3857}` -Uma cadeia de caracteres de caixa delimitadora com o formato `{west},{south},{east},{north}` no sistema de referência espacial do EPSG 3857.
-* `{subdomain}`-Um espaço reservado para os valores de subdomínio, se o valor de subdomínio for especificado.
+* `{subdomain}` -Um espaço reservado para os valores de subdomínio, se o valor de subdomínio for especificado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

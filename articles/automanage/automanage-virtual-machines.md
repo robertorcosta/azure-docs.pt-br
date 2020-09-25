@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 8e48a5c896c4927b82f7d77f31b7f1c47fd156c5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933811"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311556"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -43,12 +43,11 @@ Há vários pré-requisitos a serem considerados antes de tentar habilitar o aut
 
 - Somente VMs do Windows Server
 - As VMs devem estar em execução
-- Somente VMs de conjunto sem escala
 - As VMs devem estar em uma região com suporte
 - O usuário deve ter as permissões corretas
 - As VMs não devem vincular a um espaço de trabalho do log Analytics em uma assinatura diferente
 
-A permissão RBAC a seguir é necessária para habilitar autogerenciar: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
+Você precisa ter a função de **colaborador** para habilitar o autogerencio usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
 
 Também é importante observar que o autogerenci só dá suporte a VMs do Windows localizadas nas seguintes regiões: Europa Ocidental, leste dos EUA, oeste dos EUA 2, Canadá central, Oeste EUA Central.
 
@@ -105,7 +104,7 @@ A conta de autogerenciamento é o contexto de segurança ou a identidade sob a q
 Na experiência de portal do Azure, quando você está habilitando o autogerenciamento em suas VMs, há uma lista suspensa avançada na folha **habilitar a prática recomendada de VM do Azure** que permite atribuir ou criar manualmente a conta de autogerenciamento.
 
 > [!NOTE]
-> A permissão RBAC a seguir é necessária para habilitar autogerenciar: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
+> Você precisa ter a função de **colaborador** para habilitar o autogerencio usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
 
 
 ## <a name="status-of-vms"></a>Status das VMs
@@ -130,9 +129,9 @@ Você pode decidir um dia para desabilitar o autogerenciamento em determinadas V
 
 Para fazer isso na portal do Azure, vá para a página **autogerenciar – práticas recomendadas da máquina virtual do Azure** que lista todas as suas VMs gerenciadas automaticamente. Marque a caixa de seleção ao lado da máquina virtual que você deseja desabilitar em autogerenciar e clique no botão **desabilitar autogerenciamento** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Desabilitando o autogerenci em uma máquina virtual.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Desabilitar o Gerenciamento Automático em uma máquina virtual.":::
 
-Leia atentamente por meio do sistema de mensagens no pop-up resultante antes de concordar em **desabilitar**.
+Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar**.
 
 ```
 Disabling automanagement in a VM results in the following behavior:

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 89013e3b6ec9a0a6112e8b7fdcde4870be331d79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282299"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
@@ -25,6 +25,15 @@ O restante deste artigo fornece exemplos de como usar essas operações.
 ## <a name="query-syntax"></a>Sintaxe de consulta
 
 Esta seção contém consultas de exemplo que ilustram a estrutura de linguagem de consulta e executam operações de consulta possíveis em [gêmeos digital](concepts-twins-graph.md).
+
+### <a name="show-all-existing-digital-twins"></a>Mostrar todos os gêmeos digitais existentes
+
+Aqui está a consulta básica que retornará uma lista de todos os gêmeos digitais na instância:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
 
 ### <a name="select-top-items"></a>Selecionar itens principais
 
@@ -208,8 +217,8 @@ Há suporte para as seguintes funções de cadeia de caracteres:
 
 | Função | Descrição |
 | -------- | ----------- |
-| STARTS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres começa com a segunda. |
-| ENDS_WITH(x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda. |
+| STARTSWITH (x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres começa com a segunda. |
+| ENDSWITH (x, y) | Retorna um valor booliano que indica se a primeira expressão de cadeia de caracteres termina com a segunda. |
 
 ## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada à API
 

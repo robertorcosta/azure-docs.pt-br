@@ -4,16 +4,16 @@ description: Saiba como adicionar formas a mapas. Consulte exemplos de código q
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037415"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311301"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicionar uma forma a um mapa usando o Azure Maps SDK do Android
 
@@ -238,7 +238,7 @@ A **camada de polígono** permite renderizar a área do polígono para o mapa. S
     });
     ```
 
-    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Um objeto **Polygon** é então criado a partir de uma lista de objetos **Point** e é adicionado à fonte de dados. Uma **camada de polígono** renderiza os dados encapsulados na fonte de dados no mapa. Em seguida, ele cria uma camada de polígono para renderizar a área do polígono e adiciona a fonte de dados a ela. Uma **camada de linha** renderiza os objetos de linha encapsulados em uma fonte de dados. A última parte do trecho de código cria uma camada de linha para renderizar o contorno do polígono e adiciona a fonte de dados a ele.
+    O trecho de código acima Obtém primeiro uma instância de controle de mapa do Azure Maps usando o método de retorno de chamada **Onreadal ()** . Em seguida, ele cria um objeto de fonte de dados usando a classe **DataSource** e o adiciona ao mapa. Um objeto **Polygon** é então criado a partir de uma lista de objetos **Point**  e é adicionado à fonte de dados. Uma **camada de polígono** renderiza os dados encapsulados na fonte de dados no mapa. Em seguida, ele cria uma camada de polígono para renderizar a área do polígono e adiciona a fonte de dados a ela. Uma **camada de linha** renderiza os objetos de linha encapsulados em uma fonte de dados. A última parte do trecho de código cria uma camada de linha para renderizar o contorno do polígono e adiciona a fonte de dados a ele.
 
     Depois de adicionar o trecho de código acima, seu `MainActivity.java` deve se parecer com o seguinte:
 

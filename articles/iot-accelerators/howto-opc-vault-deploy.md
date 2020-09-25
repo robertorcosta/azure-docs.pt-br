@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307921"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282016"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Compilar e implantar o serviço de gerenciamento de certificados do compartimento OPC
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IOT do Azure industrial](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica como implantar o serviço de gerenciamento de certificados do Vault do OPC no Azure.
 
@@ -75,9 +78,9 @@ Um script do PowerShell fornece uma maneira fácil de implantar o microserviço 
    > [!NOTE]
    > Em caso de problemas, consulte a seção "Solucionando problemas de falhas de implantação" mais adiante neste artigo.
 
-8. Abra seu navegador favorito e abra a página do aplicativo:`https://myResourceGroup.azurewebsites.net`
+8. Abra seu navegador favorito e abra a página do aplicativo: `https://myResourceGroup.azurewebsites.net`
 8. Dê ao aplicativo Web e ao microserviço do compartimento OPC alguns minutos para fazer o aquecimento após a implantação. O home page da Web pode parar de responder no primeiro uso, por até um minuto, até que você obtenha as primeiras respostas.
-11. Para dar uma olhada na API do Swagger, abra:`https://myResourceGroup-service.azurewebsites.net`
+11. Para dar uma olhada na API do Swagger, abra: `https://myResourceGroup-service.azurewebsites.net`
 13. Para iniciar um servidor GDS local com dotnet, inicie `.\myResourceGroup-gds.cmd` . Com o Docker, inicie `.\myResourceGroup-dockergds.cmd` .
 
 É possível reimplantar uma compilação com exatamente as mesmas configurações. Lembre-se de que essa operação renova todos os segredos do aplicativo e pode redefinir algumas configurações nos registros do aplicativo Azure Active Directory (AD do Azure).
@@ -88,7 +91,7 @@ Após a implantação bem-sucedida, você pode começar a usar os serviços. Con
 
 ## <a name="delete-the-services-from-the-subscription"></a>Excluir os serviços da assinatura
 
-Aqui está como:
+Faça assim:
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. Vá para o grupo de recursos no qual o serviço foi implantado.

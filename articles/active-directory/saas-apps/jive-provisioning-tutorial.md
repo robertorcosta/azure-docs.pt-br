@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configurar o Jive para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Jive.
+description: Conheça as etapas que você precisa executar no Jive e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o jive.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 351c7e21bfe59b22f451adddad8fed220c218358
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: fa45ece76499b50694d366ed2dcdd57cc1e0c7dc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312089"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configurar o Jive para provisionamento automático de usuário
 

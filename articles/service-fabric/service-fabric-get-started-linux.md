@@ -3,13 +3,13 @@ title: Configurar seu ambiente de desenvolvimento no Linux
 description: Instale o runtime, o SDK e crie um cluster de desenvolvimento local no Linux. Depois de concluir a instalação, você estará pronto para criar aplicativos.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 420284a512147d729db23f3b71cbe8e9f6f050d9
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 211c2c80d0f701176dfcff02872d9f1e30635d94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249987"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]

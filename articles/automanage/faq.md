@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: ed97f7861f5dd959fd41ac22b4e497f492dbc3a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311539"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes sobre o autogerenciamento do Azure para VMs
 
@@ -36,7 +36,9 @@ Veja a seguir os pré-requisitos para habilitar o autogerenciamento do Azure:
 
 **Qual permissão RBAC é necessária para habilitar o autogerenci?**
 
-Os usuários devem ter a função de proprietário. Como alternativa, os usuários podem ter a função de colaborador junto com a função de administrador de acesso do usuário para aplicar o autogerenci.
+Se você estiver habilitando o autogerenciamento em uma VM com uma conta de autogerenciamento existente, precisará da função colaborador para o grupo de recursos onde a VM reside. 
+
+Se você estiver usando uma nova conta de autogerenciamento ao habilitar, os usuários deverão ter a função de proprietário ou ter a função de administrador de acesso de usuário ou colaborador para a assinatura.
 
 
 **Quais regiões têm suporte?**
@@ -82,6 +84,11 @@ Sim, temos uma política interna que aplicará automaticamente a autogerenciamen
 **O que é uma conta de autogerenciamento?**
 
 A conta de autogerenciamento é uma MSI (Identidade de Serviço Gerenciada) que fornece o contexto de segurança ou a identidade sob a qual ocorrem as operações automatizadas.
+
+
+**Ao habilitar o autogerenci, ele afeta quaisquer VMs adicionais além das VMs que selecionei?**
+
+Se sua VM estiver vinculada a um espaço de trabalho Log Analytics existente, usaremos esse espaço de trabalho para aplicar essas soluções: Controle de Alterações, inventário e Gerenciamento de Atualizações. Todas as VMs conectadas a esse espaço de trabalho terão essas soluções habilitadas. 
 
 
 **Posso alterar o perfil de configuração da minha VM?**

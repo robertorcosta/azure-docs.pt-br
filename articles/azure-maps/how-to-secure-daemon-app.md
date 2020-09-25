@@ -5,16 +5,16 @@ description: Use o portal do Azure para gerenciar a autenticação para configur
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006631"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311063"
 ---
 # <a name="secure-a-daemon-application"></a>Proteger um aplicativo daemon
 
@@ -120,14 +120,14 @@ Conceda o *controle de acesso baseado em função do Azure (RBAC do Azure)* atri
     > ![Conceder acesso usando o RBAC do Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. Na guia **atribuições de função** , **adicione** uma atribuição de função. 
-    
+
     > [!div class="mx-imgBorder"]
     > ![Adicionar atribuição de função](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou **colaborador de dados do Azure Maps**. Em **atribuir acesso a**, selecione **usuário do Azure AD, grupo ou entidade de serviço** ou identidade gerenciada com identidade gerenciada atribuída ao sistema de **identidade gerenciada atribuída pelo usuário**  /  **System assigned Managed identity**. Selecione a entidade de segurança. Em seguida, selecione **Salvar**.
 
     > [!div class="mx-imgBorder"]
-    > ![Adicionar atribuição de função](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
+    > ![Como adicionar atribuição de função](./media/how-to-manage-authentication/how-to-add-role-assignment.png)
 
 4. Você pode confirmar se a atribuição de função foi aplicada na guia atribuição de função.
 
@@ -139,7 +139,7 @@ Depois que uma identidade gerenciada é configurada para o recurso de hospedagem
 
 Depois de registrar seu aplicativo e associá-lo ao Azure Maps, você pode solicitar tokens de acesso.
 
-* ID de recurso do Azure AD`https://atlas.microsoft.com/`
+* ID de recurso do Azure AD `https://atlas.microsoft.com/`
 * ID do Aplicativo do Azure AD
 * ID de Locatário do Azure AD
 * Segredo do cliente de registro de Aplicativo Azure AD
