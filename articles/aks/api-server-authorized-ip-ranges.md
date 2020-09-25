@@ -3,13 +3,13 @@ title: Intervalos de IP autorizados do servidor de API no serviço kubernetes do
 description: Saiba como proteger seu cluster usando um intervalo de endereços IP para acessar o servidor de API no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 11/05/2019
-ms.openlocfilehash: 404bd600f825a5da334811744132c6aa9b751566
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/21/2020
+ms.openlocfilehash: 5dbe5061253fb18222a476a88a1ec94a5ce4b0fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299656"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteger o acesso ao servidor de API usando intervalos de endereços IP autorizados no serviço de kubernetes do Azure (AKS)
 
@@ -17,18 +17,21 @@ No kubernetes, o servidor de API recebe solicitações para executar ações no 
 
 Este artigo mostra como usar intervalos de endereços IP autorizados do servidor de API para limitar quais endereços IP e CIDR podem acessar o plano de controle.
 
-> [!IMPORTANT]
-> Em clusters criados após os intervalos de endereços IP autorizados do servidor de API movidos para fora da visualização em outubro de 2019, os intervalos de endereços IP autorizados do servidor de API só têm suporte no balanceador de carga SKU *padrão* . Os clusters existentes com o balanceador de carga de SKU *básico* e os intervalos de endereços IP autorizados do servidor de API configurados continuarão funcionando como estão, mas não poderão ser migrados para um balanceador de carga de SKU *padrão* . Esses clusters existentes também continuarão a funcionar se sua versão ou plano de controle do kubernetes forem atualizados. Os intervalos de endereços IP autorizados do servidor de API não têm suporte para clusters privados.
-
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo mostra como criar um cluster AKS usando o CLI do Azure.
 
 Você precisará da CLI do Azure versão 2.0.76 ou posterior instalada e configurada. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
 
+### <a name="limitations"></a>Limitações
+
+O recurso de intervalos de IP autorizados do servidor de API tem as seguintes limitações:
+- Em clusters criados após os intervalos de endereços IP autorizados do servidor de API movidos para fora da visualização em outubro de 2019, os intervalos de endereços IP autorizados do servidor de API só têm suporte no balanceador de carga SKU *padrão* . Os clusters existentes com o balanceador de carga de SKU *básico* e os intervalos de endereços IP autorizados do servidor de API configurados continuarão funcionando como estão, mas não poderão ser migrados para um balanceador de carga de SKU *padrão* . Esses clusters existentes também continuarão a funcionar se sua versão ou plano de controle do kubernetes forem atualizados. Os intervalos de endereços IP autorizados do servidor de API não têm suporte para clusters privados.
+- Este recurso não é compatível com clusters que usam o [recurso IP público por pools de nós de nó versão prévia](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview).
+
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Visão geral dos intervalos de IP autorizados do servidor de API
 
-O servidor de API do kubernetes é como as APIs subjacentes do kubernetes são expostas. Esse componente fornece a interação para ferramentas de gerenciamento, tais como `kubectl` ou o painel do Kubernetes. O AKS fornece um mestre de cluster de locatário único, com um servidor de API dedicado. Por padrão, o servidor de API recebe um endereço IP público e você deve controlar o acesso usando o RBAC (controle de acesso baseado em função).
+O servidor de API do kubernetes é como as APIs subjacentes do kubernetes são expostas. Esse componente fornece a interação para ferramentas de gerenciamento, tais como `kubectl` ou o painel do Kubernetes. O AKS fornece um plano de controle de cluster de locatário único, com um servidor de API dedicado. Por padrão, o servidor de API recebe um endereço IP público e você deve controlar o acesso usando o RBAC (controle de acesso baseado em função).
 
 Para proteger o acesso ao servidor do plano de controle AKS/API publicamente acessível, você pode habilitar e usar intervalos de IP autorizados. Esses intervalos de IP autorizados permitem que os intervalos de endereços IP definidos se comuniquem com o servidor de API. Uma solicitação feita ao servidor de API de um endereço IP que não faz parte desses intervalos de IP autorizado é bloqueada. Continue a usar o RBAC para autorizar os usuários e as ações que eles solicitam.
 
@@ -82,7 +85,7 @@ az aks create \
 
 No exemplo acima, todos os IPs fornecidos no parâmetro *`--load-balancer-outbound-ip-prefixes`* são permitidos junto com os IPs no *`--api-server-authorized-ip-ranges`* parâmetro.
 
-Como alternativa, você pode especificar o *`--load-balancer-outbound-ip-prefixes`* parâmetro para permitir prefixos de IP de balanceador de carga de saída.
+Em vez disso, você pode especificar o *`--load-balancer-outbound-ip-prefixes`* parâmetro para permitir prefixos de IP de balanceador de carga de saída.
 
 ### <a name="allow-only-the-outbound-public-ip-of-the-standard-sku-load-balancer"></a>Permitir somente o IP público de saída do balanceador de carga SKU padrão
 

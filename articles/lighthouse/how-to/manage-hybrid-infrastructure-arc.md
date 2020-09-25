@@ -1,14 +1,14 @@
 ---
 title: Gerenciar a infraestrutura híbrida em escala com o arco do Azure
 description: Saiba como gerenciar efetivamente os computadores de seus clientes e clusters kubernetes fora do Azure.
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ffbe9019398896c594b7cb0e0424d2b5f4dc37a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336608"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gerenciar a infraestrutura híbrida em escala com o arco do Azure
 
@@ -16,19 +16,16 @@ Como um provedor de serviços, você pode ter integrado vários locatários de c
 
 O [Arc do Azure](../../azure-arc/overview.md) ajuda a simplificar ambientes distribuídos e complexos entre locais, Edge e multinuvem, permitindo a implantação de serviços do Azure em qualquer lugar e estendendo o gerenciamento do Azure para qualquer infraestrutura.
 
-Com os [servidores habilitados para Arc do Azure (versão prévia)](../../azure-arc/servers/overview.md), os clientes podem gerenciar qualquer computador Windows e Linux hospedado fora do Azure em sua rede corporativa, da mesma maneira que gerenciam máquinas virtuais nativas do Azure. Ao vincular um computador híbrido ao Azure, ele se torna conectado e é tratado como um recurso no Azure. Os provedores de serviços podem gerenciar esses computadores não Azure junto com os recursos do Azure dos seus clientes.
+Com os [servidores habilitados para Arc do Azure](../../azure-arc/servers/overview.md), os clientes podem gerenciar qualquer computador Windows e Linux hospedado fora do Azure em sua rede corporativa, da mesma maneira que gerenciam máquinas virtuais nativas do Azure. Ao vincular um computador híbrido ao Azure, ele se torna conectado e é tratado como um recurso no Azure. Os provedores de serviços podem gerenciar esses computadores não Azure junto com os recursos do Azure dos seus clientes.
 
 O [kubernetes habilitado para Arc do Azure (versão prévia)](../../azure-arc/kubernetes/overview.md) permite que os clientes anexem e configurem clusters do kubernetes dentro ou fora do Azure. Quando um cluster kubernetes é anexado ao arco do Azure, ele aparecerá na portal do Azure, com uma ID de Azure Resource Manager e uma identidade gerenciada. Os clusters são anexados a assinaturas do Azure padrão, estão localizados em um grupo de recursos e podem receber marcas, assim como qualquer outro recurso do Azure.
 
-Este tópico fornece uma visão geral de como os provedores de serviços podem usar os servidores habilitados para Arc do Azure (visualização) e o Arc do Azure habilitado kubernetes (versão prévia) de maneira escalonável para gerenciar o ambiente híbrido de seus clientes, com visibilidade em todos os locatários de clientes gerenciados.
+Este tópico fornece uma visão geral de como os provedores de serviços podem usar os servidores habilitados para Arc do Azure e o kubernetes do Azure habilitado para Arc (versão prévia) de forma escalonável para gerenciar o ambiente híbrido de seus clientes, com visibilidade em todos os locatários gerenciados do cliente.
 
 > [!TIP]
 > Embora possamos nos referimos a provedores de serviços e clientes neste tópico, essa orientação também se aplica a [empresas que usam o Azure Lighthouse para gerenciar vários locatários](../concepts/enterprise.md).
 
-## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers-preview"></a>Gerenciar servidores híbridos em escala com os servidores habilitados para Arc do Azure (visualização)
-
-> [!NOTE]
-> Atualmente, os servidores habilitados para Arc do Azure estão em versão prévia. No momento, não é recomendável para cargas de trabalho de produção.
+## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers"></a>Gerenciar servidores híbridos em escala com os servidores habilitados para Arc do Azure
 
 Como um provedor de serviços, você pode gerenciar computadores Windows Server ou Linux locais fora do Azure que seus clientes se conectaram à sua assinatura usando o [agente de máquina conectado do Azure](../../azure-arc/servers/agent-overview.md).
 

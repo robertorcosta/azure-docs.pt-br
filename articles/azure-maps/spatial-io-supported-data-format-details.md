@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b7c82e4650c7680709e809d9f563d79f068601f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310162"
 ---
 # <a name="supported-data-format-details"></a>Detalhes do formato de dados com suporte
 
@@ -68,7 +68,7 @@ O módulo de e/s espacial dá suporte aos seguintes elementos KML.
 | `extrude`            | partial | partial | Com suporte apenas para polígonos. A multigeometry com polígonos de diferentes alturas será dividida em recursos individuais. Não há suporte para estilos de linha. Polígonos com uma altitude de 0 serão renderizados como um polígono simples. Durante a leitura, a altitude da primeira coordenada no anel exterior será adicionada como uma propriedade de altura do polígono. Em seguida, a altitude da primeira coordenada será usada para renderizar o polígono no mapa. |
 | `fill`               | sim     | sim     |                                                                                                                            |
 | `Folder`             | sim     | sim     |                                                                                                                            |
-| `GroundOverlay`      | sim     | sim     | `color`Não tem suporte                                                                                                   |
+| `GroundOverlay`      | sim     | sim     | `color` Não tem suporte                                                                                                   |
 | `heading`            | partial | não      | Analisado, mas não renderizado pelo `SimpleDataLayer` . Só grava se os dados são armazenados na propriedade da forma.                 |
 | `hotSpot`            | sim     | partial | Só grava se os dados são armazenados na propriedade da forma. As unidades são emitidas apenas como "pixels".                         |
 | `href`               | sim     | sim     |                                                                                                                            |
@@ -99,7 +99,7 @@ O módulo de e/s espacial dá suporte aos seguintes elementos KML.
 | `Point`              | sim     | sim     |                                                                                                                            |
 | `Polygon`            | sim     | sim     |                                                                                                                            |
 | `PolyStyle`          | sim     | sim     |                                                                                                                            |
-| `Region`             | partial | partial | `LatLongBox`tem suporte no nível do documento.                                                                      |
+| `Region`             | partial | partial | `LatLongBox` tem suporte no nível do documento.                                                                      |
 | `rotation`           | não      | não      |                                                                                                                            |
 | `rotationXY`         | não      | não      |                                                                                                                            |
 | `scale`              | não      | não      |                                                                                                                            |
@@ -111,7 +111,7 @@ O módulo de e/s espacial dá suporte aos seguintes elementos KML.
 | `SimpleData`         | sim     | sim     |                                                                                                                            |
 | `SimpleField`        | sim     | sim     |                                                                                                                            |
 | `size`               | não      | não      |                                                                                                                            |
-| `Snippet`            | partial | partial | `maxLines`o atributo é ignorado.                                                                                  |
+| `Snippet`            | partial | partial | `maxLines` o atributo é ignorado.                                                                                  |
 | `south`              | sim     | sim     |                                                                                                                            |
 | `Style`              | sim     | sim     |                                                                                                                            |
 | `StyleMap`           | partial | não      | Há suporte apenas para o estilo normal em um `StyleMap` .                                                                        |
@@ -225,12 +225,12 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GML.
 | `gml:LineString`        | sim  | sim   |                                                                                        |
 | `gml:lineStringMember`  | sim  | sim   |                                                                                        |
 | `gml:lineStringMembers` | sim  | não    |                                                                                        |
-| `gml:MultiCurve`        | sim  | não    | Somente lê `gml:LineString` Membros. Escrito como`gml.MultiLineString`                  |
+| `gml:MultiCurve`        | sim  | não    | Somente lê `gml:LineString` Membros. Escrito como `gml.MultiLineString`                  |
 | `gml:MultiGeometry`     | partial  | partial   | Somente leitura como uma Featurecollection.                                              |
 | `gml:MultiLineString`   | sim  | sim   |                                                                                        |
 | `gml:MultiPoint`        | sim  | sim   |                                                                                        |
 | `gml:MultiPolygon`      | sim  | sim   |                                                                                        |
-| `gml:MultiSurface`      | sim  | não    | Somente lê `gml:Polygon` Membros. Escrito como`gml.MultiPolygon`                        |
+| `gml:MultiSurface`      | sim  | não    | Somente lê `gml:Polygon` Membros. Escrito como `gml.MultiPolygon`                        |
 | `gml:name`              | sim  | sim   |                                                                                        |
 | `gml:outerBoundaryIs`   | sim  | não    | Escrito usando `gml.exterior` .                                                          |
 | `gml:Point`             | sim  | sim   |                                                                                        |
@@ -246,7 +246,7 @@ O módulo de e/s espacial dá suporte aos seguintes elementos GML.
 #### <a name="additional-notes"></a>observações adicionais
 
 - Os elementos de membro serão pesquisados em busca de uma geometria que pode ser incluída nos elementos filho. Essa operação de pesquisa é necessária, pois muitos formatos XML que se estendem de GML podem não posicionar uma geometria como um filho direto de um elemento de membro.
-- `srsName`Há suporte parcial para coordenadas WGS84 e os seguintes códigos:[EPSG: 4326](https://epsg.io/4326)) e Web Mercator ([EPSG: 3857](https://epsg.io/3857) ou um de seus códigos alternativos. Qualquer outro sistema de coordenadas será analisado como WGS84 como está.
+- `srsName` Há suporte parcial para coordenadas WGS84 e os seguintes códigos:[EPSG: 4326](https://epsg.io/4326)) e Web Mercator ([EPSG: 3857](https://epsg.io/3857) ou um de seus códigos alternativos. Qualquer outro sistema de coordenadas será analisado como WGS84 como está.
 - A menos que especificado durante a leitura de um feed XML, a ordem do eixo é determinada com base nas dicas no feed XML. Uma preferência é fornecida para a ordem do eixo "latitude, longitude".
 - A menos que um namespace GML personalizado seja especificado para as propriedades durante a gravação em um arquivo GML, informações de propriedade adicionais não serão adicionadas.
 
@@ -405,7 +405,7 @@ Ao verificar a linha de cabeçalho, qualquer informação de tipo que esteja no 
 
 - EDM. booliano
 - bool
-- boolean
+- booleano
 
 #### <a name="dates"></a>Datas
 
@@ -431,5 +431,4 @@ Se nenhuma informação de tipo puder ser extraída do cabeçalho e a opção de
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
 
-> [!div class="nextstepaction"]
-> [Ler e gravar dados espaciais](spatial-io-read-write-spatial-data.md)
+[Ler e gravar dados espaciais](spatial-io-read-write-spatial-data.md)
