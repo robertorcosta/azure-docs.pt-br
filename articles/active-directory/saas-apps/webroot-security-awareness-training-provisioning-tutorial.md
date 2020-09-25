@@ -2,21 +2,25 @@
 title: 'Tutorial: configurar o treinamento de reconhecimento de segurança do Webroot para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como provisionar e desprovisionar automaticamente contas de usuário do Azure AD para treinamento de reconhecimento de segurança do Webroot.
 services: active-directory
+documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: CelesteDG
+manager: beatrizd
+ms.assetid: 455f4396-930e-4db5-a167-d3ea6a860a17
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9345aaac306c8c009d6fc0a01c57beed3a22b10b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 31c0e9a690bde7a52a32fd9194afda76e1aaba8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523466"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329101"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: configurar o treinamento de reconhecimento de segurança do Webroot para o provisionamento automático de usuário
 
@@ -94,11 +98,11 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira `https://awarenessapi.webrootanywhere.com/api/v2/scim` a **URL de locatário**. Insira o valor do token secreto recuperado anteriormente em **Token Secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao treinamento de reconhecimento de segurança do Webroot. Se a conexão falhar, verifique se sua conta de treinamento de reconhecimento de segurança do Webroot tem permissões de administrador e tente novamente.
 

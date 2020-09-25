@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: d6222c9275dfe022e897bb6324df5bb30e1a8905
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706812"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276808"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com o Azure Cosmos DB
 
@@ -129,6 +129,8 @@ Você pode habilitar Zonas de Disponibilidade usando portal do Azure ao criar um
 
 ## <a name="building-highly-available-applications"></a>Criando aplicativos altamente disponíveis
 
+- Examine o [comportamento esperado dos SDKs do Azure Cosmos](troubleshoot-sdk-availability.md) durante esses eventos e quais são as configurações que o afetam.
+
 - Para garantir alta disponibilidade de gravação e leitura, configure sua conta do Azure Cosmos para abranger pelo menos duas regiões com regiões de várias gravações. Essa configuração fornecerá a mais alta disponibilidade, a menor latência e a melhor escalabilidade para leituras e gravações apoiadas por SLAs. Para saber mais, Confira como [configurar sua conta do Azure cosmos com várias regiões de gravação](tutorial-global-distribution-sql-api.md).
 
 - Para contas do Azure Cosmos de várias regiões configuradas com uma região de gravação única, [habilite o failover automático usando CLI do Azure ou portal do Azure](how-to-manage-database-account.md#automatic-failover). Depois de habilitar o failover automático, sempre que houver um desastre regional, o Cosmos DB fará o failover da sua conta automaticamente.  
@@ -146,3 +148,4 @@ Em seguida, você poderá ler os artigos a seguir:
 - [Distribuição global - nos bastidores](global-dist-under-the-hood.md)
 - [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
 - [Como configurar sua conta do cosmos com várias regiões de gravação](how-to-multi-master.md)
+- [Comportamento do SDK em ambientes multiregiãois](troubleshoot-sdk-availability.md)

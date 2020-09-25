@@ -3,12 +3,12 @@ title: Aprimore a confiabilidade do seu aplicativo com o Advisor
 description: Use o Azure Advisor para garantir e melhorar a confiabilidade em implantações críticas do Azure para os negócios.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0d96974e53f24d5a01eeee8b08eee578177a9ad2
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264585"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhorar a confiabilidade do seu aplicativo usando o Azure Advisor
 
@@ -76,7 +76,7 @@ As máquinas virtuais que estão em um conjunto de disponibilidade com discos qu
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de log inválidas
 
-O Azure Advisor detecta regras de alerta que têm consultas inválidas especificadas na seção condição. Você pode criar regras de alerta de log no Azure Monitor e usá-las para executar consultas de análise em intervalos especificados. Os resultados de uma consulta determinam se um alerta precisa ser disparado. As consultas de análise podem se tornar inválidas ao longo do tempo devido a alterações em recursos, tabelas ou comandos referenciados. O Advisor recomenda que você corrija a consulta na regra de alerta para impedir que ela seja automaticamente desativada e garantir a cobertura de monitoramento de seus recursos no Azure. [Saiba mais sobre como solucionar problemas de regras de alerta.](https://aka.ms/aa_logalerts_queryrepair)
+O Azure Advisor detecta as regras de alerta de log que têm consultas inválidas especificadas na seção de condição. Azure Monitor regras de alerta de log executam consultas na frequência especificada e acionam alertas com base nos resultados. As consultas podem se tornar inválidas ao longo do tempo devido a alterações nos recursos, tabelas ou comandos referenciados. O Advisor recomenda correções para consultas de alerta para impedir que as regras sejam automaticamente desabilitadas e garantir a cobertura de monitoramento. Para obter mais informações, consulte [Solucionando problemas de regras de alerta](../azure-monitor/platform/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid)
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurar o modo de indexação consistente na sua coleção de Azure Cosmos DB
 

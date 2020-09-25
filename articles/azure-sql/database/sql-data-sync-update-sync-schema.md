@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b42624506b3fe3a40cd19353c0dc25ecd8a5da02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328795"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatize a replicação de alterações de esquema no Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -201,7 +201,7 @@ A lógica de replicação descrita neste artigo para de funcionar em algumas sit
 
 Se você quiser limpar os registros na tabela de rastreamento de alteração de esquema, use DELETE em vez do TRUNCATE. Nunca propagar novamente a coluna de identidade na tabela de alterações de esquema usando DBCC CHECKIDENT. Você pode criar tabelas de controle de alteração de esquema novo e atualize o nome da tabela no gatilho DDL se propagação é necessária.
 
-## <a name="other-considerations"></a><a name="other"></a>Outras considerações
+## <a name="other-considerations"></a><a name="other"></a> Outras considerações
 
 -   Os usuários de banco de dados que configuram os bancos de dados de hub e o membro precisam ter permissões suficientes para executar os comandos de alteração de esquema.
 

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a154f9a75a70ed46155424d676d2b2cd8c6df3bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277964"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurar um grupo de failover para o banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -342,7 +342,7 @@ Fazer failover para o servidor secundário:
 > [!IMPORTANT]
 > Se você precisar excluir o banco de dados secundário, remova-o do grupo de failover antes de excluí-lo. A exclusão de um banco de dados secundário antes que ele seja removido do grupo de failover pode causar um comportamento imprevisível.
 
-## <a name="sql-managed-instance"></a>Instância Gerenciada do SQL
+## <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
 
 Crie um grupo de failover entre duas instâncias gerenciadas no Azure SQL Instância Gerenciada usando o portal do Azure ou o PowerShell.
 
@@ -388,7 +388,7 @@ Crie o gateway de rede virtual primária usando o portal do Azure.
     | **SKU**| Mantenha o padrão de `VpnGw1` . |
     | **Localidade**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
     | **Rede virtual**| Selecione a rede virtual para sua instância gerenciada secundária. |
-    | **Endereço IP público**| Selecione **Criar novo**. |
+    | **Endereço IP público**| Selecione **Criar**. |
     | **Nome do endereço IP público**| Insira um nome para seu endereço IP. |
     | &nbsp; | &nbsp; |
 
@@ -450,7 +450,7 @@ A tabela a seguir mostra os valores necessários para o gateway para a instânci
    | **SKU**| Mantenha o padrão de `VpnGw1` . |
    | **Localidade**| O local onde a instância gerenciada secundária e a rede virtual secundária são.   |
    | **Rede virtual**| Selecione a rede virtual que foi criada na seção 2, como `vnet-sql-mi-secondary` . |
-   | **Endereço IP público**| Selecione **Criar novo**. |
+   | **Endereço IP público**| Selecione **Criar**. |
    | **Nome do endereço IP público**| Insira um nome para seu endereço IP, como `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 

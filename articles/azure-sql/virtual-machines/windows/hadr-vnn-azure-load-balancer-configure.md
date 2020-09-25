@@ -8,18 +8,18 @@ manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 10ff324e85082a4a5911e2c949744e7df1d9ad0b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2f36e568603ded5a89f88cf11627a09a5a240fac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965435"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316980"
 ---
 # <a name="configure-vnn-with-azure-load-balancer-sql-server-on-azure-vms"></a>Configurar o VNN com Azure Load Balancer (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -157,7 +157,7 @@ Teste o failover do recurso clusterizado para validar a funcionalidade do cluste
 
 # <a name="failover-cluster-instance"></a>[Instância de cluster de failover](#tab/fci)
 
-Siga estas etapas:
+Execute as seguintes etapas:
 
 1. Conecte-se a um dos nós de cluster SQL Server usando o RDP.
 1. Abra o **Gerenciador de Cluster de Failover**. Selecione **funções**. Observe qual nó possui a função FCI do SQL Server.
@@ -170,7 +170,7 @@ O **Gerenciador de Cluster de Failover** mostra a função e seus recursos ficam
 
 # <a name="ag-listener"></a>[Ouvinte AG](#tab/ag)
 
-Siga estas etapas:
+Execute as seguintes etapas:
 
 1. Abra [SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) e conecte-se ao ouvinte do grupo de disponibilidade. 
 

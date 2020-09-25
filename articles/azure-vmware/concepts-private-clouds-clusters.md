@@ -3,14 +3,14 @@ title: Conceitos-nuvens e clusters privados
 description: Saiba mais sobre os principais recursos dos data centers definidos pelo software Azure VMware e clusters vSphere na solução VMware no Azure pela VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316861"
 ---
-# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Conceitos da nuvem privada e do cluster da visualização de soluções do Azure VMware
+#  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Conceitos de nuvem privada e de cluster da solução Azure VMware
 
 A solução Azure VMware fornece nuvens privadas baseadas no VMware no Azure. As nuvens privadas são criadas a partir de clusters de hosts bare-metal dedicados e são implantadas e gerenciadas por meio do portal do Azure. Os clusters em nuvens privadas são provisionados com o software VMware vSphere, vCenter, vSAN e NSX. As implantações de hardware e software na nuvem privada da solução Azure VMware são totalmente integradas e automatizadas no Azure.
 
@@ -51,7 +51,7 @@ As versões de software atuais do software VMware usado em clusters de nuvem pri
 | VCSA/vSphere/ESXi |    6,7 U2    | 
 | ESXi                  |    6,7 U2    | 
 | vSAN                  |    6,7 U2    |
-| NSX-T                 |      2,5     |
+| NSX-T                 |      2.5     |
 
 Para qualquer novo cluster em uma nuvem privada, a versão do software corresponderá ao que está sendo executado atualmente na nuvem privada. Para qualquer nova nuvem privada em uma assinatura de cliente, a versão mais recente da pilha de software é instalada.
 
@@ -61,7 +61,7 @@ As políticas e os processos de atualização gerais para o software da platafor
 
 A manutenção do host e o gerenciamento do ciclo de vida são feitos sem afetar a capacidade ou o desempenho de clusters de nuvem privada. Exemplos de manutenção automatizada do host incluem atualizações de firmware e reparo ou substituição de hardware.
 
-A Microsoft é responsável pelo gerenciamento do ciclo de vida de dispositivos NSX-T, como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável por inicializar a configuração de rede, como a criação do gateway de camada 0 e a habilitação do roteamento norte-sul. Como administrador de sua nuvem privada da solução Azure VMware, você é responsável pela configuração do NSX-T SDN, como segmentos de rede, regras de firewall distribuídas, gateways de camada 1 e balanceadores de carga.
+A Microsoft é responsável pelo gerenciamento do ciclo de vida de dispositivos NSX-T, como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável por inicializar a configuração de rede, como a criação do gateway de camada 0 e a habilitação do roteamento norte-sul. Como administrador de sua nuvem privada da solução Azure VMware, você é responsável pela configuração do NSX-T SDN. Por exemplo, segmentos de rede, regras de firewall distribuídas, gateways de camada 1 e balanceadores de carga.
 
 > [!IMPORTANT]
 > Um administrador da solução Azure VMware não deve modificar a configuração do gateway da camada 0 ou da borda do NSX-T. Isso pode resultar em uma perda de serviço.

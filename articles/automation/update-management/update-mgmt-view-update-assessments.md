@@ -3,18 +3,18 @@ title: Exibir avaliações de atualização da Automação do Azure
 description: Este artigo informa como exibir as avaliações de atualização para implantações de Gerenciamento de Atualizações.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92861304a946e357b2b265cd825eceb8e22f7d2d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2e32fc7c1872bf18b7f1c995f281a9b09ec45dc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264432"
 ---
-# <a name="view-update-assessments"></a>Exibir as avaliações de atualização
+# <a name="view-update-assessments-in-update-management"></a>Exibir avaliações de atualização no Gerenciamento de Atualizações
 
-No Gerenciamento de Atualizações, você pode exibir informações sobre seus computadores, atualizações ausentes, implantações de atualização e implantações de atualização agendada.
+No Gerenciamento de Atualizações, você pode exibir informações sobre seus computadores, atualizações ausentes, implantações de atualização e implantações de atualização agendada. Você pode exibir as informações de avaliação com escopo definido para a máquina virtual do Azure selecionada, do servidor habilitado para Arc selecionado ou da conta de automação em todos os computadores e servidores configurados.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -22,27 +22,33 @@ Entre no [Portal do Azure](https://portal.azure.com)
 
 ## <a name="view-update-assessment"></a>Exibir avaliação de atualização
 
-No Gerenciamento de Atualizações, você pode exibir informações sobre seus computadores, atualizações ausentes, implantações de atualização e implantações de atualização agendada.
+Para exibir a avaliação de atualização de uma VM do Azure, navegue até **máquinas virtuais** e selecione sua máquina virtual na lista. No menu à esquerda, selecione **convidado + atualizações de host**e, em seguida, selecione **ir para gerenciamento de atualizações** na página de **atualizações convidado + host** .
+
+No Gerenciamento de Atualizações, você pode exibir informações sobre sua máquina, atualizações ausentes, implantações de atualização e implantações de atualização agendada.
+
+[![Exibição de avaliação de gerenciamento de atualizações para a VM do Azure](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+
+Para exibir a avaliação de atualização de um servidor habilitado para Arc, navegue até **servidores – arco do Azure** e selecione o servidor na lista. No menu à esquerda, selecione **convidado e atualizações do host**. Na página **atualizações do host + convidado** , selecione **ir para gerenciamento de atualizações**.
+
+No Gerenciamento de Atualizações, você pode exibir informações sobre sua máquina habilitada para Arc, atualizações ausentes, implantações de atualização e implantações de atualização agendada.
+
+[![Exibição de avaliação de gerenciamento de atualizações para servidores habilitados para Arc](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+
+Para exibir a avaliação de atualização em todos os computadores, incluindo servidores habilitados para Arc da sua conta de automação, navegue até **contas de automação** e selecione sua conta de automação com gerenciamento de atualizações habilitado na lista. Em sua conta de automação, selecione **Gerenciamento de atualizações** no menu à esquerda.
+
+As atualizações para seu ambiente estão listadas na página **Gerenciamento de atualizações** . Se alguma atualização for identificada como ausente, uma lista delas será mostrada na guia **atualizações ausentes** .
 
 [![Gerenciamento de atualizações exibição padrão](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
-Para exibir uma avaliação de atualização, execute o seguinte.
+Na coluna **conformidade** , você pode ver a última vez em que o computador foi avaliado. Na coluna **prontidão do agente de atualização** , você pode ver a integridade do agente de atualização. Se houver um problema, escolha o link para ir para a documentação de solução problemas que pode ajudar a corrigir isso.
 
-1. Na portal do Azure, navegue até **contas de automação** e selecione sua conta de automação com gerenciamento de atualizações habilitado na lista.
+Em **Link para informações**, selecione o link para uma atualização para abrir o artigo de suporte que fornece informações importantes sobre a atualização.
 
-2. Em sua conta de automação, selecione **Gerenciamento de atualizações** no painel esquerdo.
+[![Exibir status da atualização](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
 
-3. As atualizações para seu ambiente estão listadas na página **Gerenciamento de atualizações** . Se alguma atualização for identificada como ausente, uma lista delas será mostrada na guia **atualizações ausentes** .
+Clique em qualquer lugar da atualização para abrir o painel da Pesquisa de logs. A consulta da pesquisa de log é predefinida para essa atualização específica. Você pode modificar essa consulta ou criar sua própria consulta para exibir informações detalhadas.
 
-   Na coluna **conformidade** , você pode ver a última vez em que o computador foi avaliado. Na coluna **prontidão do agente de atualização** , você pode ver a integridade do agente de atualização. Se houver um problema, escolha o link para ir para a documentação de solução problemas que pode ajudar a corrigir isso.
-
-4. Em **Link para informações**, selecione o link para uma atualização para abrir o artigo de suporte que fornece informações importantes sobre a atualização.
-
-     [![Exibir status da atualização](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
-
-5. Clique em qualquer lugar da atualização para abrir o painel da Pesquisa de logs. A consulta da pesquisa de log é predefinida para essa atualização específica. Você pode modificar essa consulta ou criar sua própria consulta para exibir informações detalhadas.
-
-    [![Exibir resultados da consulta de log](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
+[![Exibir resultados da consulta de log](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## <a name="view-missing-updates"></a>Exibir atualizações ausentes
 

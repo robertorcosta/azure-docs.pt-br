@@ -6,18 +6,19 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b3aadab1b4af80f98c57a279b69606a02846e996
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716820"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276434"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços vinculados no Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Agora é possível parametrizar um serviço vinculado e passar valores dinâmicos em tempo de execução. Por exemplo, se você quiser se conectar a bancos de dados diferentes no mesmo SQL Server lógico, agora poderá parametrizar o nome do banco de dados na definição de serviço vinculado. Isso impede que você precise criar um serviço vinculado para cada banco de dados no SQL Server lógico. Também é possível parametrizar outras propriedades na definição de serviço vinculado - por exemplo, *Nome de usuário.*
@@ -33,7 +34,8 @@ Para uma introdução de sete minutos e uma demonstração desse recurso, assist
 
 ## <a name="supported-data-stores"></a>Armazenamento de dados com suporte
 
-Neste momento, há suporte para a parametrização do serviço vinculado na interface do usuário do Data Factory para os repositórios de dados a seguir. Para todos os outros armazenamentos de dados, é possível parametrizar o serviço vinculado selecionando o ícone de **Código** na guia **Conexões** e usando o editor JSON.
+Você pode parametrizar qualquer tipo de serviço vinculado.
+Ao criar o serviço vinculado na interface do usuário, o Data Factory fornece uma experiência de parametrização interna para os seguintes tipos de conectores. Na folha criação/edição de serviço vinculado, você pode encontrar opções para novos parâmetros e adicionar conteúdo dinâmico.
 
 - Amazon Redshift
 - Azure Cosmos DB (API do SQL)
@@ -45,6 +47,13 @@ Neste momento, há suporte para a parametrização do serviço vinculado na inte
 - SQL Server
 -  HTTP Genérico
 - REST Genérico
+
+Para outros tipos, você pode parametrizar o serviço vinculado editando o JSON na interface do usuário:
+
+- Na folha criação/edição de serviço vinculado-> expanda "avançado" na parte inferior > marque a caixa de seleção "especificar conteúdo dinâmico no formato JSON"-> especificar a carga JSON do serviço vinculado. 
+- Ou, depois de criar um serviço vinculado sem parametrização, no [Hub de gerenciamento](author-visually.md#management-hub) -> serviços vinculados-> localizar o serviço vinculado específico – > clique em "código" (botão " {} ") para editar o JSON. 
+
+Consulte o [exemplo JSON](#json) para adicionar a ` parameters` seção para definir parâmetros e fazer referência ao parâmetro usando ` @{linkedService().paraName} ` .
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 

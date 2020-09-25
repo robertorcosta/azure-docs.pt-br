@@ -4,15 +4,15 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como usar o Azure RBAC para autorização de kubernetes com o AKS (serviço kubernetes do Azure).
 services: container-service
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c1222f671c95d4475de93b9c9e085a94f864b2ae
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329084"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usar o Azure RBAC para Autorização do Kubernetes (versão prévia)
 
@@ -28,7 +28,6 @@ A capacidade de gerenciar o RBAC para recursos de kubernetes do Azure oferece a 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="prerequisites"></a>Pré-requisitos 
-- Inscreva-se para a versão prévia <https://aka.ms/aad-rbac-sign-up-form> .
 - Verifique se você tem o CLI do Azure versão 2.9.0 ou posterior
 - Verifique se o `EnableAzureRBACPreview` sinalizador de recurso está habilitado.
 - Verifique se você tem a `aks-preview` [extensão da CLI][az-extension-add] v 0.4.55 ou superior instalada
@@ -44,7 +43,7 @@ Registre o `EnableAzureRBACPreview` sinalizador de recurso usando o comando [AZ 
 az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
 ```
 
-Você precisará obter aprovação depois de enviar o formulário de visualização acima antes que o sinalizador possa ser registrado com êxito. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
+ Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
@@ -188,7 +187,7 @@ Agora que você tem a definição de função, é possível atribuí-la a um usu
 az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Usar o RBAC do Azure para autorização de kubernetes com`kubectl`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>Usar o RBAC do Azure para autorização de kubernetes com `kubectl`
 
 > [!NOTE]
 > Verifique se você tem os kubectl mais recentes executando o comando abaixo:
@@ -222,7 +221,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Usar o RBAC do Azure para autorização de kubernetes com`kubelogin`
+## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubelogin"></a>Usar o RBAC do Azure para autorização de kubernetes com `kubelogin`
 
 Para desbloquear cenários adicionais como logons não interativos, `kubectl` versões mais antigas ou aproveitar o SSO em vários clusters sem a necessidade de entrar no novo cluster, contanto que seu token ainda seja válido, AKs criou um plug-in exec chamado [`kubelogin`](https://github.com/Azure/kubelogin) .
 
@@ -246,7 +245,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 ### <a name="clean-role-assignment"></a>Limpar atribuição de função
 
@@ -285,4 +284,4 @@ az group delete -n MyResourceGroup
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
-[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
+[az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true

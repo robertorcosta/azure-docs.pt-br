@@ -1,16 +1,16 @@
 ---
 title: Conceitos-armazenamento
-description: Saiba mais sobre os principais recursos de armazenamento nas nuvens privadas da visualização de solução do Azure VMware.
+description: Saiba mais sobre os principais recursos de armazenamento nas nuvens privadas da solução Azure VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8afd58c61f2f78eec2a92354be6d88178340912e
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024308"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316810"
 ---
-# <a name="azure-vmware-solution-preview-storage-concepts"></a>Conceitos de armazenamento da visualização da solução do Azure VMware
+#  <a name="azure-vmware-solution-storage-concepts"></a>Conceitos de armazenamento da solução VMware do Azure
 
 As nuvens privadas da solução Azure VMware fornecem armazenamento nativo em todo o cluster com a vSAN do VMware. Todo o armazenamento local de cada host em um cluster é usado em um armazenamento de dados vSAN, e a criptografia em repouso está disponível e habilitada por padrão. Você pode usar os recursos de armazenamento do Azure para estender os recursos de armazenamento de suas nuvens privadas.
 
@@ -28,9 +28,9 @@ O armazenamento local em hosts de cluster é usado no repositório de armazename
 
 ## <a name="data-at-rest-encryption"></a>Criptografia de dados em repouso
 
-Por padrão, os armazenamentos de dados vSAN usam a criptografia em repouso. A solução de criptografia é baseada em KMS e dá suporte a operações de vCenter para gerenciamento de chaves. As chaves de criptografia de chave são armazenadas em um Azure Key Vault e quando um host é removido de um cluster por qualquer motivo, os dados no SSDs são invalidados imediatamente.
+Por padrão, os armazenamentos de dados vSAN usam a criptografia em repouso. A solução de criptografia é baseada em KMS e dá suporte a operações de vCenter para gerenciamento de chaves. As chaves são armazenadas criptografadas, encapsuladas por uma chave mestra de Azure Key Vault baseada em HSM. Quando um host é removido de um cluster por qualquer motivo, os dados no SSDs são invalidados imediatamente.
 
-## <a name="scaling"></a>Scaling
+## <a name="scaling"></a>Dimensionamento
 
 A capacidade de armazenamento de cluster nativo é dimensionada adicionando hosts a um cluster. Para clusters que usam hosts, a capacidade bruta em todo o cluster é aumentada em 15,4 TB com cada host adicional. Os clusters criados com hosts GP têm sua capacidade bruta aumentada em 7,7 TB com cada host adicional. Em ambos os tipos de clusters, os hosts demoram cerca de 10 minutos para serem adicionados a um cluster. Consulte o [tutorial dimensionar nuvem privada][tutorial-scale-private-cloud] para obter instruções sobre como dimensionar clusters.
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329497"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solucionar problemas do RBAC do Azure
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferindo uma assinatura para um diretório diferente
 
-- Se você precisar de etapas sobre como transferir uma assinatura para um diretório diferente do Azure AD, consulte [transferir a propriedade de uma assinatura do Azure para outra conta](../cost-management-billing/manage/billing-subscription-transfer.md).
+- Se você precisar de etapas sobre como transferir uma assinatura para um diretório diferente do Azure AD, consulte [transferir uma assinatura do Azure para um diretório diferente do Azure AD (versão prévia)](transfer-subscription.md).
 - Se você transferir uma assinatura para um diretório diferente do Azure AD, todas as atribuições de função serão excluídas **permanentemente** do diretório do Azure AD de origem e não serão migradas para o diretório de destino do Azure AD. Você deve recriar as atribuições de função no diretório de destino. Você também precisa recriar manualmente as identidades gerenciadas dos recursos do Azure. Para obter mais informações, consulte [perguntas frequentes e problemas conhecidos com identidades gerenciadas](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Se você for um administrador global do Azure AD e não tiver acesso a uma assinatura após sua transferência entre os diretórios, use a opção **Gerenciamento de acesso para recursos do Azure** para [elevar temporariamente seu acesso](elevate-access-global-admin.md) para obter acesso à assinatura.
 
@@ -99,11 +99,17 @@ $ras.Count
 - Se você receber o erro de permissões "O cliente com o ID de objeto não tem autorização para executar a ação no escopo (código: AuthorizationFailed)" ao tentar criar um recurso, verifique se está atualmente conectado como um usuário com atribuição de função que tenha permissão de gravação para o recurso no escopo selecionado. Por exemplo, para gerenciar máquinas virtuais em um grupo de recursos, você deverá ter a função [Colaborador da Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou escopo pai). Para obter uma lista das permissões para cada função interna, consulte [funções internas do Azure](built-in-roles.md).
 - Se você receber o erro de permissões "você não tem permissão para criar uma solicitação de suporte" ao tentar criar ou atualizar um tíquete de suporte, verifique se você está conectado no momento com um usuário que recebe uma função que tem a `Microsoft.Support/supportTickets/write` permissão, como [colaborador de solicitação de suporte](built-in-roles.md#support-request-contributor).
 
+## <a name="move-resources-with-role-assignments"></a>Mover recursos com atribuições de função
+
+Se você mover um recurso que tenha uma função do Azure atribuída diretamente ao recurso (ou a um recurso filho), a atribuição de função não será movida e se tornará órfã. Após a movimentação, você deve recriar a atribuição de função. Eventualmente, a atribuição de função órfãa será removida automaticamente, mas é uma prática recomendada remover a atribuição de função antes de mover o recurso.
+
+Para obter informações sobre como mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## <a name="role-assignments-with-identity-not-found"></a>Atribuições de função com identidade não encontrada
 
 Na lista de atribuições de função para o portal do Azure, você pode observar que a entidade de segurança (usuário, grupo, entidade de serviço ou identidade gerenciada) está listada como **identidade não encontrada** com um tipo **desconhecido** .
 
-![Grupo de recursos do aplicativo Web](./media/troubleshooting/unknown-security-principal.png)
+![Identidade não encontrada listada nas atribuições de função do Azure](./media/troubleshooting/unknown-security-principal.png)
 
 A identidade pode não ser encontrada por dois motivos:
 

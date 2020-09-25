@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 4f3e01147e44b495a666d11a3927eabbbe0dec0e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1274679bdd9892e2dc39f3c5e94d8d8d486928b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329186"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: configurar o BitaBIZ para o provisionamento automático de usuário
 
@@ -106,11 +106,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção credenciais de administrador, insira a **URL do ponto de extremidade de provisionamento scim** e os valores de **token de portador** recuperados anteriormente na URL do locatário e no token secreto, respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao BitaBIZ. Se a conexão falhar, verifique se sua conta do BitaBIZ tem permissões de administrador e tente novamente.
 

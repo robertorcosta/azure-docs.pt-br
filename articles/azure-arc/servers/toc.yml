@@ -47,6 +47,8 @@
       items:
         - name: Problemas de conexão do agente
           href: troubleshoot-agent-onboard.md
+        - name: Problemas de extensão de VM
+          href: troubleshoot-vm-extensions.md
 - name: Referência
   items:
     - name: Residência de dadosResidência de dados

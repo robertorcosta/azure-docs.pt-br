@@ -2,13 +2,13 @@
 title: Configurar operações de vRealize para a solução do Azure VMware
 description: Saiba como configurar operações de vRealize para sua nuvem privada da solução Azure VMware.
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 729ee5c64776d7d04f702af62451175f7c53421b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/22/2020
+ms.openlocfilehash: 06b88eb610c4633018889315ab1cfd340d3f4b57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750391"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293130"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurar operações de vRealize para a solução do Azure VMware
 
@@ -58,7 +58,23 @@ Depois de implantar a instância da solução do Azure VMware de operações do 
 > Consulte a [documentação do VMware](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) para obter um guia passo a passo para a instalação do vRealize Operations Manager.
 
 
+## <a name="known-limitations"></a>Limitações conhecidas
 
+- O **cloudadmin@vsphere.local** usuário na solução VMware do Azure tem [privilégios limitados](concepts-rbac.md). Não há suporte para a coleta de memória no convidado usando as ferramentas do VMware com VMs (máquinas virtuais) na solução VMware do Azure. As utilizações de memória ativas e consumidas continuam a funcionar nesse caso.
+- A otimização de carga de trabalho para a intenção de negócios baseada em host não funciona porque as soluções do Azure VMware gerenciam configurações de cluster, incluindo configurações de DRS.
+- A otimização da carga de trabalho para o posicionamento entre clusters no SDDC usando a intenção de negócios baseada em cluster tem suporte total com o vRealize Operations Manager 8,0 e em diante. No entanto, a otimização da carga de trabalho não reconhece os pools de recursos e coloca as máquinas virtuais no nível do cluster. Um usuário pode corrigir isso manualmente na interface vCenter Server da solução VMware do Azure.
+- Você não pode entrar no vRealize Operations Manager usando suas credenciais de vCenter Server de solução do Azure VMware. 
+- A solução Azure VMware não dá suporte ao plug-in vRealize Operations Manager.
+
+Ao conectar a solução Azure VMware vCenter ao vRealize Operations Manager usando uma conta vCenter Server Cloud, você encontrará o seguinte aviso:
+
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Êxito na criação da instância do adaptador de aviso":::
+
+O aviso ocorre porque o **cloudadmin@vsphere.local** usuário na solução Azure VMware não tem privilégios suficientes para fazer todas as ações vCenter Server necessárias para o registro. No entanto, os privilégios são suficientes para a instância do adaptador fazer a coleta de dados, como mostrado abaixo:
+
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Instância do adaptador para executar a coleta de dados":::
+
+Para obter mais informações, consulte [privilégios necessários para configurar uma instância do adaptador do vCenter](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 
 <!-- LINKS - external -->
 

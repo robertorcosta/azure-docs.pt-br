@@ -10,27 +10,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/23/2019
+ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265248"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies e cloudMsExchUserHoldPolicies
 O documento de referência a seguir descreve esses atributos usados pelo Exchange e a maneira apropriada de editar as regras de sincronização padrão.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>O que são msExchUserHoldPolicies e cloudMsExchUserHoldPolicies?
-Há dois tipos de [suspensões](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um servidor Exchange: retenção de litígio e bloqueio in-loco. Quando a suspensão de litígio está habilitada, todas as caixas de correio todos os itens são colocados em espera.  Uma suspensão in-loco é usada para preservar apenas os itens que atendem aos critérios de uma consulta de pesquisa que você definiu usando a ferramenta de eDiscovery in-loco.
+Há dois tipos de [suspensões](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um servidor Exchange: retenção de litígio e bloqueio in-loco. Quando a suspensão de litígio está habilitada, todas as caixas de correio todos os itens são colocados em espera.  Uma suspensão in-loco é usada para preservar apenas os itens que atendem aos critérios de uma consulta de pesquisa que você definiu usando a ferramenta de eDiscovery in-loco.
 
 Os atributos MsExchUserHoldPolcies e cloudMsExchUserHoldPolicies permitem o AD local e o Azure AD para determinar quais usuários estão em uma suspensão, dependendo se eles estão usando o Exchange ou o Exchange Online no local.
 
 ## <a name="msexchuserholdpolicies-synchronization-flow"></a>fluxo de sincronização do msExchUserHoldPolicies
-Por padrão, o MsExchUserHoldPolcies é sincronizado por Azure AD Connect diretamente para o atributo msExchUserHoldPolicies no metaverso e, em seguida, para o atributo msExchUserHoldPolices no Azure AD
+Por padrão, os MsExchUserHoldPolcies são sincronizados por Azure AD Connect diretamente para o atributo msExchUserHoldPolicies no metaverso e, em seguida, para o atributo msExchUserHoldPolicies no Azure AD
 
 As tabelas a seguir descrevem o fluxo:
 
@@ -38,7 +38,7 @@ Entrada do Active Directory local:
 
 |Active Directory atributo|Nome do atributo|Tipo de fluxo|Atributo de metaverso|Regra de sincronização|
 |-----|-----|-----|-----|-----|
-|Active Directory local|msExchUserHoldPolicies|Direto|msExchUserHoldPolices|Entrada do AD – usuário Exchange|
+|Active Directory local|msExchUserHoldPolicies|Direto|msExchUserHoldPolicies|Entrada do AD – usuário Exchange|
 
 Saída para o Azure AD:
 
@@ -47,7 +47,7 @@ Saída para o Azure AD:
 |Azure Active Directory|msExchUserHoldPolicies|Direto|msExchUserHoldPolicies|Saída para o AAD – UserExchangeOnline|
 
 ## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>fluxo de sincronização do cloudMsExchUserHoldPolicies
-Por padrão, o cloudMsExchUserHoldPolicies é sincronizado por Azure AD Connect diretamente ao atributo cloudMsExchUserHoldPolicies no metaverso. Em seguida, se msExchUserHoldPolices não for nulo no metaverso, o atributo em fluirá para Active Directory.
+Por padrão, os cloudMsExchUserHoldPolicies são sincronizados por Azure AD Connect diretamente ao atributo cloudMsExchUserHoldPolicies no metaverso. Em seguida, se msExchUserHoldPolicies não for nulo no metaverso, o atributo em fluirá para Active Directory.
 
 As tabelas a seguir descrevem o fluxo:
 
@@ -64,7 +64,7 @@ Saída para Active Directory local:
 |Azure Active Directory|cloudMsExchUserHoldPolicies|IF (NOT NULL)|msExchUserHoldPolicies|Saída para AD – UserExchangeOnline|
 
 ## <a name="information-on-the-attribute-behavior"></a>Informações sobre o comportamento do atributo
-O msExchangeUserHoldPolicies é um atributo de autoridade única.  Um atributo de autoridade única pode ser definido em um objeto (nesse caso, objeto de usuário) no diretório local ou no diretório na nuvem.  As regras de início de autoridade ditam que, se o atributo for sincronizado do local, o Azure AD não terá permissão para atualizar esse atributo.
+O msExchangeUserHoldPolicies são um atributo de autoridade única.  Um atributo de autoridade única pode ser definido em um objeto (nesse caso, objeto de usuário) no diretório local ou no diretório na nuvem.  As regras de início de autoridade ditam que, se o atributo for sincronizado do local, o Azure AD não terá permissão para atualizar esse atributo.
 
 Para permitir que os usuários definam uma política de retenção em um objeto de usuário na nuvem, o atributo cloudMSExchangeUserHoldPolicies é usado. Esse atributo é usado porque o Azure AD não pode definir msExchangeUserHoldPolicies diretamente com base nas regras explicadas acima.  Esse atributo será então sincronizado de volta para o diretório local se, o msExchangeUserHoldPolicies não for nulo e substituirá o valor atual de msExchangeUserHoldPolicies.
 

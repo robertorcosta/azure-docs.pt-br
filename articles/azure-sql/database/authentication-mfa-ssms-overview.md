@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 07/27/2020
 tags: azure-synapse
-ms.openlocfilehash: b2d179121b05d7bf3493937a9ff72e302fd31f3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281133"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277794"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Usando a autenticação de Azure Active Directory multifator
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,7 +29,7 @@ O banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synap
 
 Para todos os recursos neste artigo, use a versão 17.2 de julho de 2017 ou posterior. A caixa de diálogo de conexão mais recente deve ser semelhante à seguinte imagem:
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Completa a caixa de diálogo Nome de usuário.")  
+  ![Captura de tela da caixa de diálogo conectar ao servidor no SQL Server Management Studio, mostrando as configurações de tipo de servidor, nome do servidor e autenticação.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## <a name="authentication-options"></a>Opções de autenticação
 
@@ -57,11 +57,11 @@ Todos os usuários convidados que desejam ser autenticados usando a autenticaç�
 1. Abra uma conexão no SSMS. Insira o nome do servidor e selecione **Azure Active Directory-universal com autenticação MFA** . Adicione o **nome de usuário** com o qual você deseja entrar.
 1. Selecione a caixa **Opções** e vá para a guia **Propriedades da conexão** . Na caixa de diálogo **conectar ao banco de dados** , preencha a caixa de diálogo do seu banco de dados. Marque a caixa **ID de locatário ou nome de domínio do AD** e forneça a autoridade de autenticação, como o nome de domínio (**contosotest.onmicrosoft.com**) ou o GUID da ID do locatário. 
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![Captura de tela da guia Propriedades da conexão realçando as configurações para conectar ao banco de dados e ao nome de domínio do AD ou à ID do locatário.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 Se você estiver executando o SSMS 18. x ou posterior, o nome de domínio do AD ou a ID do locatário não será mais necessário para usuários convidados, pois 18. x ou posterior o reconhecerá automaticamente.
 
-   ![mfa-tenant-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![Captura de tela da guia Propriedades da conexão na caixa de diálogo conectar ao servidor em s s M. "MyDatabase" está selecionado no campo conectar ao banco de dados.](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Suporte entre empresas do Azure AD
 

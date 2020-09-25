@@ -1,14 +1,14 @@
 ---
 title: Guia de solução de problemas do barramento de serviço do Azure | Microsoft Docs
-description: Este artigo fornece dicas de solução de problemas e recomendações para alguns problemas que você pode ver ao usar o barramento de serviço do Azure.
+description: Saiba mais sobre dicas de solução de problemas e recomendações para alguns problemas que você pode ver ao usar o barramento de serviço do Azure.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 39d2bf14f88e8efabcddda98268a187009cf029e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aab7fa53b4af309c68cd91fdb1d25c5771f89828
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261117"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de solução de problemas do barramento de serviço do Azure
 Este artigo fornece dicas de solução de problemas e recomendações para alguns problemas que você pode ver ao usar o barramento de serviço do Azure. 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 39f277fffbb9a76a4be4bfa8aaedeaf3479a989f
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068876"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328846"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Conectar o Azure a ferramentas de ITSM usando a exportação segura
 
@@ -112,11 +112,13 @@ As seções a seguir fornecem detalhes sobre como conectar seu produto BMC Helix
 Verifique se você atendeu aos seguintes pré-requisitos:
 
 * O Azure AD está registrado.
-* Você tem a versão com suporte do gerenciamento de serviços de várias nuvens do BMC Helix (versão 20, 2 ou posterior).
+* Você tem a versão com suporte do gerenciamento de serviços de várias nuvens do BMC Helix (versão 19, 8 ou posterior).
 
 ### <a name="configure-the-bmc-helix-connection"></a>Configurar a conexão do BMC Helix
 
-1. Siga as instruções em [habilitando a integração predefinida com o Azure monitor para a versão 20, 2](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+1. Siga as instruções de Accor para a versão:
+   * [Habilitando a integração predefinida com o Azure monitor para a versão 20, 2](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+   * [Habilitando a integração predefinida com o Azure monitor para a versão 19,11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
 
 1. Como parte da configuração da conexão no BMC Helix, acesse sua instância de integração do BMC e siga estas instruções:
 
@@ -138,4 +140,4 @@ Verifique se você atendeu aos seguintes pré-requisitos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar itens de trabalho de ITSM desde alertas do Azure](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+* [Criar itens de trabalho de ITSM desde alertas do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)

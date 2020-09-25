@@ -3,14 +3,14 @@ title: Consultar logs de Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo informa como consultar os logs para Gerenciamento de Atualizações em seu workspace do Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 290fb0165038eea8740361a12a6d4bfe2c1bf138
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264296"
 ---
 # <a name="query-update-management-logs"></a>Consultar os logs do Gerenciamento de Atualizações
 
@@ -26,7 +26,7 @@ O Gerenciamento de Atualizações coleta registros para VMs do Windows e do Linu
 
 É criado um registro com um tipo `RequiredUpdate` que representa as atualizações exigidas por um computador. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |----------|-------------|
 | Computador | Nome de domínio totalmente qualificado do computador de relatórios. |
 | KBID | ID do artigo da base de dados de conhecimento para o Windows Update. |
@@ -105,12 +105,12 @@ O Gerenciamento de Atualizações coleta registros para VMs do Windows e do Linu
 
 É criado um registro do tipo `UpdateRunProgress` que fornece o status da implantação da atualização agendada pelo computador. Esses registros têm as propriedades descritas na tabela a seguir:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |----------|-------------|
 | Computador | Nome de domínio totalmente qualificado do computador de relatórios. |
 | ComputerEnvironment | Ambiente. Os valores são Azure ou Non-Azure. |
 | CorrelationId | Identificador exclusivo da execução do trabalho de runbook para a atualização. |
-| EndTime | A hora em que o processo de sincronização terminou. |
+| EndTime | A hora em que o processo de sincronização terminou. *Esta propriedade não é usada no momento. Confira TimeGenerated.* |
 | ErrorResult | Código de erro do Windows Update gerado quando uma atualização não é instalada. |
 | InstallationStatus | Os estados de instalação possíveis de uma atualização no computador cliente:<br> `NotStarted` - o trabalho ainda não foi disparado.<br> `FailedToStart` - não é possível iniciar o trabalho no computador.<br> `Failed` - trabalho iniciado, mas falhou com uma exceção.<br> `InProgress` - trabalho em andamento.<br> `MaintenanceWindowExceeded` - se a execução não tinha terminado, mas o intervalo da janela de manutenção foi alcançado.<br> `Succeeded` - trabalho realizado.<br> `InstallFailed` - atualização não realizada.<br> `NotIncluded`<br> `Excluded` |
 | KBID | ID do artigo da base de dados de conhecimento para o Windows Update. |
@@ -123,8 +123,8 @@ O Gerenciamento de Atualizações coleta registros para VMs do Windows e do Linu
 | ResourceType | Tipo de recurso. |
 | SourceComputerId | Identificador exclusivo que representa o computador de origem. |
 | SourceSystem | Sistema de origem do registro. O valor é `OperationsManager`. |
-| StartTime | Hora em que a atualização está agendada para ser instalada. |
-| SubscriptionId | Identificador exclusivo da assinatura do Azure. | 
+| StartTime | Hora em que a atualização está agendada para ser instalada. *Esta propriedade não é usada no momento. Confira TimeGenerated.* |
+| SubscriptionId | Identificador exclusivo da assinatura do Azure. |
 | SucceededOnRetry | Valor que indica se a execução da atualização não ocorreu na primeira tentativa e se a operação atual é uma nova tentativa. |
 | TimeGenerated | Data e hora da criação do registro. |
 | Title | O título da atualização. |

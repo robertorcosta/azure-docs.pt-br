@@ -1,5 +1,5 @@
 ---
-title: Adicionar, remover e listar grupos em uma unidade administrativa (versão prévia) - Azure Active Directory | Microsoft Docs
+title: Adicionar, remover e listar grupos em uma unidade administrativa-Azure Active Directory | Microsoft Docs
 description: Gerenciar grupos e suas permissões de função em uma unidade administrativa no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 06/23/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76026313eea8c8fbb2f3e55321e2e4ebbe5dcfc7
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 324d0ff0659270c6f2e90c0456ded83344f73936
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850910"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264978"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Adicionar e gerenciar grupos em unidades administrativas no Azure Active Directory
 
@@ -31,7 +31,7 @@ Para saber como se preparar para usar o PowerShell e o Microsoft Graph para o ge
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Na versão prévia, você só pode atribuir grupos individualmente a uma unidade administrativa. Não há nenhuma opção de atribuição em massa de grupos a uma unidade administrativa. Você pode atribuir um grupo a uma unidade administrativa de duas maneiras no portal:
+Você pode atribuir grupos somente individualmente a uma unidade administrativa. Não há nenhuma opção de atribuir grupos em massa a uma unidade administrativa. Você pode atribuir um grupo a uma unidade administrativa de duas maneiras no portal:
 
 1. Na página **Azure Active Directory > Grupos**
 

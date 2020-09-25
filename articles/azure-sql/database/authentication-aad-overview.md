@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8221c77c0e6adeabe869a088089733d289a2f6ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434275"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277924"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usar autenticação Azure Active Directory
 
@@ -168,7 +168,7 @@ Os seguintes métodos de autenticação têm suporte para entidades de seguranç
 - Para obter uma visão geral de logons, usuários, funções de banco de dados e permissões no banco de dados SQL, consulte [logons, usuários, funções de banco de dados e permissões](logins-create-manage.md).
 - Para obter mais informações sobre objetos de banco de dados, confira [Entidades](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de banco de dados, confira [Funções de banco de dados](https://msdn.microsoft.com/library/ms189121.aspx).
-- Para obter a sintaxe sobre a criação de entidades de segurança do servidor do Azure AD (logons) para o SQL Instância Gerenciada, consulte  [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Para obter a sintaxe sobre a criação de entidades de segurança do servidor do Azure AD (logons) para o SQL Instância Gerenciada, consulte  [criar logon](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Para obter mais informações sobre as regras de firewall no Banco de Dados SQL, confira [Regras de firewall de Banco de Dados SQL](firewall-configure.md).
 
 <!--Image references-->

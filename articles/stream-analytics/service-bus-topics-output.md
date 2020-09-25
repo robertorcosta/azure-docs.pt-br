@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: ef5802d0c5e35b9c12db1f40782ba5f190ad1883
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261026"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Resultados da saída dos tópicos do barramento de serviço de Azure Stream Analytics
 
@@ -46,6 +46,22 @@ O tamanho máximo da mensagem é 256 KB por mensagem para a camada Standard e 1M
 ## <a name="custom-metadata-properties-for-output"></a>Personalizar propriedades de metadados para a saída
 
 Você pode anexar colunas de consulta às suas mensagens de saída como propriedades de usuário. Essas colunas não entram no conteúdo. As propriedades estão presentes no formato de um dicionário na mensagem de saída. *Chave* é o nome da coluna e *valor* é o valor da coluna no dicionário de propriedades. Todos os tipos de dados do Stream Analytics têm suporte, exceto Registro e Matriz.
+
+No exemplo a seguir, os campos `DeviceId` e `DeviceStatus` são adicionados aos metadados.
+
+1. Use a seguinte consulta:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configure `DeviceId,DeviceStatus` como colunas de propriedade na saída.
+
+   :::image type="content" source="media/service-bus-topics-output/property-columns.png" alt-text="Colunas da propriedade":::
+
+A imagem a seguir é das propriedades de mensagem de saída esperadas inspecionadas no EventHub usando o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/service-bus-topics-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
 
 ## <a name="system-properties"></a>Propriedades do sistema
 

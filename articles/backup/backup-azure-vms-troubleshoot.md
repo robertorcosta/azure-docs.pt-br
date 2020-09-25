@@ -4,12 +4,12 @@ description: Neste artigo, saiba como solucionar problemas encontrados com backu
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376172"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316725"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
 
@@ -105,7 +105,7 @@ Mensagem de erro: A operação de captura instantânea falhou porque os gravador
 
 Esse erro ocorre porque os gravadores VSS estavam em um estado inadequado. As extensões de backup do Azure interagem com os gravadores VSS para tirar instantâneos dos discos. Para resolver esse problema, siga estas etapas:
 
-Reinicie os gravadores VSS que estão em um estado inválido.
+Etapa 1: reiniciar gravadores VSS que estão em um estado inadequado.
 - Em um prompt de comandos com privilégios elevados, execute ```vssadmin list writers```.
 - A saída contém todos os gravadores VSS e seus estados. Para cada gravador VSS com um estado que não é **[1] estável**, reinicie o serviço do gravador VSS respectivo. 
 - Para reiniciar o serviço, execute os seguintes comandos em um prompt de comando com privilégios elevados:
@@ -117,12 +117,20 @@ Reinicie os gravadores VSS que estão em um estado inválido.
 > Reiniciar alguns serviços pode afetar o ambiente de produção. Certifique-se de que o processo de aprovação seja seguido e o serviço seja reiniciado no tempo de inatividade agendado.
  
    
-Se a reinicialização dos gravadores VSS não resolver o problema e o problema persistir devido a um tempo limite, então:
-- Execute o comando a seguir de um prompt de comando elevado (como administrador) para impedir que os threads sejam criados para instantâneos de BLOB.
+Etapa 2: se a reinicialização dos gravadores VSS não resolver o problema, execute o comando a seguir em um prompt de comando elevado (como administrador) para impedir que os threads sejam criados para instantâneos de BLOB.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+Etapa 3: se as etapas 1 e 2 não resolverem o problema, a falha poderá ser devido ao tempo limite dos gravadores VSS expirarem devido a um IOPS limitado.<br>
+
+Para verificar, navegue até ***sistema e visualizador de eventos logs de aplicativo*** e verifique a seguinte mensagem de erro:<br>
+*O tempo limite do provedor de cópia de sombra foi atingido ao reter gravações no volume sendo copiado em sombra. Isso provavelmente é devido à atividade excessiva no volume por um aplicativo ou um serviço do sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
+
+Solução:
+- Verifique se há possibilidades para distribuir a carga entre os discos de VM. Isso reduzirá a carga em discos únicos. Você pode [verificar a limitação de IOPS habilitando as métricas de diagnóstico no nível de armazenamento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+- Altere a política de backup para executar backups fora do horário de pico, quando a carga na VM for a mais baixa.
+- Atualize os discos do Azure para dar suporte a IOPs mais altos. [Saiba mais aqui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>Falha na operação ExtensionFailedVssServiceInBadState-snapshot devido ao serviço VSS (cópia de sombra de volume) em estado inadequado
 
@@ -306,6 +314,13 @@ Se você tiver um Azure Policy que [governa as marcas em seu ambiente](../govern
 | Falha de backup para cancelar o trabalho: <br>Aguarde até que o trabalho seja concluído. |Nenhum |
 
 ## <a name="restore"></a>Restaurar
+
+#### <a name="disks-appear-offline-after-file-restore"></a>Os discos aparecem offline após a restauração do arquivo
+
+Se, após a restauração, você observar que os discos estão offline, então: 
+* Verifique se o computador onde o script é executado atende aos requisitos do sistema operacional. [Saiba mais](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
+* Verifique se você não está restaurando para a mesma fonte, [saiba mais](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
 
 | Detalhes do erro | Solução alternativa |
 | --- | --- |

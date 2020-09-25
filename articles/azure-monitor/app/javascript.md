@@ -3,13 +3,13 @@ title: Aplicativo Azure insights para aplicativos Web JavaScript
 description: Obter a exibição de página e contagens de sessão, dados de cliente Web, SPA (aplicativos de página única) e rastrear padrões de uso. Detecte exceções e problemas de desempenho em páginas da Web do JavaScript.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9f335ca6912545b39fb8276f5895f98e653735d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: devx-track-js
+ms.openlocfilehash: ddbdeaed1cf3f69c20c272ea3e9dde405119bc24
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89656938"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328897"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -220,7 +220,7 @@ Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gast
 | [React Native](javascript-react-native-plugin.md)|
 | [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
 
-## <a name="correlation"></a>Correlação
+## <a name="correlation"></a>Correlation
 
 A correlação do cliente com o lado do servidor tem suporte para:
 

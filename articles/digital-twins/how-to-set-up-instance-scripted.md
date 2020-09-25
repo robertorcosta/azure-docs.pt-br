@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562921"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328620"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação do gêmeos digital do Azure (com script)
 
@@ -26,15 +26,19 @@ Esta versão deste artigo conclui essas etapas executando um exemplo de [ **scri
 
 [!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
+## <a name="prerequisites-download-the-script"></a>Pré-requisitos: baixar o script
+
+O script de exemplo é escrito no PowerShell. Ele faz parte dos [**exemplos de gêmeos digitais do Azure**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *baixar zip* abaixo do título.
+
+Isso baixará o projeto de exemplo em seu computador como _**Azure_Digital_Twins_samples.zip**_. Navegue até a pasta em seu computador e descompacte-a para extrair os arquivos.
+
+Na pasta descompactada, o script de implantação está localizado em _Azure_Digital_Twins_samples > scripts > **deploy.ps1** _.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="run-the-deployment-script"></a>Executar o script de implantação
 
 Este artigo usa um exemplo de código de gêmeos digital do Azure para implantar uma instância do gêmeos digital do Azure e a autenticação necessária semi-automaticamente. Ele também pode ser usado como um ponto de partida para escrever suas próprias interações com script.
-
-O script de exemplo é escrito no PowerShell. Ele faz parte dos [exemplos de gêmeos digitais do Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que você pode baixar em seu computador navegando até esse link de exemplo e selecionando o botão *baixar zip* abaixo do título.
-
-Na pasta de exemplo baixada, o script de implantação está localizado em _Azure_Digital_Twins_samples.zip > scripts > **deploy.ps1** _.
 
 Aqui estão as etapas para executar o script de implantação no Cloud Shell.
 1. Vá para uma janela de [Azure cloud Shell](https://shell.azure.com/) em seu navegador. Entre usando este comando:
@@ -43,13 +47,23 @@ Aqui estão as etapas para executar o script de implantação no Cloud Shell.
     ```
     Se a CLI puder abrir o navegador padrão, ela o fará e carregará uma página de entrada do Azure. Caso contrário, abra uma página de navegador em *https://aka.ms/devicelogin* e insira o código de autorização exibido no terminal.
  
-2. Depois de entrar, procure a barra de ícones da janela de Cloud Shell. Selecione o ícone "carregar/baixar arquivos" e escolha "carregar".
+2. Na barra de ícones Cloud Shell, verifique se o Cloud Shell está configurado para executar a versão do PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção carregar":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Janela Cloud Shell mostrando a seleção da versão do PowerShell":::
 
-    Navegue até o arquivo de _**deploy.ps1**_ em seu computador e pressione "abrir". Isso carregará o arquivo para Cloud Shell para que você possa executá-lo na janela Cloud Shell.
+1. Selecione o ícone "carregar/baixar arquivos" e escolha "carregar".
 
-3. Execute o script enviando o `./deploy.ps1` comando na janela Cloud Shell. À medida que o script é executado por meio das etapas de configuração automatizada, você será solicitado a passar os seguintes valores:
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção do ícone carregar":::
+
+    Navegue até o arquivo de _**deploy.ps1**_ em seu computador (em _Azure_Digital_Twins_samples scripts de > > **deploy.ps1** _) e pressione "abrir". Isso carregará o arquivo para Cloud Shell para que você possa executá-lo na janela Cloud Shell.
+
+4. Execute o script enviando o `./deploy.ps1` comando na janela Cloud Shell. (Lembre-se de que para colar em Cloud Shell, você pode usar **Ctrl + Shift + v** no Windows e Linux ou **cmd + shift + v** no MacOS. Você também pode usar o menu de clique com o botão direito do mouse.)
+
+    ```azurecli
+    ./deploy.ps1
+    ```
+
+    À medida que o script é executado por meio das etapas de configuração automatizada, você será solicitado a passar os seguintes valores:
     * Para a instância: a *ID* da assinatura do Azure a ser usada
     * Para a instância: um *local* onde você gostaria de implantar a instância. Para ver quais regiões dão suporte ao Azure digital gêmeos, visite [*produtos do Azure disponíveis por região*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * Para a instância: um nome de *grupo de recursos* . Você pode usar um grupo de recursos existente ou inserir um novo nome de um para criar.
@@ -107,9 +121,15 @@ Anote a ID do *aplicativo (cliente)* e a *ID do diretório (locatário)* mostrad
 
 Se você quiser verificar a criação de seus recursos e as permissões configuradas pelo script, você pode vê-los no [portal do Azure](https://portal.azure.com).
 
+Se não for possível verificar o êxito de qualquer etapa, repita a etapa. Você pode executar as etapas individualmente usando as instruções [portal do Azure](how-to-set-up-instance-portal.md) ou [CLI](how-to-set-up-instance-cli.md) .
+
 ### <a name="verify-instance"></a>Verificar instância
 
-Para verificar se a instância foi criada, vá para a [página gêmeos digital do Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) na portal do Azure. Esta página lista todas as suas instâncias de gêmeos digitais do Azure. Procure o nome da instância recém-criada na lista.
+Para verificar se a instância foi criada, vá para a [página gêmeos digital do Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) na portal do Azure. Você pode acessar esta página por conta própria procurando por *gêmeos do Azure digital* na barra de pesquisa do Portal.
+
+Esta página lista todas as suas instâncias de gêmeos digitais do Azure. Procure o nome da instância recém-criada na lista.
+
+Se a verificação não tiver sido bem-sucedida, você poderá repetir a criação de uma instância usando o [portal](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) ou a [CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
 ### <a name="verify-user-role-assignment"></a>Verificar atribuição de função de usuário
 
@@ -117,16 +137,18 @@ Para verificar se a instância foi criada, vá para a [página gêmeos digital d
 
 > [!NOTE]
 > Lembre-se de que o script atribui atualmente essa função necessária ao mesmo usuário que executa o script de Cloud Shell. Se você precisar atribuir essa função a outra pessoa que gerenciará a instância, poderá fazer isso agora por meio do portal do Azure ([instruções](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) ou da CLI ([instruções](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
->
-> Você também pode usar o portal ou a CLI para refazer sua própria atribuição de função se houvesse algum problema com a configuração com script.
+
+Se a verificação não tiver sido bem-sucedida, você também poderá refazer sua própria atribuição de função usando o [portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou a [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 ### <a name="verify-app-registration"></a>Verificar registro do aplicativo
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Primeiro, verifique se as configurações de permissões do gêmeos digital do Azure foram definidas corretamente no registro. Para fazer isso, selecione *manifesto* na barra de menus para exibir o código do manifesto do registro do aplicativo. Role até a parte inferior da janela de código e procure esses campos em `requiredResourceAccess` . Os valores devem corresponder aos da captura de tela abaixo:
+Em seguida, verifique se as configurações de permissões do gêmeos digital do Azure foram definidas corretamente no registro. Para fazer isso, selecione *manifesto* na barra de menus para exibir o código do manifesto do registro do aplicativo. Role até a parte inferior da janela de código e procure esses campos em `requiredResourceAccess` . Os valores devem corresponder aos da captura de tela abaixo:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+
+Se uma ou ambas as etapas de verificação não forem bem-sucedidas, tente criar o registro do aplicativo novamente usando as instruções do [portal](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) ou da [CLI](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) .
 
 ## <a name="other-possible-steps-for-your-organization"></a>Outras etapas possíveis para sua organização
 
@@ -135,7 +157,7 @@ Primeiro, verifique se as configurações de permissões do gêmeos digital do A
 ## <a name="next-steps"></a>Próximas etapas
 
 Teste as chamadas de API REST individuais em sua instância usando os comandos da CLI do Azure digital gêmeos: 
-* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [referência de AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Como usar a CLI dos Gêmeos Digitais do Azure*](how-to-use-cli.md)
 
 Ou então, consulte Como conectar seu aplicativo cliente à sua instância escrevendo o código de autenticação do aplicativo cliente:
