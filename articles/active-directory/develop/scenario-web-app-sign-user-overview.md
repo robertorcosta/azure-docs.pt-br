@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52e33177b5fc6c68f615b8eb7738e66b18a1763a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118699"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257054"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: aplicativo Web que assina usuários
 
 Saiba tudo o que você precisa para criar um aplicativo Web que usa a plataforma de identidade da Microsoft para conectar usuários.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>Introdução
 
@@ -60,7 +56,7 @@ Se você desenvolver com Python, experimente o início rápido a seguir:
 
 ## <a name="overview"></a>Visão geral
 
-Você adiciona autenticação ao seu aplicativo Web para que ele possa conectar usuários. A adição de autenticação permite que seu aplicativo Web acesse informações de perfil limitadas para personalizar a experiência para os usuários. 
+Você adiciona autenticação ao seu aplicativo Web para que ele possa conectar usuários. A adição de autenticação permite que seu aplicativo Web acesse informações de perfil limitadas para personalizar a experiência para os usuários.
 
 Os aplicativos Web autenticam um usuário em um navegador da Web. Nesse cenário, o aplicativo Web direciona o navegador do usuário para conectá-lo ao Azure Active Directory (Azure AD). O Azure AD retorna uma resposta de entrada por meio do navegador do usuário, que contém declarações sobre o usuário em um token de segurança. A entrada de usuários aproveita o protocolo padrão do [Open ID Connect](./v2-protocols-oidc.md) , simplificado pelo uso de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps)de middleware.
 
@@ -69,13 +65,17 @@ Os aplicativos Web autenticam um usuário em um navegador da Web. Nesse cenário
 Como uma segunda fase, você pode habilitar seu aplicativo para chamar APIs da Web em nome do usuário conectado. Esta próxima fase é um cenário diferente, que você encontrará no [aplicativo Web que chama APIs da Web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> A adição de entrada a um aplicativo Web é sobre a proteção do aplicativo Web e a validação de um token de usuário, que é o que as bibliotecas de **middleware** fazem. No caso do .NET, esse cenário ainda não requer a MSAL (biblioteca de autenticação da Microsoft), que é sobre a aquisição de um token para chamar APIs protegidas. As bibliotecas de autenticação serão introduzidas no cenário de acompanhamento, quando o aplicativo Web precisar chamar APIs da Web.
+> A adição de entrada a um aplicativo Web é sobre a proteção do aplicativo Web e a validação de um token de usuário, que é o que as bibliotecas de  **middleware** fazem. No caso do .NET, esse cenário ainda não requer a MSAL (biblioteca de autenticação da Microsoft), que é sobre a aquisição de um token para chamar APIs protegidas. As bibliotecas de autenticação serão introduzidas no cenário de acompanhamento, quando o aplicativo Web precisar chamar APIs da Web.
 
 ## <a name="specifics"></a>Especificações
 
 - Durante o registro do aplicativo, você precisará fornecer um ou vários URIs de resposta (se você implantar seu aplicativo em vários locais). Em alguns casos (ASP.NET e ASP.NET Core), você precisará habilitar o token de ID. Por fim, você desejará configurar um URI de saída para que seu aplicativo reaja aos usuários saindo.
 - No código do seu aplicativo, você precisará fornecer a autoridade para a qual seu aplicativo Web delega a entrada. Talvez você queira personalizar a validação de token (em particular, em cenários de parceiros).
 - Os aplicativos Web oferecem suporte a qualquer tipo de conta. Para obter mais informações, consulte [tipos de conta com suporte](v2-supported-account-types.md).
+
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

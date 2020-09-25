@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058400"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257122"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: um aplicativo Web que chama APIs da Web
 
@@ -24,12 +24,7 @@ Saiba como criar um aplicativo Web que conecta usuários à plataforma de identi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-Este cenário pressupõe que você já passou pelo seguinte cenário:
-
-> [!div class="nextstepaction"]
-> [Aplicativo Web que conecta os usuários](scenario-web-app-sign-user-overview.md)
+Este cenário pressupõe que você já concluiu o [cenário: aplicativo Web que assina usuários](scenario-web-app-sign-user-overview.md).
 
 ## <a name="overview"></a>Visão geral
 
@@ -51,6 +46,10 @@ O desenvolvimento para esse cenário envolve estas tarefas específicas:
 
 - Durante o [registro do aplicativo](scenario-web-app-call-api-app-registration.md), você deve fornecer um URI de resposta, um segredo ou um certificado a ser compartilhado com o Azure AD. Se você implantar seu aplicativo em vários locais, você fornecerá um URI de resposta para cada local.
 - A [configuração do aplicativo](scenario-web-app-call-api-app-configuration.md) deve fornecer as credenciais do cliente que foram compartilhadas com o Azure ad durante o registro do aplicativo.
+
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

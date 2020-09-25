@@ -9,12 +9,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 07/21/2020
-  ms.openlocfilehash: 35138e4e5569ddfa46cb60c742e7ae0b3868c8cd
-  ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+  ms.openlocfilehash: 98d96c36e8ec801c2a8a5a87d0075f2d9b57bd98
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 08/04/2020
-  ms.locfileid: "87563323"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90984953"
 landingContent:
 - title: Sobre o AKS (Serviço de Kubernetes do Azure)
   linkLists:
@@ -50,14 +50,14 @@ landingContent:
       url: kubernetes-walkthrough-portal.md
     - text: Modelo do Resource Manager
       url: kubernetes-walkthrough-rm-template.md
-- title: Desenvolver e depurar aplicativos com o Processo Local com Kubernetes
+- title: Desenvolver e depurar aplicativos com o Bridge to Kubernetes
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Usar o Local Process with Kubernetes com o Visual Studio Code (versão prévia)
-      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-    - text: Usar o Local Process with Kubernetes com o Visual Studio (versão prévia)
-      url: /visualstudio/containers/local-process-kubernetes
+    - text: Usar o Bridge to Kubernetes com o Visual Studio Code
+      url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+    - text: Usar o Bridge to Kubernetes com o Visual Studio
+      url: /visualstudio/containers/bridge-to-kubernetes
 - title: Implantar, gerenciar e atualizar aplicativos
   linkLists:
   - linkListType: tutorial

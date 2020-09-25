@@ -11,31 +11,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291936"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257309"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: aplicativo de página única
 
 Saiba tudo o que você precisa para criar um aplicativo de página única (SPA).
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Introdução
 
-Você pode criar seu primeiro aplicativo seguindo o início rápido de SPA do JavaScript:
+Se você ainda não fez isso, crie seu primeiro aplicativo concluindo o início rápido do JavaScript SPA:
 
-> [!div class="nextstepaction"]
-> [Início rápido: aplicativo de página única](./quickstart-v2-javascript.md)
+[Início rápido: aplicativo de página única](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Visão geral
 
-Muitos aplicativos Web modernos são criados como aplicativos de página única do lado do cliente. Os desenvolvedores as escrevem usando JavaScript ou uma estrutura SPA, como angular, Vue e reagir. Esses aplicativos são executados em um navegador da Web e têm características de autenticação diferentes dos aplicativos Web tradicionais do lado do servidor. 
+Muitos aplicativos Web modernos são criados como aplicativos de página única do lado do cliente. Os desenvolvedores as escrevem usando JavaScript ou uma estrutura SPA, como angular, Vue e reagir. Esses aplicativos são executados em um navegador da Web e têm características de autenticação diferentes dos aplicativos Web tradicionais do lado do servidor.
 
 A plataforma Microsoft Identity fornece **duas** opções para habilitar aplicativos de página única para conectar usuários e obter tokens para acessar serviços de back-end ou APIs da Web:
 
@@ -57,7 +52,11 @@ Para habilitar esse cenário para seu aplicativo, você precisa de:
 * Configuração de aplicativo com as propriedades do aplicativo registrado, como a ID do aplicativo.
 * Usar a biblioteca de autenticação da Microsoft para JavaScript (MSAL.js) para fazer o fluxo de autenticação para entrar e adquirir tokens.
 
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Registro de aplicativo](scenario-spa-app-registration.md)
+> [Registro do aplicativo](scenario-spa-app-registration.md)

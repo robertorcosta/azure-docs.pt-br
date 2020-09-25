@@ -1,6 +1,6 @@
 ---
 title: API de Tabela do Azure Cosmos DB para Java
-description: Saiba tudo sobre a API de Tabela do Azure Cosmos DB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão.
+description: Saiba tudo sobre o Azure Cosmos DB API de Tabela para Java, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
@@ -8,12 +8,13 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: c562aa462248ffcf7c71ad247e05f0a7de15cdb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 40722053d28a0479e3f9ebaadd0fd04478a4f1aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261882"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>API de tabela do Azure Cosmos DB para Java: notas de versão e recursos
 > [!div class="op_single_selector"]
