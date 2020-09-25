@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 73322cdee151969e6e765690284bbffc1c871f4e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: aa85f1323795098d161e6bfb1b9cf9237b2a5501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330597"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referência do SDK do JavaScript do leitor de imersão (v 1.1)
 
@@ -131,7 +131,7 @@ Opções para renderizar os botões de leitura imersiva.
 
 #### <a name="renderbuttons-options-parameters"></a>Parâmetros de opções de renderButtons
 
-| Setting | Type | Descrição |
+| Configuração | Type | Descrição |
 | ------- | ---- | ----------- |
 | elementos | HTMLDivElement[] | Elementos para renderizar os botões de leitura de imersão no. |
 
@@ -156,7 +156,7 @@ Contém a resposta da chamada para `ImmersiveReader.launchAsync` . Observe que u
 
 #### <a name="launchresponse-parameters"></a>Parâmetros de LaunchResponse
 
-| Setting | Type | Descrição |
+| Configuração | Type | Descrição |
 | ------- | ---- | ----------- |
 | contêiner | HTMLDivElement | Elemento HTML que contém o iframe do leitor de imersão. |
 | sessionID | String | Identificador global exclusivo para esta sessão, usado para depuração. |
@@ -174,7 +174,7 @@ Contém informações sobre um erro.
 
 #### <a name="error-parameters"></a>Parâmetros de erro
 
-| Setting | Type | Descrição |
+| Configuração | Type | Descrição |
 | ------- | ---- | ----------- |
 | code | String | Um de um conjunto de códigos de erro. Confira [Códigos de erro](#error-codes). |
 | mensagem | String | Representação do erro legível por humanos. |
@@ -491,7 +491,7 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="settings-parameters"></a>Parâmetros de configurações
 
-| Setting | Type | Descrição |
+| Configuração | Type | Descrição |
 | ------- | ---- | ----------- |
 | textSize | Número | Define o tamanho do texto escolhido. |
 | fontFamily | String | Define a fonte escolhida ("Calibri", "ComicSans" ou "Sitka"). |
@@ -514,7 +514,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## <a name="supported-languages"></a>Idiomas compatíveis
 
-O recurso de tradução do leitor de imersão dá suporte a vários idiomas. Consulte [este artigo](https://www.onenote.com/learningtools/languagesupport) para obter mais detalhes.
+O recurso de tradução do leitor de imersão dá suporte a vários idiomas. Consulte [Suporte ao idioma](./language-support.md) para obter mais informações.
 
 <br>
 

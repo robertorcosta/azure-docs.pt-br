@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.reviewer: sngun
-ms.openlocfilehash: e1718ac9a7b7fcaab096595ea7341fcc90c2ddd6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f3906878755b7c7c2e3801da1bfa70a50d73ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318782"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contêineres e itens no Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Você pode interagir com um banco de dados Cosmos do Azure com as APIs Cosmos do
 
 ## <a name="azure-cosmos-containers"></a>Contêineres do Azure Cosmos
 
-Um contêiner Cosmos do Azure é a unidade de escalabilidade para taxa de transferência e armazenamento provisionados. Um contêiner é particionado horizontalmente e, em seguida, é replicado em várias regiões. Os itens que você adiciona ao contêiner e a taxa de transferência que provisiona nesse contêiner são ambos automaticamente distribuídos em um conjunto de partições lógicas baseado na chave de partição. Para saber mais sobre particionamento e chaves de partição, consulte [Particionar dados](partition-data.md). 
+Um contêiner Cosmos do Azure é a unidade de escalabilidade para taxa de transferência e armazenamento provisionados. Um contêiner é particionado horizontalmente e, em seguida, é replicado em várias regiões. Os itens que você adiciona ao contêiner são agrupados automaticamente em partições lógicas, que são distribuídas entre partições físicas, com base na chave de partição. A taxa de transferência em um contêiner é distribuída uniformemente entre as partições físicas. Para saber mais sobre particionamento e chaves de partição, consulte [Particionar dados](partition-data.md). 
 
 Ao criar um contêiner Cosmos do Azure, você configura a taxa de transferência em um dos seguintes modos:
 
@@ -113,7 +113,7 @@ Dependendo da API que você usa, um item do Azure Cosmos pode representar um doc
 
 | Entidade do Cosmos | API do SQL | API Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Item do Azure Cosmos | Item | Linha | Document | Nó ou borda | Item |
+|Item do Azure Cosmos | Item | Linha | Documento | Nó ou borda | Item |
 
 ### <a name="properties-of-an-item"></a>Propriedades de um item
 

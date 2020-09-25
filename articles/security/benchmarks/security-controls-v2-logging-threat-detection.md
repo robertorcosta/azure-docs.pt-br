@@ -4,17 +4,17 @@ description: Registro em log e detecção de ameaças do Azure Security benchmar
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 24ddca37a729a459382fc96a2f6e0ef1a7832f37
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059135"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295457"
 ---
-# <a name="security-control-logging-and-threat-detection"></a>Controle de segurança: registro em log e detecção de ameaças
+# <a name="security-control-v2-logging-and-threat-detection"></a>Controle de segurança v2: registro em log e detecção de ameaças
 
 O registro em log e a detecção de ameaças abrangem controles para detectar ameaças no Azure e habilitar, coletar e armazenar logs de auditoria para serviços do Azure. Isso inclui a habilitação de processos de detecção, investigação e correção com controles para gerar alertas de alta qualidade com a detecção de ameaças nativas nos serviços do Azure; Ele também inclui a coleta de logs com Azure Monitor, centralização da análise de segurança com o Azure Sentinel, sincronização de tempo e retenção de log. 
 
@@ -40,11 +40,11 @@ Além disso, use o Azure Sentinel para criar regras de análise, que são ameaç
 
 **Responsabilidade**: Cliente
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -56,7 +56,7 @@ Além disso, use o Azure Sentinel para criar regras de análise, que são ameaç
 
 | ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
 |--|--|--|--|
-| LT-2 | 6.8 | AU-3, AU-6, AU-12, SI-4 |
+| LT-2 | 6,8 | AU-3, AU-6, AU-12, SI-4 |
 
 O Azure AD fornece os seguintes logs de usuário que podem ser exibidos no relatório do Azure AD ou integrados com o Azure Monitor, o Azure Sentinel ou outras ferramentas de monitoramento/SIEM para casos de uso de monitoramento e análise mais sofisticados: 
 -   Entradas – O relatório de entradas fornece informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
@@ -77,11 +77,11 @@ A central de segurança do Azure também pode alertar sobre determinadas ativida
 
 **Responsabilidade**: Cliente
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -111,11 +111,11 @@ Habilite e colete logs de recursos do NSG (grupo de segurança de rede), logs de
 
 **Responsabilidade**: Cliente
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gerenciamento de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -129,7 +129,7 @@ Habilite e colete logs de recursos do NSG (grupo de segurança de rede), logs de
 |--|--|--|--|
 | LT-4 | 6,2, 6,3, 8,8 | AU-3, AU-12 |
 
-Habilite o registro em log para recursos do Azure para atender aos requisitos de conformidade, detecção de ameaças e investigação e busca de ameaças. 
+Habilite o registro em log para recursos do Azure para atender aos requisitos de conformidade, detecção de ameaças, busca e investigação de incidentes. 
 
 Você pode usar a central de segurança do Azure e Azure Policy para habilitar logs de recursos e dados de log coletados em recursos do Azure para acesso a logs de auditoria, segurança e recursos. Logs de atividade, que estão automaticamente disponíveis, incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis. 
 
@@ -141,9 +141,9 @@ Você pode usar a central de segurança do Azure e Azure Policy para habilitar l
 
 **Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Segurança de infraestrutura e ponto de extremidade 
 
@@ -171,7 +171,7 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 **Responsabilidade**: Cliente
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -185,25 +185,25 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
-Configure sua retenção de log de acordo com sua conformidade, regulamentação e outros requisitos. 
+Configure sua retenção de log de acordo com seus requisitos de conformidade, regulamentação e negócios. 
 
 No Azure Monitor, você pode definir seu período de retenção de espaço de trabalho de Log Analytics de acordo com os regulamentos de conformidade de sua organização. Use o armazenamento do Azure, Data Lake ou Log Analytics contas de espaço de trabalho para armazenamento de longo prazo e arquivamento.
 
 - [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Como configurar a política de retenção para logs de conta de armazenamento do Azure: ttps://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 - [Exportação de recomendações e alertas da central de segurança do Azure](../../security-center/continuous-export.md)
 
 **Responsabilidade**: Cliente
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Gerenciamento de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -225,7 +225,7 @@ Todos os logs gerados pelos recursos no Azure fornecem carimbos de data/hora com
 
 **Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Política e padrões](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

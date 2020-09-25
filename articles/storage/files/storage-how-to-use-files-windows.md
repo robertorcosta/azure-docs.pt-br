@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071067"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329339"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usar um compartilhamento de arquivos do Azure com o Windows
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Os compartilhamentos de arquivos do Azure podem ser usados perfeitamente no Windows e no Windows Server. Este artigo aborda as considerações para usar um compartilhamento de arquivos do Azure com Windows e Windows Server.
@@ -34,8 +34,8 @@ Você pode usar compartilhamentos de arquivos do Azure em uma instalação do Wi
 | Windows 7<sup>3</sup> | SMB 2.1 | Sim | Não |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sim | Não |
 
-<sup>1</sup>Windows 10, versões 1507, 1607, 1709, 1803, 1809, 1903 e 1909.  
-<sup>2</sup>Windows Server, versões 1809, 1903 e 1909.  
+<sup>1</sup> Windows 10, versões 1507, 1607, 1803, 1809, 1903, 1909 e 2004.  
+<sup>2</sup> Windows Server, versões 1809, 1903, 1909, 2004.  
 <sup>3</sup>O suporte regular da Microsoft para o Windows 7 e o Windows Server 2008 R2 terminou. É possível adquirir suporte adicional para patches de segurança somente por meio do [programa ESU (Patch de Segurança Estendido)](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates). É altamente recomendável migrar desses sistemas operacionais.
 
 > [!Note]  

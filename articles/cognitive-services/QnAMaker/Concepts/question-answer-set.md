@@ -1,20 +1,20 @@
 ---
 title: Design base de dados de conhecimento-QnA Maker
-description: Uma base de dados de conhecimento QnA Maker consiste em um conjunto de pares de QnA (pergunta e resposta) e metadados opcionais associados a cada par de QnA.
+description: Saiba como criar uma base de dados de conhecimento-QnA Maker.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 86e176a378d02d294e0123aba0d2e08d99b044fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83992990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330648"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Conceitos do par de perguntas e respostas
 
 Uma base de dados de conhecimento consiste em pares de perguntas e respostas (QnA).  Cada par tem uma resposta e um par contém todas as informações associadas a essa _resposta_. Uma resposta pode se assemelhar livremente a uma linha de banco de dados ou a uma instância de estrutura de dado.
 
-## <a name="question-and-answer-pairs"></a>Pares de perguntas e respostas
+## <a name="question-and-answer-pairs"></a>Pares de pergunta e resposta
 
 As configurações **necessárias** em um par de QnA (perguntas e respostas) são:
 

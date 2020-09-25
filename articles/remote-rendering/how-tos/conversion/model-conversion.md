@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 49d3fd953d069f4368d28e26265114e574e8100a
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: e899b249261ea3238695a2e2be6001cb6a9bc763
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506654"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318051"
 ---
 # <a name="convert-models"></a>Converter modelos
 
@@ -21,9 +21,8 @@ Depois de convertido, um modelo pode ser carregado de uma conta de armazenamento
 
 O serviço de conversão oferece suporte a esses formatos:
 
-- **FBX**  (versão 2011 e superior)
-- **GLTF** (versão 2. x)
-- **Glb**  (versão 2. x)
+- **FBX**  (versão 2011 para a versão 2020)
+- **GLTF** / **Glb** (versão 2. x)
 
 Há pequenas diferenças entre os formatos em relação à conversão de propriedade material, conforme listado no capítulo [mapeamento de material para formatos de modelo](../../reference/material-mapping.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Noções básicas sobre conectores do Proxy de Aplicativo Azure AD | Microsoft Docs
-description: Cobre as noções básicas sobre os conectores do Proxy de Aplicativo Azure AD.
+description: Saiba mais sobre os conectores de Proxy de Aplicativo do AD do Azure.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764665"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319819"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
@@ -45,7 +45,7 @@ O servidor do Windows precisa ter o TLS 1.2 ativado antes de instalar o conector
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
     ```
 
-1. Reiniciar o servidor
+1. Reinicie o servidor
 
 Para saber mais sobre os requisitos de rede para o servidor de conector, confira [Introdução ao Proxy de Aplicativo e instalar um conector](application-proxy-add-on-premises-application.md).
 
@@ -99,7 +99,7 @@ Em geral, quanto mais usuários você tiver, maior será o computador necessári
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\*Este computador usou uma configuração personalizada para gerar alguns dos limites de conexão padrão além das configurações recomendadas do .NET. Recomendamos a execução de um teste com as configurações padrão antes de contatar o suporte para alterar esse limite para o seu locatário.
+\* Este computador usou uma configuração personalizada para gerar alguns dos limites de conexão padrão além das configurações recomendadas do .NET. Recomendamos a execução de um teste com as configurações padrão antes de contatar o suporte para alterar esse limite para o seu locatário.
 
 > [!NOTE]
 > Não há muita diferença no TPS máximo entre computadores de 4, 8 e 16 núcleos. A principal diferença entre eles é a latência prevista.

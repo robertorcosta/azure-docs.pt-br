@@ -4,12 +4,12 @@ description: Saiba mais sobre o suporte para migração de servidor físico nas 
 ms.topic: conceptual
 ms.custom: fasttrack-edit
 ms.date: 06/14/2020
-ms.openlocfilehash: 2e71ab5cd934f2fe931cd901d425061455cc9f0e
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 95456298b3275c83152115d700a4539cab2d2a67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535441"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318153"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matriz de suporte para migração de servidor físico
 
@@ -43,10 +43,10 @@ A tabela resume o suporte para servidores físicos que você deseja migrar usand
 **Rede/armazenamento** | Para obter as informações mais recentes, examine os pré-requisitos de [rede](../site-recovery/vmware-physical-azure-support-matrix.md#network) e [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#storage) para site Recovery. As migrações para Azure fornecem requisitos de rede/armazenamento idênticos.
 **Requisitos do Azure** | Para obter as informações mais recentes, examine os requisitos de rede, [armazenamento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [computação](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) do [Azure](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)para site Recovery. As migrações para Azure têm requisitos idênticos para a migração de servidor físico.
 **Serviço de mobilidade** | O agente do serviço de mobilidade deve ser instalado em cada computador que você deseja migrar.
-**Inicialização UEFI** | O computador migrado no Azure será convertido automaticamente em uma VM do Azure de inicialização do BIOS. Somente o servidor que executa o Windows Server 2012 e versões posteriores têm suporte.<br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
+**Inicialização UEFI** | Com suporte. As máquinas baseadas em UEFI serão migradas para VMs do Azure geração 2.  <br/><br/> O disco do sistema operacional deve ter até quatro partições, e os volumes devem ser formatados com NTFS.
 **Inicialização segura de UEFI**         | Sem suporte para migração.
 **Disco de destino** | Os computadores só podem ser migrados para discos gerenciados (HDD padrão, SSD Standard, SSD Premium) no Azure.
-**Tamanho do disco** | disco do sistema operacional de 2 TB; 8 TB para discos de dados.
+**Tamanho do disco** | disco do sistema operacional de 2 TB (inicialização do BIOS); disco do sistema operacional de 4 TB (inicialização UEFI); 8 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por computador.
 **Discos/volumes criptografados** |  Computadores com discos/volumes criptografados não têm suporte para migração.
 **Cluster de disco compartilhado** | Não há suporte.

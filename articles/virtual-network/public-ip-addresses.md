@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172241"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329254"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -30,7 +30,7 @@ No Gerenciador de recursos do Azure, um endereço [IP público](virtual-network-
 * Interfaces de rede de máquina virtual
 * Balanceadores de carga para Internet
 * Gateways VPN
-* Application gateways
+* Gateways de aplicativo
 * Firewall do Azure
 
 ## <a name="ip-address-version"></a>Versão do endereço IP
@@ -158,12 +158,19 @@ O [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=
 
 Um endereço IP público é atribuído ao gateway de VPN para habilitar a comunicação com a rede remota. Você pode atribuir apenas um endereço IP público básico *dinâmico* a um gateway de VPN.
 
-## <a name="application-gateways"></a>Application gateways
+## <a name="application-gateways"></a>Gateways de aplicativo
 
 Você pode associar um endereço IP público do Azure [Application Gateway](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json), atribuindo-o à configuração de **front-end** do gateway. 
 
 * Atribua um IP público **dinâmico** básico a uma configuração de front-end do gateway de aplicativo v1. 
 * Atribua um endereço de SKU padrão **estático** a uma configuração de front-end v2.
+
+## <a name="azure-firewall"></a>Firewall do Azure
+
+O [Firewall do Azure](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) permite criar, impor e registrar políticas de conectividade de rede e de aplicativo em assinaturas e redes virtuais.
+
+Você só pode associar endereços IP públicos padrão **estáticos** a um firewall. Isso permite que os firewalls externos identifiquem o tráfego originado de sua rede virtual. 
+
 
 ## <a name="at-a-glance"></a>Imediato
 
@@ -171,12 +178,13 @@ A tabela a seguir mostra a propriedade por meio da qual um IP público pode ser 
 
 | Recurso de nível superior | Associação de Endereço IP | Dinâmico | Estático |
 | --- | --- | --- | --- |
-| Máquina virtual |interface de rede |Sim |Sim |
+| Máquina virtual |Adaptador de rede |Sim |Sim |
 | Balanceador de carga voltado para a Internet |Configuração de front-end |Sim |Sim |
 | gateway de VPN |Configuração de IP do gateway |Sim |Não |
 | Gateway de Aplicativo |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
+| Firewall do Azure | Configuração de front-end | Não | Sim|
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 Os limites para o endereçamento IP são listados no conjunto completo de [limites para rede](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. 
 

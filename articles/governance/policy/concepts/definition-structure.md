@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895381"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330274"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -77,7 +77,7 @@ Use **displayName** e **description** para identificar a definição de polític
 > [!NOTE]
 > Durante a criação ou a atualização de uma definição de política, **id**, **type** e **name** são definidos por propriedades externas ao JSON e não são necessários no arquivo JSON. O fetch da definição de política por meio do SDK retorna a as propriedades **id**, **type** e **name** como parte do JSON, mas cada uma delas é uma informação somente leitura relacionada à definição de política.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Embora a propriedade **Type** não possa ser definida, há três valores que são retornados pelo SDK e visíveis no Portal:
 
@@ -102,16 +102,19 @@ Por exemplo, o recurso `Microsoft.Network/routeTables` dá suporte às marcas e 
 
 `indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. Os **grupos de recursos** e as **assinaturas** são exceções a essa regra. As definições de política que impõem localização ou marcas em um grupo de recursos ou uma assinatura devem definir o **modo** como `all` e, especificamente, direcionar o tipo `Microsoft.Resources/subscriptions/resourceGroups` ou `Microsoft.Resources/subscriptions`. Para obter um exemplo, confira [Padrão: Marcas – Amostra nº 1](../samples/pattern-tags.md). Para obter uma lista de recursos que dão suporte a marcas, confira [Suporte de marcas para recursos do Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Modos do provedor de recursos (versão prévia)
+### <a name="resource-provider-modes"></a>Modos de provedor de recursos
 
-Atualmente, há suporte para os seguintes modos do provedor de recursos durante a versão prévia:
+O seguinte nó do provedor de recursos tem suporte total:
 
-- `Microsoft.ContainerService.Data` para gerenciar as regras do controlador de admissão no [Serviço de Kubernetes do Azure](../../../aks/intro-kubernetes.md). As definições que usam esse modo de provedor de recursos **devem** usar o efeito [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Esse modelo está sendo _preterido_.
-- `Microsoft.Kubernetes.Data` para gerenciar seus clusters Kubernetes no Azure ou fora dele. As definições que usam esse modo de provedor de recursos usam efeitos de _auditoria_, _negação_e _desabilitação_. O uso do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está sendo _preterido_.
+- `Microsoft.Kubernetes.Data` para gerenciar seus clusters Kubernetes no Azure ou fora dele. As definições que usam esse modo de provedor de recursos usam efeitos de _auditoria_, _negação_e _desabilitação_. O uso do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) foi _preterido_.
+
+Atualmente, há suporte para os seguintes modos de provedor de recursos como uma **Visualização**:
+
+- `Microsoft.ContainerService.Data` para gerenciar as regras do controlador de admissão no [Serviço de Kubernetes do Azure](../../../aks/intro-kubernetes.md). As definições que usam esse modo de provedor de recursos **devem** usar o efeito [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Esse modo é _preterido_.
 - `Microsoft.KeyVault.Data` para gerenciar cofres e certificados no [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Os modos do provedor de recursos só dão suporte a definições de políticas internas, e não a iniciativas durante a versão prévia.
+> Os modos de provedor de recursos só dão suporte a definições de políticas internas.
 
 ## <a name="metadata"></a>Metadados
 
@@ -552,9 +555,9 @@ O Azure Policy dá suporte aos seguintes tipos de efeitos:
 - **Negar**: gera um evento no log de atividades e falha na solicitação
 - **DeployIfNotExists**: implanta um recurso relacionado caso ele ainda não exista
 - **Desabilitado**: não avalia os recursos de conformidade para a regra de política
-- **EnforceOPAConstraint** (versão prévia): configura o controlador de admissão do Agente de Política Aberta com o Gatekeeper v3 para clusters Kubernetes autogerenciados no Azure (versão prévia)
-- **EnforceRegoPolicy** (versão prévia): configura o controlador de admissão do Agente de Política Aberta com o Gatekeeper v2 no Serviço de Kubernetes do Azure
 - **Modify**: adiciona, atualiza ou remove as marcas definidas de um recurso
+- **EnforceOPAConstraint** (preterido): configura o controlador de admissão do agente de política aberto com o gatekeeper V3 para clusters kubernetes autogerenciados no Azure
+- **EnforceRegoPolicy** (preterido): configura o controlador de admissão do agente de política aberto com o gatekeeper V2 no serviço kubernetes do Azure
 
 Para obter detalhes completos sobre cada efeito, a ordem de avaliação, as propriedades, bem como exemplos, confira [Noções básicas dos efeitos do Azure Policy](effects.md).
 
@@ -592,6 +595,18 @@ As seguintes funções estão disponíveis apenas em regras de política:
 - `requestContext().apiVersion`
   - Retorna a versão da API da solicitação que disparou a avaliação da política (exemplo: `2019-09-01`).
     Esse valor é a versão da API que foi usada na solicitação PUT/PATCH para avaliações na criação/atualização de recursos. A última versão da API é sempre usada durante a avaliação de conformidade nos recursos existentes.
+- `policy()`
+  - Retorna as informações a seguir sobre a política que está sendo avaliada. As propriedades podem ser acessadas do objeto retornado (exemplo: `[policy().assignmentId]` ).
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### <a name="policy-function-example"></a>Exemplo de função de política
 

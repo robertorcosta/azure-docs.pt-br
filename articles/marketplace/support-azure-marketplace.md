@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 62f30d8a0fe1b2f2397fc16161929279a148aaa2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 741bea5129e5fa9660e198a74e23f0ef6c67dc23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037500"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329747"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Suporte para o Marketplace comercial da Microsoft
 
@@ -38,8 +38,7 @@ Abra um tíquete com o [suporte do editor do marketplace](https://aka.ms/marketp
 ## <a name="marketing-resources"></a>Recursos de marketing  
 
 | Canal de suporte | Descrição | Disponibilidade |  
-|:--- |:--- |:--- |  
-| Email: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Suporte para processos de integração e questões relacionadas ao programa de Venda Conjunta. | Baseado no fuso horário do Pacífico. |  
+|:--- |:--- |:--- |
 | Email: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Suporte para benefícios de entrada no mercado e perguntas sobre o programa. | O horário comercial está no fuso horário do Pacífico. |  
 | Email: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Responde perguntas sobre o uso para logotipos e identidade visual do Azure. |  |  
 

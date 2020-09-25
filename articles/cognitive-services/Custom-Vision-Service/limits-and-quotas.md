@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b79bf5e8ead16bbdf9c69e8d7faae43fa778ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316572"
 ---
 # <a name="limits-and-quotas"></a>Limites e cotas
 
@@ -26,7 +26,7 @@ Espera-se que o número de imagens de treinamento por projeto e tags por projeto
 |Fator|**F0**|**S0**|
 |-----|-----|-----|
 |Projetos|2|100|
-|Imagens de treinamento por projeto |5\.000|100.000|
+|Imagens de treinamento por projeto |5\.000|100,000|
 |Previsões/mês|10.000 |Ilimitado|
 |Marcas/projeto|50|500|
 |Iterações |10|10|
@@ -39,7 +39,7 @@ Espera-se que o número de imagens de treinamento por projeto e tags por projeto
 |[Outras chamadas à API](https://go.microsoft.com/fwlink/?linkid=865446) (Transações por Segundo)|10|10|
 |Tipos de imagem aceitos|jpg, png, BMP, gif|jpg, png, BMP, gif|
 |Altura/largura da imagem mínima em pixels|256 (consulte a observação)|256 (consulte a observação)|
-|Altura/largura máxima da imagem em pixels|ilimitado|ilimitado|
+|Altura/largura máxima da imagem em pixels|10.240|10.240|
 |Tamanho máximo da imagem (upload da imagem de treinamento) |6 MB|6 MB|
 |Tamanho máximo da imagem (previsão)|4 MB|4 MB|
 |Imagem de treinamento da detecção de regiões máximas por objeto|300|300|
@@ -47,3 +47,4 @@ Espera-se que o número de imagens de treinamento por projeto e tags por projeto
 
 > [!NOTE]
 > Imagens com menos de 256 pixels serão aceitas, mas em escala.
+> A taxa de proporção da imagem não deve ser maior que 25

@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 3ec4e6ee49052657210fffa8976b661c1a9e5948
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 474b3c4261b412c0c875f7a05802095c9e0c2cd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827453"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320363"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -256,7 +256,7 @@ As regras de rede de IP são permitidas apenas para endereços IP de **Internet 
 
 Somente endereços IPV4 são compatíveis com a configuração de regras de firewall de armazenamento.
 
-Cada conta de armazenamento é compatível com até 100 regras de rede de IP.
+Cada conta de armazenamento dá suporte a até 200 regras de rede IP.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurando o acesso de redes locais
 

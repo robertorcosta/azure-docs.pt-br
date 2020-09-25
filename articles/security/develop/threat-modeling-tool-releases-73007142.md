@@ -1,25 +1,25 @@
 ---
 title: Versão Microsoft Threat Modeling Tool 07/14/2020 – Azure
-description: Documentando as notas sobre a versão da Threat Modeling Tool
+description: Documentando as notas de versão da versão 7.3.00714.2 da ferramenta de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 741d8c96059d379ae453f7ac1da1d5a02127a680
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8cea0ab15b79a94f76350c2264b24e6c258490a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317864"
 ---
 # <a name="threat-modeling-tool-update-release-73007142---07142020"></a>Versão de atualização do Threat Modeling Tool 7.3.00714.2-07/14/2020
 
 A versão 7.3.00714.2 do Microsoft Threat Modeling Tool (TMT) foi lançada em julho de 14 2020 e contém as seguintes alterações:
 
-- Aprimoramentos de acessibilidade
+- Aprimoramentos na acessibilidade
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas operacionais com suporte
   - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior

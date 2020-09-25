@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: db0c5890add303d85bdec76e00b8377567226a38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904714"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318034"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -45,7 +45,7 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Sim|
 |Avaliação de incorretas de segurança|✔|✔|✔|Azure: não<br><br>Não Azure: Sim|
 |[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: não<br><br>Não Azure: Sim|
-|Avaliação de criptografia de disco|✔|✔|-|Gratuita|
+|Avaliação de criptografia de disco|✔</br>(para [cenários com suporte](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Gratuita|
 |Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
 |[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
 
@@ -69,7 +69,7 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Sim|
 |Avaliação de incorretas de segurança|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Sim|
 |[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuita|
-|Avaliação de criptografia de disco|✔|✔|-|Gratuita|
+|Avaliação de criptografia de disco|✔</br>(para [cenários com suporte](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Gratuita|
 |Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
 |[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
 
@@ -96,8 +96,8 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Trend Micro – segurança profunda | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família de servidores Linux  | No | Ok **\*** |
-| Sophos v9 +| Família de servidores Linux  | No | Ok  **\***  |
+| McAfee v10+ | Família de servidores Linux  | Não | Ok **\*** |
+| Sophos v9 +| Família de servidores Linux  | Não | Ok  **\***  |
 
  **\*** O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no espaço de trabalho Log Analytics associado às suas assinaturas protegidas. Ele não é refletido no portal da central de segurança do Azure.
 

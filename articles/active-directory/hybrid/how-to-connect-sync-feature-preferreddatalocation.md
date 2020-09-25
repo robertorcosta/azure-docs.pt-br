@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319887"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Sincronização de Azure Active Directory Connect: configurar o local de dados preferencial para recursos de Microsoft 365
 A finalidade deste tópico é orientá-lo sobre como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de várias geografias no Microsoft 365, você usa esse atributo para designar a localização geográfica dos dados de Microsoft 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -44,7 +44,7 @@ Os áreas geográficas em Microsoft 365 disponíveis para várias regiões geogr
 | --- | --- |
 | Pacífico Asiático | APC |
 | Austrália | AUS |
-| Canadá | CAN |
+| Canada | CAN |
 | União Europeia | EUR |
 | França | FRA |
 | Índia | IND |
@@ -118,7 +118,7 @@ Nem todos os atributos do Azure AD são importados para o espaço do conector de
 4. Verifique se o atributo de origem que você selecionou está marcado na lista de atributos. Se você não vir o atributo, marque a caixa de seleção **Mostrar Tudo**.
 5. Para salvar, selecione **OK**.
 
-![Captura de tela do Synchronization Service Manager e da caixa de diálogo Propriedades](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Captura de tela que mostra a caixa de diálogo Synchronization Service Manager e propriedades com a lista "atributos" realçada.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## <a name="step-4-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Etapa 4: Adicionar **preferredDataLocation** ao esquema do Azure ad Connector
 **Esta etapa só será necessária se você executar conectar a versão 1.3.21 ou mais antiga. Se você estiver no 1.4.18 ou mais recente, pule para a etapa 5.**  

@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
+ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603502"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331243"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de auditoria no portal do Azure Active Directory 
 
 Com os relatórios do Azure AD (Azure Active Directory), é possível obter as informações necessárias para determinar o desempenho do ambiente.
+
+
 
 A arquitetura de relatórios consiste nos seguintes componentes:
 
@@ -45,7 +47,7 @@ Este artigo fornece uma visão geral do relatório de auditoria.
 
 ## <a name="audit-logs"></a>Logs de auditoria
 
-Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **logs de auditoria** na seção **monitoramento** de **Azure Active Directory**. Observe que os logs de auditoria podem ter uma latência de até uma hora, portanto, pode levar tanto tempo para que os dados da atividade de auditoria apareçam no portal depois que você concluir a tarefa.
+Os logs de auditoria do Azure AD fornecem registros das atividades do sistema para fins de conformidade. Para acessar o relatório de auditoria, selecione **logs de auditoria** na seção **monitoramento** de **Azure Active Directory**. 
 
 
 
@@ -62,15 +64,15 @@ Um log de auditoria tem um modo de exibição de lista padrão que mostra:
 
 Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
 
-![Logs de auditoria](./media/concept-audit-logs/columns.png "Logs de auditoria")
+![Colunas de auditoria](./media/concept-audit-logs/columns.png "Colunas de auditoria")
 
 Isso permite a você exibir campos adicionais ou remover campos que já estão exibidos.
 
-![Logs de auditoria](./media/concept-audit-logs/columnselect.png "Logs de auditoria")
+![Remover campos](./media/concept-audit-logs/columnselect.png "Remover campos")
 
 Selecione um item na exibição de lista para obter informações mais detalhadas.
 
-![Logs de auditoria](./media/concept-audit-logs/details.png "Logs de auditoria")
+![selecionar item](./media/concept-audit-logs/details.png "Selecionar item")
 
 
 ## <a name="filtering-audit-logs"></a>Filtragem de logs de auditoria
@@ -85,7 +87,7 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 - Iniciado por (ator)
 - Intervalo de datas
 
-![Logs de auditoria](./media/concept-audit-logs/filter.png "Logs de auditoria")
+![Objeto de filtro](./media/concept-audit-logs/filter.png "Objeto Filter")
 
 O filtro de **serviço** permite que você selecione em uma lista suspensa dos seguintes serviços:
 
@@ -124,7 +126,7 @@ O filtro **categoria** permite que você selecione um dos seguintes filtros:
 - GroupManagement
 - KerberosDomain
 - KeyManagement
-- Rotular
+- Rótulo
 - Outro
 - PermissionGrantPolicy
 - Política
@@ -157,7 +159,7 @@ Quando você seleciona um período de tempo personalizado, pode configurar uma h
 
 Você também pode optar por baixar os dados filtrados, até 250.000 registros, selecionando o botão **baixar** . Você pode baixar os logs no formato CSV ou JSON. O número de registros que podem ser baixados é restringido pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).
 
-![Logs de auditoria](./media/concept-audit-logs/download.png "Logs de auditoria")
+![Baixar dados](./media/concept-audit-logs/download.png "Baixar dados")
 
 ## <a name="audit-logs-shortcuts"></a>Atalhos de logs de auditoria
 
@@ -170,7 +172,7 @@ Além do **Azure Active Directory**, o portal do Azure fornece dois pontos de en
 
 Com relatórios de auditoria baseados em grupos e usuários, você pode obter respostas a perguntas como:
 
-- Que tipos de atualizações foram aplicadas os usuários?
+- Quais tipos de atualizações foram aplicadas aos usuários?
 
 - Quantos usuários foram alterados?
 
@@ -188,11 +190,11 @@ Com relatórios de auditoria baseados em grupos e usuários, você pode obter re
 
 Se você quiser revisar apenas os dados de auditoria relacionados aos usuários, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **monitoramento** da guia **usuários** . Este ponto de entrada tem **usermanagement** como categoria preselecionada.
 
-![Logs de auditoria](./media/concept-audit-logs/users.png "Logs de auditoria")
+![Usuário](./media/concept-audit-logs/users.png "Usuário")
 
 Se você quiser revisar apenas os dados de auditoria relacionados a grupos, poderá encontrar uma exibição filtrada em **logs de auditoria** na seção **monitoramento** da guia **grupos** . Este ponto de entrada tem **GroupManagement** como categoria preselecionada.
 
-![Logs de auditoria](./media/concept-audit-logs/groups.png "Logs de auditoria")
+![Filtrar grupos](./media/concept-audit-logs/groups.png "Filtrar grupos")
 
 ### <a name="enterprise-applications-audit-logs"></a>Logs de auditoria de aplicativos empresariais
 
@@ -206,7 +208,7 @@ Com relatórios de auditoria baseados em aplicativos, você pode obter respostas
 
 Se você quiser revisar os dados de auditoria relacionados aos aplicativos, poderá encontrar uma exibição filtrada em **Logs de auditorias** na seção **Atividade** da folha **Aplicativos empresariais**. Esse ponto de entrada tem **aplicativos empresariais** selecionados como o **tipo de aplicativo**.
 
-![Logs de auditoria](./media/concept-audit-logs/enterpriseapplications.png "Logs de auditoria")
+![Aplicativos empresariais](./media/concept-audit-logs/enterpriseapplications.png "Aplicativos empresariais")
 
 ## <a name="microsoft-365-activity-logs"></a>Logs de atividades Microsoft 365
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 40549fa8880fb4dc4d29046b0037621610f0b130
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1d3ea609cda37c3bb0de28d8eb1a19944809980d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331147"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: configurar o alimento para provisionamento automático de usuário
 
@@ -75,7 +75,7 @@ Para adicionar o alimento da Galeria de aplicativos do Azure AD, faça o seguint
 
     ![O comando Azure Active Directory](common/select-azuread.png)
 
-1. Selecione **aplicativos empresariais**  >  **todos os aplicativos**.
+1. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
     ![O painel Aplicativos Empresariais](common/enterprise-applications.png)
 
@@ -106,11 +106,11 @@ Configure o provisionamento automático de usuário para o alimento no Azure AD 
 
 1. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 1. Na lista suspensa **modo de provisionamento** , selecione **automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 1. Em **credenciais de administrador**, faça o seguinte:
 

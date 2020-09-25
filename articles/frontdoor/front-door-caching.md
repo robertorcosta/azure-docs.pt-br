@@ -1,6 +1,6 @@
 ---
 title: Cache de porta frontal do Azure | Microsoft Docs
-description: Este artigo ajuda você a entender como a porta frontal do Azure monitora a integridade dos back-ends
+description: Este artigo ajuda você a entender o comportamento da porta frontal com as regras de roteamento que habilitaram o Caching.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024274"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318447"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
 O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado. A porta frontal é uma CDN (rede de distribuição de conteúdo) moderna e, assim, com a aceleração de site dinâmica e o balanceamento de carga, ele também dá suporte a comportamentos de cache, assim como qualquer outra CDN.
@@ -29,7 +29,7 @@ A porta frontal do Azure fornece arquivos grandes sem limite de tamanho de arqui
 </br>Para obter mais informações sobre a solicitação de intervalo de bytes, leia [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 O Front Door armazena em cache todas as partes conforme são recebidas e, portanto, o arquivo inteiro não precisa ser armazenado no cache do Front Door. As solicitações subsequentes para o arquivo ou intervalos de bytes são disponibilizadas pela cache. Se nem todas as partes forem armazenadas em cache, a pré-busca será usada para solicitar as partes do back-end. Essa otimização depende da capacidade do servidor de origem para dar suporte a solicitações de intervalo de bytes; se o servidor de origem não dá suporte a solicitações de intervalo de bytes, essa otimização não será efetiva.
 
-## <a name="file-compression"></a>Compactação de arquivos
+## <a name="file-compression"></a>Compactação de arquivo
 O Front Door pode compactar dinamicamente conteúdo na borda, resultando em uma resposta menor e mais rápida aos clientes. Todos os arquivos são qualificados para compactação. No entanto, o arquivo deve ser um tipo MIME que seja qualificado para a lista de compactação. Atualmente, o Front Door não permite que essa lista seja alterada. A lista atual é:</br>
 - "application/eot"
 - "application/font"
@@ -113,7 +113,7 @@ A ordem de cabeçalhos a seguir é usada para determinar por quanto tempo um ite
 2. Cache-Control: Max-age =\<seconds>
 3. Expira \<http-date>
 
-Cabeçalhos de resposta de controle de cache que indicam que a resposta não será armazenada em cache, como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: no-Store são respeitados. No entanto, se houverem várias solicitações em andamento em um POP para a mesma URL, elas podem compartilhar a resposta. Se nenhum controle de cache estiver presente, o comportamento padrão é que AFD armazenará em cache o recurso por X quantidade de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
+Cabeçalhos de resposta de controle de cache que indicam que a resposta não será armazenada em cache, como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: no-Store são respeitados.  Se nenhum controle de cache estiver presente, o comportamento padrão é que AFD armazenará em cache o recurso por X quantidade de tempo em que X é separado aleatoriamente entre 1 e 3 dias.
 
 ## <a name="request-headers"></a>Cabeçalhos de solicitação
 

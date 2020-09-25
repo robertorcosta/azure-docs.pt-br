@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604726"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319088"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Fala Personalizada
 
@@ -79,11 +79,13 @@ Depois que os dados tiverem sido importados com êxito, você poderá clicar nos
 
 ### <a name="edit-transcription-by-listening-to-audio"></a>Editar transcrição ouvindo áudio
 
-Depois que o carregamento de dados for bem-sucedido, clique em cada nome de item para ver os detalhes dos dados. A página de detalhes lista todos os arquivos no conjunto de seus conjuntos de anotações e você pode clicar no expressão desejado. Para cada expressão, você pode reproduzir o áudio e examinar as transcrições e editar as transcrições se encontrar erros de inserção, exclusão ou substituição. Consulte a [avaliação de dados como](how-to-custom-speech-evaluate-data.md) para obter mais detalhes sobre tipos de erro.
+Depois que o carregamento de dados for bem-sucedido, clique em cada nome de item para ver os detalhes dos dados. Você também pode usar **Previous** e **Next** para mover entre cada arquivo.
+
+A página de detalhes lista todos os segmentos em cada arquivo de áudio e você pode clicar no expressão desejado. Para cada expressão, você pode reproduzir o áudio e examinar as transcrições e editar as transcrições se encontrar erros de inserção, exclusão ou substituição. Consulte a [avaliação de dados como](how-to-custom-speech-evaluate-data.md) para obter mais detalhes sobre tipos de erro.
 
 ![Página do editor](media/custom-speech/custom-speech-editor.png)
 
-Se o arquivo de áudio for longo, ele será segmentado automaticamente em partes menores. Você pode editá-los um por um usando **Previous** e **próximo** para mover entre as páginas. Depois de fazer edições, clique no botão **salvar** .
+Depois de fazer edições, clique no botão **salvar** .
 
 ### <a name="export-datasets-from-the-editor"></a>Exportar conjuntos de os do editor
 

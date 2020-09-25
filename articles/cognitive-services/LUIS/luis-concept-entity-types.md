@@ -1,14 +1,16 @@
 ---
 title: Tipos de entidade-LUIS
 description: Uma entidade extrai dados de um usuário expressão no tempo de execução de previsão. Uma finalidade _opcional_e secundária é impulsionar a previsão da intenção ou de outras entidades usando a entidade como um recurso.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 398d18642052726af4d4920443bad515ec0b5bef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316555"
 ---
 # <a name="extract-data-with-entities"></a>Extrair dados com entidades
 
@@ -32,7 +34,7 @@ As entidades precisam ser rotuladas consistentemente em todos os declarações d
 
 |Enunciado|Entidade|Dados|
 |--|--|--|
-|Comprar três passagens para Nova York|Número predefinido<br>Destino|3<br>Nova York|
+|Comprar três passagens para Nova York|Número predefinido<br>Destination|3<br>Nova York|
 
 
 ### <a name="entities-are-optional-but-recommended"></a>As entidades são opcionais, mas recomendadas

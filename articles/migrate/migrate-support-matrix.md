@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612105"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329577"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
@@ -92,9 +92,12 @@ França | França Central
 Índia | Índia Central ou Sul da Índia
 Japão |  Leste do Japão ou Oeste do Japão
 Coreia do Sul | Coreia Central ou Sul da Coreia
+Suíça | Norte da Suíça
 United Kingdom | Sul do Reino Unido ou Oeste do Reino Unido
 Estados Unidos | EUA Central ou Oeste dos EUA 2
 
+> [!NOTE]
+> Para a geografia da Suíça, Oeste da Suíça só está disponível para usuários da API REST e precisa de uma assinatura na lista de permissões.
 
 ## <a name="supported-geographies-azure-government"></a>Geografias com suporte (Azure Governamental)
 

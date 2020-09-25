@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf0fdf5fd167987ea0fd7111a05b04bd5bf848f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279781"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319836"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Planejar e solucionar problemas de alterações de nome principal de usuário no Azure Active Directory
 
@@ -94,7 +94,7 @@ Consulte os problemas conhecidos e as soluções alternativas neste documento.
 
 Quando você estiver sincronizando contas de usuário de Active Directory para o Azure AD, verifique se os UPNs no Active Directory mapear para domínios verificados no Azure AD.
 
-![Captura de tela dos domínios verificados](./media/howto-troubleshoot-upn-changes/verified-domains.png)
+![Captura de tela que mostra exemplos de UPNs mapeados para os domínios de D do Azure verificados.](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
 Se o valor do atributo userPrincipalName não corresponder a um domínio verificado no Azure AD, o processo de sincronização substituirá o sufixo por um valor default. onmicrosoft.com.
 
@@ -140,7 +140,7 @@ Permita tempo suficiente para que a alteração de UPN seja sincronizada com o A
 ![Captura de tela dos domínios verificados](./media/howto-troubleshoot-upn-changes/other-user.png)
 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos ingressado no Azure AD Híbrido
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos adicionados ao Azure AD híbrido
 
 Dispositivos [ingressados no Azure ad híbrido](../devices/concept-azure-ad-join-hybrid.md) são associados a Active Directory e ao Azure AD. Você pode implementar o ingresso no Azure AD híbrido se o seu ambiente tiver uma superfície de Active Directory local e você também quiser se beneficiar dos recursos fornecidos pelo Azure AD.
 

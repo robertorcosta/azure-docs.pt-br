@@ -1,22 +1,22 @@
 ---
-title: Linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL-hiperescala
-description: O banco de dados do Azure para PostgreSQL-linha de base de segurança de hiperescala fornece orientações de procedimentos e recursos para implementar as recomendações de segurança especificadas no benchmark de segurança do Azure.
+title: Linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
+description: A linha de base de segurança do banco de dados do Azure para PostgreSQL-Citus (hiperescala) fornece diretrizes de procedimento e recursos para implementar as recomendações de segurança especificadas no benchmark de segurança do Azure.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231292"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318119"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL-hiperescala
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
-A linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL-hiperescala contém recomendações que o ajudarão a melhorar a postura de segurança de sua implantação.
+A linha de base de segurança do Azure para o banco de dados do Azure para PostgreSQL (Citus) contém recomendações que o ajudarão a melhorar a postura de segurança de sua implantação.
 
 A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 

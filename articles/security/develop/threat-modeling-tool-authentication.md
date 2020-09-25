@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 65e680a14cfc878b6dc406a179a0aa3afe038563
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
+ms.openlocfilehash: eade2d24dccb9fc8033a903be5e48b07b44e17ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317983"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Estrutura de segurança: autenticação | Atenuações
 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Aplicativo Web**    | <ul><li>[Considere usar um mecanismo de autenticação padrão para autenticar o aplicativo Web](#standard-authn-web-app)</li><li>[Os aplicativos devem lidar com cenários de autenticação com falha com segurança](#handle-failed-authn)</li><li>[Habilitar o Step up ou a autenticação adaptável](#step-up-adaptive-authn)</li><li>[Verifique se as interfaces administrativas estão adequadamente bloqueadas](#admin-interface-lockdown)</li><li>[Implemente funcionalidades de senha esquecida com segurança](#forgot-pword-fxn)</li><li>[Garantir que a política de conta e senha seja implementada](#pword-account-policy)</li><li>[Implementar controles para evitar a enumeração de nome de usuário](#controls-username-enum)</li></ul> |
-| **Banco de dados** | <ul><li>[Quando possível, use a autenticação do Windows para se conectar ao SQL Server](#win-authn-sql)</li><li>[Quando possível, use Azure Active Directory autenticação para se conectar ao banco de dados SQL](#aad-authn-sql)</li><li>[Quando o modo de autenticação do SQL for usado, verifique se as políticas de conta e senha são impostas no SQL server](#authn-account-pword)</li><li>[Não use a autenticação do SQL em bancos de dados independentes](#autn-contained-db)</li></ul> |
+| **Backup de banco de dados** | <ul><li>[Quando possível, use a autenticação do Windows para se conectar ao SQL Server](#win-authn-sql)</li><li>[Quando possível, use Azure Active Directory autenticação para se conectar ao banco de dados SQL](#aad-authn-sql)</li><li>[Quando o modo de autenticação do SQL for usado, verifique se as políticas de conta e senha são impostas no SQL server](#authn-account-pword)</li><li>[Não use a autenticação do SQL em bancos de dados independentes](#autn-contained-db)</li></ul> |
 | **Hub de Eventos do Azure** | <ul><li>[Use credenciais de autenticação por dispositivo usando tokens SaS](#authn-sas-tokens)</li></ul> |
 | **Limite de Confiança do Azure** | <ul><li>[Habilitar Autenticação Multifator do Azure para administradores do Azure](#multi-factor-azure-admin)</li></ul> |
 | **Limite de confiança do Service Fabric** | <ul><li>[Restringir o acesso anônimo ao Cluster Service Fabric](#anon-access-cluster)</li><li>[Verifique se Service Fabric certificado de cliente para nó é diferente do certificado de nó para nó](#fabric-cn-nn)</li><li>[Usar o AAD para autenticar clientes em clusters do Service Fabric](#aad-client-fabric)</li><li>[Verifique se os certificados de service fabric são obtidos de uma CA (autoridade de certificação) aprovada](#fabric-cert-ca)</li></ul> |
@@ -348,7 +348,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure AD |
+| **Componente**               | AD do Azure |
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -359,7 +359,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure AD |
+| **Componente**               | AD do Azure |
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -370,7 +370,7 @@ O elemento `<netMsmqBinding/>` do arquivo de configuração WCF abaixo instrui o
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure AD |
+| **Componente**               | AD do Azure |
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
@@ -431,7 +431,7 @@ Observe que, para testar a eficácia dessa configuração, faça logon no aplica
 
 | Title                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure AD |
+| **Componente**               | AD do Azure |
 | **Fase do SDL**               | Build |
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
