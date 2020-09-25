@@ -3,12 +3,12 @@ title: Criar alertas de desempenho para Azure Monitor para contêineres | Micros
 description: Este artigo descreve como criar alertas personalizados com base em consultas de log para utilização de memória e CPU de Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1041b8bfe299a0daac633e478c906c746759d50f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75730918"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319530"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como configurar alertas no Azure Monitor para problemas de desempenho de contêineres
 
@@ -277,7 +277,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
-Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das regras de pesquisa de log que foi fornecida anteriormente. Para criar usando um modelo de ARM, consulte [criação de alerta de log de exemplo usando o modelo de recurso do Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Siga estas etapas para criar um alerta de log no Azure Monitor usando uma das regras de pesquisa de log que foi fornecida anteriormente. Para criar usando um modelo do ARM, consulte [amostras de criação de alerta de log usando o modelo de recurso do Azure](../platform/alerts-log-create-templates.md).
 
 >[!NOTE]
 >O procedimento a seguir para criar uma regra de alerta para utilização de recursos de contêiner exige que você alterne para uma nova API de alertas de log, conforme descrito em [preferência de API de switch para alertas de log](../platform/alerts-log-api-switch.md).

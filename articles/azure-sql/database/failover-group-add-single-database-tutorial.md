@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 23b78acb226b0d4de637dc653e6edb3bb4177219
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496331"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263582"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: adicionar um banco de dados SQL do Azure a um grupo de failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Um [grupo de failover](auto-failover-group-overview.md) é uma camada de abstração declarativa que permite agrupar vários bancos de dados replicados geograficamente. Saiba como configurar um grupo de failover para um banco de dados SQL do Azure e failover de teste usando o portal do Azure, o PowerShell ou o CLI do Azure.  Neste tutorial, você aprenderá a:
+Um [grupo de failover](auto-failover-group-overview.md) é uma camada de abstração declarativa que permite agrupar vários bancos de dados replicados geograficamente. Saiba como configurar um grupo de failover para um banco de dados SQL do Azure e failover de teste usando o portal do Azure, o PowerShell ou o CLI do Azure.  Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 >
@@ -42,7 +42,7 @@ Para concluir este tutorial, verifique se você tem:
 Para concluir o tutorial, verifique se você tem os seguintes itens:
 
 - Uma assinatura do Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/) se você ainda não tiver uma.
-- [Azure PowerShell](/powershell/azure/)
+- [PowerShell do Azure](/powershell/azure/)
 
 # <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
@@ -80,7 +80,7 @@ Crie seu grupo de failover e adicione seu banco de dados a ele usando o portal d
    - **Nome do grupo de failover**: digite um nome de grupo de failover exclusivo, como `failovergrouptutorial` .
    - **Servidor secundário**: selecione a opção para *definir as configurações necessárias* e, em seguida, escolha **criar um novo servidor**. Como alternativa, você pode escolher um servidor já existente como o servidor secundário. Depois de inserir os valores a seguir, selecione **selecionar**.
       - **Nome do servidor**: digite um nome exclusivo para o servidor secundário, como `mysqlsecondary` .
-      - **Logon de administrador do servidor**: tipo`azureuser`
+      - **Logon de administrador do servidor**: tipo `azureuser`
       - **Senha**: digite uma senha complexa que atenda aos requisitos de senha.
       - **Local**: escolha um local na lista suspensa, como `East US` . Esse local não pode ser o mesmo local que o servidor primário.
 
@@ -336,7 +336,7 @@ Limpe os recursos excluindo o grupo de recursos.
 Exclua o grupo de recursos usando o portal do Azure.
 
 1. Procure o grupo de recursos no [portal do Azure](https://portal.azure.com).
-1. Selecione **excluir grupo de recursos** para excluir todos os recursos no grupo, bem como o próprio grupo de recursos.
+1. Selecione  **excluir grupo de recursos** para excluir todos os recursos no grupo, bem como o próprio grupo de recursos.
 1. Digite o nome do grupo de recursos, `myResourceGroup` , na caixa de texto e, em seguida, selecione **excluir** para excluir o grupo de recursos.  
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)

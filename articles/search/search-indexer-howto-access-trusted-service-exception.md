@@ -8,16 +8,19 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320465"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Acessando dados em contas de armazenamento com segurança por meio de exceção de serviço confiável
 
 Os indexadores que acessam dados em contas de armazenamento podem usar a funcionalidade de [exceção de serviço confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para acessar dados com segurança. Esse mecanismo oferece aos clientes que não conseguem conceder [acesso ao indexador por meio de regras de firewall IP](search-indexer-howto-access-ip-restricted.md) uma alternativa simples, segura e gratuita para acessar dados em contas de armazenamento.
+
+> [!NOTE]
+> O suporte para acessar dados em contas de armazenamento por meio de uma exceção de serviço confiável é limitado ao armazenamento de BLOBs do Azure e Azure Data Lake armazenamento de Gen2. Não há suporte para o armazenamento de tabelas do Azure.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Etapa 1: configurar a conexão com a conta de armazenamento por meio de identidade
 

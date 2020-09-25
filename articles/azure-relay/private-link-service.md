@@ -1,25 +1,19 @@
 ---
 title: Integrar a Retransmissão do Azure ao Serviço de Link Privado do Azure
 description: Saiba como integrar a Retransmissão do Azure ao Serviço de Link Privado do Azure
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719420"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263821"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrar a Retransmissão do Azure com o Link Privado do Azure (versão prévia)
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, Retransmissão do Azure, Barramento de Serviço do Azure, Hubs de Eventos do Azure, Armazenamento do Microsoft Azure e Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** da sua rede virtual. Para obter mais informações, confira [O que é o Link Privado do Azure (versão prévia)?](../private-link/private-link-overview.md)
 
 Um **ponto de extremidade privado**  é uma interface de rede que permite que suas cargas de trabalho em execução em uma rede virtual se conectem de forma privada e segura a um serviço que tenha um **recurso de link privado** (por exemplo, um namespace de Retransmissão). O ponto de extremidade privado usa um endereço IP privado de sua VNet, colocando efetivamente em sua VNet. Todo o tráfego para o serviço pode ser roteado por meio do ponto de extremidade privado; assim, nenhum gateway, nenhum dispositivo NAT, nenhum ExpressRoute, nenhuma conexão VPN e nenhum endereço IP público é necessário. O tráfego entre a rede virtual e o serviço percorre a rede de backbone da Microsoft, eliminando a exposição da Internet pública. Você pode fornecer um nível de granularidade ao controle de acesso que permite conexões a namespaces específicos da Retransmissão do Azure. 
-
-
-> [!IMPORTANT]
-> Esse recurso está atualmente em **versão prévia**. 
->
-> Atualmente, damos suporte a conexões de link privado em clientes do remetente. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Inclusão de um ponto de extremidade privado através do portal do Azure

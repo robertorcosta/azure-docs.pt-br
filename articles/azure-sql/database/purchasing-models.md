@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a11894eb94b73d8d31ca7135be2ba9c05eca5e04
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319445"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU – banco de dados SQL do Azure e SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,13 +36,13 @@ A tabela e o gráfico a seguir comparam e contrastam os modelos de compra basead
 
 |**Modelo de compra**|**Descrição**|**Mais adequado para**|
 |---|---|---|
-|Baseado em DTU|Esse modelo é baseado em uma medida agrupada de computação, armazenamento e recursos de e/s. Os tamanhos de computação são expressos em DTUs para bancos de dados individuais e em eDTUs (unidades de transação de banco de dados elástico) para pools elásticos. Para obter mais informações sobre DTUs e eDTUs, consulte [o que são DTUs e eDTUs?](purchasing-models.md#dtu-based-purchasing-model).|Clientes que desejam opções de recursos simples e pré-configuradas|
-|baseado em vCore|Esse modelo permite escolher recursos de armazenamento e computação de maneira independente. O modelo de compra baseado em vCore também permite que você use [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para SQL Server economizar custos.|Clientes que continham flexibilidade, controle e transparência|
+|Baseado em DTU|Esse modelo é baseado em uma medida agrupada de computação, armazenamento e recursos de e/s. Os tamanhos da computação são expressos em DTUs para bancos de dados individuais e em eDTUs (unidades de transação do banco de dados elástico) para pools elásticos. Para saber mais sobre DTUs e eDTUs, confira [O que são DTUs e eDTUs?](purchasing-models.md#dtu-based-purchasing-model)|Clientes que desejam opções de recursos simples e pré-configuradas|
+|baseado em vCore|Esse modelo permite escolher recursos de armazenamento e computação de maneira independente. O modelo de compra baseado em vCore também permite o uso do [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para SQL Server para economizar.|Clientes que continham flexibilidade, controle e transparência|
 ||||  
 
 ![Comparação de modelo de preços](./media/purchasing-models/pricing-model.png)
 
-Deseja otimizar e economizar em seus gastos com a nuvem?
+Deseja otimizar e reduzir seus gastos com a nuvem?
 
 [!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
@@ -77,7 +77,7 @@ No modelo de compra baseado em vCore, você pode escolher entre as camadas de se
 O modelo de compra baseado em vCore permite que você escolha independentemente os recursos de computação e armazenamento, correspondam ao desempenho local e otimize o preço. No modelo de compra baseado em vCore, você paga por:
 
 - Recursos de computação (a camada de serviço + o número de vCores e a quantidade de memória + a geração de hardware).
-- O tipo e a quantidade de dados e armazenamento de log.
+- O tipo e a quantidade de dados e o armazenamento de log.
 - Armazenamento de backup (RA-GRS).
 
 > [!IMPORTANT]

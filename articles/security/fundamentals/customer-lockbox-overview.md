@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/09/2020
-ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650970"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331651"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -32,22 +32,23 @@ Os serviços a seguir agora estão atualmente em visualização para Sistema de 
 
 - Gerenciamento de API
 - Serviço de aplicativo do Azure
-- Banco de Dados do Azure para MySQL
-- Azure Databricks
-- Azure Synapse Analytics
 - Serviços Cognitivos
 - Registro de Contêiner
+- Banco de Dados do Azure para MySQL
+- Azure Databricks
+- Azure Data Box
+- Azure Data Explorer
 - Fábrica de dados do Azure
 - Banco de Dados do Azure para PostgreSQL
-- Serviço de Kubernetes do Azure
-- Azure Data Box
+- Funções do Azure
 - HDInsight
-- Funções
+- Serviço de Kubernetes do Azure
+- Azure Monitor
 - Armazenamento do Azure
 - BD SQL do Azure
-- Azure Data Explorer
-- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos gerenciados)
 - Transferências de assinatura do Azure
+- Azure Synapse Analytics
+- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos gerenciados)
 
 Para habilitar Sistema de Proteção de Dados do Cliente para essas ofertas de visualização para sua organização, Inscreva-se para [sistema de proteção de dados do cliente para visualização pública do Azure](https://aka.ms/customerlockbox/insiderprogram).
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d528ff41d8b7098e313e070dfe734960cdc89eaa
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331872"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -83,7 +83,7 @@ O Azure digital gêmeos fornece criptografia de dados em repouso e em trânsito 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Veja esses conceitos em ação em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-scripted.md).
+* Veja esses conceitos em ação em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md).
 
 * Veja como interagir com esses conceitos do código do aplicativo cliente em [*como: escrever o código de autenticação do aplicativo*](how-to-authenticate-client.md).
 

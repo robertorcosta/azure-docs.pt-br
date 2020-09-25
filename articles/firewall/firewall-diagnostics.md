@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/17/2020
 ms.author: victorh
-ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376937"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320635"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar os logs e as métricas do Firewall do Azure
 
@@ -35,14 +35,17 @@ Pode levar alguns minutos até que os dados sejam exibidos em seus logs depois d
 1. No portal do Azure, abra o grupo de recursos de firewall e selecione o firewall.
 2. Em **Monitoramento**, selecione **Configurações de diagnóstico**.
 
-   Para o Firewall do Azure, dois logs específicos de serviço estão disponíveis:
+   Para o Firewall do Azure, quatro logs específicos do serviço estão disponíveis:
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
+   * AzureFirewallThreatIntelLog
+   * AzureFirewallDnsProxy
+
 
 3. Selecione **Adicionar configuração de diagnóstico**. A página **Configurações de diagnóstico** fornece as configurações dos logs de diagnóstico.
 5. Neste exemplo, os logs do Azure Monitor armazenam os logs; portanto, digite **Log Analytics do Firewall** para o nome.
-6. Em **log**, selecione **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule** para coletar logs de regras de aplicativo e de rede.
+6. Em **log**, selecione **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**e **AzureFirewallDnsProxy** para coletar os logs.
 7. Selecione **Enviar para log Analytics** para configurar seu espaço de trabalho.
 8. Selecione sua assinatura.
 9. Clique em **Salvar**.
@@ -91,7 +94,7 @@ Você também pode se conectar à sua conta de armazenamento e recuperar as entr
 > [!TIP]
 > Se estiver familiarizado com o Visual Studio e os conceitos básicos de alteração de valores de constantes e variáveis em C#, você poderá usar as [ferramentas de conversor de log](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponíveis no GitHub.
 
-## <a name="view-metrics"></a>Exibir métricas
+## <a name="view-metrics"></a>Métricas de exibição
 Navegue até um firewall do Azure, em **monitoramento** selecione **métricas**. Para exibir os valores disponíveis, selecione a lista suspensa **MÉTRICA**.
 
 ## <a name="next-steps"></a>Próximas etapas

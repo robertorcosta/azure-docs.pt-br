@@ -9,14 +9,14 @@ ms.devlang: sqldbrb=2
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 51d86e51d89bdaf83be4a722d0350b35d2146cff
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2c8c31219f014935c14371cf4dd30b61ba35819b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319496"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configurar a exportação de streaming do banco de dados SQL do Azure e telemetria de diagnóstico do SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -476,7 +476,7 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: ResourceUsageStats |
 |Recurso|Nome do recurso |
@@ -501,7 +501,7 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
@@ -552,7 +552,7 @@ Saiba mais sobre [repositório de consultas dados de estatísticas de tempo de e
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consult
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
@@ -604,7 +604,7 @@ Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consult
 |ResourceId|URI de recurso |
 |Mensagem|Mensagem de erro em texto sem formatação |
 |user_defined_b|É o bit de erro definido pelo usuário |
-|error_number_d|Código de erro |
+|error_number_d|Código do erro |
 |Gravidade|Gravidade do erro |
 |state_d|Estado do erro |
 |query_hash_s|Hash de consulta da consulta com falha, se disponível |
@@ -619,7 +619,7 @@ Saiba mais sobre [as mensagens de erro do SQL](https://docs.microsoft.com/sql/re
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
@@ -648,7 +648,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: tempos limite |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
@@ -671,7 +671,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
@@ -695,7 +695,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: Deadlocks |
 |OperationName|Nome da operação. Sempre: Deadlocks |
@@ -716,7 +716,7 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 |TenantId|Sua ID de locatário |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL |
 |Categoria|Nome da categoria. Sempre: AutomaticTuning |
 |Recurso|Nome do recurso |

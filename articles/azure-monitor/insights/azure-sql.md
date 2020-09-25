@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318021"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319581"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
@@ -43,11 +43,11 @@ Análise de SQL do Azure é uma solução de monitoramento somente de nuvem com 
 
 A tabela abaixo descreve as opções com suporte para duas versões do painel de Análise de SQL do Azure, uma para o banco de dados SQL do Azure e a outra para bancos de dados SQL Instância Gerenciada do Azure.
 
-| Opção Análise de SQL do Azure | Descrição | Suporte ao banco de dados SQL | Suporte ao SQL Instância Gerenciada |
+| Opção Análise de SQL do Azure | Descrição | Suporte ao banco de dados SQL | Suporte à Instância Gerenciada de SQL |
 | --- | ------- | ----- | ----- |
 | Recurso por tipo | Perspectiva que conta todos os recursos monitorados. | Sim | Sim |
 | Insights | Fornece uma busca detalhada hierárquica no Intelligent Insights sobre o desempenho. | Sim | Sim |
-| Erros | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. | Sim | Sim |
+| Errors | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. | Sim | Sim |
 | Tempos limite | Fornece drill down hierárquico sobre tempos limite do SQL que ocorreram nos bancos de dados. | Sim | Não |
 | Bloqueios | Fornece drill down hierárquico sobre bloqueios do SQL que ocorreram nos bancos de dados. | Sim | Não |
 | Esperas do banco de dados | Fornece drill down hierárquico sobre estatísticas de espera do SQL sobre o nível do banco de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |Sim | Não |
@@ -230,6 +230,9 @@ AzureMetrics
 > - A saída é uma lista de recursos de banco de dados que estão acima de storage_threshold dentro do time_range definido.
 
 #### <a name="alert-on-intelligent-insights"></a>Alerta no Intelligent Insights
+
+> [!IMPORTANT]
+> Caso um banco de dados esteja funcionando bem e que nenhum Intelligent Insights tenha sido gerado, essa consulta falhará com uma mensagem de erro: falha ao resolver a expressão escalar denominada ' rootCauseAnalysis_s '. Esse comportamento é esperado para todos os casos em que não existem informações inteligentes para o banco de dados.
 
 ```
 let alert_run_interval = 1h;

@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: b90d868042e9fb947afdfae9acf35262912eff94
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90994299"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320601"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importar chaves protegidas por HSM para HSM gerenciado (BYOK)
 
- Azure Key Vault HSM gerenciado dá suporte à importação de chaves geradas no módulo de segurança de hardware local (HSM); as chaves nunca deixarão o limite de proteção do HSM. Esse cenário é, muitas vezes, conhecido como BYOK (*Bring Your Own Key*). O HSM gerenciado usa a família nCipher nShield de HSMs (FIPS 140-2 nível 3 validado) para proteger suas chaves.
+ Azure Key Vault HSM gerenciado dá suporte à importação de chaves geradas no módulo de segurança de hardware local (HSM); as chaves nunca deixarão o limite de proteção do HSM. Esse cenário é, muitas vezes, conhecido como BYOK (*Bring Your Own Key*). O HSM gerenciado usa os adaptadores HSM da Marvell LiquidSecurity (FIPS 140-2 nível 3 validados) para proteger suas chaves.
 
 Use as informações neste artigo para ajudá-lo a planejar, gerar e transferir suas próprias chaves protegidas por HSM para usar com o HSM gerenciado.
 
@@ -72,7 +72,7 @@ Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a C
 
 |Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
 |---|---|---|---|---|
-|KEK (Chave de Troca de Chaves)|RSA| 2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM gerenciado|Um par de chaves RSA com suporte para HSM gerado em HSM gerenciado|
+|KEK (Chave de Troca de Chaves)|RSA| 2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM Gerenciado|Um par de chaves RSA com suporte para HSM gerado em HSM gerenciado|
 |Chave de destino|RSA|2\.048 bits<br />3\.072 bits<br />4\.096 bits|HSM do fornecedor|A chave a ser transferida para o HSM gerenciado|
 
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>Gerar e transferir sua chave para o HSM gerenciado

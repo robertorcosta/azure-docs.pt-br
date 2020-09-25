@@ -7,17 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 88f74bcc93d640ec8d4d9014c6f25a6d0d0df680
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.custom: devx-track-js
+ms.openlocfilehash: dd0d3e462f0b2d8b525e63d65d657a8f056d01a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89614015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331855"
 ---
 # <a name="write-client-app-authentication-code"></a>Gravar o código de autenticação do aplicativo cliente
 
-Depois de [Configurar uma instância e autenticação do gêmeos digital do Azure](how-to-set-up-instance-scripted.md), você pode criar um aplicativo cliente que será usado para interagir com a instância do. Depois de configurar um projeto de cliente inicial, este artigo mostra **como escrever código nesse aplicativo cliente para autenticá-lo na** instância do gêmeos digital do Azure.
+Depois de [Configurar uma instância e autenticação do gêmeos digital do Azure](how-to-set-up-instance-portal.md), você pode criar um aplicativo cliente que será usado para interagir com a instância do. Depois de configurar um projeto de cliente inicial, este artigo mostra **como escrever código nesse aplicativo cliente para autenticá-lo na** instância do gêmeos digital do Azure.
 
 Há duas abordagens para o código de exemplo neste artigo. Você pode usar o ideal para você, dependendo do idioma de sua escolha:
 * A primeira seção do código de exemplo usa o SDK do .NET do Azure digital gêmeos (C#). O SDK é parte do SDK do Azure para .NET e está localizado aqui: [*biblioteca de cliente do Azure IOT digital para .net*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
@@ -27,7 +27,7 @@ Você também pode ler mais sobre as APIs e os SDKs do Azure digital gêmeos em 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Primeiro, conclua as etapas de configuração em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-scripted.md). Isso garantirá que você tenha uma instância de gêmeos digital do Azure, seu usuário tem permissões de acesso e você configurou permissões para aplicativos cliente. Após toda essa configuração, você estará pronto para gravar o código do aplicativo cliente.
+Primeiro, conclua as etapas de configuração em [*como: configurar uma instância e uma autenticação*](how-to-set-up-instance-portal.md). Isso garantirá que você tenha uma instância de gêmeos digital do Azure, seu usuário tem permissões de acesso e você configurou permissões para aplicativos cliente. Após toda essa configuração, você estará pronto para gravar o código do aplicativo cliente.
 
 Para continuar, você precisará de um projeto de aplicativo cliente no qual você escreva seu código. Se você ainda não tiver um projeto de aplicativo cliente configurado, crie um projeto básico em seu idioma de escolha para usar com este tutorial.
 
@@ -45,13 +45,13 @@ Você também precisará das seguintes instruções using:
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
-Para autenticar com o SDK do .NET, use um dos métodos de credencial-obtenção definidos na biblioteca [do Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) . Aqui estão dois que são comumente usados (mesmo juntos no mesmo aplicativo):
+Para autenticar com o SDK do .NET, use um dos métodos de credencial-obtenção definidos na biblioteca [do Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) . Aqui estão dois que são comumente usados (mesmo juntos no mesmo aplicativo):
 
-* O [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) é destinado a aplicativos interativos e pode ser usado para criar um cliente SDK autenticado
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) funciona muito bem em casos em que você precisa de identidades gerenciadas (MSI) e é um bom candidato para trabalhar com Azure Functions
+* O [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) é destinado a aplicativos interativos e pode ser usado para criar um cliente SDK autenticado
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) funciona muito bem em casos em que você precisa de identidades gerenciadas (MSI) e é um bom candidato para trabalhar com Azure Functions
 
 ### <a name="interactivebrowsercredential-method"></a>Método InteractiveBrowserCredential
-O método [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) é destinado a aplicativos interativos e abrirá um navegador da Web para autenticação.
+O método [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) é destinado a aplicativos interativos e abrirá um navegador da Web para autenticação.
 
 Para usar as credenciais do navegador interativo para criar um cliente SDK autenticado, adicione este código:
 
@@ -81,7 +81,7 @@ try
 > Embora você possa colocar a ID do cliente, a ID do locatário e a URL da instância diretamente no código, como mostrado acima, é uma boa ideia fazer com que seu código obtenha esses valores de um arquivo de configuração ou variável de ambiente em vez disso.
 
 ### <a name="managedidentitycredential-method"></a>Método ManagedIdentityCredential
- O método [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) funciona muito bem em casos em que você precisa de [identidades gerenciadas (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)— por exemplo, ao trabalhar com Azure functions.
+ O método [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet&preserve-view=true) funciona muito bem em casos em que você precisa de [identidades gerenciadas (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)— por exemplo, ao trabalhar com Azure functions.
 Em uma função do Azure, você pode usar as credenciais de identidade gerenciadas da seguinte maneira:
 
 ```csharp

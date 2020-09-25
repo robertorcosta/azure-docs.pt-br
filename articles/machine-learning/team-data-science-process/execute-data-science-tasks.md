@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e69a03cd142fdbcc5864ee38a4843e1c2e44a124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fe11b20ff8e96bc4b0d997c49201aafdd2e2cac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320516"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelagem e implantação
 
@@ -98,7 +98,7 @@ Há várias abordagens e plataformas para colocar modelos em produção. Veja al
 Outros exemplos estão disponíveis em instruções passo a passo completas que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente.
 
 > [!NOTE]
-> Para implantações que usam o Azure Machine Learning Studio, consulte [Implantar um serviço Web do Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+> Para implantações que usam o Azure Machine Learning Studio, consulte [Implantar um serviço Web do Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 >
 >
 
@@ -111,5 +111,3 @@ Quando vários modelos estão em produção, pode ser útil executar [Testes de 
 [Acompanhar o progresso de projetos de ciência de dados](track-progress.md) mostra como um cientista de dados pode acompanhar o progresso de um projeto de ciência de dados.
 
 A [Operação de modelo e CI/CD](ci-cd-flask.md) mostra como a CI/CD pode ser executada com modelos desenvolvidos.
-
-

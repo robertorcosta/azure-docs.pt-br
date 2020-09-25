@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: aed5dcf98e37b0d075804985355bdabe3b50b712
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662349"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295338"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](how-to-connect-install-express.md) não satisfaz à sua implantação ou a topologia.
@@ -46,7 +46,7 @@ Quando você instala os serviços de sincronização, pode deixar a seção de c
 ### <a name="user-sign-in"></a>Entrada do usuário
 Depois de instalar os componentes necessários, será solicitado que você selecione o método de logon único de seus usuários. A tabela a seguir fornece uma breve descrição das opções disponíveis. Para obter uma descrição completa dos métodos de entrada, consulte [Entrada do usuário](plan-connect-user-signin.md).
 
-![Entrada do Usuário](./media/how-to-connect-install-custom/usersignin4.png)
+![Captura de tela que mostra a página "entrada do usuário" com a "sincronização de hash de senha" selecionada.](./media/how-to-connect-install-custom/usersignin4.png)
 
 | Opção de logon único | Descrição |
 | --- | --- |
@@ -75,7 +75,7 @@ Se você encontrar um erro e tiver problemas de conectividade, confira [Solucion
 ### <a name="connect-your-directories"></a>Conectar seus diretórios
 Para se conectar a seu Serviço de Domínio do Active Directory, o Azure AD Connect precisa do nome da floresta e das credenciais de uma conta com permissões suficientes.
 
-![Conectar-se ao Diretório](./media/how-to-connect-install-custom/connectdir01.png)
+![Captura de tela que mostra a página "conectar seus diretórios".](./media/how-to-connect-install-custom/connectdir01.png)
 
 Depois de inserir o nome da floresta e clicar em **Adicionar Diretório**, uma caixa de diálogo pop-up será exibida e indicará as seguintes opções:
 
@@ -300,7 +300,7 @@ Se você tiver selecionado a Conta de Serviço Gerenciado de Grupo e se esse rec
 ### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>Selecione o domínio do AD do Azure que você deseja federar
 Essa configuração é usada para configurar a relação de federação entre o AD FS e o AD do Azure. Ela configura o AD FS para emitir tokens de segurança para o AD do Azure e configura o AD do Azure para confiar em tokens dessa instância específica do AD FS. Essa página só permite configurar um único domínio na instalação inicial. Você pode configurar mais domínios mais tarde executando novamente o Azure AD Connect.
 
-![Domínio do AD do Azure](./media/how-to-connect-install-custom/adfs6.png)
+![Captura de tela que mostra a página "domínio do Azure AD".](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Verificar o domínio do Azure AD selecionado para federação
 Quando você seleciona o domínio a ser federado, o Azure AD Connect fornece informações necessárias para verificar um domínio não verificado. Confira [Adicionar e verificar o domínio](../fundamentals/add-custom-domain.md) para saber como usar essas informações.
@@ -320,7 +320,7 @@ Configurar o PingFederate com o Azure AD Connect é simples, exigindo apenas alg
 ### <a name="verify-the-domain"></a>Verifique o domínio
 Depois de selecionar a federação com o PingFederate, você deverá verificar o domínio que você deseja agrupar.  Selecione o domínio na caixa de lista suspensa.
 
-![Verificar domínio](./media/how-to-connect-install-custom/ping1.png)
+![Captura de tela que mostra o "domínio do Azure AD" com o domínio de exemplo "contoso.com" selecionado.](./media/how-to-connect-install-custom/ping1.png)
 
 ### <a name="export-the-pingfederate-settings"></a>Exportar configurações do PingFederate
 
@@ -394,7 +394,7 @@ A seção a seguir contém solução de problemas e informações que você pode
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>"O banco de dados ADSync já contém dados e não pode ser substituído"
 Quando você faz a instalação personalizada do Azure AD Connect e seleciona a opção **Usar um SQL Server existente** na página **Instalar componentes obrigatórios**, pode encontrar um erro afirmando que **O banco de dados ADSync já contém dados e não pode ser substituído. Remova o banco de dados existente e tente novamente.**
 
-![Erro](./media/how-to-connect-install-custom/error1.png)
+![Captura de tela que mostra a página "instalar componentes necessários".](./media/how-to-connect-install-custom/error1.png)
 
 Isso ocorre porque já existe um banco de dados denominado **ADSync** na instância SQL do SQL Server, que você especificou nas caixas de texto acima.
 

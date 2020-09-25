@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331889"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server
 Neste tutorial, você obtém um passo a passo sobre como criar e implantar um modelo de aprendizado de máquina usando o SQL Server e um conjunto de dados disponível publicamente – [Corridas de Táxi em NYC](https://www.andresmh.com/nyctaxitrips/). O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, projetar recursos para facilitar o aprendizado e, em seguida, criar e implantar um modelo.
@@ -83,7 +83,7 @@ Neste tutorial, demonstraremos a importação em massa paralela dos dados para u
 Para configurar seu ambiente de Ciência de Dados do Azure:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md)
-2. [Criar um workspace de Azure Machine Learning](../studio/create-workspace.md)
+2. [Criar um workspace de Azure Machine Learning](../classic/create-workspace.md)
 3. [Provisione uma Máquina Virtual de Ciência de Dados](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), que fornece um SQL Server e um servidor do IPython Notebook.
    
    > [!NOTE]
@@ -175,8 +175,8 @@ Nesta seção, salvaremos a consulta final para extrair e obter amostras dos dad
 
 Para uma verificação rápida do número de linhas e colunas nas tabelas preenchidas anteriormente usando a importação em massa paralela,
 
-- Relatar o número de linhas na tabela nyctaxi_trip sem verificação de tabela:`SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
-- Relatar o número de colunas na tabela nyctaxi_trip:`SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
+- Relatar o número de linhas na tabela nyctaxi_trip sem verificação de tabela: `SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
+- Relatar o número de colunas na tabela nyctaxi_trip: `SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Exploração: distribuição de corridas por licença
 Este exemplo identifica o medalhão (número do táxi) com mais de 100 corridas dentro de um determinado período de tempo. A consulta aproveitaria o acesso à tabela particionada, já que é condicionada pelo esquema de partição de **pickup\_datetime**. Consultar o conjunto de dados completo também usará a tabela particionada e/ou a verificação de índice.
@@ -626,9 +626,9 @@ Agora estamos prontos para continuar a criação de modelos e implantação de m
 3. Tarefa de regressão: prever o valor da gorjeta paga por uma corrida.  
 
 ## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Criando modelos no Azure Machine Learning
-Para iniciar o exercício de modelagem, faça logon no seu workspace do Azure Machine Learning. Se ainda não tiver criado um workspace do Machine Learning, consulte [Criar um workspace do Azure Machine Learning](../studio/create-workspace.md).
+Para iniciar o exercício de modelagem, faça logon no seu workspace do Azure Machine Learning. Se ainda não tiver criado um workspace do Machine Learning, consulte [Criar um workspace do Azure Machine Learning](../classic/create-workspace.md).
 
-1. Para ver os primeiros passos no Azure Machine Learning, consulte [O que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. Para ver os primeiros passos no Azure Machine Learning, consulte [O que é o Azure Machine Learning Studio?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Faça logon no [Azure Machine Learning Studio](https://studio.azureml.net).
 3. A página inicial do Estúdio fornece uma grande quantidade de informações, vídeos, tutoriais e links para a Referência de Módulos e outros recursos. Para saber mais sobre o Azure Machine Learning, confira o [Centro de Documentação do Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
@@ -668,7 +668,7 @@ Um exemplo de um experimento de classificação binária lendo dados diretamente
 > 
 
 ## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Implantando modelos no Azure Machine Learning
-Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do Azure Machine Learning, veja [Implantar um serviço Web do Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Quando o modelo estiver pronto, você pode implantá-lo facilmente como um serviço Web diretamente do experimento. Para obter mais informações sobre como implantar os serviços Web do Azure Machine Learning, veja [Implantar um serviço Web do Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Para implantar um novo serviço Web, você precisa:
 
@@ -698,8 +698,8 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 
 ### <a name="references"></a>Referências
 •   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](https://www.andresmh.com/nyctaxitrips/)  
-• [Frustrando os dados de corrida de táxi de NYC por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Pesquisa e estatísticas de NYC táxi e limusines Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Frustrando os dados de corrida de táxi de NYC por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Pesquisa e estatísticas de NYC táxi e limusines Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sql-walkthrough/sql-walkthrough_28_1.png

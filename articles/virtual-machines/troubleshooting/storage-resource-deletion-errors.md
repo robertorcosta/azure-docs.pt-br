@@ -1,6 +1,6 @@
 ---
 title: Solução de problemas de erros de exclusão de recursos de armazenamento em VMs do Linux no Azure | Microsoft Docs
-description: Como solucionar problemas ao excluir os recursos de armazenamento que contém o VHDs anexados.
+description: Saiba como solucionar problemas em VMs do Linux ao excluir recursos de armazenamento que contêm VHDs anexados.
 keywords: ''
 services: virtual-machines
 author: genlin
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8f145dcf8d476009d81056b3f4f970460209a5bc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649730"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320074"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Solucionar problemas de erros de exclusão de recursos de armazenamento
 

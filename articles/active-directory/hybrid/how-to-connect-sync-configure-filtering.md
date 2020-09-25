@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319972"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que usam cargas de trabalho Microsoft 365, como o Exchange Online e o Skype for Business, se beneficiam de uma lista de endereços global completa para que possam enviar emails e chamar todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -113,7 +113,7 @@ Para definir o filtro de domínio, siga estas etapas:
    ![Propriedades do conector](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Clique em **Configurar Partições de Diretório**.
 5. Na lista **Selecionar partições de diretório**, marque ou desmarque as caixas de seleção dos domínios conforme necessário. Verifique se apenas as partições que você deseja sincronizar estão selecionadas.  
-   ![Partições](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Captura de tela que mostra as partições de diretório na janela "Propriedades".](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    Se você tiver alterado a infraestrutura local do Active Drectory e tiver adicionado ou removido domínios da floresta, clique no botão **Atualizar** para obter uma lista atualizada. Ao atualizar, você precisará fornecer as credenciais. Forneça todas as credenciais com o acesso de leitura para o Windows Server Active Directory. Ele não precisa ser o usuário previamente preenchido na caixa de diálogo.  
    ![Atualização necessária](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Quando terminar, clique em **OK** para fechar a caixa de diálogo **Propriedades**. Se você tiver removido domínios da floresta, será exibida uma mensagem informando que um domínio foi removido e que a configuração será limpa.
@@ -279,7 +279,7 @@ Neste exemplo, você altera a filtragem para que somente usuários com emails e 
 5. No pop-up, responda **Sim** para criar uma cópia da regra.
 6. Na página **Descrição**, altere **Precedência** para um valor não usado, por exemplo, 50.
 7. Clique em **Filtro de escopo** na barra de navegação à esquerda e clique em **Adicionar cláusula**. Em **Atributo**, selecione **mail**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**e clique em **Adicionar cláusula**. Em **Atributo**, selecione **userPrincipalName**. Em **Operador**, selecione **ENDSWITH**. Em **valor**, digite ** \@ contoso.com**.
-8. Clique em **Salvar**.
+8. Clique em **Save** (Salvar).
 9. Para concluir a configuração, você precisa executar uma **sincronização completa**. Continue lendo a seção [aplicar e verificar as alterações](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Aplicar e verificar as alterações

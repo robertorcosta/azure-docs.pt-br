@@ -3,12 +3,12 @@ title: Métricas do Barramento de Serviço no Azure Monitor | Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorar entidades do barramento de Serviço (filas, tópicos e assinaturas).
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320431"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor
 
@@ -147,7 +147,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
     2. Insira uma **descrição** para o alerta.
     3. Selecione a **gravidade** do alerta. 
 
-        ![Detalhes do Alerta](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Captura de tela da página Criar regra. Definir detalhes do alerta é expandido e os campos de nome, descrição e severidade da regra de alerta são realçados.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Na página **Criar regra**, expanda **Definir grupo de ações**, selecione **Novo grupo de ações** e realize as seguintes ações em **Adicionar página de grupo de ações**. 
     1. Insira um nome para o grupo de ações.
     2. Insira um nome curto para o grupo de ações. 
@@ -161,7 +161,7 @@ O Barramento de Serviço do Azure dá suporte às seguintes dimensões para mét
         2. Digite **o endereço de email**. 
         3. Selecione **OK**.
 
-            ![Detalhes do Alerta](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Captura de tela da página Adicionar grupo de ações. Uma ação denominada "enviar email" com o tipo de ação email/SMS/Push/voz está sendo adicionada ao grupo.](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. Na página **Adicionar grupo de ações**, selecione **OK**. 
 1. Na página **Criar regra**, selecione **Criar regra de alerta**. 
 

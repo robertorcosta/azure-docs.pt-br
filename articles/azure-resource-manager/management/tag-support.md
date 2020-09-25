@@ -2,13 +2,13 @@
 title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: ea46e263d934c327cf6dfa343a5e0b5a170f545e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.date: 09/21/2020
+ms.openlocfilehash: dd991167e703ad9faa7803bcecbbb6dc7eff94e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89513907"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284951"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/group-filter.md) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -21,6 +21,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.Addons](#microsoftaddons)
 > - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
 > - [Microsoft.Advisor](#microsoftadvisor)
+> - [Microsoft. AgFoodPlatform](#microsoftagfoodplatform)
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
@@ -64,6 +65,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
 > - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
 > - [Microsoft.CustomProviders](#microsoftcustomproviders)
+> - [Microsoft. D365CustomerInsights](#microsoftd365customerinsights)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -154,6 +156,7 @@ Pule para um namespace de provedor de recursos:
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft. ScVmm](#microsoftscvmm)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -233,6 +236,13 @@ Pule para um namespace de provedor de recursos:
 > | metadata | Não | Não |
 > | filmes | Não | Não |
 > | suppressions | Não | Não |
+
+## <a name="microsoftagfoodplatform"></a>Microsoft. AgFoodPlatform
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
+> | ------------- | ----------- | ----------- |
+> | farmBeats | Sim | Sim |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -401,6 +411,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | cloudManifestFiles | Não | Não |
 > | edgeSubscriptions | Sim | Sim |
+> | linkedSubscriptions | Sim | Sim |
 > | registrations | Sim | Sim |
 > | registros/customerSubscriptions | Não | Não |
 > | registrations/products | Não | Não |
@@ -456,6 +467,7 @@ Pule para um namespace de provedor de recursos:
 > | billingAccounts/billingProfiles/pricesheet | Não | Não |
 > | billingAccounts / billingProfiles / pricesheetDownloadOperations | Não | Não |
 > | billingAccounts/billingProfiles/produtos | Não | Não |
+> | billingAccounts/billingProfiles/reservas | Não | Não |
 > | billingAccounts/billingProfiles/transações | Não | Não |
 > | billingAccounts / billingProfiles / validateDetachPaymentMethodEligibility | Não | Não |
 > | billingAccounts / billingRoleAssignments | Não | Não |
@@ -499,6 +511,7 @@ Pule para um namespace de provedor de recursos:
 > | billingAccounts / patchOperations | Não | Não |
 > | billingAccounts / paymentMethods | Não | Não |
 > | billingAccounts/produtos | Não | Não |
+> | billingAccounts/reservas | Não | Não |
 > | billingAccounts/transações | Não | Não |
 > | billingPeriods | Não | Não |
 > | billingPermissions | Não | Não |
@@ -580,6 +593,10 @@ Pule para um namespace de provedor de recursos:
 > | Redis/privateEndpointConnections | Não | Não |
 > | Redis/privateLinkResources | Não | Não |
 > | redisEnterprise | Sim | Sim |
+> | RedisEnterprise / privateEndpointConnectionProxies | Não | Não |
+> | RedisEnterprise/privateEndpointConnectionProxies/validar | Não | Não |
+> | RedisEnterprise / privateEndpointConnections | Não | Não |
+> | RedisEnterprise / privateLinkResources | Não | Não |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -594,6 +611,7 @@ Pule para um namespace de provedor de recursos:
 > | catalogs | Não | Não |
 > | commercialReservationOrders | Não | Não |
 > | câmbio | Não | Não |
+> | ownReservations | Não | Não |
 > | placePurchaseOrder | Não | Não |
 > | reservationOrders | Não | Não |
 > | reservationOrders / calculateRefund | Não | Não |
@@ -747,6 +765,11 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | availabilitySets | Sim | Sim |
 > | cloudServices | Sim | Sim |
+> | nuvens/networkInterfaces | Não | Não |
+> | cloudservices/publicIPAddresses | Não | Não |
+> | cloudservices/roleInstances | Não | Não |
+> | cloudservices/roleInstances/networkInterfaces | Não | Não |
+> | cloudservices/funções | Não | Não |
 > | diskAccesses | Sim | Sim |
 > | diskEncryptionSets | Sim | Sim |
 > | disks | Sim | Sim |
@@ -774,7 +797,7 @@ Pule para um namespace de provedor de recursos:
 > | virtualMachineScaleSets | Sim | Sim |
 > | virtualMachineScaleSets/extensões | Não | Não |
 > | virtualMachineScaleSets/networkInterfaces | Não | Não |
-> | virtualMachineScaleSets/publicIPAddresses | Não | Não |
+> | virtualMachineScaleSets/publicIPAddresses | Sim | Não |
 > | virtualMachineScaleSets/virtualMachines | Não | Não |
 > | virtualMachineScaleSets/virtualMachines/networkInterfaces | Não | Não |
 
@@ -922,6 +945,13 @@ Pule para um namespace de provedor de recursos:
 > | associations | Não | Não |
 > | resourceProviders | Sim | Sim |
 
+## <a name="microsoftd365customerinsights"></a>Microsoft. D365CustomerInsights
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
+> | ------------- | ----------- | ----------- |
+> | instances | Sim | Sim |
+
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
@@ -966,7 +996,7 @@ Pule para um namespace de provedor de recursos:
 > | factories / integrationRuntimes | Não | Não |
 
 > [!NOTE]
-> Se você tiver tempos de execução de integração do Azure-SSIS em seu data factory, o custo de execução será marcado com data factory marcas.  A execução de tempos de execução de integração do Azure-SSIS deve ser interrompida e reiniciada para que novas marcas de data factory sejam aplicadas ao custo em execução.
+> Se você tiver tempos de execução de integração do Azure-SSIS em seu data factory, o custo de execução será marcado com data factory marcas. A execução de tempos de execução de integração do Azure-SSIS deve ser interrompida e reiniciada para que novas marcas de data factory sejam aplicadas ao custo em execução.
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
@@ -1033,6 +1063,8 @@ Pule para um namespace de provedor de recursos:
 > | servidores/privateLinkResources | Não | Não |
 > | servidores/queryTexts | Não | Não |
 > | servidores/recoverableServers | Não | Não |
+> | servidores/iniciar | Não | Não |
+> | servidores/parar | Não | Não |
 > | servidores/topQueryStatistics | Não | Não |
 > | servers / virtualNetworkRules | Não | Não |
 > | servidores/waitStatistics | Não | Não |
@@ -1042,6 +1074,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
+> | flexibleServers | Sim | Sim |
 > | servers | Sim | Sim |
 > | servers/advisors | Não | Não |
 > | servers/keys | Não | Não |
@@ -1050,7 +1083,10 @@ Pule para um namespace de provedor de recursos:
 > | servidores/privateLinkResources | Não | Não |
 > | servidores/queryTexts | Não | Não |
 > | servidores/recoverableServers | Não | Não |
+> | servidores/iniciar | Não | Não |
+> | servidores/parar | Não | Não |
 > | servidores/topQueryStatistics | Não | Não |
+> | servidores/atualização | Não | Não |
 > | servers / virtualNetworkRules | Não | Não |
 > | servidores/waitStatistics | Não | Não |
 
@@ -1225,6 +1261,7 @@ Pule para um namespace de provedor de recursos:
 > | namespaces/eventhubs/authorizationrules | Não | Não |
 > | namespaces/eventhubs/consumergroups | Não | Não |
 > | namespaces/networkrulesets | Não | Não |
+> | namespaces/privateEndpointConnections | Não | Não |
 
 ## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
@@ -1321,8 +1358,8 @@ Pule para um namespace de provedor de recursos:
 > | serviços/iomtconnectors/conexões | Não | Não |
 > | serviços/iomtconnectors/mapeamentos | Não | Não |
 > | serviços/privateEndpointConnectionProxies | Não | Não |
-> | serviços/privateEndpointConnections | Sim | Sim |
-> | serviços/privateLinkResources | Sim | Sim |
+> | serviços/privateEndpointConnections | Não | Não |
+> | serviços/privateLinkResources | Não | Não |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -1330,7 +1367,9 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | machines | Sim | Sim |
+> | computadores/assessPatches | Não | Não |
 > | machines/extensions | Sim | Sim |
+> | computadores/installPatches | Não | Não |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -1428,6 +1467,8 @@ Pule para um namespace de provedor de recursos:
 > | vaults | Sim | Sim |
 > | cofres/accessPolicies | Não | Não |
 > | cofres/eventGridFilters | Não | Não |
+> | cofres/chaves | Não | Não |
+> | cofres/chaves/versões | Não | Não |
 > | vaults/secrets | Não | Não |
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
@@ -1466,7 +1507,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
-> | labaccounts | Sim | Sim |
+> | labaccounts | Sim | Não |
 > | users | Não | Não |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
@@ -1496,6 +1537,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | workspaces | Sim | Sim |
+> | espaços de trabalho/codeJobs | Não | Não |
 > | workspaces/computes | Não | Não |
 > | espaços de trabalho/eventGridFilters | Não | Não |
 > | espaços de trabalho/inferenceEndpoints | Sim | Sim |
@@ -1705,6 +1747,7 @@ Pule para um namespace de provedor de recursos:
 > | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
 > | getDnsResourceReference | Não | Não |
 > | internalNotify | Não | Não |
+> | ipGroups | Sim | Sim |
 > | loadBalancers | Sim | Sim |
 > | virtualNetworkGateways | Sim | Sim |
 > | natGateways | Sim | Sim |
@@ -1874,6 +1917,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
 > | accounts | Sim | Sim |
+> | deletedAccounts | Não | Não |
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
@@ -1973,6 +2017,17 @@ Pule para um namespace de provedor de recursos:
 > | de dimensionamento da Web | Sim | Sim |
 > | saasresources | Não | Não |
 
+## <a name="microsoftscvmm"></a>Microsoft. ScVmm
+
+> [!div class="mx-tableFixed"]
+> | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
+> | ------------- | ----------- | ----------- |
+> | nuvens | Sim | Sim |
+> | VirtualMachines | Sim | Sim |
+> | VirtualMachineTemplates | Sim | Sim |
+> | VirtualNetworks | Sim | Sim |
+> | vmmservers | Sim | Sim |
+
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
@@ -2004,6 +2059,7 @@ Pule para um namespace de provedor de recursos:
 > | discoveredSecuritySolutions | Não | Não |
 > | externalSecuritySolutions | Não | Não |
 > | InformationProtectionPolicies | Não | Não |
+> | iotDefenderSettings | Não | Não |
 > | iotSecuritySolutions | Sim | Sim |
 > | iotSecuritySolutions / analyticsModels | Não | Não |
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | Não | Não |
@@ -2012,6 +2068,7 @@ Pule para um namespace de provedor de recursos:
 > | iotSecuritySolutions / iotAlertTypes | Não | Não |
 > | iotSecuritySolutions / iotRecommendations | Não | Não |
 > | iotSecuritySolutions / iotRecommendationTypes | Não | Não |
+> | iotSensors | Não | Não |
 > | jitNetworkAccessPolicies | Não | Não |
 > | jitPolicies | Não | Não |
 > | políticas | Não | Não |
@@ -2030,6 +2087,7 @@ Pule para um namespace de provedor de recursos:
 > | securityStatusesSummaries | Não | Não |
 > | serverVulnerabilityAssessments | Não | Não |
 > | configurações | Não | Não |
+> | sqlVulnerabilityAssessments | Não | Não |
 > | subavaliações | Não | Não |
 > | tarefas | Não | Não |
 > | topologies | Não | Não |
@@ -2081,6 +2139,7 @@ Pule para um namespace de provedor de recursos:
 > | namespaces/disasterrecoveryconfigs | Não | Não |
 > | namespaces/eventgridfilters | Não | Não |
 > | namespaces/networkrulesets | Não | Não |
+> | namespaces/privateEndpointConnections | Não | Não |
 > | namespaces/queues | Não | Não |
 > | namespaces/queues/authorizationrules | Não | Não |
 > | namespaces/topics | Não | Não |
@@ -2201,6 +2260,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 > | ------------- | ----------- | ----------- |
+> | deletedAccounts | Não | Não |
 > | storageAccounts | Sim | Sim |
 > | storageAccounts / blobServices | Não | Não |
 > | storageAccounts / fileServices | Não | Não |

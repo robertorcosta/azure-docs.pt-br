@@ -14,39 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 51e6c74a8b80b94ca552645cfbb76bd4e162a62b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: cd84a4b50ba32ee3f562ace9b2583cf5e561be84
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650053"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320380"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conectar sua solução externa usando o formato de evento comum
 
 
 Quando você conecta uma solução externa que envia mensagens CEF, há três etapas para se conectar com o Azure Sentinel:
 
-ETAPA 1: [conectar o CEF implantando o agente](connect-cef-agent.md) etapa 2: [Executar etapas específicas da solução](connect-cef-solution-config.md) etapa 3: [verificar a conectividade](connect-cef-verify.md)
+ETAPA 1: [conectar o CEF implantando uma etapa 2 do syslog/CEF encaminhador](connect-cef-agent.md) : [Executar etapas específicas da solução](connect-cef-solution-config.md) etapa 3: [verificar a conectividade](connect-cef-verify.md)
 
 Este artigo descreve como a conexão funciona, fornece pré-requisitos e fornece as etapas para implantar o agente em soluções de segurança que enviam mensagens de formato de evento comum (CEF) sobre o syslog. 
 
 > [!NOTE] 
 > Os dados são armazenados na localização geográfica do espaço de trabalho no qual você está executando o Azure Sentinel.
 
-Para fazer essa conexão, você precisa implantar um agente em um computador Linux dedicado (VM ou local) para dar suporte à comunicação entre o dispositivo e o Azure Sentinel. O diagrama a seguir descreve a configuração no caso de uma VM do Linux no Azure.
+Para fazer essa conexão, você precisa implantar um servidor de encaminhador syslog para dar suporte à comunicação entre o dispositivo e o Azure Sentinel.  O servidor consiste em um computador Linux dedicado (VM ou local) com o agente de Log Analytics para Linux instalado. 
+
+O diagrama a seguir descreve a configuração no caso de uma VM do Linux no Azure:
 
  ![CEF no Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Como alternativa, essa configuração existirá se você usar uma VM em outra nuvem ou em um computador local. 
+Como alternativa, essa configuração existirá se você usar uma VM em outra nuvem ou em uma máquina local: 
 
  ![CEF no local](./media/connect-cef/cef-syslog-onprem.png)
 
 
-## <a name="security-considerations"></a>Considerações de segurança
+## <a name="security-considerations"></a>Considerações sobre segurança
 
 Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, você pode configurar sua rede para se alinhar com sua política de segurança de rede corporativa e alterar as portas e protocolos no daemon para se alinhar com seus requisitos. Você pode usar as seguintes instruções para melhorar sua configuração de segurança de computador:  [VM segura no Azure](../virtual-machines/security-policy.md), [práticas recomendadas para segurança de rede](../security/fundamentals/network-best-practices.md).
 
-Para usar a comunicação TLS entre a solução de segurança e o computador syslog, você precisará configurar o daemon do syslog (rsyslog ou syslog-ng) para se comunicar em TLS: [criptografando o tráfego do syslog com TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [criptografando mensagens de log com TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+Para usar a comunicação TLS entre a origem do syslog e o encaminhador do syslog, você precisará configurar o daemon do syslog (rsyslog ou syslog-ng) para se comunicar em TLS: [criptografando o tráfego do syslog com TLS-rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [criptografando mensagens de log com TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
 ## <a name="prerequisites"></a>Pré-requisitos

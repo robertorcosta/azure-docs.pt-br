@@ -6,12 +6,12 @@ ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 01/29/2018
-ms.openlocfilehash: d4b9a7be36bd4c0a4044f3e76b96b21a16eb80de
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f91619860b577981d9717904a3d4a3074c2eaf0f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320839"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Gerenciar o Azure Data Lake Analytics usando a CLI (interface de linha de comando) do Azure
 
@@ -84,7 +84,7 @@ Listar contas da Análise Data Lake em um grupo de recursos específico
    az dla account delete --account "<Data Lake Analytics account name>" --resource-group "<Resource group name>"
    ```
 
-## <a name="manage-data-sources"></a>Gerenciar fontes de dados
+## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
 
 No momento, o Data Lake Analytics dá suporte às duas fontes de dados a seguir:
 
@@ -141,7 +141,7 @@ Para listar as contas do Armazenamento de Blobs:
    az dla account blob-storage list --account "<Data Lake Analytics account name>"
    ```
 
-![Fonte de dados de lista da Análise Data Lake  ](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
+![Captura de tela que mostra o I L do Azure C com as informações "dataLakeStoreAccounts:" realçadas.](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-data-source.png)
 
 ### <a name="delete-data-sources"></a>Excluir fontes de dados:
 
@@ -185,7 +185,7 @@ Você deve ter uma conta da Análise Data Lake antes de criar um trabalho.  Para
 >    ```
 
 ### <a name="cancel-jobs"></a>Cancelar trabalhos
-Use o comando “list” para localizar o ID do trabalho e use “cancel” para cancelar o trabalho.
+Use o comando list para localizar a ID do trabalho e, em seguida, use Cancel para cancelar o trabalho.
 
    ```azurecli
    az dla job cancel --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"

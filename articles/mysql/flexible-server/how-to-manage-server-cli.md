@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 3798396c72bc01bc20f1b4ee3ee66961fe33bff5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7701fe91d0e3f78f9596687bf945ba4b11c2d199
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331685"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Gerenciar um banco de dados do Azure para MySQL – servidor flexível (versão prévia) usando o CLI do Azure
 
@@ -40,7 +40,7 @@ az account set --subscription <subscription id>
 
 ## <a name="scale-compute-and-storage"></a>Dimensionar a computação e o armazenamento
 
-Você pode escalar verticalmente sua camada de computação, vCores e armazenamento facilmente usando o comando a seguir. Você pode ver todas as operações do servidor que pode executar [AZ MySQL exflexíveis-Server Server Overview](/cli/azure/mysql/server)
+Você pode escalar verticalmente sua camada de computação, vCores e armazenamento facilmente usando o comando a seguir. Você pode ver toda a operação do servidor que pode executar [AZ MySQL Flexible-Server Update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update)
 
 ```azurecli-interactive
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v4 --storage-size 6144
@@ -64,10 +64,10 @@ Você pode usar qualquer um desses comandos para criar, excluir, listar e exibir
 
 | Cmdlet | Uso| Descrição |
 | --- | ---| --- |
-|[AZ MySQL flexível-servidor DB Create](/cli/azure/sql/db#az-mysql-flexible-server-db-create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Cria um banco de dados|
-|[AZ MySQL flexível-Server DB Delete](/cli/azure/sql/db#az-mysql-flexible-server-db-delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Exclua seu banco de dados do servidor. Esse comando não exclui o servidor. |
-|[AZ MySQL flexível-Server DB List](/cli/azure/sql/db#az-mysql-flexible-server-db-list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|lista todos os bancos de dados no servidor|
-|[AZ MySQL flexível-servidor DB show](/cli/azure/sql/db#az-mysql-flexible-server-db-show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Mostra mais detalhes do banco de dados|
+|[AZ MySQL flexível-servidor DB Create](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Cria um banco de dados|
+|[AZ MySQL flexível-Server DB Delete](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Exclua seu banco de dados do servidor. Esse comando não exclui o servidor. |
+|[AZ MySQL flexível-Server DB List](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|lista todos os bancos de dados no servidor|
+|[AZ MySQL flexível-servidor DB show](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Mostra mais detalhes do banco de dados|
 
 ## <a name="update-admin-password"></a>Atualizar senha do administrador
 Você pode alterar a senha da função de administrador com este comando
@@ -80,7 +80,7 @@ az mysql flexible-server update --resource-group myresourcegroup --name mydemose
 > A senha deve conter caracteres de três das seguintes categorias: letras maiúsculas em inglês, letras minúsculas, números e caracteres não alfanuméricos.
 
 ## <a name="delete-a-server"></a>Excluir um servidor
-Se você quiser apenas excluir o servidor flexível do MySQL, poderá executar o comando [AZ MySQL exflexíveis-Server Server Delete](/cli/azure/mysql/server#az-mysql-flexible-server-delete) .
+Se você quiser apenas excluir o servidor flexível do MySQL, poderá executar o comando [AZ MySQL exflexíveis-Server Server Delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete) .
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver

@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5908083be4e6ed389b606754ffef41a4a371c3e3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319717"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de versão – serviços de dados habilitados para o Azure Arc (versão prévia)
 
@@ -29,18 +29,26 @@ Os serviços de dados habilitados para Arc do Azure são liberados para visualiz
 
 Para obter instruções, consulte [o que são os serviços de dados habilitados para o Azure Arc?](overview.md)
 
+### <a name="known-issues"></a>Problemas conhecidos
+
+Os seguintes problemas se aplicam a esta versão:
+
+* **Excluindo grupo de servidores de hiperescala PostgreSQL**: se você alterou a configuração de seu grupo de servidores ou instância, aguarde a conclusão da operação de edição antes de excluir um grupo de servidores de hiperescala PostgreSQL.
+
+* ** `azdata notebook run` pode falhar**: para trabalhar arredondar esse problema, execute `azdata notebook run` em um ambiente virtual do Python. Esse problema também se manifesta em uma tentativa com falha de criar uma instância gerenciada do SQL ou um grupo de servidores de hiperescala PostgreSQL usando o assistente de implantação de Azure Data Studio. Nesse caso, você pode abrir o bloco de anotações e clicar no botão **executar tudo** na parte superior do bloco de anotações.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 > **Quer apenas experimentar as novidades?**  
-> Comece rapidamente com o [Azure Arc JumpStart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure kubernetes Service (AKs), AWS elástico kubernetes Service (EKS), Google Cloud kubernetes Engine (GKE) ou em uma VM do Azure.
+> Obtenha uma introdução rápida com o artigo [Começar a usar o Azure Arc rapidamente](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no AKS (Serviço de Kubernetes do Azure), no AWS EKS (Elastic Kubernetes Service), no GKE (Google Cloud Kubernetes Engine) ou em uma VM do Azure.
 
 [Instalar as ferramentas de cliente](install-client-tools.md)
 
-[Criar o controlador de dados de arco do Azure](create-data-controller.md) (requer a instalação das ferramentas de cliente primeiro)
+[Criar o controlador de dados do Azure Arc](create-data-controller.md) (é necessária a instalação das ferramentas de cliente primeiro)
 
-[Criar uma instância gerenciada do SQL do Azure no arco do Azure](create-sql-managed-instance.md) (requer a criação de um controlador de dados de arco do Azure primeiro)
+[Criar uma instância gerenciada de SQL do Azure no Azure Arc](create-sql-managed-instance.md) (é necessária a criação de um controlador de dados do Azure Arc primeiro)
 
-[Criar um grupo de servidores de hiperescala do banco de dados do Azure para PostgreSQL no arco do Azure](create-postgresql-hyperscale-server-group.md) (requer a criação de um controlador de dado de arco do Azure primeiro)
+[Criar um grupo de servidores de Hiperescala do Banco de Dados do Azure para PostgreSQL no Azure Arc](create-postgresql-hyperscale-server-group.md) (é necessária a criação de um controlador de dados do Azure Arc primeiro)
 
 ## <a name="known-limitations-and-issues"></a>Limitações e problemas conhecidos
 

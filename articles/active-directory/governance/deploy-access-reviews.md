@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306558"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planejamento Azure Active Directory implantação de revisões de acesso
 
@@ -37,7 +37,7 @@ As [revisões de acesso do Azure Active Directory (Azure AD)](access-reviews-ove
 
 * Automatizar resultados de revisão, como remover o acesso de usuários aos recursos
 
-  ![Planejando revisões de acesso](./media/deploy-access-review/1-planning-review.png)
+  ![Diagrama que mostra o fluxo de revisões de acesso.](./media/deploy-access-review/1-planning-review.png)
 
 As revisões de acesso são um recurso [Azure ad Identity Governance](identity-governance-overview.md) . Os outros recursos são [Gerenciamento de direitos](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) e [termos de uso](../conditional-access/terms-of-use.md). Juntos, eles ajudam as organizações a resolver essas quatro perguntas:
 
@@ -300,7 +300,7 @@ Ao [criar um pacote do Access](entitlement-management-access-package-create.md),
 
 Abra a guia ciclo de vida para rolar para baixo até revisões de acesso.
 
- ![Editar política](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Captura de tela que mostra a "Editar política" na guia "ciclo de vida".](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>Planejar revisões de acesso para grupos
 
@@ -446,7 +446,7 @@ As necessidades de acesso a grupos e aplicativos para funcionários e convidados
 
 Para reduzir o risco associado a atribuições de função obsoletas, você deve examinar regularmente o acesso de funções privilegiadas do Azure AD.
 
-![examinar as funções do Azure AD](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Captura de tela que mostra a lista "revisar Associação" das funções do Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Siga as instruções nos links abaixo:
 

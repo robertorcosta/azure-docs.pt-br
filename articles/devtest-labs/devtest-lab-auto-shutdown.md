@@ -3,12 +3,12 @@ title: Gerenciar políticas de desligamento automático no Azure DevTest Labs | 
 description: Saiba como definir a política de desligamento automático para um laboratório para que as máquinas virtuais sejam desligadas automaticamente quando não estiverem em uso.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320703"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurar o desligamento automático para máquinas virtuais de laboratório e computação no Azure DevTest Labs
 
@@ -98,7 +98,7 @@ Para começar, crie um aplicativo lógico em sua assinatura do Azure usando as s
         ![Novo aplicativo lógico-configurações](./media/devtest-lab-auto-shutdown/new-logic-app-page.png)
 3. Nas **notificações**, selecione **ir para o recurso** na notificação. 
 
-    ![Acessar recurso](./media/devtest-lab-auto-shutdown/go-to-resource.png)
+    ![Ir para o recurso](./media/devtest-lab-auto-shutdown/go-to-resource.png)
 4. Selecione **Designer de aplicativo lógico** na categoria **ferramentas de implantação** .
 
     ![Selecionar solicitação/resposta HTTP](./media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
@@ -162,7 +162,7 @@ Para começar, crie um aplicativo lógico em sua assinatura do Azure usando as s
     }
     ```
     
-    ![Esquema JSON do corpo da solicitação](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Captura de tela que mostra o "esquema JSON do corpo da solicitação".](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Selecione **+ nova etapa** no designer e siga estas etapas:
     1. Pesquise pelo **Office 365 Outlook-enviar um email**. 
     2. Selecione **enviar um email** de **ações**. 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/19/2019
 ms.author: genli
-ms.openlocfilehash: be124e7677774cbe6b4a0a2730c662f25b619ee0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f9907be0e7cd14876964b820d9b267f279fc50d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331447"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM do Linux anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
 Se a VM (máquina virtual) do Linux tiver um erro de disco ou de inicialização, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma entrada inválida em `/etc/fstab` que impede que a VM possa ser inicializada corretamente. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM do Linux para corrigir erros e recriar a VM original.
@@ -28,7 +28,7 @@ O processo de solução de problemas é o seguinte:
 1. Pare a VM afetada.
 1. Tire um instantâneo do disco do sistema operacional da VM.
 1. Crie um disco rígido virtual a partir do instantâneo.
-1. Anexe e monte o disco rígido virtual em outra VM Windows para fins de solução de problemas.
+1. Anexe e monte o disco rígido virtual em outra VM do Linux para fins de solução de problemas.
 1. Conecte-se à VM de solução de problemas. Edite os arquivos ou execute as ferramentas para corrigir os problemas no disco rígido virtual original.
 1. Desmonte e desanexe o disco rígido virtual da VM de solução de problemas.
 1. Troque o disco do sistema operacional da VM.
@@ -166,7 +166,7 @@ Depois de resolver os erros, desanexe o disco rígido virtual existente da VM de
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Trocar o disco do sistema operacional da VM
 
-Portal do Azure agora dá suporte à alteração do disco do sistema operacional da VM. Para fazer isso, siga estas etapas:
+Portal do Azure agora dá suporte à alteração do disco do sistema operacional da VM. Para fazer isso, execute estas etapas:
 
 1. Vá para [portal do Azure](https://portal.azure.com). Selecione **máquinas virtuais** na barra lateral e, em seguida, selecione a VM que tem o problema.
 1. No painel esquerdo, selecione **discos**e, em seguida, selecione **trocar disco do sistema operacional**.

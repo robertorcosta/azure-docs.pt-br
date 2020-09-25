@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296508"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331770"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Solucionar problemas do dispositivo e da descoberta de migrações para Azure
 
@@ -234,6 +234,7 @@ Erros típicos de descoberta de aplicativo são resumidos na tabela.
 9033: não é possível descobrir, pois o nome de usuário da VM contém caracteres inválidos.     |   Caracteres inválidos foram detectados no nome de usuário.   |   Forneça novamente a credencial de VM, garantindo que não há caracteres inválidos.
 9034: o nome de usuário fornecido não está no formato UPN.    |   O nome de usuário não está no formato UPN.  |   Verifique se o nome de usuário está no formato de nome UPN.
 9035: não é possível descobrir porque o modo de linguagem do PowerShell não está definido como ' idioma completo '.  |   O modo de linguagem do PowerShell na VM convidada não está definido como idioma completo.   |   Verifique se o modo de linguagem do PowerShell está definido como ' idioma completo '.
+9037: a coleta de dados foi pausada temporariamente, pois o tempo de resposta da VM é muito alto.    |   A VM descoberta está demorando muito para responder     |   Nenhuma ação é necessária. Uma nova tentativa será tentada em 24 horas para a descoberta de aplicativos e 3 horas para análise de dependência (sem agente).
 10000: não há suporte para o tipo de sistema operacional.   |   O sistema operacional em execução no servidor não é o Windows nem o Linux.    |   Os tipos de sistema operacional com suporte são somente Windows e Linux.
 10001: o script para a descoberta do servidor não foi encontrado no dispositivo.    |   A descoberta não está funcionando conforme o esperado.   |   Contate a Suporte da Microsoft para obter uma resolução.
 10002: a tarefa de descoberta não foi concluída no tempo.     |   O agente de descoberta não está funcionando conforme o esperado.     |   O problema deve ser resolvido automaticamente em 24 horas. Se o problema persistir, contate o Suporte da Microsoft.

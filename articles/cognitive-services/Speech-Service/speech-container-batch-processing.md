@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4d0800ff8a35c5c91b067a85dfcc089f2e343d1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090872"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319071"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento em lote para contêineres de fala
 
@@ -23,7 +23,7 @@ Use o kit de processamento em lote para complementar e expandir cargas de trabal
 
 :::image type="content" source="media/containers/general-diagram.png" alt-text="Um diagrama mostrando um exemplo de fluxo de trabalho de contêiner do kit de lote.":::
 
-O contêiner do kit do lote está disponível gratuitamente no [GitHub](https://github.com/microsoft/batch-processing-kit) e no [Hub do Docker](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). Você é [cobrado](speech-container-howto.md#billing) apenas pelos contêineres de fala que usa.
+O contêiner do kit do lote está disponível gratuitamente no [GitHub](https://github.com/microsoft/batch-processing-kit) e no   [Hub do Docker](https://hub.docker.com/r/batchkit/speech-batch-kit/tags). Você é [cobrado](speech-container-howto.md#billing) apenas pelos contêineres de fala que usa.
 
 | Recurso  | Descrição  |
 |---------|---------|
@@ -76,6 +76,8 @@ O cliente de lote pode detectar dinamicamente se um ponto de extremidade se torn
 > * Este exemplo usa o mesmo diretório ( `/my_nfs` ) para o arquivo de configuração e os diretórios de entradas, saídas e logs. Você pode usar diretórios montados ou com o NFS para essas pastas.
 > * Executar o cliente do com o `–h` listará os parâmetros de linha de comando disponíveis e seus valores padrão. 
 
+
+#### <a name="linux"></a>[Linux](#tab/linux)
 Use o comando Docker `run` para iniciar o contêiner. Isso iniciará um shell interativo dentro do contêiner.
 
 ```Docker
@@ -94,6 +96,18 @@ Para executar o cliente e o contêiner do lote em um único comando:
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
+#### <a name="windows"></a>[Windows](#tab/windows)
+
+Para executar o cliente e o contêiner do lote em um único comando:
+
+```Docker
+docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
+
+```
+
+---
+
+
 O cliente começará a ser executado. Se um arquivo de áudio já tiver sido transcrita em uma execução anterior, o cliente irá ignorar automaticamente o arquivo. Os arquivos são enviados com uma nova tentativa automática se ocorrerem erros transitórios e você pode diferenciar entre quais erros você deseja que o cliente tente novamente. Em um erro de transcrição, o cliente continuará a transcrição e poderá tentar novamente sem perder o progresso.  
 
 ## <a name="run-modes"></a>Modos de execução 
@@ -102,7 +116,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 #### <a name="oneshot"></a>[Oneshot](#tab/oneshot)
 
-`ONESHOT`o modo transcreve um único lote de arquivos de áudio (de um diretório de entrada e uma lista de arquivos opcionais) para uma pasta de saída.
+`ONESHOT` o modo transcreve um único lote de arquivos de áudio (de um diretório de entrada e uma lista de arquivos opcionais) para uma pasta de saída.
 
 :::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Um diagrama que mostra o contêiner do kit do lote Processando arquivos no modo oneshot.":::
 
@@ -117,7 +131,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 > [!TIP]
 > Se vários arquivos forem adicionados ao diretório de entrada ao mesmo tempo, você poderá melhorar o desempenho em vez de adicioná-los em um intervalo regular.
 
-`DAEMON`o modo transcreve os arquivos existentes em uma determinada pasta e, continuamente, transcreve novos arquivos de áudio à medida que eles são adicionados.          
+`DAEMON` o modo transcreve os arquivos existentes em uma determinada pasta e, continuamente, transcreve novos arquivos de áudio à medida que eles são adicionados.          
 
 :::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Um diagrama que mostra o contêiner do kit do lote Processando arquivos no modo daemon.":::
 
@@ -130,7 +144,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 #### <a name="rest"></a>[REST](#tab/rest)
 
-`REST`Mode é um modo de servidor de API que fornece um conjunto básico de pontos de extremidade HTTP para envio de lote de arquivos de áudio, verificação de status e sondagem longa. Também habilita o consumo programático usando uma extensão de módulo python ou a importação como um submódulo.
+`REST` Mode é um modo de servidor de API que fornece um conjunto básico de pontos de extremidade HTTP para envio de lote de arquivos de áudio, verificação de status e sondagem longa. Também habilita o consumo programático usando uma extensão de módulo python ou a importação como um submódulo.
 
 :::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Um diagrama que mostra o contêiner do kit do lote Processando arquivos no modo daemon.":::
 
@@ -149,7 +163,7 @@ O kit de processamento em lote oferece três modos, usando o `--run-mode` parâm
 
 ---
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 > [!NOTE]
 > O cliente do lote pode substituir o arquivo *Run. log* periodicamente se ele ficar muito grande.

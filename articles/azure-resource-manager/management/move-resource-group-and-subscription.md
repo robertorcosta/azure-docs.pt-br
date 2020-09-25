@@ -4,12 +4,12 @@ description: Use o Azure Resource Manager para mover recursos para um novo grupo
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319547"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -34,6 +34,10 @@ Há algumas etapas importantes a serem executadas antes de mover um recurso. Ao 
    * [Diretrizes de movimentação de rede](./move-limitations/networking-move-limitations.md)
    * [Diretrizes de movimentação dos serviços de recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Diretrizes de movimentação de máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md)
+
+1. Se você mover um recurso que tenha uma função do Azure atribuída diretamente ao recurso (ou a um recurso filho), a atribuição de função não será movida e se tornará órfã. Após a movimentação, você deve recriar a atribuição de função. Eventualmente, a atribuição de função órfãa será removida automaticamente, mas é uma prática recomendada remover a atribuição de função antes de mover o recurso.
+
+    Para obter informações sobre como gerenciar atribuições de função, consulte [listar atribuições de função do Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [Adicionar ou remover atribuições de função do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. As assinaturas de origem e de destino devem estar ativas. Se você tiver problemas para habilitar uma conta que tenha sido desabilitada [crie uma solicitação de Suporte do Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selecione **Subscription Management** para o tipo de problema.
 
@@ -194,7 +198,7 @@ Selecione o grupo de recursos de destino. Confirme que você precisa atualizar s
 
 Depois de validar que os recursos podem ser movidos, você verá uma notificação informando que a operação de movimentação está em execução.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notificação":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="Notification":::
 
 Quando for concluída, você será notificado sobre o resultado.
 

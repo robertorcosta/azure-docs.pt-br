@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 08/10/2020
 ms.author: vikancha
-ms.openlocfilehash: af9f7eb21d533bc5fb365e7cbf1fb8fc18184fa7
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 17ce5314f58a92158ff4fd187ad0ca46bb14a275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375220"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320159"
 ---
 # <a name="ncast4_v3-series-in-preview"></a>Série NCasT4_v3 (em versão prévia) 
 
-As máquinas virtuais da série NCasT4_v3 são alimentadas por GPUs [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPUs AMD EPYC 7V12 (Roma). O recurso de VMs tem até 4 GPUs NVIDIA T4 com 16 GB de memória cada, até 64 núcleos de processador EPYC de 7V12 (Roma) não multithread e 440 GiB de memória do sistema. Essas máquinas virtuais são ideais para executar cargas de trabalho ML e ia utilizando CUDA, TensorFlow, Pytorch, Caffe e outras estruturas ou as cargas de trabalho de gráficos usando a tecnologia de grade NVIDIA. A série NCasT4_v3 é ideal para a execução de cargas de trabalho de inferência.
+As máquinas virtuais da série NCasT4_v3 são alimentadas por GPUs [NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) e CPUs AMD EPYC 7V12 (Roma). O recurso de VMs tem até 4 GPUs NVIDIA T4 com 16 GB de memória cada, até 64 núcleos de processador EPYC de 7V12 (Roma) não multithread e 440 GiB de memória do sistema. Essas máquinas virtuais são ideais para a implantação de serviços de ia, como inferência em tempo real de solicitações geradas pelo usuário ou para gráficos interativos e cargas de trabalho de visualização usando o driver de grade da NVIDIA e a tecnologia de GPU virtual. As cargas de trabalho de computação de GPU padrão baseadas em CUDA, TensorRT, Caffe, ONNX e outras estruturas, ou aplicativos gráficos com aceleração de GPU com base em OpenGL e DirectX podem ser implantadas de forma econômica, com proximidade aos usuários, na série de NCasT4_v3.
 
 Você pode [Enviar uma solicitação](https://aka.ms/NCT4v3Preview) para fazer parte do programa de visualização.
 

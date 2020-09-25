@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: c083b0ca7fa506bb951a9ef27d2af04d61482eda
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 336c1e78143c09e07b8f05c3dbd10ca647844242
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319938"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutorial: configurar o diretório federado para provisionamento automático de usuário
 
@@ -128,11 +128,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **Credenciais de Administrador**, insira `https://api.federated.directory/v2/` na URL do locatário. Insira o valor que você recuperou e salvou anteriormente do diretório federado no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao diretório federado. Se a conexão falhar, verifique se sua conta de diretório federado tem permissões de administrador e tente novamente.
 
