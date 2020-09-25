@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 32d0c44abed2d4ace4c8896922ed7f6ed8b596ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987041"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326092"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauração pontual para BLOBs de blocos
 
@@ -37,13 +37,6 @@ Somente uma operação de restauração pode ser executada em uma conta de armaz
 
 A operação **restaurar intervalos de blob** retorna uma ID de restauração que identifica exclusivamente a operação. Para verificar o status de uma restauração pontual, chame a operação **obter status da restauração** com a ID de restauração retornada da operação **restaurar intervalos de blob** .
 
-Tenha em mente as seguintes limitações nas operações de restauração:
-
-- Um bloco que foi carregado por meio do [bloco Put](/rest/api/storageservices/put-block) ou [Put bloco da URL](/rest/api/storageservices/put-block-from-url), mas não confirmado via [lista de blocos Put](/rest/api/storageservices/put-block-list), não faz parte de um blob e, portanto, não é restaurado como parte de uma operação de restauração.
-- Um blob com uma concessão ativa não pode ser restaurado. Se um blob com uma concessão ativa estiver incluído no intervalo de BLOBs a serem restaurados, a operação de restauração falhará atomicamente.
-- Os instantâneos não são criados ou excluídos como parte de uma operação de restauração. Somente o blob de base é restaurado para seu estado anterior.
-- Se um blob tiver se movido entre as camadas quente e fria no período entre o momento atual e o ponto de restauração, o blob será restaurado para sua camada anterior. No entanto, um blob que foi movido para a camada de arquivo não será restaurado.
-
 > [!IMPORTANT]
 > Ao executar uma operação de restauração, o armazenamento do Azure bloqueia operações de dados nos BLOBs nos intervalos que estão sendo restaurados durante a operação. As operações de leitura, gravação e exclusão são bloqueadas no local principal. Por esse motivo, as operações como os contêineres de listagem no portal do Azure podem não ser executadas conforme o esperado enquanto a operação de restauração está em andamento.
 >
@@ -57,7 +50,7 @@ Tenha em mente as seguintes limitações nas operações de restauração:
 A restauração pontual requer que os seguintes recursos de armazenamento do Azure sejam habilitados antes de habilitar a restauração pontual:
 
 - [Exclusão reversível](soft-delete-overview.md)
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Feed de alteração](storage-blob-change-feed.md)
 - [Controle de versão de BLOB](versioning-overview.md)
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retenção para restauração pontual
@@ -76,9 +69,12 @@ Para iniciar uma operação de restauração, um cliente deve ter permissões de
 
 A restauração pontual para BLOBs de blocos tem as seguintes limitações e problemas conhecidos:
 
-- Somente os blobs de blocos em uma conta de armazenamento padrão de uso geral v2 podem ser restaurados como parte de uma operação de restauração pontual. Blobs de acréscimo, blobs de página e blobs de blocos Premium não são restaurados. Se você tiver excluído um contêiner durante o período de retenção, esse contêiner não será restaurado com a operação de restauração pontual. Para saber mais sobre como proteger contêineres da exclusão, consulte [exclusão reversível para contêineres (versão prévia)](soft-delete-container-overview.md).
-- Somente os blobs de blocos nas camadas quente ou fria podem ser restaurados em uma operação de restauração pontual. Não há suporte para a restauração de blobs de blocos na camada de arquivo. Por exemplo, se um blob na camada de acesso frequente foi movido para a camada de acesso aos arquivos dois dias atrás e uma operação de restauração a um ponto três dias atrás, o blob não será restaurado para a camada de acesso frequente. Para restaurar um blob arquivado, primeiro mova-o para fora da camada de arquivo morto.
-- Se um blob de blocos no intervalo a ser restaurado tiver uma concessão ativa, a operação de restauração pontual falhará. Interrompa todas as concessões ativas antes de iniciar a operação de restauração.
+- Somente os blobs de blocos em uma conta de armazenamento padrão de uso geral v2 podem ser restaurados como parte de uma operação de restauração pontual. Blobs de acréscimo, blobs de página e blobs de blocos Premium não são restaurados. 
+- Se você tiver excluído um contêiner durante o período de retenção, esse contêiner não será restaurado com a operação de restauração pontual. Se você tentar restaurar um intervalo de BLOBs que inclui BLOBs em um contêiner excluído, a operação de restauração pontual falhará. Para saber mais sobre como proteger contêineres da exclusão, consulte [exclusão reversível para contêineres (versão prévia)](soft-delete-container-overview.md).
+- Se um blob tiver se movido entre as camadas quente e fria no período entre o momento atual e o ponto de restauração, o blob será restaurado para sua camada anterior. Não há suporte para a restauração de blobs de blocos na camada de arquivo. Por exemplo, se um blob na camada de acesso frequente foi movido para a camada de acesso aos arquivos dois dias atrás e uma operação de restauração a um ponto três dias atrás, o blob não será restaurado para a camada de acesso frequente. Para restaurar um blob arquivado, primeiro mova-o para fora da camada de arquivo morto. Para obter mais informações, consulte [dados de blob reidratar da camada de arquivo morto](storage-blob-rehydration.md).
+- Um bloco que foi carregado por meio do [bloco Put](/rest/api/storageservices/put-block) ou [Put bloco da URL](/rest/api/storageservices/put-block-from-url), mas não confirmado via [lista de blocos Put](/rest/api/storageservices/put-block-list), não faz parte de um blob e, portanto, não é restaurado como parte de uma operação de restauração.
+- Um blob com uma concessão ativa não pode ser restaurado. Se um blob com uma concessão ativa estiver incluído no intervalo de BLOBs a serem restaurados, a operação de restauração falhará atomicamente. Interrompa todas as concessões ativas antes de iniciar a operação de restauração.
+- Os instantâneos não são criados ou excluídos como parte de uma operação de restauração. Somente o blob de base é restaurado para seu estado anterior.
 - Não há suporte para a restauração Azure Data Lake Storage Gen2 namespaces simples e hierárquicos.
 
 > [!IMPORTANT]

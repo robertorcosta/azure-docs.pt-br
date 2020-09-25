@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: Azure, Kinect, specs, hardware, DK, funcionalidades, profundidade, cor, RGB, IMU, matriz, profundidade, várias, sincronização
-ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85276412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361153"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizar vários dispositivos do Azure Kinect DK
 
@@ -26,7 +26,7 @@ Há vários motivos para usar vários dispositivos do Azure Kinect DK, incluindo
 
 - Preencha occlusions. Embora as transformações de dados do Azure Kinect DK produzam uma única imagem, as duas câmeras (profundidade e RGB) são, na verdade, uma pequena distância. O deslocamento torna o occlusions possível. Um oclusão ocorre quando um objeto de primeiro plano bloqueia a exibição de parte de um objeto de plano de fundo para uma das duas câmeras em um dispositivo. Na imagem de cor resultante, o objeto de primeiro plano parece converter uma sombra no objeto de plano de fundo.  
    Por exemplo, no diagrama a seguir, a câmera do lado esquerdo vê o pixel cinza "P2". No entanto, o objeto de primeiro plano branco bloqueia o feixe de IR da câmera do lado direito. A câmera do lado direito não tem dados para "P2".  
-   ![Oclusão](./media/occlusion.png)  
+   ![O diagrama mostra duas câmeras direcionadas no mesmo ponto com uma delas bloqueadas.](./media/occlusion.png)  
    Dispositivos sincronizados adicionais podem fornecer os dados de obstruído.
 - Verificar objetos em três dimensões.
 - Aumente a taxa de quadros efetivas para um valor maior que 30 quadros por segundo (FPS).

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f47569eef7281840108c32283f664c3218de23dc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954234"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357758"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configurar Always Encrypted usando o repositório de certificados do Windows
 
@@ -107,7 +107,7 @@ Clique em **Avançar** na página **Introdução** para abrir a página **Seleç
 
 Criptografe as informações de **SSN** e **BirthDate** de cada paciente. A coluna **SSN** usará criptografia determinística, que dá suporte a pesquisas de igualdade, junções e agrupamentos por categoria. A coluna **BirthDate** usará criptografia aleatória, que não permite operações.
 
-Defina o **Tipo de Criptografia** para a coluna **SSN** como **Determinístico** e a coluna **BirthDate** como **Aleatório**. Clique em **Próximo**.
+Defina o **Tipo de Criptografia** para a coluna **SSN** como **Determinístico** e a coluna **BirthDate** como **Aleatório**. Clique em **Avançar**.
 
 ![Criptografar Colunas](./media/always-encrypted-certificate-store-configure/column-selection.png)
 
@@ -127,7 +127,7 @@ Você pode criptografar as colunas agora ou salvar um script do PowerShell para 
 
 Verifique se as configurações estão corretas e clique em **Concluir** para finalizar a configuração do Always Encrypted.
 
-![Resumo](./media/always-encrypted-certificate-store-configure/summary.png)
+![Captura de tela mostra a página resultados com tarefas marcadas como aprovadas.](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Verificar as ações do assistente
 

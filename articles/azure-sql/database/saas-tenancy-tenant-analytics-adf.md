@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 66f22fa2781fb4c0f4caa07323b3de8cac1ef9fd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361102"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explore a análise de SaaS com o banco de dados SQL do Azure, o Azure Synapse Analytics, Data Factory e Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -111,7 +111,7 @@ No Pesquisador de Objetos:
     1. As tabelas de esquema em estrela são **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates **.
     1. O procedimento armazenado **sp_transformExtractedData** é usado para transformar os dados e carregá-lo nas tabelas de esquema em estrela.
 
-![DWtables](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
+![Captura de tela mostra o pesquisador de objetos com tabelas expandidas para mostrar vários objetos de banco de dados](./media/saas-tenancy-tenant-analytics-adf/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Armazenamento de blob
 
@@ -167,7 +167,7 @@ Há três conjuntos de dados correspondentes aos três serviços vinculados, que
   
 ### <a name="data-warehouse-pattern-overview"></a>Visão geral do padrão do data warehouse
 
-O Azure Synapse (anteriormente SQL Data Warehouse) é usado como o repositório de análise para executar a agregação nos dados do locatário. Neste exemplo, o polybase é usado para carregar dados no data warehouse. Dados brutos são carregados em tabelas de preparo que têm uma coluna de identidade para controlar as linhas que foram transformadas em tabelas da esquema em estrela. A imagem a seguir mostra o padrão de carga: ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+O Azure Synapse (anteriormente SQL Data Warehouse) é usado como o repositório de análise para executar a agregação nos dados do locatário. Neste exemplo, o polybase é usado para carregar dados no data warehouse. Dados brutos são carregados em tabelas de preparo que têm uma coluna de identidade para controlar as linhas que foram transformadas em tabelas da esquema em estrela. A imagem a seguir mostra o padrão de carregamento: ![ diagrama mostra o padrão de carregamento de tabelas de banco de dados.](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 Tabelas de dimensão SCD (Dimensão de Alteração Lenta) tipo 1 são usadas neste exemplo. Cada dimensão tem uma chave alternativa definida usando uma coluna de identidade. Como melhor prática, a tabela de dimensão de data é preenchida previamente para economizar tempo. Para as outras tabelas de dimensões, uma CREATE TABLE como SELECT... (CTAS) é usada para criar uma tabela temporária contendo as linhas existentes modificadas e não modificadas, juntamente com as chaves substitutas. Isso é feito com IDENTITY_INSERT = ON. Em seguida, novas linhas são inseridas na tabela com IDENTITY_INSERT = OFF. Para reverter facilmente, a tabela de dimensões existente é renomeada e a tabela temporária é renomeada para se tornar a nova tabela de dimensões. Antes de cada execução, a tabela de dimensões antiga é excluída.
 
@@ -181,14 +181,14 @@ Siga as etapas abaixo para executar todo o pipeline de extração, carga e trans
 
 1. Na guia **Autor** da interface do usuário do ADF, selecione o pipeline **SQLDBToDW** no painel esquerdo.
 1. Clique em **Disparador** e o, do menu suspenso, clique em **Disparar Agora**. Essa ação executa o pipeline imediatamente. Em um cenário de produção, você definiria um cronograma para executar o pipeline para atualizar os dados de acordo com uma programação.
-  ![adf_trigger](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
+  ![A captura de tela mostra os recursos de fábrica para um pipeline denominado S Q L D B a D W com a opção de gatilho expandida e o gatilho agora é selecionado.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
 1. Na página **Execução de Pipeline**, clique em **Concluir**.
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 
 1. Na interface do usuário do ADF, alterne para a guia **Monitor** no menu à esquerda.
 1. Clique em **Atualizar** até que o status do pipeline SQLDBToDW seja **Com êxito**.
-  ![adf_monitoring](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
+  ![A captura de tela mostra o pipeline S Q L D B a D W com um status de êxito.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Conecte-se ao data warehouse usando o SSMS e consulte as tabelas de esquema em estrela para verificar se os dados foram carregados nessas tabelas.
 
 Após a conclusão do pipeline, a tabela de fatos contém dados de vendas de ingressos de todas as casas de show e as tabelas de dimensões são preenchidas com as casas de show, os eventos e os clientes respectivos.

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: lbosq
-ms.openlocfilehash: 055604c399aa1641e823f24af499102bfff3ed0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a9058dec66ffe2e1c7ad4b15d9bf4eba12c647
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263085"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358518"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de otimização após a migração ao usar a API do Azure Cosmos DB para MongoDB
 
@@ -35,7 +35,7 @@ Neste guia, você aprenderá a:
 2. No [portal do Azure](https://www.portal.azure.com/), no painel esquerdo, abra o menu **todos os recursos** e localize a conta de Azure Cosmos DB para a qual você migrou seus dados.
 3. Abra a folha **cadeia de conexão** . O painel direito contém todas as informações necessárias para conectar-se à sua conta com êxito.
 4. Use as informações de conexão na configuração do aplicativo (ou em outros locais relevantes) para refletir a API do Azure Cosmos DB para a conexão do MongoDB em seu aplicativo.
-:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Cadeia de conexão":::
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Captura de tela mostra as configurações de uma cadeia de conexão.":::
 
 Para obter mais detalhes, consulte a página [conectar um aplicativo MongoDB ao Azure Cosmos DB](connect-mongodb-account.md) .
 
@@ -66,6 +66,6 @@ A maioria dos usuários deixa seu nível de consistência na configuração de c
 * [Conectar-se à conta do Azure Cosmos DB usando o Studio 3T](mongodb-mongochef.md)
 * [Como configurar distribuir globalmente as leituras usando a API do Azure Cosmos DB para MongoDB](mongodb-readpreference.md)
 * [Expirar os dados com a API do Azure Cosmos DB para MongoDB](mongodb-time-to-live.md)
-* [Níveis de coerência no Azure Cosmos DB](consistency-levels.md)
+* [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
 * [Indexação no Azure Cosmos DB](index-overview.md)
 * [Unidades de Solicitação no Azure Cosmos DB](request-units.md)

@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327486"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do mecanismo de regras Standard para a CDN do Azure
 
@@ -40,7 +40,7 @@ O incluído nesse limite é uma *regra global*padrão. A regra global não tem c
 
 Cada ponto de extremidade da CDN do Azure pode ter até 25 regras. Cada regra pode ter até dez condições de correspondência e cinco ações. O preço do mecanismo de regras segue as dimensões abaixo: 
 - Regras: $1 por regra por mês 
-- Solicitações processadas: $0.60 por milhão de requets
+- Solicitações processadas: $0.60 por milhão de solicitações
 - As primeiras 5 regras permanecerão livres
 
 ## <a name="syntax"></a>Sintaxe

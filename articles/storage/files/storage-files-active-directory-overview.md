@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561816"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358365"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral de opções de autenticação baseadas em identidades do Azure Files para acesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -34,7 +34,7 @@ Para saber como habilitar a autenticação de AD DS do Azure para compartilhamen
 
 -   **Active Directory do Azure (Azure AD)**
 
-    O Azure Active Directory (AD do Azure) é o serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft. O Azure AD combina serviços de diretório principais, gerenciamento de acesso a aplicativos e proteção de identidade em uma única solução. As VMs (máquinas virtuais) do Windows ingressadas no Azure AD podem acessar compartilhamentos de arquivos do Azure com suas credenciais do Azure AD. Para obter mais informações, consulte [o que é Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
+    O Azure Active Directory (AD do Azure) é o serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft. O Azure AD combina serviços de diretório principais, gerenciamento de acesso a aplicativos e proteção de identidade em uma única solução. As VMs (máquinas virtuais) do Windows ingressadas no Azure AD podem acessar compartilhamentos de arquivos do Azure com suas credenciais do Azure AD. Para obter mais informações, confira [O que é Azure Active Directory?](../../active-directory/fundamentals/active-directory-whatis.md)
 
 -   **Azure Active Directory Domain Services (Azure AD DS)**
 
@@ -114,7 +114,7 @@ O diagrama a seguir representa o fluxo de trabalho para a autenticação de AD D
 
 - Primeiro, você não precisa criar a identidade no Azure AD DS para representar a conta de armazenamento. Isso é executado pelo processo de habilitação em segundo plano.
 
-- Em segundo lugar, todos os usuários existentes no Azure AD podem ser autenticados e autorizados. O usuário pode ser somente na nuvem ou híbrido. A sincronização do Azure AD para o Azure AD DS é gerenciada pela plataforma sem a necessidade de nenhuma configuração de usuário. No entanto, o cliente deve estar ingressado no domínio para o Azure AD DS, não pode ser ingressado ou registrado no Azure AD. 
+- Em segundo lugar, todos os usuários que existem no Azure AD podem ser autenticados e autorizados. O usuário pode ser somente na nuvem ou híbrido. A sincronização do Azure AD para o Azure AD DS é gerenciada pela plataforma sem a necessidade de nenhuma configuração de usuário. No entanto, o cliente deve estar ingressado no domínio para o Azure AD DS, não pode ser ingressado ou registrado no Azure AD. 
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagrama":::
 

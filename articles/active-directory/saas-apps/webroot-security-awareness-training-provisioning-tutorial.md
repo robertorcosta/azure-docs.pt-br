@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 31c0e9a690bde7a52a32fd9194afda76e1aaba8c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5bdcf197b4e8a619e55895faf7637ebac0ac12ae
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329101"
+ms.locfileid: "91361118"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Tutorial: configurar o treinamento de reconhecimento de segurança do Webroot para o provisionamento automático de usuário
 
@@ -106,7 +106,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 5. Na seção **credenciais de administrador** , insira `https://awarenessapi.webrootanywhere.com/api/v2/scim` a **URL de locatário**. Insira o valor do token secreto recuperado anteriormente em **Token Secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao treinamento de reconhecimento de segurança do Webroot. Se a conexão falhar, verifique se sua conta de treinamento de reconhecimento de segurança do Webroot tem permissões de administrador e tente novamente.
 
-    ![provisionamento](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/webroot-security-awareness-training-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357566"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -29,7 +29,7 @@ Se você não encontrar respostas para suas perguntas nas perguntas frequentes, 
 
 **P: Por onde começar se eu quiser usar um modelo de linha de base?**
 
-**R**: Primeiro, obtenha uma [chave de assinatura](get-started.md). Se você quiser fazer chamadas REST para os modelos de linha de base pré-empregados, confira as [APIs REST](rest-apis.md). Se você quiser usar WebSockets, [baixe o SDK](speech-sdk.md).
+**R**: Primeiro, obtenha uma [chave de assinatura](overview.md#try-the-speech-service-for-free). Se você quiser fazer chamadas REST para os modelos de linha de base pré-empregados, confira as [APIs REST](rest-apis.md). Se você quiser usar WebSockets, [baixe o SDK](speech-sdk.md).
 
 **P: Preciso sempre criar um modelo de fala personalizado?**
 
@@ -167,4 +167,4 @@ As experiências de fala incorporadas ao Office 365, como ditado e legendas do P
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Solução de problemas](troubleshooting.md)
-- [Notas sobre a versão](releasenotes.md)
+- [Notas de versão](releasenotes.md)

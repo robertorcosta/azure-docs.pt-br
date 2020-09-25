@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8be0349bfff9ebc858d76928344039b6879d2b80
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357056"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solucionar problemas de conectividade de rede de VM do Azure para Azure
 
@@ -74,11 +74,11 @@ Este exemplo mostra como configurar regras de NSG para uma VM a ser replicada.
 
 1. Crie uma regra de segurança de saída HTTPS para o NSG, conforme mostrado na captura de tela a seguir. Este exemplo usa a **marca de serviço de destino**: _Storage. eastus_ e os **intervalos de porta de destino**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Captura de tela mostra um painel Adicionar regra de segurança de saída para uma regra de segurança para o ponto de armazenamento East S.":::
 
 1. Crie uma regra de segurança de saída HTTPS para o NSG, conforme mostrado na captura de tela a seguir. Este exemplo usa a **marca de serviço de destino**: _AzureActiveDirectory_ e intervalos de **porta de destino**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Captura de tela mostra um painel Adicionar regra de segurança de saída para uma regra de segurança para Azure Active Directory.":::
 
 1. Semelhante às regras de segurança acima, crie a regra de segurança HTTPS de saída (443) para "EventHub. Centralus" no NSG que corresponde ao local de destino. Isso permite o acesso ao monitoramento de Site Recovery.
 1. Crie uma regra de segurança HTTPS (443) de saída para "AzureSiteRecovery" no NSG. Isso permite o acesso ao Site Recovery Service em qualquer região.

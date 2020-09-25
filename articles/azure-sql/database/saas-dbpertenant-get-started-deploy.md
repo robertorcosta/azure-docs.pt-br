@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cfe440cb8ac98518547248485201b85dc0d0076d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542239"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356818"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão de banco de dados por locatário com o banco de dados SQL do Azure
 
@@ -57,7 +57,7 @@ Escolha seus nomes agora e os escreva.
 
 1. Para abrir o modelo de implantação de bancp de dados por locatárioWingtip Tickets SaaS no portal do Azure, selecione **Implantar no Azure**.
 
-   [![Imagem mostrando um botão rotulado como "implantar no Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
+   [![Imagem mostrando um botão rotulado como "Implantar no Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
 1. Insira os valores dos parâmetros necessários no modelo.
 
@@ -65,7 +65,7 @@ Escolha seus nomes agora e os escreva.
     > Algumas autenticações e firewalls de servidor estão intencionalmente desprotegidos para fins de demonstração. É recomendável que você crie um novo grupo de recursos. Não use grupos de recursos, servidores ou pools existentes. Não use esse aplicativo, scripts ou qualquer recurso implantado para produção. Exclua esse grupo de recursos quando tiver terminado com o aplicativo para interromper a cobrança relacionada.
 
     - **Grupo de recursos**: selecione **Criar novo** e forneça o nome exclusivo que você escolheu anteriormente para o grupo de recursos.
-    - **Localização**: selecione uma localização na lista suspensa.
+    - **Local**: selecione um local na lista suspensa.
     - **Usuário**: use o valor de nome de usuário que você escolheu anteriormente.
 
 1. Implante o aplicativo.
@@ -225,7 +225,7 @@ Agora que você começou a executar uma carga na coleção de locatários, vamos
 1. No [portal do Azure](https://portal.azure.com), navegue para sua lista de servidores SQL. Abra o servidor **catalog-dpt-&lt;USER&gt;**.
     - O servidor de catálogo contém dois bancos de dados, **tenantcatalog** e **basetenantdb** (um banco de dados modelo que é copiado para criar novos locatários).
 
-   ![Bancos de dados](./media/saas-dbpertenant-get-started-deploy/databases.png)
+   ![Captura de tela mostra uma página de visão geral do servidor de catálogo com os dois bancos de dados.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Volte à lista de servidores SQL.
 

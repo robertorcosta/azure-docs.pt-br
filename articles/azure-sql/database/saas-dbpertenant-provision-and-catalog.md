@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb962efd4bcf82518a80eb120579db7835e7115c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84027917"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356767"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Para entender como o aplicativo Wingtip Tickets implementa o novo provisionament
 
 2. Para adicionar um ponto de interrupção, coloque o cursor em qualquer lugar na linha que indica *Novo Locatário*. Em seguida, pressione F9.
 
-   ![Ponto de interrupção](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Captura de tela mostra um script com novo locatário realçado para adicionar um ponto de interrupção.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Para executar o script, pressione F5.
 

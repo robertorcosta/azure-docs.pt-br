@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 6887371e50f5b7e8706cac0a0700873c42bdac06
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321638"
+ms.locfileid: "91357772"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Estratégias de recuperação de desastre para aplicativos usando pools elásticos do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Tenho um aplicativo SaaS antigo com ofertas de serviço em camadas e diferentes 
 
 Para dar suporte a esse cenário, você deve separar os locatários de avaliação dos locatários pagos colocando-os em pools elásticos separados. Os clientes de avaliação têm menor eDTU ou vCores por locatário e menor SLA com um tempo de recuperação mais longo. Os clientes pagantes estão em um pool com maior eDTU ou vCores por locatário e um SLA maior. Para garantir o menor tempo de recuperação, os bancos de dados de locatário dos clientes pagantes devem ser replicados geograficamente. Essa configuração está ilustrada no diagrama a seguir.
 
-![Figura 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![O diagrama mostra uma região primária e uma região D R que empregam a replicação geográfica entre o banco de dados de gerenciamento e os clientes pagos pool primário e pool secundário sem replicação para o pool de clientes de avaliação.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 Como no primeiro cenário, os bancos de dados de gerenciamento estarão muito ativos. Portanto, use um banco de dados único replicado geograficamente para ele (1). Isso garantirá o desempenho previsível para novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região em que residem os bancos de dados de gerenciamento primários é a região primária e a região em que residem os bancos de dados de gerenciamento secundários é a região de DR.
 
@@ -86,7 +86,7 @@ Os bancos de dados de locatário dos clientes pagantes têm bancos de dados ativ
 
 Se uma interrupção na região primária ocorre, as etapas de recuperação para colocar o aplicativo online estão ilustradas no seguinte diagrama:
 
-![Figura 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![O diagrama mostra uma interrupção para a região primária, com failover para o banco de dados de gerenciamento, pool secundário do cliente pago e criação e restauração para clientes de avaliação.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * Faça o failover imediato dos bancos de dados de gerenciamento para a região de DR (3).
 * Altere a cadeia de conexão do aplicativo para apontar para a região da recuperação de desastres. Agora, todas as novas contas e bancos de dados de locatário são criados na região de DR. Os clientes de avaliação existentes verão seus dados como temporariamente indisponíveis.
@@ -99,7 +99,7 @@ Neste momento, seu aplicativo está online novamente na região da recuperação
 
 Quando a região primária é recuperada pelo Azure *depois* de você ter restaurado o aplicativo na região da recuperação de desastre, é possível continuar executando o aplicativo nessa região ou optar por fazer o failback para a região primária. Se a região primária for recuperada *antes* da conclusão do processo de failover, você deverá considerar fazer o failback imediatamente. O failback executará as etapas ilustradas no seguinte diagrama:
 
-![Figura 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![O diagrama mostra as etapas de failback a serem implementadas após a restauração da região primária.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Cancele todas as solicitações de restauração geográfica pendentes.
 * Faça o failover dos bancos de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se torna o secundário automaticamente. Agora, ele se tornará primário novamente.  
@@ -128,7 +128,7 @@ Para oferecer suporte a esse cenário, use três pools elásticos separados. For
 
 Para garantir o menor tempo de recuperação durante as interrupções, os bancos de dados de locatário de clientes pagantes deverão ser replicados geograficamente com 50% dos bancos de dados primários em cada uma das duas regiões. Da mesma forma, cada região tem 50% dos bancos de dados secundários. Dessa forma, se uma região estivesse offline, apenas 50% dos bancos de dados dos clientes pagantes serão afetados e teriam de fazer failover. Os outros bancos de dados permanecem intactos. Essa configuração é ilustrada no diagrama abaixo:
 
-![Figura 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![O diagrama mostra uma região primária chamada região A e região secundária chamada região B, que emprega a replicação geográfica entre o banco de dados de gerenciamento e os clientes pagos pool primário e o pool secundário sem replicação para o pool de clientes de avaliação.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 Como nos cenários anteriores, os bancos de dados de gerenciamento estarão muito ativos e, portanto, você deverá configurá-los como bancos de dados únicos replicados geograficamente (1). Isso garantirá o desempenho previsível para novas assinaturas de clientes, atualizações de perfil e outras operações de gerenciamento. A região A é a região primária para os bancos de dados de gerenciamento e a região B é usada para recuperação dos bancos de dados de gerenciamento.
 
@@ -136,7 +136,7 @@ Os bancos de dados de locatário dos clientes pagantes também serão replicados
 
 O diagrama a seguir ilustra as etapas de recuperação em caso de falha na região A.
 
-![Figura 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![O diagrama mostra uma interrupção para a região primária, com failover para o banco de dados de gerenciamento, o pool secundário do cliente pago e a criação e restauração de clientes de avaliação para a região B.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Faça imediatamente o failover dos bancos de dados de gerenciamento para a região B (3).
 * Altere a cadeia de conexão do aplicativo para apontar para os bancos de dados de gerenciamento na região B. Modifique os bancos de dados de gerenciamento para garantir que as novas contas e bancos de dados de locatário sejam criados na região B e que os bancos de dados existentes do inquilino estejam lá também. Os clientes de avaliação existentes verão seus dados como temporariamente indisponíveis.
@@ -152,7 +152,7 @@ Neste ponto, seu aplicativo está novamente online na região B. Todos os client
 
 Quando a região A for recuperada, você precisará decidir se deseja usar a região B para clientes de avaliação ou fazer o failback usando o pool de clientes de avaliação na região A. Um critério poderia ser a % dos bancos de dados de locatário de avaliação modificados desde a recuperação. Independentemente dessa decisão, você precisará balancear novamente os locatários pagantes entre dois pools. O próximo diagrama ilustra o processo quando os bancos de dados de locatário fazem failback para a região A.  
 
-![Figura 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![O diagrama mostra as etapas de failback a serem implementadas após a restauração da região A.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 * Cancele todas as solicitações de restauração geográfica pendentes para o pool da recuperação de desastres de avaliação.
 * Faça o failover do banco de dados de gerenciamento (8). Após a recuperação da região, o antigo primário se torna secundário automaticamente. Agora, ele se tornará primário novamente.  

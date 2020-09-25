@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361085"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Criar uma avaliação de VM do Azure
 
@@ -43,19 +43,19 @@ Execute uma avaliação da seguinte maneira:
 1. Examine as [melhores práticas](best-practices-assessment.md) para a criação de avaliações.
 2. Na guia **Servidores**, no bloco **Migrações para Azure: Avaliação de Servidor**, clique em **Avaliar**.
 
-    ![Avaliar](./media/how-to-create-assessment/assess.png)
+    ![Captura de tela mostra os servidores de migração do Azure com a avaliação selecionada em ferramentas de avaliação.](./media/how-to-create-assessment/assess.png)
 
-3. Em **avaliar servidores**, selecione o tipo de avaliação como "VM do Azure", selecione a origem da descoberta e especifique o nome da avaliação.
+3. Em **Avaliar servidores**, selecione o tipo de avaliação como "VM do Azure", selecione a origem da descoberta e especifique o nome da avaliação.
 
-    ![Noções básicas sobre avaliação](./media/how-to-create-assessment/assess-servers-azurevm.png)
+    ![Noções básicas sobre a avaliação](./media/how-to-create-assessment/assess-servers-azurevm.png)
 
 4. Clique em **Exibir tudo** para examinar as propriedades da avaliação.
 
     ![Propriedades de avaliação](./media/how-to-create-assessment//view-all.png)
 
-5. Clique em **Avançar** para **selecionar os computadores a serem avaliados**. Em **Selecionar ou criar um grupo**, selecione **Criar** e especifique um nome de grupo. Um grupo reúne uma ou mais VMs para avaliação.
+5. Clique em **avançar** para **Selecionar computadores para avaliação**. Em **Selecionar ou criar um grupo**, selecione **Criar** e especifique um nome de grupo. Um grupo reúne uma ou mais VMs para avaliação.
 6. Em **Adicionar computadores ao grupo**, selecione as VMs a serem adicionadas ao grupo.
-7. Clique em **Avançar** para **revisar + criar avaliação** para examinar os detalhes da avaliação.
+7. Clique em **avançar** para **Examinar + criar avaliação** para examinar os detalhes da avaliação.
 8. Clique em **Criar Avaliação** para criar o grupo e execute a avaliação.
 
     ![Criar uma avaliação](./media/how-to-create-assessment//assessment-create.png)

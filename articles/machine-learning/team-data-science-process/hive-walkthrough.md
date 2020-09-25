@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cb144aa7b6c717ada3a51fe3286f349bc3d8b325
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273907"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336506"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de ciência de dados da equipe)](overview.md) em um cenário de ponta a ponta. Usamos um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](https://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Para manipular a classificação binária e multiclasse e tarefas preditivas de regressão, criamos modelos dos dados com o Azure Machine Learning. 
@@ -89,7 +89,7 @@ Você pode configurar um ambiente do Azure para análises avançadas que empregu
    
    * Lembre-se de vincular a conta de armazenamento criada na etapa 1 ao cluster HDInsight ao criá-lo. Essa conta de armazenamento acessa dados que são processados no cluster.
    * Depois de criar o cluster, habilite o Acesso Remoto no nó de cabeçalho do cluster. Navegue para a guia **Configuração** e selecione **Habilitar Remoto**. Esta etapa especifica as credenciais de usuário usadas para logon remoto.
-3. [Criar um workspace do Azure Machine Learning](../studio/create-workspace.md): use esse workspace para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma exploração inicial e redução de dados usando o cluster HDInsight.
+3. [Criar um workspace do Azure Machine Learning](../classic/create-workspace.md): use esse workspace para criar modelos de aprendizado de máquina. Essa tarefa é abordada depois de concluir uma exploração inicial e redução de dados usando o cluster HDInsight.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Obter os dados de uma fonte de pública
 > [!NOTE]
@@ -915,7 +915,7 @@ Agora você pode continuar a criação e a implantação do modelo no [Machine L
   Aqui, o coeficiente de determinação é 0,709, implicando que aproximadamente 71% da variação é explicada pelos coeficientes de modelo.
 
 > [!IMPORTANT]
-> Para saber mais sobre o Machine Learning e como acessá-lo e usá-lo, consulte [O que é o Machine Learning](../studio/what-is-machine-learning.md). Além disso, a [galeria de IA do Azure](https://gallery.cortanaintelligence.com/) abrange uma gama de experimentos e fornece uma introdução abrangente às várias funcionalidades do Machine Learning.
+> Para saber mais sobre o Machine Learning e como acessá-lo e usá-lo, consulte [O que é o Machine Learning](../classic/index.yml). Além disso, a [galeria de IA do Azure](https://gallery.cortanaintelligence.com/) abrange uma gama de experimentos e fornece uma introdução abrangente às várias funcionalidades do Machine Learning.
 > 
 > 
 
@@ -924,8 +924,8 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 
 ## <a name="references"></a>Referências
 •   [Página de download de Viagens de Táxi de NYC, de Andrés Monroy](https://www.andresmh.com/nyctaxitrips/)  
-• [Frustrando os dados de corrida de táxi de NYC por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
-• [Pesquisa e estatísticas de NYC táxi e limusines Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+•    [Frustrando os dados de corrida de táxi de NYC por Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Pesquisa e estatísticas de NYC táxi e limusines Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
 [11]: ./media/hive-walkthrough/hive-reader-properties.png
@@ -937,6 +937,3 @@ Este passo a passo do exemplo e os scripts que o acompanham são compartilhados 
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
