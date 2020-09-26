@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: d2ad302042b277cf29b3a7b22af88b662686b3fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90993877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289762"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configurar o Azure defender para armazenamento
 
@@ -23,11 +23,11 @@ O Azure defender para armazenamento fornece uma camada adicional de inteligênci
 
 Os alertas de segurança são acionados quando ocorrem anomalias na atividade. Esses alertas de segurança são integrados à [central de segurança do Azure](https://azure.microsoft.com/services/security-center/)e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças.
 
-O serviço ingere logs de recursos de solicitações de leitura, gravação e exclusão para o armazenamento de BLOBs e para os arquivos do Azure (versão prévia) para detecção de ameaças. Para investigar os alertas do Azure defender, você pode exibir a atividade de armazenamento relacionada usando o log de Análise de Armazenamento. Para obter mais informações, consulte **Configurar o log** em [monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md#configure-logging).
+O serviço ingere logs de recursos de solicitações de leitura, gravação e exclusão para o armazenamento de BLOBs e para os arquivos do Azure para detecção de ameaças. Para investigar os alertas do Azure defender, você pode exibir a atividade de armazenamento relacionada usando o log de Análise de Armazenamento. Para obter mais informações, consulte **Configurar o log** em [monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilidade
 
-O Azure defender para armazenamento está disponível no momento para armazenamento de BLOBs, arquivos do Azure (versão prévia) e Azure Data Lake Storage Gen2 (versão prévia). Os tipos de conta que dão suporte ao Azure defender incluem contas de armazenamento de blob v2, BLOB de blocos e de uso geral. O Azure defender para armazenamento está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas não em outras regiões de nuvem soberanas ou do Azure governamental.
+O Azure defender para armazenamento está disponível no momento para armazenamento de BLOBs, arquivos do Azure e Azure Data Lake Storage Gen2. Os tipos de conta que dão suporte ao Azure defender incluem contas de armazenamento de blob v2, BLOB de blocos e de uso geral. O Azure defender para armazenamento está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas não em outras regiões de nuvem soberanas ou do Azure governamental.
 
 Contas com namespaces hierárquicos habilitados para Data Lake Storagem transações de suporte usando as APIs de armazenamento de BLOBs do Azure e as APIs de Data Lake Storage. Compartilhamentos de arquivos do Azure dão suporte a transações em SMB.
 
@@ -37,8 +37,8 @@ A lista a seguir resume a disponibilidade do Azure defender para armazenamento:
 
 - Estado da versão:
   - [Armazenamento de BLOBs](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
-  - [Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (versão prévia dá suporte a transações SMB e REST)
-  - Azure Data Lake Storage Gen2 (versão prévia)
+  - [Arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (disponibilidade geral)
+  - Azure Data Lake Storage Gen2 (disponibilidade geral)
 - Nuvens:<br>
     ✔ Nuvens comerciais<br>
     ✔ US Gov<br>
@@ -57,7 +57,7 @@ Quando você assina a camada Standard na central de segurança do Azure, o Azure
 1. Selecione a assinatura para a qual você deseja habilitar ou desabilitar o Azure defender.
 1. Selecione **Azure defender ativado** para habilitar o Azure defender para a assinatura.
 1. Em **selecionar plano do Azure defender por tipo de recurso**, localize a linha de **armazenamento** e selecione **habilitado** na coluna **plano** .
-1. Salve suas alterações.
+1. Salve as alterações.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Captura de tela mostrando como habilitar o Azure defender para armazenamento na central de segurança":::
 

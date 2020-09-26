@@ -1,14 +1,14 @@
 ---
 title: Integração dos Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
 description: Saiba como integrar os Hubs de Eventos do Azure com o Serviço de Link Privado do Azure
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716784"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334235"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure por meio de pontos de extremidade privados 
 O Serviço de Link Privado do Azure permite acessar os Serviços do Azure (por exemplo, os Hubs de Eventos do Azure, o Armazenamento do Azure e o Azure Cosmos DB) e serviços de parceiros/clientes hospedados no Azure em um **ponto de extremidade privado** em sua rede virtual.
@@ -24,10 +24,9 @@ Para obter mais informações, confira [O que é o Link Privado do Azure?](../pr
 > 
 > Aqui estão alguns dos serviços que não podem acessar os recursos dos hubs de eventos quando pontos de extremidade privados estão habilitados. Observe que a lista **não** é exaustiva.
 >
-> - Stream Analytics do Azure
 > - Rotas do Hub IoT do Azure
 > - Device Explorer do Azure IoT
-> - Grade de Eventos do Azure
+> - A Grade de Eventos do Azure
 > - Azure Monitor (configurações de diagnóstico)
 >
 > Como exceção, você pode permitir o acesso a recursos de hubs de eventos de determinados serviços confiáveis, mesmo quando os pontos de extremidade privados estiverem habilitados. Para obter uma lista de serviços confiáveis, consulte [serviços confiáveis](#trusted-microsoft-services).

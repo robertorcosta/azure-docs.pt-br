@@ -9,13 +9,13 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 38784b006acac4c3ff70b2aa3c38648e939eddeb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, fasttrack-edit
+ms.openlocfilehash: 6462226436aa7976f5293a5c271258be8a340cd4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889914"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322319"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Criar e gerenciar workspaces do Azure Machine Learning no portal do Azure
 
@@ -45,13 +45,14 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Caso não ten
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do workspace não diferencia maiúsculas de minúsculas.
    Subscription |Selecione a assinatura do Azure que deseja usar.
    Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
-   Location | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
-   Location | Selecione a localização mais próxima aos usuários e recursos de dados para criar o workspace.
+   Região | Selecione a região do Azure mais próxima aos usuários e aos recursos de dados para criar seu espaço de trabalho.
+   Edição do Workspace | Selecione **básico** ou **Enterprise**.  Essa edição de espaço de trabalho determina os recursos aos quais você terá acesso e preços. Saiba mais sobre [Azure Machine Learning](overview-what-is-azure-ml.md). 
 
     ![Configurar seu novo workspace](./media/how-to-manage-workspace/select-edition.png)
 
-1. Quando tiver terminado de configurar o espaço de trabalho, selecione **examinar + criar**.
-2. Examine as configurações e faça quaisquer alterações ou correções adicionais. Quando estiver satisfeito com as configurações, selecione **criar**.
+1. Quando tiver terminado de configurar o espaço de trabalho, selecione **examinar + criar**. Opcionalmente, use as seções [rede](#networking) e [avançado](#advanced) para definir mais configurações para o espaço de trabalho.
+
+1. Examine as configurações e faça quaisquer alterações ou correções adicionais. Quando estiver satisfeito com as configurações, selecione **criar**.
 
    > [!Warning] 
    > Pode levar vários minutos para criar seu workspace na nuvem.
@@ -59,6 +60,66 @@ Para criar um workspace, você precisa de uma assinatura do Azure. Caso não ten
    Quando o processo é finalizado, será exibida uma mensagem de êxito da implantação. 
  
  1. Para exibir o novo workspace, selecione **Ir para o recurso**.
+
+### <a name="networking"></a>Rede  
+
+> [!IMPORTANT]  
+> Para obter mais informações sobre como usar um ponto de extremidade privado e uma rede virtual com seu espaço de trabalho, consulte [isolamento de rede e privacidade](how-to-enable-virtual-network.md).  
+1. A configuração de rede padrão é usar um __ponto de extremidade público__, que pode ser acessado na Internet pública. Para limitar o acesso ao seu espaço de trabalho a uma rede virtual do Azure que você criou, você pode selecionar __ponto de extremidade privado__ (versão prévia) como o __método de conectividade__e, em seguida, usar __+ Adicionar__ para configurar o ponto de extremidade.   
+
+   > [!IMPORTANT]   
+   > O uso de um ponto de extremidade privado com Azure Machine Learning espaço de trabalho está atualmente em visualização pública. Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.  
+   > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Seleção de ponto de extremidade particular":::  
+
+1. No formulário __criar ponto de extremidade privado__ , defina o local, o nome e a rede virtual a ser usada. Se você quiser usar o ponto de extremidade com uma zona DNS privado, selecione __integrar com a zona DNS privada__ e selecione a zona usando o campo __zona de DNS privado__ . Selecione __OK__ para criar o ponto de extremidade.   
+
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Criação de ponto de extremidade particular":::   
+
+1. Quando terminar de configurar a rede, você poderá selecionar __revisar + criar__ou avançar para a configuração __avançada__ opcional. 
+
+    > [!WARNING]    
+    > Quando você cria um ponto de extremidade privado, uma nova zona de DNS privado chamada __privatelink.API.azureml.ms__ é criada. Ele contém um link para a rede virtual. Se você criar vários espaços de trabalho com pontos de extremidade privados no mesmo grupo de recursos, somente a rede virtual para o primeiro ponto final privado poderá ser adicionada à zona DNS. Para adicionar entradas para as redes virtuais usadas pelos pontos de extremidade de espaços de trabalho/particulares adicionais, use as seguintes etapas: 
+    >   
+    > 1. No [portal do Azure](https://portal.azure.com), selecione o grupo de recursos que contém o espaço de trabalho. Em seguida, selecione o DNS privado recurso de zona chamado __privatelink.API.azureml.ms__.    
+    > 2. Nas __configurações__, selecione __links de rede virtual__. 
+    > 3. Selecione __Adicionar__. Na página __Adicionar link de rede virtual__ , forneça um __nome de link__exclusivo e selecione a __rede virtual__ a ser adicionada. Selecione __OK__ para adicionar o link de rede.    
+    >   
+    > Para obter mais informações, consulte [configuração de DNS do ponto de extremidade privado do Azure](/azure/private-link/private-endpoint-dns).   
+
+### <a name="vulnerability-scanning"></a>Verificação de vulnerabilidade
+
+A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida. Você deve permitir que a central de segurança do Azure verifique seus recursos e siga suas recomendações. Para obter mais informações, consulte  [verificação de imagem do registro de contêiner do Azure por central de segurança](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) e [integração dos serviços do Azure kubernetes com a central de segurança](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+
+### <a name="advanced"></a>Avançado    
+
+Por padrão, as métricas e os metadados para o espaço de trabalho são armazenados em uma instância Azure Cosmos DB que a Microsoft mantém. Esses dados são criptografados usando chaves gerenciadas pela Microsoft.  
+
+Para limitar os dados que a Microsoft coleta em seu espaço de trabalho, selecione __alto espaço de trabalho de impacto nos negócios__. Para obter mais informações sobre essa configuração, consulte [criptografia em repouso](concept-enterprise-security.md#encryption-at-rest).
+
+> [!IMPORTANT]  
+> A seleção de alto impacto nos negócios só pode ser feita durante a criação de um espaço de trabalho. Você não pode alterar essa configuração após a criação do espaço de trabalho.   
+Se você estiver usando a versão __empresarial__ do Azure Machine Learning, poderá fornecer sua própria chave. Isso cria a instância de Azure Cosmos DB que armazena métricas e metadados em sua assinatura do Azure. Use as seguintes etapas para usar sua própria chave:    
+
+> [!IMPORTANT]  
+> Antes de seguir essas etapas, você deve primeiro executar as seguintes ações:   
+>   
+> 1. Autorize o __aplicativo Machine Learning__ (no gerenciamento de identidade e acesso) com permissões de colaborador em sua assinatura.  
+> 1. Siga as etapas em [Configurar chaves gerenciadas pelo cliente](/azure/cosmos-db/how-to-setup-cmk) para:   
+>     * Registrar o provedor de Azure Cosmos DB   
+>     * Criar e configurar um Azure Key Vault 
+>     * Gerar uma chave  
+>   
+>     Você não precisa criar manualmente a instância de Azure Cosmos DB, uma será criada para você durante a criação do espaço de trabalho. Esta instância de Azure Cosmos DB será criada em um grupo de recursos separado usando um nome com base neste padrão: `<your-workspace-resource-name>_<GUID>` .   
+>   
+> Você não pode alterar essa configuração após a criação do espaço de trabalho. Se você excluir o Azure Cosmos DB usado pelo seu espaço de trabalho, também deverá excluir o espaço de trabalho que o está usando.   
+1. Selecione __chaves gerenciadas pelo cliente__e, em seguida, selecione __clique para selecionar chave__.   
+
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Chaves gerenciadas pelo cliente":::   
+
+1. No formulário __selecionar chave de Azure Key Vault__ , selecione um Azure Key Vault existente, uma chave que ele contém e a versão da chave. Essa chave é usada para criptografar os dados armazenados no Azure Cosmos DB. Por fim, use o botão __selecionar__ para usar essa chave. 
+
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Selecione a chave":::
 
 ### <a name="download-a-configuration-file"></a>Baixar um arquivo de configuração
 

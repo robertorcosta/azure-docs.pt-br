@@ -1,6 +1,6 @@
 ---
 title: Adicionar um fluxo dos usuários de inscrição por autoatendimento — Azure AD
-description: Federar com o Facebook para permitir que usuários externos (convidados) entrem em seus aplicativos do Azure AD com suas próprias contas do Facebook.
+description: Crie fluxos de usuário para aplicativos que são criados por sua organização. Em seguida, os usuários que visitam esse aplicativo podem obter uma conta de convidado usando as opções configuradas no fluxo do usuário.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fa9d9e23de9a4ec93cbef6d2696d7bec70d41d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ffb1d5eb756c7bc316a6d8e1de30a95eb1ac5194
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907903"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287042"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo (visualização)
 > [!NOTE]

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 7408d7609cbceb4ac39298680b6d3854a2d71306
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358314"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para provisionamento automático de usuário
 
@@ -71,11 +71,11 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 6. Na nova janela, entre no GitHub usando sua conta do Administrador. Na caixa de diálogo de autorização resultante, selecione a equipe do GitHub para a qual você deseja habilitar o provisionamento e, em seguida, selecione **Autorizar**. Depois de concluído, retorne ao Portal do Azure para concluir a configuração de provisionamento.
 
-    ![Caixa de diálogo Autorização](./media/github-provisioning-tutorial/GitHub2.png)
+    ![Captura de tela mostra a página de entrada do GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
 
 7. No portal do Azure, insira a **URL de Locatário** e clique em **Testar Conectividade** para garantir que o Azure AD pode se conectar ao aplicativo GitHub. Se a conexão falhar, verifique se sua conta do GitHub tem permissões de Administrador e se a **URI de Locatário** foi inserida corretamente. Em seguida, repita a etapa "Autorizar" (a **URL de Locatário** pode ser constituída pela regra: `https://api.github.com/scim/v2/organizations/<Organization_name>`. Encontre as organizações em sua conta do GitHub: **Configurações** > **Organizações**).
 
-    ![Caixa de diálogo Autorização](./media/github-provisioning-tutorial/GitHub3.png)
+    ![Captura de tela mostra a página organizações no GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
 
 8. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção “Enviar uma notificação por email quando ocorrer uma falha”.
 

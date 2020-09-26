@@ -3,12 +3,12 @@ title: Definir senhas para VMs no Azure Lab Services | Microsoft Docs
 description: Saiba como definir e redefinir senhas para VMs (máquinas virtuais) em laboratórios de sala de aula do Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6012123b729bd1be6b4ff0fdb00d71aca56cfa09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443767"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334065"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerenciar o pool de máquinas virtuais 
 Este artigo mostra como fazer as seguinte tarefas:
@@ -24,7 +24,7 @@ Para aumentar ou diminuir a capacidade do laboratório (número de máquinas vir
 2. Insira o novo **número de VMs** desejado no laboratório. Esse número deve ser maior ou igual ao número de usuários registrados no laboratório. 
 3. Em seguida, selecione **Salvar**. 
 
-    ![Botão Iniciar tudo](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    ![Captura de tela que mostra a janela "capacidade do laboratório" com o botão "máximo de computadores no laboratório" e "salvar" selecionado.](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. Se você tiver aumentado a capacidade, poderá ver a VM ou as VMs que estão sendo criadas. Se você não vir a nova VM na lista, atualize a página. 
 
     ![VM sendo criada](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 675d9c76841ba1a4b94b666c7ff4ac4287fc5264
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f480cb0d478ca60555fa15849d5fcbed6cda684
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525166"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91286107"
 ---
 # <a name="tutorial-configure-smartfile-for-automatic-user-provisioning"></a>Tutorial: configurar o Smartfile para o provisionamento automático de usuário
 
@@ -58,9 +58,9 @@ Antes de configurar o Smartfile para o provisionamento automático de usuário c
 
 2. Para gerar um token de portador, copie a **chave do produto** e a senha do **produto**. Cole-os em um bloco de notas com dois-pontos entre eles.
     
-     ![Adicionar SCIM do smartfile](media/smartfile-provisioning-tutorial/auth.png)
+     ![Captura de tela da seção chave do produto com as caixas de texto chave do produto e senha do produto denominadas.](media/smartfile-provisioning-tutorial/auth.png)
 
-    ![Adicionar SCIM do smartfile](media/smartfile-provisioning-tutorial/key.png)
+    ![Captura de tela de texto não criptografado mostrando chave do produto e senha do produto separados por dois-pontos.](media/smartfile-provisioning-tutorial/key.png)
 
 ## <a name="add-smartfile-from-the-gallery"></a>Adicionar o Smartfile da Galeria
 
@@ -103,11 +103,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5.  Na seção **credenciais de administrador** , insira `https://<SmartFile sitename>.smartfile.com/ftp/scim` a **URL de locatário**. Um exemplo seria semelhante `https://demo1test.smartfile.com/ftp/scim` . Insira o valor do **token de portador** (ProductKey: ProductPassword) que você recuperou anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao smartfile. Se a conexão falhar, verifique se sua conta do Smartfile tem permissões de administrador e tente novamente.
 

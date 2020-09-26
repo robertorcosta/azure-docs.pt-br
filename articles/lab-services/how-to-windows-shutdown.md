@@ -3,12 +3,12 @@ title: Guia para controlar o comportamento de desligamento do Windows no Azure L
 description: Etapas para desligar automaticamente uma máquina virtual do Windows ociosa e remover o comando de desligamento do Windows.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c20bc2bb79faf53c4f3fbd113c18c5c6d923e59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445161"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334014"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Guia para controlar o comportamento de desligamento do Windows
 
@@ -61,7 +61,7 @@ Ou, você pode optar por seguir estas etapas manuais usando a VM de modelo:
 
 1. Vá para **configuração do computador > Modelos Administrativos > componentes do Windows > serviços de área de trabalho remota**> host da sessão da área de trabalho remota > limites de tempo de sessão.  
 
-    ![Editor de política de grupo local](./media/how-to-windows-shutdown/group-policy-idle.png)
+    ![Captura de tela que mostra o "editor de diretiva de grupo local" com "limites de tempo de sessão" selecionado.](./media/how-to-windows-shutdown/group-policy-idle.png)
    
 1. Clique com o botão direito do mouse em **definir limite de tempo para sessões ativas, mas ociosas serviços de área de trabalho remota**e clique em **Editar**.
 

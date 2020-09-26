@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 562766ada8fb9a2620fa83875dc98d02ab752d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323100"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinar o tamanho de sub-rede necessário & intervalo para o SQL Instância Gerenciada do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ GP = uso geral; BC = comercialmente crítico; VC = cluster virtual
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \*Total da coluna exibe o número de endereços que seriam tomadas quando uma instância é implantada na sub-rede. Cada instância adicional na sub-rede Adiciona o número de endereços representados com a coluna uso da instância. Os endereços representados com a coluna uso do Azure são compartilhados entre vários clusters virtuais, enquanto os endereços representados com a coluna uso do VC são compartilhados entre instâncias colocadas nesse cluster virtual.
+  \* Total da coluna exibe o número de endereços que seriam tomadas quando uma instância é implantada na sub-rede. Cada instância adicional na sub-rede Adiciona o número de endereços representados com a coluna uso da instância. Os endereços representados com a coluna uso do Azure são compartilhados entre vários clusters virtuais, enquanto os endereços representados com a coluna uso do VC são compartilhados entre instâncias colocadas nesse cluster virtual.
 
 A operação de atualização normalmente requer redimensionamento de cluster virtual. Em algumas circunstâncias, a operação de atualização exigirá a criação do cluster virtual (para obter mais detalhes, consulte o [artigo operações de gerenciamento](sql-managed-instance-paas-overview.md#management-operations)). No caso da criação do cluster virtual, o número de endereços adicionais necessários é igual ao número de endereços representados pela coluna uso do VC somada com os endereços necessários para as instâncias colocadas nesse cluster virtual (coluna uso da instância).
 
@@ -88,7 +88,7 @@ Durante o dimensionamento, as instâncias de operação requerem temporariamente
 | Gen5 | BC | Dimensionando o armazenamento | 5 |
 | Gen5 | BC | Alternando para GP | 3 |
 
-  \*O hardware Gen4 está sendo descontinuado e não está mais disponível para novas implantações. Atualize a geração de hardware de Gen4 para Gen5 para aproveitar os recursos específicos da geração de hardware Gen5.
+  \* O hardware Gen4 está sendo descontinuado e não está mais disponível para novas implantações. Atualize a geração de hardware de Gen4 para Gen5 para aproveitar os recursos específicos da geração de hardware Gen5.
 
 ## <a name="next-steps"></a>Próximas etapas
 

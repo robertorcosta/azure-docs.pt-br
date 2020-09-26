@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333844"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usar o Azure Machine Learning Studio em uma rede virtual do Azure
 
@@ -56,8 +56,7 @@ Por exemplo, se você estiver usando NSG (grupos de segurança de rede) para res
 
 ## <a name="access-data-using-the-studio"></a>Acessar dados usando o estúdio
 
-Se os dados estiverem armazenados em uma rede virtual, você deverá configurar suas contas de armazenamento para usar a [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para conceder ao estúdio acesso aos seus dados.
-
+Depois de [Adicionar uma conta de armazenamento do Azure à sua rede virtual](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts), você deve configurar sua conta de armazenamento para usar a [identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para conceder ao estúdio acesso aos seus dados. O estúdio dá suporte a contas de armazenamento configuradas para usar pontos de extremidade de serviço ou pontos de extremidade privados. As contas de armazenamento usam pontos de extremidade de serviço por padrão. Para habilitar pontos de extremidade privados para armazenamento, consulte [usar pontos de extremidade privados para o armazenamento do Azure](../storage/common/storage-private-endpoints.md)
 
 Se você não habilitar a identidade gerenciada, receberá esse erro, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` Além disso, as seguintes operações serão desabilitadas:
 
@@ -72,7 +71,6 @@ O estúdio dá suporte à leitura de dados dos seguintes tipos de repositório d
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
 * Banco de Dados SQL do Azure
-
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Configurar os repositórios de armazenamento para usar identidade gerenciada
 

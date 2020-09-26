@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 44ed9c0d19b6e0034b49e36448765d098d575273
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325310"
+ms.locfileid: "91356861"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usar a restauração geográfica para recuperar um aplicativo SaaS multilocatário de backups de banco de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este tutorial explora um cenário de recuperação de desastre para um aplicativo SaaS multilocatário implementado com o banco de dados por modelo de locatário. Você usa a [restauração geográfica](recovery-using-backups.md) para recuperar os bancos de dados do catálogo e de locatário de backups com redundância geográfica automaticamente mantidos em uma região de recuperação alternativa. Depois que a interrupção for resolvida, você usará a [replicação geográfica](active-geo-replication-overview.md) para repatriar bancos de dados alterados para a região original deles.
 
-![Geo-restore-architecture](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![O diagrama mostra uma região original e de recuperação, ambas com um aplicativo, catálogo, imagens originais ou espelhadas de servidores e pools, backups automáticos para armazenamento, com a região de recuperação aceitando a replicação geográfica do backup e tendo o servidor e o pool para novos locatários.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 A restauração geográfica é a solução de recuperação de desastre de menor custo para o Banco de Dados SQL do Azure. No entanto, a restauração de backups com redundância geográfica pode resultar em perda de dados de até uma hora. Pode levar um tempo considerável, dependendo do tamanho de cada banco de dados. 
 
