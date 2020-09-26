@@ -3,14 +3,14 @@ title: Visão geral do recurso Iniciar/Parar VMs fora do horário comercial da A
 description: Este artigo descreve o recurso Iniciar/Parar VMs fora do horário comercial, que inicia ou interrompe as VMs de acordo com um agendamento e as monitora proativamente a partir de logs do Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317354"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
@@ -37,13 +37,15 @@ A seguir estão as limitações do recurso atual:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./manage-runas-account.md). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
+- Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./manage-runas-account.md). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
 
-Recomendamos que você use uma conta de Automação separada para trabalhar com VMs habilitadas para o recurso Iniciar/Parar VMs fora do horário comercial. As versões de módulo do Azure são atualizadas com frequência, e seus parâmetros podem ser alterados. O recurso não é atualizado na mesma cadência e pode não funcionar com as versões mais recentes dos cmdlets que ele usa. É recomendável testar as atualizações do módulo em uma conta de Automação de teste antes de importá-las para suas contas de Automação de produção.
+- A conta de automação vinculada e o espaço de trabalho Log Analytics precisam estar no mesmo grupo de recursos.
+
+- Recomendamos que você use uma conta de Automação separada para trabalhar com VMs habilitadas para o recurso Iniciar/Parar VMs fora do horário comercial. As versões de módulo do Azure são atualizadas com frequência, e seus parâmetros podem ser alterados. O recurso não é atualizado na mesma cadência e pode não funcionar com as versões mais recentes dos cmdlets que ele usa. É recomendável testar as atualizações do módulo em uma conta de Automação de teste antes de importá-las para suas contas de Automação de produção.
 
 ## <a name="permissions"></a>Permissões
 
-Você deve ter determinadas permissões a fim de habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercial. As permissões são diferentes dependendo se o recurso usar uma conta de Automação criada previamente e um workspace do Log Analytics ou criar uma conta e um workspace. 
+Você deve ter determinadas permissões a fim de habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercial. As permissões são diferentes dependendo se o recurso usar uma conta de Automação criada previamente e um workspace do Log Analytics ou criar uma conta e um workspace.
 
 Você não precisará configurar permissões se for um Colaborador na assinatura e um Administrador global em seu locatário do Azure AD (Active Directory). Se você não tiver esses direitos ou precisar configurar uma função personalizada, verifique se tem as permissões descritas abaixo.
 
@@ -53,24 +55,24 @@ Para habilitar as VMs para o recurso Iniciar/Parar VMs fora do horário comercia
 
 | Permissão | Escopo|
 | --- | --- |
-| Microsoft.Automation/automationAccounts/read | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/variables/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/schedules/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/runbooks/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/connections/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/certificates/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/modules/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/modules/read | Grupo de Recursos |
-| Microsoft.automation/automationAccounts/jobSchedules/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/jobs/write | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/jobs/read | Grupo de Recursos |
-| Microsoft.OperationsManagement/solutions/write | Grupo de Recursos |
-| Microsoft.OperationalInsights/workspaces/* | Grupo de Recursos |
-| Microsoft.Insights/diagnosticSettings/write | Grupo de Recursos |
-| Microsoft.Insights/ActionGroups/Write | Grupo de Recursos |
-| Microsoft.Insights/ActionGroups/read | Grupo de Recursos |
-| Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de Recursos |
-| Microsoft.Resources/deployments/* | Grupo de Recursos |
+| Microsoft.Automation/automationAccounts/read | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/variables/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/schedules/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/runbooks/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/connections/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/certificates/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/modules/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/modules/read | Grupo de recursos |
+| Microsoft.automation/automationAccounts/jobSchedules/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/jobs/write | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/jobs/read | Grupo de recursos |
+| Microsoft.OperationsManagement/solutions/write | Grupo de recursos |
+| Microsoft.OperationalInsights/workspaces/* | Grupo de recursos |
+| Microsoft.Insights/diagnosticSettings/write | Grupo de recursos |
+| Microsoft.Insights/ActionGroups/Write | Grupo de recursos |
+| Microsoft.Insights/ActionGroups/read | Grupo de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de recursos |
+| Microsoft.Resources/deployments/* | Grupo de recursos |
 
 ### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>Permissões para uma nova conta de Automação e um novo workspace do Log Analytics
 
@@ -86,9 +88,9 @@ Você pode habilitar VMs para o recurso Iniciar/Parar VMs fora do horário comer
 | Microsoft.Authorization/permissions/read |Subscription|
 | Microsoft.Authorization/roleAssignments/read | Subscription |
 | Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/certificates/read | Grupo de Recursos |
-| Microsoft.Automation/automationAccounts/write | Grupo de Recursos |
+| Microsoft.Authorization/roleAssignments/delete | Subscription || Microsoft.Automation/automationAccounts/connections/read | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/certificates/read | Grupo de recursos |
+| Microsoft.Automation/automationAccounts/write | Grupo de recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de recursos |
 
 ## <a name="components"></a>Componentes
@@ -107,7 +109,7 @@ Todos os runbooks pai incluem o parâmetro `WhatIf`. Quando definido como True, 
 |Runbook | Parâmetros | Descrição|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chamada a partir do runbook pai. Esse runbook cria alertas por recurso para o cenário Auto-Stop.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza regras de alerta do Azure em VMs nos grupos de assinatura ou de recursos de destino. <br> `VMList`é uma lista separada por vírgulas de VMs (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf` habilita a validação da lógica do runbook sem execução.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza regras de alerta do Azure em VMs nos grupos de assinatura ou de recursos de destino. <br> `VMList` é uma lista separada por vírgulas de VMs (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf` habilita a validação da lógica do runbook sem execução.|
 |AutoStop_Disable | Nenhum | Desabilita os alertas de Auto-Stop e o agendamento padrão.|
 |AutoStop_VM_Child | WebHookData | Chamada a partir do runbook pai. As regras de alerta chamam esse runbook para parar uma VM clássica.|
 |AutoStop_VM_Child_ARM | WebHookData |Chamada a partir do runbook pai. As regras de alerta chamam esse runbook para interromper uma VM.  |

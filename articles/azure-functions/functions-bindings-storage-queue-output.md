@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 06d9ea895607332c8de25176376d52987ceed7a1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1d86009d593ef7e594ec2981132bcfb856569c31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212280"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317218"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Associações de saída do armazenamento de filas do Azure para Azure Functions
 
@@ -365,7 +365,7 @@ O item fila de saída está disponível por meio `context.bindings.<NAME>` `<NAM
 
 # <a name="python"></a>[Python](#tab/python)
 
-Há duas opções para a saída de uma mensagem do hub de eventos de uma função:
+Há duas opções para a saída de uma mensagem de fila de uma função:
 
 - **Valor de retorno**: defina a `name` propriedade no *function.js* como `$return` . Com essa configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
 
@@ -373,11 +373,11 @@ Há duas opções para a saída de uma mensagem do hub de eventos de uma funçã
 
 # <a name="java"></a>[Java](#tab/java)
 
-Há duas opções para a saída de uma mensagem do hub de eventos de uma função usando a anotação [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
+Há duas opções para a saída de uma mensagem de fila de uma função usando a anotação [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
 
-- **Valor de retorno**: ao aplicar a anotação à própria função, o valor de retorno da função é persistido como uma mensagem do hub de eventos.
+- **Valor de retorno**: aplicando a anotação à própria função, o valor de retorno da função é persistido como uma mensagem da fila.
 
-- **Imperativo**: para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , em que `T` é um POJO ou qualquer tipo de Java nativo. Com essa configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem do hub de eventos.
+- **Imperativo**: para definir explicitamente o valor da mensagem, aplique a anotação a um parâmetro específico do tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding) , em que `T` é um POJO ou qualquer tipo de Java nativo. Com essa configuração, passar um valor para o `setValue` método persiste o valor como uma mensagem da fila.
 
 ---
 

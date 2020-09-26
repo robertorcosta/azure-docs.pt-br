@@ -4,13 +4,13 @@ description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-js
+ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317169"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -204,8 +204,8 @@ O contexto passado para sua função expõe uma `executionContext` propriedade, 
 | Nome da propriedade  | Type  | Descrição |
 |---------|---------|---------|
 | `invocationId` | String | Fornece um identificador exclusivo para a invocação de função específica. |
-| `functionName` | Cadeia de caracteres | Fornece o nome da função em execução |
-| `functionDirectory` | Cadeia de caracteres | Fornece o diretório de aplicativos do functions. |
+| `functionName` | String | Fornece o nome da função em execução |
+| `functionDirectory` | String | Fornece o diretório de aplicativos do functions. |
 
 O exemplo a seguir mostra como retornar o `invocationId` .
 
@@ -487,7 +487,7 @@ Há duas maneiras de instalar pacotes no aplicativo de funções:
 
 
 ### <a name="using-kudu"></a>Usando o Kudu
-1. Ir para `https://<function_app_name>.scm.azurewebsites.net`.
+1. Acesse `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Clique em **console de depuração**  >  **cmd**.
 

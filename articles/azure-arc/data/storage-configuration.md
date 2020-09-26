@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 782a046b92c9d6cf755bfea0551d7f8153faa859
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933221"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317320"
 ---
 # <a name="storage-configuration"></a>Configuração de armazenamento
 
@@ -151,10 +151,11 @@ Fatores importantes a serem considerados ao escolher uma classe de armazenamento
 
 - Você **deve** usar uma classe de armazenamento compartilhada remota para garantir a durabilidade dos dados e, portanto, se um pod ou nó se tornar inativo quando o Pod for colocado em backup, ele poderá se conectar novamente ao volume persistente.
 - Os dados que estão sendo gravados na instância do SQL do controlador, no banco de dados de métricas e no BD de logs normalmente são um volume bem baixo e não são sensíveis à latência, portanto, o armazenamento de desempenho extremamente rápido não é crítico. Se você tiver usuários com frequência usando as interfaces Grafana e Kibana e tiver um grande número de instâncias de banco de dados, os usuários poderão se beneficiar do armazenamento mais rápido.
-- A capacidade de armazenamento necessária é variável com o número de instâncias de banco de dados que você implantou, pois os logs e as métricas são coletados para cada instância do banco de dados. Os dados são mantidos nos logs e no BD de métricas por duas semanas antes de serem limpos. TODO: a quantidade de armazenamento necessária por instância de banco de BD?
+- A capacidade de armazenamento necessária é variável com o número de instâncias de banco de dados que você implantou, pois os logs e as métricas são coletados para cada instância do banco de dados. Os dados são mantidos nos logs e no BD de métricas por duas semanas antes de serem limpos. 
 - A alteração da classe de armazenamento após a implantação é muito difícil, não documentada e não tem suporte. Certifique-se de escolher a classe de armazenamento corretamente no momento da implantação.
 
-> **Observação:** Se nenhuma classe de armazenamento for especificada, a classe de armazenamento padrão será usada. Pode haver apenas uma classe de armazenamento padrão por cluster kubernetes. Você pode [alterar a classe de armazenamento padrão](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+> [!NOTE]
+> Se nenhuma classe de armazenamento for especificada, a classe de armazenamento padrão será usada. Pode haver apenas uma classe de armazenamento padrão por cluster kubernetes. Você pode [alterar a classe de armazenamento padrão](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
 
 ### <a name="database-instance-storage-configuration"></a>Configuração de armazenamento da instância do banco de dados
 
@@ -162,7 +163,8 @@ Cada instância de banco de dados tem os volumes persistentes de backup As class
 
 Ao criar uma instância usando `azdata arc sql mi create` comandos ou, `azdata arc postgres server create` há dois parâmetros que podem ser usados para definir as classes de armazenamento:
 
-> **Observação:** Alguns desses parâmetros estão em desenvolvimento e serão disponibilizados no `azdata arc sql mi create` e `azdata arc postgres server create` nas versões futuras.
+> [!NOTE]
+> Alguns desses parâmetros estão em desenvolvimento e serão disponibilizados no `azdata arc sql mi create` e `azdata arc postgres server create` nas versões futuras.
 
 |Nome do parâmetro, nome curto|Usada para|
 |---|---|

@@ -5,21 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: 9ebd12777c32a9415eeb1b77d9cd487b0f23eb29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd4f79e0cae5028e4bbaa8a4f5115d5a767dcf54
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299146"
+ms.locfileid: "91368848"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Proteger pods com Azure Policy
 
 Para melhorar a segurança do cluster AKS, você pode controlar quais funções os pods são concedidos e se algo está em execução na política da empresa. Esse acesso é definido por meio de políticas internas fornecidas pelo [complemento Azure Policy para o AKs][kubernetes-policy-reference]. Ao fornecer controle adicional sobre os aspectos de segurança da especificação do pod, como os privilégios de raiz, o permite uma maior adesão à segurança e visibilidade do que é implantado em seu cluster. Se um pod não atender às condições especificadas na política, Azure Policy poderá impedir que o Pod inicie ou sinalize uma violação. Este artigo mostra como usar Azure Policy para limitar a implantação de pods no AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
-
-> [!IMPORTANT]
-> A GA (disponibilidade geral) do Azure Policy no AKS está lançando ativamente em todas as regiões. A conclusão global esperada da versão GA é 9/29/2020. O uso em regiões sem a versão GA requer etapas de registro de visualização. No entanto, isso será atualizado automaticamente para a versão GA quando disponível na região.
 
 Este artigo considera que já existe um cluster do AKS. Se precisar de um cluster do AKS, veja o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] ou [usando o portal do Azure][aks-quickstart-portal].
 
