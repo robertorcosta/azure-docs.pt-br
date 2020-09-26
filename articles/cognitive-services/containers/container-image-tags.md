@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 5d2ff25762f28c19b6d389a779fb455de3c84f3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a24433389e738bf5d0ecb7ecac6bf369c8ba183
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253761"
+ms.locfileid: "91369477"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Marcas de imagem de contêiner de serviços cognitivas do Azure
 
@@ -1131,22 +1131,22 @@ Essa imagem de contêiner tem as seguintes marcas disponíveis:
 | Marcas de imagem                                  | Observações                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaNeural` voz.      |
-| `1.1.0-amd64-de-de-katjaneural-preview`     | Imagem de contêiner com a `de-DE` localidade e a `de-DE-KatjaNeural` voz.     |
-| `1.1.0-amd64-en-au-natashaneural-preview`   | Imagem de contêiner com a `en-AU` localidade e a `en-AU-NatashaNeural` voz.   |
-| `1.1.0-amd64-en-ca-claraneural-preview`     | Imagem de contêiner com a `en-CA` localidade e a `en-CA-ClaraNeural` voz.     |
-| `1.1.0-amd64-en-gb-libbyneural-preview`     | Imagem de contêiner com a `en-GB` localidade e a `en-GB-LibbyNeural` voz.     |
-| `1.1.0-amd64-en-gb-mianeural-preview`       | Imagem de contêiner com a `en-GB` localidade e a `en-GB-MiaNeural` voz.       |
-| `1.1.0-amd64-en-us-arianeural-preview`      | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaNeural` voz.      |
-| `1.1.0-amd64-en-us-guyneural-preview`       | Imagem de contêiner com a `en-US` localidade e a `en-US-GuyNeural` voz.       |
-| `1.1.0-amd64-es-es-elviraneural-preview`    | Imagem de contêiner com a `es-ES` localidade e a `es-ES-ElviraNeural` voz.    |
-| `1.1.0-amd64-es-mx-dalianeural-preview`     | Imagem de contêiner com a `es-MX` localidade e a `es-MX-DaliaNeural` voz.     |
-| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Imagem de contêiner com a `fr-CA` localidade e a `fr-CA-SylvieNeural` voz.    |
-| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Imagem de contêiner com a `fr-FR` localidade e a `fr-FR-DeniseNeural` voz.    |
-| `1.1.0-amd64-it-it-elsaneural-preview`      | Imagem de contêiner com a `it-IT` localidade e a `it-IT-ElsaNeural` voz.      |
-| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Imagem de contêiner com a `ja-JP` localidade e a `ja-JP-NanamiNeural` voz.    |
-| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Imagem de contêiner com a `ko-KR` localidade e a `ko-KR-SunHiNeural` voz.     |
-| `1.1.0-amd64-pt-br-franciscaneural-preview` | Imagem de contêiner com a `pt-BR` localidade e a `pt-BR-FranciscaNeural` voz. |
-| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-XiaoxiaoNeural` voz.  |
+| `1.2.0-amd64-de-de-katjaneural-preview`     | Imagem de contêiner com a `de-DE` localidade e a `de-DE-KatjaNeural` voz.     |
+| `1.2.0-amd64-en-au-natashaneural-preview`   | Imagem de contêiner com a `en-AU` localidade e a `en-AU-NatashaNeural` voz.   |
+| `1.2.0-amd64-en-ca-claraneural-preview`     | Imagem de contêiner com a `en-CA` localidade e a `en-CA-ClaraNeural` voz.     |
+| `1.2.0-amd64-en-gb-libbyneural-preview`     | Imagem de contêiner com a `en-GB` localidade e a `en-GB-LibbyNeural` voz.     |
+| `1.2.0-amd64-en-gb-mianeural-preview`       | Imagem de contêiner com a `en-GB` localidade e a `en-GB-MiaNeural` voz.       |
+| `1.2.0-amd64-en-us-arianeural-preview`      | Imagem de contêiner com a `en-US` localidade e a `en-US-AriaNeural` voz.      |
+| `1.2.0-amd64-en-us-guyneural-preview`       | Imagem de contêiner com a `en-US` localidade e a `en-US-GuyNeural` voz.       |
+| `1.2.0-amd64-es-es-elviraneural-preview`    | Imagem de contêiner com a `es-ES` localidade e a `es-ES-ElviraNeural` voz.    |
+| `1.2.0-amd64-es-mx-dalianeural-preview`     | Imagem de contêiner com a `es-MX` localidade e a `es-MX-DaliaNeural` voz.     |
+| `1.2.0-amd64-fr-ca-sylvieneural-preview`    | Imagem de contêiner com a `fr-CA` localidade e a `fr-CA-SylvieNeural` voz.    |
+| `1.2.0-amd64-fr-fr-deniseneural-preview`    | Imagem de contêiner com a `fr-FR` localidade e a `fr-FR-DeniseNeural` voz.    |
+| `1.2.0-amd64-it-it-elsaneural-preview`      | Imagem de contêiner com a `it-IT` localidade e a `it-IT-ElsaNeural` voz.      |
+| `1.2.0-amd64-ja-jp-nanamineural-preview`    | Imagem de contêiner com a `ja-JP` localidade e a `ja-JP-NanamiNeural` voz.    |
+| `1.2.0-amd64-ko-kr-sunhineural-preview`     | Imagem de contêiner com a `ko-KR` localidade e a `ko-KR-SunHiNeural` voz.     |
+| `1.2.0-amd64-pt-br-franciscaneural-preview` | Imagem de contêiner com a `pt-BR` localidade e a `pt-BR-FranciscaNeural` voz. |
+| `1.2.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Imagem de contêiner com a `zh-CN` localidade e a `zh-CN-XiaoxiaoNeural` voz.  |
 
 ## <a name="key-phrase-extraction"></a>Extração de Frases-Chave
 

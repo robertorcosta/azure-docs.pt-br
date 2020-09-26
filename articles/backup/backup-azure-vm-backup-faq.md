@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas para perguntas comuns sobre como f
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370820"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-fazer backup de VMs do Azure
 
@@ -20,6 +20,12 @@ Este artigo responde a perguntas comuns sobre o backup de VMs do Azure com o ser
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quais imagens de VM podem ser habilitadas para backup quando eu as crio?
 
 Ao criar uma VM, você pode habilitar o backup para VMs que executam [sistemas operacionais com suporte](backup-support-matrix-iaas.md#supported-backup-actions).
+
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Por que o backup inicial está demorando muito tempo para ser concluído?
+
+O backup inicial é sempre um backup completo e dependerá do tamanho dos dados e do processamento do backup. <br>
+Para melhorar o desempenho de backup, consulte [práticas recomendadas de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [Considerações de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) e [desempenho de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Embora o tempo de backup total para backups de aumento seja menos de 24 horas, esse pode não ser o caso para o primeiro backup.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de backup está incluído no custo da VM?
 
@@ -154,6 +160,10 @@ Operações como segredo/chave de sobreposição não exigem essa etapa e o mesm
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso acessar a VM uma vez restaurada devido a uma VM que está tendo uma relação quebrada com o controlador de domínio?
 
 Sim, você acessa a VM uma vez restaurada devido a uma VM que tem uma relação quebrada com o controlador de domínio. Para obter mais informações, confira este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps)
+
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Por que a operação de restauração está demorando muito tempo para ser concluída?
+
+O tempo total de restauração depende das operações de entrada/saída por segundo (IOPS) e da taxa de transferência da conta de armazenamento. O tempo total de restauração poderá ser afetado se a conta de armazenamento de destino for carregada com outras operações de leitura e gravação de aplicativo. Para melhorar a operação de restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados de aplicativo.
 
 ## <a name="manage-vm-backups"></a>Gerenciar backups de VM
 

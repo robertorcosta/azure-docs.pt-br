@@ -5,15 +5,15 @@ description: Saiba como configurar políticas do firewall do aplicativo Web por 
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 01/24/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7e40370421214ebe026090007122a641a216c256
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 340b184ac56d4734431b154ec647e5e7af19ea16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143937"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267186"
 ---
 # <a name="configure-per-site-waf-policies-using-azure-powershell"></a>Configurar políticas do WAF por site usando o Azure PowerShell
 
@@ -25,14 +25,13 @@ Ao aplicar políticas do WAF a um ouvinte, você pode definir configurações do
 
 Neste artigo, você aprenderá como:
 
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar uma política de WAF
-> * Criar um gateway de aplicativo com o WAF habilitado
-> * Aplicar a política WAF globalmente, por site e por URI (visualização)
-> * Criar um conjunto de dimensionamento de máquinas virtuais
-> * Criar uma conta de armazenamento e configurar diagnósticos
-> * Testar o gateway de aplicativo
+* Configurar a rede
+* Criar uma política de WAF
+* Criar um gateway de aplicativo com o WAF habilitado
+* Aplicar a política WAF globalmente, por site e por URI (visualização)
+* Criar um conjunto de dimensionamento de máquinas virtuais
+* Criar uma conta de armazenamento e configurar diagnósticos
+* Testar o gateway de aplicativo
 
 ![Exemplo de Firewall do aplicativo Web](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

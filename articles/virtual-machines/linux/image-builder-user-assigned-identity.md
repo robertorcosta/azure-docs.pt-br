@@ -5,14 +5,14 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: how-to
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 79349f9da45a623581c40276c8e69d490c1dd253
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f5734d4b1871dd285fc83a72631f7d645e0b72ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307255"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Criar uma imagem e usar uma identidade gerenciada atribuída pelo usuário para acessar arquivos no armazenamento do Azure 
 
@@ -233,7 +233,7 @@ Você deve ver que a imagem foi personalizada com uma Mensagem do Dia assim que 
 *******************************************************
 ```
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 Quando tiver terminado, você poderá excluir os recursos se eles não forem mais necessários.
 
@@ -256,4 +256,4 @@ az group delete -n $strResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você tiver problemas para trabalhar com o construtor de imagem do Azure, consulte [solução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).
+Se você tiver problemas para trabalhar com o construtor de imagem do Azure, consulte [solução de problemas](image-builder-troubleshoot.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).

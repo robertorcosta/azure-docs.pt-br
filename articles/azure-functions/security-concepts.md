@@ -3,12 +3,12 @@ title: Proteger o Azure Functions
 description: Saiba mais sobre como tornar o código de função em execução no modo seguro do Azure contra ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e48991788307a47d0e01a7921e0c94d77ddcd5ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850705"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294743"
 ---
 # <a name="securing-azure-functions"></a>Proteger o Azure Functions
 
@@ -76,7 +76,7 @@ Para saber mais sobre as chaves de acesso, consulte o [Artigo de associação de
 
 Por padrão, as chaves são armazenadas em um contêiner de armazenamento de BLOBs na conta fornecida pela `AzureWebJobsStorage` configuração. Você pode usar configurações de aplicativo específicas para substituir esse comportamento e armazenar as chaves em um local diferente.
 
-|Localização  |Setting | Valor | Descrição  |
+|Location  |Configuração | Valor | Descrição  |
 |---------|---------|---------|---------|
 |Conta de armazenamento diferente     |  `AzureWebJobsSecretStorageSas`       | `<BLOB_SAS_URL` | Armazena chaves no armazenamento de blobs de uma segunda conta de armazenamento, com base na URL da SAS fornecida. As chaves são criptografadas antes de serem armazenadas usando um segredo exclusivo para seu aplicativo de funções. |
 |Sistema de arquivos   | `AzureWebJobsSecretStorageType`   |  `files`       | As chaves são mantidas no sistema de arquivos, criptografadas antes do armazenamento usando um segredo exclusivo para seu aplicativo de funções. |
@@ -128,6 +128,8 @@ Por padrão, armazene cadeias de conexão e segredos usados pelo seu aplicativo 
 Por exemplo, cada aplicativo de funções requer uma conta de armazenamento associada, que é usada pelo tempo de execução. Por padrão, a conexão com essa conta de armazenamento é armazenada em uma configuração de aplicativo chamada `AzureWebJobsStorage`.
 
 As configurações do aplicativo e cadeias de conexão são armazenadas e criptografadas no Azure. Elas são descriptografadas somente antes de serem injetadas na memória do processo do aplicativo quando o aplicativo é iniciado. As chaves de criptografia são giradas regularmente. Se você preferir gerenciar o armazenamento seguro de seus segredos, a configuração do aplicativo deverá, em vez disso, fazer referência a Azure Key Vault. 
+
+Você também pode criptografar as configurações por padrão na local.settings.jsno arquivo ao desenvolver funções em seu computador local. Para saber mais, consulte a `IsEncrypted` propriedade no [arquivo de configurações local](functions-run-local.md#local-settings-file).  
 
 #### <a name="key-vault-references"></a>Referências de Key Vault
 
