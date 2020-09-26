@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6f557ac8476224cdb8414b2a45952d8f7d34513d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905003"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333810"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Mostrar saída após a conclusão
 
-Quando você usa **ScriptRunConfig**, pode usar ```run.wait_for_completion(show_output = True)``` para mostrar quando o treinamento do modelo está concluído. O sinalizador ```show_output``` fornece saída detalhada. Para obter mais informações, consulte a seção ScriptRunConfig de [como habilitar o registro em log](how-to-track-experiments.md#scriptrunconfig-logs).
+Quando você usa **ScriptRunConfig**, pode usar ```run.wait_for_completion(show_output = True)``` para mostrar quando o treinamento do modelo está concluído. O sinalizador ```show_output``` fornece saída detalhada. Para obter mais informações, consulte a seção ScriptRunConfig de [como habilitar o registro em log](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Métricas de execução de consulta

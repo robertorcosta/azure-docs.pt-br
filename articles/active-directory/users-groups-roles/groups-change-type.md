@@ -1,6 +1,6 @@
 ---
 title: Alterar a associação de grupo estático para dinâmico – Azure AD | Microsoft Docs
-description: Como criar regras de associação para preencher automaticamente os grupos e uma referência de regra.
+description: Saiba como converter grupos existentes de associação estática para dinâmica usando o centro de administração do Azure AD ou cmdlets do PowerShell.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ee5af5d7489835f125319050d291a89ab252a6
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797115"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325854"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar o tipo de associação de grupo estático para dinâmico no Microsoft Azure Active Directory
 

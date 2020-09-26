@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova, danil
+ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: d611fc7eff2efa7a632f4b5467b5829a8374b95e
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 63aed3ce47a5499154041f067c292c656adcde6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323168"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -278,7 +278,7 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-da
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
-- Atualmente, não há suporte para habilitar e desabilitar SQL Server Agent no SQL Instância Gerenciada. O SQL Agent sempre está em execução.
+- No momento, a habilitação e a desabilitação do SQL Server Agent não é compatível com a Instância Gerenciada de SQL. O SQL Agent sempre está em execução.
 - As configurações do SQL Server Agent são somente leitura. O procedimento `sp_set_agent_properties` não tem suporte no SQL instância gerenciada. 
 - Trabalhos
   - As etapas de trabalho T-SQL têm suporte.

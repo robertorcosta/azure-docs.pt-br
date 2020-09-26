@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509749"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356878"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência de nuvem
 
@@ -487,7 +487,7 @@ Para recuperar uma lista das imagens de VM disponíveis em um local, execute o s
 az vm image list -all
 ```
 
-Recupere a mesma lista com o cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e especifique o local desejado com o parâmetro `-Location`. Por exemplo: 
+Recupere a mesma lista com o cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e especifique o local desejado com o parâmetro `-Location`. Por exemplo:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -590,7 +590,7 @@ Para recuperar uma lista das extensões de VM que estão disponíveis para uma r
 az vm extension image list --location myLocation
 ```
 
-Execute também o cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e use `-Location` para especificar o local da imagem de máquina virtual. Por exemplo: 
+Execute também o cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) do Azure PowerShell e use `-Location` para especificar o local da imagem de máquina virtual. Por exemplo:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -655,7 +655,7 @@ Para ver uma lista de fornecedores, use o comando [Get-AzureRmVmImagePublisher](
 
 A imagem a seguir mostra um exemplo típico de um processo de desenvolvimento para uma equipe usando um IDE (ambiente de desenvolvimento integrado). Em estágios diferentes na linha do tempo, diferentes tipos de teste são executados. Aqui, dois desenvolvedores estão trabalhando na mesma solução, mas esse cenário se aplica igualmente a um único desenvolvedor ou a uma equipe grande. Normalmente, cada desenvolvedor cria uma cópia local de um repositório central, permitindo que cada um trabalhe na cópia local sem afetar os outros que podem estar trabalhando nos mesmos arquivos.
 
-![Fluxo de trabalho](./media/templates-cloud-consistency/workflow.png)
+![O diagrama mostra dois conjuntos de testes de unidade e testes de integração em paralelo no local I D E, que mesclam o fluxo de desenvolvimento C I/C D em testes de unidade, em seguida, os testes de integração, a implantação de teste e a implantação.](./media/templates-cloud-consistency/workflow.png)
 
 Considere as seguintes dicas para testes e automação:
 

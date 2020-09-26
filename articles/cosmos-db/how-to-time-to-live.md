@@ -6,17 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 5a310dca40b8f5fea074c0cd3c75751d62ccb8f5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297888"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar a vida útil no Azure Cosmos DB
 
 No Azure Cosmos DB, você pode optar por configurar a TTL (vida útil) no nível do contêiner ou substituí-la no nível de um item após a definição do contêiner. Você pode configurar a TTL para um contêiner usando o portal do Azure ou os SDKs específicos da linguagem. As substituições de TTL no nível do item podem ser configuradas usando os SDKs.
+
+> Este conteúdo está relacionado a Azure Cosmos DB TTL de repositório transacional. Se você estiver procurando por TTL da loja Analitycal, que habilita cenários NoETL HTAP por meio [do link Synapse do Azure](https://docs.microsoft.com/azure/cosmos-db/synapse-link), clique [aqui](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Habilitar vida útil em um contêiner usando o portal do Azure
 

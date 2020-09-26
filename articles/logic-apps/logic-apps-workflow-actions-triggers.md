@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f451b39d2757425a50a186a8212042cf887b136b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.date: 09/22/2020
+ms.custom: devx-track-js
+ms.openlocfilehash: bd95e3ed6b4c31072d7e754c731e748f12db3329
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662307"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322386"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guia de referência de esquema para tipos de ação e gatilho em aplicativos lógicos do Azure
 
@@ -826,7 +826,7 @@ Aqui estão alguns tipos de ação comumente usadas:
 | [**Em**](#join-action) | Cria uma string de todos os itens em uma matriz e separa esses itens com um caractere delimitador especificado. | 
 | [**Analisar JSON**](#parse-json-action) | Cria conteúdo fácil de usar tokens de propriedades no JSON. Você pode fazer referência a essas propriedades, incluindo os tokens em seu aplicativo lógico. | 
 | [**Consulta**](#query-action) | Cria uma matriz de itens em outra matriz com base em uma condição ou filtro. | 
-| [**Resposta**](#response-action) | Cria uma resposta a uma chamada de entrada ou a solicitação. | 
+| [**Responde**](#response-action) | Cria uma resposta a uma chamada de entrada ou a solicitação. | 
 | [**Não**](#select-action) | Cria uma matriz com objetos JSON, transformando itens de outra matriz com base no mapa especificado. | 
 | [**Tabela**](#table-action) | Cria uma tabela CSV ou HTML de uma matriz. | 
 | [**Encerrar**](#terminate-action) | Interrompe um fluxo de trabalho ativo. | 
@@ -854,7 +854,7 @@ Essas ações ajudam você a controlar a execução do fluxo de trabalho e inclu
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Execute as mesmas ações em um loop para cada item em uma matriz. | 
 | [**Que**](#if-action) | Execute ações com base em se a condição especificada é verdadeira ou falsa. | 
-| [**Escopo**](#scope-action) | Execute ações com base no status do grupo de um conjunto de ações. | 
+| [**Com**](#scope-action) | Execute ações com base no status do grupo de um conjunto de ações. | 
 | [**Comutador**](#switch-action) | Execute ações organizadas em casos em que valores de expressões, objetos ou tokens correspondam aos valores especificados por cada caso. | 
 | [**Haja**](#until-action) | Execute ações em um loop até que a condição especificada seja verdadeira. | 
 |||  
@@ -2397,6 +2397,7 @@ Você pode alterar o comportamento padrão de acionadores e ações com a propri
 | Opção de operação | Type | Descrição | Gatilho ou ação | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Execute ações baseadas em HTTP de forma síncrona, em vez de assíncrona. <p><p>Para definir essa opção, consulte [executar ações de forma síncrona](#disable-asynchronous-pattern). | Ações: <p>[ApiConnection](#apiconnection-action), <br>[Http](#http-action), <br>[Resposta](#response-action) | 
+| `IncludeAuthorizationHeadersInOutputs` | String | Para aplicativos lógicos que [habilitam Azure Active Directory autenticação aberta (Azure ad OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) para autorizar o acesso para chamadas de entrada a um ponto de extremidade de gatilho baseado em solicitação, inclua o `Authorization` cabeçalho do token de acesso OAuth nas saídas do gatilho. Para obter mais informações, consulte [incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Gatilhos: <p>[Solicitação](#request-trigger), <br>[Webhook HTTP](#http-webhook-trigger) | 
 | `OptimizedForHighThroughput` | String | Altere o [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) no número de execuções de ação por 5 minutos para o [limite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para definir essa opção, consulte [Executar no modo de alto rendimento](#run-high-throughput-mode). | Todas as ações | 
 | `Sequential` | String | Execute "for each" loop iterações um por vez, em vez de todos ao mesmo tempo em paralelo. <p>Esta opção funciona da mesma forma que a configuração da `runtimeConfiguration.concurrency.repetitions` propriedade para `1`. Você pode definir a propriedade, mas não ambos. <p><p>Para definir essa opção, consulte [executar "for each" executa um loop em sequência](#sequential-for-each).| Ação: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Executar o gatilho para cada instância de aplicativo lógico em sequência e aguarde a execução anteriormente ativa concluir antes de disparar a próxima instância do aplicativo lógico. <p><p>Esta opção funciona da mesma forma que a configuração da `runtimeConfiguration.concurrency.runs` propriedade para `1`. Você pode definir a propriedade, mas não ambos. <p>Para definir essa opção, consulte [disparar instâncias sequencialmente](#sequential-trigger). | Todos os gatilhos | 

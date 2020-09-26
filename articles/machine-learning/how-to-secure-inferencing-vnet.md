@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 09/24/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 359c2a27099ca298076edc255b8c30e226af0a18
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 07f5fef0103e674af1c5f73b3f09bdf759e592cb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882955"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355968"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
 
@@ -108,11 +108,24 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Quando o processo de criação for concluído, você pode executar inferência ou pontuação de modelo em um cluster de AKS atrás de uma rede virtual. Para obter mais informações, consulte [Como implantar no AKS](how-to-deploy-and-where.md).
 
-## <a name="private-aks-cluster"></a>Cluster AKS privado
+## <a name="secure-vnet-traffic"></a>Tráfego de VNet seguro
+
+Há duas abordagens para isolar o tráfego de e para o cluster AKS para a rede virtual:
+
+* __Cluster AKs privado__: essa abordagem usa o link privado do Azure para criar um ponto de extremidade privado para o cluster AKs na VNet.
+* __Balanceador de carga AKs interno__: essa abordagem configura o balanceador de carga para que o cluster use um endereço IP interno na VNet.
+
+> [!WARNING]
+> Ambas as configurações são maneiras diferentes de atingir o mesmo objetivo (proteger o tráfego para o cluster AKS dentro da VNet). **Use um ou outro, mas não ambos**.
+
+### <a name="private-aks-cluster"></a>Cluster AKS privado
 
 Por padrão, os clusters AKS têm um plano de controle, ou servidor de API, com endereços IP públicos. Você pode configurar o AKS para usar um plano de controle privado criando um cluster AKS privado. Para obter mais informações, consulte [criar um cluster particular do serviço kubernetes do Azure](../aks/private-clusters.md).
 
 Depois de criar o cluster AKS privado, [anexe o cluster à rede virtual](how-to-create-attach-kubernetes.md) para usar com Azure Machine Learning.
+
+> [!IMPORTANT]
+> Antes de usar um cluster AKS habilitado para link privado com Azure Machine Learning, você deve abrir um incidente de suporte para habilitar essa funcionalidade. Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="internal-aks-load-balancer"></a>Balanceador de carga AKS interno
 
@@ -120,7 +133,7 @@ Por padrão, as implantações do AKS usam um [balanceador de carga público](..
 
 Um balanceador de carga privado é habilitado Configurando AKS para usar um _balanceador de carga interno_. 
 
-### <a name="network-contributor-role"></a>Função de colaborador de rede
+#### <a name="network-contributor-role"></a>Função de colaborador de rede
 
 > [!IMPORTANT]
 > Se você criar ou anexar um cluster AKS fornecendo uma rede virtual criada anteriormente, deverá conceder a entidade de serviço (SP) ou a identidade gerenciada para seu cluster AKS a função de _colaborador de rede_ para o grupo de recursos que contém a rede virtual. Isso deve ser feito antes de tentar alterar o balanceador de carga interno para o IP privado.
@@ -152,16 +165,17 @@ Um balanceador de carga privado é habilitado Configurando AKS para usar um _bal
     ```
 Para obter mais informações sobre como usar o balanceador de carga interno com o AKS, consulte [Usar o balanceador de carga interno com o Serviço de Kubernetes do Azure](/azure/aks/internal-lb).
 
-### <a name="enable-private-load-balancer"></a>Habilitar o balanceador de carga privado
+#### <a name="enable-private-load-balancer"></a>Habilitar o balanceador de carga privado
 
 > [!IMPORTANT]
-> Você não pode habilitar o IP particular ao criar o cluster do Serviço de Kubernetes do Azure. Ele deve estar habilitado como uma atualização de um cluster existente.
+> Não é possível habilitar o IP privado ao criar o cluster do serviço kubernetes do Azure no Azure Machine Learning Studio. Você pode criar um com um balanceador de carga interno ao usar o SDK do Python ou a extensão CLI do Azure para o aprendizado de máquina.
 
-O trecho de código a seguir demonstra como __criar um novo cluster de AKS__ e, em seguida, atualizá-lo para usar um balanceador de carga interno/IP particular:
+Os exemplos a seguir demonstram como __criar um novo cluster AKs com um balanceador de carga interno/IP privado__ usando o SDK e a CLI:
+
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 import azureml.core
-from azureml.core.compute.aks import AksUpdateConfiguration
 from azureml.core.compute import AksCompute, ComputeTarget
 
 # Verify that cluster does not exist already
@@ -175,7 +189,7 @@ except:
     # Subnet to use for AKS
     subnet_name = "default"
     # Create AKS configuration
-    prov_config = AksCompute.provisioning_configuration(location = "eastus2")
+    prov_config=AksCompute.provisioning_configuration(load_balancer_type="InternalLoadBalancer")
     # Set info for existing virtual network to create the cluster in
     prov_config.vnet_resourcegroup_name = "myvnetresourcegroup"
     prov_config.vnet_name = "myvnetname"
@@ -188,44 +202,21 @@ except:
     aks_target = ComputeTarget.create(workspace = ws, name = "myaks", provisioning_configuration = prov_config)
     # Wait for the operation to complete
     aks_target.wait_for_completion(show_output = True)
-    
-    # Update AKS configuration to use an internal load balancer
-    update_config = AksUpdateConfiguration(None, "InternalLoadBalancer", subnet_name)
-    aks_target.update(update_config)
-    # Wait for the operation to complete
-    aks_target.wait_for_completion(show_output = True)
 ```
 
-__CLI do Azure__
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-```azurecli-interactive
-az rest --method put --uri https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<workspace>/computes/<compute>?api-version=2018-11-19 --body @body.json
+```azurecli
+az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
-O conteúdo do arquivo `body.json` referenciado pelo comando é semelhante ao seguinte documento JSON:
+Para obter mais informações, consulte a referência do [AZ ml computetarget Create AKs](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks) .
 
-```json
-{ 
-    "location": "<region>", 
-    "properties": { 
-        "resourceId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-name>", 
-        "computeType": "AKS", 
-        "provisioningState": "Succeeded", 
-        "properties": { 
-            "loadBalancerType": "InternalLoadBalancer", 
-            "agentCount": <agent-count>, 
-            "agentVmSize": "vm-size", 
-            "clusterFqdn": "<cluster-fqdn>" 
-        } 
-    } 
-} 
-```
+---
 
-Ao __anexar um cluster existente__ ao seu espaço de trabalho, você deve aguardar até que a operação de anexação configure o balanceador de carga.
+Ao __anexar um cluster existente__ ao seu espaço de trabalho, você deve aguardar até que a operação de anexação configure o balanceador de carga. Para obter informações sobre como anexar um cluster, consulte [anexar um cluster AKs existente](how-to-create-attach-kubernetes.md).
 
-Para obter informações sobre como anexar um cluster, consulte [anexar um cluster AKs existente](how-to-create-attach-kubernetes.md).
-
-Depois de anexar o cluster existente, você pode atualizar o cluster para usar um IP privado.
+Depois de anexar o cluster existente, você pode atualizar o cluster para usar um balanceador de carga interno/IP privado:
 
 ```python
 import azureml.core
@@ -260,7 +251,7 @@ Para usar a ACI em uma rede virtual no seu workspace, siga as seguintes etapas:
     > [!IMPORTANT]
     > Ao habilitar a delegação, use `Microsoft.ContainerInstance/containerGroups` como o valor de __Delegar sub-rede ao serviço__.
 
-2. Implante o modelo usando [AciWebservice. deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use os parâmetros `vnet_name` e `subnet_name`. Defina esses parâmetros para o nome da rede virtual e a sub-rede onde você habilitou a delegação.
+2. Implante o modelo usando [AciWebservice. deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), use os parâmetros `vnet_name` e `subnet_name`. Defina esses parâmetros para o nome da rede virtual e a sub-rede onde você habilitou a delegação.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversão de texto em fala
-ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5d60279a2e3cb6aa7226f518783d53a1a38ddaa8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357447"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
@@ -77,5 +77,5 @@ Para obter informações detalhadas, consulte [preços](https://azure.microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obtenha uma assinatura gratuita do serviço de fala](get-started.md)
+- [Obtenha uma assinatura gratuita do serviço de fala](overview.md#try-the-speech-service-for-free)
 - [Obter o SDK de Fala](speech-sdk.md)

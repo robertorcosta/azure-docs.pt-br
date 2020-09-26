@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4413a987af7a4802366556fb86c0c55e7b401776
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356784"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisionar e catalogar novos locatários em um aplicativo SaaS usando um banco de dados SQL do Azure com vários locatários fragmentado
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -115,7 +115,7 @@ Os dados de locatário são inicializados e registrados no mapa de fragmentos de
 
 ## <a name="tutorial-begins"></a>Início do tutorial
 
-Neste tutorial, você aprende a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Provisionar um locatário em um banco de dados multilocatário
@@ -169,7 +169,7 @@ Para entender como o aplicativo Wingtip implementa o provisionamento do novo loc
 
 4. Depois que a execução do script for interrompida no ponto de interrupção, pressione **F11** para intervir no código.
 
-   ![depurar](./media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![Captura de tela mostra a ISE do Windows PowerShell com o menu Depurar aberto e entrar em uma etapa selecionada.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. Rastreie a execução do script usando as opções de menu **Depurar**, **F10** e **F11** para contornar ou intervir nas funções chamadas.
 
@@ -237,7 +237,7 @@ A lista completa de locatários e o banco de dados correspondente para cada um e
 - O nome do locatário é armazenado na tabela Locatários.
 - O nome do banco de dados é armazenado nas tabelas de gerenciamento de fragmentos.
 
-1. No SQL Server Management Studio (SSMS), conecte-se ao servidor de locatários em **Catalog-Mt. \<USER\> . Database.Windows.net**, com login = **Developer**e password = **P \@ ssword1**
+1. No SQL Server Management Studio (SSMS), conecte-se ao servidor de locatários em **Catalog-Mt. \<USER\> . database.windows.net**, com login = **Developer**e password = **P \@ ssword1**
 
     ![caixa de diálogo de conexão do SSMS](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309992"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do Agente do Log Analytics
 O agente de Log Analytics do Azure coleta a telemetria de máquinas virtuais Windows e Linux em qualquer nuvem, máquinas locais e aquelas monitoradas pelo [System Center Operations Manager](/system-center/scom/) e envia dados coletados para o espaço de trabalho Log Analytics no Azure monitor. O Agente do Log Analytics também dá suporte a informações e outros serviços no Azure Monitor, por exemplo, [Azure Monitor para VMs](../insights/vminsights-enable-overview.md), [Central de Segurança do Azure](../../security-center/index.yml) e [Automação do Azure](../../automation/automation-intro.md). Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede e dos métodos de implantação.
@@ -31,7 +31,7 @@ As principais diferenças a serem consideradas são:
 ## <a name="costs"></a>Custos
 Não há nenhum custo para o Agente do Log Analytics, mas você pode incorrer em encargos por conta dos dados ingeridos. Confira [Gerenciar o uso e os custos com os Logs do Azure Monitor](manage-cost-storage.md) para obter informações detalhadas sobre os preços dos dados coletados em um workspace do Log Analytics.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
  Consulte [sistemas operacionais com suporte](agents-overview.md#supported-operating-systems) para obter uma lista das versões do sistema operacional Windows e Linux com suporte pelo agente de log Analytics. 
 
@@ -59,7 +59,7 @@ Consulte [Configurar o agente para relatar a um grupo de gerenciamento de Operat
 
 * Os agentes do Windows podem se conectar a até quatro espaços de trabalho, mesmo se estiverem conectados a um grupo de gerenciamento System Center Operations Manager.
 * O agente do Linux não dá suporte a hospedagem múltipla e só pode se conectar a um único espaço de trabalho ou grupo de gerenciamento.
-  
+
 
 ## <a name="security-limitations"></a>Limitações de segurança
 
@@ -69,6 +69,8 @@ Consulte [Configurar o agente para relatar a um grupo de gerenciamento de Operat
 ## <a name="installation-options"></a>Opções de instalação
 
 Há vários métodos para instalar o Agente do Log Analytics e conectar seu computador ao Azure Monitor, dependendo dos requisitos. As seções a seguir listam os possíveis métodos para diferentes tipos de máquina virtual.
+> [!NOTE]
+> Não há suporte para clonar um computador com o agente de Log Analytics já configurado. Se o agente já tiver sido associado a um espaço de trabalho, isso não funcionará para ' imagens Golden '.
 
 ### <a name="azure-virtual-machine"></a>Máquina virtual do Azure
 

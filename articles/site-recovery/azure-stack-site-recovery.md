@@ -3,12 +3,12 @@ title: Replicar VMs do Azure Stack no Azure usando Azure Site Recovery | Microso
 description: Saiba como configurar a recuperação de desastre para VMs do Azure Stack com o serviço do Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564302"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333708"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
@@ -164,13 +164,13 @@ Configure a máquina do servidor de configuração, registre-a no cofre e descub
 1. Clique em **Preparar a Infraestrutura** > **Origem**.
 2. Em **Preparar a origem**, clique em **+Servidor de configuração**.
 
-    ![Configurar origem](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Captura de tela da caixa de diálogo + servidor de configuração com a mensagem "clique em + servidor de configuração na barra de comandos acima para configurar uma...".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. Em **Adicionar Servidor**, verifique se **Servidor de Configuração** aparece em **Tipo de servidor**.
 5. Baixe o arquivo de instalação Configuração Unificada da Recuperação de Site.
 6. Baixe a chave do registro do cofre. Você precisa da chave de registro ao executar a Instalação Unificada. A chave é válida por cinco dias após ser gerada.
 
-    ![Configurar origem](./media/azure-stack-site-recovery/set-source2.png)
+    ![Captura de tela da caixa de diálogo Adicionar servidor com o tipo de servidor definido como servidor de configuração e o botão baixar a chave de registro do cofre realçado.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Executar a Configuração Unificada do Azure Site Recovery

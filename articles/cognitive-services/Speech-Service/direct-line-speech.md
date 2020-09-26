@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 6dc125b68af8f9a07731aaae9d858c19c51f934f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b0bb997ecea55d25748152bab7bb6963d67657f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402384"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357634"
 ---
 # <a name="what-is-direct-line-speech"></a>O que é o Direct Line Speech?
 
@@ -27,7 +27,7 @@ A Direct line Speech oferece os mais altos níveis de personalização e sofisti
 
 ## <a name="getting-started-with-direct-line-speech"></a>Introdução à fala de linha direta
 
-As primeiras etapas para criar um assistente de voz usando a Direct line Speech são [obter uma chave de assinatura de fala](get-started.md), criar um novo bot associado a essa assinatura e conectar o bot ao canal de fala de linha direta.
+As primeiras etapas para criar um assistente de voz usando a Direct line Speech são [obter uma chave de assinatura de fala](overview.md#try-the-speech-service-for-free), criar um novo bot associado a essa assinatura e conectar o bot ao canal de fala de linha direta.
 
    ![Diagrama conceitual do fluxo do serviço de orquestração de fala de linha direta](media/voice-assistants/overview-directlinespeech.png "O fluxo do canal de fala")
 
@@ -35,7 +35,7 @@ Para obter um guia passo a passo completo sobre como criar um assistente de voz 
 
 Também oferecemos guias de início rápido projetados para que você esteja executando código e aprendendo as APIs rapidamente. Esta tabela inclui uma lista de guias de início rápido do assistente de voz organizadas por linguagem e plataforma.
 
-| Guia de Início Rápido | Plataforma | Reference API |
+| Início Rápido | Plataforma | Referência de API |
 |------------|----------|---------------|
 | C#, UWP | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
 | Java | Windows, macOS, Linux | [Procurar](https://aka.ms/csspeech/javaref) |
@@ -64,7 +64,7 @@ A Direct line Speech e sua funcionalidade associada para assistentes de voz são
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](overview.md#try-the-speech-service-for-free)
 * [Obter o SDK de Fala](speech-sdk.md)
 * [Criar e implantar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [Obter a solução de assistente virtual e o modelo empresarial](https://github.com/Microsoft/AI)

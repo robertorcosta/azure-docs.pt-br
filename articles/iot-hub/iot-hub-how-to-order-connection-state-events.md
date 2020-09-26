@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356189"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de conexão de dispositivo do Hub IoT usando o Azure Cosmos DB
 
@@ -227,11 +227,11 @@ No seu fluxo de trabalho de aplicativo lógico, as condições ajudam a executar
 
 5. Selecione **Adicionar novo parâmetro**. No menu suspenso que aparece, marque as caixas ao lado de **Chave de partição** e **Parâmetros para o procedimento armazenado** e clique em qualquer outro lugar na tela. Ele adiciona um campo para o valor de chave de partição e um campo para os parâmetros do procedimento armazenado.
 
-   ![preencher ação do aplicativo lógico](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![Captura de tela mostra um item executar procedimento armazenado com a adição de novo parâmetro selecionado.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Agora insira o valor da chave de partição e os parâmetros conforme mostrado abaixo. Não se esqueça de colocar os colchetes e as aspas, conforme mostrado. Talvez seja necessário clicar em **Adicionar conteúdo dinâmico** para receber os valores válidos que você pode usar.
 
-   ![preencher ação do aplicativo lógico](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![Captura de tela mostra um item executar procedimento armazenado com parâmetros inseridos.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
 7. Na parte superior do painel, onde aparece **Para cada** em **Selecione uma saída das etapas anteriores**, verifique se **Corpo** está selecionado.
 

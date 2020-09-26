@@ -3,12 +3,12 @@ title: Fazer backup de VMs de solução do Azure VMware com Servidor de Backup d
 description: Configure seu ambiente de solução do Azure VMware para fazer backup de máquinas virtuais usando Servidor de Backup do Azure.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 9b37f909fc8199975eb399fe5ca28ebb53ab2789
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cba224de3d8b223ebcc1ac4d2d8d569275b4e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84817948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272239"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Fazer backup de VMs de solução do Azure VMware com Servidor de Backup do Azure
 
@@ -105,9 +105,9 @@ O VMware 6,7 em diante tinha o TLS habilitado como o protocolo de comunicação.
 
 1. Clique com o botão direito do mouse no TLS. REG e selecione **mesclar** ou **abrir** para adicionar as configurações ao registro.
 
-## <a name="add-the-provisioning-ip-address-for-azure-vmware-solution-esxi-hosts-on-azure-backup-server"></a>Adicione o endereço IP de provisionamento para hosts ESXi da solução Azure VMware no Servidor de Backup do Azure
+## <a name="add-the-provisioning-ip-address"></a>Adicionar o endereço IP de provisionamento 
 
-Durante a versão prévia, a solução Azure VMware não resolve o host ESX da máquina virtual implantada na rede virtual. Você precisará executar etapas adicionais para adicionar a entrada do arquivo de host na máquina virtual Servidor de Backup do Azure.
+A solução Azure VMware não resolve o host ESX da VM implantada na rede virtual. Você precisará executar etapas adicionais para adicionar a entrada do arquivo de host na VM Servidor de Backup do Azure.
 
 ### <a name="identify-the-ip-address-for-esxi-hosts"></a>Identificar o endereço IP para hosts ESXi
 
@@ -144,7 +144,7 @@ Durante a versão prévia, a solução Azure VMware não resolve o host ESX da m
 
 1. Na caixa de diálogo **gerenciar credenciais** , selecione **Adicionar**.
 
-   ![Caixa de diálogo Gerenciar Credenciais do Servidor de Backup do Azure](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
+   ![Na caixa de diálogo gerenciar credenciais, selecione Adicionar.](../backup/media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
 1. Na caixa de diálogo **Adicionar Credencial**, insira um nome e uma descrição para a nova credencial. Especifique o nome de usuário e a senha que você definiu no servidor VMware.
 
@@ -155,7 +155,7 @@ Durante a versão prévia, a solução Azure VMware não resolve o host ESX da m
 
 1. Selecione **Adicionar** para adicionar a nova credencial.
 
-   ![Caixa de diálogo Gerenciar Credenciais do Servidor de Backup do Azure](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
+   ![Captura de tela mostra a caixa de diálogo Servidor de Backup do Azure gerenciar credenciais com novas credenciais exibidas.](../backup/media/backup-azure-backup-server-vmware/new-list-of-mabs-creds.png)
 
 ## <a name="add-the-vcenter-server-to-azure-backup-server"></a>Adicionar o vCenter Server ao Servidor de Backup do Azure
 
@@ -192,7 +192,10 @@ Durante a versão prévia, a solução Azure VMware não resolve o host ESX da m
 
    ![Página Concluir](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   Você deve ver o servidor do vCenter listado **em servidor de produção** com o tipo de **servidor VMware** e o **status do agente** como **OK**. Se você vir o **status do agente** como **desconhecido**, selecione **Atualizar**.
+   Você deve ver o servidor do vCenter listado **em servidor de produção** com o tipo de **servidor VMware** e o **status do agente** como **OK**. 
+
+   >[!TIP]
+   >Se você vir o **status do agente** como **desconhecido**, selecione **Atualizar**.
 
 ## <a name="configure-a-protection-group"></a>Configurar grupo de proteção
 
@@ -242,7 +245,7 @@ Grupos de proteção reúnem várias VMs e aplicam as mesmas configurações de 
 
 1. Na página **escolher método de criação de réplica** , indique como você deseja fazer o backup inicial e selecione **Avançar**.
 
-   - O padrão é **Automaticamente pela rede** e **Agora**. Se você usar o padrão, especifique um horário de pico. Se você escolher **mais tarde**, especifique um dia e uma hora.
+   - O padrão é **Automaticamente pela rede** e **Agora**. Se você usar o padrão, especifique um horário de pico. Se você selecionar **mais tarde**, especifique um dia e hora.
    - Para grandes quantidades de dados ou condições de rede abaixo do ideal, considere a possibilidade de replicar os dados offline usando uma mídia removível.
 
    ![Escolher método de criação de réplica](../backup/media/backup-azure-backup-server-vmware/replica-creation.png)
@@ -300,7 +303,7 @@ No Servidor de Backup do Azure Console do Administrador, há duas maneiras de lo
 
 1. Na Console do Administrador Servidor de Backup do Azure, selecione o modo de exibição **recuperação** . 
 
-1. Usando o painel **Procurar**, procure ou filtre para localizar a VM que você deseja recuperar. Depois de selecionar uma VM ou pasta, o painel **pontos de recuperação** exibe os pontos de recuperação disponíveis.
+1. No painel **procurar** , procure ou filtre para localizar a VM que você deseja recuperar. Depois de selecionar uma VM ou pasta, os pontos de recuperação disponíveis são exibidos.
 
    ![Pontos de recuperação disponíveis](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
@@ -317,12 +320,13 @@ No Servidor de Backup do Azure Console do Administrador, há duas maneiras de lo
 
    ![Assistente de recuperação, página examinar seleção de recuperação](../backup/media/restore-azure-backup-server-vmware/recovery-wizard.png)
 
-1. Selecione **Avançar** para ir para a tela **especificar opções de recuperação** . Selecione **Avançar** novamente para ir para a tela **Selecionar tipo de recuperação** . 
+1. Selecione **Avançar** para ir para a tela **especificar opções de recuperação** . 
+1. Selecione **Avançar** novamente para ir para a tela **Selecionar tipo de recuperação** . 
 
    > [!NOTE]
    > As cargas de trabalho do VMware não dão suporte à habilitação da limitação da largura de banda
 
-1. Na página **Selecionar tipo de recuperação** , escolha se deseja recuperar na instância original ou em um novo local e, em seguida, selecione **Avançar**.
+1. Na página **Selecionar tipo de recuperação** , selecione recuperar na instância original ou em um novo local e, em seguida, selecione **Avançar**.
 
    - Se você escolher **Recuperar na instância original**, não precisará escolher outras opções no assistente. Os dados da instância original são usados.
    - Se você escolher **Recuperar como máquina virtual em algum host**, na tela **Especificar Destino**, forneça as informações de **Host ESXi**, **Pool de Recursos**, **Pasta** e **Caminho**.
@@ -342,7 +346,7 @@ Você pode restaurar arquivos individuais de um ponto de recuperação de VM pro
 
 1. Na Console do Administrador Servidor de Backup do Azure, selecione o modo de exibição **recuperação** .
 
-1. Usando o painel **Procurar**, procure ou filtre para localizar a VM que você deseja recuperar. Depois de selecionar uma VM ou pasta, o painel **pontos de recuperação** exibe os pontos de recuperação disponíveis.
+1. No painel **procurar** , procure ou filtre para localizar a VM que você deseja recuperar. Depois de selecionar uma VM ou pasta, os pontos de recuperação disponíveis são exibidos.
 
    ![Pontos de recuperação disponíveis](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 

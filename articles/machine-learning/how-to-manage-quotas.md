@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a25dcc187c1bb172106a3972c1cb57dfd473bc2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322369"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerenciar e aumentar cotas para recursos com o Azure Machine Learning
 
@@ -136,6 +136,29 @@ Ao solicitar um aumento da cota, é necessário selecionar o serviço com relaç
 
 > [!NOTE]
 > As [assinaturas de Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) não estão qualificadas para os aumentos de cota ou limite. Se você tiver uma [assinatura de Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), você poderá atualizar para uma assinatura de [pagamento conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/). Para obter mais informações, consulte [Atualizar a Versão de Avaliação Gratuita do Azure para Pagamento Conforme o Uso](../billing/billing-upgrade-azure-subscription.md) e [Perguntas Frequentes sobre a assinatura de Avaliação Gratuita](https://azure.microsoft.com/free/free-account-faq).
+
+## <a name="private-endpoint-and-private-dns-quota-increases"></a>Aumento de cota de ponto de extremidade particular e de DNS privado
+
+Há limitações no número de pontos de extremidade privados e zonas DNS privadas que podem ser criadas em uma assinatura. Embora Azure Machine Learning crie recursos em sua assinatura do (cliente), há alguns cenários que criam recursos em uma assinatura de propriedade da Microsoft. Nos cenários a seguir, talvez seja necessário solicitar uma concessão de cota na assinatura da Microsoft:
+
+* __Espaço de trabalho habilitado para link privado com uma chave gerenciada pelo cliente (CMK)__
+* __Registro de contêiner do Azure para o espaço de trabalho por trás de sua rede virtual__
+* __Anexando um link privado do cluster do serviço kubernetes do Azure habilitado ao seu espaço de trabalho__.
+
+Para solicitar uma concessão para esses cenários, use as seguintes etapas:
+
+1. [Crie uma solicitação de suporte do Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) e selecione as seguintes opções na seção __noções básicas__ :
+
+    | Campo | Seleção |
+    | ----- | ----- |
+    | Tipo de problema | Técnico |
+    | Serviço | Meus serviços. Selecione __Machine Learning__ na lista suspensa. |
+    | Tipo de problema | Instalação, SDK e CLI do espaço de trabalho |
+    | Subtipo de problema | Problema ao provisionar ou gerenciar o workspace |
+
+2. Na seção __detalhes__ , use o campo __Descrição__ para fornecer a região do Azure que você deseja usar e o cenário que você planeja usar. Se você precisar solicitar aumentos de cota para várias assinaturas, liste também as IDs de assinatura neste campo.
+
+3. Use __criar__ para criar a solicitação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

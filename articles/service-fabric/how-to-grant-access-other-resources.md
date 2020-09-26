@@ -3,14 +3,14 @@ title: Conceder a um aplicativo acesso a outros recursos do Azure
 description: Este artigo explica como conceder acesso ao aplicativo Service Fabric habilitado para identidade gerenciada a outros recursos do Azure que dão suporte à autenticação baseada em Azure Active Directory.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 638176ca2665146a64fb7a6bd83253eba3434a7f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a1d963c49f9522000028b00c138b2e5731a9ccca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333623"
 ---
-# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources-preview"></a>Concedendo um acesso de identidade gerenciada de Service Fabric aplicativo aos recursos do Azure (versão prévia)
+# <a name="granting-a-service-fabric-applications-managed-identity-access-to-azure-resources"></a>Concedendo um acesso de identidade gerenciada de Service Fabric aplicativo aos recursos do Azure
 
 Antes que o aplicativo possa usar sua identidade gerenciada para acessar outros recursos, as permissões devem ser concedidas a essa identidade no recurso protegido do Azure que está sendo acessado. A concessão de permissões é normalmente uma ação de gerenciamento no ' plano de controle ' do serviço do Azure que possui o recurso protegido roteado via Azure Resource Manager, o que irá impor qualquer verificação de acesso baseada em função aplicável.
 

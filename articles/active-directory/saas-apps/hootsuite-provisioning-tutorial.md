@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: a67d61c5a7c8861b1e4462586e1e4dca9149ab4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4c040c6d5b8eb4041db3ffaaab58657a9f9c7da
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305436"
+ms.locfileid: "91358042"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar o HootSuite para provisionamento automático de usuários
 
@@ -88,7 +88,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 5. Na seção **Credenciais de Administrador**, insira `https://platform.hootsuite.com/scim/v2` na URL do locatário. Insira o valor do token secreto de longa duração recuperado anteriormente na **Etapa 2**. Clique em **Testar Conexão** para verificar se o Azure AD pode se conectar ao HootSuite. Se a conexão falhar, verifique se sua conta do HootSuite tem permissões de administrador e tente novamente.
 
-    ![provisionamento](./media/hootsuite-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou um grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 

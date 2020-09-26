@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357005"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando backups automatizados de banco de dados-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,13 +91,13 @@ Você pode recuperar um banco de dados individual ou de instância em um ponto n
 
 Para recuperar um banco de dados em um ponto no tempo usando o portal do Azure, abra a página Visão geral do banco de dados e selecione **restaurar** na barra de ferramentas. Escolha a fonte de backup e selecione o ponto de backup pontual a partir do qual um novo banco de dados será criado.
 
-  ![Captura de tela das opções de restauração do banco de dados](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
+  ![Captura de tela das opções de restauração do banco de dados SQL.](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
 #### <a name="sql-managed-instance"></a>Instância Gerenciada de SQL
 
 Para fazer a recuperação pontual de um banco de dados de instância gerenciada usando o portal do Azure, abra a página de visão geral do banco de dados e selecione **Restaurar** na barra de ferramentas. Escolha o ponto de backup pontual a partir do qual um novo banco de dados será criado.
 
-  ![Captura de tela das opções de restauração do banco de dados](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+  ![Captura de tela das opções de restauração do banco de dados para instância gerenciada do SQL.](./media/recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > Para restaurar programaticamente um banco de dados a partir de um backup, consulte [Programando de forma programática a recuperação usando backups automatizados](recovery-using-backups.md).
