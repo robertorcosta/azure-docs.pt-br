@@ -24,6 +24,10 @@
     - name: Criar um serviço de Link Privado – Modelo do ARM
       displayName: Resource Manager
       href: create-private-link-service-template.md
+- name: Tutoriais
+  items:
+    - name: Conectar-se a uma conta de armazenamento
+      href: tutorial-private-endpoint-storage-portal.md
 - name: Conceitos
   items:
     - name: Ponto de extremidade privado
@@ -38,8 +42,6 @@
           href: security-baseline.md
 - name: Como
   items:
-    - name: Conectar-se de modo privado a uma conta de armazenamento
-      href: create-private-endpoint-storage-portal.md
     - name: Conectar-se de modo privado a uma conta do Cosmos DB
       href: create-private-endpoint-cosmosdb-portal.md
     - name: Conectar-se de modo privado a um aplicativo Web
