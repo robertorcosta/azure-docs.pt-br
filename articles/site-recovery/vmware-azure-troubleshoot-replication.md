@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: e9e66cbb024aa64e8c4cb5db9fc1c172fdc573fc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336198"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solução de problemas de replicação para VMs VMware e servidores físicos
 
@@ -192,6 +192,24 @@ Verifique se o tipo de inicialização do serviço do provedor do VSS está defi
         - Serviço de Cópias de Sombra de Volume
         - Provedor de VSS do Azure Site Recovery
         - Serviço VDS
+
+## <a name="error-id-95001---insufficient-permissions-found"></a>ID do erro 95001-permissões insuficientes encontradas
+
+Esse erro ocorre ao tentar habilitar a replicação e as pastas do aplicativo não têm permissões suficientes.
+
+**Como corrigir**: para resolver esse problema, verifique se o usuário IUSR tem função de proprietário para todas as pastas mencionadas abaixo-
+
+- *C\ProgramData\Microsoft Recovery\private Azure site*
+- O diretório de instalação. Por exemplo, se o diretório de instalação for uma unidade F, forneça as permissões corretas para-
+    - *Arquivos F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems*
+- A pasta *\pushinstallsvc* no diretório de instalação. Por exemplo, se o diretório de instalação for uma unidade F, forneça as permissões corretas para-
+    - *Arquivos F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems\pushinstallsvc*
+- A pasta *\etc* no diretório de instalação. Por exemplo, se o diretório de instalação for uma unidade F, forneça as permissões corretas para-
+    - *Arquivos F:\Program (x86) \Microsoft Azure site Recovery\home\svsystems\etc*
+- *C:\temp.*
+- *C:\thirdparty\php5nts*
+- Todos os itens sob o caminho abaixo-
+    - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## <a name="next-steps"></a>Próximas etapas
 

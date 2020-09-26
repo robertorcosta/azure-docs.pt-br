@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299758"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -129,6 +129,10 @@ Você pode refazer a imagem de um servidor ou criar um novo servidor com os mesm
 
 Nesse caso, exclua manualmente a entrada que pertence ao servidor mais antigo. Os dados para esse servidor devem estar desatualizados.
 
+**P: posso instalar o agente de integridade Azure AD Connect no Windows Server Core?**
+
+Não.  Não há suporte para a instalação no Server Core.
+
 ## <a name="health-agent-registration-and-data-freshness"></a>Registro de Agente de Integridade e atualização de dados
 
 **P: Quais são os motivos comuns para as falhas de registro do Agente de Integridade e como solucionar problemas?**
@@ -198,6 +202,7 @@ Use o cmdlet do PowerShell <i>Get-AdfsProperties -AuditLevel</i> para garantir q
 
 **P: quando o certificado do agente será renovado automaticamente antes da expiração?**
 A certificação do agente será renovada automaticamente **6 meses** antes da data de validade. Se não for renovado, verifique se a conexão de rede do agente está estável. Reiniciar os serviços de agente ou atualizar para a versão mais recente também pode resolver o problema.
+
 
 
 ## <a name="related-links"></a>Links relacionados

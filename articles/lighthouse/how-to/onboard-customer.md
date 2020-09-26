@@ -1,14 +1,14 @@
 ---
 title: Integrar um cliente ao Azure Lighthouse
 description: Saiba como integrar um cliente ao Azure Lighthouse, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário usando o gerenciamento de recursos delegado do Azure.
-ms.date: 08/20/2020
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336540"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Integrar um cliente ao Azure Lighthouse
 
@@ -19,7 +19,7 @@ Este artigo explica como você, como um provedor de serviços, pode integrar um 
 
 Você pode repetir o processo de integração para vários clientes. Quando um usuário com as permissões apropriadas entra no seu locatário de gerenciamento, esse usuário pode ser autorizado entre escopos de aluguel do cliente para executar operações de gerenciamento, sem precisar entrar em cada locatário individual do cliente.
 
-Para acompanhar o impacto nas participações do cliente e receber reconhecimento, associe a ID do MPN (Microsoft Partner Network) a pelo menos uma conta de usuário que tenha acesso a cada uma das assinaturas integradas. Você precisará executar essa associação em seu locatário do provedor de serviços. É recomendável criar uma conta de entidade de serviço em seu locatário associado à ID do MPN e, em seguida, incluir essa entidade de serviço sempre que você carregar um cliente. Para obter mais informações, consulte [vincular sua ID de parceiro para habilitar o crédito ganho do parceiro em recursos delegados](partner-earned-credit.md).
+Para acompanhar o impacto nas participações do cliente e receber reconhecimento, associe a ID do MPN (Microsoft Partner Network) a pelo menos uma conta de usuário que tenha acesso a cada uma das assinaturas integradas. Você precisará executar essa associação em seu locatário do provedor de serviços. É recomendável criar uma conta de entidade de serviço em seu locatário associado à ID do MPN e, em seguida, incluir essa entidade de serviço sempre que você carregar um cliente. Para obter mais informações, consulte [vincular sua ID de parceiro para habilitar o crédito ganho do parceiro em recursos delegados.
 
 > [!NOTE]
 > Os clientes também podem ser integrados ao Azure Lighthouse quando compram uma oferta de serviço gerenciado (pública ou privada) que você [publica no Azure Marketplace](publish-managed-services-offers.md). Você também pode usar o processo de integração descrito aqui junto com as ofertas publicadas no Azure Marketplace.
@@ -33,9 +33,6 @@ Para integrar o locatário de um cliente, ele deve ter uma assinatura ativa do A
 - A ID do locatário do provedor de serviços (em que você gerenciará os recursos do cliente)
 - A ID do locatário do cliente (cujos recursos serão gerenciados pelo provedor de serviços)
 - As IDs de cada assinatura específica no locatário do cliente que serão gerenciadas pelo provedor de serviços (ou que contém os grupos de recursos que o provedor de serviços vai gerenciar).
-
-> [!NOTE]
-> Mesmo que você queira carregar um ou mais grupos de recursos em uma assinatura, a implantação deve ser feita no nível da assinatura, portanto, você precisará da ID da assinatura.
 
 Se ainda não tiver esses valores de ID, você pode recuperá-los de uma das maneiras a seguir. Use esses valores exatos na implantação.
 
@@ -128,6 +125,11 @@ Para integrar seu cliente, você precisará criar um modelo do [Azure Resource M
 
 O processo de integração requer um modelo do Azure Resource Manager (fornecido em nosso [repositório de exemplos](https://github.com/Azure/Azure-Lighthouse-samples/)) e um arquivo de parâmetros correspondentes que você modifica para corresponder à sua configuração e definir suas autorizações.
 
+> [!IMPORTANT]
+> O processo descrito aqui requer uma implantação separada para cada assinatura sendo integrada, mesmo se você estiver integrando assinaturas no mesmo locatário do cliente. Também serão necessárias implantações separadas se você estiver integrando vários grupos de recursos em assinaturas diferentes no mesmo locatário do cliente. No entanto, a integração de múltiplos grupos de recursos em uma única assinatura pode ser feita em uma implantação.
+>
+> Implantações separadas também são necessárias para várias ofertas que estão sendo aplicadas à mesma assinatura (ou grupos de recursos dentro de uma assinatura). Cada oferta aplicada deve usar um **mspOfferName** diferente.
+
 O modelo escolhido dependerá se você está integrando uma assinatura inteira, um grupo de recursos ou múltiplos grupos de recursos em uma assinatura. Também fornecemos um modelo que pode ser usado por clientes que compraram uma oferta de serviço gerenciado que você publicou no Azure Marketplace, se você preferir integrar suas assinaturas dessa maneira.
 
 |Para fazer essa integração  |use este modelo do Azure Resource Manager  |e altere esse arquivo de parâmetros |
@@ -137,10 +139,8 @@ O modelo escolhido dependerá se você está integrando uma assinatura inteira, 
 |Múltiplos grupos de recursos em uma assinatura   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Assinatura (ao usar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-> [!IMPORTANT]
-> O processo descrito aqui requer uma implantação separada para cada assinatura sendo integrada, mesmo se você estiver integrando assinaturas no mesmo locatário do cliente. Também serão necessárias implantações separadas se você estiver integrando vários grupos de recursos em assinaturas diferentes no mesmo locatário do cliente. No entanto, a integração de múltiplos grupos de recursos em uma única assinatura pode ser feita em uma implantação.
->
-> Implantações separadas também são necessárias para várias ofertas que estão sendo aplicadas à mesma assinatura (ou grupos de recursos dentro de uma assinatura). Cada oferta aplicada deve usar um **mspOfferName** diferente.
+> [!TIP]
+> Embora não seja possível carregar um grupo de gerenciamento inteiro em uma implantação, você pode [implantar uma política no nível do grupo de gerenciamento](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups). A política verificará se cada assinatura dentro do grupo de gerenciamento foi delegada ao locatário de gerenciamento especificado e, caso contrário, criará a atribuição com base nos valores que você fornecer.
 
 O exemplo a seguir mostra um arquivo **delegatedResourceManagement.parameters.json** modificado que pode ser usado para integrar uma assinatura. Os arquivos de parâmetro do grupo de recursos, localizados na pasta [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management), são semelhantes, mas também incluem o parâmetro **rgName** para identificar os grupos de recursos específicos a integrar.
 

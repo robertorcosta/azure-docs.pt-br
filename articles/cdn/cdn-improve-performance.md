@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887685"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358280"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação de arquivo é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela pode reduzir os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
@@ -53,12 +53,12 @@ As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactaç�
     A página do ponto de extremidade da CDN se abre.
 2. Selecione **Compactação**.
 
-    ![Seleção de compactação da CDN](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![Captura de tela mostra um ponto de extremidade com compactação selecionada no menu do Portal.](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     A página de compactação é aberta.
 3. Selecione **Ativar** para ativar a compactação.
 
-    ![Opções de compactação de arquivo da CDN](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![Captura de tela mostra ativar a compactação.](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Use os tipos MIME padrão ou modifique a lista removendo ou adicionando tipos MIME.
 
    > [!TIP]
@@ -165,6 +165,6 @@ Para pontos de extremidade habilitados para streaming da CDN dos Serviços de M�
 - application/vnd.apple.mpegurl
 - application/f4m+xml 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 * [Solucionando problemas de compactação de arquivo CDN](cdn-troubleshoot-compression.md)    
 

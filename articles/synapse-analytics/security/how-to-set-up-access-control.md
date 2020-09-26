@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260148"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteger seu workspace do Synapse (versão prévia)
 
@@ -97,8 +97,8 @@ O workspace do Synapse precisa de acesso ao STG1 e CNT1 para que possa executar 
 
 - Abrir o portal do Azure
 - Navegar até WS1
-- Em **Configurações**, clique em **Administrador do Active Directory do SQL**
-- Clique em **Definir administrador** e escolha WS1\_SQLAdmins
+- Em **configurações**, selecione **administrador do SQL Active Directory**
+- Selecione **definir administrador** e escolha WS1 \_ sqladmins
 
 ## <a name="step-6-maintain-access-control"></a>ETAPA 6: manter o controle de acesso
 
@@ -123,8 +123,9 @@ Os usuários em cada função precisam concluir as seguintes etapas:
 
 > [!NOTE]
 > [1] Para criar pools do SQL ou do Spark, o usuário deve ter pelo menos a função Colaborador no workspace do Synapse.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Algumas etapas não serão permitidas deliberadamente dependendo da função.
 > - Tenha em mente que algumas tarefas poderão falhar se a segurança não tiver sido totalmente configurada. Essas tarefas estão anotadas na tabela.
 

@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336438"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Estágio de modelagem do ciclo de vida do Processo de Ciência de Dados da Equipe
 
 Este artigo descreve as metas, as tarefas e os resultados associados ao estágio de modelagem do TDSP (Processo de Ciência de Dados da Equipe). Esse processo fornece um ciclo de vida recomendado que você pode usar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os estágios principais que os projetos normalmente executam, com frequência de modo iterativo:
 
    1. **Noções básicas sobre negócios**
-   2. **Compreensão e aquisição de dados**
+   2. **Aquisição e compreensão de dados**
    3. **Modelagem**
    4. **Implantação**
    5. **Aceitação do cliente**
@@ -53,7 +53,7 @@ Esta etapa requer uma combinação criativa de experiência de domínio e das id
 Para obter diretrizes técnicas sobre a engenharia de recursos ao fazer uso de várias tecnologias de dados do Azure, consulte [Feature engineering in the data science process](create-features.md) (Engenharia de recursos no processo de ciência de dados). 
 
 ### <a name="model-training"></a>Treinamento do modelo
-Dependendo do tipo da pergunta que você estiver tentando responder, haverá vários algoritmos de modelagem disponíveis. Para obter diretrizes sobre como escolher algoritmos, consulte [Como escolher algoritmos para o Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Embora este artigo use o Azure Machine Learning, as diretrizes fornecidas aqui são úteis para quaisquer projetos de aprendizado de máquina. 
+Dependendo do tipo da pergunta que você estiver tentando responder, haverá vários algoritmos de modelagem disponíveis. Para obter diretrizes sobre como escolher algoritmos, consulte [Como escolher algoritmos para o Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Embora este artigo use o Azure Machine Learning, as diretrizes fornecidas aqui são úteis para quaisquer projetos de aprendizado de máquina. 
 
 O processo de treinamento do modelo inclui as seguintes etapas: 
 
@@ -83,7 +83,7 @@ Os artefatos produzidos neste estágio incluem:
 Aqui estão os links para cada etapa do ciclo de vida do TDSP:
 
    1. [Noções básicas sobre negócios](lifecycle-business-understanding.md)
-   2. [Compreensão e aquisição de dados](lifecycle-data.md)
+   2. [Aquisição e compreensão de dados](lifecycle-data.md)
    3. [Modelagem](lifecycle-modeling.md)
    4. [Implantação](lifecycle-deployment.md)
    5. [Aceitação do cliente](lifecycle-acceptance.md)

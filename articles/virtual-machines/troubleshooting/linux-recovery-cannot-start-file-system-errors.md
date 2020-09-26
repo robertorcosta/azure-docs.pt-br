@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de inicialização de VM Linux devido a erros do sistema de arquivos | Microsoft Docs
-description: Explica por que a VM do Linux não pode iniciar e como resolver o problema.
+description: Saiba como solucionar problemas de inicialização de VM Linux devido a erros do sistema de arquivos
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8f12b88a0ddbc6ae31f40ab31b0126e4fd66b1a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325939"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Solucionar problemas de inicialização de VM Linux devido a erros do sistema de arquivos
 
@@ -88,7 +88,7 @@ Para resolver esse problema, inicialize a VM no modo de emergência usando o [co
 
 2. Selecione o botão ícone de energia e, em seguida, selecione reiniciar VM. (Se o console serial não estiver habilitado ou não estiver conectado com êxito, você não verá o botão.)
 
-   ![IMAGE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
+   ![IMAGEM](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
 3. Inicialize a VM no modo de emergência.
 

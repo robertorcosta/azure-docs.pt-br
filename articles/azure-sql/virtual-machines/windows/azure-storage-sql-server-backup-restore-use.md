@@ -7,17 +7,17 @@ author: MikeRayMSFT
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
-ms.author: mikeray
-ms.openlocfilehash: d697f9edf8d5e57f051c23eaa2807704b2f7771e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: mathoma
+ms.openlocfilehash: c59fc03e36b738f7eaa91fcd13dda1cf0f6497a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272796"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Usar o armazenamento do Azure para SQL Server Backup e restauração
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

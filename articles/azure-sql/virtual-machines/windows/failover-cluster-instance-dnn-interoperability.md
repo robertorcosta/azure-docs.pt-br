@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: f9c4f58c3318d9d030637f85f3c1597b98d458c7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ca782e9949f990857db408919cac342d7f712d2b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965431"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272609"
 ---
 # <a name="feature-interoperability-with-sql-server-fci--dnn"></a>Interoperabilidade de recursos com SQL Server FCI & DNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -75,8 +75,8 @@ Continue usando o nome do VNN como o nome do FCI na replicação, mas crie um al
 
 | **Componente de replicação (FCI com DNN)** | **Componente remoto** | **Mapa de alias de rede** | **Servidor com mapa de rede**| 
 |---------|---------|---------|-------- | 
-|Publisher | Distribuidor | VNN do Publicador para o Publicador DNN| Distribuidor| 
-|Distribuidor|Assinante |VNN do distribuidor para DNN do distribuidor| Assinante | 
+|Publicador | Distribuidor | VNN do Publicador para o Publicador DNN| Distribuidor| 
+|Distribuidor|Subscriber |VNN do distribuidor para DNN do distribuidor| Subscriber | 
 |Distribuidor|Publicador | VNN do distribuidor para DNN do distribuidor | Publicador| 
 |Subscriber| Distribuidor| Assinante VNN para Assinante DNN | Distribuidor| 
 
