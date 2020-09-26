@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: c2dd0ce3c3e9a0f1f699b58ed2657394ad9acbe1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 608f984b3e3a3020863e0c28b0aa2ad504531e3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273215"
 ---
 # <a name="azure-data-studio-dashboards"></a>Painéis de Azure Data Studio
 
@@ -49,7 +49,7 @@ NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)
 controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
 ```
 
-Se você estiver usando um tipo de balanceador de carga, você desejará copiar o endereço IP externo e o número da porta 300080.  Se você estiver usando o NodePort, convém usar o endereço IP do servidor de API do kubernetes e o número da porta listado na coluna porta (S).
+Se você estiver usando um tipo de balanceador de carga, você desejará copiar o endereço IP externo e o número da porta. Se você estiver usando o NodePort, convém usar o endereço IP do servidor de API do kubernetes e o número da porta listado na coluna porta (S).
 
 Agora, você desejará construir uma URL para seu ponto de extremidade combinando essas informações como:
 

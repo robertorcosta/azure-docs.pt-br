@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360660"
 ---
 # <a name="custom-keyword-basics"></a>Noções básicas de palavra-chave personalizada
 
@@ -24,7 +24,7 @@ Neste artigo, você aprende as noções básicas de como trabalhar com palavras-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As etapas neste artigo exigem uma assinatura de fala e o SDK de fala. Se você ainda não tiver uma assinatura, [Experimente o serviço de fala gratuitamente](get-started.md). Para obter o SDK, consulte o [Guia de instalação](quickstarts/setup-platform.md) da sua plataforma.
+As etapas neste artigo exigem uma assinatura de fala e o SDK de fala. Se você ainda não tiver uma assinatura, [Experimente o serviço de fala gratuitamente](overview.md#try-the-speech-service-for-free). Para obter o SDK, consulte o [Guia de instalação](quickstarts/setup-platform.md) da sua plataforma.
 
 ## <a name="create-a-keyword-in-speech-studio"></a>Criar uma palavra-chave no Speech Studio
 

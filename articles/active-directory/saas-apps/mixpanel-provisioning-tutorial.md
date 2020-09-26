@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: 00e5f750c1acfa49aea2caadbc95fd75cef0b24b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d37034057f7d1bc39c065110b20a8a2cdce13b62
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256039"
+ms.locfileid: "91360440"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutorial: configurar o mixpanel para o provisionamento automático de usuário
 
@@ -88,7 +88,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 5. Na seção **credenciais de administrador** , insira a **URL do locatário** do mixpanel e o **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao mixpanel. Se a conexão falhar, verifique se sua conta do mixpanel tem permissões de administrador e tente novamente.
 
-    ![provisionamento](./media/mixpanel-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/mixpanel-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 
