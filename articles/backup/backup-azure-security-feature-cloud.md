@@ -3,12 +3,12 @@ title: Exclusão reversível para o backup do Azure
 description: Saiba como usar recursos de segurança no backup do Azure para tornar os backups mais seguros.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 76928b98bdb21ffa79fce8435bfe4dda92e0c72d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d7998c7f9def6ce9965ded3b6ec700f7975891eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179956"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271538"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Exclusão reversível para o backup do Azure
 
@@ -29,7 +29,7 @@ Este gráfico de fluxo mostra as diferentes etapas e Estados de um item de backu
 
 A exclusão reversível é habilitada por padrão em cofres recém-criados para proteger dados de backup de exclusões acidentais ou mal-intencionadas.  Não é recomendável desabilitar esse recurso. A única circunstância em que você deve considerar a desabilitação da exclusão reversível é se você planeja mover seus itens protegidos para um novo cofre e não pode aguardar os 14 dias necessários antes de excluir e proteger novamente (como em um ambiente de teste). Somente o proprietário do cofre pode desabilitar esse recurso. Se você desabilitar esse recurso, todas as exclusões futuras de itens protegidos resultarão na remoção imediata, sem a capacidade de restaurar. Os dados de backup que existem no estado de exclusão reversível antes de desabilitar esse recurso permanecerão no estado de exclusão reversível pelo período de 14 dias. Se você quiser excluí-las permanentemente imediatamente, será necessário restaurar e excluí-las novamente para que sejam excluídas permanentemente.
 
- É importante lembrar que, quando a exclusão reversível estiver desabilitada, o recurso estará desabilitado para todos os tipos de cargas de trabalho, incluindo as cargas de trabalho do SQL Server e do SAP HANA. Por exemplo, depois que a [visualização de SQL Server/SAP Hana](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) estiver habilitada para uma assinatura, não será possível desabilitar a exclusão reversível somente para bancos de SAP Hana ou SQL Server, mantendo-o habilitado para máquinas virtuais no mesmo cofre. Você pode criar cofres separados para o controle granular.
+É importante lembrar que, quando a exclusão reversível está desabilitada, o recurso é desabilitado para todos os tipos de cargas de trabalho. Por exemplo, não é possível desabilitar a exclusão reversível somente para bancos de SAP HANA ou SQL Server, mantendo-o habilitado para máquinas virtuais no mesmo cofre. Você pode criar cofres separados para o controle granular.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Desabilitando a exclusão reversível usando o portal do Azure
 

@@ -1,23 +1,23 @@
 ---
 title: Versão Microsoft Threat Modeling Tool 03/22/2020 – Azure
-description: Documentando as notas sobre a versão da Threat Modeling Tool
+description: Documentando as notas de versão da versão 7.3.00316.1 da ferramenta de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 03/22/2020
-ms.openlocfilehash: 6fea4d48b62d6ea429d37924ffd15855db6294cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 39963e9dadca0ee0be7bb8ad0ebf824c287bfee0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80146856"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317898"
 ---
 # <a name="threat-modeling-tool-update-release-73003161---03222020"></a>Versão de atualização do Threat Modeling Tool 7.3.00316.1-03/22/2020
 
 A versão 7.3.00316.1 do Microsoft Threat Modeling Tool (TMT) foi lançada em março de 22 2020 e contém as seguintes alterações:
 
-- Aprimoramentos de acessibilidade
+- Aprimoramentos na acessibilidade
 - Correções de bug
 - Novo recurso DiagramReader
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 678b7571d54c8938c163801a584ad813c6e5963f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551159"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317439"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configurar Concur para provisionamento automático de usuário
 
@@ -96,7 +96,7 @@ Essa ação não deve ser feita com o perfil usado para a administração normal
 
 9. Defina o **Modo de Provisionamento** como **Automático**. 
  
-    ![provisionamento](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Captura de tela da guia provisionamento para concur no portal do Azure. O modo de provisionamento é definido como automático e o botão testar conexão é realçado.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Na seção **Credenciais do Administrador**, insira o **nome de usuário** e a **senha** do administrador do Concur.
 

@@ -1,17 +1,17 @@
 ---
 title: Versão Microsoft Threat Modeling Tool 02/11/2020 – Azure
-description: Documentando as notas sobre a versão da Threat Modeling Tool
+description: Documentando as notas de versão da versão 7.3.00206.1 da ferramenta de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: da4e61d6c89e62c3598570b30ce749390915ca1b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fa89ffcfd37629f95fbf281a6a703a173acd5d48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259325"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317915"
 ---
 # <a name="threat-modeling-tool-update-release-73002061---02112020"></a>Versão de atualização do Threat Modeling Tool 7.3.00206.1-02/11/2020
 
@@ -33,9 +33,9 @@ System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'L
 
 Esse problema foi resolvido nesta versão.
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 
-- Sistemas operacionais compatíveis
+- Sistemas operacionais com suporte
   - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
 - Versão necessária do .NET
   - [.NET 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou posterior

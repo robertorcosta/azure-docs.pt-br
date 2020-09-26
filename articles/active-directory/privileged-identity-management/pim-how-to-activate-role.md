@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 2a2c3c112183e102f6c3c4a0bebb83376c7e8d85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055445"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317530"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar minhas funções do Azure AD no PIM
 
@@ -40,7 +40,7 @@ A partir de novembro de 2019, a parte das funções do Azure AD da Privileged Id
 
 # <a name="new-version"></a>[Nova versão](#tab/new)
 
-## <a name="activate-a-role"></a>Ativar uma função
+## <a name="activate-a-role-for-new-version"></a>Ativar uma função para a nova versão
 
 Quando você precisar assumir uma função do Azure AD, poderá solicitar a ativação abrindo **minhas funções** no Privileged Identity Management.
 
@@ -80,7 +80,7 @@ Quando você precisar assumir uma função do Azure AD, poderá solicitar a ativ
 
     ![Notificação de aprovação pendente da solicitação de ativação](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>Exibir o status de suas solicitações
+## <a name="view-the-status-of-your-requests-for-new-version"></a>Exibir o status de suas solicitações para a nova versão
 
 Você pode exibir o status das suas solicitações pendentes a serem ativadas.
 
@@ -92,7 +92,7 @@ Você pode exibir o status das suas solicitações pendentes a serem ativadas.
 
 1. Role para a direita para exibir o **Status da solicitação** coluna.
 
-## <a name="cancel-a-pending-request"></a>Cancelar uma solicitação pendente
+## <a name="cancel-a-pending-request-for-new-version"></a>Cancelar uma solicitação pendente para a nova versão
 
 Caso não precise da ativação de uma função que requer aprovação, você pode cancelar uma solicitação pendente a qualquer momento.
 
@@ -106,7 +106,7 @@ Caso não precise da ativação de uma função que requer aprovação, você po
 
    ![Minha lista de solicitações com a ação cancelar realçada](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Solucionar problemas
+## <a name="troubleshoot-for-new-version"></a>Solucionar problemas da nova versão
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>As permissões não são concedidas depois de ativar uma função
 

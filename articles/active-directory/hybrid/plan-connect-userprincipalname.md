@@ -10,12 +10,12 @@ ms.workload: identity
 ms.service: active-directory
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e105d4909705622a931c51bcb7cf0a9db4179525
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 58b4bbcac110398ee4ff132b76ce8c4868ee17f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279594"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317584"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Preenchimento de UserPrincipalName do Azure AD
 
@@ -54,7 +54,7 @@ ID de logon alternativo permite configurar uma experiência de entrada, onde os 
 
 Ao usar o Azure AD Connect, não são necessárias etapas de configurações adicionais para se habilitar a ID de logon alternativa com o Azure AD. A ID alternativa pode ser configurada no assistente. Confira configuração de entrada do Azure AD para seus usuários na seção sincronização. Na lista suspensa **nome principal do usuário** , selecione o atributo para a ID de logon alternativa.
 
-![Domínios não verificados](./media/plan-connect-userprincipalname/altloginid.png)  
+![Captura de tela que realça a lista de nome principal do usuário em que você seleciona o atributo de ID de logon alternativo.](./media/plan-connect-userprincipalname/altloginid.png)  
 
 Para obter mais informações, consulte [ID de logon alternativo configurar](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) e [configuração de entrada do AD do Azure](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: d3a2c85540a4efa2f934605c4c056b458e2879ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749595"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317626"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Criptografia do ExpressRoute: IPsec sobre ExpressRoute para WAN virtual
 
@@ -110,7 +110,7 @@ Depois de criar o site VPN e conectar-se ao Hub, use as seguintes etapas para co
 
    ![Configuração para usar um endereço IP privado para a conexão VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
    
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Depois de salvar as alterações, o gateway de VPN de Hub usará os endereços IP privados no gateway de VPN para estabelecer as conexões IPsec/IKE com o dispositivo VPN local no ExpressRoute.
 
@@ -222,7 +222,7 @@ Se você precisar de instruções para configurar o dispositivo, poderá usar as
 ## <a name="5-view-your-virtual-wan"></a><a name="viewwan"></a>5. exibir sua WAN virtual
 
 1. Vá para a WAN virtual.
-1. Na página **visão geral** , cada ponto no mapa representa um Hub.
+1. Na página **Visão Geral**, cada ponto no mapa representa um hub.
 1. Na seção **hubs e conexões** , você pode exibir o status do Hub, do site, da região e da conexão VPN. Você também pode exibir bytes de entrada e saída.
 
 ## <a name="7-monitor-a-connection"></a><a name="connectmon"></a>7. monitorar uma conexão

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b4e74d5db2d1454360370c05d75cdf826875143
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317422"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: configurar o DocuSign para o provisionamento automático de usuário
 
@@ -65,7 +65,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. Defina o **Modo de Provisionamento** como **Automático**. 
 
-    ![provisionamento](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Captura de tela da guia provisionamento para DocuSign no portal do Azure. O modo de provisionamento é definido como automático e o nome de usuário do administrador, senha e conexão de teste são realçados.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    

@@ -3,12 +3,12 @@ title: Suporte para migração do Hyper-V em migrações para Azure
 description: Saiba mais sobre o suporte para migração do Hyper-V com migrações para Azure.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 4f3609560fa59c08c4d92f4faa36c7fbbffb95d7
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 0054b6983e7d11dd36a92f21cd1cb20314fb9408
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318221"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração do Hyper-V
 
@@ -32,18 +32,18 @@ Você pode selecionar até 10 VMs de uma só vez para replicação. Se você qui
 | **Espaço livre em disco (disco de retenção)** |  600 GB |
 
 
-## <a name="hyper-v-vms"></a>VMs do Hyper-V
+## <a name="hyper-v-vms"></a>VMs Hyper-V
 
 | **Suporte**                  | **Detalhes**               
 | :----------------------------- | :------------------- |
 | **Sistema operacional** | Todos os sistemas operacionais [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) com suporte no Azure. |
 **Windows Server 2003** | Para VMs que executam o Windows Server 2003, você precisa [instalar o Hyper-V Integration Services](prepare-windows-server-2003-migration.md) antes da migração. | 
-**VMs do Linux no Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure.<br/><br/> Para o Linux, as migrações para Azure fazem as alterações automaticamente para esses sistemas operacionais:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. Para outros sistemas operacionais, faça as [alterações necessárias](prepare-for-migration.md#linux-machines) manualmente.
+**VMs do Linux no Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure.<br/><br/> Para o Linux, as migrações para Azure fazem as alterações automaticamente para esses sistemas operacionais:<br/> -Red Hat Enterprise Linux 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x<br/> -Cent OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -SUSE Linux Enterprise Server 15 SP1 <br/>-Ubuntu 19, 4, 19,10, 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Para outros sistemas operacionais, faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 | **Alterações necessárias para o Azure** | Algumas VMs podem precisar de alterações para que possam ser executadas no Azure. Faça os ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazer isso. |
 | **Inicialização do Linux**                 | Se/boot estiver em uma partição dedicada, ele deverá residir no disco do sistema operacional e não poderá ser distribuído em vários discos.<br/> Se/boot fizer parte da partição raiz (/), a partição '/' deverá estar no disco do sistema operacional e não poderá abranger outros discos. |
-| **Inicialização UEFI**                  | Com suporte. Certifique-se de selecionar um tamanho de VM com suporte na VM do Azure geração 2  |
+| **Inicialização UEFI**                  | Com suporte. As VMs baseadas em UEFI serão migradas para VMs do Azure geração 2.  |
 | **Inicialização segura de UEFI**         | Sem suporte para migração.|
-| **Tamanho do disco**                  | 2 TB para o disco do sistema operacional, 4 TB para discos de dados.|
+| **Tamanho do disco**                  | 2 TB para o disco do sistema operacional (inicialização do BIOS), 4 TB para o disco do sistema operacional (inicialização UEFI), 4 TB para os discos de dados.|
 | **Número do disco** | Um máximo de 16 discos por VM.|
 | **Discos/volumes criptografados**    | Sem suporte para migração.|
 | **Discos de RDM/PassThrough**      | Sem suporte para migração.|
