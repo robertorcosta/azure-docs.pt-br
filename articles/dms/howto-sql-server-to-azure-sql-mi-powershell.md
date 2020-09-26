@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit, devx-track-azurepowershell
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 37d61a5c199b59a13b54344f5ffaf69d7b369a1b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c82acb66266fd36e5b7155adbfa5bd5ade1b765c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078054"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291980"
 ---
 # <a name="migrate-sql-server-to-sql-managed-instance-with-powershell--azure-database-migration-service"></a>Migrar SQL Server para o SQL Instância Gerenciada com o PowerShell & serviço de migração de banco de dados do Azure
 
@@ -26,7 +26,7 @@ Neste artigo, você migra o banco de dados **Adventureworks2016** restaurado par
 Neste artigo, você aprenderá como:
 > [!div class="checklist"]
 >
-> * Crie um grupo de recursos.
+> * Crie um grupos de recursos.
 > * Crie uma instância do Serviço de Migração de Banco de Dados do Azure.
 > * Crie um projeto de migração em uma instância do serviço de migração de banco de dados do Azure.
 > * Executar a migração.

@@ -1,17 +1,17 @@
 ---
 title: Configurar logs de consulta lentos-portal do Azure-banco de dados do Azure para MySQL-servidor flexível
-description: Este artigo descreve como configurar e acessar os logs lentos no banco de dados do Azure para MySQL servidor flexível do portal do Azure.
+description: Este artigo descreve como configurar e acessar os logs de consulta lentos no banco de dados do Azure para MySQL servidor flexível do portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1416efaa325ced623b5c7514f2f9953dc0bd2781
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1a829f4e5f45394d9c5bbed0db9289727b816917
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933750"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315023"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar e acessar logs de consulta lentos para o banco de dados do Azure para MySQL-servidor flexível usando o portal do Azure
 
@@ -45,6 +45,9 @@ Na página **parâmetros do servidor** , você pode retornar à lista de logs fe
 
 ## <a name="set-up-diagnostics"></a>Configurar o diagnóstico
 
+> [!NOTE]
+> A integração com as configurações de diagnóstico Azure Monitor para acessar logs está no processo de implantação e a funcionalidade completa estará disponível em breve.
+
 Logs de consulta lentos são integrados com Azure Monitor configurações de diagnóstico para permitir que você direcione seus logs para Azure Monitor logs, hubs de eventos ou armazenamento do Azure.
 
 1. Na seção **monitoramento** na barra lateral, selecione **configurações de diagnóstico**  >  **Adicionar configurações de diagnóstico**.
@@ -63,7 +66,7 @@ Logs de consulta lentos são integrados com Azure Monitor configurações de dia
 
 1. Acesse os logs de consulta lento explorando-os nos coletores de dados que você configurou. Pode levar até 10 minutos para que os logs sejam exibidos.
 
-Se você canalizasse seus logs de auditoria para Azure Monitor logs (Log Analytics), consulte algumas [consultas de exemplo](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) que você pode usar para análise. 
+Se você canalizasse seus logs para Azure Monitor logs (Log Analytics), consulte algumas [consultas de exemplo](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) que você pode usar para análise. 
 
 ## <a name="next-steps"></a>Próximas etapas
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->

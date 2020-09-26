@@ -3,12 +3,12 @@ title: Alertas de log de Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como criar alertas de log personalizados para utilização de memória e CPU de Azure Monitor para contêineres.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 2d86edc5994070ba909c6e3a0da2cf76e8359773
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973730"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294539"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de log de Azure Monitor para contêineres
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
-Esta seção percorre a criação de uma regra de alerta de medição de métrica usando dados de desempenho de Azure Monitor para contêineres. Você pode usar esse processo básico com uma variedade de consultas de log para alertar sobre diferentes contadores de desempenho. Use uma das consultas de pesquisa de log fornecidas anteriormente para começar com o. Para criar usando um modelo de ARM, consulte [criação de alerta de log de exemplo usando o modelo de recurso do Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
+Esta seção percorre a criação de uma regra de alerta de medição de métrica usando dados de desempenho de Azure Monitor para contêineres. Você pode usar esse processo básico com uma variedade de consultas de log para alertar sobre diferentes contadores de desempenho. Use uma das consultas de pesquisa de log fornecidas anteriormente para começar com o. Para criar usando um modelo do ARM, consulte [amostras de criação de alerta de log usando o modelo de recurso do Azure](../platform/alerts-log-create-templates.md).
 
 >[!NOTE]
 >O procedimento a seguir para criar uma regra de alerta para utilização de recursos de contêiner exige que você alterne para uma nova API de alertas de log, conforme descrito em [preferência de API de switch para alertas de log](../platform/alerts-log-api-switch.md).

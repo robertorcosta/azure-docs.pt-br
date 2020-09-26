@@ -1,6 +1,6 @@
 ---
 title: SAP HANA escalar horizontalmente com em espera com Azure NetApp Files no SLES | Microsoft Docs
-description: Guia de alta disponibilidade do SAP NetWeaver no SUSE Linux Enterprise Server com o Azure NetApp Files para aplicativos SAP
+description: Saiba como implantar um sistema de escalabilidade horizontal SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no SUSE Linux Enterprise Server.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: adc57b213a177e227fe446a4dd24e53dea1cd2fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068638"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314055"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implantar um sistema de expansão SAP HANA com o nó em espera em VMs do Azure usando Azure NetApp Files no SUSE Linux Enterprise Server 
 
@@ -106,10 +106,10 @@ Os volumes do Azure NetApp estão em sub-rede separada, [delegados para Azure Ne
 
 Para esta configuração de exemplo, as sub-redes são:  
 
-  - `client`10.23.0.0/24  
-  - `storage`10.23.2.0/24  
-  - `hana`10.23.3.0/24  
-  - `anf`10.23.1.0/26  
+  - `client` 10.23.0.0/24  
+  - `storage` 10.23.2.0/24  
+  - `hana` 10.23.3.0/24  
+  - `anf` 10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Configurar a infraestrutura de Azure NetApp Files 
 
@@ -236,7 +236,7 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
 
 3. Crie três interfaces de rede, uma para cada máquina virtual, para a `storage` sub-rede da rede virtual (neste exemplo, **hanadb1**-Storage, **hanadb2-Storage**e **hanadb3-Storage**).  
 
-4. Crie três interfaces de rede, uma para cada máquina virtual, para a `hana` sub-rede de rede virtual (neste exemplo, **hanadb1-Hana**, **hanadb2-Hana**e **hanadb3-Hana**).  
+4. Crie três interfaces de rede, uma para cada máquina virtual, para a `hana`  sub-rede de rede virtual (neste exemplo, **hanadb1-Hana**, **hanadb2-Hana**e **hanadb3-Hana**).  
 
 5. Anexe as interfaces de rede virtual recém-criadas às máquinas virtuais correspondentes executando as seguintes etapas:  
 
@@ -250,7 +250,7 @@ As próximas instruções pressupõem que você já criou o grupo de recursos, a
     
     e. Clique em **Salvar**. 
  
-    f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo, **hanadb2** e **hanadb3**).
+    f. Repita as etapas b a e para as máquinas virtuais restantes (em nosso exemplo,  **hanadb2** e **hanadb3**).
  
     g. Deixe as máquinas virtuais no estado parado por enquanto. Em seguida, Habilitaremos a [rede acelerada](../../../virtual-network/create-vm-accelerated-networking-cli.md) para todas as interfaces de rede recentemente anexadas.  
 
@@ -561,7 +561,7 @@ Neste exemplo para implantar SAP HANA na configuração de expansão com o nó e
      * Para **Adicionar nomes de host separados por vírgulas**: insira **hanadb2, hanadb3**
      * Para o **nome de usuário raiz** [raiz]: pressione ENTER para aceitar o padrão
      * Para a **senha do usuário raiz**: Insira a senha do usuário raiz
-     * Para funções para o host hanadb2: insira **1** (para o trabalho)
+     * Para funções para o host hanadb2: insira **1**  (para o trabalho)
      * Para o **grupo de failover de host** para o host hanadb2 [padrão]: pressione ENTER para aceitar o padrão
      * Para o **número de partição de armazenamento** para o host hanadb2 [<<assign automatically>>]: pressione ENTER para aceitar o padrão
      * Para o **grupo de trabalho** para o host hanadb2 [padrão]: pressione ENTER para aceitar o padrão

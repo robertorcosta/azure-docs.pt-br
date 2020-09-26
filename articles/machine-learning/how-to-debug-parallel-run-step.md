@@ -10,13 +10,13 @@ ms.custom: troubleshooting
 ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/16/2020
-ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: 7866f2dcaebe396759eb7f6315c457bfce307723
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315568"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Como depurar e solucionar problemas de ParallelRunStep
 
@@ -35,13 +35,17 @@ Por exemplo, o arquivo de log `70_driver_log.txt` contém informações do contr
 
 Devido à natureza distribuída dos trabalhos do ParallelRunStep, há logs de várias fontes diferentes. No entanto, são criados dois arquivos consolidados que fornecem informações de alto nível:
 
-- `~/logs/overview.txt`: Esse arquivo fornece informações de alto nível sobre o número de mini-lotes (também conhecidos como tarefas) criados até o momento e o número de mini-lotes processados até o momento. Nesse final, ele mostra o resultado do trabalho. Se o trabalho tiver falhado, ele mostrará a mensagem de erro e onde iniciar a solução de problemas.
+- `~/logs/job_progress_overview.txt`: Esse arquivo fornece informações de alto nível sobre o número de mini-lotes (também conhecidos como tarefas) criados até o momento e o número de mini-lotes processados até o momento. Nesse final, ele mostra o resultado do trabalho. Se o trabalho tiver falhado, ele mostrará a mensagem de erro e onde iniciar a solução de problemas.
 
-- `~/logs/sys/master.txt`: Esse arquivo fornece a exibição do nó principal (também conhecido como orquestrador) do trabalho em execução. Inclui a criação de tarefas, o monitoramento de progresso, o resultado da execução.
+- `~/logs/sys/master_role.txt`: Esse arquivo fornece a exibição do nó principal (também conhecido como orquestrador) do trabalho em execução. Inclui a criação de tarefas, o monitoramento de progresso, o resultado da execução.
 
 Os logs gerados do script de entrada usando o auxiliar EntryScript e as instruções PRINT serão encontrados nos seguintes arquivos:
 
-- `~/logs/user/<ip_address>/<node_name>.log.txt`: Esses arquivos são os logs gravados de entry_script usando o auxiliar EntryScript. Também contém a instrução print (stdout) da entry_script.
+- `~/logs/user/entry_script_log/<ip_address>/<process_name>.log.txt`: Esses arquivos são os logs gravados de entry_script usando o auxiliar EntryScript.
+
+- `~/logs/user/stdout/<ip_address>/<process_name>.stdout.txt`: Esses arquivos são os logs de stdout (por exemplo, a instrução print) de entry_script.
+
+- `~/logs/user/stderr/<ip_address>/<process_name>.stderr.txt`: Esses arquivos são os logs de stderr de entry_script.
 
 Para uma compreensão concisa dos erros em seu script, há:
 
@@ -49,17 +53,17 @@ Para uma compreensão concisa dos erros em seu script, há:
 
 Para obter mais informações sobre erros no seu script, há:
 
-- `~/logs/user/error/`: Contém todos os erros lançados e rastreamentos de pilha completos organizados por nó.
+- `~/logs/user/error/`: Contém rastreamentos de pilha completa de exceções geradas durante o carregamento e a execução do script de entrada.
 
 Quando você precisar de um entendimento completo de como cada nó executou o script de pontuação, examine os logs de processo individuais para cada nó. Os logs de processo podem ser encontrados na pasta `sys/node`, agrupados por nós de trabalho:
 
-- `~/logs/sys/node/<node_name>.txt`: Esse arquivo fornece informações detalhadas sobre cada mini-lote conforme ele é selecionado ou concluído por um trabalho. Para cada mini-lote, esse arquivo inclui:
+- `~/logs/sys/node/<ip_address>/<process_name>.txt`: Esse arquivo fornece informações detalhadas sobre cada mini-lote conforme ele é selecionado ou concluído por um trabalho. Para cada mini-lote, esse arquivo inclui:
 
     - O endereço IP e o PID do processo de trabalho. 
     - O número total de itens, contagem de itens processados com êxito e contagem de itens com falha.
     - A hora de início, a duração, o tempo de processamento e o tempo do método de execução.
 
-Você também pode encontrar informações sobre o uso de recursos dos processos para cada trabalho. Essas informações estão no formato CSV e estão localizadas em `~/logs/sys/perf/overview.csv`. As informações sobre cada processo estão disponíveis em `~logs/sys/processes.csv` .
+Você também pode encontrar informações sobre o uso de recursos dos processos para cada trabalho. Essas informações estão no formato CSV e estão localizadas em `~/logs/sys/perf/<ip_address>/node_resource_usage.csv`. As informações sobre cada processo estão disponíveis em `~logs/sys/perf/<ip_address>/processes_resource_usage.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Como fazer log do meu script de usuário a partir de um contexto remoto?
 ParallelRunStep pode executar vários processos em um nó com base em process_count_per_node. Para organizar os logs de cada processo no nó e combinar a instrução print e log, é recomendável usar o ParallelRunStep Logger, conforme mostrado abaixo. Você Obtém um agente de log de EntryScript e faz os logs aparecerem na pasta **logs/usuário** no Portal.
@@ -112,6 +116,28 @@ parser.add_argument('--labels_dir', dest="labels_dir", required=True)
 args, _ = parser.parse_known_args()
 
 labels_path = args.labels_dir
+```
+
+### <a name="how-to-use-input-datasets-with-service-principal-authentication"></a>Como usar conjuntos de dados de entrada com autenticação de entidade de serviço?
+
+O usuário pode passar conjuntos de dados de entrada com a autenticação de entidade de serviço usada no espaço de trabalho. O uso desse conjunto de ParallelRunStep requer que o conjunto de um seja registrado para que ele construa a configuração do ParallelRunStep.
+
+```python
+service_principal = ServicePrincipalAuthentication(
+    tenant_id="***",
+    service_principal_id="***",
+    service_principal_password="***")
+ 
+ws = Workspace(
+    subscription_id="***",
+    resource_group="***",
+    workspace_name="***",
+    auth=service_principal
+    )
+ 
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+ds = Dataset.File.from_files(default_blob_store, '**path***')
+registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

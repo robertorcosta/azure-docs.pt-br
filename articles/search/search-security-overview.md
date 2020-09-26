@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f314394d3a0ac453d525079e096162d8739f67cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979604"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314687"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança no Azure Pesquisa Cognitiva-visão geral
 
@@ -35,6 +35,8 @@ Assista a este vídeo rápido do ritmo para obter uma visão geral da arquitetur
 ## <a name="encrypted-transmissions-and-storage"></a>Armazenamento e transmissões criptografados
 
 No Azure Pesquisa Cognitiva, a criptografia começa com conexões e transmissões e se estende ao conteúdo armazenado em disco. Para serviços de pesquisa na Internet pública, o Azure Pesquisa Cognitiva escuta na porta HTTPS 443. Todas as conexões de cliente para serviço usam a criptografia TLS 1,2. Não há suporte para versões anteriores (1,0 ou 1,1).
+
+:::image type="content" source="media/search-security-overview/encryption-at-rest-cmk.png" alt-text="diagrama ilustrando diferentes tipos de segurança em cada nível de envolvimento de serviço":::
 
 Para dados manipulados internamente pelo serviço de pesquisa, a tabela a seguir descreve os [modelos de criptografia de dados](../security/fundamentals/encryption-models.md). Alguns recursos, como armazenamento de conhecimento, enriquecimento incremental e indexação baseada em indexador, leitura ou gravação em estruturas de dados em outros serviços do Azure. Esses serviços têm seus próprios níveis de suporte de criptografia separados do Azure Pesquisa Cognitiva.
 
@@ -92,6 +94,8 @@ A autenticação é necessária em cada solicitação, em que cada solicitação
 
 Para controlar ainda mais o acesso ao serviço de pesquisa, você pode criar regras de firewall de entrada que permitem o acesso a um endereço IP específico ou a um intervalo de endereços IP. Todas as conexões de cliente devem ser feitas por meio de um endereço IP permitido ou a conexão é negada.
 
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="diagrama de arquitetura de exemplo para acesso restrito por IP":::
+
 Você pode usar o portal para [Configurar o acesso de entrada](service-configure-firewall.md).
 
 Como alternativa, você pode usar as APIs REST de gerenciamento. A partir da versão de API 2020-03-13, com o parâmetro [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) , você pode restringir o acesso ao seu serviço identificando endereços IP, individualmente ou em um intervalo, que você deseja conceder acesso ao serviço de pesquisa.
@@ -101,6 +105,8 @@ Como alternativa, você pode usar as APIs REST de gerenciamento. A partir da ver
 Um [ponto de extremidade privado](../private-link/private-endpoint-overview.md) para o Azure pesquisa cognitiva permite que um cliente em uma [rede virtual](../virtual-network/virtual-networks-overview.md) acesse dados com segurança em um índice de pesquisa por um [link privado](../private-link/private-link-overview.md).
 
 O ponto de extremidade privado usa um endereço IP do espaço de endereço de rede virtual para conexões com o serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública. Uma VNET permite a comunicação segura entre os recursos, com sua rede local, bem como com a Internet.
+
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="diagrama de arquitetura de exemplo para acesso de ponto de extremidade privado":::
 
 Embora essa solução seja a mais segura, usar serviços adicionais é um custo adicional, portanto, certifique-se de ter uma compreensão clara dos benefícios antes de mergulhar no. ou mais informações sobre os custos, consulte a [página de preços](https://azure.microsoft.com/pricing/details/private-link/). Para obter mais informações sobre como esses componentes funcionam em conjunto, Assista ao vídeo na parte superior deste artigo. A cobertura da opção de ponto de extremidade particular começa em 5:48 no vídeo. Para obter instruções sobre como configurar o ponto de extremidade, consulte [criar um ponto de extremidade privado para o Azure pesquisa cognitiva](service-create-private-endpoint.md).
 

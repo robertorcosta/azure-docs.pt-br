@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4fe353467a11e9581db76ec495194878414f4dfb
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c93508bebdcfce35a89b3d5e2a8abecc7ac84722
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230680"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280140"
 ---
 # <a name="storage-account-overview"></a>Visão geral da conta de armazenamento
 
@@ -108,7 +108,7 @@ As camadas de acesso disponíveis são:
 
 - A camada de acesso **quente** . Essa camada é otimizada para acesso frequente de objetos na conta de armazenamento. O acesso a dados na camada quente é mais econômico, enquanto os custos de armazenamento são mais altos. Por padrão, as novas contas de armazenamento são criadas na camada de acesso quente.
 - A camada de acesso **fria** . Essa camada é otimizada para armazenar grandes quantidades de dados acessados com pouca frequência e armazenados por pelo menos 30 dias. O armazenamento de dados na camada fria é mais econômico, mas acessar esses dados pode ser mais caro do que acessar dados na camada quente.
-- A camada de **arquivo morto** . Essa camada está disponível somente para BLOBs de blocos individuais. A camada de arquivamento é otimizada para dados que podem tolerar várias horas de latência de recuperação e que permanecerão na camada de arquivo por pelo menos 180 dias. A camada de arquivamento é a opção mais econômica para armazenar dados. No entanto, acessar esses dados é mais caro do que acessar dados em camadas quentes ou frias.
+- A camada **Arquivos**. Essa camada está disponível somente para BLOBs de blocos individuais. A camada de arquivamento é otimizada para dados que podem tolerar várias horas de latência de recuperação e que permanecerão na camada de arquivo por pelo menos 180 dias. A camada de arquivamento é a opção mais econômica para armazenar dados. No entanto, acessar esses dados é mais caro do que acessar dados em camadas quentes ou frias.
 
 Se houver uma alteração no padrão de uso de seus dados, você poderá alternar entre essas camadas de acesso a qualquer momento. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md).
 
@@ -133,6 +133,7 @@ Por exemplo, se a conta de armazenamento para uso geral chamar *mystorageaccount
 - Armazenamento de tabelas: `https://*mystorageaccount*.table.core.windows.net`
 - Armazenamento de filas: `https://*mystorageaccount*.queue.core.windows.net`
 - Arquivos do Azure: `https://*mystorageaccount*.file.core.windows.net`
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (usa o [Driver ABFS otimizado especificamente para Big data](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2).)
 
 > [!NOTE]
 > O bloco BLOB e as contas de armazenamento de blob expõem apenas o ponto de extremidade do serviço BLOB.

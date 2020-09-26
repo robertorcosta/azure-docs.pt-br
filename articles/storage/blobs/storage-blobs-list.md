@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9295b1d8a54d9c3c1a138a54f4b3706bd39227fd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e8a35902c198412f6e41c0cf39162836deb5e443
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009535"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280089"
 ---
 # <a name="list-blobs-with-net"></a>Listar blobs com .NET
 
@@ -59,7 +59,7 @@ Em seu código, verifique o valor do token de continuação para determinar se e
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrar resultados com um prefixo
 
-Para filtrar a lista de contêineres, especifique uma cadeia de caracteres para o parâmetro `prefix`. A cadeia de caracteres de prefixo pode incluir um ou mais caracteres. O Armazenamento do Azure então retorna somente os blobs cujos nomes começam com esse prefixo.
+Para filtrar a lista de BLOBs, especifique uma cadeia de caracteres para o `prefix` parâmetro. A cadeia de caracteres de prefixo pode incluir um ou mais caracteres. O Armazenamento do Azure então retorna somente os blobs cujos nomes começam com esse prefixo.
 
 ### <a name="return-metadata"></a>Retornar metadados
 
