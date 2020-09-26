@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: 9397c5f075c1d6653920d19766d5d6a740294ec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68d0459153fbdb34216c1313f70e292119b93a7c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67330744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269788"
 ---
 As ACs a seguir são permitidas quando você criar seu próprio certificado:
 
@@ -23,6 +23,7 @@ As ACs a seguir são permitidas quando você criar seu próprio certificado:
 - AME Infra CA 02
 - Ameroot
 - APCA-DM3P
+- Atos TrustedRoot 2011
 - Autopilot Root CA
 - Baltimore CyberTrust Root
 - Class 3 Public Primary Certification Authority
@@ -52,8 +53,12 @@ As ACs a seguir são permitidas quando você criar seu próprio certificado:
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority – G2
 - Go Daddy Secure Certificate Authority - G2
+- Vamos criptografar Authority X3
 - Raiz QuoVadis CA2 G3
 - RapidSSL RSA CA 2018
+- RootCA1 de comunicação de segurança
+- RootCA2 de comunicação de segurança
+- RootCA3 de comunicação de segurança
 - Symantec Class 3 EV SSL CA – G3
 - Symantec Class 3 Secure Server CA – G4
 - Symantec Enterprise Mobile Root for Microsoft

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230068"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280293"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitar e gerenciar a exclusão reversível para contêineres (visualização)
 
@@ -36,7 +36,7 @@ Para habilitar a exclusão reversível de contêiner para sua conta de armazenam
 1. Localize as configurações de **proteção de dados** em **serviço blob**.
 1. Defina a propriedade **exclusão reversível do contêiner** como *habilitada*.
 1. Em **políticas de retenção**, especifique por quanto tempo os contêineres de exclusão reversível são retidos pelo armazenamento do Azure.
-1. Salve suas alterações.
+1. Salve as alterações.
 
 :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Captura de tela mostrando como habilitar a exclusão reversível de contêiner no portal do Azure":::
 
@@ -93,7 +93,7 @@ Para exibir contêineres excluídos de modo reversível no portal do Azure, siga
 Você pode restaurar um contêiner excluído de maneira reversível e seu conteúdo dentro do período de retenção. Para restaurar um contêiner excluído de maneira reversível no portal do Azure, siga estas etapas:
 
 1. Navegue até sua conta de armazenamento no portal do Azure e exiba a lista de seus contêineres.
-1. Exiba o menu de contexto do contêiner que você deseja excluir e escolha **restaurar** no menu.
+1. Exiba o menu de contexto do contêiner que você deseja restaurar e escolha **Cancelar exclusão** no menu.
 
     :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Captura de tela mostrando como restaurar um contêiner excluído de forma reversível no portal do Azure":::
 

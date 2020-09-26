@@ -1,18 +1,18 @@
 ---
 title: Como configurar o encaminhamento de DNS para os Arquivos do Azure | Microsoft Docs
-description: Uma visão geral das opções de rede para Arquivos do Azure.
+description: Saiba como configurar o encaminhamento de DNS para arquivos do Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: HT
+ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320261"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Como configurar o encaminhamento de DNS para Arquivos do Azure
 Os Arquivos do Azure permitem que você crie pontos de extremidade privados para as contas de armazenamento que contêm seus compartilhamentos de arquivos. Embora sejam úteis para muitas finalidades diferentes, os pontos de extremidade privados são especialmente úteis para se conectar aos compartilhamentos de arquivos do Azure da rede local usando uma conexão VPN ou do ExpressRoute com emparelhamento privado. 

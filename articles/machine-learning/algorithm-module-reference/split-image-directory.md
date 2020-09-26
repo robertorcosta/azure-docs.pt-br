@@ -1,7 +1,7 @@
 ---
 title: Dividir Diretório de Imagens
 titleSuffix: Azure Machine Learning
-description: Saiba como usar o módulo modelo de imagem de pontuação em Azure Machine Learning para gerar previsões usando um modelo de imagem treinado.
+description: Saiba como usar o módulo dividir imagem de imagens no designer de Azure Machine Learning (versão prévia) para dividir as imagens de um diretório de imagem em dois conjuntos distintos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 63ae7115f905523a3aac131fd7e77b56eb695243
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 49c2d2c24cc8acd8468f660189212a8ae71a1d6e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90890266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268920"
 ---
 # <a name="split-image-directory"></a>Dividir Diretório de Imagens
 
@@ -35,19 +35,19 @@ Esse módulo é particularmente útil quando você precisa separar dados de imag
 
 ### <a name="expected-inputs"></a>Entradas esperadas
 
-| Nome                  | Tipo           | Descrição              |
+| Nome                  | Type           | Descrição              |
 | --------------------- | -------------- | ------------------------ |
 | Diretório da imagem de entrada | ImageDirectory | Diretório de imagens a ser dividido |
 
 ### <a name="module-parameters"></a>Parâmetros do módulo
 
-| Nome                                   | Tipo  | Intervalo | Opcional | Descrição                            | Padrão |
+| Nome                                   | Type  | Intervalo | Opcional | Descrição                            | Padrão |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | Fração de imagens na primeira saída | Float | 0-1   | Obrigatório | Fração de imagens na primeira saída | 0,9     |
 
 ### <a name="outputs"></a>Saídas
 
-| Nome                    | Tipo           | Descrição                              |
+| Nome                    | Type           | Descrição                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Directory1 da imagem de saída | ImageDirectory | Diretório de imagens que contém imagens selecionadas |
 | Directory2 da imagem de saída | ImageDirectory | Diretório de imagem que contém todas as outras imagens |

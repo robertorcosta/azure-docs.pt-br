@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659527"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294854"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você define uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -55,7 +55,7 @@ A tabela a seguir ajuda a determinar as vantagens e desvantagens de cada uma das
 | Estratégia | Vantagens | Desvantagens |
 | --- | --- | --- |
 | **Identidades de nuvem** |Mais fácil de gerenciar para as organizações de pequeno porte. <br> Nada a instalar localmente. Nenhum hardware adicional necessário<br>Desativado facilmente se o usuário deixar a empresa |Os usuários deverão se conectar ao acessar cargas de trabalho na nuvem <br> As senhas podem ser as mesmas para as identidades locais ou de nuvem |
-| **Sincronizado** |A senha local autentica ambos os diretórios locais e na nuvem <br>Mais fácil de gerenciar para organizações de pequeno, médio ou grande porte <br>Os usuários podem usar SSO (Logon único) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerenciar |Alguns clientes podem resistir em sincronizar seus diretórios na nuvem devido a determinadas políticas da empresa |
+| **Sincronizado** |A senha local autentica ambos os diretórios locais e na nuvem <br>Mais fácil de gerenciar para organizações de pequeno, médio ou grande porte <br>Os usuários podem usar SSO (Logon único) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerenciar |Alguns clientes podem ser relutados para sincronizar seus diretórios com a nuvem devido às políticas específicas da empresa |
 | **Federado** |Os usuários podem fazer SSO  <br>Se um usuário for encerrado ou sair, a conta poderá ser imediatamente desabilitada e o acesso revogado,<br> Com suporte para cenários avançados que não podem ser realizados com sincronização |Mais etapas para definir e configurar <br> Maior manutenção <br> Pode exigir hardware adicional para a infra-estrutura do STS <br> Pode exigir hardware adicional para instalar o servidor de federação. Um software adicional será necessário se o AD FS for utilizado <br> Requer configuração ampla para SSO <br> Ponto de falha crítico se o servidor de federação estiver desativado, os usuários não conseguirão autenticar |
 
 ### <a name="client-experience"></a>Experiência do cliente
@@ -185,8 +185,8 @@ Opções de design de vários fatores:
 | Aplicativos da Microsoft |sim |sim |
 | Aplicativos SaaS da Galeria de Aplicativos |sim |sim |
 | Aplicativos IIS publicados por meio da Proxy de aplicativo do Azure AD |sim |sim |
-| Aplicativos do IIS não publicados através do Proxy de Aplicativo do AD do Azure |no |sim |
-| Acesso remoto, como VPN e RDG |no |sim |
+| Aplicativos do IIS não publicados através do Proxy de Aplicativo do AD do Azure |não |sim |
+| Acesso remoto, como VPN e RDG |não |sim |
 
 Mesmo que defina uma solução para sua estratégia, você deve usar a avaliação anterior sobre a localização dos usuários.  Isso pode levar a uma mudança de solução.  Use a tabela abaixo para lhe ajudar a determinar os seguintes itens:
 

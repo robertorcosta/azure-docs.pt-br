@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2512602b0c8c00c696253a708af13278bc513a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258737"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicativos na nuvem ou ações
 
@@ -31,9 +31,9 @@ Os aplicativos de nuvem ou as ações são um sinal importante em uma política 
 
 Muitos aplicativos de nuvem da Microsoft existentes estão incluídos na lista de aplicativos entre os quais você pode selecionar. 
 
-Os administradores podem atribuir uma política de Acesso Condicional aos aplicativos de nuvem da Microsoft a seguir. Alguns aplicativos como o Office 365 (versão prévia) e o Gerenciamento do Microsoft Azure incluem vários aplicativos ou serviços filho relacionados. A lista a seguir não é exaustiva e está sujeita a alterações.
+Os administradores podem atribuir uma política de Acesso Condicional aos aplicativos de nuvem da Microsoft a seguir. Alguns aplicativos, como o Office 365 e o gerenciamento de Microsoft Azure, incluem vários aplicativos ou serviços filho relacionados. A lista a seguir não é exaustiva e está sujeita a alterações.
 
-- [Office 365 (versão prévia)](#office-365-preview)
+- [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
 - [Banco de Dados SQL do Azure e Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
@@ -67,15 +67,15 @@ Os administradores podem atribuir uma política de Acesso Condicional aos aplica
 - VPN (Rede Privada Virtual)
 - Windows Defender ATP
 
-### <a name="office-365-preview"></a>Office 365 (versão prévia)
+### <a name="office-365"></a>Office 365
 
 O Microsoft 365 fornece serviços de produtividade e colaboração baseados em nuvem como o Exchange, SharePoint e Microsoft Teams. Microsoft 365 serviços de nuvem estão profundamente integrados para garantir experiências suaves e colaborativas. Essa integração pode causar confusão ao criar políticas, pois alguns aplicativos como o Microsoft Teams têm dependências de outros como SharePoint ou Exchange.
 
-O aplicativo Office 365 (versão prévia) torna possível direcionar esses serviços de uma só vez. É recomendável usar o novo aplicativo Office 365 (versão prévia), em vez de direcionar aplicativos de nuvem individuais para evitar problemas com [dependências de serviço](service-dependencies.md). Direcionar esse grupo de aplicativos ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
+O aplicativo Office 365 torna possível direcionar esses serviços de uma só vez. É recomendável usar o novo aplicativo do Office 365, em vez de direcionar aplicativos de nuvem individuais para evitar problemas com [dependências de serviço](service-dependencies.md). Direcionar esse grupo de aplicativos ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
 
-Os administradores poderão optar por excluir aplicativos específicos da política se desejarem; basta incluir o aplicativo Office 365 (versão prévia) e excluir os aplicativos específicos de preferência na política.
+Os administradores podem optar por excluir aplicativos específicos da política se quiserem incluindo o aplicativo do Office 365 e excluindo os aplicativos específicos de sua escolha na política.
 
-Aplicativos-chave incluídos no aplicativo cliente do Office 365 (versão prévia):
+Aplicativos-chave incluídos no aplicativo cliente do Office 365:
 
    - Microsoft Flow
    - Microsoft Forms

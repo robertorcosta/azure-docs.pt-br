@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80bb59527f416afd78b992fb12a4ef72956f91b7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c5dd703851054b058d96440a3a994b9d10eecfa3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587218"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372656"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e hospedagem no Azure Functions
 
@@ -34,7 +34,7 @@ Para obter uma comparação detalhada entre os vários planos de hospedagem (inc
 
 Quando você estiver usando o plano de consumo, as instâncias do host Azure Functions serão adicionadas e removidas dinamicamente com base no número de eventos de entrada. Esse plano sem servidor é escalado automaticamente e você é cobrado pelos recursos de computação apenas durante a execução das funções. Em um plano de consumo, a execução de uma função expire após um período configurável.
 
-A cobrança baseia-se no número de execuções, no tempo de execução e na memória usada. A cobrança é agregada entre todas as funções em um aplicativo de funções. Para saber mais, confira a [página de preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+A cobrança baseia-se no número de execuções, no tempo de execução e na memória usada. O uso é agregado em todas as funções em um aplicativo de funções. Para saber mais, confira a [página de preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 O plano de Consumo é o plano de hospedagem padrão e oferece os seguintes benefícios:
 
@@ -58,7 +58,7 @@ Quando você estiver usando o plano Premium, as instâncias do host Azure Functi
 
 Para saber como você pode criar um aplicativo de funções em um plano Premium, consulte [Azure Functions plano Premium](functions-premium-plan.md).
 
-Em vez de cobrança por execução e memória consumida, a cobrança pelo plano Premium é baseada no número de segundos de núcleo e na memória usada nas instâncias necessárias e pré-configuradas. Pelo menos uma instância deve estar sempre em espera por plano. Isso significa que há um custo mensal mínimo por plano ativo, independentemente do número de execuções. Tenha em mente que todos os aplicativos de funções em um plano Premium compartilham instâncias ativas e pré-configuradas.
+Em vez de cobrança por execução e memória consumida, a cobrança para o plano Premium é baseada no número de segundos de núcleo e na memória alocada entre instâncias.  Não há nenhum encargo de execução com o plano Premium. Pelo menos uma instância deve ser alocada em todos os momentos por plano. Isso resulta em um custo mensal mínimo por plano ativo, independentemente se a função estiver ativa ou ociosa. Tenha em mente que todos os aplicativos de funções em um plano Premium compartilham instâncias alocadas.
 
 Considere o plano Azure Functions Premium nas seguintes situações:
 
@@ -79,12 +79,12 @@ Considere um plano do serviço de aplicativo nas seguintes situações:
 
 Você paga o mesmo para aplicativos de funções em um plano do serviço de aplicativo como faria para outros recursos do serviço de aplicativo, como aplicativos Web. Para obter detalhes sobre como o plano do Serviço de Aplicativo funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/overview-hosting-plans.md).
 
-Com um plano do serviço de aplicativo, você pode escalar horizontalmente manualmente Adicionando mais instâncias de VM. Você também pode habilitar o dimensionamento automático. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service/manage-scale-up.md). 
+Usando um plano do serviço de aplicativo, você pode escalar horizontalmente manualmente Adicionando mais instâncias de VM. Você também pode habilitar o dimensionamento automático, embora o dimensionamento automático seja mais lento do que a escala elástica do plano Premium. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service/manage-scale-up.md). 
 
 Ao executar funções JavaScript em um plano do Serviço de Aplicativo, você deve escolher um plano que tenha menos vCPUs. Para obter mais informações, consulte [escolher planos de serviço de aplicativo de núcleo único](functions-reference-node.md#choose-single-vcpu-app-service-plans). 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 
-A execução em um [ambiente do serviço de aplicativo](../app-service/environment/intro.md) (ase) permite isolar totalmente suas funções e aproveitar a alta escala.
+A execução em um [ambiente do serviço de aplicativo](../app-service/environment/intro.md) (ase) permite isolar totalmente suas funções e aproveitar o maior número de instâncias do que um plano do serviço de aplicativo.
 
 ### <a name="always-on"></a><a name="always-on"></a> Always On
 
@@ -121,6 +121,12 @@ A mesma conta de armazenamento usada por seu aplicativo de funções também pod
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 Para saber mais sobre os tipos de conta de armazenamento, consulte [apresentando os serviços de armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services).
+
+### <a name="in-region-data-residency"></a>Residência de dados na região
+
+Quando necessário para que todos os dados do cliente permaneçam dentro de uma única região, a conta de armazenamento associada ao aplicativo de funções deve ser uma com [redundância de região](../storage/common/storage-redundancy.md).  Uma conta de armazenamento redundante na região também precisaria ser usada com o [Azure Durable Functions](./durable/durable-functions-perf-and-scale.md#storage-account-selection) para Durable functions.
+
+Outros dados do cliente gerenciados pela plataforma serão armazenados apenas dentro da região ao hospedar em um Load Balancer interno Ambiente do Serviço de Aplicativo (ou ASE ILB).  Os detalhes podem ser encontrados na [redundância de zona do ase](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>Como funcionam os planos de consumo e premium
 
@@ -185,7 +191,7 @@ A tabela de comparação a seguir mostra todos os aspectos importantes para ajud
 |**[Plano de consumo](#consumption-plan)**| Dimensione automaticamente e pague apenas pelos recursos de computação quando suas funções estiverem em execução. No plano de consumo, as instâncias do host do Functions são adicionadas e removidas dinamicamente com base no número de eventos de entrada.<br/> ✔ Plano de hospedagem padrão.<br/>✔ Pague somente quando suas funções estiverem em execução.<br/>✔ escalar horizontalmente automaticamente, mesmo durante períodos de alta carga.|  
 |**[Plano Premium](#premium-plan)**|Embora o dimensionamento automático seja baseado sob demanda, use trabalhos pré-configurados para executar aplicativos sem atraso depois de ficar ocioso, executar em instâncias mais poderosas e conectar-se ao VNETs. Considere o plano Azure Functions Premium nas seguintes situações, além de todos os recursos do plano do serviço de aplicativo: <br/>✔ Seus aplicativos de funções são executados continuamente ou quase continuamente.<br/>✔ Você tem um número alto de execuções pequenas e tem uma cobrança de alta execução, mas a cobrança de baixo GB por segundo no plano de consumo.<br/>✔ Você precisa de mais opções de CPU ou memória do que o fornecido pelo plano de consumo.<br/>✔ Seu código precisa ser executado por mais tempo do que o máximo permitido no plano de consumo.<br/>✔ Você precisa de recursos que estão disponíveis apenas em um plano Premium, como a conectividade de rede virtual.|  
 |**[Plano dedicado](#app-service-plan)**<sup>1</sup>|Execute suas funções em um plano do serviço de aplicativo em taxas regulares do plano do serviço de aplicativo. Boa opção para operações de longa execução, bem como quando mais custos e dimensionamento de previsão são necessários. Considere um plano do serviço de aplicativo nas seguintes situações:<br/>✔ Você tem VMs subutilizadas existentes que já estão executando outras instâncias do serviço de aplicativo.<br/>✔ Você deseja fornecer uma imagem personalizada na qual executar suas funções.|  
-|**[Ase](#app-service-plan)**<sup>1</sup>|O Ambiente do Serviço de Aplicativo (ASE) é um recurso do serviço de aplicativo que fornece um ambiente totalmente isolado e dedicado para executar com segurança aplicativos do serviço de aplicativo em alta escala. ASEs são apropriadas para cargas de trabalho de aplicativo que exigem: <br/>✔ Escala muito alta.<br/>✔ Isolamento e acesso seguro à rede.<br/>✔ Utilização de memória alta.|  
+|**[Ase](#app-service-plan)**<sup>1</sup>|O Ambiente do Serviço de Aplicativo (ASE) é um recurso do serviço de aplicativo que fornece um ambiente totalmente isolado e dedicado para executar com segurança aplicativos do serviço de aplicativo em alta escala. ASEs são apropriadas para cargas de trabalho de aplicativo que exigem: <br/>✔ Escala muito alta.<br/>✔ Isolamento de computação completo e acesso seguro à rede.<br/>✔ Utilização de memória alta.|  
 | **[Kubernetes](functions-kubernetes-keda.md)** | O kubernetes fornece um ambiente totalmente isolado e dedicado em execução no topo da plataforma kubernetes.  Kubernetes é apropriado para cargas de trabalho de aplicativo que exigem: <br/>✔ Os requisitos de hardware personalizados.<br/>✔ Isolamento e acesso seguro à rede.<br/>✔ A capacidade de executar em um ambiente híbrido ou de várias nuvens.<br/>✔ Executado junto com os aplicativos e serviços kubernetes existentes.|  
 
 <sup>1</sup> para limites específicos para as várias opções do plano do serviço de aplicativo, consulte os [limites do plano do serviço de aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).

@@ -6,19 +6,19 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 74656401d7b0ef12cf509674921a6a5153ce992d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282911"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Usando padrões de coluna no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Várias transformações de fluxo de dados de mapeamento permitem que você referencie colunas de modelo com base em padrões em vez de nomes de coluna embutidos em código. Essa correspondência é conhecida como *padrões de coluna*. Você pode definir padrões para corresponder colunas com base no nome, no tipo de dados, no fluxo ou na posição, em vez de exigir nomes de campo exatos. Há dois cenários em que os padrões de coluna são úteis:
+Várias transformações de fluxo de dados de mapeamento permitem que você referencie colunas de modelo com base em padrões em vez de nomes de coluna embutidos em código. Essa correspondência é conhecida como *padrões de coluna*. Você pode definir padrões para corresponder colunas com base no nome, tipo de dados, fluxo, origem ou posição, em vez de exigir nomes de campo exatos. Há dois cenários em que os padrões de coluna são úteis:
 
 * Se os campos de origem de entrada forem alterados com frequência, como o caso de alteração de colunas em arquivos de texto ou bancos de dados NoSQL. Esse cenário é conhecido como [descompasso de esquema](concepts-data-flow-schema-drift.md).
 * Se você quiser fazer uma operação comum em um grande grupo de colunas. Por exemplo, deseja converter cada coluna que tem ' total ' em seu nome de coluna em um duplo.
@@ -31,7 +31,7 @@ Para adicionar um padrão de coluna em uma transformação coluna, agregação o
 
 ![padrões de coluna](media/data-flow/add-column-pattern.png "Padrões de coluna")
 
-Use o [Construtor de expressões](concepts-data-flow-expression-builder.md) para inserir a condição de correspondência. Crie uma expressão booliana que corresponda a colunas com base em `name` ,, `type` `stream` e `position` da coluna. O padrão afetará qualquer coluna, descompasso ou definida, em que a condição retorna true.
+Use o [Construtor de expressões](concepts-data-flow-expression-builder.md) para inserir a condição de correspondência. Crie uma expressão booliana que corresponda a colunas com base em `name` ,, `type` `stream` , `origin` e `position` da coluna. O padrão afetará qualquer coluna, descompasso ou definida, em que a condição retorna true.
 
 As duas caixas de expressões abaixo da condição de correspondência especificam os novos nomes e valores das colunas afetadas. Use `$$` para fazer referência ao valor existente do campo correspondente. A caixa expressão à esquerda define o nome e a caixa de expressão direita define o valor.
 
@@ -45,7 +45,7 @@ Para verificar se a condição de correspondência está correta, você pode val
 
 ## <a name="rule-based-mapping-in-select-and-sink"></a>Mapeamento baseado em regras em Select e Sink
 
-Ao mapear colunas na origem e selecionar transformações, você pode adicionar mapeamento fixo ou mapeamentos baseados em regras. Corresponder com base nas `name` `type` colunas,, `stream` e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
+Ao mapear colunas na origem e selecionar transformações, você pode adicionar mapeamento fixo ou mapeamentos baseados em regras. Corresponder com base nas `name` `type` colunas,, `stream` , `origin` e `position` . Você pode ter qualquer combinação de mapeamentos fixos e baseados em regras. Por padrão, todas as projeções com mais de 50 colunas serão padronizadas para um mapeamento baseado em regra que corresponde a cada coluna e gera o nome inserido. 
 
 Para adicionar um mapeamento baseado em regras, clique em **Adicionar mapeamento** e selecione **mapeamento baseado em regra**.
 
@@ -82,6 +82,7 @@ O exemplo acima corresponde a todas as Subcolunas de coluna complexa `a` . `a` c
 * `type` representa o tipo de dados de cada coluna de entrada
 * `stream` representa o nome associado a cada fluxo ou transformação em seu fluxo
 * `position` é a posição ordinal de colunas em seu fluxo de dados
+* `origin` a transformação em que uma coluna foi originada ou foi atualizada pela última vez
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [linguagem de expressão](data-flow-expression-functions.md) de fluxo de dados de mapeamento para transformações de dados

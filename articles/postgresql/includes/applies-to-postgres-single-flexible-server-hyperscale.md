@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 745ac3831def524326b5483eeb8da05cff701caf
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4d61bc5d608b865802d216c0a056867a79eacb90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90882009"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376391"
 ---
-<Token>**Aplica-se a:** :::image type="content" source="../media/applies-to/yes.png" alt-text="Sim-servidor único":::banco de dados do Azure para PostgreSQL-servidor único :::image type="content" source="../media/applies-to/yes.png" alt-text="Sim-flexível-servidor":::banco de dados do Azure para PostgreSQL-servidor flexível :::image type="content" source="../media/applies-to/yes.png" alt-text="Sim-hiperescala":::banco de dados do Azure para PostgreSQL-hiperescala</Token>
+<Token>**aplica-se a:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Banco de dados do Azure para PostgreSQL-servidor único :::image type="icon" source="../media/applies-to/yes.png" border="false"::: banco de dados do Azure para PostgreSQL – :::image type="icon" source="../media/applies-to/yes.png" border="false"::: banco de dados do Azure para servidor flexível para PostgreSQL-hiperescala</Token>

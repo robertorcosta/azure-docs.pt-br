@@ -3,12 +3,12 @@ title: Recuperação de desastre em área geográfica do Barramento de Serviço 
 description: Como usar regiões geográficas para fazer failover e executar a recuperação de desastre no Barramento de Serviço do Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fcdeb499b8ebecc4ecddbfcbe32b812ce7e3efe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c203ed197c1e5bfb15cfb503a04df79b85c630e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341481"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372516"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -149,7 +149,7 @@ Se você tentar criar um emparelhamento entre um namespace primário com um pont
 > [!NOTE]
 > Quando você tenta emparelhar o namespace primário com um ponto de extremidade privado e o namespace secundário, o processo de validação verifica apenas se existe um ponto de extremidade privado no namespace secundário. Ele não verifica se o ponto de extremidade funciona nem se funcionará após o failover. É sua responsabilidade garantir que o namespace secundário com ponto de extremidade privado funcione conforme o esperado após o failover.
 >
-> Para testar se as configurações do ponto de extremidade privado são as mesmas, envie uma solicitação [Obter filas](/rest/api/servicebus/queues/get) ao namespace secundário de fora da rede virtual e verifique se você recebeu uma mensagem de erro do serviço.
+> Para testar se as configurações do ponto de extremidade privado são as mesmas, envie uma solicitação [Obter filas](/rest/api/servicebus/stable/queues/get) ao namespace secundário de fora da rede virtual e verifique se você recebeu uma mensagem de erro do serviço.
 
 ### <a name="existing-pairings"></a>Emparelhamentos existentes
 Se o emparelhamento entre o namespace primário e o secundário já existir, a criação de ponto de extremidade privado no namespace primário falhará. Para resolver, crie primeiro um ponto de extremidade privado no namespace secundário e, em seguida, crie um para o namespace primário.
@@ -179,7 +179,7 @@ A vantagem dessa abordagem é que o failover pode ocorrer na camada de aplicativ
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a [referência da API REST de recuperação de desastre em área geográfica aqui](/rest/api/servicebus/disasterrecoveryconfigs).
+- Consulte a [referência da API REST de recuperação de desastre em área geográfica aqui](/rest/api/servicebus/stable/disasterrecoveryconfigs).
 - Execute o [exemplo no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) da recuperação de desastre em área geográfica.
 - Consulte o [exemplo que envia mensagens a um alias](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) da recuperação de desastre em área geográfica.
 

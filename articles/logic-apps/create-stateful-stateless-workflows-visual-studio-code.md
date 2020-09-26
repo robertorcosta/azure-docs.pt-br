@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 434fc20eebeae921233b8e872796618267d77730
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.date: 09/25/2020
+ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361935"
+ms.locfileid: "91370973"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
@@ -966,7 +966,9 @@ Para esta visualização pública, esses recursos não estão disponíveis ou n�
 
 * A criação do novo recurso de **aplicativo lógico (versão prévia)** não está disponível no MacOS no momento.
 
-* Não há suporte para os conectores personalizados, gatilhos baseados em webhook e o gatilho de janela deslizante nesta visualização. Para fluxos de trabalho de aplicativo lógico sem estado, você só pode adicionar ações para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), não para gatilhos. Para iniciar o fluxo de trabalho, use a [solicitação interna, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md#built-ins).
+* Para iniciar o fluxo de trabalho, use a [solicitação, o http, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md). Atualmente, [conectores Enterprise](../connectors/apis-list.md#enterprise-connectors), gatilhos [de gateway de dados locais](../connectors/apis-list.md#on-premises-connectors), gatilhos baseados em webhook, gatilho de janela deslizante, [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors), contas de integração, seus artefatos e [seus conectores](../connectors/apis-list.md#integration-account-connectors) não têm suporte nesta visualização. A funcionalidade "chamar uma função do Azure" não está disponível, portanto, por enquanto, use a *ação* http para chamar a URL de solicitação para a função do Azure.
+
+  Fluxos de trabalho de aplicativo lógico sem estado só podem usar ações para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), não para gatilhos. Exceto para os gatilhos especificados anteriormente, os fluxos de trabalho com estado podem usar gatilhos e ações para conectores gerenciados.
 
 * Você pode implantar o novo tipo de recurso de **aplicativo lógico (versão prévia)** somente em um [plano de hospedagem do serviço de aplicativo ou Premium no Azure](#publish-azure) ou em um [contêiner do Docker](#deploy-docker), e não em [ambientes de serviço de integração (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Os planos de Hospedagem de **consumo** não têm suporte nem estão disponíveis para a implantação desse tipo de recurso.
 

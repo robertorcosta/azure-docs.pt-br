@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tradução de fala
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e4bc2f07fce3917bfa59f79305498bb91889344d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359793"
 ---
 # <a name="what-is-speech-translation"></a>O que é tradução de fala?
 
@@ -63,5 +63,5 @@ Se seus aplicativos, ferramentas ou produtos estiverem usando o [API de traduç�
 ## <a name="next-steps"></a>Próximas etapas
 
 * Concluir o [início rápido](get-started-speech-translation.md) da tradução de fala
-* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](overview.md#try-the-speech-service-for-free)
 * [Obter o SDK de Fala](speech-sdk.md)

@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recurso, serviço de n
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37b1bad397e6170e2a7992a0a9671d6ca9c25ef
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f784ce9eb4c465c83bea28e05e7f423e0b55c947
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294242"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -57,7 +57,7 @@ Agora, vamos percorrer um passo a passo simples para criar sua primeira configur
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
 
@@ -115,11 +115,11 @@ Você sempre pode retornar para o dimensionamento automático clicando em **Habi
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Rotear o tráfego para instâncias íntegras (serviço de aplicativo)
 
-Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Salvar**.
+Quando você é escalado horizontalmente para várias instâncias, o serviço de aplicativo pode executar verificações de integridade em suas instâncias para rotear o tráfego somente para as instâncias íntegras. Para fazer isso, abra o portal para o serviço de aplicativo e selecione **verificação de integridade** em **monitoramento**. Selecione **habilitar** e forneça um caminho de URL válido em seu aplicativo, como `/health` ou `/api/health` . Clique em **Save** (Salvar).
 
 ### <a name="health-check-path"></a>Caminho de verificação de integridade
 
-O caminho deve responder dentro de dois minutos com um código de status entre 200 e 299 (inclusivo). Se o caminho não responder dentro de dois minutos ou retornar um código de status fora do intervalo, a instância será considerada "não íntegra". A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo, o sistema alcançará o ponto de extremidade mesmo se esses recursos do secuity estiverem habilitados. Se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir acesso anônimo. Se o site tiver HTTP**S** habilitado, o HealthCheck atingirá o ponto de extremidade http primeiro e, em seguida, honrará o redirecionamento http 307 para o ponto de extremidade HTTPS.
+O caminho deve responder dentro de dois minutos com um código de status entre 200 e 299 (inclusivo). Se o caminho não responder dentro de dois minutos ou retornar um código de status fora do intervalo, a instância será considerada "não íntegra". A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo, o sistema alcançará o ponto de extremidade mesmo se esses recursos do secuity estiverem habilitados. Se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir acesso anônimo. Se o site tiver somente HTTP**s**habilitado, a solicitação HealthCheck será enviada via http**s**.
 
 O caminho de verificação de integridade deve verificar os componentes críticos do seu aplicativo. Por exemplo, se seu aplicativo depende de um banco de dados e um sistema de mensagens, o ponto de extremidade de verificação de integridade deve se conectar a esses componentes. Se o aplicativo não puder se conectar a um componente crítico, o caminho deverá retornar um código de resposta de nível 500 para indicar que o aplicativo não está íntegro.
 

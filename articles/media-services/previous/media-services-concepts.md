@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: e75dde14cf7182f5153b3a42b26f1c7e8a4e78ac
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258020"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333742"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos dos Serviços de Mídia do Azure
 
@@ -103,12 +103,11 @@ Os Serviços de Mídia fornecem empacotamento dinâmico, o que permite distribui
 
 Para aproveitar o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), você precisa codificar seu arquivo mezanino (fonte) em um conjunto de arquivos MP4 de taxa de bits adaptável ou arquivos Smooth Streaming de taxa de bits adaptável, além de ter pelo menos um ponto de extremidade de streaming Standard ou Premium no estado iniciado.
 
-Os Serviços de Mídia dão suporte aos seguintes codificadores sob demanda descritos neste artigo:
+Os serviços de mídia oferecem suporte ao seguinte codificador sob demanda que é descrito neste artigo:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Fluxo de trabalho do Media Encoder Premium](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Para saber mais sobre codificadores com suporte, consulte [Codificadores](media-services-encode-asset.md)
+Para obter informações sobre esse codificador com suporte, consulte [codificador](media-services-encode-asset.md).
 
 ## <a name="live-streaming"></a>Transmissão ao vivo
 Nos Serviços de Mídia do Azure, um Canal representa um pipeline para processamento de conteúdo de streaming ao vivo. Um Canal recebe transmissões de entrada ao vivo de uma das duas maneiras a seguir:

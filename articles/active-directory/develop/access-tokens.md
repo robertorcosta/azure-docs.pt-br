@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 9aa5eb54d79d98627697c51ee7dcb16a44fccb60
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258514"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma de identidade da Microsoft
 
@@ -266,9 +266,17 @@ Os tokens de atualização podem ser revogados pelo servidor devido a uma altera
 | O administrador revoga todos os tokens de atualização do usuário [por meio do PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revogado | Revogado |Revogado | Revogado | Revogado |
 | Logout único ([v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v2.0](v2-protocols-oidc.md#single-sign-out)) na Web | Revogado | Permanece ativo | Revogado | Permanece ativo | Permanece ativo |
 
+#### <a name="non-password-based"></a>Não baseado em senha
+
+Um logon *não baseado em senha* é aquele em que o usuário não digitou uma senha para obtê-lo. Entre os exemplos de logon não baseado em senha estão:
+
+- Usando seu rosto com o Windows Hello
+- Chave FIDO2
+- SMS
+- Voz
+- PIN 
+
 > [!NOTE]
-> Um logon "não baseado em senha" é um logon em que o usuário não digita uma senha para entrar. Por exemplo, usando seu rosto no Windows Hello, uma chave FIDO2 ou um PIN.
->
 > Os PRTs (tokens de atualização principal) no Windows 10 são separados com base na credencial. Por exemplo, o Windows Hello e a senha têm seus respectivos PRTs, isolados um do outro. Quando um usuário entra com uma credencial do Hello (PIN ou biometria) e, em seguida, altera a senha, o PRT baseado em senha obtido anteriormente será revogado. Entrar novamente com uma senha invalida o PRT antigo e solicita um novo.
 >
 > Tokens de atualização não são invalidados ou revogados quando usados para buscar um novo token de acesso e token de atualização.  No entanto, o aplicativo deve descartar o antigo assim que for usado e substituí-lo pelo novo, pois o novo token tem um novo tempo de expiração. 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294516"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o agente de Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em computadores Linux usando os seguintes métodos:
@@ -102,10 +102,10 @@ O agente do Log Analytics para Linux é composto por vários pacotes. O arquivo 
 
 **Pacote** | **Versão** | **Descrição**
 ----------- | ----------- | --------------
-omsagent | 1.12.15 | O agente de Log Analytics para Linux
+omsagent | 1.13.9 | O agente de Log Analytics para Linux
 omsconfig | 1.1.1 | Agente de configuração para o agente de Log Analytics
-omi | 1.6.3 | OMI (infraestrutura de gerenciamento aberta) – um servidor CIM leve. *Observe que o OMI requer acesso de raiz para executar um trabalho cron necessário para o funcionamento do serviço*
-scx | 1.6.3 | Provedores de CIM OMI para métricas de desempenho do sistema operacional
+omi | 1.6.4 | OMI (infraestrutura de gerenciamento aberta) – um servidor CIM leve. *Observe que o OMI requer acesso de raiz para executar um trabalho cron necessário para o funcionamento do serviço*
+scx | 1.6.4 | Provedores de CIM OMI para métricas de desempenho do sistema operacional
 apache-cimprov | 1.0.1 | Provedor de monitoramento de desempenho do Servidor HTTP Apache para OMI. Instalado somente se o Servidor HTTP Apache for detectado.
 mysql-cimprov | 1.0.1 | Provedor de monitoramento de desempenho do Servidor MySQL para OMI. Instalado somente se o servidor MySQL/MariaDB for detectado.
 docker-cimprov | 1.0.0 | Provedor do Docker para OMI. Instalado somente se o Docker for detectado.

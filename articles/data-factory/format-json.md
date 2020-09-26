@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 7c1a2cf4b9b476a8f31f38fea45b2e1ef3fe4307
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0b80c2f125e7eddaa427b75e3e0fe2aff6c679be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334320"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
 
@@ -206,17 +206,18 @@ A tabela abaixo lista as propriedades com suporte por uma origem JSON. Você pod
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | no | String[] | wildcardPaths |
-| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | no | String | partitionRootPath |
-| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | no | `true` ou `false` | File |
-| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | no | String | rowUrlColumn |
-| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | no | Excluir: `true` ou `false` <br> Prosseguir `['<from>', '<to>']` | purgeFiles <br> MoveFile |
-| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | no | Timestamp | modifiedAfter <br> modifiedBefore |
-| Documento único | O mapeamento de fluxos de dados lê um documento JSON de cada arquivo | no | `true` ou `false` | singleDocument |
-| Nomes de colunas sem aspas | Se a seleção de **nomes de coluna sem aspas** for selecionada, o mapeamento de fluxos de dados lerá as colunas JSON que não estão entre aspas. | no | `true` ou `false` |  unquotedColumnNames |
-| Tem comentários | Select **tem comentários** se os dados JSON tiverem comentários sobre estilo C ou C++ | no | `true` ou `false` | ascomes |
-| Entre aspas simples | Lê as colunas JSON que não estão entre aspas | no | `true` ou `false` | singleQuoted |
-| Barra invertida | Selecionar **barra invertida** se as barras invertidas forem usadas para escapar caracteres nos dados JSON | no | `true` ou `false` | backslashEscape |
+| Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
+| Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não | String | partitionRootPath |
+| Lista de arquivos | Se sua fonte está apontando para um arquivo de texto que lista os arquivos a serem processados | não | `true` ou `false` | File |
+| Coluna para armazenar o nome do arquivo | Criar uma nova coluna com o nome e o caminho do arquivo de origem | não | String | rowUrlColumn |
+| Após a conclusão | Exclua ou mova os arquivos após o processamento. O caminho do arquivo inicia a partir da raiz do contêiner | não | Excluir: `true` ou `false` <br> Prosseguir `['<from>', '<to>']` | purgeFiles <br> MoveFile |
+| Filtrar por última modificação | Escolher filtrar arquivos com base na última alteração | não | Timestamp | modifiedAfter <br> modifiedBefore |
+| Documento único | O mapeamento de fluxos de dados lê um documento JSON de cada arquivo | não | `true` ou `false` | singleDocument |
+| Nomes de colunas sem aspas | Se a seleção de **nomes de coluna sem aspas** for selecionada, o mapeamento de fluxos de dados lerá as colunas JSON que não estão entre aspas. | não | `true` ou `false` |  unquotedColumnNames |
+| Tem comentários | Select **tem comentários** se os dados JSON tiverem comentários sobre estilo C ou C++ | não | `true` ou `false` | ascomes |
+| Entre aspas simples | Lê as colunas JSON que não estão entre aspas | não | `true` ou `false` | singleQuoted |
+| Barra invertida | Selecionar **barra invertida** se as barras invertidas forem usadas para escapar caracteres nos dados JSON | não | `true` ou `false` | backslashEscape |
+| Não permitir nenhum arquivo encontrado | Se for true, um erro não será gerado se nenhum arquivo for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-format-options"></a>Opções de formato de origem
 
@@ -301,8 +302,8 @@ A tabela abaixo lista as propriedades com suporte por um coletor JSON. Você pod
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | no | `true` ou `false` | truncate |
-| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | no | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
+| Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | não | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>Criando estruturas JSON em uma coluna derivada
 

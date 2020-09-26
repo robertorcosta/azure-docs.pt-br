@@ -1,7 +1,7 @@
 ---
 title: Atualizar a API de Pesquisa de Vídeo do Bing v5 para v7
 titleSuffix: Azure Cognitive Services
-description: Identifica as partes do aplicativo que você precisa atualizar para usar a versão 7.
+description: Identifica as partes do seu aplicativo Pesquisa de Vídeo do Bing que você precisa atualizar para usar a versão 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5dc4c870ae8dbe9f082456d738836aced1271732
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f02b671d73f49fd085cf4486e0fe5887e499fcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68500725"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316589"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guia de atualização da API de Pesquisa de Vídeo
 

@@ -4,12 +4,12 @@ description: Como fazer failover de VMs/servidores físicos para o Azure com Azu
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317881"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Execute um failover do local para o Azure
 
@@ -46,7 +46,7 @@ Execute o failover do plano de recuperação da seguinte maneira:
 1. No cofre site Recovery, selecione **planos de recuperação**  >  *recoveryplan_name*.
 2. Clique em **Failover**.
 
-    ![Captura de tela mostra o painel ADRP com failover selecionado no menu mais.](./media/site-recovery-failover/Failover.png)
+    ![Captura de tela de Azure Site Recovery mostrando o painel ADRP com failover selecionado no menu mais.](./media/site-recovery-failover/Failover.png)
 
 3. Em **Failover**  >  **direção de failover**de failover, deixe o padrão se você estiver replicando para o Azure.
 4. Em **failover**, selecione um **ponto de recuperação** para o qual fazer failover.
@@ -81,7 +81,7 @@ Você pode executar um failover planejado para VMs do Hyper-V.
 
 Há vários trabalhos associados ao failover.
 
-![Failover](./media/site-recovery-failover/FailoverJob.png)
+![Captura de tela da página trabalhos mostrando uma lista de trabalhos com o grupo 1: Iniciar (1) expandido na coluna nome. A linha para o trabalho do SQLServer está realçada.](./media/site-recovery-failover/FailoverJob.png)
 
 - **Verificação de pré-requisitos**: garante que todas as condições necessárias para o failover sejam atendidas.
 - **Failover**: processa os dados para que uma VM do Azure possa ser criada a partir dele. Se você tiver escolhido o ponto de recuperação **mais recente** , um ponto de recuperação será criado a partir dos dados que foram enviados para o serviço.

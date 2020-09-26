@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 463f5d5360e19fdd7f49139aea4c6dc65baf903c
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081182"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357464"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Fala Personalizada
 
@@ -74,7 +74,7 @@ A maioria das equipes exige um processo manual de revisão e aprovação para a 
 Use as seguintes ferramentas para fluxos de trabalho de automação de CI/CD para Fala Personalizada:
 
 - [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) criar uma autenticação de entidade de serviço do Azure, consultar assinaturas do Azure e armazenar resultados de teste no blob do Azure.
-- A [CLI de fala do Azure](https://github.com/msimecek/Azure-Speech-CLI) para interagir com o serviço de fala a partir da linha de comando ou de um fluxo de trabalho automatizado.
+- A [CLI de fala do Azure](spx-overview.md) para interagir com o serviço de fala a partir da linha de comando ou de um fluxo de trabalho automatizado.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>Solução DevOps para Fala Personalizada usando ações do GitHub
 
