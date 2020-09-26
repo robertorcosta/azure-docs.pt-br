@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: e3814c753a182ce11d9062a665adc137f80c206f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1363ccfcf20312fb7273526349e27e8f424b6b41
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255614"
+ms.locfileid: "91361544"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutorial: configurar o TeamViewer para provisionamento automático de usuário
 
@@ -99,7 +99,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 5. Na seção **credenciais de administrador** , insira `ttps://webapi.teamviewer.com/scim/v2`  no campo **URL** de senha e insira o token de script criado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao TeamViewer. Se a conexão falhar, verifique se sua conta do TeamViewer tem permissões de administrador e tente novamente.
 
-    ![provisionamento](./media/teamViewer-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 

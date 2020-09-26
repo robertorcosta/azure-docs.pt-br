@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113681"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361759"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Compreendendo as diferenças entre o NoSQL e os bancos de dados relacionais
 
@@ -29,7 +29,7 @@ A [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) sim
 
 Se seus volumes transacionais estiverem atingindo níveis extremos, como muitos milhares de transações por segundo, você deverá considerar um banco de dados NoSQL distribuído. Considere Azure Cosmos DB para obter máxima eficiência, facilidade de manutenção e redução do custo total de propriedade.
 
-:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="End" border="false":::
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Back-end" border="false":::
 
 ## <a name="hierarchical-data"></a>Dados hierárquicos
 
@@ -49,7 +49,7 @@ Várias formas de bancos de dados de "rede" surgiram durante o tempo de surgimen
 
 Se você estiver mantendo uma rede complexa de relações em seu banco de dados, convém considerar um banco de dados de grafo, como a [API do Azure Cosmos DB Gremlin](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) para o gerenciamento desse dado.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Gráfico":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Diagrama de banco de dados mostra vários funcionários e departamentos conectados entre si.":::
 
 Azure Cosmos DB é um serviço de banco de dados multimodelo, que oferece uma projeção de API para todos os principais tipos de modelo NoSQL; Coluna-família, documento, gráfico e valor-chave. As camadas de API do documento [Gremlin (grafo)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) e SQL (núcleo) são totalmente interoperáveis. Isso tem benefícios para alternar entre modelos diferentes no nível de programação. Os repositórios de grafo podem ser consultados em termos de atravessamentos de rede complexos, bem como transações modeladas como registros de documento no mesmo armazenamento.
 

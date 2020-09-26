@@ -1,19 +1,19 @@
 ---
 title: Integração contínua e implantação contínua em dispositivos Azure IoT Edge (editor clássico)-Azure IoT Edge
 description: Configurar a integração contínua e a implantação contínua usando o editor clássico-Azure IoT Edge com o Azure DevOps, Azure Pipelines
-author: shizn
+author: kgremban
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9cb1a2074e7ec64ed16f1f7c9a1f70bf2307b5c3
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 427d72b2a8531fa4dafa0040266249b138b6edf3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291071"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integração contínua e implantação contínua em dispositivos Azure IoT Edge (editor clássico)
 
@@ -135,7 +135,7 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
     | --- | --- |
     | Nome de exibição | Usar o nome padrão ou personalizar |
     | Pasta de origem | A pasta com os arquivos a serem copiados. |
-    | Sumário | Adicione duas linhas: `deployment.template.json` e `**/module.json` . Esses dois arquivos servem como entradas para gerar o manifesto de implantação IoT Edge. |
+    | Conteúdo | Adicione duas linhas: `deployment.template.json` e `**/module.json` . Esses dois arquivos servem como entradas para gerar o manifesto de implantação IoT Edge. |
     | Pasta de destino | Especifique a variável `$(Build.ArtifactStagingDirectory)` . Consulte [criar variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais sobre a descrição. |
 
 10. Selecione a tarefa **Publicar artefatos de build** para editá-la. Forneça o caminho do diretório de preparo do artefato para a tarefa para que o caminho possa ser publicado no pipeline de liberação.

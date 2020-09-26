@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3cb35cdf217d497b612dee12aedb869b0583e464
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 556177b0f3eb156f5b128995cb81555aa77bc8d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289898"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -288,7 +288,7 @@ Os padrões de segurança fornecem configurações de segurança de identidade p
 
 A central de segurança agora fornece uma recomendação de segurança sempre que identifica uma assinatura do Azure sem os padrões de segurança habilitados. Até agora, a central de segurança recomenda habilitar a autenticação multifator usando o acesso condicional, que faz parte da licença Premium do Azure Active Directory (AD). Para clientes que usam o Azure AD gratuito, agora é recomendável habilitar os padrões de segurança. 
 
-Nossa meta é encorajar mais clientes a proteger seus ambientes de nuvem com o MFA e reduzir um dos maiores riscos que também é o mais impactante em sua [Pontuação segura](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+Nossa meta é encorajar mais clientes a proteger seus ambientes de nuvem com o MFA e reduzir um dos maiores riscos que também é o mais impactante em sua [Pontuação segura](secure-score-security-controls.md).
 
 Saiba mais sobre [os padrões de segurança](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
@@ -429,7 +429,7 @@ As recomendações também incluem a capacidade de correção rápida.
 
 Saiba mais sobre cada um deles na [página de referência de recomendações de segurança](recommendations-reference.md).
 
-Saiba mais sobre a [proteção contra ameaças na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/threat-protection).
+Saiba mais sobre a [proteção contra ameaças na central de segurança do Azure](azure-defender.md).
 
 
 
@@ -442,13 +442,13 @@ Para melhorar a clareza e a orientação sobre os recursos de segurança do cont
 
 Saiba mais sobre a segurança de contêiner da central de segurança nos seguintes artigos:
 
-- [Visão geral dos recursos de segurança do contêiner da central de segurança](https://docs.microsoft.com/azure/security-center/container-security)
-- [Detalhes da integração com o registro de contêiner do Azure](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
-- [Detalhes da integração com o serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
-- [Como verificar seus registros e proteger seus hosts do Docker](https://docs.microsoft.com/azure/security-center/monitor-container-security)
-- [Alertas de segurança dos recursos de proteção contra ameaças para clusters do serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
-- [Alertas de segurança dos recursos de proteção contra ameaças para hosts do serviço kubernetes do Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
-- [Recomendações de segurança para contêineres](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+- [Visão geral dos recursos de segurança do contêiner da central de segurança](container-security.md)
+- [Detalhes da integração com o registro de contêiner do Azure](defender-for-container-registries-introduction.md)
+- [Detalhes da integração com o serviço kubernetes do Azure](defender-for-kubernetes-introduction.md)
+- [Como verificar seus registros e proteger seus hosts do Docker](container-security.md)
+- [Alertas de segurança dos recursos de proteção contra ameaças para clusters do serviço kubernetes do Azure](alerts-reference.md#alerts-akscluster)
+- [Alertas de segurança dos recursos de proteção contra ameaças para hosts do serviço kubernetes do Azure](alerts-reference.md#alerts-containerhost)
+- [Recomendações de segurança para contêineres](recommendations-reference.md#recs-containers)
 
 
 
@@ -537,10 +537,9 @@ As recomendações também incluem a capacidade de correção rápida para ajuda
 
 Saiba mais sobre essas duas novas recomendações na tabela de [recomendações de computação e aplicativo](recommendations-reference.md#recs-computeapp) .
 
-Saiba mais sobre como a central de segurança do Azure usa o agente em [o que é o agente de log Analytics?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent).
+Saiba mais sobre como a central de segurança do Azure usa o agente em [o que é o agente de log Analytics?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
-Saiba mais sobre [extensões para máquinas de Arc do Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
-
+Saiba mais sobre [extensões para máquinas de Arc do Azure](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
 
 
 ### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Novas políticas para criar configurações contínuas de exportação e automação de fluxo de trabalho em escala
@@ -597,7 +596,7 @@ As políticas podem ser encontradas na política do Azure:
 | [A proteção avançada contra ameaças deve ser habilitada nas Máquinas Virtuais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
 |                                                                                                                                                                                                                                                                       |                                      |
 
-Saiba mais sobre a [proteção contra ameaças na central de segurança do Azure](https://docs.microsoft.com/azure/security-center/threat-protection).
+Saiba mais sobre a [proteção contra ameaças na central de segurança do Azure](azure-defender.md).
 
 
 
@@ -721,7 +720,7 @@ Saiba mais sobre [como aprimorar as recomendações personalizadas com informaç
 
 ### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Migração das funcionalidades de análise de despejo de memória para a detecção de ataque sem arquivos 
 
-Estamos integrando as funcionalidades de detecção do CDA (análise de despejo de memória) do Windows à [detecção de ataque sem arquivos](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless). A análise de detecção de ataque sem arquivos acompanha versões aprimoradas dos seguintes alertas de segurança para computadores Windows: Injeção de código descoberta, Módulo do Windows simulado detectado, Shellcode descoberto e Segmento de código suspeito detectado.
+Estamos integrando as funcionalidades de detecção do CDA (análise de despejo de memória) do Windows à [detecção de ataque sem arquivos](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). A análise de detecção de ataque sem arquivos acompanha versões aprimoradas dos seguintes alertas de segurança para computadores Windows: Injeção de código descoberta, Módulo do Windows simulado detectado, Shellcode descoberto e Segmento de código suspeito detectado.
 
 Alguns dos benefícios dessa transição:
 

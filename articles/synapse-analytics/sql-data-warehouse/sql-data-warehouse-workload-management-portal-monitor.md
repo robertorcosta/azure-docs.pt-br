@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f46ed1890bb62acc92eea28c55bf9abd6153e8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b0dc3af524b16430408f8a920c7477c412414d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208681"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362722"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – Monitoramento do portal de gerenciamento de carga de trabalho
 
@@ -59,7 +59,8 @@ O gráfico abaixo é configurado da seguinte maneira:<br>
 Métrica 1: *Percentual mínimo efetivo de recursos* (Agregação AVG, `blue line`)<br>
 Métrica 2: *Percentual de alocação do grupo de carga de trabalho por sistema* (Agregação AVG, `purple line`)<br>
 Filtro: [Grupo de carga de trabalho] = `wgPriority`<br>
-![underutilized-wg.png](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) O gráfico mostra que, com o isolamento de carga de trabalho de 25%, somente 10% estão sendo usados em média.  Neste caso, o valor do parâmetro `MIN_PERCENTAGE_RESOURCE` pode ser reduzido para 10 ou 15 e permitir que outras cargas de trabalho no sistema consumam os recursos.
+![Captura de tela mostra um gráfico com as duas métricas e o filtro.](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
+O gráfico mostra que, com o isolamento de carga de trabalho de 25%, somente 10% estão sendo usados em média.  Neste caso, o valor do parâmetro `MIN_PERCENTAGE_RESOURCE` pode ser reduzido para 10 ou 15 e permitir que outras cargas de trabalho no sistema consumam os recursos.
 
 ### <a name="workload-group-bottleneck"></a>Gargalo do grupo de carga de trabalho
 
@@ -81,7 +82,8 @@ Métrica 1: *Percentual de limite efetivo de recursos* (Agregação AVG, `blue l
 Métrica 2: *Alocação do grupo de carga de trabalho por porcentagem máxima de recursos* (Agregação AVG, `purple line`)<br>
 Métrica 3: *Consultas na fila do grupo de carga de trabalho* (Agregação SUM, `turquoise line`)<br>
 Filtro: [Grupo de carga de trabalho] = `wgDataAnalyst`<br>
-![bottle-necked-wg](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) O gráfico mostra que com um limite de 9% para os recursos, o grupo de carga de trabalho está com uma utilização de 90%+ (da métrica *Percentual de alocação de grupo de carga de trabalho por valor máximo de recursos*).  Há um enfileiramento constante de consultas, conforme mostrado na métrica *Consultas na fila do grupo de carga de trabalho*.  Neste caso, aumentar o `CAP_PERCENTAGE_RESOURCE` para um valor maior que 9% permitirá que mais consultas sejam executadas simultaneamente.  Aumentar o `CAP_PERCENTAGE_RESOURCE` pressupõe que há recursos suficientes disponíveis e não isolados por outros grupos de carga de trabalho.  Verifique o limite aumentado verificando a métrica *Percentual de limite efetivo de recursos*.  Caso deseje mais taxa de transferência, considere também aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` para um valor maior que 3.  Aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode fazer que as consultas sejam executadas mais rapidamente.
+![Captura de tela mostra um gráfico com as três métricas e filtro.](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
+O gráfico mostra que, com um limite de 9% nos recursos, o grupo de cargas de trabalho é de 90% + utilizado (da *métrica do grupo de carga de trabalho por porcentagem máxima de recursos*).  Há um enfileiramento constante de consultas, conforme mostrado na métrica *Consultas na fila do grupo de carga de trabalho*.  Neste caso, aumentar o `CAP_PERCENTAGE_RESOURCE` para um valor maior que 9% permitirá que mais consultas sejam executadas simultaneamente.  Aumentar o `CAP_PERCENTAGE_RESOURCE` pressupõe que há recursos suficientes disponíveis e não isolados por outros grupos de carga de trabalho.  Verifique o limite aumentado verificando a métrica *Percentual de limite efetivo de recursos*.  Caso deseje mais taxa de transferência, considere também aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` para um valor maior que 3.  Aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode fazer que as consultas sejam executadas mais rapidamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

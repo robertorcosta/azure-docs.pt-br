@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301441"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Perguntas frequentes-perguntas gerais sobre a central de segurança do Azure
 
@@ -70,7 +70,6 @@ A Central de Segurança do Azure analisa o estado de segurança de seus recursos
 Somente as recomendações que são habilitadas nas Políticas de segurança são mostradas aqui.
 
 
-
 ## <a name="what-triggers-a-security-alert"></a>O que dispara um alerta de segurança?
 A Central de Segurança do Azure automaticamente coleta, analisa e funde os dados de log de seus recursos do Azure, da rede e das soluções de parceiros como antimalware e firewalls. Quando forem detectadas ameaças, é criado um alerta de segurança. Os exemplos abrangem a detecção de:
 
@@ -78,10 +77,6 @@ A Central de Segurança do Azure automaticamente coleta, analisa e funde os dado
 * Malware avançado detectado com o relatório de erros do Windows
 * Ataques por força bruta contra máquinas virtuais
 * Alertas de segurança das soluções de segurança de parceiro integradas, como antimalware ou Firewalls de aplicativo Web
-
-
-## <a name="why-did-secure-score-values-change"></a>Por que a segurança dos valores de pontuação foi alterada? <a name="secure-score-faq"></a>
-A partir de fevereiro de 2019, a central de segurança ajustou a pontuação de algumas recomendações, a fim de se adequar melhor à sua gravidade. Como resultado desse ajuste, pode haver alterações nos valores gerais de Pontuação segura.  Para obter mais informações sobre a pontuação segura, consulte [proteção segura aprimorada na central de segurança do Azure](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual é a diferença entre ameaças detectadas e alertadas pelo Microsoft Security Response Center versus pela Central de Segurança do Azure?

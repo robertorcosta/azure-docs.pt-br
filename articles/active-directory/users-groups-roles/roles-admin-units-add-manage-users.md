@@ -1,5 +1,5 @@
 ---
-title: Adicionar, remover e listar usuários em uma unidade administrativa (visualização)-Azure Active Directory | Microsoft Docs
+title: Adicionar, remover e listar usuários em uma unidade administrativa-Azure Active Directory | Microsoft Docs
 description: Gerenciar usuários e suas permissões de função em uma unidade administrativa no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9b76ac103b873026dce3d3f8f92e54dc3afc14c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 37e1ac36df35fabb9709cfecadcfb0e7330df5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265078"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerenciar usuários em uma unidade administrativa no Azure Active Directory
 
@@ -35,11 +35,11 @@ Você pode atribuir usuários a unidades administrativas de duas maneiras.
 
 1. Atribuição individual
 
-    1. Você pode ir para o Azure AD no portal e Selecionar usuários e selecionar o usuário a ser atribuído a uma unidade administrativa. Em seguida, você pode selecionar unidades administrativas no painel esquerdo. O usuário pode ser atribuído a uma ou mais unidades administrativas clicando em atribuir à unidade administrativa e selecionando as unidades administrativas nas quais o usuário deve ser atribuído.
+    1. Você pode ir para o Azure AD no portal e Selecionar usuários e selecionar o usuário a ser atribuído a uma unidade administrativa. Em seguida, você pode selecionar unidades administrativas no painel esquerdo. O usuário pode ser atribuído a uma ou mais unidades administrativas clicando em * * atribuir à unidade administrativa e selecionando as unidades administrativas nas quais o usuário deve ser atribuído.
 
        ![selecione Adicionar e, em seguida, insira um nome para a unidade administrativa](./media/roles-admin-units-add-manage-users/assign-users-individually.png)
 
-    1. Você pode ir para o Azure AD no portal e selecionar unidades administrativas no painel esquerdo e, em seguida, selecionar a unidade administrativa onde os usuários serão atribuídos. Selecione todos os usuários no painel esquerdo e, em seguida, selecione Adicionar membro. Em seguida, você pode selecionar um ou mais usuários a serem atribuídos à unidade administrativa no painel direito.
+    1. Você pode ir para o Azure AD no portal e selecionar unidades administrativas no painel esquerdo e, em seguida, selecionar a unidade administrativa em que os usuários devem ser atribuídos. Selecione **todos os usuários** e, em seguida, selecione **Adicionar membro**. Em seguida, você pode selecionar um ou mais usuários a serem atribuídos à unidade administrativa no painel direito.
 
         ![selecione uma unidade administrativa e, em seguida, selecione Adicionar membro](./media/roles-admin-units-add-manage-users/assign-to-admin-unit.png)
 
@@ -82,13 +82,15 @@ Exemplo:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-No portal do Azure você pode abrir o perfil de um usuário acessando o Azure AD > usuários. Clique no usuário para abrir o perfil do usuário.
+No portal do Azure você pode abrir o perfil de um usuário:
 
-![Abrir um perfil de usuário no Azure Active Directory](./media/roles-admin-units-add-manage-users/user-profile-admin-units.png)
+1. Abrindo **usuários do Azure ad**  >  **Users**.
 
-Selecione **unidades administrativas** no painel esquerdo para ver a lista de unidades administrativas em que o usuário foi atribuído.
+1. Selecione o usuário para abrir o perfil do usuário.
 
-![Listar as unidades administrativas de um usuário](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
+1. Selecione **unidades administrativas** para ver a lista de unidades administrativas em que o usuário foi atribuído.
+
+   ![Listar as unidades administrativas de um usuário](./media/roles-admin-units-add-manage-users/list-user-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 

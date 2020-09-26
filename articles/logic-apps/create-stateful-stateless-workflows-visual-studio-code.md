@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: abb6f8bcaa3b8e356bea00185702bc0ae783e071
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 434fc20eebeae921233b8e872796618267d77730
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270213"
+ms.locfileid: "91361935"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
@@ -72,11 +72,11 @@ A extensão de aplicativos lógicos do Azure (versão prévia) traz vários recu
 
 * *Sem estado*
 
-  Crie aplicativos lógicos sem estado quando você não precisar salvar, examinar ou referenciar dados de eventos anteriores. Esses aplicativos lógicos mantêm a entrada e a saída de cada ação e seus Estados de fluxo de trabalho somente na memória, em vez de transferir essas informações para o armazenamento externo. Como resultado, os aplicativos lógicos sem estado têm execuções mais curtas que geralmente não são mais do que 5 minutos, um desempenho mais rápido com tempos de resposta mais rápidos, maior taxa de transferência e custos de execução reduzidos, pois os detalhes e o histórico de execução não são mantidos no armazenamento externo. No entanto, se ou quando ocorrerem interrupções, as execuções interrompidas não serão automaticamente restauradas, portanto, o chamador precisará reenviar manualmente as execuções interrompidas. Para uma depuração mais fácil, você pode [habilitar o histórico de execuções](#run-history) para aplicativos lógicos sem estado.
+  Crie aplicativos lógicos sem estado quando você não precisar salvar, examinar ou referenciar dados de eventos anteriores no armazenamento externo para revisão posterior. Esses aplicativos lógicos mantêm a entrada e a saída de cada ação e seus Estados de fluxo de trabalho somente na memória, em vez de transferir essas informações para o armazenamento externo. Como resultado, os aplicativos lógicos sem estado têm execuções mais curtas que geralmente não são mais do que 5 minutos, um desempenho mais rápido com tempos de resposta mais rápidos, maior taxa de transferência e custos de execução reduzidos, pois os detalhes e o histórico de execução não são mantidos no armazenamento externo. No entanto, se ou quando ocorrerem interrupções, as execuções interrompidas não serão automaticamente restauradas, portanto, o chamador precisará reenviar manualmente as execuções interrompidas. Esses aplicativos lógicos só podem ser executados de forma síncrona e para facilitar a depuração, você pode [habilitar o histórico de execução](#run-history), o que tem algum impacto sobre o desempenho.
 
   Atualmente, os fluxos de trabalho sem estado dão suporte apenas a ações para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), não gatilhos. Para iniciar o fluxo de trabalho, selecione a [solicitação interna, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md#built-ins). Para obter mais informações sobre gatilhos, ações e conectores sem suporte, consulte [recursos sem suporte](#unsupported).
 
-Para diferenças em como aplicativos lógicos aninhados se comportam entre aplicativos lógicos com estado e sem estado, consulte [diferenças de comportamento aninhado entre aplicativos lógicos com estado e sem estado](#nested-behavior)
+Para obter informações sobre como os aplicativos lógicos aninhados se comportam de forma diferente entre os aplicativos lógicos com e sem estado, consulte [diferenças de comportamento aninhado entre aplicativos lógicos com estado](#nested-behavior)
 
 <a name="pricing-model"></a>
 
@@ -918,7 +918,7 @@ Usando a [ferramenta CLI (interface de linha de comando) do .NET Core](/dotnet/c
 
 ## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>Diferenças de comportamento aninhado entre aplicativos lógicos com estado e sem estado
 
-Você pode [fazer um fluxo de trabalho de aplicativo lógico](../logic-apps/logic-apps-http-endpoint.md) que possa ser chamado por outros fluxos de trabalho de aplicativo lógico usando o gatilho de [solicitação](../connectors/connectors-native-reqres.md) , o gatilho de [webhook http](../connectors/connectors-native-webhook.md) ou gatilhos de conector gerenciado que têm o [tipo ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber solicitações HTTPS.
+Você pode [fazer com que um fluxo de trabalho de aplicativo lógico](../logic-apps/logic-apps-http-endpoint.md) possa ser chamado por outros fluxos de trabalho de aplicativo lógico que existam no mesmo recurso de **aplicativo lógico (versão prévia)** usando o gatilho de [solicitação](../connectors/connectors-native-reqres.md) , o gatilho de [webhook http](../connectors/connectors-native-webhook.md) ou gatilhos de conector gerenciado que têm o [tipo ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber solicitações HTTPS.
 
 Aqui estão os padrões de comportamento que os fluxos de trabalho de aplicativo lógico aninhados podem seguir depois que um fluxo de trabalho pai chama um fluxo de trabalho filho:
 
@@ -930,7 +930,7 @@ Aqui estão os padrões de comportamento que os fluxos de trabalho de aplicativo
 
   O filho reconhece a chamada retornando imediatamente uma `202 ACCEPTED` resposta, e o pai continua para a próxima ação sem esperar os resultados do filho. Em vez disso, o pai recebe os resultados quando o filho termina de ser executado. Fluxos de trabalho com estado filho que não incluem uma ação de resposta sempre seguem o padrão síncrono. Para fluxos de trabalho com estado filho, o histórico de execução está disponível para análise.
 
-  Para habilitar esse comportamento, na definição JSON do fluxo de trabalho, defina a `OperationOptions` propriedade como `DisableAsyncPattern` . Para obter mais informações, consulte [gatilho e tipos de ação – opções de operação](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  Para habilitar esse comportamento, na definição JSON do fluxo de trabalho, defina a `operationOptions` propriedade como `DisableAsyncPattern` . Para obter mais informações, consulte [gatilho e tipos de ação – opções de operação](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Gatilho e espera
 

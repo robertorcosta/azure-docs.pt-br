@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362258"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste de desempenho com cache de conjunto de resultados
 
@@ -56,11 +56,11 @@ WHERE request_id  = <'request_id'>;
 
 Aqui está um exemplo de saída para uma consulta executada com o armazenamento em cache do conjunto de resultados desabilitado.
 
-![Query-steps-with-rsc-disabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![Captura de tela mostra os resultados da consulta, incluindo o tipo de local e o comando.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 Aqui está um exemplo de saída para uma consulta executada com o armazenamento em cache do conjunto de resultados habilitado.
 
-![Query-steps-with-rsc-enabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![A captura de tela mostra os resultados da consulta com o comando selecionado * de [D W ResultCache D b] ponto D b o chamado.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## <a name="when-cached-results-are-used"></a>Quando os resultados armazenados em cache são usados
 

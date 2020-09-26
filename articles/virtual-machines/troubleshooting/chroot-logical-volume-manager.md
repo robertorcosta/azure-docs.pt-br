@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361459"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Solução de problemas de uma VM do Linux quando não há acesso ao console serial do Azure e o layout do disco está usando o LVM (Gerenciador de volume lógico)
 
@@ -88,7 +88,7 @@ lsblk
 
 Localize o caminho para montar o volume lógico que contém a partição/(raiz). Ele tem os arquivos de configuração, como/etc/default/grub
 
-Neste exemplo, pegar a saída do comando **lsblk** anterior **rootvg-rootlv** é a **raiz** correta de LV para montar e pode ser usada no próximo comando.
+Neste exemplo, pegar a saída do comando **lsblk** anterior  **rootvg-rootlv** é a **raiz** correta de LV para montar e pode ser usada no próximo comando.
 
 A saída do próximo comando mostrará o caminho para montar para o LV **raiz**
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Os comandos podem ser usados para instalar, remover e atualizar o software. Solucionar problemas de VMs a fim de corrigir erros.
 
 
-Execute o comando lsblk e/Rescue agora é/e/Rescue/boot é/boot ![ chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+Execute o comando lsblk e o/Rescue Now/e/Rescue/boot é/boot ![ screenshot mostra uma janela de console com o comando l s BLK e sua árvore de saída.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Executar correções
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *mostrou*
 
 O comando **grep** lista os kernels dos quais o **grub. cfg** está ciente.
-![Kernels](./media/chroot-logical-volume-manager/kernels.png)
+![Captura de tela mostra uma janela de console exibindo o resultado de uma pesquisa de grep para kernels.](./media/chroot-logical-volume-manager/kernels.png)
 
 **Grub2-editenv lista** exibe qual kernel será carregado no próximo padrão do ![ kernel de inicialização](./media/chroot-logical-volume-manager/kernel-default.png)
 
@@ -190,7 +190,7 @@ Execute o comando **LVS** para verificar quais **LVS** estão disponíveis para 
 
 Saia do ambiente **chroot** montar o **LV** necessário
 
-![Avançado](./media/chroot-logical-volume-manager/advanced.png)
+![Captura de tela mostra uma janela de console com um comando l v s e, em seguida, montando uma L V.](./media/chroot-logical-volume-manager/advanced.png)
 
 Agora acesse o ambiente **chroot** novamente executando
 

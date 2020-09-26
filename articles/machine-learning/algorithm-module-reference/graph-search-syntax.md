@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817294"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290493"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxe de consulta de pesquisa de grafo
 
@@ -49,7 +49,7 @@ A pesquisa de grafo usa a consulta simples Lucene como sintaxe de pesquisa de te
  
 - Correspondência de curinga: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Não é possível iniciar uma consulta Lucene com um caractere "*".
@@ -59,7 +59,7 @@ A pesquisa de grafo usa a consulta simples Lucene como sintaxe de pesquisa de te
  
 As consultas de filtro usam o seguinte padrão:
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 Você pode usar as seguintes propriedades de nó como chaves:

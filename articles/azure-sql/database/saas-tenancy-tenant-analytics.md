@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cd80f0b2a5e2ad1fd4c2cff73728d57a2beafc7e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361510"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise entre locatários usando dados extraídos – Aplicativo de locatário único
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá a:
 > - Consulte o banco de dados de análise.
 > - Use o Power BI para visualização de dados para realçar as tendências dos dados de locatário e fazer recomendações para melhorias.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![O diagrama mostra uma visão geral da arquitetura usada neste artigo.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Padrão de análise de locatário offline
 
@@ -138,7 +138,7 @@ Cada trabalho extrai os dados e os envia para o repositório de análise. Existe
 4. Pressione F5 para executar o script que cria e executa o trabalho que extrai dados de tíquetes e clientes de cada banco de dados de locatário. O trabalho salva os dados para o repositório de análise.
 5. Consulte a tabela TicketsRawData no banco de dados tenantanalytics para verificar se a tabela foi populada com informações de tíquetes de todos os locatários.
 
-![ticketExtracts](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![Captura de tela mostra o banco de dados ExtractTickets com o TicketsRawData d o selecionado no Pesquisador de objetos.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Repita as etapas acima, mas desta vez substitua **\ExtractTickets.sql** por **\ExtractVenuesEvents.sql** na etapa 2.
 
@@ -177,7 +177,7 @@ Use as seguintes etapas para se conectar ao Power BI e importar os modos de exib
 
 5. Selecione **banco de dados** no painel esquerdo, digite user name = *Developer*e digite password = *P \@ ssword1*. Clique em **Conectar**.  
 
-    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![Captura de tela mostra a caixa de diálogo SQL Server banco de dados em que você pode inserir um nome de usuário e uma senha.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. No painel **navegador** , no banco de dados de análise, selecione as tabelas de esquema em estrela: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, selecione **Carregar**. 
 
@@ -185,13 +185,13 @@ Parabéns! Você carregou com êxito os dados no Power BI. Agora você pode come
 
 Comece analisando dados de vendas de tíquetes para ver a variação no uso entre os locais. Selecione as opções a seguir no Power BI para plotar um gráfico de barras do número total de tíquetes vendidos por cada local. Devido à variação aleatória no gerador de tíquetes, os resultados podem ser diferentes.
  
-![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![A captura de tela mostra uma visualização e os controles do Power B para a visualização de dados no lado direito.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 A plotagem anterior confirma que o número de tíquetes vendidos por cada local varia. Locais que vendem mais tíquetes estão usando mais o serviço do que locais que vendem menos tíquetes. Pode haver uma oportunidade para ajustar a alocação de recursos de acordo com as necessidades de diferentes locatários.
 
 Você poderá analisar melhor os dados para ver como as vendas de tíquetes variam ao longo do tempo. Selecione as opções a seguir no Power BI para plotar o número total de tíquetes vendidos por dia em um período de 60 dias.
  
-![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![Captura de tela mostra a visualização do Power B, intitulada distribuição de venda de tíquetes versus dia de venda.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 O gráfico anterior exibe esse pico de vendas de tíquetes para alguns locais. Esses picos reforçam a ideia de que alguns locais talvez estejam consumindo recursos do sistema desproporcionalmente. Até o momento, não há um padrão óbvio para indicar quando ocorrem os picos.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Selecione as opções de visualização a seguir para plotar os tíquetes de porcentagem vendidos em cada local para determinar o sucesso relativo.
 
-![AvgTicketsByVenues](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![A captura de tela mostra a visualização do Power B intitulada média de tíquetes vendidos por cada local.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 A plotagem acima mostra que, embora a maioria das instalações venda mais de 80% de seus tíquetes, algumas têm dificuldade para preencher mais da metade dos lugares. Familiarize-se com Values Well para selecionar a porcentagem máxima ou mínima de tíquetes vendidos para cada local.
 
