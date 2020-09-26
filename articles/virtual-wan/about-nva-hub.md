@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.author: scottnap
 Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
-ms.openlocfilehash: ad7c7fb5111ce700a5725336b7c9db788e178c4c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1e4b8a2d801d7d7eccfaf558c3926ead1ab0a953
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87095803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313766"
 ---
 # <a name="about-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Sobre a solução de virtualização de rede em um hub de WAN virtual do Azure (versão prévia)
 
@@ -24,7 +24,7 @@ As redes Barracuda são o primeiro parceiro a fornecer uma oferta NVA que pode s
 > [!NOTE]
 > Somente as ofertas do NVA que estão disponíveis para serem implantadas no Hub WAN virtual podem ser implantadas no Hub WAN virtual. Eles não podem ser implantados em uma rede virtual arbitrária no Azure.
 
-## <a name="how-does-it-work"></a><a name="how"></a>Como ela funciona?
+## <a name="how-does-it-work"></a><a name="how"></a>Como ele funciona?
 
 Os NVAs que estão disponíveis para serem implantados diretamente no Hub de WAN virtual do Azure são projetados especificamente para serem usados no Hub virtual. A oferta NVA é publicada no Azure Marketplace como um aplicativo gerenciado, e os clientes podem implantar a oferta diretamente do Azure Marketplace ou podem implantar a oferta do Hub virtual por meio do portal do Azure.
 
@@ -72,17 +72,17 @@ Ao contrário das configurações de gateway de VPN do Azure, você não precisa
 
 Você ainda precisa criar conexões de Hub para VNet para conectar seu hub WAN virtual a suas redes virtuais do Azure.
 
-## <a name="supported-regions"></a><a name="regions"></a>Regiões compatíveis
+## <a name="supported-regions"></a><a name="regions"></a>Regiões com suporte
 
 NVA no Hub virtual está disponível para visualização nas seguintes regiões:
 
 |Região geopolítica | Regiões do Azure|
 |---|---|
 | América do Norte| Oeste dos EUA, Sul EUA Central, leste dos EUA 2   |
-| América do Sul | Brazil South |
+| América do Sul | Sul do Brasil |
 | Europa | Europa Ocidental, Sul do Reino Unido|
 |  Oriente Médio | Norte dos EAU |
-| Ásia | Japan East |
+| Ásia | Leste do Japão |
 | Austrália | Leste da Austrália |
 
 ## <a name="faq"></a>Perguntas frequentes

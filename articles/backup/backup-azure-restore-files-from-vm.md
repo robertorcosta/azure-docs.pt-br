@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: fd68c33e4425d717837923b90119d42569a1f003
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178513"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292958"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -303,16 +303,16 @@ Se você executar o script em um computador com acesso restrito, verifique se h�
 
 - `download.microsoft.com`
 - URLs do serviço de recuperação (nome geográfico refere-se à região onde reside o cofre dos serviços de recuperação)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (Para regiões públicas do Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (Para Azure China 21Vianet)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (Para Governo dos EUA para Azure)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (Para Azure Alemanha)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.com` (Para regiões públicas do Azure)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.cn` (Para Azure China 21Vianet)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.us` (Para Governo dos EUA para Azure)
+  - `https://pod01-rec2.GEO-NAME.backup.windowsazure.de` (Para Azure Alemanha)
 - Portas de saída 53 (DNS), 443, 3260
 
 > [!NOTE]
 >
-> - O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: o nome do script baixado começa com \' VMname \' \_ \' geoname \' _ \' GUID \' , como *ContosoVM_wcus_12345678*
-> - A URL seria <https://pod01-rec2.wcus.backup.windowsazure.com>"
+> O arquivo de script que você baixou na etapa 5 [acima](#mount-the-volume-and-copy-files) terá o **nome geográfico** no nome do arquivo. Use esse **nome geográfico** para preencher a URL. O nome do script baixado começará com: \' VMname \' \_ \' geoname \' _ \' GUID \' .<br><br>
+> Por exemplo, se o nome de arquivo do script for *ContosoVM_wcus_12345678*, o **nome geográfico** será *wcus* e a URL será:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conectar ao ponto de recuperação. Se os componentes não existem no computador onde o script é executado, o script solicita a permissão para instalar os componentes. Conceda para instalar os componentes necessários.

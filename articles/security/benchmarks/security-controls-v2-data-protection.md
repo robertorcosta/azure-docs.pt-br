@@ -4,17 +4,17 @@ description: Azure Security benchmark v2 de proteção de dados
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e377c6669b1db96f549958173aded4f29bae6713
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314310"
 ---
-# <a name="security-control-data-protection"></a>Controle de segurança: proteção de dados
+# <a name="security-control-v2-data-protection"></a>Controle de segurança v2: proteção de dados
 
 A proteção de dados aborda o controle de proteção de dados em repouso, em trânsito e por meio de mecanismos de acesso autorizados. Isso inclui descobrir, classificar, proteger e monitorar ativos de dados confidenciais usando o controle de acesso, a criptografia e o registro em log no Azure.
 
@@ -22,7 +22,7 @@ A proteção de dados aborda o controle de proteção de dados em repouso, em tr
 
 | ID do Azure | Controles do CIS v 7.1 ID (s) | NIST SP800-53 ID (s) R4 |
 |--|--|--|--|
-| DP-1 | 14,5, 14,7 | SI-4, SC-28 |
+| DP-1 | 13,1, 14,5, 14,7 | SC-28 |
 
 Descubra, classifique e rotule seus dados confidenciais para que você possa criar os controles apropriados para garantir que as informações confidenciais sejam armazenadas, processadas e transmitidas com segurança pelos sistemas de tecnologia da organização. 
 
@@ -36,7 +36,7 @@ Você pode usar a proteção de informações do SQL do Azure para auxiliar na c
 
 **Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
 
@@ -62,7 +62,7 @@ Para a plataforma subjacente, que é gerenciada pela Microsoft, a Microsoft trat
 
 **Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -90,9 +90,9 @@ Se necessário para a conformidade da DLP (prevenção de perda de dados), você
 
 **Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-- [SOC (Centro de Operações de Segurança)](/azure/cloud-adoption-framework/organize/cloud-security) 
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security) 
 
 - [Segurança e DevOps de aplicativos](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -118,7 +118,7 @@ Por padrão, o Azure fornece criptografia para dados em trânsito entre os data 
 
 **Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -148,7 +148,7 @@ Por padrão, o Azure fornece criptografia para dados em repouso. Para dados alta
 
 **Responsabilidade**: Compartilhado
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

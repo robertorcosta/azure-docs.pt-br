@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360864"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Proteger novamente VMs do Azure que sofreram failover para a região primária
 
@@ -31,7 +31,7 @@ Quando você faz [failover](site-recovery-failover.md) de VMs do Azure de uma re
 
 1. Em **cofre**  >  **itens replicados**, clique com o botão direito do mouse na VM com failover e selecione **proteger novamente**. A direção de nova proteção deve mostrar da secundária para a primária.
 
-   ![Proteger novamente](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Captura de tela mostra uma máquina virtual com um menu contextual com a nova proteção selecionada.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 1. Examine o grupo de recursos, a rede, o armazenamento e os conjuntos de disponibilidade. Em seguida, clique em **OK**. Se houver algum recurso marcado como novo, ele será criado como parte do processo de nova proteção.
 1. O trabalho de nova proteção propaga os dados mais recentes para o site de destino. Após a conclusão do trabalho, a replicação delta ocorre. Em seguida, você pode fazer failover de volta para o site primário. Você pode selecionar a conta de armazenamento ou a rede que você deseja usar ao proteger novamente, usando a opção personalizar.
