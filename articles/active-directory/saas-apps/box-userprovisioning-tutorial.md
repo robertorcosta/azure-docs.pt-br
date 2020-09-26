@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 76c0f4f021646b4cbf1a09559e085176353a4a3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312899"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar o Box para provisionamento automático de usuário
 
@@ -93,17 +93,17 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 4. Defina o **Modo de Provisionamento** como **Automático**. 
 
-    ![provisionamento](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Captura de tela da guia provisionamento para o box em portal do Azure. O modo de provisionamento é definido como automático e autorizar é realçado em credenciais de administrador.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Na seção **Credenciais de Administrador**, clique em **Autorizar** para abrir uma caixa de diálogo de logon do Box em uma nova janela do navegador.
 
 6. Na página **Fazer logon para conceder acesso ao Box**, forneça as credenciais necessárias e clique em **Autorizar**. 
    
-    ![Habilitar o provisionamento automático de usuários.](./media/box-userprovisioning-tutorial/IC769546.png "Habilitar o provisionamento automático de usuários.")
+    ![Captura de tela da caixa de logon para conceder acesso ao box, mostrando a entrada de email e senha e o botão autorizar.](./media/box-userprovisioning-tutorial/IC769546.png "Habilitar o provisionamento automático de usuários.")
 
 7. Clique em **Conceder acesso ao Box** para autorizar essa operação e retornar ao portal do Azure. 
    
-    ![Habilitar o provisionamento automático de usuários.](./media/box-userprovisioning-tutorial/IC769549.png "Habilitar o provisionamento automático de usuários.")
+    ![Captura de tela da caixa de autorizar acesso no box, mostrando uma mensagem explicativa e o botão conceder acesso à caixa.](./media/box-userprovisioning-tutorial/IC769549.png "Habilitar o provisionamento automático de usuários.")
 
 8. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD possa se conectar ao aplicativo Box. Se a conexão falhar, verifique se sua conta do Box tem permissões de Administrador de Equipe e repita a etapa **"Autorizar"**.
 

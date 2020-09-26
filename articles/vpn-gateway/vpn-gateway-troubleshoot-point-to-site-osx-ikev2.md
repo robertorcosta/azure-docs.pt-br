@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 33e67df5ad68a78cc35f7168813716d1d794d527
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: be7b6349a7bf51a4fb99e3604a04f9d95403b74f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359317"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Solucionar problemas de conexões VPN ponto a site do Azure dos clientes Mac OS X
 
@@ -34,7 +34,7 @@ Este artigo ajuda você a solucionar problemas de conectividade de Ponto a Site 
 4. A **ID Local** deve ser a mesma que o **Assunto** do certificado do cliente.
 5. Clique em **Configurações de Autenticação** para abrir a página de Configurações de Autenticação.
 
-   ![Configurações de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![Captura de tela mostra uma caixa de diálogo Configurações de autenticação com certificado selecionado.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Verifique se **Certificado** está selecionado na lista suspensa.
 7. Clique no botão **Selecionar** e verifique se o certificado correto está selecionado. Clique em **OK** para salvar quaisquer alterações.
 
@@ -48,7 +48,7 @@ Este artigo ajuda você a solucionar problemas de conectividade de Ponto a Site 
 4. A **ID Local** pode ficar em branco.
 5. Clique no **Configuração de Autenticação** e verifique se o "Nome de usuário" está selecionado na lista suspensa.
 
-   ![Configurações de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
+   ![Captura de tela mostra uma caixa de diálogo Configurações de autenticação com o nome de usuário selecionado.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verifique se as credenciais corretas estão inseridas.
 
 ## <a name="additional-steps"></a><a name="additional"></a>Etapas adicionais

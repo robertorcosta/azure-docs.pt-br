@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 106337fb4756052ee682624290620093bf4a70b3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 275ad3f2dfa04241b1f2a5687cb5dc32b7a31e75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081903"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333164"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,15 +84,15 @@ Com a replicação transacional, todas as alterações em seus dados ou esquema 
 > Use a versão mais recente do SQL Server Management Studio para permanecer sincronizada com as atualizações do Azure e do banco de dados SQL. Versões anteriores do SQL Server Management Studio não podem configurar o Banco de Dados SQL como um assinante. [Atualizar o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Configurar a distribuição
-   - [Usando o SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
-   - [Usando o Transact-SQL](/sql/relational-databases/replication/configure-publishing-and-distribution/)
+   - [Usando o SSMS (SQL Server Management Studio)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
+   - [Usando Transact-SQL](/sql/relational-databases/replication/configure-publishing-and-distribution/)
 
 2. Criar a publicação
-   - [Usando o SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
-   - [Usando o Transact-SQL](/sql/relational-databases/replication/configure-publishing-and-distribution/)
+   - [Usando o SSMS (SQL Server Management Studio)](/sql/relational-databases/replication/configure-publishing-and-distribution/)
+   - [Usando Transact-SQL](/sql/relational-databases/replication/configure-publishing-and-distribution/)
 3. Criar Assinatura
-   - [Usando o SQL Server Management Studio (SSMS)](/sql/relational-databases/replication/create-a-push-subscription/)
-   - [Usando o Transact-SQL](/sql/relational-databases/replication/create-a-push-subscription/)
+   - [Usando o SSMS (SQL Server Management Studio)](/sql/relational-databases/replication/create-a-push-subscription/)
+   - [Usando Transact-SQL](/sql/relational-databases/replication/create-a-push-subscription/)
 
 Algumas dicas e diferenças da migração para o Banco de Dados SQL
 
