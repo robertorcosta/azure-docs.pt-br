@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: 95ee630c1190167227a4ab3514a0c36db0401e45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ce70a4df50be9004182e80711de449bab146a800
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273357"
+ms.locfileid: "91360898"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Tutorial: configurar o coda para provisionamento automático de usuário
 
@@ -93,7 +93,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 5. Na seção **credenciais de administrador** , insira a URL do locatário Coda e o token secreto recuperados anteriormente na etapa 2. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Coda. Se a conexão falhar, verifique se sua conta Coda tem permissões de administrador e tente novamente.
 
-    ![provisionamento](./media/coda-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/coda-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 

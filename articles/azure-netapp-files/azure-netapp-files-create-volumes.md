@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 141b19ca73c3465e59d8c94a3bdc3657d0900b8d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 413d1f787a39a5a79b94fa06b49436b49337d286
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458903"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325582"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -62,7 +62,7 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 
         O nome do volume precisa ser exclusivo em cada pool de capacidade. Ele precisa ter, pelo menos, três caracteres. Você pode usar qualquer caractere alfanumérico.   
 
-        Você não pode usar `default` como o nome do volume.
+        Você não pode usar `default` ou `bin` como o nome do volume.
 
     * **Pool de capacidade**  
         Especifique o pool de capacidade no qual você deseja que o volume seja criado.
@@ -71,6 +71,11 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
         Especifique a quantidade de armazenamento lógico que é alocada para o volume.  
 
         O campo **cota disponível** mostra a quantidade de espaço não utilizado no pool de capacidade escolhido que você pode usar para a criação de um novo volume. O tamanho do novo volume não pode exceder a cota disponível.  
+
+    * **Taxa de transferência (MiB/S)**   
+        Se o volume for criado em um pool de capacidade de QoS manual, especifique a taxa de transferência desejada para o volume.   
+
+        Se o volume for criado em um pool de capacidade de QoS automático, o valor exibido nesse campo será (taxa de transferência de nível de serviço de cota x).   
 
     * **Rede virtual**  
         Especifique a VNet (rede virtual) do Azure da qual você deseja acessar o volume.  

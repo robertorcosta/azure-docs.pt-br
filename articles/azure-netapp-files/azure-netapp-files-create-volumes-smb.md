@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e2c487b62813bc4480786daa08666fe6471bd18d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988301"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325701"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -255,7 +255,7 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
 
         O nome do volume precisa ser exclusivo em cada pool de capacidade. Ele precisa ter, pelo menos, três caracteres. Você pode usar qualquer caractere alfanumérico.   
 
-        Não é possível usar `default` como o nome do volume.
+        Você não pode usar `default` ou `bin` como o nome do volume.
 
     * **Pool de capacidade**  
         Especifique o pool de capacidade no qual você deseja que o volume seja criado.
@@ -264,6 +264,11 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
         Especifique a quantidade de armazenamento lógico que é alocada para o volume.  
 
         O campo **cota disponível** mostra a quantidade de espaço não utilizado no pool de capacidade escolhido que você pode usar para a criação de um novo volume. O tamanho do novo volume não pode exceder a cota disponível.  
+
+    * **Taxa de transferência (MiB/S)**   
+        Se o volume for criado em um pool de capacidade de QoS manual, especifique a taxa de transferência desejada para o volume.   
+
+        Se o volume for criado em um pool de capacidade de QoS automático, o valor exibido nesse campo será (taxa de transferência de nível de serviço de cota x).   
 
     * **Rede virtual**  
         Especifique a VNet (rede virtual) do Azure da qual você deseja acessar o volume.  

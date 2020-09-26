@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 15d9504e2a886a66eeb429151305b885275b1f23
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3d10480f8668576b4a8c755d6a3aa48603ca61bf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265482"
+ms.locfileid: "91361068"
 ---
 # <a name="tutorial-configure-envoy-for-automatic-user-provisioning"></a>Tutorial: configurar o Envoy para o provisionamento automático de usuário
 
@@ -100,7 +100,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 5. Na seção **credenciais de administrador** , insira `https://app.envoy.com/scim/v2` a **URL de locatário**. Insira o valor do **token de portador OAuth** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao envoy. Se a conexão falhar, verifique se sua conta do Envoy tem permissões de administrador e tente novamente.
 
-   ![provisionamento](./media/envoy-tutorial/provisioning.png)
+   ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/envoy-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 

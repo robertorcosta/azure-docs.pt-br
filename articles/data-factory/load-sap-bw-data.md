@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081274"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360796"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -175,7 +175,7 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
 
       ![Configuração do aplicativo lógico](media/load-sap-bw-data/logic-app-config.png)
 
-      1. Vá para o portal do Azure. Selecione um novo serviço de **aplicativos lógicos** . Selecione **+ aplicativo lógico em branco** para ir para o **Designer de aplicativos lógicos**.
+      1. Acesse o portal do Azure. Selecione um novo serviço de **aplicativos lógicos** . Selecione **+ aplicativo lógico em branco** para ir para o **Designer de aplicativos lógicos**.
 
       2. Crie um gatilho de **quando uma solicitação HTTP é recebida**. Especifique o corpo da solicitação HTTP da seguinte maneira:
 
@@ -192,7 +192,7 @@ Na página data factory **vamos começar** , selecione **criar pipeline do model
 
       3. Adicione uma ação **criar blob** . Para o **caminho da pasta** e o nome do **blob**, use os mesmos valores que você configurou anteriormente em *HighWatermarkBlobContainer + HighWatermarkBlobDirectory* e *HighWatermarkBlobName*.
 
-      4. Selecione **Salvar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
+      4. Clique em **Salvar**. Em seguida, copie o valor da **URL http post** para usar no pipeline data Factory.
 
 4. Depois de fornecer os parâmetros de pipeline data Factory, selecione **depurar**  >  **concluir** para invocar uma execução para validar a configuração. Ou selecione **publicar** para publicar todas as alterações e, em seguida, selecione **Adicionar gatilho** para executar uma execução.
 
@@ -217,7 +217,7 @@ Se você precisar de cópia histórica e cópia incremental ou apenas cópia inc
 
    Você pode aumentar o número de processos de trabalho do SAP em execução paralela para o DTP:
 
-   ![Create-SAP-BW-Ohd-Delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![A captura de tela mostra as configurações de processamento paralelo em que você pode selecionar o número de processos paralelos para a D T P.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Agende as cadeias de DTP em processo.
 

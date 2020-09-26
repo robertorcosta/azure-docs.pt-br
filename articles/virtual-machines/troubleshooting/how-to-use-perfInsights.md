@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f49ae5139dc92ec1448e5dea05be8c8c216ef91e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361340"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Como usar o PerfInsights no Azure
 
@@ -259,8 +259,8 @@ No arquivo **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.zip**, é possíve
 
 Selecione a guia **Descobertas**.
 
-![Captura de tela do relatório PerfInsights](media/how-to-use-perfInsights/pi-finding-tab.png)
-![Captura de tela do relatório PerfInsights](media/how-to-use-perfInsights/pi-findings.png)
+![Captura de tela da guia Visão geral do relatório PerfInsights. ](media/how-to-use-perfInsights/pi-finding-tab.png)
+ ![ Captura de tela da guia armazenamento do relatório PerfInsights.](media/how-to-use-perfInsights/pi-findings.png)
 
 > [!NOTE] 
 > Constatações categorizadas como altas são problemas conhecidos que podem causar problemas de desempenho. Constatações categorizadas como médias representam configurações não adequadas que não necessariamente causam problemas de desempenho. Constatações categorizadas como lentas são declarações apenas informativas.

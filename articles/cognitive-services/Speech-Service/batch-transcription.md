@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360745"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como usar a transcrição do lote
 
@@ -43,7 +43,7 @@ Você não pode estimar quando um trabalho mudará para o estado de execução, 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Como acontece com todos os recursos do serviço de fala, você cria uma chave de assinatura no [Portal do Microsoft Azure](https://portal.azure.com) seguindo nosso [Guia de primeiros passos](get-started.md).
+Como acontece com todos os recursos do serviço de fala, você cria uma chave de assinatura no [Portal do Microsoft Azure](https://portal.azure.com) seguindo nosso [Guia de primeiros passos](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
 > Uma assinatura padrão (S0) para o serviço de fala é necessária para usar a transcrição do lote. As chaves de assinatura gratuitas (F0) não funcionam. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).

@@ -17,12 +17,12 @@ ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8aa31c6e196f916b4c7633da0c54a30ab9d7b548
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469857"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361272"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
 
@@ -118,7 +118,7 @@ Ao selecionar um período de tempo personalizado, você pode configurar uma data
 
 O filtro **Status** permite que você selecione:
 
-- Todos
+- Tudo
 - Sucesso
 - Falha
 - Ignorado
@@ -175,7 +175,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Detalhes de provisionamento](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
+![Detalhes de provisionamento](./media/concept-provisioning-logs/provisioning-tabs.png "Tabulações")
 
 
 
@@ -190,7 +190,7 @@ A guia **etapas** descreve as etapas executadas para provisionar um objeto. O pr
 
 
 
-![Etapas](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Captura de tela mostra a guia etapas, que mostra as etapas de provisionamento.](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Solução de problemas e recomendações

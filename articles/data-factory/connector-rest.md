@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: c0a64c0a9653bd274e9298401163ad7abc1af99f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7b6fa2395e81089e8b4523929a4a7a583b0788a2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360762"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto de extremidade REST usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -140,7 +140,7 @@ Defina a **authenticationType** na propriedade **AadServicePrincipal**. Além da
 
 Defina a **authenticationType** na propriedade **ManagedServiceIdentity**. Além das propriedades genéricas descritas na seção anterior, especifique as seguintes propriedades:
 
-| Propriedade | Descrição | Necessária |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | aadResourceId | Especifique o recurso do AAD que você está solicitando para autorização, por exemplo, `https://management.core.windows.net` .| Sim |
 
@@ -404,13 +404,13 @@ O modelo define dois parâmetros:
 3. Selecione **Usar este modelo**.
     ![Usar este modelo](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
 
-4. Você verá o pipeline criado conforme mostrado no exemplo a seguir: ![ pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+4. Você verá o pipeline criado conforme mostrado no exemplo a seguir:  ![ captura de tela mostra o pipeline criado a partir do modelo.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
 
 5. Selecione atividade **da Web** . Em **configurações**, especifique a **URL**, o **método**, os **cabeçalhos**e o **corpo** correspondentes para recuperar o token de portador OAuth da API de logon do serviço do qual você deseja copiar dados. O espaço reservado no modelo demonstra um exemplo de OAuth Azure Active Directory (AAD). Observe que a autenticação do AAD tem suporte nativo do conector REST, aqui está apenas um exemplo para o fluxo OAuth. 
 
     | Propriedade | Descrição |
     |:--- |:--- |:--- |
-    | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, ele éhttps://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, ele é https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Método | O método HTTP. Os valores permitidos são **post** e **Get**. | 
     | Cabeçalhos | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
     | Corpo | O corpo da solicitação HTTP. | 

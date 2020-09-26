@@ -4,17 +4,17 @@ description: Os escopos de criptografia fornecem a capacidade de gerenciar a cri
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 041b0bf57f57fd8ddd74c8330888d75e31aacc83
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90993948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326109"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Escopos de criptografia para armazenamento de BLOBs (visualização)
 
@@ -22,7 +22,7 @@ Os escopos de criptografia fornecem a capacidade de gerenciar a criptografia no 
 
 Por padrão, uma conta de armazenamento é criptografada com uma chave que tem o escopo de toda a conta de armazenamento. Com um escopo de criptografia, você pode especificar que um ou mais contêineres são criptografados com uma chave que tem o escopo definido apenas para esses contêineres.
 
-Você pode optar por usar chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente armazenadas em Azure Key Vault ou Key Vault o HSM (modelo de segurança de hardware) gerenciado (versão prévia) para proteger e controlar o acesso à chave que criptografa os dados. Escopos de criptografia diferentes na mesma conta de armazenamento podem usar chaves gerenciadas pela Microsoft ou gerenciadas pelo cliente.
+Você pode optar por usar chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente armazenadas em Azure Key Vault para proteger e controlar o acesso à chave que criptografa os dados. Escopos de criptografia diferentes na mesma conta de armazenamento podem usar chaves gerenciadas pela Microsoft ou gerenciadas pelo cliente.
 
 Depois de criar um escopo de criptografia, você pode especificar esse escopo de criptografia em uma solicitação para criar um contêiner ou um blob. Para obter mais informações sobre como criar um escopo de criptografia, consulte [criar e gerenciar escopos de criptografia (versão prévia)](encryption-scope-manage.md).
 
@@ -50,7 +50,7 @@ Quando você desabilita um escopo de criptografia, todas as operações de leitu
 
 Quando um escopo de criptografia estiver desabilitado, você não será mais cobrado por ele. Desabilite os escopos de criptografia que não são necessários para evitar encargos desnecessários.
 
-Se o escopo de criptografia estiver protegido com chaves gerenciadas pelo cliente, você também poderá excluir a chave associada no cofre de chaves ou HSM gerenciado para desabilitar o escopo de criptografia. Tenha em mente que as chaves gerenciadas pelo cliente são protegidas pela exclusão reversível e pela limpeza da proteção no cofre de chaves ou HSM gerenciado, e uma chave excluída está sujeita ao comportamento definido por essas propriedades. Para obter mais informações, consulte um dos seguintes tópicos na documentação do Azure Key Vault:
+Se o escopo de criptografia estiver protegido com chaves gerenciadas pelo cliente, você também poderá excluir a chave associada no cofre de chaves para desabilitar o escopo de criptografia. Tenha em mente que as chaves gerenciadas pelo cliente são protegidas pela exclusão reversível e pela proteção de limpeza no cofre de chaves, e uma chave excluída está sujeita ao comportamento definido por essas propriedades. Para obter mais informações, consulte um dos seguintes tópicos na documentação do Azure Key Vault:
 
 - [Como usar a exclusão reversível com o PowerShell](../../key-vault/general/soft-delete-powershell.md)
 - [Como usar a exclusão temporária com a CLI](../../key-vault/general/soft-delete-cli.md)

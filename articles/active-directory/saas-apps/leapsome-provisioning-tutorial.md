@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: jeedes
-ms.openlocfilehash: f0d240819f3690292c572a350f387cd025c24737
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e08c748dec6d21e1ff5d848257c65aa3f8f5aa63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519250"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299920"
 ---
 # <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutorial: configurar o Leapsome para o provisionamento automático de usuário
 
@@ -105,11 +105,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira `https://www.leapsome.com/api/scim` a **URL de locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Leapsome. Se a conexão falhar, verifique se sua conta do Leapsome tem permissões de administrador e tente novamente.
 

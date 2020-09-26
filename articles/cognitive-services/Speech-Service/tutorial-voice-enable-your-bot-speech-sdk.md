@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2806ce18cc9febfdf15d48052d301da48b3c226f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360949"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: habilitar o bot para voz usando o SDK de fala
 
@@ -107,7 +107,7 @@ Siga estas instruções para criar um recurso de fala:
 
 Neste ponto, verifique se seu grupo de recursos (**SpeechEchoBotTutorial-resourcegroup**) tem um recurso de fala:
 
-| Nome | Type  | Localização |
+| Nome | Type  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos EUA |
 
@@ -128,7 +128,7 @@ A próxima etapa é criar um plano do serviço de aplicativo. Um plano de servi�
 
 Neste ponto, verifique se seu grupo de recursos (**SpeechEchoBotTutorial-resourcegroup**) tem dois recursos:
 
-| Nome | Type  | Localização |
+| Nome | Type  | Location |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicativo | Oeste dos EUA |
 | SpeechEchoBotTutorial-fala | Serviços Cognitivos | Oeste dos EUA |
@@ -158,7 +158,7 @@ Agora que você criou alguns recursos, vamos criar um bot. Vamos começar com o 
 4. Depois que o projeto for carregado, pressione <kbd>F5</kbd> para compilar e executar o projeto.
 5. Um navegador será iniciado e você verá uma tela semelhante a esta.
     > [!div class="mx-imgBorder"]
-    > [![echobot-Running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot em execução no localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
+    > [![Captura de tela mostra a página EchoBot com a mensagem o bot está pronto!](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot em execução no localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### <a name="test-the-bot-sample-with-the-bot-framework-emulator"></a>Testar o exemplo de bot com o emulador do bot Framework
 
@@ -174,7 +174,7 @@ O [emulador do bot Framework](https://github.com/microsoft/botframework-emulator
    ```
    e pressione "conectar".
 4. O bot deve lhe saudar com "Olá e bem-vindo!" . Digite qualquer mensagem de texto e confirme que você obtém uma resposta do bot.
-5. É assim que uma troca de comunicação com uma instância de bot de eco pode ser: [ ![bot-Framework-Emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Emulador do bot Framework")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
+5. Essa é a aparência de uma troca de comunicação com uma instância de bot de eco: [ ![a captura de tela mostra o emulador do bot Framework.](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Emulador do bot Framework")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Implantar o bot em um serviço de Azure App
 
@@ -213,7 +213,7 @@ A próxima etapa é implantar o Echo bot no Azure. Há algumas maneiras de impla
 1. O navegador padrão deve abrir e exibir uma página que leia: "o bot está pronto!".
 1. Neste ponto, verifique o grupo de recursos **SpeechEchoBotTutorial-resourcegroup** no portal do Azure e confirme esses três recursos:
 
-| Nome | Type  | Localização |
+| Nome | Type  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | Serviço de Aplicativo | Oeste dos EUA |
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicativo | Oeste dos EUA |
@@ -250,7 +250,7 @@ Agora que você criou um serviço de Azure App para hospedar o bot, a próxima e
 
 Neste ponto, verifique o grupo de recursos **SpeechEchoBotTutorial-resourcegroup** no portal do Azure. Agora, ele deve mostrar pelo menos quatro recursos:
 
-| Nome | Type  | Localização |
+| Nome | Type  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | Serviço de Aplicativo | Oeste dos EUA |
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicativo | Oeste dos EUA |
@@ -323,7 +323,7 @@ O cliente do assistente de voz do Windows tem uma interface do usuário simples 
 
 Se você receber uma mensagem de erro na janela do aplicativo principal, use esta tabela para identificar e solucionar o erro:
 
-| Erro do | O que você deve fazer? |
+| Erro | O que você deve fazer? |
 |-------|----------------------|
 |Erro (AuthenticationFailure): falha na atualização do WebSocket com um erro de autenticação (401). Verificar a chave de assinatura (ou o token de autorização) correta e o nome da região| Na página Configurações do aplicativo, verifique se você inseriu a chave de assinatura de fala e sua região corretamente.<br>Certifique-se de que sua chave de fala e região de chave foram inseridas corretamente. |
 |Erro (ConnectionFailure): a conexão foi fechada pelo host remoto. Código de erro: 1011. Detalhes do erro: não foi possível conectar ao bot antes de enviar uma mensagem | Verifique se você [marcou a caixa "Habilitar ponto de extremidade de streaming"](#register-the-direct-line-speech-channel) e/ou os [ **soquetes da Web** alternados](#enable-web-sockets) para ativado.<br>Verifique se o serviço de Azure App está em execução. Se for, tente reiniciar o serviço de aplicativo.|

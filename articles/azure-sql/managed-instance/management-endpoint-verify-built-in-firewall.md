@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 1d2fffabba3615394bdf96ed487177bf21f3ecec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da9f3e2b6b8936c74e20a226b606082fb3e0d3ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708698"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263157"
 ---
-# <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Verifique o firewall interno do Azure SQL Instância Gerenciada
+# <a name="verify-the-azure-sql-managed-instance-built-in-firewall"></a>Verificar o firewall interno da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 As [regras de segurança de entrada obrigatórias](connectivity-architecture-overview.md#mandatory-inbound-security-rules) do SQL do Azure instância gerenciada exigem que as portas de gerenciamento 9000, 9003, 1438, 1440 e 1452 sejam abertas de **qualquer fonte** no NSG (grupo de segurança de rede) que protege o SQL instância gerenciada. Embora essas portas estejam abertas no nível do NSG, elas são protegidas no nível da rede pelo firewall interno.
