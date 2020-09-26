@@ -2,13 +2,13 @@
 title: Tópicos do sistema na grade de eventos do Azure
 description: Descreve os tópicos do sistema na grade de eventos do Azure.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/24/2020
+ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019089"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297276"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na grade de eventos do Azure
 Um tópico do sistema na grade de eventos representa um ou mais eventos publicados pelos serviços do Azure, como o armazenamento do Azure e os hubs de eventos do Azure. Por exemplo, um tópico do sistema pode representar **todos os eventos de blob** ou apenas **BLOBs criados** e eventos **excluídos de blob** publicados para uma **conta de armazenamento específica**. Neste exemplo, quando um blob é carregado na conta de armazenamento, o serviço de armazenamento do Azure publica um evento de **blob criado** no tópico sistema na grade de eventos, que, em seguida, encaminha o evento para os [assinantes](event-handlers.md) do tópico que recebem e processam o evento. 
@@ -22,6 +22,7 @@ Aqui está a lista atual de serviços do Azure que dão suporte à criação de 
 - [Configuração de Aplicativos do Azure](event-schema-app-configuration.md)
 - [Serviço de Aplicativo do Azure](event-schema-app-service.md)
 - [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
+- [Serviços de Comunicação do Azure](event-schema-communication-services.md) 
 - [Registro de Contêiner do Azure](event-schema-container-registry.md)
 - [Hubs de eventos do Azure](event-schema-event-hubs.md)
 - [Hub IoT do Azure](event-schema-iot-hub.md)

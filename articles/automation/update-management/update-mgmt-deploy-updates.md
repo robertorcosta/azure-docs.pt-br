@@ -3,18 +3,24 @@ title: Como criar implantações de atualização para a automação do Azure Ge
 description: Este artigo descreve como agendar implantações de atualização e revisar seu status.
 services: automation
 ms.subservice: update-management
-ms.date: 08/20/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4336ba272dd83ad2a35060c1c7524a564b928484
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fa5cabd5410f0cbe7382db0289d98bc69d4a01fb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717686"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294709"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implantar atualizações e examinar os resultados
 
-Este artigo descreve como agendar uma implantação de atualização e examinar o processo após a conclusão da implantação.
+Este artigo descreve como agendar uma implantação de atualização e examinar o processo após a conclusão da implantação. Você pode configurar uma implantação de atualização de uma máquina virtual do Azure selecionada, do servidor habilitado para Arc selecionado ou da conta de automação em todos os computadores e servidores configurados. 
+
+Em cada cenário, a implantação que você cria tem como destino o computador ou servidor selecionado, ou no caso de criação de uma implantação da sua conta de automação, você pode direcionar um ou mais computadores. Quando você agenda uma implantação de atualização de uma VM do Azure ou de um servidor habilitado para Arc, as etapas são as mesmas para a implantação de sua conta de automação, com as seguintes exceções:
+
+* O sistema operacional é previamente selecionado automaticamente com base no sistema operacional do computador
+* O computador de destino para atualizar está definido para o próprio destino automaticamente
+* Ao configurar o agendamento, você pode especificar **Atualizar agora**, ocorre uma vez ou usa um agendamento recorrente.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -22,28 +28,47 @@ Entre no [Portal do Azure](https://portal.azure.com)
 
 ## <a name="schedule-an-update-deployment"></a>Agendar uma implantação de atualização
 
-O agendamento de uma implantação de atualização cria um recurso de [agenda](../shared-resources/schedules.md) vinculado ao runbook **Patch-MicrosoftOMSComputers** que manipula a implantação de atualização nos computadores de destino. Você precisa agendar uma implantação que siga o agendamento de versão e o período de serviço para instalar as atualizações. Você pode escolher os tipos de atualização que deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
+Agendar uma implantação de atualização cria um recurso de [agendamento](../shared-resources/schedules.md) vinculado ao runbook **patch-MicrosoftOMSComputers** que manipula a implantação de atualização no computador ou máquinas de destino. Você precisa agendar uma implantação que siga o agendamento de versão e o período de serviço para instalar as atualizações. Você pode escolher os tipos de atualização que deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualização.
 
 >[!NOTE]
 >Se você excluir o recurso de agenda no portal do Azure ou usando o PowerShell depois de criar a implantação, a exclusão interromperá a implantação de atualização agendada e apresentará um erro quando você tentar reconfigurar o recurso de agenda no portal. Você só pode excluir o recurso de agendamento excluindo o agendamento de implantação correspondente.  
 
-Para agendar uma nova implantação de atualização:
+Para agendar uma nova implantação de atualização, execute as etapas a seguir. Dependendo do recurso selecionado (ou seja, conta de automação, servidor habilitado para Arc, VM do Azure), as etapas a seguir se aplicam a todos com pequenas diferenças ao configurar a agenda de implantação.
 
-1. E sua conta de Automação, vá para **Gerenciamento de atualizações** em **Gerenciamento de atualizações** e, em seguida, selecione **Agendar implantação de atualização**.
+1. No portal, para agendar uma implantação para o:
 
-2. Em **nova implantação de atualização**, no campo **nome** , insira um nome exclusivo para sua implantação.
+   * Um ou mais computadores, navegue até **contas de automação** e selecione sua conta de automação com gerenciamento de atualizações habilitado na lista.
+   * Para uma VM do Azure, navegue até **máquinas virtuais** e selecione sua VM na lista.
+   * Para um servidor habilitado para Arc, navegue até **servidores-Azure Arc** e selecione o servidor na lista.
 
-3. Selecione o sistema operacional de destino para a implantação de atualização.
+2. Dependendo do recurso selecionado, navegue até Gerenciamento de Atualizações:
 
-4. Na região **Grupos para atualizar (versão prévia)** , defina uma consulta que combina assinatura, grupos de recursos, locais e marcas para compilar um grupo dinâmico de VMs do Azure a ser incluído na implantação. Para saber mais, confira [Usar grupos dinâmicos com o Gerenciamento de Atualizações](update-mgmt-groups.md).
+   * Se você tiver selecionado sua conta de automação, vá para **Gerenciamento de atualizações** em **Gerenciamento de atualizações**e selecione **agendar implantação de atualização**.
+   * Se você selecionou uma VM do Azure, vá para **convidado + atualizações do host**e, em seguida, selecione **ir para gerenciamento de atualizações**.
+   * Se você selecionou um servidor habilitado para Arc, vá para **Gerenciamento de atualizações**e, em seguida, selecione **agendar implantação de atualização**.
 
-5. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md).
+3. Em **nova implantação de atualização**, no campo **nome** , insira um nome exclusivo para sua implantação.
 
-6. Use a região **Classificações de atualização** para especificar [classificações de atualização](update-mgmt-view-update-assessments.md#work-with-update-classifications) para os produtos. para cada produto, desmarque todas as classificações de atualização com suporte, exceto as que serão incluídas na implantação da atualização.
+4. Selecione o sistema operacional de destino para a implantação de atualização.
+
+    > [!NOTE]
+    > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O sistema operacional é identificado automaticamente.
+
+5. Na região **Grupos para atualizar (versão prévia)** , defina uma consulta que combina assinatura, grupos de recursos, locais e marcas para compilar um grupo dinâmico de VMs do Azure a ser incluído na implantação. Para saber mais, confira [Usar grupos dinâmicos com o Gerenciamento de Atualizações](update-mgmt-groups.md).
+
+    > [!NOTE]
+    > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O computador é direcionado automaticamente para a implantação agendada.
+
+6. Na região **Computadores para atualizar**, selecione uma pesquisa salva, um grupo importado ou selecione **Computadores** no menu suspenso e selecione computadores individuais. Com essa opção, você pode ver a prontidão do agente do Log Analytics para cada computador. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos logs do Azure Monitor, confira [Grupos de computadores nos logs do Azure Monitor](../../azure-monitor/platform/computer-groups.md).
+
+    > [!NOTE]
+    > Essa opção não estará disponível se você tiver selecionado uma VM do Azure ou um servidor habilitado para Arc. O computador é direcionado automaticamente para a implantação agendada.
+
+7. Use a região **Classificações de atualização** para especificar [classificações de atualização](update-mgmt-view-update-assessments.md#work-with-update-classifications) para os produtos. para cada produto, desmarque todas as classificações de atualização com suporte, exceto as que serão incluídas na implantação da atualização.
 
     Se sua implantação for destinada a aplicar apenas um conjunto selecionado de atualizações, será necessário desmarcar todas as classificações de atualização pré-selecionadas ao configurar a opção **incluir/excluir atualizações** , conforme descrito na próxima etapa. Isso garante que somente as atualizações que você especificou para *incluir* nessa implantação sejam instaladas nos computadores de destino.
 
-7. Use a região **incluir/excluir atualizações** para adicionar ou excluir as atualizações selecionadas da implantação. Na página **incluir/excluir** , insira os números de ID do artigo da base de conhecimento a serem incluídos ou excluídos.
+8. Use a região **incluir/excluir atualizações** para adicionar ou excluir as atualizações selecionadas da implantação. Na página **incluir/excluir** , insira os números de ID do artigo da base de conhecimento a serem incluídos ou excluídos.
 
    > [!IMPORTANT]
    > Lembre-se de que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, o Gerenciamento de Atualizações excluirá todos os patches ou pacotes da instalação. Correções excluídas ainda são mostradas como ausentes dos computadores. Para computadores Linux, se você incluir um pacote que tem um pacote dependente que foi excluído, o Gerenciamento de Atualizações não instalará o pacote principal.
@@ -51,13 +76,16 @@ Para agendar uma nova implantação de atualização:
    > [!NOTE]
    > Não é possível especificar atualizações que foram substituídas para inclusão na implantação de atualização.
 
-8. Selecione **Configurações da agenda**. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
+9. Selecione **Configurações da agenda**. A hora de início padrão é 30 minutos após a hora atual. Você pode definir a hora de início para qualquer momento a partir de 10 minutos.
 
-9. Use o campo **recorrência** para especificar se a implantação ocorre uma vez ou usa um agendamento recorrente e, em seguida, selecione **OK**.
+    > [!NOTE]
+    > Essa opção será diferente se você selecionou um servidor habilitado para Arc. Você pode selecionar **Atualizar agora** ou uma hora de início 20 minutos no futuro.
 
-10. Na região **Pré-scripts + pós-scripts (versão prévia)** , selecione os scripts a serem executados antes e após sua implantação. Para saber mais, confira [Gerenciar pré-scripts e pós-scripts](update-mgmt-pre-post-scripts.md).
-    
-11. Use o campo **Janelas de manutenção (minutos)** para especificar o tempo permitido para a instalação das atualizações. Considere os seguintes detalhes ao especificar uma janela de manutenção:
+10. Use a **recorrência** para especificar se a implantação ocorre uma vez ou usa um agendamento recorrente e, em seguida, selecione **OK**.
+
+11. Na região **Pré-scripts + pós-scripts (versão prévia)** , selecione os scripts a serem executados antes e após sua implantação. Para saber mais, confira [Gerenciar pré-scripts e pós-scripts](update-mgmt-pre-post-scripts.md).
+
+12. Use o campo **Janelas de manutenção (minutos)** para especificar o tempo permitido para a instalação das atualizações. Considere os seguintes detalhes ao especificar uma janela de manutenção:
 
     * As janelas de manutenção controlam o número de atualizações que são instaladas.
     * O Gerenciamento de Atualizações não interromperá a instalação de novas atualizações se o fim de uma janela de manutenção estiver se aproximando.
@@ -67,7 +95,7 @@ Para agendar uma nova implantação de atualização:
     > [!NOTE]
     > Para evitar atualizações aplicadas fora da janela de manutenção no Ubuntu, reconfigure o pacote `Unattended-Upgrade` para desabilitar as atualizações automáticas. Para saber mais sobre como configurar o pacote, veja o [tópico Atualizações automáticas no Guia do servidor Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-12. Use o campo **Opções de reinicialização** para especificar como lidar com reinicializações durante a implantação. As seguintes opções estão disponíveis: 
+13. Use o campo **Opções de reinicialização** para especificar como lidar com reinicializações durante a implantação. As seguintes opções estão disponíveis: 
     * Reinicializar se necessário (padrão)
     * Sempre reinicializar
     * Nunca reinicializar
@@ -76,11 +104,14 @@ Para agendar uma nova implantação de atualização:
     > [!NOTE]
     > As chaves do Registro listadas em [Chaves do Registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) poderão causar um evento de reinicialização se a opção **Opções de reinicialização** estiver definida como **Nunca reinicializar**.
 
-13. Quando você terminar de configurar a agenda de implantação, selecione **criar**.
+14. Quando você terminar de configurar a agenda de implantação, selecione **criar**.
 
     ![Painel Configurações de agendamento de atualizações](./media/update-mgmt-deploy-updates/manageupdates-schedule-win.png)
 
-14. Você é retornado ao painel de status. Selecione **Implantações de atualização agendadas** para mostrar a agenda de implantação que você criou.
+    > [!NOTE]
+    > Quando você terminar de configurar a agenda de implantação para um servidor habilitado para Arc selecionado, selecione **examinar + criar**.
+
+15. Você é retornado ao painel de status. Selecione **agendamentos de implantação** para mostrar a agenda de implantação que você criou.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Agendar uma implantação de atualização programaticamente
 
@@ -90,7 +121,7 @@ Você pode usar um runbook de exemplo para criar uma implantação de atualizaç
 
 ## <a name="check-deployment-status"></a>Verifique o status da implantação
 
-Após o início da implantação agendada, você pode ver o status dela na guia **Implantações de atualização** em **Gerenciamento de atualizações**. O status é **Em andamento** se a implantação está em execução no momento. Quando a implantação for concluída com êxito, o status será alterado para **Êxito**. Se houver falha em uma ou mais atualizações na implantação, o status será **Falha parcial**.
+Depois que a implantação agendada for iniciada, você poderá ver seu status na guia **histórico** em **Gerenciamento de atualizações**. O status é **Em andamento** se a implantação está em execução no momento. Quando a implantação for concluída com êxito, o status será alterado para **Êxito**. Se houver falhas com uma ou mais atualizações na implantação, o status será **falha**.
 
 ## <a name="view-results-of-a-completed-update-deployment"></a>Exibir resultados de uma implantação de atualização concluída
 

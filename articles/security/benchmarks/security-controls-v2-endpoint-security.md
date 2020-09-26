@@ -4,17 +4,17 @@ description: Segurança de ponto de referência de segurança do Azure v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c04e4233ded34ceaeec9cd9afb240d3d1ac864e0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059127"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280601"
 ---
-# <a name="security-control-endpoint-security"></a>Controle de segurança: segurança do ponto de extremidade
+# <a name="security-control-v2-endpoint-security"></a>Controle de segurança v2: segurança do ponto de extremidade
 
 O Endpoint Security abrange controles em resposta e detecção de ponto de extremidade. Isso inclui o uso de EDR (detecção de ponto de extremidade e resposta) e o serviço antimalware para pontos de extremidade em ambientes do Azure.
 
@@ -36,7 +36,7 @@ A proteção avançada contra ameaças do Microsoft defender fornece o recurso E
 
 **Responsabilidade**: Cliente
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -64,7 +64,7 @@ O Microsoft antimalware para serviços de nuvem do Azure é o antimalware padrã
 
 **Responsabilidade**: Cliente
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -88,7 +88,7 @@ Siga as recomendações na central de segurança do Azure: " &amp; aplicativos d
 
 **Responsabilidade**: Cliente
 
-**Participantes da segurança do cliente**:
+**Participantes da segurança do cliente** ([saiba mais](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Segurança de infraestrutura e ponto de extremidade](/azure/cloud-adoption-framework/organize/cloud-security)
 

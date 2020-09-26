@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f39aa76e4bd2ce3d298e555f56b09d0218ef0862
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d5637be547b28c231ef757b5dd4355692dab88f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932971"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318816"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Bibliotecas de cliente e APIs REST
 
@@ -24,11 +24,11 @@ As funcionalidades dos serviços de comunicação do Azure são organizadas conc
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 
-| Assembly               | Protocolos             |Abrir vs. fonte fechada| Namespaces                          | Funcionalidades                                                      |
+| Assembly               | Protocolos             |Abrir vs. fonte fechada| Namespaces                          | Capacidades                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Aberto            | Azure. ResourceManager. comunicação | Provisionar e gerenciar recursos de serviços de comunicação             |
 | Comum                 | REST | Aberto               | Azure. Communication. comum          | Fornece tipos de base para outras bibliotecas de cliente |
-| Administração         | REST |                | Azure. Communication. Administration  | Gerenciar usuários, tokens de acesso e números de telefone, alocar STUN em conformidade com os padrões e transformar servidores |
+| Administração         | REST | Aberto               | Azure. Communication. Administration  | Gerenciar usuários, tokens de acesso e números de telefone, alocar STUN em conformidade com os padrões e transformar servidores |
 | Chat                   | REST com sinalização proprietária | Abrir com pacote de sinalização de origem fechado    | Azure. Communication. chat            | Adicionar chat com base em texto em tempo real aos seus aplicativos  |
 | SMS                    | REST | Aberto              | Azure. Communication. SMS             | Enviar e receber mensagens SMS |
 | Chamando                | Transporte proprietário | Fechadas |Azure. Communication. chamando         | Aproveite o uso de voz, vídeo, compartilhamento de tela e outros recursos de comunicação de dados em tempo real          |

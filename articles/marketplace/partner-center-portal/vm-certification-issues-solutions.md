@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181435"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296443"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquina virtual 
 
@@ -21,7 +21,7 @@ Quando você publica sua imagem de VM (máquina virtual) no Azure Marketplace, a
 Este artigo explica as mensagens de erro comuns durante a publicação de imagens de VM, juntamente com as soluções relacionadas.
 
 > [!NOTE]
-> Se você tiver dúvidas ou comentários para aprimoramento, entre em contato com o [suporte do Partner Center](https://partner.microsoft.com/support/v2/?stage=1).
+> Se você tiver dúvidas ou comentários para aperfeiçoamento, entre em contato com o [suporte do Partner Center](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## <a name="approved-base-image"></a>Imagem de base aprovada
 
@@ -33,6 +33,9 @@ Para corrigir esse problema, recupere a imagem do Azure Marketplace e faça alte
 
 - [Imagens do Linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Imagens do Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> Se você estiver usando uma imagem base do Linux não extraída do Marketplace, poderá deslocar a primeira partição de 2048 KB. Isso permite que o espaço não formatado seja usado para adicionar novas informações de cobrança e permite que o Azure vá em frente com a publicação da sua VM no Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Falha na extensão da VM
 
@@ -63,7 +66,7 @@ Verifique se você seguiu rigorosamente o processo de provisionamento da VM ante
 
 Os problemas de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro do|Motivo|Solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
 |1|VHD (disco rígido virtual) inválido|Se o valor do cookie especificado no rodapé do VHD estiver incorreto, o VHD será considerado inválido.|Recrie a imagem e envie a solicitação.|
 |2|Tipo de blob inválido|Falha no provisionamento da VM porque o bloco usado é um tipo de BLOB em vez de um tipo de página.|Recrie a imagem e envie a solicitação.|
@@ -214,7 +217,7 @@ Se a imagem não estiver instalada com uma das seguintes versões de kernel, atu
 ||7.2|3.10.0-327.79.2|
 ||7.3|3.10.0-514.66.2|
 ||7.4|3.10.0-693.50.3|
-||7.5|3.10.0-862.34.2|
+||7,5|3.10.0-862.34.2|
 ||7.6|3.10.0-957.21.3|
 ||7.7|3.10.0-1062.1.1|
 ||8.0|4.18.0-80.4.2|
@@ -261,7 +264,7 @@ Verifique se o acesso adequado está habilitado para a conta na qual os casos de
     
 Consulte a tabela a seguir para obter os problemas que surgirem quando você baixar a imagem da VM usando uma URL de assinatura de acesso compartilhado (SAS).
 
-|Cenário|Erro do|Motivo|Solução|
+|Cenário|Erro|Motivo|Solução|
 |---|---|---|---|
 |1|Blob não encontrado|O VHD pode ser excluído ou movido do local especificado.|| 
 |2|Blob em uso|O VHD é usado por outro processo interno.|O VHD deve estar em um estado usado quando você o baixa usando uma URL SAS.|
@@ -270,9 +273,12 @@ Consulte a tabela a seguir para obter os problemas que surgirem quando você bai
 |6|Cabeçalho condicional HTTP|A URL SAS é inválida.|Obtenha a URL SAS correta.|
 |7|Nome de VHD inválido|Verifique se há algum caractere especial, como um sinal de porcentagem (%) ou aspas ("), existem no nome do VHD.|Renomeie o arquivo VHD removendo os caracteres especiais.|
 
-## <a name="first-1-mb-partition"></a>Primeira partição de 1 MB
+## <a name="first-mb-2048-kb-partition-only-for-linux"></a>Primeira partição de MB (2048 KB) (somente para Linux)
 
-Ao enviar o VHD, verifique se a primeira partição de 1 MB do VHD está vazia. Caso contrário, a solicitação falhará.
+Ao enviar o VHD, verifique se os primeiros 2048 KB do VHD estão vazios. Caso contrário, sua solicitação falhará *.
+
+>[!NOTE]
+>* Para determinadas imagens especiais, como aquelas criadas sobre as imagens base do Azure Windows tiradas do Azure Marketplace, verificamos se há uma marca de cobrança e ignoraremos a partição MB se a marca de cobrança estiver presente e corresponder aos nossos valores internos disponíveis.
 
 ## <a name="default-credentials"></a>Credenciais padrão
 
@@ -304,7 +310,7 @@ Para obter mais informações sobre essa ferramenta, consulte [visão geral do S
 
 Para obter soluções para erros relacionados ao disco de dados, use a seguinte tabela:
 
-|Erro do|Motivo|Solução|
+|Erro|Motivo|Solução|
 |---|---|---|
 |`DataDisk- InvalidUrl:`|Esse erro pode ocorrer devido a um número inválido especificado para o LUN (número de unidade lógica) quando a oferta é enviada.|Verifique se a sequência de números de LUN para o disco de dados está no Partner Center.|
 |`DataDisk- NotFound:`|Esse erro pode ocorrer devido a um disco de dados não estar localizado em uma URL SAS especificada.|Verifique se o disco de dados está localizado na URL SAS especificada na solicitação.|

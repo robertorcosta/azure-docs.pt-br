@@ -15,12 +15,12 @@ ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1111b56a08343f1e12c3b2d582e350907ab37b46
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a6df1347eab57a6971fe2e39c0a55869c8f23939
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276024"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317480"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Solucionar problemas de um atributo que não está sincronizando no Azure AD Connect
 
@@ -67,7 +67,7 @@ Antes de investigar problemas de sincronização de atributo, vamos entender o p
 
 * Clique duas vezes no **Active Directory Connector** para exibir os atributos do **Espaço do Conector**. Clique no botão **Visualização**, na caixa de diálogo seguinte, clique no botão a **Gerar Visualização**.
 
-  ![Atributos de Espaço do Conector](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![Captura de tela que mostra as propriedades do objeto espaço do conector com o botão Visualizar realçado.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
 * Agora, clique no **Fluxo de Atributo de Importação**, isso mostra o fluxo de atributos do **Espaço do Active Directory Connector** para o **Metaverso**. A coluna **Regra de Sincronização** mostra quais **regras de sincronização** contribuem para esse atributo. A coluna **Fonte de Dados** mostra os atributos do **Espaço do Conector**. A coluna **Atributo de Metaverso** mostra os atributos no **Metaverso**. Você pode procurar o atributo que não está sincronizando aqui. Se você não encontrar o atributo aqui, ele não será mapeado e você precisará criar uma nova **Regra de Sincronização** personalizada para mapear o atributo.
 
@@ -75,7 +75,7 @@ Antes de investigar problemas de sincronização de atributo, vamos entender o p
 
 * Clique em **Exportar Fluxo de Atributos** no painel esquerdo para exibir o fluxo de atributos do **Metaverso** de volta no **Espaço do Active Directory Connector** usando **Regras de Sincronização de Saída**.
 
-  ![Atributos de Espaço do Conector](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![Captura de tela que mostra o fluxo de atributo do metaverso de volta para Active Directory espaço do conector usando regras de sincronização de saída.](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
 * Da mesma forma, você pode exibir o objeto **Espaço de Conector do Azure Active Directory** e gerar a **Visualização** para exibir o fluxo de atributos de **Metaverso** para o **Espaço de Conector** e vice-versa, dessa forma, você poderá investigar por que um atributo não está sincronizando.
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371211"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro a APIs locais com o Azure Proxy de Aplicativo do AD
 
@@ -43,7 +43,7 @@ Como a autenticação e a autorização do Azure Proxy de Aplicativo do AD são 
 Para seguir este passo a passos, você precisa de:
 
 - Acesso de administrador a um diretório do Azure, com uma conta que pode criar e registrar aplicativos
-- A API Web de exemplo e os aplicativos de cliente nativo do[https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
+- A API Web de exemplo e os aplicativos de cliente nativo do [https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
 
 ## <a name="publish-the-api-through-application-proxy"></a>Publicar a API por meio do proxy de aplicativo
 
@@ -185,7 +185,7 @@ Para configurar o aplicativo nativo para se conectar ao Azure Active Directory e
 
 Depois de configurar os parâmetros, compile e execute o aplicativo nativo. Quando você seleciona o botão **entrar** , o aplicativo permite que você entre e, em seguida, exibe uma tela de êxito para confirmar que ele se conectou com êxito ao SecretAPI.
 
-![Êxito](./media/application-proxy-secure-api-access/success.png)
+![A captura de tela mostra um segredo de mensagem A P I successful e um botão OK.](./media/application-proxy-secure-api-access/success.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

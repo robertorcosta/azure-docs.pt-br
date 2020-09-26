@@ -4,12 +4,12 @@ description: Monitoramento de desempenho de aplicativos sem código para aplicat
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 93b0b89cff7e48ddc4eb9173c9423961f96ec4bb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056091"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371296"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração-agente autônomo Java para Azure Monitor Application Insights
 
@@ -49,7 +49,18 @@ Isso é necessário. Você pode encontrar a cadeia de conexão em seu recurso de
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights cadeia de conexão":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 Você também pode definir a cadeia de conexão usando a variável de ambiente `APPLICATIONINSIGHTS_CONNECTION_STRING` .
+
+Se a cadeia de conexão não for definida, o agente Java será desabilitado.
 
 ## <a name="cloud-role-name"></a>Nome da função de nuvem
 
@@ -93,7 +104,7 @@ Você também pode definir a instância de função de nuvem usando a variável 
 
 Application Insights visualização do Java 3,0 captura automaticamente o log do aplicativo por meio de Log4J, Logback e Java. util. Logging.
 
-Por padrão, ele capturará todo o log executado no `WARN` nível ou acima.
+Por padrão, ele capturará todo o log executado no `INFO` nível ou acima.
 
 Se você quiser alterar esse limite:
 
@@ -103,13 +114,15 @@ Se você quiser alterar esse limite:
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
   }
 }
 ```
+
+Você também pode definir o limite de log usando a variável de ambiente `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` .
 
 Esses são os `threshold` valores válidos que você pode especificar no `ApplicationInsights.json` arquivo e como eles correspondem aos níveis de log entre diferentes estruturas de registro em log:
 
@@ -136,9 +149,9 @@ Se você tiver algumas métricas JMX que você está interessado em capturar:
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
           "objectName": "java.lang:type=MemoryPool,name=Code Cache",
@@ -150,6 +163,10 @@ Se você tiver algumas métricas JMX que você está interessado em capturar:
   }
 }
 ```
+
+Você também pode definir as métricas JMX usando a variável de ambiente `APPLICATIONINSIGHTS_JMX_METRICS` .
+
+Esse conteúdo de variável de ambiente deve ser dados JSON que correspondem à estrutura acima, por exemplo, `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (incluindo métricas do acionador do Spring boot)
 
@@ -214,6 +231,8 @@ Veja um exemplo de como definir a amostragem para **10% de todas as transações
   }
 }
 ```
+
+Você também pode definir o percentual de amostragem usando a variável de ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
