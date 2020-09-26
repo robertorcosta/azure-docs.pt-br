@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 54e4ce409eb9f2a6bedd7861b3e268311f886b49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962563"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273238"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implantação no Serviço de Aplicativo usando o GitHub Actions
 
@@ -23,6 +23,22 @@ O [GitHub Actions](https://help.github.com/en/articles/about-github-actions) ofe
 > 
 
 Um fluxo de trabalho é definido por um arquivo YAML (.yml) no caminho `/.github/workflows/` no repositório. Essa definição contém as várias etapas e os parâmetros que compõem o fluxo de trabalho.
+
+## <a name="use-the-deployment-center"></a>Usar a central de implantação
+
+Você pode começar rapidamente com as ações do GitHub usando o centro de implantação do serviço de aplicativo. Isso gerará automaticamente um arquivo de fluxo de trabalho com base em sua pilha de aplicativos e o confirmará no repositório do GitHub no diretório correto.
+
+1. Navegue até seu webapp no portal do Azure
+1. No lado esquerdo, clique em **central de implantação**
+1. Em **implantação contínua (CI/CD)**, selecione **GitHub**
+1. Em seguida, selecione **ações do GitHub**
+1. Use os menus suspensos para selecionar o repositório, a ramificação e a pilha de aplicativos do GitHub
+    - Se a ramificação selecionada estiver protegida, você ainda poderá continuar a adicionar o arquivo de fluxo de trabalho. Certifique-se de examinar suas proteções de Branch antes de continuar.
+1. Na tela final, você pode revisar suas seleções e visualizar o arquivo de fluxo de trabalho que será confirmado no repositório. Se as seleções estiverem corretas, clique em **concluir**
+
+Isso confirmará o arquivo de fluxo de trabalho para o repositório. O fluxo de trabalho para compilar e implantar seu aplicativo será iniciado imediatamente.
+
+## <a name="add-the-workflow-manually"></a>Adicionar o fluxo de trabalho manualmente
 
 Para um fluxo de trabalho do Serviço de Aplicativo do Azure, o arquivo tem três seções:
 

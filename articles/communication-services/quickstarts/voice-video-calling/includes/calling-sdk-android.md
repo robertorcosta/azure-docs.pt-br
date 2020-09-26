@@ -4,17 +4,17 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c0213b050745712a5c77d4861b9cfba4fc953dfd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933680"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377603"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- Um recurso dos serviços de comunicação implantado. [Crie um recurso de serviços de comunicação](../../create-communication-resource.md).
+- Um recurso dos Serviços de Comunicação implantado. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
 - Um `User Access Token` para habilitar o cliente de chamada. Para obter mais informações sobre [como obter um `User Access Token` ](../../access-tokens.md)
 - Opcional: conclua o guia de início rápido para [começar a adicionar a chamada ao seu aplicativo](../getting-started-with-calling.md)
 
@@ -23,7 +23,7 @@ ms.locfileid: "90933680"
 ### <a name="install-the-package"></a>Instalar o pacote
 
 <!-- TODO: update with instructions on how to download, install and add package to project -->
-Localize o Build de nível de projeto. gradle e certifique-se de adicionar `mavenCentral()` à lista de repositórios em `buildscript` e `allprojects`
+Localize o nível de projeto build.gradle e certifique-se de adicionar `mavenCentral()` à lista de repositórios em `buildscript` e `allprojects`
 ```groovy
 buildscript {
     repositories {
@@ -56,13 +56,13 @@ dependencies {
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As classes e interfaces a seguir tratam de alguns dos principais recursos dos serviços de comunicação do Azure que chamam a biblioteca de cliente:
+As seguintes classes e as interfaces administram alguns dos principais recursos da biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure:
 
 | Name                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| O CallClient é o ponto de entrada principal para a biblioteca de cliente de chamada.|
+| CallClient| O CallClient é o ponto de entrada principal para a biblioteca de clientes de Chamada.|
 | CallAgent | O CallAgent é usado para iniciar e gerenciar chamadas. |
-| CommunicationUserCredential | O CommunicationUserCredential é usado como a credencial de token para instanciar o CallAgent.|
+| CommunicationUserCredential | O CommunicationUserCredential é usado como a credencial de token para criar uma instância do CallAgent.|
 
 ## <a name="initialize-the-callclient-create-a-callagent-and-access-the-devicemanager"></a>Inicializar o CallClient, criar um CallAgent e acessar o DeviceManager
 
@@ -81,8 +81,8 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Fazer uma chamada de saída e ingressar em uma chamada de grupo
 
-Para criar e iniciar uma chamada, você precisa chamar o `CallClient.call()` método e fornecer o `Identifier` do (s) receptor (es).
-Para ingressar em uma chamada de grupo, você precisa chamar o `CallClient.join()` método e fornecer o GroupId. As IDs de grupo devem estar no formato GUID ou UUID.
+Para criar e iniciar uma chamada, você precisa chamar o `CallAgent.call()` método e fornecer o `Identifier` do (s) receptor (es).
+Para ingressar em uma chamada de grupo, você precisa chamar o `CallAgent.join()` método e fornecer o GroupId. As IDs de grupo devem estar no formato GUID ou UUID.
 
 A criação e o início da chamada são síncronos. A instância de chamada permite que você assine todos os eventos na chamada.
 
@@ -106,7 +106,7 @@ PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callClient.call(participants, startCallOptions);
+Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
 ### <a name="place-a-11-call-with-with-video-camera"></a>Coloque uma chamada de 1:1 com a câmera de vídeo
@@ -266,7 +266,7 @@ Quando o tratamento da mensagem de notificação por push é bem-sucedido e os m
 
 ### <a name="unregister-push-notification"></a>Cancelar registro de notificação por push
 
-- Os aplicativos podem cancelar o registro de notificações por push a qualquer momento. Basta chamar o `unregisterPushNotification()` método em callAgent.
+- Os aplicativos podem cancelar o registro de notificações por push a qualquer momento. Chame o `unregisterPushNotification()` método em callAgent para cancelar o registro.
 
 ```java
 try {
@@ -300,12 +300,12 @@ CommunicationIdentifier callerId = call.getCallerId();
 ```java
 CallState callState = call.getState();
 ```
-Ele retorna uma cadeia de caracteres reprensting estado atual de uma chamada:
+Ele retorna uma cadeia de caracteres que representa o estado atual de uma chamada:
 * ' Nenhum '-estado de chamada inicial
 * ' Entrada '-indica que a chamada é recebida, que deve ser aceita ou rejeitada
 * "Conectando"-estado de transição inicial depois que a chamada é colocada ou aceita
 * ' Tocando '-para uma chamada de saída – indica que a chamada está tocando para os participantes remotos, é ' de entrada ' em seu lado
-* ' EarlyMedia ' – indica um estado no qual uma apresentação é reproduzida antes que a chamada seja conectada
+* ' EarlyMedia ' – indica um estado no qual um comunicado é reproduzido antes da chamada ser conectada
 * ' Conectado '-a chamada está conectada
 * ' Hold '-a chamada é colocada em espera, nenhuma mídia está fluindo entre o ponto de extremidade local e os participantes remotos
 * ' Desconectando '-o estado de transição antes da chamada vai para o estado ' desconectado '
@@ -354,7 +354,7 @@ Future startVideoFuture = call.startVideo(currentVideoStream);
 startVideoFuture.get();
 ```
 
-Depois de iniciar o envio do vídeo com êxito, uma `LocalVideoStream` instância será adicionada à `localVideoStreams` coleção na instância de chamada.
+Depois que você começar a enviar o vídeo com êxito, uma `LocalVideoStream` instância será adicionada à `localVideoStreams` coleção na instância de chamada.
 ```java
 currentVideoStream == call.getLocalVideoStreams().get(0);
 ```
@@ -385,7 +385,7 @@ Qualquer participante remoto fornecido tem um conjunto de propriedades e coleç�
 * Obtenha o identificador para este participante remoto.
 Identity é um dos tipos ' identifier '
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getId();
+CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
 
 * Obter o estado deste participante remoto.
@@ -397,7 +397,7 @@ O estado pode ser um de
 * "Conectando"-estado de transição enquanto o participante está se conectando à chamada
 * ' Conectado '-o participante está conectado à chamada
 * ' Hold '-o participante está em espera
-* ' EarlyMedia '-comunicado é reproduzido antes de o participante estar conectado à chamada
+* ' EarlyMedia '-o comunicado é reproduzido antes de o participante estar conectado à chamada
 * ' Desconectado '-estado final-o participante está desconectado da chamada
 
 
