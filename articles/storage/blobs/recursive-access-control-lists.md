@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/21/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71c470bd1bb71b55d6643ac6305a054f1c934948
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 88349e90102bf3b0e4dc2868d5f65d476aac51f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280361"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Definir listas de controle de acesso (ACLs) recursivamente para Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ A herança de ACL já está disponível para novos itens filho que são criados 
 
 Consulte a seção **configurar seu projeto** deste artigo para exibir as diretrizes de instalação para o PowerShell, o SDK do .net e o SDK do Python.
 
-## <a name="set-up-your-project"></a>Configurar o seu projeto
+## <a name="set-up-your-project"></a>Configurar o projeto
 
 Instale as bibliotecas necessárias.
 
@@ -55,7 +55,7 @@ Instale as bibliotecas necessárias.
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para atualizar sua versão do PowerShell, consulte [atualizando o Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+   Para atualizar sua versão do PowerShell, consulte [atualizando o Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
 3. Instale a versão mais recente do módulo PowershellGet.
 
@@ -71,7 +71,7 @@ Instale as bibliotecas necessárias.
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
    ```
 
-   Para obter mais informações sobre como instalar módulos do PowerShell, consulte [instalar o Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
+   Para obter mais informações sobre como instalar módulos do PowerShell, consulte [instalar o Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps)
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -279,7 +279,9 @@ except Exception as e:
 
 ## <a name="set-an-acl-recursively"></a>Definir uma ACL recursivamente
 
-Você pode definir as ACLs recursivamente.  
+Ao *definir* uma ACL, você **substitui** toda a ACL, incluindo todas as entradas. Se você quiser alterar o nível de permissão de uma entidade de segurança ou adicionar uma nova entidade de segurança à ACL sem afetar outras entradas existentes, deverá *Atualizar* a ACL em vez disso. Para atualizar uma ACL em vez de substituí-la, consulte a seção [atualizar uma ACL recursivamente](#update-an-acl-recursively) deste artigo.   
+
+Esta seção contém exemplos de como definir uma ACL 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -367,13 +369,17 @@ def set_permission_recursively():
 
 ## <a name="update-an-acl-recursively"></a>Atualizar uma ACL recursivamente
 
-Você pode atualizar uma ACL existente recursivamente.
+Ao *Atualizar* uma ACL, você modifica a ACL em vez de substituir a ACL. Por exemplo, você pode adicionar uma nova entidade de segurança à ACL sem afetar outras entidades de segurança listadas na ACL.  Para substituir a ACL em vez de atualizá-la, consulte a seção [definir uma ACL recursivamente](#set-an-acl-recursively) deste artigo. 
+
+Para atualizar uma ACL, crie um novo objeto ACL com a entrada ACL que você deseja atualizar e, em seguida, use esse objeto em atualizar a operação de ACL. Não obtenha a ACL existente, basta fornecer as entradas de ACL a serem atualizadas.
+
+Esta seção contém exemplos de como atualizar uma ACL.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Atualize uma ACL recursivamente usando o cmdlet  **Update-AzDataLakeGen2AclRecursive** . 
 
-Este exemplo atualiza uma entrada ACL com permissão de gravação.
+Este exemplo atualiza uma entrada ACL com permissão de gravação. 
 
 ```powershell
 $filesystemName = "my-container"
@@ -445,7 +451,9 @@ def update_permission_recursively():
 
 ## <a name="remove-acl-entries-recursively"></a>Remover entradas de ACL recursivamente
 
-Você pode remover uma ou mais entradas de ACL recursivamente.
+Você pode remover uma ou mais entradas de ACL recursivamente. Para remover uma entrada de ACL, crie um novo objeto ACL para a entrada de ACL a ser removida e use esse objeto em remover a operação de ACL. Não obtenha a ACL existente, basta fornecer as entradas de ACL a serem removidas. 
+
+Esta seção contém exemplos de como remover uma ACL.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -642,7 +650,7 @@ O número máximo de ACLs que você pode aplicar a um diretório ou arquivo é d
 
 Você pode fornecer seus comentários ou relatar um problema em  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - [Controle de acesso no Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
 - [Problemas conhecidos](data-lake-storage-known-issues.md)

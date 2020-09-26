@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: configurar o Workplace by Facebook para o provisionamento automático de usuários com o Azure Active Directory | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o Workplace by Facebook.
+description: Conheça as etapas que você precisa executar no local de trabalho por Facebook e Azure Active Directory (Azure AD) para configurar o provisionamento automático de usuário.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973875"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321889"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: configurar o Workplace by Facebook para provisionamento automático de usuários
 
@@ -81,11 +81,11 @@ No Azure AD, é possível definir quem estará no escopo de provisionamento com 
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , clique em **autorizar**. Você será redirecionado para o Workplace pela página de autorização do Facebook. Insira o nome de usuário do seu local de trabalho por Facebook e clique no botão **continuar** . Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Workplace by Facebook. Se a conexão falhar, verifique se a conta do seu local de trabalho por Facebook tem permissões de administrador e tente novamente.
 
@@ -133,7 +133,7 @@ No Azure AD, é possível definir quem estará no escopo de provisionamento com 
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
    |urn: SCIM: esquemas: extensão: Facebook: auth_method: 1.0: auth_method|String|
    |urn: SCIM: esquemas: extensão: Facebook: frente: 1.0. is_frontline|Booliano|
-   |urn: SCIM: esquemas: extensão: Facebook: starttermdates: 1.0. startDate|Inteiro|
+   |urn: SCIM: esquemas: extensão: Facebook: starttermdates: 1.0. startDate|Integer|
 
 
 10. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
