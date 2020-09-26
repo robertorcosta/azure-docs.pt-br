@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 226e35452e4b266c3c0a698505d47ab9a53b9761
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984374"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280463"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Executar uma restauração pontual em dados de blob de blocos
 
@@ -44,7 +44,7 @@ Para configurar a restauração pontual com o portal do Azure, siga estas etapas
 1. Em **configurações**, escolha **proteção de dados**.
 1. Selecione **ativar a restauração pontual** . Quando você seleciona essa opção, a exclusão reversível para BLOBs, controle de versão e feed de alteração também são habilitadas.
 1. Defina o ponto de restauração máximo para a restauração pontual, em dias. Esse número deve ser pelo menos um dia menor que o período de retenção especificado para exclusão reversível do blob.
-1. Salve suas alterações.
+1. Salve as alterações.
 
 A imagem a seguir mostra uma conta de armazenamento configurada para a restauração pontual com um ponto de restauração de sete dias atrás e um período de retenção para exclusão reversível de blob de 14 dias.
 
@@ -54,9 +54,7 @@ A imagem a seguir mostra uma conta de armazenamento configurada para a restaura�
 
 Para configurar a restauração pontual com o PowerShell, primeiro instale o módulo [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) versão 2.6.0 ou posterior. Em seguida, chame o comando Enable-AzStorageBlobRestorePolicy para habilitar a restauração pontual para a conta de armazenamento.
 
-O exemplo a seguir habilita a exclusão reversível e define o período de retenção de exclusão reversível, habilita o feed de alterações e, em seguida, habilita a restauração pontual. Antes de executar o exemplo, use o portal do Azure ou um modelo de Azure Resource Manager para habilitar também o controle de versão de blob.
-
-Lembre-se de substituir os valores entre colchetes angulares pelos seus próprios valores quando executar o exemplo:
+O exemplo a seguir habilita a exclusão reversível e define o período de retenção de exclusão reversível, habilita o feed de alterações e o controle de versão e, em seguida, habilita a restauração pontual.    Lembre-se de substituir os valores entre colchetes angulares pelos seus próprios valores quando executar o exemplo:
 
 ```powershell
 # Sign in to your Azure account.
@@ -71,10 +69,11 @@ Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
 
-# Enable change feed.
+# Enable change feed and versioning.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -EnableChangeFeed $true
+    -EnableChangeFeed $true `
+    -IsVersioningEnabled $true
 
 # Enable point-in-time restore with a retention period of 7 days.
 # The retention period for point-in-time restore must be at least
@@ -250,5 +249,5 @@ Para executar a operação de restauração de forma síncrona e bloquear a exec
 
 - [Restauração pontual para BLOBs de blocos](point-in-time-restore-overview.md)
 - [Exclusão reversível](soft-delete-overview.md)
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Feed de alteração](storage-blob-change-feed.md)
 - [Controle de versão de BLOB](versioning-overview.md)

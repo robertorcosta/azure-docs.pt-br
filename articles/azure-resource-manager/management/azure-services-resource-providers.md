@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 34b2476b8194b8ad6f8e7e86e2644a1c0d0bbb4b
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: b740c8ee7c28bfeeaecc42121d0c7ce4a323ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483994"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330818"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -43,7 +43,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.BlockchainTokens | [Tokens do Azure Blockchain](https://azure.microsoft.com/services/blockchain-tokens/) |
 | Microsoft.Blueprint | [Azure Blueprints](../../governance/blueprints/index.yml) |
 | Microsoft.BotService | [Serviço de Bot do Azure](/azure/bot-service/) |
-| Microsoft.Cache | [Cache do Azure para Redis](../../azure-cache-for-redis/index.yml) |
+| Microsoft.Cache | [Cache Redis do Azure](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Rede de Distribuição de Conteúdo](../../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [Certificados do serviço de aplicativo](../../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
@@ -55,7 +55,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft. ClassicSubscription<sup>1</sup> | Modelo de implantação clássica |
 | Microsoft.CognitiveServices | [Serviços Cognitivos](../../cognitive-services/index.yml) |
 | Microsoft. Commerce<sup>1</sup> | core |
-| Microsoft.Compute | [Máquinas Virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Escala de Máquina Virtual](../../virtual-machine-scale-sets/index.yml) |
+| Microsoft.Compute | [Máquinas virtuais](../../virtual-machines/index.yml)<br />[Conjuntos de Escala de Máquina Virtual](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft. consumo<sup>1</sup> | [Gerenciamento de Custos](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Instâncias de Contêiner](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro de Contêiner](../../container-registry/index.yml) |
@@ -98,7 +98,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
-| Microsoft. HybridNetwork  | Suporte de borda do Stack |
+| Microsoft. HybridNetwork  | [Zonas de borda privada](../../networking/edge-zones-overview.md) |
 | Microsoft.ImportExport | [Importação/Exportação do Azure](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
@@ -135,7 +135,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Serviço de Emparelhamento do Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal<sup>1</sup> | [Portal do Azure](../../azure-portal/index.yml) |
+| Microsoft. Portal<sup>1</sup> | [Azure portal](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
@@ -163,9 +163,9 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Solutions | [Aplicativos gerenciados do Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Banco de Dados SQL do Azure](../../azure-sql/database/index.yml)<br /> [Instância Gerenciada do SQL do Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server em máquinas virtuais do Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
-| Microsoft.Storage | [Armazenamento](../../storage/index.yml) |
+| Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft.StorageCache | [Azure HPC Cache](../../hpc-cache/index.yml) |
-| Microsoft.StorageSync | [Armazenamento](../../storage/index.yml) |
+| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
@@ -188,4 +188,4 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre provedores de recursos, incluindo como registrar um provedor de recursos, consulte [tipos e provedores de recursos do Azure](resource-providers-and-types.md)
+Para obter mais informações sobre provedores de recursos, incluindo como registrar um provedor de recursos, consulte [tipos e provedores de recursos do Azure](resource-providers-and-types.md).

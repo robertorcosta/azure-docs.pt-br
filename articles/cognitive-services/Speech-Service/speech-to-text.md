@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
-keywords: Fala para texto, software de fala para texto
-ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+keywords: conversão de fala em texto, software de conversão de fala em texto
+ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569213"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359929"
 ---
 # <a name="what-is-speech-to-text"></a>O que é conversão de fala em texto?
 
@@ -58,5 +58,5 @@ A transcrição do lote é um conjunto de operações da API REST que permitem t
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+- [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](overview.md#try-the-speech-service-for-free)
 - [Obter o SDK de Fala](speech-sdk.md)

@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359674"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -48,7 +48,7 @@ Quando você estiver pronto para usar os dados em sua solução de armazenamento
 
 O diagrama a seguir fornece uma demonstração visual desse fluxo de trabalho recomendado.
 
-![Diagrama de conceito de dados](./media/concept-data/data-concept-diagram.svg)
+![O diagrama mostra o serviço de armazenamento do Azure que flui em um repositório de armazenamento, que flui para um conjunto de uma. O conjunto de dados flui para o treinamento do modelo, que flui em descompassos, o que flui para o conjunto.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>Armazenamentos de dados
 
