@@ -6,20 +6,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 8366c5b7a05b35891bcf87e446229357a5511359
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6949b2265e1b22d924b67d0d46e5b2f2bf9c23ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330393"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Use kubectl para executar um aplicativo com estado kubernetes com um PersistentVolume no dispositivo pro Edge Azure Stack
 
 Este artigo mostra como implantar um aplicativo com estado de instância única no kubernetes usando um PersistentVolume (PV) e uma implantação. A implantação usa `kubectl` comandos em um cluster kubernetes existente e implanta o aplicativo MySQL. 
 
 Esse procedimento destina-se a aqueles que revisaram o [armazenamento kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-storage.md) e estão familiarizados com os conceitos do [armazenamento kubernetes](https://kubernetes.io/docs/concepts/storage/).
+
+O Azure Stack Edge pro também dá suporte à execução de contêineres do Azure SQL Edge e eles podem ser implantados de forma semelhante, conforme detalhado aqui para o MySQL. Para obter mais informações, consulte [Azure SQL Edge](../azure-sql-edge/overview.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

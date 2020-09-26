@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330155"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -51,7 +51,7 @@ Um recurso de computação gerenciado é criado e gerenciado pelo Azure Machine 
 Você pode criar Azure Machine Learning instâncias de computação ou clusters de computação de:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Portal do Azure
-* Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) do SDK do Python
+* Classes [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true) do SDK do Python
 * [SDK do R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (visualização)
 * Modelo do Resource Manager. Para obter um modelo de exemplo, consulte [criar Azure Machine Learning modelo de computação](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * Extensão do Machine Learning [para o CLI do Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -84,7 +84,9 @@ Consulte a tabela a seguir para saber mais sobre as restrições e as séries co
 |------------|------------|
 | D | Nenhum |
 | Dv2 | Nenhum |  
-| DSv2 | Nenhum |  
+| Dv3 | Nenhum|
+| DSv2 | Nenhum | 
+| DSv3 | Nenhum|
 | FSv2 | Nenhum | 
 | HBv2 | Requer aprovação |  
 | HCS | Requer aprovação |  

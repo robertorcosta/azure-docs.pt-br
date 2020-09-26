@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 871ea665d23a5fba644448ddb6c596179d47bb3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6393624cb4520ccd28dff41dd97746873bc13f59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85106375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330291"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Problemas conhecidos/limitações de migração com migrações online para o Azure SQL Instância Gerenciada
 
@@ -48,7 +48,7 @@ Os problemas conhecidos e as limitações associadas a migrações online do SQL
 
     O serviço de migração de banco de dados do Azure não dá suporte a bancos de dados com vários arquivos de log. Se você tiver vários arquivos de log, reduza-os e reorganize-os em um único arquivo de log de transações. Como não é possível realizar o log remoto de arquivos que não estão vazios, você precisa fazer backup do arquivo de log primeiro.
 
-## <a name="sql-server-features"></a>Recursos do SQL Server
+## <a name="sql-server-features"></a>recursos do SQL Server
 
 - **FileStream/filetables**
 

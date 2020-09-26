@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ce4bbf81f5b74a06f06778c512995684fa1394c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329784"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -83,7 +83,6 @@ Proteger seu espaço de trabalho e os recursos associados em uma rede virtual te
 - O link privado do espaço de trabalho só está disponível nas seguintes regiões: eastus, westus2, southcentralus
     - Essa limitação não se aplica aos recursos associados. Por exemplo, você pode habilitar a VNet para armazenamento em qualquer região de Azure Machine Learning.
 - Todos os recursos devem estar atrás da mesma VNet. No entanto, as sub-redes na mesma VNet são permitidas.
-- Alguns recursos do estúdio, como o designer, AutoML, rotulagem e criação de perfil de dados, não podem ser usados com contas de armazenamento configuradas para usar um ponto de extremidade privado. Se você precisar usar esses recursos do estúdio, use os pontos de extremidade de serviço em vez disso.
 
 ## <a name="secure-the-training-environment"></a>Proteger o ambiente de treinamento
 
@@ -150,7 +149,7 @@ Embora o estúdio possa acessar dados em uma conta de armazenamento configurada 
 * Envie um experimento do AutoML.
 * Inicie um projeto de rotulagem.
 
-Para habilitar a funcionalidade completa durante o uso de um ponto de extremidade de serviço de armazenamento, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Atualmente, o estúdio não dá suporte a pontos de extremidade privados de armazenamento.
+Para habilitar a funcionalidade completa durante o uso de um ponto de extremidade de serviço de armazenamento, consulte [usar o Azure Machine Learning Studio em uma rede virtual](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). O estúdio dá suporte a pontos de extremidade de serviço e pontos de extremidade privados para contas de armazenamento.
 
 ### <a name="limitations"></a>Limitações
 - O estúdio não pode acessar dados em contas de armazenamento configuradas para usar pontos de extremidade privados. Para obter funcionalidade completa, você deve usar pontos de extremidade de serviço para armazenamento e usar a identidade gerenciada.
