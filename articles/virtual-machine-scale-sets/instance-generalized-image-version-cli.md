@@ -1,6 +1,6 @@
 ---
 title: Criar um conjunto de dimensionamento com base em uma imagem generalizada com CLI do Azure
-description: Crie um conjunto de dimensionamento usando uma imagem generalizada em uma galeria de imagens compartilhada.
+description: Crie um conjunto de dimensionamento usando uma imagem generalizada em uma galeria de imagens compartilhada usando o CLI do Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3cde06b652befa8fbb655273c19f65bd2f38e850
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 841247c03d9f3b151a0c75430715c03b009d831a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287059"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Criar um conjunto de dimensionamento com base em uma imagem generalizada com CLI do Azure
 
@@ -63,4 +63,4 @@ Você também pode criar um recurso de Galeria de imagens compartilhadas usando 
 - [Criar uma Definição de Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Criar uma Versão da Imagem em uma Galeria de Imagens Compartilhadas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](troubleshooting-shared-images.md).
+Para obter mais informações sobre galerias de imagens compartilhadas, confira a [Visão geral](shared-image-galleries.md). Se você enfrentar problemas, confira [Solução de problemas de galerias de imagens compartilhadas](../virtual-machines/troubleshooting-shared-images.md).
