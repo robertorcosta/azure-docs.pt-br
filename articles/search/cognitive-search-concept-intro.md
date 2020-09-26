@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935493"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363130"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA no Azure Cognitive Search
 
@@ -69,7 +69,7 @@ No início do pipeline, você tem texto não estruturado ou conteúdo de não te
 
 ![Fase de quebra de documento](./media/cognitive-search-intro/document-cracking-phase-blowup.png "quebra de documento")
 
- As fontes com suporte incluem o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure, o Banco de Dados SQL do Azure e o Azure Cosmos DB. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de arquivo: arquivos PDF, do Word, do PowerPoint e CSV. Para obter a lista completa, confira [Formatos com suporte](search-howto-indexing-azure-blob-storage.md#supported-document-formats). A indexação é um processo demorado, portanto, comece com um conjunto de dados representativo pequeno e, em seguida, compile incrementalmente à medida que sua solução amadurecer.
+ As fontes com suporte incluem o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure, o Banco de Dados SQL do Azure e o Azure Cosmos DB. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de arquivo: arquivos PDF, do Word, do PowerPoint e CSV. Para obter a lista completa, confira [Formatos com suporte](search-howto-indexing-azure-blob-storage.md#SupportedFormats). A indexação é um processo demorado, portanto, comece com um conjunto de dados representativo pequeno e, em seguida, compile incrementalmente à medida que sua solução amadurecer.
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Etapa 2: fase de enriquecimento e habilidades cognitivas
 

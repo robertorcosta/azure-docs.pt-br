@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4dc3e128ac1c611a8527c3044bfac566edc24c74
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fe89b58f71b14b211863fd46ba523e8c866764f1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91341136"
+ms.locfileid: "91361782"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerenciar a disponibilidade de máquinas virtuais do Linux
 
@@ -36,7 +36,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 
 * Usar zonas Availabiilty para proteger contra falhas do datacenter
 * Configurar diversas máquinas virtuais em um conjunto de disponibilidade para redundância
-* Usar discos gerenciados para VMs em um conjunto de disponibilidade]
+* Usar discos gerenciados para VMs no conjunto de disponibilidade
 * Usar eventos agendados para responder de forma proativa a eventos que afetam a VM
 * Configurar cada camada de aplicativo em conjuntos de disponibilidade separados
 * Combinar o balanceador de carga com conjuntos ou zonas de disponibilidade

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551992"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362664"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introdução ao Visual do Azure Maps Power BI
 
-<Token>**aplica-se a:** ![ Sim ](media/power-bi-visual/yes.png) serviço do Power bi para ***consumers*** ![ os consumidores sim ](media/power-bi-visual/yes.png) serviço do Power bi para designers & os desenvolvedores ![ Sim ](media/power-bi-visual/yes.png) Power bi desktop ![ não ](media/power-bi-visual/no.png) requer licença pro ou Premium</Token>
+<Token>**aplica-se a:** ![ Marca de seleção verde. ](media/power-bi-visual/yes.png) Serviço do Power BI para os ***consumidores*** ![ marca de seleção verde. ](media/power-bi-visual/yes.png) Serviço do Power BI para designers & ![ marca de seleção verde de desenvolvedores. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X indicando não. ](media/power-bi-visual/no.png) Requer licença pro ou Premium </Token>
 
 Este artigo mostra como usar o Visual do Microsoft Azure Maps para Power BI.
 
@@ -92,7 +92,7 @@ Execute as seguintes etapas para carregar o Visual do Azure Maps:
 
 Os seguintes buckets de dados estão disponíveis no painel **campos** do Visual mapas do Azure.
 
-| Campo     | DESCRIÇÃO  |
+| Campo     | Descrição  |
 |-----------|--------------|
 | Latitude  | O campo usado para especificar o valor de latitude dos pontos de dados. Os valores de latitude devem estar entre-90 e 90 no formato decimal graus.  |
 | Longitude | O campo usado para especificar o valor de longitude dos pontos de dados. Os valores de longitude devem estar entre-180 e 180 no formato decimal graus.  |

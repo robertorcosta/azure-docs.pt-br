@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 8917343175dd5ed8f82c1929683de98034323163
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8548e6c4c3e2b31d9fb16273bcc441ca38127831
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321907"
+ms.locfileid: "91361816"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: configurar o PureCloud by Genesys para o provisionamento automático de usuário
 
@@ -88,7 +88,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 5. Na seção **credenciais de administrador** , insira seu PURECLOUD por URL de API do Genesys e token OAuth nos campos **URL do locatário** e **token secreto** , respectivamente. A URL da API será estruturada como `{{API Url}}/api/v2/scim/v2` , usando a URL da API para sua região PureCloud da [central de desenvolvedores do PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao PureCloud by Genesys. Se a conexão falhar, verifique se a conta do PureCloud by Genesys tem permissões de administrador e tente novamente.
 
-    ![provisionamento](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
+    ![Captura de tela mostra a caixa de diálogo credenciais de administrador, em que é possível inserir seu locatário U R L e token secreto.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
 6. No campo **Notificação por Email**, insira o endereço de email de uma pessoa ou grupo que deverá receber as notificações de erro de provisionamento e marque a caixa de seleção **Enviar uma notificação por email quando ocorrer uma falha**.
 

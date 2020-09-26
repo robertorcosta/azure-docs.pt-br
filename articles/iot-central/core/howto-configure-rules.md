@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8391202e991c240b03bd79b947c1c3c6dcc9afd7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659361"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362530"
 ---
 # <a name="configure-rules"></a>Configurar regras
 
@@ -33,7 +33,7 @@ As condições são as regras acionadas. Atualmente, quando você adiciona vári
 
 Na captura de tela a seguir, as condições verificam quando a temperatura é maior que 70&deg; F e a umidade é menor que 10. Quando ambas as instruções são true, a regra é avaliada como true e dispara uma ação.
 
-![Condições](media/howto-configure-rules/conditions.png)
+![Captura de tela mostra um monitor de refrigerador com condições especificadas para temperatura e umidade.](media/howto-configure-rules/conditions.png)
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>Usar uma propriedade de nuvem em um campo de valor
 
