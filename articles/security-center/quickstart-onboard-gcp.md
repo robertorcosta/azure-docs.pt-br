@@ -3,16 +3,16 @@ title: Conectar sua conta do GCP à central de segurança do Azure
 description: Monitorando seus recursos do GCP na central de segurança do Azure
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d5f478c279eb4c07332d047935f7c5dab89fd4b7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c4020bc5e96ff35fa2d04a872216e43abbba5323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933703"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328302"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Conectar suas contas do GCP à central de segurança do Azure
 
@@ -39,7 +39,7 @@ Na captura de tela abaixo, você pode ver os projetos do GCP exibidos no painel 
 |Estado da versão:|Versão Prévia|
 |Refere|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** ou **colaborador** na assinatura relevante do Azure|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>Conectar-se à sua conta da GCP

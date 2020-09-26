@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 7bc7b0ce521522e677e0dc53809c8c33e0743f0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327911"
 ---
 # <a name="what-is-risk"></a>O que é risco?
 
@@ -30,7 +30,7 @@ A proteção de identidade fornece às organizações acesso a recursos avançad
 
 Há dois tipos de **usuário** de risco e **entrada** e dois tipos de detecção ou cálculo em **tempo real** e **offline**.
 
-As detecções em tempo real podem não aparecer no relatório de cinco a dez minutos. As detecções offline podem não aparecer no relatório de duas a quatro horas.
+As detecções em tempo real podem não aparecer no relatório de cinco a dez minutos. As detecções offline podem não aparecer no relatório de duas a vinte e quatro horas.
 
 ### <a name="user-risk"></a>Risco do usuário
 

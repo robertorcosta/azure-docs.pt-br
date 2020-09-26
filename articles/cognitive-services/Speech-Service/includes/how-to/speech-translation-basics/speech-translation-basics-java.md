@@ -5,13 +5,23 @@ ms.topic: include
 ms.date: 04/13/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: d04a13dae78057dfca52ed82bed278a8b132ded1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: df9ef2610b0a51489c5f752e67fa146cd181fad8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326879"
 ---
+Um dos principais recursos do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras linguagens. Neste início rápido, você aprende a usar o SDK de fala em seus aplicativos e produtos para executar a tradução de fala de alta qualidade. Este guia de início rápido aborda os tópicos, incluindo:
+
+* Convertendo a fala em texto
+* Convertendo a fala em vários idiomas de destino
+* Executando a conversão direta de fala em fala
+
+## <a name="skip-to-samples-on-github"></a>Pular para exemplos no GitHub
+
+Se você quiser pular diretamente para o código de exemplo, consulte os [exemplos de início rápido do Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/jre/translate-speech-to-text) no github.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serviço de Fala. Se você não tiver uma conta e uma assinatura, [experimente o serviço de Fala gratuitamente](../../../get-started.md).
@@ -22,7 +32,7 @@ Antes de fazer qualquer coisa, você precisará instalar o SDK de Fala. Dependen
 
 ## <a name="import-dependencies"></a>Importar dependências
 
-Para executar os exemplos neste artigo, inclua as instruções a seguir `import` na parte superior do **. *Arquivo de código Java.
+Para executar os exemplos neste artigo, inclua as instruções a seguir `import` na parte superior do **. * Arquivo de código Java.
 
 ```java
 package speech;

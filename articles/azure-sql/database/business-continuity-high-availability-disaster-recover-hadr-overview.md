@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327554"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,10 +65,10 @@ Os [grupos de failover automático](auto-failover-group-overview.md#terminology-
 
 |                                              | Replicação geográfica | Grupos de failover  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **Failover automático**                          |     Não          |      Sim         |
+| **Automatic failover**                          |     Não          |      Sim         |
 | **Fazer failover de vários bancos de dados simultaneamente**  |     Não          |      Sim         |
-| **O usuário deve atualizar a cadeia de conexão após o failover**      |     Sim         |      Não          |
-| **Suporte ao SQL Instância Gerenciada**                   |     Não          |      Sim         |
+| **O usuário precisa atualizar a cadeia de conexão após o failover**      |     Sim         |      Não          |
+| **Suporte à Instância Gerenciada de SQL**                   |     Não          |      Sim         |
 | **Pode estar na mesma região que o primário**             |     Sim         |      Não          |
 | **Várias réplicas**                            |     Sim         |      Não          |
 | **Dá suporte à escala de leitura**                          |     Sim         |      Sim         |

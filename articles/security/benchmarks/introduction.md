@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328251"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introdução ao benchmark de segurança do Azure
 
@@ -23,8 +23,8 @@ A Microsoft descobriu que o uso de *benchmarks de segurança* pode ajudá-lo a p
 
 O benchmark de segurança do Azure inclui uma coleção de recomendações de segurança de alto impacto que você pode usar para ajudar a proteger os serviços que você usa no Azure:
 
-- Controles de segurança: essas recomendações geralmente são aplicáveis em seu locatário do Azure e nos serviços do Azure. Cada recomendação identifica uma lista de participantes que normalmente estão envolvidos no planejamento, na aprovação ou na implementação do parâmetro de comparação. 
-- Linhas de base de serviço: elas aplicam os controles aos serviços individuais do Azure para fornecer recomendações sobre a configuração de segurança desse serviço.
+- **Controles de segurança**: essas recomendações geralmente são aplicáveis em seu locatário do Azure e nos serviços do Azure. Cada recomendação identifica uma lista de participantes que normalmente estão envolvidos no planejamento, na aprovação ou na implementação do parâmetro de comparação. 
+- **Linhas de base de serviço**: elas aplicam os controles aos serviços individuais do Azure para fornecer recomendações sobre a configuração de segurança desse serviço.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementar o benchmark de segurança do Azure
 - **Planeje** a implementação do benchmark de segurança do Azure examinando a [documentação](overview.md) dos controles corporativos e das linhas de base específicas do serviço para planejar sua estrutura de controle e como ela é MAPEADA para orientação como CIS (controles v 7.1) e estrutura NIST (SP800-53).

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328098"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Versão prévia: criar uma VM do Windows com o construtor de imagem do Azure usando o PowerShell
 
@@ -37,7 +37,7 @@ Se você optar por usar o PowerShell localmente, este artigo exigirá que você 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [set-AzContext](/powershell/module/az.accounts/set-azcontext) .
+Se tiver várias assinaturas do Azure, escolha a que for adequada para cobrança do recurso. Selecione uma assinatura específica usando o cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -103,7 +103,7 @@ Write-Output $subscriptionID
 
 Crie um [grupo de recursos do Azure](../../azure-resource-manager/management/overview.md) usando o cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados como um grupo.
 
-O exemplo a seguir cria um grupo de recursos com base no nome na `$imageResourceGroup` variável na região especificada na `$location` variável. Esse grupo de recursos é usado para armazenar o artefato do modelo de configuração de imagem e a imagem.
+O exemplo a seguir cria um grupo de recursos com base no nome na variável `$imageResourceGroup` na região especificada na variável `$location`. Esse grupo de recursos é usado para armazenar o artefato do modelo de configuração de imagem e a imagem.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
@@ -271,7 +271,7 @@ Em segundo plano, o construtor de imagem também cria um grupo de recursos de pr
 
 Se o serviço relatar uma falha durante o envio do modelo de configuração de imagem:
 
-- Consulte [Solucionando problemas de falhas de compilação de imagem de VM do Azure (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- Consulte [Solucionando problemas de falhas de compilação de imagem de VM do Azure (AIB)](../linux/image-builder-troubleshoot.md).
 - Exclua o modelo usando o exemplo a seguir antes de tentar novamente.
 
 ```azurepowershell-interactive
@@ -288,11 +288,11 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Aguarde a conclusão do processo de criação de imagem. Esta etapa pode levar até uma hora.
 
-Se você encontrar erros, examine [solução de problemas de falhas de compilação de imagem de VM do Azure (AIB)](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting).
+Se você encontrar erros, examine [solução de problemas de falhas de compilação de imagem de VM do Azure (AIB)](../linux/image-builder-troubleshoot.md).
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 
-Armazene as credenciais de logon para a VM em uma variável. A senha deve ser complexa.
+Armazene as credenciais de logon da VM em uma variável. A senha deve ser complexa.
 
 ```azurepowershell-interactive
 $Cred = Get-Credential

@@ -2,15 +2,15 @@
 title: Habilitar o Gerenciamento de Atualizações da Automação do Azure a partir de uma VM do Azure
 description: Este artigo informa como habilitar o Gerenciamento de Atualizações a partir de uma VM do Azure.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 27832190125840e367edbfb2db8e4134f98b192d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dead4649635bebd9f73f79937dea1d24565f273e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327775"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Habilitar o Gerenciamento de Atualizações de uma VM do Azure
 
@@ -35,13 +35,15 @@ Entre no [portal do Azure](https://portal.azure.com).
 
 2. Selecione a VM para a qual você deseja habilitar o Gerenciamento de Atualizações. As VMs podem existir em qualquer região, independentemente do local da sua conta da Automação. Você
 
-3. Na página da VM, em **Operações**, selecione **Gerenciamento de Atualizações**.
+3. Na página VM, em **operações**, selecione **convidado + atualizações de host**.
+
+    ![Selecione convidado + atualizações de host no painel esquerdo](media/update-mgmt-enable-vm/select-guest-and-os-updates.png)
 
 4. Você precisa ter a permissão `Microsoft.OperationalInsights/workspaces/read` para determinar se a VM está habilitada para um espaço de trabalho. Para saber mais sobre as permissões adicionais que são necessárias, confira [Permissões necessárias para habilitar os computadores](../automation-role-based-access-control.md#feature-setup-permissions). Para saber como habilitar vários computadores de uma só vez, consulte [Habilitar Gerenciamento de Atualizações a partir de uma conta da Automação](update-mgmt-enable-automation-account.md).
 
-5. Selecione o workspace do Log Analytics e a conta da Automação e clique em **Habilitar** para habilitar o Gerenciamento de Atualizações. Depois de habilitar Gerenciamento de Atualizações, pode levar cerca de 15 minutos para que você possa exibir a avaliação de atualização da VM.
+5. Na página habilitar Gerenciamento de Atualizações, escolha o espaço de trabalho Log Analytics e a conta de automação e clique em **habilitar** para habilitar o gerenciamento de atualizações. Depois de habilitar Gerenciamento de Atualizações, pode levar cerca de 15 minutos para que você possa exibir a avaliação de atualização da VM.
 
-    ![Habilitar Gerenciamento de Atualizações](media/update-mgmt-enable-vm/manageupdates-update-enable.png)
+    ![Habilitar Gerenciamento de Atualizações](media/update-mgmt-enable-vm/enable-update-management.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

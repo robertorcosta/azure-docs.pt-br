@@ -4,16 +4,16 @@ description: Saiba mais sobre as camadas de desempenho para discos gerenciados, 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3d6b243ab517f3663f779d01569acf3d46ad8411
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974129"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328115"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos gerenciados (versão prévia)
 
@@ -21,7 +21,9 @@ O Armazenamento em Disco do Azure atualmente oferece recursos internos de interm
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-Quando você implanta ou provisiona um disco pela primeira vez, o nível de desempenho de linha de base desse disco é definido com base no tamanho do disco provisionado. Um nível de desempenho mais alto pode ser selecionado para atender à demanda mais alta e, quando esse desempenho não for mais necessário, você poderá retornar ao nível de desempenho de linha de base inicial. Por exemplo, se você provisionar um disco P10 (128 GiB), o nível de desempenho de linha de base será definido como P10 (500 IOPS e 100 MB/s). Você pode atualizar a camada para corresponder ao desempenho de p50 (7500 IOPS e 250 MB/s) sem aumentar o tamanho do disco e retornar ao P10 quando o desempenho superior não for mais necessário.
+Quando você implanta ou provisiona um disco pela primeira vez, o nível de desempenho de linha de base desse disco é definido com base no tamanho do disco provisionado. Um nível de desempenho mais alto pode ser selecionado para atender à demanda mais alta e, quando esse desempenho não for mais necessário, você poderá retornar ao nível de desempenho de linha de base inicial.
+
+Sua cobrança muda à medida que sua camada é alterada. Por exemplo, se você provisionar um disco P10 (128 GiB), o nível de desempenho de linha de base será definido como P10 (500 IOPS e 100 MB/s) e você será cobrado na taxa de P10. Você pode atualizar a camada para corresponder ao desempenho de p50 (7500 IOPS e 250 MB/s) sem aumentar o tamanho do disco, durante o qual você será cobrado na taxa de P50. Quando o melhor desempenho não for mais necessário, você poderá retornar para a camada P10 e o disco será novamente cobrado na taxa de P10.
 
 | Tamanho do disco | Camada de desempenho de linha de base | Pode ser atualizado para |
 |----------------|-----|-------------------------------------|
@@ -40,70 +42,63 @@ Quando você implanta ou provisiona um disco pela primeira vez, o nível de dese
 | 16 TiB | P70 | P80 |
 | 32 TiB | P80 | Nenhum |
 
+Para obter informações de cobrança, consulte [preços de disco gerenciado](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 ## <a name="restrictions"></a>Restrições
 
 - Atualmente, só tem suporte para SSDs Premium.
 - Os discos devem ser desanexados de uma VM em execução antes de alterar as camadas.
 - O uso dos níveis de desempenho P60, P70 e P80 é restrito a discos de 4096 GiB ou superior.
+- Um nível de desempenho de discos só pode ser alterado uma vez A cada 24 horas.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
 O ajuste do nível de desempenho de um disco gerenciado está atualmente disponível apenas para SSDs Premium nas seguintes regiões:
 
 - Centro-Oeste dos EUA 
-- Leste dos EUA 2 
-- Europa Ocidental
-- Austrália oriental 
-- Sudeste da Austrália 
-- Sul da Índia
 
-## <a name="createupdate-a-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar/atualizar um disco de dados com uma camada superior à camada de linha de base
+## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar um disco de dados vazio com uma camada superior à camada de linha de base
 
-1. Crie um disco de dados vazio com uma camada superior à camada de linha de base ou atualize a camada de um disco maior do que a camada de linha de base usando o modelo de exemplo [CreateUpdateDataDiskWithTier.jsem](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json)
+```azurecli
+subscriptionId=<yourSubscriptionIDHere>
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+diskSize=<yourDiskSizeHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
 
-     ```cli
-     subscriptionId=<yourSubscriptionIDHere>
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     diskSize=<yourDiskSizeHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az login
-    
-     az account set --subscription $subscriptionId
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
-     ```
+az login
 
-1. Confirmar a camada do disco
+az account set --subscription $subscriptionId
 
-    ```cli
-    az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+az disk create -n $diskName -g $resourceGroupName -l $region --sku Premium_LRS --size-gb $diskSize --tier $performanceTier
+```
+## <a name="create-an-os-disk-with-a-tier-higher-than-the-baseline-tier-from-an-azure-marketplace-image"></a>Criar um disco do sistema operacional com uma camada superior à camada de linha de base de uma imagem do Azure Marketplace
 
-## <a name="createupdate-an-os-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar/atualizar um disco do sistema operacional com uma camada superior à camada de linha de base
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
+image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
-1. Criar um disco do sistema operacional de uma imagem do Marketplace ou atualizar a camada de um disco do sistema operacional maior que a camada de linha de base usando o modelo de exemplo [CreateUpdateOSDiskWithTier.jsem](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json)
+az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
+```
+     
+## <a name="update-the-tier-of-a-disk"></a>Atualizar a camada de um disco
 
-     ```cli
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateOSDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
-     ```
- 
- 1. Confirmar a camada do disco
- 
-     ```cli
-     az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+
+az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+```
+## <a name="show-the-tier-of-a-disk"></a>Mostrar a camada de um disco
+
+```azurecli
+az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 
