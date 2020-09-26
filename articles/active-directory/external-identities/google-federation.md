@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef04be1891eac35577a5f4cb18d5b83b8d0f301
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 6dba592417ca07d1858a7942b162b4dfa6a85680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273986"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
@@ -78,10 +78,10 @@ Primeiramente, crie um novo projeto no Console de Desenvolvedores do Google para
 
 11. Em **tipo de aplicativo**, escolha **aplicativo Web** e dê um nome adequado ao aplicativo, por exemplo, "Azure ad B2B" e, em seguida, em **URIs de redirecionamento autorizados**, insira os seguintes URIs:
     - `https://login.microsoftonline.com` 
-    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(em que `<directory id>` é a ID do seu diretório)
+    - `https://login.microsoftonline.com/te/<tenant id>/oauth2/authresp` <br>(onde `<tenant id>` é sua ID de locatário)
    
     > [!NOTE]
-    > Para localizar a ID do seu diretório, acesse https://portal.azure.com e, em **Azure Active Directory**, escolha **Propriedades** e copie o **ID do diretório**.
+    > Para localizar sua ID de locatário, vá para https://portal.azure.com e, em **Azure Active Directory**, escolha **Propriedades** e copie a ID do **locatário**.
 
     ![Captura de tela mostrando a seção URIs de redirecionamento autorizados](media/google-federation/google-create-oauth-client-id.png)
 

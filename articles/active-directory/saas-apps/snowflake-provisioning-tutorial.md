@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 7fbf7743eb1c037a364e1004fc3be30db6777bb0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f4c6eb8ad8e3d69d2b3545bc5754e1a632f5cc8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285784"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutorial: configurar o floco de neve para provisionamento automático de usuário
 
@@ -38,7 +38,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas em flocos d
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
 * [Um locatário de floco de neve](https://www.Snowflake.com/pricing/).
 * Uma conta de usuário no floco de neve com permissões de administrador.
@@ -58,11 +58,11 @@ Antes de configurar o floco de neve para o provisionamento automático de usuár
 
 2.  Um token de acesso SCIM será gerado para seu locatário de floco de neve. Para recuperá-lo, clique no link realçado abaixo.
 
-    ![Floco de neve adicionar SCIM](media/Snowflake-provisioning-tutorial/image01.png)
+    ![Captura de tela de uma planilha no floco de neve U I com o token de acesso S C I M chamado.](media/Snowflake-provisioning-tutorial/image01.png)
 
 3. Copie o valor de token gerado e clique em **concluído**. Esse valor será inserido no campo **token secreto** na guia provisionamento do seu aplicativo floco de neve na portal do Azure.
 
-    ![Floco de neve adicionar SCIM](media/Snowflake-provisioning-tutorial/image02.png)
+    ![Captura de tela da seção detalhes mostrando o token copiado para o campo de texto e a opção Done chamada out.](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o floco de neve da Galeria de aplicativos do Azure AD
 
@@ -93,11 +93,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção credenciais de administrador, insira a **URL base do SCIM 2,0 e os valores de token de autenticação** recuperados anteriormente nos campos **URL do locatário** e **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao floco de neve. Se a conexão falhar, verifique se sua conta de floco de neve tem permissões de administrador e tente novamente.
 
@@ -160,7 +160,7 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 
 * Os tokens SCIM gerados por floco de neve expiram em 6 meses. Lembre-se de que eles precisam ser atualizados antes de expirarem para permitir que as sincronizações de provisionamento continuem funcionando. 
 
-## <a name="change-log"></a>Log de Alterações
+## <a name="change-log"></a>Log de alterações
 
 * 07/21/2020-exclusão reversível habilitada para todos os usuários (por meio do atributo ativo).
 

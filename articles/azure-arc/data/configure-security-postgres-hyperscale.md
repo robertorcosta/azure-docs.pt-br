@@ -9,18 +9,18 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: b166348031e9f72e8005e866a198855db9c01a9c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933225"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273193"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurar a segurança para seu grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
 
 Este documento descreve vários aspectos relacionados à segurança do seu grupo de servidores:
 - Criptografia em repouso
-- Gerenciamento de Usuários
+- Gerenciamento de usuários
    - Perspectivas gerais
    - Alterar a senha do usuário administrativo do _postgres_
 
@@ -148,7 +148,7 @@ Quando eu me conecto ao meu aplicativo e passo uma senha, ele será pesquisado n
 
 Este pequeno exemplo demonstra que você pode criptografar dados em repouso (armazenar dados criptografados) em hiperescala PostgreSQL habilitada para Arc do Azure usando a `pgcrypto` extensão postgres e seus aplicativos podem usar funções oferecidas pelo `pgcrypto` para manipular esses dados criptografados.
 
-## <a name="user-management"></a>Gerenciamento de Usuários
+## <a name="user-management"></a>Gerenciamento de usuários
 ### <a name="general-perspectives"></a>Perspectivas gerais
 Você pode usar a maneira postgres padrão para criar usuários ou funções. No entanto, se você fizer isso, esses artefatos só estarão disponíveis na função de coordenador. Durante a visualização, esses usuários/funções ainda não poderão acessar os dados distribuídos fora do nó de coordenador e nos nós de trabalho do seu grupo de servidores. O motivo é que, na visualização, a definição de usuário não é replicada para os nós de trabalho.
 
@@ -156,14 +156,66 @@ Você pode usar a maneira postgres padrão para criar usuários ou funções. No
 A hiperescala do PostgreSQL habilitado para Arc do Azure vem com o _postgres_ de usuário administrativo postgres padrão para o qual você define a senha ao criar o grupo de servidores.
 O formato geral do comando para alterar sua senha é:
 ```console
-azdata arc postgres server edit --name <server group name> --admin-password <new password>
+azdata arc postgres server edit --name <server group name> --admin-password
 ```
-A senha será definida como o valor da variável de ambiente AZDATA_PASSWORD **sessão**, se existir. Caso contrário, o usuário será solicitado a fornecer um valor.
-Para verificar se a variável de ambiente da sessão de AZDATA_PASSWORD existe e/ou para qual valor ele está definido, execute:
-```console
-printenv AZDATA_PASSWORD
-```
-Talvez você queira excluir seu valor se preferir ser solicitado a inserir uma nova senha.
+
+Onde--admin-password é um booliano relacionado à presença de um valor na variável de ambiente da **sessão**de AZDATA_PASSWORD.
+Se a variável de ambiente da **sessão**de AZDATA_PASSWORD existir e tiver um valor, a execução do comando acima definirá a senha do usuário postgres como o valor dessa variável de ambiente.
+
+Se a variável de ambiente da **sessão**de AZDATA_PASSWORD existir, mas não tiver valor ou se a variável de ambiente de AZDATA_PASSWORD **sessão**não existir, a execução do comando acima solicitará que o usuário insira uma senha interativamente
+
+#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Alterar a senha do usuário administrativo postgres de maneira interativa:
+1. Exclua a variável de ambiente da **sessão**AZDATA_PASSWORD ou exclua seu valor
+2. Execute o comando:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Por exemplo
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   Você será solicitado a inserir a senha e confirmá-la:
+   ```console
+   Postgres Server password:
+   Confirm Postgres Server password:
+   ```
+   À medida que a senha está sendo atualizada, a saída do comando mostra:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+   
+#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Alterar a senha do usuário administrativo postgres usando a variável de ambiente da **sessão**AZDATA_PASSWORD:
+1. Defina o valor da variável de ambiente da **sessão**de AZDATA_PASSWORD para o que você deseja que a senha seja.
+2. Execute o comando:
+   ```console
+   azdata arc postgres server edit --name <server group name> --admin-password
+   ```
+   Por exemplo
+   ```console
+   azdata arc postgres server edit -n postgres01 --admin-password
+   ```
+   
+   À medida que a senha está sendo atualizada, a saída do comando mostra:
+   ```console
+   Updating password
+   Updating postgres01 in namespace `arc`
+   postgres01 is Ready
+   ```
+
+> [!NOTE]
+> Para verificar se a variável de ambiente da sessão de AZDATA_PASSWORD existe e qual valor tem, execute:
+> - Em um cliente Linux:
+> ```console
+> printenv AZDATA_PASSWORD
+> ```
+>
+> - Em um cliente Windows com o PowerShell:
+> ```console
+> echo $env:AZDATA_PASSWORD
+> ```
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

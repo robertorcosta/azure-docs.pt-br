@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662342"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273593"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
@@ -115,7 +115,7 @@ Com a instalação de configurações personalizadas, o assistente oferece mais 
 
 A seguir apresentamos um resumo das páginas do assistente de instalação personalizado, as credenciais coletadas e para que são usadas.
 
-![Instalação expressa](./media/reference-connect-accounts-permissions/customize.png)
+![Captura de tela que mostra as páginas do assistente de instalação personalizada.](./media/reference-connect-accounts-permissions/customize.png)
 
 | Página do assistente | Credenciais coletadas | Permissões necessárias | Usadas para |
 | --- | --- | --- | --- |
@@ -208,7 +208,7 @@ Legenda:
 #### <a name="virtual-service-account"></a>Conta de serviço virtual
 Uma conta de serviço virtual é um tipo especial de conta que não tem uma senha e é gerenciada pelo Windows.
 
-![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![Captura de tela que mostra a VSA (conta de serviço virtual).](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 O VSA destina-se a ser usado em cenários em que o mecanismo de sincronização e o SQL estão no mesmo servidor. Se você usar um SQL server remoto, é recomendável usar uma conta de serviço gerenciado de grupo.
 
@@ -241,7 +241,7 @@ A conta também recebe permissões para arquivos, chaves do registro e outros ob
 ### <a name="azure-ad-connector-account"></a>Conta de conector do AD do Azure
 Uma conta no Azure AD é criada para uso do serviço de sincronização. Essa conta pode ser identificada com seu nome de exibição.
 
-![Conta do AD](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Captura de tela que mostra a conta do Azure AD.](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 O nome do servidor em que a conta é usada em pode ser identificado na segunda parte do nome do usuário. Na imagem, o nome do servidor é DC1. Se você tiver servidores de teste, cada servidor terá sua própria conta.
 

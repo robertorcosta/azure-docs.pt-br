@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 083bb7549bb555cbbefaf680d401696ecd64b9c9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b4a5e76ec8dad66bf300cc3e1d55471383f83ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544903"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285785"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Tutorial: configurar o Symantec WSS (Web Security Service) para o provisionamento automático de usuário
 
@@ -62,11 +62,11 @@ Antes de configurar o Symantec WSS (Web Security Service) para o provisionamento
 
 3.  Selecione **usuários de terceiros & a sincronização de grupos**. 
 
-    ![Serviço de Segurança Web da Symantec](media/symantec-web-security-service/third-party-users.png)
+    ![Captura de tela da opção de sincronização usuários de terceiros & grupos.](media/symantec-web-security-service/third-party-users.png)
 
 4.  Copie a **URL** e o **token**do SCIM. Esses valores serão inseridos no campo **URL do locatário** e **token secreto** na guia provisionamento do seu aplicativo Symantec WSS (Web Security Service) no portal do Azure.
 
-    ![Serviço de Segurança Web da Symantec](media/symantec-web-security-service/scim.png)
+    ![Captura de tela da caixa de diálogo nova integração com as caixas de texto S C I M U R L e token chamadas.](media/symantec-web-security-service/scim.png)
 
 ## <a name="add-symantec-web-security-service-wss-from-the-gallery"></a>Adicionar o Symantec WSS (Web Security Service) por meio da Galeria
 
@@ -109,11 +109,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção credenciais de administrador, insira a **URL scim** e os valores de **token** recuperados anteriormente na **URL do locatário** e no **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Symantec Web Security Service. Se a conexão falhar, verifique se sua conta do Symantec WSS (Web Security Service) tem permissões de administrador e tente novamente.
 
@@ -127,19 +127,19 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários para o Symantec WSS (Web Security Service)**.
 
-    ![Mapeamentos de usuário do Symantec WSS (Web Security Service)](media/symantec-web-security-service/usermapping.png)
+    ![Captura de tela da seção mapeamentos com a opção sincronizar Azure Active Directory usuários com o Symantec Web Security Service W S S chamada out.](media/symantec-web-security-service/usermapping.png)
 
 9. Examine os atributos de usuário que são sincronizados do Azure AD para o Symantec WSS (Web Security Service) na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Symantec WSS (Web Security Service) para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Mapeamentos de usuário do Symantec WSS (Web Security Service)](media/symantec-web-security-service/userattribute.png)
+    ![Captura de tela da seção mapeamento de atribuição mostrando 16 propriedades correspondentes.](media/symantec-web-security-service/userattribute.png)
 
 10. Na seção **mapeamentos** , selecione **sincronizar grupos de Azure Active Directory para o Symantec Web Security Service**.
 
-    ![Mapeamentos de usuário do Symantec WSS (Web Security Service)](media/symantec-web-security-service/groupmapping.png)
+    ![Captura de tela da seção mapeamentos com a opção sincronizar grupos de Azure Active Directory com o Symantec Web Security Service W S S chamada out.](media/symantec-web-security-service/groupmapping.png)
 
 11. Examine os atributos de grupo que são sincronizados do Azure AD para o Symantec WSS (Web Security Service) na seção **mapeamento de atributos** . Os atributos selecionados como propriedades **correspondentes** são usados para corresponder os grupos no Symantec WSS (Web Security Service) para operações de atualização. Selecione o botão **Salvar** para confirmar as alterações.
 
-    ![Mapeamentos de usuário do Symantec WSS (Web Security Service)](media/symantec-web-security-service/groupattribute.png)
+    ![Captura de tela da seção mapeamento de atribuição mostrando três propriedades correspondentes.](media/symantec-web-security-service/groupattribute.png)
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

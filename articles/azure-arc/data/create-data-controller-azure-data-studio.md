@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71678977f899b910a97dbb552233f36ca5a51f26
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933667"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273136"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Criar controlador de dados no Azure Data Studio
 
@@ -35,14 +35,14 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
 1. Em Azure Data Studio, clique na guia conexões no painel de navegação esquerdo.
 2. Clique no botão **...** na parte superior do painel conexões e escolha **nova implantação...**
 3. No Assistente para nova implantação, escolha **controlador de dados de arco do Azure**, marque a caixa de seleção aceitação da licença e clique no botão **selecionar** na parte inferior.
-4. Use o arquivo kubeconfig padrão ou selecione outro.  Clique em **Próximo**.
-5. Escolha um contexto de cluster kubernetes. Clique em **Próximo**.
+4. Use o arquivo kubeconfig padrão ou selecione outro.  Clique em **Avançar**.
+5. Escolha um contexto de cluster kubernetes. Clique em **Avançar**.
 6. Escolha um arquivo de perfil de configuração de implantação dependendo do cluster kubernetes de destino. **Clique em Avançar**.
 8. Escolha a assinatura e o grupo de recursos desejados.
 9. Insira um nome para o controlador de dados e para o namespace no qual o controlador de dados será criado.  
 
 > [!NOTE]
-> Se o namespace já existir, ele será usado se o namespace ainda não contiver outros objetos kubernetes-pods, etc.  Se o namespace não existir, será feita uma tentativa de criar o namespace.  A criação de um namespace em um cluster kubernetes requer privilégios de administrador de cluster kubernetes.  Se você não tiver privilégios de administrador de cluster kubernetes, peça ao administrador de cluster do kubernetes para executar as primeiras etapas no artigo [criar um controlador de dados usando ferramentas nativas do kubernetes](./create-data-controller-using-k8s-native-tools.md) que devem ser executadas por um administrador do kubernetes antes de concluir este assistente.
+> Se o namespace já existir, ele será usado se o namespace ainda não contiver outros objetos kubernetes-pods, etc.  Se o namespace não existir, será feita uma tentativa de criar o namespace.  A criação de um namespace em um cluster kubernetes requer privilégios de administrador de cluster kubernetes.  Se você não tiver privilégios de administrador de cluster kubernetes, peça ao administrador de cluster do kubernetes para executar as primeiras etapas no artigo [criar um controlador de dados usando ferramentas nativas do kubernetes](./create-data-controller-using-kubernetes-native-tools.md) que devem ser executadas por um administrador do kubernetes antes de concluir este assistente.
 
 > [!NOTE]
 > Observação: o nome do namespace e do controlador de dados será usado para criar um recurso personalizado no cluster kubernetes para que eles devam estar em conformidade com as [convenções de nomenclatura do kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
@@ -57,7 +57,7 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
 > [!NOTE]
 > A senha deve ter pelo menos oito caracteres.
 
-1.  Clique em **Próximo**.
+1.  Clique em **Avançar**.
 2.  Examine e clique em **script para notebook**.
 3.  **Examine o bloco de anotações gerado**.  Faça as alterações necessárias, como nomes de classe de armazenamento ou tipos de serviço.
 4.  Clique em **executar tudo** na parte superior do bloco de anotações.
