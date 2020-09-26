@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0e24c08c9689394fa6efdbc03d960c597496e8ad
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: b1bb22b702cae77ba40fbeeaca1c11c9063bffe8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231241"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331600"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança do Azure para a proteção contra DDoS do Azure Standard
 
@@ -96,7 +96,7 @@ Integre um espaço de trabalho Log Analytics ao Azure Sentinel, pois ele fornece
 
 Além disso, Azure Active Directory (AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Entender as permissões na proteção contra DDoS do Azure](../../virtual-network/manage-ddos-protection.md#permissions)
+- [Entender as permissões na proteção contra DDoS do Azure](../../virtual-network/manage-ddos-protection.md#permissions-and-restrictions)
 
 - [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 

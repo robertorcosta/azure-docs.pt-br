@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313304"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência do atributo duplicado
 A resiliência de atributo duplicado é um recurso no Azure Active Directory que eliminará o conflito causado pelos conflitos de **ProxyAddress** e **userPrincipalName** do SMTP ao executar uma das ferramentas de sincronização da Microsoft.
@@ -124,7 +124,7 @@ Para fazer uma pesquisa ampla da cadeia de caracteres, use o sinalizador **-Sear
 ## <a name="microsoft-365-admin-center"></a>Centro de administração do Microsoft 365
 Você pode exibir os erros de sincronização de diretório no centro de administração do Microsoft 365. O relatório no centro de administração do Microsoft 365 exibe apenas objetos de **usuário** que têm esses erros. Ele não mostra informações sobre conflitos entre **Groups** e **Contacts**.
 
-![Usuários Ativos](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Usuários ativos")
+![Captura de tela que mostra erros de sincronização de diretório no centro de administração Microsoft 365.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Usuários ativos")
 
 Para obter instruções sobre como exibir erros de sincronização de diretório no centro de administração Microsoft 365, consulte [identificar erros de sincronização de diretório no Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
@@ -132,7 +132,7 @@ Para obter instruções sobre como exibir erros de sincronização de diretório
 Quando um objeto com um conflito de atributo duplicado é tratado com esse novo comportamento, uma notificação é incluída no email padrão do Relatório de Erros de Sincronização de Identidades enviado para o contato de Notificação Técnica do locatário. No entanto, há uma alteração importante nesse comportamento. No passado, as informações sobre um conflito de atributo duplicado eram incluídas em todos os relatórios de erro subsequentes até o conflito ser resolvido. Com esse novo comportamento, a notificação de erro para determinado conflito só aparece uma vez, no momento em que o atributo conflitante está de quarentena.
 
 Este é exemplo da aparência da notificação por email de um conflito ProxyAddress:   
-    ![Usuários Ativos](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Usuários ativos")  
+    ![Captura de tela que mostra um exemplo de uma notificação por email para um conflito de ProxyAddress.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Usuários ativos")  
 
 ## <a name="resolving-conflicts"></a>Resolução de conflitos
 A estratégia da solução de problemas e as táticas de resolução desses erros não devem diferir da maneira como os erros de atributo duplicado eram tratados no passado. A única diferença é que a tarefa de temporizador examina o locatário no lado do serviço para adicionar automaticamente o atributo em questão ao devido objeto, assim que o conflito é resolvido.

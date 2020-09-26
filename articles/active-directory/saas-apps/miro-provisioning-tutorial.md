@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 99ddbd7a197a6f9a4cb8c50b0643b159dd2d1a1e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 164b2915d3085ff765635b10e97f7552df1bf4c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518455"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256351"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Tutorial: configurar o Miro para o provisionamento automático de usuário
 
@@ -96,11 +96,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira `https://miro.com/api/v1/scim` a **URL de locatário**. Insira o valor do **token de autenticação scim** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Miro. Se a conexão falhar, verifique se sua conta do Miro tem permissões de administrador e tente novamente.
 

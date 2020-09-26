@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 051d88494049662891e1891f900aa580a005ffe4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 00771f950271cfbc86994c01b6d866c5983f1b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278661"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -29,6 +29,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 | Pergunta | Resposta |
 | -------- | ------ |
+| Por que estou tendo problemas com Apple Watch no watchOS 7? | Há um problema com a aprovação de notificações no watchOS 7, e estamos trabalhando com a Apple para que isso seja corrigido. Enquanto isso, todas as notificações que exigem o aplicativo Microsoft Authenticator watchOS devem ser aprovadas em seu telefone.  |
 | Registrar um dispositivo é concordar que a empresa ou o serviço tenha acesso ao meu dispositivo? | O registro permite que um dispositivo acesse os serviços da sua organização, mas não permite que sua organização acesse seu dispositivo. |
 | O que é o bloqueio de aplicativo e como posso usá-lo para ajudar a me manter mais seguro? | O bloqueio de aplicativo ajuda a manter suas senhas de uso único, informações de aplicativo e configurações de aplicativo mais seguras. Quando o bloqueio de aplicativo estiver habilitado, você será solicitado a autenticar usando o PIN do dispositivo ou biométrica toda vez que abrir o autenticador. O bloqueio de aplicativo também ajuda a garantir que você seja o único que pode aprovar notificações solicitando seu PIN ou biométrica sempre que você aprova uma notificação de entrada. Você pode ativar ou desativar o bloqueio do aplicativo na página Configurações do autenticador. Por padrão, o bloqueio de aplicativo é ativado quando você configura um PIN ou biométrica em seu dispositivo.<br><br>Infelizmente, não há nenhuma garantia de que o bloqueio do aplicativo irá impedir que alguém acesse o autenticador. Isso ocorre porque o registro do dispositivo pode ocorrer em outros locais fora do autenticador, como nas configurações da conta do Android ou no aplicativo Portal da Empresa. |
 | Tenho um dispositivo Windows Mobile e o Microsoft Authenticator no Windows Mobile foi preterido. Posso continuar a autenticação usando o aplicativo? | Todas as autenticações que usam o Microsoft Authenticator no Windows Mobile serão desativadas após 15 de julho de 2020. É altamente recomendável que você use um método de autenticação alternativo para evitar ser bloqueado de suas contas.<br>As opções alternativas para usuários empresariais incluem:<br><ul><li>Configurando o Microsoft Authenticator para [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) ou [Ios](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>[Configurando o SMS](multi-factor-authentication-setup-phone-number.md) para receber códigos de verificação.</li><li>Configurar o número de telefone para receber [chamadas telefônicas para verificar sua identidade](multi-factor-authentication-setup-office-phone.md).</li></ul><br>As opções alternativas para usuários pessoais conta Microsoft incluem:<br><ul><li>Configurando o Microsoft Authenticator para [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) ou [Ios](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Configurando um método de entrada alternativo (SMS ou email) atualizando suas informações de segurança na [página de segurança da conta da Microsoft](https://account.microsoft.com/security/).</li></ul> |

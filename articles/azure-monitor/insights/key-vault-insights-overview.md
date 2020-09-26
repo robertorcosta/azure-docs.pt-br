@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894511"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278610"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorando o serviço de cofre de chaves com Azure Monitor para Key Vault
 Azure Monitor para Key Vault fornece monitoramento abrangente de seus cofres de chaves, fornecendo uma exibição unificada de suas solicitações de Key Vault, desempenho, falhas e latência.
@@ -25,21 +25,6 @@ Antes de saltar para a experiência, você deve entender como ela apresenta e vi
 -    **Personalizável**, onde você pode alterar quais métricas deseja ver, modificar ou definir limites que se alinham aos limites e salvar sua própria pasta de trabalho. Os gráficos na pasta de trabalho podem ser fixados a painéis do Azure.
 
 O Azure Monitor para Key Vault combina logs e métricas para fornecer uma solução de monitoramento global. Todos os usuários podem acessar os dados de monitoramento baseados em métricas, no entanto, a inclusão de visualizações baseadas em logs pode exigir que os usuários [habilitem o registro do Azure Key Vault](../../key-vault/general/logging.md).
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>Configuração dos key vaults para monitoramento
-
-> [!NOTE]
-> A habilitação de logs é um serviço pago que fornece recursos de monitoramento adicionais.
-
-1. A guia Operações e latência ajuda a determinar quantos e quais key vaults estão habilitados. Para começar a coletar, selecione o botão **Habilitar**, que abre uma pasta de trabalho separada que lista os key vaults que exigem a habilitação dos logs de diagnóstico.
-
-    ![Captura de tela da guia Operações e latência com o botão azul Habilitar exibido](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. Para habilitar os logs de diagnóstico, clique no link **Habilitar** abaixo da coluna Ações e crie uma nova configuração de diagnóstico que envia logs para um workspace do Log Analytics. É recomendável enviar todos os logs para o mesmo espaço de trabalho.
-
-3. Depois que as configurações de diagnóstico forem salvas, você pode exibir todos os gráficos baseados em log e as visualizações abaixo do Key Vault Insights. Observe que pode levar de vários minutos a horas para começar o preenchimento dos logs.
-
-4. Para obter assistência adicional sobre como habilitar os logs de diagnóstico para o serviço de Key Vault, leia o [guia completo](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Exibir no Azure Monitor
 
@@ -165,10 +150,6 @@ Há um limite de 200 key vaults que podem ser selecionados e exibidos. Independe
 Mostramos apenas as assinaturas que contêm key vaults, escolhidas no filtro de assinatura selecionado, que são selecionadas no "Diretório + Assinatura" no cabeçalho do portal do Azure.
 
 ![Captura de tela do filtro de assinatura](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Estou recebendo uma mensagem de erro informando que a "consulta excede o número máximo de espaços de trabalho/regiões permitidos", o que fazer agora
-
-No momento, há um limite para 25 regiões e 200 espaços de trabalho para exibir os dados. Será necessário reduzir o número de assinaturas e/ou grupos de recursos.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar visualizações adicionais a Key Vault insights, como fazer isso
 

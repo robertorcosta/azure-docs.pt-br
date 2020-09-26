@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904732"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314480"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de preparação da central de segurança do Azure
 Este documento fornece um roteiro de preparação que ajudará você a começar a usar a Central de Segurança do Azure.
@@ -29,8 +29,8 @@ A Central de Segurança do Azure fornece gerenciamento de segurança unificado e
 Use os seguintes recursos para começar com a Central de Segurança.
 
 Artigos
-- [Introdução à Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- [Guia de início rápido da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introdução à Central de Segurança do Azure](security-center-introduction.md)
+- [Guia de início rápido da Central de Segurança do Azure](security-center-get-started.md)
 
 vídeos
 - [Vídeo de introdução rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -42,7 +42,7 @@ Para tirar total proveito da Central de Segurança, é importante entender como 
 
 Use os recursos a seguir para ajudá-lo durante os processos de planejamento e de operações.
 
-- [Guia de planejamento e operações da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Integração de computadores à Central de Segurança

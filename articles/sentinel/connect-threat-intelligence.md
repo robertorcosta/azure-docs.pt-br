@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
 ms.author: yelevin
-ms.openlocfilehash: 8036203e33fd63a25ecfa7c4ea720e01259be04a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d794b0a33eabedd3e6e309f291543ba23bc40f79
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362739"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Conectar dados de provedores de inteligência contra ameaças
 
@@ -59,13 +59,13 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Conecte o Azure Sentinel à sua plataforma de inteligência contra ameaças
 
-## <a name="prerequisites"></a>Pré-requisitos  
+### <a name="prerequisites"></a>Pré-requisitos  
 
 - Função do Azure AD de administrador global ou administrador de segurança para conceder permissões ao seu produto TIP ou aplicativo personalizado que usa a integração direta com a API do Microsoft Graph Security tiIndicators.
 
 - Permissões de leitura e gravação para o espaço de trabalho do Azure Sentinel para armazenar seus indicadores de ameaça.
 
-## <a name="instructions"></a>Instruções
+### <a name="instructions"></a>Instruções
 
 1. [Registre um aplicativo](/graph/auth-v2-service#1-register-your-app) no Azure Active Directory para obter uma ID do aplicativo, segredo do aplicativo e Azure Active Directory ID do locatário. Você precisa desses valores para quando configura seu produto ou aplicativo da TIP integrado que usa a integração direta com a API do Microsoft Graph Security tiIndicators.
 
@@ -89,13 +89,13 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>Conectar o Azure Sentinel a servidores TÁXIi
 
-## <a name="prerequisites"></a>Pré-requisitos  
+### <a name="prerequisites"></a>Pré-requisitos
 
 - Permissões de leitura e gravação para o espaço de trabalho do Azure Sentinel para armazenar seus indicadores de ameaça.
 
 - URI do servidor de TÁXIi 2,0 e ID da coleção.
 
-## <a name="instructions"></a>Instruções
+### <a name="instructions"></a>Instruções
 
 1. Na portal do Azure, navegue até conectores de dados **do Azure Sentinel**  >  **Data connectors** e selecione o conector **Threat Intelligence-táxii (versão prévia)** .
 

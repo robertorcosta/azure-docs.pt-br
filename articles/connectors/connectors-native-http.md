@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 5f6328144760b3c55c55fbef13917359fa9e1a62
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526731"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292448"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de Aplicativos Lógicos do Azure
 
@@ -247,7 +247,7 @@ Alguns pontos de extremidade, serviços, sistemas ou APIs retornam uma resposta 
 
 Se um gatilho ou ação HTTP incluir esses cabeçalhos, os aplicativos lógicos removerão esses cabeçalhos da mensagem de solicitação gerada sem mostrar nenhum aviso ou erro:
 
-* `Accept-*`
+* `Accept-*` cabeçalhos, exceto para `Accept-version`
 * `Allow`
 * `Content-*` com estas exceções: `Content-Disposition`, `Content-Encoding` e `Content-Type`
 * `Cookie`
