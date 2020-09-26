@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 13fcda03f3ccd0c28e1dce594c46b8c0d9449054
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7f7bc16658733a7200d29fae22d96a2157b73065
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292125"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-managed-instance"></a>Migrar pacotes SQL Server Integration Services para um SQL do Azure Instância Gerenciada
 Se você usar SQL Server Integration Services (SSIS) e quiser migrar seus projetos/pacotes do SSIS do SSISDB de origem hospedado por SQL Server para o SSISDB de destino, hospedado por um Instância Gerenciada SQL do Azure, você poderá usar o serviço de migração de banco de dados do Azure.
@@ -126,13 +126,13 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
    ![Detalhes da origem](media/how-to-migrate-ssis-packages-mi/dms-source-details1.png)
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
 1. Na tela **detalhes do destino de migração** , especifique os detalhes de conexão para o destino.
 
-     ![Detalhes de destino](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
+     ![Detalhes do destino](media/how-to-migrate-ssis-packages-mi/dms-target-details2.png)
 
 2. Selecione **Salvar**.
 
