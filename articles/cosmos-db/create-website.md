@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5038d9968e37b956774d1c5f8abdb14865422e8b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027750"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362003"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implantar Azure Cosmos DB e Azure App serviço com um aplicativo Web do GitHub usando um modelo de Azure Resource Manager
 
@@ -98,7 +98,7 @@ Há três elementos necessários para que isso funcione.
 
 Primeiro, o aplicativo precisa solicitar o ponto de extremidade Cosmos DB e a chave na `Startup` classe no aplicativo web ASP.NET MVC. O [Cosmos DB fazer o exemplo](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) pode ser executado localmente, onde você pode inserir as informações de conexão em appsettings.js. No entanto, quando implantado, esse arquivo é implantado com o aplicativo. Se essas linhas em vermelho não puderem acessar as configurações de appsettings.jsem, elas serão tentadas nas configurações do aplicativo no serviço Azure App.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Inicialização":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Captura de tela mostra um método com várias variáveis de cadeia de caracteres marcadas em vermelho, incluindo databaseName, ContainerName, Account e Key.":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Usando funções especiais de gerenciamento de recursos do Azure
 

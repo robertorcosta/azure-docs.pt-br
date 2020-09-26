@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361680"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato Standard para o Marketplace comercial da Microsoft
 
@@ -21,7 +21,7 @@ A Microsoft oferece um Contrato Standard para o Marketplace comercial da Microso
 Os termos e condições de uma oferta são definidos ao criar a oferta na Central de Parceiros. Você pode optar por usar o Contrato Standard do Marketplace comercial da Microsoft em vez de fornecer seus próprios termos e condições personalizados.
 
 >[!Note]
->Depois de publicar uma oferta usando o Contrato Standard para o Marketplace comercial da Microsoft, você não poderá usar seus termos e condições personalizados. Esse é um cenário com duas possibilidades mutuamente exclusivas. Você pode oferecer uma solução sob o Contrato Standard *ou* os seus termos e condições. Se você quiser modificar os termos do Contrato Standard, poderá fazer isso por meio de aditamento ao Contrato Standard.
+>Depois de publicar uma oferta usando o contrato padrão do Microsoft Commercial Marketplace, você não poderá usar seus próprios termos e condições personalizados. Você pode oferecer uma solução sob o Contrato Standard *ou* os seus termos e condições. Os termos e condições personalizados são definidos no nível da oferta e se aplicam a todos os planos; Escreva seus termos e condições personalizados na página **Propriedades** de sua oferta no Partner Center. Se você quiser modificar os termos do contrato padrão, poderá fazer isso por meio de emendas de contrato padrão.
 
 ## <a name="standard-contract-amendments"></a>Aditamentos do Contrato Standard
 

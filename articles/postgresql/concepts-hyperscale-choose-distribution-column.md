@@ -1,22 +1,22 @@
 ---
 title: Escolher colunas de distribuição – Citus (hiperescala)-banco de dados do Azure para PostgreSQL
-description: Saiba como escolher colunas de distribuição em cenários comuns de hiperescala no banco de dados do Azure para PostgreSQL.
+description: Saiba como escolher colunas de distribuição em cenários comuns no banco de dados do Azure para PostgreSQL-Citus (hiperescala).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8ced9767d81affceef851820ee587f4f3dd24deb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3c86f4b194e6d3935434b35cae958dfcf772986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975662"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314905"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
-Escolher a coluna de distribuição de cada tabela é uma das decisões de modelagem mais importantes que você fará. Banco de dados do Azure para PostgreSQL – hiperescala (Citus) armazena linhas em fragmentos com base no valor da coluna de distribuição de linhas.
+Escolher a coluna de distribuição de cada tabela é uma das decisões de modelagem mais importantes que você tomará. Banco de dados do Azure para PostgreSQL – hiperescala (Citus) armazena linhas em fragmentos com base no valor da coluna de distribuição de linhas.
 
 A opção correta agrupa os dados relacionados nos mesmos nós físicos, o que torna as consultas rápidas e adiciona suporte a todos os recursos do SQL. Uma opção incorreta faz com que o sistema seja executado lentamente e não dará suporte a todos os recursos do SQL entre nós.
 

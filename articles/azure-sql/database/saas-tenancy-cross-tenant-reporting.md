@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3542bb502bbb0d41ff6a35902bc38262c26876de
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84026927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361714"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Relatório entre locatários usando consultas distribuídas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -93,7 +93,7 @@ Para examinar a definição da exibição *Locais*:
 
 1. Em **Pesquisador de Objetos**, expanda **contosoconcerthall** > **Exibições**:
 
-   ![Modos de exibição](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![Captura de tela mostra o conteúdo do nó views, incluindo quatro tipos de localização d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Clique com botão direito do mouse em **dbo.Venues**.
 3. Selecionar **exibição de script como**  >  **criar para a**  >  **nova janela do editor de consultas**
