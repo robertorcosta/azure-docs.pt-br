@@ -1,23 +1,24 @@
 ---
 title: Gerenciar e localizar dados no armazenamento de BLOBs do Azure com índice de BLOB (versão prévia)
-description: Saiba como usar marcas de índice de BLOB para categorizar, gerenciar e consultar para descobrir objetos de BLOB.
+description: Saiba como usar marcas de índice de BLOB para categorizar, gerenciar e consultar objetos de BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/01/2020
+ms.date: 09/17/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: ed70a05e0a6213ce00a6e0514f0741e8abbaeef9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: references_regions
+ms.openlocfilehash: 70d0e31809227d5e27f8f2b22a7703d5a8ccca3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275057"
 ---
-# <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Gerenciar e localizar dados no armazenamento de BLOBs do Azure com índice de BLOB (versão prévia)
+# <a name="manage-and-find-azure-blob-data-with-blob-index-preview"></a>Gerenciar e localizar dados de blob do Azure com índice de BLOB (versão prévia)
 
-À medida que os conjuntos de dados ficam maiores e maiores, encontrar um objeto específico em um mar de informações pode ser difícil e frustrante. O índice de blob fornece recursos de descoberta e gerenciamento de dados usando atributos de marca de índice de chave-valor, que permitem categorizar e localizar objetos em um único contêiner ou em todos os contêineres em sua conta de armazenamento. Posteriormente, como os requisitos de alterações de dados, os objetos podem ser recategorizados dinamicamente atualizando suas marcas de índice enquanto permanecem no local com sua organização de contêiner atual. A utilização do índice de blob pode simplificar o desenvolvimento consolidando os dados de BLOB e os atributos de índice associados no mesmo serviço; permitindo que você crie aplicativos eficientes e escalonáveis usando recursos nativos. 
+À medida que os conjuntos de dados ficam maiores e maiores, encontrar um objeto específico em um mar de informações pode ser difícil e frustrante. O índice de blob fornece recursos de descoberta e gerenciamento de dados usando atributos de marca de índice de chave-valor, que permitem categorizar e localizar objetos em um único contêiner ou em todos os contêineres em sua conta de armazenamento. Posteriormente, como os requisitos de alterações de dados, os objetos podem ser categorizados dinamicamente atualizando suas marcas de índice enquanto permanecem no local com sua organização de contêiner atual. A utilização do índice de blob pode simplificar o desenvolvimento consolidando os dados de BLOB e os atributos de índice associados no mesmo serviço; permitindo que você crie aplicativos eficientes e escalonáveis usando recursos nativos.
 
 O índice de blob permite que você:
 
@@ -26,44 +27,43 @@ O índice de blob permite que você:
 - Especificar comportamentos condicionais para APIs de blob com base na avaliação de marcas de índice
 - Utilizar marcas de índice para controles avançados em recursos da plataforma de BLOB, como o [Gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md)
 
-Considere o cenário em que você tem milhões de BLOBs em sua conta de armazenamento gravados e acessados por vários aplicativos diferentes. Você deseja localizar todos os dados relacionados de um único projeto, mas não tem certeza do que está no escopo, pois os dados podem ser distribuídos em vários contêineres com diferentes convenções de nomenclatura de BLOB. No entanto, você sabe que seus aplicativos carregam todos os dados com marcas com base em seu respectivo projeto e descrição de identificação. Em vez de Pesquisar por milhões de BLOBs e comparar nomes e propriedades, você pode simplesmente usar `Project = Contoso` como seus critérios de descoberta. O índice de blob filtrará todos os contêineres em toda a conta de armazenamento para localizar e retornar rapidamente apenas o conjunto de blobs de 50 de `Project = Contoso` . 
+Considere o cenário em que você tem milhões de BLOBs em sua conta de armazenamento gravados e acessados por vários aplicativos diferentes. Você deseja localizar todos os dados relacionados de um único projeto, mas não tem certeza do que está no escopo, pois os dados podem ser distribuídos em vários contêineres com diferentes convenções de nomenclatura de BLOB. No entanto, você sabe que seus aplicativos carregam todos os dados com marcas com base em seu respectivo projeto e descrição de identificação. Em vez de Pesquisar por milhões de BLOBs e comparar nomes e propriedades, você pode simplesmente usar `Project = Contoso` como seus critérios de descoberta. O índice de blob filtrará todos os contêineres em toda a conta de armazenamento para localizar e retornar rapidamente apenas o conjunto de blobs de 50 de `Project = Contoso` .
 
 Para começar com exemplos de como usar o índice de BLOB, consulte [utilizar o índice de BLOB para gerenciar e localizar dados](storage-blob-index-how-to.md).
 
-## <a name="blob-index-tags-and-data-management"></a>Marcas e Gerenciamento de Dados de índice de BLOB
+## <a name="blob-index-tags-and-data-management"></a>Rótulos de índice de BLOB e gerenciamento de dados
 
 Os prefixos de nome de contêiner e blob são uma categorização unidimensional para seus dados armazenados. O índice de blob agora permite categorização de várias dimensões para todos os [tipos de dados de BLOB (bloco, acréscimo ou página)](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) com marcas de atributo aplicadas. Essa categorização multidimensional é nativamente indexada e disponibilizada para você consultar e localizar seus dados rapidamente.
 
 Considere os cinco BLOBs a seguir em sua conta de armazenamento:
->
-> Container1/transaction.csv  
-> container2/campaign.docx  
-> fotos/bannerphoto.png  
-> arquivos mortos/concluídos/2019review.pdf  
-> logs/2020/01/01/logfile.txt  
->
 
-Esses BLOBs estão separados no momento usando um prefixo de contêiner/pasta virtual/nome do blob. Com o índice de BLOB, você pode definir um atributo de marca de índice de `Project = Contoso` nesses cinco BLOBs para categorizá-los ao mesmo tempo em que mantém sua organização de prefixo atual. Isso elimina a necessidade de mover dados expondo a capacidade de filtrar e localizar dados usando o índice multidimensional da plataforma de armazenamento.
+- *Container1/transaction.csv*
+- *container2/campaign.docx*
+- *fotos/bannerphoto.png*
+- *arquivos mortos/concluídos/2019review.pdf*
+- *logs/2020/01/01/logfile.txt*
+
+
+Esses BLOBs estão separados no momento usando um prefixo de *contêiner/pasta virtual/nome do blob*. Com o índice de BLOB, você pode definir um atributo de marca de índice de `Project = Contoso` nesses cinco BLOBs para categorizá-los ao mesmo tempo em que mantém sua organização de prefixo atual. Isso elimina a necessidade de mover dados expondo a capacidade de filtrar e localizar dados usando o índice multidimensional da plataforma de armazenamento.
 
 ## <a name="setting-blob-index-tags"></a>Definindo marcas de índice de BLOB
 
-Marcas de índice de blob são atributos de chave-valor que podem ser aplicados a objetos novos ou existentes em sua conta de armazenamento. Você pode especificar as marcas de índice durante o processo de carregamento usando as operações PutBlob, PutBlockList ou CopyBlob e o cabeçalho x-MS-Tags opcional. Se você já tiver BLOBs em sua conta de armazenamento, poderá chamar SetBlobTags com um documento XML formatado especificando os atributos de marca de índice de blob no corpo da solicitação. 
+Marcas de índice de blob são atributos de chave-valor que podem ser aplicados a objetos novos ou existentes em sua conta de armazenamento. Você pode especificar as marcas de índice durante o processo de carregamento usando as operações PutBlob, PutBlockList ou CopyBlob e o cabeçalho x-MS-Tags opcional. Se você já tiver BLOBs em sua conta de armazenamento, poderá chamar SetBlobTags com um documento XML formatado especificando os atributos de marca de índice de blob no corpo da solicitação.
 
 Considere as seguintes marcas de exemplos que podem ser definidas
 
 Você pode aplicar uma única marca em seu blob para descrever quando seus dados concluíram o processamento.
->
+
 > "processedDate" = ' 2020-01-01 '
->
+
 Você pode aplicar várias marcas em seu blob para que sejam mais descritivas dos dados.
->
+
 > "Projeto" = ' contoso '  
 > "Classified" = ' true '  
 > "Status" = ' não processado '  
-> "Priority" = ' 01 ' 
->
+> "Priority" = ' 01 '
 
-Para modificar os atributos de marca de índice existentes, você deve primeiro recuperar os atributos de marca existentes, modificar os atributos de marca e substituir pela operação SetBlobTags. Para remover todas as marcas de índice do blob, chame a operação SetBlobTags sem atributos de marca especificados. Como as marcas de índice de blob são um subrecurso para o conteúdo de dados de BLOB, o SetBlobTags não modifica nenhum conteúdo subjacente e não altera a hora da última modificação do BLOB ou eTag (marca de entidade). Você pode criar ou modificar marcas de índice para todos os blobs de base atuais e versões anteriores; no entanto, as marcas em instantâneos ou BLOBs com exclusão reversível não podem ser modificadas. 
+Para modificar os atributos de marca de índice existentes, você deve primeiro recuperar os atributos de marca existentes, modificar os atributos de marca e substituir pela operação SetBlobTags. Para remover todas as marcas de índice do blob, chame a operação SetBlobTags sem atributos de marca especificados. Como as marcas de índice de blob são um subrecurso para o conteúdo de dados de BLOB, o SetBlobTags não modifica nenhum conteúdo subjacente e não altera a hora da última modificação do BLOB ou eTag (marca de entidade). Você pode criar ou modificar marcas de índice para todos os blobs de base atuais e versões anteriores; no entanto, as marcas em instantâneos ou BLOBs com exclusão reversível não podem ser modificadas.
 
 Os seguintes limites se aplicam a marcas de índice de blob:
 - Cada blob pode ter até 10 marcas de índice de BLOB
@@ -77,7 +77,7 @@ Os seguintes limites se aplicam a marcas de índice de blob:
 
 ## <a name="getting-and-listing-blob-index-tags"></a>Obtendo e listando marcas de índice de BLOB
 
-As marcas de índice de blob são armazenadas como um subrecurso ao lado dos dados de BLOB e podem ser recuperadas independentemente do conteúdo de dados de blob subjacente. Uma vez definido, as marcas de índice de BLOB para um único blob podem ser recuperadas e revisadas imediatamente com a operação GetBlobTags. A operação ListBlobs com o `include:tags` parâmetro também retornará todos os BLOBs dentro de um contêiner, juntamente com suas marcas de índice de blob aplicadas. 
+As marcas de índice de blob são armazenadas como um subrecurso ao lado dos dados de BLOB e podem ser recuperadas independentemente do conteúdo de dados de blob subjacente. Uma vez definido, as marcas de índice de BLOB para um único blob podem ser recuperadas e revisadas imediatamente com a operação GetBlobTags. A operação ListBlobs com o `include:tags` parâmetro também retornará todos os BLOBs dentro de um contêiner, juntamente com suas marcas de índice de blob aplicadas.
 
 Para qualquer blob com pelo menos uma marca de índice de BLOB, a contagem x-MS-tag-Count é retornada nas operações ListBlobs, getBlob e getblobproperties que indicam a contagem de marcas de índice de BLOB que existem no BLOB.
 
@@ -88,68 +88,67 @@ Com as marcas de índice de blob definidas em seus BLOBs, o mecanismo de indexa�
 A operação FindBlobsByTags permite que você obtenha um conjunto de retornos filtrado de BLOBs cujas marcas de índice correspondem a uma determinada expressão de consulta de índice de BLOB. O índice de blob dá suporte à filtragem em todos os contêineres em sua conta de armazenamento ou você pode fazer o escopo da filtragem para apenas um único contêiner. Como todas as chaves e valores de marca de índice de blob são cadeias de caracteres, os operadores relacionais com suporte usam uma classificação lexicográfica nos valores de marca de índice.
 
 Os critérios a seguir se aplicam à filtragem de índice de blob:
--   As chaves de marca devem ser colocadas entre aspas duplas (")
--   Os valores de marcação e os nomes de contêiner devem ser colocados entre aspas simples (')
--   O caractere @ só é permitido para filtragem em um nome de contêiner específico (ou seja, @container = ' ContainerName ')
+- As chaves de marca devem ser colocadas entre aspas duplas (")
+- Os valores de marcação e os nomes de contêiner devem ser colocados entre aspas simples (')
+- O caractere @ só é permitido para filtragem em um nome de contêiner específico (ou seja, @container = ' ContainerName ')
 - Os filtros são aplicados com a classificação lexicográfica em cadeias de caracteres
--   As mesmas operações de intervalo colaterais na mesma chave são inválidas (ou seja, "Rank" > ' 10 ' e "Rank" >= ' 15 ')
+- As mesmas operações de intervalo colaterais na mesma chave são inválidas (ou seja, "Rank" > ' 10 ' e "Rank" >= ' 15 ')
 - Ao usar REST para criar uma expressão de filtro, os caracteres devem ser codificados em URI
 
 A tabela abaixo mostra todos os operadores válidos para FindBlobsByTags:
 
 |  Operador  |  Descrição  | Exemplo |
 |------------|---------------|---------|
-|     =      |     Igual a     | "Status" = ' em andamento ' | 
-|     >      |  Maior que |  "Date" > ' 2018-06-18 ' |
-|     >=     |  Maior ou igual | "Priority" >= ' 5 ' | 
-|     <      |  Menor que    | "Idade" < ' 32 ' |
+|     =      |     Igual a     | "Status" = ' em andamento ' |
+|     >      |  Maior que | "Date" > ' 2018-06-18 ' |
+|     >=     |  Maior ou igual | "Priority" >= ' 5 ' |
+|     <      |  Menor que   | "Idade" < ' 32 ' |
 |     <=     |  Menor ou igual  | "Empresa" <= ' contoso ' |
 |    AND     |  And lógico  | "Rank" >= ' 010 ' e "Rank" < ' 100 ' |
-| @container |  Escopo para um contêiner específico   | @container = ' videofiles ' e "status" = ' done ' |
+| @container | Escopo para um contêiner específico | @container = ' videofiles ' e "status" = ' done ' |
 
 > [!NOTE]
 > Esteja familiarizado com a ordenação de lexicográfica ao configurar e consultar marcas.
 > - Os números são classificados antes das letras. Os números são classificados com base no primeiro dígito.
 > - As letras maiúsculas são classificadas antes das letras minúsculas.
 > - Os símbolos não são padrão. Alguns símbolos são classificados antes de valores numéricos. Outros símbolos são classificados antes ou depois das letras.
->
 
 ## <a name="conditional-blob-operations-with-blob-index-tags"></a>Operações de blob condicional com marcas de índice de BLOB
 Nas versões REST 2019-10-10 e superior, a maioria das [APIs de serviço blob](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) agora dá suporte a um cabeçalho condicional, x-MS-If-Tags, de modo que a operação só terá sucesso se a condição de índice de blob especificada for atendida. Se a condição não for atendida, você receberá `error 412: The condition specified using HTTP conditional header(s) is not met` .
 
-O cabeçalho x-MS-If-Tags pode ser combinado com os outros cabeçalhos condicionais HTTP existentes (If-Match, If-None-Match, etc.).  Se vários cabeçalhos condicionais forem fornecidos em uma solicitação, todos eles deverão ser avaliados como verdadeiros para que a operação tenha sucesso.  Todos os cabeçalhos condicionais são efetivamente combinados com AND lógico. 
+O cabeçalho x-MS-If-Tags pode ser combinado com os outros cabeçalhos condicionais HTTP existentes (If-Match, If-None-Match, etc.).  Se vários cabeçalhos condicionais forem fornecidos em uma solicitação, todos eles deverão ser avaliados como verdadeiros para que a operação tenha sucesso.  Todos os cabeçalhos condicionais são efetivamente combinados com AND lógico.
 
 A tabela abaixo mostra todos os operadores válidos para operações condicionais:
 
 |  Operador  |  Descrição  | Exemplo |
 |------------|---------------|---------|
 |     =      |     Igual a     | "Status" = ' em andamento ' |
-|     <>     |   Diferente de   | "Status"  <>  ' done '  | 
-|     >      |  Maior que |  "Date" > ' 2018-06-18 ' |
-|     >=     |  Maior ou igual | "Priority" >= ' 5 ' | 
-|     <      |  Menor que    | "Idade" < ' 32 ' |
+|     <>     |   Diferente de   | "Status"  <>  ' done '  |
+|     >      |  Maior que | "Date" > ' 2018-06-18 ' |
+|     >=     |  Maior ou igual | "Priority" >= ' 5 ' |
+|     <      |  Menor que   | "Idade" < ' 32 ' |
 |     <=     |  Menor ou igual  | "Empresa" <= ' contoso ' |
 |    AND     |  And lógico  | "Rank" >= ' 010 ' e "Rank" < ' 100 ' |
-|     OU     |  OR lógico   | "Status" = ' done ' ou "Priority" >= ' 05 ' |
+|     OU     | OR lógico   | "Status" = ' done ' ou "Priority" >= ' 05 ' |
 
 > [!NOTE]
 > Há dois operadores adicionais, não iguais e lógicos ou, que são permitidos no cabeçalho x-MS-If-Tags condicional para a operação de BLOB, mas não existem na operação FindBlobsByTags.
 
 ## <a name="platform-integrations-with-blob-index-tags"></a>Integrações de plataforma com marcas de índice de BLOB
 
-As marcas do índice de BLOB não apenas ajudam a categorizar, gerenciar e pesquisar nos dados do blob, mas também fornecem integrações com outros recursos do serviço BLOB, como o [Gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md). 
+As marcas do índice de BLOB não apenas ajudam a categorizar, gerenciar e pesquisar nos dados do blob, mas também fornecem integrações com outros recursos do serviço BLOB, como o [Gerenciamento do ciclo de vida](storage-lifecycle-management-concepts.md).
 
 ### <a name="lifecycle-management"></a>Gerenciamento do ciclo de vida
 
 Usando o novo blobIndexMatch como um filtro de regra no gerenciamento do ciclo de vida, você pode mover dados para camadas mais frias ou excluir dados com base nas marcas de índice aplicadas aos seus BLOBs. Isso permite que você seja mais granular em suas regras e só mova ou exclua dados se eles corresponderem aos critérios de marcas especificados.
 
-Você pode definir uma correspondência de índice de blob como um conjunto de filtros autônomo em uma regra de ciclo de vida para aplicar ações em dados marcados. Ou você pode combinar uma correspondência de prefixo e uma correspondência de índice de BLOB para corresponder a conjuntos de dados mais específicos. A aplicação de vários filtros a uma regra de ciclo de vida trata-se de uma operação e lógica de forma que a ação seja aplicada somente se todos os critérios de filtro forem correspondentes. 
+Você pode definir uma correspondência de índice de blob como um conjunto de filtros autônomo em uma regra de ciclo de vida para aplicar ações em dados marcados. Ou você pode combinar uma correspondência de prefixo e uma correspondência de índice de BLOB para corresponder a conjuntos de dados mais específicos. A aplicação de vários filtros a uma regra de ciclo de vida trata-se de uma operação e lógica de forma que a ação seja aplicada somente se todos os critérios de filtro forem correspondentes.
 
 A regra de gerenciamento do ciclo de vida de exemplo a seguir se aplica a blobs de blocos no contêiner ' videofiles ' e blobs de camadas para armazenamento de arquivo morto somente se os dados corresponderem aos critérios de marca de índice de blob de ```"Status" = 'Processed' AND "Source" == 'RAW'``` .
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 ![Exemplo de regra de correspondência de índice de BLOB para gerenciamento de ciclo de vida no portal do Azure](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
-   
+
 # <a name="json"></a>[JSON](#tab/json)
 ```json
 {
@@ -201,52 +200,54 @@ Você pode autorizar o acesso ao índice de BLOB usando uma das seguintes aborda
 - Usando uma SAS (assinatura de acesso compartilhado) para delegar o acesso ao índice de BLOB. Para obter mais informações sobre assinaturas de acesso compartilhado, confira [Conceder acesso limitado a recursos de Armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)](../common/storage-sas-overview.md).
 - Usando as chaves de acesso da conta para autorizar operações com chave compartilhada. Para obter mais informações, consulte [Autorizar com Chave Compartilhada](/rest/api/storageservices/authorize-with-shared-key).
 
-As marcas de índice de blob são um subrecurso para os dados de BLOB. Um usuário com permissões ou um token SAS para ler ou gravar BLOBs pode não ter acesso às marcas de índice de BLOB. 
+As marcas de índice de blob são um subrecurso para os dados de BLOB. Um usuário com permissões ou um token SAS para ler ou gravar BLOBs pode não ter acesso às marcas de índice de BLOB.
 
-### <a name="role-based-access-control"></a>Controle de Acesso Baseado em Função 
-Os chamadores usando uma [identidade do AAD](../common/storage-auth-aad.md) podem receber as seguintes permissões para operar em marcas de índice de BLOB. 
+### <a name="role-based-access-control"></a>Controle de acesso baseado em função
+Os chamadores usando uma [identidade do Azure ad](../common/storage-auth-aad.md) podem receber as seguintes permissões para operar em marcas de índice de BLOB.
 
-|   Operações de BLOB   |  Ação RBAC   |
-|---------------------|----------------|
-| Localizar blobs por marcas  | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/filtro/ação |
-| Definir marcas de BLOB         | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/marcas/gravação | 
-| Obter marcas de BLOB         | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/marcas/leitura |
+|   Operações de BLOB  |  Ação RBAC   |
+|--------------------|----------------|
+| Localizar blobs por marcas | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/filtro/ação |
+| Definir marcas de BLOB      | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/marcas/gravação |
+| Obter marcas de BLOB      | Microsoft. Storage/storageAccounts/blobservices/contêineres/BLOBs/marcas/leitura |
 
-São necessárias permissões adicionais separadas dos dados de blob subjacentes para operar nas marcas. A função colaborador de dados de armazenamento de blob receberá todas as três permissões. O leitor de dados de blob de armazenamento receberá as permissões somente localizar blobs por marcas e obter marcas de BLOB.
+São necessárias permissões adicionais separadas dos dados de blob subjacentes para operar nas marcas. A função de proprietário de dados do blob de armazenamento receberá todas as três permissões. O leitor de dados de blob de armazenamento receberá as permissões somente localizar blobs por marcas e obter marcas de BLOB.
 
-### <a name="sas-permissions"></a>Permissões de SAS 
+### <a name="sas-permissions"></a>Permissões de SAS
 Os chamadores que usam uma [SAS (assinatura de acesso compartilhado)](../common/storage-sas-overview.md) podem receber permissões no escopo para operar em marcas de BLOB.
+
 #### <a name="blob-sas"></a>SAS do blob
 As permissões a seguir podem ser concedidas em uma SAS do serviço blob para permitir o acesso a marcas de índice de BLOB. Somente permissões de leitura e gravação de BLOB não são suficientes para permitir a leitura ou gravação de suas marcas de índice.
 
 |  Permissão  |  Símbolo de URI  | Operações permitidas |
 |--------------|--------------|--------------------|
-|  Marcas de índice  |      t         | Obter e definir marcas de índice de BLOB para um blob |
+|  Marcas de índice  |      t      | Obter e definir marcas de índice de BLOB para um blob |
 
 #### <a name="container-sas"></a>SAS do contêiner
 As permissões a seguir podem ser concedidas na SAS do serviço de contêiner para permitir a filtragem em marcas de BLOB.  A permissão de lista de BLOBs não é suficiente para permitir a filtragem de BLOBs por suas marcas de índice.
 
 |  Permissão  |  Símbolo de URI  | Operações permitidas |
 |--------------|--------------|--------------------|
-| Marcas de índice     |      f       | Localizar BLOBs com marcas de índice de BLOB | 
+| Marcas de índice   |      f      | Localizar BLOBs com marcas de índice de BLOB |
 
-## <a name="choosing-between-metadata-and-blob-index-tags"></a>Escolhendo entre as marcas de índice de BLOB e metadados 
+## <a name="choosing-between-metadata-and-blob-index-tags"></a>Escolhendo entre as marcas de índice de BLOB e metadados
 As marcas de índice de BLOB e os metadados fornecem a capacidade de armazenar propriedades de chave/valor arbitrárias definidas pelo usuário junto com um recurso de BLOB. Ambos podem ser recuperados e definidos diretamente, sem retornar ou alterar o conteúdo do blob. É possível utilizar ambas as marcas de índice e metadados.
 
-No entanto, somente marcas de índice de blob são indexadas automaticamente e tornam-se consultáveis pelo serviço blob nativo. Os metadados não podem ser indexados nativamente e consultados a menos que você utilize um serviço separado, como [Azure Search](../../search/search-blob-ai-integration.md). Marcas de índice de blob também têm permissões adicionais para leitura/filtragem e gravação que são separadas dos dados de blob subjacentes. Os metadados utilizam as mesmas permissões que o blob e são retornados como cabeçalhos HTTP nas operações getBlob ou getblobproperties. As marcas de índice de blob são criptografadas em repouso usando uma [chave gerenciada pela Microsoft](../common/storage-service-encryption.md) , enquanto os metadados são criptografados em repouso usando a mesma chave de criptografia especificada para dados de BLOB. 
+No entanto, somente marcas de índice de blob são indexadas automaticamente e tornam-se consultáveis pelo serviço blob nativo. Os metadados não podem ser indexados nativamente e consultados a menos que você utilize um serviço separado, como [Azure Search](../../search/search-blob-ai-integration.md). Marcas de índice de blob também têm permissões adicionais para leitura/filtragem e gravação que são separadas dos dados de blob subjacentes. Os metadados utilizam as mesmas permissões que o blob e são retornados como cabeçalhos HTTP nas operações getBlob ou getblobproperties. As marcas de índice de blob são criptografadas em repouso usando uma [chave gerenciada pela Microsoft](../common/storage-service-encryption.md) , enquanto os metadados são criptografados em repouso usando a mesma chave de criptografia especificada para dados de BLOB.
 
 A tabela a seguir resume as diferenças entre as marcas de índice de BLOB e metadados:
 
 |              |   Metadados   |   Marcas de índice de BLOB  |
 |--------------|--------------|--------------------|
-| **Limites**         | Sem limite numérico; total de 8 KB; não diferencia maiúsculas de minúsculas | 10 marcas por blob máx. 768 bytes por marca; diferencia maiúsculas de minúsculas |
-| **Atualizações**      | Não permitido na camada de arquivo morto; SetBlobMetadata substitui todos os metadados existentes; SetBlobMetadata altera a hora da última modificação do blob | Permitido para todas as camadas de acesso; SetBlobTags substitui todas as marcas existentes; SetBlobTags não altera a hora da última modificação do blob |
-| **Storage**        | Armazenados com os dados do blob |  O subrecurso para os dados de BLOB | 
+| **Limites**      | Sem limite numérico; total de 8 KB; não diferencia maiúsculas de minúsculas | 10 marcas por blob máx. 768 bytes por marca; diferencia maiúsculas de minúsculas |
+| **Atualizações**    | Não permitido na camada de arquivo morto; SetBlobMetadata substitui todos os metadados existentes; SetBlobMetadata altera a hora da última modificação do blob | Permitido para todas as camadas de acesso; SetBlobTags substitui todas as marcas existentes; SetBlobTags não altera a hora da última modificação do blob |
+| **Storage**     | Armazenados com os dados do blob | O subrecurso para os dados de BLOB |
 | **Indexação & consulta** | N/A nativamente; deve usar um serviço separado, como Azure Search | Sim, recursos de indexação e consulta nativos incorporados ao armazenamento de BLOBs |
-| **Criptografia** | Criptografado em repouso com a mesma chave de criptografia usada para dados de BLOB |  Criptografado em repouso com uma chave de criptografia gerenciada pela Microsoft |
-| **Preços**   | O tamanho dos metadados está incluído nos custos de armazenamento de um blob |    Custo fixo por marca de índice | 
+| **Criptografia** | Criptografado em repouso com a mesma chave de criptografia usada para dados de BLOB | Criptografado em repouso com uma chave de criptografia gerenciada pela Microsoft |
+| **Preços** | O tamanho dos metadados está incluído nos custos de armazenamento de um blob | Custo fixo por marca de índice |
 | **Resposta de cabeçalho** | Metadados retornados como cabeçalhos em getBlob e getblobproperties | TagCount retornado em getBlob ou getblobproperties; Marcas retornadas somente em GetBlobTags e ListBlobs |
-| **Permissões**  |    Permissões de leitura ou gravação para dados de BLOB se estende aos metadados |    Permissões adicionais são necessárias para ler/filtrar ou gravar marcas |
+| **Permissões**  | Permissões de leitura ou gravação para dados de BLOB se estende aos metadados | Permissões adicionais são necessárias para ler/filtrar ou gravar marcas |
+| **Nomenclatura** | Os nomes de metadados devem aderir às regras de nomenclatura para identificadores C# | As marcas de índice de blob dão suporte a um intervalo mais amplo de caracteres alfanuméricos |
 
 ## <a name="pricing"></a>Preços
 O preço do índice de blob está atualmente em visualização pública e está sujeito a alterações para disponibilidade geral. Os clientes são cobrados pelo número total de marcas de índice de blob dentro de uma conta de armazenamento, com média durante o mês. Não há nenhum custo para o mecanismo de indexação. As solicitações para SetBlobTags, GetBlobTags e FindBlobsByTags são cobradas de acordo com seus respectivos tipos de operação. Consulte [preços do blob de blocos para saber mais](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -264,7 +265,7 @@ Na visualização pública, o índice de blob está disponível no momento apena
 Para começar, consulte [utilizar o índice de BLOB para gerenciar e localizar dados](storage-blob-index-how-to.md).
 
 > [!IMPORTANT]
-> Consulte a seção condições deste artigo. Para se registrar na versão prévia, consulte a seção registrar sua assinatura deste artigo. Você deve registrar sua assinatura para poder usar o índice de BLOB em suas contas de armazenamento.
+> Consulte a seção condições deste artigo. Para se registrar na versão prévia, registre sua assinatura para poder usar o índice de BLOB em suas contas de armazenamento.
 
 ### <a name="register-your-subscription-preview"></a>Registrar sua assinatura (versão prévia)
 Como o índice de blob está apenas em visualização pública, você precisará registrar sua assinatura antes de poder usar o recurso. Para enviar uma solicitação, execute os seguintes comandos da CLI ou do PowerShell.
@@ -284,28 +285,28 @@ az provider register --namespace 'Microsoft.Storage'
 ## <a name="conditions-and-known-issues-preview"></a>Condições e problemas conhecidos (versão prévia)
 Esta seção descreve os problemas e condições conhecidos na visualização pública atual do índice de BLOB. Assim como acontece com a maioria das visualizações, esse recurso não deve ser usado para cargas de trabalho de produção até alcançar GA, pois os comportamentos podem mudar.
 
--   Para visualização, você deve primeiro registrar sua assinatura antes de poder usar o índice de BLOB para sua conta de armazenamento nas regiões de visualização.
--   Atualmente, somente contas GPv2 têm suporte na versão prévia. As contas do datalake Gen2 do blob, BlockBlobStorage e do HNS habilitadas não têm suporte no momento com o índice de BLOB. Não haverá suporte para contas do GPv1.
--   O carregamento de blobs de página com marcas de índice atualmente não mantém as marcas. Você deve definir as marcas depois de carregar um blob de páginas.
--   Quando a filtragem estiver no escopo de um único contêiner, o @container só poderá ser passado se todas as marcas de índice na expressão de filtro forem verificações de igualdade (chave = valor). 
--   Ao usar o operador Range com a condição AND, você só pode especificar o mesmo nome de chave de marca de índice (age > ' 013 ' e age < ' 100 ').
--   No momento, não há suporte para controle de versão e índice de BLOB. As marcas de índice de blob são preservadas para versões, mas atualmente não são passadas para o mecanismo de índice de BLOB.
--   Não há suporte para o failover de conta no momento. O índice de blob pode não ser atualizado corretamente após o failover.
--   O gerenciamento do ciclo de vida só dá suporte a verificações de igualdade com correspondência de índice de BLOB.
--   CopyBlob não copia marcas de índice de blob do blob de origem para o novo BLOB de destino. Você pode especificar as marcas que deseja aplicar ao blob de destino durante a operação de cópia. 
+- Para visualização, você deve primeiro registrar sua assinatura antes de poder usar o índice de BLOB para sua conta de armazenamento nas regiões de visualização.
+- Atualmente, somente contas GPv2 têm suporte na versão prévia. As contas do datalake Gen2 do blob, BlockBlobStorage e do HNS habilitadas não têm suporte no momento no índice de BLOB. Não haverá suporte para contas do GPv1.
+- O carregamento de blobs de página com marcas de índice atualmente não mantém as marcas. Você deve definir as marcas depois de carregar um blob de páginas.
+- Quando a filtragem estiver no escopo de um único contêiner, o @container só poderá ser passado se todas as marcas de índice na expressão de filtro forem verificações de igualdade (chave = valor).
+- Ao usar o operador Range com a condição AND, você só pode especificar o mesmo nome de chave de marca de índice (age > ' 013 ' e age < ' 100 ').
+- No momento, não há suporte para controle de versão e índice de BLOB. As marcas de índice de blob são preservadas para versões, mas atualmente não são passadas para o mecanismo de índice de BLOB.
+- Não há suporte para o failover de conta no momento. O índice de blob pode não ser atualizado corretamente após o failover.
+- O gerenciamento do ciclo de vida só dá suporte a verificações de igualdade com correspondência de índice de BLOB.
+- CopyBlob não copia marcas de índice de blob do blob de origem para o novo BLOB de destino. Você pode especificar as marcas que deseja aplicar ao blob de destino durante a operação de cópia.
 - CopyBlob (cópia assíncrona) de outra conta de armazenamento com marcas aplicadas no blob de destino atualmente faz com que o mecanismo de índice de BLOB não retorne o blob e suas marcas no conjunto de filtros. É recomendável usar CopyBlob da URL (cópia de sincronização) no interim.
--   As marcas são persistidas na criação do instantâneo; no entanto, a promoção de um instantâneo não tem suporte no momento e pode resultar em um conjunto de marcas vazio.
+- As marcas são persistidas na criação do instantâneo; no entanto, a promoção de um instantâneo não tem suporte no momento e pode resultar em um conjunto de marcas vazio.
 
 ## <a name="faq"></a>Perguntas frequentes
 
-### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>O índice de BLOBs pode me ajudar a filtrar e consultar conteúdo dentro de meus BLOBs? 
-Não, as marcas de índice de blob podem ajudá-lo a encontrar os blobs que você está procurando. Se você precisar pesquisar em seus BLOBs, use aceleração de consulta ou Azure Search.
+### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>O índice de BLOBs pode me ajudar a filtrar e consultar conteúdo dentro de meus BLOBs?
+Não, as marcas de índice de blob podem ajudá-lo a encontrar os blobs que você está procurando. Se você precisar pesquisar em seus BLOBs, use a aceleração de consulta ou o Azure Search.
 
 ### <a name="are-there-any-special-considerations-regarding-blob-index-tag-values"></a>Há considerações especiais sobre valores de marca de índice de BLOB?
 Marcas de índice de blob dão suporte apenas a tipos de dados de cadeia de caracteres e a consulta retorna resultados com a ordenação lexicográfica. Para números, é recomendável preencher o número com zero. Para data e horas, é recomendável armazenar como um formato compatível com ISO 8601.
 
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>Marcas de índice de BLOB e marcas de Azure Resource Manager estão relacionadas?
-Não, Azure Resource Manager marcas ajudam a organizar os recursos do plano de controle, como assinaturas, grupos de recursos e contas de armazenamento. As marcas de índice de blob fornecem gerenciamento e descoberta de objetos em recursos de plano de dados, como BLOBs em uma conta de armazenamento.
+Não, as marcas do Gerenciador de recursos ajudam a organizar os recursos do plano de controle, como assinaturas, grupos de recursos e contas de armazenamento. As marcas de índice de blob fornecem gerenciamento e descoberta de objetos em recursos de plano de dados, como BLOBs em uma conta de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

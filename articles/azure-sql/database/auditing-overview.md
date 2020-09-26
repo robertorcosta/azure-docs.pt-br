@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040587"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333181"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -119,7 +119,7 @@ Para configurar a gravação de logs de auditoria em um espaço de trabalho do L
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Para obter mais detalhes sobre os espaços de trabalho de logs de Azure Monitor, consulte [projetando sua implantação de logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+Para obter mais detalhes sobre Azure Monitor Log Analytics espaço de trabalho, consulte [projetando sua implantação de logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria para destino do hub de eventos
 

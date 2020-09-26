@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: e6763633ce27c537f1384e8e51020d44132c0377
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 49fb77b4efbbecb306a0650cb17097b43e5153ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469840"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309142"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Controle de versão de modelo no API de Análise de Texto
 
@@ -44,7 +44,8 @@ O [análise de texto para o contêiner de integridade](../how-tos/text-analytics
 
 | Ponto de extremidade                        | Marca de imagem de contêiner                     | Versão do modelo |
 |---------------------------------|-----------------------------------------|---------------|
-| `/entities/health`               | `1.1.013150001-amd64-preview` ou mais recente | `2020-07-24`  |
+| `/entities/health`              | `1.1.013530001-amd64-preview` ou mais recente          | `2020-09-03`  |
+| `/entities/health`              | `1.1.013150001-amd64-preview`           | `2020-07-24`  |
 | `/domains/health`               | `1.1.012640001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012420001-amd64-preview`           | `2020-05-08`  |
 | `/domains/health`               | `1.1.012070001-amd64-preview`           | `2020-04-16`  |

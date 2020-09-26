@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/29/2019
-ms.openlocfilehash: 81e3547dbd86c840baed8e044a84afd3b63f5be5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7a7373f5fcd36298d2feeff6a2a5b67c9e10e40b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075766"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321587"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Economize custos para recursos com capacidade reservada-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -76,7 +76,7 @@ A flexibilidade de tamanho do vCore ajuda você a aumentar ou diminuir dentro de
 
 Não é possível reservar bancos de dados baseados em DTU (básico, Standard ou Premium) no banco de dados SQL.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
 
 Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -3,12 +3,12 @@ title: Ofertas de conformidade do backup do Azure
 description: Resumo das ofertas de conformidade para o backup do Azure
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8f19896c157645104a392a6f5bb163b8d5729536
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e90a713eea07ac01212cfb3399167ed7e1b5449e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090987"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332654"
 ---
 # <a name="azure-backup-compliance-offerings"></a>Ofertas de conformidade do backup do Azure
 
@@ -31,7 +31,7 @@ Você pode encontrar as ofertas de conformidade abaixo para o backup do Azure pa
 
 ## <a name="us-government"></a>Governo dos EUA
 
-* [DoD DISA L2, L4, L5](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5?view=o365-worldwide)
+* [DoD DISA L2, L4, L5](/microsoft-365/compliance/offering-dod-disa-l2-l4-l5)
 * [FedRAMP](/microsoft-365/compliance/offering-fedramp)
 * [FIPS 140-2](/microsoft-365/compliance/offering-fips-140-2)
 

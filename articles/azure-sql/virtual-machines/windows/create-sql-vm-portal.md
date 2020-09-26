@@ -7,19 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7cd15bab0b26a13f9ffb818aa29e8e262c0bd06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332909"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Como usar o portal do Azure para provisionar uma máquina virtual do Windows com SQL Server
 
@@ -115,7 +115,7 @@ Na guia **Rede**, configure as opções de rede.
 
 * Crie uma nova **rede virtual** ou use uma rede virtual existente para sua VM SQL Server. Designe também uma **sub-rede**. 
 
-* Em **grupo de segurança de rede NIC**, selecione um grupo de segurança básico ou o grupo de segurança avançado. A escolha da opção básica permite selecionar portas de entrada para a VM SQL Server que são os mesmos valores configurados na guia **básico** . a seleção da opção avançado permite que você escolha um grupo de segurança de rede existente ou crie um novo. 
+* Em **grupo de segurança de rede NIC**, selecione um grupo de segurança básico ou o grupo de segurança avançado. Escolher a opção básico permite que você selecione portas de entrada para a VM SQL Server que são os mesmos valores configurados na guia **básico** . A seleção da opção avançado permite que você escolha um grupo de segurança de rede existente ou crie um novo. 
 
 * Você pode fazer outras alterações para configurações de rede ou manter os valores padrão.
 

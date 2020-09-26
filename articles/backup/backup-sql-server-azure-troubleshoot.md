@@ -3,12 +3,12 @@ title: Solucionar problemas SQL Server backup de banco de dados
 description: Informações de solução de problemas para fazer backup de bancos de dados do SQL Server em execução em VMs do Azure com o Backup do Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: c81230a5b32ddb1487bf59e8e43dbb96328d8620
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89513959"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332773"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Solucionar problemas SQL Server backup de banco de dados usando o backup do Azure
 
@@ -60,7 +60,7 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 ### <a name="backup-type-unsupported"></a>Tipo de backup sem suporte
 
-| Severidade | Descrição | Possíveis causas | Ação recomendada |
+| Gravidade | Descrição | Possíveis causas | Ação recomendada |
 |---|---|---|---|
 | Aviso | As configurações atuais deste banco de dados não dão suporte a determinados tipos de backup presentes na política associada. | <li>Somente uma operação de backup de banco de dados completa pode ser executada no banco de dados mestre. O backup diferencial de backup e de log de transações não é possível. </li> <li>Qualquer banco de dados no modelo de recuperação simples não permite o backup de logs de transações.</li> | Modificar as configurações do banco de dados SP todos os tipos de backup na política têm suporte. Ou altere a política atual para incluir apenas os tipos de backup com suporte. Caso contrário, os tipos de backup sem suporte serão ignorados durante o backup agendado ou o trabalho de backup falhará para o backup sob demanda.
 
@@ -130,7 +130,7 @@ Se a VM do SQL precisar ser registrada no novo cofre, ele deverá ter o registro
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| O backup de log usado para a recuperação contém alterações bulk-logged. Ele não pode ser usado para parar em um ponto arbitrário no tempo, de acordo com as diretrizes do SQL. | Quando um banco de dados está no modo de recuperação bulk-logged, os dados entre uma transação bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| O backup de log usado para a recuperação contém alterações bulk-logged. Ele não pode ser usado para parar em um ponto arbitrário no tempo, de acordo com as diretrizes do SQL. | Quando um banco de dados está no modo de recuperação bulk-logged, os dados entre uma transação bulk-logged e a próxima transação de log não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -172,7 +172,7 @@ A operação está bloqueada porque o cofre atingiu seu limite máximo para essa
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou os serviços Azure Active Directorys.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço AzureBackup para permitir o acesso de saída ao serviço de backup do Azure, armazenamento do Azure ou serviços de Azure Active Directory. Siga estas [etapas](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy bloqueando chamadas para os três serviços de destino acima.
+A VM não é capaz de contatar o serviço de backup do Azure devido a problemas de conectividade com a Internet. | A VM precisa de conectividade de saída para o serviço de backup do Azure, o armazenamento do Azure ou os serviços Azure Active Directorys.| -Se você usar NSG para restringir a conectividade, deverá usar a marca de serviço *AzureBackup* para permitir o acesso de saída ao serviço de backup do Azure e, da mesma forma, para os serviços do Azure AD (*AzureActiveDirectory*) e armazenamento do Azure (*armazenamento*). Siga estas [etapas](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>-Verifique se o DNS está resolvendo os pontos de extremidade do Azure.<br>-Verifique se a VM está atrás de um balanceador de carga bloqueando o acesso à Internet. Ao atribuir o IP público às VMs, a descoberta funcionará.<br>-Verifique se não há firewall/antivírus/proxy bloqueando chamadas para os três serviços de destino acima.
 
 ## <a name="re-registration-failures"></a>Falhas no novo registro
 

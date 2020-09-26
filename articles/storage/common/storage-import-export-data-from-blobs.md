@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275194"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 
@@ -32,7 +32,7 @@ Você deve:
   - Gerar um número de controle para o trabalho de exportação.
   - Cada trabalho deve ter um número de controle separado. Não há suporte para vários trabalhos com o mesmo número de controle.
   - Se você não tiver uma conta de transportadora, vá para:
-    - [Criar uma conta FedEX](https://www.fedex.com/en-us/create-account.html), ou
+    - [Criar uma conta do FedEx](https://www.fedex.com/en-us/create-account.html)ou
     - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Etapa 1: Criar um trabalho de exportação
@@ -83,9 +83,9 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 
 6. Em **Informações sobre a remessa de devolução**:
 
-    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com` com as informações sobre a transportadora que você planeja usar.
+    - Selecione a operadora na lista suspensa. Se você quiser usar uma operadora diferente de FedEx/DHL, escolha uma opção existente na lista suspensa. Contate a equipe de operações Azure Data Box em `adbops@microsoft.com`  com as informações sobre a transportadora que você planeja usar.
     - Insira um número válido de conta de operadora que você criou com essa operadora. A Microsoft usa essa conta para enviar as unidades de volta para você quando o trabalho de exportação estiver concluído.
-    - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/município e país/região.
+    - Forneça um nome de contato completo e válido, telefone, email, endereço, cidade, CEP, estado/província e país/região.
 
         > [!TIP]
         > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
@@ -119,7 +119,7 @@ Quando o painel informa que o trabalho foi concluído, os discos são enviados a
 1. Depois de receber as unidades com dados exportados, você precisa obter as chaves do BitLocker para desbloquear as unidades. Vá para o trabalho de exportação no portal do Azure. Clique na guia **Importação/Exportação**.
 2. Selecione e clique no trabalho de exportação da lista. Vá para **criptografia** e copie as chaves.
 
-   ![Exibir chaves do BitLocker para um trabalho de exportação](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![Exibir chaves do BitLocker para um trabalho de exportação](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
 
 3. Use as chaves do BitLocker para desbloquear os discos.
 
@@ -127,15 +127,13 @@ A exportação foi concluída.
 
 ## <a name="step-5-unlock-the-disks"></a>Etapa 5: desbloquear os discos
 
-Se estiver usando a versão 1.4.0.300 da ferramenta WAImportExport, use o seguinte comando para desbloquear a unidade:
+Use o seguinte comando para desbloquear a unidade:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Aqui está um exemplo da entrada de exemplo.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-Se estiver usando versões anteriores da ferramenta, use a caixa de diálogo do BitLocker para desbloquear a unidade.
 
 Neste momento, você pode excluir o trabalho ou deixá-lo. Os trabalhos são excluídos automaticamente após 90 dias.
 

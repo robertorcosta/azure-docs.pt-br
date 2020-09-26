@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 560c156c8e2c3d69c099b2ad573fa0d214f3f80b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730298"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355067"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>O que é o SDK dos dispositivos de fala?
 
@@ -60,4 +60,4 @@ Binários adicionais são fornecidos para dar suporte a dispositivos futuros, [R
 > [!div class="nextstepaction"]
 > [Escolha seu dispositivo de fala](get-speech-devices-sdk.md)
 > [!div class="nextstepaction"]
-> [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+> [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](overview.md#try-the-speech-service-for-free)

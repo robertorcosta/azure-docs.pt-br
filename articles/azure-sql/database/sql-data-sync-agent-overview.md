@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 8033e64924b5faa1cfdc9c04cdd8711850185dca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74fc317dbb97c14c27e6355e100a6e6b5e767363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333005"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Agente de sincronização de dados para Sincronização de Dados SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -96,7 +96,7 @@ Se você deseja executar o agente local em um computador diferente que está atu
 
 - [O aplicativo Agente de Sincronização Local não pode se conectar ao serviço de sincronização local](#agent-connect)
 
-### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a>A instalação, desinstalação ou reparo do agente cliente falha
+### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a> A instalação, desinstalação ou reparo do agente cliente falha
 
 - **Causa**. Muitos cenários podem causar a falha. Para determinar a causa específica dessa falha, você precisa examinar os logs.
 
@@ -118,7 +118,7 @@ O agente cliente não funciona mesmo após você cancelar a desinstalação.
     -   Use services.msc para reinserir suas credenciais do agente cliente.
     -   Desinstale esse agente cliente e instale um novo. Baixe e instale o último agente cliente no [Centro de Download](https://www.microsoft.com/download/details.aspx?id=27693).
 
-### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a>Meu banco de dados não está listado na lista de agentes
+### <a name="my-database-isnt-listed-in-the-agent-list"></a><a name="agent-list"></a> Meu banco de dados não está listado na lista de agentes
 
 Quando você tenta adicionar um banco de dados existente do SQL Server a um grupo de sincronização, o banco de dados não aparece na lista de agentes.
 
@@ -137,7 +137,7 @@ Estes cenários podem causar esse problema:
 
     O agente local baixa a lista de bancos de dados associados somente no primeiro envio da chave do agente. Ele não baixa a lista de bancos de dados associados em envios de chave do agente subsequentes. Os bancos de dados registrados durante uma movimentação do agente não aparecem na instância do agente original.
 
-### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a>O agente cliente não é iniciado (erro 1069)
+### <a name="client-agent-doesnt-start-error-1069"></a><a name="agent-start"></a> O agente cliente não é iniciado (erro 1069)
 
 Você descobriu que o agente não está sendo executado em um computador que hospeda o SQL Server. Ao tentar iniciar o agente manualmente, você obtém uma caixa de diálogo de erro com a mensagem de erro “Erro 1069: o serviço não foi iniciado devido a uma falha de logon”.
 
@@ -161,7 +161,7 @@ Você descobriu que o agente não está sendo executado em um computador que hos
   1. Na janela **Serviços**, clique com o botão direito do mouse no serviço **Agente da Sincronização de Dados SQL** e, em seguida, clique em **Iniciar**.
   1. Feche a janela **Serviços** .
 
-### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a>Não consigo enviar a chave do agente
+### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a> Não consigo enviar a chave do agente
 
 Depois de criar ou recriar uma chave para um agente, você tenta enviar essa chave pelo aplicativo SqlAzureDataSyncAgent. O envio não é concluído.
 
@@ -197,7 +197,7 @@ Depois de criar ou recriar uma chave para um agente, você tenta enviar essa cha
   1. Selecione **OK**.
   1. Feche o programa.
 
-### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a>O agente cliente não poderá ser excluído do portal se seu banco de dados local associado estiver inacessível
+### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a> O agente cliente não poderá ser excluído do portal se seu banco de dados local associado estiver inacessível
 
 Se um ponto de extremidade local (ou seja, um banco de dados) registrado em um agente cliente da Sincronização de Dados SQL ficar inacessível, o agente cliente não poderá ser excluído.
 
@@ -208,7 +208,7 @@ Se um ponto de extremidade local (ou seja, um banco de dados) registrado em um a
 > [!NOTE]
 > Se as tabelas de metadados de sincronização permanecerem após uma "exclusão forçada", use `deprovisioningutil.exe` para limpá-las.
 
-### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a>O aplicativo do agente de sincronização local não pode se conectar ao serviço de sincronização local
+### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a> O aplicativo do agente de sincronização local não pode se conectar ao serviço de sincronização local
 
 - **Resolução**. Experimente as etapas a seguir:
 

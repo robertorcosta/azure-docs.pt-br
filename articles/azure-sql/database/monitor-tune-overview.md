@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 6e17e2a6e5c9151080facc3a2dd8c1a18c0580fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333079"
 ---
-# <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoramento e ajuste de desempenho no banco de dados SQL do Azure e Azure SQL Instância Gerenciada
+# <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Para monitorar o desempenho de um banco de dados no banco de dados SQL do Azure e no Azure SQL Instância Gerenciada, comece monitorando os recursos de CPU e e/s usados pela sua carga de trabalho em relação ao nível de desempenho do banco de dados escolhido na seleção de uma camada de serviço e nível de desempenho específicos. Para fazer isso, o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada emitem métricas de recursos que podem ser exibidas no portal do Azure ou usando uma destas SQL Server ferramentas de gerenciamento: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) ou [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).

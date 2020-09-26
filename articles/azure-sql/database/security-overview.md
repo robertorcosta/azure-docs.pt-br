@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
-ms.openlocfilehash: f3ae5e1ef4dc2968724daeafb32f26cf445b0d2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885298"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321417"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral do banco de dados SQL do Azure e recursos de segurança do SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo descreve as noções básicas de como proteger a camada de dados de um aplicativo usando o [Azure SQL Database](sql-database-paas-overview.md) e o [Azure SQL instância gerenciada](../managed-instance/sql-managed-instance-paas-overview.md). A estratégia de segurança descrita segue a abordagem de defesa em profundidade em camadas conforme mostrado na imagem abaixo e se movimenta de fora para dentro:
 
-![layer.png de segurança do SQL](./media/security-overview/sql-security-layer.png)
+![Diagrama de defesa em camadas. Os dados do cliente são encaixados em camadas de segurança de rede, gerenciamento de acesso e proteção de informações e ameaças.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Segurança de rede
 
@@ -77,7 +77,7 @@ Como prática recomendada, crie funções personalizadas quando necessário. Adi
 
 A segurança em nível de linha permite aos clientes controlar o acesso às linhas em uma tabela de banco de dados com base nas características do usuário executando uma consulta (por exemplo, associação a grupo ou contexto de execução). A segurança em nível de linha também pode ser usada para implementar conceitos de segurança personalizados baseados em rótulo. Para obter mais informações, consulte [segurança em nível de linha](/sql/relational-databases/security/row-level-security).
 
-![rls.png do banco de dados do Azure](./media/security-overview/azure-database-rls.png)
+![O diagrama que mostra essa segurança em nível de linha protege as linhas individuais de um banco de dados SQL do Access por usuários por meio de um aplicativo cliente.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 
@@ -91,7 +91,7 @@ O banco de dados SQL e o SQL Instância Gerenciada a auditoria rastreia atividad
 
 A proteção avançada contra ameaças está analisando seus logs para detectar comportamento incomum e tentativas potencialmente prejudiciais de acessar ou explorar bancos de dados. Os alertas são criados para atividades suspeitas, como injeção de SQL, potencial pós-infiltração de dados e ataques de força bruta ou para anomalias em padrões de acesso para capturar as progressão de privilégio e o uso de credenciais violadas. Os alertas são exibidos na  [central de segurança do Azure](https://azure.microsoft.com/services/security-center/), onde os detalhes das atividades suspeitas são fornecidos e recomendações para uma investigação mais detalhada fornecida junto com as ações para atenuar a ameaça. A proteção avançada contra ameaças pode ser habilitada por servidor por uma taxa adicional. Para obter mais informações, consulte Introdução [à proteção avançada contra ameaças do banco de dados SQL](threat-detection-configure.md).
 
-![td.jpg do banco de dados do Azure](./media/security-overview/azure-database-td.jpg)
+![Diagrama que mostra a detecção de ameaças do SQL monitorando o acesso ao banco de dados SQL para um aplicativo Web de um invasor externo e um insider mal-intencionado.](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Proteção e criptografia de informações
 
@@ -122,13 +122,13 @@ O suporte a [Bring your own Key](transparent-data-encryption-byok-overview.md) (
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (Criptografia em uso)
 
-![ae.png do banco de dados do Azure](./media/security-overview/azure-database-ae.png)
+![Diagrama mostrando os conceitos básicos do recurso Always Encrypted. Um banco de dados SQL com um bloqueio é acessado somente por um aplicativo que contém uma chave.](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) é um recurso criado para proteger dados confidenciais armazenados em colunas de banco de dados específicas contra acesso (por exemplo, números de cartão de crédito, números de identificação nacional ou dados de _conhecimento obrigatório_). Isso inclui administradores de banco de dados ou outros usuários com privilégios que têm autorização para acessar o banco de dados para executar tarefas de gerenciamento, mas não têm a necessidade comercial de acessar os dados específicos nas colunas criptografadas. Os dados sempre são criptografados, o que significa que eles são descriptografados apenas para o processamento realizado por aplicativos cliente com acesso à chave de criptografia. A chave de criptografia nunca é exposta ao banco de dados SQL ou ao SQL Instância Gerenciada e pode ser armazenada no [repositório de certificados do Windows](always-encrypted-certificate-store-configure.md) ou no [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Mascaramento de dados dinâmicos
 
-![ddm.png do banco de dados do Azure](./media/security-overview/azure-database-ddm.png)
+![Diagrama mostrando a máscara de dados dinâmicos. Um aplicativo de negócios envia dados para um banco de dados SQL, que mascara os dados antes de enviá-los de volta ao aplicativo de negócios.](./media/security-overview/azure-database-ddm.png)
 
 O mascaramento de dados dinâmicos limita a exposição de dados confidenciais mascarando-os para usuários sem privilégios. O mascaramento de dados dinâmicos descobre automaticamente os dados potencialmente confidenciais no Azure SQL Database e no SQL Instância Gerenciada e fornece recomendações acionáveis para mascarar esses campos, com impacto mínimo sobre a camada de aplicativo. Funciona ao ocultar os dados confidenciais no conjunto de resultados de uma consulta em relação aos campos do banco de dados designado, enquanto os dados no banco de dados não são alterados. Para obter mais informações, consulte Introdução [ao banco de dados SQL e o sql instância gerenciada mascaramento de dados dinâmicos](dynamic-data-masking-overview.md).
 
@@ -140,7 +140,7 @@ A [avaliação de vulnerabilidade](sql-vulnerability-assessment.md) é um servi�
 
 ### <a name="data-discovery-and-classification"></a>Descoberta e classificação de dados
 
-A descoberta e a classificação de dados (atualmente em versão prévia) fornecem recursos avançados incorporados ao banco de dados SQL do Azure e ao SQL Instância Gerenciada para descobrir, classificar, rotular e proteger as informações confidenciais em seus bancos. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, serviços de saúde, dados pessoais, etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Isso pode servir como infraestrutura para:
+A descoberta e a classificação de dados (atualmente em versão prévia) fornecem recursos avançados incorporados ao banco de dados SQL do Azure e ao SQL Instância Gerenciada para descobrir, classificar, rotular e proteger as informações confidenciais em seus bancos. Descobrir e classificar seus dados confidenciais mais importantes (negócios/financeiros, serviços de saúde, dados pessoais, etc.) pode desempenhar uma função essencial na estatura de proteção das informações organizacionais. Esse recurso pode funcionar como a infraestrutura para:
 
 - Vários cenários de segurança, como monitoramento (auditoria) e alertas sobre acesso anômalo a dados confidenciais.
 - Controlando o acesso e fortalecendo a segurança de bancos de dados que contêm dados altamente confidenciais.

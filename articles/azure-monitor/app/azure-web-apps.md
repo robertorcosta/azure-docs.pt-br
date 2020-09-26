@@ -3,13 +3,13 @@ title: Monitorar desempenho dos serviços de aplicativos do Azure | Microsoft Do
 description: Monitoramento do desempenho de aplicativos para serviços de aplicativos do Azure. Tempo de resposta e carregamento do gráfico, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-js, devx-track-dotnet
+ms.openlocfilehash: 2ac5466e280bb7dd835314561f565ca72be2743c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321808"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 

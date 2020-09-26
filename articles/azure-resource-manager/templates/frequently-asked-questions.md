@@ -2,15 +2,15 @@
 title: Perguntas frequentes sobre o modelo ARM
 description: Perguntas frequentes sobre modelos de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327252"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333113"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos do ARM
 
@@ -88,7 +88,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Ouvi dizer que você está trabalhando em uma nova linguagem de modelo. Onde posso saber mais sobre isso?**
 
-  Para saber mais sobre a nova linguagem de modelo, [Inscreva-se para notificações](https://aka.ms/armLangUpdates).
+  Para visualizar a nova linguagem, consulte [Project bicep Repository](https://github.com/Azure/bicep). Para se manter informado sobre a nova linguagem, [Inscreva-se para receber notificações](https://aka.ms/armLangUpdates).
 
 * **Há um plano para dar suporte à criação de modelos no YAML?**
 
@@ -118,7 +118,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **As especificações de modelo podem ser compartilhadas entre assinaturas?**
 
-  Sim, eles podem ser usados em assinaturas, desde que o usuário tenha acesso de leitura à especificação do modelo. as especificações do modelo não podem ser usadas em locatários.
+  Sim, eles podem ser usados em assinaturas, desde que o usuário tenha acesso de leitura à especificação do modelo. As especificações de modelo não podem ser usadas em locatários.
 
 ## <a name="scripts-in-templates"></a>Scripts em modelos
 
@@ -154,7 +154,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Quando uso What-If, vejo alterações nas propriedades que não estão no meu modelo. Esse "ruído" é esperado?**
 
-  O que acontece na visualização. Estamos trabalhando para reduzir o ruído. Você nos ajuda a melhorar enviando problemas em nosso repositório GitHub aqui:https://aka.ms/WhatIfIssues
+  O que acontece na visualização. Estamos trabalhando para reduzir o ruído. Você nos ajuda a melhorar enviando problemas em nosso repositório GitHub aqui: https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Visualizador de modelos
 
@@ -174,7 +174,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Recebi um erro de limitação a 800 implantações no histórico de implantação. O que devo fazer?**
 
-  Estamos alterando como o histórico de implantação de um grupo de recursos é mantido. No passado, era necessário excluir manualmente as implantações desse histórico para evitar esse erro. A partir de junho de 2020, excluiremos automaticamente as implantações do histórico à medida que você chegar perto do limite. Para obter mais informações, consulte [exclusões automáticas do histórico de implantação](deployment-history-deletions.md).
+  Estamos alterando como o histórico de implantação de um grupo de recursos é mantido. No passado, era necessário excluir manualmente as implantações desse histórico para evitar esse erro. A partir de junho de 2020, excluiremos automaticamente as implantações do histórico à medida que você chegar perto do limite. Para obter mais informações, confira [Exclusões automáticas do histórico de implantações](deployment-history-deletions.md).
 
   A exclusão de uma implantação do histórico não afeta os recursos implantados.
 

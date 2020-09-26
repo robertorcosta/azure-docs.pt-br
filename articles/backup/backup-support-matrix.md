@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d9da2ee893244afc7150ab6249dbe51845d5d0c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332705"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -39,6 +39,7 @@ A tabela a seguir descreve os recursos dos cofres de Serviços de Recuperação:
 **Movimentação de cofres** | Você pode [mover cofres](./backup-azure-move-recovery-services-vault.md) entre assinaturas ou entre grupos de recursos na mesma assinatura. No entanto, não há suporte para a movimentação de cofres entre regiões.
 **Mover dados entre cofres** | Não há suporte para a movimentação de dados de backup entre cofres.
 **Modificar o tipo de armazenamento do cofre** | Você pode modificar o tipo de replicação de armazenamento (armazenamento com redundância geográfica ou armazenamento com redundância local) para um cofre antes que os backups sejam armazenados. Após o início dos backups no cofre, o tipo de replicação não poderá ser modificado.
+**ZRS (armazenamento com redundância de zona)** | Disponível nas regiões Sul do Reino Unido (UKS) e Sul Ásia Oriental (SEA).
 
 ## <a name="on-premises-backup-support"></a>Suporte de backup local
 
@@ -150,9 +151,9 @@ O backup do Azure adicionou o recurso de restauração entre regiões para refor
 | Tipo de Gerenciamento de Backup | Com suporte                                                    | Regiões com Suporte |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | VM do Azure               | Sim.   Suporte para VMs criptografadas e VMs com menos de 4 TB de disco | Todas as regiões públicas do Azure e nuvens soberanas.  |
-| SQL/SAP HANA | Sim                                                          | Todas as regiões públicas do Azure e nuvens soberanas.             |
+| SQL/SAP HANA | Sim                                                          | Oeste dos EUA 2 (WUS2), Oeste EUA Central (WCUS), Canadá central (CNC), leste do Canadá (CNE), leste dos EUA (EUS), oeste dos EUA (WUS), leste do Japão (JPE), leste do Japão (JPE) |
 | Agente do MARS/Local  | Não                                                           | N/D               |
-| AFS                    | Não                                                           | N/D               |
+| AFS (compartilhamentos de arquivos do Azure)                 | Não                                                           | N/D               |
 
 ## <a name="next-steps"></a>Próximas etapas
 

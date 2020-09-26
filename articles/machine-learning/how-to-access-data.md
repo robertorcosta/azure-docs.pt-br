@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 7a785aebc282a871d150f0c9b4cca59d7d03558e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 639e4cde82fd8496c90f8ebf263dd42661a75748
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90976779"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296800"
 ---
 # <a name="connect-to-azure-storage-services"></a>Conectar aos serviços de armazenamento do Azure
 
@@ -113,7 +113,7 @@ Você pode encontrar informações de chave de conta, token SAS e entidade de se
 
 ### <a name="permissions"></a>Permissões
 
-Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+Para o contêiner de blob do Azure e o armazenamento Azure Data Lake Gen 2, verifique se suas credenciais de autenticação têm acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre o [leitor de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Um token SAS de conta usa como padrão nenhuma permissão. Para acesso de leitura de dados, suas credenciais de autenticação devem ter um mínimo de permissões de lista e leitura para contêineres e objetos. Para acesso de gravação de dados, permissões de gravação e adição também são necessárias.
 
 <a name="python"></a>
 
@@ -127,7 +127,7 @@ Nesta seção estão exemplos de como criar e registrar um repositório de armaz
 * [Compartilhamento de arquivos do Azure](#azure-file-share)
 * [Azure Data Lake Storage Generation 2](#azure-data-lake-storage-generation-2)
 
- Para criar repositórios de armazenamento para outros serviços de armazenamento com suporte, consulte a [documentação de referência para os `register_azure_*` métodos aplicáveis](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#&preserve-view=truemethods).
+ Para criar repositórios de armazenamento para outros serviços de armazenamento com suporte, consulte a [documentação de referência para os `register_azure_*` métodos aplicáveis](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py&preserve-view=true#&preserve-view=truemethods).
 
 Se você preferir uma baixa experiência de código, consulte [conectar-se a dados com o Azure Machine Learning Studio](how-to-connect-data-ui.md).
 
@@ -136,7 +136,7 @@ Se você preferir uma baixa experiência de código, consulte [conectar-se a dad
 
 ### <a name="azure-blob-container"></a>Contêiner de blobs do Azure
 
-Para registrar um contêiner de blob do Azure como armazenamento de dados, use [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
+Para registrar um contêiner de blob do Azure como armazenamento de dados, use [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
 O código a seguir cria e registra o armazenamento de dados `blob_datastore_name` no workspace `ws`. Esse armazenamento de dados acessa o contêiner de blob `my-container-name` na conta de armazenamento `my-account-name` com a chave de acesso da conta fornecida. Examine a seção [permissões de acesso de armazenamento &](#storage-access-and-permissions) para obter orientação sobre cenários de rede virtual e onde encontrar as credenciais de autenticação necessárias. 
 
@@ -155,7 +155,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### <a name="azure-file-share"></a>Compartilhamento de arquivos do Azure
 
-Para registrar um compartilhamento de arquivo do Azure como um armazenamento de dados, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#&preserve-view=trueregister-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
+Para registrar um compartilhamento de arquivo do Azure como um armazenamento de dados, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
 O código a seguir cria e registra o armazenamento de dados `file_datastore_name` no workspace `ws`. Esse armazenamento de dados acessa o compartilhamento de arquivo `my-fileshare-name` na conta de armazenamento `my-account-name` com a chave de acesso da conta fornecida. Examine a seção [permissões de acesso de armazenamento &](#storage-access-and-permissions) para obter orientação sobre cenários de rede virtual e onde encontrar as credenciais de autenticação necessárias. 
 
@@ -174,7 +174,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 ### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Generation 2
 
-Para um armazenamento de dados de Azure Data Lake Storage Generation 2 (ADLS Gen 2), use [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar um armazenamento de dados de credenciais conectado a um armazenamento do Azure Data Lake Gen 2 com [permissões de entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).  
+Para um armazenamento de dados de Azure Data Lake Storage Generation 2 (ADLS Gen 2), use [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registrar um armazenamento de dados de credenciais conectado a um armazenamento do Azure Data Lake Gen 2 com [permissões de entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).  
 
 Para utilizar sua entidade de serviço, você precisa [registrar seu aplicativo](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e conceder a entidade de serviço com acesso ao **leitor de dados de blob de armazenamento** . Saiba mais sobre [configuração de controle de acesso para ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
@@ -200,6 +200,14 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_secret=client_secret) # the secret of service principal
 ```
 
+<a name="arm"></a>
+
+## <a name="create-datastores-using-azure-resource-manager"></a>Criar repositórios de armazenamento usando Azure Resource Manager
+
+Há vários modelos [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) que podem ser usados para criar repositórios de armazenamento.
+
+Para obter informações sobre como usar esses modelos, consulte [usar um modelo de Azure Resource Manager para criar um espaço de trabalho para Azure Machine Learning](how-to-create-workspace-template.md).
+
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Usar dados em seus armazenamentos
 
@@ -209,13 +217,13 @@ Depois de criar um datastore, [crie um conjunto](how-to-create-register-datasets
 
 ## <a name="get-datastores-from-your-workspace"></a>Obter armazenamentos de dados do seu workspace
 
-Para obter um armazenamento de dados específico registrado no workspace atual, use o método estático [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#&preserve-view=trueget-workspace--datastore-name-) na classe `Datastore`:
+Para obter um armazenamento de dados específico registrado no workspace atual, use o método estático [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-workspace--datastore-name-) na classe `Datastore`:
 
 ```Python
 # Get a named datastore from the current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
-Para obter a lista de armazenamentos de dados registrados em determinado workspace, você pode usar a propriedade [`datastores`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py#&preserve-view=truedatastores) em um objeto de workspace:
+Para obter a lista de armazenamentos de dados registrados em determinado workspace, você pode usar a propriedade [`datastores`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedatastores) em um objeto de workspace:
 
 ```Python
 # List all datastores registered in the current workspace

@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333402"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte seu dispositivo de trabalho à rede da sua organização
 Junte-se ao seu dispositivo Windows 10 de propriedade de trabalho à rede da sua organização para poder acessar recursos possivelmente restritos.
@@ -54,7 +54,7 @@ Se seu dispositivo está totalmente novo e ainda não foi configurado ainda, per
 
     Seu dispositivo agora está conectado à rede da sua organização.
 
-## <a name="to-make-sure-youre-joined"></a>Para garantir que você está unida
+## <a name="to-make-sure-youre-joined-new-device"></a>Para certificar-se de que você está associado (novo dispositivo)
 Você pode ter certeza de que você está associado, observando as configurações.
 
 1. Abra **as configurações**e, em seguida, selecione **contas**.

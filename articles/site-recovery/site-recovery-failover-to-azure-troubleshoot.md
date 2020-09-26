@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 39a92dbdc0bdcd0fdd2bb06efe3fbd4bfe33069d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2ab52120e2a5db6648caac61f0228cb0be7e67b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071199"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355033"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solucionar erros ao fazer failover de VM VMWare ou de computador físico para o Azure
 
@@ -84,8 +84,8 @@ Para obter instruções de solução de problemas detalhadas sobre problemas de 
 
 Se o botão **Conectar** da VM com failover no Azure estiver esmaecido e você não estiver conectado ao Azure por meio de uma conexão VPN Site a Site ou do Express Route,
 
-1. Vá para **Máquina Virtual** > **Rede** e clique no nome da interface de rede necessária.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navegue até **Configurações de Ip** e clique no campo de nome da configuração de IP necessária. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. Vá para **Máquina Virtual** > **Rede** e clique no nome da interface de rede necessária.  ![Captura de tela mostra a página de rede de uma máquina virtual com o nome da interface de rede selecionado.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navegue até **Configurações de Ip** e clique no campo de nome da configuração de IP necessária. ![Captura de tela mostra a página de configurações I P para a interface de rede com o nome de configuração I P selecionado.](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Para habilitar o endereço IP público, clique em **Habilitar**. ![Habilitar 3D](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Clique em **Definir as configurações necessárias** > **Criar novo**. ![Criar novo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Insira o nome do endereço público, escolha as opções padrão para **SKU** e **atribuição** e clique em **OK**.

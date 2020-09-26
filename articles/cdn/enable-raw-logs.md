@@ -1,6 +1,6 @@
 ---
-title: Logs brutos HTTP da CDN do Azure
-description: Este artigo descreve os logs brutos HTTP da CDN do Azure.
+title: Monitoramento de métricas e logs brutos para a CDN do Azure da Microsoft
+description: Este artigo descreve a CDN do Azure das métricas de monitoramento da Microsoft e dos logs brutos.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -8,17 +8,22 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: 3b36e528a013403a2ed664d3011338d92f37a3db
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040158"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321094"
 ---
-# <a name="azure-cdn-http-raw-logs"></a>Logs brutos HTTP da CDN do Azure
-Os logs brutos fornecem informações avançadas sobre operações e erros importantes para auditoria e para solução de problemas. Os logs brutos são diferentes dos logs de atividades. Os logs de atividade fornecem visibilidade das operações realizadas nos recursos do Azure. Os logs brutos fornecem um registro das operações do seu recurso. O log bruto fornece informações avançadas sobre cada solicitação que a CDN recebe. 
+# <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Monitoramento de métricas e logs brutos para a CDN do Azure da Microsoft
+Com a CDN do Azure da Microsoft, você pode monitorar recursos das seguintes maneiras para ajudá-lo a solucionar problemas, rastrear e depurar questões. 
+
+* Os logs brutos fornecem informações avançadas sobre cada solicitação que a CDN recebe. Os logs brutos são diferentes dos logs de atividades. Os logs de atividade fornecem visibilidade das operações realizadas nos recursos do Azure.
+* Métricas, que exibem quatro métricas-chave na CDN, incluindo a taxa de acertos de bytes, a contagem de solicitações, o tamanho da resposta e a latência total. Ele também fornece dimensões diferentes para dividir as métricas.
+* Alerta, que permite que o cliente configure o alerta para métricas-chave
+* Métricas adicionais, que permitem que os clientes usem o Azure Log Analytics para habilitar métricas adicionais de valor. Também fornecemos exemplos de consulta para algumas outras métricas no Azure Log Analytics.
 
 > [!IMPORTANT]
 > O recurso de logs brutos HTTP está disponível para a CDN do Azure da Microsoft.
@@ -39,14 +44,14 @@ Para configurar logs brutos para seu perfil da CDN do Azure da Microsoft:
 
 3. Selecione **+ Adicionar configuração de diagnóstico**.
 
-    ![Configuração de diagnóstico de CDN](./media/cdn-raw-logs/raw-logs-01.png)
-
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-01.png" alt-text="Adicionar configuração de diagnóstico para o perfil CDN." border="true":::
+    
     > [!IMPORTANT]
     > Os logs brutos só estão disponíveis no nível do perfil enquanto os logs de código de status http agregados estão disponíveis no nível do ponto de extremidade.
 
 4. Em **Configurações de diagnóstico**, insira um nome em **Nome das configurações de diagnóstico**.
 
-5. Selecione o **log** e defina a retenção em dias.
+5. Selecione o **AzureCdnAccessLog** e defina a retenção em dias.
 
 6. Selecione os **Detalhes do destino**. As opções de destino são:
     * **Enviar para o Log Analytics**
@@ -56,13 +61,13 @@ Para configurar logs brutos para seu perfil da CDN do Azure da Microsoft:
     * **Transmitir por streaming para um hub de eventos**
         * Selecione a **Assinatura**, **Namespace do hub de eventos**, **Nome do hub de eventos (opcional)** e **Nome de política do hub de eventos**.
 
-    ![Configuração de diagnóstico de CDN](./media/cdn-raw-logs/raw-logs-02.png)
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure o destino para as configurações de log." border="true":::
 
 7. Clique em **Salvar**.
 
 ## <a name="configuration---azure-powershell"></a>Configuração-Azure PowerShell
 
-Use [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest) para definir a configuração de diagnóstico para logs brutos.
+Use [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) para definir a configuração de diagnóstico para logs brutos.
 
 Os dados de retenção são definidos pela opção **-RetentionInDays** no comando.
 
@@ -167,8 +172,10 @@ Atualmente, a CDN do Azure do serviço da Microsoft fornece logs brutos. Os logs
 | Pop                   | O pop de borda, que respondeu à solicitação do usuário. As abreviações dos POPs são códigos de aeroporto de seus respectivos metros.                                                                                   |
 | Status do cache          | Significa que o objeto foi retornado do cache ou veio da origem.                                                                                                             |
 > [!NOTE]
-> Os logs podem ser exibidos em seu perfil de Log Analytics executando uma consulta. Uma consulta de exemplo seria semelhante a              AzureDiagnostics | onde Category == "AzureCdnAccessLog"
-
+> Os logs podem ser exibidos em seu perfil de Log Analytics executando uma consulta. Uma consulta de exemplo teria A seguinte aparência:
+    ```
+    AzureDiagnostics | where Category == "AzureCdnAccessLog"
+    ```
 
 ### <a name="sent-to-origin-shield-deprecation"></a>Enviado à substituição da blindagem de origem
 A propriedade de log bruto **isSentToOriginShield** foi preterida e substituída por um novo campo **isReceivedFromClient**. Use o novo campo se você já estiver usando o campo preterido. 
@@ -180,7 +187,7 @@ Para cada solicitação que vai para a blindagem de origem, há duas entradas de
 * Um para nós de borda
 * Uma para a blindagem de origem. 
 
-Para diferenciar a saída ou as respostas dos nós de borda versus a blindagem de origem, você pode usar o campo isReceivedFromClient para obter os dados corretos. 
+Para diferenciar a saída ou as respostas dos nós de borda versus a blindagem de origem, você pode usar o campo **isReceivedFromClient** para obter os dados corretos. 
 
 Se o valor for false, isso significa que a solicitação é respondida da blindagem de origem para nós de borda. Essa abordagem é eficaz para comparar logs brutos com dados de cobrança. Os encargos não são incorridos para a saída da blindagem de origem para os nós de borda. Os encargos são incorridos para a saída dos nós de borda para os clientes. 
 
@@ -194,7 +201,90 @@ AzureDiagnostics
 ```
 
 > [!IMPORTANT]
-> O recurso de logs brutos HTTP está disponível automaticamente para todos os perfis criados ou atualizados após **25 de fevereiro de 2020**. Para perfis da CDN criados anteriormente, é necessário atualizar o ponto de extremidade da CDN depois de configurar o registro em log. Por exemplo, é possível navegar para a filtragem geográfica em pontos de extremidade da CDN e bloquear qualquer país/região que não seja relevante para sua carga de trabalho e clicar em salvar. 
+> O recurso de logs brutos HTTP está disponível automaticamente para todos os perfis criados ou atualizados após **25 de fevereiro de 2020**. Para perfis da CDN criados anteriormente, é necessário atualizar o ponto de extremidade da CDN depois de configurar o registro em log. Por exemplo, é possível navegar para a filtragem geográfica em pontos de extremidade da CDN e bloquear qualquer país/região que não seja relevante para sua carga de trabalho e clicar em salvar.
+
+
+## <a name="metrics"></a>Métricas
+A CDN do Azure da Microsoft é integrada com Azure Monitor e publica quatro métricas de CDN para ajudar a controlar, solucionar problemas e depurar problemas. 
+
+As métricas são exibidas em gráficos e acessíveis por meio do PowerShell, da CLI e da API. As métricas da CDN são gratuitas.
+
+A CDN do Azure da Microsoft mede e envia suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no Portal. 
+
+Para obter mais informações, consulte [Azure monitor métricas](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+
+**Métricas com suporte da CDN do Azure da Microsoft**
+
+| Métricas         | Descrição                                                                                                      | Dimensão                                                                                   |
+|-----------------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Taxa de acertos de bytes * | A porcentagem de egresso do cache da CDN, computada com relação à saída total.                                      | Ponto de extremidade                                                                                    |
+| RequestCount    | O número de solicitações de cliente atendidas pela CDN.                                                                     | Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP. |
+| ResponseSize    | O número de bytes enviados como respostas da borda CDN para os clientes.                                                  |Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP.                                                                                          |
+| TotalLatency    | O tempo total da solicitação do cliente recebida pela CDN **até que o último byte de resposta seja enviado da CDN para o cliente**. |Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP.                                                                                             |
+
+***Bytes atingido ração = (saída da borda-saída da origem)/egress do Edge**
+
+Cenários excluídos no cálculo da taxa de acertos de bytes:
+
+* Você não configura explicitamente nenhum cache por meio do mecanismo de regras ou do comportamento de cache de cadeia de caracteres de consulta.
+* Você configura explicitamente a diretiva de controle de cache com cache não armazenado ou privado.
+
+### <a name="metrics-configuration"></a>Configuração de métricas
+
+1. No menu portal do Azure, selecione **todos os recursos**  >>  **\<your-CDN-profile>** .
+
+2. Em **monitoramento**, selecione **métricas**:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Métricas para o perfil CDN." border="true":::
+
+3. Selecione **Adicionar métrica**, selecione a métrica a ser adicionada:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Adicione e selecione a métrica para o perfil CDN." border="true":::
+
+4. Selecione **Adicionar filtro** para adicionar um filtro:
+    
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Aplicar filtro à métrica." border="true":::
+
+5. Selecione **aplicar** divisão para ver a tendência por dimensões diferentes:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Aplique a divisão à métrica." border="true":::
+
+6. Selecione **novo gráfico** para adicionar um novo gráfico:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Adicione um novo gráfico à exibição de métrica." border="true":::
+
+### <a name="alerts"></a>Alertas
+
+Você pode configurar alertas na CDN da Microsoft selecionando alertas de **monitoramento**  >>  **Alerts**.
+
+Selecione **nova regra de alerta** para as métricas listadas na seção métricas:
+
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alertas para o ponto de extremidade CDN." border="true":::
+
+O alerta será cobrado com base em Azure Monitor. Para obter mais informações sobre alertas, consulte [Azure monitor alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+### <a name="additional-metrics"></a>Métricas adicionais
+Você pode habilitar métricas adicionais usando o Azure Log Analytics e logs brutos para obter um custo adicional.
+
+1. Siga as etapas acima em habilitando o diagnóstico para enviar o log bruto para o log Analytics.
+
+2. Selecione o espaço de trabalho Log Analytics que você criou:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Selecionar espaço de trabalho do log Analytics" border="true":::   
+
+3. Selecione **logs** em **geral** no espaço de trabalho do log Analytics.  Em seguida, selecione **introdução**:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Espaço de trabalho de recursos do log Analytics." border="true":::   
+ 
+4. Selecione **perfis CDN**.  Selecione um exemplo de consulta para executar ou fechar a tela de exemplo para inserir uma consulta personalizada:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Exemplo de tela de consulta." border="true":::   
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Execução da consulta." border="true":::   
+
+4. Para exibir dados por gráfico, selecione **gráfico**.  Selecione **fixar no painel** para fixar o gráfico no painel do Azure:
+
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Fixe um gráfico no painel." border="true"::: 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você habilitou os logs brutos HTTP para o serviço de CDN da Microsoft.

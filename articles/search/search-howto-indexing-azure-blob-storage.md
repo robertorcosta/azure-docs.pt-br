@@ -1,34 +1,34 @@
 ---
-title: Pesquisar o conteúdo do armazenamento de BLOBs do Azure
+title: Configurar um indexador de BLOB
 titleSuffix: Azure Cognitive Search
-description: Saiba como indexar documentos no armazenamento de BLOBs do Azure e extrair texto de documentos com o Azure Pesquisa Cognitiva.
+description: Configure um indexador de blob do Azure para automatizar a indexação de conteúdo de BLOB para operações de pesquisa de texto completo no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 9fccd731cee5044b36de9a0dba4a408a9a5b9a49
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328285"
+ms.locfileid: "91355271"
 ---
-# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no armazenamento de BLOBs do Azure com o Azure Pesquisa Cognitiva
+# <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Como configurar um indexador de blob no Azure Pesquisa Cognitiva
 
-Este artigo mostra como usar o Pesquisa Cognitiva do Azure para indexar documentos (como, por exemplo, PDFs, Microsoft Office documentos e vários outros formatos comuns) armazenados no armazenamento de BLOBs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
+Este artigo mostra como usar o Azure Pesquisa Cognitiva para indexar documentos baseados em texto (como PDFs, Microsoft Office documentos e vários outros formatos comuns) armazenados no armazenamento de BLOBs do Azure. Primeiro, ele explica as noções básicas de configuração de um indexador de blob. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
 
 <a name="SupportedFormats"></a>
 
-## <a name="supported-document-formats"></a>Formatos de documento com suporte
+## <a name="supported-formats"></a>Formatos com suporte
+
 O indexador de blob pode extrair o texto dos seguintes formatos de documento:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="setting-up-blob-indexing"></a>Configuração da indexação de blob
+## <a name="set-up-blob-indexing"></a>Configurar a indexação de BLOB
 Você pode configurar um indexador do Armazenamento de Blobs do Azure usando:
 
 * [Azure portal](https://ms.portal.azure.com)
@@ -130,7 +130,7 @@ Para obter mais informações sobre como definir as agendas do indexador, confir
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## <a name="how-azure-cognitive-search-indexes-blobs"></a>Como o Azure Pesquisa Cognitiva indexa BLOBs
+## <a name="how-blobs-are-indexed"></a>Como os BLOBs são indexados
 
 Dependendo da [configuração do indexador](#PartsOfBlobToIndex), o indexador de blobs pode indexar somente metadados de armazenamento (algo útil quando você está preocupado apenas com os metadados e não precisa indexar o conteúdo dos blobs), metadados de armazenamento e conteúdo ou conteúdo textual e de metadados. Por padrão, o indexador extrai os metadados e o conteúdo.
 
@@ -170,7 +170,7 @@ No Azure Pesquisa Cognitiva, a chave do documento identifica exclusivamente um d
 
 Você deve considerar cuidadosamente qual campo extraído deve ser mapeado para o campo de chave de seu índice. Os candidatos são:
 
-* **metadata\_storage\_name**: este pode ser um candidato conveniente, mas observe que 1) talvez os nomes não sejam exclusivos, pois você pode ter blobs com o mesmo nome em pastas diferentes, e 2) o nome pode conter caracteres inválidos em chaves de documento, por exemplo, traços. Você pode lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas à API, como Pesquisa. (Por exemplo, em .NET você pode usar o método [UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) para essa finalidade).
+* **metadata\_storage\_name**: este pode ser um candidato conveniente, mas observe que 1) talvez os nomes não sejam exclusivos, pois você pode ter blobs com o mesmo nome em pastas diferentes, e 2) o nome pode conter caracteres inválidos em chaves de documento, por exemplo, traços. Você pode lidar com caracteres inválidos usando a `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se fizer isso, lembre-se de codificar as chaves de documento ao transmiti-las em chamadas à API, como Pesquisa. (Por exemplo, em .NET você pode usar o método [UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) para essa finalidade).
 * **metadata\_storage\_path**: o uso do caminho completo garante a exclusividade, mas o caminho contém definitivamente caracteres `/` que são [inválidos em uma chave de documento](/rest/api/searchservice/naming-rules).  Como foi mencionado acima, você tem a opção de codificar as chaves usando a  [função](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`.
 * Se nenhuma das opções acima funcionar para você, adicione uma propriedade de metadados personalizada aos blobs. No entanto, essa opção exige que seu processo de carregamento de blob adicione essa propriedade de metadados a todos os blobs. Como a chave é uma propriedade obrigatória, todos os blobs que não tiverem essa propriedade apresentarão falha na indexação.
 
@@ -231,10 +231,12 @@ Há ocasiões em que você precisa usar uma versão codificada de um campo como 
     }
 ```
 <a name="WhichBlobsAreIndexed"></a>
-## <a name="controlling-which-blobs-are-indexed"></a>Controlando quais blobs serão indexados
+## <a name="index-by-file-type"></a>Indexar por tipo de arquivo
+
 É possível controlar quais blobs são indexados e quais são ignorados.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexe apenas os blobs com extensões de arquivo específicas
+### <a name="include-blobs-having-specific-file-extensions"></a>Incluir BLOBs com extensões de arquivo específicas
+
 Você pode indexar apenas os blobs com as extensões do nome de arquivo especificadas usando o parâmetro de configuração do indexador `indexedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar apenas blobs de .PDF e .DOCX, faça o seguinte:
 
 ```http
@@ -248,7 +250,8 @@ Você pode indexar apenas os blobs com as extensões do nome de arquivo especifi
     }
 ```
 
-### <a name="exclude-blobs-with-specific-file-extensions"></a>Excluir blobs com extensões de arquivo específicas
+### <a name="exclude-blobs-having-specific-file-extensions"></a>Excluir BLOBs com extensões de arquivo específicas
+
 Você pode excluir os blobs com extensões do nome de arquivo específicas da indexação usando o parâmetro de configuração `excludedFileNameExtensions`. O valor é uma cadeia de caracteres que contém uma lista separada por vírgulas das extensões de arquivo (com um ponto à esquerda). Por exemplo, para indexar todos os blobs, exceto aqueles com as extensões .PNG e .JPEG, faça o seguinte:
 
 ```http
@@ -265,7 +268,7 @@ Você pode excluir os blobs com extensões do nome de arquivo específicas da in
 Se ambos `indexedFileNameExtensions` os `excludedFileNameExtensions` parâmetros e estiverem presentes, o Azure pesquisa cognitiva primeiro examinará `indexedFileNameExtensions` , em seguida, em `excludedFileNameExtensions` . Isso significa que, se a mesma extensão de arquivo estiver presente nas duas listas, ela será excluída da indexação.
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controlando quais partes do blob são indexadas
+## <a name="index-parts-of-a-blob"></a>Partes de índice de um blob
 
 Você pode controlar quais partes dos blobs são indexadas usando o parâmetro de configuração `dataToExtract`. Ele pode usar os seguintes valores:
 
@@ -296,7 +299,8 @@ Os parâmetros de configuração descritos acima se aplicam a todos os blobs. À
 | AzureSearch_SkipContent |"true" |Isso é equivalente à configuração `"dataToExtract" : "allMetadata"` descrita [acima](#PartsOfBlobToIndex), no escopo de um blob específico. |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>Lidando com problemas
+
+## <a name="handle-errors"></a>Tratar erros
 
 Por padrão, o indexador de blobs é interrompido assim que encontra um blob com um tipo de conteúdo sem suporte (por exemplo, uma imagem). Evidentemente, você pode usar o parâmetro `excludedFileNameExtensions` para ignorar alguns tipos de conteúdo. No entanto, talvez você precise indexar blobs sem conhecer todos os possíveis tipos de conteúdo com antecedência. Para continuar a indexação quando um tipo de conteúdo sem suporte é encontrado, defina o parâmetro de configuração `failOnUnsupportedContentType` como `false`:
 
@@ -466,7 +470,7 @@ Por padrão, a codificação `UTF-8` será assumida. Para especificar uma codifi
 ## <a name="content-type-specific-metadata-properties"></a>Propriedades de metadados específicas ao tipo de conteúdo
 A tabela a seguir resume o processamento feito para cada formato de documento e descreve as propriedades de metadados extraídas pelo Pesquisa Cognitiva do Azure.
 
-| Formato de documento/tipo de conteúdo | Propriedades de metadados específicas do tipo de conteúdo | Detalhes do processamento |
+| Formato de documento/tipo de conteúdo | Metadados extraídos | Detalhes do processamento |
 | --- | --- | --- |
 | HTML (texto/HTML) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Remoção da marcação HTML e extração do texto |
 | PDF (aplicativo/PDF) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Extração do texto, incluindo documentos incorporados (excluindo imagens) |

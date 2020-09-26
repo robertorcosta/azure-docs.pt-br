@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 457be5ac014fda6b4984ed7af3dcc89780b16379
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 5f5122b5fa7c20bc0717ef1605e41bb5f2700be2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309091"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -34,7 +34,7 @@ O NER (reconhecimento de entidade nomeada) é a capacidade de identificar difere
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Recurso                                                         | NER v 3.0 | NER v 3.1-Preview. 1 |
+| Recurso                                                         | NER v 3.0 | NER v 3.1-Preview. 2 |
 |-----------------------------------------------------------------|--------|----------|
 | Métodos para solicitações únicas e em lote                          | X      | X        |
 | Reconhecimento de entidade expandido em várias categorias           | X      | X        |
@@ -47,7 +47,7 @@ Consulte [suporte a idiomas](../language-support.md) para obter informações.
 
 O reconhecimento de entidade nomeada v3 fornece detecção expandida entre vários tipos. Atualmente, o NER v 3.0 pode reconhecer entidades na [categoria de entidade geral](../named-entity-types.md).
 
-Reconhecimento de entidade nomeada v 3.1-Preview. 1 inclui os recursos de detecção do v 3.0 e a capacidade de detectar informações pessoais ( `PII` ) usando o `v3.1-preview.1/entities/recognition/pii` ponto de extremidade. Você pode usar o `domain=phi` parâmetro opcional para detectar informações de integridade confidencial ( `PHI` ). Consulte o artigo [categorias de entidade](../named-entity-types.md) e a seção pontos de extremidade de [solicitação](#request-endpoints) abaixo para obter mais informações.
+Reconhecimento de entidade nomeada v 3.1-Preview. 2 inclui os recursos de detecção do v 3.0 e a capacidade de detectar informações pessoais ( `PII` ) usando o `v3.1-preview.2/entities/recognition/pii` ponto de extremidade. Você pode usar o `domain=phi` parâmetro opcional para detectar informações de integridade confidencial ( `PHI` ). Consulte o artigo [categorias de entidade](../named-entity-types.md) e a seção pontos de extremidade de [solicitação](#request-endpoints) abaixo para obter mais informações.
 
 
 ## <a name="sending-a-rest-api-request"></a>Como enviar uma solicitação da API REST
@@ -75,24 +75,36 @@ O reconhecimento de entidade nomeada v3 usa pontos de extremidade separados para
 Vinculação de entidade
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
+[Referência de reconhecimento de entidade nomeada versão 3,0 para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-#### <a name="version-31-preview1"></a>[Versão 3,1-Preview. 1](#tab/version-3-preview)
+[Referência de reconhecimento de entidade nomeada versão 3,0 para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-O reconhecimento de entidade nomeada `v3.1-preview.1` usa pontos de extremidade separados para solicitações de vinculação de Ner e entidade. Use um formato de URL abaixo com base em sua solicitação:
+#### <a name="version-31-preview2"></a>[Versão 3,1-Preview. 2](#tab/version-3-preview)
+
+O reconhecimento de entidade nomeada `v3.1-preview.2` usa pontos de extremidade separados para solicitações de vinculação de Ner e entidade. Use um formato de URL abaixo com base em sua solicitação:
 
 Vinculação de entidade
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+
+[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
 
 NER
-* Entidades gerais-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/general`
+* Entidades gerais- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
 
-* Informações pessoais ( `PII` )-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii`
+[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+
+* Informações pessoais ( `PII` )- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 Você também pode usar o `domain=phi` parâmetro opcional para detectar `PHI` informações de integridade () em texto. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+
+Observe a adição da `redactedText` propriedade no JSON de resposta que contém o texto de entrada modificado em que as entidades PII detectadas são substituídas por um * para cada caractere das entidades.
+
+[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
 
 ---
 
@@ -125,13 +137,13 @@ A API de Análise de Texto é sem estado. Nenhum dado é armazenado em sua conta
 
 Todas as solicitações POST retornam uma resposta formatada em JSON com as IDs e as propriedades de entidade detectadas.
 
-A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local e, em seguida, importá-lo para um aplicativo que permite que você classifique, pesquise e manipule os dados. Devido ao suporte multilíngue e de Emoji, a resposta pode conter deslocamentos de texto. Consulte [como processar deslocamentos de texto](../concepts/text-offsets.md) para obter mais informações.
+A saída é retornada imediatamente. Você pode transmitir os resultados para um aplicativo que aceita JSON ou salvar a saída em um arquivo no sistema local e, em seguida, importá-lo para um aplicativo que permite que você classifique, pesquise e manipule os dados. Devido ao suporte multilíngue e a emojis, a resposta pode conter deslocamentos de texto. Consulte [como processar deslocamentos de texto](../concepts/text-offsets.md) para obter mais informações.
 
-### <a name="example-v3-responses"></a>Exemplo de respostas v3
+### <a name="example-responses"></a>Respostas de exemplo
 
 A versão 3 fornece pontos de extremidade separados para NER e vinculação de entidade. As respostas para ambas as operações estão abaixo. 
 
-#### <a name="example-ner-response"></a>Exemplo de resposta NER
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 ```json
 {
@@ -184,9 +196,7 @@ A versão 3 fornece pontos de extremidade separados para NER e vinculação de e
   "modelVersion": "2020-04-01"
 }
 ```
-
-
-#### <a name="example-entity-linking-response"></a>Exemplo de resposta de vinculação de entidade
+#### <a name="version-31-preview"></a>[Versão 3,1-visualização](#tab/version-3-preview)
 
 ```json
 {
@@ -195,6 +205,7 @@ A versão 3 fornece pontos de extremidade separados para NER e vinculação de e
       "id": "1",
       "entities": [
         {
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
           "name": "Space Needle",
           "matches": [
             {
@@ -210,6 +221,7 @@ A versão 3 fornece pontos de extremidade separados para NER e vinculação de e
           "dataSource": "Wikipedia"
         },
         {
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
           "name": "Seattle",
           "matches": [
             {
@@ -233,6 +245,8 @@ A versão 3 fornece pontos de extremidade separados para NER e vinculação de e
 }
 ```
 
+---
+
 
 ## <a name="summary"></a>Resumo
 
@@ -246,4 +260,4 @@ Neste artigo, você aprendeu os conceitos e fluxo de trabalho para detecção de
 
 * [Visão geral da Análise de Texto](../overview.md)
 * [Como usar a biblioteca de clientes da Análise de Texto](../quickstarts/text-analytics-sdk.md)
-* [O que há de novo](../whats-new.md)
+* [Novidades](../whats-new.md)

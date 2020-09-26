@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 14418d4d280f4da629aecd5a95b5a49e6856e2c1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: ca2284e3e2f581d1935a8978d26fd674154d581b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549379"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333497"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: configurar o Atlassian Cloud para provisionamento automático de usuário
 
@@ -35,7 +35,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Atlassia
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
 * [Um locatário de nuvem do Atlassian](https://www.atlassian.com/licensing/cloud)
 * Uma conta de usuário no Atlassian Cloud com permissões de administrador.
@@ -49,11 +49,12 @@ O cenário descrito neste tutorial pressupõe que você já tem os seguintes pr�
 
 1. Navegue até [Atlassian Organization Manager](https://admin.atlassian.com) **> selecione o diretório > org**.
 
-    ![Provisionamento de nuvem do Atlassian](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
+    ![Captura de tela da página de administração com a opção de diretório chamada out.](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
 
 2. Clique em **provisionamento de usuário** e clique em **criar um diretório**. Copie a **URL base do diretório** e o **token de portador** que serão inseridos nos campos **URL do locatário** e **token secreto** na guia provisionamento do aplicativo Atlassian Cloud no portal do Azure AD, respectivamente.
 
-    ![Provisionamento em nuvem do Atlassian Atlassian provisionamento de nuvem ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![ ](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png) ![ Atlassian provisionamento de nuvem](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
+    ![Captura de tela da página de administração com a opção de provisionamento de usuário chamada out. ](./media/atlassian-cloud-provisioning-tutorial/secret-token-1.png) ![Captura de tela da página criar um token.](./media/atlassian-cloud-provisioning-tutorial/secret-token-2.png)
+    ![Captura de tela da página de token do diretório de tempo de demonstração.](./media/atlassian-cloud-provisioning-tutorial/secret-token-3.png)
 
 
 ## <a name="step-3-add-atlassian-cloud-from-the-azure-ad-application-gallery"></a>Etapa 3. Adicionar o Atlassian Cloud da Galeria de aplicativos do Azure AD
@@ -85,11 +86,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira a **URL do locatário** e o **token secreto** recuperados anteriormente da conta da nuvem do Atlassian. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Atlassian Cloud. Se a conexão falhar, verifique se sua conta do Atlassian Cloud tem permissões de administrador e tente novamente.
 

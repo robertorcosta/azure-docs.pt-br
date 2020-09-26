@@ -3,12 +3,12 @@ title: MABS & matriz de suporte do System Center DPM
 description: Este artigo resume o suporte ao backup do Azure quando você usa o Backup do Microsoft Azure Server (MABS) ou o System Center DPM para fazer backup de recursos locais e da VM do Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e3ca83b8a2874304521d84f6901fcb9627ce80db
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89506603"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332688"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Backup do Microsoft Azure Server ou o System Center DPM
 
@@ -24,7 +24,7 @@ O MABS é baseado no System Center DPM e fornece funcionalidade semelhante com a
 
 - Não é necessária a licença do System Center para executar o MABS.
 - Para o MABS e o DPM, o Azure fornece armazenamento de backup de longo prazo. Além disso, o DPM permite fazer backup de dados para armazenamento de longo prazo em fita. O MABS não possui essa funcionalidade.
-- [Você pode fazer backup de um servidor DPM primário com um servidor DPM secundário](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019). O servidor secundário protege o banco de dados do servidor primário e as réplicas de fonte de dados armazenadas no servidor primário. Se o servidor primário falhar, o servidor secundário pode continuar a proteger as cargas de trabalho que são protegidas pelo servidor primário, até que o servidor primário esteja disponível novamente.  O MABS não possui essa funcionalidade.
+- [Você pode fazer backup de um servidor DPM primário com um servidor DPM secundário](/system-center/dpm/back-up-the-dpm-server). O servidor secundário protege o banco de dados do servidor primário e as réplicas de fonte de dados armazenadas no servidor primário. Se o servidor primário falhar, o servidor secundário pode continuar a proteger as cargas de trabalho que são protegidas pelo servidor primário, até que o servidor primário esteja disponível novamente.  O MABS não possui essa funcionalidade.
 
 Você baixa o MABS do [centro de download da Microsoft](https://www.microsoft.com/download/details.aspx?id=57520). Ele pode ser executado localmente ou em uma VM do Azure.
 
@@ -43,7 +43,7 @@ O backup usando o DPM/MABS e o backup do Azure funciona da seguinte maneira:
 1. O Agente do MARS (Serviços de Recuperação do Microsoft Azure) é instalado no servidor MARS/DPM.
 1. O agente MARS faz backup dos discos do DPM/MABS em um cofre de serviços de recuperação de backup no Azure usando o backup do Azure.
 
-Para obter mais informações:
+Para mais informações:
 
 - [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura do MABS.
 - [Examine o que tem suporte](backup-support-matrix-mars-agent.md) para o agente Mars.
@@ -84,7 +84,7 @@ O backup do Azure pode fazer backup de instâncias do DPM/MABS que estão execut
 --- | ---
 **Instalação** | Instale o DPM/MABS em um computador de finalidade única.<br/><br/> Não instale o DPM/MABS em um controlador de domínio, em um computador com a instalação da função de servidor de aplicativos, em um computador que esteja executando o Microsoft Exchange Server ou System Center Operations Manager, ou em um nó de cluster.<br/><br/> [Examine todos os requisitos de sistema do DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
 **Domínio** | O DPM/MABS deve ser Unido a um domínio. Instale primeiro e, em seguida, associe o MABS/DPM em um domínio. Não é possível mover o MABS/DPM para um novo domínio após a implantação.
-**Armazenamento** | O MBS (armazenamento de backup moderno) tem suporte do DPM 2016/MABS V2 e posterior. Ele não está disponível para o MABS v1.
+**Storage** | O MBS (armazenamento de backup moderno) tem suporte do DPM 2016/MABS V2 e posterior. Ele não está disponível para o MABS v1.
 **Atualização do MABS** | Você pode instalar diretamente o MABS v3 ou atualizar o MABS v2 para o MABS v3. [Saiba mais](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 **Mover o MABS** | Se você estiver usando o MBS, é possível mover o MABS para um novo servidor mantendo o armazenamento.<br/><br/> O servidor deve ter o mesmo nome que o original. Você não pode alterar o nome se quiser manter o mesmo pool de armazenamento e usar o mesmo banco de dados do MABS para armazenar os pontos de recuperação de dados.<br/><br/> Você precisará de um backup do banco de dados MABS porque precisará restaurá-lo.
 
@@ -158,13 +158,13 @@ Sem conectividade por mais de 15 dias | Expirado/desprovisionado | Nenhum backup
 |Requisito |Detalhes |
 |---------|---------|
 |Domain    | O servidor DPM/MABS deve estar em um domínio do Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012.        |
-|Confiança no domínio   |  O DPM/MABS dá suporte à proteção de dados entre florestas, desde que você estabeleça uma relação de confiança bidirecional em nível de floresta entre as florestas separadas.   <BR><BR>   O DPM/MABS pode proteger servidores e estações de trabalho entre domínios, em uma floresta que tenha uma relação de confiança bidirecional com o domínio do servidor DPM/MABS. Para proteger computadores em grupos de trabalho ou domínios não confiáveis, confira [fazer backup e restaurar cargas de trabalho em grupos e domínios não confiáveis.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+|Confiança no domínio   |  O DPM/MABS dá suporte à proteção de dados entre florestas, desde que você estabeleça uma relação de confiança bidirecional em nível de floresta entre as florestas separadas.   <BR><BR>   O DPM/MABS pode proteger servidores e estações de trabalho entre domínios, em uma floresta que tenha uma relação de confiança bidirecional com o domínio do servidor DPM/MABS. Para proteger computadores em grupos de trabalho ou domínios não confiáveis, confira [fazer backup e restaurar cargas de trabalho em grupos e domínios não confiáveis.](/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains)  |
 
 ## <a name="dpmmabs-storage-support"></a>Compatível com armazenamento do MABS/DPM
 
 Os dados submetidos a backup no DPM/MABS são armazenados no armazenamento em disco local.
 
-**Armazenamento** | **Detalhes**
+**Storage** | **Detalhes**
 --- | ---
 **MBS** | O MBS (armazenamento de backup moderno) tem suporte do DPM 2016/MABS V2 e posterior. Ele não está disponível para o MABS v1.
 **Armazenamento MABS na VM do Azure** | Os dados são armazenados em discos do Azure que são anexados à VM do DPM/MABS e que são gerenciados no DPM/MABS. O número de discos que podem ser usados para o pool de armazenamento do DPM/MABS é limitado pelo tamanho da VM.<br/><br/> VM a2:4 discos; VM a3:8 discos; VM A4:16 discos, com um tamanho máximo de 1 TB para cada disco. Isso determina o pool de armazenamento de backup total que está disponível.<br/><br/> A quantidade de dados que você pode fazer backup depende do número e do tamanho dos discos anexados.
@@ -185,7 +185,7 @@ Para obter informações sobre os vários servidores e cargas de trabalho que vo
 
 ## <a name="supported-backups-to-dpm"></a>Backups compatíveis com o DPM
 
-Para obter informações sobre os vários servidores e cargas de trabalho que você pode proteger com Data Protection Manager, consulte o artigo [o que o DPM pode fazer backup?](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2019).
+Para obter informações sobre os vários servidores e cargas de trabalho que você pode proteger com Data Protection Manager, consulte o artigo [o que o DPM pode fazer backup?](/system-center/dpm/dpm-protection-matrix).
 
 - As cargas de trabalho clusterizadas com backup pelo DPM/MABS devem estar no mesmo domínio que o DPM/MABS ou em um domínio filho/confiável.
 - Você pode usar a autenticação NTLM/certificado para fazer backup de dados em grupos de trabalho ou domínios não confiáveis.
