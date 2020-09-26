@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e42d9713d1d61bb681c0ee51e46cc52eb0bcc807
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77430798"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363181"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
 
@@ -32,7 +32,7 @@ Você precisará definir o Swagger para a mesma região que sua assinatura do se
 
 1. Acesse https://editor.swagger.io
 2. Clique em **Arquivo** e, em seguida, em **Importar**
-3. Insira a URL do Swagger, incluindo a região da sua assinatura do serviço de fala`https://<your-region>.cris.ai/docs/v2.0/swagger`
+3. Insira a URL do Swagger, incluindo a região da sua assinatura do serviço de fala `https://<your-region>.cris.ai/docs/v2.0/swagger`
 4. Clique em **gerar cliente** e selecione Python
 5. Salvar a biblioteca de clientes
 
@@ -47,4 +47,4 @@ Você pode usar a biblioteca do Python gerada com os [exemplos de serviço de fa
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Exemplos de serviço de fala no GitHub](https://aka.ms/csspeech/samples).
-* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](get-started.md)
+* [Obter gratuitamente uma chave de assinatura dos Serviços de Fala](overview.md#try-the-speech-service-for-free)

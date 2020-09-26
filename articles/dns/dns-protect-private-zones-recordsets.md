@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1bbb410b3aac7d1e30db075003eb30ec27b11a38
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363215"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Como proteger registros e zonas DNS particulares
 
@@ -22,7 +22,7 @@ DNS privado de zonas e registros são recursos críticos. Excluir uma zona DNS o
 
 Este artigo explica como o DNS do Azure permite que você proteja suas zonas e registros DNS privados contra essas alterações.  Aplicamos dois recursos de valores mobiliários avançados fornecidos pelo Azure Resource Manager: [controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) e [bloqueios de recursos](../azure-resource-manager/management/lock-resources.md).
 
-## <a name="role-based-access-control"></a>Controle de acesso baseado em funções
+## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
 O Azure RBAC (controle de acesso baseado em função) permite o gerenciamento de acesso refinado para usuários, grupos e recursos do Azure. Com o RBAC, você pode conceder o nível de acesso que os usuários precisam. Para obter mais informações sobre como o RBAC ajuda você a gerenciar o acesso, consulte [o que é o Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md).
 
@@ -102,9 +102,9 @@ As permissões são aplicadas no nível do conjunto de registros.  O usuário re
 
 As permissões RBAC de nível de conjunto de registros podem ser configuradas por meio do portal do Azure, usando o botão **controle de acesso (iam)** na página conjunto de registros:
 
-![RBAC de nível do conjunto de registros por meio do Portal do Azure](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![Captura de tela mostra o botão controle de acesso (I M).](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![RBAC de nível do conjunto de registros por meio do Portal do Azure](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![Captura de tela mostra o controle de acesso com adicionar atribuição de função selecionada.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 As permissões RBAC de nível do conjunto de registros também podem ser [concedidas usando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -165,7 +165,7 @@ O exemplo a seguir mostra uma definição de função personalizada para gerenci
 A propriedade Actions define as seguintes permissões específicas do DNS:
 
 * `Microsoft.Network/privateDnsZones/CNAME/*` concede controle total sobre os registros CNAME
-* `Microsoft.Network/privateDNSZones/read`concede permissão para ler zonas privadas DNS, mas não para modificá-las, permitindo que você veja a zona na qual o CNAME está sendo criado.
+* `Microsoft.Network/privateDNSZones/read` concede permissão para ler zonas privadas DNS, mas não para modificá-las, permitindo que você veja a zona na qual o CNAME está sendo criado.
 
 > [!NOTE]
 > Usar uma função personalizada do Azure para impedir a exclusão de conjuntos de registros enquanto ainda permite que eles sejam atualizados não é um controle efetivo. Isso impede que os conjuntos de registro sejam excluídos, mas não impede que sejam modificados.  As modificações permitidas incluem adicionar e remover registros do conjunto de registros, incluindo a remoção de todos os registros para deixar um conjunto de registros vazio. Do ponto de vista de resolução de DNS, isso tem o mesmo efeito de excluir o registro.
