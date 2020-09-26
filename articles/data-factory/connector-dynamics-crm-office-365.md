@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 06/10/2020
-ms.openlocfilehash: 54aac9fda42a867ab66d631279efbca4f812b01a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/23/2020
+ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497601"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332093"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,12 +81,12 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como "Dynamics", "DynamicsCrm" ou "CommonDataServiceForApps". | Sim |
 | deploymentType | O tipo de implantação da instância do Dynamics. O valor deve ser "online" para o Dynamics online. | Sim |
-| serviceUri | A URL de serviço da instância do Dynamics. Um exemplo é https://www.crmdynamics.com. | Sim |
+| serviceUri | A URL de serviço da instância do Dynamics, a mesma que você acessa no navegador. Um exemplo é "https:// \<organization-name> . CRM [x]. Dynamics. com". | Sim |
 | authenticationType | O tipo de autenticação para se conectar a um servidor do Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Sim |
 | servicePrincipalId | A ID do cliente do aplicativo do Azure AD. | Sim quando a autenticação for "AADServicePrincipal" |
 | servicePrincipalCredentialType | O tipo de credencial a ser usado para autenticação de entidade de serviço. Os valores válidos são "ServicePrincipalKey" e "ServicePrincipalCert". | Sim quando a autenticação for "AADServicePrincipal" |
 | servicePrincipalCredential | A credencial de entidade de serviço. <br/><br/>Quando você usa "ServicePrincipalKey" como o tipo de credencial, `servicePrincipalCredential` pode ser uma cadeia de caracteres que Azure data Factory criptografa na implantação do serviço vinculado. Ou pode ser uma referência a um segredo no Azure Key Vault. <br/><br/>Quando você usa "ServicePrincipalCert" como a credencial, `servicePrincipalCredential` deve ser uma referência a um certificado no Azure Key Vault. | Sim quando a autenticação for "AADServicePrincipal" |
-| nome de usuário | O nome de usuário para se conectar ao Dynamics. | Sim quando a autenticação for "Office365" |
+| Nome de Usuário | O nome de usuário para se conectar ao Dynamics. | Sim quando a autenticação for "Office365" |
 | password | A senha da conta de usuário que você especificou como o nome de usuários. Marque este campo com "SecureString" para armazená-lo com segurança no Data Factory ou [faça referência a um segredo armazenado em Azure Key Vault](store-credentials-in-key-vault.md). | Sim quando a autenticação for "Office365" |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não para fonte e sim para o coletor se o serviço vinculado de origem não tiver um tempo de execução de integração |
 
@@ -102,7 +102,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
         "type": "Dynamics",  
         "typeProperties": {  
             "deploymentType": "Online",  
-            "serviceUri": "https://www.crmdynamics.com",  
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",  
             "authenticationType": "AADServicePrincipal",  
             "servicePrincipalId": "<service principal id>",  
             "servicePrincipalCredentialType": "ServicePrincipalKey",  
@@ -124,7 +124,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
         "type": "Dynamics", 
         "typeProperties": { 
             "deploymentType": "Online", 
-            "serviceUri": "https://www.crmdynamics.com", 
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com", 
             "authenticationType": "AADServicePrincipal", 
             "servicePrincipalId": "<service principal id>", 
             "servicePrincipalCredentialType": "ServicePrincipalCert", 
@@ -154,7 +154,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Dynamics.
         "type": "Dynamics",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://www.crmdynamics.com",
+            "serviceUri": "https://<organization-name>.crm[x].dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -182,7 +182,7 @@ Propriedades adicionais que se comparam ao Dynamics online são **hostname** e *
 | porta | O nome da porta do servidor do Dynamics local. | Não. O valor padrão é 443. |
 | organizationName | O nome da organização da instância do Dynamics. | Sim. |
 | authenticationType | O tipo de autenticação para se conectar ao servidor do Dynamics. Especifique "Ifd" para o Dynamics local com IFD. | Sim. |
-| nome de usuário | O nome de usuário para se conectar ao Dynamics. | Sim. |
+| Nome de Usuário | O nome de usuário para se conectar ao Dynamics. | Sim. |
 | password | A senha para a conta de usuário especificada para o nome do usuário. Você pode marcar esse campo com "SecureString" para armazená-lo com segurança em Data Factory. Ou você pode armazenar uma senha em Key Vault e deixar a atividade de cópia efetuar pull a partir daí quando ela faz a cópia de dados. Saiba mais sobre [Armazenar credenciais no Cofre de Chaves](store-credentials-in-key-vault.md). | Sim. |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se nenhum valor for especificado, a propriedade usará o tempo de execução de integração do Azure padrão. | Não para fonte e sim para coletor. |
 
@@ -378,21 +378,21 @@ Configure o tipo de dados Data Factory correspondente em uma estrutura de conjun
 | Tipo de dados do Dynamics | Tipo de dados provisório do Data Factory | Tem suporte como origem | Tem suporte como coletor |
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
-| AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
+| AttributeTypeCode.Boolean | Booliano | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
 | AttributeType.DateTime | Datetime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.EntityName | String | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
-| AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.ManagedProperty | Booliano | ✓ | |
+| AttributeType.Memo | String | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | ✓ (Consulte as [diretrizes](#writing-data-to-a-lookup-field)) |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |
-| AttributeType.String | Cadeia de caracteres | ✓ | ✓ |
+| AttributeType.String | String | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

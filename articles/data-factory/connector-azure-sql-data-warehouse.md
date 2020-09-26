@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 01e2a2db3757e8d13749faf53b47300c8188915e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.date: 09/23/2020
+ms.openlocfilehash: d0c6de2fdf0720e671090e8a817b00e25c5f3d42
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484469"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332144"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando Azure Data Factory
 
@@ -144,7 +144,7 @@ Para usar a autenticação de token de aplicativo do Azure AD com base em entida
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Conceda ao principal de serviço as permissões necessárias**, como faria normalmente para usuários do SQL ou outros. Execute o código a seguir ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Se você quiser usar o PolyBase para carregar os dados, aprenda a [permissão de banco de dados necessária](#required-database-permission).
+4. **Conceda ao principal de serviço as permissões necessárias**, como faria normalmente para usuários do SQL ou outros. Execute o código a seguir ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Se você quiser usar o PolyBase para carregar os dados, aprenda a [permissão de banco de dados necessária](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -190,7 +190,7 @@ Para usar a autenticação de identidade gerenciada, siga estas etapas:
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Conceda à identidade gerenciada pelo data factory as permissões necessárias**, como faria normalmente para usuários do SQL e outros. Execute o código a seguir ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Se você quiser usar o PolyBase para carregar os dados, aprenda a [permissão de banco de dados necessária](#required-database-permission).
+3. **Conceda à identidade gerenciada pelo data factory as permissões necessárias**, como faria normalmente para usuários do SQL e outros. Execute o código a seguir ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Se você quiser usar o PolyBase para carregar os dados, aprenda a [permissão de banco de dados necessária](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -372,7 +372,7 @@ O Azure Data Factory dá suporte a três maneiras de carregar dados no Azure Syn
 - [Usar a instrução COPY (versão prévia)](#use-copy-statement)
 - Usar Bulk Insert
 
-A maneira mais rápida e escalonável de carregar dados é por meio do [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) ou da [instrução COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (versão prévia).
+A maneira mais rápida e escalonável de carregar dados é por meio do [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) ou da [instrução COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (versão prévia).
 
 Para copiar dados para o Azure Synapse Analytics, defina o tipo de coletor na atividade de cópia como **SqlDWSink**. As seguintes propriedades são suportadas na seção Copy Activity **sink**:
 
@@ -381,7 +381,7 @@ Para copiar dados para o Azure Synapse Analytics, defina o tipo de coletor na at
 | type              | A propriedade **tipo** do coletor de Atividade de Cópia deve ser definida como **SqlDWSink**. | Sim                                           |
 | allowPolyBase     | Indica se o polybase deve ser usado para carregar dados no Azure Synapse Analytics. `allowCopyCommand` e `allowPolyBase` não podem ser ambos verdadeiros. <br/><br/>Confira [a seção usar o polybase para carregar dados na análise de Synapse do Azure](#use-polybase-to-load-data-into-azure-synapse-analytics) para obter restrições e detalhes.<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não.<br/>Aplicar ao usar o PolyBase.     |
 | polyBaseSettings  | Um grupo de propriedades que pode ser especificado quando a propriedade `allowPolybase` está definida como **true**. | Não.<br/>Aplicar ao usar o PolyBase. |
-| allowCopyCommand | Indica se a [instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (versão prévia) deve ser usada para carregar dados no Azure Synapse Analytics. `allowCopyCommand` e `allowPolyBase` não podem ser ambos verdadeiros. <br/><br/>Consulte [usar a instrução Copy para carregar dados na seção do Azure Synapse Analytics](#use-copy-statement) para obter restrições e detalhes.<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não.<br>Aplicar ao usar a instrução COPY. |
+| allowCopyCommand | Indica se a [instrução de cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) (versão prévia) deve ser usada para carregar dados no Azure Synapse Analytics. `allowCopyCommand` e `allowPolyBase` não podem ser ambos verdadeiros. <br/><br/>Consulte [usar a instrução Copy para carregar dados na seção do Azure Synapse Analytics](#use-copy-statement) para obter restrições e detalhes.<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não.<br>Aplicar ao usar a instrução COPY. |
 | copyCommandSettings | Um grupo de propriedades que pode ser especificado quando a propriedade `allowCopyCommand` está definida como TRUE. | Não.<br/>Aplicar ao usar a instrução COPY. |
 | writeBatchSize    | Número de linhas a serem inseridas na tabela SQL **por lote**.<br/><br/>O valor permitido é **inteiro** (número de linhas). Por padrão, o Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha. | Não.<br/>Aplicar ao usar Bulk Insert.     |
 | writeBatchTimeout | Tempo de espera para a operação de inserção em lote ser concluída antes de expirar.<br/><br/>O valor permitido é **timespan**. Exemplo: "00:30:00" (30 minutos). | Não.<br/>Aplicar ao usar Bulk Insert.        |
@@ -417,9 +417,10 @@ Quando você habilita a cópia particionada, a atividade de cópia executa consu
 
 | Cenário                                                     | Configurações sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Carga total de uma tabela grande, com partições físicas.        | **Opção de partição**: partições físicas da tabela. <br><br/>Durante a execução, Data Factory detecta automaticamente as partições físicas e copia os dados por partições. |
+| Carga total de uma tabela grande, com partições físicas.        | **Opção de partição**: partições físicas da tabela. <br><br/>Durante a execução, Data Factory detecta automaticamente as partições físicas e copia os dados por partições. <br><br/>Para verificar se a tabela tem uma partição física ou não, você pode fazer referência a [essa consulta](#sample-query-to-check-physical-partition). |
 | Carga total de uma tabela grande, sem partições físicas, enquanto com uma coluna de número inteiro ou de data e hora para o particionamento de dados. | **Opções de partição**: partição de intervalo dinâmico.<br>**Coluna de partição** (opcional): Especifique a coluna usada para particionar dados. Se não for especificado, a coluna índice ou chave primária será usada.<br/>**Limite superior** da partição e **limite inferior da partição** (opcional): especifique se você deseja determinar o stride da partição. Isso não é para filtrar as linhas na tabela, todas as linhas da tabela serão particionadas e copiadas. Se não for especificado, a atividade de cópia detectará automaticamente os valores.<br><br>Por exemplo, se a coluna de partição "ID" tiver valores varia de 1 a 100, e você definir o limite inferior como 20 e o limite superior como 80, com cópia paralela como 4, Data Factory recuperará dados por 4 partições-IDs no intervalo <= 20, [21, 50], [51, 80] e >= 81, respectivamente. |
-| Carregue uma grande quantidade de dados usando uma consulta personalizada, sem partições físicas, enquanto com uma coluna de número inteiro ou data/hora para o particionamento de dados. | **Opções de partição**: partição de intervalo dinâmico.<br>**Consulta**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Coluna de partição**: especifique a coluna usada para particionar dados.<br>**Limite superior** da partição e **limite inferior da partição** (opcional): especifique se você deseja determinar o stride da partição. Isso não é para filtrar as linhas na tabela, todas as linhas no resultado da consulta serão particionadas e copiadas. Se não for especificado, a atividade de cópia detectará o valor automaticamente.<br><br>Durante a execução, Data Factory substitui `?AdfRangePartitionColumnName` o nome real da coluna e os intervalos de valores de cada partição e envia ao Azure Synapse Analytics. <br>Por exemplo, se a coluna de partição "ID" tiver valores varia de 1 a 100, e você definir o limite inferior como 20 e o limite superior como 80, com cópia paralela como 4, Data Factory recuperará dados por 4 partições-IDs no intervalo <= 20, [21, 50], [51, 80] e >= 81, respectivamente. |
+| Carregue uma grande quantidade de dados usando uma consulta personalizada, sem partições físicas, enquanto com uma coluna de número inteiro ou data/hora para o particionamento de dados. | **Opções de partição**: partição de intervalo dinâmico.<br>**Consulta**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Coluna de partição**: especifique a coluna usada para particionar dados.<br>**Limite superior** da partição e **limite inferior da partição** (opcional): especifique se você deseja determinar o stride da partição. Isso não é para filtrar as linhas na tabela, todas as linhas no resultado da consulta serão particionadas e copiadas. Se não for especificado, a atividade de cópia detectará o valor automaticamente.<br><br>Durante a execução, Data Factory substitui `?AdfRangePartitionColumnName` o nome real da coluna e os intervalos de valores de cada partição e envia ao Azure Synapse Analytics. <br>Por exemplo, se a coluna de partição "ID" tiver valores varia de 1 a 100, e você definir o limite inferior como 20 e o limite superior como 80, com cópia paralela como 4, Data Factory recuperará dados por 4 partições-IDs no intervalo <= 20, [21, 50], [51, 80] e >= 81, respectivamente. <br><br>Aqui estão mais exemplos de consultas para cenários diferentes:<br> 1. consulte a tabela inteira: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. consulta de uma tabela com seleção de coluna e filtros de cláusula WHERE adicionais: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. consultar com subconsultas: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. consulta com partição na subconsulta: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+|
 
 Práticas recomendadas para carregar dados com a opção de partição:
 
@@ -452,6 +453,22 @@ Práticas recomendadas para carregar dados com a opção de partição:
     }
 }
 ```
+
+### <a name="sample-query-to-check-physical-partition"></a>Exemplo de consulta para verificar a partição física
+
+```sql
+SELECT DISTINCT s.name AS SchemaName, t.name AS TableName, c.name AS ColumnName, CASE WHEN c.name IS NULL THEN 'no' ELSE 'yes' END AS HasPartition
+FROM sys.tables AS t
+LEFT JOIN sys.objects AS o ON t.object_id = o.object_id
+LEFT JOIN sys.schemas AS s ON o.schema_id = s.schema_id
+LEFT JOIN sys.indexes AS i ON t.object_id = i.object_id
+LEFT JOIN sys.index_columns AS ic ON ic.partition_ordinal > 0 AND ic.index_id = i.index_id AND ic.object_id = t.object_id
+LEFT JOIN sys.columns AS c ON c.object_id = ic.object_id AND c.column_id = ic.column_id
+LEFT JOIN sys.types AS y ON c.system_type_id = y.system_type_id
+WHERE s.name='[your schema]' AND t.name = '[your table name]'
+```
+
+Se a tabela tiver uma partição física, você verá "HasPartition" como "Sim".
 
 ## <a name="use-polybase-to-load-data-into-azure-synapse-analytics"></a>Usar o polybase para carregar dados no Azure Synapse Analytics
 
@@ -507,7 +524,7 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 4. `wildcardFolderPath` ,,,, `wildcardFilename` `modifiedDateTimeStart` `modifiedDateTimeEnd` `prefix` `enablePartitionDiscovery` e `additionalColumns` não são especificados.
 
 >[!NOTE]
->Se a sua origem for uma pasta, o PolyBase recuperará arquivos da pasta e de todas as respectivas subpastas e não recuperará dados de arquivos para os quais o nome do arquivo começa com um sublinhado (_) ou um ponto final (.), conforme documentado [aqui – argumento LOCATION](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#arguments-2).
+>Se a sua origem for uma pasta, o PolyBase recuperará arquivos da pasta e de todas as respectivas subpastas e não recuperará dados de arquivos para os quais o nome do arquivo começa com um sublinhado (_) ou um ponto final (.), conforme documentado [aqui – argumento LOCATION](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql#arguments-2).
 
 ```json
 "activities":[
@@ -545,12 +562,12 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 
 ### <a name="staged-copy-by-using-polybase"></a>Cópia organizada usando PolyBase
 
-Quando os dados de origem não são nativamente compatíveis com o PolyBase, habilite a cópia de dados por meio de uma instância do Armazenamento de Blobs do Azure de preparo provisório (não pode ser o Armazenamento Premium do Azure). Nesse caso, o Azure Data Factory converte automaticamente os dados para atender aos requisitos de formato de dados do PolyBase. Em seguida, ele invoca o polybase para carregar dados no Azure Synapse Analytics. Finalmente, ele limpa seus dados temporários do armazenamento de blobs. Consulte [Cópia preparada](copy-activity-performance-features.md#staged-copy) para obter detalhes sobre a cópia de dados por meio de uma instância de armazenamento de Blob do Azure de preparação.
+Quando os dados de origem não são nativamente compatíveis com o polybase, habilite a cópia de dados por meio de um blob do Azure de preparo provisório ou Azure Data Lake Storage Gen2 (não pode ser o armazenamento Premium do Azure). Nesse caso, o Azure Data Factory converte automaticamente os dados para atender aos requisitos de formato de dados do PolyBase. Em seguida, ele invoca o polybase para carregar dados no Azure Synapse Analytics. Por fim, ele limpa os dados temporários do armazenamento. Confira [cópia em etapas](copy-activity-performance-features.md#staged-copy) para obter detalhes sobre como copiar dados por meio de um preparo.
 
-Para usar esse recurso, crie um [serviço vinculado do Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties) que se refira à conta de Armazenamento do Azure com o Armazenamento de Blobs provisório. Em seguida, especifique as propriedades `enableStaging` e `stagingSettings` para a atividade de cópia, conforme mostrado no código a seguir.
+Para usar esse recurso, crie um [serviço vinculado do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure data Lake Storage Gen2 serviço vinculado](connector-azure-data-lake-storage.md#linked-service-properties) que se refere à conta de armazenamento do Azure com o armazenamento provisório. Em seguida, especifique as propriedades `enableStaging` e `stagingSettings` para a atividade de cópia, conforme mostrado no código a seguir.
 
 >[!IMPORTANT]
->Se o Armazenamento do Azure de preparo estiver configurado com o ponto de extremidade de serviço de VNet, você precisará usar a autenticação de identidade gerenciada – veja [Impacto de usar pontos de extremidade de serviço de VNet com Armazenamento do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Conheça as configurações necessárias em Data Factory de [Blob do Azure – autenticação de identidade gerenciada](connector-azure-blob-storage.md#managed-identity).
+>Se o Armazenamento do Azure de preparo estiver configurado com o ponto de extremidade de serviço de VNet, você precisará usar a autenticação de identidade gerenciada – veja [Impacto de usar pontos de extremidade de serviço de VNet com Armazenamento do Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Conheça as configurações necessárias em Data Factory de [autenticação de identidade gerenciada pelo blob do Azure](connector-azure-blob-storage.md#managed-identity) e [autenticação de identidade gerenciada por Azure data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity).
 
 ```json
 "activities":[
@@ -580,7 +597,7 @@ Para usar esse recurso, crie um [serviço vinculado do Armazenamento de Blobs do
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 }
             }
@@ -619,8 +636,7 @@ Se os dados de origem estiverem em formato de texto ou outros repositórios comp
 ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
 ```
 
-A solução é desmarcar a opção "**Usar o tipo padrão**" (como false) no coletor da atividade de cópia -> configurações do PolyBase. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)" é uma configuração nativa do PolyBase, que especifica como tratar valores ausentes em arquivos de texto delimitados quando o PolyBase recupera dados do arquivo de texto.
+A solução é desmarcar a opção "**Usar o tipo padrão**" (como false) no coletor da atividade de cópia -> configurações do PolyBase. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql#arguments)" é uma configuração nativa do PolyBase, que especifica como tratar valores ausentes em arquivos de texto delimitados quando o PolyBase recupera dados do arquivo de texto.
 
 **`tableName` no Azure Synapse Analytics**
 
@@ -651,7 +667,7 @@ O valor NULL é uma forma especial do valor padrão. Se a coluna permite valor n
 
 ## <a name="use-copy-statement-to-load-data-into-azure-synapse-analytics-preview"></a><a name="use-copy-statement"></a> Usar a instrução de cópia para carregar dados no Azure Synapse Analytics (versão prévia)
 
-A instrução de [cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) do Azure Synapse Analytics (versão prévia) dá suporte diretamente ao carregamento de dados do **blob do Azure e Azure data Lake Storage Gen2**. Se os dados de origem atendem aos critérios descritos nesta seção, você pode optar por usar a instrução de cópia no ADF para carregar dados no Azure Synapse Analytics. O Azure Data Factory verificará as configurações e falhará na execução da atividade de cópia se os critérios não forem atendidos.
+A instrução de [cópia](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) do Azure Synapse Analytics (versão prévia) dá suporte diretamente ao carregamento de dados do **blob do Azure e Azure data Lake Storage Gen2**. Se os dados de origem atendem aos critérios descritos nesta seção, você pode optar por usar a instrução de cópia no ADF para carregar dados no Azure Synapse Analytics. O Azure Data Factory verificará as configurações e falhará na execução da atividade de cópia se os critérios não forem atendidos.
 
 >[!NOTE]
 >Atualmente, o Data Factory só dá suporte à cópia de origens compatíveis com a instrução COPY, conforme mencionado abaixo.
@@ -691,7 +707,7 @@ As seguintes configurações da instrução COPY são compatíveis em `allowCopy
 | Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Especifica os valores padrão para cada coluna de destino no Azure Synapse Analytics.  Os valores padrão na propriedade substituem a restrição DEFAULT definida no data warehouse e a coluna de identidade não pode ter um valor padrão. | Não |
-| additionalOptions | Opções adicionais que serão passadas para uma instrução de cópia do Azure Synapse Analytics diretamente na cláusula "with" na [instrução Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). Coloque o valor entre aspas conforme necessário para alinhar com os requisitos da instrução COPY. | Não |
+| additionalOptions | Opções adicionais que serão passadas para uma instrução de cópia do Azure Synapse Analytics diretamente na cláusula "with" na [instrução Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql). Coloque o valor entre aspas conforme necessário para alinhar com os requisitos da instrução COPY. | Não |
 
 ```json
 "activities":[
@@ -779,7 +795,7 @@ Configurações específicas para o Azure Synapse Analytics estão disponíveis 
 - Recriar: a tabela será descartada e recriada. Necessário ao criar uma tabela dinamicamente.
 - Truncar: todas as linhas da tabela de destino serão removidas.
 
-**Habilitar preparo:** determina se o [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide?view=sql-server-ver15) deve ou não ser usado ao gravar no Azure Synapse Analytics
+**Habilitar preparo:** determina se o [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) deve ou não ser usado ao gravar no Azure Synapse Analytics
 
 **Tamanho do lote**: controla quantas linhas estão sendo gravadas em cada bucket. Tamanhos de lote maiores aprimoram a compactação e a otimização de memória, mas geram risco de exceções de memória insuficiente ao armazenar dados em cache.
 

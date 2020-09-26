@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 09/24/2020
 ms.author: iainfou
-ms.openlocfilehash: de27ee713caae0310f185cd717d5db2095feff32
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ef05704ea03316ef0c95510e27ee630ddcfb0b44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266897"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar Azure Active Directory Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos
 
@@ -139,6 +139,14 @@ Há algumas restrições nas redes virtuais para as quais um domínio gerenciado
 
 Para obter mais informações sobre os requisitos de rede virtual, consulte [considerações de design de rede virtual e opções de configuração][network-considerations].
 
+Você também deve criar um grupo de segurança de rede para restringir o tráfego na rede virtual para o domínio gerenciado. Um balanceador de carga standard do Azure é criado durante o processo de migração que exige a colocação dessas regras. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente.
+
+Para obter mais informações sobre quais regras são necessárias, consulte [Azure AD DS grupos de segurança de rede e portas necessárias](network-considerations.md#network-security-groups-and-required-ports).
+
+### <a name="ldaps-and-tlsssl-certificate-expiration"></a>Expiração de certificado de LDAPs e TLS/SSL
+
+Se o domínio gerenciado estiver configurado para LDAPs, confirme se seu certificado TLS/SSL atual é válido por mais de 30 dias. Um certificado que expira nos próximos 30 dias faz com que os processos de migração falhem. Se necessário, renove o certificado e aplique-o ao domínio gerenciado e, em seguida, inicie o processo de migração.
+
 ## <a name="migration-steps"></a>Etapas da migração
 
 A migração para o modelo de implantação do Gerenciador de recursos e a rede virtual é dividida em cinco etapas principais:
@@ -166,7 +174,9 @@ Antes de começar o processo de migração, conclua as seguintes verificações 
 
     Verifique se as configurações de rede não bloqueiam as portas necessárias necessárias para o AD DS do Azure. As portas devem ser abertas na rede virtual clássica e na rede virtual do Resource Manager. Essas configurações incluem tabelas de rotas (embora não seja recomendável usar tabelas de rotas) e grupos de segurança de rede.
 
-    Para exibir as portas necessárias, consulte [grupos de segurança de rede e portas necessárias][network-ports]. Para minimizar problemas de comunicação de rede, é recomendável aguardar e aplicar um grupo de segurança de rede ou uma tabela de rotas à rede virtual do Resource Manager após a migração ser concluída com êxito.
+    O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas necessárias para o domínio gerenciado e bloquear todo o tráfego de entrada. Esse grupo de segurança de rede atua como uma camada extra de proteção para bloquear o acesso ao domínio gerenciado. Para exibir as portas necessárias, consulte [grupos de segurança de rede e portas necessárias][network-ports].
+
+    Se você usar LDAP seguro, adicione uma regra ao grupo de segurança de rede para permitir o tráfego de entrada para a porta *TCP* *636*. Para obter mais informações, consulte [bloquear o acesso LDAP seguro pela Internet](tutorial-configure-ldaps.md#lock-down-secure-ldap-access-over-the-internet)
 
     Anote esse grupo de recursos de destino, a rede virtual de destino e a sub-rede de rede virtual de destino. Esses nomes de recursos são usados durante o processo de migração.
 
@@ -265,9 +275,9 @@ Quando pelo menos um controlador de domínio estiver disponível, conclua as seg
 
 Agora, teste a conexão de rede virtual e a resolução de nomes. Em uma VM conectada à rede virtual do Resource Manager ou emparelhada a ela, experimente os seguintes testes de comunicação de rede:
 
-1. Verifique se você pode executar o ping no endereço IP de um dos controladores de domínio, como`ping 10.1.0.4`
+1. Verifique se você pode executar o ping no endereço IP de um dos controladores de domínio, como `ping 10.1.0.4`
     * Os endereços IP dos controladores de domínio são mostrados na página de **Propriedades** do domínio gerenciado no portal do Azure.
-1. Verificar a resolução de nomes do domínio gerenciado, como`nslookup aaddscontoso.com`
+1. Verificar a resolução de nomes do domínio gerenciado, como `nslookup aaddscontoso.com`
     * Especifique o nome DNS para seu próprio domínio gerenciado para verificar se as configurações de DNS estão corretas e resolvidas.
 
 O segundo controlador de domínio deve estar disponível 1-2 horas após a conclusão do cmdlet de migração. Para verificar se o segundo controlador de domínio está disponível, examine a página de **Propriedades** do domínio gerenciado no portal do Azure. Se dois endereços IP forem mostrados, o segundo controlador de domínio estará pronto.
@@ -295,13 +305,6 @@ Se necessário, você pode atualizar a política de senha refinada para ser meno
 1. Se uma VM for exposta à Internet, examine nomes de conta genérica como *administrador*, *usuário*ou *convidado* com tentativas de entrada altas. Sempre que possível, atualize essas VMs para usar contas com nomes menos genéricos.
 1. Use um rastreamento de rede na VM para localizar a origem dos ataques e impedir que esses endereços IP sejam capazes de tentar entrar.
 1. Quando houver problemas mínimos de bloqueio, atualize a política de senha refinada para ser tão restritiva quanto necessário.
-
-### <a name="creating-a-network-security-group"></a>Como criar um grupo de segurança de rede
-
-O Azure AD DS precisa de um grupo de segurança de rede para proteger as portas necessárias para o domínio gerenciado e bloquear todo o tráfego de entrada. Esse grupo de segurança de rede atua como uma camada extra de proteção para bloquear o acesso ao domínio gerenciado e não é criado automaticamente. Para criar o grupo de segurança de rede e abrir as portas necessárias, examine as seguintes etapas:
-
-1. Na portal do Azure, selecione o recurso de AD DS do Azure. Na página Visão geral, um botão é exibido para criar um grupo de segurança de rede se não houver nenhum associado a Azure AD Domain Services.
-1. Se você usar LDAP seguro, adicione uma regra ao grupo de segurança de rede para permitir o tráfego de entrada para a porta *TCP* *636*. Para obter mais informações, consulte [Configurar o LDAP seguro][secure-ldap].
 
 ## <a name="roll-back-and-restore-from-migration"></a>Reverter e restaurar da migração
 

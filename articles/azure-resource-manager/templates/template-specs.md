@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fad7ca60e98dcaabc5f6fc106e0d2c1b77085d67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0516947ff134992d684aa6826999c4d65bba1457
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227875"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369069"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo de Azure Resource Manager (versão prévia)
 
-Uma especificação de modelo é um novo tipo de recurso para armazenar um modelo de Azure Resource Manager (modelo ARM) no Azure para implantação posterior. Esse tipo de recurso permite que você compartilhe modelos do ARM com outros usuários em sua organização. Assim como qualquer outro recurso do Azure, você pode usar o RBAC (controle de acesso baseado em função) para compartilhar a especificação do modelo.
+Uma especificação de modelo é um novo tipo de recurso para armazenar um modelo de Azure Resource Manager (modelo ARM) no Azure para implantação posterior. Esse tipo de recurso permite que você compartilhe modelos do ARM com outros usuários em sua organização. Assim como qualquer outro recurso do Azure, você pode usar o Azure RBAC (controle de acesso baseado em função) para compartilhar a especificação do modelo.
 
 **Microsoft. Resources/templateSpecs** é o novo tipo de recurso para as especificações de modelo. Ele consiste em um modelo principal e qualquer número de modelos vinculados. O Azure armazena as especificações de modelo com segurança em grupos de recursos. As especificações de modelo dão suporte ao [controle de versão](#versioning).
 
@@ -27,7 +27,7 @@ Para implantar a especificação do modelo, você usa ferramentas padrão do Azu
 
 Se, no momento, você tiver seus modelos em um repositório GitHub ou em uma conta de armazenamento, você terá vários desafios ao tentar compartilhar e usar os modelos. Para que um usuário o implante, o modelo deve ser local ou a URL para o modelo deve ser acessível publicamente. Para contornar essa limitação, você pode compartilhar cópias do modelo com usuários que precisam implantá-lo ou abrir o acesso ao repositório ou à conta de armazenamento. Quando os usuários possuem cópias locais de um modelo, essas cópias podem eventualmente divergir do modelo original. Ao tornar um repositório ou uma conta de armazenamento acessível publicamente, você pode permitir que usuários indesejados acessem o modelo.
 
-O benefício de usar as especificações de modelo é que você pode criar modelos canônicos e compartilhá-los com equipes em sua organização. As especificações de modelo são seguras porque estão disponíveis para Azure Resource Manager para implantação, mas não podem ser acessadas por usuários sem permissão de RBAC. Os usuários só precisam de acesso de leitura à especificação do modelo para implantar seu modelo, para que você possa compartilhar o modelo sem permitir que outras pessoas o modifiquem.
+O benefício de usar as especificações de modelo é que você pode criar modelos canônicos e compartilhá-los com equipes em sua organização. As especificações de modelo são seguras porque estão disponíveis para Azure Resource Manager para implantação, mas não podem ser acessadas por usuários sem permissão do RBAC do Azure. Os usuários só precisam de acesso de leitura à especificação do modelo para implantar seu modelo, para que você possa compartilhar o modelo sem permitir que outras pessoas o modifiquem.
 
 Os modelos incluídos em uma especificação de modelo devem ser verificados pelos administradores em sua organização para seguir os requisitos e as diretrizes da organização.
 
