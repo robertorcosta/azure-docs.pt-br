@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e2cb8ee282666d7a9a567ca04762b26de3b3b9bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328480"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância do gêmeos digital do Azure para uma região diferente do Azure
 
@@ -88,7 +88,7 @@ Agora você deve ter o aplicativo de exemplo do ADT Explorer em execução em um
 
 Para verificar a conexão, você pode clicar no botão *Executar consulta* para executar a consulta padrão que exibe todas as gêmeos e relações no grafo na caixa *Gerenciador de gráficos* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Um botão com a mensagem Executar Consulta próxima à parte superior da janela está realçado" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Um botão com a mensagem "Executar Consulta" próxima à parte superior da janela está realçado" lightbox="media/how-to-move-regions/run-query.png":::
 
 Você pode deixar o ADT Explorer em execução, pois você o usará novamente mais tarde neste artigo para carregar novamente esses itens na nova instância na região de destino.
 
@@ -113,7 +113,7 @@ Em seguida, você concluirá a "movimentação" de sua instância criando uma no
 
 ### <a name="create-a-new-instance"></a>Criar uma nova instância
 
-Primeiro, **crie uma nova instância do Azure digital gêmeos em sua região de destino**. Para fazer isso, siga as etapas em [*como: configurar uma instância e autenticação*](how-to-set-up-instance-scripted.md), mantendo esses ponteiros em mente:
+Primeiro, **crie uma nova instância do Azure digital gêmeos em sua região de destino**. Para fazer isso, siga as etapas em [*como: configurar uma instância e autenticação*](how-to-set-up-instance-portal.md), mantendo esses ponteiros em mente:
 * Você pode manter o mesmo nome para a nova instância **se** ela estiver em um grupo de recursos diferente. Se você precisar usar o mesmo grupo de recursos que contém sua instância original, sua nova instância precisará de seu próprio nome distinto.
 * Insira a nova região de destino quando for solicitada uma localização.
 * Você **não precisa** recriar o registro do aplicativo. Sua nova instância pode reutilizar o mesmo registro de aplicativo que você já tem.
