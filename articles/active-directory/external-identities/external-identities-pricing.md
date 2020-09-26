@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12aa400d6ca44043d3d90e78a93ae49d97a927e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265775"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modelo de cobrança para identidades externas do Azure AD
 
@@ -37,17 +37,17 @@ Para aproveitar a cobrança do MAU, seu locatário do Azure AD deve estar vincul
 
 ## <a name="about-monthly-active-users-mau-billing"></a>Sobre a cobrança de usuários ativos mensais (MAU)
 
-Em seu locatário do Azure AD, o uso da colaboração do usuário convidado é cobrado com base na contagem de usuários convidados exclusivos com atividade de autenticação em um mês civil. Esse modelo substitui o modelo de cobrança de índice 1:5, que permitia até cinco usuários convidados para cada licença de Azure AD Premium em seu locatário. Quando seu locatário estiver vinculado a uma assinatura e você usar recursos de identidades externas para colaborar com usuários convidados, você será cobrado automaticamente usando o modelo de cobrança baseado em MAU.
+Em seu locatário do Azure AD, o uso da colaboração do usuário convidado é cobrado com base na contagem de usuários convidados exclusivos com atividade de autenticação em um mês civil. Esse modelo substitui o modelo de cobrança com proporção de 1:5, que permitia até cinco usuários convidados para cada licença do Azure AD Premium no locatário. Quando o locatário estiver vinculado a uma assinatura e você usar recursos de Identidades Externas para colaborar com usuários convidados, você será cobrado automaticamente de acordo com o modelo de cobrança baseado em MAU.
   
 O tipo de preço que se aplica a seus usuários convidados baseia-se no tipo de preço mais alto atribuído ao seu locatário do Azure AD. Por exemplo, se o tipo de preço mais alto em seu locatário for Azure AD Premium P1, o tipo de preço premium P1 também se aplicará aos seus usuários convidados. Se o preço mais alto for Azure AD Gratuito, você será solicitado a atualizar para um tipo de preço premium ao tentar usar os recursos premium para usuários convidados.
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Vincular seu locatário do Azure AD a uma assinatura
 
-Um locatário do Azure AD deve estar vinculado a uma assinatura do Azure para obter a cobrança e o acesso adequados aos recursos.
+Um locatário do Azure AD deve estar vinculado a uma assinatura do Azure para obter a cobrança e o acesso adequados aos recursos. Se o diretório ainda não tiver uma assinatura à qual você possa se vincular, você terá a oportunidade de adicionar um durante esse processo.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) com uma conta do Azure que tenha sido atribuída pelo menos a função [colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) dentro da assinatura ou um grupo de recursos dentro da assinatura.
 
-2. Selecione o diretório que contém sua assinatura: na barra de ferramentas portal do Azure, selecione o **diretório +** ícone de assinatura e, em seguida, selecione o diretório que contém sua assinatura.
+2. Selecione o diretório que você deseja vincular: na barra de ferramentas portal do Azure, selecione o **diretório +** ícone de assinatura e, em seguida, selecione o diretório.
 
     ![Selecione o diretório + ícone de assinatura](media/external-identities-pricing/portal-mau-pick-directory.png)
 
@@ -62,6 +62,9 @@ Um locatário do Azure AD deve estar vinculado a uma assinatura do Azure para ob
     ![Selecionar o locatário e vincular uma assinatura](media/external-identities-pricing/linked-subscriptions.png)
 
 7. No painel vincular uma assinatura, selecione uma **assinatura** e um **grupo de recursos**. Em seguida, selecione **Aplicar**.
+
+   > [!NOTE]
+   > Se não houver assinaturas listadas, você poderá [associar uma assinatura ao seu locatário](../fundamentals/active-directory-how-subscriptions-associated-directory.md). Ou então, você pode adicionar uma nova assinatura selecionando o link **se ainda não tiver uma assinatura, você pode criar uma aqui**.
 
     ![Selecionar uma assinatura e um grupo de recursos](media/external-identities-pricing/link-subscription-resource.png)
 

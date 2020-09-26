@@ -3,12 +3,12 @@ title: Gerenciar imagens assinadas
 description: Saiba como habilitar a confiança de conteúdo do registro de contêiner do Azure e enviar e efetuar pull de imagens assinadas. A confiança de conteúdo é um recurso da camada de serviço Premium.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36d2a8ddef184804facdace2d517d7e2fdf1b24c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076852"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253472"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança de conteúdo no Registro de Contêiner do Azure
 
@@ -40,7 +40,7 @@ A primeira etapa é habilitar a confiança de conteúdo no nível do registro. D
 
 Para habilitar a confiança de conteúdo para o registro, primeiro, navegue até o registro no portal do Azure. Em **Políticas**, selecione **Confiança de Conteúdo** > **Habilitada** > **Salvar**. Você também pode usar o comando [z acr config content-trust update][az-acr-config-content-trust-update] no CLI do Azure.
 
-![Habilitar a confiança de conteúdo para um registro no portal do Azure][content-trust-01-portal]
+![A captura de tela mostra a habilitação da confiança de conteúdo para um registro no portal do Azure.][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>Habilitar a confiança de conteúdo do cliente
 
