@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361527"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erros e avisos de conversão de desenho
 
@@ -35,9 +35,9 @@ O serviço de conversão não consegue criar um recurso de mapa a partir de uma 
 
 * As duas imagens abaixo mostram exemplos de polígonos com autointerseção.
 
-     ![Exemplo de um polígono com autointerseção](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Exemplo de um polígono com interseção automática, exemplo um.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Exemplo de um polígono com autointerseção](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Exemplo de um polígono de intersecção automática, exemplo dois.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Abaixo, há uma imagem que mostra uma polilinha não fechada. Suponha que a camada tenha suporte apenas a geometrias fechadas.
 

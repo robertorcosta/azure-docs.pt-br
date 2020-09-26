@@ -8,16 +8,16 @@ ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: 6962198fbce3b46a8310d39cf3aa3f78ed0a130b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 434115ce6da775c4c8719081ad149e436de03b56
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91341171"
+ms.locfileid: "91362275"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Obtenha suporte e treinamento para Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**aplica-se a:** ![ Marca de seleção verde. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ X indicando não.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 

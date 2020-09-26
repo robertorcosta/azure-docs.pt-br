@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362139"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente com o Proxy de Aplicativo do Azure AD
 
@@ -83,7 +83,7 @@ Para melhorar a segurança dos aplicativos publicados pelo Proxy de Aplicativo d
 
 #### <a name="azure-ddos-protection-service"></a>Serviço de proteção contra DDoS do Azure
 
-Os aplicativos publicados por meio do Proxy de Aplicativo estão protegidos contra ataques DDoS (ataque de negação de serviço distribuído). A **proteção contra DDoS do Azure** é um serviço oferecido com a plataforma Azure para proteger os recursos do Azure contra ataques de negação de serviço. A camada de serviço **Básica** é habilitada automaticamente, fornecendo monitoramento de tráfego sempre ativo e a mitigação em tempo real de ataques comuns de nível de rede. Também está disponível a camada **Standard**, que fornece funcionalidades de mitigação adicionais ajustadas especificamente para os recursos de Rede Virtual do Azure. Confira mais detalhes na [Visão geral da Proteção contra DDoS do Azure Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Os aplicativos publicados por meio do Proxy de Aplicativo estão protegidos contra ataques DDoS (ataque de negação de serviço distribuído). A **proteção contra DDoS do Azure** é um serviço oferecido com a plataforma Azure para proteger os recursos do Azure contra ataques de negação de serviço. A camada de serviço **Básica** é habilitada automaticamente, fornecendo monitoramento de tráfego sempre ativo e a mitigação em tempo real de ataques comuns de nível de rede. Confira mais detalhes na [Visão geral da Proteção contra DDoS do Azure Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Nos bastidores
 

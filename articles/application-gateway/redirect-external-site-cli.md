@@ -1,18 +1,18 @@
 ---
 title: Redirecionamento de tráfego externo usando Aplicativo Azure gateway de CLI
-description: Saiba como criar um gateway de aplicativo que redireciona o tráfego interno da Web ao pool adequado, usando a CLI do Azure.
+description: Saiba como criar um gateway de aplicativo que redireciona o tráfego da Web externo para o pool apropriado usando o CLI do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7566122e4edf4357562e830197fade746f18a16f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a8d7aff6a030b3adbb5370caa166bbd290e09bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594213"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331039"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento externo usando a CLI do Azure
 
@@ -131,8 +131,4 @@ Você verá o *bing.com* aparecer no seu navegador.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a:
-
-> * Configurar a rede
-> * Criar uma regra de redirecionamento e um ouvinte
-> * Criar um Gateway de Aplicativo
+- [Criar um gateway de aplicativo com redirecionamento interno usando a CLI do Azure](redirect-internal-site-cli.md)

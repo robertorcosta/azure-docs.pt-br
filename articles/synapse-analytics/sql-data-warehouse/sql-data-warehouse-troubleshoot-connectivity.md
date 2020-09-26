@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362173"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Solução de problemas de conectividade no pool de SQL do Synapse
 
@@ -34,13 +34,14 @@ O status do pool de SQL será mostrado aqui. Se o serviço não estiver sendo ex
 
 Se a opção Integridade do recurso mostrar que a instância do pool de SQL estiver pausada ou em dimensionamento, siga as orientações para retomar a instância.
 
-![Serviço em pausa](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Informações adicionais sobre a Integridade do recurso podem ser encontradas aqui.
+![Captura de tela mostra uma instância do SQL data warehouse que está em pausa ou em escala.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+Informações adicionais sobre Resource Health podem ser encontradas aqui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificar se a operação está pausada ou em dimensionamento
 
 Verifique o portal para ver se a instância do pool de SQL está pausada ou em dimensionamento.
 
-![Serviço pausado](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Captura de tela mostra como verificar se um data warehouse está em pausa.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 Se você vir que o serviço está pausado ou em dimensionamento, verifique se ele não está durante o agendamento de manutenção. No portal de *Visão geral* do pool de SQL, você verá o agendamento de manutenção escolhido.
 

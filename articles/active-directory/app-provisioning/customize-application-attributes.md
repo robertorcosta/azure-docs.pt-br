@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235217"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266693"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -316,6 +316,7 @@ A seleção dessa opção efetivamente forçará uma ressincronização de todos
 - O serviço de provisionamento do Azure AD não dá suporte ao provisionamento de valores nulos.
 - A chave primária, normalmente "ID", não deve ser incluída como um atributo de destino em seus mapeamentos de atributo. 
 - O atributo de função normalmente precisa ser mapeado usando uma expressão em vez de um mapeamento direto. Confira a seção acima para obter mais detalhes sobre o mapeamento de funções. 
+- Embora você possa desabilitar grupos de seus mapeamentos, não há suporte para desabilitar usuários. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

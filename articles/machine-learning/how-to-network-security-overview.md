@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: ce4bbf81f5b74a06f06778c512995684fa1394c4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1690d4b236fce53e033f08fa6825eefe6359d9e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329784"
+ms.locfileid: "91362207"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -80,8 +80,19 @@ Para obter instruções detalhadas sobre como concluir essas etapas, consulte [p
 ### <a name="limitations"></a>Limitações
 
 Proteger seu espaço de trabalho e os recursos associados em uma rede virtual tem as seguintes limitações:
-- O link privado do espaço de trabalho só está disponível nas seguintes regiões: eastus, westus2, southcentralus
-    - Essa limitação não se aplica aos recursos associados. Por exemplo, você pode habilitar a VNet para armazenamento em qualquer região de Azure Machine Learning.
+- O link privado do espaço de trabalho só está disponível nas seguintes regiões:
+    - **Leste dos EUA**
+    - **Centro-Sul dos Estados Unidos**
+    - **Oeste dos EUA**
+    - **Oeste dos EUA 2**
+    - **Centro do Canadá**
+    - **Sudeste Asiático**
+    - **Leste do Japão**
+    - **Norte da Europa**
+    - **Austrália oriental**
+    - **Sul do Reino Unido**
+    
+    Essa limitação não se aplica aos recursos associados. Por exemplo, você pode habilitar a VNet para armazenamento em qualquer região de Azure Machine Learning.
 - Todos os recursos devem estar atrás da mesma VNet. No entanto, as sub-redes na mesma VNet são permitidas.
 
 ## <a name="secure-the-training-environment"></a>Proteger o ambiente de treinamento

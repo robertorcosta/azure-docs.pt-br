@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 08fe2cd87200e1a22f36ab01b58c6cf82fd1f007
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3c6288cd071e7c94026a0eb58c6b60ecd91d9137
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312564"
 ---
 # <a name="tutorial-configure-fuze-for-automatic-user-provisioning"></a>Tutorial: configurar o Fuze para o provisionamento automático de usuário
 
@@ -37,7 +37,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no Fuze e n
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
 * [Um locatário do Fuze](https://www.fuze.com/).
 * Uma conta de usuário no Fuze com permissões de administrador.
@@ -90,11 +90,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira a **URL base do scim 2,0 e o valor do token de autenticação scim** recuperado anteriormente do representante do Fuze na **URL do locatário** e no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Fuze. Se a conexão falhar, verifique se sua conta do Fuze tem permissões de administrador e tente novamente.
 
