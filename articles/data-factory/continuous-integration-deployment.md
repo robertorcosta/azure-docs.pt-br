@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/23/2020
+ms.openlocfilehash: a5856d85b6a967f49fd651942ca6e4596bf15e7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531212"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320962"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -212,13 +212,17 @@ Se o seu alocador de desenvolvimento tiver um repositório do git associado, voc
 * Você usa CI/CD automatizadas e deseja alterar algumas propriedades durante a implantação do Resource Manager, mas as propriedades não são parametrizadas por padrão.
 * Seu alocador é tão grande que o modelo padrão do Resource Manager é inválido porque ele tem mais do que os parâmetros máximos permitidos (256).
 
-Para substituir o modelo de parametrização padrão, crie um arquivo chamado **arm-template-parameters-definition.json** na pasta raiz do seu git branch. Você deve usar esse nome de arquivo exato.
+Para substituir o modelo de parametrização padrão, vá para o Hub de gerenciamento e selecione **modelo de parametrização** na seção controle do código-fonte. Selecione **Editar modelo** para abrir o editor de código de modelo de parametrização. 
 
-   ![Arquivo de parâmetros personalizado](media/continuous-integration-deployment/custom-parameters.png)
+![Gerenciar parâmetros personalizados](media/author-management-hub/management-hub-custom-parameters.png)
+
+A criação de um modelo de parametrização personalizado cria um arquivo chamado **arm-template-parameters-definition.js** no na pasta raiz do seu Branch git. Você deve usar esse nome de arquivo exato.
+
+![Arquivo de parâmetros personalizado](media/continuous-integration-deployment/custom-parameters.png)
 
 Ao publicar do branch de colaboração, o Data Factory lerá esse arquivo e usará a configuração dele para gerar quais propriedades são parametrizadas. Se nenhum arquivo for encontrado, o modelo padrão será usado.
 
-Ao exportar um modelo do Resource Manager, o Data Factory lê esse arquivo de qualquer branch no qual você está trabalhando no momento, não apenas do branch de colaboração. Você pode criar ou editar o arquivo de um branch privado, no qual você pode testar suas alterações selecionando **Exportar modelo do ARM** na interface do usuário. Em seguida, você pode mesclar o arquivo no branch de colaboração.
+Ao exportar um modelo do Resource Manager, o Data Factory lê esse arquivo de qualquer Branch na qual você está trabalhando no momento, não a ramificação de colaboração. Você pode criar ou editar o arquivo de um branch privado, no qual você pode testar suas alterações selecionando **Exportar modelo do ARM** na interface do usuário. Em seguida, você pode mesclar o arquivo no branch de colaboração.
 
 > [!NOTE]
 > Um modelo de parametrização personalizado não altera o limite de parâmetro do modelo do ARM de 256. Ele permite que você escolha e diminua o número de propriedades parametrizadas.

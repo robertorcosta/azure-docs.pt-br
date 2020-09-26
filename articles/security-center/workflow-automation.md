@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904656"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322148"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Criar respostas automáticas para alertas e recomendações com a automação do fluxo de trabalho
 
@@ -67,11 +67,9 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 
     No designer do aplicativo lógico, há suporte para os seguintes gatilhos dos conectores da central de segurança:
 
-    * **Quando uma recomendação da central de segurança do Azure é criada ou disparada**
-    * **Quando um alerta da central de segurança do Azure é criado ou disparado** 
-    
-    > [!TIP]
-    > Você pode personalizar o gatilho para que ele se relacione apenas a alertas com os níveis de severidade que lhe interessam.
+    * **Quando uma recomendação da central de segurança do Azure é criada ou disparada** – se o seu aplicativo lógico depender de uma recomendação que seja preterida ou substituída, a automação deixará de funcionar e você precisará atualizar o gatilho. Para controlar as alterações nas recomendações, consulte [notas de versão da central de segurança do Azure](release-notes.md).
+
+    * **Quando um alerta da central de segurança do Azure é criado ou disparado** , você pode personalizar o gatilho para que ele se relacione apenas a alertas com os níveis de severidade que lhe interessam.
     
     > [!NOTE]
     > Se você estiver usando o gatilho herdado "quando uma resposta a um alerta da central de segurança do Azure for disparada", seus aplicativos lógicos não serão iniciados pelo recurso de automação do fluxo de trabalho. Em vez disso, use qualquer um dos gatilhos mencionados acima. 

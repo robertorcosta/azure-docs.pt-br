@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 05/28/2020
-ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8c7671e655594456621e4489cb06191d820b134
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85297861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333147"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar o banco de dados SQL do Azure do modelo baseado em DTU para o modelo baseado em vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

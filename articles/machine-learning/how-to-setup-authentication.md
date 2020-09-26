@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 878b3d4a522fd2b7567ed6005283d041064d9fe5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: how-to, has-adal-ref, devx-track-js
+ms.openlocfilehash: 0650b1c6364a187447ea3a378675df9d76eef4d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885994"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275720"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos e fluxos de trabalho do Azure Machine Learning
 
@@ -77,7 +77,7 @@ Para usar a autenticação do SP (entidade de serviço), você deve primeiro cri
 >
 > O motivo para conceder o acesso mínimo é que uma entidade de serviço usa uma senha para autenticar e a senha pode ser armazenada como parte de um script de automação. Se a senha for vazada, o acesso mínimo necessário para uma tarefa específica minimizará o uso mal-intencionado do SP.
 
-A maneira mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho é usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Para criar uma entidade de serviço e conceder acesso ao seu espaço de trabalho, use as seguintes etapas:
+A maneira mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho é usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Para criar uma entidade de serviço e conceder acesso ao seu espaço de trabalho, use as seguintes etapas:
 
 > [!NOTE]
 > Você deve ser um administrador na assinatura para executar todas essas etapas.
@@ -92,7 +92,7 @@ A maneira mais fácil de criar um SP e conceder acesso ao seu espaço de trabalh
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Para outros métodos de autenticação, confira [Entrar com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Para outros métodos de autenticação, confira [Entrar com a CLI do Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 1. Instale a extensão de Azure Machine Learning:
 
@@ -190,7 +190,7 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Usar uma entidade de serviço do CLI do Azure
 
-Você pode usar uma entidade de serviço para CLI do Azure comandos. Para obter mais informações, consulte [entrar usando uma entidade de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+Você pode usar uma entidade de serviço para CLI do Azure comandos. Para obter mais informações, consulte [entrar usando uma entidade de serviço](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Usar uma entidade de serviço com a API REST (versão prévia)
 

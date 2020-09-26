@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b0547ba25f6534593a0a016ebfa5cbe4d2be2e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933800"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331005"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obter pontos de extremidade de conexão e formar cadeias de conexão para seu grupo de servidores de hiperescala PostgreSQL habilitado para Arc
 
@@ -77,7 +77,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - A senha do usuário _PostgreSQL_ indicado no ponto final denominado "instância do_PostgreSQL_ é a senha que você escolheu ao criar o grupo de servidores.
+> - A senha do usuário _postgres_ indicado no ponto de extremidade chamado "_instância do PostgreSQL_" é a senha que você escolheu ao implantar o grupo de servidores.
 > - Sobre o azdata: a concessão associada à sua conexão dura cerca de 10 horas. Depois disso, você precisa se reconectar. Se sua concessão tiver expirado, você receberá a seguinte mensagem de erro ao tentar executar um comando com azdata (diferente de azdata logon): _erro: (401)_ 
 >  _motivo:_ 
 >  _cabeçalhos de resposta http não autorizados: HTTPHeaderDict ({' Date ': ' Sun, 06 setembro de 2020 16:58:38 GMT ', ' Content-length ': ' 0 ', ' www-Authenticate ': '_ 

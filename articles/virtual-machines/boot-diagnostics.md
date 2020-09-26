@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 0b3e1b3bc296676c44eddf34b35a0d4e06d3b8c4
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: b51b44f3a3d0889836bb41e0bf2fa37234338cf4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007325"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287076"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnóstico de inicialização do Azure
 
@@ -38,6 +38,7 @@ Localizado na folha máquina virtual, a opção diagnóstico de inicialização 
 - O diagnóstico de inicialização não oferece suporte a contas de armazenamento Premium, se uma conta de armazenamento Premium for usada para os usuários de diagnóstico de inicialização receberem um `StorageAccountTypeNotSupported` erro ao iniciar a VM. 
 - As contas de armazenamento gerenciadas têm suporte na versão da API do Gerenciador de recursos "2020-06-01" e posterior.
 - Atualmente, o console serial do Azure é incompatível com uma conta de armazenamento gerenciada para o diagnóstico de inicialização. Saiba mais sobre o [console serial do Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
+- O diagnóstico de inicialização usando uma conta de armazenamento de gerenciamento só pode ser aplicado no momento por meio do portal do Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

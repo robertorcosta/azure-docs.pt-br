@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/26/2019
-ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321349"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -43,7 +43,7 @@ Escolher uma camada de serviço depende principalmente da continuidade dos negó
 |**Taxa de transferência de E/S (aproximada)** |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |**Latência de E/S (aproximada)**|5 ms (leitura), 10 ms (gravação)|5 ms (leitura), 10 ms (gravação)|2 ms (leitura/gravação)|
 |**Indexação ColumnStore** |N/D|S3 e acima|Com suporte|
-|**OLTP na memória**|N/A|N/D|Com suporte|
+|**OLTP na memória**|N/D|N/D|Com suporte|
 
 > [!IMPORTANT]
 > As camadas de serviço básico, Standard S0, S1 e S2 fornecem menos de um vCore (CPU).  Para cargas de trabalho com uso intensivo de CPU, é recomendável uma camada de serviço S3 ou superior. 

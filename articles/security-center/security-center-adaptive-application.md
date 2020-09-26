@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 17a3d0364f3085e4baf4e0faa40f117d9fbbb04f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894732"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268155"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -229,4 +229,4 @@ Algumas das funções que estão disponíveis na API REST:
 Neste documento, você aprendeu a usar o controle de aplicativo adaptável na central de segurança do Azure para definir as listas de permissões de aplicativos em execução em seus computadores Azure e não Azure. Para saber mais sobre alguns dos outros recursos de proteção de carga de trabalho de nuvem da central de segurança, confira:
 
 * [Noções básicas sobre acesso à VM JIT (just-in-time)](just-in-time-explained.md)
-* [Protegendo seus clusters kubernetes do Azure](azure-kubernetes-service-integration.md)
+* [Protegendo seus clusters kubernetes do Azure](defender-for-kubernetes-introduction.md)

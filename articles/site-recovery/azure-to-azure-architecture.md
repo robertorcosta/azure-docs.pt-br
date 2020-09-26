@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322080"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -104,7 +104,7 @@ Um instantâneo consistente com falha captura os dados que estavam no disco quan
 
 **Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---
-Os pontos de recuperação consistentes com aplicativo são criados com base nos instantâneos consistentes com aplicativo.<br/><br/> Um instantâneo consistente com aplicativo contêm todas as informações em um instantâneo consistente com falhas, além de todos os dados na memória e as transações em andamento. | Os instantâneos consistentes com aplicativo usam o VSS (Serviço de Cópias de Sombra de Volume):<br/><br/>   1) Quando um instantâneo é iniciado, o VSS executa uma operação COW (cópia em gravação) no volume.<br/><br/>   2) Antes de executar o COW, o VSS informa todos os aplicativos do computador de que precisa liberar seus dados residentes na memória para o disco.<br/><br/>   3) Em seguida, o VSS permite que o aplicativo de backup/recuperação de desastre (nesse caso, o Site Recovery) leia os dados de instantâneo e continue. | Os instantâneos consistentes com aplicativo são tirados de acordo com a frequência especificada. Essa frequência sempre deve ser inferior àquela definida para a retenção de pontos de recuperação. Por exemplo, se você retém os pontos de recuperação usando a configuração padrão de 24 horas, defina a frequência como inferior a 24 horas.<br/><br/>Eles são mais complexos e levam mais tempo para serem concluídos do que os instantâneos consistentes com falhas.<br/><br/> Elas afetam o desempenho de aplicativos executados em uma VM habilitada para replicação. 
+Os pontos de recuperação consistentes com aplicativo são criados com base nos instantâneos consistentes com aplicativo.<br/><br/> Um instantâneo consistente com aplicativo contêm todas as informações em um instantâneo consistente com falhas, além de todos os dados na memória e as transações em andamento. | Os instantâneos consistentes com aplicativo usam o VSS (Serviço de Cópias de Sombra de Volume):<br/><br/>   1) Azure Site Recovery usa o método de backup somente cópia (VSS_BT_COPY) que não altera o tempo de backup e o número de sequência do log de transações do Microsoft SQL </br></br> 2) quando um instantâneo é iniciado, o VSS executa uma operação vaca (cópia em gravação) no volume.<br/><br/>   3) antes de executar o vaca, o VSS informa todos os aplicativos no computador de que ele precisa para liberar seus dados residentes na memória para o disco.<br/><br/>   4) o VSS permite que o aplicativo de backup/recuperação de desastre (neste caso Site Recovery) Leia os dados do instantâneo e continue. | Os instantâneos consistentes com aplicativo são tirados de acordo com a frequência especificada. Essa frequência sempre deve ser inferior àquela definida para a retenção de pontos de recuperação. Por exemplo, se você retém os pontos de recuperação usando a configuração padrão de 24 horas, defina a frequência como inferior a 24 horas.<br/><br/>Eles são mais complexos e levam mais tempo para serem concluídos do que os instantâneos consistentes com falhas.<br/><br/> Elas afetam o desempenho de aplicativos executados em uma VM habilitada para replicação. 
 
 ## <a name="replication-process"></a>Processo de replicação
 
@@ -144,7 +144,7 @@ Observe que os detalhes dos requisitos de conectividade de rede podem ser encont
 
 #### <a name="source-region-rules"></a>Regras da região de origem
 
-**Regra** |  **Detalhes** | **Marca de serviço**
+**Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
 Permitir HTTPS de saída: porta 443 | Permita intervalos que correspondam às contas de armazenamento na região de origem | Repositório.\<region-name>
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem a Azure Active Directory (Azure AD)  | AzureActiveDirectory
@@ -155,7 +155,7 @@ Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao co
 
 #### <a name="target-region-rules"></a>Regras da região de destino
 
-**Regra** |  **Detalhes** | **Marca de serviço**
+**Regra** |  **Detalhes** | **Marca do serviço**
 --- | --- | --- 
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem às contas de armazenamento na região de destino | Repositório.\<region-name>
 Permitir HTTPS de saída: porta 443 | Permitir intervalos que correspondem ao Azure AD  | AzureActiveDirectory

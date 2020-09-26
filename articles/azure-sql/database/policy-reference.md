@@ -7,12 +7,12 @@ author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 26fd71d829c4d844b20d0848ac1f0cd9040d0cbf
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d2b0e1256e50619b52a482cfe20a822ddb02de0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90972741"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332994"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Definições internas do Azure Policy para o Banco de Dados SQL do Azure e a Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -24,6 +24,9 @@ O nome de cada definição de política interna leva à definição da política
 ## <a name="azure-sql-database--sql-managed-instance"></a>Banco de Dados SQL do Azure e Instância Gerenciada de SQL 
 
 [!INCLUDE [azure-policy-reference-service-sqldatabase](../../../includes/policy/reference/byrp/microsoft.sql.md)]
+
+## <a name="limitations"></a>Limitações
+- Azure Policy aplicável a uma criação de banco de dados SQL do Azure não é imposta ao usar o T-SQL ou o SSMS. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

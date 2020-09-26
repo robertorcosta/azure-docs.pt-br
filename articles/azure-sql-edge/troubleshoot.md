@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: d8da8bcf3d2bb6b2af2b5c69ce003289d83d3884
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333096"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Solucionando problemas de implantações do Azure SQL Edge 
 
@@ -138,32 +138,12 @@ docker exec -it <Container ID> /bin/bash
 
 Agora, você pode executar comandos como se estivesse executando-os no terminal dentro do contêiner. Quando terminar, digite `exit`. Isso é encerrado na sessão de comando interativo, mas o contêiner continua a ser executado.
 
-## <a name="troubleshooting-issues-with-data-streaming"></a>Solucionando problemas com o streaming de dados
-
-Por padrão, os logs do mecanismo de streaming do SQL Edge do Azure são gravados em um arquivo chamado `current` no diretório **/var/opt/MSSQL/log/Services/00000001-0000-0000-0000-000000000000** O arquivo pode ser acessado diretamente por meio do volume mapeado ou do contêiner de volume de dados ou iniciando uma sessão de prompt de comando interativo para o contêiner do SQL Edge. 
-
-Além disso, se você conseguir se conectar à instância do SQL Edge usando as ferramentas de cliente, poderá usar o comando T-SQL a seguir para acessar o log do mecanismo de streaming atual. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### <a name="enabling-verbose-logging"></a>Habilitando o log detalhado
 
 Se o nível de log padrão do mecanismo de streaming não fornecer informações suficientes, o log de depuração do mecanismo de streaming poderá ser habilitado no SQL Edge. Para habilitar o log de depuração, adicione a `RuntimeLogLevel=debug` variável de ambiente à implantação do SQL Edge. Depois de habilitar o log de depuração, tente reproduzir o problema e verifique os logs em busca de mensagens ou exceções relevantes. 
 
+> [!NOTE]
+> A opção de log detalhado só deve ser usada para solução de problemas e não para carga de trabalho de produção regular. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

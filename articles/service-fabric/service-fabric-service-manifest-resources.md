@@ -3,12 +3,12 @@ title: Especificando Service Fabric pontos de extremidade de serviço
 description: Como descrever os recursos de ponto de extremidade em um manifesto do serviço, incluindo como configurar pontos de extremidade HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267798"
+ms.locfileid: "91354752"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos em um manifesto do serviço
 ## <a name="overview"></a>Visão geral
@@ -227,9 +227,9 @@ Vamos supor que você especifica um valor incorreto. Digamos, para a porta, que 
 Este artigo explicou como definir pontos de extremidade no manifesto do serviço Service Fabric. Para obter exemplos mais detalhados, consulte:
 
 > [!div class="nextstepaction"]
-> [Exemplos de aplicativo e manifesto do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+> [Exemplos de aplicativo e manifesto do serviço](service-fabric-manifest-examples.md)
 
 Para obter um passo a passo de empacotamento e implantação de um aplicativo existente em um Cluster Service Fabric, consulte:
 
 > [!div class="nextstepaction"]
-> [Empacotar e implantar um executável existente no Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)
+> [Empacotar e implantar um executável existente no Service Fabric](service-fabric-deploy-existing-app.md)

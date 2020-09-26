@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 08fcf3540b2f8677f3fbfff49f21f99062d0ca40
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45f63aed410c4d140259808044872cbbecfaa95b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91340881"
+ms.locfileid: "91355560"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gerenciar serviços Web do Azure Machine Learning Studio (clássico) usando o Gerenciamento de API
 
-**APLICA-SE A:**  ![sim](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clássico)   ![não](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**aplica-se a:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) não ![ se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
 ## <a name="overview"></a>Visão geral
@@ -50,7 +50,7 @@ Você pode gerenciar seu serviço Web do Azure Machine Learning com uma instânc
 
 Pode levar até 30 minutos para um novo serviço ser criado.
 
-![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
+![Captura de tela mostra a caixa de diálogo P I Management Service com as opções necessárias para criar um serviço.](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
 
 ## <a name="create-the-api"></a>Criar a API
@@ -87,12 +87,12 @@ Primeiro, crie uma operação para o serviço RRS do AzureML:
 2. Para o **modelo de URL**, digite "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
 3. Insira um **Nome de exibição** (este exemplo usa "RRS Execute").
 
-   ![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+   ![Captura de tela mostra a página de assinatura onde você pode inserir um nome de exibição.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
 4. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**.
 5. Clique em **Salvar** para salvar esta operação.
 
-   ![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+   ![Captura de tela mostra a operação R R S executar página com um botão salvar.](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>Adicionar operações BES
 
@@ -141,15 +141,15 @@ As operações podem ser chamadas diretamente do Portal do Desenvolvedor, que fo
 
 1. Clique em **Portal do desenvolvedor**.
 
-   ![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+   ![Captura de tela mostra o link do portal do desenvolvedor.](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
 2. Clique em **APIs** no menu superior e depois clique em **API de demonstração do AzureML** para ver as operações disponíveis.
 
-   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+   ![Captura de tela mostra o link P e r de demonstração do Azure M L.](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
 3. Selecione **RRS Execute** para a operação. Clique em **Experimentar**.
 
-   ![avaliar](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+   ![Captura de tela mostra a demonstração do Azure M para a caixa de diálogo P I com a execução de R R S execute selected e um botão try.](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
 4. Para os **Parâmetros de solicitação**, digite seu **workspace** e **serviço**, digite “2.0” para **apiversion** e “true” para os **detalhes**. Você pode encontrar o **workspace** e o **serviço** no painel de serviço Web do AzureML (confira **Testar o serviço Web** no Apêndice A).
 
@@ -157,15 +157,15 @@ As operações podem ser chamadas diretamente do Portal do Desenvolvedor, que fo
 
    Para o **corpo da solicitação**, digite `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
 
-   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+   ![Captura de tela mostra os parâmetros de solicitação P da demonstração do Azure M L, cabeçalhos de solicitação, corpo da solicitação e autorização.](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 
 5. Clique em **Enviar**.
 
-   ![Enviar](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![Captura de tela mostra um botão enviar.](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 Após invocar uma operação, o portal do desenvolvedor exibe a **URL solicitada** do serviço back-end, o **Status de resposta**, os **Cabeçalhos de resposta** e qualquer **Conteúdo de resposta**.
 
-![response-status](./media/manage-web-service-endpoints-using-api-management/response-status.png)
+![Captura de tela mostra o portal do desenvolvedor exibindo o status da resposta, latência de resposta, cabeçalhos de resposta e conteúdo de resposta.](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>Apêndice A - criando e testando um serviço Web do AzureML simples
 ### <a name="creating-the-experiment"></a>Criando o teste
@@ -177,11 +177,11 @@ Veja abaixo as etapas para criar um teste simples do AzureML e implantá-lo como
 
 Primeiro, usando um navegador de sua escolha, navegue até: [https://studio.azureml.net/](https://studio.azureml.net/) e insira suas credenciais para fazer logon. Em seguida, crie um novo teste em branco.
 
-![search-experiment-templates](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
+![Captura de tela mostra uma nova página com experimento selecionado e uma pesquisa de texto.](./media/manage-web-service-endpoints-using-api-management/search-experiment-templates.png)
 
 Renomeie-o para **SimpleFeatureHashingExperiment**. Expanda **Conjuntos de dados salvos** e arraste **Resenhas de livros da Amazon** para o teste.
 
-![simple-feature-hashing-experiment](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
+![A captura de tela mostra exemplos no lado esquerdo e um painel de SimpleFeatureHashingExperiment à direita com a instrução para arrastar itens aqui.](./media/manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
 Expanda **Transformação de Dados** e **Manipulação** e arraste **Selecionar Colunas do Conjunto de Dados** para o teste. Conecte **Resenhas de livros da Amazon** a **Selecionar Colunas do Conjunto de Dados**.
 
@@ -193,53 +193,53 @@ Clique em **Selecionar Colunas do Conjunto de Dados** e em **Iniciar seletor de 
 
 Expanda **Análise de texto** e arraste **Hash de recurso** para o teste. Conecte **Selecionar Colunas no Conjunto de Dados** para **Hash de Funcionalidade**.
 
-![connect-project-columns](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
+![Captura de tela mostra um item de hash de recurso que está sendo adicionado ao espaço de trabalho.](./media/manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 
 Digite **3** para **Tamanho de Bit de Hash**. Isso criará 8 (23) colunas.
 
-![hashing-bitsize](./media/manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
+![Captura de tela mostra Propriedades com hash de recurso selecionado e você pode inserir bits de hash.](./media/manage-web-service-endpoints-using-api-management/hashing-bitsize.png)
 
 Neste ponto, talvez você queira clicar em **Executar** para verificar o teste.
 
-![Executar](./media/manage-web-service-endpoints-using-api-management/run.png)
+![Captura de tela mostra um botão Executar.](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### <a name="create-a-web-service"></a>Criar um serviço Web
 Agora crie um serviço Web. Expanda **Serviço Web** e arraste **Entrada** para o teste. Conecte **Entrada** a **Hash de Funcionalidade**. Também arraste **saída** para seu teste. Conecte **Saída** a **Hash de Funcionalidade**.
 
-![output-to-feature-hashing](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
+![Captura de tela mostra o espaço de trabalho após as alterações especificadas.](./media/manage-web-service-endpoints-using-api-management/output-to-feature-hashing.png)
 
 Clique em **Publicar serviço Web**.
 
-![publish-web-service](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
+![Captura de tela mostra um botão publicar serviço WEB.](./media/manage-web-service-endpoints-using-api-management/publish-web-service.png)
 
 Clique em **Sim** para publicar o teste.
 
-![yes-to-publish](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
+![Captura de tela mostra uma mensagem de confirmação e a opção para publicar ou não.](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>Testar o serviço Web
 Um serviço Web AzureML consiste em RSS (serviço de solicitação/resposta) e pontos de extremidade BES (serviço de execução em lotes). RSS é para execução síncrona. BES é para execução do trabalho assíncrono. Para testar o serviço Web com a fonte Python de exemplo abaixo, talvez seja necessário baixar e instalar o SDK do Azure para Python (confira: [Como instalar o Python](/azure/developer/python/azure-sdk-install)).
 
 Você também precisará do **workspace**, do **serviço** e da **api_key** do teste para a fonte de exemplo abaixo. Você pode encontrar o workspace e o serviço clicando em **Solicitação/resposta** ou **Execução em lote** para o teste no painel de serviço Web.
 
-![find-workspace-and-service](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
+![Captura de tela mostra o painel de solicitação onde você pode encontrar os valores de espaço de trabalho e de serviço.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
 Você pode encontrar a **api_key** clicando no teste no painel de serviço Web.
 
-![find-api-key](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
+![Captura de tela mostra o experimento no painel do serviço Web, onde você pode encontrar a chave P I.](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
 
 #### <a name="test-rrs-endpoint"></a>Testar ponto de extremidade RRS
 ##### <a name="test-button"></a>Botão de teste
 Uma maneira fácil de testar o ponto de extremidade RRS é clicar em **Testar** no painel de serviço Web.
 
-![test](./media/manage-web-service-endpoints-using-api-management/test.png)
+![Captura de tela mostra o experimento no painel do serviço Web que tem o botão testar.](./media/manage-web-service-endpoints-using-api-management/test.png)
 
 Digite **Este é um bom dia** para **col2**. Clique na marca de seleção.
 
-![enter-data](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
+![Captura de tela mostra a caixa de diálogo inserir dados a prever, onde você pode inserir texto como o exemplo, esse é um bom dia.](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
 
 Você verá algo semelhante a
 
-![sample-output](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
+![Captura de tela mostra o resultado do experimento, que lê esse é um bom dia e vários dígitos entre aspas.](./media/manage-web-service-endpoints-using-api-management/sample-output.png)
 
 ##### <a name="sample-code"></a>Exemplo de código
 Outra maneira de testar seu RRS é do código cliente. Se você clicar em **Solicitação/resposta** no painel e rolar até o final, verá o código de exemplo para C#, Python e R. Também verá a sintaxe da solicitação RRS, incluindo o URI, os cabeçalhos e o corpo da solicitação.

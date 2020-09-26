@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: f4a851377128577cc7e50af777b502c9f59211c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a251d7a1ff4063178a6c03d71fedc5adfca423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332858"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solucionar problemas com a Sincronização de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -105,7 +105,7 @@ O desempenho é degradado de forma significativa, possivelmente até o ponto em 
 
 - **Resolução**. A melhor correção é a prevenção. Verifique se você não tem referências circulares nos grupos de sincronização. Nenhuma linha sincronizada por um grupo de sincronização pode ser sincronizada por outro grupo de sincronização.
 
-### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a>Vejo esta mensagem: "não é possível inserir o valor NULL na coluna \<column> . A coluna não permite valores nulos”. O que isso significa e como posso corrigir o erro? 
+### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a><a name="sync-nulls"></a> Vejo esta mensagem: "não é possível inserir o valor NULL na coluna \<column> . A coluna não permite valores nulos”. O que isso significa e como posso corrigir o erro? 
 Essa mensagem de erro indica que um dos dois problemas a seguir ocorreu:
 -  Uma tabela não tem uma chave primária. Para corrigir esse problema, adicione uma chave primária a todas as tabelas que você está sincronizando.
 -  Há uma cláusula WHERE na instrução CREATE INDEX. A Sincronização de Dados não lidar com essa condição. Para corrigir esse problema, remova a cláusula WHERE ou realize as alterações manualmente para todos os bancos de dados. 
@@ -166,7 +166,7 @@ Falha ao tentar excluir um grupo de sincronização. Qualquer um dos cenários a
 
 - **Resolução**. Aguarde até que o processo de provisionamento ou sincronização seja concluído e tente excluir o grupo de sincronização novamente.
 
-### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a>Não consigo cancelar o registro de um banco de dados SQL Server
+### <a name="i-cant-unregister-a-sql-server-database"></a><a name="setup-unreg"></a> Não consigo cancelar o registro de um banco de dados SQL Server
 
 - **Causa**. Muito provavelmente, você está tentando cancelar o registro de um banco de dados que já foi excluído.
 

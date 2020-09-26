@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 7ee876b1d65e71657cb1af857cdad9f62a32100e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333045"
 ---
-# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorando Banco de Dados SQL do Microsoft Azure e o desempenho do SQL Instância Gerenciada do Azure usando exibições de gerenciamento dinâmico
+# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoramento do desempenho do Banco de Dados SQL do Microsoft Azure e da Instância Gerenciada de SQL usando DMV
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Banco de Dados SQL do Microsoft Azure e o SQL do Azure Instância Gerenciada permitem um subconjunto de exibições de gerenciamento dinâmico para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de execução longa, afunilamentos de recursos, planos de consulta insatisfatórios e assim por diante. Este tópico fornece informações sobre como detectar problemas de desempenho comuns usando exibições de gerenciamento dinâmico.
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Introdução ao banco de dados SQL do Azure e Azure SQL Instância Gerenciada](sql-database-paas-overview.md)

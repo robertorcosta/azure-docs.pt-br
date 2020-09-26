@@ -5,18 +5,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355730"
 ---
 # <a name="azure-application-gateway-features"></a>Recursos de gateway de Aplicativo Azure
 
-[Aplicativo Azure gateway](overview.md) é um balanceador de carga de tráfego da Web que permite gerenciar o tráfego para seus aplicativos Web.
+O [Gateway de Aplicativo do Azure](overview.md) é um balanceador de carga do tráfego da Web que permite que você gerencie o tráfego para seus aplicativos Web.
 
 ![Gateway de Aplicativo conceitual](media/overview/figure1-720.png)
 
@@ -147,9 +147,9 @@ Para obter mais informações, consulte [reescrever cabeçalhos HTTP e URL](rewr
 
 ## <a name="sizing"></a>Dimensionamento
 
-Os Standard_v2 do gateway de aplicativo podem ser configurados para implantações de tamanho automático ou fixo. Esta SKU não oferece tamanhos de instância diferentes. Para obter mais informações sobre o desempenho e os preços de v2, consulte [dimensionamento automático v2](application-gateway-autoscaling-zone-redundant.md) e [noções básicas sobre preços](understanding-pricing.md).
+Os Standard_v2 do gateway de aplicativo podem ser configurados para implantações de tamanho automático ou fixo. A SKU v2 não oferece tamanhos de instância diferentes. Para obter mais informações sobre o desempenho e os preços de v2, consulte [dimensionamento automático v2](application-gateway-autoscaling-zone-redundant.md) e [noções básicas sobre preços](understanding-pricing.md).
 
-O padrão de gateway de aplicativo é oferecido em três tamanhos: **pequeno**, **médio**e **grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
+O padrão de gateway de aplicativo (v1) é oferecido em três tamanhos: **pequeno**, **médio**e **grande**. Os tamanhos de instância pequenos são destinados a cenários de desenvolvimento e teste.
 
 Para obter uma lista completa de limites do gateway de aplicativo, consulte [Limites de serviço do Gateway de Aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
