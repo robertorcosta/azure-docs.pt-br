@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: 98b1842f81703041f419850be17c0c05a24b7c6b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: a4834ece4741b14981c08721e28bf528cab1da89
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440891"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91368882"
 ---
 # <a name="using-openfaas-on-aks"></a>Usando o OpenFaaS no AKS
 
@@ -134,7 +134,7 @@ Agora que o OpenFaaS está funcionando, crie uma função usando o portal do Ope
 
 Clique em **Implantar Nova Função** e pesquise **Figlet**. Selecione a função do Figlet e clique em **Implantar**.
 
-![Figlet](media/container-service-serverless/figlet.png)
+![Captura de tela mostra a caixa de diálogo implantar uma nova função com o texto FIGlet na linha de pesquisa.](media/container-service-serverless/figlet.png)
 
 Use o Curl para invocar a função. Substitua o endereço IP no exemplo a seguir pelo endereço IP do gateway do OpenFaas.
 

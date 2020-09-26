@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369086"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: carregar dados no pool do SQL do Azure Synapse Analytics
 
@@ -65,7 +65,7 @@ Siga estas etapas para criar um pool SQL em branco.
 
 1. Em **detalhes do pool do SQL**, forneça um nome para o pool do SQL. Em seguida, selecione um servidor existente na lista suspensa ou selecione **criar novo** nas configurações do **servidor** para criar um novo servidor. Preencha o formulário com as seguintes informações:
 
-    | Setting | Valor sugerido | Descrição |
+    | Configuração | Valor sugerido | Descrição |
     | ------- | --------------- | ----------- |
     |**Nome do pool de SQL**|SampleDW| Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
@@ -83,7 +83,7 @@ Siga estas etapas para criar um pool SQL em branco.
 
 1. Selecione **revisão + criar** para revisar suas configurações e, em seguida, selecione **criar** para criar seu data warehouse. Você pode monitorar seu progresso abrindo a página **implantação em andamento** no menu **notificações** .
 
-     ![notificação](./media/load-data-wideworldimportersdw/notification.png)
+     ![Captura de tela mostra notificações com a implantação em andamento.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall no nível de servidor
 
@@ -108,7 +108,7 @@ O serviço de análise de Synapse do Azure cria um firewall no nível de servido
 
     ![regra de firewall do servidor](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Selecione **Salvar**. Uma regra de firewall no nível do servidor é criada para o endereço IP atual que abre a porta 1433 no servidor lógico.
+1. Clique em **Salvar**. Uma regra de firewall no nível do servidor é criada para o endereço IP atual que abre a porta 1433 no servidor lógico.
 
 Agora você pode se conectar ao servidor usando o endereço IP do cliente. A conexão funciona no SQL Server Management Studio ou em outra ferramenta de sua escolha. Quando você se conectar, use a conta serveradmin criada anteriormente.  
 
@@ -1073,7 +1073,7 @@ Para obter um alto desempenho de consulta, é importante criar estatísticas em 
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Você está sendo cobrado por recursos de computação e por dados que você carregou em seu data warehouse. Eles são cobrados separadamente.  
 
@@ -1081,7 +1081,7 @@ Siga estas etapas para limpar os recursos conforme desejado.
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) e clique no seu data warehouse.
 
-    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Se desejar manter os dados no armazenamento, será possível pausar a computação quando você não estiver usando o data warehouse. Ao pausar a computação, você será cobrado apenas pelo armazenamento de dados e poderá retomar a computação sempre que estiver pronto para trabalhar com os dados. Para pausar a computação, clique no botão **Pausar**. Quando o data warehouse for pausado, você verá um botão **Iniciar**.  Para retomar a computação, clique **Iniciar**.
 

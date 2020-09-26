@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa60d6127a42f0118df152e5b3081751c595dbcf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362624"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurar Always Encrypted usando Azure Key Vault 
 
@@ -159,7 +159,7 @@ Clique em **Avançar** na página **Introdução** para abrir a página **Seleç
 
 Criptografe as informações de **SSN** e **BirthDate** de cada paciente. A coluna SSN usará criptografia determinística, que oferece suporte a pesquisas de igualdade, junções e agrupar por. A coluna BirthDate usará criptografia aleatória, que não oferece suporte a operações.
 
-Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Próximo**.
+Defina o **Tipo de Criptografia** para a coluna SSN como **Determinístico** e a coluna BirthDate como **Aleatório**. Clique em **Avançar**.
 
 ![Criptografar Colunas](./media/always-encrypted-azure-key-vault-configure/column-selection.png)
 
@@ -171,7 +171,7 @@ Este tutorial mostra como armazenar suas chaves no Cofre de Chaves do Azure.
 
 1. Selecione **Cofre de Chaves do Azure**.
 2. Selecione o cofre de chaves desejado na lista suspensa.
-3. Clique em **Próximo**.
+3. Clique em **Avançar**.
 
 ![Configuração da Chave Mestra](./media/always-encrypted-azure-key-vault-configure/master-key-configuration.png)
 
@@ -183,7 +183,7 @@ Você pode criptografar as colunas agora ou salvar um script do PowerShell para 
 
 Verifique se as configurações estão corretas e clique em **Concluir** para finalizar a configuração do Always Encrypted.
 
-![Resumo](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![Captura de tela mostra a página resultados com tarefas marcadas como aprovadas.](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Verificar as ações do assistente
 
