@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372214"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions plano Premium
 
@@ -141,32 +141,41 @@ Veja a disponibilidade regional completa das funções aqui: [Azure.com](https:/
 
 |Região| Windows | Linux |
 |--| -- | -- |
-|Austrália Central| 20 | Não disponível |
-|Austrália Central 2| 20 | Não disponível |
+|Austrália Central| 100 | Não disponível |
+|Austrália Central 2| 100 | Não disponível |
 |Leste da Austrália| 100 | 20 |
-|Australia Southeast | 100 | 20 |
-|Brazil South| 60 | 20 |
+|Sudeste da Austrália | 100 | 20 |
+|Sul do Brasil| 100 | 20 |
 |Canadá Central| 100 | 20 |
 |Centro dos EUA| 100 | 20 |
+|Leste da China 2| 100 | 20 |
+|Norte da China 2| 100 | 20 |
 |Leste da Ásia| 100 | 20 |
 |Leste dos EUA | 100 | 20 |
 |Leste dos EUA 2| 100 | 20 |
 |França Central| 100 | 20 |
 |Centro-Oeste da Alemanha| 100 | Não disponível |
-|Japan East| 100 | 20 |
+|Leste do Japão| 100 | 20 |
 |Oeste do Japão| 100 | 20 |
 |Coreia Central| 100 | 20 |
+|Sul da Coreia| Não disponível | 20 |
 |Centro-Norte dos EUA| 100 | 20 |
 |Norte da Europa| 100 | 20 |
-|Leste da Noruega| 20 | 20 |
+|Leste da Noruega| 100 | 20 |
 |Centro-Sul dos Estados Unidos| 100 | 20 |
 |Sul da Índia | 100 | Não disponível |
 |Sudeste Asiático| 100 | 20 |
+|Norte da Suíça| 100 | Não disponível |
+|Oeste da Suíça| 100 | Não disponível |
 |Sul do Reino Unido| 100 | 20 |
 |Oeste do Reino Unido| 100 | 20 |
+|Gov. EUA – Arizona| 100 | 20 |
+|Gov. EUA – Virgínia| 100 | 20 |
+|Leste USNat| 100 | Não disponível |
+|Oeste do USNat| 100 | Não disponível |
 |Europa Ocidental| 100 | 20 |
 |Oeste da Índia| 100 | 20 |
-|Centro-Oeste dos EUA| 20 | 20 |
+|Centro-Oeste dos EUA| 100 | 20 |
 |Oeste dos EUA| 100 | 20 |
 |Oeste dos EUA 2| 100 | 20 |
 

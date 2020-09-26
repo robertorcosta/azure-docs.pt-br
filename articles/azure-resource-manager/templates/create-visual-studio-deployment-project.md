@@ -3,12 +3,12 @@ title: Criar e implantar projetos do grupo de recursos do Visual Studio
 description: Use o Visual Studio para criar um projeto do grupo de recursos do Azure e implantar os recursos no Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985255"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372639"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criação e implantação de grupos de recurso do Azure por meio do Visual Studio
 
@@ -370,7 +370,7 @@ Você não está limitado apenas aos recursos disponíveis por meio da interface
 
    ![Painel personalizado](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-É possível gerenciar o acesso ao painel usando grupos RBAC. Você também pode personalizar a aparência do painel após a implantação. No entanto, se você reimplantar o grupo de recursos, o painel será redefinido para o estado padrão em seu modelo. Para saber mais sobre a criação de painéis, consulte [Criar programaticamente os painéis do Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+Você pode gerenciar o acesso ao painel usando o controle de acesso baseado em função do Azure (RBAC do Azure). Você também pode personalizar a aparência do painel após a implantação. No entanto, se você reimplantar o grupo de recursos, o painel será redefinido para o estado padrão em seu modelo. Para saber mais sobre a criação de painéis, consulte [Criar programaticamente os painéis do Azure](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

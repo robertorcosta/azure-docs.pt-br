@@ -5,18 +5,18 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80116973"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376998"
 ---
 ## <a name="use-custom-page-content"></a>Usar conteúdo de página personalizado
 
 Usando o recurso de personalização da interface do usuário da página, você pode personalizar a aparência de qualquer política personalizada. Também pode manter a consistência visual e da marca entre seu aplicativo e o Azure AD B2C.
 
-### <a name="how-it-works"></a>Como funciona
+### <a name="how-it-works"></a>Como ele funciona
 
 Azure AD B2C executa o código no navegador do cliente usando o [CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/). No tempo de execução, o conteúdo é carregado de uma URL que você especifica em seu fluxo de usuário ou política personalizada. Cada página na experiência do usuário carrega seu conteúdo da URL que você especificar para essa página. Depois que o conteúdo é carregado de sua URL, ele é mesclado com um fragmento de HTML inserido por Azure AD B2C e, em seguida, a página é exibida para o cliente.
 
@@ -159,15 +159,15 @@ Configure o armazenamento de BLOB para compartilhamento de recursos entre origen
 1. Para **cabeçalhos permitidos**, digite um asterisco (*).
 1. Para **cabeçalhos expostos**, digite um asterisco (*).
 1. Para **Idade máxima de**, insira 200.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 #### <a name="31-test-cors"></a>CORS de teste 3,1
 
 Valide se você está pronto executando as seguintes etapas:
 
-1. Repita a etapa configurar CORS. Para **origens permitidas**, insira`https://www.test-cors.org`
+1. Repita a etapa configurar CORS. Para **origens permitidas**, insira `https://www.test-cors.org`
 1. Navegue até [www.Test-CORS.org](https://www.test-cors.org/) 
-1. Para a caixa **URL remota** , Cole a URL do seu arquivo HTML. Por exemplo, `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
+1. Para a caixa **URL remota** , Cole a URL do seu arquivo HTML. Por exemplo, `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Selecione **Enviar solicitação**.
     O resultado deve ser `XHR status: 200` . 
     Se você receber um erro, verifique se as Configurações do CORS estão corretas. Você também pode precisar limpar o cache do navegador ou abrir uma sessão de navegação particular pressionando Ctrl+Shift+P.

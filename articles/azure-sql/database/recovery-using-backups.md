@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357005"
+ms.locfileid: "91371712"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando backups automatizados de banco de dados-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,7 +196,7 @@ Para um script do PowerShell que mostre como executar a restauração geográfic
 Não é possível executar uma restauração pontual em um banco de dados geográfico secundário. Você pode fazer isso somente em um banco de dados primário. Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [Recuperação de uma interrupção](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> A restauração geográfica é a solução de recuperação de desastre mais básica disponível no banco de dados SQL e no SQL Instância Gerenciada. Ele se baseia em backups replicados geograficamente criados automaticamente com um RPO (objetivo de ponto de recuperação) igual a 1 hora e um tempo de recuperação estimado de até 12 horas. Ela não garante que a região de destino terá a capacidade de restaurar seus bancos de dados após uma interrupção regional, devido à possibilidade de um grande aumento de demanda. Se seu aplicativo usa bancos de dados relativamente pequenos e não é essencial para os negócios, a restauração geográfica é uma solução de recuperação de desastre apropriada. 
+> A restauração geográfica é a solução de recuperação de desastre mais básica disponível no banco de dados SQL e no SQL Instância Gerenciada. Ele depende de backups replicados geograficamente criados automaticamente com um RPO (objetivo de ponto de recuperação) de até 1 hora e um tempo de recuperação estimado de até 12 horas. Ela não garante que a região de destino terá a capacidade de restaurar seus bancos de dados após uma interrupção regional, devido à possibilidade de um grande aumento de demanda. Se seu aplicativo usa bancos de dados relativamente pequenos e não é essencial para os negócios, a restauração geográfica é uma solução de recuperação de desastre apropriada. 
 >
 > Para aplicativos comercialmente críticos que exigem grandes bancos de dados e devem garantir a continuidade dos negócios, use [grupos de failover automático](auto-failover-group-overview.md). Eles oferecem RPO e objetivo de tempo de recuperação menores e há sempre a garantia de capacidade. 
 >

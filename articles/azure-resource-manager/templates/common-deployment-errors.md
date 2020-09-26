@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns ao implantar recursos no Azure 
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372231"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -34,6 +34,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | DeploymentNameLengthLimitExceeded | Os nomes de implantação são limitados a 64 caracteres.  | |
 | DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolvê-lo. Examine os detalhes do erro em busca de um código de erro que fornece mais informações. | [Encontrar código do erro](#find-error-code) |
 | DeploymentQuotaExceeded | Caso você atinja o limite de 800 implantações por grupo de recursos, exclua do histórico as implantações que não são mais necessárias. | [Resolver erro quando a contagem de implantação exceder 800](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | Simplifique seu modelo para reduzir o tamanho. | [Resolver erros de tamanho do modelo](error-job-size-exceeded.md) |
 | DnsRecordInUse | O nome do registro DNS deve ser exclusivo. Insira um nome diferente. | |
 | ImageNotFound | Verifique as configurações de imagem da VM. |  |
 | InUseSubnetCannotBeDeleted | Você pode receber esse erro ao tentar atualizar um recurso, e a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,6 +50,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | InvalidSubscriptionRegistrationState | Registre sua assinatura no provedor de recursos. | [Resolver registro](error-register-resource-provider.md) |
 | InvalidTemplate | Verifique se há erros na sintaxe do modelo. | [Resolver modelo inválido](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | Remova as dependências desnecessárias. | [Resolver as dependências circulares](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | Simplifique seu modelo para reduzir o tamanho. | [Resolver erros de tamanho do modelo](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Verifique se sua conta pertence ao mesmo locatário que o grupo de recursos no qual você está implantando. | |
 | LinkedInvalidPropertyId | A ID de um recurso não está sendo resolvida corretamente. Verifique se você forneceu todos os valores necessários para a ID do recurso, incluindo a ID de assinatura, nome do grupo de recursos, o tipo de recurso, o nome do recurso pai (se necessário) e o nome de recurso. | |
 | LocationRequired | Forneça um local para o recurso. | [Definir local](resource-location.md) |
@@ -88,7 +90,7 @@ Há dois tipos de erros que você pode receber:
 
 Erros de validação ocorrem em cenários que podem ser determinados antes da implantação. Eles incluem erros de sintaxe no modelo ou a tentativa de implantar recursos que excederão suas cotas de assinatura. Os erros de implantação surgem de condições que ocorrem durante o processo de implantação. Eles incluem a tentativa de acessar um recurso que está sendo implantado em paralelo.
 
-Ambos os tipos de erro retornam um código de erro que você pode usar para solucionar os problemas de implantação. Os dois tipos de erros aparecem no [log de atividades](../management/view-activity-logs.md). No entanto, os erros de validação não aparecem no seu histórico de implantações, porque a implantação nunca foi iniciada.
+Ambos os tipos de erro retornam um código de erro que você pode usar para solucionar os problemas de implantação. Os dois tipos de erro aparecem no [log de atividades](../management/view-activity-logs.md). No entanto, os erros de validação não aparecem no seu histórico de implantações, porque a implantação nunca foi iniciada.
 
 ### <a name="validation-errors"></a>Erros de validação
 

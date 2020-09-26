@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370871"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guia de desempenho e ajuste de fluxos de dados de mapeamento
 
@@ -53,7 +53,7 @@ Depois de identificar o afunilamento do fluxo de dados, use as estratégias de o
 
 A guia **otimizar** contém configurações para configurar o esquema de particionamento do cluster Spark. Essa guia existe em todas as transformações de fluxo de dados e especifica se você deseja reparticionar os dados **após** a conclusão da transformação. Ajustar o particionamento fornece controle sobre a distribuição de seus dados em nós de computação e otimizações de localidade de dados que podem ter efeitos positivos e negativos no desempenho geral do fluxo de dados.
 
-![Otimizar](media/data-flow/optimize.png "Otimizar")
+![Captura de tela mostra a guia otimizar, que inclui a opção de partição, o tipo de partição e o número de partições.](media/data-flow/optimize.png)
 
 Por padrão, o *uso do particionamento atual* é selecionado, o que instrui Azure data Factory manter o particionamento de saída atual da transformação. À medida que os dados de reparticionamento levam tempo, é recomendável *usar o particionamento atual* na maioria dos cenários. Os cenários em que você talvez queira reparticionar seus dados incluem após agregações e junções que distorcem significativamente seus dados ou ao usar o particionamento de origem em um banco de dados SQL.
 

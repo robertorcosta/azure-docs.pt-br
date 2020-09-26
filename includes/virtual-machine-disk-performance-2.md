@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 65f6c239f34775efff6a2ea2e399064a7702606a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8882625d28871135223dd30e3fd96a385a13e8fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89663605"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376921"
 ---
 ![Documentação do Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -85,3 +85,9 @@ Métricas que ajudam a diagnosticar a e/s de disco com limitação:
 - **Porcentagem consumida da largura de banda do disco de dados** -a porcentagem calculada pela taxa de transferência do disco de dados foi concluída na taxa de transferência do disco de dados provisionado Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de largura de banda do disco de dados.
 - **Porcentagem consumida de IOPS de disco do so** -a porcentagem calculada pelo IOPS de disco do sistema operacional concluída em relação à IOPS de disco do sistema operacional provisionado. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de IOPS do seu disco do sistema operacional.
 - **Porcentagem consumida da largura de banda do disco do so** -a porcentagem calculada pela taxa de transferência do disco do sistema operacional concluída na taxa de transferência do disco do so provisionado Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de largura de banda do disco do sistema operacional.
+
+Métricas que ajudam a diagnosticar a e/s de VM com limitação:
+- **Porcentagem consumida de IOPS em cache da VM** -a porcentagem calculada pelo total de IOPS concluída com relação ao limite de IOPS máximo de máquina virtual em cache. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de IOPs em cache de sua VM.
+- **Porcentagem consumida da largura de banda em cache da VM** -a porcentagem calculada pela taxa de transferência total do disco concluída na taxa de transferência máxima de máquina virtual em cache. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de largura de banda em cache da VM.
+- **Porcentagem consumida de IOPS não armazenada em cache da VM** -a porcentagem calculada pelo IOPS total em uma máquina virtual foi concluída com o limite máximo de IOPS de máquina virtual sem cache. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de IOPs sem cache da sua VM.
+- **Porcentagem consumida da largura de banda não armazenada em cache da VM** -a porcentagem calculada pela taxa de transferência total do disco em uma máquina virtual foi concluída com a taxa de transferência máxima da máquina virtual provisionada. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de largura de banda sem cache da sua VM.

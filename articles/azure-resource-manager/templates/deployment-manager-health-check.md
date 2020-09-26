@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: a6925ef8f72615cc3868c8b5cd4ea030ed3c3c40
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 63879350eba897cfe5a793309e5129323fe8bbde
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278049"
+ms.locfileid: "91372367"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir a distribuição de integração de integridade para o Azure Deployment Manager (visualização pública)
 
@@ -41,7 +41,7 @@ O fluxo para obter a instalação com as verificações de integridade do Azure 
     1. Informações de autenticação. Atualmente, somente a autenticação de estilo de chave de API tem suporte. Por Azure Monitor, o tipo de autenticação deve ser definido como – "RolloutIdentity", pois a identidade gerenciada atribuída pelo usuário usada para a distribuição de Deployment Manager do Azure se estende para Azure Monitor.
     1. [Códigos de status http](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) ou expressões regulares que definem uma resposta íntegra. Observe que você pode fornecer expressões regulares, as quais todas devem corresponder para que a resposta seja considerada íntegra, ou você pode fornecer expressões das quais qualquer um deve corresponder para que a resposta seja considerada íntegra. Os dois métodos têm suporte.
 
-    O JSON a seguir é um exemplo de integração de Azure Monitor com o Deployment Manager do Azure que aproveita o RolloutIdentity e estabelece a verificação de integridade em que uma distribuição prossegue se não houver nenhum alerta. A única API Azure Monitor com suporte: [alertas – obter tudo](/rest/api/monitor/alertsmanagement/alerts/getall.md).
+    O JSON a seguir é um exemplo de integração de Azure Monitor com o Deployment Manager do Azure que aproveita o RolloutIdentity e estabelece a verificação de integridade em que uma distribuição prossegue se não houver nenhum alerta. A única API Azure Monitor com suporte: [alertas – obter tudo](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {

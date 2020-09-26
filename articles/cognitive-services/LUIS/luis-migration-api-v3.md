@@ -1,15 +1,17 @@
 ---
 title: Alterações de ponto de extremidade de previsão na API v3
 description: As APIs de ponto de extremidade de previsão de consulta foram alteradas. Use este guia para entender como migrar para as APIs de ponto de extremidade da versão 3.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 3e4567eea02b3b7db9514f4e03c7f7f36496449b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610873"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309415"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações de ponto de extremidade de previsão para v3
 
@@ -39,14 +41,14 @@ A V3 fez as seguintes alterações como parte da mudança para GA:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
-    * Nome da chave de unidade mensurável de `units` para`unit`
+    * Nome da chave de unidade mensurável de `units` para `unit`
 
 * Alteração de JSON do corpo da solicitação:
-    * de `preferExternalEntities` para`preferExternalEntities`
+    * de `preferExternalEntities` para `preferExternalEntities`
     * `score`parâmetro opcional para entidades externas
 
 * Alterações de JSON do corpo da resposta:
-    * `normalizedQuery`removido
+    * `normalizedQuery` removido
 
 ## <a name="suggested-adoption-strategy"></a>Estratégia de adoção sugerida
 
@@ -77,7 +79,7 @@ O [formato da chamada http do ponto de extremidade v3](developer-reference-resou
 
 Se desejar consultar por versão, primeiro você precisará [publicar via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) com `"directVersionPublish":true` . Consulte o ponto de extremidade que referencia a ID de versão em vez do nome do slot.
 
-|Valores válidos para`SLOT-NAME`|
+|Valores válidos para `SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|

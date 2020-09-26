@@ -3,12 +3,12 @@ title: Exclusão completa de modo
 description: Mostra como os tipos de recurso lidam com a exclusão de modo completo em modelos do Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: e288d3af080a96616026e94ac7be352a7684c181
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327656"
+ms.locfileid: "91372454"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Exclusão de recursos do Azure para implantações do modo completo
 
@@ -1502,11 +1502,8 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Exclusão completa de modo |
 > | ------------- | ----------- |
 > | workspaces | Sim |
-> | espaços de trabalho/codeJobs | Não |
 > | workspaces/computes | Não |
 > | espaços de trabalho/eventGridFilters | Não |
-> | espaços de trabalho/inferenceEndpoints | Sim |
-> | espaços de trabalho/inferenceEndpoints/implantações | Sim |
 > | espaços de trabalho/linksservices | Não |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
