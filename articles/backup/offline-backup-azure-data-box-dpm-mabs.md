@@ -3,12 +3,12 @@ title: Backup offline com Azure Data Box para o DPM e o MABS
 description: Você pode usar Azure Data Box para propagar dados de backup inicial offline do DPM e do MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177679"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271487"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Propagação offline usando Azure Data Box para o DPM e MABS (visualização)
 
@@ -26,7 +26,7 @@ O backup offline baseado no Azure Data Box fornece duas vantagens distintas em r
 
 - O Backup do Azure (Agente MARS) pode gravar dados de backup diretamente nos SKUs compatíveis do Azure Data Box. Essa funcionalidade elimina a necessidade de provisionar um local de preparo para os dados do backup inicial. Também não é necessário usar utilitários para formatar e copiar esses dados nos discos.
 
-## <a name="supported-platforms"></a>Plataformas com suporte
+## <a name="supported-platforms"></a>Plataformas compatíveis
 
 As seguintes plataformas são compatíveis:
 
@@ -110,7 +110,7 @@ Especifique uma fonte alternativa: *WIM:D:\Sources\Install.wim:4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transferir dados de backup inicial para dispositivos Azure Data Box
 
-1. No servidor DPM/MABS, siga as etapas para [criar um novo grupo de proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Se você estiver adicionando uma proteção online ao grupo de proteção existente, clique com o botão direito do mouse no grupo de proteção existente e selecione **Adicionar proteção online** e iniciar na **etapa 8**.
+1. No servidor DPM/MABS, siga as etapas para [criar um novo grupo de proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Se você estiver adicionando uma proteção online ao grupo de proteção existente, clique com o botão direito do mouse no grupo de proteção existente e selecione **Adicionar proteção online** e iniciar na **etapa 8**.
 2. Na página **Selecionar Membros do Grupo**, especifique os computadores nos quais deseja fazer backup e as fontes das quais ele será feito.
 3. Na página **Selecionar método de proteção de dados**, especifique como deseja lidar com backups de curto e longo prazo. Certifique-se de selecionar **Desejo proteção online.**
 

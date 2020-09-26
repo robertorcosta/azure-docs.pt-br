@@ -1,16 +1,18 @@
 ---
 title: Criar com modelos-LUIS
 description: A compreensão da linguagem fornece vários tipos de modelos. Alguns modelos podem ser usados de mais de uma maneira.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 576ba945018d13db9cd24888f3c41a2215857694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316504"
 ---
-# <a name="design-with-intent-and-entity-models"></a>Design com modelos de intenção e entidade
+# <a name="design-with-intent-and-entity-models"></a>Design com intenção e modelos de entidade
 
 A compreensão da linguagem fornece dois tipos de modelos para você definir o esquema do aplicativo. O esquema do aplicativo determina quais informações você recebe da previsão de um novo usuário expressão.
 
@@ -63,9 +65,9 @@ O LUIS dá suporte à _decomposição de modelo_ com as APIs de criação, divid
 
 A decomposição do modelo tem as seguintes partes:
 
-* [tentativas](#intents-classify-utterances)
+* [intenções](#intents-classify-utterances)
     * [Features](#features)
-* [entidades de aprendizado de máquina](reference-entity-machine-learned-entity.md)
+* [entidades de machine learning](reference-entity-machine-learned-entity.md)
     * subentidades (também entidades de aprendizado de máquina)
         * [Features](#features)
             * [lista de frases](luis-concept-feature.md)

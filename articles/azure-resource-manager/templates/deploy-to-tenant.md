@@ -3,12 +3,12 @@ title: Implantar recursos no locatário
 description: Descreve como implantar recursos no escopo do locatário em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: af75e4f0e51ac685986e57b3b92a23dd37174460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284752"
+ms.locfileid: "91372384"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos no nível do locatário
 
@@ -24,7 +24,7 @@ Para políticas do Azure, use:
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-Para o controle de acesso baseado em função, use:
+Para o controle de acesso baseado em função do Azure (RBAC do Azure), use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 

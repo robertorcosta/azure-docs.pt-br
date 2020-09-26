@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4b196818ade1e703e24ed1ced6ebac1b44d0b083
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372061"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrar para o Cache do Azure para Redis
 Este artigo descreve várias abordagens para migrar um cache Redis existente em execução local ou em outro serviço de nuvem para o cache do Azure para Redis.
@@ -34,7 +34,7 @@ Há diferentes maneiras pelas quais você pode alternar de um cache para outro. 
    | ------------ | ---------- | ------------- |
    | Criar um novo cache | Mais simples de implementar. | É necessário preencher novamente os dados para o novo cache, o que pode não funcionar com muitos aplicativos. |
    | Exportar e importar dados por meio do arquivo RDB | Compatível com qualquer cache Redis em geral. | Alguns dados podem ser perdidos, se eles forem gravados no cache existente depois que o arquivo RDB for gerado. | 
-   | Dados de gravação dupla em dois caches | Sem perda de dados nem no centro. Operações ininterruptas do cache existente. Teste mais fácil do novo cache. | Precisa de dois caches por um longo período de tempo. | 
+   | Dados de gravação dupla em dois caches | Nenhuma perda de dados ou tempo de inatividade Operações ininterruptas do cache existente. Teste mais fácil do novo cache. | Precisa de dois caches por um longo período de tempo. | 
    | Migrar dados programaticamente | Controle total sobre como os dados são movidos. | Requer código personalizado. | 
 
 ### <a name="create-a-new-azure-cache-for-redis"></a>Criar um novo cache do Azure para Redis

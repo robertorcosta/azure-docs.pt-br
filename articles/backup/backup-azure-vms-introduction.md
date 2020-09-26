@@ -3,12 +3,12 @@ title: Sobre o backup de VM do Azure
 description: Neste artigo, saiba como o serviço de backup do Azure faz backup de máquinas virtuais do Azure e como seguir as práticas recomendadas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014635"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371500"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup de VM do Azure
 
@@ -105,6 +105,13 @@ Esses cenários comuns podem afetar o tempo total de backup:
 - **Discos fragmentados:** As operações de backup são mais rápidas quando as alterações no disco são contíguas. Se as alterações forem distribuídas e fragmentadas em um disco, o backup será mais lento.
 - **Rotatividade de disco:** Se os discos protegidos que estão passando por backup incremental tiverem uma rotatividade diária de mais de 200 GB, o backup poderá levar muito tempo (mais de oito horas) para ser concluído.
 - **Versões de backup:** A versão mais recente do backup (conhecida como a versão de restauração instantânea) usa um processo mais otimizado do que a comparação de soma de verificação para identificar alterações. Mas se você estiver usando a restauração instantânea e tiver excluído um instantâneo de backup, o backup mudará para comparação de soma de verificação. Nesse caso, a operação de backup excederá 24 horas (ou falha).
+
+### <a name="restore-performance"></a>Desempenho de restauração
+
+Esses cenários comuns podem afetar o tempo total de restauração:
+
+- O tempo total de restauração depende das operações de entrada/saída por segundo (IOPS) e da taxa de transferência da conta de armazenamento.
+- O tempo total de restauração poderá ser afetado se a conta de armazenamento de destino for carregada com outras operações de leitura e gravação de aplicativo. Para melhorar a operação de restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados de aplicativo.
 
 ## <a name="best-practices"></a>Práticas recomendadas
 

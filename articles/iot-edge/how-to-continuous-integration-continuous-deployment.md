@@ -3,17 +3,17 @@ title: Integração contínua e implantação contínua em dispositivos Azure Io
 description: Configurar a integração contínua e a implantação contínua usando o YAML-Azure IoT Edge com o DevOps do Azure, Azure Pipelines
 author: shizn
 manager: philmea
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b68e354099a0038e1b418d6973eca2c774aed94
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d29a5a6d0d4745655ce5b6d0cead3eaba77ed423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89301443"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281619"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices"></a>Integração contínua e implantação contínua em dispositivos Azure IoT Edge
 
@@ -111,7 +111,7 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
        | Parâmetro | Descrição |
        | --- | --- |
        | Pasta de Origem | A pasta de origem da qual copiar. Empty é a raiz do repositório. Use variáveis se os arquivos não estiverem no repositório. Exemplo: `$(agent.builddirectory)`.
-       | Sumário | Adicione duas linhas: `deployment.template.json` e `**/module.json` . |
+       | Conteúdo | Adicione duas linhas: `deployment.template.json` e `**/module.json` . |
        | Pasta de destino | Especifique a variável `$(Build.ArtifactStagingDirectory)` . Consulte [criar variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais sobre a descrição. |
 
    * Tarefa: **publicar artefatos de compilação**

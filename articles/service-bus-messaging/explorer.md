@@ -3,12 +3,12 @@ title: Usar o Barramento de Serviço do Azure para executar operações de dados
 description: Este artigo fornece informações sobre como usar o Gerenciador do Barramento de Serviço do Azure baseado em portal para acessar os dados do Barramento do Serviço do Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340544"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295593"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Usar o Gerenciador do Barramento de Serviço para realizar as operações de dados no Barramento de Serviço (versão prévia)
 
@@ -104,7 +104,7 @@ Para receber uma mensagem de uma fila (ou sua subfila de mensagens mortas)
 
 Quando a operação de recebimento for bem-sucedida, os detalhes da mensagem serão exibidos na grade, como mostrado abaixo. Você pode selecionar a mensagem da grade para exibir seus detalhes.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Captura de tela da janela filas no Gerenciador do barramento de serviço do Azure com detalhes da mensagem exibidos para uma mensagem ativa selecionada na fila.":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Espiar uma mensagem de uma Fila
@@ -156,7 +156,7 @@ Assim como ocorre com uma fila, a operação ***Receber*** pode ser executada em
 
 Quando a operação de recebimento for bem-sucedida, os detalhes da mensagem recebida serão exibidos na grade, como mostrado abaixo. Para exibir os detalhes da mensagem, clique na mensagem.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="ReceiveMessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Captura de tela da guia receber no Gerenciador do barramento de serviço do Azure com detalhes da mensagem exibidos para uma mensagem ativa que foi recebida.":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Espiar mensagens de uma assinatura
 

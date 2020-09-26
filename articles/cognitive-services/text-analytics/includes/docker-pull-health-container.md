@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: b9452baf0301233a1cd6e05621a89d013d32c9e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b28049f1854494b61d63824334b986d814a641cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906010"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309296"
 ---
-Preencha e envie o [formulário de solicitação de contêineres de serviços cognitivas](https://aka.ms/cognitivegate) para solicitar acesso ao contêiner.
+Preencha e envie o [formulário de solicitação de contêineres de serviços cognitivas](https://aka.ms/csgate) para solicitar acesso ao contêiner.
 O formulário solicita informações sobre você, sua empresa e o cenário do usuário para o qual você usará o contêiner. Depois de submetida, a equipe de Serviços Cognitivos do Azure revisa o formulário para garantir que você atenda aos critérios de acesso ao registro de contêiner privado.
 
 > [!IMPORTANT]

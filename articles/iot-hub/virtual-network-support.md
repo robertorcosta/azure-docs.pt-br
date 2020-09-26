@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281243"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte do Hub IoT para redes virtuais com Link Privado e Identidade Gerenciada
 
@@ -236,7 +236,7 @@ O recurso de carregamento de arquivo do Hub IoT permite que dispositivos carregu
 
 4. Na página de recursos do seu Hub IoT, vá até a guia **Carregamento de arquivos**.
 
-5. Na página que aparece, selecione o contêiner que você pretende usar em seu armazenamento de blobs, defina as **Configurações de notificação de arquivo**, **TTL do SAS**, **TTL padrão** e a **Contagem de entrega máxima** conforme desejado. Selecione **baseado em identidade** como o **tipo de autenticação** para o ponto de extremidade de armazenamento. Selecione o botão **Criar**.
+5. Na página que aparece, selecione o contêiner que você pretende usar em seu armazenamento de blobs, defina as **Configurações de notificação de arquivo**, **TTL do SAS**, **TTL padrão** e a **Contagem de entrega máxima** conforme desejado. Selecione **baseado em identidade** como o **tipo de autenticação** para o ponto de extremidade de armazenamento. Selecione o botão **Criar**. Se você receber um erro nesta etapa, defina temporariamente sua conta de armazenamento para permitir o acesso de **todas as redes**e tente novamente. Você pode configurar o firewall na conta de armazenamento depois que a configuração de carregamento de arquivo for concluída.
 
 Agora seu ponto de extremidade de armazenamento para carregamento de arquivo está configurado para usar a identidade atribuída do sistema do hub e tem permissão para acessar seu recurso de armazenamento, apesar das restrições do firewall.
 

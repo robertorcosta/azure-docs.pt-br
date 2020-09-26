@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295729"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar usuários no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
 
@@ -28,7 +28,7 @@ O mecanismo PostgreSQL usa [funções](https://www.postgresql.org/docs/current/s
 * `postgres`
 * `citus`
 
-Como o hiperscale é um serviço de PaaS gerenciado, somente a Microsoft pode entrar com a `postgres` função de superusuário. Para acesso administrativo limitado, o hiperscale fornece a `citus` função.
+Como o Citus (subscale) é um serviço de PaaS gerenciado, somente a Microsoft pode entrar com a `postgres` função de superusuário. Para acesso administrativo limitado, o Citus (hiperescala) fornece a `citus` função.
 
 Permissões para a `citus` função:
 
@@ -46,7 +46,7 @@ Notavelmente, a `citus` função tem algumas restrições:
 
 Conforme mencionado, a `citus` conta de administrador não tem permissão para criar usuários adicionais. Para adicionar um usuário, use a interface portal do Azure.
 
-1. Vá para a página **funções** do grupo de servidores de hiperescala e clique em **+ Adicionar**:
+1. Vá para a página **funções** do seu grupo de servidores Citus (hiperescala) e clique em **+ Adicionar**:
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="A página funções":::
 
@@ -75,7 +75,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Como excluir uma função de usuário ou alterar sua senha
 
-Para atualizar um usuário, visite a página **funções** para o grupo de servidores de hiperescala e clique nas reticências **...** ao lado do usuário. As reticências abrirão um menu para excluir o usuário ou redefinir sua senha.
+Para atualizar um usuário, visite a página **funções** para seu grupo de servidores Citus (hiperescala) e clique nas reticências **...** ao lado do usuário. As reticências abrirão um menu para excluir o usuário ou redefinir sua senha.
 
    :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Editar uma função":::
 

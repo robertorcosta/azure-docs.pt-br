@@ -1,14 +1,16 @@
 ---
 title: Testando para DevOps para aplicativos LUIS
 description: Como testar seu aplicativo Reconhecimento vocal (LUIS) em um ambiente DevOps.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 2556d2e904aff720bc02e4c7d58bf5a72af4d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538064"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316538"
 ---
 # <a name="testing-for-luis-devops"></a>Testando o LUIS DevOps
 
@@ -79,7 +81,7 @@ Em cada teste de unidade, para um determinado expressão de teste, você pode:
 Em testes de unidade, é uma boa ideia testar se as entidades-chave foram retornadas na resposta de previsão, mas ignorar quaisquer falsos positivos. *Falsos positivos* são entidades que são encontradas na resposta de previsão, mas que não são definidas nos resultados esperados para seu teste. Ignorando falsos positivos, ele torna menos oneroso para criar testes de unidade e, ao mesmo tempo, permite que você se concentre no teste de que os dados que são fundamentais para sua solução estão sendo retornados em uma resposta de previsão.
 
 > [!TIP]
-> O [NLU. ](https://github.com/microsoft/NLU.DevOps)A ferramenta DevOps dá suporte a todas as suas necessidades de teste de Luis. O `compare` comando quando usado no [modo de teste de unidade](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#unit-test-mode) irá declarar que todos os testes são aprovados e ignorará resultados falsos positivos para entidades que não são rotuladas nos resultados esperados.
+> O [NLU. ](https://github.com/microsoft/NLU.DevOps) A ferramenta DevOps dá suporte a todas as suas necessidades de teste de Luis. O `compare` comando quando usado no [modo de teste de unidade](https://github.com/microsoft/NLU.DevOps/blob/master/docs/Analyze.md#unit-test-mode) irá declarar que todos os testes são aprovados e ignorará resultados falsos positivos para entidades que não são rotuladas nos resultados esperados.
 
 #### <a name="designing-batch-tests"></a>Criando testes em lote
 

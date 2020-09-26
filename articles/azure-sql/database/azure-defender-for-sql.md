@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: b789cd423d2260ce709a02ffb3ac5ea500997609
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933108"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372146"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender para SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -39,7 +39,7 @@ Para obter mais informações sobre preços do Azure defender para SQL, consulte
 
 As etapas a seguir o ajudarão a começar a usar o Azure defender.
 
-## <a name="1-enable-azure-defender"></a>1. habilitar o Azure defender
+## <a name="enable-azure-defender"></a>Habilitar o Azure Defender
 
 O Azure defender pode ser acessado por meio do [portal do Azure](https://portal.azure.com). Habilite o Azure defender navegando até a **central de segurança** no título de **segurança** do seu servidor ou instância gerenciada.
 
@@ -48,15 +48,15 @@ O Azure defender pode ser acessado por meio do [portal do Azure](https://portal.
 >
 > O custo do Azure defender está alinhado com o preço da camada Standard da central de segurança do Azure por nó, em que um nó é o servidor inteiro ou a instância gerenciada. Portanto, você está pagando apenas uma vez para proteger todos os bancos de dados no servidor ou instância gerenciada com o Azure defender. Você pode experimentar o Azure defender inicialmente com uma avaliação gratuita.
 
-## <a name="2-start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. iniciar o acompanhamento de vulnerabilidades e investigação de alertas de ameaça
+## <a name="start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>Iniciar o acompanhamento de vulnerabilidades e investigação de alertas de ameaça
 
 Clique no cartão **Avaliação de Vulnerabilidade** para exibir e gerenciar relatórios e verificações de vulnerabilidade e relatórios e acompanhar sua estatura de segurança. Se alertas de segurança tiverem sido recebidos, clique no cartão **proteção avançada contra ameaças** para exibir detalhes dos alertas e para ver um relatório consolidado sobre todos os alertas em sua assinatura do Azure por meio da página alertas de segurança da central de segurança do Azure.
 
-## <a name="3-manage-azure-defender-settings"></a>3. gerenciar configurações do Azure defender
+## <a name="manage-azure-defender-settings"></a>Gerenciar configurações do Azure defender
 
 Para exibir e gerenciar as configurações do Azure defender, navegue até a **central de segurança** no título de **segurança** do seu servidor ou instância gerenciada. Nesta página, você pode habilitar ou desabilitar o Azure defender e modificar as configurações de avaliação de vulnerabilidade e proteção avançada contra ameaças para todo o servidor ou instância gerenciada.
 
-## <a name="4-manage-azure-defender-settings-for-a-database"></a>4. gerenciar configurações do Azure defender para um banco de dados
+## <a name="manage-azure-defender-settings-for-a-database"></a>Gerenciar configurações do Azure defender para um banco de dados
 
 Para substituir as configurações do Azure defender para um determinado banco de dados, marque a caixa de seleção **habilitar o Azure defender para SQL no nível do banco de dados** . Use esta opção somente se você tiver um requisito específico para receber alertas separados de proteção avançada contra ameaças ou resultados de avaliação de vulnerabilidade para o banco de dados individual, no lugar do ou além dos alertas e resultados recebidos para todos os bancos de dado no servidor ou instância gerenciada.
 

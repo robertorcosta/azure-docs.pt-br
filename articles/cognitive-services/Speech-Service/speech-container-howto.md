@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334660"
+ms.locfileid: "91371670"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala 
 
@@ -44,7 +44,7 @@ Os contêineres de Fala permitem que os clientes criem uma arquitetura de aplica
 | Conversão de texto em fala | Converte texto em fala natural-som com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.7.0 |
 | Conversão de texto em fala personalizada | Usando um modelo personalizado do [portal de voz personalizado](https://aka.ms/custom-voice-portal), o converte o texto em fala de som natural com entrada de texto sem formatação ou SSML (linguagem de marcação de síntese de fala). | 1.7.0 |
 | Detecção de Idioma de fala | Detectar o idioma falado nos arquivos de áudio. | 1.0 |
-| Texto em fala neural | Converte o texto em voz natural usando uma tecnologia de rede neural profunda, permitindo uma fala mais natural sintetizada. | 1.1.0 |
+| Texto em fala neural | Converte o texto em voz natural usando uma tecnologia de rede neural profunda, permitindo uma fala mais natural sintetizada. | 1.2.0 |
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
@@ -245,7 +245,7 @@ Todas as marcas, exceto `latest` as estão no seguinte formato e diferenciam mai
 A marca a seguir é um exemplo do formato:
 
 ```
-1.1.0-amd64-en-us-arianeural-preview
+1.2.0-amd64-en-us-arianeural-preview
 ```
 
 Para todas as localidades com suporte e as vozes correspondentes do contêiner de **conversão de texto em fala neural** , consulte [marcas de imagem de conversão de texto em fala neural](../containers/container-image-tags.md#neural-text-to-speech).

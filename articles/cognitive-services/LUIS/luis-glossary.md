@@ -1,14 +1,16 @@
 ---
 title: Glossário-LUIS
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309482"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O Glossário de Reconhecimento vocal (LUIS) explica os termos que você pode encontrar enquanto trabalha com o serviço LUIS.
@@ -107,7 +109,7 @@ Consulte também:
 
 Um descritor é o termo usado anteriormente para um [recurso](#features)de aprendizado de máquina.
 
-## <a name="domain"></a>Domain
+## <a name="domain"></a>Domínio
 
 No contexto do LUIS, um domínio é uma área de conhecimento. Seu domínio é específico do seu cenário. Domínios diferentes usam uma terminologia e linguagem específica que têm significado no contexto do domínio. Por exemplo, se você estiver criando um aplicativo para reproduzir música, seu aplicativo teria termos e idioma específicos para música – palavras como "música, faixa, álbum, letras do lado do b, artista". Para obter exemplos de domínios, consulte [domínios predefinidos](#prebuilt-domain).
 
@@ -309,7 +311,7 @@ Para o **Inglês**, um token é um intervalo contínuo (sem espaços ou pontuaç
 |--|--|--|
 |`Dog`|1|Uma única palavra sem pontuação ou espaços.|
 |`RMT33W`|1|Um número de localizador de registro. Ele pode ter números e letras, mas não tem pontuação.|
-|`425-555-5555`|5|Um número de telefone. Cada marca de pontuação é um único token, portanto, `425-555-5555` seria 5 tokens:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`425-555-5555`|5|Um número de telefone. Cada marca de pontuação é um único token, portanto,  `425-555-5555` seria 5 tokens:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
 ## <a name="train"></a>Treinar

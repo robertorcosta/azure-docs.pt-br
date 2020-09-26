@@ -3,12 +3,12 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: fcbca4a1e3152dfa36d71031c2f69e8a40125380
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 004c3f35dae4a4966e9ac3d4756aecfba7df2075
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371706"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -328,7 +328,7 @@ A tabela a seguir se aplica aos SKUs v1, v2, Standard e WAF, salvo indicação e
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## <a name="role-based-access-control-limits"></a>Limites de controle de acesso baseado em função
+## <a name="azure-role-based-access-control-limits"></a>Limites de controle de acesso baseado em função do Azure
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 

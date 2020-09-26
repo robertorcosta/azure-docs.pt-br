@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c707f6108c73a268bcac18c45afb70ae17185bb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019896"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308105"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Entendimento conceitual de certificados de AC X.509 no setor de IoT
 
@@ -87,7 +87,7 @@ O processo de upload do Certificado de Autoridade de Certificação X.509 é ape
 
 ### <a name="proof-of-possession-of-the-certificate"></a>Prova de posse do certificado
 
-O Certificado de Autoridade de Certificação X.509, assim como qualquer certificado digital, é de informações públicas que são suscetíveis à interceptação. Dessa maneira, um interceptador pode interceptar um certificado e tentar carregá-lo como seu próprio. Em nosso exemplo, o Hub IoT gostaria de garantir que o Certificado de Autoridade de Certificação que a Empresa X está carregando realmente pertence à Empresa X. Ele o faz ao desafiar a Empresa X a provar que ela, de fato, tem o certificado por meio de um [fluxo de PoP (Prova de posse)](https://tools.ietf.org/html/rfc5280#section-3.1). O fluxo de prova de posse envolve o Hub IoT gerando um número aleatório a ser assinado pela Empresa-X usando sua chave privada. Se a Empresa X seguiu as práticas recomendadas de PKI e protegeu sua chave privada, então, somente ela estaria na posição de responder corretamente ao desafio de prova de posse. O Hub IoT prossegue para registrar o Certificado de Autoridade de Certificação X.509 após uma resposta bem-sucedida do desafio de prova de posse.
+O Certificado de Autoridade de Certificação X.509, assim como qualquer certificado digital, é de informações públicas que são suscetíveis à interceptação. Dessa maneira, um interceptador pode interceptar um certificado e tentar carregá-lo como seu próprio. Em nosso exemplo, o Hub IoT gostaria de garantir que o Certificado de Autoridade de Certificação que a Empresa X está carregando realmente pertence à Empresa X. Ele faz isso desafiando a empresa X a provar que ela, de fato, possui o certificado por meio de um [fluxo de prova de posse (pop)](https://tools.ietf.org/html/rfc5280#section-3.1). O fluxo de prova de posse envolve o Hub IoT gerando um número aleatório a ser assinado pela Empresa-X usando sua chave privada. Se a Empresa X seguiu as práticas recomendadas de PKI e protegeu sua chave privada, então, somente ela estaria na posição de responder corretamente ao desafio de prova de posse. O Hub IoT prossegue para registrar o Certificado de Autoridade de Certificação X.509 após uma resposta bem-sucedida do desafio de prova de posse.
 
 Uma resposta bem-sucedida para o desafio de prova de posse do Hub IoT conclui o registro da AC X.509.
 

@@ -3,12 +3,12 @@ title: Implantar recursos com o PowerShell e o modelo
 description: Use Azure Resource Manager e Azure PowerShell para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: ef2ff71430f0dcaca660666bb9a6c015c923da3f
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: e47de54558962215fe3be78f5b9c45c8d46c54a3
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536065"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372435"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implantar recursos com modelos do Resource Manager e o Azure PowerShell
 
@@ -124,7 +124,7 @@ O exemplo anterior requer um URI acessível publicamente para o modelo, que func
 
 ## <a name="deploy-template-spec"></a>Implantar especificação de modelo
 
-Em vez de implantar um modelo local ou remoto, você pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso em sua assinatura do Azure que contém um modelo do ARM. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Você usa o RBAC (controle de acesso baseado em função) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
+Em vez de implantar um modelo local ou remoto, você pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso em sua assinatura do Azure que contém um modelo do ARM. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Use o controle de acesso baseado em função do Azure (RBAC do Azure) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
 
 Os exemplos a seguir mostram como criar e implantar uma especificação de modelo. Esses comandos só estarão disponíveis se você tiver se [inscrito na versão prévia](https://aka.ms/templateSpecOnboarding).
 
