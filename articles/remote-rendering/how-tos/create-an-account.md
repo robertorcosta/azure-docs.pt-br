@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057663"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318085"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
 
@@ -83,7 +83,7 @@ Agora, supõe-se que você tenha uma conta de armazenamento. Navegue até a cont
 
  Clique no botão **Adicionar** no bloco "adicionar uma atribuição de função" para adicionar a primeira função:
 
-![IAM da conta de armazenamento](./media/azure-add-role-assignment.png)
+![Adicionar atribuição de função IAM da conta de armazenamento](./media/azure-add-role-assignment.png)
 
 * A primeira função a ser atribuída é **proprietário** conforme mostrado na captura de tela acima.
 * Selecione **Conta do Remote Rendering** na lista suspensa **Atribuir acesso a**.
@@ -100,6 +100,8 @@ Repita a adição de novas funções mais duas vezes para as respectivas seleç�
 As outras listas suspensas são selecionadas como na primeira etapa.
 
 Se você tiver adicionado todas as três funções, sua conta do Azure Remote Rendering terá acesso à sua conta de armazenamento usando as identidades de serviço gerenciadas atribuídas pelo sistema.
+> [!IMPORTANT]
+> As atribuições de função do Azure são armazenadas em cache pelo armazenamento do Azure, portanto, pode haver um atraso de até 30 minutos entre quando você concede acesso à sua conta de renderização remota e quando ela pode ser usada para acessar sua conta de armazenamento. Consulte a [documentação controle de acesso de base de função](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) para obter detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 

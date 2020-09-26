@@ -1,19 +1,19 @@
 ---
 title: Versão de Microsoft Threat Modeling Tool 4/9/2019
 titleSuffix: Azure
-description: Documentando as notas sobre a versão da Threat Modeling Tool
+description: Documentando as notas de versão da versão 7.1.60408.1 da ferramenta de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 59d385ba7de5bf7bceae4dc8ddadbca813046094
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d24eb868a13e7b2d9ff3d2b625302c1c1fcb908
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78269723"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318000"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versão de atualização do Threat Modeling Tool 7.1.60408.1-4/9/2019
 
@@ -42,7 +42,7 @@ A versão do cliente do Threat Modeling Tool agora é mostrada na tela inicial d
 
 Todos os links de suporte dentro da ferramenta foram atualizados para direcionar os usuários para [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) o em vez de um fórum do MSDN.
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas operacionais com suporte
   - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior

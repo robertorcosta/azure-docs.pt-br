@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807597"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317558"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de hash de senha com a sincronização do Azure AD Connect
 
@@ -120,7 +120,7 @@ Cada Active Directory Connector local tem seu próprio canal de sincronização 
 
 Se a conta do AD DS usada pelo Active Directory Connector local para sincronizar os hashes de senha não tiver as permissões apropriadas, o seguinte erro será retornado:
 
-![Credenciais incorretas](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Captura de tela que mostra o erro retornado quando a conta de AD DS tem um nome de usuário ou senha incorretos.](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>Nome de usuário ou senha incorreta da conta do AD DS
 
@@ -326,7 +326,7 @@ Você pode solucionar problemas de sincronização de hash de senha problemas fa
 
     f. Localize o usuário que você está procurando e, em seguida, clique em **Propriedades** para ver todos os atributos. Se o usuário não estiver no resultado da pesquisa, verifique as [regras de filtragem](how-to-connect-sync-configure-filtering.md) e lembre-se de executar [Aplicar e verificar alterações](how-to-connect-sync-configure-filtering.md#apply-and-verify-changes) para que o usuário seja exibido no Connect.
 
-    (por exemplo, Para ver os detalhes de sincronização de senha do objeto da semana passada, clique em **Log**.  
+    g. Para ver os detalhes de sincronização de senha do objeto da semana passada, clique em **Log**.  
 
     ![Detalhes do log do objeto](./media/tshoot-connect-password-hash-synchronization/csobjectlog.png)  
 
@@ -338,7 +338,7 @@ Você pode solucionar problemas de sincronização de hash de senha problemas fa
 
     i. Clique em **Propriedades de objeto do metaverso** para exibir uma lista de atributos do usuário.  
 
-    ![Informações de metaverso](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Captura de tela que mostra a lista de atributos de usuário para as propriedades do objeto de metaverso.](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     Verifique se não há nenhum atributo **cloudFiltered** presente. Verifique se os atributos de domínio (domainFQDN e domainNetBios) têm os valores esperados.
 
@@ -356,14 +356,14 @@ A coluna de status pode ter os seguintes valores:
 
 | Status | Descrição |
 | --- | --- |
-| Êxito |A senha foi sincronizada com êxito. |
+| Sucesso |A senha foi sincronizada com êxito. |
 | FilteredByTarget |A senha está definida para **O usuário deve alterar a senha no próximo logon**. A senha não foi sincronizada. |
 | NoTargetConnection |Nenhum objeto no metaverso ou no espaço conector do AD do Azure. |
 | SourceConnectorNotPresent |Nenhum objeto encontrado no espaço conector do Active Directory local. |
 | TargetNotExportedToDirectory |O objeto no espaço conector do AD do Azure ainda não foi exportado. |
 | MigratedCheckDetailsForMoreInfo |A entrada de log foi criada antes da versão 1.0.9125.0 e é mostrada em seu estado herdado. |
 | Erro |O serviço retornou um erro desconhecido. |
-| Unknown (desconhecido) |Ocorreu um erro ao tentar processar um lote de hashes de senha.  |
+| Unknown |Ocorreu um erro ao tentar processar um lote de hashes de senha.  |
 | MissingAttribute |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelos Azure AD Domain Services não estão disponíveis. |
 | RetryRequestedByTarget |Atributos específicos (por exemplo, o hash de Kerberos) exigidos pelos Azure AD Domain Services não estavam disponíveis anteriormente. É feita uma tentativa de sincronizar novamente o hash de senha do usuário. |
 

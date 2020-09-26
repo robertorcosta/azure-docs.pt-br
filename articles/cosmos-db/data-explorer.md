@@ -4,14 +4,14 @@ description: O gerenciador do Azure Cosmos DB é uma interface baseada na Web au
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: 918f5a4a572f5518e5ae1b08db3d88d559571ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261878"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318799"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Trabalhar com os dados usando o Azure Cosmos Explorer 
 
@@ -39,7 +39,7 @@ O gerenciador do Azure Cosmos DB é uma interface baseada na Web autônoma que p
 
    **Leitura** - Ao compartilhar a URL somente leitura com outros usuários, eles poderão exibir os bancos de dados, as coleções, consultas e outros recursos associados a essa conta específica. Por exemplo, se quiser compartilhar os resultados de uma consulta com os colegas de equipe que não tenham acesso ao portal do Azure ou à conta do Azure Cosmos DB, forneça essa URL aos colegas.
 
-   Escolha o tipo de acesso com o qual gostaria de abrir a conta e clique em **Abrir**. Após abrir o gerenciador, a experiência é a mesma que você tinha com a guia Data Explorer no portal do Azure.   
+   Escolha o tipo de acesso com o qual gostaria de abrir a conta e clique em **Abrir**. Após abrir o gerenciador, a experiência é a mesma que você tinha com a guia Data Explorer no portal do Azure.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Abrir Azure Cosmos DB Explorer":::
 
@@ -49,7 +49,10 @@ Atualmente, a experiência de **Abrir Modo de Exibição de Tela Inteira** que p
 
 No momento, não há suporte para a exibição de documentos que contenham um UUID no Data Explorer. Isso não afeta o carregamento de coleções, apenas a exibição de documentos individuais ou consultas que incluam esses documentos. Para exibir e gerenciar esses documentos, os usuários devem continuar a usar a ferramenta que foi usada originalmente para criar esses documentos.
 
+Os clientes que recebem erros HTTP-401 podem ser devido a permissões RBAC insuficientes para a conta do Azure do cliente, especialmente se a conta tiver uma função RBAC personalizada. Qualquer função personalizada deve ter `Microsoft.DocumentDB/databaseAccounts/listKeys/*` a ação de usar data Explorer se estiver entrando usando suas credenciais de Azure Active Directory.
+
 ## <a name="next-steps"></a>Próximas etapas
+
 Agora que você aprendeu como começar a usar o gerenciador do Azure Cosmos DB para gerenciar os dados, em seguida, poderá:
 
 * Começar a definir[consultas](sql-api-query-reference.md) usando a sintaxe SQL e executar [programação do lado do servidor](stored-procedures-triggers-udfs.md), usando procedimentos armazenados, UDFs, gatilhos. 

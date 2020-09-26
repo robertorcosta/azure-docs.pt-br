@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/25/2020
+ms.openlocfilehash: 49248575cb10f3df746b9ba484244e4702fb5d72
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647552"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369001"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Conectar redes virtuais do Azure a partir dos Aplicativos Lógicos do Azure, usando um ISE (Ambiente de Serviço de Integração)
 
@@ -168,6 +168,8 @@ Se você não permitir o acesso a essas dependências, a implantação do ISE fa
 
 * [Endereços de entrada e saída dos aplicativos lógicos para a região do ISE](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
 
+* [Endereços IP do Azure para conectores na região do ISE, que estão neste arquivo de download](https://www.microsoft.com/download/details.aspx?id=56519)
+
 * Você precisa habilitar pontos de extremidade de serviço para SQL, armazenamento, barramento de serviço e Hub de eventos do Azure, pois não é possível enviar tráfego por meio de um firewall para esses serviços.
 
 <a name="create-environment"></a>
@@ -282,6 +284,21 @@ Se você não permitir o acesso a essas dependências, a implantação do ISE fa
 
    > [!IMPORTANT]
    > Os conectores do ISE gerenciados que se tornam disponíveis depois que você cria o ISE não aparecem automaticamente no seletor de conector no Designer do Aplicativo Lógico. Antes de poder usar esses conectores do ISE, você precisa [adicionar manualmente esses conectores ao ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) para que eles apareçam no Designer do Aplicativo Lógico.
+
+   > [!IMPORTANT]
+   > Atualmente, os conectores do ISE gerenciados não dão suporte a [marcas](../azure-resource-manager/management/tag-support.md). Se você configurar uma política que impõe a marcação, tentando adicionar conectores do ISE  
+   > pode falhar com um erro semelhante a este exemplo: 
+   > 
+   > ```json
+   > {
+   >    "error": { 
+   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+   >       "message": "The tags are not supported in the managed API 'azureblob'."
+   >    }
+   > }
+   > ```
+   > Para adicionar conectores do ISE, você precisa desabilitar ou remover sua política.
+   > 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,12 +3,12 @@ title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535551"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369307"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -369,7 +369,7 @@ Você não pode usar os dois parâmetros inline e um link para um arquivo de par
 
 ## <a name="template-specs"></a>Especificações de modelo
 
-Em vez de manter seus modelos vinculados em um ponto de extremidade acessível, você pode criar uma [especificação de modelo](template-specs.md) que empacota o modelo principal e seus modelos vinculados em uma única entidade que você pode implantar. A especificação do modelo é um recurso em sua assinatura do Azure. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Você usa o RBAC (controle de acesso baseado em função) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
+Em vez de manter seus modelos vinculados em um ponto de extremidade acessível, você pode criar uma [especificação de modelo](template-specs.md) que empacota o modelo principal e seus modelos vinculados em uma única entidade que você pode implantar. A especificação do modelo é um recurso em sua assinatura do Azure. Ele facilita o compartilhamento seguro do modelo com usuários em sua organização. Use o controle de acesso baseado em função do Azure (RBAC do Azure) para conceder acesso à especificação do modelo. Este recurso está atualmente em visualização.
 
 Para obter mais informações, consulte:
 
@@ -731,7 +731,7 @@ O arquivo de parâmetro também pode ter o acesso limitado por meio de um token 
 No momento, não é possível vincular a um modelo em uma conta de armazenamento que está atrás de um [Firewall de armazenamento do Azure](../../storage/common/storage-network-security.md).
 
 > [!IMPORTANT]
-> Em vez de proteger seu modelo vinculado com um token SAS, considere a criação de uma [especificação de modelo](template-specs.md). A especificação do modelo armazena com segurança o modelo principal e seus modelos vinculados como um recurso em sua assinatura do Azure. Você usa o RBAC para conceder acesso a usuários que precisam implantar o modelo.
+> Em vez de proteger seu modelo vinculado com um token SAS, considere a criação de uma [especificação de modelo](template-specs.md). A especificação do modelo armazena com segurança o modelo principal e seus modelos vinculados como um recurso em sua assinatura do Azure. Você usa o Azure RBAC para conceder acesso a usuários que precisam implantar o modelo.
 
 O exemplo a seguir mostra como passar um token SAS ao vincular a um modelo:
 

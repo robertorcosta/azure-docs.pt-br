@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e845136c4fed5a3d2e6863fdab0aa9f70fb30b5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933654"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317337"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores de hiperescala PostgreSQL habilitado para o Azure Arc
 
@@ -59,7 +59,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 Implemente esta etapa antes de passar para a próxima etapa. Para implantar o grupo de servidores de hiperescala PostgreSQL no Red Hat OpenShift em um projeto diferente do padrão, você precisa executar os seguintes comandos em seu cluster para atualizar as restrições de segurança. Esse comando concede os privilégios necessários para as contas de serviço que executarão o grupo de servidores de hiperescala PostgreSQL. A SCC (restrição de contexto de segurança) **_Arc-data-SCC_** é aquela que você adicionou quando implantou o controlador de dados de arco do Azure.
 
 ```console
-oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
 _**Server-Group-Name** é o nome do grupo de servidores que será criado durante a próxima etapa._
@@ -72,7 +72,7 @@ Agora você pode implementar a próxima etapa.
 Para criar um grupo de servidores de hiperescala do banco de dados do Azure para PostgreSQL no arco do Azure, use o seguinte comando:
 
 ```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
+azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2> --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
 
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
@@ -80,25 +80,14 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 
 > [!NOTE]
 > - **Há outros parâmetros de linha de comando disponíveis.  Consulte a lista completa de opções executando `azdata arc postgres server create --help` .**
-> - Em versão prévia, você deve indicar uma classe de armazenamento para backups (_--Storage-Class-backups-SCB_) no momento em que cria um grupo de servidores para poder fazer backup e restauração.
+> - A classe de armazenamento usada para backups (_--Storage-Class-backups-SCB_) usa como padrão a classe de armazenamento de dados do controlador de dados se ela não for fornecida.
 > - A unidade aceita pelos parâmetros--volume-Size-* é uma quantidade de recursos kubernetes (um número inteiro seguido por um desses valores é suficiente (T, G, M, K, m) ou seus equivalentes de potência de dois (ti, GI, mi, Ki)).
-> - Os nomes devem ter 10 caracteres ou menos de comprimento e estar em conformidade com as convenções de nomenclatura de DNS.
+> - Os nomes devem ter 12 caracteres ou menos de comprimento e estar em conformidade com as convenções de nomenclatura de DNS.
 > - Você será solicitado a inserir a senha para o usuário administrativo do _postgres_ Standard.  Você pode ignorar o prompt interativo definindo a `AZDATA_PASSWORD` variável de ambiente de sessão antes de executar o comando Create.
-> - Se você implantou o controlador de dados usando AZDATA_USERNAME e AZDATA_PASSWORD na mesma sessão de terminal, os valores de AZDATA_USERNAME e AZDATA_PASSWORD serão usados para implantar o grupo de servidores de hiperescala PostgreSQL também. O nome do usuário administrador padrão do mecanismo de banco de dados de hiperescala PostgreSQL é _PostgreSQL_ e não pode ser alterado neste ponto.
+> - Se você implantou o controlador de dados usando as variáveis de ambiente de sessão AZDATA_USERNAME e AZDATA_PASSWORD na mesma sessão de terminal, os valores de AZDATA_PASSWORD serão usados para implantar o grupo de servidores de hiperescala PostgreSQL também. Se você preferir usar outra senha, (1) atualize o valor para AZDATA_PASSWORD ou (2) exclua a variável de ambiente AZDATA_PASSWORD ou exclua seu valor para inserir uma senha interativamente ao criar um grupo de servidores.
+> - O nome do usuário administrador padrão do mecanismo de banco de dados de hiperescala PostgreSQL é _postgres_ e não pode ser alterado neste ponto.
 > - Criar um grupo de servidores de hiperescala PostgreSQL não registrará imediatamente os recursos no Azure. Como parte do processo de carregar dados de [inventário de recursos](upload-metrics-and-logs-to-azure-monitor.md)  ou de [uso](view-billing-data-in-azure.md) no Azure, os recursos serão criados no Azure e você poderá ver seus recursos no portal do Azure.
-> - O parâmetro--Port não pode ser alterado neste ponto.
-> - Se você não tiver uma classe de armazenamento padrão em seu cluster kubernetes, você precisará usar o parâmetro--metadataStorageClass para especificar um. Não fazer isso resultará na falha do comando Create. Para verificar se você tem uma classe de armazenamento padrão declarada em seu cluster kubernetes, faça o seguinte comando: 
->
->   ```console
->   kubectl get sc
->   ```
->
-> - Se houver uma classe de armazenamento configurada como classe de armazenamento padrão, você verá **(padrão)** anexado ao nome da classe de armazenamento. Por exemplo:
->
->   ```output
->   NAME                       PROVISIONER                        AGE
->   local-storage (default)    kubernetes.io/no-provisioner       4d18h
->   ```
+
 
 
 ## <a name="list-your-azure-database-for-postgresql-server-groups-created-in-your-arc-setup"></a>Listar os grupos de servidores do banco de dados do Azure para PostgreSQL criados na configuração do seu Arc

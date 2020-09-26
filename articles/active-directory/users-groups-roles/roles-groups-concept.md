@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1c3143dac79b37ff6dac04856311394440dec9a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317405"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -64,7 +64,7 @@ Os cenários a seguir não têm suporte no momento:
   - A hora de término da atribuição de função pode ser exibida incorretamente.
   - No portal do PIM, **minhas funções** podem mostrar apenas uma atribuição de função, independentemente de quantos métodos são concedidos pela atribuição (por meio de um ou mais grupos e diretamente).
 - *Somente clientes licenciados do Azure ad P2* Mesmo após a exclusão do grupo, ele ainda mostra um membro qualificado da função na interface do usuário do PIM. Funcionalmente, não há problema; é apenas um problema de cache na portal do Azure.  
-- O centro de administração do Exchange não reconhece a associação de função via grupo ainda, mas o cmdlet do PowerShell funcionará.
+- Use o novo [centro de administração do Exchange](https://admin.exchange.microsoft.com/) para atribuições de função por meio da Associação de grupo. O antigo centro de administração do Exchange ainda não dá suporte a esse recurso. Os cmdlets do PowerShell do Exchange funcionarão conforme o esperado.
 - O portal da proteção de informações do Azure (o portal clássico) não reconhece a associação de função via grupo ainda. Você pode [migrar para a plataforma de rotulação de sensibilidade unificada](/azure/information-protection/configure-policy-migrate-labels) e, em seguida, usar o centro de conformidade do Office 365 Security & para usar atribuições de grupo para gerenciar funções.
 
 Estamos corrigindo esses problemas.

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 33d1e73523ca85a21c032729b6537ee3297ea23e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f54245013b6a57c02120c0e97ecf5f39094148b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020824"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317728"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integração do Azure Machine Learning Studio (clássico) no Stream Analytics (versão prévia)
 O Stream Analytics oferece suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning Studio (clássico). O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
@@ -25,7 +25,7 @@ O Microsoft Azure Machine Learning Studio (clássico) oferece uma ferramenta col
 * **Ponto de extremidade**: Os *pontos de extremidade* são objetos do Azure Machine Learning Studio (clássico) usados para aproveitar recursos como entrada, aplicar um modelo de machine learning especificado e retornar a saída pontuada.
 * **Serviço Web de pontuação**: Um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
-Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/studio/consume-web-services.md) no Azure Machine Learning Studio (clássico).
+Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/classic/consume-web-services.md) no Azure Machine Learning Studio (clássico).
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de Machine Learning necessários para trabalhos do Stream Analytics
 Para que o processamento de trabalhos do Stream Analytics seja bem-sucedido, é necessário ter um ponto de extremidade de Solicitação/Resposta, uma [apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services)e uma definição do Swagger. O Stream Analytics tem um ponto de extremidade adicional que constrói a URL do ponto de extremidade de swagger, procura a interface e retorna uma definição de UDF padrão para o usuário.

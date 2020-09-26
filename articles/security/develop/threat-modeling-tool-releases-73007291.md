@@ -1,17 +1,17 @@
 ---
 title: Versão Microsoft Threat Modeling Tool 07/29/2020 – Azure
-description: Documentando as notas sobre a versão da Threat Modeling Tool
+description: Documentando as notas de versão da versão 7.3.00729.1 da ferramenta de modelagem de ameaças.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 47ffe753d661bb8c9a181148ea235b2a0eb54400
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fc343f292fa32ed2db67dd74aba7a66dbc00d6ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839843"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317830"
 ---
 # <a name="threat-modeling-tool-update-release-73007291---07292020"></a>Versão de atualização do Threat Modeling Tool 7.3.00729.1-07/29/2020
 
@@ -37,7 +37,7 @@ Esse erro ocorre porque alguns navegadores não oferecem suporte nativo à insta
 
 Esse erro continuará aparecendo se o Threat Modeling Tool for iniciado clicando-se duas vezes no arquivo TMT7. Application. No entanto, depois de ignorar o erro, a ferramenta funcionará normalmente. Em vez de iniciar o Threat Modeling Tool clicando duas vezes no arquivo TMT7. Application, os usuários devem utilizar atalhos criados no menu do Windows durante a instalação para iniciar o Threat Modeling Tool.
 
-## <a name="system-requirements"></a>Requisitos do sistema
+## <a name="system-requirements"></a>Requisitos de sistema
 
 - Sistemas operacionais com suporte
   - [Atualização de aniversário do Microsoft Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou posterior
