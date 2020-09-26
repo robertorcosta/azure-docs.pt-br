@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: c4ac4a17e577ea69f4359e1e9b321e5fcc839697
-ms.sourcegitcommit: 4ce82b6df65ebd81157b6168d3aa4e7323355022
+ms.openlocfilehash: 7d946c2b1d6e13897667fd58b784575e6f44aa1d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90761462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333504"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Tutorial: configurar o Apple Business Manager para provisionamento automático de usuário
 
@@ -38,7 +38,7 @@ Este tutorial descreve as etapas que você precisa executar tanto no Apple Busin
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador Global).
 * Uma conta do Apple Business Manager com a função de administrador ou gerente de pessoas.
 
@@ -103,7 +103,7 @@ No Azure AD, é possível definir quem estará no escopo de provisionamento com 
 
     ![Email de notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 8. Na seção **mapeamentos** , selecione **sincronizar Azure Active Directory usuários com o Apple Business Manager**.
 
@@ -158,7 +158,8 @@ Depois de configurar o provisionamento, use os seguintes recursos para monitorar
 * [Excluir contas do Azure AD que aparecem no Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdaa5798fbe)
 * [Exibir a atividade do SCIM no Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
 * [Gerenciar o token SCIM e as conexões existentes no Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a823611)
-* [Desconectar a conexão scim no Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61) *  [Gerenciar o token scim e as conexões existentes no Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
+* [Desconectar a conexão SCIM no Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd609be3a61)
+* [Gerenciar o token SCIM e as conexões existentes no Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
 * [Solucionando problemas de conexão do SCIM no Apple Business Manager](URL=https://support.apple.com/guide/apple-business-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>Próximas etapas

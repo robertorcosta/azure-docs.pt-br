@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 46b95c438830a488494d50308d71a115d6f0da42
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 9e7d2d08c7041b23f0eb02328367d07e72fe35eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982135"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333055"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Mover recursos para uma nova região – banco de dados SQL do Azure & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -77,7 +77,7 @@ Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/g
 
 Depois de **replicationstate** `2` , conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação.
 
-### <a name="initiate-the-move"></a>Iniciar a movimentação
+### <a name="initiate-the-move"></a>Inicie a movimentação
 
 1. Conecte-se ao servidor de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` .
 1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida.
@@ -131,7 +131,7 @@ Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/g
 
 Depois que **replicationstate** é `2` , conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação do dado.
 
-### <a name="initiate-the-move"></a>Iniciar a movimentação
+### <a name="initiate-the-move"></a>Inicie a movimentação
 
 1. Conecte-se ao servidor de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` .
 1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida.
@@ -179,7 +179,7 @@ Você pode chamar o [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/g
 
 Depois que **replicationstate** é `2` , conecte-se a cada banco de dados ou subconjunto de bancos de dado usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` e execute qualquer consulta em relação aos bancos de dados para garantir a conectividade, a configuração de segurança adequada e a replicação do dado.
 
-### <a name="initiate-the-move"></a>Iniciar a movimentação
+### <a name="initiate-the-move"></a>Inicie a movimentação
 
 1. Conecte-se à instância gerenciada de destino usando o ponto de extremidade secundário `<fog-name>.secondary.database.windows.net` .
 1. Use o [switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) para mudar a instância gerenciada secundária para ser a primária com sincronização completa. Esta operação terá sucesso ou será revertida.

@@ -2,15 +2,15 @@
 title: Solucionar problemas de Gerenciamento de Atualizações com a Automação do Azure
 description: Este artigo informa como solucionar problemas com o Gerenciamento de Atualizações de automação do Azure.
 services: automation
-ms.date: 06/30/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359232"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Solucionar problemas do Gerenciamento de Atualizações
 
@@ -65,9 +65,9 @@ Quando uma atualização substituída se tornar 100 por cento não aplicável, v
 
 1. Na sua conta de Automação, selecione **Gerenciamento de Atualizações** para exibir o status dos computadores. Consulte [Exibir as avaliações de atualização](../update-management/update-mgmt-view-update-assessments.md).
 
-2. Verifique a atualização substituída para certificar-se de que é 100% não aplicável. 
+2. Verifique a atualização substituída para certificar-se de que é 100% não aplicável.
 
-3. Marque a atualização como recusada, a menos que você tenha uma pergunta sobre a atualização. 
+3. Marque a atualização como recusada, a menos que você tenha uma pergunta sobre a atualização.
 
 4. Selecione **Computadores** e, na coluna **Conformidade**, force uma nova verificação de conformidade. Consulte [gerenciar atualizações para VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
 
@@ -112,9 +112,9 @@ Esse problema pode ser causado por problemas de configuração local ou pela con
    | summarize by Computer, Solutions
    ```
 
-4. Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
+4. Se você não vir seu computador nos resultados da consulta, ele não fez check-in recentemente. Provavelmente, há um problema de configuração local e você deve [reinstalar o agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Se o computador aparecer nos resultados da consulta, verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/update-mgmt-scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações. 
+5. Se o computador aparecer nos resultados da consulta, verifique se há problemas de configuração de escopo. A [configuração de escopo](../update-management/update-mgmt-scope-configuration.md) determina quais computadores estão configurados para Gerenciamento de Atualizações.
 
 6. Se seu computador estiver aparecendo no seu espaço de trabalho, mas não no Gerenciamento de Atualizações, você deverá definir a configuração de escopo para direcionar os computadores. Para saber como fazer isso, consulte [Habilitar máquinas no espaço de trabalho](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace).
 
@@ -180,7 +180,7 @@ Se sua assinatura não estiver configurada para o provedor de recursos de automa
 
 1. No [portal do Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), acesse a lista de serviços do Azure.
 
-2. No grupo de serviços gerais, selecione **Todos os serviços** e, em seguida, selecione **Assinaturas**. 
+2. No grupo de serviços gerais, selecione **Todos os serviços** e, em seguida, selecione **Assinaturas**.
 
 3. Localize a assinatura definida no escopo da sua implantação.
 
@@ -251,7 +251,7 @@ Siga as etapas abaixo para descobrir se suas consultas estão funcionando corret
     | project id, location, name, tags
     ```
 
-2. Verifique se os computadores que você está procurando estão listados nos resultados da consulta. 
+2. Verifique se os computadores que você está procurando estão listados nos resultados da consulta.
 
 3. Se os computadores não estiverem listados, provavelmente há um problema com o filtro selecionado no grupo dinâmico. Ajuste a configuração do grupo conforme necessário.
 
@@ -325,7 +325,7 @@ Se você estiver usando uma imagem clonada, diferentes nomes de computador terã
 
 3. Executar `Restart-Service HealthService` para reiniciar o serviço de integridade. Esta operação recria a chave e gera um novo UUID.
 
-4. Se essa abordagem não funcionar, execute o Sysprep na imagem primeiro e, em seguida, instale o MMA.
+4. Se essa abordagem não funcionar, execute o Sysprep na imagem primeiro e, em seguida, instale o agente de Log Analytics para Windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Cenário: Você recebe um erro de assinatura vinculado ao criar uma implantação de atualização para computadores em outro locatário do Azure
 
@@ -343,7 +343,7 @@ Esse erro ocorre quando você cria uma implantação de atualização que tem m�
 
 ### <a name="resolution"></a>Resolução
 
-Use a solução alternativa a seguir para obter esses itens agendados. Você pode usar o cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) com o parâmetro `ForUpdateConfiguration` para criar uma agenda. Em seguida, use o cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passe os computadores no outro locatário para o parâmetro `NonAzureComputer`. O exemplo a seguir mostra como fazer isso:
+Use a solução alternativa a seguir para obter esses itens agendados. Você pode usar o cmdlet [New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) com o parâmetro `ForUpdateConfiguration` para criar uma agenda. Em seguida, use o cmdlet [New-AzAutomationSoftwareUpdateConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) e passe os computadores no outro locatário para o parâmetro `NonAzureComputer`. O exemplo a seguir mostra como fazer isso:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -386,24 +386,15 @@ Esse problema pode ocorrer por um dos seguintes motivos:
 * O computador não existe mais.
 * O computador está desligado e inacessível.
 * O computador tem um problema de conectividade de rede e, portanto, o Hybrid Worker no computador está inacessível.
-* Houve uma atualização no MMA que alterou a ID do computador de origem.
+* Houve uma atualização para o agente de Log Analytics que alterou a ID do computador de origem.
 * A execução de atualização foi limitada se você atingiu o limite de 200 trabalhos simultâneos em uma conta de automação. Cada implantação é considerada um trabalho e cada computador em uma implantação de atualização conta como um trabalho. Qualquer outro trabalho de automação ou implantação de atualização em execução no momento em sua conta de automação conta para o limite de trabalhos simultâneos.
 
 ### <a name="resolution"></a>Resolução
 
 Quando aplicável, use [grupos dinâmicos](../update-management/update-mgmt-groups.md) para suas implantações de atualização. Além disso, você pode seguir as seguintes etapas.
 
-1. Verifique se o computador ainda existe e é acessível. 
-2. Se o computador não existir, edite a implantação e remova o computador.
-3. Consulte a seção [planejamento de rede](../update-management/update-mgmt-overview.md#ports) para obter uma lista de portas e endereços necessários para Gerenciamento de Atualizações e, em seguida, verifique se o seu computador atende a esses requisitos.
-4. Verifique a conectividade com o Hybrid Runbook Worker usando a solução de problemas do agente de Hybrid Runbook Worker. Para saber mais sobre a solução de problemas, consulte [solucionar problemas do agente de atualização](update-agent-issues.md).
-5. Execute a consulta a seguir em Log Analytics para localizar computadores em seu ambiente para os quais a ID do computador de origem foi alterada. Procure computadores que tenham o mesmo valor de `Computer`, mas um valor diferente de `SourceComputerId`.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. Depois de encontrar os computadores afetados, edite as implantações de atualização direcionadas a essas máquinas e, em seguida, remova-as e as adicione novamente de forma que `SourceComputerId` reflita o valor correto.
+1. Verifique se seu computador ou servidor atende aos [requisitos](../update-management/update-mgmt-overview.md#client-requirements).
+2. Verifique a conectividade com o Hybrid Runbook Worker usando a solução de problemas do agente de Hybrid Runbook Worker. Para saber mais sobre a solução de problemas, consulte [solucionar problemas do agente de atualização](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Cenário: As atualizações são instaladas sem uma implantação
 
@@ -466,7 +457,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>Causa
 
-Pode haver um proxy, gateway ou firewall bloqueando a comunicação de rede. 
+Pode haver um proxy, gateway ou firewall bloqueando a comunicação de rede.
 
 ### <a name="resolution"></a>Resolução
 

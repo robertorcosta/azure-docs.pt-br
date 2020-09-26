@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258e05b135195004fec628936bb458ea8f1dc7b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331277"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurar alertas de segurança para funções do Azure AD no Privileged Identity Management
 
@@ -52,7 +52,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | Os usuários que receberam papéis privilegiados que não precisam aumentam a chance de um ataque. Também é mais fácil para os invasores permanecerem despercebidos nas contas que não estão sendo ativamente usadas. |
 | **Como corrigir?** | Examine os usuários na lista e remova-os das funções privilegiadas que eles não precisam. |
 | **Prevenção** | Atribua funções privilegiadas somente a usuários que têm uma justificativa comercial. </br>Agende revisões de [acesso regulares](pim-how-to-start-security-review.md) para verificar se os usuários ainda precisam de acesso. |
@@ -64,7 +64,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | Sem a autenticação multifator, os usuários comprometidos podem ativar funções privilegiadas. |
 | **Como corrigir?** | Examine a lista de funções e [exija a autenticação multifator](pim-how-to-change-default-settings.md) para cada função. |
 | **Prevenção** | [Exigir MFA](pim-how-to-change-default-settings.md) para cada função.  |
@@ -74,7 +74,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | A organização do Azure AD atual não tem Azure AD Premium P2. |
 | **Como corrigir?** | Revise informações sobre [edições do Microsoft Azure Active Directory](../fundamentals/active-directory-whatis.md). Atualizar para o Microsoft Azure Active Directory Premium P2. |
 
@@ -93,7 +93,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Alta |
+| **Gravidade** | Alto |
 | **Por que recebo este alerta?** | As atribuições de função com privilégios feitas fora do Privileged Identity Management não são monitoradas corretamente e podem indicar um ataque ativo. |
 | **Como corrigir?** | Examine os usuários na lista e remova-os das funções privilegiadas atribuídas fora do Privileged Identity Management. |
 | **Prevenção** | Investigue onde os usuários estão sendo atribuídos a funções privilegiadas fora do Privileged Identity Management e proíba as atribuições futuras a partir daí. |
@@ -103,20 +103,20 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | O administrador global é a função com privilégios mais altos. Se um administrador global estiver comprometido, o invasor ganhará acesso a todas as suas permissões, o que coloca todo o sistema em risco. |
 | **Como corrigir?** | Examine os usuários na lista e remova qualquer que não precise absolutamente da função de administrador global. </br>Em vez disso, atribua funções com privilégios inferiores a esses usuários. |
 | **Prevenção** | Designe aos usuários a função menos privilegiada de que precisam. |
 | **Ação de mitigação no portal** | Remove a conta da sua função privilegiada. |
-| **Gatilho** | Acionado se dois critérios diferentes forem atendidos e você puder configurar ambos. Primeiro, você precisa alcançar um certo limite de administradores globais. Em segundo lugar, um determinado percentual de suas atribuições de função total deve ser administradores globais. Se você atender apenas a uma dessas medidas, o alerta não será exibido. |
-| **Número mínimo de administradores globais** | Essa configuração especifica o número de administradores globais, de 2 a 100, que você considera muito poucos para sua organização do Azure AD. |
+| **Gatilho** | Acionado se dois critérios diferentes forem atendidos e você puder configurar ambos. Primeiro, você precisa alcançar um certo limite de atribuições de função de administrador global. Em segundo lugar, um determinado percentual de suas atribuições de função total deve ser administradores globais. Se você atender apenas a uma dessas medidas, o alerta não será exibido. |
+| **Número mínimo de administradores globais** | Essa configuração especifica o número de atribuições de função de administrador global, de 2 a 100, que você considera muito poucos para sua organização do Azure AD. |
 | **Percentual de administradores globais** | Essa configuração especifica o percentual mínimo de administradores que são administradores globais, de 0% a 100%, abaixo do qual você não deseja que sua organização do Azure AD seja DIP. |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>As funções estão sendo ativadas com muita frequência
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | Múltiplas ativações para o mesmo papel privilegiado pelo mesmo usuário é um sinal de um ataque. |
 | **Como corrigir?** | Revise os usuários na lista e assegure-se de que a [duração da ativação](pim-how-to-change-default-settings.md) para sua função privilegiada esteja definida por tempo suficiente para que eles executem suas tarefas. |
 | **Prevenção** | Assegure-se de que a [duração da ativação](pim-how-to-change-default-settings.md) para funções privilegiadas esteja definida por tempo suficiente para que os usuários executem suas tarefas.</br>[Exigir autenticação multifator](pim-how-to-change-default-settings.md) para funções privilegiadas que têm contas compartilhadas por vários administradores. |
@@ -125,21 +125,21 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 | **Período de tempo de renovação de ativação** | Essa configuração especifica em dias, horas, minutos e segundos o período de tempo que você deseja usar para rastrear renovações suspeitas. |
 | **Número de renovações de ativação** | Essa configuração especifica o número de ativações, de 2 a 100, em que você deseja ser notificado, dentro do período de tempo escolhido. Você pode mudar essa configuração movendo o controle deslizante ou digitando um número na caixa de texto. |
 
-## <a name="configure-security-alert-settings"></a>Definir configurações de alerta de segurança
+## <a name="customize-security-alert-settings"></a>Personalizar configurações de alerta de segurança
 
-Na página Alertas, vá para **Configurações**.
+Na página **alertas** , selecione **configurações**.
 
 ![Página de alertas com configurações realçadas](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 Personalize configurações nos diferentes alertas para trabalhar com seu ambiente e as metas de segurança.
 
-![Página de configuração de um alerta para habilitar e definir configurações](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![Página de configuração de um alerta para habilitar e definir configurações](media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 # <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
-![Funções do Azure AD – painel de alerta listando alertas e a severidade](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Funções do Azure AD – painel de alerta listando alerta e severidade](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>Alertas de segurança
+## <a name="security-alert-details"></a>Detalhes do alerta de segurança
 
 Esta seção lista todos os alertas de segurança para funções do Azure AD, juntamente com como corrigir e como evitar. Severidade tem o seguinte significado:
 
@@ -151,7 +151,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | Os usuários que receberam papéis privilegiados que não precisam aumentam a chance de um ataque. Também é mais fácil para os invasores permanecerem despercebidos nas contas que não estão sendo ativamente usadas. |
 | **Como corrigir?** | Examine os usuários na lista e remova-os das funções privilegiadas que eles não precisam. |
 | **Prevenção** | Atribua funções privilegiadas somente a usuários que têm uma justificativa comercial. </br>Agende revisões de [acesso regulares](pim-how-to-start-security-review.md) para verificar se os usuários ainda precisam de acesso. |
@@ -163,7 +163,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | Sem a autenticação multifator, os usuários comprometidos podem ativar funções privilegiadas. |
 | **Como corrigir?** | Examine a lista de funções e [exija a autenticação multifator](pim-how-to-change-default-settings.md) para cada função. |
 | **Prevenção** | [Exigir MFA](pim-how-to-change-default-settings.md) para cada função.  |
@@ -173,7 +173,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | A organização do Azure AD atual não tem Azure AD Premium P2. |
 | **Como corrigir?** | Revise informações sobre [edições do Microsoft Azure Active Directory](../fundamentals/active-directory-whatis.md). Atualizar para o Microsoft Azure Active Directory Premium P2. |
 
@@ -192,7 +192,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Alta |
+| **Gravidade** | Alto |
 | **Por que recebo este alerta?** | As atribuições de função com privilégios feitas fora do Privileged Identity Management não são monitoradas corretamente e podem indicar um ataque ativo. |
 | **Como corrigir?** | Examine os usuários na lista e remova-os das funções privilegiadas atribuídas fora do Privileged Identity Management. |
 | **Prevenção** | Investigue onde os usuários estão sendo atribuídos a funções privilegiadas fora do Privileged Identity Management e proíba as atribuições futuras a partir daí. |
@@ -202,7 +202,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | O administrador global é a função com privilégios mais altos. Se um administrador global estiver comprometido, o invasor ganhará acesso a todas as suas permissões, o que coloca todo o sistema em risco. |
 | **Como corrigir?** | Examine os usuários na lista e remova qualquer que não precise absolutamente da função de administrador global. </br>Em vez disso, atribua funções com privilégios inferiores a esses usuários. |
 | **Prevenção** | Designe aos usuários a função menos privilegiada de que precisam. |
@@ -215,7 +215,7 @@ Esta seção lista todos os alertas de segurança para funções do Azure AD, ju
 
 | | |
 | --- | --- |
-| **Gravidade** | Baixa |
+| **Gravidade** | Baixo |
 | **Por que recebo este alerta?** | Múltiplas ativações para o mesmo papel privilegiado pelo mesmo usuário é um sinal de um ataque. |
 | **Como corrigir?** | Revise os usuários na lista e assegure-se de que a [duração da ativação](pim-how-to-change-default-settings.md) para sua função privilegiada esteja definida por tempo suficiente para que eles executem suas tarefas. |
 | **Prevenção** | Assegure-se de que a [duração da ativação](pim-how-to-change-default-settings.md) para funções privilegiadas esteja definida por tempo suficiente para que os usuários executem suas tarefas.</br>[Exigir autenticação multifator](pim-how-to-change-default-settings.md) para funções privilegiadas que têm contas compartilhadas por vários administradores. |

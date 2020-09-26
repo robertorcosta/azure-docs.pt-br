@@ -3,12 +3,12 @@ title: Gerenciar backups de compartilhamento de arquivos do Azure com o CLI do A
 description: Saiba como usar o CLI do Azure para gerenciar e monitorar compartilhamentos de arquivos do Azure com backup feito pelo backup do Azure.
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 6b2a0b81793bcd7b5ca9fa2c4e4748d63daceadd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 44c095d58e2da5a74985ce216268aab15922ed1e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538608"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332739"
 ---
 # <a name="manage-azure-file-share-backups-with-the-azure-cli"></a>Gerenciar backups de compartilhamento de arquivos do Azure com o CLI do Azure
 
@@ -16,7 +16,7 @@ O CLI do Azure fornece uma experiência de linha de comando para gerenciar recur
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para instalar e usar a CLI localmente, você deve executar o CLI do Azure versão 2.0.18 ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Para instalar e usar a CLI localmente, você deve executar o CLI do Azure versão 2.0.18 ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Este artigo pressupõe que você já tenha um compartilhamento de arquivos do Az
 
 ## <a name="monitor-jobs"></a>Monitorar trabalhos
 
-Quando você dispara operações de backup ou restauração, o serviço de backup cria um trabalho para acompanhamento. Para monitorar trabalhos concluídos ou em execução no momento, use o cmdlet [AZ backup Job List](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) . Com a CLI, você também pode [suspender um trabalho em execução no momento](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-stop) ou [aguardar até que um trabalho seja concluído](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-wait).
+Quando você dispara operações de backup ou restauração, o serviço de backup cria um trabalho para acompanhamento. Para monitorar trabalhos concluídos ou em execução no momento, use o cmdlet [AZ backup Job List](/cli/azure/backup/job#az-backup-job-list) . Com a CLI, você também pode [suspender um trabalho em execução no momento](/cli/azure/backup/job#az-backup-job-stop) ou [aguardar até que um trabalho seja concluído](/cli/azure/backup/job#az-backup-job-wait).
 
 O exemplo a seguir exibe o status dos trabalhos de backup para o cofre dos serviços de recuperação do *azurefilesvault* :
 
@@ -94,13 +94,13 @@ az backup job list --resource-group azurefiles --vault-name azurefilesvault
 
 ## <a name="modify-policy"></a>Modificar a política
 
-Você pode modificar uma política de backup para alterar a frequência de backup ou o período de retenção usando [AZ backup Item Set-Policy](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-set-policy).
+Você pode modificar uma política de backup para alterar a frequência de backup ou o período de retenção usando [AZ backup Item Set-Policy](/cli/azure/backup/item#az-backup-item-set-policy).
 
 Para alterar a política, defina os seguintes parâmetros:
 
-* **--container-Name**: o nome da conta de armazenamento que hospeda o compartilhamento de arquivos. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Name**: o nome do compartilhamento de arquivos para o qual você deseja alterar a política. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
-* **--Policy-Name**: o nome da política de backup que você deseja definir para o compartilhamento de arquivos. Você pode usar a [lista de políticas de backup AZ](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-list) para exibir todas as políticas para seu cofre.
+* **--container-Name**: o nome da conta de armazenamento que hospeda o compartilhamento de arquivos. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) .
+* **--Name**: o nome do compartilhamento de arquivos para o qual você deseja alterar a política. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](/cli/azure/backup/item#az-backup-item-list) .
+* **--Policy-Name**: o nome da política de backup que você deseja definir para o compartilhamento de arquivos. Você pode usar a [lista de políticas de backup AZ](/cli/azure/backup/policy#az-backup-policy-list) para exibir todas as políticas para seu cofre.
 
 O exemplo a seguir define a política de backup *schedule2* para o compartilhamento de arquivos *azurefiles* presente na conta de armazenamento *afsaccount* .
 
@@ -123,7 +123,7 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de alteração da política. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de alteração da política. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) .
 
 ## <a name="stop-protection-on-a-file-share"></a>Interromper a proteção em um compartilhamento de arquivo
 
@@ -136,12 +136,12 @@ Pode haver um custo associado à saída dos pontos de recuperação no armazenam
 
 Para interromper a proteção do compartilhamento de arquivos, defina os seguintes parâmetros:
 
-* **--container-Name**: o nome da conta de armazenamento que hospeda o compartilhamento de arquivos. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Item-Name**: o nome do compartilhamento de arquivos para o qual você deseja interromper a proteção. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--container-Name**: o nome da conta de armazenamento que hospeda o compartilhamento de arquivos. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name**: o nome do compartilhamento de arquivos para o qual você deseja interromper a proteção. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](/cli/azure/backup/item#az-backup-item-list) .
 
 ### <a name="stop-protection-and-retain-recovery-points"></a>Interromper a proteção e manter os pontos de recuperação
 
-Para interromper a proteção enquanto mantém os dados, use o cmdlet [AZ backup Protection Disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) .
+Para interromper a proteção enquanto mantém os dados, use o cmdlet [AZ backup Protection Disable](/cli/azure/backup/protection#az-backup-protection-disable) .
 
 O exemplo a seguir interrompe a proteção para o compartilhamento de arquivos *azurefiles* , mas retém todos os pontos de recuperação.
 
@@ -164,11 +164,11 @@ Name                                  ResourceGroup
 fec6f004-0e35-407f-9928-10a163f123e5  azurefiles
 ```
 
-O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de interrupção de proteção. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+O atributo **Name** na saída corresponde ao nome do trabalho que é criado pelo serviço de backup para a operação de interrupção de proteção. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) .
 
 ### <a name="stop-protection-without-retaining-recovery-points"></a>Interromper a proteção sem reter pontos de recuperação
 
-Para interromper a proteção sem reter pontos de recuperação, use o cmdlet [AZ backup Protection Disable](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-disable) com a opção **DELETE-backup-data** definida como **true**.
+Para interromper a proteção sem reter pontos de recuperação, use o cmdlet [AZ backup Protection Disable](/cli/azure/backup/protection#az-backup-protection-disable) com a opção **DELETE-backup-data** definida como **true**.
 
 O exemplo a seguir interrompe a proteção para o compartilhamento de arquivos *azurefiles* sem reter pontos de recuperação.
 
@@ -191,11 +191,11 @@ Se você interrompeu a proteção para um compartilhamento de arquivos do Azure,
 
 Para retomar a proteção para o compartilhamento de arquivos, defina os seguintes parâmetros:
 
-* **--container-Name**: o nome da conta de armazenamento que hospeda o compartilhamento de arquivos. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
-* **--Item-Name**: o nome do compartilhamento de arquivos para o qual você deseja retomar a proteção. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
+* **--container-Name**: o nome da conta de armazenamento que hospeda o compartilhamento de arquivos. Para recuperar o **nome** ou **nome amigável** do seu contêiner, use o comando [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) .
+* **--Item-Name**: o nome do compartilhamento de arquivos para o qual você deseja retomar a proteção. Para recuperar o **nome** ou **nome amigável** de seu item de backup, use o comando [AZ backup item List](/cli/azure/backup/item#az-backup-item-list) .
 * **--Policy-Name**: o nome da política de backup para a qual você deseja retomar a proteção para o compartilhamento de arquivos.
 
-O exemplo a seguir usa o cmdlet [AZ backup Protection resume](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-resume) para retomar a proteção para o compartilhamento de arquivos *azurefiles* usando a política de backup *schedule1* .
+O exemplo a seguir usa o cmdlet [AZ backup Protection resume](/cli/azure/backup/protection#az-backup-protection-resume) para retomar a proteção para o compartilhamento de arquivos *azurefiles* usando a política de backup *schedule1* .
 
 ```azurecli-interactive
 az backup protection resume --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount” --item-name “AzureFileShare;azurefiles” --policy-name schedule2 --out table
@@ -216,15 +216,15 @@ Name                                  ResourceGroup
 75115ab0-43b0-4065-8698-55022a234b7f  azurefiles
 ```
 
-O atributo de **nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a operação de retomada de proteção. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-show) .
+O atributo de **nome** na saída corresponde ao nome do trabalho criado pelo serviço de backup para a operação de retomada de proteção. Para acompanhar o status do trabalho, use o cmdlet [AZ backup Job show](/cli/azure/backup/job#az-backup-job-show) .
 
 ## <a name="unregister-a-storage-account"></a>Cancelar o registro de uma conta de armazenamento
 
 Se você quiser proteger seus compartilhamentos de arquivos em uma determinada conta de armazenamento usando um cofre de serviços de recuperação diferente, primeiro [interrompa a proteção para todos os compartilhamentos de arquivos](#stop-protection-on-a-file-share) nessa conta de armazenamento. Em seguida, cancele o registro da conta do cofre dos serviços de recuperação usado atualmente para proteção.
 
-Você precisa fornecer um nome de contêiner para cancelar o registro da conta de armazenamento. Para recuperar o **nome** ou o **nome amigável** do contêiner, use o comando [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+Você precisa fornecer um nome de contêiner para cancelar o registro da conta de armazenamento. Para recuperar o **nome** ou o **nome amigável** do contêiner, use o comando [AZ backup container List](/cli/azure/backup/container#az-backup-container-list) .
 
-O exemplo a seguir cancela o registro da conta de armazenamento *afsaccount* do *azurefilesvault* usando o cmdlet [AZ backup container Unregister](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-unregister) .
+O exemplo a seguir cancela o registro da conta de armazenamento *afsaccount* do *azurefilesvault* usando o cmdlet [AZ backup container Unregister](/cli/azure/backup/container#az-backup-container-unregister) .
 
 ```azurecli-interactive
 az backup container unregister --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --out table
