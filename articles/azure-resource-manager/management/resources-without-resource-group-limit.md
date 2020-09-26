@@ -2,13 +2,13 @@
 title: Recursos sem limite de contagem de 800
 description: Lista os tipos de recursos do Azure que podem ter mais de 800 instâncias em um grupo de recursos.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 6f7b45ec3691bc3a48d9aa3dfa072c1c68189007
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/21/2020
+ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330750"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -16,12 +16,15 @@ Por padrão, você pode implantar até 800 instâncias de um tipo de recurso em 
 
 Para alguns tipos de recursos, você precisa entrar em contato com o suporte para que o limite da instância 800 seja removido. Esses tipos de recursos são indicados neste artigo.
 
+
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 * automationaccounts
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
+* edgeSubscriptions
+* linkedSubscriptions
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
@@ -38,6 +41,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * galleries/images/versions
 * images
 * snapshots
+* virtualMachineScaleSets-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 * virtualMachines
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -55,24 +59,29 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * registries/tasks
 * registries/webhooks
 
+## <a name="microsoftd365customerinsights"></a>Microsoft. D365CustomerInsights
+
+* instances
+
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 * servers
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
+* flexibleServers
 * servers
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
+* flexibleServers
 * serverGroups
 * servers
 * serversv2
-* singleServers
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
-* agendas-por padrão, limitadas a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
+* schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
@@ -104,6 +113,10 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 * integrationAccounts
 * workflows
+
+## <a name="microsoftmedia"></a>Microsoft.Media
+
+* mediaservices/liveEvents
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 

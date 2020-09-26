@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7c7aba1c1f091efa0ddd4417ef0a03f3f4ca4d36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361000"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando Azure Functions
 
@@ -32,7 +32,7 @@ Este artigo abordará como criar uma função do Azure com API trackavailability
 
             ![Selecionando recurso de Application Insights existente](media/availability-azure-functions/app-insights-resource.png)
 
-        - Selecione **revisão + criar**
+        - Selecione **Examinar + criar**
 - Se você ainda não tiver um recurso Application Insights criado para a função disparada pelo temporizador:
     - Por padrão, quando você estiver criando seu aplicativo de Azure Functions, ele criará um recurso de Application Insights para você.
     - Siga as instruções sobre como [criar um recurso de Azure Functions e uma função disparada por temporizador](../../azure-functions/functions-create-scheduled-function.md) (parar antes da limpeza).
@@ -183,7 +183,7 @@ Você pode usar logs (análise) para exibir os resultados de disponibilidade, as
 >![Resultados da disponibilidade](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![Dependências](media/availability-azure-functions/dependencies.png)
+>![A captura de tela mostra a nova guia de consulta com dependências limitadas a 50.](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

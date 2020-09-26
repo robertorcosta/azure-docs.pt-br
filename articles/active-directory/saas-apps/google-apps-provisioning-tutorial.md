@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: 27e34a66bb6dfa642b84bd8997b2b02c4981788e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3f2f62fe158b946e00c7f81d0cb7eeb0d8f09437
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331119"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuários
 
@@ -133,13 +133,13 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 3. Selecione a guia **Provisionamento**. Clique em **Introdução**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
       ![Folha de introdução](./media/google-apps-provisioning-tutorial/get-started.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , clique em **autorizar**. Você será redirecionado para uma caixa de diálogo de autorização do Google em uma nova janela do navegador.
 
@@ -247,7 +247,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
       |email|String|
       |Membros|String|
       |name|String|
-      |descrição|String|
+      |description|String|
 
 12. Para configurar filtros de escopo, consulte as seguintes instruções fornecidas no [tutorial do Filtro de Escopo](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

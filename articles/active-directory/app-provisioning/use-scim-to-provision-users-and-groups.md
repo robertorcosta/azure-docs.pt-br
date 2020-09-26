@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563798"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266642"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Criar um ponto de extremidade SCIM e configurar o provisionamento de usuários com o Azure AD
 
@@ -1193,7 +1193,7 @@ A especificação do SCIM não define um esquema específico de SCIM para autent
 |--|--|--|--|
 |Nome de usuário e senha (não recomendado ou com suporte do Azure AD)|Fácil de implementar|Inseguro – [Sua Pa$$word não importa](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Com suporte caso a caso para aplicativos da galeria. Sem suporte para aplicativos que não são da galeria.|
 |Token de portador de vida útil longa|Os tokens de vida útil longa não exigem que um usuário esteja presente. Eles são fáceis para os administradores usarem ao configurar o provisionamento.|Os tokens de vida útil longa podem ser difíceis de compartilhar com um administrador sem usar métodos inseguros, como email. |Com suporte para aplicativos que não são e que são da galeria. |
-|Concessão de código de autorização OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm.  Um usuário real deve estar presente durante a autorização inicial, adicionando um nível de responsabilidade. |Exige que um usuário esteja presente. Se o usuário sair da organização, o token será inválido e a autorização precisará ser realizada novamente.|Com suporte para aplicativos da galeria, mas não para aplicativos da galeria. O suporte para não galeria está em nossa pendência.|
+|Concessão de código de autorização OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm.  Um usuário real deve estar presente durante a autorização inicial, adicionando um nível de responsabilidade. |Exige que um usuário esteja presente. Se o usuário sair da organização, o token será inválido e a autorização precisará ser realizada novamente.|Com suporte para aplicativos da galeria, mas não para aplicativos da galeria. No entanto, você pode fornecer um token de acesso na interface do usuário como o token secreto para fins de teste de curto prazo. O suporte para concessão de código OAuth na Galeria não está em nossa pendência.|
 |Concessão de credenciais de cliente do OAuth|Os tokens de acesso são muito mais curtos do que as senhas e têm um mecanismo de atualização automatizado que os tokens de portador de vida útil longa não têm. A concessão de código de autorização e a concessão de credenciais de cliente criam o mesmo tipo de token de acesso; portanto, a transferência entre esses métodos é transparente para a API.  O provisionamento pode ser completamente automatizado e novos tokens podem ser silenciosamente solicitados sem interação do usuário. ||Sem suporte para aplicativos que não são e que são da galeria. O suporte está em nossa pendência.|
 
 > [!NOTE]
@@ -1210,6 +1210,17 @@ Observe que o OAuth v1 não tem suporte devido à exposição do segredo do clie
 Práticas recomendadas (recomendado, mas não obrigatório):
 * Suporte a várias URLs de redirecionamento. Os administradores podem configurar o provisionamento de "portal.azure.com" e "aad.portal.azure.com". O suporte a várias URLs de redirecionamento garantirá que os usuários possam autorizar o acesso de ambos os portais.
 * Dê suporte a vários segredos para garantir uma renovação de segredo sem problemas ou tempo de inatividade. 
+
+Etapas no fluxo de concessão de código OAuth:
+1. O usuário entra no portal do Azure > aplicativos empresariais > selecionar aplicativo > provisionamento > clique em autorizar.
+2. Portal do Azure redireciona o usuário para a URL de autorização (página de entrada para o aplicativo de terceiros).
+3. O administrador fornece credenciais para o aplicativo de terceiros. 
+4. O aplicativo de terceiros redireciona o usuário de volta para portal do Azure e fornece o código de concessão 
+5. Os serviços de provisionamento do Azure AD chamam a URL do token e fornecem o código de concessão. O aplicativo de terceiros responde com o token de acesso, o token de atualização e a data de expiração
+6. Quando o ciclo de provisionamento for iniciado, o serviço verificará se o token de acesso atual é válido e o trocará por um novo token, se necessário. O token de acesso é fornecido em cada solicitação feita ao aplicativo e a validade da solicitação é verificada antes de cada solicitação.
+
+> [!NOTE]
+> Embora não seja possível configurar o OAuth no aplicativo da galeria hoje, você pode gerar manualmente um token de acesso do seu servidor de autorização e inseri-lo no campo token secreto do aplicativo inexistente na galeria. Isso permite que você verifique a compatibilidade do seu servidor SCIM com o cliente SCIM do Azure AD antes de realizar a integração à galeria de aplicativos, que oferece suporte à concessão de código OAuth.  
 
 **Tokens de portador OAuth de vida útil longa:** Se o seu aplicativo não oferecer suporte ao fluxo de concessão de código de autorização OAuth, você também poderá gerar um token de portador OAuth de vida útil longa do que um administrador pode usar para configurar a integração de provisionamento. O token deve ser perpétuo, caso contrário, o trabalho de provisionamento ficará [em quarentena](application-provisioning-quarantine-status.md) quando o token expirar. Esse token deve ter menos de 1 KB.  
 

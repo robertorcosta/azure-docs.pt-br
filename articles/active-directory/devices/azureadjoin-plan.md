@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268220"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370170"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planejar sua implementação de junção do Azure AD
 
@@ -184,7 +184,7 @@ O Azure Active Directory não dão suporte a aplicativos locais na autenticaçã
 
 Conexão da área de trabalho remota para um dispositivos adicionados ao Azure Active Directory requer que o computador host para o Azure Active Directory ingressado ou Azure AD Híbrido ingressado. Área de trabalho remota de um dispositivo não relacionado ou não Windows que não é compatível. Para obter mais informações, consulte [Conectar ao Azure Active Directory ingressado remoto pc](/windows/client-management/connect-to-remote-aadj-pc)
 
-Iniciando a atualização do Windows 10 2004, os usuários podem Alo usar a área de trabalho remota de um dispositivo Windows 10 registrado no Azure AD para um dispositivo ingressado no Azure AD. 
+Iniciando a atualização do Windows 10 2004, os usuários também podem usar a área de trabalho remota de um dispositivo Windows 10 registrado no Azure AD para um dispositivo ingressado no Azure AD. 
 
 ## <a name="understand-your-provisioning-options"></a>Entenda suas opções de provisionamento
 

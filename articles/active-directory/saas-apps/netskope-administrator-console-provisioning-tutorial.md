@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: cef356619d437d53d94c8f5d3be67cf6ac95501c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b4ac2308eae3466dbb9d68895bca4a4de30fcebc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304898"
 ---
 # <a name="tutorial-configure-netskope-administrator-console-for-automatic-user-provisioning"></a>Tutorial: configurar o Netskope Console do Administrador para o provisionamento automático de usuário
 
@@ -114,11 +114,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira o valor da **URL do servidor scim** recuperado anteriormente na **URL do locatário**. Insira o valor do **token** recuperado anteriormente no **token secreto**. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao Netskope console do administrador. Se a conexão falhar, verifique se sua conta de Console do Administrador Netskope tem permissões de administrador e tente novamente.
 

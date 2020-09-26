@@ -7,13 +7,13 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/23/2020
+ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362807"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Solucionando problemas de erros e avisos comuns do indexador no Azure Pesquisa Cognitiva
 
@@ -59,9 +59,9 @@ O indexador com uma fonte de dados de BLOB não pôde extrair o conteúdo ou os 
 
 | Motivo | Detalhes/exemplo | Resolução |
 | --- | --- | --- |
-| o blob está acima do limite de tamanho | O documento é de `'150441598'` bytes, o que excede o tamanho máximo `'134217728'` de bytes para extração de documentos para sua camada de serviço atual. | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| o blob tem um tipo de conteúdo sem suporte | O documento tem um tipo de conteúdo sem suporte `'image/png'` | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| o blob está criptografado | Não foi possível processar o documento-ele pode estar criptografado ou protegido por senha. | Você pode ignorar o blob com [as configurações de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
+| o blob está acima do limite de tamanho | O documento é de `'150441598'` bytes, o que excede o tamanho máximo `'134217728'` de bytes para extração de documentos para sua camada de serviço atual. | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| o blob tem um tipo de conteúdo sem suporte | O documento tem um tipo de conteúdo sem suporte `'image/png'` | [erros de indexação de BLOB](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| o blob está criptografado | Não foi possível processar o documento-ele pode estar criptografado ou protegido por senha. | Você pode ignorar o blob com [as configurações de blob](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | problemas transitórios | "Erro ao processar o blob: a solicitação foi anulada: a solicitação foi cancelada". "O documento atingiu o tempo limite durante o processamento." | Ocasionalmente, há problemas de conectividade inesperados. Tente executar o documento por meio do indexador novamente mais tarde. |
 
 <a name="could-not-parse-document"></a>
@@ -175,7 +175,7 @@ Em todos esses casos, consulte [tipos de dados com suporte](/rest/api/searchserv
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Erro: a política de controle de alterações integrada não pode ser usada porque a tabela tem uma chave primária composta
 
-Isso se aplica a tabelas SQL e geralmente acontece quando a chave é definida como uma chave composta ou, quando a tabela define um índice clusterizado exclusivo (como em um índice SQL, não um índice Azure Search). O principal motivo é que o atributo de chave é modificado para ser uma chave primária composta no caso de um [índice clusterizado exclusivo](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Nesse caso, certifique-se de que a tabela SQL não tenha um índice clusterizado exclusivo ou que você mapeie o campo de chave para um campo que tenha a garantia de não ter valores duplicados.
+Isso se aplica a tabelas SQL e geralmente acontece quando a chave é definida como uma chave composta ou, quando a tabela define um índice clusterizado exclusivo (como em um índice SQL, não um índice Azure Search). O principal motivo é que o atributo de chave é modificado para ser uma chave primária composta no caso de um [índice clusterizado exclusivo](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). Nesse caso, certifique-se de que a tabela SQL não tenha um índice clusterizado exclusivo ou que você mapeie o campo de chave para um campo que tenha a garantia de não ter valores duplicados.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 

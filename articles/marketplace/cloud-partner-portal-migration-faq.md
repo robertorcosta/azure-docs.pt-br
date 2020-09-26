@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607505"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369902"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Cloud Partner para o Partner Center
 
@@ -28,7 +28,7 @@ Você pode continuar fazendo negócios no Partner Center:
 | Ofereça experiência de gerenciamento de publicação e oferta | Nós movemos seus dados de oferta do Portal do Cloud Partner para o Partner Center. Agora você vai acessar suas ofertas no Partner Center, o que oferece uma experiência de usuário aprimorada e uma interface intuitiva. Saiba como [atualizar uma oferta existente no Marketplace comercial](partner-center-portal/update-existing-offer.md). |
 | Disponibilidade de suas ofertas no Marketplace comercial | Sem alterações. Se sua oferta estiver ativa no Marketplace comercial, ela continuará a ser dinâmica. |
 | Novas compras e implantações | Sem alterações. Seus clientes podem continuar comprando e implantando suas ofertas sem interrupções. |
-| Pagamentos | Todas as compras e implantações continuarão a ser pagas normalmente. Saiba mais sobre como ser [pago no mercado comercial](partner-center-portal/get-paid.md). |
+| Pagamentos | Todas as compras e implantações continuarão a ser pagas normalmente. Saiba mais sobre como ser [pago no mercado comercial](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | Integrações de API com APIs existentes de [Portal do Cloud Partner ](cloud-partner-portal-api-overview.md) | As APIs existentes do Portal do Cloud Partner ainda têm suporte e suas integrações existentes ainda funcionam. Saiba mais em [as APIs REST do portal do Cloud Partner terão suporte?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
 | Análise | Você pode continuar a monitorar as vendas, avaliar o desempenho e otimizar suas ofertas no Marketplace comercial exibindo análise no Partner Center. Há diferenças entre o modo como os relatórios de análise são exibidos no CPP e no Partner Center. Por exemplo, as **informações do vendedor** em cpp têm uma guia **Orders & Usage** que exibe dados para ofertas baseadas em uso e ofertas não baseadas em uso, enquanto no Partner Center a página **pedidos** tem uma guia separada para ofertas de SaaS. Saiba mais em [relatórios analíticos do Access para o mercado comercial no Partner Center](partner-center-portal/analytics.md). |
 |||
@@ -162,7 +162,9 @@ As informações fornecidas anteriormente para SKUs em uma única página no Por
 - Página Configurar plano
 - Página Listagem de planos
 - Página de disponibilidade do plano
-- Página planejar configuração técnica, conforme mostrado aqui: ![ ! [ Captura de tela mostra a página de configuração técnica do Partner Center.] (Media/cpp-PC-FAQ/technical-configuration.png "mostra a página de configuração técnica do Partner Center")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Página planejar configuração técnica, conforme mostrado aqui:
+
+![! [Captura de tela mostra a página de configuração técnica do Partner Center.] (Media/cpp-PC-FAQ/technical-configuration.png "mostra a página de configuração técnica do Partner Center")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Sua ID de oferta agora é mostrada na barra de navegação à esquerda da oferta:
 
@@ -179,7 +181,7 @@ Você pode solicitar para [parar de vender uma oferta](partner-center-portal/upd
 
 As APIs de Portal do Cloud Partner são integradas ao Partner Center e continuarão a funcionar. A transição para o Partner Center apresenta pequenas alterações. Examine a tabela abaixo para garantir que seu código continue a funcionar no Partner Center.
 
-| API <img src="" width=100px>| Descrição da alteração | Impacto |
+| API <img src="" width=100px>| Descrição das alterações | Impacto |
 | --- | --- | --- |
 | POSTAR publicação, GoLive, cancelar | Para ofertas migradas, o cabeçalho de resposta terá um formato diferente, mas continuará a funcionar da mesma forma, denotando um caminho relativo para recuperar o status da operação. | Ao enviar qualquer uma das solicitações POST correspondentes para uma oferta, o cabeçalho Location terá um dos dois formatos, dependendo do status de migração da oferta: <ul><li>Ofertas não migradas: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Ofertas migradas: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
 | Operação GET | Para ofertas que anteriormente eram compatíveis com um campo ' Notification-email ' na resposta, esse campo será preterido e não retornará mais para ofertas migradas. | Para ofertas migradas, não enviaremos mais notificações para a lista de e-mails especificados nas solicitações. Em vez disso, o serviço de API será alinhado com o processo de e-mail de notificação no Partner Center para enviar e-mails. Especificamente, as notificações de andamento da operação serão enviadas para o endereço de email definido na seção informações de contato do vendedor de suas configurações de conta no Partner Center.<br><br>Verifique se o endereço de email definido na seção informações de contato do vendedor nas [configurações da conta](https://partner.microsoft.com/dashboard/account/management) no Partner Center está correto para receber notificações. |

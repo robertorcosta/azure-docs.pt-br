@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a9bf3fbf28d8ac525f2937812742e850a5427cc9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325055"
+ms.locfileid: "91360813"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configurar um ponto de extremidade público na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ Devido à sensibilidade dos dados que estão em uma instância gerenciada, a con
 1. Nas configurações de **segurança** , selecione a guia **rede virtual** .
 1. Na página configuração de rede virtual, selecione **habilitar** e, em seguida, o ícone **salvar** para atualizar a configuração.
 
-![mi-vnet-config.png](./media/public-endpoint-configure/mi-vnet-config.png)
+![Captura de tela mostra uma página de rede virtual da instância gerenciada do SQL com o ponto de extremidade público habilitado.](./media/public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Habilitando o ponto de extremidade público para uma instância gerenciada usando o PowerShell
 
@@ -84,11 +84,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Se você tiver a página de configuração da instância gerenciada ainda aberta, navegue até a guia **visão geral** . Caso contrário, volte para o recurso de **instância gerenciada do SQL** . Selecione o link **rede virtual/sub-rede** , que levará você para a página de configuração de rede virtual.
 
-    ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
+    ![Captura de tela mostra a página de configuração de rede virtual onde você pode encontrar o valor de rede virtual/sub-rede.](./media/public-endpoint-configure/mi-overview.png)
 
 1. Selecione a guia **sub-redes** no painel de configuração à esquerda da sua rede virtual e anote o grupo de **segurança** para sua instância gerenciada.
 
-    ![mi-vnet-subnet.png](./media/public-endpoint-configure/mi-vnet-subnet.png)
+    ![Captura de tela mostra a guia sub-rede, onde você pode obter o grupo de segurança para sua instância gerenciada.](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Volte para o grupo de recursos que contém a instância gerenciada. Você deve ver o nome do **grupo de segurança de rede** indicado acima. Selecione o nome para acessar a página de configuração do grupo de segurança de rede.
 
@@ -104,7 +104,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Ação**     |Allow         |Permitir o tráfego de entrada para a instância gerenciada por meio do ponto de extremidade público |
     |**Prioridade**     |1300         |Verifique se essa regra é de prioridade mais alta do que a regra de **deny_all_inbound** |
 
-    ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
+    ![Captura de tela mostra as regras de segurança de entrada com sua nova regra de public_endpoint_inbound acima da regra de deny_all_inbound.](./media/public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > A porta 3342 é usada para conexões de ponto de extremidade público para instância gerenciada e não pode ser alterada neste ponto.
@@ -114,7 +114,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Navegue até a página de configuração de instância gerenciada que foi habilitada para o ponto de extremidade público. Selecione a guia **cadeias de conexão** na configuração **configurações** .
 1. Observe que o nome do host do ponto de extremidade público é fornecido no formato <mi_name>. **Public**. <dns_zone>. Database.Windows.net e que a porta usada para a conexão é 3342.
 
-    ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![Captura de tela mostra as cadeias de conexão para seus pontos de extremidade públicos e privados.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

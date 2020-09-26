@@ -8,12 +8,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 47d1f3c78a303f7a45457a435fa11f074c41d7aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031850"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316147"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solucionar problemas de fluxos de dados de mapeamento em Azure Data Factory
 
@@ -116,7 +116,7 @@ Se você estiver executando o fluxo de dados em uma execução de teste de depur
 
 - **Mensagem**: há um grande número de valores nulos ou valores ausentes que podem ser causados por ter poucas linhas amostradas. Tente atualizar o limite de linha de depuração e atualizar os dados.
 - **Causas**: a condição de junção não correspondeu a nenhuma linha ou resultou em um número alto de nulos durante a visualização de dados.
-- **Recomendação**: Vá para configurações de depuração e aumente o número de linhas no limite de linha de origem. Verifique se você selecionou e Azure IR com um cluster de fluxo de dados grande o suficiente para lidar com mais dados.
+- **Recomendação**: Vá para configurações de depuração e aumente o número de linhas no limite de linha de origem. Verifique se você selecionou um Azure IR com um cluster de fluxo de dados grande o suficiente para lidar com mais dados.
 
 
 ## <a name="general-troubleshooting-guidance"></a>Diretrizes gerais de solução de problemas

@@ -6,24 +6,28 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b5a39b08f34bec5ee1db42cde1fb171452d0efd3
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 78c25afe69565840ca1af013d29dd512550241b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280208"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token do Azure AD para autorizar solicitações de um aplicativo cliente
 
 Uma vantagem importante de usar o Azure Active Directory (Azure AD) com o armazenamento de BLOBs do Azure ou o armazenamento de filas é que suas credenciais não precisam mais ser armazenadas em seu código. Em vez disso, você pode solicitar um token de acesso OAuth 2,0 da plataforma de identidade da Microsoft. O Azure AD autentica a entidade de segurança (um usuário, grupo ou entidade de serviço) que executa o aplicativo. Se a autenticação for bem sucedido, o Azure AD retornará o token de acesso para o aplicativo e o aplicativo poderá usar o token de acesso para autorizar solicitações ao armazenamento de BLOBs do Azure ou armazenamento de filas.
 
-Este artigo mostra como configurar seu aplicativo nativo ou aplicativo Web para autenticação com a plataforma de identidade da Microsoft 2,0. O exemplo de código apresenta o .NET, mas outras linguagens usam uma abordagem semelhante. Para obter mais informações sobre a plataforma de identidade da Microsoft 2,0, consulte [visão geral da plataforma Microsoft Identity (v 2.0)](../../active-directory/develop/v2-overview.md).
+Este artigo mostra como configurar seu aplicativo nativo ou aplicativo Web para autenticação com a plataforma de identidade da Microsoft 2,0 usando um aplicativo de exemplo que está disponível para download. O aplicativo de exemplo apresenta o .NET, mas outras linguagens usam uma abordagem semelhante. Para obter mais informações sobre a plataforma de identidade da Microsoft 2,0, consulte [visão geral da plataforma Microsoft Identity (v 2.0)](../../active-directory/develop/v2-overview.md).
 
 Para obter uma visão geral do fluxo de concessão do código do OAuth 2.0, consulte [Autorizar acesso a aplicativos Web do Azure Active Directory usando o fluxo de concessão do código do OAuth 2.0](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
+
+## <a name="about-the-sample-application"></a>Sobre o aplicativo de exemplo
+
+O aplicativo de exemplo fornece uma experiência de ponta a ponta que mostra como configurar um aplicativo Web para autenticação com o Azure AD em um ambiente de desenvolvimento local. Para exibir e executar o aplicativo de exemplo, primeiro clone ou baixe-o no [GitHub](https://github.com/Azure-Samples/storage-dotnet-azure-ad-msal). Em seguida, siga as etapas descritas no artigo para configurar um registro de aplicativo do Azure e atualizar o aplicativo para seu ambiente.
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Atribuir uma função a uma entidade de segurança do Azure AD
 
@@ -31,38 +35,39 @@ Para autenticar uma entidade de segurança do seu aplicativo de armazenamento do
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registre o aplicativo com um locatário do Azure AD
 
-A primeira etapa no uso do Azure AD para autorizar o acesso aos recursos de armazenamento é registrar seu aplicativo cliente com um locatário do Azure AD do [portal do Azure](https://portal.azure.com). Ao registrar seu aplicativo cliente, você fornece informações sobre o aplicativo para o Azure AD. O Azure AD, em seguida, fornece uma ID do cliente (também chamado de *ID do aplicativo*) que você usa para associar o aplicativo ao Azure AD no runtime. Para saber mais sobre a ID do cliente, consulte [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
+A primeira etapa no uso do Azure AD para autorizar o acesso aos recursos de armazenamento é registrar seu aplicativo cliente com um locatário do Azure AD do [portal do Azure](https://portal.azure.com). Ao registrar seu aplicativo cliente, você fornece informações sobre o aplicativo para o Azure AD. O Azure AD, em seguida, fornece uma ID do cliente (também chamado de *ID do aplicativo*) que você usa para associar o aplicativo ao Azure AD no runtime. Para saber mais sobre a ID do cliente, consulte [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Para registrar seu aplicativo de armazenamento do Azure, siga as etapas mostradas em [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
 
-Para registrar seu aplicativo de armazenamento do Azure, siga as etapas mostradas em [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). A imagem a seguir mostra as configurações comuns para o registro de um aplicativo Web:
+A imagem a seguir mostra as configurações comuns para o registro de um aplicativo Web. Observe que, neste exemplo, o URI de redirecionamento é definido como `http://localhost:5000/signin-oidc` para testar o aplicativo de exemplo no ambiente de desenvolvimento. Você pode modificar essa configuração posteriormente na configuração de **autenticação** para seu aplicativo registrado no portal do Azure:
 
-![Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD](./media/storage-auth-aad-app/app-registration.png)
+:::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Captura de tela mostrando como registrar seu aplicativo de armazenamento com o Azure AD":::
 
 > [!NOTE]
 > Se você registrar seu aplicativo como um aplicativo nativo, poderá especificar qualquer URI válido para o **URI de redirecionamento**. Para aplicativos nativos, esse valor não precisa ser uma URL real. Para aplicativos Web, o URI de redirecionamento deve ser um URI válido, pois ele especifica a URL para a qual os tokens são fornecidos.
 
 Depois de registrar o aplicativo, você verá a ID do aplicativo (ou ID do cliente) em **Configurações **:
 
-![Captura de tela mostrando a ID do cliente](./media/storage-auth-aad-app/app-registration-client-id.png)
+:::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Captura de tela mostrando a ID do cliente":::
 
 Para obter mais informações sobre como registrar um aplicativo no Azure AD, consulte [Integrando aplicativos com o Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
 
-## <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Conceder as permissões de aplicativo registradas ao Armazenamento do Microsoft Azure
+### <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Conceder as permissões de aplicativo registradas ao Armazenamento do Microsoft Azure
 
 Em seguida, conceda ao seu aplicativo permissões para chamar as APIs de armazenamento do Azure. Esta etapa permite que seu aplicativo autorize solicitações ao armazenamento do Azure com o Azure AD.
 
-1. Na página **visão geral** do aplicativo registrado, selecione **exibir permissões de API**.
-1. Na seção **permissões de API** , selecione **Adicionar uma permissão** e escolha **APIs da Microsoft**.
-1. Selecione **armazenamento do Azure** na lista de resultados para exibir o painel **solicitar permissões de API** .
-1. Em **que tipo de permissões seu aplicativo requer?**, observe que o tipo de permissão disponível é **permissões delegadas**. Essa opção é selecionada por padrão.
-1. Na seção **selecionar permissões** do painel **solicitar permissões de API** , marque a caixa de seleção ao lado de **user_impersonation**e clique em  **adicionar permissões**.
+1. Na página **permissões de API** para seu aplicativo registrado, selecione **Adicionar uma permissão**.
+1. Na guia **APIs da Microsoft** , selecione **armazenamento do Azure**.
+1. No painel **solicitar permissões de API** , sob **que tipo de permissões seu aplicativo requer?**, observe que o tipo de permissão disponível é **permissões delegadas**. Essa opção é selecionada por padrão.
+1. Em **permissões**, marque a caixa de seleção ao lado de **user_impersonation**e, em seguida, selecione o botão **adicionar permissões** .
 
-    ![Captura de tela mostrando permissões para armazenamento](media/storage-auth-aad-app/registered-app-permissions-1.png)
+    :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Captura de tela mostrando permissões para a API de armazenamento":::
 
-O painel **permissões de API** agora mostra que o aplicativo registrado do Azure ad tem acesso às APIs de armazenamento do Microsoft Graph e do Azure. As permissões são concedidas ao Microsoft Graph automaticamente quando você registra o aplicativo no Azure Active Directory pela primeira vez.
+1. Em seguida, conceda consentimento de administrador para essas permissões clicando em **conceder consentimento do administrador para o diretório padrão**.
 
-![Captura de tela mostrando permissões de aplicativo de registro](media/storage-auth-aad-app/registered-app-permissions-2.png)
+O painel **permissões de API** agora mostra que o aplicativo registrado do Azure ad tem acesso às APIs de armazenamento do Microsoft Graph e do Azure e que o consentimento é concedido para o diretório padrão. As permissões são concedidas ao Microsoft Graph automaticamente quando você registra o aplicativo no Azure Active Directory pela primeira vez.
 
-## <a name="create-a-client-secret"></a>Criar um segredo do cliente
+:::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-2.png" alt-text="Captura de tela mostrando permissões de API para o aplicativo registrado":::
+
+### <a name="create-a-client-secret"></a>Criar um segredo do cliente
 
 O aplicativo precisa de um segredo do cliente para provar sua identidade ao solicitar um token. Para adicionar o segredo do cliente, siga estas etapas:
 
@@ -74,11 +79,21 @@ O aplicativo precisa de um segredo do cliente para provar sua identidade ao soli
 
     ![Captura de tela mostrando o segredo do cliente](media/storage-auth-aad-app/client-secret.png)
 
+### <a name="enable-implicit-grant-flow"></a>Habilitar fluxo de concessão implícito
+
+Em seguida, configure o fluxo de concessão implícita para seu aplicativo. Siga estas etapas:
+
+1. Navegue até o registro do aplicativo no portal do Azure.
+1. Na seção **gerenciar** , selecione a configuração de **autenticação** .
+1. Na seção **concessão implícita** , marque a caixa de seleção para habilitar tokens de ID, conforme mostrado na imagem a seguir:
+
+    :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Captura de tela mostrando como habilitar as configurações para o fluxo de concessão implícita":::
+
 ## <a name="client-libraries-for-token-acquisition"></a>Bibliotecas de cliente para aquisição de token
 
 Depois de registrar seu aplicativo e conceder permissões de ti para acessar dados no armazenamento de BLOBs do Azure ou armazenamento de filas, você pode adicionar código ao seu aplicativo para autenticar uma entidade de segurança e adquirir um token 2,0 do OAuth. Para autenticar e adquirir o token, você pode usar uma das [bibliotecas de autenticação da plataforma de identidade da Microsoft](../../active-directory/develop/reference-v2-libraries.md) ou outra biblioteca de software livre que ofereça suporte a OpenID Connect 1,0. Seu aplicativo pode, então, usar o token de acesso para autorizar uma solicitação no armazenamento de BLOBs do Azure ou no armazenamento de filas.
 
-Para obter uma lista de cenários para os quais há suporte para tokens de aquisição, consulte a seção [fluxos de autenticação](/en-us/azure/active-directory/develop/msal-authentication-flows) do conteúdo da biblioteca de [autenticação da Microsoft](/azure/active-directory/develop/msal-overview).
+Para obter uma lista de cenários para os quais há suporte para tokens de aquisição, consulte a seção [fluxos de autenticação](/en-us/azure/active-directory/develop/msal-authentication-flows) da documentação da [MSAL (biblioteca de autenticação da Microsoft)](/azure/active-directory/develop/msal-overview) .
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Valores conhecidos para autenticação com Azure AD
 
@@ -145,7 +160,7 @@ using Azure.Storage.Blobs;
 
 ```console
 Install-Package Microsoft.Azure.Storage.Blob
-Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
+Install-Package Microsoft.Identity.Web -Version 0.4.0-preview //or a later version
 ```
 
 Em seguida, adicione as seguintes instruções using ao arquivo HomeController.cs:
@@ -160,7 +175,7 @@ using Microsoft.Azure.Storage.Blob;
 
 #### <a name="create-a-block-blob"></a>criar um blob de blocos
 
-Adicione o seguinte trecho de código para criar um blob de blocos:
+Adicione o seguinte trecho de código para criar um blob de blocos. Lembre-se de substituir os valores entre colchetes angulares pelos seus próprios valores:
 
 # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
@@ -203,7 +218,7 @@ private static async Task<string> CreateBlob(string accessToken)
 > [!NOTE]
 > Para autorizar operações de BLOB e de fila com um token OAuth 2,0, você deve usar HTTPS.
 
-No exemplo acima, a biblioteca de cliente .NET lida com a autorização da solicitação para criar o blob de blocos. As bibliotecas de cliente de armazenamento do Azure para outras linguagens também lidam com a autorização da solicitação para você. No entanto, se você estiver chamando uma operação de armazenamento do Azure com um token de OAuth, usando a API REST, você precisará autorizar a solicitação usando o token OAuth.
+No exemplo acima, a biblioteca de cliente .NET lida com a autorização da solicitação para criar o blob de blocos. As bibliotecas de cliente de armazenamento do Azure para outras linguagens também lidam com a autorização da solicitação para você. No entanto, se você estiver chamando uma operação de armazenamento do Azure com um token OAuth usando a API REST, você precisará construir o cabeçalho de **autorização** usando o token OAuth.
 
 Para chamar as operações de serviço Blob e Queue usando tokens de acesso OAuth, passe o token de acesso no cabeçalho **Authorization** usando o esquema **Bearer** e especifique uma versão de serviço de 2017-11-09 ou superior, conforme mostrado no exemplo a seguir:
 
@@ -232,7 +247,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consentimento é o processo de um usuário conceder autorização a um aplicativo para acessar recursos protegidos em seu nome. A plataforma de identidade da Microsoft 2,0 dá suporte ao consentimento incremental, o que significa que uma entidade de segurança pode solicitar um conjunto mínimo de permissões inicialmente e adicionar permissões ao longo do tempo, conforme necessário. Quando o código solicitar um token de acesso, especifique o escopo das permissões de que seu aplicativo precisa em um determinado momento no `scope` parâmetro. Para obter mais informações sobre o consentimento incremental, consulte [consentimento incremental e dinâmico](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Consentimento é o processo de um usuário conceder autorização a um aplicativo para acessar recursos protegidos em seu nome. A plataforma de identidade da Microsoft 2,0 dá suporte ao consentimento incremental, o que significa que uma entidade de segurança pode solicitar um conjunto mínimo de permissões inicialmente e adicionar permissões ao longo do tempo, conforme necessário. Quando o código solicitar um token de acesso, especifique o escopo das permissões de que seu aplicativo precisa. Para obter mais informações sobre o consentimento incremental, consulte [consentimento incremental e dinâmico](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 ## <a name="view-and-run-the-completed-sample"></a>Exibir e executar o exemplo concluído
 
@@ -240,7 +255,7 @@ Para executar o aplicativo de exemplo, primeiro clone ou baixe-o do [GitHub](htt
 
 ### <a name="provide-values-in-the-settings-file"></a>Forneça valores no arquivo de configurações
 
-Em seguida, atualize o *appsettings.jsno* arquivo com seus próprios valores, da seguinte maneira:
+Atualize o *appsettings.jsno* arquivo com seus próprios valores, da seguinte maneira:
 
 ```json
 {
@@ -249,15 +264,16 @@ Em seguida, atualize o *appsettings.jsno* arquivo com seus próprios valores, da
     "Domain": "<azure-ad-domain-name>.onmicrosoft.com",
     "TenantId": "<tenant-id>",
     "ClientId": "<client-id>",
-    "CallbackPath": "/signin-oidc",
-    "SignedOutCallbackPath ": "/signout-callback-oidc",
-
-    // To call an API
     "ClientSecret": "<client-secret>"
+    "ClientCertificates": [
+    ],
+    "CallbackPath": "/signin-oidc"
   },
   "Logging": {
     "LogLevel": {
-      "Default": "Warning"
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
     }
   },
   "AllowedHosts": "*"
@@ -271,26 +287,6 @@ No arquivo *HomeController.cs* , atualize o URI que faz referência ao blob de b
 ```html
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ```
-
-### <a name="enable-implicit-grant-flow"></a>Habilitar fluxo de concessão implícito
-
-Para executar o exemplo, talvez seja necessário configurar o fluxo de concessão implícita para o registro do aplicativo. Siga estas etapas:
-
-1. Navegue até o registro do aplicativo no portal do Azure.
-1. Na seção **gerenciar** , selecione a configuração de **autenticação** .
-1. Na seção **concessão implícita** , marque a caixa de seleção para habilitar tokens de ID, conforme mostrado na imagem a seguir:
-
-    ![Captura de tela mostrando como habilitar as configurações para o fluxo de concessão implícita](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
-
-### <a name="update-the-port-used-by-localhost"></a>Atualizar a porta usada pelo localhost
-
-Ao executar o exemplo, você pode descobrir que precisa atualizar o URI de redirecionamento especificado no registro do aplicativo para usar a porta *localhost* atribuída no tempo de execução. Para atualizar o URI de redirecionamento para usar a porta atribuída, siga estas etapas:
-
-1. Navegue até o registro do aplicativo no portal do Azure.
-1. Na seção **gerenciar** , selecione a configuração de **autenticação** .
-1. Em **URIs de redirecionamento**, edite a porta para correspondência usada pelo aplicativo de exemplo, conforme mostrado na imagem a seguir:
-
-    ![Captura de tela mostrando URIs de redirecionamento para registro de aplicativo](media/storage-auth-aad-app/redirect-uri.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290680"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução Connected Factory
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, confira [IOT do Azure industrial](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 O acelerador de solução Connected Factory mostra um painel simulado para uma empresa fictícia chamada Contoso. Essa empresa tem fábricas localizadas em vários locais globalmente.
 
@@ -266,7 +269,7 @@ As propriedades nesta categoria definem a aparência do painel Connected Factory
 
 * Nome
 * Descrição
-* Image
+* Imagem
 * Location
 * Unidades
 * Visible

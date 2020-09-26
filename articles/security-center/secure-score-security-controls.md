@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b7cbba051dd0833a039d378cd73a59314c0221c8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905575"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268257"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação segura na Central de Segurança do Azure
 
@@ -179,7 +179,7 @@ A tabela a seguir lista os controles de segurança na Central de Segurança do A
     <td class="tg-lboi"; width=55%>- A auditoria no SQL Server deve ser habilitada<br>- Os logs de diagnóstico nos Serviços de Aplicativos devem ser habilitados<br>- Os logs de diagnóstico no Azure Data Lake Store devem ser habilitados<br>- Os logs de diagnóstico no Azure Stream Analytics devem ser habilitados<br>- Os logs de diagnóstico em contas do Lote devem ser habilitados<br>- Os logs de diagnóstico no Data Lake Analytics devem ser habilitados<br>- Os logs de diagnóstico no Hub de Eventos devem ser habilitados<br>- Os logs de diagnóstico no Hub IoT devem ser habilitados<br>- Os logs de diagnóstico no Key Vault devem estar habilitados<br>- Os logs de diagnóstico nos Aplicativos Lógicos devem ser habilitados<br>- Os logs de diagnóstico no serviço Pesquisa devem ser habilitados<br>- Os logs de diagnóstico no Barramento de Serviço devem ser habilitados<br>- Os logs de diagnóstico nos Conjuntos de Dimensionamento de Máquinas Virtuais devem ser habilitados<br>- As regras de alerta de métrica devem ser configuradas em contas do Lote<br>- As configurações de Auditoria do SQL devem ter grupos de ações configurados para capturar atividades críticas<br>- Os servidores SQL devem ser configurados com um período de retenção de auditoria superior a 90 dias.</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Habilitar proteção avançada contra ameaças (máximo de Pontuação 0)</p></strong>A proteção contra ameaças da central de segurança do Azure fornece defesas abrangentes para seu ambiente. Quando a Central de Segurança detecta uma ameaça em qualquer área do ambiente, ela gera um alerta. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.<br>Cada pacote de proteção contra ameaças é uma oferta separada e opcional, que você pode habilitar usando a recomendação relevante nesse controle de segurança.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Saiba mais sobre a proteção contra ameaças na central de segurança</a>.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Habilitar proteção avançada contra ameaças (máximo de Pontuação 0)</p></strong>Os planos opcionais de proteção contra ameaças do Azure defender da central de segurança do Azure fornecem defesas abrangentes para seu ambiente. Quando a Central de Segurança detecta uma ameaça em qualquer área do ambiente, ela gera um alerta. Esses alertas descrevem os detalhes dos recursos afetados, as etapas de correção sugeridas e, em alguns casos, uma opção para disparar um aplicativo lógico em resposta.<br>Cada plano do Azure defender é uma oferta separada e opcional que você pode habilitar usando a recomendação relevante nesse controle de segurança.<br><a href="https://docs.microsoft.com/azure/security-center/threat-protection">Saiba mais sobre a proteção contra ameaças na central de segurança</a>.</td>
     <td class="tg-lboi"; width=55%>- A segurança de dados avançada deve ser habilitada nos servidores do banco de dados SQL do Azure<br>- A segurança de dados avançada deve ser habilitada em servidores SQL em computadores<br>- A proteção avançada contra ameaças deve ser habilitada em máquinas virtuais<br>- A proteção avançada contra ameaças deve ser habilitada em planos de serviço Azure App<br>- A proteção avançada contra ameaças deve ser habilitada nas contas de armazenamento do Azure<br>- A proteção avançada contra ameaças deve ser habilitada nos clusters do serviço kubernetes do Azure<br>- A proteção avançada contra ameaças deve ser habilitada nos registros do registro de contêiner do Azure<br>- A proteção avançada contra ameaças deve ser habilitada em cofres Azure Key Vault</td>
   </tr>
   <tr>
@@ -197,14 +197,8 @@ A tabela a seguir lista os controles de segurança na Central de Segurança do A
 
 ## <a name="secure-score-faq"></a>Perguntas frequentes sobre pontuação segura
 
-### <a name="why-has-my-secure-score-gone-down"></a>Por que minha pontuação segura desapareceu?
-A central de segurança mudou para uma pontuação segura aprimorada que inclui alterações na maneira como a pontuação é calculada. Agora, você deve resolver todas as recomendações de que um recurso para receber pontos. As pontuações também foram alteradas para uma escala de 0-10.
-
 ### <a name="if-i-address-only-three-out-of-four-recommendations-in-a-security-control-will-my-secure-score-change"></a>Se eu abordar apenas três de quatro recomendações em um controle de segurança, minha pontuação de proteção será alterada?
 Não. Ela não será alterada até que você corrija todas as recomendações para um único recurso. Para obter a pontuação máxima de um controle, corrija todas as recomendações de todos os recursos.
-
-### <a name="is-the-previous-experience-of-the-secure-score-still-available"></a>A experiência anterior da pontuação segura ainda está disponível? 
-Não. Por um tempo, eles foram executados lado a lado para facilitar a transição. O modelo anterior agora foi preterido. 
 
 ### <a name="if-a-recommendation-isnt-applicable-to-me-and-i-disable-it-in-the-policy-will-my-security-control-be-fulfilled-and-my-secure-score-updated"></a>Se uma recomendação não for aplicável a mim e eu desabilitá-la na política, meu controle de segurança será atendido e minha pontuação segura será atualizada?
 Sim. É recomendável desabilitar as recomendações quando elas não são aplicáveis em seu ambiente. Para obter instruções sobre como desabilitar uma recomendação específica, consulte [Desabilitar políticas de segurança](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

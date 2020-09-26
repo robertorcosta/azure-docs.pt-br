@@ -2,14 +2,14 @@
 title: Escolher tamanhos de VM para pools
 description: Como escolher entre os tamanhos de VM disponíveis para nós de computação em pools de Lote do Azure
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271300"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho de VM para nós de computação em um pool do Lote do Azure
 
@@ -37,11 +37,11 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 | Dv3, Dsv3 | Todos os tamanhos |
 | Dav4<sup>1</sup> | Todos os tamanhos |
 | Dasv4<sup>1</sup> | Todos os tamanhos |
-| Ddv4, Ddsv4 |  Nenhum - ainda não disponível |
-| Ev3, Esv3 | Todos os tamanhos, exceto para E64is_v3 e E64i_v3 |
+| Ddv4, Ddsv4 |  Todos os tamanhos |
+| Ev3, Esv3 | Todos os tamanhos, exceto para E64is_v3 |
 | Eav4<sup>1</sup> | Todos os tamanhos |
 | Easv4<sup>1</sup> | Todos os tamanhos |
-| Edv4, Edsv4 |  Nenhum - ainda não disponível |
+| Edv4, Edsv4 |  Todos os tamanhos |
 | F, Fs | Todos os tamanhos |
 | Fsv2 | Todos os tamanhos |
 | G, Gs | Todos os tamanhos |
@@ -52,7 +52,7 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 | Ls | Todos os tamanhos |
 | Lsv2<sup>1</sup> | Todos os tamanhos |
 | M<sup>1</sup> | Todos os tamanhos |
-| Mv2 | Nenhum - ainda não disponível |
+| Mv2<sup>1, 2</sup> | Todos os tamanhos |
 | NC | Todos os tamanhos |
 | NCv2<sup>1</sup> | Todos os tamanhos |
 | NCv3<sup>1</sup> | Todos os tamanhos |
@@ -60,10 +60,15 @@ Os pools de lote na configuração da máquina virtual oferecem suporte a quase 
 | NDv2<sup>1</sup> | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |
 | NVv3<sup>1</sup> | Todos os tamanhos |
-| NVv4 | Nenhum |
+| NVv4 | Nenhum - ainda não disponível |
 | SAP HANA | Nenhum |
 
-<sup>1</sup> Esses tamanhos de VM podem ser alocados em pools do lote na configuração de máquina virtual, mas você deve criar uma nova conta do lote e solicitar um [aumento de cota](batch-quota-limit.md#increase-a-quota). Essa limitação será removida quando a cota de vCPU por série de VM tiver suporte total para contas do lote.
+<sup>1</sup> essas séries de VMs podem ser alocadas em pools do lote na configuração da máquina virtual, mas você deve criar uma nova conta do lote e solicitar um [aumento de cota](batch-quota-limit.md#increase-a-quota)específico. Essa limitação será removida quando a cota de vCPU por série de VM tiver suporte total para contas do lote.
+
+<sup>2</sup> essas séries de VMs só podem ser usadas com imagens de VM de geração 2.
+
+### <a name="using-generation-2-vm-images"></a>Usando imagens de VM de geração 2
+Algumas séries de VMs, como [Mv2](../virtual-machines/mv2-series.md), só podem ser usadas com [imagens de VM de geração 2](../virtual-machines/generation-2.md). As imagens de VM de geração 2 são especificadas como qualquer imagem de VM, usando a propriedade ' SKU ' da configuração [' imageReference '](/rest/api/batchservice/pool/add#imagereference) ; as cadeias de caracteres ' SKU ' têm um sufixo como "-G2" ou "-Gen2". Para obter uma lista de imagens de VM com suporte pelo lote, incluindo imagens de geração 2, use a API ["listar imagens com suporte"](/rest/api/batchservice/account/listsupportedimages) , o [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage)ou o [CLI do Azure](/cli/azure/batch/pool/supported-images).
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools na configuração de Serviço de Nuvem
 

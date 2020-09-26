@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a547a874c42d06d8453b154847561d8b5f0dabb8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846564"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361374"
 ---
 # <a name="manage-process-servers"></a>Gerenciar servidores de processo
 
@@ -41,11 +41,11 @@ Equilibre a carga movendo as VMs entre dois servidores de processo, da seguinte 
 2. Clique no servidor de configuração com o qual os servidores de processo são registrados.
 3. Clique no servidor de processo para o qual você deseja balancear a carga do tráfego.
 
-    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+    ![Captura de tela mostra um servidor de processo para o qual você pode balancear a carga do tráfego.](media/vmware-azure-manage-process-server/LoadBalance.png)
 
 4. Clique em **balanceamento de carga**, selecione o servidor de processo de destino para o qual você deseja mover computadores. Em seguida, clique em **OK**
 
-    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+    ![Captura de tela mostra o painel de balanceamento de carga com selecionar servidor de processo de destino selecionado.](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
 2. Clique em **Selecionar computadores**e escolha os computadores que você deseja mover do atual para o servidor de processo de destino. Detalhes de alteração de dados médio são exibidos em cada máquina virtual. Em seguida, clique em **OK**. 
 3. No cofre, monitore o progresso do trabalho em **monitoramento**  >  **site Recovery trabalhos**.
@@ -61,7 +61,7 @@ Mova toda a carga de trabalho tratada por um servidor de processo para um servid
 3. Clique no servidor de processo do qual você deseja alternar a carga de trabalho.
 4. Clique em **alternar**, selecione o servidor de processo de destino para o qual você deseja mover a carga de trabalho. Em seguida, clique em **OK**
 
-    ![Alternar](media/vmware-azure-manage-process-server/Switch.PNG)
+    ![Captura de tela mostra o painel Selecionar servidor de processo de destino.](media/vmware-azure-manage-process-server/Switch.PNG)
 
 5. No cofre, monitore o progresso do trabalho em **monitoramento**  >  **site Recovery trabalhos**.
 
