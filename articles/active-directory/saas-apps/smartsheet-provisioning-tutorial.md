@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: f323b563d90de315bdbb317f88d7f9449be6c008
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285974"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: configurar o SmartSheet para o provisionamento automático de usuário
 
@@ -37,7 +37,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no SmartShe
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes pré-requisitos:
 
-* [Um locatário do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* [Um locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 * Uma conta de usuário no Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicativo, Administrador de aplicativos de nuvem, Proprietário de Aplicativo ou Administrador global).
 * [Um locatário do SmartSheet](https://www.smartsheet.com/pricing).
 * Uma conta de usuário em um plano do SmartSheet Enterprise ou Enterprise Premier com permissões de administrador do sistema.
@@ -69,15 +69,15 @@ Antes de configurar o SmartSheet para o provisionamento automático de usuário 
 
 5. Gere o **token secreto** necessário para configurar o provisionamento automático de usuário com o Azure ad navegando para **aplicativos e integrações**.
 
-    ![SmartSheet instalar](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
+    ![Captura de tela da página de administração do SmartSheet com o avatar do usuário e a opção aplicativos & integrações chamada out.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
 6. Escolha **acesso à API**. Clique em **gerar novo token de acesso**.
 
-    ![SmartSheet instalar](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
+    ![Captura de tela da caixa de diálogo configurações pessoais com o acesso à API e gerar novas opções de token de acesso chamadas.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
 7. Defina o nome do token de acesso à API. Clique em **OK**.
 
-    ![SmartSheet instalar](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
+    ![Captura de tela da etapa 1 de 2: gerar token de acesso de API com a opção OK chamada out.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
 8. Copie o token de acesso da API e salve-o, pois esse será o único momento que você pode exibi-lo. Isso é necessário no campo **token secreto** no Azure AD.
 
@@ -117,11 +117,11 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira a **URL base do scim 2,0 e os valores de token de acesso** recuperados anteriormente de SmartSheet na URL do **locatário** e no **token secreto** , respectivamente. Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao SmartSheet. Se a conexão falhar, verifique se sua conta do SmartSheet tem permissões SysAdmin e tente novamente.
 
@@ -150,7 +150,7 @@ Esta seção orienta você pelas etapas para configurar o serviço de provisiona
    |externalId|String|
    |funções [EQ principal "true"]. display|String|
    |funções [EQ principal "true"]. Type|String|
-   |funções [EQ principal "true"]. valor|String|
+   |roles[primary eq "True"].value|String|
    |funções|String|
    urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|

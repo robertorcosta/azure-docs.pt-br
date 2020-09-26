@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4983a4a637ae636c6a3ef4a485c1777fc9b8a77a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 8917343175dd5ed8f82c1929683de98034323163
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015136"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321907"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutorial: configurar o PureCloud by Genesys para o provisionamento automático de usuário
 
@@ -80,11 +80,11 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
 3. Selecione a guia **Provisionamento**.
 
-    ![Guia Provisionamento](common/provisioning.png)
+    ![Captura de tela das opções de gerenciamento com a opção de provisionamento chamada out.](common/provisioning.png)
 
 4. Defina o **Modo de Provisionamento** como **Automático**.
 
-    ![Guia Provisionamento](common/provisioning-automatic.png)
+    ![Captura de tela da lista suspensa modo de provisionamento com a opção automática chamada out.](common/provisioning-automatic.png)
 
 5. Na seção **credenciais de administrador** , insira seu PURECLOUD por URL de API do Genesys e token OAuth nos campos **URL do locatário** e **token secreto** , respectivamente. A URL da API será estruturada como `{{API Url}}/api/v2/scim/v2` , usando a URL da API para sua região PureCloud da [central de desenvolvedores do PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Clique em **testar conexão** para garantir que o Azure ad possa se conectar ao PureCloud by Genesys. Se a conexão falhar, verifique se a conta do PureCloud by Genesys tem permissões de administrador e tente novamente.
 

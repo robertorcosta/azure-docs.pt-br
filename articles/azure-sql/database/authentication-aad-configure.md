@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f354cb25c93826b50c0094e75ef7a1756f7625b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278168"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurar e gerenciar a autenticação do Azure AD com o Azure SQL
 
@@ -89,19 +89,19 @@ Para conceder ao SQL Instância Gerenciada permissão de leitura do AD do Azure 
 
 3. Navegue até o SQL Instância Gerenciada que você deseja usar para a integração do Azure AD.
 
-   ![aad](./media/authentication-aad-configure/aad.png)
+   ![Captura de tela da portal do Azure mostrando a página de administração de Active Directory aberta para a instância gerenciada do SQL selecionada.](./media/authentication-aad-configure/aad.png)
 
 4. Selecione a faixa na parte superior da página de administração do Active Directory e conceda permissão ao usuário atual.
 
-    ![grant permissions-portal](./media/authentication-aad-configure/grant-permissions.png)
+    ![Captura de tela da caixa de diálogo para conceder permissões a uma instância gerenciada do SQL para acessar Active Directory. O botão conceder permissões está selecionado.](./media/authentication-aad-configure/grant-permissions.png)
 
 5. Depois que a operação for concluída com sucesso, a notificação a seguir será exibida no canto superior direito:
 
-    ![sucesso](./media/authentication-aad-configure/success.png)
+    ![Captura de tela de uma notificação confirmando se as permissões de leitura do Active Directory foram atualizadas com êxito para a instância gerenciada.](./media/authentication-aad-configure/success.png)
 
 6. Agora você pode escolher o administrador do Azure AD para seu Instância Gerenciada do SQL. Para isso, na página de administração do Active Directory, selecione o comando **Definir administrador**.
 
-    ![set-admin](./media/authentication-aad-configure/set-admin.png)
+    ![Captura de tela mostrando o comando Set admin realçado na página de administração Active Directory para a instância gerenciada do SQL selecionada.](./media/authentication-aad-configure/set-admin.png)
 
 7. Na página Administrador do Azure AD, procure um usuário, selecione o usuário ou grupo que será um administrador e selecione **selecionar**.
 
@@ -111,7 +111,7 @@ Para conceder ao SQL Instância Gerenciada permissão de leitura do AD do Azure 
 
 8. Na parte superior da página Administrador do Active Directory, selecione **Salvar**.
 
-    ![Salvar](./media/authentication-aad-configure/save.png)
+    ![Captura de tela da página de administração Active Directory com o botão salvar na linha superior ao lado dos botões definir administrador e remover administrador.](./media/authentication-aad-configure/save.png)
 
     O processo de alteração do administrador pode levar vários minutos. Em seguida, o novo administrador é exibido na caixa de administração do Active Directory.
 

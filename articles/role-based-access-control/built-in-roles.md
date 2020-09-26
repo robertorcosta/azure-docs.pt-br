@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 09/04/2020
+ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: 25c231265bb4ec497af5559624b7228167add76d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: f5d5b4f801dd406518a6ba516bf2e38e01cb96ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275261"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -24,7 +24,7 @@ Este artigo lista as funções internas do Azure, que estão sempre em evoluçã
 
 A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
 
-## <a name="all"></a>Todos
+## <a name="all"></a>Tudo
 
 > [!div class="mx-tableFixed"]
 > | Função interna | Descrição | ID |
@@ -113,6 +113,8 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Colaborador dos serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Colaborador do Log Analytics](#log-analytics-contributor) | O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
 > | [Leitor do Log Analytics](#log-analytics-reader) | Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. | 73c42c96-874c-492b-b04d-ab87d138a893 |
+> | [Colaborador do registro de esquema (versão prévia)](#schema-registry-contributor-preview) | Ler, gravar e excluir esquemas e grupos de registro de esquema. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
+> | [Leitor de registro de esquema (versão prévia)](#schema-registry-reader-preview) | Ler e listar os esquemas e grupos de registro de esquema. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
 > | **Blockchain** |  |  |
 > | [Acesso ao nó de membro Blockchain (versão prévia)](#blockchain-member-node-access-preview) | Permite acesso a nós de Membro do Blockchain | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **IA + aprendizado de máquina** |  |  |
@@ -3849,6 +3851,7 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
 > | [Microsoft. ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/Read | Obter os status de disponibilidade para todos os recursos no escopo especificado |
 > | [Microsoft. Resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Criar e gerenciar uma implantação |
 > | /Subscriptions/resourceGroups/Read [Microsoft. Resources](resource-provider-operations.md#microsoftresources) | Obter ou listar de grupos de recursos. |
+> | /Locations/administratorAzureAsyncOperation/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/currentSensitivityLabels/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/recommendedSensitivityLabels/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/managedInstances/databases/schemas/Tables/Columns/sensitivityLabels/* |  |
@@ -3886,6 +3889,8 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/securityAlertPolicies/* | Criar e gerenciar políticas de alerta de segurança de servidor SQL |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/vulnerabilityAssessments/* |  |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
+> | /Servers/Administrators/Read [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Obtém um objeto de administrador de Azure Active Directory específico |
+> | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/azureADOnlyAuthentications/* |  |
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
@@ -3910,6 +3915,7 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Sql/locations/administratorAzureAsyncOperation/read",
         "Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/*",
         "Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/*",
         "Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/*",
@@ -3946,7 +3952,9 @@ Permite você gerenciar as políticas relacionadas à segurança de servidores e
         "Microsoft.Sql/servers/read",
         "Microsoft.Sql/servers/securityAlertPolicies/*",
         "Microsoft.Sql/servers/vulnerabilityAssessments/*",
-        "Microsoft.Support/*"
+        "Microsoft.Support/*",
+        "Microsoft.Sql/servers/administrators/read",
+        "Microsoft.Sql/servers/azureADOnlyAuthentications/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -4005,6 +4013,8 @@ Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/extendedAuditingSettings/* |  |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/securityAlertPolicies/* | Editar políticas de alerta de segurança de servidor SQL |
 > | [Microsoft. SQL](resource-provider-operations.md#microsoftsql)/Servers/vulnerabilityAssessments/* |  |
+> | /Servers/azureADOnlyAuthentications/Delete [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Exclui um servidor específico Azure Active Directory apenas o objeto de autenticação |
+> | /Servers/azureADOnlyAuthentications/Write [Microsoft. SQL](resource-provider-operations.md#microsoftsql) | Adiciona ou atualiza um servidor específico Azure Active Directory apenas o objeto de autenticação |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -4060,7 +4070,9 @@ Permite gerenciar servidores e bancos de dados SQL, mas não acessá-los, nem as
         "Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/*",
         "Microsoft.Sql/servers/extendedAuditingSettings/*",
         "Microsoft.Sql/servers/securityAlertPolicies/*",
-        "Microsoft.Sql/servers/vulnerabilityAssessments/*"
+        "Microsoft.Sql/servers/vulnerabilityAssessments/*",
+        "Microsoft.Sql/servers/azureADOnlyAuthentications/delete",
+        "Microsoft.Sql/servers/azureADOnlyAuthentications/write"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -4503,6 +4515,88 @@ Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramen
     }
   ],
   "roleName": "Log Analytics Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="schema-registry-contributor-preview"></a>Colaborador do registro de esquema (versão prévia)
+
+Ler, gravar e excluir esquemas e grupos de registro de esquema.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/namespaces/schemagroups/* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/namespaces/schemas/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read, write, and delete Schema Registry groups and schemas.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5dffeca3-4936-4216-b2bc-10343a5abb25",
+  "name": "5dffeca3-4936-4216-b2bc-10343a5abb25",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.EventHub/namespaces/schemagroups/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.EventHub/namespaces/schemas/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Schema Registry Contributor (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="schema-registry-reader-preview"></a>Leitor de registro de esquema (versão prévia)
+
+Ler e listar os esquemas e grupos de registro de esquema.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/namespaces/schemagroups/Read | Obter lista de descrições de recursos de um de esquema |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft. EventHub](resource-provider-operations.md#microsofteventhub)/namespaces/schemas/Read | Recuperar esquemas |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read and list Schema Registry groups and schemas.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2c56ea50-c6b3-40a6-83c0-9d98858bc7d2",
+  "name": "2c56ea50-c6b3-40a6-83c0-9d98858bc7d2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.EventHub/namespaces/schemagroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.EventHub/namespaces/schemas/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Schema Registry Reader (Preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -5376,7 +5470,7 @@ Permite que você gerencie registros do Microsoft Azure Stack.
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
 > | --- | --- |
-> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/Read | Obter as propriedades de uma assinatura do Azure Stack Edge |
+> | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/edgeSubscriptions/Read |  |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/*/Action |  |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Products/Read | Obter as propriedades de um produto do Marketplace do Azure Stack |
 > | [Microsoft. AzureStack](resource-provider-operations.md#microsoftazurestack)/registrations/Read | Obter as propriedades de um registro do Microsoft Azure Stack |
@@ -6151,6 +6245,7 @@ Leitor do Azure Sentinel [saiba mais](../sentinel/roles.md)
 > | --- | --- |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/*/Read |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Verificar a autorização e a licença do usuário |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/Indicators/Query/Action | Consultar indicadores de inteligência contra ameaças |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Pesquisar usando o novo mecanismo. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Exibir dados da análise de logs |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/LinkedServices/Read | Obter serviços vinculados em um determinado workspace. |
@@ -6185,6 +6280,7 @@ Leitor do Azure Sentinel [saiba mais](../sentinel/roles.md)
       "actions": [
         "Microsoft.SecurityInsights/*/read",
         "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
+        "Microsoft.SecurityInsights/threatIntelligence/indicators/query/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/LinkedServices/read",
@@ -6222,6 +6318,12 @@ Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/dataConnectorsCheckRequirements/Action | Verificar a autorização e a licença do usuário |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/cases/* |  |
 > | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/Incidents/* |  |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/Indicators/appendTags/Action | Acrescentar marcas ao indicador de inteligência contra ameaças |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/Indicators/Query/Action | Consultar indicadores de inteligência contra ameaças |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/bulkTag/Action | Inteligência contra ameaças de marcas em massa |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/Indicators/appendTags/Action | Acrescentar marcas ao indicador de inteligência contra ameaças |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/Indicators/replaceTags/Action | Substituir marcas do indicador de inteligência contra ameaças |
+> | [Microsoft. SecurityInsights](resource-provider-operations.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/Action | Consultar indicadores de inteligência contra ameaças |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/Analytics/Query/Action | Pesquisar usando o novo mecanismo. |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/*/Read | Exibir dados da análise de logs |
 > | [Microsoft. OperationalInsights](resource-provider-operations.md#microsoftoperationalinsights)/Workspaces/DataSources/Read | Obter fontes de dados em um workspace. |
@@ -6258,6 +6360,12 @@ Respondente do Azure Sentinel [saiba mais](../sentinel/roles.md)
         "Microsoft.SecurityInsights/dataConnectorsCheckRequirements/action",
         "Microsoft.SecurityInsights/cases/*",
         "Microsoft.SecurityInsights/incidents/*",
+        "Microsoft.SecurityInsights/threatIntelligence/indicators/appendTags/action",
+        "Microsoft.SecurityInsights/threatIntelligence/indicators/query/action",
+        "Microsoft.SecurityInsights/threatIntelligence/bulkTag/action",
+        "Microsoft.SecurityInsights/threatIntelligence/indicators/appendTags/action",
+        "Microsoft.SecurityInsights/threatIntelligence/indicators/replaceTags/action",
+        "Microsoft.SecurityInsights/threatIntelligence/queryIndicators/action",
         "Microsoft.OperationalInsights/workspaces/analytics/query/action",
         "Microsoft.OperationalInsights/workspaces/*/read",
         "Microsoft.OperationalInsights/workspaces/dataSources/read",
@@ -6420,6 +6528,7 @@ Gerencie cofres de chaves, mas não permite que você atribua funções no RBAC 
 > | **NotActions** |  |
 > | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/Locations/deletedVaults/Purge/Action | Limpar um cofre de chaves com exclusão reversível |
 > | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/hsmPools/* |  |
+> | [Microsoft. keyvault](resource-provider-operations.md#microsoftkeyvault)/managedHsms/* |  |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -6445,7 +6554,8 @@ Gerencie cofres de chaves, mas não permite que você atribua funções no RBAC 
       ],
       "notActions": [
         "Microsoft.KeyVault/locations/deletedVaults/purge/action",
-        "Microsoft.KeyVault/hsmPools/*"
+        "Microsoft.KeyVault/hsmPools/*",
+        "Microsoft.KeyVault/managedHsms/*"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -6785,6 +6895,7 @@ Visualiza e atualiza permissões para a Central de Segurança. Mesmas permissõe
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Ler funções e atribuições de função |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyAssignments/* | Criar e gerenciar atribuições de política |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/PolicyDefinitions/* | Criar e gerenciar definições de política |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyExemptions/* |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policySetDefinitions/* | Criar e gerenciar conjuntos de política |
 > | [Microsoft. insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerenciar um alerta de métrica clássico |
 > | /ManagementGroups/Read [Microsoft. Management](resource-provider-operations.md#microsoftmanagement) | Listar grupos de gerenciamento para o usuário autenticado. |
@@ -6814,6 +6925,7 @@ Visualiza e atualiza permissões para a Central de Segurança. Mesmas permissõe
         "Microsoft.Authorization/*/read",
         "Microsoft.Authorization/policyAssignments/*",
         "Microsoft.Authorization/policyDefinitions/*",
+        "Microsoft.Authorization/policyExemptions/*",
         "Microsoft.Authorization/policySetDefinitions/*",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Management/managementGroups/read",
@@ -8483,6 +8595,7 @@ Permite o acesso de leitura às políticas de recurso e o acesso de gravação a
 > | --- | --- |
 > | /Policyassignments/Read [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Obter informações sobre uma atribuição de política. |
 > | /PolicyDefinitions/Read [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Obter informações sobre uma definição de política. |
+> | /Policyexemptions/Read [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Obter informações sobre uma isenção de política. |
 > | /Policysetdefinitions/Read [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization) | Obter informações sobre uma definição de conjunto de políticas. |
 > | **NotActions** |  |
 > | *nenhum* |  |
@@ -8505,6 +8618,7 @@ Permite o acesso de leitura às políticas de recurso e o acesso de gravação a
       "actions": [
         "Microsoft.Authorization/policyassignments/read",
         "Microsoft.Authorization/policydefinitions/read",
+        "Microsoft.Authorization/policyexemptions/read",
         "Microsoft.Authorization/policysetdefinitions/read"
       ],
       "notActions": [],
@@ -8531,6 +8645,7 @@ Usuários com direitos para criar ou modificar a política de recursos, criar t�
 > | */leitura | Ler recursos de todos os tipos, exceto segredos. |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyassignments/* | Criar e gerenciar atribuições de política |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/PolicyDefinitions/* | Criar e gerenciar definições de política |
+> | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policyexemptions/* |  |
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/policysetdefinitions/* | Criar e gerenciar conjuntos de política |
 > | [Microsoft. PolicyInsights](resource-provider-operations.md#microsoftpolicyinsights)/* |  |
 > | [Microsoft. support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um tíquete de suporte |
@@ -8555,6 +8670,7 @@ Usuários com direitos para criar ou modificar a política de recursos, criar t�
         "*/read",
         "Microsoft.Authorization/policyassignments/*",
         "Microsoft.Authorization/policydefinitions/*",
+        "Microsoft.Authorization/policyexemptions/*",
         "Microsoft.Authorization/policysetdefinitions/*",
         "Microsoft.PolicyInsights/*",
         "Microsoft.Support/*"
