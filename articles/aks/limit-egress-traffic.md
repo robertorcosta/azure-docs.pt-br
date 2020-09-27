@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361034"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397157"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlar o tráfego de saída dos nós de cluster no Serviço de Kubernetes do Azure (AKS)
 
@@ -205,10 +205,7 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | `storage.googleapis.com` | **`HTTPS:443`** | Esse endereço é usado para efetuar pull de imagens helm/tiller |
 
 
-### <a name="azure-policy-preview"></a>Azure Policy (versão prévia)
-
-> [!CAUTION]
-> Alguns dos recursos abaixo estão em versão prévia.  As sugestões neste artigo poderão sofrer alterações à medida que o recurso passar para visualização pública e fases de versão futuras.
+### <a name="azure-policy"></a>Azure Policy
 
 #### <a name="required-fqdn--application-rules"></a>Regras de FQDN/aplicativo necessárias 
 
@@ -219,7 +216,6 @@ As seguintes regras de FQDN/aplicativo são necessárias para clusters do AKS qu
 | **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | Esse endereço é usado para que o Azure Policy funcione corretamente. (atualmente em versão prévia no AKS) |
 | **`raw.githubusercontent.com`**               | **`HTTPS:443`** | Esse endereço é usado para efetuar pull das políticas internas do GitHub para garantir que o Azure Policy funcione corretamente. (atualmente em versão prévia no AKS) |
 | **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Complemento do Azure Policy que envia dados telemétricos para pontos de extremidade de insights de aplicativo. |
-
 
 ## <a name="restrict-egress-traffic-using-azure-firewall"></a>Restringir o tráfego de saída usando o Firewall do Azure
 

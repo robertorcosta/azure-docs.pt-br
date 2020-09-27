@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629058"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398316"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copiar arquivos novos e alterados por LastModifiedDate com Azure Data Factory
 
@@ -69,13 +69,13 @@ O modelo define seis parâmetros:
 
     ![Executar o pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
-6. Revise o resultado. Você verá que somente os arquivos modificados pela última vez no TimeSpan configurado foram copiados para o repositório de destino.
+6. Examine o resultado. Você verá que somente os arquivos modificados pela última vez no TimeSpan configurado foram copiados para o repositório de destino.
 
     ![Revisar o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
     
 7. Agora você pode adicionar um gatilho do Windows em cascata para automatizar esse pipeline, para que o pipeline sempre possa copiar arquivos novos e alterados somente pelo LastModifiedDate periodicamente.  Selecione **Adicionar gatilho**e selecione **novo/editar**.
 
-    ![Revisar o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![Captura de tela que realça a opção de menu novo/editar que aparece quando você seleciona adicionar gatilho.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
 8. Na janela **Adicionar Gatilhos**, selecione **+ Novo**.
 
@@ -101,9 +101,9 @@ O modelo define seis parâmetros:
 
 13. Selecione a guia **Monitor** no painel de navegação à esquerda e aguarde cerca de 15 minutos se a recorrência do gatilho tiver sido definida para a cada 15 minutos. 
 
-14. Revise o resultado. Você verá que seu pipeline será disparado automaticamente a cada 15 minutos e somente os arquivos novos ou alterados do repositório de origem serão copiados para o repositório de destino em cada execução de pipeline.
+14. Examine o resultado. Você verá que seu pipeline será disparado automaticamente a cada 15 minutos e somente os arquivos novos ou alterados do repositório de origem serão copiados para o repositório de destino em cada execução de pipeline.
 
-    ![Revisar o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![Captura de tela que mostra os resultados que retornam quando o pipeline é disparado.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 9c5a2aa6ca75e352a824716c19af923c8628efde
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 087b021f088e344926a44f7e009f273d265dd82b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91340861"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397616"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados de arco do Azure usando ferramentas de kubernetes
 
@@ -30,6 +30,20 @@ Para criar o controlador de dados de arco do Azure usando as ferramentas do kube
 
 > [!NOTE]
 > Algumas das etapas para criar o controlador de dados Arc do Azure que são indicadas abaixo exigem permissões de administrador de cluster kubernetes.  Se você não for um administrador de cluster kubernetes, será necessário ter o administrador de cluster kubernetes para executar essas etapas em seu nome.
+
+#### <a name="cleanup-from-past-installations"></a>Limpeza de instalações anteriores
+
+Se você instalou o controlador de dados Arc do Azure no passado no mesmo cluster e excluiu o controlador de dados de arco do Azure usando o `azdata arc dc delete` comando, pode haver alguns objetos no nível do cluster que ainda precisariam ser excluídos. Execute os seguintes comandos para excluir objetos do nível de cluster do controlador de dados Arc do Azure:
+
+```
+# Cleanup azure arc data service artifacts
+kubectl delete crd datacontrollers.arcdata.microsoft.com 
+kubectl delete sqlmanagedinstances.sql.arcdata.microsoft.com 
+kubectl delete postgresql-11s.arcdata.microsoft.com 
+kubectl delete postgresql-12s.arcdata.microsoft.com
+kubectl delete clusterroles azure-arc-data:cr-arc-metricsdc-reader
+kubectl delete clusterrolebindings azure-arc-data:crb-arc-metricsdc-reader
+```
 
 ## <a name="overview"></a>Visão geral
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 337deec076a25183a4dd866362c7dc55a485834d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224485"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397242"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso do Azure
 
@@ -81,13 +81,13 @@ As chaves de criptografia de dados, criptografadas com as chaves de criptografia
 
 Os serviços do Microsoft Cloud são utilizados em todos os três modelos de nuvem: IaaS, PaaS, SaaS. A seguir, são apresentados exemplos de como ajustam-se em cada modelo:
 
-- Serviços de software, designados como Software como Servidor ou SaaS, que possuem aplicativos fornecidos pela nuvem, como o Office 365.
+- Serviços de software, chamados de software como um servidor ou SaaS, que têm aplicativos fornecidos pela nuvem, como o Microsoft 365.
 - Serviços de plataforma nos quais os clientes aproveitam a nuvem em seus aplicativos, utilizando-a para armazenamento, análise e funcionalidade de barramento de serviço.
 - Serviços de infraestrutura, ou IaaS (Infraestrutura como Serviço), em que o cliente implanta sistemas operacionais e aplicativos hospedados na nuvem e que possivelmente usam outros serviços de nuvem.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Criptografia em repouso para clientes SaaS
 
-Os clientes de Software como Serviço (SaaS), geralmente possuem criptografia em repouso habilitada ou disponível em cada serviço. O Office 365 tem várias opções para que os clientes verifiquem ou habilitem criptografia em repouso. Para obter informações sobre os serviços do Office 365, confira [Criptografia no Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+Os clientes de Software como Serviço (SaaS), geralmente possuem criptografia em repouso habilitada ou disponível em cada serviço. Microsoft 365 tem várias opções para que os clientes verifiquem ou habilitem a criptografia em repouso. Para obter informações sobre Microsoft 365 serviços, consulte [criptografia em Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Criptografia em repouso para clientes de PaaS
 

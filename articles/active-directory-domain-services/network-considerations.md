@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6e2b3badcda872db3ddb1d237b813615a1332ad0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749617"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396324"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Considerações de design de rede virtual e opções de configuração para Azure Active Directory Domain Services
 
@@ -91,7 +91,7 @@ Você pode habilitar a resolução de nomes usando encaminhadores DNS condiciona
 
 Um domínio gerenciado cria alguns recursos de rede durante a implantação. Esses recursos são necessários para a operação e o gerenciamento bem-sucedidos do domínio gerenciado e não devem ser configurados manualmente.
 
-| Recurso do Azure                          | Descrição |
+| Recursos do Azure                          | Descrição |
 |:----------------------------------------|:---|
 | Placa de interface de rede                  | O Azure AD DS hospeda o domínio gerenciado em dois controladores de domínio (DCs) executados no Windows Server como VMs do Azure. Cada VM tem uma interface de rede virtual que se conecta à sua sub-rede de rede virtual. |
 | Endereço IP público padrão dinâmico      | O Azure AD DS se comunica com o serviço de sincronização e gerenciamento usando um endereço IP público de SKU padrão. Para obter mais informações sobre endereços IP públicos, consulte [tipos de endereço IP e métodos de alocação no Azure](../virtual-network/public-ip-addresses.md). |
@@ -115,6 +115,8 @@ As regras do grupo de segurança de rede a seguir são necessárias para que o d
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Qualquer         | Allow  | Sim      | Gerenciamento do seu domínio. |
 
 Um Azure Standard Load Balancer é criado e exige que essas regras sejam implementadas. Esse grupo de segurança de rede protege o Azure AD DS e é necessário para que o domínio gerenciado funcione corretamente. Não exclua este grupo de segurança de rede. O balanceador de carga não funcionará corretamente sem ele.
+
+Se necessário, você pode [criar o grupo de segurança de rede e as regras necessárias usando Azure PowerShell](powershell-create-instance.md#create-a-network-security-group).
 
 > [!WARNING]
 > Não edite manualmente esses recursos e configurações de rede. Ao associar um grupo de segurança de rede configurado incorretamente ou uma tabela de rotas definida pelo usuário com a sub-rede na qual o domínio gerenciado é implantado, você pode interromper a capacidade de serviço e gerenciar o domínio da Microsoft. A sincronização entre seu locatário do Azure AD e seu domínio gerenciado também é interrompida.

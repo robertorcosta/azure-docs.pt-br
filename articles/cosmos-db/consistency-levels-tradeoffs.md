@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82191729"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396001"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Compensações de consistência, disponibilidade e desempenho
+# <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Latência, disponibilidade e compensações de desempenho com diferentes níveis de consistência de Azure Cosmos DB
 
 Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos devem fazer compensações. As compensações estão entre consistência de leitura versus a disponibilidade, latência e taxa de transferência.
 
@@ -24,7 +24,7 @@ O Azure Cosmos DB aborda a coerência de dados como um espectro de opções. Ess
 - *Desatualização limitada*
 - *Sessão*
 - *Prefixo consistente*
-- *Eventual*
+- *Iminente*
 
 Cada nível fornece compensações de desempenho e disponibilidade e é apoiado por SLAs abrangentes.
 
@@ -52,10 +52,10 @@ A latência RTT é uma função de distância à velocidade da luz e a topologia
 |**Nível de consistência**|**Leituras de quorum**|**Gravações de quorum**|
 |--|--|--|
 |**Forte**|Minoria local|Maioria global|
-|**Desatualização Limitada**|Minoria local|Maioria local|
+|**Desatualização limitada**|Minoria local|Maioria local|
 |**Sessão**|Réplica única (usando o token de sessão)|Maioria local|
-|**Prefixo Coerente**|Réplica única|Maioria local|
-|**Eventual**|Réplica única|Maioria local|
+|**Prefixo consistente**|Réplica única|Maioria local|
+|**Iminente**|Réplica única|Maioria local|
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Níveis de consistência e durabilidade dos dados
 
@@ -67,10 +67,10 @@ A tabela a seguir define a relação entre o modelo de consistência e a durabil
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< 240 minutos|< 1 semana|
 |> 1|Único mestre|Sessão, Prefixo Consistente, Eventual|< 15 minutos|< 15 minutos|
-|> 1|Único mestre|Bounded staleness|*K*  &  *T*|< 15 minutos|
-|> 1|Único mestre|Strong|0|< 15 minutos|
+|> 1|Único mestre|Desatualização limitada|*K*  &  *T*|< 15 minutos|
+|> 1|Único mestre|Forte|0|< 15 minutos|
 |> 1|Vários mestres|Sessão, Prefixo Consistente, Eventual|< 15 minutos|0|
-|> 1|Vários mestres|Bounded staleness|*K*  &  *T*|0|
+|> 1|Vários mestres|Desatualização limitada|*K*  &  *T*|0|
 
 *K* = o número de versões *"K"* (ou seja, atualizações) de um item.
 

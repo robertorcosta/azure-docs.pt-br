@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750796"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398862"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Log de segurança e auditoria do Azure
 
@@ -68,4 +68,4 @@ A [integração de alertas da central de segurança](../../security-center/secur
 
 - [Definir as configurações de auditoria para uma coleção de sites](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US): se você for um administrador de uma coleção de sites, recupere o histórico de ações de usuários individuais e o histórico de ações realizadas durante um intervalo de datas específico.
 
-- [Pesquisar o log de auditoria no Centro de Segurança e Conformidade do Office 365](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): use o Centro de Segurança e Conformidade do Office 365 para pesquisar o log de auditoria unificado e exibir as atividades de usuário e do administrador em sua organização do Office 365.
+- [Pesquise o log de auditoria na central de segurança do Microsoft 365](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Use a central de segurança do Microsoft 365 para pesquisar o log de auditoria unificado e exibir a atividade do usuário e do administrador em sua organização.

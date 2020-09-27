@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983293"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398503"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos do Azure Key Vault
 
@@ -23,7 +23,7 @@ Azure Key Vault é um serviço de nuvem para armazenar e acessar segredos com se
 
 Aqui estão outros termos importantes:
 
-- **Locatário**: um locatário é a organização que possui e gerencia uma instância específica de serviços em nuvem da Microsoft. Geralmente, é usado para se referir ao conjunto de serviços do Azure e do Office 365 para uma organização.
+- **Locatário**: um locatário é a organização que possui e gerencia uma instância específica de serviços em nuvem da Microsoft. Geralmente, é usado para se referir ao conjunto de serviços do Azure e Microsoft 365 para uma organização.
 
 - **Proprietário do cofre**: pode criar um cofre de chaves e obter acesso e controle totais sobre ele. O proprietário do cofre também pode configurar a auditoria para registrar quem acessa os segredos e as chaves. Os administradores podem controlar o ciclo de vida da chave. Eles podem reverter para uma nova versão da chave, fazer o backup e tarefas relacionadas.
 

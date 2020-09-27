@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0015138f4da9f66e2f9148e468dd1b5543ae0c4b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319581"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397072"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
@@ -90,11 +90,11 @@ Se algumas métricas ou logs não forem transmitidos para Azure Monitor, os bloc
 
 Depois que o bloco da Análise de SQL do Azure para o banco de dados é selecionado, o painel de monitoramento será mostrado.
 
-![Visão geral da Análise de SQL do Azure](./media/azure-sql/azure-sql-sol-overview.png)
+![Captura de tela que mostra o painel de monitoramento.](./media/azure-sql/azure-sql-sol-overview.png)
 
 Selecionar qualquer bloco abre um relatório de detalhamento sobre a perspectiva específica. Quando a perspectiva for selecionada, o relatório de dril down será aberto.
 
-![Tempos limite da Análise de SQL do Azure](./media/azure-sql/azure-sql-sol-metrics.png)
+![Captura de tela que mostra o relatório de busca detalhada na perspectiva específica.](./media/azure-sql/azure-sql-sol-metrics.png)
 
 Cada perspectiva nessa exibição fornece resumos na assinatura, no servidor, no pool elástico e nos níveis de banco de dados. Além disso, cada perspectiva mostrada é específica ao relatório à direita. Selecionar a assinatura, o servidor, o pool ou o banco de dados na lista dá continuidade ao drill down.
 

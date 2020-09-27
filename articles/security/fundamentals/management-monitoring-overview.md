@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7e6fe4f0db31687d402f960f2752fe021d3ec9d3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c5525fc43f23ecd1760c5a869d8171aee0e9415d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448355"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395763"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de gerenciamento e monitoramento de segurança do Azure
 Este artigo fornece uma visão geral dos recursos de segurança e serviços que o Azure fornece para auxiliar no gerenciamento e no monitoramento de serviços de nuvem e máquinas virtuais do Azure.
@@ -32,7 +32,7 @@ O RBAC (Controle de Acesso Baseado em Função) fornece o gerenciamento de acess
 Saiba mais:
 
 * [Blog da equipe do Active Directory sobre o RBAC](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-* [Controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)
+* [RBAC do Azure (controle de acesso baseado em função do Azure)](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Antimalware
 
@@ -66,7 +66,7 @@ Saiba mais:
 
 ## <a name="expressroute"></a>ExpressRoute
 
-Você pode usar o Azure ExpressRoute para estender suas redes locais até o Microsoft Cloud por meio de uma conexão privada dedicada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Azure, o Office 365 e o CRM Online. A conectividade pode ser de:
+Você pode usar o Azure ExpressRoute para estender suas redes locais até o Microsoft Cloud por meio de uma conexão privada dedicada facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como Azure, Microsoft 365 e CRM Online. A conectividade pode ser de:
 
 * Um rede de qualquer ponto a qualquer ponto (IP VPN).
 * Uma rede Ethernet ponto a ponto.

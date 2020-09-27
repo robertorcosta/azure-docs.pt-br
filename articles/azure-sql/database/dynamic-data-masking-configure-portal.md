@@ -11,12 +11,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 12a187b29737ba9388d9b33ac8bcfedf1339c059
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd8c2d68ae5c91f1319fba32ea0eb52ae389751a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253776"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398754"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introdução à máscara de dados dinâmicos do Banco de Dados SQL com o portal do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,20 +32,20 @@ Este artigo mostra como implementar a [máscara de dados dinâmicos](dynamic-dat
 2. Navegue até a página de configurações do banco de dados que contém os dados confidenciais que você deseja mascarar.
 3. Clique na folha **máscara de dados dinâmicos** na seção **segurança** do banco de dados.
 
-   ![Painel de navegação](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
+   ![Captura de tela que mostra a seção de segurança com Máscara de Dados Dinâmicos realçado.](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 
 4. Na página de configuração **Máscara de Dados Dinâmicos**, você poderá ver algumas colunas de banco de dados que o mecanismo de recomendações sinalizou para mascaramento. Para aceitar as recomendações, basta clicar em **Adicionar Máscara** para uma ou mais colunas e uma máscara será criada com base no tipo padrão para essa coluna. Você pode alterar a função de mascaramento clicando na regra de mascaramento e editando o formato do campo de mascaramento para um formato diferente à sua escolha. Clique em **Salvar** para salvar suas configurações.
 
-    ![Painel de navegação](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
+    ![Captura de tela que mostra a página de configuração Máscara de Dados Dinâmicos.](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
 5. Para adicionar uma máscara a uma coluna do banco de dados, na parte superior da página de configuração **Máscara de Dados Dinâmicos**, clique em **Adicionar Máscara** para abrir a página de configuração **Adicionar Regra de Mascaramento**.
 
-    ![Painel de navegação](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
+    ![Captura de tela que mostra a página de configuração Adicionar regra de mascaramento.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
 6. Selecione o **Esquema**, a **Tabela** e a **Coluna** para definir o campo designado para o mascaramento.
 7. **Selecione como mascarar** na lista de categorias de mascaramento de dados confidenciais.
 
-    ![Painel de navegação](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
+    ![Captura de tela que mostra as categorias de máscara de dados confidenciais na seção selecionar como mascarar.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
 
 8. Clique em **Adicionar** na página regra de mascaramento de dados para atualizar o conjunto de regras de mascaramento na política de mascaramento de dados dinâmicos.
 9. Digite as identidades dos usuários do SQL ou do Azure Active Directory (Azure AD) que devem ser excluídas do mascaramento e tenha acesso aos dados confidenciais sem máscara. Deve ser uma lista de usuários separada por vírgulas. Os usuários com privilégios de administrador sempre terão acesso aos dados sem máscara originais.

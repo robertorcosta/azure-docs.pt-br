@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9279b3e77147449ae0ede0cc0b76e57f130c9a44
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318447"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398024"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com a porta frontal do Azure
 O documento a seguir especifica o comportamento do Azure Front Door Service com as regras de roteamento que tem o cache habilitado. A porta frontal é uma CDN (rede de distribuição de conteúdo) moderna e, assim, com a aceleração de site dinâmica e o balanceamento de carga, ele também dá suporte a comportamentos de cache, assim como qualquer outra CDN.
@@ -83,7 +83,7 @@ Quando uma solicitação de um ativo especificar a compactação e os resultados
 
 ## <a name="query-string-behavior"></a>Comportamento da cadeia de caracteres de consulta
 Com o Front Door, é possível controlar como os arquivos são armazenados em cache para uma solicitação da Web que contenha uma cadeia de caracteres de consulta. Em uma solicitação da Web com uma cadeia de caracteres de consulta, a cadeia de caracteres de consulta é aquela parte da solicitação que ocorre após um ponto de interrogação (?). Uma cadeia de caracteres de consulta pode conter um ou mais pares de chave-valor, no qual o nome do campo e seu valor são separados por um sinal de igual (=). Cada par chave-valor é separado por um e comercial (&). Por exemplo, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Se houver mais de um par chave-valor em uma cadeia de caracteres de consulta de uma solicitação, a ordem não importa.
-- **Ignorar cadeias de caracteres de consulta**: modo padrão. Neste modo, o Front Door passa as cadeias de caracteres de consulta do solicitante para a origem na primeira solicitação e armazena em cache o ativo. Todas as solicitações subsequentes para esse ativo que forem atendidas pelo ambiente do Front Door ignoram a cadeia de caracteres de consulta até que o ativo em cache expire.
+- **Ignorar cadeias de caracteres de consulta**: nesse modo, a porta frontal passa as cadeias de caracteres de consulta do solicitante para o back-end na primeira solicitação e armazena o ativo em cache. Todas as solicitações subsequentes para esse ativo que forem atendidas pelo ambiente do Front Door ignoram a cadeia de caracteres de consulta até que o ativo em cache expire.
 
 - **Armazenar em cada cache URL exclusiva**: nesse modo, cada solicitação com um URL exclusiva, incluindo a cadeia de caracteres de consulta, é tratada como um ativo exclusivo com seu próprio cache. Por exemplo, a resposta do servidor de back-end para uma solicitação de `www.example.ashx?q=test1` é armazenada em cache no Front Door e retornada para caches subsequentes com a mesma cadeia de caracteres de consulta. Uma solicitação `www.example.ashx?q=test2` é armazenada em cache como um ativo separado com sua própria configuração de vida útil.
 

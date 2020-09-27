@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078989"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395984"
 ---
 # <a name="security-control-data-protection"></a>Controle de segurança: proteção de dados
 
@@ -74,7 +74,7 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 Quando nenhum recurso está disponível para seu serviço específico no Azure, use uma ferramenta de descoberta ativa de terceiros para identificar todas as informações confidenciais armazenadas, processadas ou transmitidas pelos sistemas de tecnologia da organização, incluindo aquelas localizadas no local, ou em um provedor de serviços remoto, e atualize o inventário de informações confidenciais da organização.
 
-Use a proteção de informações do Azure para identificar informações confidenciais nos documentos do Office 365.
+Use a proteção de informações do Azure para identificar informações confidenciais em documentos Microsoft 365.
 
 Use a proteção de informações do SQL do Azure para auxiliar na classificação e no rotulamento de informações armazenadas no banco de dados SQL do Azure.
 

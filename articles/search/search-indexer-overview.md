@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971394"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397888"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
 
@@ -60,7 +60,7 @@ Em uma execução inicial, quando o índice estiver vazio, um indexador lerá to
 
 Para cada documento ingerido, um indexador implementa ou coordena várias etapas, desde a recuperação de documentos até uma "entrega" do mecanismo de pesquisa final para indexação. Opcionalmente, um indexador também é fundamental para conduzir a execução e as saídas do contratado, supondo que um contratador seja definido.
 
-![Estágios do indexador](./media/search-indexer-overview/indexer-stages.png "estágios do indexador")
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Estágios do indexador" border="false":::
 
 ### <a name="stage-1-document-cracking"></a>Estágio 1: quebra de documento
 

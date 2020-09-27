@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801352"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398571"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Usar fluxos de trabalho para integrar o aplicativo Azure IoT Central a outros serviços em nuvem
 
@@ -22,8 +22,8 @@ Você pode criar regras no IoT Central que acionam ações, como enviar um email
 
 O conector do Azure IoT Central V3 para a automação de energia e o aplicativo lógico do Azure permite que você crie regras mais avançadas para automatizar operações no IoT Central:
 
-- Quando uma regra é acionada no aplicativo Azure IoT Central, ela pode acionar um fluxo de trabalho no Power Automate ou nos Aplicativos Lógicos do Azure. Esses fluxos de trabalho podem executar ações em outros serviços em nuvem, como o Office 365 ou um serviço de terceiros.
-- Um evento em outro serviço em nuvem, como o Office 365, pode acionar um fluxo de trabalho no Power Automate ou nos Aplicativos Lógicos do Azure. Esses fluxos de trabalho podem executar ações ou recuperar dados do aplicativo IoT Central.
+- Quando uma regra é acionada no aplicativo Azure IoT Central, ela pode acionar um fluxo de trabalho no Power Automate ou nos Aplicativos Lógicos do Azure. Esses fluxos de trabalho podem executar ações em outros serviços de nuvem, como Microsoft 365 ou um serviço de terceiros.
+- Um evento em outro serviço de nuvem, como Microsoft 365, pode disparar um fluxo de trabalho no Power Automate ou no aplicativo lógico do Azure. Esses fluxos de trabalho podem executar ações ou recuperar dados do aplicativo IoT Central.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

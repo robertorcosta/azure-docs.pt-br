@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646831"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398007"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -25,7 +25,7 @@ Antes de criar sua oferta, revise os pré-requisitos em [Pré-requisitos de serv
 Benefícios da publicação no Marketplace comercial:
 
 - Promova sua empresa usando a marca Microsoft.
-- Tenha acesso a mais de 100 milhões de usuários do Office 365 e Dynamics 365 no AppSource e mais de 200.000 organizações pelo Azure Marketplace.
+- Pode alcançar mais de 100 milhões usuários Microsoft 365 e Dynamics 365 em AppSource e mais de 200.000 organizações por meio do Azure Marketplace.
 - Receba clientes potenciais de alta qualidade desses Marketplaces.
 - Seus serviços podem ser promovidos pelas equipes de campo e televendas da Microsoft
 
@@ -109,7 +109,7 @@ Essa página permite definir o produto principal para o qual seu serviço de con
     - DevOps
     - Recuperação de desastre
     - Identidade
-    - Internet das Coisas
+    - Internet das coisas
     - Migração
     - Rede
     - Segurança

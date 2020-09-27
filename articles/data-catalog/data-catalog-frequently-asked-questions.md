@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79409012"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397293"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o Catálogo de Dados do Azure
 Este artigo apresenta respostas para perguntas frequentes relacionadas ao serviço de Catálogo de Dados do Azure.
@@ -55,7 +55,7 @@ Para enviar solicitações de recurso e outros comentários, vá aos [Fóruns do
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Por que eu obtenho um catálogo de erros *já existe* quando tento criar um novo catálogo?
 
-Quando você adquire o Office 365 E5 com licença Power BI Pro, a Microsoft cria um catálogo padrão na região da assinatura automaticamente. Este catálogo usa o SKU gratuito. A licença de usuário do Office 365/Power BI é gerenciada na página de administração do Office 365. 
+Quando você adquire o Office 365 E5 com licença Power BI Pro, a Microsoft cria um catálogo padrão na região da assinatura automaticamente. Este catálogo usa o SKU gratuito. A licença de usuário do Office 365/Power BI é gerenciada na página Administração. 
 
 No entanto, esse tipo de catálogo de dados não tem uma **opção de administrador** e não é visível no **portal do Azure**. Você não pode excluir este tipo de catálogo de dados. Da mesma forma, você não tem permissão para renomear o catálogo de dados e não pode movê-lo para outra região. 
 
@@ -75,7 +75,7 @@ Para registrar seus dados no Catálogo de Dados:
 As propriedades específicas diferem de uma fonte de dados para outra, porém, em geral, o serviço de publicação do Catálogo de Dados extrai as seguintes informações:
 
 * Nome do ativo
-* Tipo de Ativo
+* Tipo de ativo
 * Descrição do ativo
 * Nomes do atributo/coluna
 * Tipos de dados do atributo/coluna

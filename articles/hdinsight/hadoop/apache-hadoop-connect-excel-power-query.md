@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: acb5171048b5a12310b6c0af5d652b7e615a71f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8664efd40bb5392f56803515f09cccc800fdf21c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087802"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397106"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Conectar o Excel ao Apache Hadoop com o Power Query
 
@@ -23,7 +23,7 @@ Um dos principais recursos da solução de big data da Microsoft é a integraç�
 
 * Um cluster do Apache Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Uma estação de trabalho que esteja executando o Windows 10, 7, Windows Server 2008 R2 ou um sistema operacional posterior.
-* Office 2016, Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 autônomo ou Office 2010 Professional Plus.
+* Microsoft 365 aplicativos para Enterprise, Office 2016, Office 2013 Professional Plus, Excel 2013 standalone ou Office 2010 Professional Plus.
 
 ## <a name="install-microsoft-power-query"></a>Instalar o Microsoft Power Query
 
@@ -73,7 +73,7 @@ O suplemento do Power Query para Excel facilita a importação de dados de seu c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDInsight para o Excel. Da mesma forma, você pode recuperar dados do HDInsight no banco de dados SQL do Azure. Também é possível carregar dados no HDInsight. Para saber mais, leia os seguintes artigos:
+Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDInsight para o Excel. Da mesma forma, você pode recuperar dados do HDInsight no banco de dados SQL do Azure. Também é possível carregar dados no HDInsight. Confira os seguintes artigos para saber mais:
 
 * [Visualize Apache Hive dados com o Microsoft Power bi no Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualize dados de hive de consulta interativa com Power bi no Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).

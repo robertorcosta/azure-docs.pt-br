@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333181"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396222"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -86,7 +86,7 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 2. Navegue até **auditoria** no título segurança no seu banco de **dados SQL** ou no painel do **SQL Server** .
 3. Se preferir configurar uma política de auditoria de servidor, selecione o link **Exibir configurações do servidor** na página de auditoria do banco de dados. Depois, é possível exibir ou modificar as configurações de auditoria do servidor. As políticas de auditoria de servidor se aplicam a todos os bancos de dados existentes e recém-criados neste servidor.
 
-    ![Painel de navegação](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
+    ![Captura de tela que mostra o link exibir configurações do servidor realçado na página de auditoria do banco de dados.](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
 4. Se você preferir habilitar a auditoria no nível do banco de dados, alterne **Auditoria** para **LIGADO**. Se a auditoria do servidor estiver habilitada, a auditoria configurada para o banco de dados existirá lado a lado com a auditoria do servidor.
 
@@ -163,7 +163,7 @@ Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azu
 
 - Use o [portal do Azure](https://portal.azure.com).  Abra o banco de dados relevante. Na parte superior da página **Auditoria** do banco de dados, clique em **Exibir logs de auditoria**.
 
-    ![Painel de navegação](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Captura de tela que mostra o botão Exibir logs de auditoria realçado na página de auditoria do banco de dados.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Registros de auditoria** é aberto, no qual você pode exibir os logs.
 
@@ -171,14 +171,14 @@ Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azu
   - Você pode alternar entre os registros de auditoria que foram criados pela *política de auditoria de servidor* e o *política de auditoria de banco de dados* ativando/desativando **origem auditoria**.
   - Você pode exibir apenas os registros de auditoria relacionados de injeção de SQL clicando na caixa de seleção **Mostrar apenas registros das injeções de SQL de auditoria**.
 
-       ![Painel de navegação]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
+       ![Captura de tela que mostra as opções para exibir os registros de auditoria.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
 - Use a função do sistema **sys.fn_get_audit_file** (T-SQL) para retornar os dados do log de auditoria em um formato tabular. Para obter mais informações sobre como usar essa função, veja [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use a opção **Mesclar Arquivos de Auditoria** no SQL Server Management Studio (a partir do SSMS 17):
     1. No menu do SSMS, selecione **Arquivo** > **Abrir** > **Mesclar Arquivos de Auditoria**.
 
-        ![Painel de navegação](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
+        ![Captura de tela que mostra a opção de menu mesclar arquivos de auditoria.](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. A caixa de diálogo **Adicionar Arquivos de Auditoria** será aberta. Selecione uma das opções **Adicionar**, escolha se deseja mesclar arquivos de auditoria de um disco local ou importá-los do Armazenamento do Azure. Você deve fornecer os detalhes do Armazenamento do Azure e a chave de conta.
 
     3. Depois que todos os arquivos a serem mesclados forem adicionados, clique em **OK** para concluir a operação de mesclagem.
@@ -218,7 +218,7 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 
 1. Abra **Detalhes de Armazenamento**. Na caixa **Chave de Acesso de Armazenamento**, selecione **Secundária** e clique em **OK**. Em seguida, clique em **Salvar** na parte superior da página de configuração de auditoria.
 
-    ![Painel de navegação](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
+    ![Captura de tela que mostra o processo para selecionar uma chave de acesso de armazenamento secundária.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Acesse a página de configuração de armazenamento e gere novamente a chave de acesso primária.
 
     ![Painel de navegação](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)

@@ -13,18 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 00199f81e2dc8ca699fabf312955bf7a8a2b5cbd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280895"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398382"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
 
 A Microsoft possui e opera uma das maiores redes de backbone do mundo. Essa arquitetura global e sofisticada, abrangendo mais de 160.000 milhas, conecta nossos data centers e clientes. 
  
-Todos os dias, os clientes em todo o mundo se conectam e passam trilhões de solicitações para Microsoft Azure, Bing, Dynamics 365, Office 365, XBox e muitos outros. Independentemente do tipo, os clientes esperam a confiabilidade e a capacidade de resposta instantâneas de nossos serviços. 
+Todos os dias, os clientes em todo o mundo se conectam e passam trilhões de solicitações para Microsoft Azure, Bing, Dynamics 365, Microsoft 365, XBox e muitos outros. Independentemente do tipo, os clientes esperam a confiabilidade e a capacidade de resposta instantâneas de nossos serviços. 
  
 A WAN ( [rede global da Microsoft](https://azure.microsoft.com/global-infrastructure/global-network/) ) é uma parte central do fornecimento de uma ótima experiência em nuvem. Conectando nossos [data centers](https://azure.microsoft.com/global-infrastructure/) da Microsoft em 54 regiões do Azure e grande malha de nós de borda, posicionados estrategicamente em todo o mundo, nossa rede global oferece a disponibilidade, a capacidade e a flexibilidade para atender a qualquer demanda.
 

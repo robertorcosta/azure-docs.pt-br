@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b1582af2bbd97579852ead0d4462f80f3a50fe6a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257139"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396188"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API Web que chama APIs da Web: chamar uma API
 
@@ -28,11 +28,11 @@ Depois de ter um token, você pode chamar uma API Web protegida. Normalmente, vo
 
 Ao usar *o Microsoft. Identity. Web*, você tem três cenários de uso:
 
-- [Chamar o Microsoft Graph](#call-microsoft-graph)
-- [Chamar uma API Web diferente de Microsoft Graph](#call-web-api-other-than-microsoft-graph)
-- [Adquirir um token manualmente](#acquire-a-token-manually)
+- [Opção 1: chamar Microsoft Graph com o SDK do Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
+- [Opção 2: chamar uma API da Web downstream com a classe auxiliar](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Opção 3: chamar uma API da Web downstream sem a classe auxiliar](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
-#### <a name="call-microsoft-graph"></a>Chamar o Microsoft Graph
+#### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opção 1: chamar Microsoft Graph com o SDK
 
 Nesse cenário, você adicionou `.AddMicrosoftGraph()` o *Startup.cs* conforme especificado na configuração de [código](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph)e pode injetar diretamente o `GraphServiceClient` no seu controlador ou construtor de página para uso nas ações. A página Razor de exemplo a seguir exibe a foto do usuário conectado.
 
@@ -68,7 +68,7 @@ Nesse cenário, você adicionou `.AddMicrosoftGraph()` o *Startup.cs* conforme e
  }
 ```
 
-#### <a name="call-web-api-other-than-microsoft-graph"></a>Chamar API Web diferente de Microsoft Graph
+#### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Opção 2: chamar uma API da Web downstream com a classe auxiliar
 
 Nesse cenário, você adicionou o `.AddDownstreamWebApi()` *Startup.cs* conforme especificado na configuração de [código](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), e você pode injetar um `IDownstreamWebApi` serviço diretamente no seu controlador ou construtor de página e usá-lo nas ações:
 
@@ -115,7 +115,7 @@ O `CallWebApiForUserAsync` método também tem substituições genéricas fortem
  }
 ```
 
-#### <a name="acquire-a-token-manually"></a>Adquirir um token manualmente
+#### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>Opção 3: chamar uma API da Web downstream sem a classe auxiliar
 
 Se você decidiu adquirir um token manualmente usando o `ITokenAcquisition` serviço, agora precisará usar o token. Nesse caso, o código a seguir continua o código de exemplo mostrado em [uma API Web que chama APIs da Web: adquirir um token para o aplicativo](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores de API. Ele chama uma API downstream chamada *ToDoList*.
 

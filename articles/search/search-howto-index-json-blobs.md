@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.openlocfilehash: 6a5a3634f1d5ddc7af2af2e27c2b1d7c8ce9a2af
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: c3aa813c671e9755b6ab65ba1e2967876bd170ca
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917985"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398333"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Como indexar BLOBs JSON usando um indexador de blob no Azure Pesquisa Cognitiva
 
@@ -45,7 +45,7 @@ Você precisará do nome da conta de armazenamento, do nome do contêiner e de u
 
 Na página Visão geral do serviço de pesquisa, você pode [iniciar o assistente](search-import-data-portal.md) na barra de comandos.
 
-   ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o assistente Importar dados")
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd2.png" alt-text="Comando importar dados no portal" border="false":::
 
 ### <a name="3---set-the-data-source"></a>3 - Configurar a fonte de dados
 
@@ -63,7 +63,7 @@ Na página **fonte de dados**, a fonte deve ser **Armazenamento de blobs do Azur
    
 + O **Contêiner de armazenamento** deve especificar sua conta de armazenamento e contêiner ou uma cadeia de caracteres de conexão que apontam para o contêiner. Obtenhas as cadeias de caracteres de conexão na página de portal de serviço Blob.
 
-   ![Definição de fonte de dados de Blob](media/search-howto-index-json/import-wizard-json-data-source.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definição de fonte de dados de Blob" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorar a página "conteúdo enriquecer" no assistente
 
@@ -81,7 +81,7 @@ Examine a descrição de [atributos de índice](/rest/api/searchservice/create-i
 
 Reserve um tempo para revisar suas seleções. Depois de executar o assistente, estruturas de dados físicos são criadas e você não poderá editar esses campos sem descartar e recriar todos os objetos.
 
-   ![Definição do índice de blob](media/search-howto-index-json/import-wizard-json-index.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definição do índice de blob" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - Criar indexador
 
@@ -89,7 +89,7 @@ Totalmente especificado, o assistente cria três objetos diferentes em seu servi
 
 Se você não estiver familiarizado com indexadores, um *indexador* é um recurso no Azure pesquisa cognitiva que rastreia uma fonte de dados externa para conteúdo pesquisável. A saída do assistente de **importação de dados** é um indexador que rastreia sua fonte de dados JSON, extrai conteúdo pesquisável e importa-o para um índice no Azure pesquisa cognitiva.
 
-   ![Definição de indexador de blob](media/search-howto-index-json/import-wizard-json-indexer.png)
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definição de indexador de blob" border="false":::
 
 Clique em **Ok** para executar o assistente e criar todos os objetos. A indexação começa imediatamente.
 
@@ -291,9 +291,9 @@ O SDK do .NET tem paridade total com a API REST. É recomendável examinar a se�
 
 Os BLOBs JSON podem assumir vários formulários. O parâmetro **parsingMode** no indexador JSON determina como o conteúdo do blob JSON é analisado e estruturado em um índice de pesquisa cognitiva do Azure:
 
-| parsingMode | DESCRIÇÃO |
+| parsingMode | Descrição |
 |-------------|-------------|
-| `json`  | Indexe cada blob como um único documento. Esse é o padrão. |
+| `json`  | Indexe cada blob como um único documento. Este é o padrão. |
 | `jsonArray` | Escolha esse modo se os BLOBs consistirem em matrizes JSON e você precisar que cada elemento da matriz se torne um documento separado no Azure Pesquisa Cognitiva. |
 |`jsonLines` | Escolha esse modo se seus BLOBs consistirem em várias entidades JSON, que são separadas por uma nova linha, e você precisa que cada entidade se torne um documento separado no Pesquisa Cognitiva do Azure. |
 

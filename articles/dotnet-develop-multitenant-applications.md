@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017695"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395967"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
-Um aplicativo multilocatário é um recurso compartilhado que permite "usuários em locatários separados" para exibir o aplicativo como se ele fosse seu. Um cenário típico que se presta a um aplicativo multilocatário é aquele em que todos os usuários do aplicativo de locatários diferentes podem querer personalizar a experiência do usuário, mas, caso contrário, têm os mesmos requisitos básicos de negócios. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
+Um aplicativo multilocatário é um recurso compartilhado que permite "usuários em locatários separados" para exibir o aplicativo como se ele fosse seu. Um cenário típico que se presta a um aplicativo multilocatário é aquele em que todos os usuários do aplicativo de locatários diferentes podem querer personalizar a experiência do usuário, mas, caso contrário, têm os mesmos requisitos básicos de negócios. Exemplos de grandes aplicativos multilocatários são Microsoft 365, Outlook.com e visualstudio.com.
 
 Da perspectiva de um provedor de um aplicativo, os benefícios da multilocação na maioria das vezes estão relacionados à eficiência operacional e de custo. Uma versão do seu aplicativo pode atender às necessidades de muitos locatários/clientes permitindo a consolidação das tarefas de administração do sistema, como monitoramento, ajuste de desempenho, manutenção de software e backups de dados.
 

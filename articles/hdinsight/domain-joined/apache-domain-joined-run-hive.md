@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202579"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397820"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
 
@@ -22,7 +22,7 @@ Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste ar
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster HDInsight com Enterprise Security Package. Confira [Configurar clusters do HDInsight com ESP](apache-domain-joined-configure.md).
-* Uma estação de trabalho com Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
+* Uma estação de trabalho com aplicativos Microsoft 365 para Enterprise, Office 2016, Office 2013 Professional Plus, Excel 2013 standalone ou Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Conectar-se à interface do usuário de Administração do Apache Ranger
 **Para conectar-se à interface do usuário de Administrador do Ranger**
@@ -55,7 +55,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
     |Propriedade |Valor |
     |---|---|
     |Nome da política|Read-hivesampletable-All|
-    |Banco de dados do hive|default|
+    |Banco de dados do hive|padrão|
     |table|hivesampletable|
     |Coluna do hive|*|
     |Selecionar usuário|hiveuser1|
@@ -73,7 +73,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
     |Propriedade |Valor |
     |---|---|
     |Nome da política|Leia-hivesampletable-devicemake|
-    |Banco de dados do hive|default|
+    |Banco de dados do hive|padrão|
     |table|hivesampletable|
     |Coluna do hive|ClientID, devicemake|
     |Selecionar usuário|hiveuser2|
@@ -83,7 +83,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
 
 As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Property  |Descrição |
+ | Propriedade  |Descrição |
  | --- | --- |
  | Nome da Fonte de Dados | Forneça um nome para a sua fonte de dados |
  | Host | Insira CLUSTERNAME.azurehdinsight.net. Por exemplo, meu_Cluster_HDI.azurehdinsight.net |
@@ -92,7 +92,7 @@ As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../
  | Tipo de servidor Hive | Selecione **Servidor Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome do Usuário | Insira hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
+ | Nome do Usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
  | Senha | Digite a senha para hiveuser1. |
 
 Clique em **Testar** antes de salvar a fonte de dados.

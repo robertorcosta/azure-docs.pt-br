@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184288"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398179"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados do StorSimple série 5000-7000 para um dispositivo série 8000
 
@@ -80,8 +80,8 @@ Antes de começar a migração, verifique se:
 
     ![Verificar a versão do software no dispositivo herdado](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Se o seu dispositivo ligado não está executando a versão 2.1.1.518 ou posterior, atualize o sistema para a versão mínima necessária. Para obter instruções detalhadas, consulte [Atualizar seu sistema para v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
-    * Se você estiver executando a versão 2.1.1.518, acesse a interface da Web para ver se há notificações sobre falhas de restauração do registro. Se a restauração do registro falhou, execute a restauração do registro. Para saber mais, vá para [Como executar a restauração do registro](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
+    * Se o seu dispositivo ligado não está executando a versão 2.1.1.518 ou posterior, atualize o sistema para a versão mínima necessária. Talvez seja necessário trabalhar com Suporte da Microsoft para ajudá-lo a realizar a atualização.
+    * Se você estiver executando a versão 2.1.1.518, acesse a interface da Web para ver se há notificações sobre falhas de restauração do registro. Se a restauração do registro falhou, execute a restauração do registro. Talvez seja necessário trabalhar com Suporte da Microsoft para ajudá-lo a restaurar o registro.
     * Se você tiver um dispositivo desligado que não estava executando a versão 2.1.1.518, faça failover em um dispositivo de substituição que esteja executando a versão 2.1.1.518. Para obter instruções detalhadas, consulte a recuperação de desastre do seu dispositivo StorSimple série 5000/7000.
     * Faça backup dos dados para seu dispositivo usando um instantâneo de nuvem.
     * Verifique se há outros trabalhos de backup ativos em execução no dispositivo de origem. Isso inclui trabalhos no host do Console de Proteção de Dados do StorSimple. Aguarde até que os trabalhos atuais sejam concluídos.

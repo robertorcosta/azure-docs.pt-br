@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 09/24/2020
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0868d87d977b15a552b04d5dbd6d19de6931f0ae
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705632"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395899"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Locatários no Azure Active Directory
 
@@ -43,7 +43,7 @@ No portal do Azure, você pode configurar seu aplicativo como de locatário úni
 A criação de um excelente aplicativo multilocatário pode ser complicada devido à quantidade de políticas diferentes que os administradores de TI podem definir em seus locatários. Se você optar por criar um aplicativo multilocatário, siga estas práticas recomendadas:
 
 * Teste seu aplicativo em um locatário que tenha configurado [políticas de acesso condicional](../azuread-dev/conditional-access-dev-guide.md).
-* Siga o princípio de acesso mínimo do usuário para garantir que o aplicativo solicite apenas as permissões que ele realmente precisa. Evite solicitar permissões que exigem o consentimento do administrador porque isso pode impedir que os usuários adquiram seu aplicativo em algumas organizações. 
+* Siga o princípio de acesso mínimo do usuário para garantir que o aplicativo solicite apenas as permissões que ele realmente precisa. 
 * Forneça nomes e descrições apropriados para as permissões que expõe no aplicativo. Isso ajuda os usuários e os administradores a saber com o que eles estão concordando quando tentam usar as APIs do aplicativo. Para obter mais informações, confira a seção de práticas recomendadas no [guia de permissões](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Próximas etapas

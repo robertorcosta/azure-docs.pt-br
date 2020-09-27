@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 0a79f6883a150cb95724a7be30dcbd2e8e03f01f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921838"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396069"
 ---
-# <a name="choose-the-right-consistency-level"></a>Escolher nível certo de consistência 
+# <a name="how-to-choose-the-right-consistency-level-for-your-azure-cosmos-db-application"></a>Como escolher o nível de consistência certo para seu aplicativo Azure Cosmos DB? 
 
 Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis solicita que os desenvolvedores escolham entre os dois modelos de consistência extremos: consistência *forte* e consistência *eventual* . Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: *forte*, desatualização *limitada*, *sessão*, *prefixo consistente* e *eventual*. Cada um desses modelos de coerência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos cinco modelos de consistência fornece [compensações de desempenho e disponibilidade](consistency-levels-tradeoffs.md) precisas e é apoiado por SLAs abrangentes. Você pode configurar uma consistência padrão no nível da conta e [substituí-la no nível da solicitação](how-to-manage-consistency.md#override-the-default-consistency-level). As considerações simples a seguir lhe ajudarão a fazer a escolha certa em muitos cenários comuns.
 

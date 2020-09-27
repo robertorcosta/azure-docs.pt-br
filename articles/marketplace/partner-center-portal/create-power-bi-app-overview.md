@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 04/02/2020
-ms.openlocfilehash: f3699892471a1535cda5fc182a4c9121fd3c250c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2f34723bec6dc2212f8897eca849e6535d737fc8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317596"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397412"
 ---
 # <a name="power-bi-app-creation-overview"></a>Visão geral da criação de aplicativos Power BI
 
@@ -23,7 +23,7 @@ Este artigo explica como publicar um aplicativo Power BI no Microsoft [AppSource
 Benefícios da publicação no Marketplace comercial:
 
 - Promova sua empresa usando a marca Microsoft.
-- Tenha acesso a mais de 100 milhões de usuários do Office 365 e Dynamics 365 no AppSource e mais de 200.000 organizações pelo Azure Marketplace.
+- Pode alcançar mais de 100 milhões usuários Microsoft 365 e Dynamics 365 em AppSource e mais de 200.000 organizações por meio do Azure Marketplace.
 - Receba clientes potenciais de alta qualidade desses Marketplaces.
 - Faça com que seus serviços sejam promovidos pelas equipes de campo e televendas da Microsoft.
 

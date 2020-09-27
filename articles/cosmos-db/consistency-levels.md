@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851697"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396018"
 ---
-# <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de coerência no Azure Cosmos DB
+# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>O que são os níveis de consistência no Azure Cosmos DB?
 
 Bancos de dados distribuídos que dependem de replicação para alta disponibilidade, baixa latência ou ambos realizam o equilíbrio fundamental entre a coerência de leitura versus a disponibilidade, a latência e a taxa de transferência. A maioria dos bancos de dados distribuídos comercialmente disponíveis solicita que os desenvolvedores escolham entre os dois modelos de consistência extremos: consistência *forte* e consistência *eventual* . O transação atômica do modelo de consistência forte é o padrão ouro de programação de dados. Mas ele adiciona um preço de latência de gravação maior (em estado estável) e disponibilidade reduzida (durante falhas). Por outro lado, a consistência eventual oferece maior disponibilidade e melhor desempenho, mas torna difícil programar aplicativos.
 
@@ -96,7 +96,7 @@ A consistência eventual é a forma mais fraca de consistência, pois um cliente
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="vídeo":::
 
-## <a name="additional-reading"></a>Leitura adicional
+## <a name="additional-reading"></a>Leituras adicionais
 
 Para saber mais sobre conceitos de coerência, leia os artigos a seguir:
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985910"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395882"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
 Os dados de identidade são armazenados pelo Azure AD em uma localização geográfica com base no endereço fornecido pela sua organização ao assinar um serviço online da Microsoft, como o Microsoft 365 e o Azure. Para obter informações sobre onde os dados de identidade são armazenados, você pode usar a seção [onde os dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) da central de confiabilidade da Microsoft.
@@ -35,6 +35,10 @@ Para a autenticação multifator do Azure baseada em nuvem, a autenticação é 
 * As solicitações de autenticação multifator que usam códigos OATH originados de data centers da UE são validadas na UE.
 
 Para obter mais informações sobre quais informações do usuário são coletadas pelo Azure Servidor de Autenticação Multifator (servidor MFA) e pela MFA do Azure baseada em nuvem, consulte [coleta de dados do usuário da autenticação multifator do Azure](../authentication/howto-mfa-reporting-datacollection.md).
+
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Logon único baseado em senha para aplicativos empresariais
+ 
+Se um cliente criar um novo aplicativo empresarial (seja por meio da galeria do Azure AD ou não da Galeria) e habilitar o SSO baseado em senha, a URL de entrada do aplicativo e os campos de entrada de captura personalizada serão armazenados no Estados Unidos. Para obter mais informações sobre esse recurso, consulte [Configurar logon único baseado em senha](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

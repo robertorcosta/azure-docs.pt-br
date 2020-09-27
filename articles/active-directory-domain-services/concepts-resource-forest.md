@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480400"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396392"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceitos e recursos da floresta de recursos do Azure Active Directory Domain Services
 
-O Azure Active Directory Domain Services (Azure AD DS) fornece uma experiência de entrada para aplicativos de linha de negócios herdados e locais. Os usuários, grupos e hashes de senha de usuários locais e na nuvem são sincronizados com o domínio gerenciado do Azure AD DS. Esses hashes de senha sincronizados são o que fornece aos usuários um conjunto de credenciais que eles podem usar para o AD DS local, o Office 365 e o Azure Active Directory.
+O Azure Active Directory Domain Services (Azure AD DS) fornece uma experiência de entrada para aplicativos de linha de negócios herdados e locais. Os usuários, grupos e hashes de senha de usuários locais e na nuvem são sincronizados com o domínio gerenciado do Azure AD DS. Esses hashes de senha sincronizados são o que fornece aos usuários um único conjunto de credenciais que eles podem usar para o AD DS local, Microsoft 365 e Azure Active Directory.
 
 Embora seja seguro e forneça benefícios de segurança adicionais, algumas organizações não podem sincronizar os hashes de senhas de usuário para o Azure AD ou o Azure AD DS. Os usuários em uma organização podem não saber senha deles porque usam apenas a autenticação de cartão inteligente. Essas limitações impedem que algumas organizações usem o Azure AD DS para realizar lift-and-shift em aplicativos clássicos locais para o Azure.
 
