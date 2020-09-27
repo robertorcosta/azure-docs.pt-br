@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187193"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400410"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Solucionar problemas do Hybrid Runbook Worker
 
@@ -234,11 +234,11 @@ Os logs são armazenados localmente em cada hybrid worker, em C:\ProgramData\Mic
 
 Os Hybrid Workers enviam [saída de runbook e mensagens](../automation-runbook-output-and-messages.md) para a Automação do Azure da mesma forma que os trabalhos de runbook em execução na nuvem enviam a saída e as mensagens. Você pode habilitar os fluxos Detalhado e de Progresso da mesma forma como faz para os runbooks.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Cenário: Orchestrator.Sandbox.exe não pode se conectar ao Office 365 por meio do proxy
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Cenário: Orchestrator.Sandbox.exe não pode se conectar ao Microsoft 365 por meio do proxy
 
 #### <a name="issue"></a>Problema
 
-Um script em execução em um Hybrid Runbook Worker do Windows não pode se conectar conforme o esperado para o Office 365 em uma área restrita do Orchestrator. O script está usando [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para se conectar. 
+Um script em execução em um Hybrid Runbook Worker do Windows não pode se conectar conforme o esperado para Microsoft 365 em uma área restrita do Orchestrator. O script está usando [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para se conectar. 
 
 Se você ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de bypass, a área restrita ainda não se conectará corretamente. Um arquivo **Powershell_ise.exe.config** com as mesmas configurações de lista de proxies e de bypass parece funcionar conforme o esperado. Os logs do Service Management Automation (SMA) e os logs do PowerShell não fornecem nenhuma informação sobre o proxy.
 

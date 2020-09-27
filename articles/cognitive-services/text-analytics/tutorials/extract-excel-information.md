@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145706"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400478"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações no Excel usando a Análise de Texto e o Power Automate 
 
@@ -23,7 +23,7 @@ Neste tutorial, você criará um fluxo de automatização de energia para extrai
 
 Esse fluxo usará uma planilha de problemas relatados sobre um apartamento complexo e os classificará em duas categorias: encanamento e outros. Ele também extrairá os nomes e números de telefone dos locatários que os enviaram. Por fim, o fluxo acrescentará essas informações à planilha do Excel. 
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Usar a automatização de energia para criar um fluxo
@@ -33,11 +33,11 @@ Neste tutorial, você aprenderá a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Microsoft Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/cognitive-services/) ou [entre](https://portal.azure.com/).
+- Uma conta do Microsoft Azure. [Crie uma conta gratuita](https://azure.microsoft.com/free/cognitive-services/) e [entre](https://portal.azure.com/).
 - Um recurso Análise de Texto. Se você não tiver uma, poderá [criar uma na portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e usar a camada gratuita para concluir este tutorial.
 - A [chave e o ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerado para você durante a inscrição.
 - Uma planilha que contém problemas de locatário. Os dados de exemplo são fornecidos no GitHub
-- Office 365, com o OneDrive for Business.
+- Microsoft 365, com o OneDrive for Business.
 
 ## <a name="add-the-excel-file-to-onedrive-for-business"></a>Adicionar o arquivo do Excel ao OneDrive for Business
 
@@ -76,12 +76,12 @@ Crie variáveis que representem as informações que serão adicionadas ao arqui
 
 Adicione as informações a seguir às variáveis que você criou. Elas representam as colunas do arquivo do Excel. Se alguma variável for recolhida, você poderá clicar nelas para expandi-las.
 
-| Ação |Nome   | Tipo | Valor |
+| Ação |Nome   | Type | Valor |
 |---------|---------|---|---|
-| Inicializar variável | var_person | Cadeia de caracteres | Person |
-| Inicializar variável 2 | var_phone | Cadeia de caracteres | Phone_Number |
-| Inicializar variável 3 | var_plumbing | Cadeia de caracteres | detalhes técnicos |
-| Inicializar a variável 4 | var_other | Cadeia de caracteres | outros | 
+| Inicializar variável | var_person | String | Pessoa |
+| Inicializar variável 2 | var_phone | String | Phone_Number |
+| Inicializar variável 3 | var_plumbing | String | detalhes técnicos |
+| Inicializar a variável 4 | var_other | String | other | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informações contidas nas variáveis de fluxo":::
@@ -218,7 +218,7 @@ Na condição **se não** , clique em **Adicionar uma ação**e selecione **atua
 
 ## <a name="test-the-workflow"></a>Testar o fluxo de trabalho
 
-No canto superior direito da tela, clique em **salvar**e **teste**. Selecione **eu executarei a ação do gatilho**. Clique em **salvar & teste**, **executar fluxo**e, em seguida, **concluído**.
+No canto superior direito da tela, clique em **salvar**e **teste**. Selecione  **eu executarei a ação do gatilho**. Clique em **salvar & teste**, **executar fluxo**e, em seguida, **concluído**.
 
 O arquivo do Excel será atualizado em sua conta do OneDrive. Ele será semelhante ao mostrado abaixo.
 

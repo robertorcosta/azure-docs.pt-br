@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0cb51cd224145e7fe359e2b14a87ed2b87b18c26
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: f331c62060b2d8a39a87bab95b00225f363b4a56
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563017"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400240"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitoramento de conectividade de rede com o monitor de conexão (versão prévia)
 
@@ -30,7 +30,7 @@ Aqui estão alguns casos de uso para o monitor de conexão (versão prévia):
 
 - A VM do servidor Web front-end se comunica com uma VM do servidor de banco de dados em um aplicativo de várias camadas. Você deseja verificar a conectividade de rede entre as duas VMs.
 - Você deseja que as VMs na região leste dos EUA executem ping nas VMs na região EUA Central e você deseja comparar as latências de rede entre regiões.
-- Você tem vários sites locais do Office em Seattle, Washington, e no Ashburn, Virgínia. Seus sites do Office se conectam às URLs do Office 365. Para seus usuários de URLs do Office 365, compare as latências entre Seattle e Ashburn.
+- Você tem vários sites locais do Office em Seattle, Washington, e no Ashburn, Virgínia. Seus sites do Office se conectam a URLs do Microsoft 365. Para os usuários de URLs de Microsoft 365, compare as latências entre Seattle e Ashburn.
 - Seu aplicativo híbrido precisa de conectividade com um ponto de extremidade de armazenamento do Azure. Seu site local e seu aplicativo do Azure se conectam ao mesmo ponto de extremidade de armazenamento do Azure. Você deseja comparar as latências do site local com as latências do aplicativo do Azure.
 - Você deseja verificar a conectividade entre suas configurações locais e as VMs do Azure que hospedam seu aplicativo de nuvem.
 
@@ -87,7 +87,7 @@ Para obter mais informações, consulte [habilitar o observador de rede](https:/
 
 O monitor de conexão monitora a comunicação em intervalos regulares. Ele informa sobre alterações na acessibilidade e na latência. Você também pode verificar a topologia de rede atual e histórica entre os agentes de origem e os pontos de extremidade de destino.
 
-As fontes podem ser VMs do Azure ou computadores locais que têm um agente de monitoramento instalado. Os pontos de extremidade de destino podem ser URLs do Office 365, URLs do Dynamics 365, URLs personalizadas, IDs de recursos de VM do Azure, IPv4, IPv6, FQDN ou qualquer nome de domínio.
+As fontes podem ser VMs do Azure ou computadores locais que têm um agente de monitoramento instalado. Os pontos de extremidade de destino podem ser Microsoft 365 URLs, URLs do Dynamics 365, URLs personalizadas, IDs de recursos de VM do Azure, IPv4, IPv6, FQDN ou qualquer nome de domínio.
 
 ### <a name="access-connection-monitor-preview"></a>Monitor de conexão de acesso (visualização)
 
@@ -137,7 +137,7 @@ Todas as fontes, destinos e configurações de teste que você adiciona a um gru
 | 11 | C | E | Configuração 1 |
 | 12 | C | E | Configuração 2 |
 
-### <a name="scale-limits"></a>Limites de escala
+### <a name="scale-limits"></a> Limites de escala
 
 Os monitores de conexão têm os seguintes limites de escala:
 
@@ -278,9 +278,9 @@ Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWa
 
 | Métrica | Nome para exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
+| ProbesFailedPercent | Porcentagem de investigações com falha | Percentual | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
 | AverageRoundtripMs | Média Tempo de ida e volta (ms) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
-| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Porcentagem | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
+| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Percentual | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 | RoundTripTimeMs (visualização) | Tempo de ida e volta (MS) (visualização) | Milissegundos | Média | RTT para cheques enviados entre a origem e o destino. Esse valor não é médio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
 
 #### <a name="metric-alerts-in-azure-monitor"></a>Alertas de métrica no Azure Monitor

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: a6e5ae96d097dab9c416f7e1f737cf4fe8a62aea
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2f606a2ff036c6bc3b4e3c508632d48ae8d40f15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87279212"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400036"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple do programa de provedor de soluções de nuvem: perguntas frequentes
 
@@ -40,10 +40,10 @@ As perguntas e respostas são organizadas nas seguintes categorias:
 
 Para saber mais, vá para [StorSimple no programa CSP](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
 
-### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>O StorSimple é um serviço com licenças baseadas em uso ou baseadas em estação como o Office 365 e o EMS (Enterprise Mobility Suite)?
+### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-microsoft-365-and-enterprise-mobility-suite-ems"></a>O StorSimple é uma base de uso ou com base em licenças de estação como Microsoft 365 e EMS (Enterprise Mobility Suite)?
 O StorSimple é um serviço baseado em uso. Os clientes que adquirirem a StorSimple Virtual Array por meio do roteiro CSP pagam pelo uso da matriz virtual e o Azure, cobrada como itens de linha separados na conta do CSP. 
 
-### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-office-365-and-the-enterprise-mobility-suite"></a>O modelo de negócios do StorSimple é semelhante ao de outros serviços, como o Office 365 e o Enterprise Mobility Suite? 
+### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-microsoft-365-and-the-enterprise-mobility-suite"></a>O modelo de negócios do StorSimple é semelhante ao de outros serviços, como o Microsoft 365 e o Enterprise Mobility Suite? 
 Sim. O modelo é um modelo de desconto no atacado assim como outros serviços baseados em uso no Azure. O desconto por atacado para StorSimple é semelhante ao de outros serviços do Azure. Esse modelo fornece uma oportunidade para vender mais e unidade de consumo do Azure por meio de matriz Virtual StorSimple de nossos parceiros CSP.  
 
 ### <a name="which-storsimple-skus-are-available-at-launch"></a>Quais SKUs do StorSimple estão disponíveis no lançamento?

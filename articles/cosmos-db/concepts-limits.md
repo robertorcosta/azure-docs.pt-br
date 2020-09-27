@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 373463ff9024ec3b657df6d141ed830142b23f2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033006"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400053"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
 
@@ -27,8 +27,8 @@ Você pode provisionar a taxa de transferência em um nível de contêiner ou em
 
 | Recurso | Limite padrão |
 | --- | --- |
-| Máximo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Máximo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
+| Máximo de RUs por contêiner ([modo provisionado de taxa de transferência dedicada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md) |
+| Máximo de RUs por banco de dados ([modo provisionado de taxa de transferência compartilhada](databases-containers-items.md#azure-cosmos-containers)) | 1 milhão por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md) |
 | RUs máxima por partição (lógica) | 10.000 |
 | Armazenamento máximo em todos os itens por partição (lógica) | 20 GB |
 | Número máximo de chaves de partição (lógica) distintas | Ilimitado |
@@ -79,8 +79,8 @@ Você pode [provisionar e gerenciar sua conta do Azure Cosmos](how-to-manage-dat
 
 | Recurso | Limite padrão |
 | --- | --- |
-| Máximo de contas do banco de dados por assinatura | 50 por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
-| Número máximo de failovers regionais | 1/hora por padrão. Você pode aumentar isso [abrindo um tíquete de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Máximo de contas do banco de dados por assinatura | 50 por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md)|
+| Número máximo de failovers regionais | 1/hora por padrão. Você pode aumentar isso [abrindo um tíquete de suporte do Azure](create-support-request-quota-increase.md)|
 
 > [!NOTE]
 > Failovers regionais só se aplicam a contas de gravações de região única. As contas de gravação de várias regiões não exigem nem têm limites para alterar a região de gravação.
@@ -120,7 +120,7 @@ Dependendo da API que você usa, um contêiner Cosmos do Azure pode representar 
 | Número máximo de caminhos por restrição de chave exclusiva|16 <sup>*</sup>|
 | Valor de TTL máximo |2147483647|
 
-<sup>*</sup> Você pode aumentar qualquer um desses limites por contêiner entrando em contato com o Suporte do Azure.
+<sup>*</sup> Você pode aumentar qualquer um desses limites por contêiner criando uma [solicitação de suporte do Azure](create-support-request-quota-increase.md).
 
 ## <a name="per-item-limits"></a>Limites por item
 
@@ -160,7 +160,7 @@ O Cosmos DB usa HMAC para autorização. Você pode usar uma chave mestra ou [to
 | --- | --- |
 | Tempo máximo de expiração do token mestre | 15 min  |
 | Tempo de expiração do token de recurso mínimo | 10 min  |
-| Tempo de expiração do token de recurso máximo | 24 h por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
+| Tempo de expiração do token de recurso máximo | 24 h por padrão. Você pode aumentar isso [abrindo um tíquete de Suporte do Azure](create-support-request-quota-increase.md)|
 | Distorção máxima de relógio para autorização de token| 15 min |
 
 O Cosmos DB dá suporte à execução de gatilhos durante as gravações. O serviço dá suporte a um máximo de um pré-gatilho e um pós-gatilho por operação de gravação.
@@ -202,7 +202,7 @@ O Cosmos DB dá suporte à consulta de itens usando [SQL](how-to-sql-query.md). 
 | Máximo de caminhos excluídos por contêiner| 500 |
 | Máximo de propriedades em um índice composto| 8 |
 
-<sup>*</sup> Você pode aumentar esses limites de consulta SQL entrando em contato com o Suporte do Azure.
+<sup>*</sup> Você pode aumentar qualquer um desses limites de consulta SQL criando uma [solicitação de suporte do Azure](create-support-request-quota-increase.md).
 
 ## <a name="mongodb-api-specific-limits"></a>Limites específicos da API do MongoDB
 

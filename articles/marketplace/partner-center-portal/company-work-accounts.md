@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
-ms.openlocfilehash: 6fca3429ab96a63b01eaa7e9d1f0ae83dc46e9c7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 246fbcd9bc72683e41489daf105f174f9380c029
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119745"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400257"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Contas corporativas corporativas e Partner Center
 
@@ -20,7 +20,7 @@ O Partner Center usa contas corporativas corporativas, também conhecidas como l
 
 ## <a name="check-whether-your-company-already-has-a-work-account"></a>Verifique se sua empresa já tem uma conta corporativa
 
-Se sua empresa assinou um serviço de nuvem da Microsoft, como Azure, Microsoft Intune ou Office 365, você já tem um domínio de conta de email de trabalho (também conhecido como um locatário de Azure Active Directory) que pode ser usado com o Partner Center.
+Se sua empresa assinou um serviço de nuvem da Microsoft, como o Azure, Microsoft Intune ou Microsoft 365, você já tem um domínio de conta de email de trabalho (também conhecido como um locatário Azure Active Directory) que pode ser usado com o Partner Center.
 
 Siga estas etapas para verificar:
 1. Entre no portal de administração do Azure em https://portal.azure.com .
@@ -37,7 +37,7 @@ Antes de decidir usar uma conta de trabalho existente, considere quantos usuári
 
 Para criar uma nova conta de trabalho para sua empresa, siga as etapas abaixo. Talvez seja necessário solicitar assistência de quem tem permissões administrativas na conta de Microsoft Azure da sua empresa.
 
-1. Entre no [Portal do Microsoft Azure](https://portal.azure.com).
+1. Entre no [portal do Microsoft Azure](https://portal.azure.com).
 2. No menu de navegação à esquerda, selecione o **Azure Active Directory**  ->  **usuários**.
 3. Selecione **novo usuário** e crie uma nova conta de trabalho do Azure inserindo um nome e endereço de email. Verifique se a **função de diretório** está definida como **usuário** e marque a caixa de seleção **Mostrar senha** na parte inferior para exibir e anotar a senha gerada automaticamente.
 4. Selecione **criar** para salvar o novo usuário.

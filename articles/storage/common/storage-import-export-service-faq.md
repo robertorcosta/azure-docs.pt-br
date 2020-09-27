@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: f3a41fbd3cbd5b7c8eccfbea8833fdfedee97510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512401"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399033"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação do Microsoft Azure: perguntas frequentes
 
@@ -35,9 +35,9 @@ Sim. O serviço de Importação/Exportação do Microsoft Azure dá suporte para
 
 Sim. O serviço de Importação/Exportação do Microsoft Azure dá suporte para assinaturas de CSP (Provedores de Soluções na Nuvem).
 
-### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>Posso usar o serviço de Importação/Exportação do Microsoft Azure para copiar caixas de correio PST e dados do SharePoint para O365?
+### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-microsoft-365"></a>Posso usar o serviço de importação/exportação do Azure para copiar caixas de correio de PST e dados do SharePoint para Microsoft 365?
 
-Sim. Para obter mais informações, acesse [Importar arquivos PST ou dados do SharePoint para Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx).
+Sim. Para obter mais informações, acesse [visão geral da importação dos arquivos pst da sua organização](/microsoft-365/compliance/importing-pst-files-to-office-365).
 
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>Posso usar o serviço de Importação/Exportação do Microsoft Azure para copiar meus backups offline para o Serviço de Backup do Azure?
 
@@ -157,4 +157,4 @@ Sim. O serviço de importação/exportação do Azure usa a criptografia BitLock
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é a Importação/Exportação do Microsoft Azure?](storage-import-export-service.md)
+* [O que é a Importação/Exportação do Azure?](storage-import-export-service.md)

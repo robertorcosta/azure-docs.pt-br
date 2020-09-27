@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281874"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399628"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Execute o serviço de gerenciamento de certificados do cofre OPC com segurança
 
@@ -94,7 +94,7 @@ Todos os sistemas devem ser continuamente monitorados e atualizados com as últi
 
 ### <a name="security-monitoring"></a>Monitoramento de segurança
 
-Assine ou implemente o monitoramento de segurança apropriado. Por exemplo, assine uma solução de monitoramento central (como a central de segurança do Azure ou a solução de monitoramento do Office 365) e configure-a adequadamente para garantir que os eventos de segurança sejam transmitidos para a solução de monitoramento.
+Assine ou implemente o monitoramento de segurança apropriado. Por exemplo, assine uma solução de monitoramento central (como a central de segurança do Azure ou a solução de monitoramento de Microsoft 365) e configure-a adequadamente para garantir que os eventos de segurança sejam transmitidos para a solução de monitoramento.
 
 > [!IMPORTANT]
 > Por padrão, o serviço de cofre do OPC é implantado com o [aplicativo Azure insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) como uma solução de monitoramento. É altamente recomendável adicionar uma solução de segurança como a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/) .

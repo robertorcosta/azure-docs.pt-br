@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 364f4f38599508e4dfb455f1336d4a6978cdf5b6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651738"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400444"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de rede do Azure
 
@@ -53,7 +53,7 @@ A Rede Virtual do Azure (VNet) é o bloco de construção fundamental de sua red
 Para obter mais informações, consulte [o que é a rede virtual do Azure?](../virtual-network/virtual-networks-overview.md).
 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
-O ExpressRoute permite que você estenda suas redes locais para a nuvem da Microsoft por uma conexão privada, facilitada por um provedor de conectividade. Essa conexão é privada. O tráfego não passa pela Internet. Com o ExpressRoute, estabeleça conexões com os serviços em nuvem da Microsoft, como Microsoft Azure, Office 365 e Dynamics 365.  Para obter mais informações, consulte [o que é o ExpressRoute?](../expressroute/expressroute-introduction.md).
+O ExpressRoute permite que você estenda suas redes locais para a nuvem da Microsoft por uma conexão privada, facilitada por um provedor de conectividade. Essa conexão é privada. O tráfego não passa pela Internet. Com o ExpressRoute, é possível estabelecer conexões com os serviços em nuvem da Microsoft, como Microsoft Azure, Microsoft 365 e Dynamics 365.  Para obter mais informações, consulte [o que é o ExpressRoute?](../expressroute/expressroute-introduction.md).
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
@@ -84,7 +84,7 @@ A NAT de Rede Virtual (conversão de endereços de rede) simplifica a conectivid
 ![Gateway NAT da rede virtual](./media/networking-overview/flow-map.png)
 
 ### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Serviço de emparelhamento do Azure
-O serviço de emparelhamento do Azure aprimora a conectividade do cliente com os serviços de nuvem da Microsoft, como Office 365, Dynamics 365, serviços SaaS (software como serviço), Azure ou qualquer serviço da Microsoft acessível pela Internet pública. Para obter mais informações, consulte [o que é o serviço de emparelhamento do Azure?](../peering-service/about.md).
+O serviço de emparelhamento do Azure aprimora a conectividade do cliente com os serviços de nuvem da Microsoft, como Microsoft 365, Dynamics 365, serviços SaaS (software como serviço), Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. Para obter mais informações, consulte [o que é o serviço de emparelhamento do Azure?](../peering-service/about.md).
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Serviços de proteção de aplicativo
 

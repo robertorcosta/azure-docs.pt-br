@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015825"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400682"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerenciar sua conta do marketplace comercial no Partner Center
 
@@ -306,7 +306,7 @@ Para obter mais informações sobre como gerenciar funções e permissões em ou
 
 ## <a name="manage-tenants"></a>Gerenciar locatários
 
-Um locatário do Azure AD (Active Directory), também conhecido como "conta corporativa", em toda esta documentação é uma representação da configuração da sua organização no portal do Azure e ajuda a gerenciar uma instância específica dos serviços em nuvem da Microsoft para seus usuários internos e externos. Se a sua organização assinou um serviço de nuvem da Microsoft, como Azure, Microsoft Intune ou Office 365, um locatário do Azure AD foi estabelecido para você.
+Um locatário do Azure AD (Active Directory), também conhecido como "conta corporativa", em toda esta documentação é uma representação da configuração da sua organização no portal do Azure e ajuda a gerenciar uma instância específica dos serviços em nuvem da Microsoft para seus usuários internos e externos. Se sua organização assinou um serviço de nuvem da Microsoft, como o Azure, Microsoft Intune ou Microsoft 365, um locatário do Azure AD foi estabelecido para você.
 
 Você pode configurar vários locatários para usar com o Partner Center. Qualquer usuário com a função **Gerente** na conta do Partner Center terá a opção de adicionar e remover locatários do Azure AD da conta.  
 

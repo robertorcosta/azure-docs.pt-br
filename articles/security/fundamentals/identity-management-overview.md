@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002678"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400308"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 
@@ -41,12 +41,12 @@ O artigo se concentra nas seguintes funcionalidades de gerenciamento de identida
 * Logon único
 * Proxy reverso
 * Autenticação Multifator
-* Controle de acesso baseado em função do Azure (RBAC do Azure)
+* RBAC do Azure (controle de acesso baseado em função do Azure)
 * Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 * Gerenciamento de acesso e identidade do consumidor
 * Registro de dispositivos
 * Privileged Identity Management
-* Proteção de identidade
+* Identity Protection
 * Gerenciamento de identidade híbrida/conectar Azure Active Directory
 * Revisões de acesso do Azure AD
 
@@ -54,7 +54,7 @@ O artigo se concentra nas seguintes funcionalidades de gerenciamento de identida
 
 SSO significa poder acessar todos os aplicativos e recursos de que você precisa para fazer negócios, conectando-se apenas uma vez usando uma única conta de usuário. Depois de conectado, você pode acessar todos os aplicativos necessários sem a exigência de autenticação (por exemplo, digitar uma senha) uma segunda vez.
 
-Muitas organizações contam com aplicativos de SaaS como o Office 365, o Box e o Salesforce, para aumentar a produtividade do usuário. Historicamente, a equipe de TI precisava criar e atualizar individualmente as contas de usuário em cada aplicativo SaaS e os usuários precisavam lembrar uma senha para cada aplicativo SaaS.
+Muitas organizações contam com aplicativos SaaS como Microsoft 365, Box e Salesforce para produtividade do usuário. Historicamente, a equipe de TI precisava criar e atualizar individualmente as contas de usuário em cada aplicativo SaaS e os usuários precisavam lembrar uma senha para cada aplicativo SaaS.
 
 O Azure AD estende os ambientes do Active Directory local para a nuvem, permitindo que os usuários usem suas contas organizacionais primárias para se conectar não apenas a recursos corporativos e dispositivos ingressados no domínio, mas também a todos os aplicativos Web e de SaaS necessários para seus trabalhos.
 
@@ -87,7 +87,7 @@ Saiba mais:
 * [O que é a Autenticação Multifator do Azure?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Como funciona a Autenticação Multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="azure-rbac"></a>Azure RBAC
+## <a name="azure-rbac"></a>RBAC do Azure
 
 O RBAC do Azure é um sistema de autorização criado em Azure Resource Manager que fornece gerenciamento de acesso refinado de recursos no Azure. O RBAC do Azure permite controlar de forma granular o nível de acesso que os usuários têm. Por exemplo, você pode limitar um usuário para somente gerenciar redes virtuais e outro usuário para gerenciar todos os recursos em um grupo de recursos. O Azure inclui várias funções internas que você pode usar. A seguir são listadas quatro funções internas fundamentais. As três primeiras se aplicam a todos os tipos de recursos.
 
@@ -147,14 +147,14 @@ Saiba mais:
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Com o Azure AD Privileged Identity Management, você pode gerenciar, controlar e monitorar suas identidades privilegiadas e acessar recursos no Azure AD, bem como em outros serviços online da Microsoft, como o Office 365 e o Microsoft Intune.
+Com o Azure AD Privileged Identity Management, você pode gerenciar, controlar e monitorar suas identidades com privilégios e o acesso aos recursos no Azure AD, bem como a outros serviços online da Microsoft, como Microsoft 365 e Microsoft Intune.
 
-Às vezes, os usuários precisam executar operações privilegiadas em recursos do Azure ou do Office 365, ou em outros aplicativos SaaS. Essa necessidade geralmente significa que as organizações precisam conceder acesso privilegiado permanente no Azure AD aos usuários. Esse acesso é um risco de segurança cada vez maior para recursos hospedados em nuvem porque as organizações não podem monitorar de maneira suficiente o que esses usuários estão fazendo com seus privilégios de administrador. Além disso, se uma conta de usuário com acesso privilegiado for comprometida, essa violação de segurança poderá afetar a segurança geral da nuvem da organização. O Azure AD Privileged Identity Management ajuda a mitigar esse risco.
+Às vezes, os usuários precisam executar operações privilegiadas no Azure ou Microsoft 365 recursos ou em outros aplicativos SaaS. Essa necessidade geralmente significa que as organizações precisam conceder acesso privilegiado permanente no Azure AD aos usuários. Esse acesso é um risco de segurança cada vez maior para recursos hospedados em nuvem porque as organizações não podem monitorar de maneira suficiente o que esses usuários estão fazendo com seus privilégios de administrador. Além disso, se uma conta de usuário com acesso privilegiado for comprometida, essa violação de segurança poderá afetar a segurança geral da nuvem da organização. O Azure AD Privileged Identity Management ajuda a mitigar esse risco.
 
 Com Azure AD Privileged Identity Management, você pode:
 
 * Ver quais usuários são administradores do Azure AD.
-* Habilitar o acesso administrativo JIT (Just-In-Time) para serviços online da Microsoft como o Office 365 e o Intune.
+* Habilite o acesso administrativo just-in-time (JIT) sob demanda aos serviços da Microsoft, como o Microsoft 365 e o Intune.
 * Obter relatórios sobre o histórico de acesso de administrador e as alterações nas atribuições de administrador.
 * Receber alertas sobre o acesso a uma função com privilégios.
 
@@ -163,7 +163,7 @@ Saiba mais:
 * [O que é o Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Atribuir funções de diretório do Azure AD no PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Proteção de identidade
+## <a name="identity-protection"></a>Identity Protection
 
 Azure AD Identity Protection é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. O Identity Protection tira proveito das funcionalidades de detecção de anomalias existentes do Azure AD, que estão disponíveis por meio dos Relatórios de atividades anômalas do Azure AD. A proteção de identidade também apresenta novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 
@@ -174,7 +174,7 @@ Saiba mais:
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Gerenciamento de identidade híbrida/conectar Azure Active Directory
 
-As soluções de identidade da Microsoft abrangem locais e recursos baseados em nuvem, criando uma identidade de usuário único para autenticação e autorização em todos os recursos, independentemente do local. Chamamos isso de identidade híbrida. O Azure AD Connect é a ferramenta da Microsoft criada para atender e atingir suas metas de identidade híbrida. Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Office 365, Azure e SaaS integrados ao AD do Azure. Ela fornece os seguintes recursos:
+As soluções de identidade da Microsoft abrangem locais e recursos baseados em nuvem, criando uma identidade de usuário único para autenticação e autorização em todos os recursos, independentemente do local. Chamamos isso de identidade híbrida. O Azure AD Connect é a ferramenta da Microsoft criada para atender e atingir suas metas de identidade híbrida. Isso permite que você forneça uma identidade comum para os usuários dos aplicativos do Microsoft 365, Azure e SaaS integrados ao Azure AD. Ela fornece os seguintes recursos:
 
 * Sincronização
 * AD FS e integração de federação

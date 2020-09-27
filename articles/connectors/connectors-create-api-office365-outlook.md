@@ -7,16 +7,16 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832970"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400767"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerenciar emails, contatos e calendários no Outlook do Office 365 usando os Aplicativos Lógicos do Azure
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector do Outlook para Office 365](/connectors/office365connector/), você pode criar tarefas automatizadas e fluxos de trabalho que gerenciam sua conta do Office 365 criando aplicativos lógicos. Por exemplo, você automatiza essas tarefas:
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o [conector do Outlook para Office 365](/connectors/office365connector/), você pode criar tarefas automatizadas e fluxos de trabalho que gerenciam sua conta corporativa ou de estudante criando aplicativos lógicos. Por exemplo, você automatiza essas tarefas:
 
 * Obter, enviar e responder a emails. 
 * Agende reuniões no seu calendário.
@@ -31,9 +31,9 @@ Você pode usar qualquer gatilho para iniciar o fluxo de trabalho, por exemplo, 
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [inscreva-se em uma conta gratuita do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Uma [conta do Office 365](https://www.office.com/)
+* Uma [conta corporativa ou de estudante](https://www.office.com/)
 
-* O aplicativo lógico no qual você deseja acessar sua conta do Outlook do Office 365. Para iniciar o fluxo de trabalho com um gatilho do Outlook do Office 365, você precisa ter um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para adicionar uma ação do Outlook do Office 365 ao seu fluxo de trabalho, seu aplicativo lógico precisa já ter um gatilho.
+* O aplicativo lógico no qual você deseja acessar sua conta corporativa ou de estudante. Para iniciar o fluxo de trabalho com um gatilho do Outlook do Office 365, você precisa ter um [aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para adicionar uma ação do Outlook do Office 365 ao seu fluxo de trabalho, seu aplicativo lógico precisa já ter um gatilho.
 
 ## <a name="add-a-trigger"></a>Adicionar um gatilho
 
@@ -45,7 +45,7 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
    
    ![Selecione o gatilho para iniciar seu aplicativo lógico](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Se você for solicitado a entrar, forneça suas credenciais do Office 365 para que seu aplicativo lógico possa se conectar à sua conta. Caso contrário, se a conexão já existir, forneça as informações para as propriedades do gatilho.
+1. Se você for solicitado a entrar, forneça suas credenciais corporativas ou de estudante para que seu aplicativo lógico possa se conectar à sua conta. Caso contrário, se a conexão já existir, forneça as informações para as propriedades do gatilho.
 
    > [!NOTE]
    > Sua conexão não expirará até ser revogada, mesmo se você alterar suas credenciais de entrada. Para obter mais informações, consulte [Vida útil do token configurável no Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -78,7 +78,7 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
    ![Selecione a ação a ser executada em seu aplicativo lógico](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Se você for solicitado a entrar, forneça suas credenciais do Office 365 para que seu aplicativo lógico possa se conectar à sua conta. Caso contrário, se a conexão já existir, forneça as informações para as propriedades da ação.
+1. Se você for solicitado a entrar, forneça suas credenciais corporativas ou de estudante para que seu aplicativo lógico possa se conectar à sua conta. Caso contrário, se a conexão já existir, forneça as informações para as propriedades da ação.
 
    > [!NOTE]
    > Sua conexão não expirará até ser revogada, mesmo se você alterar suas credenciais de entrada. Para obter mais informações, consulte [Vida útil do token configurável no Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md).

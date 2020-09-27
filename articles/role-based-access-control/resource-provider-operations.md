@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: 973426c6d9d3a4c642e5f37aebe60acce54d581b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326398"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400087"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -5098,7 +5098,7 @@ Serviço do Azure: [Serviços cognitivas](../cognitive-services/index.yml)
 
 ### <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
-Serviço do Azure: [Machine Learning Studio (clássico)](../machine-learning/studio/index.yml)
+Serviço do Azure: [Machine Learning Studio (clássico)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -5242,36 +5242,6 @@ Serviço do Azure: [serviço de Machine Learning](../machine-learning/index.yml)
 > | Microsoft. MachineLearningServices/Workspaces/Services/AKs/listkeys/Action | Lista as chaves para os serviços AKSs em Serviços de Machine Learning espaço (s) de trabalho |
 > | Microsoft. MachineLearningServices/espaços de trabalho/serviços/AKs/excluir | Exclui os serviços AKSs nos espaços de trabalho Serviços de Machine Learning |
 > | Microsoft. MachineLearningServices/espaços de trabalho/serviços/AKs/Pontuação/ação | Pontua os serviços AKSs nos espaços de trabalho Serviços de Machine Learning |
-
-
-### <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-
-Serviço do Azure: [Machine Learning Studio (clássico)](../machine-learning/classic/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Ação | Descrição |
-> | --- | --- |
-> | Microsoft.MachineLearning/register/action | Registra a assinatura do provedor de recursos do serviço Web do Machine Learning e permite a criação de serviços Web. |
-> | Microsoft.MachineLearning/webServices/action | Criar propriedades do serviço Web regionais para regiões com suporte |
-> | Microsoft.MachineLearning/commitmentPlans/read | Ler um plano de compromisso de Machine Learning |
-> | Microsoft.MachineLearning/commitmentPlans/write | Criar ou atualizar plano de compromisso de Machine Learning |
-> | Microsoft.MachineLearning/commitmentPlans/delete | Excluir plano de compromisso de Machine Learning |
-> | Microsoft.MachineLearning/commitmentPlans/join/action | Ingressar em um plano de compromisso de Machine Learning |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Ler associações de plano de compromisso de Machine Learning |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Mover associações de plano de compromisso de Machine Learning |
-> | Microsoft.MachineLearning/locations/operationresults/read | Obter o resultado de uma operação do Machine Learning |
-> | Microsoft.MachineLearning/locations/operationsstatus/read | Obter o status de uma operação do Machine Learning em andamento |
-> | Microsoft.MachineLearning/operations/read | Obter operações do Machine Learning |
-> | Microsoft.MachineLearning/skus/read | Obter SKUs do plano de compromisso do Machine Learning |
-> | Microsoft.MachineLearning/webServices/read | Ler um serviço Web do Machine Learning |
-> | Microsoft.MachineLearning/webServices/write | Criar ou atualizar serviço Web do Machine Learning |
-> | Microsoft.MachineLearning/webServices/delete | Excluir um serviço Web do Machine Learning |
-> | Microsoft.MachineLearning/webServices/listkeys/read | Obtém chaves para um Serviço Web do Machine Learning |
-> | Microsoft.MachineLearning/Workspaces/read | Ler um Workspace do Machine Learning |
-> | Microsoft.MachineLearning/Workspaces/write | Criar ou atualizar Workspace do Machine Learning |
-> | Microsoft.MachineLearning/Workspaces/delete | Criar um Workspace do Machine Learning |
-> | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | Listar chaves para um Workspace do Machine Learning |
-> | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/action | Ressincronizar as chaves da conta de armazenamento configurada para um Workspace do Machine Learning |
 
 ## <a name="internet-of-things"></a>Internet das coisas
 
@@ -8239,7 +8209,7 @@ Serviço do Azure: [Azure Policy](../governance/policy/overview.md), [RBAC do Az
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Authorization/elevateAccess/action | Concede ao chamador o acesso de Administrador de Acesso do Usuário no escopo do locatário |
-> | Microsoft.Authorization/classicAdministrators/read | Ler os administradores para obter a assinatura. |
+> | Microsoft.Authorization/classicAdministrators/read | Ler os administradores para obter a assinatura. Não terá efeito se for usado como uma ação em uma função personalizada. |
 > | Microsoft.Authorization/classicAdministrators/write | Adicionar ou modificar o administrador de uma assinatura. |
 > | Microsoft.Authorization/classicAdministrators/delete | Remover o administrador da assinatura. |
 > | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Obtém o administrador do status de operação da assinatura. |

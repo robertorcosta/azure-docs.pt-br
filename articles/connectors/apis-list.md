@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488823"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400801"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores dos Aplicativos Lógicos do Azure
 
@@ -66,7 +66,7 @@ Para aplicativos lógicos que precisam de acesso direto a recursos em uma rede v
 > [!NOTE]
 > Os aplicativos lógicos que são executados em um ISE e seus conectores, independentemente de onde esses conectores são executados, seguem um plano de preços fixo versus o plano de preços baseado em consumo. Para obter mais informações, consulte [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md) e [detalhes de preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-| Rotular | Exemplo | Descrição |
+| Rótulo | Exemplo | Descrição |
 |-------|---------|-------------|
 | **CORE** | ![Conector principal de exemplo](./media/apis-list/example-core-connector.png) | Gatilhos e ações internos com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. |
 | **ISE** | ![Conector do ISE de exemplo](./media/apis-list/example-ise-connector.png) | Conectores gerenciados com esse rótulo são executados no mesmo ISE que seus aplicativos lógicos. Se você tiver um sistema local conectado a uma rede virtual do Azure, um ISE permitirá que seus aplicativos lógicos acessem diretamente esse sistema sem o [Gateway de dados local](../logic-apps/logic-apps-gateway-connection.md). Em vez disso, você pode usar o conector do **ISE** do sistema, se disponível, uma ação http ou um [conector personalizado](#custom). Para sistemas locais que não têm conectores do **ISE** , use o gateway de dados local. Para examinar os conectores do ISE disponíveis, consulte [conectores do ISE](#ise-connectors). |
@@ -136,7 +136,7 @@ Os aplicativos lógicos fornecem esses conectores padrão populares para automat
 | [![Conector gerenciado do barramento de serviço do Azure ][azure-service-bus-icon]<br> **barramento de serviço do Azure**][azure-service-bus-doc] | Gerencie mensagens assíncronas, sessões e assinaturas de tópico com o conector mais comumente usado em Aplicativos Lógicos. |
 | [![SQL Server conector gerenciado ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Conecte-se ao seu SQL Server local ou a um banco de dados SQL do Azure na nuvem para que você possa gerenciar registros, executar procedimentos armazenados ou executar consultas. |
 | [![Conector gerenciado do armazenamento de BLOBs do Azure ][azure-blob-storage-icon]<br> ** <br> armazenamento de BLOBs do Azure**][azure-blob-storage-doc] | Conecte-se à sua conta de armazenamento para que você possa criar e gerenciar conteúdo de BLOB. |
-| [![Office 365 Outlook Managed Connector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de email do Office 365 para que você possa criar e gerenciar emails, tarefas, eventos de calendário e reuniões, contatos, solicitações e muito mais. |
+| [![Office 365 Outlook Managed Connector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de email corporativa ou de estudante para que você possa criar e gerenciar emails, tarefas, eventos de calendário e reuniões, contatos, solicitações e muito mais. |
 | [![SFTP-conector gerenciado do SSH ][sftp-ssh-icon]<br> **SFTP-SSH**][sftp-ssh-doc] | Conecte-se a servidores SFTP que você pode acessar da Internet usando o SSH para que você possa trabalhar com seus arquivos e pastas. |
 | [![Conector gerenciado do SharePoint Online ][sharepoint-online-icon]<br> **SharePoint <br> online**][sharepoint-online-doc] | Conecte-se ao SharePoint Online para que você possa gerenciar arquivos, anexos, pastas e muito mais. |
 | [![Filas ][azure-queues-icon]<br> **do Azure <br> ** conector gerenciado de filas do Azure][azure-queues-doc] | Conecte-se à sua conta de armazenamento do Azure para que você possa criar e gerenciar filas e mensagens. |
@@ -588,7 +588,7 @@ Embora você crie conexões de dentro de um aplicativo lógico, as conexões sã
 [instagram-doc]: ./connectors-create-api-instagram.md "Conecte-se ao Instagram. Disparar ou agir em eventos"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Conectar-se ao Mandrill para comunicação"
 [mysql-doc]: /connectors/mysql/ "Conecte-se ao seu banco de dados MySQL local para que você possa ler e gravar dados"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conecte-se à sua conta do Office 365 para que você possa enviar e receber emails, gerenciar seu calendário e contatos e muito mais"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conecte-se à sua conta corporativa ou de estudante para que você possa enviar e receber emails, gerenciar seu calendário e contatos e muito mais"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Conecte-se ao seu Microsoft OneDrive pessoal para que você possa carregar, excluir, listar arquivos e muito mais"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Conecte-se ao Microsoft OneDrive de sua empresa para que você possa carregar, excluir, listar seus arquivos e muito mais"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Conecte-se a um banco de dados Oracle para que você possa adicionar, inserir, excluir linhas e muito mais"

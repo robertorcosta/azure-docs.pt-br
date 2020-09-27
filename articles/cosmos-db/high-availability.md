@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: d6222c9275dfe022e897bb6324df5bb30e1a8905
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3f882375197fa45cfbc74ff7a80ed33fd33f33a3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276808"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400291"
 ---
-# <a name="high-availability-with-azure-cosmos-db"></a>Alta disponibilidade com o Azure Cosmos DB
+# <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como Azure Cosmos DB fornece alta disponibilidade? 
 
 Azure Cosmos DB Replica de forma transparente seus dados em todas as regiões do Azure associadas à sua conta do Azure Cosmos. O Azure Cosmos DB emprega várias camadas de redundância para seus dados, conforme mostrado na imagem a seguir:
 
@@ -79,7 +79,7 @@ A redundância de zona é uma *funcionalidade suplementar* para a [replicação 
 
 Ao configurar gravações de várias regiões para sua conta do Azure Cosmos, você pode aceitar a redundância de zona sem custo adicional. Caso contrário, consulte a observação abaixo sobre os preços do suporte à redundância de zona. Você pode habilitar a redundância de zona em uma região existente da sua conta do Azure Cosmos removendo a região e adicionando-a novamente com a redundância de zona habilitada.
 
-Esse recurso está disponível em: *sul do Reino Unido, Sudeste Asiático, leste dos EUA, leste dos EUA 2, EUA Central, Europa Ocidental, oeste dos EUA 2, leste do Japão, Europa setentrional, França central, região leste da Austrália* .
+Esse recurso está disponível em: *sul do Reino Unido, Sudeste Asiático, leste dos EUA, leste dos EUA 2, EUA Central, Europa Ocidental, oeste dos EUA 2, leste do Japão, Europa setentrional, França central, leste da Austrália, leste dos EUA 2 EUAP* regiões.
 
 > [!NOTE]
 > A habilitação de Zonas de Disponibilidade para uma única conta do Azure Cosmos de região resultará em encargos equivalentes à adição de uma região adicional à sua conta. Para obter detalhes sobre preços, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) e o custo de [várias regiões em artigos Azure Cosmos DB](optimize-cost-regions.md) .

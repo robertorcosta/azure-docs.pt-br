@@ -3,12 +3,12 @@ title: Definir configurações de uso em laboratórios de sala de aula do Azure 
 description: Saiba como configurar o número de alunos para um laboratório, obtê-los registrados com o laboratório, controlar o número de horas em que eles podem usar a VM e muito mais.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 229147891d1456d7b7b11fd5297755842d85e600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445943"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399662"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerenciar os usuários do laboratório
 
@@ -30,7 +30,7 @@ Nesta seção, você adicionará alunos a um laboratório manualmente ou carrega
 
     ![Adicionar endereços de email dos usuários](./media/how-to-configure-student-usage/add-users-email-addresses.png)
 
-1. Selecione **Salvar**. 
+1. Clique em **Salvar**. 
 
     A lista exibe os endereços de email e os status dos usuários atuais, se eles estão registrados no laboratório ou não. 
 
@@ -57,7 +57,7 @@ Você também pode adicionar usuários carregando um arquivo CSV que contém seu
 
     ![A janela "adicionar usuários" com endereços de email do arquivo CSV](./media/how-to-configure-student-usage/add-users-window.png)
 
-1. Selecione **Salvar**. 
+1. Clique em **Salvar**. 
 
 1. No painel **usuários** , exiba a lista de alunos adicionados. 
 
@@ -166,7 +166,7 @@ Para definir cotas adicionais, faça o seguinte:
 
 Para adicionar alunos a um laboratório de sala de aula, você usa suas contas de email. Os alunos podem ter os seguintes tipos de contas de email:
 
-- Uma conta de email de aluno fornecida pela instância de Azure Active Directory da sua universidade para o Office 365. 
+- Uma conta de email de aluno fornecida pela instância de Azure Active Directory da sua universidade.
 - Uma conta de email do domínio da Microsoft, como *Outlook.com*, *hotmail.com*, *MSN.com*ou *Live.com*.
 - Uma conta de email que não seja da Microsoft, como uma fornecida pelo Yahoo! ou Google. No entanto, esses tipos de contas devem ser vinculados a um conta Microsoft.
 - Uma conta do GitHub. Essa conta deve ser vinculada a um conta Microsoft.

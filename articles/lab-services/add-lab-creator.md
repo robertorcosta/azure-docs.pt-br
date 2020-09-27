@@ -3,12 +3,12 @@ title: Adicionar um usuário como um criador de laboratório no Azure Lab Servic
 description: Este artigo mostra como adicionar um usuário à função de criador de laboratório para uma conta de laboratório no Azure Lab Services. Os criadores de laboratório podem criar laboratórios nessa conta de laboratório.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444277"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399475"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Adicionar criadores de laboratório a uma conta de laboratório no Azure Lab Services
 Este artigo mostra como adicionar usuários como criadores de laboratório a uma conta de laboratório no Azure Lab Services. Esses usos podem criar laboratórios de sala de aula na conta do laboratório. 
@@ -31,7 +31,7 @@ Para fornecer aos educadores a permissão para criar laboratórios para suas cla
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Adicionar um usuário não conta Microsoft como um criador de laboratório
 Para adicionar um usuário como um criador de laboratório, você usa suas contas de email. Os seguintes tipos de contas de email podem ser usados:
 
-- Uma conta de email fornecida pelo AAD (Office 365 Azure Active Directory da sua universidade). 
+- Uma conta de email fornecida pelo Azure Active Directory da sua universidade (AAD).
 - Uma conta de email da Microsoft, como `@outlook.com` ,, `@hotmail.com` `@msn.com` ou `@live.com` .
 - Uma conta de email que não seja da Microsoft, como uma fornecida pelo Yahoo ou pelo Google. No entanto, esses tipos de contas devem ser vinculados a um conta Microsoft.
 - Uma conta do GitHub. Essa conta deve ser vinculada a um conta Microsoft.

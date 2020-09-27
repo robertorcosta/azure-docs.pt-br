@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541015"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399594"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detecção avançada de ameaças do Azure
 
@@ -64,13 +64,13 @@ Os exemplos de algumas das maneiras como o Azure Identity Protection pode ajudar
 
 ### <a name="azure-ad-privileged-identity-management"></a>Gerenciamento de identidades com privilégios do AD do Azure
 
-Com o [PIM (Azure Active Directory Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md), você pode gerenciar, controlar e monitorar o acesso em sua organização. Esse recurso inclui o acesso aos recursos do Azure AD e a outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Com o [PIM (Azure Active Directory Privileged Identity Management)](../../active-directory/privileged-identity-management/pim-configure.md), você pode gerenciar, controlar e monitorar o acesso em sua organização. Esse recurso inclui acesso a recursos no Azure AD e outros serviços online da Microsoft, como Microsoft 365 ou Microsoft Intune.
 
 ![Azure AD Privileged Identity Management](./media/threat-detection/azure-threat-detection-fig2.png)
 
 O PIM ajuda você a:
 
--   Obter alertas e gerar relatórios sobre o acesso administrativo JIT (Just-In-Time) e de administradores do Azure AD aos serviços online da Microsoft, como o Office 365 e o Intune.
+-   Obtenha alertas e relatórios sobre os administradores do Azure AD e o acesso administrativo just-in-time (JIT) ao Microsoft serviços online, como o Microsoft 365 e o Intune.
 
 -   Obter relatórios sobre o histórico de acesso de administrador e as alterações nas atribuições de administrador.
 
@@ -155,7 +155,7 @@ A Central de Segurança emprega análise de segurança avançada, que vai além 
 
 A Microsoft tem acesso a uma grande quantidade de inteligência global contra ameaças.
 
-A telemetria flui de várias fontes, como o Azure, o Office 365, o Microsoft CRM online, o Microsoft Dynamics AX, o outlook.com, o MSN.com, a DCU (Unidade de Crimes Digitais da Microsoft) e o Microsoft Security Response Center (MSRC).
+A telemetria flui de várias fontes, como Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, unidade de crimes digitais da Microsoft (DCU) e Microsoft Security Response Center (MSRC).
 
 ![Descobertas de inteligência contra ameaças](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +190,7 @@ Alguns exemplos incluem:
 
 -   **Scripts do PowerShell mal-intencionados**: O PowerShell pode ser usado por invasores para executar um código mal-intencionado em máquinas virtuais de destino com diversas finalidades. A Central de Segurança inspeciona a atividade do PowerShell para obter evidência de atividades suspeitas.
 
--   **Ataques de saída**: Os invasores costumam atacar os recursos de nuvem com a meta de usá-los para montar ataques adicionais. As máquinas virtuais comprometidas, por exemplo, podem ser usadas para iniciar ataques de força bruta contra outras máquinas virtuais, enviar spam ou verificar portas abertas e outros dispositivos na Internet. Aplicando o aprendizado de máquina ao tráfego de rede, a Central de Segurança pode detectar quando as comunicações de rede de saída excedem a norma. Quando um spam é detectado, a Central de Segurança também correlaciona o tráfego de email incomum à inteligência do Office 365 para determinar se o email pode ser perigoso ou é o resultado de uma campanha de email legítima.
+-   **Ataques de saída**: Os invasores costumam atacar os recursos de nuvem com a meta de usá-los para montar ataques adicionais. As máquinas virtuais comprometidas, por exemplo, podem ser usadas para iniciar ataques de força bruta contra outras máquinas virtuais, enviar spam ou verificar portas abertas e outros dispositivos na Internet. Aplicando o aprendizado de máquina ao tráfego de rede, a Central de Segurança pode detectar quando as comunicações de rede de saída excedem a norma. Quando o spam é detectado, a central de segurança também correlaciona o tráfego de email incomum com inteligência de Microsoft 365 para determinar se o email é provavelmente perigoso ou o resultado de uma campanha de email legítima.
 
 ### <a name="anomaly-detection"></a>Detecção de anomalias
 

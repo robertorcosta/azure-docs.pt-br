@@ -7,16 +7,16 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83cc7757f31a631af755155b49c7c26753618426
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329220"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399101"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interconexão com a China usando a WAN Virtual do Azure e um hub seguro
 
-Ao analisar os setores automotivo, de produção, logística e outras instituições, como embaixadas, geralmente há a questão de como melhorar a interconexão com a China. Essas melhorias são relevantes principalmente para o uso de serviços de nuvem como o Office 365, os Serviços Globais do Azure ou interconectam ramificações dentro da China com um backbone de cliente.
+Ao analisar os setores automotivo, de produção, logística e outras instituições, como embaixadas, geralmente há a questão de como melhorar a interconexão com a China. Esses aprimoramentos são principalmente relevantes para o uso de serviços de nuvem como Microsoft 365, serviços globais do Azure ou branches de interconexão dentro da China com um backbone de cliente.
 
 Na maioria dos casos, os clientes estão lidando com altas latências, baixa largura de banda, conexão instável e altos custos de conexão com locais fora da China (por exemplo, Europa ou Estados Unidos).
 
@@ -95,7 +95,7 @@ A figura abaixo mostra ambos exemplos para esse cenário.
 
 ![Alcance Global](./media/interconnect-china/global.png)
 
-## <a name="secure-internet-breakout-for-office-365"></a><a name="secure"></a>Internet segura para o Office 365
+## <a name="secure-internet-breakout-for-microsoft-365"></a><a name="secure"></a>Análise de Internet segura para Microsoft 365
 
 Outra consideração é a segurança da rede, bem como o registro do ponto de entrada entre a China e o componente de backbone estabelecido pela WAN virtual e o backbone do cliente. Na maioria dos casos, é necessária a Internet em Hong Kong para acessar diretamente a Rede do Microsoft Edge e, com isso, os Servidores do Azure Front Door usados para os Serviços do Microsoft 365.
 
@@ -109,7 +109,7 @@ A figura a seguir mostra um exemplo desse cenário:
 
 Dependendo da sua escolha em relação à conexão com Hong Kong, a arquitetura geral pode mudar um pouco. Esta seção mostra três arquiteturas disponíveis em combinação diferente com VPN ou SDWAN e/ou ExpressRoute.
 
-Todas essas opções fazem uso do hub seguro da WAN Virtual do Azure para conectividade direta do M365 em Hong Kong. Essas arquiteturas também oferecem suporte aos requisitos de conformidade do [Office 365 Multi-Geo](https://docs.microsoft.com/office365/enterprise/office-365-multi-geo) e mantêm esse tráfego próximo ao local seguinte do Office 365 Front Door. Como resultado, também é uma melhoria para o uso do Microsoft 365 fora da China.
+Todas essas opções fazem uso do Hub seguro de WAN virtual do Azure para conectividade de Microsoft 365 direta em Hong Kong. Essas arquiteturas também dão suporte aos requisitos de conformidade para [Microsoft 365 várias geografias](/microsoft-365/enterprise/microsoft-365-multi-geo) e mantêm esse tráfego próximo ao próximo local de porta frontal do Azure. Como resultado, também é uma melhoria para o uso do Microsoft 365 fora da China.
 
 Ao usar a WAN Virtual do Azure junto com as conexões à Internet, todas as conexões podem se beneficiar de serviços adicionais como o [Serviço de Emparelhamento do Microsoft Azure (MAPS)](https://docs.microsoft.com/azure/peering-service/about). O MAPS foi criado para otimizar o tráfego que chega à Rede Global da Microsoft de Provedores de Serviços de Internet de Terceiros.
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071590"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399526"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança no Azure que ajudam a proteger seus dados, recursos e aplicativos na nuvem e atender às necessidades de segurança de sua empresa.
@@ -68,7 +68,7 @@ A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
 - Logon único
 
-- Autenticação Multifator
+- Autenticação multifator
 
 - Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 
@@ -78,19 +78,19 @@ A seguir estão os principais recursos de gerenciamento de identidade do Azure:
 
 - Privileged Identity Management
 
-- Proteção de identidade
+- Identity Protection
 
 #### <a name="single-sign-on"></a>Logon único
 
 O [SSO (logon único)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) significa poder acessar todos os aplicativos e recursos de que você precisa para fazer negócios, entrando apenas uma vez usando uma única conta de usuário. Depois de conectado, você pode acessar todos os aplicativos necessários sem precisar ser autenticado (por exemplo, digitar uma senha) uma segunda vez.
 
-Muitas organizações contam com aplicativos SaaS (software como serviço) como Office 365, Box e Salesforce para produtividade do usuário final. Historicamente, a equipe de TI precisava criar e atualizar individualmente as contas de usuário em cada aplicativo SaaS e os usuários precisavam lembrar uma senha para cada aplicativo SaaS.
+Muitas organizações contam com aplicativos SaaS (software como serviço), como Microsoft 365, Box e Salesforce para produtividade do usuário final. Historicamente, a equipe de TI precisava criar e atualizar individualmente as contas de usuário em cada aplicativo SaaS e os usuários precisavam lembrar uma senha para cada aplicativo SaaS.
 
 [O Azure ad estende o Active Directory local para a nuvem](../../active-directory/manage-apps/what-is-single-sign-on.md), permitindo que os usuários usem sua conta organizacional principal para não apenas entrar em seus dispositivos ingressados no domínio e recursos da empresa, mas também todos os aplicativos Web e SaaS necessários para seu trabalho.
 
 Os usuários não precisam gerenciar vários conjuntos de nomes de usuário e senhas, o acesso a aplicativos pode ser provisionado ou desconfigurado automaticamente com base em grupos organizacionais e seu status como funcionário. O [Azure ad introduz controles de governança de segurança e acesso](../../active-directory/active-directory-enterprise-apps-manage-sso.md) que permitem que você gerencie centralmente o acesso dos usuários em aplicativos SaaS.
 
-#### <a name="multi-factor-authentication"></a>Autenticação Multifator
+#### <a name="multi-factor-authentication"></a>Autenticação multifator
 
 A [autenticação multifator do Azure (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança a entradas e transações do usuário. O [MFA ajuda a proteger](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicativos enquanto atende à demanda do usuário por um processo de entrada simples. Ela fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
 
@@ -126,21 +126,21 @@ Quando combinado com uma solução de [MDM (gerenciamento de dispositivo móvel)
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) permite que você gerencie, controle e monitore suas identidades com privilégios e o acesso aos recursos no Azure AD, bem como a outros serviços online da Microsoft, como o Office 365 ou Microsoft Intune.
+[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) permite que você gerencie, controle e monitore suas identidades com privilégios e o acesso aos recursos no Azure AD, bem como a outros serviços online da Microsoft, como Microsoft 365 ou Microsoft Intune.
 
-Às vezes, os usuários precisam executar operações privilegiadas em recursos do Azure ou Office 365 ou outros aplicativos SaaS. Isso geralmente significa que as organizações precisam conceder acesso privilegiado permanente no Azure AD. Esse é um risco de segurança cada vez maior para recursos hospedados em nuvem porque as organizações não podem monitorar de maneira suficiente o que esses usuários estão fazendo com seus privilégios de administrador. Além disso, se uma conta de usuário com acesso privilegiado for comprometida, essa falha poderá afetar a segurança geral da nuvem. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.
+Às vezes, os usuários precisam executar operações privilegiadas no Azure ou Microsoft 365 recursos ou outros aplicativos SaaS. Isso geralmente significa que as organizações precisam conceder acesso privilegiado permanente no Azure AD. Esse é um risco de segurança cada vez maior para recursos hospedados em nuvem porque as organizações não podem monitorar de maneira suficiente o que esses usuários estão fazendo com seus privilégios de administrador. Além disso, se uma conta de usuário com acesso privilegiado for comprometida, essa falha poderá afetar a segurança geral da nuvem. O gerenciamento de identidades com privilégios do AD do Azure ajuda a resolver esse risco.
 
 O Gerenciamento de identidades com privilégios do AD do Azure:
 
 - Ver quais usuários são administradores do Azure AD
 
-- Habilitar o acesso administrativo “just in time” para Microsoft Online Services como Office 365 e Intune
+- Habilitar o acesso administrativo "Just-in-time" sob demanda para os serviços online da Microsoft, como Microsoft 365 e Intune
 
 - Obter relatórios sobre o histórico de acesso de administrador e as alterações nas atribuições de administrador
 
 - Receber alertas sobre o acesso a uma função com privilégios
 
-#### <a name="identity-protection"></a>Proteção de identidade
+#### <a name="identity-protection"></a>Identity Protection
 
 [Azure ad Identity Protection](../../active-directory/identity-protection/overview.md) é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. A proteção de identidade usa os recursos de detecção de anomalias de Azure Active Directory existentes (disponíveis por meio dos relatórios de atividade anômala do Azure AD) e introduz novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 

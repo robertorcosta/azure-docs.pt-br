@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63adb5d6898fd467a0557aa147e54f814c167e72
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079563"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400121"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -30,7 +30,7 @@ O glossário do Microsoft Azure é um pequeno dicionário de terminologia de nuv
 * [Termos de computação em nuvem](https://azure.microsoft.com/overview/cloud-computing-dictionary/) – termos gerais de nuvem do setor.
 
 ## <a name="account"></a>account
-Uma conta que é usada para acessar e gerenciar uma assinatura do Azure. Ele também é conhecido como uma conta do Azure Embora uma conta pode ser um dos seguintes: um trabalho existente, escola, ou pessoais conta da Microsoft, ou um nome de usuário do Office 365 e senha. Você também pode criar uma conta para gerenciar uma assinatura do Azure, quando você se inscreve para o [avaliação gratuita](https://azure.microsoft.com).  
+Uma conta que é usada para acessar e gerenciar uma assinatura do Azure. Geralmente, ela é conhecida como uma conta do Azure, embora uma conta possa ser qualquer uma delas: uma conta Microsoft de trabalho, escola ou pessoal existente. Você também pode criar uma conta para gerenciar uma assinatura do Azure, quando você se inscreve para o [avaliação gratuita](https://azure.microsoft.com).  
 Consulte [inscrever-se para obter uma assinatura do Azure com sua conta do Microsoft 365](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) e [contas que você pode usar para entrar](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>Aplicativo de API

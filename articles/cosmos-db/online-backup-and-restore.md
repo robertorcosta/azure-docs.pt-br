@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6485df342bbe0b2378a67b90e448b2bd98c5e283
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047621"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400393"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauração de dados sob demanda no Azure Cosmos DB
 
@@ -22,11 +22,11 @@ O Azure Cosmos DB faz backups automáticos de seus dados em intervalos regulares
 
 Com o Azure Cosmos DB, não apenas seus dados, mas também os backups de seus dados são altamente redundantes e resilientes a desastres regionais. As etapas a seguir mostram como o Azure Cosmos DB executa o backup de dados:
 
-* Azure Cosmos DB faz automaticamente um backup de seu banco de dados a cada 4 horas e a qualquer momento, somente os dois backups mais recentes são armazenados por padrão. Se os intervalos padrão não forem suficientes para suas cargas de trabalho, você poderá alterar o intervalo de backup e o período de retenção do portal do Azure. Você pode alterar a configuração de backup durante ou após a criação da conta do Azure Cosmos. Se o contêiner ou banco de dados for excluído, Azure Cosmos DB manterá os instantâneos existentes de um determinado contêiner ou banco de dados por 30 dias.
+* Azure Cosmos DB faz automaticamente um backup completo do banco de dados a cada 4 horas e a qualquer momento, somente os dois backups mais recentes são armazenados por padrão. Se os intervalos padrão não forem suficientes para suas cargas de trabalho, você poderá alterar o intervalo de backup e o período de retenção do portal do Azure. Você pode alterar a configuração de backup durante ou após a criação da conta do Azure Cosmos. Se o contêiner ou banco de dados for excluído, Azure Cosmos DB manterá os instantâneos existentes de um determinado contêiner ou banco de dados por 30 dias.
 
 * O Azure Cosmos DB armazena esses backups no armazenamento de BLOBs do Azure, enquanto os dados reais residem localmente no Azure Cosmos DB.
 
-* Para garantir baixa latência, o instantâneo do backup é armazenado no armazenamento de BLOBs do Azure na mesma região que a região de gravação atual (ou **uma** das regiões de gravação, caso você tenha uma configuração de vários mestres). Para resiliência contra desastres regionais, cada captura instantânea dos dados de backup no armazenamento do Azure Blob é novamente replicada para outra região por meio de armazenamento geo-redundante (GRS). A região na qual o backup é replicado é baseada em sua região de origem e no par regional associado à região de origem. Para saber mais, consulte a [lista de artigos de pares geo-redundantes de regiões do Azure](../best-practices-availability-paired-regions.md). Você não pode acessar esse backup diretamente. Azure Cosmos DB equipe irá restaurar o backup quando você solicitar por meio de uma solicitação de suporte.
+* Para garantir a baixa latência, o instantâneo do backup é armazenado no Armazenamento de Blobs do Azure na mesma região da gravação atual (ou em **uma** das regiões de gravação, caso você tenha uma configuração de vários mestres). Para resiliência contra desastres regionais, cada captura instantânea dos dados de backup no armazenamento do Azure Blob é novamente replicada para outra região por meio de armazenamento geo-redundante (GRS). A região na qual o backup é replicado é baseada em sua região de origem e no par regional associado à região de origem. Para saber mais, consulte a [lista de artigos de pares geo-redundantes de regiões do Azure](../best-practices-availability-paired-regions.md). Você não pode acessar esse backup diretamente. A equipe do Azure Cosmos DB restaurará o backup quando você realizar uma solicitação de suporte.
 
    A imagem a seguir mostra como é feito o backup de um contêiner do Azure Cosmos com todas as três partições físicas primárias no oeste dos EUA em uma conta remota do Armazenamento de Blobs do Azure no oeste dos EUA e, em seguida, replicada para o leste dos EUA:
 
@@ -44,9 +44,9 @@ Com as contas da API do Azure Cosmos DB SQL, você também pode manter seus pró
 
 ## <a name="modify-the-backup-interval-and-retention-period"></a>Modificar o intervalo de backup e o período de retenção
 
-Azure Cosmos DB faz automaticamente um backup de seus dados para cada 4 horas e a qualquer momento, os dois backups mais recentes são armazenados. Essa configuração é a opção padrão e é oferecida sem nenhum custo adicional. Você pode alterar o intervalo de backup padrão e o período de retenção durante a criação da conta do Azure Cosmos ou após a criação da conta. A configuração de backup é definida no nível da conta do Azure Cosmos e você precisa configurá-la em cada conta. Depois de configurar as opções de backup para uma conta, ela é aplicada a todos os contêineres dentro dessa conta. No momento, você pode alterar as opções de backup somente de portal do Azure.
+Azure Cosmos DB faz automaticamente um backup completo de seus dados para cada 4 horas e a qualquer momento, os dois backups mais recentes são armazenados. Essa configuração é a opção padrão e é oferecida sem nenhum custo adicional. Você pode alterar o intervalo de backup padrão e o período de retenção durante a criação da conta do Azure Cosmos ou após a criação da conta. A configuração de backup é definida no nível da conta do Azure Cosmos e deve ser aplicada em cada conta. Depois de configurar as opções de backup para uma conta, ela é aplicada a todos os contêineres dentro dessa conta. No momento, é possível alterar as opções de backup somente no portal do Azure.
 
-Se você acidentalmente excluiu ou danificou seus dados, **antes de criar uma solicitação de suporte para restaurar os dados, certifique-se de aumentar a retenção de backup para sua conta para pelo menos sete dias. É melhor aumentar sua retenção dentro de 8 horas desse evento.** Dessa forma, a equipe de Azure Cosmos DB tem tempo suficiente para restaurar sua conta.
+Se você acidentalmente excluiu ou danificou seus dados, **antes de criar uma solicitação de suporte para restaurar os dados, certifique-se de aumentar a retenção de backup para sua conta para pelo menos sete dias. É melhor aumentar sua retenção dentro de 8 horas desse evento.** Dessa forma, a equipe do Azure Cosmos DB tem tempo suficiente para restaurar a conta.
 
 Use as etapas a seguir para alterar as opções de backup padrão para uma conta existente do Azure Cosmos:
 
@@ -57,7 +57,7 @@ Use as etapas a seguir para alterar as opções de backup padrão para uma conta
 
    * **Retenção de backup** – representa o período em que cada backup é retido. Você pode configurá-lo em horas ou dias. O período de retenção mínimo não pode ser menor que duas vezes o intervalo de backup (em horas) e não pode ser maior que 720 horas.
 
-   * **Cópias de dados retidas** -por padrão, duas cópias de backup de seus dados são oferecidas gratuitamente. Haverá uma cobrança adicional se você precisar de mais de duas cópias. Consulte a seção armazenamento consumido na [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o preço exato de cópias adicionais.
+   * **Cópias de dados retidas** -por padrão, duas cópias de backup de seus dados são oferecidas gratuitamente. Haverá uma cobrança adicional se você precisar de mais de duas cópias. Consulte a seção Armazenamento Consumido na [página Preço](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o preço exato das cópias adicionais.
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurar o intervalo de backup e a retenção de uma conta existente do Azure Cosmos" border="true":::
 

@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924573"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400631"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastre do VMware em um ambiente multilocatário com o programa CSP (Provedor de Solução de Nuvem)
 
-O [Programa CSP](https://partner.microsoft.com/cloud-solution-provider) promove histórias de colaboração de sucesso para serviços em de nuvem da Microsoft, incluindo o Office 365, Enterprise Mobility Suite e o Microsoft Azure. Com o CSP, os parceiros controlam o relacionamento de ponta a ponta com os clientes e se tornam o principal ponto de contato desse relacionamento. Os parceiros podem implantar as assinaturas do Azure para os clientes e combiná-las com suas próprias ofertas personalizadas de valor agregado.
+O [programa CSP](https://partner.microsoft.com/cloud-solution-provider) promove histórias melhores para os serviços em nuvem da Microsoft, incluindo Microsoft 365, Enterprise Mobility Suite e Microsoft Azure. Com o CSP, os parceiros controlam o relacionamento de ponta a ponta com os clientes e se tornam o principal ponto de contato desse relacionamento. Os parceiros podem implantar as assinaturas do Azure para os clientes e combiná-las com suas próprias ofertas personalizadas de valor agregado.
 
 Com o [Azure Site Recovery](site-recovery-overview.md), como parceiros, você pode gerenciar a recuperação de desastre para os clientes diretamente por meio de do CSP. Como alternativa, você pode usar o CSP para configurar ambientes de Site Recovery e permitir que os clientes gerenciem suas próprias necessidades de recuperação de desastre como autoatendimento. Em ambos os cenários, os parceiros são o elo entre o Site Recovery e seus clientes. Os parceiros cuidam do relacionamento com o cliente e cobram pelo uso do Site Recovery.
 

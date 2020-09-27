@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 548d4f90bd9632e4807547120ac1be589668e8fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871336"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400172"
 ---
 # <a name="azure-peering-service-overview"></a>Visão geral do serviço de emparelhamento do Azure
 
-O Serviço de Emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços em nuvem da Microsoft, como o Office 365, o Dynamics 365, os serviços de SaaS (software como serviço), o Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. A Microsoft estabeleceu um parceiro com provedores de serviços de Internet (ISPs), parceiros do Exchange da Internet (IXPs) e provedores de SDCI (interconexão de nuvem definido pelo software) em todo o mundo para fornecer conectividade pública confiável e de alto desempenho com o roteamento ideal do cliente para a rede da Microsoft.
+O serviço de emparelhamento do Azure é um serviço de rede que aprimora a conectividade do cliente com os serviços de nuvem da Microsoft, como Microsoft 365, Dynamics 365, serviços de SaaS (software como serviço), Azure ou qualquer serviço da Microsoft acessível por meio da Internet pública. A Microsoft estabeleceu um parceiro com provedores de serviços de Internet (ISPs), parceiros do Exchange da Internet (IXPs) e provedores de SDCI (interconexão de nuvem definido pelo software) em todo o mundo para fornecer conectividade pública confiável e de alto desempenho com o roteamento ideal do cliente para a rede da Microsoft.
 
 Com o serviço de emparelhamento, os clientes podem selecionar um provedor de serviços de parceiro bem conectado em uma determinada região. A conectividade pública é otimizada para alta confiabilidade e latência mínima dos serviços de nuvem para o local do usuário final.
 
@@ -48,9 +48,9 @@ O serviço de emparelhamento não é um produto de conectividade privada como o 
 > Para obter mais informações sobre o ExpressRoute, consulte a [documentação do expressroute](https://docs.microsoft.com/azure/expressroute/).
 >
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
-O Office 365, o Dynamics 365 e qualquer outro serviço SaaS da Microsoft são hospedados em vários data centers da Microsoft e podem ser acessados de qualquer local geográfico. A rede global da Microsoft tem locais de PoP (ponto de presença) do Microsoft Edge no mundo onde ele pode se conectar a um usuário final por meio de seus provedores de serviços. 
+Microsoft 365, o Dynamics 365 e qualquer outro serviço SaaS da Microsoft são hospedados em vários data centers da Microsoft e podem ser acessados de qualquer local geográfico. A rede global da Microsoft tem locais de PoP (ponto de presença) do Microsoft Edge no mundo onde ele pode se conectar a um usuário final por meio de seus provedores de serviços. 
 
 Os provedores de serviços de parceiros e da Microsoft garantem que o tráfego para os prefixos registrados com uma conexão de serviço de emparelhamento entre e saia dos locais PoP mais próximos do Microsoft Edge na rede global da Microsoft. A Microsoft garante que a saída do tráfego de rede dos prefixos registrados com conexões de serviço de emparelhamento leva os locais de PoP mais próximos do Microsoft Edge na rede global da Microsoft.
 

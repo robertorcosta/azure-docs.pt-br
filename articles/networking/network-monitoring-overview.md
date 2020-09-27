@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e2d3f0b5abcd7a9dcd4f49c120353adacffcb31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67672176"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399645"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -65,7 +65,7 @@ NPM para o ExpressRoute oferece monitoramento abrangente do ExpressRoute para co
 * Detecção da topologia de rede do local para seus aplicativos de nuvem
 * Planejamento de capacidade, análise de utilização de largura de banda
 * Monitoramento e alertas em caminhos primários e secundários
-* Monitoramento de conectividade para serviços do Azure como Office 365, Dynamics 365,... via ExpressRoute
+* Monitorando a conectividade com os serviços do Azure, como Microsoft 365, Dynamics 365,... acima do ExpressRoute
 * Detectar degradação de conectividade para VNets
 
 ![Mapa geográfico mostrando o tráfego entre as regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -84,7 +84,7 @@ Com o monitoramento da Conectividade de Serviço, você pode testar a acessibili
 * Testar a acessibilidade de aplicativo de vários locais do usuário em todo o mundo
 * Determinar a rede latência e perda de pacotes para a linha de negócios e aplicativos SaaS
 * Determinar os pontos de acesso na rede, que podem estar causando o desempenho insatisfatório do aplicativo
-* Monitorar o alcance a aplicativos do Office 365, usando testes internos para o Microsoft Office 365, Dynamics 365, Skype for Business e outros serviços da Microsoft
+* Monitorar a acessibilidade para Microsoft 365 aplicativos, usando testes internos para Microsoft 365, o Dynamics 365, o Skype for Business e outros serviços da Microsoft
 
 Para obter mais informações, consulte os seguintes artigos:
 
