@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d0e75ab8a2e4d853fa2edc66174502dd3a7930e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e4244c0526dbac3bb8e9b2d3856eb01e1b2a2b7
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301662"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403477"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure defender para servidores
 
@@ -41,7 +41,7 @@ Os recursos de detecção e proteção de ameaças fornecidos com o Azure defend
 
 - Os controles de aplicativo adaptáveis **(AAC)** são uma solução inteligente e automatizada para definir as listas de permissões de aplicativos conhecidos confiáveis para seus computadores.
 
-    Quando você tiver habilitado e configurado controles de aplicativo adaptáveis, obterá alertas de segurança se qualquer aplicativo for executado além daqueles que você definiu como seguro. [Saiba mais](security-center-adaptive-network-hardening.md).
+    Quando você tiver habilitado e configurado controles de aplicativo adaptáveis, obterá alertas de segurança se qualquer aplicativo for executado além daqueles que você definiu como seguro. [Saiba mais](security-center-adaptive-application.md).
 
 - **Anh (proteção de rede adaptável)** – aplicar NSG (grupos de segurança de rede) para filtrar o tráfego de e para recursos, melhora sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui pelo NSG é um subconjunto das regras de NSG definidas. Nesses casos, é possível melhorar ainda mais a postura de segurança ao proteger as regras de NSG, com base nos padrões reais de tráfego.
 
@@ -58,7 +58,7 @@ Os recursos de detecção e proteção de ameaças fornecidos com o Azure defend
 
 - Detecção de ataque de não- **arquivo (somente Windows)** -ataques de arquivo insuficiente injetam cargas mal-intencionadas na memória para evitar a detecção por técnicas de verificação baseadas em disco. A carga do invasor persiste dentro da memória de processos comprometidos e executa uma ampla variedade de atividades mal-intencionadas.
 
-  Com a detecção de ataques sem arquivos, as técnicas forenses de memória automatizada identificam os toolkits, as técnicas e os comportamentos de ataques sem arquivos. Essa solução verifica periodicamente seu computador em tempo de execução e extrai informações diretamente da memória dos processos. Informações específicas para Linux incluem a identificação de: 
+  Com a detecção de ataques sem arquivos, as técnicas forenses de memória automatizada identificam os toolkits, as técnicas e os comportamentos de ataques sem arquivos. Essa solução verifica periodicamente seu computador em tempo de execução e extrai informações diretamente da memória dos processos. Informações específicas incluem a identificação de: 
 
   - Kits de programas conhecidos e software de mineração de criptografia 
 

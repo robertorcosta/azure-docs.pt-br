@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5be0b43de8265b2b337c024117ae8f424e4a3bc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318034"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403476"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -42,12 +42,12 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Sim|
 |[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Sim|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|-|-|-|Sim|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Sim|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: não<br><br>Não Azure: Sim|
 |Avaliação de incorretas de segurança|✔|✔|✔|Azure: não<br><br>Não Azure: Sim|
 |[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: não<br><br>Não Azure: Sim|
-|Avaliação de criptografia de disco|✔</br>(para [cenários com suporte](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Gratuita|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
+|Avaliação de criptografia de disco|✔</br>(para [cenários com suporte](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Não|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Não|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Não|
 
 
 ### <a name="linux-machines"></a>[**Máquinas do Linux**](#tab/features-linux)
@@ -66,12 +66,12 @@ As duas guias abaixo mostram os recursos da central de segurança do Azure que e
 |[Proteção de rede adaptável](security-center-adaptive-network-hardening.md)|✔|-|-|Sim|
 |[Painel de conformidade regulatória & relatórios](security-center-compliance-dashboard.md)|✔|✔|✔|Sim|
 |Recomendações e proteção contra ameaças em contêineres de IaaS hospedados pelo Docker|✔|✔|✔|Sim|
-|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Sim|
-|Avaliação de incorretas de segurança|✔|✔|✔|Azure: gratuito<br><br>Não Azure: Sim|
-|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuita|
-|Avaliação de criptografia de disco|✔</br>(para [cenários com suporte](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Gratuita|
-|Avaliação de vulnerabilidade de terceiros|✔|-|-|Gratuita|
-|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Gratuita|
+|Avaliação de patches do sistema operacional ausente|✔|✔|✔|Azure: não<br><br>Não Azure: Sim|
+|Avaliação de incorretas de segurança|✔|✔|✔|Azure: não<br><br>Não Azure: Sim|
+|[Avaliação do Endpoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Não|
+|Avaliação de criptografia de disco|✔</br>(para [cenários com suporte](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Não|
+|Avaliação de vulnerabilidade de terceiros|✔|-|-|Não|
+|[Avaliação de segurança de rede](security-center-network-recommendations.md)|✔|✔|-|Não|
 
 --- 
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 2a0093ebb6e3214553cf5603151831d6ae53d862
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 96603de7014419b142cc35714b891f9e4b15ec99
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332042"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405076"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiar dados do servidor HDFS usando Azure Data Factory
 
@@ -279,6 +279,34 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 * Opção 1: [ingressar em um computador de tempo de execução de integração auto-hospedado no realm do Kerberos](#kerberos-join-realm)
 * Opção 2: [habilitar a confiança mútua entre o domínio do Windows e o realm do Kerberos](#kerberos-mutual-trust)
 
+Para qualquer opção, certifique-se de ativar o webhdfs para o cluster Hadoop:
+
+1. Crie a entidade de segurança HTTP e keytab para webhdfs.
+
+    > [!IMPORTANT]
+    > A entidade de segurança HTTP Kerberos deve começar com "**http/**" de acordo com a especificação de http SPNEGO Kerberos.
+
+    ```bash
+    Kadmin> addprinc -randkey HTTP/<namenode hostname>@<REALM.COM>
+    Kadmin> ktadd -k /etc/security/keytab/spnego.service.keytab HTTP/<namenode hostname>@<REALM.COM>
+    ```
+
+2. Opções de configuração do HDFS: Adicione as três propriedades a seguir no `hdfs-site.xml` .
+    ```xml
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.principal</name>
+        <value>HTTP/_HOST@<REALM.COM></value>
+    </property>
+    <property>
+        <name>dfs.web.authentication.kerberos.keytab</name>
+        <value>/etc/security/keytab/spnego.service.keytab</value>
+    </property>
+    ```
+
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opção 1: ingressar em um computador de tempo de execução de integração auto-hospedado no realm do Kerberos
 
 #### <a name="requirements"></a>Requisitos
@@ -287,13 +315,24 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
 #### <a name="how-to-configure"></a>Como configurar
 
+**No servidor do KDC:**
+
+Crie uma entidade de segurança para Azure Data Factory usar e especifique a senha.
+
+> [!IMPORTANT]
+> O nome de usuário não deve conter o nome do host.
+
+```bash
+Kadmin> addprinc <username>@<REALM.COM>
+```
+
 **No computador do Integration Runtime de hospedagem interna:**
 
 1.  Execute o utilitário Ksetup para configurar o realm e servidor KDC (Centro de Distribuição de Chaves) do Kerberos.
 
     O computador deve ser configurado como um membro de um grupo de trabalho, porque um realm Kerberos é diferente de um domínio do Windows. Você pode obter essa configuração definindo o realm do Kerberos e adicionando um servidor KDC executando os comandos a seguir. Substitua *realm.com* pelo seu próprio nome de realm.
 
-    ```console
+    ```cmd
     C:> Ksetup /setdomain REALM.COM
     C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
     ```
@@ -302,7 +341,7 @@ Há duas opções para configurar o ambiente local para usar a autenticação Ke
 
 2.  Verifique a configuração com o `Ksetup` comando. A saída deverá ser como a seguinte:
 
-    ```output
+    ```cmd
     C:> Ksetup
     default realm = REALM.COM (external)
     REALM.com:

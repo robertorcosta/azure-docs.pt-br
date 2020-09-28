@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023849"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405166"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copie e transforme dados em floco de neve usando Azure Data Factory
 
@@ -153,7 +153,7 @@ Para copiar dados do floco de neve, as propriedades a seguir têm suporte na se�
 | Consulta          | Especifica a consulta SQL para ler dados do floco de neve. Se os nomes do esquema, tabela e colunas contiverem letras minúsculas, citar o identificador de objeto na consulta, por exemplo, `select * from "schema"."myTable"` .<br>Não há suporte para a execução do procedimento armazenado. | Não       |
 | exportSettings | Configurações avançadas usadas para recuperar dados do floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | Não       |
 | ***Em `exportSettings` :*** |  |  |
-| type | O tipo de comando de exportação, definido como **SnowflakeExportCopyCommand**. | Sim |
+| tipo | O tipo de comando de exportação, definido como **SnowflakeExportCopyCommand**. | Sim |
 | additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: MAX_FILE_SIZE, substituir. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Não |
 | additionalFormatOptions | Opções de formato de arquivo adicionais que são fornecidas para copiar comando como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Não |
 
@@ -284,7 +284,7 @@ Para copiar dados para floco de neve, as propriedades a seguir têm suporte na s
 | preCopyScript     | Especifique uma consulta SQL para que a atividade de cópia seja executada antes de gravar dados em floco de neve em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não                                            |
 | importSettings | Configurações avançadas usadas para gravar dados em floco de neve. Você pode configurar aqueles com suporte no comando copiar para que Data Factory passará quando você invocar a instrução. | Não |
 | ***Em `importSettings` :*** |                                                              |  |
-| type | O tipo de comando de importação, definido como **SnowflakeImportCopyCommand**. | Sim |
+| tipo | O tipo de comando de importação, definido como **SnowflakeImportCopyCommand**. | Sim |
 | additionalCopyOptions | Opções de cópia adicionais, fornecidas como um dicionário de pares chave-valor. Exemplos: ON_ERROR, FORCE LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [Opções de cópia do floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Não |
 | additionalFormatOptions | Opções de formato de arquivo adicionais fornecidas para o comando de cópia, fornecidas como um dicionário de pares chave-valor. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [Opções de tipo de formato floco de neve](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Não |
 
@@ -357,7 +357,7 @@ Se o armazenamento e o formato de dados de origem atenderem aos critérios descr
 
 #### <a name="staged-copy-to-snowflake"></a>Cópia em etapas para floco de neve
 
-Quando o formato ou armazenamento de dados do coletor não for nativamente compatível com o comando de cópia do floco de neve, conforme mencionado na última seção, habilite a cópia em etapas interna usando uma instância provisória do armazenamento de BLOBs do Azure. O recurso de cópia preparada também oferece melhor rendimento. Data Factory converte automaticamente os dados para atender aos requisitos de formato de dados do floco de neve. Em seguida, ele invoca o comando de cópia para carregar dados em floco de neve. Finalmente, ele limpa seus dados temporários do armazenamento de blobs. Confira [cópia em etapas](copy-activity-performance-features.md#staged-copy) para obter detalhes sobre como copiar dados usando o preparo.
+Quando o formato ou armazenamento de dados de origem não é compatível nativamente com o comando de cópia do floco de neve, conforme mencionado na última seção, habilite a cópia em etapas interna usando uma instância provisória do armazenamento de BLOBs do Azure. O recurso de cópia preparada também oferece melhor rendimento. Data Factory converte automaticamente os dados para atender aos requisitos de formato de dados do floco de neve. Em seguida, ele invoca o comando de cópia para carregar dados em floco de neve. Finalmente, ele limpa seus dados temporários do armazenamento de blobs. Confira [cópia em etapas](copy-activity-performance-features.md#staged-copy) para obter detalhes sobre como copiar dados usando o preparo.
 
 Para usar esse recurso, crie um [serviço vinculado do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties) que se refere à conta de armazenamento do Azure como o preparo provisório. Em seguida, especifique as `enableStaging` `stagingSettings` Propriedades e na atividade de cópia.
 

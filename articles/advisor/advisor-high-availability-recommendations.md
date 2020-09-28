@@ -2,13 +2,13 @@
 title: Aprimore a confiabilidade do seu aplicativo com o Advisor
 description: Use o Azure Advisor para garantir e melhorar a confiabilidade em implantações críticas do Azure para os negócios.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 3e556f8bc672705e6c83daced2c82a884e3ddf46
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/27/2020
+ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264585"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405183"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhorar a confiabilidade do seu aplicativo usando o Azure Advisor
 
@@ -109,6 +109,12 @@ A partir de 1º de julho de 2020, você não poderá criar novos clusters Spark 
 ## <a name="enable-virtual-machine-replication"></a>Habilitar replicação de máquina virtual
 As máquinas virtuais que não têm replicação habilitada para outra região não são resilientes a interrupções regionais. A replicação de máquinas virtuais reduz qualquer impacto adverso nos negócios durante interrupções de região do Azure. O Advisor detecta VMs em que a replicação não está habilitada e recomenda habilitá-la. Ao habilitar a replicação, se houver uma interrupção, você poderá rapidamente abrir suas máquinas virtuais em uma região remota do Azure. [Saiba mais sobre a replicação da máquina virtual.](../site-recovery/azure-to-azure-quickstart.md)
 
+## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Atualizar para a versão mais recente do agente de Azure Connected Machine
+O [agente do computador conectado do Azure](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) é atualizado regularmente com correções de bugs, aprimoramentos de estabilidade e novas funcionalidades. Identificamos os recursos que não estão funcionando na versão mais recente do agente do computador e essa recomendação do Advisor irá sugerir que você atualize seu agente para a versão mais recente para a melhor experiência de Arc do Azure.
+
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Não substitua o nome do host para garantir a integridade do site
+O Advisor recomenda tentar evitar a substituição do nome do host ao configurar o gateway de aplicativo. Ter um domínio diferente no front-end do gateway de aplicativo do que o usado para acessar o back-end pode levar a uma interrupção de cookies ou redirecionar URLs. Observe que esse pode não ser o caso em todas as situações e determinadas categorias de back-ends (como API REST) em geral são menos sensíveis a isso. Verifique se o back-end é capaz de lidar com isso ou atualizar a configuração do gateway de aplicativo para que o nome do host não precise ser substituído em direção ao back-end. Quando usado com o serviço de aplicativo, anexe um nome de domínio personalizado ao aplicativo Web e evite usar o *nome de host. azurewebsites.net em direção ao back-end.* [Saiba mais sobre o domínio personalizado](https://aka.ms/appgw-advisor-usecustomdomain).
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de alta disponibilidade no Advisor
 
 1. Entre no [Portal do Azure](https://portal.azure.com) e, em seguida, abra o [Assistente](https://aka.ms/azureadvisordashboard).
@@ -120,6 +126,7 @@ As máquinas virtuais que não têm replicação habilitada para outra região n
 Para obter mais informações sobre as recomendações do Assistente, consulte:
 * [Introdução ao Advisor](advisor-overview.md)
 * [Introdução ao Assistente](advisor-get-started.md)
+* [Pontuação do supervisor](azure-advisor-score.md)
 * [Recomendações de custo do Advisor](advisor-cost-recommendations.md)
 * [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)

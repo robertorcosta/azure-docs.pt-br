@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045244"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403408"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solucionando problemas em alertas de Azure Monitor
 
@@ -61,7 +61,7 @@ Se você puder ver um alerta acionado no portal do Azure, mas não tiver recebid
     Além disso, verifique:
 
    - as configurações de spam do seu cliente de email (como o Outlook, Gmail)
-      - as configurações limites de remetente/spam/quarentena do seu servidor de email (como Exchange, Office 365, G-Suite)
+      - as configurações limites de remetente/spam/quarentena do seu servidor de email (como Exchange, Microsoft 365, G-Suite)
       - as configurações de seu dispositivo de segurança de email, se houver (como Barracuda, Cisco).
 
 1. **Você cancelou acidentalmente a assinatura do grupo de ações?**
@@ -203,7 +203,7 @@ Se você puder ver um alerta acionado no portal, mas uma regra de ação relacio
 
     Os alertas de integridade do serviço (serviço de monitoramento = "Service Health") não são afetados pelas regras de ação. 
 
-1. **A regra de ação atua em seu alerta?** 
+1. **A regra de ação agiu após receber seu alerta?** 
 
     Verifique se a regra de ação processou o alerta clicando no alerta acionado no portal e examinando a guia de histórico.
 

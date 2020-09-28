@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443393"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404775"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configurar um laboratório com máquinas virtuais de GPU
 
@@ -30,14 +30,17 @@ Conforme descrito na tabela a seguir, o tamanho da GPU de *computação* destina
 
 | Tamanho | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
-| GPU Pequena (Computação) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB de &nbsp; RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Esse tamanho é mais adequado para aplicativos com uso intensivo de computadores, como ia (inteligência artificial) e aprendizado profundo. |
+| GPU Pequena (Computação) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB de &nbsp; RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Esse tamanho é mais adequado para aplicativos de computação intensiva, como ia (inteligência artificial) e aprendizado profundo. |
 
-Os tamanhos de GPU de *Visualização* destinam-se a aplicativos com uso intensivo de gráficos.  Por exemplo, o [tipo de classe de engenharia SolidWorks](./class-type-solidworks.md) mostra o uso do tamanho **pequeno de GPU (visualização)** .  A GPU de visualização é adequada para esse tipo de classe, pois os alunos interagem com o ambiente CAD (design auxiliado por computador) SolidWorks 3D para modelar e visualizar objetos sólidos.
+Os tamanhos de GPU de *Visualização* destinam-se a aplicativos com uso intensivo de gráficos.  Por exemplo, o [tipo de classe de engenharia SolidWorks](./class-type-solidworks.md) mostra o uso do tamanho **pequeno de GPU (visualização)** .  A GPU de visualização é adequada para esse tipo de classe, pois os alunos interagem com o ambiente CAD (design auxiliado por computador) SOLIDWORKS 3D para modelar e visualizar objetos sólidos.
 
 | Tamanho | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
 | GPU Pequena (Visualização) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB de &nbsp; RAM  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Esse tamanho é mais adequado para visualização remota, streaming, jogos e codificação que usam estruturas como OpenGL e DirectX. |
 | GPU Média (Visualização) | -&nbsp;12 &nbsp; núcleos<br>-&nbsp;112 &nbsp; GB de &nbsp; RAM  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Esse tamanho é mais adequado para visualização remota, streaming, jogos e codificação que usam estruturas como OpenGL e DirectX. |
+
+> [!NOTE]
+> Talvez você não veja alguns desses tamanhos de VM na lista ao criar um laboratório de sala de aula. A lista é preenchida com base na capacidade atual do local do laboratório. Se o criador da conta de laboratório [permitir que os criadores de laboratório escolham um local para ele ](allow-lab-creator-pick-lab-location.md), você poderá tentar escolher um local diferente para o laboratório e ver se o tamanho da VM está disponível. Para a disponibilidade de VMs, consulte [produtos disponíveis por região](https://azure.microsoft.com/regions/services/?products=virtual-machines).
 
 ## <a name="ensure-that-the-appropriate-gpu-drivers-are-installed"></a>Verifique se os drivers de GPU apropriados estão instalados
 Para aproveitar os recursos de GPU de suas VMs de laboratório, verifique se os drivers de GPU apropriados estão instalados.  No assistente de criação de laboratório, quando você seleciona um tamanho de VM de GPU, você pode selecionar a opção **instalar drivers de GPU** .  
@@ -45,7 +48,7 @@ Para aproveitar os recursos de GPU de suas VMs de laboratório, verifique se os 
 ![Captura de tela do "novo laboratório" mostrando a opção "instalar drivers de GPU"](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 Conforme mostrado na imagem anterior, essa opção é habilitada por padrão, o que garante que os drivers *mais recentes* sejam instalados para o tipo de GPU e imagem que você selecionou.
-- Quando você seleciona um tamanho de GPU de *computação* , suas VMs de laboratório são alimentadas pela GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  Nesse caso, os drivers de [CUDA (arquitetura de dispositivo unificado de computação)](https://www.nvidia.com/object/io_69526.html) mais recentes são instalados, o que permite a computação de alto desempenho.
+- Quando você seleciona um tamanho de GPU de *computação* , suas VMs de laboratório são alimentadas pela GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  Nesse caso, os drivers de [CUDA (arquitetura de dispositivo unificado de computação)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) mais recentes são instalados, o que permite a computação de alto desempenho.
 - Quando você seleciona um tamanho de GPU de *Visualização* , suas VMs de laboratório são alimentadas pela tecnologia [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU e [Grid](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  Nesse caso, os drivers de grade mais recentes são instalados, o que permite o uso de aplicativos com uso intensivo de gráficos.
 
 ### <a name="install-the-drivers-manually"></a>Instalar os drivers manualmente
@@ -67,7 +70,7 @@ Para instalar manualmente os drivers para o tamanho de GPU de computação, faç
    d. Defina o **sistema operacional** de acordo com o tipo de imagem base que você selecionou quando criou seu laboratório.  
    e. Defina o **Kit de ferramentas CUDA** para a versão do driver CUDA que você precisa.  
    f. Selecione **Pesquisar** para procurar seus drivers.  
-   (por exemplo, Selecione **baixar** para baixar o instalador.  
+   g. Selecione **baixar** para baixar o instalador.  
    h. Execute o instalador para que os drivers sejam instalados na VM do modelo.  
 1. Valide se os drivers estão instalados corretamente seguindo as instruções na seção [validar os drivers instalados](how-to-setup-lab-gpu.md#validate-the-installed-drivers) . 
 1. Depois de instalar os drivers e outros softwares necessários para sua classe, selecione **publicar** para criar as VMs dos seus alunos.
@@ -113,7 +116,7 @@ Siga as instruções na seção "verificar a instalação do driver" de [instala
 Veja os artigos a seguir:
 
 - [Criar e gerenciar laboratórios de sala de aula](how-to-manage-classroom-labs.md)
-- [Tipo de classe CAD (design auxiliado por computador) SolidWorks](class-type-solidworks.md)
+- [Tipo de classe CAD (design auxiliado por computador) SOLIDWORKS](class-type-solidworks.md)
 - [Tipo de classe MATLAB (laboratório de matriz)](class-type-matlab.md)
 
 

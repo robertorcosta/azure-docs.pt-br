@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514604"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403204"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedir entradas DNS pendente e evitar subdomínio tomada
 
@@ -117,14 +117,7 @@ Se você for um administrador global do locatário de sua organização, eleve s
 
 ### <a name="run-the-script"></a>Executar o script
 
-Há duas versões do script, ambas têm os mesmos parâmetros de entrada e produzem uma saída semelhante:
-
-|script  |Informações  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |O modo paralelo tem suporte apenas no PowerShell versão 7 e superior, caso contrário, executará o modo Serial.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Somente com suporte na área de trabalho do PowerShell/versão inferior a 6, pois esse script usa o [Windows Workflow](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Saiba mais e baixe os scripts do PowerShell do GitHub: https://aka.ms/DanglingDNSDomains .
+Saiba mais sobre o script do PowerShell, **Get-DanglingDnsRecords.ps1**e baixe-o do github: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Corrigir entradas DNS pendente 
 

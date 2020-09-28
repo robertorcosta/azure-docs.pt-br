@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f76d28018fdf55314593dabc44ef1e9a1dab9494
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321880"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403119"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
 
@@ -108,7 +108,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
     ![Ações do Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Ações do Microsoft Teams")
 
-12. Configure a ação do Microsoft Teams. O **Designer de Aplicativos Lógicos** solicitará que você autentique-se na sua conta do Office365. Escolha a **ID da Equipe** e **ID do Canal** para enviar a mensagem.
+12. Configure a ação do Microsoft Teams. O **Designer de aplicativos lógicos** solicita que você autentique sua conta corporativa ou de estudante. Escolha a **ID da Equipe** e **ID do Canal** para enviar a mensagem.
 
 13. Configure a mensagem usando uma combinação de texto estático e referências para o \<fields\> no conteúdo dinâmico. Recorte e cole o texto a seguir no campo **Mensagem**.
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: 01daf0af039a00f6a81b850b07cfcf6d901a7732
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 606d3c78e96491a92b2e09aa74801247369ba0ab
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284626"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403272"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por email para ajuste automático
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -187,7 +187,7 @@ Para concluir a solução, como etapa final, crie um fluxo de automação no Mic
 
 - "**Automação do Azure-criar trabalho**" – usado para executar o script do PowerShell para recuperar as recomendações de ajuste automático dentro do runbook de automação do Azure.
 - "**Automação do Azure-obter saída do trabalho**" – usada para recuperar a saída do script do PowerShell executado.
-- "**Office 365 Outlook – enviar um email**" – usado para enviar emails. Emails são enviados usando a conta do Office 365 da pessoa que está criando o fluxo.
+- "**Office 365 Outlook – enviar um email**" – usado para enviar emails. Os emails são enviados usando a conta corporativa ou de estudante do indivíduo que cria o fluxo.
 
 Para saber mais sobre os recursos do Microsoft Flow, consulte [Introdução ao Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 
