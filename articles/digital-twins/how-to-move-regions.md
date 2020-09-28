@@ -88,7 +88,7 @@ Agora você deve ter o aplicativo de exemplo do ADT Explorer em execução em um
 
 Para verificar a conexão, você pode clicar no botão *Executar consulta* para executar a consulta padrão que exibe todas as gêmeos e relações no grafo na caixa *Gerenciador de gráficos* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Um botão com a mensagem "Executar Consulta" próxima à parte superior da janela está realçado" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Um botão com a mensagem Executar Consulta próxima à parte superior da janela está realçado" lightbox="media/how-to-move-regions/run-query.png":::
 
 Você pode deixar o ADT Explorer em execução, pois você o usará novamente mais tarde neste artigo para carregar novamente esses itens na nova instância na região de destino.
 
