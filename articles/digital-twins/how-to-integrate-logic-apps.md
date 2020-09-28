@@ -50,7 +50,7 @@ Você também precisará criar um **_segredo do cliente_** para o registro do ap
 
 Clique em *certificados e segredos* no menu do registro e selecione *+ novo segredo do cliente*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre "certificados e segredos" no menu de recursos e um realce na página ao nosso "novo segredo do cliente"":::
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Exibição do portal de um registro de aplicativo do Azure AD. Há um realce sobre certificados e segredos no menu de recursos e um realce na página ao nosso novo segredo do cliente":::
 
 Insira os valores que você deseja para descrição e expirar e clique em *Adicionar*.
 
@@ -148,7 +148,7 @@ Navegue até a página [registros de aplicativo](https://portal.azure.com/#blade
 
 Em *autenticação* no menu do registro, adicione um URI.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="A página de autenticação para o registro do aplicativo no portal do Azure. "Autenticação" no menu é realçado e, na página, o botão "adicionar um URI" é realçado."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="A página de autenticação para o registro do aplicativo no portal do Azure. Autenticação no menu é realçado e, na página, o botão adicionar um URI é realçado."::: 
 
 Insira a *URL de redirecionamento* do conector personalizado no novo campo e clique no ícone *salvar* .
 
