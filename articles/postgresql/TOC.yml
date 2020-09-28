@@ -552,10 +552,6 @@
               href: concepts-hyperscale-choose-distribution-column.md
             - name: Colocação de tabela
               href: concepts-hyperscale-colocation.md
-            - name: Opções de configuração
-              href: concepts-hyperscale-configuration-options.md
-            - name: Pagar antecipadamente por capacidade reservada
-              href: concepts-hyperscale-reserved-pricing.md
         - name: Segurança
           items:
             - name: Regras de firewall
@@ -577,6 +573,10 @@
           items:
             - name: Monitorar e ajustar
               href: concepts-hyperscale-monitoring.md
+        - name: Opções de configuração
+          href: concepts-hyperscale-configuration-options.md
+        - name: Pagar antecipadamente por capacidade reservada
+          href: concepts-hyperscale-reserved-pricing.md
         - name: Extensões do PostgreSQL
           href: concepts-hyperscale-extensions.md
     - name: Referência de API
