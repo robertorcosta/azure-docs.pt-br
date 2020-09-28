@@ -11,14 +11,14 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85251152"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409571"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerenciar trabalhos elásticos
+# <a name="create-configure-and-manage-elastic-jobs-preview"></a>Criar, configurar e gerenciar trabalhos elásticos (visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste artigo, você aprenderá a criar, configurar e gerenciar trabalhos elásticos.
@@ -58,7 +58,7 @@ A imagem a seguir foi criada para ajudar na compreensão e na configuração das
 
 ![Credenciais de trabalhos elásticos](./media/elastic-jobs-overview/job-credentials.png)
 
-## <a name="security-best-practices"></a>Melhores práticas de segurança
+## <a name="security-best-practices"></a>Práticas recomendadas de segurança
 
 Algumas considerações sobre melhores práticas para usar trabalhos elásticos:
 

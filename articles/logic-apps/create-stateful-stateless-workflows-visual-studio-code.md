@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.date: 09/26/2020
+ms.openlocfilehash: 1595051c851d1c21242bcbb5368baa28a1da740d
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370973"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409843"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
@@ -55,7 +55,7 @@ A extensão de aplicativos lógicos do Azure (versão prévia) traz vários recu
 
 * Crie aplicativos lógicos sem estado que são executados somente na memória para que eles sejam concluídos mais rapidamente, respondam com mais rapidez, tenham maior taxa de transferência e custam menos para serem executados, pois os históricos e dados de execução entre as ações não persistem no armazenamento externo. Opcionalmente, você pode habilitar o histórico de execuções para uma depuração mais fácil. Para obter mais informações, consulte [aplicativos lógicos com estado versus sem estado](#stateful-stateless).
 
-* Teste seus aplicativos lógicos localmente no ambiente de desenvolvimento de Visual Studio Code.
+* Execute e depure seus aplicativos lógicos localmente no ambiente de desenvolvimento de Visual Studio Code.
 
 * Publique e implante seus aplicativos lógicos de Visual Studio Code diretamente em vários ambientes de hospedagem, como [Azure app Service](../app-service/environment/intro.md) e [contêineres do Docker](/dotnet/core/docker/introduction).
 
@@ -94,6 +94,24 @@ Para obter mais informações sobre os modelos de preços que se aplicam a esse 
 * [Detalhes de preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/windows/)
 * [Detalhes de preços do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/)
 
+<a name="unsupported"></a>
+
+## <a name="unavailable-or-unsupported-capabilities"></a>Recursos indisponíveis ou sem suporte
+
+Para esta visualização pública, esses recursos não estão disponíveis ou não têm suporte:
+
+* A criação do novo recurso de **aplicativo lógico (versão prévia)** não está disponível no MacOS no momento.
+
+* Nem todas as regiões do Azure ainda têm suporte. Para as regiões disponíveis no momento, verifique a [lista de regiões](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
+
+* Para iniciar o fluxo de trabalho, use a [solicitação, o http, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md). Atualmente, [conectores Enterprise](../connectors/apis-list.md#enterprise-connectors), gatilhos [de gateway de dados locais](../connectors/apis-list.md#on-premises-connectors), gatilhos baseados em webhook, gatilho de janela deslizante, [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors), contas de integração, seus artefatos e [seus conectores](../connectors/apis-list.md#integration-account-connectors) não têm suporte nesta visualização. A funcionalidade "chamar uma função do Azure" não está disponível, portanto, por enquanto, use a *ação* http para chamar a URL de solicitação para a função do Azure.
+
+  Fluxos de trabalho de aplicativo lógico sem estado só podem usar ações para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), não para gatilhos. Exceto para os gatilhos especificados anteriormente, os fluxos de trabalho com estado podem usar gatilhos e ações para conectores gerenciados.
+
+* Você pode implantar o novo tipo de recurso de **aplicativo lógico (versão prévia)** somente em um [plano de hospedagem do serviço de aplicativo ou Premium no Azure](#publish-azure) ou em um [contêiner do Docker](#deploy-docker), e não em [ambientes de serviço de integração (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Os planos de Hospedagem de **consumo** não têm suporte nem estão disponíveis para a implantação desse tipo de recurso.
+
+* No portal do Azure, não é possível criar novos aplicativos lógicos com o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Você só pode criar esses aplicativos lógicos no Visual Studio Code. No entanto, depois de implantar aplicativos lógicos com esse tipo de recurso de Visual Studio Code para o Azure, você pode [Adicionar novos fluxos de trabalho a esses aplicativos lógicos](#add-workflows).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="access-and-connectivity"></a>Acesso e conectividade
@@ -105,6 +123,17 @@ Para obter mais informações sobre os modelos de preços que se aplicam a esse 
 * Para criar o mesmo exemplo de aplicativo lógico neste artigo, você precisa de uma conta de email do Office 365 Outlook que usa uma conta corporativa ou de estudante da Microsoft para entrar.
 
   Se você optar por usar um [conector de email diferente com suporte dos aplicativos lógicos do Azure](/connectors/), como Outlook.com ou [gmail](../connectors/connectors-google-data-security-privacy-policy.md), ainda poderá seguir o exemplo, e as etapas gerais geral são as mesmas, mas a interface do usuário e as opções podem ser diferentes de algumas maneiras. Por exemplo, se você usar o conector Outlook.com, use seu conta Microsoft pessoal em vez de entrar.
+
+### <a name="storage-requirements"></a>Requisitos de armazenamento
+
+1. Baixe e instale o [emulador de armazenamento do Azure 5,10](https://go.microsoft.com/fwlink/p/?linkid=717179).
+
+1. Para executar o emulador, você precisa ter uma instalação local do SQL DB, como a [versão gratuita SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). Para obter mais informações, consulte [usar o emulador de armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
+
+   > [!IMPORTANT]
+   > Antes de abrir o designer do aplicativo lógico para criar o fluxo de trabalho do aplicativo lógico, certifique-se de iniciar o emulador. Caso contrário, você receberá uma mensagem informando que o `Workflow design time could not be started` .
+   >
+   > ![Captura de tela que mostra o emulador de armazenamento do Azure em execução.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 ### <a name="tools"></a>Ferramentas
 
@@ -121,7 +150,7 @@ Para obter mais informações sobre os modelos de preços que se aplicam a esse 
     >
     > Se você quiser usar a ação de [ **código embutido** ](../logic-apps/logic-apps-add-run-inline-code.md) para executar o código JavaScript, será necessário usar o Azure Functions Runtime versão 3x porque a ação não dá suporte à versão 2x. Além disso, essa ação atualmente não tem suporte em sistemas operacionais Linux.
 
-  * [Extensão de aplicativos lógicos do Azure (versão prévia) para Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Essa extensão de visualização pública fornece a capacidade de criar aplicativos lógicos com estado e sem estado e testá-los localmente no Visual Studio Code.
+  * [Extensão de aplicativos lógicos do Azure (versão prévia) para Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Essa extensão de visualização pública fornece a capacidade de criar aplicativos lógicos com estado e sem estado e executá-los localmente no Visual Studio Code.
 
     No momento, você pode ter a extensão original de **aplicativos lógicos do Azure** e a nova extensão de **aplicativos lógicos do Azure (versão prévia)** instalada ao mesmo tempo no Visual Studio Code. Selecionando o ícone do Azure na barra de ferramentas Visual Studio Code, você pode exibir todos os aplicativos lógicos implantados no Azure, mas cada tipo de recurso aparece em suas próprias seções de extensão, **aplicativos lógicos** e **aplicativos lógicos do Azure (versão prévia)**.
 
@@ -153,19 +182,6 @@ Para obter mais informações sobre os modelos de preços que se aplicam a esse 
 * Para testar o aplicativo lógico de exemplo que você cria neste artigo, você precisa de uma ferramenta que possa enviar chamadas para o gatilho de solicitação, que é a primeira etapa no aplicativo lógico de exemplo. Se você não tiver essa ferramenta, poderá baixar, instalar e usar o [postmaster](https://www.postman.com/downloads/).
 
 * Para facilitar o registro em log de diagnóstico e o recurso de rastreamento, você pode adicionar e usar um recurso de [Application insights](../azure-monitor/app/app-insights-overview.md) . Você pode criar esse recurso durante a implantação do aplicativo lógico ou no portal do Azure depois de implantar seu aplicativo lógico.
-
-### <a name="storage-requirements"></a>Requisitos de armazenamento
-
-Atualmente, a criação do novo recurso de **aplicativo lógico (versão prévia)** não está disponível no MacOS. No entanto, para Windows ou outros sistemas operacionais, como o Linux, configure esse requisito de armazenamento.
-
-1. Baixe e instale o [emulador de armazenamento do Azure 5,10](https://go.microsoft.com/fwlink/p/?linkid=717179).
-
-1. Para executar o emulador, você precisa ter uma instalação local do SQL DB, como a [versão gratuita SQL Server 2019 Express Edition](https://go.microsoft.com/fwlink/p/?linkid=866658). Para obter mais informações, consulte [usar o emulador de armazenamento do Azure para desenvolvimento e teste](../storage/common/storage-use-emulator.md).
-
-   > [!IMPORTANT]
-   > Antes de abrir o designer do aplicativo lógico para criar o fluxo de trabalho do aplicativo lógico, certifique-se de iniciar o emulador. Caso contrário, você receberá uma mensagem informando que o `Workflow design time could not be started` .
-   >
-   > ![Captura de tela que mostra o emulador de armazenamento do Azure em execução.](./media/create-stateful-stateless-workflows-visual-studio-code/start-storage-emulator.png)
 
 <a name="set-up"></a>
 
@@ -211,7 +227,9 @@ Atualmente, a criação do novo recurso de **aplicativo lógico (versão prévia
 
    ![Captura de tela que mostra o painel do Azure e o link selecionado para entrar no Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   Depois de entrar, o painel do Azure mostra as assinaturas em sua conta do Azure. Se as assinaturas esperadas não aparecerem ou se você quiser que o painel mostre apenas assinaturas específicas, siga estas etapas:
+   Depois de entrar, o painel do Azure mostra as assinaturas em sua conta do Azure. Se você tiver a extensão de aplicativos lógicos lançada publicamente, poderá encontrar todos os recursos de aplicativos lógicos originais que você criou usando a extensão original na seção **aplicativos lógicos** da extensão liberada, não os **aplicativos lógicos** da extensão de visualização (seção de visualização.
+   
+   Se as assinaturas esperadas não aparecerem ou se você quiser que o painel mostre apenas assinaturas específicas, siga estas etapas:
 
    1. Na lista assinaturas, mova o ponteiro ao lado da primeira assinatura até que o botão **selecionar assinaturas** (ícone de filtro) seja exibido. Selecione o ícone de filtro.
 
@@ -228,19 +246,6 @@ Atualmente, a criação do novo recurso de **aplicativo lógico (versão prévia
 Antes de criar seu aplicativo lógico, crie um projeto local para que você possa gerenciar e implantar seu aplicativo lógico do Visual Studio Code. O projeto subjacente é semelhante a um projeto Azure Functions, também conhecido como um projeto de aplicativo de funções. No entanto, esses tipos de projeto são separados uns dos outros, portanto, os fluxos de trabalho e as funções do aplicativo lógico não podem existir no mesmo projeto.
 
 1. Em seu computador, crie uma pasta local *vazia* a ser usada para o projeto que você criará posteriormente no Visual Studio Code.
-
-   Se você tiver o SDK do .NET Core 5,0 instalado, crie um **global.jsno** arquivo que faça referência a qualquer versão 3. x do tempo de execução do .NET Core que seja posterior a 3.1.201, por exemplo:
-
-   ```json
-   {
-      "sdk": {
-         "version": "3.1.8",
-         "rollForward": "disable"
-      }
-   }
-   ```
-
-   Posteriormente, depois de criar seu projeto, mas antes de tentar abrir o **workflow.jsno** arquivo no designer do aplicativo lógico, você precisará adicionar esse **global.jsno** arquivo ao local raiz do projeto.
 
 1. Em Visual Studio Code, feche qualquer e todas as pastas abertas.
 
@@ -266,18 +271,30 @@ Antes de criar seu aplicativo lógico, crie um projeto local para que você poss
 
    ![Captura de tela que mostra a lista com a seleção "abrir na janela atual" selecionada.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
 
-   Visual Studio Code recarrega, abre o painel Gerenciador e mostra seu projeto, que agora inclui arquivos de projeto gerados automaticamente. Por exemplo, o projeto tem uma pasta que mostra o nome do fluxo de trabalho do aplicativo lógico. Dentro dessa pasta, o `workflow.json` arquivo contém a definição de JSON subjacente do fluxo de trabalho do aplicativo lógico.
+   Visual Studio Code recarrega, abre o painel Gerenciador e mostra seu projeto, que agora inclui arquivos de projeto gerados automaticamente. Por exemplo, o projeto tem uma pasta que mostra o nome do fluxo de trabalho do aplicativo lógico. Dentro dessa pasta, o **workflow.jsno** arquivo contém a definição de JSON subjacente do fluxo de trabalho do aplicativo lógico.
 
    ![Captura de tela que mostra a janela do Explorer com a pasta do projeto, a pasta do fluxo de trabalho e o arquivo "workflow.jsem".](./media/create-stateful-stateless-workflows-visual-studio-code/local-project-created.png)
-
-1. Se você tiver o SDK do .NET Core 5,0 instalado e tiver criado uma **global.jsno** arquivo que faz referência a um .NET Core Runtime versão 3. x que seja posterior a 3.1.201, você precisará adicionar essa **global.jsno** arquivo ao local raiz do projeto de dentro do Visual Studio Code.
-
-   > [!NOTE]
-   > Certifique-se de concluir esta etapa antes de tentar abrir o **workflow.jsno** arquivo, que contém a definição de JSON subjacente do fluxo de trabalho, no designer do aplicativo lógico. Caso contrário, o designer não será aberto.
 
 <a name="open-workflow-definition-designer"></a>
 
 ## <a name="open-the-workflow-definition-file-in-logic-app-designer"></a>Abrir o arquivo de definição de fluxo de trabalho no designer de aplicativo lógico
+
+1. Verifique as versões que estão instaladas no seu computador executando o seguinte comando:
+
+   `..\Users\{yourUserName}\dotnet --list-sdks`
+
+   Se você tiver SDK do .NET Core 5. x, essa versão poderá impedi-lo de abrir a definição de fluxo de trabalho subjacente do aplicativo lógico no designer. Em vez de desinstalar esta versão, no local raiz do projeto, crie uma **global.jsno** arquivo que faz referência à versão 3. x do tempo de execução do .NET Core que você tem, por exemplo:
+
+   ```json
+   {
+      "sdk": {
+         "version": "3.1.8",
+         "rollForward": "disable"
+      }
+   }
+   ```
+
+   Certifique-se de expliclitly adicionar essa **global.jsno** arquivo ao seu projeto no local raiz de dentro Visual Studio Code. Caso contrário, o designer não será aberto.
 
 1. Se Visual Studio Code estiver em execução no Windows ou Linux, verifique se o emulador de armazenamento do Azure está em execução. Para obter mais informações, examine os [pré-requisitos](#prerequisites).
 
@@ -436,11 +453,13 @@ O fluxo de trabalho do aplicativo lógico neste exemplo usa esse gatilho e estas
 
 1. No designer, selecione **salvar**.
 
-Em seguida, depure e teste seu fluxo de trabalho localmente no Visual Studio Code.
+Em seguida, execute e depure seu fluxo de trabalho localmente no Visual Studio Code.
 
 <a name="debug-test-locally"></a>
 
-## <a name="debug-and-test-your-logic-app"></a>Depurar e testar seu aplicativo lógico
+## <a name="run-and-debug-locally"></a>Executar e depurar localmente
+
+Para testar seu aplicativo lógico, siga estas etapas para iniciar uma sessão de depuração e localizar a URL para o ponto de extremidade que é criado pelo gatilho de solicitação. Você precisa dessa URL para que possa enviar posteriormente uma solicitação para esse ponto de extremidade.
 
 1. Para ajudá-lo a depurar com mais facilidade um fluxo de trabalho de aplicativo lógico sem estado, você pode [habilitar o histórico de execução para esse fluxo de trabalho](#run-history).
 
@@ -946,7 +965,7 @@ Esta tabela especifica o comportamento do fluxo de trabalho filho com base em se
 | Sem estado | Sem estado | Gatilho e espera |
 ||||
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 
 Embora muitos [limites existentes para aplicativos lógicos do Azure](../logic-apps/logic-apps-limits-and-config.md) sejam os mesmos para esse tipo de recurso, aqui estão as diferenças nesta extensão de visualização pública:
 
@@ -957,22 +976,6 @@ Embora muitos [limites existentes para aplicativos lógicos do Azure](../logic-a
   * O limite de caracteres de código aumenta de 1.024 caracteres para 100.000 caracteres.
 
   * O limite de tempo para executar o código aumenta de cinco segundos para 15 segundos.
-
-<a name="unsupported"></a>
-
-## <a name="unavailable-or-unsupported-capabilities"></a>Recursos indisponíveis ou sem suporte
-
-Para esta visualização pública, esses recursos não estão disponíveis ou não têm suporte:
-
-* A criação do novo recurso de **aplicativo lógico (versão prévia)** não está disponível no MacOS no momento.
-
-* Para iniciar o fluxo de trabalho, use a [solicitação, o http, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md). Atualmente, [conectores Enterprise](../connectors/apis-list.md#enterprise-connectors), gatilhos [de gateway de dados locais](../connectors/apis-list.md#on-premises-connectors), gatilhos baseados em webhook, gatilho de janela deslizante, [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors), contas de integração, seus artefatos e [seus conectores](../connectors/apis-list.md#integration-account-connectors) não têm suporte nesta visualização. A funcionalidade "chamar uma função do Azure" não está disponível, portanto, por enquanto, use a *ação* http para chamar a URL de solicitação para a função do Azure.
-
-  Fluxos de trabalho de aplicativo lógico sem estado só podem usar ações para [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), não para gatilhos. Exceto para os gatilhos especificados anteriormente, os fluxos de trabalho com estado podem usar gatilhos e ações para conectores gerenciados.
-
-* Você pode implantar o novo tipo de recurso de **aplicativo lógico (versão prévia)** somente em um [plano de hospedagem do serviço de aplicativo ou Premium no Azure](#publish-azure) ou em um [contêiner do Docker](#deploy-docker), e não em [ambientes de serviço de integração (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Os planos de Hospedagem de **consumo** não têm suporte nem estão disponíveis para a implantação desse tipo de recurso.
-
-* No portal do Azure, não é possível criar novos aplicativos lógicos com o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Você só pode criar esses aplicativos lógicos no Visual Studio Code. No entanto, depois de implantar aplicativos lógicos com esse tipo de recurso de Visual Studio Code para o Azure, você pode [Adicionar novos fluxos de trabalho a esses aplicativos lógicos](#add-workflows).
 
 ## <a name="next-steps"></a>Próximas etapas
 

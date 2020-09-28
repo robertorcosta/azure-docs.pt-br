@@ -1,22 +1,22 @@
 ---
 title: Etapas de otimização após a migração com a API do Azure Cosmos DB para MongoDB
 description: Este documento fornece as técnicas de otimização pós-migração do MongoDB para a APi de Azure Cosmos DB para o Mongo DB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
-ms.author: lbosq
-ms.openlocfilehash: 93a9058dec66ffe2e1c7ad4b15d9bf4eba12c647
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.author: jasonh
+ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91358518"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409690"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de otimização após a migração ao usar a API do Azure Cosmos DB para MongoDB
 
-Depois de migrar os dados armazenados no banco de dados MongoDB para a API do Azure Cosmos DB para MongoDB, você pode se conectar a Azure Cosmos DB e gerenciar os dados. Este guia fornece as etapas que você deve considerar após a migração. Consulte o [tutorial migrar o MongoDB para a API do Azure Cosmos DB para MongoDB](../dms/tutorial-mongodb-cosmos-db.md) para as etapas de migração.
+Depois de migrar os dados armazenados no banco de dados do MongoDB para a API do Azure Cosmos DB para MongoDB, você pode se conectar ao Azure Cosmos DB e gerenciar os dados. Neste guia, você encontra as etapas que deve considerar após a migração. Consulte o [tutorial migrar o MongoDB para a API do Azure Cosmos DB para MongoDB](../dms/tutorial-mongodb-cosmos-db.md) para as etapas de migração.
 
 Neste guia, você aprenderá a:
 

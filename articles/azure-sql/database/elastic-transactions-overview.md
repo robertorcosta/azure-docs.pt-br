@@ -1,5 +1,5 @@
 ---
-title: Transações distribuídas entre bancos de dados na nuvem
+title: Transações distribuídas entre bancos de dados na nuvem (visualização)
 description: Visão geral das transações de banco de dados elástico com o banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c94234644fcefb70a40ba0b2c21e6e205be0e65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60f6863bbe051338308c30e22c6969d84670dc64
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829407"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409724"
 ---
-# <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bancos de dados na nuvem
+# <a name="distributed-transactions-across-cloud-databases-preview"></a>Transações distribuídas entre bancos de dados na nuvem (visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-As transações de banco de dados elástico para o banco de dados SQL do Azure permitem que você execute transações que abrangem vários bancos de dados no banco de dados SQL. As transações de banco de dados elástico para o banco de dados SQL estão disponíveis para aplicativos .NET usando ADO .NET e se integram à experiência de programação familiar usando as classes [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
+As transações de banco de dados elástico para o banco de dados SQL do Azure permitem que você execute transações que abrangem vários bancos de dados no banco de dados SQL. As transações de banco de dados elástico para o banco de dados SQL estão disponíveis para aplicativos .NET usando o ADO.NET e se integram com a experiência de programação familiar usando as classes [System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Para obter a biblioteca, confira [.NET Framework 4.6.1 (Web Installer)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 No local, um cenário como esse geralmente requer a execução do Microsoft Coordenador de Transações Distribuídas (MSDTC). Como o MSDTC não está disponível para aplicativos de plataforma como serviço no Azure, a capacidade de coordenar transações distribuídas agora foi diretamente integrada ao banco de dados SQL. Os aplicativos podem se conectar a qualquer banco de dados no banco de dados SQL para iniciar transações distribuídas, e um dos banco de dados coordenará de forma transparente a transação distribuída, conforme mostrado na figura a seguir.
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: b38ba59b3efc7e5869eecbc84879a6c0a4ce7369
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360201"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408208"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solucionando problemas de erros de conexão de saída intermitente no serviço Azure App
 
@@ -92,16 +92,6 @@ Embora o PHP não ofereça suporte ao pool de conexões, você pode tentar usar 
 * Outras fontes de dados
 
    * [Gerenciamento de conexão PHP](https://www.php.net/manual/en/pdo.connections.php)
-
-#### <a name="python"></a>Python
-
-* [MySQL](https://github.com/mysqljs/mysql#pooling-connections)
-* [MongoDB](https://blog.mlab.com/2017/05/mongodb-connection-pooling-for-express-applications/)
-* [PostgreSQL](https://node-postgres.com/features/pooling)
-* [SQL Server](https://github.com/tediousjs/node-mssql#connection-pools) (Observação: SQLAlchemy pode ser usado com outros bancos de dados além do MicrosoftSQL Server)
-* O [http Keep-](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)Alive (Keep-Alive é automático ao usar Session [-Objects](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)).
-
-Para outros ambientes, examine os documentos específicos do provedor ou do driver para implementar o pool de conexões em seus aplicativos.
 
 ### <a name="modify-the-application-to-reuse-connections"></a>Modificar o aplicativo para reutilizar conexões
 
