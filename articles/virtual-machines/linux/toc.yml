@@ -311,8 +311,6 @@
           href: compute-benchmark-scores.md
     - name: Distribuições endossadas
       href: endorsed-distros.md
-    - name: Hosts dedicados
-      href: dedicated-hosts.md
     - name: Manutenção e atualizações
       href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Armazenamento em disco
@@ -391,11 +389,12 @@
         - name: Como copiar ou clonar uma VM
           href: copy-vm.md
         - name: Usar hosts dedicados
+          href: ../dedicated-hosts.md
           items:
             - name: CLI
               href: dedicated-hosts-cli.md
             - name: Portal
-              href: dedicated-hosts-portal.md
+              href: ../dedicated-hosts-portal.md
         - name: Implantar VMs do Spot
           items:
             - name: CLI
@@ -858,6 +857,7 @@
         - name: Como alterar o conjunto de disponibilidade
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Criar um grupo de posicionamento de proximidade
+          displayName: PPG aligned colocation co-location
           items:
             - name: CLI
               href: proximity-placement-groups.md
