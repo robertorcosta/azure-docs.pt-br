@@ -27,6 +27,8 @@
       href: roles.md
     - name: Detecção avançada de ataque multiestágio
       href: fusion.md
+    - name: Criar sua plataforma de machine learning
+      href: bring-your-own-ml.md
     - name: Estender o Azure Sentinel entre workspaces e locatários
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Identificar ameaças avançadas com o UEBA
@@ -66,6 +68,8 @@
               href: connect-microsoft-defender-advanced-threat-protection.md
             - name: Microsoft Defender para identidade (anteriormente ATP do Azure)
               href: connect-azure-atp.md
+            - name: Microsoft Defender para Office 365 (anteriormente ATP do Office 365)
+              href: connect-office-365-advanced-threat-protection.md
             - name: Proteção contra DDoS do Azure
               href: connect-azure-ddos-protection.md
             - name: Firewall do Azure

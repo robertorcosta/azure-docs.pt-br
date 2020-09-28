@@ -11,16 +11,16 @@
         - name: Introdução
           href: get-started.md
           displayName: 'get, started'
-        - name: 1 Criar um workspace do Synapse
+        - name: 1 Criar um workspace
           href: get-started-create-workspace.md
           displayName: 'get, started'
-        - name: 2 Analisar usando um pool de SQL
+        - name: 2 Usar pools de SQL
           href: get-started-analyze-sql-pool.md
           displayName: 'get, started'
-        - name: 3 Analisar usando o Spark
+        - name: 3 Usar o Spark
           href: get-started-analyze-spark.md
           displayName: 'get, started'
-        - name: 4 Analisar usando o SQL sob demanda
+        - name: 4 Usar o SQL sob demanda
           href: get-started-analyze-sql-on-demand.md
           displayName: 'get, started'
         - name: 5 Analisar dados em uma conta de armazenamento
@@ -35,7 +35,7 @@
         - name: 8 Monitorar
           href: get-started-monitor.md
           displayName: 'get, started'
-        - name: 9 Explorar o Centro de Conhecimento
+        - name: 9 Explorar o centro de conhecimento
           href: get-started-knowledge-center.md
           displayName: 'get, started'
     - name: Roteiro
@@ -84,6 +84,8 @@
   items:
     - name: Executar aplicativos Apache Spark
       href: ./spark/intellij-tool-synapse.md
+    - name: Executar aplicativos PySpark para pools do Spark
+      href: ./spark/vscode-tool-synapse.md
     - name: Definições de trabalho do Spark
       href: ./spark/apache-spark-job-definitions.md
     - name: Power BI Desktop
@@ -210,6 +212,8 @@
               href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Linguagem de expressão
               href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Diferenças do Azure Data Factory
+              href: ./data-integration/concepts-data-factory-differences.md
     - name: Spark
       items:
         - name: Visão geral

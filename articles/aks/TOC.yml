@@ -250,7 +250,7 @@
           href: control-kubeconfig-access.md
         - name: Proteger o tráfego de pod com políticas de rede
           href: use-network-policies.md
-        - name: Proteger pods com Azure Policy (versão prévia)
+        - name: Proteger pods com Azure Policy
           href: use-pod-security-on-azure-policy.md
         - name: Usar políticas de segurança de pod (versão prévia)
           href: use-pod-security-policies.md

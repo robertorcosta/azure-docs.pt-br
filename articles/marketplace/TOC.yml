@@ -277,19 +277,19 @@
     - name: Ser pago
       items:
         - name: Ser pago
-          href: partner-center-portal/get-paid.md
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
         - name: Configurar sua conta de pagamento e formulários de imposto
-          href: partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: 'Limites, formas e períodos de pagamento'
-          href: partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Visão geral do resumo do pagamento
-          href: partner-center-portal/payout-summary-overview.md
-        - name: Resumos do pagamento
-          href: partner-center-portal/payout-summary.md
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: Limites e períodos de pagamento
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: Demonstrativos de pagamento
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
         - name: Detalhes da política de pagamento
-          href: partner-center-portal/payout-policy-details.md
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: Detalhes do imposto
-          href: partner-center-portal/tax-details-paid-transactions.md
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: Perguntas frequentes sobre pagamentos
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
     - name: Referência de API de CPP
       items:
         - name: Visão geral

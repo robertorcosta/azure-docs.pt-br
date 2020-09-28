@@ -18,8 +18,10 @@
       href: add-application-portal-configure.md
     - name: Atribuir usuários a um aplicativo
       href: add-application-portal-assign-users.md
-    - name: Configurar logon único
+    - name: Configurar o logon único baseado em SAML
       href: add-application-portal-setup-sso.md
+    - name: Configurar o logon único baseado em OIDC
+      href: add-application-portal-setup-oidc-sso.md
     - name: Excluir um aplicativo
       href: delete-application-portal.md
 - name: Tutoriais

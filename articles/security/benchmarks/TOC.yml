@@ -145,6 +145,8 @@
       href: ../../network-watcher/security-baseline.md
     - name: Linha de base da Central de Segurança
       href: ../../security-center/security-baseline.md
+    - name: Linha de base do Barramento de Serviço
+      href: ../../service-bus-messaging/security-baseline.md
     - name: Linha de base do Service Fabric
       href: ../../service-fabric/security-baseline.md
     - name: Linha de base do Stream Analytics

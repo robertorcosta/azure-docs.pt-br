@@ -8,42 +8,43 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8700bbfe697a6b5fb81380831950d704fcb1f5ff
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 31031462d9904e3554c19f47bc82f87746443693
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90012889"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371705"
 ---
 A tabela a seguir fornece cotas e limites específicos para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para saber mais sobre os preços dos Hubs de Eventos, veja os [preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-Os limites a seguir são comuns nos níveis básico e standard. 
+### <a name="common-limits-for-all-tiers"></a>Limites comuns para todas as camadas
+Os limites a seguir são comuns em todas as camadas. 
 
-| Limite | Escopo | Observações | Valor |
-| --- | --- | --- | --- |
-| Número de namespaces de Hubs de Eventos do Azure por assinatura |Subscription |- |100 |
-| Número de hubs de eventos por namespace |Namespace |As solicitações subsequentes para a criação de um hub de eventos são rejeitadas. |10 |
-| O número de partições por hub de eventos |Entidade |- |32 |
-| Tamanho máximo do nome de um hub de eventos |Entidade |- | 256 caracteres |
-| Tamanho máximo de um nome de grupo de consumidores |Entidade |- | 256 caracteres |
-| Número de destinatários sem época por grupo de consumidores |Entidade |- |5 |
-| Unidades de produtividade máxima |Namespace |Exceder o limite de unidades de produtividade vai causar a limitação dos seus dados e vai gerar uma [exceção de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um número maior de unidades de produtividade para um nível Standard, preencha uma [solicitação de suporte](/azure/azure-portal/supportability/how-to-create-azure-support-request). As [unidades de produtividade adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20, em uma base de compra garantida. |20 |
-| Número de regras de autorização por namespace |Namespace|As solicitações subsequentes de criação de regra de autorização são rejeitadas.|12 |
-| Número de chamadas para o método GetRuntimeInformation | Entidade | - | 50 por segundo | 
-| Número de regras de VNet (rede virtual) e de configuração de IP | Entidade | - | 128 | 
-
-### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Hubs de Eventos Básico e Standard – Cotas e limites
-| Limite | Escopo | Observações | Basic | Standard |
-| --- | --- | --- | -- | --- |
-| Tamanho máximo de eventos de Hubs de Eventos|Entidade | &nbsp; | 256 KB | 1 MB |
-| Número de grupos de consumidores por hub de eventos |Entidade | &nbsp; |1 |20 |
-| Número de conexões AMQP por namespace |Namespace |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |100 |5\.000|
-| Período de retenção máximo dos dados do evento |Entidade | &nbsp; |1 dia |Um a sete dias |
-|Namespace habilitado para Apache Kafka|Namespace |O namespace de Hubs de Eventos transmite aplicativos usando o protocolo Kafka. Para obter mais informações, confira [Usar os Hubs de Eventos do Azure de aplicativos Apache Kafka](../articles/event-hubs/event-hubs-for-kafka-ecosystem-overview.md). |Não | Sim |
-|Capturar |Entidade | Quando habilitado, coloca em microlotes no mesmo fluxo. Para obter mais informações, confira [Capturar eventos por meio dos Hubs de Eventos do Azure no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage](../articles/event-hubs/event-hubs-capture-overview.md). |Não |Sim |
+| Limite |  Observações | Valor |
+| --- |  --- | --- |
+| Número de namespaces de Hubs de Eventos do Azure por assinatura |- |100 |
+| Número de hubs de eventos por namespace | As solicitações subsequentes para a criação de um hub de eventos são rejeitadas. |10 |
+| O número de partições por hub de eventos |- |32 |
+| Tamanho do nome de um hub de eventos |- | 256 caracteres |
+| Tamanho de um nome de grupo de consumidores |- | 256 caracteres |
+| Número de destinatários sem época por grupo de consumidores |- |5 |
+| Número de regras de autorização por namespace | As solicitações subsequentes de criação de regra de autorização são rejeitadas.|12 |
+| Número de chamadas para o método GetRuntimeInformation |  - | 50 por segundo | 
+| Número de regras de VNet (rede virtual) e de configuração de IP | - | 128 | 
 
 
-### <a name="event-hubs-dedicated---quotas-and-limits"></a>Hubs de Eventos Dedicados – Cotas e limites
+### <a name="basic-and-standard-tiers"></a>Camadas Básica e Standard
+A tabela a seguir mostra os limites que podem ser diferentes para as camadas Basic e Standard. 
+
+| Limite | Observações | Basic | Standard |
+| --- |  --- | -- | --- |
+| Tamanho máximo de eventos de Hubs de Eventos| &nbsp; | 256 KB | 1 MB |
+| Número de grupos de consumidores por hub de eventos | &nbsp; |1 |20 |
+| Número de conexões AMQP por namespace | Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |100 |5\.000|
+| Período de retenção máximo dos dados do evento | &nbsp; |1 dia |Um a sete dias |
+| Unidades de produtividade máxima |Exceder o limite de unidades de produtividade vai causar a limitação dos seus dados e vai gerar uma [exceção de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um número maior de unidades de produtividade para um nível Standard, preencha uma [solicitação de suporte](/azure/azure-portal/supportability/how-to-create-azure-support-request). As [unidades de produtividade adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20, em uma base de compra garantida. |20 | 20 | 
+
+### <a name="dedicated-tier"></a>Camada dedicada
 A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um mínimo de quatro horas de uso. O nível Dedicado oferece todos os recursos do plano Standard, mas com capacidade em escala empresarial e limites para clientes com cargas de trabalho exigentes. 
 
 | Recurso | limites |
@@ -51,10 +52,37 @@ A oferta de Hubs de Eventos Dedicados é cobrada a um preço mensal fixo, com um
 | Largura de banda |  20 CUs |
 | Namespaces | 50 por CU |
 | Hubs de Eventos |  1\.000 por namespace |
-| Eventos de entrada | Incluso |
 | Tamanho da mensagem | 1 MB |
 | Partições | 2\.000 por CU |
 | Grupos de consumidores | Nenhum limite por CU, 1000 por hub de eventos |
 | Conexões orientadas | 100.000 incluídos |
-| Retenção de mensagem | 90 dias, 10 TB incluídos por CU |
+| Tempo de retenção da mensagem | 90 dias, 10 TB incluídos por CU |
+| Eventos de entrada | Incluso |
 | Capturar | Incluso |
+
+
+### <a name="schema-registry-limitations"></a>Limitações do registro de esquema
+
+#### <a name="limits-that-are-the-same-for-standard-and-dedicated-tiers"></a>Os limites são os mesmos para as camadas **standard** e **dedicada** 
+| Recurso | Limite | 
+| --- |  --- | -- |
+| Comprimento máximo de um nome de grupo de esquemas | 50 |  
+| Comprimento máximo de um nome de esquema | 100 |    
+| Tamanho em bytes por esquema | 1 MB |   
+| Número de propriedades por grupo de esquemas | 1024 |
+| Tamanho em bytes por chave de propriedade de grupo | 256 | 
+| Tamanho em bytes por chave de propriedade de grupo | 1024 | 
+
+
+#### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Os limites são os diferentes para as camadas **standard** e **dedicada** 
+
+| Limite | Standard | Dedicado | 
+| --- |  --- | -- | --- |
+| Tamanho do registro de esquema (namespace) em megabytes | 25 |  1024 |
+| Número de grupos de esquema em um registro de esquema (namespace)| 1 (excluindo o padrão) | 1000 |
+| Número de versões de esquema em todos os grupos de esquema | 25 | 10000 |
+
+
+
+
+

@@ -13,7 +13,7 @@
       items:
         - name: Detectar faces em uma imagem
           items:
-            - name: 'C#'
+            - name: C#
               href: QuickStarts/CSharp.md
             - name: cURL
               href: QuickStarts/curl.md
@@ -35,7 +35,7 @@
   items:
     - name: Usando o SDK do cliente
       items:
-        - name: 'C#'
+        - name: C#
           href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Conceitos
   items:
@@ -47,9 +47,7 @@
   items:
     - name: Detectar faces
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identificar faces em imagem
-      href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
-    - name: Adicionar faces
+    - name: Adicionar faces a um grupo
       href: Face-API-How-to-Topics/how-to-add-faces.md
     - name: Usar o atributo HeadPose
       href: Face-API-How-to-Topics/how-to-use-headpose.md

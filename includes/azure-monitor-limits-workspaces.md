@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 91adafedfc8f4e6b4948b0dcfe541e2754b47556
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a25f28b19e0f00830fd0290ff0296c317b9a5ed9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371704"
 ---
 **Volume e retenção da coleta de dados** 
 
@@ -66,24 +66,34 @@ ms.locfileid: "88226537"
 
 **<a name="data-ingestion-volume-rate">Taxa do volume de ingestão de dados</a>**
 
-O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende proteger os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) se aplica aos workspaces, que é de aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. Esse limite se aplica a todos os dados ingeridos, sejam eles enviados de recursos do Azure usando as [configurações de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md), a [API do Data Collector](../articles/azure-monitor/platform/data-collector-api.md) ou os agentes.
+O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende isolar os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) é definido nos workspaces. Isso é movido para aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. Esse limite da taxa de volume se aplica a todos os dados ingeridos, sejam eles enviados de recursos do Azure usando as [Configurações de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md), a [API do Coletor de dados](../articles/azure-monitor/platform/data-collector-api.md) ou os agentes.
 
-Ao enviar dados para um workspace a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa do volume de ingestão continuar excedendo o limite ou se você estiver esperando alcançá-la em breve, poderá solicitar o aumento no workspace abrindo uma solicitação de suporte. 
+Ao enviar dados para um workspace a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa do volume de ingestão continuar excedendo o limite ou se você estiver esperando alcançá-la em breve, poderá solicitar o aumento abrindo uma solicitação de suporte. 
 
-Para receber uma notificação sobre esse evento no workspace, crie uma [regra de alerta de log](../articles/azure-monitor/platform/alerts-log.md) usando a consulta a seguir com base lógica de alerta no número de resultados superior a zero, com período de avaliação de cinco minutos e frequência de cinco minutos.
+Para receber uma notificação sobre como abordar ou alcançar o limite da taxa de volume de ingestão no workspace, crie uma [regra de alerta de log](../articles/azure-monitor/platform/alerts-log.md) usando a consulta a seguir com base lógica de alerta no número de resultados superior a zero, com período de avaliação de cinco minutos e frequência de cinco minutos.
 
-A taxa do volume de ingestão atingiu 80% do limite:
+A taxa do volume de ingestão ultrapassou o limite
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Error"
 ```
 
-Limite atingido na taxa do volume de ingestão:
+A taxa do volume de ingestão ultrapassou 80% do limite
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Warning"
+```
+
+A taxa do volume de ingestão ultrapassou 70% do limite
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Info"
 ```
 
 >[!NOTE]

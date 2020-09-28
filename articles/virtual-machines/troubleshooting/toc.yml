@@ -115,6 +115,8 @@
           href: windows-stop-error-bad-system-config-info.md
         - name: Erro de parada do Windows – Status sem memória
           href: troubleshoot-windows-stop-error.md
+        - name: Erro de parada do Windows – Processo do sistema encerrado
+          href: windows-stop-error-system-process-terminated.md
 - name: Não é possível conectar-se à minha VM
   items:
     - name: RDP

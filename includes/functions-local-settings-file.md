@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: 47e1c509e8b7b60e889e1202b49b1a145c68162c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: aae89e1c6f8db2fb657ac2a43c4bce0396ab3ddd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377616"
 ---
 ## <a name="local-settings-file"></a>Arquivo de configurações local
 
@@ -40,7 +40,7 @@ Essas configurações têm suporte quando você executa projetos localmente:
 
 | Configuração      | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Quando essa configuração é definida como `true`, todos os valores são criptografados com uma chave do computador local. Usado com `func settings` comandos. O valor padrão é `false`. |
+| **`IsEncrypted`** | Quando essa configuração é definida como `true`, todos os valores são criptografados com uma chave do computador local. Usado com `func settings` comandos. O valor padrão é `false`. Talvez você queira criptografar o arquivo local.settings.json no computador local quando ele contiver segredos, como cadeias de conexão de serviço. O host descriptografa automaticamente as configurações quando ele é executado. Use o comando `func settings decrypt` antes de tentar ler as configurações criptografadas localmente. |
 | **`Values`** | Matriz de configurações de aplicativos e cadeias de conexão usadas quando um projeto é executado localmente. Esses pares chave-valor (cadeia de caracteres– cadeia de caracteres) correspondem às configurações de aplicativos no aplicativo de funções no Azure, como [`AzureWebJobsStorage`]. Muitos gatilhos e associações têm uma propriedade que se refere a uma configuração de aplicativo de cadeia de conexão, como `Connection` para o [gatilho do Armazenamento de blobs](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#configuration). Para essas propriedades, você precisa de uma configuração de aplicativo definida na matriz `Values`. Confira a tabela subsequente para obter uma lista de configurações comumente usadas. <br/>Os valores devem ser cadeias de caracteres e não matrizes ou objetos JSON. Os nomes de configuração não podem incluir dois-pontos (`:`) ou um sublinhado duplo (`__`). Os caracteres de sublinhado duplo são reservados pelo runtime e os dois-pontos são reservados para dar suporte à [injeção de dependência](../articles/azure-functions/functions-dotnet-dependency-injection.md#working-with-options-and-settings). |
 | **`Host`** | As configurações nesta seção personalizam o processo de host do Functions quando você executa projetos localmente. Essas configurações são separadas das configurações de host.json, que também se aplicam quando você executa projetos no Azure. |
 | **`LocalHttpPort`** | Define a porta padrão usada ao executar o host local do Functions (`func host start` e `func run`). A opção de linha de comando `--port` tem precedência sobre essa configuração. |

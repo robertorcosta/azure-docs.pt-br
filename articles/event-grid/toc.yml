@@ -40,6 +40,8 @@
       href: custom-event-to-eventhub.md
     - name: Eventos do Registro de Contêiner
       href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Lidar com eventos dos Serviços de Comunicação do Azure
+      href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutoriais
   items:
     - name: Enviar email quando houver alterações na VM
@@ -112,6 +114,8 @@
               href: event-schema-app-service.md
             - name: Armazenamento do Blobs do Azure
               href: event-schema-blob-storage.md
+            - name: Serviços de Comunicação do Azure
+              href: event-schema-communication-services.md
             - name: Registro de Contêiner do Azure
               href: event-schema-container-registry.md
             - name: Hubs de eventos do Azure
@@ -214,7 +218,7 @@
       href: auth0-how-to.md
     - name: Receber eventos em um ponto de extremidade HTTP
       href: receive-events.md
-    - name: Mensagens mortas e tentar novamente
+    - name: Definir a localização de mensagens mortas e a política de repetição
       href: manage-event-delivery.md
     - name: Filtrar eventos
       href: how-to-filter-events.md

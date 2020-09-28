@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90606521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376905"
 ---
 Os Arquivos do Azure oferecem quatro camadas diferentes de armazenamento: premium, transação otimizada, quente e fria para permitir que você personalize seus compartilhamentos conforme os requisitos de desempenho e preço de seu cenário:
 
@@ -26,4 +26,5 @@ Os compartilhamentos de arquivos Premium estão disponíveis em um modelo de cob
 
 Os compartilhamentos de arquivo quentes e frios estão disponíveis em todas as regiões públicas do Azure e do Azure Government. Os compartilhamentos de arquivo com transação otimizada estão disponíveis em todas as regiões do Azure, incluindo Azure China e Azure Alemanha.
 
-Para implantar um compartilhamento de arquivo quente ou frio, confira [Criar um compartilhamento de arquivo quente ou frio](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
+> [!Important]  
+> Você pode mover compartilhamentos de arquivo entre camadas dentro de tipos de conta de armazenamento GPv2 (transação otimizada, quente e fria). Movimentações de compartilhamento entre camadas incorrem transações: mover de uma camada mais quente para uma camada mais fria incorrerá na cobrança da transação de gravação da camada mais fria para cada arquivo no compartilhamento, enquanto uma movimentação de uma camada mais fria para uma camada mais quente incorrerá na cobrança da transação de leitura da camada fria para cada arquivo no compartilhamento.
