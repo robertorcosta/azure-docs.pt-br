@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: memildin
 ms.custom: include file
-ms.openlocfilehash: 0b6864c3304b86e80549297fc073a2e387000d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55390a3eb2a074729b4a0868416a95e208325b76
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80272828"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400932"
 ---
 ```json
 {
@@ -70,7 +70,7 @@ ms.locfileid: "80272828"
 |**Intenção**|Enumeração|A intenção relacionada de Kill Chain por trás do alerta. Para obter a lista de valores com suporte e as explicações das tentativas de cadeia de eliminação com suporte da central de segurança do Azure, consulte as [intenções](../articles/security-center/alerts-reference.md#intentions).<br/>Esse campo pode ter vários valores (separados por vírgula).|
 |**Isincident**|Bool|Este campo determina se o alerta é um incidente (um agrupamento composto de vários alertas) ou um único alerta. O valor padrão para o campo é ' false ' (ou seja, um único alerta).|
 |**ProcessingEndTime**|Datetime|A hora em que o alerta foi acessível para o usuário final no produto original que contém o alerta.|
-|**ProductName**|String|O nome do produto que publicou este alerta (central de segurança do Azure, Azure ATP, Microsoft defender ATP, O365 ATP, MCAS e assim por diante).|
+|**ProductName**|String|O nome do produto que publicou este alerta (central de segurança do Azure, Azure ATP, Microsoft defender ATP, MCAS e assim por diante).|
 |**RemediationSteps**|Lista<String>|Itens de ação manual a serem necessários para corrigir o alerta.|
 |**ResourceIdentifiers**|Lista (identificadores de recurso)|Os identificadores de recurso para esse alerta que podem ser usados para direcionar o alerta para o grupo de exposição de produto correto (locatário, espaço de trabalho, assinatura, etc.). Pode haver vários identificadores de tipo diferente por alerta.|
 |**Gravidade**|Enumeração|A severidade do alerta conforme relatado pelo provedor. Valores possíveis: informativo, baixo, médio e alto.|
