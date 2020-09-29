@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983751"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441031"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Conectar um gateway de VPN (gateway de rede virtual) à WAN virtual
 
@@ -83,7 +83,7 @@ Nesta seção, você baixa o arquivo de configuração de VPN para cada um dos s
 
 1. Na parte superior da página **sites VPN** da WAN virtual, selecione o **site**e selecione **baixar configuração de VPN site a site**. O Azure cria um arquivo de configuração com as configurações.
 
-   ![baixar arquivo de configuração](./media/connect-virtual-network-gateway-vwan/download.png "download")
+   ![Captura de tela que mostra a página "sites VPN" com a ação "baixar configuração de VPN site a site" selecionada.](./media/connect-virtual-network-gateway-vwan/download.png "download")
 2. Baixe e abra o arquivo de configuração.
 3. Repita essas etapas para o segundo site. Quando os dois arquivos de configuração estiverem abertos, você poderá prosseguir para a próxima seção.
 
@@ -98,7 +98,7 @@ Nesta seção, você criará dois gateways de rede local do gateway de VPN do Az
    * A **assinatura, o grupo de recursos e o local** são os mesmos para o Hub Wan virtual.
 2. Examine e crie o gateway de rede local. O gateway de rede local deve ser semelhante a este exemplo.
 
-   ![baixar arquivo de configuração](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
+   ![Captura de tela que mostra a página "configuração" com um endereço IP realçado e "definir configurações de BGP" selecionada.](./media/connect-virtual-network-gateway-vwan/lng1.png "instance0")
 3. Repita essas etapas para criar outro gateway de rede local, mas desta vez, use os valores ' instance1 ' em vez dos valores ' Instance0 ' do arquivo de configuração.
 
    ![baixar arquivo de configuração](./media/connect-virtual-network-gateway-vwan/lng2.png "instância1")

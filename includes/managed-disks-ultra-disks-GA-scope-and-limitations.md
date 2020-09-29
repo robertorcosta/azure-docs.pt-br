@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/25/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db377a933507f9a25b377ba52ebd956416a1dfd2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328183"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441204"
 ---
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
@@ -35,7 +35,9 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 |Governo dos EUA do Arizona     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Gov. dos EUA – Virgínia     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Oeste dos EUA     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)        |
+|Austrália Central    |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Leste da Austrália     |Três zonas de disponibilidade         |
+|Sudeste Asiático    |Três zonas de disponibilidade        |
 |Centro-Canadá *     |Três zonas de disponibilidade          |
 |Centro dos EUA     |Três zonas de disponibilidade          |
 |Leste dos EUA     |Três zonas de disponibilidade          |

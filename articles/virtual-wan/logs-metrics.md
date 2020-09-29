@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983640"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440862"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Métricas e logs de WAN virtual do Azure
 
@@ -66,7 +66,7 @@ As etapas a seguir ajudam a localizar e exibir as métricas:
 
 4. Na página **métricas** , você pode exibir as métricas nas quais está interessado.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="Captura de tela mostra um painel V P N do site a site com o modo de exibição Azure Monitor selecionado.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Logs de diagnóstico
 
@@ -93,15 +93,15 @@ As etapas a seguir ajudam a localizar e exibir o diagnóstico:
 
 1. No portal, navegue até o recurso de WAN virtual. Na seção **visão geral** da página Wan virtual no portal, selecione **Essentials** para expandir a exibição e obter informações do grupo de recursos. Copie as informações do grupo de recursos.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="Captura de tela mostra um painel V P N do site a site com o modo de exibição Azure Monitor selecionado.":::
 
 2. Na seção monitoramento, navegue até o grupo de recursos. Selecione **configurações de diagnóstico**e, em seguida, insira as informações do recurso. Essas são as informações de recurso que você copiou na etapa 2 da seção [Exibir métricas de gateway](#metrics-steps) , anteriormente neste artigo.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="Captura de tela mostra um painel V P N do site a site com o modo de exibição Azure Monitor selecionado.":::
 
 3. Na página resultados, selecione **+ Adicionar configuração de diagnóstico**e, em seguida, selecione uma opção. Você pode optar por enviar para Log Analytics, transmitir para um hub de eventos ou simplesmente arquivar em uma conta de armazenamento.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="Captura de tela mostra um painel V P N do site a site com o modo de exibição Azure Monitor selecionado.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Log Analytics consulta de exemplo
 

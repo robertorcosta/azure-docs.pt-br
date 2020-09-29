@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0429cfb62c319675806d76b4759b776a7b32dbcb
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87907960"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439838"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos do email de convite para colaboração B2B – Azure Active Directory
 
@@ -75,7 +75,21 @@ A próxima seção do email contém informações sobre o local em que o convida
 O rodapé contém mais informações sobre o convite que está sendo enviado. Sempre há uma opção para o convidado bloquear convites futuros. Se a organização tiver [definido uma política de privacidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), o link para a instrução será exibido aqui.  Caso contrário, uma observação indica que a organização não definiu uma declaração de privacidade.
 
 ![Imagem da seção de rodapé no email](media/invitation-email-elements/footer-section.png)
- 
+
+### <a name="blocking-an-organization-unsubscribing"></a>Bloqueando uma organização (cancelando a)
+
+No convite de uma organização, o rodapé contém uma opção para **Bloquear futuros convites**. Um usuário convidado pode selecionar este link para bloquear qualquer convite futuro da organização. Essa ação também adiciona a organização à lista de assinaturas do usuário em [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage) .
+
+### <a name="viewing-organizations-youve-blocked"></a>Exibindo organizações que você bloqueou
+
+Um usuário convidado pode seguir estas etapas para exibir ou exportar as organizações que bloquearam:
+
+1. Acesse [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+2. Insira seu email e siga as etapas de entrada para autenticação de senha de uso único de email.
+3. Exiba as organizações que você bloqueou ou exporte os nomes usando copiar e colar.
+   > [!NOTE]
+   > Se quiser permitir que uma organização que você tenha bloqueado para convidá-lo novamente, você poderá escolher a organização e selecionar **Avançar**.
+
 ## <a name="how-the-language-is-determined"></a>Como o idioma é determinado
 
 O idioma apresentado ao usuário convidado no email de convite é determinado pelas configurações a seguir. Elas estão listadas na ordem de precedência. Se uma configuração não estiver definida, a próxima configuração na lista determinará o idioma.

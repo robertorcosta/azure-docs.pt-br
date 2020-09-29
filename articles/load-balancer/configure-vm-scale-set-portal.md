@@ -6,12 +6,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333878"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439517"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configurar um conjunto de dimensionamento de máquinas virtuais com um Azure Load Balancer existente usando o portal do Azure
 
@@ -62,7 +62,7 @@ Nesta seção, você criará um conjunto de dimensionamento de máquinas virtuai
     | Confirmar senha               | Insira novamente sua senha de administrador |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Criar conjunto de dimensionamento de máquinas virtuais." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Captura de tela mostra a guia criar noções básicas do conjunto de dimensionamento de máquinas virtuais." border="true":::
 
 4. Selecione a guia **Rede**.
 
@@ -79,7 +79,7 @@ Nesta seção, você criará um conjunto de dimensionamento de máquinas virtuai
     | Selecionar um balanceador de carga            | Selecione **myLoadBalancer** ou seu balanceador de carga existente |
     | Selecionar um pool de back-end             | Selecione **myBackendPool** ou seu pool de back-end existente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Criar conjunto de dimensionamento de máquinas virtuais." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Captura de tela mostra a guia criar noções básicas do conjunto de dimensionamento de máquinas virtuais." border="true":::
 
 6. Selecione a guia **Gerenciamento** .
 

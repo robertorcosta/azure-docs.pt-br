@@ -4,16 +4,16 @@ description: Saiba mais sobre os ultra discos para VMs do Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 681804eadc1f710eb5fbf6980fabca4beaaf5439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328185"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441205"
 ---
 # <a name="using-azure-ultra-disks"></a>Usando os ultra discos do Azure
 
@@ -155,7 +155,7 @@ Esta seção aborda a implantação de uma máquina virtual equipada com um ultr
 - Altere os valores de **tamanho de disco personalizado (GIB)**, **IOPS de disco**e **taxa de transferência de disco** para aqueles de sua escolha.
 - Selecione **OK** em ambas as folhas.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Captura de tela da folha selecionar um tamanho de disco, ultra Disk selecionado para o tipo de armazenamento, outros valores realçados.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Captura de tela de criar uma nova folha de disco, alterar o tamanho realçado.":::
 
 - Continue com a implantação da VM, ela será a mesma que você implantaria qualquer outra VM.
 
@@ -250,7 +250,7 @@ Como alternativa, se sua VM existente estiver em uma zona de região/disponibili
 - Altere o **tipo de conta** para **ultra Disk**.
 - Altere os valores de **tamanho de disco personalizado (GIB)**, **IOPS de disco**e **taxa de transferência de disco** para aqueles de sua escolha.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Captura de tela da folha selecionar um tamanho de disco, ultra Disk selecionado para o tipo de armazenamento, outros valores realçados.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Captura de tela de criar uma nova folha de disco, alterar o tamanho realçado.":::
 
 - Selecione **OK** e, em seguida, selecione **criar**.
 - Depois de retornar à folha do disco, selecione **salvar**.
@@ -409,4 +409,5 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Consulte [usar ultra discos do Azure no serviço kubernetes do Azure (versão prévia)](../aks/use-ultra-disks.md).
+- [Use os ultra discos do Azure no serviço kubernetes do Azure (versão prévia)](../aks/use-ultra-disks.md).
+- [Migre o disco de log para um ultra Disk](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md).

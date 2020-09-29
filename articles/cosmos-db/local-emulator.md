@@ -6,13 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 07a38e106b765fd28a8c3c1115e5fe84744ade62
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-csharp, contperfq1
+ms.openlocfilehash: eb148801011b2d1c8c1f975edb870ba594b085a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303082"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440687"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instalar e usar o emulador Cosmos do Azure para desenvolvimento e teste locais
 
@@ -80,13 +80,13 @@ O emulador Cosmos do Azure é instalado no `C:\Program Files\Azure Cosmos DB Emu
 
 Quando o emulador for iniciado, você verá um ícone na área de notificação da barra de tarefas do Windows. Ele abre automaticamente o Azure Cosmos data Explorer no seu navegador nesta URL de URL `https://localhost:8081/_explorer/index.html` .
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Notificação na barra de tarefas do emulador local do Azure Cosmos DB":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-taskbar.png" alt-text="Selecione o botão iniciar ou pressione a tecla Windows, comece digitando emulador Cosmos do Azure e selecione o emulador na lista de aplicativos":::
 
 Você também pode iniciar e parar o emulador dos comandos da linha de comando ou do PowerShell. Para obter mais informações, consulte o artigo de [referência da ferramenta de linha de comando](emulator-command-line-parameters.md) .
 
 Por padrão, o emulador Cosmos do Azure é executado no computador local ("localhost") escutando na porta 8081. O endereço é exibido como `https://localhost:8081/_explorer/index.html`. Se você fechar o Explorer e quiser reabri-lo mais tarde, poderá abrir a URL no navegador ou iniciá-lo no emulador Cosmos do Azure no ícone de bandeja do Windows, conforme mostrado abaixo.
 
-:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Iniciador do Data Explorer do emulador local do Azure Cosmos":::
+:::image type="content" source="./media/local-emulator/database-local-emulator-data-explorer-launcher.png" alt-text="Selecione o botão iniciar ou pressione a tecla Windows, comece digitando emulador Cosmos do Azure e selecione o emulador na lista de aplicativos":::
 
 ## <a name="use-the-emulator-on-docker-for-windows"></a><a id="run-on-windows-docker"></a>Usar o emulador no Docker for Windows
 
@@ -289,7 +289,7 @@ Use as seguintes etapas se estiver trabalhando no Mac:
 
 1. Abra o menu de contexto desse item específico, selecione *Obter Item* e, na opção *Confiar* > *Ao usar este certificado*, selecione *Sempre Confiar*. 
 
-   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Abra o menu de contexto desse item específico, selecione Obter Item e, na opção Confiar – Ao usar este certificado, selecione Sempre Confiar":::
+   :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Selecione o botão iniciar ou pressione a tecla Windows, comece digitando emulador Cosmos do Azure e selecione o emulador na lista de aplicativos":::
   
 ### <a name="option-2-disable-the-ssl-validation-in-the-application"></a><a id="disable-ssl-validation"></a>Opção 2: desabilitar a validação de SSL no aplicativo
 

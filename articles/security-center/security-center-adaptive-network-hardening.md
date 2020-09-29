@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e8aea9b8abb5926fdb73df7c140ecfec1114f7a0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b47646e2f051a8fbfefbc36aa879bb80e9eca68
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894770"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439022"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
 Saiba como configurar a proteção de rede adaptável na central de segurança do Azure.
@@ -29,7 +29,7 @@ Saiba como configurar a proteção de rede adaptável na central de segurança d
 |Estado da versão:|GA (em disponibilidade geral)|
 |Refere|Requer o [Azure defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|Permissões de gravação no NSGs da máquina|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) National/soberanas (US Gov, China gov, outros gov)|
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>O que é a proteção de rede adaptável?
