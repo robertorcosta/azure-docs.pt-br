@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8ffad738a8f10816f26760fa34c5ce686fac5bad
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 428c24236aad9a57a9d52eb0a6ff3a7aeb9fe541
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401139"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442146"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
@@ -70,7 +70,7 @@ Para este exercício, você pode combinar as configurações, ou simplesmente es
 
 * [VNets que residem na mesma assinatura:](#samesub) As etapas para essa configuração usam TestVNet1 e TestVNet4.
 
-  ![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+  ![Diagrama que mostra as etapas de rede V de rede a v para as redes V que residem na mesma assinatura.](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 * [VNets que residem em assinaturas diferentes:](#difsub) As etapas para essa configuração usam TestVNet1 e TestVNet5.
 
@@ -124,7 +124,7 @@ Usamos os seguintes valores nos exemplos:
 
 ### <a name="step-2---create-and-configure-testvnet1"></a><a name="TestVNet1"></a>Etapa 2: Criar e configurar o TestVNet1
 
-1. Crie um grupo de recursos.
+1. Crie um grupos de recursos.
 
    ```azurecli
    az group create -n TestRG1  -l eastus
@@ -162,7 +162,7 @@ Usamos os seguintes valores nos exemplos:
 
 ### <a name="step-3---create-and-configure-testvnet4"></a><a name="TestVNet4"></a>Etapa 3: criar e configurar TestVNet4
 
-1. Crie um grupo de recursos.
+1. Crie um grupos de recursos.
 
    ```azurecli
    az group create -n TestRG4  -l westus

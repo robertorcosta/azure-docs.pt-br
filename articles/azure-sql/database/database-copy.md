@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: f6a3ccbcdb3d29434b196dbf75dc61c4177de271
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284271"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443779"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copiar uma cópia transacionalmente consistente de um banco de dados no banco de dados SQL do Azure
 
@@ -26,7 +26,10 @@ O banco de dados SQL do Azure fornece vários métodos para criar uma cópia de 
 
 ## <a name="overview"></a>Visão geral
 
-Uma cópia de banco de dados é um instantâneo transacionalmente consistente do banco de dados de origem a partir de um ponto no tempo depois que a solicitação de cópia é iniciada. Você pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Além disso, você pode optar por manter a camada de serviço e o tamanho de computação do banco de dados de origem, ou usar um tamanho de computação diferente dentro da mesma camada de serviço ou em outra. Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Os logons, os usuários e as permissões no banco de dados copiado são gerenciados independentemente do banco de dados de origem. A cópia é criada usando a tecnologia de replicação geográfica. Depois que a propagação de réplica for concluída, o link de replicação geográfica será encerrado automaticamente. Todos os requisitos para usar a replicação geográfica se aplicam à operação de cópia do banco de dados. Consulte [visão geral da replicação geográfica ativa](active-geo-replication-overview.md) para obter detalhes.
+Uma cópia de banco de dados é um instantâneo transacionalmente consistente do banco de dados de origem a partir de um ponto no tempo depois que a solicitação de cópia é iniciada. Você pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Além disso, você pode optar por manter a redundância de backup, a camada de serviço e o tamanho de computação do banco de dados de origem, ou usar uma redundância de armazenamento de backup diferente e/ou o tamanho de computação na mesma camada de serviço ou em outra. Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Os logons, os usuários e as permissões no banco de dados copiado são gerenciados independentemente do banco de dados de origem. A cópia é criada usando a tecnologia de replicação geográfica. Depois que a propagação de réplica for concluída, o link de replicação geográfica será encerrado automaticamente. Todos os requisitos para usar a replicação geográfica se aplicam à operação de cópia do banco de dados. Consulte [visão geral da replicação geográfica ativa](active-geo-replication-overview.md) para obter detalhes.
+
+> [!NOTE]
+> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente somente na visualização pública na região do sudeste asiático do Azure. Na visualização, se o banco de dados de origem for criado com redundância de armazenamento de backup com redundância local ou de zona, a cópia de banco de dados para um servidor em uma região diferente do Azure não terá suporte. 
 
 ## <a name="logins-in-the-database-copy"></a>Logons na cópia do banco de dados
 
@@ -84,6 +87,9 @@ Comece a copiar o banco de dados de origem com o [criar banco de dados... COMO c
 > [!NOTE]
 > Encerrar a instrução T-SQL não encerra a operação de cópia de banco de dados. Para encerrar a operação, descarte o banco de dados de destino.
 >
+
+> [!IMPORTANT]
+> Selecionando redundância de armazenamento de backup ao usar o T-SQL criar banco de dados... Ainda não há suporte para a cópia do comando. 
 
 ### <a name="copy-to-the-same-server"></a>Copiar para o mesmo servidor
 
@@ -171,7 +177,7 @@ Para saber mais sobre como gerenciar usuários e logons ao copiar um banco de da
 
 Os erros a seguir podem ser encontrados durante a cópia de um banco de dados no Banco de Dados SQL do Azure. Para saber mais, confira [Copiar um Banco de Dados SQL do Azure](database-copy.md).
 
-| Código do erro | Gravidade | Descrição |
+| Código do erro | Severidade | Descrição |
 | ---:| ---:|:--- |
 | 40635 |16 |O cliente com endereço IP “%.&#x2a;ls” está desabilitado temporariamente. |
 | 40637 |16 |A criação da cópia do banco de dados está desabilitada no momento. |

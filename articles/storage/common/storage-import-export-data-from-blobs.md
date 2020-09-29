@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275194"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441885"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
 
@@ -119,7 +119,7 @@ Quando o painel informa que o trabalho foi concluído, os discos são enviados a
 1. Depois de receber as unidades com dados exportados, você precisa obter as chaves do BitLocker para desbloquear as unidades. Vá para o trabalho de exportação no portal do Azure. Clique na guia **Importação/Exportação**.
 2. Selecione e clique no trabalho de exportação da lista. Vá para **criptografia** e copie as chaves.
 
-   ![Exibir chaves do BitLocker para um trabalho de exportação](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
+   ![Exibir chaves do BitLocker para um trabalho de exportação](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Use as chaves do BitLocker para desbloquear os discos.
 

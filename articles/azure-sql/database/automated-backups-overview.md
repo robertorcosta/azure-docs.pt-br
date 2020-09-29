@@ -9,14 +9,14 @@ ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, sstein, danil
-ms.date: 08/04/2020
-ms.openlocfilehash: 24611853749a5fa675b8c26d5e27c18e44590eaf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.reviewer: mathoma, carlrab, danil
+ms.date: 09/25/2020
+ms.openlocfilehash: b28c175656b0951980f861198c93ccd794605839
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284713"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444293"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -38,22 +38,21 @@ Quando você restaura um banco de dados, o serviço determina quais backups comp
 
 Por padrão, o banco de dados SQL e o SQL Instância Gerenciada armazenam em [blobs de armazenamento](../../storage/common/storage-redundancy.md) com redundância geográfica (ra-grs) que são replicados para uma [região emparelhada](../../best-practices-availability-paired-regions.md). Isso ajuda a proteger contra interrupções que afetam o armazenamento de backup na região primária e permite que você restaure o servidor para uma região diferente em caso de desastre. 
 
-O SQL Instância Gerenciada introduz a capacidade de alterar a redundância de armazenamento para BLOBs de armazenamento com redundância local (LRS) ou com redundância de zona (ZRS) para garantir que seus dados permaneçam na mesma região em que a instância gerenciada está implantada. Os mecanismos de redundância de armazenamento armazenam várias cópias de seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas transitórias de hardware, interrupções de rede ou energia ou desastres maciços naturais. 
+A opção de configurar a redundância de armazenamento de backup fornece a flexibilidade para escolher entre os blobs de armazenamento com redundância local, com redundância de zona ou com redundância geográfica para um SQL Instância Gerenciada ou um banco de dados SQL. Para garantir que seus dados permaneçam na mesma região onde sua instância gerenciada ou banco de dados SQL está implantado, você pode alterar a redundância de armazenamento de backup com redundância geográfica padrão e configurar blobs de armazenamento redundantes localmente (LRS) ou com redundância de zona (ZRS) para backups. Os mecanismos de redundância de armazenamento armazenam várias cópias de seus dados para que eles sejam protegidos contra eventos planejados e não planejados, incluindo falhas transitórias de hardware, interrupções de rede ou energia ou desastres maciços naturais. A redundância de armazenamento de backup configurada é aplicada a configurações de retenção de backup de curto prazo usadas para PITR (restauração pontual) e backups de retenção de longo prazo usados para EPD (backups de longo prazo). 
 
-A opção de configurar a redundância de armazenamento de backup fornece a flexibilidade para escolher entre os blobs de armazenamento LRS, ZRS ou RA-GRS para um SQL Instância Gerenciada. Configure a redundância de armazenamento de backup durante o processo de criação de instância gerenciada assim que o recurso for provisionado, não será mais possível alterar a redundância de armazenamento. (O ZRS (armazenamento com redundância de zona) está disponível atualmente apenas em [determinadas regiões](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
+Para um banco de dados SQL, a redundância de armazenamento de backup pode ser configurada no momento da criação do banco de dados ou pode ser atualizada para um banco de dados existente; as alterações feitas em um banco de dados existente se aplicam somente a backups futuros. Depois que a redundância de armazenamento de backup de um banco de dados existente é atualizada, pode levar até 48 horas para que as alterações sejam aplicadas. Observe que, a restauração geográfica é desabilitada assim que um banco de dados é atualizado para usar o armazenamento local ou com redundância de zona. 
 
 
 > [!IMPORTANT]
-> No SQL Instância Gerenciada, a redundância de backup configurada é aplicada a configurações de retenção de backup de curto prazo que são usadas para PITR (restauração pontual) e backups de retenção de longo prazo usados para EPD (backups de longo prazo).
+> Configure a redundância de armazenamento de backup durante o processo de criação de instância gerenciada assim que o recurso for provisionado, não será mais possível alterar a redundância de armazenamento. 
 
+> [!IMPORTANT]
+> Atualmente, o armazenamento com redundância de zona só está disponível em [determinadas regiões](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente como uma visualização privada limitada para determinados clientes na região do Sudeste Asiático Azure. Se você quiser ser considerado para o registro nesta versão prévia privada, entre em contato com [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com) . 
-
-Se suas regras de proteção de dados exigirem que os backups estejam disponíveis por um tempo estendido (até 10 anos), você poderá configurar a [retenção de longo prazo](long-term-retention-overview.md) para bancos de dados únicos e em pool.
+> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente somente na visualização pública na região do sudeste asiático do Azure.  
 
 ### <a name="backup-usage"></a>Uso do backup
-
 
 Use esses backups para:
 
@@ -61,7 +60,7 @@ Use esses backups para:
 - **Restauração pontual do banco de dados excluído**  -  [Restaure um banco de dados excluído no momento da exclusão](recovery-using-backups.md#deleted-database-restore) ou em qualquer ponto no tempo dentro do período de retenção. O banco de dados excluído só pode ser restaurado no mesmo servidor ou instância gerenciada em que o banco de dados original foi criado. Ao excluir um banco de dados, o serviço usa um backup de log de transações final antes da exclusão, para evitar qualquer perda de dados.
 - **Restauração geográfica**  -  [Restaure um banco de dados para outra região geográfica](recovery-using-backups.md#geo-restore). A restauração geográfica permite que você se recupere de um desastre geográfico quando não é possível acessar seu banco de dados ou backups na região primária. Ele cria um novo banco de dados em qualquer servidor ou instância gerenciada existente, em qualquer região do Azure.
    > [!IMPORTANT]
-   > A restauração geográfica está disponível somente para instâncias gerenciadas com armazenamento de backup com redundância geográfica (RA-GRS) configurado.
+   > A restauração geográfica está disponível somente para bancos de dados SQL ou instâncias gerenciadas configuradas com armazenamento de backup com redundância geográfica.
 - **Restaurar do backup**  -  de longo prazo [Restaure um banco de dados de um backup de longo prazo específico](long-term-retention-overview.md) de um banco de dados individual ou de um banco de dados em pool, se o banco de dados tiver sido configurado com uma EPD (política de retenção de longo prazo). A LTR permite que você restaure uma versão antiga do banco de dados usando o [portal do Azure](long-term-backup-retention-configure.md#using-the-azure-portal) ou o [Azure PowerShell](long-term-backup-retention-configure.md#using-powershell) para atender a uma solicitação de conformidade ou para executar uma versão antiga do aplicativo. Para obter mais informações, consulte [Retenção de longo prazo](long-term-retention-overview.md).
 
 Para executar uma restauração, consulte [Restaurar um banco de dados de backups](recovery-using-backups.md).
@@ -136,6 +135,9 @@ A retenção de backup para fins de PITR nos últimos 1-35 dias é, às vezes, c
 
 Para o banco de dados SQL e o SQL Instância Gerenciada, você pode configurar a EPD (retenção de longo prazo) de backup completo por até 10 anos no armazenamento de BLOBs do Azure. Depois que a política EPD é configurada, os backups completos são copiados automaticamente para um contêiner de armazenamento diferente semanalmente. Para atender a vários requisitos de conformidade, você pode selecionar períodos de retenção diferentes para backups completos semanais, mensais e/ou anuais. O consumo de armazenamento depende da frequência selecionada e dos períodos de retenção de backups EPD. Você pode usar a [Calculadora de preços de LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) para estimar o custo do armazenamento de LTR.
 
+> [!IMPORTANT]
+> Atualizar a redundância de armazenamento de backup para um banco de dados SQL do Azure existente só se aplica aos backups futuros feitos para o banco de dados. Todos os backups EPD existentes para o banco de dados continuarão a residir no blob de armazenamento existente e os novos backups serão armazenados no tipo de blob de armazenamento solicitado. 
+
 Para obter mais informações sobre LTR, confira [Retenção de backup de longo prazo](long-term-retention-overview.md).
 
 ## <a name="storage-costs"></a>Custos de armazenamento
@@ -162,7 +164,7 @@ Para instâncias gerenciadas, o tamanho total de armazenamento de backup cobráv
 
 `Total billable backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
 
-O armazenamento de backup cobrável total, se houver, será cobrado em GB/mês. Esse consumo de armazenamento de backup dependerá da carga de trabalho e do tamanho de bancos de dados individuais, pools elásticos e instâncias gerenciadas. Bancos de dados muito modificados têm backups diferenciais e de log maiores, pois o tamanho desses backups é proporcional à quantidade de alterações de dado. Portanto, esses bancos de dados terão encargos de backup maiores.
+O armazenamento de backup cobrável total, se houver, será cobrado em GB/mês, de acordo com a taxa de redundância de armazenamento de backup usada. Esse consumo de armazenamento de backup dependerá da carga de trabalho e do tamanho de bancos de dados individuais, pools elásticos e instâncias gerenciadas. Bancos de dados muito modificados têm backups diferenciais e de log maiores, pois o tamanho desses backups é proporcional à quantidade de alterações de dado. Portanto, esses bancos de dados terão encargos de backup maiores.
 
 O banco de dados SQL e o SQL Instância Gerenciada calcula seu armazenamento de backup cobrável total como um valor cumulativo em todos os arquivos de backup. A cada hora, esse valor é relatado para o pipeline de cobrança do Azure, que agrega esse uso por hora para obter o consumo de armazenamento de backup no final de cada mês. Se um banco de dados for excluído, o consumo de armazenamento de backup diminuirá gradualmente conforme os backups mais antigos expirarem e serão excluídos. Como backups diferenciais e backups de log exigem que um backup completo anterior seja restaurável, todos os três tipos de backup são limpos juntos em conjuntos semanais. Depois que todos os backups forem excluídos, a cobrança será interrompida. 
 
@@ -184,13 +186,13 @@ A redundância de armazenamento de backup afeta os custos de backup da seguinte 
 Para obter mais detalhes sobre preços de armazenamento de backup, visite a página de [preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) e a [página de preços do SQL instância gerenciada](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)
 
 > [!IMPORTANT]
-> A redundância de armazenamento configurável para backups está disponível atualmente somente para o SQL Instância Gerenciada e só pode ser especificada durante o processo de criação de instância gerenciada. Depois que o recurso for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup.
+> A redundância de armazenamento de backup configurável para a instância gerenciada do SQL está disponível em todas as regiões do Azure e atualmente disponível somente na região do sudeste asiático do Azure para o banco de dados SQL. Por Instância Gerenciada ele só pode ser especificado durante o processo de criação de instância gerenciada. Depois que o recurso for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup.
 
 ### <a name="monitor-costs"></a>Monitorar custos
 
 Para entender os custos de armazenamento de backup, vá para **Gerenciamento de custos + Cobrança** no portal do Azure, selecione **Gerenciamento de Custos**e, em seguida,  **Análise de custo**. Selecione a assinatura desejada como **Escopo** e, em seguida, filtre o período de tempo e o serviço nos quais você está interessado.
 
-Adicione um filtro para o **Nome do serviço**e, em seguida, selecione **banco de dados sql** na lista suspensa. Use o filtro **subcategoria de medidor** para escolher o contador de cobrança para seu serviço. Para um único banco de dados ou um pool de banco de dados elástico, selecione **armazenamento de backup de recuperação pontual individual/elástico**. Para uma instância gerenciada, selecione **armazenamento de backup de recuperação pontual da instância gerenciada**. As subcategorias **Armazenamento** e **Computação** também podem lhe interessar, mas elas não estão associadas aos custos de armazenamento de backup.
+Adicione um filtro para o **Nome do serviço**e, em seguida, selecione **banco de dados sql** na lista suspensa. Use o filtro **subcategoria de medidor** para escolher o contador de cobrança para seu serviço. Para um único banco de dados ou um pool de banco de dados elástico, selecione **pool único/elástico PITR armazenamento de backup**. Para uma instância gerenciada, selecione **PITR armazenamento de backup de mi**. As subcategorias **Armazenamento** e **Computação** também podem lhe interessar, mas elas não estão associadas aos custos de armazenamento de backup.
 
 ![Análise de custo de armazenamento de backup](./media/automated-backups-overview/check-backup-storage-cost-sql-mi.png)
 
@@ -369,17 +371,80 @@ Para obter mais informações, confira [API REST de retenção de backup](https:
 ## <a name="configure-backup-storage-redundancy"></a>Configurar a redundância de armazenamento de backup
 
 > [!NOTE]
-> A redundância de armazenamento configurável para backups está disponível atualmente somente para o SQL Instância Gerenciada e só pode ser especificada durante o processo de criação de instância gerenciada. Depois que o recurso for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup.
+> A redundância de armazenamento configurável para backups para SQL Instância Gerenciada só pode ser especificada durante o processo de criação de instância gerenciada. Depois que o recurso for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup. Para o banco de dados SQL, a visualização pública desse recurso está disponível no momento apenas na região do sudeste asiático do Azure. 
 
-Uma redundância de armazenamento de backup de uma instância gerenciada pode ser definida somente durante a criação da instância. O valor padrão é armazenamento com redundância geográfica (RA-GRS). Para obter diferenças no preço entre o armazenamento de backup com redundância local (LRS), com redundância de zona (ZRS) e com redundância geográfica (RA-GRS), visite a [página de preços da instância gerenciada](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+Uma redundância de armazenamento de backup de uma instância gerenciada pode ser definida somente durante a criação da instância. Para um banco de dados SQL, ele pode ser definido ao criar o banco de dados ou pode ser atualizado para um banco de dados existente. O valor padrão é armazenamento com redundância geográfica (RA-GRS). Para obter diferenças no preço entre o armazenamento de backup com redundância local (LRS), com redundância de zona (ZRS) e com redundância geográfica (RA-GRS), visite a [página de preços da instância gerenciada](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### <a name="configure-backup-storage-redundancy-by-using-the-azure-portal"></a>Configurar a redundância de armazenamento de backup usando o portal do Azure
 
+#### <a name="sql-database"></a>[Banco de Dados SQL](#tab/single-database)
+
+No portal do Azure, você pode configurar a redundância de armazenamento de backup na folha **criar banco de dados SQL** . A opção está disponível na seção redundância de armazenamento de backup. 
+![Abrir folha criar banco de dados SQL](./media/automated-backups-overview/sql-database-backup-storage-redundancy.png)
+
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
+
 No portal do Azure, a opção de alterar a redundância de armazenamento de backup está localizada na folha **computação + armazenamento** acessível na opção **Configurar instância gerenciada** na guia **noções básicas** ao criar o instância gerenciada SQL.
-![Abrir computação + configuração de armazenamento-folha](./media/automated-backups-overview/open-configuration-blade-mi.png)
+![Abrir computação + configuração de armazenamento-folha](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
 Localize a opção para selecionar redundância de armazenamento de backup na folha **computação + armazenamento** .
-![Configurar a redundância de armazenamento de backup](./media/automated-backups-overview/select-backup-storage-redundancy-mi.png)
+![Configurar a redundância de armazenamento de backup](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
+
+---
+
+### <a name="configure-backup-storage-redundancy-by-using-powershell"></a>Configurar a redundância de armazenamento de backup usando o PowerShell
+
+#### <a name="sql-database"></a>[Banco de Dados SQL](#tab/single-database)
+
+Para configurar a redundância de armazenamento de backup ao criar um novo banco de dados, você pode especificar o parâmetro-BackupStoageRedundancy. Os valores possíveis são geo, zona e local. Por padrão, todos os bancos de dados SQL usam o armazenamento com redundância geográfica para backups. A restauração geográfica será desabilitada se um banco de dados for criado com armazenamento de backup local ou com redundância de zona. 
+
+```powershell
+# Create a new database with geo-redundant backup storage.  
+New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Geo
+```
+
+Para obter detalhes [, visite New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase).
+
+Para atualizar a redundância de armazenamento de backup de um banco de dados existente, você pode usar o parâmetro-BackupStorageRedundancy. Os valores possíveis são geo, zona e local.
+Observe que, pode levar até 48 horas para que as alterações sejam aplicadas no banco de dados. Alternar do armazenamento de backup com redundância geográfica para o armazenamento local ou com redundância de zona desabilita a restauração geográfica. 
+
+```powershell
+# Change the backup storage redundancy for Database01 to zone-redundant. 
+Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
+```
+
+Para obter detalhes [, visite Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
+
+
+#### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
+
+Para configurar a redundância de armazenamento de backup durante a criação da instância gerenciada, você pode especificar o parâmetro-BackupStoageRedundancy. Os valores possíveis são geo, zona e local.
+
+```powershell
+New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
+```
+
+Para obter mais detalhes [, visite New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+
+## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Usar Azure Policy para impor a redundância de armazenamento de backup
+
+Se você tiver requisitos de residência de dados que exigem que você mantenha todos os seus dados em uma única região do Azure, talvez queira impor backups com redundância de zona ou localmente para o banco de dados SQL ou Instância Gerenciada usando Azure Policy. Azure Policy é um serviço que você pode usar para criar, atribuir e gerenciar políticas que aplicam regras aos recursos do Azure. Azure Policy ajuda a manter esses recursos em conformidade com seus padrões corporativos e contratos de nível de serviço. Para saber mais, confira [Visão geral do Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview). 
+
+### <a name="built-in-backup-storage-redundancy-policies"></a>Políticas internas de redundância de armazenamento de backup 
+
+As novas políticas internas a seguir são adicionadas, que podem ser atribuídas no nível de assinatura ou grupo de recursos para bloquear a criação de novos bancos de dados ou instâncias com o armazenamento de backup com redundância geográfica. 
+
+[O banco de dados SQL deve evitar o uso de redundância de backup GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13)
+
+[Instâncias gerenciadas do SQL devem evitar o uso de redundância de backup GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
+
+Uma lista completa de definições de políticas internas para o banco de dados SQL e Instância Gerenciada pode ser encontrada [aqui](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
+
+Para impor os requisitos de residência de dados em um nível organizacional, essas políticas podem ser atribuídas a uma assinatura. Depois que eles são atribuídos em um nível de assinatura, os usuários na assinatura específica não poderão criar um banco de dados ou uma instância gerenciada com armazenamento de backup com redundância geográfica via portal do Azure ou Azure PowerShell. Observe que, as políticas do Azure não são impostas ao criar um banco de dados via T-SQL. 
+
+Saiba como atribuir políticas usando o [portal do Azure](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) ou [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 

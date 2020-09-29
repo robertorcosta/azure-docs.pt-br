@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: duau
-ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398742"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442357"
 ---
 # <a name="wildcard-domains"></a>Domínios curinga
 
@@ -72,7 +72,7 @@ Se não quiser que uma política de WAF seja executada para um subdomínio, voc�
 Ao configurar uma regra de roteamento, você pode selecionar um domínio curinga como um host de front-end. Você também pode ter um comportamento de rota diferente para domínios e subdomínios curinga. Conforme descrito em [como a porta frontal do Azure faz a correspondência de rota](front-door-route-matching.md), a correspondência mais específica para o domínio em diferentes regras de roteamento é escolhida em tempo de execução.
 
 > [!IMPORTANT]
-> Você deve ter padrões de caminho correspondentes em suas regras de roteamento ou seus clientes verão falhas. Por exemplo, você tem duas regras de roteamento como A rota 1 ( `*.foo.com/*` mapeadas para o pool de back-end a) e a rota 2 ( `bar.foo.com/somePath/*` mapeadas para o pool de back-ends B). Em seguida, chega uma solicitação para `bar.foo.com/anotherPath/*` . A porta frontal do Azure seleciona a rota 2 com base em uma correspondência de domínio mais específica, apenas para não encontrar nenhum padrão de caminho correspondente entre as rotas.
+> Você deve ter padrões de caminho correspondentes em suas regras de roteamento ou seus clientes verão falhas. Por exemplo, você tem duas regras de roteamento como A rota 1 ( `*.foo.com/*` mapeadas para o pool de back-end a) e a rota 2 ( `/bar.foo.com/somePath/*` mapeadas para o pool de back-ends B). Em seguida, chega uma solicitação para `bar.foo.com/anotherPath/*` . A porta frontal do Azure seleciona a rota 2 com base em uma correspondência de domínio mais específica, apenas para não encontrar nenhum padrão de caminho correspondente entre as rotas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

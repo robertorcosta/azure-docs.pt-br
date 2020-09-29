@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 29187ef99ce6628359819739ab5e4b34213eeb8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526877"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441634"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar a Autenticação Multifator do Azure
 
@@ -57,7 +57,7 @@ Para definir as configurações de bloqueio de conta, conclua as seguintes confi
 
 ## <a name="block-and-unblock-users"></a>Bloquear e desbloquear usuários
 
-Se o dispositivo de um usuário tiver sido perdido ou roubado, você poderá bloquear tentativas de autenticação para a conta associada. Qualquer tentativa de autenticação de usuários bloqueados é negada automaticamente. Os usuários permanecem bloqueados por 90 dias a contar do momento em que são bloqueados.
+Se o dispositivo de um usuário tiver sido perdido ou roubado, você poderá bloquear as tentativas de autenticação multifator do Azure para a conta associada. Qualquer tentativa de autenticação multifator do Azure para usuários bloqueados é negada automaticamente. Os usuários permanecem bloqueados por 90 dias a contar do momento em que são bloqueados.
 
 ### <a name="block-a-user"></a>Bloquear um usuário
 
@@ -85,7 +85,7 @@ O recurso de alerta de fraude permite que os usuários relatem tentativas fraudu
 
 As seguintes opções de configuração de alerta de fraude estão disponíveis:
 
-* **Bloquear automaticamente os usuários que relatam fraude**: se um usuário relatar fraude, sua conta ficará bloqueada por 90 dias ou até que um administrador desbloqueie sua conta. Um administrador pode examinar as entradas usando o relatório de entrada e tomar as devidas ações para evitar futuras fraudes. Um administrador pode, então, [desbloquear](#unblock-a-user) a conta do usuário.
+* **Bloquear automaticamente os usuários que relatam fraude**: se um usuário relatar fraude, as tentativas de autenticação do Azure MFA para a conta de usuário serão bloqueadas por 90 dias ou até que um administrador desbloqueie sua conta. Um administrador pode examinar as entradas usando o relatório de entrada e tomar as devidas ações para evitar futuras fraudes. Um administrador pode, então, [desbloquear](#unblock-a-user) a conta do usuário.
 * **Código para relatar fraude durante a saudação inicial**: quando os usuários recebem uma chamada telefônica para executar a autenticação multifator, eles normalmente pressionam **#** para confirmar sua entrada. Para relatar fraude, o usuário insere um código antes de pressionar **#** . Esse código é **0** por padrão, mas você pode personalizá-lo.
 
    > [!NOTE]

@@ -52,12 +52,14 @@
           href: vmsnapshot-linux.md
         - name: Windows
           href: vmsnapshot-windows.md
-    - name: Agente do observador de rede
+    - name: Extensão do Observador de Rede
       items:
         - name: Linux
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
+        - name: Atualizar para a versão mais recente
+          href: network-watcher-update.md
     - name: Drivers InfiniBand
       items:
         - name: Linux

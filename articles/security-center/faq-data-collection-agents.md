@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894821"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441485"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
 
@@ -166,7 +166,7 @@ Você pode desligar o provisionamento automático para suas assinaturas na polí
 
 1. Se sua assinatura tiver o Azure defender habilitado, abra a política de segurança para essa assinatura e selecione **Azure defender desativado**.
 
-   ![Tipo de preço][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Habilitar ou desabilitar o Azure defender":::
 
 1. Em seguida, desligue o provisionamento automático, selecionando **Desativar** na página **Política de segurança – Coleta de dados**.
    ![Coleta de dados][2]
@@ -200,7 +200,7 @@ Instale manualmente a extensão do agente do Log Analytics para que a Central de
 
 Você pode conectar o agente a qualquer workspace personalizado existente ou a um workspace criado pela Central de Segurança. Se um workspace personalizado não tiver as soluções 'Security' ou 'SecurityCenterFree' habilitadas, você precisará aplicar uma solução. Para aplicar, selecione o workspace ou a assinatura personalizada e aplique uma camada de preços na página **Política de segurança – tipo de preço**.
 
-   ![Tipo de preço][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Habilitar ou desabilitar o Azure defender":::
 
 A Central de Segurança habilitará a solução correta no workspace com base no tipo de preço selecionado.
 
@@ -271,7 +271,6 @@ O agente consome uma quantidade nominal de recursos do sistema e devem causar po
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png
