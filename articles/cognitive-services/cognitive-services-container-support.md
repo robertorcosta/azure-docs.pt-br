@@ -1,35 +1,38 @@
 ---
-title: Contêineres de serviços cognitivas do Azure
+title: Usar contêineres de serviços cognitivas do Azure local
 titleSuffix: Azure Cognitive Services
-description: Saiba como os contêineres do Docker podem tornar os Serviços Cognitivos mais próximos de seus dados.
+description: Saiba como usar contêineres do Docker para usar serviços cognitivas locais.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: local, Docker, contêiner, kubernetes
+ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906983"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461199"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contêineres de serviços cognitivas do Azure
 
 > [!WARNING]
 > Em 11 de junho de 2020, a Microsoft comunicou que não venderá tecnologia de reconhecimento facial a departamentos de polícia nos Estados Unidos até que um sólido regulamento, com base nos direitos humanos, seja aprovado. Desse modo, os clientes não poderão usar os recursos de reconhecimento facial ou a funcionalidade incluída nos Serviços do Azure, como Detecção Facial ou Video Indexer, se forem um departamento de polícia nos Estados Unidos ou permitirem o uso de desses serviços para e pela polícia.
 
-O suporte a contêineres nos serviços cognitivas do Azure permite que os desenvolvedores usem as mesmas APIs avançadas disponíveis no Azure, além de permitir flexibilidade em onde implantar e hospedar os serviços que acompanham os [contêineres do Docker](https://www.docker.com/what-container). Atualmente, o suporte a contêineres está disponível para um subconjunto de serviços cognitivas do Azure, incluindo partes do:
+Os serviços cognitivas do Azure fornecem vários [contêineres do Docker](https://www.docker.com/what-container) que permitem usar as mesmas APIs que estão disponíveis no Azure, no local. O uso desses contêineres oferece a flexibilidade de trazer serviços cognitivas mais perto de seus dados para fins de conformidade, segurança ou outras razões operacionais. 
+
+Atualmente, o suporte a contêineres está disponível para um subconjunto de serviços cognitivas do Azure, incluindo partes do:
 
 > [!div class="checklist"]
 > * [Detector de Anomalias][ad-containers]
 > * [Pesquisa Visual Computacional][cv-containers]
 > * [Detecção Facial][fa-containers]
 > * [Reconhecimento de Formulários][fr-containers]
-> * [Reconhecimento vocal (LUIS)][lu-containers]
+> * [Reconhecimento Vocal (LUIS)][lu-containers]
 > * [API do Serviço de Fala][sp-containers]
 > * [Análise de Texto][ta-containers]
 
@@ -42,9 +45,9 @@ Os recursos de serviços cognitivas estão disponíveis em [Microsoft Azure](htt
 ## <a name="features-and-benefits"></a>Características e benefícios
 
 - **Infraestrutura imutável**: habilite as equipes do DevOps para aproveitar um conjunto consistente e confiável de parâmetros de sistema conhecidos, além de ser capaz de se adaptar a alterações. Os contêineres fornecem a flexibilidade para dinamizar em um ecossistema previsível e evitar descompassos de configuração.
-- **Controle sobre os dados**: permite que os clientes escolham onde esses serviços cognitivas processam seus dados. Isso é essencial para clientes que não podem enviar dados para a nuvem, mas precisam acessar a tecnologia de Serviços Cognitivos. Suporte para consistência em ambientes híbridos – entre dados, gerenciamento, identidade e segurança.
-- **Controle sobre atualizações de modelos**: fornecer aos clientes flexibilidade na versão e atualização dos modelos implantados nas soluções.
-- **Arquitetura portátil**: habilite a criação de uma arquitetura de aplicativo portátil que pode ser implantada no Azure, no local e na borda. Os contêineres podem ser implantados diretamente no [Serviço de Kubernetes do Azure](../aks/index.yml), nas [Instâncias de Contêiner do Azure](../container-instances/index.yml) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure-stack/operator). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Controle sobre os dados**: escolha onde seus dados são processados por serviços cognitivas. Isso pode ser essencial se você não puder enviar dados para a nuvem, mas precisar de acesso a API de Serviços Cognitivos. Suporte para consistência em ambientes híbridos – entre dados, gerenciamento, identidade e segurança.
+- **Controle sobre atualizações de modelo**: flexibilidade no controle de versão e atualização de modelos implantados em suas soluções.
+- **Arquitetura portátil**: habilita a criação de uma arquitetura de aplicativo portátil que pode ser implantada no Azure, no local e na borda. Os contêineres podem ser implantados diretamente no [Serviço de Kubernetes do Azure](../aks/index.yml), nas [Instâncias de Contêiner do Azure](../container-instances/index.yml) ou em um cluster do [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure-stack/operator). Para obter mais informações, consulte [Implantar Kubernetes no Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Alta taxa de transferência/baixa latência**: forneça aos clientes a capacidade de dimensionar para alta taxa de transferência e requisitos de baixa latência, permitindo que os serviços cognitivas sejam executados fisicamente em seus dados e lógica do aplicativo. Os contêineres não limitam as transações por segundo (TPS) e poderão ser escalados vertical e horizontalmente para lidar com a demanda se você fornecer os recursos de hardware necessários.
 - **Escalabilidade**: com a popularidade cada vez maior de contêineres e software de orquestração de contêiner, como kubernetes; a escalabilidade está no Forefront de avanços tecnológicos. Criando uma base de cluster escalonável, o desenvolvimento de aplicativos atende à alta disponibilidade.
 
@@ -79,7 +82,7 @@ Além disso, alguns contêineres têm suporte em chaves de recurso de oferta de 
 * Visual Computacional
 * Face
 * LUIS
-* Análise de Texto
+* Análise de texto
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilidade de contêiner nos Serviços Cognitivos do Azure
 

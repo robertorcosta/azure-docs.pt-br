@@ -4,12 +4,12 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 80b60e9f93720d0e06c1df1576834c5f462e7358
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449454"
+ms.locfileid: "91460077"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -211,6 +211,17 @@ Envie por push todas as métricas para Azure Monitor e consuma-as onde você pre
 ![Logotipo do QRadar](./media/partners/qradar.png)
 
 O Microsoft Azure DSM e protocolo de Hub de Eventos do Microsoft Azure estão disponíveis para download do [site de suporte da IBM](https://www.ibm.com/support). Você pode saber mais sobre a integração com o Azure na [documentação do QRadar](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+
+
+## <a name="rsa"></a>RSA
+
+![Logotipo da RSA](./media/partners/rsa.png)
+
+A plataforma RSA nettestemunha é uma plataforma líder de detecção de ameaças e resposta que reúne o SIEM e soluções de detecção e resposta estendidas. As soluções oferecem visibilidade, análise e recursos de resposta automatizados sem precedentes. Esses recursos combinados ajudam as equipes de segurança a trabalhar de forma mais eficiente e eficiente, nivelar suas habilidades de busca de ameaças e permitir que elas investiguem e respondam às ameaças com mais rapidez, em toda a infraestrutura da organização — seja na nuvem, local ou virtual. 
+
+A integração da plataforma RSA nettestemunha com o Azure Monitor fornece recursos rápidos para a ingestão de dados e logs de eventos de Azure Monitor nativamente na plataforma RSA nettestemunha por meio de uma interface do usuário intuitiva e recursos de análise nativos robustos. Ganhe visibilidade rápida em atividades, diagnósticos Active Directory eventos e outros dados do hub de eventos e veja esses dados junto com as outras informações de segurança corporativa em uma solução completa de detecção e resposta de ameaças.
+
+[Saiba mais.](https://community.rsa.com/docs/DOC-101239)
 
 
 ## <a name="sciencelogic"></a>ScienceLogic

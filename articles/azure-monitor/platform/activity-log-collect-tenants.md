@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cd0a510480673c48f23b25f48ead5d75e2d05c84
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321863"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447644"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Coletar logs de atividades do Azure em Azure Monitor entre locatários Azure Active Directory (Herdado)
 
@@ -102,7 +102,7 @@ O aplicativo lógico inclui o seguinte:
 - Uma [ação compor](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) para converter o JSON em um objeto.
 - Um [log Analytics enviar o conector de dados](/connectors/azureloganalyticsdatacollector/) para postar os dados para o espaço de trabalho log Analytics.
 
-   ![imagem de adição de gatilho do hub de eventos em aplicativos lógicos](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+   ![Captura de tela do designer do aplicativo lógico mostrando as etapas para coletar logs de atividade do hub de eventos e gravá-los no espaço de trabalho Log Analytics.](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="logic-app-requirements"></a>Requisitos do aplicativo lógico
 Antes de criar seu aplicativo lógico, verifique se que você tem as seguintes informações de etapas anteriores:
@@ -127,9 +127,9 @@ Para obter o cadeia de conexão e o nome do Hub de Eventos, siga as etapas em [V
    |Configuração | Descrição  |
    |:---|:---|
    | Nome           | Nome exclusivo para o aplicativo lógico. |
-   | Subscription   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
+   | Assinatura   | Selecione a assinatura do Azure que contém o aplicativo lógico. |
    | Grupo de recursos | Selecione um grupo de recursos do Azure existente ou crie um novo para o aplicativo lógico. |
-   | Location       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
+   | Local       | Selecione a região do datacenter para implantar seu aplicativo lógico. |
    | Log Analytics  | Selecione se você deseja registrar em log o status de cada execução do seu aplicativo lógico em um espaço de trabalho Log Analytics.  |
 
     
@@ -145,7 +145,7 @@ O Designer de Aplicativos Lógicos agora mostra os conectores disponíveis e seu
 
 1. Na caixa de pesquisa do Designer de Aplicativo Lógico, insira *hubs de eventos* para seu filtro. Selecione o gatilho **Hubs de Eventos - Quando os eventos estiverem disponíveis no Hub de Eventos**.
 
-   ![imagem de adição de gatilho do hub de eventos em aplicativos lógicos](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
+   ![Captura de tela do designer de aplicativo lógico com o gatilho "hubs de eventos – quando os eventos estão disponíveis no Hub de eventos" selecionado para o serviço de hubs de eventos.](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
 2. Quando você for solicitado a fornecer credenciais, conecte-se ao namespace do Hubs de Eventos. Insira um nome à sua conexão e, em seguida, a cadeia de conexão que você copiou.  Selecione **Criar**.
 
@@ -315,14 +315,14 @@ Com o fluxo de trabalho concluído, você pode testar no designer para verificar
 
 No Designer de Aplicativos Lógicos, clique em **Executar** para testar o aplicativo lógico. Cada etapa no aplicativo lógico mostra um ícone de status, com uma marca de seleção branca em um círculo verde, indicando êxito.
 
-   ![Testar aplicativo lógico](media/collect-activity-logs-subscriptions/test-logic-app.png)
+   ![Captura de tela do designer de aplicativo lógico após a execução de um teste. Cada etapa do aplicativo lógico tem uma marca de seleção indicando êxito.](media/collect-activity-logs-subscriptions/test-logic-app.png)
 
 Para ver informações detalhadas sobre cada etapa, clique no nome da etapa para expandi-lo. Clique em **Mostrar entradas brutas** e **Mostrar saídas brutas** para obter mais informações sobre os dados recebidos e enviados em cada etapa.
 
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Etapa 5 - Exibir o log de atividades do Azure no Log Analytics
 A etapa final é verificar o espaço de trabalho do Log Analytics para certificar-se de que os dados estão sendo coletados conforme o esperado.
 
-1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione o **Log Analytics**.
 2. Na lista de workspaces do Log Analytics, selecione um workspace.
 3.  Clique no bloco **Pesquisa de Logs** e, no painel da Pesquisa de Logs, no campo de consulta, digite `AzureActivity_CL` e, em seguida, pressione Enter ou clique no botão de pesquisa à direita do campo de consulta. Se você não nomeou seu log personalizado *AzureActivity*, digite o nome que você escolheu e acrescente `_CL`.
 
@@ -333,7 +333,7 @@ A etapa final é verificar o espaço de trabalho do Log Analytics para certifica
 > Os logs de atividade são gravados em uma tabela personalizada e não aparecem na [solução do log de atividades](./activity-log.md).
 
 
-![Testar aplicativo lógico](media/collect-activity-logs-subscriptions/log-analytics-results.png)
+![Captura de tela de uma pesquisa por AzureActivity_CL no painel pesquisa de log mostrando uma tabela de resultados com um resultado expandido para mostrar detalhes da atividade.](media/collect-activity-logs-subscriptions/log-analytics-results.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

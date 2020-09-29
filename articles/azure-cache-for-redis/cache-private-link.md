@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 932d138a4b594aa51b73c365cc3e753f49f886f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1bf204cb1eddb86daee604f791601bbf44884d50
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328951"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460060"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache do Azure para Redis com o link privado do Azure (visualização pública)
 Neste artigo, você aprenderá a criar uma rede virtual e um cache do Azure para a instância Redis com um ponto de extremidade privado usando o portal do Azure. Você também aprenderá a adicionar um ponto de extremidade privado a um cache do Azure existente para a instância do Redis.
@@ -24,7 +24,7 @@ O ponto de extremidade privado do Azure é uma interface de rede que conecta voc
 > [!NOTE]
 > Este recurso está atualmente em visualização pública para regiões limitadas. Se você não tiver a opção de criar um ponto de extremidade privado, [entre em contato conosco](mailto:azurecache@microsoft.com). Para usar pontos de extremidade privados, seu cache do Azure para instância Redis precisa ter sido criado após 28 de julho de 2020.
 >
-> Regiões com acesso de visualização pública atualmente: Oeste EUA Central, norte EUA Central, oeste dos EUA, leste dos EUA 2, Noruega Oriental, norte da Europa, leste da Ásia, leste do Japão e Índia central.
+> Regiões com acesso de visualização pública atualmente: Oeste EUA Central, norte EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA, leste dos EUA 2, Noruega Oriental, Noruega ocidental, norte da Europa, oeste da Europa, leste da Ásia, leste do Japão, Norte da Suíça, Índia central, EAU Central, Coreia central, Sul do Reino Unido, África do Sul, leste da Austrália, França central, Canadá central, Norte da Alemanha, Austrália Central, Índia ocidental e sul do Brasil.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Criar um ponto de extremidade privado com um novo cache do Azure para instância Redis 
@@ -71,7 +71,7 @@ Para criar uma instância de cache, siga estas etapas.
    
 1. Na página **Novo**, selecione **Bancos de dados** e, em seguida, **Cache do Azure para Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecione cache do Azure para Redis.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecione criar um recurso.":::
    
 1. Na página **Novo Cache Redis**, defina as configurações para o novo cache.
    
@@ -89,7 +89,7 @@ Para criar uma instância de cache, siga estas etapas.
 
 1. Clique no botão **Adicionar** para criar seu ponto de extremidade privado.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Em rede, adicione um ponto de extremidade privado.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Selecione criar um recurso.":::
 
 1. Na página **criar um ponto de extremidade privado** , defina as configurações para seu ponto de extremidade privado com a rede virtual e a sub-rede que você criou na última seção e selecione **OK**. 
 
@@ -153,7 +153,7 @@ Para criar um ponto de extremidade privado, siga estas etapas.
 
 1. Na portal do Azure, procure o **cache do Azure para Redis** e pressione Enter ou selecione-o nas sugestões de pesquisa.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Pesquise o cache do Azure para Redis.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Selecione criar um recurso.":::
 
 2. Selecione a instância de cache à qual você deseja adicionar um ponto de extremidade privado.
 
@@ -161,7 +161,7 @@ Para criar um ponto de extremidade privado, siga estas etapas.
 
 4. Clique no botão **ponto de extremidade privado** para criar seu ponto de extremidade privado.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Adicionar ponto de extremidade privado.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Selecione criar um recurso.":::
 
 5. Na **página criar um ponto de extremidade privado**, defina as configurações para seu ponto de extremidade privado.
 

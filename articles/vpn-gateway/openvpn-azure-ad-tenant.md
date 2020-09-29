@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1905db8f28bde41dadbe619894cb76830efca992
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981523"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445820"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um locatário do Azure Active Directory para conexões de protocolo P2S OpenVPN
 
@@ -47,7 +47,7 @@ Use as etapas [neste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 1. Localize a ID do diretório que você deseja usar para autenticação. Está listada na seção Propriedades da página Active Directory.
 
-    ![ID do Diretório](./media/openvpn-create-azure-ad-tenant/directory-id.png)
+    ![Captura de tela que mostra a página "Propriedades do diretório" com "ID do diretório" realçada.](./media/openvpn-create-azure-ad-tenant/directory-id.png)
 
 2. Copie a ID do diretório.
 
@@ -89,7 +89,7 @@ Use as etapas [neste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 7. Em seu Azure AD, em **aplicativos empresariais**, você vê a **VPN do Azure** listada.
 
-    ![VPN do Azure](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
+    ![Captura de tela que mostra a página "todos os aplicativos".](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
 8. Se você ainda não tiver um ambiente de ponto a site funcionando, siga as instruções para criar um. Consulte [criar uma VPN ponto a site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar um gateway de VPN ponto a site. 
 

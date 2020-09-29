@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1e88afd91c0e0b344cc0eb8d82b637a88d5a1656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440806"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447963"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Sobre o roteamento VPN Ponto a Site
 
 Este artigo ajuda você a entender como o roteamento de VPN Ponto a Site do Azure se comporta. O comportamento de roteamento de VPN P2S depende do sistema operacional do cliente, o protocolo usado para a conexão VPN e como as redes virtuais (VNets) são conectadas umas às outras.
 
-Azure atualmente oferece suporte a dois protocolos para acesso remoto, IKEv2 e SSTP. IKEv2 tem suporte em muitos sistemas operacionais de cliente, incluindo Windows, Linux, MacOS, Android e iOS. SSTP só tem suporte no Windows. Se você fizer uma alteração na topologia de rede e tiver clientes VPN do Windows, o pacote de cliente VPN para clientes do Windows deve ser baixado e instalado novamente para que as alterações sejam aplicadas ao cliente.
+Azure atualmente oferece suporte a dois protocolos para acesso remoto, IKEv2 e SSTP. O IKEv2 tem suporte em muitos sistemas operacionais clientes, incluindo Windows, Linux, macOS, Android e iOS. SSTP só tem suporte no Windows. Se você fizer uma alteração na topologia de rede e tiver clientes VPN do Windows, o pacote de cliente VPN para clientes do Windows deve ser baixado e instalado novamente para que as alterações sejam aplicadas ao cliente.
 
 > [!NOTE]
 > Este artigo se aplica somente a IKEv2.
@@ -195,7 +195,7 @@ Neste exemplo, a conexão de gateway VPN Ponto a Site é para VNet1. VNet1 é co
 
 Todos os clientes podem acessar apenas VNet1.
 
-![S2S e filial de vários VNet](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S e filial de vários VNet")
+![Diagrama que mostra um S2S de várias VNet e uma filial.](./media/vpn-gateway-about-point-to-site-routing/7.jpg "S2S e filial de vários VNet")
 
 ### <a name="address-space"></a>Espaço de endereço
 

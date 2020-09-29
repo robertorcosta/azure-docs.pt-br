@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b87f25f9424e8afebe601d2ff15330881d2173b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322148"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447720"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Criar respostas automáticas para alertas e recomendações com a automação do fluxo de trabalho
 
@@ -42,7 +42,7 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 
 1. Na barra lateral da central de segurança, selecione **automação de fluxo de trabalho**.
 
-    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista de automaçãos de fluxo de trabalho":::
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Lista de automaçãos de fluxo de trabalho&quot;:::
 
     Nessa página, você pode criar novas regras de automação, bem como habilitar, desabilitar ou excluir aquelas existentes.
 
@@ -50,10 +50,18 @@ Este artigo descreve o recurso de automação de fluxo de trabalho da central de
 
     Um painel é exibido com as opções para sua nova automação. Aqui você pode inserir:
     1. Um nome e uma descrição para a automação.
-    1. Os gatilhos que iniciarão esse fluxo de trabalho automático. Por exemplo, talvez você queira que seu aplicativo lógico seja executado quando um alerta de segurança que contenha "SQL" for gerado.
+    1. Os gatilhos que iniciarão esse fluxo de trabalho automático. Por exemplo, talvez você queira que seu aplicativo lógico seja executado quando um alerta de segurança que contenha &quot;SQL" for gerado.
     1. O aplicativo lógico que será executado quando suas condições de disparo forem atendidas. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Adicionar painel de automação de fluxo de trabalho":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Lista de automaçãos de fluxo de trabalho&quot;:::
+
+    Nessa página, você pode criar novas regras de automação, bem como habilitar, desabilitar ou excluir aquelas existentes.
+
+1. Para definir um novo fluxo de trabalho, clique em **Adicionar automação de fluxo de trabalho**. 
+
+    Um painel é exibido com as opções para sua nova automação. Aqui você pode inserir:
+    1. Um nome e uma descrição para a automação.
+    1. Os gatilhos que iniciarão esse fluxo de trabalho automático. Por exemplo, talvez você queira que seu aplicativo lógico seja executado quando um alerta de segurança que contenha &quot;SQL":::
 
 1. Na seção ações, clique em **criar um novo** para iniciar o processo de criação do aplicativo lógico.
 

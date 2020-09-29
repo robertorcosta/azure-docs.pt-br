@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942044"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447328"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erro de parada do Windows-informações de configuração do sistema inadequadas do 0x00000074
 
@@ -61,10 +61,10 @@ O código de **BAD_SYSTEM_CONFIG_INFO** Stop ocorrerá se o hive do registro do 
 1. Use as [etapas 1 a 3 dos comandos de reparo da VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar uma VM de reparo.
 1. Verifique se há danos no hive.
 1. Use Conexão de Área de Trabalho Remota para se conectar à VM de reparo.
-1. Copie a `\windows\system32\config` pasta e salve-a em sua partição de disco íntegra ou em outro local seguro. Faça backup dessa pasta como precaução, pois você editará arquivos de registro críticos.
+1. Copie a `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta e salve-a em sua partição de disco íntegra ou em outro local seguro. Faça backup dessa pasta como precaução, pois você editará arquivos de registro críticos. 
 
 > [!NOTE]
-> Faça uma cópia da `\windows\system32\config` pasta como um backup, caso precise reverter as alterações feitas no registro.
+> Faça uma cópia da `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta como um backup, caso precise reverter as alterações feitas no registro.
 
 ### <a name="check-for-hive-corruption"></a>Verificar corrupção do hive
 
@@ -72,7 +72,7 @@ As instruções a seguir ajudarão você a determinar se a causa foi devido à c
 
 1. Na VM de reparo, abra o aplicativo **Editor do registro** . Digite "REGEDIT" na barra de pesquisa do Windows para encontrá-lo.
 1. No editor do registro, selecione **HKEY_LOCAL_MACHINE** para realçá-lo e, em seguida, selecione **arquivo > Carregar Hive...**  no menu.
-1. Navegue até `\windows\system32\config\SYSTEM` e selecione **abrir**.
+1. Navegue até `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` e selecione **abrir**.
 1. Quando solicitado a inserir um nome, insira **BROKENSYSTEM**.
 
    1. Se o hive não for aberto, ou se estiver vazio, o hive será corrompido. Se o hive estiver corrompido, [abra um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

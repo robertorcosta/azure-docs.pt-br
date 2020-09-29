@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257482"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447828"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer acesso de módulos ao armazenamento local de um dispositivo
 
@@ -85,7 +85,7 @@ Você pode encontrar mais detalhes sobre como criar opções de [documentos do D
 
 ## <a name="encrypted-data-in-module-storage"></a>Dados criptografados no armazenamento de módulo
 
-Quando os módulos invocam a API de carga de trabalho do IoT Edge daemon para criptografar dados, a chave de criptografia é derivada usando a ID de módulo e a ID de geração do módulo. Uma ID de geração é usada para proteger os segredos se um módulo for removido da implantação e outro módulo com a mesma ID de módulo for implantado posteriormente no mesmo dispositivo. Você pode exibir a ID de geração de um módulo usando o comando CLI do Azure [AZ IOT Hub Module-identidade show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+Quando os módulos invocam a API de carga de trabalho do IoT Edge daemon para criptografar dados, a chave de criptografia é derivada usando a ID de módulo e a ID de geração do módulo. Uma ID de geração é usada para proteger os segredos se um módulo for removido da implantação e outro módulo com a mesma ID de módulo for implantado posteriormente no mesmo dispositivo. Você pode exibir a ID de geração de um módulo usando o comando CLI do Azure [AZ IOT Hub Module-identidade show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
 
 Se você quiser compartilhar arquivos entre os módulos entre gerações, eles não deverão conter segredos ou não serão descriptografados.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311556"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447923"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
 
@@ -46,6 +46,7 @@ Há vários pré-requisitos a serem considerados antes de tentar habilitar o aut
 - As VMs devem estar em uma região com suporte
 - O usuário deve ter as permissões corretas
 - As VMs não devem vincular a um espaço de trabalho do log Analytics em uma assinatura diferente
+- O autogerenci não dá suporte a assinaturas de área restrita no momento
 
 Você precisa ter a função de **colaborador** para habilitar o autogerencio usando uma conta de autogerenciamento existente. Se você estiver habilitando o autogerenciamento com uma nova conta de autogerenciamento, precisará das seguintes permissões: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
 
@@ -111,7 +112,7 @@ Na experiência de portal do Azure, quando você está habilitando o autogerenci
 
 Na portal do Azure, vá para a página **autogerenciar – práticas recomendadas da máquina virtual do Azure** que lista todas as VMs gerenciadas automaticamente. Aqui, você verá o status geral de cada máquina virtual.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista de máquinas virtuais configuradas.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Integração inteligente de serviços.":::
 
 Para cada VM listada, os seguintes detalhes são exibidos: nome, perfil de configuração, preferência de configuração, status, conta, assinatura e grupo de recursos.
 
@@ -129,7 +130,7 @@ Você pode decidir um dia para desabilitar o autogerenciamento em determinadas V
 
 Para fazer isso na portal do Azure, vá para a página **autogerenciar – práticas recomendadas da máquina virtual do Azure** que lista todas as suas VMs gerenciadas automaticamente. Marque a caixa de seleção ao lado da máquina virtual que você deseja desabilitar em autogerenciar e clique no botão **desabilitar autogerenciamento** .
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Desabilitar o Gerenciamento Automático em uma máquina virtual.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Integração inteligente de serviços.":::
 
 Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar**.
 

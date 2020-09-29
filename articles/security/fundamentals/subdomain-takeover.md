@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2020
+ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403204"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447372"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedir entradas DNS pendente e evitar subdomínio tomada
 
@@ -86,7 +86,7 @@ Se os CNAMEs estiverem em outros serviços DNS e apontarem para recursos do Azur
 A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A ferramenta extrai ou usa como entradas, todos os CNAMEs do locatário.
 
 
-| Serviço                   | Type                                        | FQDNproperty                               | Exemplo                         |
+| Serviço                   | Tipo                                        | FQDNproperty                               | Exemplo                         |
 |---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
 | Porta da frente do Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
 | Armazenamento do Blobs do Azure        | microsoft.storage/storageaccounts           | Propriedades. primaryEndpoints. blob           | `abc. blob.core.windows.net`    |
@@ -95,7 +95,7 @@ A ferramenta dá suporte aos recursos do Azure listados na tabela a seguir. A fe
 | Gerenciador de Tráfego do Azure     | microsoft.network/trafficmanagerprofiles    | Properties. dnsConfig. FQDN                  | `abc.trafficmanager.net`        |
 | Azure Container Instance  | microsoft.containerinstance/containergroups | Propriedades. ipAddress. FQDN                  | `abc.EastUs.azurecontainer.io`  |
 | Gerenciamento de API do Azure      | microsoft.apimanagement/service             | Propriedades. hostnameConfigurations. hostName | `abc.azure-api.net`             |
-| Serviço de aplicativo do Azure         | microsoft.web/sites                         | Propriedades. DefaultHostName                 | `abc.azurewebsites.net`         |
+| Serviço de Aplicativo do Azure         | microsoft.web/sites                         | Propriedades. DefaultHostName                 | `abc.azurewebsites.net`         |
 | Azure App slots de serviço | microsoft.web/sites/slots                   | Propriedades. DefaultHostName                 | `abc-def.azurewebsites.net`     |
 
 
@@ -107,11 +107,13 @@ Execute a consulta como um usuário que tem:
 - pelo menos acesso de nível de leitor às assinaturas do Azure
 - acesso de leitura ao grafo de recursos do Azure
 
-Se você for um administrador global do locatário de sua organização, eleve sua conta para ter acesso a todas as assinaturas da sua organização usando as diretrizes em [elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Se você for um administrador global do locatário de sua organização, eleve sua conta para ter acesso a todas as assinaturas da sua organização usando as diretrizes em [elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](../../role-based-access-control/elevate-access-global-admin.md).
 
 
 > [!TIP]
-> O grafo de recursos do Azure tem limites de limitação e de paginação que você deve considerar se tiver um ambiente grande do Azure. [Saiba mais](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) sobre como trabalhar com grandes conjuntos de dados de recursos do Azure. 
+> O grafo de recursos do Azure tem limites de limitação e de paginação que você deve considerar se tiver um ambiente grande do Azure. 
+> 
+> [Saiba mais sobre como trabalhar com grandes conjuntos de dados de recursos do Azure](../../governance/resource-graph/concepts/work-with-data.md).
 > 
 > A ferramenta usa o envio em lote de assinatura para evitar essas limitações.
 
@@ -145,7 +147,7 @@ Alguns serviços do Azure oferecem recursos para auxiliar na criação de medida
 
 ### <a name="use-azure-dns-alias-records"></a>Usar registros de alias do DNS do Azure
 
-Os registros de [alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios) do DNS do Azure podem impedir referências pendentes ao acoplar o ciclo de vida de um registro DNS com um recurso do Azure. Por exemplo, considere um registro DNS qualificado como um registro de alias para apontar para um endereço IP público ou um perfil do Gerenciador de Tráfego. Se você excluir esses recursos subjacentes, o registro de alias de DNS se tornará um conjunto de registros vazio. Ele não faz mais referência ao recurso excluído. É importante observar que há limites para o que você pode proteger com registros de alias. Hoje, a lista está limitada a:
+Os registros de [alias](../../dns/dns-alias.md#scenarios) do DNS do Azure podem impedir referências pendentes ao acoplar o ciclo de vida de um registro DNS com um recurso do Azure. Por exemplo, considere um registro DNS qualificado como um registro de alias para apontar para um endereço IP público ou um perfil do Gerenciador de Tráfego. Se você excluir esses recursos subjacentes, o registro de alias de DNS se tornará um conjunto de registros vazio. Ele não faz mais referência ao recurso excluído. É importante observar que há limites para o que você pode proteger com registros de alias. Hoje, a lista está limitada a:
 
 - Porta da frente do Azure
 - Perfis do Gerenciador de Tráfego
@@ -154,7 +156,7 @@ Os registros de [alias](https://docs.microsoft.com/azure/dns/dns-alias#scenarios
 
 Apesar das ofertas de serviço limitadas atuais, recomendamos o uso de registros de alias para se defender do tomada de subdomínio sempre que possível.
 
-[Saiba mais](https://docs.microsoft.com/azure/dns/dns-alias#capabilities) sobre os recursos dos registros de alias do DNS do Azure.
+[Saiba mais sobre os recursos dos registros de alias do DNS do Azure](../../dns/dns-alias.md#capabilities).
 
 
 
@@ -164,7 +166,7 @@ Ao criar entradas DNS para Azure App serviço, crie um asuid. subdomínio Regist
 
 Esses registros não impedem que alguém crie o serviço de Azure App com o mesmo nome que está em sua entrada CNAME. Sem a capacidade de provar a propriedade do nome de domínio, os atores de ameaças não podem receber tráfego nem controlar o conteúdo.
 
-[Saiba mais](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain) sobre como mapear um nome DNS personalizado existente para Azure app serviço.
+[Saiba mais sobre como mapear um nome DNS personalizado existente para Azure app serviço](../../app-service/app-service-web-tutorial-custom-domain.md).
 
 
 
@@ -178,13 +180,13 @@ Muitas vezes, os desenvolvedores e as equipes de operações executam processos 
 
     - Coloque "remover a entrada DNS" na lista de verificações necessárias ao encerrar um serviço.
 
-    - Coloque os [bloqueios de exclusão](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources) em todos os recursos que tenham uma entrada DNS personalizada. Um bloqueio de exclusão serve como um indicador de que o mapeamento deve ser removido antes que o recurso seja desprovisionado. Medidas como essa podem funcionar apenas quando combinadas com programas de educação interna.
+    - Coloque os [bloqueios de exclusão](../../azure-resource-manager/management/lock-resources.md) em todos os recursos que tenham uma entrada DNS personalizada. Um bloqueio de exclusão serve como um indicador de que o mapeamento deve ser removido antes que o recurso seja desprovisionado. Medidas como essa podem funcionar apenas quando combinadas com programas de educação interna.
 
 - **Criar procedimentos para descoberta:**
 
     - Examine os registros DNS regularmente para garantir que seus subdomínios estejam todos mapeados para os recursos do Azure que:
 
-        - Exist-consulte as zonas DNS para ver os recursos que apontam para os subdomínios do Azure, como *. azurewebsites.net ou *. cloudapp.azure.com (consulte [esta lista de referência](azure-domains.md)).
+        - Exist-consulte as zonas DNS para ver os recursos que apontam para os subdomínios do Azure, como *. azurewebsites.net ou *. cloudapp.azure.com (consulte a [lista de referência de domínios do Azure](azure-domains.md)).
         - Você tem certeza de que possui todos os recursos que seus subdomínios DNS estão direcionando.
 
     - Mantenha um catálogo de serviços de seus pontos de extremidade de FQDN (nome de domínio totalmente qualificado) do Azure e os proprietários do aplicativo. Para criar o catálogo de serviços, execute o seguinte script de consulta do grafo de recursos do Azure. Esse script projeta as informações do ponto de extremidade FQDN dos recursos aos quais você tem acesso e as gera em um arquivo CSV. Se você tiver acesso a todas as assinaturas para seu locatário, o script considerará todas essas assinaturas, conforme mostrado no script de exemplo a seguir. Para limitar os resultados a um conjunto específico de assinaturas, edite o script conforme mostrado.
@@ -200,8 +202,8 @@ Muitas vezes, os desenvolvedores e as equipes de operações executam processos 
 
 Para saber mais sobre os serviços relacionados e os recursos do Azure que você pode usar para se defender do subdomínio tomada, consulte as páginas a seguir.
 
-- [O DNS do Azure dá suporte ao uso de registros de alias para domínios personalizados](https://docs.microsoft.com/azure/dns/dns-alias#prevent-dangling-dns-records)
+- [Impedir registros DNS pendente com o DNS do Azure](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Usar a ID de verificação de domínio ao adicionar domínios personalizados no serviço Azure App](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#get-domain-verification-id) 
+- [Usar uma ID de verificação de domínio ao adicionar domínios personalizados no serviço Azure App](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
 
-- [Início Rápido: Execute a primeira consulta ao Resource Graph usando o Azure PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/first-query-powershell)
+- [Início Rápido: Execute a primeira consulta ao Resource Graph usando o Azure PowerShell](../../governance/resource-graph/first-query-powershell.md)

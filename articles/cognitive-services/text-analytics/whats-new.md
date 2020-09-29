@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/29/2020
 ms.author: aahi
-ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12f3ce506d8b4588dc9c670e49cabd3bc7767566
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91271164"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460264"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -34,7 +34,7 @@ O API de Análise de Texto é atualizado em uma base contínua. Para se manter a
     * v 3.0-visualização. 1
     
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o API de Análise de Texto v 3.1-Preview. 2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+> [Saiba mais sobre o API de Análise de Texto v 3.1-Preview. 2](quickstarts/text-analytics-sdk.md)
 
 ### <a name="text-analytics-for-health-container-updates"></a>Análise de Texto para atualizações de contêiner de integridade
 

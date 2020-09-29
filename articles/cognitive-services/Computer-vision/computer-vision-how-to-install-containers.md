@@ -1,24 +1,25 @@
 ---
-title: Como instalar e executar contêineres - Pesquisa Visual Computacional
+title: Instalar e executar contêineres do Docker para a API de leitura de Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Como baixar, instalar e executar contêineres para Pesquisa Visual Computacional neste tutorial passo a passo.
+description: Use o contêiner do Docker para a API de leitura do Pesquisa Visual Computacional para detectar e extrair texto de imagens locais.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.custom: seodec18
-ms.openlocfilehash: 2c21c872649e3b171f2658ef6bdb0476552f0e59
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.custom: seodec18, cog-serv-seo-aug-2020
+keywords: local, Docker, contêiner
+ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397175"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460434"
 ---
-# <a name="install-and-run-read-containers-preview"></a>Instalar e executar ler contêineres (visualização)
+# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>Instalar e executar contêineres do Docker para a API de leitura (versão prévia) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
@@ -49,7 +50,7 @@ Ao considerar qual versão de contêiner usar, observe que v 3.1-Preview está e
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
 
-|Obrigatório|Finalidade|
+|Necessária|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 

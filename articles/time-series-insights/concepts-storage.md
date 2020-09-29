@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: d8e3c7258a70902fe362ee73c2f366146484ce54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287518"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460821"
 ---
 # <a name="data-storage"></a>Armazenamento de dados
 
@@ -26,15 +26,14 @@ Este artigo descreve o armazenamento de dados no Azure Time Series Insights Gen2
 Ao criar um ambiente de Azure Time Series Insights Gen2, você tem as seguintes opções:
 
 * Armazenamento de dados frio:
-   * Crie um novo recurso de armazenamento do Azure na assinatura e na região que você escolheu para o seu ambiente.
-   * Anexe uma conta de armazenamento do Azure já existente. Essa opção só está disponível por meio da implantação de um [modelo](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)de Azure Resource Manager e não é visível na portal do Azure.
+  * Crie um novo recurso de armazenamento do Azure na assinatura e na região que você escolheu para o seu ambiente.
+  * Anexe uma conta de armazenamento do Azure já existente. Essa opção só está disponível por meio da implantação de um [modelo](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)de Azure Resource Manager e não é visível na portal do Azure.
 * Armazenamento de dados quente:
-   * Uma loja morna é opcional e pode ser habilitada ou desabilitada durante ou após o provisionamento. Se você decidir habilitar a loja a quente em um momento posterior e já houver dados em sua loja fria, examine [esta](concepts-storage.md#warm-store-behavior) seção abaixo para entender o comportamento esperado. O tempo de retenção de dados de armazenamento quente pode ser configurado para 7 a 31 dias, e isso também pode ser ajustado conforme necessário.
+  * Uma loja morna é opcional e pode ser habilitada ou desabilitada durante ou após o provisionamento. Se você decidir habilitar a loja a quente em um momento posterior e já houver dados em sua loja fria, examine [esta](concepts-storage.md#warm-store-behavior) seção abaixo para entender o comportamento esperado. O tempo de retenção de dados de armazenamento quente pode ser configurado para 7 a 31 dias, e isso também pode ser ajustado conforme necessário.
 
 Quando um evento é ingerido, ele é indexado na loja a quente (se habilitada) e na loja fria.
 
 [![Visão geral do armazenamento](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
-
 
 > [!WARNING]
 > Como o proprietário da conta de armazenamento de Blobs do Azure, na qual os dados de armazenamento cold residem, você tem acesso completo a todos os dados na conta. Esse acesso inclui permissões de gravação e exclusão. Não edite ou exclua os dados que Azure Time Series Insights gravações Gen2 porque isso pode causar perda de dados.
@@ -50,11 +49,11 @@ Azure Time Series Insights Gen2 partições e índices de dados para obter o des
 
 Os dados em sua loja a quente estão disponíveis apenas por meio das [APIs de consulta de série temporal](./time-series-insights-update-tsq.md), do [Azure Time Series insights Explorer TSI](./time-series-insights-update-explorer.md)ou do [conector de Power bi](./how-to-connect-power-bi.md). As consultas de armazenamento quente são gratuitas e não há nenhuma cota, mas há um [limite de 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) solicitações simultâneas.
 
-### <a name="warm-store-behavior"></a>Comportamento de armazenamento quente 
+### <a name="warm-store-behavior"></a>Comportamento de armazenamento quente
 
 * Quando habilitado, todos os dados transmitidos para seu ambiente serão roteados para a sua loja passiva, independentemente do carimbo de data/hora do evento. Observe que o pipeline de ingestão de streaming é criado para streaming quase em tempo real e ingestão de eventos históricos [não é suportado](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * O período de retenção é calculado com base em quando o evento foi indexado na loja passiva, não no carimbo de data/hora do evento. Isso significa que os dados não estarão mais disponíveis na loja a quente depois que o período de retenção tiver decorrido, mesmo que o carimbo de data/hora do evento seja para o futuro.
-  - Exemplo: um evento com previsões de tempo de 10 dias é ingerido e indexado em um contêiner de armazenamento quente configurado com um período de retenção de 7 dias. Após 7 dias, a previsão não é mais acessível na loja a quente, mas pode ser consultada de frio. 
+  * Exemplo: um evento com previsões de tempo de 10 dias é ingerido e indexado em um contêiner de armazenamento quente configurado com um período de retenção de 7 dias. Após 7 dias, a previsão não é mais acessível na loja a quente, mas pode ser consultada de frio.
 * Se você habilitar o armazenamento quente em um ambiente existente que já tenha dados recentes indexados no armazenamento frio, observe que a sua loja a quente não será preenchida de volta com esses dados.
 * Se você acabou de habilitar a loja a quente e estiver enfrentando problemas para exibir os dados recentes no Gerenciador, você pode desativar temporariamente as consultas de loja passivas:
 

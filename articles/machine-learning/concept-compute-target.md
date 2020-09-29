@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330155"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446771"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning? 
 
@@ -101,6 +101,20 @@ Consulte a tabela a seguir para saber mais sobre as restrições e as séries co
 
 
 Embora Azure Machine Learning ofereça suporte a essas séries de VMs, elas podem não estar disponíveis em todas as regiões do Azure. Você pode verificar com a série de VMs disponíveis aqui: [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+
+### <a name="compute-isolation"></a>Isolamento de computação
+
+Azure Machine Learning computação oferece tamanhos de máquina virtual que são isolados para um tipo de hardware específico e dedicados a um único cliente. Os tamanhos de máquinas virtuais isoladas são mais adequados para cargas de trabalho que exigem um alto grau de isolamento de cargas de trabalho de outros clientes por motivos que incluem requisitos de conformidade e regulamentação de atendimento. Utilizar um tamanho isolado garante que sua máquina virtual será apenas sendo executada na instância de servidor específico.
+
+As ofertas atuais da máquina virtual isolada incluem:
+* Standard_M128ms
+* Standard_F72s_v2
+* Standard_NC24s_v3
+* Standard_NC24rs_v3*
+
+*Compatível com RDMA
+
+Consulte aqui para saber mais sobre [o isolamento na nuvem pública do Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
 
 ## <a name="unmanaged-compute"></a>Computação não gerenciada
 

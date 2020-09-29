@@ -3,12 +3,12 @@ title: Restrições de nomenclatura de recursos
 description: Mostra as regras e restrições de nomenclatura de recursos do Azure.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a4c3bf58bf5e84051b1e21863d2d581af5fa9f23
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317082"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447524"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -392,7 +392,7 @@ Nas tabelas a seguir, o termo alfanumérico refere-se a:
 > [!div class="mx-tableFixed"]
 > | Entidade | Escopo | Comprimento | Caracteres válidos |
 > | --- | --- | --- | --- |
-> | actionGroups | grupo de recursos | 1–260 | Não é possível usar:<br>`/` <br><br>Não pode terminar com espaço ou ponto.  |
+> | actionGroups | grupo de recursos | 1–260 | Não é possível usar:<br>`/&%\?` <br><br>Não pode terminar com espaço ou ponto.  |
 > | components | grupo de recursos | 1–260 | Não é possível usar:<br>`%&\?/` <br><br>Não pode terminar com espaço ou ponto.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral

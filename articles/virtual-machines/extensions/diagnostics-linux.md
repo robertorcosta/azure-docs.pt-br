@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 2ce2b7dab3e9eb4c9635ce4abc2933fd954844d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325996"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448195"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -219,7 +219,7 @@ Você pode facilmente construir o token de SAS necessário por meio do Portal do
 1. Verifique as seções apropriadas conforme descrito anteriormente
 1. Clique no botão "Gerar SAS".
 
-![image](./media/diagnostics-linux/make_sas.png)
+![Captura de tela mostra a página de assinatura de acesso compartilhado com gerar S A S.](./media/diagnostics-linux/make_sas.png)
 
 Copie o SAS gerado no campo storageAccountSasToken; remova o ponto de interrogação ("?") do início.
 
@@ -777,7 +777,7 @@ O `resourceId` na configuração deve corresponder à da máquina virtual ou con
 
 Use o Portal do Azure para exibir dados de desempenho ou definir alertas:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![Captura de tela mostra a portal do Azure com o espaço em disco usado na métrica selecionada e o gráfico resultante.](./media/diagnostics-linux/graph_metrics.png)
 
 Os dados de `performanceCounters` são sempre armazenados em uma tabela de Armazenamento do Azure. As APIs do Armazenamento do Azure estão disponíveis em várias linguagens e plataformas.
 
@@ -786,7 +786,7 @@ Os dados enviados para coletores JsonBlob são armazenados nos blobs na conta de
 Além disso, você pode usar essas ferramentas de interface do usuário para acessar os dados no Armazenamento do Azure:
 
 * Gerenciador de Servidores do Visual Studio.
-* [Gerenciador do Armazenamento do Microsoft Azure](https://azurestorageexplorer.codeplex.com/ "Gerenciador de Armazenamento do Azure").
+* [Captura de tela mostra contêineres e tabelas em Gerenciador de armazenamento do Azure.](https://azurestorageexplorer.codeplex.com/ "Gerenciador de Armazenamento do Azure").
 
 Esse instantâneo de uma sessão do Gerenciador de Armazenamento do Microsoft Azure mostra as tabelas do Armazenamento do Azure geradas e os contêineres de uma extensão de LAD 3.0 configurada corretamente em uma VM de teste. A imagem não coincide exatamente com a [configuração de amostra do LAD 3.0](#an-example-lad-30-configuration).
 

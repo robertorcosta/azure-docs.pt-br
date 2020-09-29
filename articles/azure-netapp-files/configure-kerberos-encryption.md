@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 9/29/2020
 ms.author: b-juche
-ms.openlocfilehash: 05d173b715a8bc060e2f4d9cdcc7e3aef5630109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535311"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461471"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar a criptografia Kerberos do NFSv 4.1 para Azure NetApp Files
 
@@ -135,7 +135,7 @@ Esta seção descreve o impacto de desempenho único no lado do cliente das vár
 
 ### <a name="expected-performance-impact"></a>Impacto esperado no desempenho 
 
-Há duas áreas de foco: carga leve e limite superior. As listas a seguir descrevem a configuração de segurança de impacto de desempenho por configuração de segurança e cenário por cenário. Todas as comparações são feitas em relação ao `sec=sys` parâmetro de segurança.
+Há duas áreas de foco: carga leve e limite superior. As listas a seguir descrevem a configuração de segurança de impacto de desempenho por configuração de segurança e cenário por cenário. Todas as comparações são feitas em relação ao `sec=sys` parâmetro de segurança. O teste foi feito em um único volume, usando um único cliente. 
 
 Impacto no desempenho do krb5:
 
@@ -175,4 +175,4 @@ Impacto no desempenho do krb5p:
 * [Perguntas frequentes sobre Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Criar uma conexão do Active Directory](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
-* [Configurar um cliente NFS para Azure NetApp Files](configure-nfs-clients.md) 
+* [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md) 

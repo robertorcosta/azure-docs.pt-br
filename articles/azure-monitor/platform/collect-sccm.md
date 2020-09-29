@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319313"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448162"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Conectar Configuration Manager ao Azure Monitor
 Você pode conectar seu ambiente de Configuration Manager de ponto de extremidade da Microsoft para Azure Monitor para sincronizar dados de coleta de dispositivos e fazer referência a essas coleções no Azure Monitor e na automação do Azure.  
@@ -47,7 +47,7 @@ No procedimento a seguir, você concede a função *Colaborador* no espaço de t
 > Você deve especificar permissões no espaço de trabalho Log Analytics para Configuration Manager. Caso contrário, você receberá uma mensagem de erro ao usar o assistente de configuração do Configuration Manager.
 >
 
-1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**, encontrado no canto superior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione o **Log Analytics**.
 
 2. Na lista de workspaces do Log Analytics, selecione o workspace para modificar.
 
@@ -135,7 +135,7 @@ Depois de concluir a configuração inicial para importar coleções de disposit
 4. Selecione **Grupos de Computadores** e, em seguida, selecione **SCCM**.  
 5. Selecione **Importar associações de coleta do Configuration Manager** e clique em **Salvar**.  
    
-    ![Grupos de computadores – guia SCCM](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Captura de tela das configurações avançadas de grupos de computadores para S c C M contendo a opção para importar Configuration Manager associações de coleção.](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Exibir dados do Configuration Manager
 
@@ -143,7 +143,7 @@ Depois de adicionar uma conexão de Log Analytics para Configuration Manager e i
 
 Depois que as coleções forem importadas, você poderá ver quantos computadores com associações de coleção foram detectados. Você também pode ver o número de coleções que foram importadas.
 
-![Grupos de computadores – guia SCCM](./media/collect-sccm/sccm-computer-groups02.png)
+![Captura de tela das configurações avançadas de grupos de computadores para a S C C M mostrando a opção para importar Configuration Manager associações de coleção selecionadas.](./media/collect-sccm/sccm-computer-groups02.png)
 
 Quando você clica em qualquer um, o editor de consultas de log é aberto exibindo todos os grupos importados ou todos os computadores que pertencem a cada grupo. Usando a [pesquisa de log](../log-query/log-query-overview.md), você pode executar uma análise mais detalhada dos dados de associação da coleção.
 

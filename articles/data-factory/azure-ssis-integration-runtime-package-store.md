@@ -11,17 +11,17 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 09/06/2020
-ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.date: 09/29/2020
+ms.openlocfilehash: 158adb6b35b488c310bd2912d4076b86579383a4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505481"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446406"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Gerenciar pacotes com o repositório de pacotes Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Para aumentar & mudar suas cargas de trabalho do SSIS (SQL Server Integration Services local) para a nuvem, você pode provisionar Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF). Para obter mais informações, consulte [provisionar um Azure-SSIS ir](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure). Um Azure-SSIS IR dá suporte a:
 
@@ -148,7 +148,7 @@ for %f in (*.dtsx) do dtutil.exe /FILE %f /ENCRYPT FILE;Z:\%f;2;YourEncryptionPa
 
 Para executar os comandos acima em um arquivo em lotes, substitua `%f` por `%%f` .
 
-Para implantar vários pacotes de armazenamentos de pacotes SSIS herdados sobre o sistema de arquivos em arquivos do Azure e alternar o nível de proteção ao mesmo tempo, você pode usar os mesmos comandos, mas substituir `YourLocalDrive:\...\YourPackageFolder` por uma pasta local usada por repositórios de pacotes SSIS herdados: `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder` . Por exemplo, se o repositório de pacotes SSIS herdados estiver associado a SQL Server 2016, vá para `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder` .  Você pode encontrar o valor de `YourSQLServerDefaultCompatibilityLevel` em uma [lista de SQL Server níveis de compatibilidade padrão](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments).
+Para implantar vários pacotes de armazenamentos de pacotes SSIS herdados sobre o sistema de arquivos em arquivos do Azure e alternar o nível de proteção ao mesmo tempo, você pode usar os mesmos comandos, mas substituir `YourLocalDrive:\...\YourPackageFolder` por uma pasta local usada por repositórios de pacotes SSIS herdados: `YourLocalDrive:\Program Files\Microsoft SQL Server\YourSQLServerDefaultCompatibilityLevel\DTS\Packages\YourPackageFolder` . Por exemplo, se o repositório de pacotes SSIS herdados estiver associado a SQL Server 2016, vá para `YourLocalDrive:\Program Files\Microsoft SQL Server\130\DTS\Packages\YourPackageFolder` .  Encontre o valor de `YourSQLServerDefaultCompatibilityLevel` em uma [lista de níveis de compatibilidade padrão do SQL Server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#arguments).
 
 Se você tiver configurado Azure-SSIS IR armazenamentos de pacotes sobre os arquivos do Azure, seus pacotes implantados aparecerão neles quando você se conectar ao seu Azure-SSIS IR no SSMS 2019 ou em versões posteriores.
 

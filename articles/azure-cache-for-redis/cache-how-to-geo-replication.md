@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003708"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461335"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a replicação geográfica para o cache do Azure para Redis
 
@@ -145,8 +145,8 @@ Sim, há suporte para a replicação geográfica de caches em VNETs com as adver
 - Há suporte para a replicação geográfica entre caches na mesma VNET.
 - Também há suporte para a replicação geográfica entre caches em diferentes VNETs.
   - Se os VNETs estiverem na mesma região, você poderá conectá-los usando o [emparelhamento vnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou uma [conexão vnet a vnet do gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Se os VNETs estiverem em regiões diferentes, a replicação geográfica usando o emparelhamento VNET não terá suporte devido a uma restrição com balanceadores de carga internos básicos. Para obter mais informações sobre restrições de emparelhamento VNET, consulte [rede virtual – emparelhamento-requisitos e restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). A solução recomendada é usar uma conexão VNET a VNET do gateway de VPN.
-
+  - Se os VNETs estiverem em regiões diferentes, a replicação geográfica usando o emparelhamento VNET terá suporte, mas uma VM de cliente na VNET 1 (região 1) não poderá acessar o cache na VNET 2 (região 2) por meio de seu nome DNS devido a uma restrição com balanceadores de carga internos básicos. Para obter mais informações sobre restrições de emparelhamento VNET, consulte [rede virtual – emparelhamento-requisitos e restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). A solução recomendada é usar uma conexão VNET a VNET do gateway de VPN.
+  
 Usando [este modelo do Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/), você pode implantar rapidamente dois caches replicados geograficamente em uma VNET conectada a uma conexão VNET a vnet do gateway de VPN.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>O que é o cronograma de replicação para replicação geográfica do Redis?

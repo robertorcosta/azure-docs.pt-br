@@ -11,25 +11,30 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/27/2020
+ms.date: 09/28/2020
 tags: azure-synapse
-ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e526b8e2e4f31187bb958ec37c2ffa4d30f0265b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277794"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461148"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Usando a autenticação de Azure Active Directory multifator
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 O banco de dados SQL do Azure, o Azure SQL Instância Gerenciada e o Azure Synapse Analytics dão suporte a conexões do [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) usando o *Azure Active Directory-universal com autenticação MFA* . Este artigo discute as diferenças entre as várias opções de autenticação e também as limitações associadas ao uso da autenticação universal no Azure Active Directory (AD do Azure) para SQL do Azure.
 
-**Baixar a última versão do SSMS** - No computador cliente, baixe a última versão do SSMS em [Baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+**Baixar a última versão do SSMS** - No computador cliente, baixe a última versão do SSMS em [Baixar o SQL Server Management Studio (SSMS)](https://aka.ms/ssms). 
+
+> [!Note]
+> Em dezembro de 2021, as versões do SSMS anteriores a 18,6 não serão mais autenticadas por meio de Azure Active Directory com MFA. Para continuar utilizando a autenticação Azure Active Directory com MFA, instale ou atualize para o SSMS 18,6 ou mais recente.
 
 Para todos os recursos neste artigo, use a versão 17.2 de julho de 2017 ou posterior. A caixa de diálogo de conexão mais recente deve ser semelhante à seguinte imagem:
 
-  ![Captura de tela da caixa de diálogo conectar ao servidor no SQL Server Management Studio, mostrando as configurações de tipo de servidor, nome do servidor e autenticação.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
+  ![Captura de tela da caixa de diálogo conectar ao servidor no SQL Server Management Studio, mostrando as configurações de tipo de servidor, nome do servidor e autenticação.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)
+  
+    
 
 ## <a name="authentication-options"></a>Opções de autenticação
 

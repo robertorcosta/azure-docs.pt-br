@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 427d72b2a8531fa4dafa0040266249b138b6edf3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291071"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447800"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integração contínua e implantação contínua em dispositivos Azure IoT Edge (editor clássico)
 
@@ -135,7 +135,7 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
     | --- | --- |
     | Nome de exibição | Usar o nome padrão ou personalizar |
     | Pasta de origem | A pasta com os arquivos a serem copiados. |
-    | Conteúdo | Adicione duas linhas: `deployment.template.json` e `**/module.json` . Esses dois arquivos servem como entradas para gerar o manifesto de implantação IoT Edge. |
+    | Sumário | Adicione duas linhas: `deployment.template.json` e `**/module.json` . Esses dois arquivos servem como entradas para gerar o manifesto de implantação IoT Edge. |
     | Pasta de destino | Especifique a variável `$(Build.ArtifactStagingDirectory)` . Consulte [criar variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#build-variables) para saber mais sobre a descrição. |
 
 10. Selecione a tarefa **Publicar artefatos de build** para editá-la. Forneça o caminho do diretório de preparo do artefato para a tarefa para que o caminho possa ser publicado no pipeline de liberação.
@@ -160,7 +160,7 @@ Agora esse pipeline está configurado para ser executado automaticamente quando 
 >[!NOTE]
 >Se você quiser usar **implantações em camadas** em seu pipeline, as implantações em camadas ainda não têm suporte em Azure IOT Edge tarefas no Azure DevOps.
 >
->No entanto, você pode usar uma [tarefa CLI do Azure no Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para criar sua implantação como uma implantação em camadas. Para o valor de **script embutido** , você pode usar o [comando AZ IOT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>No entanto, você pode usar uma [tarefa CLI do Azure no Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para criar sua implantação como uma implantação em camadas. Para o valor de **script embutido** , você pode usar o [comando AZ IOT Edge Deployment Create](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

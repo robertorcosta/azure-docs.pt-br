@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: b50f6c4b2ed86b950e68cf8c55b63af687ff9ead
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e0d6694d44fdac9958acdf70be067348fadde57f
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298042"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461233"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -41,13 +41,11 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-AE` | Árabe (Emirados Árabes Unidos)     | Modelo de linguagem                                    |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Modelo de linguagem                                    |
 | `ar-EG` | Árabe (Egito)                    | Modelo de linguagem                                    |
-| `ar-IL` | Árabe (Israel)                   | Não                                                |
 | `ar-IQ` | Árabe (Iraque)                     | Modelo de linguagem                                    |
 | `ar-JO` | Árabe (Jordânia)                   | Modelo de linguagem                                    |
 | `ar-KW` | Árabe (Kuwait)                   | Modelo de linguagem                                    |
 | `ar-LB` | Árabe (Líbano)                  | Modelo de linguagem                                    |
 | `ar-OM` | Árabe (Omã)                     | Modelo de linguagem                                    |
-| `ar-PS` | Árabe (estado de Palestina)       | Não                                                |
 | `ar-QA` | Árabe (Catar)                    | Modelo de linguagem                                    |
 | `ar-SA` | Árabe (Arábia Saudita)             | Modelo de linguagem                                    |
 | `ar-SY` | Árabe (Síria)                    | Modelo de linguagem                                    |
@@ -182,7 +180,7 @@ Para obter mais informações sobre a disponibilidade regional, consulte [regiõ
 | `it-IT`<sup>Novo</sup> | Italiano (Itália) | Masculino | `it-IT-DiegoNeural` | Geral |
 | `ja-JP` | Japonês (Japão) | Feminino | `ja-JP-NanamiNeural` | Geral |
 | `ja-JP`<sup>Novo</sup> | Japonês (Japão) | Masculino | `ja-JP-KeitaNeural` | Geral |
-| `ko-KR` | Coreano (Coreia do Sul) | Feminino | `ko-KR-SunHiNeural` | Geral |
+| `ko-KR` | Coreano (Coreia) | Feminino | `ko-KR-SunHiNeural` | Geral |
 | `ko-KR`<sup>Novo</sup> | Coreano (Coreia do Sul) | Masculino | `ko-KR-InJoonNeural` | Geral |
 | `ms-MY`<sup>Novo</sup> | Malaio (Malásia) | Feminino | `ms-MY-YasminNeural` | Geral |
 | `nb-NO` | Norueguês, Bokmål (Noruega) | Feminino | `nb-NO-IselinNeural` | Geral |

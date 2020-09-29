@@ -3,17 +3,17 @@ title: Camadas de acesso quentes, frias e de arquivo para BLOBs-armazenamento do
 description: Leia sobre as camadas de acesso frequente, fria e de arquivo para o armazenamento de BLOBs do Azure. Examine as contas de armazenamento que dão suporte a camadas. Compare as opções de armazenamento de blobs de blocos.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226175"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460723"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de Blobs do Azure: camadas de acesso frequentes, esporádicas e de arquivo
 
@@ -25,12 +25,12 @@ O Armazenamento do Azure oferece diferentes camadas de acesso que permitem armaz
 
 As seguintes considerações se aplicam às diferentes camadas de acesso:
 
-- Somente as camadas de acesso quentes e frias podem ser definidas no nível da conta. A camada de acesso de arquivamento não está disponível no nível da conta.
-- Camadas frequentes, frias e de arquivo podem ser definidas no nível de blob durante o carregamento ou após o carregamento.
-- Os dados na camada de acesso frio podem tolerar uma disponibilidade ligeiramente menor, mas ainda exigem alta durabilidade, latência de recuperação e características de taxa de transferência semelhantes aos dados ativos. Para dados legais, um SLA (contrato de nível de serviço) de disponibilidade ligeiramente menor e custos de acesso mais altos em comparação com os dados ativos são compensações aceitáveis para reduzir os custos de armazenamento.
-- O armazenamento de arquivos armazena dados offline e oferece os custos de armazenamento mais baixos, mas também os mais altos reidratar de dados e custos de acesso.
+- Apenas as camadas de acesso quente e frio podem ser definidas no nível da conta. A camada de acesso aos arquivos não está disponível no nível da conta.
+- Camadas de acesso quente, frio e aos arquivos podem ser definidas no nível do blob durante o upload ou após o upload.
+- Os dados na camada de acesso frio podem tolerar uma disponibilidade ligeiramente inferior, mas ainda requerem alta durabilidade, latência de recuperação e características de taxa de transferência semelhantes a dados de acesso frequente. Para dados de acesso esporádico, um SLA (contrato de nível de serviço) de disponibilidade ligeiramente inferior e custos de acesso mais altos comparados com os dados de acesso frequente são compensações aceitáveis para custos de armazenamento mais baixos.
+- O armazenamento de arquivos armazena dados offline e oferece os custos de armazenamento mais baixos, mas também os mais altos custos de reidratação e acesso.
 
-Os dados armazenados na nuvem aumentam em ritmo exponencial. Para gerenciar os custos de suas necessidades cada vez maiores de armazenamento, é útil organizar seus dados com base em atributos como frequência de acesso e período de retenção planejado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes com base em como são gerados, processados e acessados durante seu tempo de vida. Alguns dados são ativamente acessados e modificados durante seu ciclo de vida. Alguns dados são acessados com frequência no início do seu tempo de vida, mas esse acesso cai drasticamente à medida que os dados envelhecem. Alguns dados permanecem ociosos na nuvem e raramente são acessados depois de armazenados.
+Os dados armazenados na nuvem aumentam em ritmo exponencial. Para gerenciar os custos de suas necessidades cada vez maiores de armazenamento, é útil organizar seus dados com base em atributos como frequência de acesso e período de retenção planejado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes com base em como são gerados, processados e acessados durante o tempo de vida deles. Alguns dados são ativamente acessados e modificados durante seu ciclo de vida. Alguns dados são acessados com frequência no início do seu tempo de vida, mas esse acesso cai drasticamente à medida que os dados envelhecem. Alguns dados permanecem ociosos na nuvem e raramente são acessos depois de armazenados, talvez nunca.
 
 Cada um desses cenários de acesso a dados se beneficia de uma camada de acesso diferente que é otimizada para um padrão de acesso específico. Com as camadas de acesso frequente, esporádica e de arquivo morto, o armazenamento de BLOBs do Azure atende a essa necessidade de camadas de acesso diferenciado com modelos de preços separados.
 
@@ -44,14 +44,14 @@ As contas de armazenamento de BLOBs e GPv2 expõem o atributo **camada de acesso
 
 ## <a name="hot-access-tier"></a>Camada de acesso quente
 
-A camada de acesso quente tem custos de armazenamento maiores do que as camadas frias e de arquivo morto, mas os custos de acesso mais baixos. Os cenários de uso de exemplo para a camada de acesso quente incluem:
+A camada de acesso quente tem custos de armazenamento maiores que as camadas de acesso aos arquivos e frio, mas tem os custos de acesso mais baixos. Os cenários de uso de exemplo para a camada de acesso quente incluem:
 
-- Dados que estão em uso ativo ou que devem ser acessados (lidos e gravados) com frequência.
-- Dados que são preparados para processamento e migração eventual para a camada de acesso fria.
+- Dados que estão em uso ativo ou que provavelmente serão acessados (lidos e gravados) com frequência.
+- Dados que são preparados para processamento e eventual migração para a camada de acesso frio.
 
 ## <a name="cool-access-tier"></a>Camada de acesso frio
 
-A camada de acesso frio reduz os custos de armazenamento e os custos de acesso mais altos em comparação com o armazenamento dinâmico. Essa camada destina-se aos dados que permanecerão na camada esporádica por pelo menos 30 dias. Os cenários de uso de exemplo para a camada de acesso frio incluem:
+A camada de acesso frio tem custos de armazenamento mais baixos e custos de acesso mais altos em comparação com a de armazenamento quente. Essa camada destina-se aos dados que permanecerão na camada esporádica por pelo menos 30 dias. Os cenários de uso de exemplo para a camada de acesso frio incluem:
 
 - Conjuntos de dados de recuperação de desastre e de backup de curto prazo.
 - Conteúdo de mídia mais antigo que não é mais exibido frequentemente, mas ainda deve estar disponível imediatamente quando acessado.
@@ -248,6 +248,10 @@ Não. Somente as camadas de acesso quente e fria podem ser definidas como a cama
 **Em quais regiões os níveis de acesso quente, frio e arquivo estão disponíveis?**
 
 As camadas de acesso quente e fria juntamente com camadas no nível do blob estão disponíveis em todas as regiões. O armazenamento de arquivo estará disponível, inicialmente, apenas em regiões selecionadas. Para obter uma lista completa, consulte [Produtos do Azure por região](https://azure.microsoft.com/regions/services/).
+
+**Quais opções de redundância têm suporte para as camadas de acesso frequente, fria e de arquivo?**
+
+As camadas quente e fria oferecem suporte a todas as opções de redundância. A camada de arquivo dá suporte apenas a LRS, GRS e RA-GRS. Não há suporte para ZRS, GZRS e RA-GZRS para a camada de arquivo morto.
 
 **Os BLOBs na camada de acesso frio se comportam de forma diferente daqueles na camada de acesso quente?**
 

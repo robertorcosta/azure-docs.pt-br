@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228623"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460791"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Exclusão reversível para contêineres (visualização)
 
@@ -42,11 +42,7 @@ Desabilitar a exclusão reversível de contêiner não resulta na exclusão perm
 
 ## <a name="about-the-preview"></a>Sobre a visualização
 
-A exclusão reversível de contêiner está disponível na visualização nas seguintes regiões:
-
-- França Central
-- Leste do Canadá
-- Canadá Central
+A exclusão reversível de contêiner está disponível na visualização em todas as regiões públicas do Azure.
 
 > [!IMPORTANT]
 > A visualização de exclusão reversível de contêiner é destinada somente ao uso de não produção. SLAs (Contratos de Nível de Serviço) não estão disponíveis atualmente.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-ms.openlocfilehash: 5dd57a87658554bf59acf5cee1b6daf67b8692b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c427982854e1d328b5d1553aa86866ad298eea1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71162161"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461301"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Fluxo de trabalho da arquitetura de VM clássica do Windows Azure 
 Este artigo fornece uma visão geral dos processos de fluxo de trabalho que ocorrem quando você implanta ou atualiza um recurso do Azure, como uma máquina virtual. 
@@ -29,7 +29,7 @@ Este artigo fornece uma visão geral dos processos de fluxo de trabalho que ocor
 
 O diagrama a seguir apresenta a arquitetura dos recursos do Azure.
 
-![Fluxo de trabalho do Azure](./media/cloud-services-workflow-process/workflow.jpg)
+:::image type="content" source="./media/cloud-services-workflow-process/workflow.jpg" alt-text="<Alt a imagem sobre o fluxo de trabalho do Azure>":::
 
 ## <a name="workflow-basics"></a>Noções básicas do fluxo de trabalho
    
@@ -69,11 +69,9 @@ O diagrama a seguir apresenta a arquitetura dos recursos do Azure.
 
 **I**. WaWorkerHost é o processo de host padrão para funções de trabalho normais. Esse processo de host hospeda todas as DLLs da função e o código de ponto de entrada, como OnStart e Run.
 
-**J**. WaWebHost é o processo de host padrão para funções Web se elas estiverem configuradas para usar o HWC (núcleo de Web Hospedáal) compatível com o SDK 1,2. As funções podem habilitar o modo HWC removendo o elemento da definição de serviço (. csdef). Nesse modo, todo o código e as DLLs do serviço são executados do processo WaWebHost. IIS (w3wp) não é usado e não há AppPools configuradas no Gerenciador do IIS porque o IIS está hospedado dentro de WaWebHost.exe.
+**J**. WaIISHost é o processo de host para o código de ponto de entrada de função para funções Web que usam o IIS completo. Esse processo carrega a primeira DLL encontrada que usa a classe **RoleEntryPoint** e executa o código dessa classe (OnStart, Run, OnStop). Todos os eventos **RoleEnvironment** (como StatusCheck e Changed) criados na classe RoleEntryPoint são gerados nesse processo.
 
-**K**. WaIISHost é o processo de host para o código de ponto de entrada de função para funções Web que usam o IIS completo. Esse processo carrega a primeira DLL encontrada que usa a classe **RoleEntryPoint** e executa o código dessa classe (OnStart, Run, OnStop). Todos os eventos **RoleEnvironment** (como StatusCheck e Changed) criados na classe RoleEntryPoint são gerados nesse processo.
-
-**L**. W3WP é o processo de trabalho padrão do IIS que será usado se a função estiver configurada para usar o IIS completo. Isso executa o AppPool configurado no IISConfigurator. Qualquer evento RoleEnvironment (como StatusCheck e alterado) que são criados aqui são gerados nesse processo. Observe que os eventos RoleEnvironment serão acionados em ambos os locais (WaIISHost e w3wp.exe) se você se inscrever em eventos em ambos os processos.
+**K**. W3WP é o processo de trabalho padrão do IIS que será usado se a função estiver configurada para usar o IIS completo. Isso executa o AppPool configurado no IISConfigurator. Qualquer evento RoleEnvironment (como StatusCheck e alterado) que são criados aqui são gerados nesse processo. Observe que os eventos RoleEnvironment serão acionados em ambos os locais (WaIISHost e w3wp.exe) se você se inscrever em eventos em ambos os processos.
 
 ## <a name="workflow-processes"></a>Processos de fluxo de trabalho
 
@@ -87,8 +85,7 @@ O diagrama a seguir apresenta a arquitetura dos recursos do Azure.
 8. Para funções Web do IIS completas, WaHostBootstrapper informa IISConfigurator para configurar o AppPool do IIS e aponta para o site `E:\Sitesroot\<index>` , onde `<index>` é um índice baseado em 0 no número de `<Sites>` elementos definidos para o serviço.
 9. WaHostBootstrapper iniciará o processo de host dependendo do tipo de função:
     1. **Função de trabalho**: WaWorkerHost.exe é iniciado. WaHostBootstrapper executa o método OnStart (). Depois de retornar, WaHostBootstrapper começa a executar o método Run () e, em seguida, marca a função simultaneamente como pronto e a coloca na rotação do balanceador de carga (se InputEndpoints for definido). WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.
-    1. **Função Web do SDK 1,2 HWC**: WaWebHost foi iniciado. WaHostBootstrapper executa o método OnStart (). Depois de retornar, WaHostBootstrapper começa a executar o método Run () e, em seguida, marca simultaneamente a função como pronto e a coloca na rotação do balanceador de carga. WaWebHost emite uma solicitação aquecimento (GET/do. rd_runtime_init). Todas as solicitações da Web são enviadas para WaWebHost.exe. WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.
-    1. **Função Web do IIS completa**: a aIISHost foi iniciada. WaHostBootstrapper executa o método OnStart (). Depois de retornar, ele começa a executar o método Run () e, em seguida, marca a função simultaneamente como pronto e a coloca na rotação do balanceador de carga. WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.
+    2. **Função Web do IIS completa**: a aIISHost foi iniciada. WaHostBootstrapper executa o método OnStart (). Depois de retornar, ele começa a executar o método Run () e, em seguida, marca a função simultaneamente como pronto e a coloca na rotação do balanceador de carga. WaHostBootsrapper, em seguida, entra em um loop de verificação do status da função.
 10. As solicitações da Web de entrada para uma função Web do IIS completa acionam o IIS para iniciar o processo W3WP e atender à solicitação, o mesmo que faria em um ambiente IIS local.
 
 ## <a name="log-file-locations"></a>Locais do arquivo de log
@@ -103,10 +100,6 @@ Esse log contém as atualizações de status e as notificações de pulsação e
 **WaHostBootstrapper**
 
 `C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log`
- 
-**WaWebHost**
-
-`C:\Resources\Directory\<guid>.<role>\WaWebHost.log`
  
 **WaIISHost**
 
@@ -123,7 +116,3 @@ Esse log contém as atualizações de status e as notificações de pulsação e
 **Logs de eventos do Windows**
 
 `D:\Windows\System32\Winevt\Logs`
- 
-
-
-

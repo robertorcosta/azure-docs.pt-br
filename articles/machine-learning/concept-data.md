@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359674"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446687"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
@@ -67,7 +67,7 @@ Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser 
 
 ## <a name="datasets"></a>Conjunto de dados
 
-Azure Machine Learning DataSets são referências que apontam para os dados em seu serviço de armazenamento. Elas não são cópias de seu dataBy criando um conjunto de dados Azure Machine Learning, você cria uma referência para o local da fonte de dado, juntamente com uma cópia de seus metadados. 
+Os conjuntos de dados Azure Machine Learning não são cópias de seu dado. Com a criação de um conjunto de dados, você cria uma referência a eles em seu serviço de armazenamento, juntamente com uma cópia de seus metadados. 
 
 Como os conjuntos de dados são avaliados lentamente, e eles permanecem em seu local existente, você
 

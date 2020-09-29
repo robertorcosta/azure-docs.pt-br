@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: e5ab3800e2d20bec34f321e0992240be8624404c
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 4ad3aa7169fcf7eeda6e56a2eab6669b8783d77d
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400838"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461454"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
@@ -70,11 +70,10 @@ A conta de usuário que cria os clusters deve ter a permissão de criação de r
 **PowerShell**
 
 ```powershell
-invoke-command -scriptblock { New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} } -asjob
+New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} -AsJob
 
 # Check when the job is done
-Get-Job
-
+Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 ```
 
 **REST**
@@ -106,13 +105,16 @@ Deve ser 200 OK e um cabeçalho.
 
 ### <a name="check-provisioning-status"></a>Verificar status do provisionamento
 
-O provisionamento do cluster de Log Analytics demora um pouco para ser concluído. Você pode verificar o estado de provisionamento de duas maneiras:
+O provisionamento do cluster de Log Analytics demora um pouco para ser concluído. Você pode verificar o estado de provisionamento de várias maneiras:
 
-1. Copie o valor da URL de Azure-AsyncOperation da resposta e siga a verificação de status de operações assíncronas.
+- Execute o comando do PowerShell Get-AzOperationalInsightsCluster com o nome do grupo de recursos e verifique a propriedade ProvisioningState. O valor é *ProvisioningAccount* durante o provisionamento e com *êxito* quando concluído.
+  ```powershell
+  New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
+  ```
 
-   OU
+- Copie o valor da URL de Azure-AsyncOperation da resposta e siga a verificação de status de operações assíncronas.
 
-1. Envie uma solicitação GET no recurso de *cluster* e examine o valor *provisioningState*. O valor é *ProvisioningAccount* durante o provisionamento e com *êxito* quando concluído.
+- Envie uma solicitação GET no recurso de *cluster* e examine o valor *provisioningState*. O valor é *ProvisioningAccount* durante o provisionamento e com *êxito* quando concluído.
 
    ```rst
    GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -275,10 +277,10 @@ Use o seguinte comando do PowerShell para vincular a um cluster:
 $clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
 
 # Link the workspace to the cluster
-invoke-command -scriptblock { Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId } -asjob
+Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId -AsJob
 
 # Check when the job is done
-Get-Job
+Get-Job -Command "Set-AzOperationalInsightsLinkedService" | Format-List -Property *
 ```
 
 
