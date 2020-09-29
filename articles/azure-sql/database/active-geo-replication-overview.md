@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 3526510e4cbd77ffe1f468512e1128dcebe9b1da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330835"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445069"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criando e usando a replicação geográfica ativa-banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Para garantir que seu aplicativo possa acessar imediatamente o novo primário ap
 
 ## <a name="configuring-secondary-database"></a>Configurando banco de dados secundário
 
-Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho de computação (DTUs ou vCores) que o primário. Se o banco de dados primário estiver com uma carga de trabalho de gravação pesada, um secundário com tamanho de computação inferior poderá não ser capaz de acompanhar o problema. Isso causará atraso de refazer no secundário e indisponibilidade potencial do secundário. Para atenuar esses riscos, a replicação geográfica ativa limitará a taxa do log de transações primária, se necessário, para permitir que seus secundários se acompanhem.
+Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com a mesma redundância de armazenamento de backup e o mesmo tamanho de computação (DTUs ou vCores) que o primário. Se o banco de dados primário estiver com uma carga de trabalho de gravação pesada, um secundário com tamanho de computação inferior poderá não ser capaz de acompanhar o problema. Isso causará atraso de refazer no secundário e indisponibilidade potencial do secundário. Para atenuar esses riscos, a replicação geográfica ativa limitará a taxa do log de transações primária, se necessário, para permitir que seus secundários se acompanhem.
 
 Outra consequência de uma configuração secundária desbalanceada é que, após o failover, o desempenho do aplicativo pode ser afetado devido à capacidade de computação insuficiente do novo primário. Nesse caso, será necessário escalar verticalmente o objetivo do serviço de banco de dados para o nível necessário, o que pode levar tempo e recursos de computação significativos e exigirá um failover de [alta disponibilidade](high-availability-sla.md) no final do processo de escala vertical.
 
@@ -126,8 +126,13 @@ Se você decidir criar o secundário com o tamanho de computação inferior, o g
 
 A limitação da taxa do log de transações no primário devido ao tamanho de computação inferior em um secundário é relatada usando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas exibições de banco de dados [Sys. dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [Sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) .
 
+Por padrão, a redundância de armazenamento de backup do secundário é a mesma do banco de dados primário. Você pode optar por configurar o secundário com uma redundância de armazenamento de backup diferente. Os backups sempre são feitos no banco de dados primário. Se o secundário estiver configurado com uma redundância de armazenamento de backup diferente, após o failover quando o secundário for promovido para o primário, os backups serão cobrados de acordo com a redundância de armazenamento selecionada no novo primário (secundário anterior). 
+
 > [!NOTE]
 > A taxa do log de transações no primário pode ser limitada por motivos não relacionados ao tamanho de computação inferior em um secundário. Esse tipo de limitação pode ocorrer mesmo se o secundário tiver o mesmo tamanho de computação ou maior do que o primário. Para obter detalhes, incluindo tipos de espera para diferentes tipos de limitação de taxa de log, consulte [governança de taxa de log de transações](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> A redundância de armazenamento de backup configurável do banco de dados SQL do Azure está disponível atualmente somente na visualização pública na região do sudeste asiático do Azure. Na versão prévia, se o banco de dados de origem for criado com redundância de backup redundante localmente ou de zona, a criação de um banco de dados secundário em uma região diferente do Azure não terá suporte. 
 
 Para obter mais informações sobre os tamanhos da computação do Banco de Dados SQL, confira [Quais são as Camadas de Serviço do Banco de Dados SQL](purchasing-models.md).
 

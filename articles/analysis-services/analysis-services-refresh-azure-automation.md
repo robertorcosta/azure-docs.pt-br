@@ -6,12 +6,12 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553896"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448598"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com Automação do Azure
 
@@ -54,15 +54,15 @@ A entidade de serviço que você criar deve ter permissões de administrador do 
 
 1. Na conta de Automação, crie um recurso de **Credenciais** que será usado para armazenar com segurança a entidade de serviço.
 
-    ![Criar credencial](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Captura de tela que mostra a página "credenciais" com a ação "adicionar uma credencial" selecionada.](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Insira os detalhes da credencial. Em **nome de usuário**, insira a ID do aplicativo da entidade de serviço (appid) e, em **Senha**, insira o segredo da entidade de serviço.
+2. Insira os detalhes da credencial. Em **nome de usuário**, insira a ID do aplicativo da entidade de serviço (AppID) e, em seguida, em **senha**, insira o segredo da entidade de serviço.
 
     ![Criar credencial](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Importar o runbook de Automação
+3. Importe o runbook de automação.
 
-    ![Importar Runbook](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Captura de tela que mostra a página "Runbooks" com a ação "importar um runbook" selecionada.](./media/analysis-services-refresh-azure-automation/8.png)
 
 4. Procure o arquivo [Refresh-Model.ps1](#sample-powershell-runbook), forneça um **Nome** e **Descrição** e, em seguida, clique em **Criar**.
 
@@ -80,7 +80,7 @@ A entidade de serviço que você criar deve ter permissões de administrador do 
 
 6. Teste o runbook clicando em **Iniciar**.
 
-    ![Iniciar o runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Captura de tela que mostra a página "visão geral" com a ação "Iniciar" selecionada.](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Preencha os parâmetros **DATABASENAME**, **ANALYSISSERVER** e **REFRESHTYPE** e, em seguida, clique em **OK**. O parâmetro **WEBHOOKDATA** não é necessário quando o runbook é executado manualmente.
 

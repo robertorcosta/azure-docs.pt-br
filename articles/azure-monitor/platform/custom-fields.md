@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974701"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448570"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados em um espaço de trabalho Log Analytics no Azure Monitor (visualização)
 
@@ -101,7 +101,7 @@ Realçamos o nome do serviço na propriedade **RenderedDescription** e usamos **
 
 Vemos que o nome do serviço é identificado corretamente para alguns registros, mas não para outros.   Os **Resultados da Pesquisa** mostram que parte do nome do **Adaptador de Desempenho WMI** não foi selecionada.  O **Resumo** mostra que um registro identificou o **instalador de módulos** em vez do **instalador de módulos do Windows**.  
 
-![Resultados da Pesquisa](media/custom-fields/search-results-01.png)
+![Captura de tela mostrando partes do nome do serviço realçadas no painel de resultados da pesquisa e um nome de serviço incorreto realçado no resumo.](media/custom-fields/search-results-01.png)
 
 Começamos com o registro **Adaptador de Desempenho WMI** .  Clicamos em seu ícone de edição e em **Modify this highlight**(Modificar esse realce).  
 
@@ -113,7 +113,7 @@ Aumentaremos o realce para incluir a palavra **WMI** e, em seguida, executamos a
 
 Podemos ver que as entradas para **Adaptador de Desempenho WMI** foram corrigidas e o Log Analytics também usou essa informação para corrigir os registros para **Instalador de Módulo do Windows**.
 
-![Resultados da Pesquisa](media/custom-fields/search-results-02.png)
+![Captura de tela mostrando o nome completo do serviço realçado no painel de resultados da pesquisa e os nomes de serviço corretos realçados no resumo.](media/custom-fields/search-results-02.png)
 
 Agora podemos executar uma consulta que verifica se **Service_CF** foi criado, mas ainda não foi adicionado a nenhum registro. Isso ocorre porque o campo personalizado não funciona com registros existentes, portanto, precisamos aguardar a coleta de novos registros.
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 49c2d2c24cc8acd8468f660189212a8ae71a1d6e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/26/2020
+ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268920"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448681"
 ---
 # <a name="split-image-directory"></a>Dividir Diretório de Imagens
 
@@ -28,26 +28,26 @@ Esse módulo é particularmente útil quando você precisa separar dados de imag
 
 2. Conecte-o ao módulo do qual a saída é o diretório de imagens.
 
-3. **Fração de entrada de imagens na primeira saída** para especificar a porcentagem de dados a serem colocados na divisão esquerda, por padrão, 0,9.
+3. **Fração de entrada de imagens na primeira saída** para especificar a porcentagem de dados a serem colocados na divisão esquerda, por padrão, 0,9. Se o resultado da fração não for inteiro, o módulo usará o menor inteiro próximo.
 
 
 ## <a name="technical-notes"></a>Observações técnicas
 
 ### <a name="expected-inputs"></a>Entradas esperadas
 
-| Nome                  | Type           | Descrição              |
+| Nome                  | Tipo           | Descrição              |
 | --------------------- | -------------- | ------------------------ |
 | Diretório da imagem de entrada | ImageDirectory | Diretório de imagens a ser dividido |
 
 ### <a name="module-parameters"></a>Parâmetros do módulo
 
-| Nome                                   | Type  | Intervalo | Opcional | Descrição                            | Padrão |
+| Nome                                   | Tipo  | Intervalo | Opcional | Descrição                            | Padrão |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | Fração de imagens na primeira saída | Float | 0-1   | Obrigatório | Fração de imagens na primeira saída | 0,9     |
 
 ### <a name="outputs"></a>Saídas
 
-| Nome                    | Type           | Descrição                              |
+| Nome                    | Tipo           | Descrição                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Directory1 da imagem de saída | ImageDirectory | Diretório de imagens que contém imagens selecionadas |
 | Directory2 da imagem de saída | ImageDirectory | Diretório de imagem que contém todas as outras imagens |

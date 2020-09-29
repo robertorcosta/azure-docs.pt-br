@@ -3,12 +3,12 @@ title: Reduza os custos de serviço usando o Assistente do Azure
 description: Use o Azure Advisor para otimizar o custo de suas implantações do Azure.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 7576ccb478a4f221ae7d7f68b14787f6f8bf7e88
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.openlocfilehash: 3b7e57aa178380ff4cf0561718c292dc1e6c6aa9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91405217"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448168"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço usando o Azure Advisor
 
@@ -59,8 +59,8 @@ O Advisor analisa os padrões de uso dos últimos 30 dias para os seguintes recu
 ### <a name="azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB capacidade reservada
 O Advisor analisa seus padrões de uso Azure Cosmos DB nos últimos 30 dias e recomenda as compras de capacidade reservada para otimizar os custos. Usando a capacidade reservada, você pode adquirir previamente Azure Cosmos DB uso por hora e economizar os custos pagos conforme o uso. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
 
-### <a name="sql-paas-reserved-capacity"></a>Capacidade reservada de PaaS do SQL
-O Advisor analisa os pools de banco de dados elástico do SQL e os padrões de uso do SQL Instância Gerenciada nos últimos 30 dias. Em seguida, ele recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode pré-configurar o uso por hora do BD SQL e economizar os custos de computação do SQL. Sua licença do SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia.
+### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>Capacidade reservada do banco de dados SQL e SQL Instância Gerenciada
+O Advisor analisa os padrões de uso do banco de dados SQL e do SQL Instância Gerenciada nos últimos 30 dias. Em seguida, ele recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode pré-configurar o uso por hora do BD SQL e economizar os custos de computação do SQL. Sua licença do SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula estimativas de economias para assinaturas individuais usando preços de reserva de 3 anos e extrapolando os padrões de uso observados nos últimos 30 dias. As recomendações de escopo compartilhado estão disponíveis para compras de capacidade reservada e podem aumentar a economia. Para obter detalhes, confira [banco de dados SQL do Azure & capacidade reservada do sql instância gerenciada](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview).
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Capacidade reservada da taxa de selo do serviço de aplicativo
 O Advisor analisa o padrão de uso de taxas de selo para o ambiente isolado do serviço de Azure App nos últimos 30 dias e recomenda as compras de capacidade reservada que otimizam os custos. Usando a capacidade reservada, você pode adquirir previamente o uso por hora da taxa de carimbo de ambiente isolado e economizar os custos pagos conforme o uso. Observe que a capacidade reservada se aplica somente à taxa de carimbo e não às instâncias do serviço de aplicativo. A capacidade reservada é um benefício de cobrança e se aplica automaticamente a implantações novas e existentes. O Advisor calcula as estimativas de salvamento de assinaturas individuais usando preços de reserva de 3 anos com base nos padrões de uso nos últimos 30 dias.

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 47e9b616a2a686a7ce82a592ee81966041371048
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 052fd0ea7619d566e78806580ee7b39e49cc85d2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327996"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448620"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor insights para WAN virtual (versão prévia)
 
@@ -37,7 +37,7 @@ Vá para **portal do Azure**  >  **Wan virtual**. No menu **monitorar** no paine
 
 **Figura 1: monitorar o menu do > insights**
 
-:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Captura de tela que mostra a opção de menu percepções." lightbox="./media/azure-monitor-insights/monitor-menu.png":::
+:::image type="content" source="./media/azure-monitor-insights/monitor-menu.png" alt-text="Captura de tela que mostra a exibição das informações (visualização)." lightbox="./media/azure-monitor-insights/monitor-menu.png":::
 
 Na exibição do **insights** , você pode exibir os recursos da WAN virtual descoberta automática. Esses recursos incluem hubs, gateways, firewalls, conexões e redes virtuais spoke, NVAs de terceiros e ramificações em uma WAN virtual de ponta a ponta. Para obter um exemplo, consulte a **Figura 2**.
 
@@ -45,7 +45,7 @@ O estado do recurso e o status são codificados por cor e sobrepostos nos ícone
 
 **Figura 2: exibição do insights**
 
-:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Captura de tela que mostra a exibição de informações." lightbox="./media/azure-monitor-insights/insights-view.png":::
+:::image type="content" source="./media/azure-monitor-insights/insights-view.png" alt-text="Captura de tela que mostra a exibição das informações (visualização)." lightbox="./media/azure-monitor-insights/insights-view.png":::
 
 ## <a name="dependency-view"></a><a name="dependency"></a>Exibição de dependência
 
@@ -53,7 +53,7 @@ A exibição de **dependência** para WAN virtual ajuda a visualizar a exibiçã
 
 **Figura 3: exibição de dependência VWAN**
 
-:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Captura de tela que mostra a exibição de dependência." lightbox="./media/azure-monitor-insights/dependency-map.png":::
+:::image type="content" source="./media/azure-monitor-insights/dependency-map.png" alt-text="Captura de tela que mostra a exibição das informações (visualização)." lightbox="./media/azure-monitor-insights/dependency-map.png":::
 
 O mapa da exibição de **dependência** exibe os seguintes recursos como um grafo conectado:
 
@@ -69,13 +69,13 @@ O mapa de dependências permite uma fácil navegação para as definições de c
 
 **Figura 4: navegar para informações específicas do recurso**
 
-:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Captura de tela que mostra como navegar para informações específicas do recurso.":::
+:::image type="content" source="./media/azure-monitor-insights/resource-information.png" alt-text="Captura de tela que mostra a exibição das informações (visualização).":::
 
 A barra de pesquisa e filtro na exibição de **dependência** fornece uma maneira fácil de Pesquisar no grafo. Vários filtros fornecem ajuda para restringir a pesquisa a um caminho e estado específicos.
 
 **Figura 5: pesquisa e filtragem**
 
-:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Captura de tela que mostra a barra de pesquisa e de filtro." lightbox="./media/azure-monitor-insights/search-filter.png":::
+:::image type="content" source="./media/azure-monitor-insights/search-filter.png" alt-text="Captura de tela que mostra a exibição das informações (visualização)." lightbox="./media/azure-monitor-insights/search-filter.png":::
 
 ## <a name="detailed-metrics"></a><a name="detailed"></a>Métricas detalhadas
 
@@ -83,7 +83,7 @@ Você pode selecionar **Exibir métricas detalhadas** para acessar a página de 
 
 **Figura 6: painel de métricas detalhado**
 
-:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Captura de tela que mostra o painel de métricas detalhado." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
+:::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Captura de tela que mostra a exibição das informações (visualização)." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

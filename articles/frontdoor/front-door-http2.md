@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 7cdcef80ef2433d34b32589d2539089fb9801eb1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 20d45f5966aca3df89e17e03aa6120a4ddf5c5b9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399422"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448691"
 ---
 # <a name="http2-support-in-azure-front-door"></a>Suporte a HTTP/2 na porta frontal do Azure
 
 Atualmente, o suporte a HTTP/2 está ativo para todas as configurações de porta frontal do Azure. Nenhuma ação adicional dos clientes é necessária.
 
-O HTTP/2 é uma revisão principal do HTTP/1.1. Ela fornece desempenho na Web mais rápido, tempo de reposta reduzido e melhor experiência de usuário, mantendo os métodos HTTP, códigos de status e semântica familiares. Embora o HTTP/2 seja projetado para trabalhar com HTTP e HTTPS, muitos navegadores da Web clientes somente dão suporte a HTTP/2 pelo protocolo TLS.
+O HTTP/2 é uma revisão importante do HTTP/1.1 que fornece um desempenho na Web mais rápido, reduzindo o tempo de resposta. O HTTP/2 é feito mantendo os métodos de HTTP, códigos de status e semânticas conhecidos para melhorar a experiência do usuário. Embora o HTTP/2 seja projetado para funcionar com HTTP e HTTPS, muitos navegadores da Web do cliente dão suporte apenas a HTTP/2 pela TLS (segurança da camada de transporte).
 
 > [!NOTE]
 > O suporte ao protocolo HTTP/2 está disponível somente para solicitações de clientes à porta frontal. A comunicação da porta frontal com os back-ends no pool de back-end ocorre por HTTP/1.1. 
@@ -46,7 +46,7 @@ Os benefícios do HTTP/2 incluem:
 
 ## <a name="http2-browser-support"></a>Suporte do navegador a HTTP/2
 
-Todos os principais navegadores implementaram o suporte a HTTP/2 em suas versões atuais. O fallback de navegadores sem suporte para HTTP/1.1 ocorre automaticamente.
+Todos os principais navegadores implementaram o suporte a HTTP/2 em suas versões atuais. Os navegadores sem suporte automaticamente retornam para HTTP/1.1.
 
 |Navegador|Versão Mínima|
 |-------------|------------|

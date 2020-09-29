@@ -3,12 +3,12 @@ title: Replicar VMs do Azure Stack no Azure usando Azure Site Recovery | Microso
 description: Saiba como configurar a recuperação de desastre para VMs do Azure Stack com o serviço do Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333708"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448963"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para Azure
 
@@ -314,26 +314,7 @@ Em seguida, execute um failover conforme a seguir:
 
 ### <a name="fail-back-to-azure-stack"></a>Failback do Azure Stack
 
-Quando o site primário estiver ativo e em execução novamente, será possível fazer o fail back do Azure para o Azure Stack. Para fazer isso, é necessário baixar o VHD da VM do Azure e enviá-lo para o Azure Stack.
-
-1. Desligue a VM do Azure para que o VHD possa ser baixado.
-2. Para iniciar o download do VHD, instale o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
-3. Navegue até a VM no Portal do Azure (usando o nome da VM).
-4. Em **Discos**, clique no nome do disco e agrupe as configurações.
-
-    - Por exemplo, o URI de VHD usado em nosso teste: `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` pode ser dividido para obter os seguintes parâmetros de entrada usados para baixar o VHD.
-        - Conta de Armazenamento: 502055westcentralus
-        - Contêiner: wahv9b8d2ceb284fb59287
-        - Nome do VHD: copied-3676553984.vhd
-
-5. Agora, use o Gerenciador de Armazenamento do Azure para baixar o VHD.
-6. Carregue o VHD no Azure Stack com [estas etapas](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. Na VM existente ou na VM nova, anexe os VHDs carregados.
-8. Verifique se o Disco do SO está correto e inicie a VM.
-
-
-Neste estágio, o failback está completo.
-
+Quando o site primário estiver ativo e em execução novamente, será possível fazer o fail back do Azure para o Azure Stack. Para fazer isso, siga as etapas listadas [aqui](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Conclusão
 

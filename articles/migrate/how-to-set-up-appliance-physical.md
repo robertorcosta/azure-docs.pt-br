@@ -4,12 +4,12 @@ description: Saiba como configurar um dispositivo de migrações para Azure para
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: bace4ab03051a9febfe14cc30143bd4a5cfa7c84
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085969"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448062"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um dispositivo para servidores físicos
 
@@ -59,7 +59,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso da nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - Exemplo de uso da nuvem governamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verifique a versão mais recente do dispositivo e as configurações de valores de hash.
+3.  Verifique a versão mais recente do dispositivo e as configurações de [valores de hash](tutorial-discover-physical.md#verify-security) .
  
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure

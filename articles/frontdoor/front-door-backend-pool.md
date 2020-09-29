@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399915"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449289"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Front-ends e pools de back-end na porta frontal do Azure
-Este artigo descreve os conceitos sobre como mapear a implantação de seu aplicativo com a porta frontal do Azure. Ele também explica os diferentes termos na configuração de porta frontal em relação aos back-ends do aplicativo.
+Este artigo descreve os conceitos sobre como mapear sua implantação de aplicativo Web com a porta frontal do Azure. Ele também explica as diferentes terminologias usadas na configuração de porta frontal em volta dos back-ends do aplicativo.
 
 ## <a name="backends"></a>Back-ends
-Um back-end é igual à instância de implantação de um aplicativo em uma região. A porta frontal dá suporte a back-ends do Azure e não do Azure, portanto, a região não é restrita apenas às regiões do Azure. Além disso, ele pode ser seu datacenter local ou uma instância de aplicativo em outra nuvem.
+Um back-end refere-se a uma implantação de aplicativo Web em uma região. A porta frontal dá suporte a recursos do Azure e não Azure no pool de back-end. O aplicativo pode estar no datacenter local ou localizado em outro provedor de nuvem.
 
-Os back-ends da porta frontal referem-se ao nome do host ou IP público do seu aplicativo, que pode atender às solicitações do cliente. Os back-ends não devem ser confundidos com a camada do banco de dados, a camada de armazenamento e assim por diante. Os back-ends devem ser exibidos como o ponto de extremidade público do backend do aplicativo. Ao adicionar um back-end em um pool de back-end da porta frontal, você também deve adicionar o seguinte:
+Os back-ends da porta frontal referem-se ao nome do host ou IP público do seu aplicativo que atende às solicitações do cliente. Os back-ends não devem ser confundidos com a camada do banco de dados, a camada de armazenamento e assim por diante. Os back-ends devem ser exibidos como o ponto de extremidade público para o backend do aplicativo. Ao adicionar um back-end a um pool de back-end da porta frontal, você também deve adicionar o seguinte:
 
 - **Tipo de host de back-end**. O tipo de recurso que você deseja adicionar. A porta frontal dá suporte à descoberta automática de back-ends de seu aplicativo do serviço de aplicativo, serviço de nuvem ou armazenamento. Se você quiser um recurso diferente no Azure ou mesmo em um back-end não Azure, selecione **host personalizado**.
 
@@ -41,13 +41,13 @@ Os back-ends da porta frontal referem-se ao nome do host ou IP público do seu a
 
 ### <a name="backend-host-header"></a><a name = "hostheader"></a>Cabeçalho de host de back-end
 
-As solicitações encaminhadas pela porta frontal para um back-end incluem um campo de cabeçalho de host que o back-end usa para recuperar o recurso de destino. O valor para esse campo geralmente vem do URI de back-end e tem o host e a porta.
+As solicitações encaminhadas pela porta frontal para um back-end incluem um campo de cabeçalho de host que o back-end usa para recuperar o recurso de destino. O valor para esse campo normalmente é proveniente do URI de back-end que tem o cabeçalho e a porta do host.
 
 Por exemplo, uma solicitação feita para `www.contoso.com` o terá o cabeçalho de host www.contoso.com. Se você usar portal do Azure para configurar o back-end, o valor padrão desse campo será o nome do host do back-end. Se o back-end for contoso-westus.azurewebsites.net, no portal do Azure, o valor preenchido automaticamente para o cabeçalho de host de back-end será contoso-westus.azurewebsites.net. No entanto, se você usar modelos de Azure Resource Manager ou outro método sem definir explicitamente esse campo, a porta frontal enviará o nome de host de entrada como o valor para o cabeçalho de host. Se a solicitação foi feita para www \. contoso.com e o back-end for contoso-westus.azurewebsites.NET que tem um campo de cabeçalho vazio, a porta frontal definirá o cabeçalho de host como www \. contoso.com.
 
 A maioria dos back-ends de aplicativo (aplicativos Web do Azure, armazenamento de BLOBs e serviços de nuvem) exige que o cabeçalho de host corresponda ao domínio do back-end. No entanto, o host de front-end que roteia para seu back-end usará um nome de host diferente, como www.contoso.net.
 
-Se o back-end exigir que o cabeçalho de host corresponda ao nome de host de back-end, verifique se o cabeçalho do host de back-end inclui o back-end do nome do host
+Se o back-end exigir que o cabeçalho de host corresponda ao nome de host de back-end, verifique se o cabeçalho de host de back-end inclui o nome de host do back-end.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configurando o cabeçalho de host do back-end para o back-end
 

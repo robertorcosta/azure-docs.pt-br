@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371712"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448793"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando backups automatizados de banco de dados-banco de dados SQL do Azure & SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,11 +33,6 @@ Se você configurou o [backup de retenção de longo prazo](long-term-retention-
 
 > [!IMPORTANT]
 > Não é possível substituir um banco de dados existente durante a restauração.
-
-Por padrão, o banco de dados SQL do Azure e os backups do Azure SQL Instância Gerenciada são armazenados no armazenamento de BLOBs com replicação geográfica (tipo de armazenamento RA-GRS). Além disso, o SQL Instância Gerenciada dá suporte ao armazenamento de backup com redundância local (LRS) e com redundância de zona (ZRS) também. A redundância garante que seus dados sejam protegidos de eventos planejados e não planejados, incluindo falhas transitórias de hardware, interrupções de rede ou energia e desastres grandes em massa. O ZRS (armazenamento com redundância de zona) está disponível somente em [determinadas regiões](../../storage/common/storage-redundancy.md#zone-redundant-storage).
-
-> [!IMPORTANT]
-> A configuração da redundância de armazenamento para backups está disponível somente para instância gerenciada e é permitida durante o processo de criação. Depois que o recurso for provisionado, você não poderá alterar a opção de redundância de armazenamento de backup.
 
 Quando você estiver usando a camada de serviço Standard ou Premium, a restauração do banco de dados poderá incorrer em um custo de armazenamento extra. O custo extra é incorrido quando o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída na camada de serviço e no nível de desempenho do banco de dados de destino. Para obter detalhes de preço do armazenamento extra, confira a página [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor do que a quantidade de armazenamento incluída, esse custo extra poderá ser evitado por meio da configuração do tamanho máximo do banco de dados para a quantidade incluída.
 
@@ -143,7 +138,7 @@ Para obter um exemplo de script do PowerShell mostrando como restaurar um banco 
 ## <a name="geo-restore"></a>Restauração geográfica
 
 > [!IMPORTANT]
-> A restauração geográfica só está disponível para instâncias gerenciadas configuradas com o tipo de armazenamento de backup com redundância geográfica (RA-GRS). As instâncias gerenciadas configuradas com os tipos de armazenamento de backup com redundância local ou com redundância de zona não dão suporte à restauração geográfica.
+> A restauração geográfica está disponível somente para bancos de dados SQL ou instâncias gerenciadas configuradas com [armazenamento de backup](automated-backups-overview.md#backup-storage-redundancy)com redundância geográfica.
 
 Você pode restaurar um banco de dados em qualquer servidor de banco de dados SQL ou em um banco de dados de instância em qualquer instância gerenciada em qualquer região do Azure dos backups replicados geograficamente mais recentes. A restauração geográfica usa um backup de replicação geográfica como origem. Você pode solicitar restauração geográfica mesmo que o banco de dados ou o datacenter esteja inacessível devido a uma interrupção.
 

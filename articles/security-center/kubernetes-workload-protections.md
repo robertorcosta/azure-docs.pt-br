@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301345"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448657"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger as cargas de trabalho do Kubernetes
 
@@ -58,7 +58,7 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
 
     1. Em qualquer um dos controles de segurança, selecione a recomendação para ver os recursos nos quais você pode instalar o complemento e selecione **corrigir**. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="A página de detalhes de recomendação para * * Azure Policy complemento para kubernetes deve ser instalada e habilitada em seus clusters * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recomendação * * Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters * *":::
 
 1. Aproximadamente 30 minutos após a conclusão da instalação do complemento, a central de segurança mostra o status de integridade dos clusters para as seguintes recomendações, cada um no controle de segurança relevante, conforme mostrado:
 
@@ -99,7 +99,7 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
 
     1. Abra a página de detalhes de recomendação e selecione **negar**:
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opção Deny para o parâmetro Azure Policy":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recomendação * * Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters * *":::
 
         Isso abrirá o painel em que o escopo será definido. 
 
@@ -113,7 +113,7 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
 
 1. Ao exibir uma recomendação do conjunto de proteção de carga de trabalho, você verá o número de pods afetados ("componentes kubernetes") listados junto com o cluster. Para obter uma lista de pods específicos, selecione o cluster e, em seguida, selecione **executar ação**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Exibindo o pods afetado por uma recomendação de K8s"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Recomendação * * Azure Policy complemento para kubernetes deve ser instalado e habilitado em seus clusters * *"::: 
 
 1. Para testar a imposição, use as duas implantações kubernetes abaixo:
 
