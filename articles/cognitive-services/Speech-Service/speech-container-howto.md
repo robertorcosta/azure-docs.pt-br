@@ -1,23 +1,25 @@
 ---
-title: Instalar contêineres de fala-serviço de fala
+title: Instalar e executar contêineres do Docker para as APIs do serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Instale e execute contêineres de fala. A conversão de fala em texto transcreve, em tempo real, fluxos de áudio em texto que seus aplicativos, ferramentas ou dispositivos podem consumir ou exibir. A conversão de texto em fala converte o texto de entrada em uma fala sintetizada semelhante à humana.
+description: Use os contêineres do Docker para o serviço de fala para executar reconhecimento de fala, transcrição, geração e outros locais.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: cog-serv-seo-aug-2020
+keywords: local, Docker, contêiner
+ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371670"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460043"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Instalar e executar contêineres de serviço de fala 
+# <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instalar e executar contêineres do Docker para as APIs do serviço de fala 
 
 Os contêineres permitem executar algumas das APIs de serviço de Fala no seu ambiente. Contêineres são excelentes para especificar requisitos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um contêiner de Fala.
 
@@ -52,7 +54,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Os seguintes pré-requisitos antes de usar os contêineres de fala:
 
-| Obrigatório | Finalidade |
+| Necessária | Finalidade |
 |--|--|
 | Mecanismo do Docker | É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br> |
 | Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`. |
@@ -482,7 +484,7 @@ ApiKey={API_KEY}
 
 Esse comando: 
 
-* Executa um contêiner de detecção de idioma de fala da imagem de contêiner. No momento, você não será cobrado pela execução desta imagem. 
+* Executa um contêiner de detecção de idioma de fala da imagem de contêiner. No momento, você não será cobrado pela execução desta imagem.
 * Aloca 1 núcleos de CPU e 1 gigabyte (GB) de memória.
 * Expõe a porta TCP 5003 e aloca um pseudo-TTY para o contêiner.
 * Remove automaticamente o contêiner depois que ele sai. A imagem de contêiner ainda fica disponível no computador host.

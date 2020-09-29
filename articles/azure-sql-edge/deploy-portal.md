@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886778"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445727"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implantar o SQL do Azure no Edge 
 
-O Azure SQL Edge é um mecanismo de banco de dados relacional otimizado para implantações de IoT e Azure IoT Edge. Ele oferece funcionalidades para a criação de uma camada de processamento e armazenamento de dados de alto desempenho para aplicativos e soluções de IoT. Este início rápido mostra como começar a criar um módulo do SQL do Azure no Edge por meio do Azure IoT Edge usando o portal do Azure.
+O SQL do Azure no Edge é um mecanismo de banco de dados relacional otimizado para implantações de IoT e do Azure IoT Edge. Ele oferece funcionalidades para a criação de uma camada de processamento e armazenamento de dados de alto desempenho para aplicativos e soluções de IoT. Este início rápido mostra como começar a criar um módulo do SQL do Azure no Edge por meio do Azure IoT Edge usando o portal do Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -62,7 +62,6 @@ O Azure Marketplace é um marketplace online de aplicativos e serviços onde voc
 
    |**Parâmetro**  |**Descrição**|
    |---------|---------|
-   | Nome | Nome do módulo. |
    | MSSQL_SA_PASSWORD  | Altere o valor padrão para especificar uma senha forte para a conta de administrador do SQL Edge. |
    | MSSQL_LCID   | Altere o valor padrão para definir a ID de idioma desejada a ser usada para o SQL Edge. Por exemplo, 1036 é francês. |
    | MSSQL_COLLATION | Altere o valor padrão para definir o agrupamento padrão para o SQL Edge. Essa configuração substitui o mapeamento padrão do LCID (ID de idioma) na ordenação. |
@@ -110,7 +109,7 @@ O Azure Marketplace é um marketplace online de aplicativos e serviços onde voc
    
 8. No painel **atualizar IOT Edge módulo** , clique em **Atualizar**.
 9. Na página **definir módulos no dispositivo** , clique em **avançar: rotas >** se você precisar definir rotas para sua implantação. Caso contrário, clique em **revisar + criar**. Para obter mais informações sobre como configurar rotas, consulte [implantar módulos e estabelecer rotas em IOT Edge](../iot-edge/module-composition.md).
-11. No painel **atualizar IOT Edge módulo** , clique em **criar**.
+11. Na página **definir módulos no dispositivo** , clique em **criar**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Conectar-se ao SQL do Azure no Edge
 

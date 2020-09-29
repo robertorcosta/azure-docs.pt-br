@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b55d8bcc2f2042dc36c6875750893a345deb552
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468599"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450417"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de atualização principal?
 
@@ -199,6 +199,9 @@ Os diagramas a seguir ilustram os detalhes subjacentes na emissão, na renovaç�
 | D | O plug-in CloudAP criará o cookie do PRT, entrará com a chave da sessão associada ao TPM e a enviará de volta para o host do cliente nativo. Como o cookie é assinado pela chave da sessão, ele não pode ser adulterado. |
 | E | O host do cliente nativo retornará esse cookie do PRT ao navegador, o qual o incluirá como parte do cabeçalho de solicitação chamado x-ms-RefreshTokenCredential e solicitará tokens do Azure AD. |
 | F | O Azure AD valida a assinatura da chave da sessão no cookie do PRT, valida o nonce, verifica se o dispositivo é válido no locatário e emite um token de ID para a página da Web e um cookie de sessão criptografado para o navegador. |
+
+> [!NOTE]
+> O fluxo de SSO do navegador descrito nas etapas acima não se aplica a sessões em modos privados, como InPrivate no Microsoft Edge, ou Incognito no Google Chrome (ao usar a extensão de contas da Microsoft).
 
 ## <a name="next-steps"></a>Próximas etapas
 

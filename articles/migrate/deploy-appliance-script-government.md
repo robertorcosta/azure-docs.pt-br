@@ -3,12 +3,12 @@ title: Configurar um dispositivo de migrações para Azure no Azure governamenta
 description: Saiba como configurar um dispositivo de migrações para Azure no Azure governamental
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: ffea966c58909ecaab0da13a4204295ecb193895
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1060bda13cc593980850bc6563555cf5dd4b7fd9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936785"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450031"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurar um dispositivo no Azure governamental 
 
@@ -51,7 +51,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
     **Algoritmo** | **Download** | **SHA256**
     --- | --- | ---
-    VMware (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140337) | 31b1bfdd4fc29b3eb923c7c6e7a898af79b7cac0404426bea18809def2284188
+    VMware (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
 
 ### <a name="run-the-script"></a>Executar o script
@@ -105,7 +105,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
     **Cenário** | **Download** | **SHA256**
     --- | --- | ---
-    Hyper-V (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140424) |  db5311de3d1d4a1167183a94e8347456db9c5749c7332ff2eb4b777798765e48
+    Hyper-V (85,8 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140424) |  db5311de3d1d4a1167183a94e8347456db9c5749c7332ff2eb4b777798765e48
 
           
 
@@ -160,7 +160,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
 
     **Cenário** | **Baixar*** | **Valor de hash**
     --- | --- | ---
-    Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | 1545f9ce8874cedef6347c1a1332f8b5eabd6811a017440a2382525fb0430309
+    Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
           
 
 ### <a name="run-the-script"></a>Executar o script

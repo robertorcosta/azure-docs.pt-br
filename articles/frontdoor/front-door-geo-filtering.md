@@ -10,23 +10,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 558d1c098f07f8e09a6a68a065cac9b7b38cfbf3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399643"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449267"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Filtragem geográfica em um domínio para a porta frontal do Azure
 
-Por padrão, o Azure Front Door responde às solicitações de usuário, independentemente do local do usuário que faz a solicitação. No entanto, em alguns casos, é possível restringir o acesso ao conteúdo dos aplicativos Web por país/região. O serviço WAF (firewall do aplicativo Web) no Front Door permite que você defina uma política usando regras personalizadas de acesso para um caminho específico no seu ponto de extremidade para permitir ou bloquear o acesso de países/regiões específicos. 
+Por padrão, a porta frontal do Azure responderá a todas as solicitações de usuário, independentemente do local de origem da solicitação. Em alguns cenários, talvez você queira restringir o acesso ao seu aplicativo Web por países/regiões. O serviço WAF (firewall do aplicativo Web) na porta frontal permite que você defina uma política usando regras de acesso personalizadas para um caminho específico em seu ponto de extremidade para permitir ou bloquear o acesso de países/regiões especificados. 
 
-Uma política de WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é composta de condições de correspondência, uma ação e uma prioridade. Na condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência.  Para a regra de filtragem geográfica, a variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, o valor é o código de interesse do país/região de duas letras. Você pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de caracteres REQUEST_URI para criar uma regra de filtragem geográfica com base no caminho.
+Uma política de WAF contém um conjunto de regras personalizadas. A regra consiste em condições de correspondência, em uma ação e em uma prioridade. Em uma condição de correspondência, você define uma variável de correspondência, operador e valor de correspondência. Para uma regra de filtragem geográfica, uma variável de correspondência é REMOTE_ADDR, o operador é geocorrespondente e o valor é um código de país/região de duas letras de interesse. Você pode combinar uma condição de correspondência geográfica e uma condição de correspondência de cadeia de caracteres de REQUEST_URI para criar uma regra de filtro geográfico baseada em caminho.
 
-Você pode configurar uma política de filtragem geográfica para seu Front Door usando o [Azure PowerShell](front-door-tutorial-geo-filtering.md) ou usando nosso [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Você pode configurar uma política de filtragem geográfica para sua porta frontal usando [Azure PowerShell](front-door-tutorial-geo-filtering.md) ou usando um modelo de [início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="countryregion-code-reference"></a>Referência de código de país/região
 
@@ -212,5 +212,5 @@ Você pode configurar uma política de filtragem geográfica para seu Front Door
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [segurança da camada de aplicativo com o Front Door](front-door-application-security.md).
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
+- Saiba o que é possível para [Configurar uma política de WAF de filtragem geográfica](front-door-tutorial-geo-filtering.md).

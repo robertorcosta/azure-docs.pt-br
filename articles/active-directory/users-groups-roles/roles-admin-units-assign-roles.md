@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264909"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450378"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções com escopo a uma unidade administrativa
 
@@ -38,6 +38,12 @@ Administrador de Licenças  |  Pode atribuir, remover e atualizar atribuições 
 Administrador de senha  |  O pode redefinir senhas para não administradores e administradores de senha somente dentro da unidade administrativa atribuída.
 Administrador de usuários  |  Pode gerenciar todos os aspectos de usuários e grupos, incluindo a redefinição de senhas para administradores limitados somente na unidade administrativa atribuída.
 
+## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Entidades de segurança que podem ser atribuídas a uma função com escopo de AU
+As entidades de segurança a seguir podem ser atribuídas a uma função com escopo de AU:
+* Usuários
+* Grupos de nuvem atribuíveis de função (visualização)
+* SPN (Nome da Entidade de Serviço)
+
 ## <a name="assign-a-scoped-role"></a>Atribuir uma função com escopo
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -50,15 +56,19 @@ Selecione a função a ser atribuída e, em seguida, selecione **Adicionar atrib
 
 ![Selecione a função para o escopo e, em seguida, selecione Adicionar atribuições](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
+> [!Note]
+>
+> Para atribuir uma função em uma unidade administrativa usando o PIM, siga as etapas [aqui](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope).
+
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
 $Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 $RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
 $RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
 A seção realçada pode ser alterada conforme necessário para o ambiente específico.
@@ -67,7 +77,7 @@ A seção realçada pode ser alterada conforme necessário para o ambiente espec
 
 ```http
 Http request
-POST /administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{id}/scopedRoleMembers
     
 Request body
 {
@@ -87,8 +97,8 @@ Todas as atribuições de função feitas com um escopo de unidade administrativ
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
 A seção realçada pode ser alterada conforme necessário para o ambiente específico.
@@ -97,7 +107,7 @@ A seção realçada pode ser alterada conforme necessário para o ambiente espec
 
 ```http
 Http request
-GET /administrativeUnits/{id}/scopedRoleMembers
+GET /directory/administrativeUnits/{id}/scopedRoleMembers
 Request body
 {}
 ```

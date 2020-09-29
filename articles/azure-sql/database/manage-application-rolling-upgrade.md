@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 44005dafb1e3eee60f163f80ad2e4282147233e4
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 659a8a3b38a79cc9dcc97f6f1e9c4395426ef7a8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355611"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450260"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerenciar a rolagem de atualizações de aplicativos na nuvem usando a replicação geográfica ativa do Banco de dados SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -110,7 +110,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Termine a replicação geográfica desconectando o secundário (11). Essa ação criará uma cópia independente totalmente sincronizada do banco de dados de produção. Este banco de dados será atualizado. O exemplo a seguir usa o Transact-SQL, mas o [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) também está disponível. 
+2. Termine a replicação geográfica desconectando o secundário (11). Essa ação criará uma cópia independente totalmente sincronizada do banco de dados de produção. Este banco de dados será atualizado. O exemplo a seguir usa o Transact-SQL, mas o [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0&preserve-view=true) também está disponível. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication

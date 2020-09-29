@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399745"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449270"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoramento de métricas e logs na porta frontal do Azure
 
 Usando a porta frontal do Azure, você pode monitorar os recursos das seguintes maneiras:
 
-- **Métricas**. Atualmente, a porta frontal do Azure tem sete métricas para exibir os contadores de desempenho.
+- **Métricas**. Atualmente, a porta frontal do Azure tem oito métricas para exibir os contadores de desempenho.
 - **Logs**. Os logs de atividade e diagnóstico permitem que o desempenho, o acesso e outros dados sejam salvos ou consumidos de um recurso para fins de monitoramento.
 
 ### <a name="metrics"></a>Métricas
@@ -52,16 +52,16 @@ Acesse os logs de atividade em sua porta de front-end ou todos os logs dos recur
 1. Selecione sua instância de porta frontal.
 2. Selecione **Log de atividades**.
 
-    ![Log de atividades](./media/front-door-diagnostics/activity-log.png)
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Log de atividades":::
 
 3. Escolha um escopo de filtragem e, em seguida, selecione **aplicar**.
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Logs de diagnóstico
 Os logs de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria e solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades.
 
-Os logs de atividades fornecem informações sobre as operações realizadas nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações executadas pelo recurso. Para obter mais informações, consulte [Azure monitor logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
+Os logs de atividades fornecem informações sobre as operações realizadas nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações que o recurso fez. Para obter mais informações, consulte [Azure monitor logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
 
-![Logs de diagnóstico](./media/front-door-diagnostics/diagnostic-log.png)
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Log de atividades":::
 
 Para configurar os logs de diagnóstico para sua porta frontal:
 
@@ -103,7 +103,6 @@ Atualmente, a porta frontal fornece logs de diagnóstico (em lote). Os logs de d
 | Regra de roteamento com Caching habilitado. Cache atingido no POP de borda | 1 | Código POP do Edge | Vazio | Falso | CONTADOR |
 | Regra de roteamento com Caching habilitado. Erro de cache no POP de borda, mas acesso ao cache no POP do cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. vazio | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PARTIAL_HIT |
 | Regra de roteamento com Caching habilitado. Perda de cache na borda e no POP de cache pai | 2 | 1. código POP de borda</br>2. código POP do cache pai | 1. nome do host POP do cache pai</br>2. back-end que ajuda a preencher o cache | 1. verdadeiro</br>2. false | 1. PERDA</br>2. PERDA |
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

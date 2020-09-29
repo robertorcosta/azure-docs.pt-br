@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311539"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449771"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes sobre o autogerenciamento do Azure para VMs
 
@@ -33,12 +33,13 @@ Veja a seguir os pré-requisitos para habilitar o autogerenciamento do Azure:
 - O usuário deve ter as permissões corretas
 - Somente VMs de conjunto sem escala
 - As VMs não devem vincular a um espaço de trabalho do log Analytics em uma assinatura diferente
+- O autogerenci não dá suporte a assinaturas de área restrita no momento
 
 **Qual permissão RBAC é necessária para habilitar o autogerenci?**
 
-Se você estiver habilitando o autogerenciamento em uma VM com uma conta de autogerenciamento existente, precisará da função colaborador para o grupo de recursos onde a VM reside. 
+Se você estiver habilitando o autogerenciamento em uma VM com uma conta de autogerenciamento existente, precisará da função colaborador para o grupo de recursos onde a VM reside.
 
-Se você estiver usando uma nova conta de autogerenciamento ao habilitar, os usuários deverão ter a função de proprietário ou ter a função de administrador de acesso de usuário ou colaborador para a assinatura.
+Se você estiver usando uma nova conta de autogerenciamento ao habilitar o, deverá ter a função de proprietário ou ter a função de administrador de acesso de usuário ou colaborador para a assinatura.
 
 
 **Quais regiões têm suporte?**
@@ -50,6 +51,9 @@ As VMs nas seguintes regiões têm suporte: Europa Ocidental, leste dos EUA, oes
 
 O autogerencie registra, configura e monitora durante todo o ciclo de vida da VM os serviços listados [aqui](virtual-machines-best-practices.md).
 
+**O Azure autogerenci funciona com VMs habilitadas para Arc do Azure?**
+
+O autogerenci atualmente não dá suporte a VMs habilitadas para Arc.
 
 **Posso personalizar as configurações no autogerenciamento do Azure?**
 
@@ -88,7 +92,7 @@ A conta de autogerenciamento é uma MSI (Identidade de Serviço Gerenciada) que 
 
 **Ao habilitar o autogerenci, ele afeta quaisquer VMs adicionais além das VMs que selecionei?**
 
-Se sua VM estiver vinculada a um espaço de trabalho Log Analytics existente, usaremos esse espaço de trabalho para aplicar essas soluções: Controle de Alterações, inventário e Gerenciamento de Atualizações. Todas as VMs conectadas a esse espaço de trabalho terão essas soluções habilitadas. 
+Se sua VM estiver vinculada a um espaço de trabalho Log Analytics existente, usaremos esse espaço de trabalho para aplicar essas soluções: Controle de Alterações, inventário e Gerenciamento de Atualizações. Todas as VMs conectadas a esse espaço de trabalho terão essas soluções habilitadas.
 
 
 **Posso alterar o perfil de configuração da minha VM?**

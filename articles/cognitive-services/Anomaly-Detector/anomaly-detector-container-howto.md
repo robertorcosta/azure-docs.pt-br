@@ -1,33 +1,38 @@
 ---
-title: Como instalar e executar contêineres para usar a API do detector de anomalias
+title: Instalar e executar contêineres do Docker para a API do detector de anomalias
 titleSuffix: Azure Cognitive Services
-description: Saiba como instalar e usar o contêiner para usar os algoritmos avançados da API do detector de anomalias.
+description: Use os algoritmos da API do detector de anomalias para localizar anomalias em seus dados, localmente usando um contêiner do Docker.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: cog-serv-seo-aug-2020
+keywords: no local, Docker, contêiner, streaming, algoritmos
+ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903559"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459993"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Instalar e executar contêineres do Detector de Anomalias 
+# <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instalar e executar contêineres do Docker para a API do detector de anomalias 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-O Detector de Anomalias tem o seguinte recurso de contêiner:
+Os contêineres permitem que você use a API do detector de anomalias em seu próprio ambiente. Contêineres são excelentes para especificar requisitos de segurança e governança de dados. Neste artigo, você aprenderá a baixar, instalar e executar um contêiner de detector de anomalias.
 
-| Função | Recursos |
-|--|--|
-| Detector de Anomalias | <li> Detecta anomalias conforme elas ocorrem em tempo real. <li> Detecta anomalias em todo o conjunto de dados como um lote. <li> Detecta pontos de alteração de tendência em seu conjunto de dados como um lote.<li> Infere o intervalo normal esperado de seus dados. <li> Dá suporte ao ajuste de sensibilidade de detecção de anomalias para se adequar melhor aos seus dados. |
+O detector de anomalias oferece um único contêiner do Docker para usar a API local. Use o contêiner para:
+* Usar os algoritmos do detector de anomalias em seus dados
+* Monitore dados de streaming e detecte anomalias à medida que ocorrem em tempo real.
+* Detecte anomalias em todo o conjunto de dados como um lote. 
+* Detectar pontos de alteração de tendência em seu conjunto de dados como um lote.
+* Ajuste a sensibilidade do algoritmo de detecção de anomalias para se adequar melhor aos seus dados.
 
-Para obter informações detalhadas sobre as APIs, consulte:
+Para obter informações detalhadas sobre a API, consulte:
 * [Saiba mais sobre o serviço de API do detector de anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
@@ -36,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Você deve atender aos seguintes pré-requisitos antes de usar contêineres de detector de anomalias:
 
-|Obrigatório|Finalidade|
+|Necessária|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.|
@@ -54,7 +59,7 @@ Você deve atender aos seguintes pré-requisitos antes de usar contêineres de d
 
 A tabela a seguir descreve os núcleos e memória de CPU mínimos e recomendados para alocar para o contêiner do detector de anomalias.
 
-| QPS (consultas por segundo) | Mínimo | Recomendadas |
+| QPS (consultas por segundo) | Mínimo | Recomendado |
 |-----------|---------|-------------|
 | 10 QPS | 4 núcleos, 1 GB de memória | 8 núcleos de memória de 2 GB |
 | 20 QPS | 8 núcleos, 2 GB de memória | 16 núcleos de 4 GB de memória |

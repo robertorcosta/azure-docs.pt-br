@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1166d2ad17aea97a4dd7fdda53c42d6b3df75936
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264672"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450372"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gerenciar unidades administrativas no Azure Active Directory
 
@@ -33,9 +33,6 @@ Para um controle administrativo mais granular no Azure Active Directory (AD do A
 
     ![Captura de tela mostrando o link para "conceder consentimento de administrador"](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. No Gerenciador de gráficos, selecione a versão **beta** .
-
-    ![Captura de tela mostrando a versão beta selecionada](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Use a versão de visualização do PowerShell do Azure AD.
 
@@ -59,7 +56,7 @@ Instale o PowerShell do Azure AD (versão prévia) antes de tentar executar os s
 
 ```powershell
 Connect-AzureAD
-New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
 Você pode modificar os valores que são colocados entre aspas, conforme necessário.
@@ -91,8 +88,8 @@ No Azure AD, você pode remover uma unidade administrativa que não é mais nece
 ### <a name="use-powershell"></a>Usar o PowerShell
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 Você pode modificar os valores que são colocados entre aspas, conforme necessário para o ambiente específico.

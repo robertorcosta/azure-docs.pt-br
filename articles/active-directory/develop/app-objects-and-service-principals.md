@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782420"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449362"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de entidade de serviço e aplicativo no Azure Active Directory
 
@@ -49,7 +49,7 @@ Para acessar os recursos que são protegidos por um locatário do Azure AD, a en
 
 Uma entidade de serviço é a representação local, ou instância do aplicativo, de um objeto de aplicativo global em um único locatário ou diretório. Uma entidade de serviço é uma instância concreta criada a partir do objeto de aplicativo e herda determinadas propriedades desse objeto de aplicativo.  Uma entidade de serviço é criada em cada locatário em que o aplicativo é usado e faz referência ao objeto de aplicativo exclusivo globalmente.  O objeto de entidade de serviço define o que o aplicativo pode realmente fazer no locatário específico, quem pode acessar o aplicativo e quais recursos o aplicativo pode acessar.
 
-Quando um aplicativo recebe permissão para acessar os recursos em um locatário (após o registro ou o [consentimento](developer-glossary.md#consent)), um objeto de entidade de serviço é criado. Você também pode criar um objeto de entidade de serviço em um locatário usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), CLI do Azure, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), o [portal do Azure][AZURE-Portal]e outras ferramentas.  Ao usar o portal, uma entidade de serviço é criada automaticamente quando você registra um aplicativo.
+Quando um aplicativo recebe permissão para acessar os recursos em um locatário (após o registro ou o [consentimento](developer-glossary.md#consent)), um objeto de entidade de serviço é criado. Você também pode criar um objeto de entidade de serviço em um locatário usando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), o [portal do Azure][AZURE-Portal]e outras ferramentas.  Ao usar o portal, uma entidade de serviço é criada automaticamente quando você registra um aplicativo.
 
 A folha **aplicativos empresariais** no portal é usada para listar e gerenciar as entidades de serviço em um locatário. Você pode ver as permissões da entidade de serviço, as permissões consentidas pelo usuário, quais usuários fizeram esse consentimento, informações de entrada e muito mais.
 

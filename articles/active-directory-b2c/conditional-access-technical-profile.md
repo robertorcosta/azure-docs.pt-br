@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2a62b55ce7f8cd408afeb2f10fd40f42b36d53d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ef7599441cbfa11c555453adea0ca135569524b5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393931"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459822"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico de acesso condicional em uma política personalizada de Azure Active Directory B2C
 
@@ -59,7 +59,7 @@ Para cada entrada, Azure AD B2C avalia todas as políticas e garante que todos o
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas ao acesso condicional. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico de acesso condicional.
 
-| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
+| ClaimReferenceId | Necessária | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | UserId | Sim | string | O identificador do usuário que entra. |
 | AuthenticationMethodsUsed | Sim |stringCollection | A lista de métodos que o usuário usou para entrar. Valores possíveis: `Password` , e `OneTimePasscode` . |
@@ -73,7 +73,7 @@ O elemento **InputClaimsTransformations** pode conter uma coleção de elementos
 
 O elemento **OutputClaims** contém uma lista de declarações geradas pelo ConditionalAccessProtocolProvider. Você também pode mapear o nome da sua declaração para o nome definido abaixo.
 
-| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
+| ClaimReferenceId | Necessária | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | Desafios | Sim |stringCollection | Lista de ações para corrigir a ameaça identificada. Valores possíveis: `block` |
 | MultiConditionalAccessStatus | Sim | stringCollection |  |
@@ -92,7 +92,7 @@ O exemplo a seguir mostra um perfil técnico de acesso condicional que é usado 
     <Item Key="OperationType">Evaluation</Item>
   </Metadata>
   <InputClaimsTransformations>
-    <InputClaimsTransformation ReferenceId="IsMfaRegistered" />
+    <InputClaimsTransformation ReferenceId="IsMfaRegisteredCT" />
   </InputClaimsTransformations>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="UserId" />
@@ -121,7 +121,7 @@ O modo de **correção** do perfil técnico de acesso condicional informa Azure 
 
 O elemento **InputClaims** contém uma lista de declarações a serem enviadas ao acesso condicional. Você também pode mapear o nome da sua declaração para o nome definido no perfil técnico de acesso condicional.
 
-| ClaimReferenceId | Obrigatório | Tipo de Dados | Descrição |
+| ClaimReferenceId | Necessária | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Sim | stringCollection| A lista de desafios satisfeitos para corrigir a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
 
@@ -367,6 +367,7 @@ No elemento TrustFrameworkPolicy, adicione essas subjornadas, conforme mostrado 
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
+  </SubJourneys>
 
 ```
 
@@ -376,7 +377,7 @@ Adicione um percurso do usuário que usa as novas declarações, conforme mostra
   <UserJourneys>
     <UserJourney Id="SignUpOrSignInWithCA">
       <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninsam">
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
 
@@ -412,20 +413,14 @@ Adicione um percurso do usuário que usa as novas declarações, conforme mostra
           </ClaimsExchanges>
         </OrchestrationStep>
 
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="UserJourneyContext" TechnicalProfileReferenceId="SimpleUJContext" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-
-        <OrchestrationStep Order="5" Type="InvokeSubJourney">
+        <OrchestrationStep Order="4" Type="InvokeSubJourney">
           <JourneyList>
             <Candidate SubJourneyReferenceId="ConditionalAccess_Evaluation" />
           </JourneyList>
         </OrchestrationStep>
 
         <!--MFA based on Conditional Access-->
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
+        <OrchestrationStep Order="5" Type="ClaimsExchange">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>CAChallengeIsMfa</Value>
@@ -443,7 +438,7 @@ Adicione um percurso do usuário que usa as novas declarações, conforme mostra
         </OrchestrationStep>
 
         <!--Save MFA phone number: The precondition verifies whether the user provided a new number in the previous step. If so, the phone number is stored in the directory for future authentication requests.-->
-        <OrchestrationStep Order="7" Type="ClaimsExchange">
+        <OrchestrationStep Order="6" Type="ClaimsExchange">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>newPhoneNumberEntered</Value>
@@ -455,7 +450,7 @@ Adicione um percurso do usuário que usa as novas declarações, conforme mostra
           </ClaimsExchanges>
         </OrchestrationStep>
 
-        <OrchestrationStep Order="8" Type="ClaimsExchange" >
+        <OrchestrationStep Order="7" Type="ClaimsExchange" >
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
@@ -474,12 +469,12 @@ Adicione um percurso do usuário que usa as novas declarações, conforme mostra
 
         <!--If a user has reached this point, this means a remediation was applied-->
         <!--  You can add a precondition here to call remediation only if a Conditional Access challenge was issued-->
-        <OrchestrationStep Order="9" Type="InvokeSubJourney">
+        <OrchestrationStep Order="8" Type="InvokeSubJourney">
           <JourneyList>
             <Candidate SubJourneyReferenceId="ConditionalAccess_Remediation" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="10" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <OrchestrationStep Order="9" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>

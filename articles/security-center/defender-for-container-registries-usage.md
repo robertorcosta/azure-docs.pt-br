@@ -4,15 +4,15 @@ description: Saiba mais sobre como usar o Azure defender para registros de cont�
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 04a7b7f40e1591a919668e940a883dde9a6f4689
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302002"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449129"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usar o Azure defender para registros de contêiner para verificar se há vulnerabilidades em suas imagens
 
@@ -135,7 +135,7 @@ Você pode usar qualquer um dos seguintes critérios:
 - Categoria
 - Verificação de segurança 
 - Pontuações do CVSS v3
-- Gravidade 
+- Severidade 
 - Status de patch 
 
 Para criar uma regra:
@@ -150,7 +150,7 @@ Para criar uma regra:
 1. Para exibir, substituir ou excluir uma regra: 
     1. Selecione **desabilitar regra**.
     1. Na lista escopo, as assinaturas com regras ativas são mostradas como **regra aplicada**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificar ou excluir uma regra existente":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Criar uma regra de desabilitação para descobertas de VA no registro":::
     1. Para exibir ou excluir a regra, selecione o menu de reticências ("...").
 
 

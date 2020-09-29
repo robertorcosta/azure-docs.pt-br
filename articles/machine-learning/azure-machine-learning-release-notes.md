@@ -9,18 +9,55 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: d89a5c951f2923f9e107dd2dabec7773f292fa02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8df50096cc123003299b86da88f9230c95854775
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290510"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450073"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) .
 
 Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender sobre erros e soluções conhecidas.
+
+## <a name="2020-09-28"></a>2020-09-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1150"></a>Azure Machine Learning SDK para Python v 1.15.0
++ **Correções de bugs e melhorias**
+  + **azureml-contrib-interpret**
+    + Explicador de verde-limão movido de azureml-contrib-interpret para interpretação-pacote da Comunidade e explicador de imagem removido do pacote azureml-contrib-interpret
+    + painel de visualização removido do pacote azureml-contrib-interpret, explicação cliente movido para o pacote azureml-interpret e preterido no pacote azureml-contrib-interpret e notebooks atualizados para refletir a API aprimorada
+    + Corrija as descrições do pacote PyPI para azureml-interpret, azureml-explique-Model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-contrib-notebook**
+    + Fixe a dependência nbcovert para < 6 para que o Papermill 1. x continue a funcionar.
+  + **azureml-core**
+    + Parâmetros adicionados ao Construtor TensorflowConfiguration e MpiConfiguration para permitir uma inicialização mais simplificada dos atributos de classe sem exigir que o usuário defina cada atributo individual. Adicionada uma classe PyTorchConfiguration para configurar trabalhos PyTorch distribuídos no ScriptRunConfig.
+    + Fixe a versão do Azure-MGMT-Resource para corrigir o erro de autenticação.
+    + Triton de suporte sem implantação de código
+    + os diretórios de saída especificados em Run. start_logging () agora serão controlados ao usar a execução em cenários interativos. Os arquivos rastreados serão visíveis em ML Studio após a chamada de Run. Complete ()
+    + Agora, a codificação de arquivo pode ser especificada durante `Dataset.Tabular.from_delimited_files` a criação do conjunto de um com e `Dataset.Tabular.from_json_lines_files` passando o `encoding` argumento. As codificações com suporte são ' utf8 ', ' iso88591 ', ' latino1 ', ' ASCII ', UTF16 ', ' UTF32 ', ' utf8bom ' e ' windows1252 '.
+    + Correção de bug quando o objeto de ambiente não é passado para o Construtor ScriptRunConfig.
+    + Execução atualizada. Cancel () para permitir o cancelamento de uma execução local de outro computador.
+  + **azureml-dataprep**
+    +  Problemas fixos de tempo limite de montagem do conjunto de
+  + **azureml-explain-model**
+    + Corrija as descrições do pacote PyPI para azureml-interpret, azureml-explique-Model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-interpret**
+    + painel de visualização removido do pacote azureml-contrib-interpret, explicação cliente movido para o pacote azureml-interpret e preterido no pacote azureml-contrib-interpret e notebooks atualizados para refletir a API aprimorada
+    + o pacote azureml-interpretar foi atualizado para depender da 0.15.0 da comunidade de interpretação
+    + Corrija as descrições do pacote PyPI para azureml-interpret, azureml-explique-Model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-pipeline-core**
+    +  Corrigido o problema de deslocamento de pipeline com `OutputFileDatasetConfig` When quando `register_on_complete` é chamado com o `name` parâmetro definido como um nome de conjunto de um DataSet pré-existente.
+  + **azureml-pipeline-steps**
+    + Blocos de anotações do databricks obsoletos removidos.
+  + **azureml-tensorboard**
+    + Corrija as descrições do pacote PyPI para azureml-interpret, azureml-explique-Model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-train-automl-runtime**
+    + painel de visualização removido do pacote azureml-contrib-interpret, explicação cliente movido para o pacote azureml-interpret e preterido no pacote azureml-contrib-interpret e notebooks atualizados para refletir a API aprimorada
+  + **azureml-widgets**
+    + painel de visualização removido do pacote azureml-contrib-interpret, explicação cliente movido para o pacote azureml-interpret e preterido no pacote azureml-contrib-interpret e notebooks atualizados para refletir a API aprimorada
 
 ## <a name="2020-09-21"></a>2020-09-21
 
@@ -102,7 +139,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Corrija o bug no conjunto de informações. get_by_name que mostraria as marcas da versão mais recente do conjunto de informações, mesmo quando uma versão específica anterior foi recuperada.
   + **azureml-interpret**
     + Saídas de probabilidade adicionadas aos explicadores de Pontuação shap no azureml-interpretam com base no parâmetro shap_values_output do explicador original.
-  + **azureml-pipeline-Core**
+  + **azureml-pipeline-core**
     + Documentação aprimorada `PipelineOutputAbstractDataset.register` .
   + **azureml-train-automl-client**
     + Dependências de AutoML atualizadas: `scikit-learn` (agora 0.22.1), `pandas` (agora 0.25.1), `numpy` (agora 1.18.2).
@@ -159,7 +196,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Marque create_from_model API no DataDriftDetector como sendo preterida.
   + **azureml-dataprep**
     + Mensagem de erro aprimorada ao tentar baixar ou montar um tipo de conjunto de texto incorreto.
-  + **azureml-pipeline-core**
+  + **azureml-pipeline-Core**
     + Corrigido o bug ao desserializar o grafo de pipeline que contém conjuntos de tabelas registrados.
   + **azureml-pipeline-steps**
     + O RScriptStep dá suporte a RSection do azureml. Core. Environment.
@@ -278,7 +315,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Preterindo _with_auth param em WS. get_mlflow_tracking_uri ()
   + **azureml-opendatasets**
     + Os conjuntos de Covid de controle de acompanhamento recentemente publicados agora estão disponíveis com o SDK
-  + **azureml-pipeline-core**
+  + **azureml-pipeline-Core**
     + Aviso de logoff quando "azureml-defaults" não está incluído como parte da dependência de Pip
     + Melhorar a renderização de nota.
     + Suporte adicionado para quebras de linha entre aspas ao analisar arquivos delimitados para PipelineOutputFileDataset.
@@ -602,7 +639,7 @@ Veja [a lista de problemas conhecidos](resource-known-issues.md) para aprender s
     + Bugfix explicações esparsas criadas com o explicador de imitação usando um modelo substituto linear.
   + **azureml-opendatasets**
     + Corrigir o problema das colunas de MNIST é analisado como cadeia de caracteres, que deve ser int.
-  + **azureml-pipeline-Core**
+  + **azureml-pipeline-core**
     + Permitir a opção de regenerate_outputs ao usar um módulo inserido em um ModuleStep.
   + **azureml-train-automl-client**
     + Modelos Tensorflow preteridos para AutoML.
@@ -667,7 +704,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Adição do limite superior ao tamanho do arquivo para os dados de visualização nas explicações carregadas.
   + **azureml-train-automl-client**
     + Verificando explicitamente label_column_name & parâmetros weight_column_name para que AutoMLConfig seja do tipo cadeia de caracteres.
-  + **azureml-contrib-pipeline-etapas**
+  + **azureml-contrib-pipeline-steps**
     + ParallelRunStep agora dá suporte a DataSet como parâmetro de pipeline. O usuário pode construir o pipeline com o conjunto de dados de exemplo e pode alterar o conjunto de dados de entrada do mesmo tipo (arquivo ou tabular) para a nova execução do pipeline.
 
   
@@ -902,7 +939,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
   + **azureml-interpret**
     + exceções do estilo do azureml adicionadas ao azureml-interpret
     + correção de serialização de DeepScoringExplainer para modelos de Keras
-  + **azureml-pipeline-Core**
+  + **azureml-pipeline-core**
     + O notebook de Pontuação do lote de pipeline agora usa ParallelRunStep
   + **azureml-pipeline-steps**
     + Moveu o `AutoMLStep` no `azureml-pipeline-steps` pacote. Preteriu o `AutoMLStep` no `azureml-train-automl-runtime` .
@@ -1135,7 +1172,7 @@ Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     + Adicione o log da exceção que está causando a falha prematura de uma execução local.
   + **azureml-train-core**
     + Considere resume_from execuções no cálculo de melhores execuções de filhos de ajuste de hiperparâmetro.
-  + **azureml-pipeline-core**
+  + **azureml-pipeline-Core**
     + Manipulação de parâmetro fixo na construção de argumento de pipeline.
     + Adicionada a descrição de pipeline e o parâmetro de tipo de etapa YAML.
     + Novo formato YAML para etapa de pipeline e aviso de substituição adicionado para o formato antigo.
@@ -1264,7 +1301,7 @@ Azure Machine Learning agora é um provedor de recursos para a grade de eventos,
     + Suporte a agendamento de monitor semanal e mensal, além de diários para monitores de conjuntos de conjunto de DataSet.
     + Suporte a aterramento de métricas de monitor de dados para analisar dados históricos de monitores de conjunto de dados.
     + Correções de vários bugs
-  + [**azureml-pipeline-core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
+  + [**azureml-pipeline-Core**](https://docs.microsoft.com/python/api/azureml-pipeline-core)
     + o azureml-dataprep não é mais necessário para enviar uma execução de pipeline de Azure Machine Learning do arquivo de pipeline `yaml` .
   + [**azureml-Train-automl**](/python/api/azureml-train-automl-runtime/)
     + Adicionar azureml-padrões para o Conda env gerado automaticamente para resolver a falha de implantação do modelo
@@ -1457,7 +1494,7 @@ A guia experimento no [novo portal de espaço de trabalho](https://ml.azure.com)
   + **azureml-Train-automl**
     + Training_data com suporte, validation_data, label_column_name weight_column_name como formato de entrada de dados
     + Mensagem de substituição adicionada para explain_model () e retrieve_model_explanations ()
-  + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
+  + **[azureml-pipeline-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Adicionado um [bloco de anotações](https://aka.ms/pl-modulestep) para descrever o [módulo](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module%28class%29), [ModuleVersion e [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Adição de [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) para dar suporte ao script R executado via pipeline AML.

@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a02581ab898fad0440f45626676ec6bdd7227eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/29/2020
+ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318255"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450129"
 ---
 # <a name="execute-python-script-module"></a>Executar módulo de script Python
 
@@ -56,6 +56,9 @@ if spec is None:
 
 > [!NOTE]
 > Se o pipeline contiver vários módulos executar script Python que precisam de pacotes que não estão na lista pré-instalada, instale os pacotes em cada módulo.
+
+> [!WARNING]
+> O módulo script excute Python não dá suporte à instalação de pacotes que dependem de bibliotecas nativas extras com comando como "apt-get", como Java, PyODBC e etc. Isso ocorre porque esse módulo é executado em um ambiente simples com Python pré-instalado apenas e com permissão de não administrador.  
 
 ## <a name="upload-files"></a>Carregar arquivos
 O módulo executar script Python dá suporte ao carregamento de arquivos usando o [SDK Azure Machine Learning Python](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
@@ -140,7 +143,10 @@ O módulo executar script Python contém o código Python de exemplo que você p
 
     Dois conjuntos de valores podem ser retornados para o designer, que deve ser uma sequência do tipo `pandas.DataFrame` . Você pode criar outras saídas em seu código Python e gravá-las diretamente no armazenamento do Azure.
 
-6. Envie o pipeline ou selecione o módulo e selecione **executar selecionado** para executar apenas o script Python.
+    > [!WARNING]
+    > **Não** é recomendável conectar-se a um banco de dados ou a outros armazenamentos externos no **módulo executar script Python**. Você pode usar [módulo importar dados](./import-data.md) e [Exportar módulo de dados](./export-data.md)     
+
+6. Envie o pipeline.
 
     Todos os dados e o código são carregados em uma máquina virtual e executados usando o ambiente do Python especificado.
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090169"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450402"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Monitoramento do VMware (preterido) solução no Azure Monitor
 
@@ -81,7 +81,7 @@ A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre 
 
 A tabela a seguir mostram exemplos de campos de dados coletados pela solução de Monitoramento de VMware:
 
-| nome do campo | descrição |
+| nome do campo | description |
 | --- | --- |
 | Device_s |dispositivos de armazenamento do VMware |
 | ESXIFailure_s |tipos de falha |
@@ -133,16 +133,16 @@ Você pode aprofundar-se ainda mais, clicando em um host ESXi ou um tipo de even
 
 Quando você clica em um nome de host ESXi, as informações desse host são exibidas. Se você quiser restringir os resultados com o tipo de evento, deverá adicionar `“ProcessName_s=EVENT TYPE”` em sua consulta de pesquisa. Você pode selecionar **ProcessName** no filtro de pesquisa. Isso restringe as informações para você.
 
-![aprofundar-se](./media/vmware/eventhostdrilldown.png)
+![Captura de tela do host ESXi por contagem de eventos e divisão por folhas de tipo de evento na exibição do painel Monitoramento do VMware.](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>Localizar atividades altas de VM
 Uma máquina virtual pode ser criada em e excluída de qualquer host ESXi. Isso é útil para um administrador identificar a quantidade de VMs criadas por um host ESXi. Isso, por sua vez, ajuda a entender o planejamento de capacidade e desempenho. Manter o controle dos eventos de atividade de VM é essencial ao gerenciar seu ambiente.
 
-![aprofundar-se](./media/vmware/vmactivities1.png)
+![Captura de tela da folha atividades de máquina virtual no painel Monitoramento do VMware, mostrando um grafo de criação e exclusão de VM pelo host ESXi.](./media/vmware/vmactivities1.png)
 
 Se você quiser ver dados adicionais de criação de VMs de host ESXi, clique em um nome de host ESXi.
 
-![aprofundar-se](./media/vmware/createvm.png)
+![Captura de tela de um painel do painel de Monitoramento do VMware mostrando uma tabela com uma linha de dados para cada criação de máquina virtual por um host ESXi.](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>Consultas de log comuns
 A solução inclui outras consultas úteis que podem ajudá-lo a gerenciar seus hosts ESXi, como espaço de armazenamento de alta latência de armazenamento e falha do caminho.

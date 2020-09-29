@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d89a75c0d917fc1416fcb5d54b7c7df5ef5f5dea
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b1ef7d587cd8bec636f42673941edb69647ee8cb
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319195"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449995"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar as Novidades no Azure Active Directory?
 
@@ -33,7 +33,161 @@ As notas sobre a versão das Novidades no Azure Active Directory fornecem inform
 - Planos de alterações
 
 ---
- ## <a name="february-2020"></a>Fevereiro de 2020
+
+ ## <a name="march-2020"></a>Março de 2020
+
+### <a name="unmanaged-azure-active-directory-accounts-in-b2b-update-for-march--2021"></a>Contas de Azure Active Directory não gerenciadas na atualização B2B para março de 2021
+
+**Tipo:** plano de alteração  
+**Categoria de serviço:** B2B  
+**Funcionalidade do produto:** B2B/B2C
+ 
+A **partir de 31 de março de 2021**, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários não gerenciados do Azure Active Directory (AD do Azure) para cenários de colaboração B2B. Na preparação para isso, incentivamos você a aceitar o [email de autenticação de senha de uso único](../external-identities/one-time-passcode.md).
+
+---
+
+### <a name="users-with-the-default-access-role-will-be-in-scope-for-provisioning"></a>Os usuários com a função de acesso padrão estarão no escopo para provisionamento
+
+**Tipo:** plano de alteração  
+**Categoria de serviço:** provisionamento de aplicativos  
+**Funcionalidade do produto:** Gerenciamento do ciclo de vida de identidade
+ 
+Historicamente, os usuários com a função de acesso padrão estão fora do escopo para provisionamento. Ouvimos comentários de que os clientes querem que os usuários com essa função estejam no escopo para provisionamento. Estamos trabalhando na implantação de uma alteração para que todas as novas configurações de provisionamento permitam que os usuários com a função de acesso padrão sejam provisionados. Gradualmente, alteraremos o comportamento das configurações de provisionamento existentes para dar suporte ao provisionamento de usuários com essa função. Nenhuma ação do cliente é necessária. Publicaremos uma atualização em nossa [documentação](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md) quando essa alteração estiver em vigor.
+
+---
+
+### <a name="azure-ad-b2b-collaboration-will-be-available-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet-tenants"></a>A colaboração B2B do Azure AD estará disponível no Microsoft Azure operado por locatários da 21Vianet (Azure China 21Vianet)
+
+**Tipo:** plano de alteração  
+**Categoria de serviço:** B2B  
+**Funcionalidade do produto:** B2B/B2C
+ 
+Os recursos de colaboração B2B do Azure AD serão disponibilizados no Microsoft Azure operado por locatários da 21Vianet (Azure China 21Vianet), permitindo que os usuários em um locatário do Azure China 21Vianet colaborem de forma integrada com os usuários em outros locatários da 21Vianet da China do Azure. [Saiba mais sobre a colaboração B2B do Azure ad](/azure/active-directory/b2b/).
+
+---
+ 
+### <a name="azure-ad-b2b-collaboration-invitation-email-redesign"></a>Redesignação de email de convite de colaboração B2B do Azure AD
+
+**Tipo:** plano de alteração  
+**Categoria de serviço:** B2B  
+**Funcionalidade do produto:** B2B/B2C
+ 
+Os [emails](../external-identities/invitation-email-elements.md) enviados pelo serviço de convite de colaboração B2B do Azure ad para convidar usuários para o diretório serão reprojetados para tornar mais claras as informações de convite e as próximas etapas do usuário.
+
+---
+
+### <a name="homerealmdiscovery-policy-changes-will-appear-in-the-audit-logs"></a>As alterações de política de HomeRealmDiscovery aparecerão nos logs de auditoria
+
+**Tipo:** corrigido  
+**Categoria de serviço:** Submeti  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+Corrigimos um bug em que as alterações na [política HomeRealmDiscovery](../manage-apps/configure-authentication-for-federated-users-portal.md) não foram incluídas nos logs de auditoria. Agora você poderá ver quando e como a política foi alterada e por quem. 
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---march-2020"></a>Novos aplicativos federados disponíveis na Galeria de Aplicativo Azure AD – março de 2020
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** Aplicativos empresariais  
+**Funcionalidade do produto:** integração de terceiros
+ 
+Em março de 2020, adicionamos esses 51 novos aplicativos com suporte de Federação à galeria de aplicativos: 
+
+[Cisco AnyConnect](../saas-apps/cisco-anyconnect.md), [Zoho One China](../saas-apps/zoho-one-china-tutorial.md), [PlusPlus](https://test.plusplus.app/auth/login/azuread-outlook/), [profit.co aplicativo SAML](../saas-apps/profitco-saml-app-tutorial.md), [provedor de serviços iPoint](../saas-apps/ipoint-service-provider-tutorial.md), [esfera Contexxt.ai](https://contexxt-sphere.com/login), [sabedoria por Invictus](../saas-apps/wisdom-by-invictus-tutorial.md), inscrições digitais do [FLARE](https://spark-dev.pixelnebula.com/login), [LOGZ.Io-observação de capacidade de nuvem para engenheiros](../saas-apps/logzio-cloud-observability-for-engineers-tutorial.md), [ESPECTROu](../saas-apps/spectrumu-tutorial.md), [BizzContact](https://bizzcontact.app/), [Elqano SSO](../saas-apps/elqano-sso-tutorial.md), [MarketSignShare](http://www.signshare.com/), [CrossKnowledge Learning Suite](../saas-apps/crossknowledge-learning-suite-tutorial.md), [Netvision compr](../saas-apps/netvision-compas-tutorial.md), Hub de [FCM](../saas-apps/fcm-hub-tutorial.md) [, RIB](https://www.devfinition.com/) [A/S Byggeweb Mobile,](https://apps.apple.com/us/app/docia/id529058757) [GoLinks](https://demo.asterapp.io/login) [,](../saas-apps/golinks-tutorial.md)Datadog [,](../saas-apps/datadog-tutorial.md)portal de usuário [B2B,](../saas-apps/zscaler-b2b-user-portal-tutorial.md)Planview Enterprise One [Skills Workflow](../saas-apps/skills-workflow-tutorial.md) [plataforma IP](../saas-apps/ip-platform-tutorial.md), [Node Insight](https://admin.nodeinsight.com/AADLogin.aspx) [Invision](../saas-apps/invision-tutorial.md), [Pipedrive](../saas-apps/pipedrive-tutorial.md), [Workshop de apresentação](https://app.showcaseworkshop.com/), [plataforma de integração Greenlight](../saas-apps/greenlight-integration-platform-tutorial.md), [Gerenciamento de acesso compatível com Greenlight](../saas-apps/greenlight-compliant-access-management-tutorial.md), [compreendo Learning](../saas-apps/grok-learning-tutorial.md), [Miradore online](https://login.online.miradore.com/), Khoros [Care](../saas-apps/khoros-care-tutorial.md), [AskYourTeam](../saas-apps/askyourteam-tutorial.md), [TruNarrative](../saas-apps/trunarrative-tutorial.md), [Smartwaiver](https://www.smartwaiver.com/m/user/sw_login.php?wms_login), [BizAgi Studio para automação de processo digital](../saas-apps/bizagi-studio-for-digital-process-automation-tutorial.md), [insuiteX](https://www.insuite.jp/), [sybo](https://www.systexsoftware.com.tw/), [Britive](../saas-apps/britive-tutorial.md), [WhosOffice](../saas-apps/whosoffice-tutorial.md), [E-Days](../saas-apps/e-days-tutorial.md), [Kollective Sdn](https://portal.kollective.app/login), [Witivio](https://app.witivio.com/), [Playvox](https://my.playvox.com/login), [Korn Ferry 360](../saas-apps/korn-ferry-360-tutorial.md), [campus café](../saas-apps/campus-cafe-tutorial.md), [captura](../saas-apps/catchpoint-tutorial.md), [Code42](../saas-apps/code42-tutorial.md) [LIFT](../saas-apps/lift-tutorial.md) [Planview Enterprise One](../saas-apps/planview-enterprise-one-tutorial.md)
+
+Para obter mais informações sobre os aplicativos, consulte [integração de aplicativos SaaS com o Active Directory do Azure](https://aka.ms/appstutorial). Para obter mais informações sobre como listar seu aplicativo na galeria de aplicativos do Azure AD, consulte [Listar seu aplicativo na galeria de aplicativos do Azure Active Directory](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="azure-ad-b2b-collaboration-available-in-azure-government-tenants"></a>Colaboração B2B do Azure AD disponível nos locatários do Azure governamental
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** B2B  
+**Funcionalidade do produto:** B2B/B2C
+ 
+Os recursos de colaboração B2B do Azure AD agora estão disponíveis entre alguns locatários do Azure governamental.  Para descobrir se o seu locatário é capaz de usar esses recursos, siga as instruções em [como posso saber se a colaboração B2B está disponível no meu locatário do Azure no governo dos EUA?](../external-identities/current-limitations.md#how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant).
+
+---
+
+### <a name="azure-monitor-integration-for-azure-logs-is-now-available-in-azure-government"></a>A integração do Azure Monitor para logs do Azure agora está disponível no Azure governamental
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** relatórios  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+A integração do Azure Monitor com os logs do Azure AD agora está disponível no Azure governamental. Você pode rotear logs do Azure AD (logs de auditoria e de logon) para uma conta de armazenamento, Hub de eventos e Log Analytics. Confira a [documentação detalhada](https://aka.ms/aadlogsinamd) , bem como os [planos de implantação para relatórios e monitoramento](../reports-monitoring/plan-monitoring-and-reporting.md) para cenários do Azure AD.
+
+---
+
+### <a name="identity-protection-refresh-in-azure-government"></a>Atualização da proteção de identidade no Azure governamental
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** Proteção de identidade  
+**Funcionalidade do produto:** segurança e proteção da identidade
+
+Estamos empolgados em compartilhar que agora distribuímos a experiência de [Azure ad Identity Protection](https://aka.ms/IdentityProtectionDocs)atualizada   no [portal de Microsoft Azure governamental](https://portal.azure.us/). Para obter mais informações, consulte nossa [postagem no blog de anúncios](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
+
+---
+
+### <a name="disaster-recovery-download-and-store-your-provisioning-configuration"></a>Recuperação de desastre: Baixe e armazene sua configuração de provisionamento
+
+**Tipo:** novo recurso  
+**Categoria de serviço:** provisionamento de aplicativos  
+**Funcionalidade do produto:** Gerenciamento do ciclo de vida de identidade
+ 
+O serviço de provisionamento do Azure AD fornece um rico conjunto de recursos de configuração. Os clientes precisam ser capazes de salvar suas configurações para que possam consultá-las mais tarde ou reverta para uma versão válida conhecida. Adicionamos a capacidade de baixar sua configuração de provisionamento como um arquivo JSON e carregá-la quando necessário. [Saiba mais](../app-provisioning/export-import-provisioning-configuration.md).
+
+---
+ 
+### <a name="sspr-self-service-password-reset-now-requires-two-gates-for-admins-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>SSPR (autoatendimento de redefinição de senha) agora requer duas Gates para administradores no Microsoft Azure operado pela 21Vianet (Azure China 21Vianet) 
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** Redefinição de senha de autoatendimento  
+**Funcionalidade do produto:** segurança e proteção da identidade
+ 
+Anteriormente no Microsoft Azure operado pela 21Vianet (Azure China 21Vianet), os administradores usando a redefinição de senha de autoatendimento (SSPR) para redefinir suas próprias senhas precisavam apenas de um "portão" (desafio) para provar sua identidade. No público e em outras nuvens nacionais, os administradores geralmente devem usar duas Gates para provar sua identidade ao usar o SSPR. Mas como não damos suporte a chamadas SMS ou telefônicas na 21Vianet da China do Azure, permitimos a redefinição de senha de uma porta por administradores.
+
+Estamos criando a paridade do recurso SSPR entre o Azure China 21Vianet e a nuvem pública. No futuro, os administradores devem usar dois Gates ao usar o SSPR. O SMS, chamadas telefônicas e códigos e notificações do aplicativo autenticador serão suportados. [Saiba mais](../authentication/concept-sspr-policy.md#administrator-reset-policy-differences).
+
+---
+
+### <a name="password-length-is-limited-to-256-characters"></a>O comprimento da senha é limitado a 256 caracteres
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** autenticações (logons)  
+**Funcionalidade do produto:** Autenticação do usuário
+ 
+Para garantir a confiabilidade do serviço do Azure AD, as senhas de usuário agora são limitadas de comprimento a 256 caracteres. Os usuários com senhas maiores que isso serão solicitados a alterar sua senha no logon subsequente, seja entrando em contato com o administrador ou usando o recurso de redefinição de senha de autoatendimento.
+
+Essa alteração foi habilitada em 13 de março de 2020, em 10h PST (18:00 UTC) e o erro é AADSTS 50052, InvalidPasswordExceedsMaxLength. Consulte o [aviso de alteração significativa](../develop/reference-breaking-changes.md#user-passwords-will-be-restricted-to-256-characters) para obter mais detalhes.
+
+---
+
+### <a name="azure-ad-sign-in-logs-are-now-available-for-all-free-tenants-through-the-azure-portal"></a>Os logs de entrada do Azure AD agora estão disponíveis para todos os locatários gratuitos por meio do portal do Azure
+
+**Tipo:** recurso alterado  
+**Categoria de serviço:** relatórios  
+**Funcionalidade do produto:** monitoramento e relatórios
+ 
+A partir de agora, os clientes que têm locatários gratuitos podem acessar os [logs de entrada do Azure ad da portal do Azure](../reports-monitoring/concept-sign-ins.md) por até 7 dias. Anteriormente, os logs de entrada estavam disponíveis apenas para clientes com licenças Azure Active Directory Premium. Com essa alteração, todos os locatários podem acessar esses logs por meio do Portal.
+
+> [!NOTE]
+> Os clientes ainda precisam de uma licença Premium (Azure Active Directory Premium P1 ou P2) para acessar os logs de entrada por meio da API Microsoft Graph e Azure Monitor.
+
+---
+
+### <a name="deprecation-of-directory-wide-groups-option-from-groups-general-settings-on-azure-portal"></a>Substituição da opção de grupos em todo o diretório por meio de grupos configurações gerais no portal do Azure
+
+**Tipo:** preterido  
+**Categoria de serviço:** gerenciamento de grupo  
+**Recurso de produto:** colaboração
+
+Para fornecer uma maneira mais flexível para os clientes criarem grupos de todo o diretório que melhor atendam às suas necessidades, substituímos a opção **grupos de todo o diretório** das configurações gerais dos **grupos**  >  **General** na portal do Azure com um link para a [documentação do grupo dinâmico](../users-groups-roles/groups-dynamic-membership.md). Aperfeiçoamos nossa documentação para incluir mais instruções para que os administradores possam criar grupos de todos os usuários que incluem ou excluem usuários convidados.
+
+---
+
+## <a name="february-2020"></a>Fevereiro de 2020
 
 ### <a name="upcoming-changes-to-custom-controls"></a>Alterações futuras em controles personalizados
 
@@ -175,7 +329,7 @@ Nos espaços de trabalho, os administradores de filtros podem configurar o para 
 **Categoria de serviço:** B2C - gerenciamento de identidades de consumidor  
 **Funcionalidade do produto:** B2B/B2C
  
-Com a inscrição e a entrada do número de telefone, os desenvolvedores e as empresas podem permitir que seus clientes se inscrevam e entrem usando uma senha de uso único enviada ao número de telefone do usuário via SMS. Esse recurso também permite que o cliente altere seu número de telefone se eles perderem o acesso ao seu telefone. Com o poder das políticas personalizadas, a inscrição e a entrada do telefone permitem que os desenvolvedores e as empresas comuniquem sua marca por meio da personalização da página. Descubra como configurar a [inscrição e a entrada do telefone com políticas personalizadas no Azure ad B2C](../../active-directory-b2c/phone-authentication.md).
+Com a inscrição e a entrada do número de telefone, os desenvolvedores e as empresas podem permitir que seus clientes se inscrevam e entrem usando uma senha de uso único enviada ao número de telefone do usuário via SMS. Esse recurso também permite que o cliente altere seu número de telefone se eles perderem o acesso ao seu telefone. Com o poder das políticas personalizadas e a inscrição e entrada no telefone, permite que desenvolvedores e empresas comuniquem sua marca por meio da personalização da página. Descubra como configurar a [inscrição e a entrada do telefone com políticas personalizadas no Azure ad B2C](../../active-directory-b2c/phone-authentication.md).
  
 ---
  

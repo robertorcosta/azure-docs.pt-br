@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: cf8e7340ce3554bf27364335457a5b7eadcdc049
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90932934"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450318"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Criar uma preferência personalizada no autogerenciamento do Azure para VMs
 
@@ -34,7 +34,7 @@ Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsof
 > As contas de avaliação gratuita não têm acesso às máquinas virtuais usadas neste tutorial. Atualize para uma assinatura de Pagamento Conforme o Uso.
 
 > [!IMPORTANT]
-> A permissão RBAC a seguir é necessária para habilitar autogerenciar: função de **proprietário** ou **colaborador** junto com as funções de **administrador de acesso do usuário** .
+> A permissão RBAC a seguir é necessária para habilitar autogerenciar: função de **proprietário** ou **colaborador** junto com as funções de administrador de **acesso do usuário** .
 
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
@@ -42,36 +42,36 @@ Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsof
 Entre no [portal do Azure](https://portal.azure.com/).
 
 
-## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Habilitar o autogerenci para VMs em uma VM existente
+## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Habilitar o Gerenciamento Automático para VMs em uma VM existente
 
-1. Na barra de pesquisa, procure e selecione **autogerenciar – práticas recomendadas da máquina virtual do Azure**.
+1. Na barra de pesquisa, pesquise e selecione **o Gerenciamento Automático – melhores práticas de máquina virtual do Azure**.
 
-2. Selecione **habilitar na VM existente**.
+2. Selecione **Habilitar em VM existente**.
 
-3. Na folha **Selecionar computadores** :
-    1. Filtre a lista de VMs por sua **assinatura** e **grupo de recursos**.
-    1. Marque a caixa de seleção de cada máquina virtual que você deseja carregar.
+3. Na folha **Selecionar computadores**:
+    1. Filtre a lista de VMs pela sua **Assinatura** e **Grupo de Recursos**.
+    1. Marque a caixa de seleção de cada máquina virtual que você deseja integrar.
     1. Clique no botão **Selecionar**.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-select-machine.png" alt-text="Selecione VM existente na lista de VMs disponíveis.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-select-machine.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
 
-4. Em **perfil de configuração**, clique em **procurar e alterar perfis e preferências**.
+4. Em **Perfil de configuração**, clique em **Procurar e alterar perfis e preferências**.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Procurar e alterar perfis e preferências.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
 
 5. Na folha **selecionar perfil de configuração + preferências** , selecione um perfil no lado esquerdo: *desenvolvimento/teste* para teste, *prod* para produção.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Procurar perfil de configuração de produção.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
 
 6. No perfil escolhido, em **preferências de configuração** , há uma lista suspensa onde você pode ajustar para determinados serviços.
     1. Clique em **criar novas preferências**.
     1. Na folha **criar uma preferência de configuração** , preencha a guia noções básicas:
-        1. Subscription
-        1. Resource group
+        1. Assinatura
+        1. Grupo de recursos
         1. Nome da preferência
         1. Região
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Preencha as preferências de configuração.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
 
 7. Vá para a guia preferências e ajuste as preferências de configuração desejadas.
         
@@ -84,27 +84,27 @@ Entre no [portal do Azure](https://portal.azure.com/).
 10. Clique no botão **Habilitar**.
 
 
-## <a name="disable-automanage-for-vms"></a>Desabilitar autogerenci para VMs
+## <a name="disable-automanage-for-vms"></a>Desabilitar o Gerenciamento Automático para VMs
 
-Pare rapidamente de usar o Azure autogerenci para máquinas virtuais desabilitando o autogerenciamento.
+Pare rapidamente de usar o Gerenciamento Automático do Azure para máquinas virtuais desabilitando o gerenciamento automático.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Desabilitando o autogerenci em uma máquina virtual.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
 
-1. Vá para a página **autogerenciar – práticas recomendadas da máquina virtual do Azure** que lista todas as VMs gerenciadas automaticamente.
+1. Acesse a página **Gerenciamento Automático – melhores práticas de máquina virtual do Azure**, que lista todas as suas VMs gerenciadas automaticamente.
 1. Marque a caixa de seleção ao lado da máquina virtual que você deseja desabilitar.
-1. Clique no botão **desabilitar automanagent** .
-1. Leia atentamente por meio do sistema de mensagens no pop-up resultante antes de concordar em **desabilitar**.
+1. Clique no botão **Desabilitar gerenciamento automático**.
+1. Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar**.
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você criou um novo grupo de recursos para experimentar o autogerenciamento do Azure para máquinas virtuais e não precisar mais dela, poderá excluir o grupo de recursos. Excluir o grupo também exclui a VM e todos os recursos no grupo de recursos.
+Caso você tenha criado um grupo de recursos para experimentar o Gerenciamento Automático do Azure para máquinas virtuais e não precise mais dele, pode excluí-lo. Excluir o grupo exclui também a VM e todos os recursos no grupo de recursos.
 
-O autogerenci do Azure cria grupos de recursos padrão para armazenar recursos no. Verifique os grupos de recursos que têm a Convenção de nomenclatura "DefaultResourceGroupRegionName" e "AzureBackupRGRegionName" para limpar todos os recursos.
+O Gerenciamento Automático do Azure cria grupos de recursos padrão nos quais para armazenar recursos. Verifique os grupos de recursos que têm a convenção de nomenclatura "DefaultResourceGroupRegionName" e "AzureBackupRGRegionName" para limpar todos os recursos.
 
 1. Selecione o **Grupo de recursos**.
 1. Na página do grupo de recursos, selecione **Excluir**.
-1. Quando solicitado, confirme o nome do grupo de recursos e, em seguida, selecione **excluir**.
+1. Quando solicitado, confirme o nome do grupo de recursos e depois selecione **Excluir**.
 
 
 ## <a name="next-steps"></a>Próximas etapas 

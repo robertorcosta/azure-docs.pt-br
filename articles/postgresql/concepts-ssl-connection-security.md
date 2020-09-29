@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 872daf3a208452e8b7ec27b2326e394b416a1c5f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e54b8bc51817d2a56153dcc0c14f45e76b9ae88b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902032"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444938"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurar a conectividade TLS no banco de dados do Azure para PostgreSQL-servidor único
 
@@ -92,6 +92,17 @@ Por exemplo, definir essa versão de configuração de TLS mínima como TLS 1,0 
 > Depois de aplicar uma versão mínima do TLS, não será possível desabilitar mais tarde a imposição mínima da versão.
 
 Para saber como definir a configuração de TLS para o servidor único do banco de dados do Azure para PostgreSQL, consulte [como definir a configuração de TLS](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-postgresql-single-server"></a>Suporte de codificação pelo banco de dados do Azure para PostgreSQL servidor único
+
+Como parte da comunicação SSL/TLS, os conjuntos de codificação são validados e apenas suporte para os naipes de codificação têm permissão para se comunicar com o banco de dados Server. A validação do conjunto de codificação é controlada na [camada do gateway](concepts-connectivity-architecture.md#connectivity-architecture) e não explicitamente no próprio nó. Se os conjuntos de codificação não corresponderem a um dos conjuntos listados abaixo, as conexões de entrada do cliente serão rejeitadas.
+
+### <a name="cipher-suite-supported"></a>Conjunto de codificação com suporte
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Próximas etapas
 

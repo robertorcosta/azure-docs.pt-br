@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280973"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450062"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e solução de problemas no Azure Machine Learning
 
@@ -209,6 +209,9 @@ Se você estiver usando o compartilhamento de arquivos para outras cargas de tra
     ```
 
     Se você não incluir a barra "/" à esquerda, será necessário prefixar o diretório de trabalho, por exemplo, `/mnt/batch/.../tmp/dataset` no destino de computação para indicar onde você deseja que o conjunto de os seja montado.
+
+### <a name="mount-dataset"></a>Montar conjunto de um
+* **Falha na inicialização do conjunto de data: aguardando o ponto de montagem estar pronto**: a lógica foi adicionada novamente `azureml-sdk >=1.12.0` para atenuar o problema. Se você estiver em versões anteriores do azureml-SDK, atualize para a versão mais recente. Se você já estiver ativado `azureml-sdk>=1.12.0` , recrie seu ambiente para que você tenha o patch mais recente com a correção.
 
 ### <a name="data-labeling-projects"></a>Projetos de rotulagem de dados
 

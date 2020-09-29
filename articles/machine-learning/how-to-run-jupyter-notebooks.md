@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897374"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460026"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar Jupyter Notebooks em seu workspace
 
@@ -80,15 +80,20 @@ Para acessar o terminal:
 1. Selecione um destino de **computação** ou crie um novo e aguarde até que ele esteja em execução.
 1. Selecione o ícone **Abrir terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Abra o terminal":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Criar arquivo":::
 
 1. Se você não vir o ícone, selecione o **...** à direita do destino de computação e, em seguida, selecione **abrir terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Abrir terminal de...":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Criar arquivo":::
 
 
 Saiba mais sobre [clonar repositórios Git em seu sistema de arquivos do workspace](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
+### <a name="copy-and-paste-in-terminal"></a>Copiar e colar no terminal
+
+> * Windows: `Ctrl-Insert` para copiar e usar `Ctrl-Shift-v` ou `Shift-Insert` para colar.
+> * Mac OS: `Cmd-c` para copiar e `Cmd-v` para colar.
+> * Talvez o FireFox/IE não dê suporte apropriado a permissões de área de transferência.
 
 ### <a name="share-notebooks-and-other-files"></a>Compartilhar notebooks e outros arquivos
 
@@ -121,7 +126,7 @@ Ao longo da criação de um notebook, você normalmente acaba com as células us
 1. Execute todas as células do bloco de anotações.
 1. Selecione a célula que contém o código que você deseja que o novo bloco de anotações execute. Por exemplo, o código que envia um experimento ou talvez o código que registra um modelo.
 1. Selecione o ícone de **coleta** que aparece na barra de ferramentas da célula.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Captura de tela: selecione o ícone reunir":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Criar arquivo":::
 1. Insira o nome para o novo bloco de anotações "reunido".  
 
 O novo bloco de anotações contém apenas células de código, com todas as células necessárias para produzir os mesmos resultados que a célula que você selecionou para coleta.
@@ -132,7 +137,7 @@ Azure Machine Learning cria um arquivo de ponto de verificação quando você cr
 
 Na barra de ferramentas do bloco de anotações, selecione o menu e, em seguida, **arquivo &gt; salvar e ponto de verificação** para salvar o bloco de anotações manualmente e ele adicionará um arquivo de ponto de verificação associado ao bloco de anotações.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Captura de tela da ferramenta salvar na barra de ferramentas do bloco de anotações":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Criar arquivo":::
 
 Cada bloco de anotações é salvo AutoSalva a cada 30 segundos.O salvamento automático atualiza apenas o arquivo *ipynb*inicial   , não o arquivo de ponto de verificação.
  

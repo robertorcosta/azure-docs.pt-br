@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010811"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451597"
 ---
 *Aquecendo o cache*  
 O disco com o cache de host ReadOnly pode oferecer IOPS mais alta do que o limite do disco. Para atingir esse desempenho máximo de leitura do cache de host, primeiramente você deve aquecer o cache desse disco. Isso faz com que as E/S de leitura que a ferramenta de parâmetros de comparação impulsionará no volume CacheReads realmente alcancem o cache, não o disco diretamente. Os acertos no cache resultam em IOPS adicional do único disco habilitado para cache.
@@ -25,7 +25,7 @@ O disco com o cache de host ReadOnly pode oferecer IOPS mais alta do que o limit
 
 ### <a name="iometer"></a>Iometer
 
-[Baixe a ferramenta Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
+[Baixe a ferramenta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) na VM.
 
 #### <a name="test-file"></a>Arquivo de teste
 
@@ -68,12 +68,12 @@ Um exemplo de especificações de acesso para o cenário de IOPS de gravação m
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" como 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | Nome | Duration |
+   | Cenário | Volume de destino | Nome | Duração |
    | --- | --- | --- | --- |
    | Inicializar disco do cache |CacheReads |RandomWrites\_1MB |2 horas |
 1. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" como 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | Nome | Duration |
+   | Cenário | Volume de destino | Nome | Duração |
    | --- | --- | --- | --- |
    | Aquecer o disco do cache |CacheReads |RandomReads\_1MB |2 horas |
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 80e87d6fdab6ecf15c241581f8c19d36b30d7e30
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327099"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449405"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gerenciamento do Conector do Application Insights (preterida)
 
@@ -60,7 +60,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 1. Habilite a solução Análise de Aplicativos Web do Azure no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](../insights/solutions.md).
 2. Navegue até o [Portal do Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir o Application Insights. Em seguida, procure Application Insights. 
 3. Em **Assinaturas**, selecione uma assinatura que tem os recursos do Application Insights e, em seguida, em **Nome**, selecione um ou mais aplicativos.
-4. Clique em **Salvar**.
+4. Clique em **Save** (Salvar).
 
 Em aproximadamente 30 minutos, os dados ficarão disponíveis e o bloco do Application Insights será atualizado com os dados, como a seguinte imagem:
 
@@ -83,9 +83,9 @@ As próximas seções descrevem como você pode usar as folhas mostradas no pain
 
 Clique no bloco **Application Insights** para abrir o painel **Application Insights** para ver as folhas a seguir.
 
-![Painel do Application Insights](./media/app-insights-connector/app-insights-dash01.png)
+![Captura de tela do painel de Application Insights mostrando as folhas para aplicativos, volume de dados e disponibilidade.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Painel do Application Insights](./media/app-insights-connector/app-insights-dash02.png)
+![Captura de tela do painel de Application Insights mostrando as folhas para solicitações de servidor, falhas e exceções.](./media/app-insights-connector/app-insights-dash02.png)
 
 O painel inclui as folhas mostradas na tabela. Cada folha lista os 10 principais itens que correspondem aos critérios da folha para o escopo e o intervalo de tempo especificados. É possível executar uma pesquisa de logs que retorna todos os registros ao clicar em **Ver todos** na parte inferior da folha ou ao clicar no cabeçalho da folha.
 
@@ -225,7 +225,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 
 ### <a name="exception-specific-fields"></a>Campos específicos à exceção
 
-| Type | ApplicationInsights |
+| Tipo | ApplicationInsights |
 | --- | --- |
 | TelemetryType | Exceção |
 | ExceptionType | Tipo de exceção |
@@ -247,7 +247,7 @@ Um registro com um *tipo* de *ApplicationInsights* é criado para cada tipo de d
 | Type | ApplicationInsights |
 | TelemetryType | Solicitação |
 | ResponseCode | Resposta HTTP enviada ao cliente |
-| RequestSuccess | Indica êxito ou falha. Verdadeiro ou falso. |
+| RequestSuccess | Indica êxito ou falha. True ou false. |
 | RequestID | ID para identificar exclusivamente a solicitação |
 | RequestName | GET/POST + URL base |
 | RequestDuration | Tempo, em segundos, da duração da solicitação |

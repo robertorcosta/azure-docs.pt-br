@@ -2,27 +2,27 @@
 title: Usar Azure Stream Analytics
 description: Dicas para usar Azure Stream Analytics com seus data warehouse no Azure Synapse para desenvolver soluções em tempo real.
 services: synapse-analytics
-author: mlee3gsd
+author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 2/5/2020
-ms.author: martinle
+ms.date: 9/25/2020
+ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60fb258fe2c6063b9b9a3ced0f4ba5f71ffd9d7c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213339"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449513"
 ---
 # <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Usar Azure Stream Analytics com o Azure Synapse Analytics
 
 A Stream Analytics do Azure é um serviço completamente gerenciado que oferece baixa latência, alta disponibilidade e processamento escalonável de eventos complexos ao longo do fluxo de dados na nuvem. Você pode aprender as noções básicas lendo [Introdução ao Stream Analytics do Azure](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Depois, você pode saber como criar uma solução de ponta a ponta com o Stream Analytics seguindo o tutorial [Introdução ao uso do Stream Analytics do Azure](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
-Neste artigo, você aprenderá a usar seu data warehouse como um coletor de saída para seus trabalhos de Azure Stream Analytics.
+Neste artigo, você aprenderá a usar seu data warehouse como um coletor de saída para a ingestão de dados de alta taxa de transferência com trabalhos Azure Stream Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a usar seu data warehouse como um coletor de saí
     2. Configurar e iniciar o aplicativo gerador de evento
     3. Provisionar um trabalho de análise de fluxo
     4. Especifique a entrada e a consulta do trabalho
-* Data warehouse do pool SQL do Azure Synapse – para criar um novo data warehouse, siga as etapas no guia de [início rápido para criar um novo data warehouse](create-data-warehouse-portal.md).
+* Pool do SQL Synapse do Azure para seu data warehouse-para criar um novo data warehouse, siga as etapas no guia de [início rápido para criar um novo data warehouse](create-data-warehouse-portal.md).
 
 ## <a name="specify-streaming-output-to-point-to-your-data-warehouse"></a>Especifique a saída de streaming para apontar para seu data warehouse
 
@@ -42,9 +42,9 @@ No portal do Azure, vá para seu trabalho de Stream Analytics e clique em **saí
 
 ### <a name="step-2"></a>Etapa 2
 
-Clique no botão **Adicionar** e escolha **banco de dados SQL** no menu suspenso.
+Clique no botão **Adicionar** e escolha **análise de Synapse do Azure** no menu suspenso.
 
-![Escolher banco de dados SQL](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Escolher o Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
 ### <a name="step-3"></a>Etapa 3
 
@@ -52,15 +52,15 @@ Insira os valores a seguir:
 
 * *Alias de saída*: Insira um nome amigável para esta saída de trabalho.
 * *Assinatura*:
-  * Se o data warehouse estiver na mesma assinatura que o trabalho de Stream Analytics, clique em ***Selecionar Banco de dados SQL em suas assinaturas***.
-  * Se o banco de dados estiver em uma assinatura diferente, clique em fornecer configurações do banco de dados SQL manualmente.
+  * Se o data warehouse estiver na mesma assinatura que o trabalho de Stream Analytics, clique em ***selecionar Azure Synapse Analytics de suas assinaturas***.
+  * Se o data warehouse estiver em uma assinatura diferente, clique em fornecer configurações do Azure Synapse Analytics manualmente.
 * *Banco de dados*: selecione o banco de dados de destino na lista suspensa.
 * *Nome de usuário*: especifique o nome de usuário de uma conta que tenha permissões de gravação para o banco de dados.
 * *Senha*: forneça a senha da conta de usuário especificada.
 * *Tabela*: especifique o nome da tabela de destino no banco de dados.
 * Clique no botão **salvar**
 
-![Formulário do banco de dados SQL concluído](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Formulário do Azure Synapse Analytics concluído](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output-db-settings.png)
 
 ### <a name="step-4"></a>Etapa 4
 

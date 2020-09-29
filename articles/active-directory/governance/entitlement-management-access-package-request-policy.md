@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 160137ca2d14e0012a524ee0818b7fb269fa7984
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b7b70e8a408c22be0331bfd0dcbe01830b072ab8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980246"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449974"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Configurações de solicitação de alteração para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -125,8 +125,8 @@ Siga estas etapas se desejar permitir que os usuários que não estão em seu di
     |  |  |
     | --- | --- |
     | **Organizações conectadas específicas** | Escolha esta opção se desejar selecionar em uma lista de organizações que o administrador adicionou anteriormente. Todos os usuários das organizações selecionadas podem solicitar esse pacote de acesso. |
-    | **Todas as organizações conectadas** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas puderem solicitar esse pacote de acesso. |
-    | **Todos os usuários (todas as organizações conectadas + quaisquer novos usuários externos)** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas puderem solicitar esse pacote de acesso e se as configurações de lista de permissões B2B ou de negação devem ter precedência para qualquer novo usuário externo. |
+    | **Todas as organizações conectadas configuradas** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas configuradas puderem solicitar esse pacote de acesso. Somente os usuários de organizações conectadas configuradas podem solicitar pacotes de acesso que são mostrados aos usuários de todas as organizações configuradas. |
+    | **Todos os usuários (todas as organizações conectadas + quaisquer novos usuários externos)** | Escolha esta opção se algum usuário na Internet puder solicitar esse pacote de acesso.  Se eles não pertencerem a uma organização conectada em seu diretório, uma organização conectada será criada automaticamente para eles quando solicitarem o pacote. A organização conectada criada automaticamente estará em um estado **proposto** . Para obter mais informações sobre o Estado proposto, consulte [Propriedades de estado das organizações conectadas](entitlement-management-organization.md#state-properties-of-connected-organizations). |
 
     Uma organização conectada é um diretório ou domínio externo do Azure AD com o qual você tem uma relação.
 
@@ -196,7 +196,7 @@ Para alterar as configurações de solicitação e aprovação de um pacote do A
 
     ![Pacote de acesso-configuração de política de habilitação de política](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 
 1. Se você quiser exigir que os solicitantes forneçam informações adicionais ao solicitar acesso a um pacote do Access, use as etapas em []() para configurar informações do solicitante (versão prévia).
 

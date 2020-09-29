@@ -6,13 +6,14 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
+ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ed5c7eee1e8261c65decba4748e1d9c6a4d7212b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319347"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459805"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solucionar problemas do Azure Stream Analytics usando logs de recursos
 
@@ -65,7 +66,7 @@ Os logs de atividades são ativados por padrão e fornecem insights de alto nív
 
     ![Navegação de folha para logs de recursos](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
-2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log**e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Salvar**.
+2.  Forneça um **nome** no **nome das configurações de diagnóstico** e marque as caixas de **execução** e **criação** em **log**e **biométricas** em **métrica**. Em seguida, selecione **Enviar para log Analytics** e escolha seu espaço de trabalho. Clique em **Save** (Salvar).
 
     ![Configurações para logs de recursos](./media/stream-analytics-job-diagnostic-logs/logs-setup.png)
 
@@ -116,7 +117,7 @@ Nome | Descrição
 ------- | -------
 Fonte | Nome da entrada ou saída do trabalho em que ocorreu o erro.
 Mensagem | Mensagem associada ao erro.
-Type | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
+Tipo | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError** ou **ServiceBusPropertyColumnMissingError**.
 Dados | Contém dados que são úteis para localizar com precisão a origem do erro. Sujeito a truncamento, dependendo do tamanho.
 
 Dependendo do valor de **operationName**, os erros de dados terão o seguinte esquema:
@@ -137,7 +138,7 @@ Nome | Descrição
 -------- | --------
 Erro | (opcional) Informações sobre erros. Normalmente, essas são informações de exceção, se estiverem disponíveis.
 Mensagem| Mensagem de log.
-Type | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
+Tipo | Tipo de mensagem. É mapeado para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas do log de execução desde a hora em que o trabalho é iniciado até ele ser interrompido têm o mesmo valor de **ID de Correlação**.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,19 +8,24 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 69c18c24ae9a8eb4c1fd54c1f8530e126a40b004
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: d64933f7b2c8ebc8597b93cbd16b34158f936f96
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898515"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450099"
 ---
 # <a name="densenet"></a>DenseNet
 
 Este artigo descreve como usar o módulo **DenseNet** no designer de Azure Machine Learning para criar um modelo de classificação de imagem usando o algoritmo DenseNet.  
 
-Esse algoritmo de classificação é um método de aprendizado supervisionado e requer um conjunto de informações rotulado. Consulte [converter em](convert-to-image-directory.md) módulo de diretório de imagem para obter mais instruções sobre como obter um diretório de imagem rotulado. Você pode treinar o modelo fornecendo o modelo e o diretório de imagem rotulado como entradas para [treinar o modelo Pytorch](train-pytorch-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada usando o [modelo de imagem de Pontuação](score-image-model.md).
+Esse algoritmo de classificação é um método de aprendizado supervisionado e requer um diretório de imagem rotulado. 
+
+> [!NOTE]
+> Este módulo não dá suporte a conjuntos de dados rotulados gerados a partir de *Rótulos de dado* no estúdio, mas só dá suporte ao diretório de imagem rotulado gerado do módulo [converter para diretório de imagem](convert-to-image-directory.md) . 
+
+Você pode treinar o modelo fornecendo o modelo e o diretório de imagem rotulado como entradas para [treinar o modelo Pytorch](train-pytorch-model.md). O modelo treinado pode então ser usado para prever valores para os novos exemplos de entrada usando o [modelo de imagem de Pontuação](score-image-model.md).
 
 ### <a name="more-about-densenet"></a>Mais sobre DenseNet
 
@@ -49,7 +54,7 @@ Após a execução do pipeline ser concluída, para usar o modelo de pontuação
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Name             | Intervalo | Type    | Padrão     | Descrição                              |
+| Nome             | Intervalo | Type    | Padrão     | Descrição                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
 | Nome do modelo       | Qualquer   | Modo    | densenet201 | Nome de uma determinada estrutura densenet     |
 | Pré-treinados       | Qualquer   | Booliano | verdadeiro        | Se deve ser usado um modelo previamente treinado em ImageNet |

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6835c5e1ecbf0fc99a14754d17bb6e6380eda6c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987719"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445351"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar em uma máquina virtual: bastiões do Azure
 
@@ -35,13 +35,13 @@ Depois de se conectar à máquina virtual usando o [portal do Azure ](https://po
 1. Copie o texto/conteúdo do dispositivo local para a área de transferência local.
 1. Durante a sessão remota, inicie a paleta de ferramentas de acesso à área de transferência de bastiões selecionando as duas setas. As setas estão localizadas no centro esquerdo da sessão.
 
-   ![paleta de ferramentas](./media/bastion-vm-manage/left.png)
+   ![Captura de tela que mostra as setas de inicialização da paleta de ferramentas realçadas no lado esquerdo da janela.](./media/bastion-vm-manage/left.png)
 
    ![Captura de tela mostra uma área de transferência para texto copiado em bastiões.](./media/bastion-vm-manage/clipboard.png)
 1. Normalmente, o texto copiado é mostrado automaticamente na paleta de colagem de cópia de bastiões. Se o texto não estiver lá, Cole o texto na área de texto na paleta.
 1. Quando o texto estiver na área de texto, você poderá colá-lo na sessão remota.
 
-   ![colar](./media/bastion-vm-manage/local.png)
+   ![Captura de tela que mostra o botão Copiar/colar realçado e uma cadeia de texto de exemplo copiada na sessão remota.](./media/bastion-vm-manage/local.png)
 
 ## <a name="copy-from-a-remote-session"></a><a name="from"></a>Copiar de uma sessão remota
 

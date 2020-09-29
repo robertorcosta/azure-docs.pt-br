@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396018"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445325"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>O que são os níveis de consistência no Azure Cosmos DB?
 
@@ -43,9 +43,7 @@ A semântica dos cinco níveis de coerência é descrita aqui:
 
   O gráfico a seguir ilustra a forte consistência com notas musicais. Depois que os dados são gravados na região "oeste dos EUA 2", ao ler os dados de outras regiões, você obtém o valor mais recente:
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="vídeo":::
-
-- Desatualização **limitada**: as leituras têm a garantia de honrar a garantia de prefixo consistente. As leituras podem atrasar por trás das gravações por no máximo *"K"* versões (ou seja, "Atualizações") de um item ou por um intervalo de tempo *"T"* , o que for atingido primeiro. Em outras palavras, quando você escolhe a desatualização limitada, a "desatualização" pode ser configurada de duas maneiras:
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Consistência como um espectro" pode ser configurada de duas maneiras:
 
 - O número de versões (*K*) do item
 - O intervalo de tempo (*T*) pelo qual as leituras podem atrasar por trás das gravações
@@ -61,9 +59,7 @@ Dentro da janela de desatualização, a desatualização limitada fornece as seg
 
   A desatualização limitada é frequentemente escolhida por aplicativos distribuídos globalmente que esperam latências de baixa gravação, mas exigem garantia de ordem global total. A desatualização limitada é excelente para aplicativos que apresentam colaboração e compartilhamento de grupos, cotação de ações, publicação/assinatura/enfileiramento, etc. O gráfico a seguir ilustra a consistência de desatualização limitada com notas musicais. Depois que os dados são gravados na região "oeste dos EUA 2", as regiões "leste dos EUA 2" e "leste da Austrália" lêem o valor escrito com base no tempo de retardo máximo configurado ou no máximo de operações:
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="vídeo":::
-
-- **Sessão**: em uma única sessão de cliente, as leituras têm a garantia de honrar as leituras de prefixo consistente, de monotônico, gravações de monotônico, leitura e gravação, e as garantias de Write-seguir-leituras. Isso pressupõe uma única sessão de "gravador" ou o compartilhamento do token de sessão para vários gravadores.
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Consistência como um espectro" ou o compartilhamento do token de sessão para vários gravadores.
 
 Os clientes fora da sessão que executam gravações verão as seguintes garantias:
 
@@ -74,7 +70,7 @@ Os clientes fora da sessão que executam gravações verão as seguintes garanti
 
   A consistência da sessão é o nível de consistência mais amplamente usado para a região única, bem como para aplicativos distribuídos globalmente. Ele fornece latências de gravação, disponibilidade e taxa de transferência de leitura comparável à de consistência eventual, mas também fornece as garantias de consistência que atendem às necessidades dos aplicativos escritos para operar no contexto de um usuário. O gráfico a seguir ilustra a consistência da sessão com notas musicais. O "gravador oeste dos EUA 2" e o "leitor oeste dos EUA 2" estão usando a mesma sessão (sessão A) para que ambos leiam os mesmos dados ao mesmo tempo. Enquanto a região "leste da Austrália" está usando a "sessão B", ela recebe dados mais tarde, mas na mesma ordem que as gravações.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="vídeo":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Consistência como um espectro":::
 
 - **Prefixo consistente**: as atualizações que são retornadas contêm algum prefixo de todas as atualizações, sem intervalos. O nível de consistência de prefixo consistente garante que as leituras nunca vejam gravações fora de ordem.
 
@@ -89,12 +85,12 @@ Abaixo estão as garantias de consistência para o prefixo consistente:
 
 O gráfico a seguir ilustra a consistência do prefixo de consistência com notas musicais. Em todas as regiões, as leituras nunca veem gravações fora de ordem:
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="vídeo":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Consistência como um espectro":::
 
 - **Eventual**: não há garantia de classificação para leituras. Na ausência de qualquer gravação adicional, as réplicas eventualmente convergem.  
 A consistência eventual é a forma mais fraca de consistência, pois um cliente pode ler os valores mais antigos do que aqueles que tinha lido anteriormente. A consistência eventual é ideal quando o aplicativo não requer nenhuma garantia de ordenação. Os exemplos incluem a contagem de retweets, curtidos ou comentários não-threaded. O gráfico a seguir ilustra a consistência eventual com notas musicais.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="vídeo":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Consistência como um espectro":::
 
 ## <a name="additional-reading"></a>Leituras adicionais
 

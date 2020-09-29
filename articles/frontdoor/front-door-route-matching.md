@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401564"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449214"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como o Front Door faz a correspondência com uma regra de roteamento
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>Como as solicitações são correspondidas a uma regra de roteamento
 
-Depois de estabelecer uma conexão e fazer um handshake de TLS, quando uma solicitação chega em um ambiente de porta de front-end, uma das primeiras coisas que a porta da frente faz é determinar de todas as configurações, a regra de roteamento específica para corresponder à solicitação e, em seguida, pegar a ação definida. O documento a seguir explica como o Front Door determina qual configuração de Rota usar ao processar uma solicitação HTTP.
+Depois de estabelecer uma conexão e concluir um handshake de TLS, quando uma solicitação chega em um ambiente de porta de front-end, uma das primeiras coisas que a porta da frente faz é determinar a qual regra de roteamento específica corresponder à solicitação e, em seguida, executar a ação definida na configuração. O documento a seguir explica como o Front Door determina qual configuração de Rota usar ao processar uma solicitação HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Estrutura de uma configuração de rota do Front Door
 Uma configuração de regra de roteamento do Front Door é composta por duas partes principais: um "lado esquerdo" e um "lado direito". Fazemos a correspondência da solicitação de entrada om o lado esquerdo da rota enquanto o lado direito define como podemos processar a solicitação.
@@ -41,7 +41,7 @@ A decisão de como processar a solicitação depende de se o cache está habilit
 Esta seção se concentrará na forma como fazemos a correspondência para uma dada regra de roteamento de Front Door. O conceito básico é que sempre fazemos a correspondência com a **correspondência mais específica primeiro** olhando apenas para o "lado esquerdo".  Primeiro fazemos a correspondência com base no protocolo HTTP, em seguida, o host de Front-end e então o caminho.
 
 ### <a name="frontend-host-matching"></a>Correspondência do host de front-end
-Ao fazer a correspondência de hosts de front-end, podemos usar a lógica conforme mostrado a seguir:
+Ao fazer correspondência de hosts de front-end, usamos a lógica definida abaixo:
 
 1. Procure por qualquer roteamento com uma correspondência exata no host.
 2. Se não houver correspondência exata de hosts de front-end, rejeite a solicitação e envie um erro 400 Solicitação inválida.
@@ -120,7 +120,7 @@ Dada essa configuração, a tabela de correspondência de exemplo a seguir resul
 >
 > | Solicitação de entrada       | Rota correspondente |
 > |------------------------|---------------|
-> | profile.domain.com/other | nenhuma. Erro 400: solicitação inválida |
+> | profile.domain.com/other | Nenhum. Erro 400: solicitação inválida |
 
 ### <a name="routing-decision"></a>Decisão de roteamento
 Depois que você obteve correspondência para uma única regra de roteamento de Front Door, precisaremos escolher como processar a solicitação. Se, para a regra de roteamento correspondente, a porta da frente tiver uma resposta em cache disponível, ela será fornecida de volta ao cliente. Caso contrário, o próximo item que é avaliada é se você configurou [Reescrita de URL (caminho personalizado de encaminhamento)](front-door-url-rewrite.md) para o roteamento de regra correspondente ou não. Se não houver um caminho de encaminhamento personalizado definido, a solicitação será encaminhada para o back-end apropriado no pool de back-end configurado como está. Caso contrário, o caminho da solicitação será atualizado de acordo o [caminho de encaminhamento personalizado](front-door-url-rewrite.md) definido e, em seguida, encaminhado para o back-end.

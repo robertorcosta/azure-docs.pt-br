@@ -1,22 +1,22 @@
 ---
 title: 'Azure ExpressRoute: configurar o ExpressRoute direto'
-description: Saiba como usar Azure PowerShell para configurar o Azure ExpressRoute Direct para se conectar diretamente à rede global da Microsoft em locais de emparelhamento em todo o mundo.
+description: Saiba como usar Azure PowerShell para configurar o Azure ExpressRoute Direct para se conectar diretamente à rede global da Microsoft.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c4ce764f50f85ef9979d5a14235759c16228f6b7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1748db76aa2d1f65ea21046bcff2fff43ca732b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396022"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450195"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
-O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. Para obter mais informações, veja [Sobre o ExpressRoute Direct](expressroute-erdirect-about.md).
+O ExpressRoute Direct oferece a capacidade de se conectar diretamente à rede global da Microsoft por meio de locais de emparelhamento distribuídos estrategicamente em todo o mundo. Para obter mais informações, veja [Sobre o ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Criar o recurso
 
@@ -155,10 +155,20 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
    Circuits                   : []
    ```
 
-## <a name="change-admin-state-of-links"></a><a name="state"></a>Alterar Estado de Administrador de links
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Gerar a letra de autorização (LOA)
 
-  Esse processo deve ser usado para realizar um teste de Camada 1, garantindo que cada conexão cruzada seja corrigida corretamente em cada roteador para o primário e o secundário.
-1. Obtenha detalhes do ExpressRoute Direct.
+Referencie o recurso direto do ExpressRoute criado recentemente, insira um nome de cliente para gravar o LOA e (opcionalmente) definir um local de arquivo para armazenar o documento. Se um caminho de arquivo não for referenciado, o documento será baixado para o diretório atual.
+
+  ```powershell 
+   New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
+   ```
+ **Saída de exemplo**
+
+   ```powershell
+   Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+
+  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
+1. Get ExpressRoute Direct details.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
@@ -227,13 +237,13 @@ O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede gl
 
 ## <a name="create-a-circuit"></a><a name="circuit"></a>Criar um circuito
 
-Por padrão, você pode criar 10 circuitos na assinatura que contém o recurso ExpressRoute Direct. Esse número pode ser aumentado pelo suporte. Você é responsável por acompanhar a largura de banda provisionada e utilizada. A largura de banda provisionada é a soma da largura de banda de todos os circuitos no recurso ExpressRoute Direct, e a largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
+Por padrão, você pode criar 10 circuitos na assinatura que contém o recurso ExpressRoute Direct. Esse limite pode ser aumentado pelo suporte. Você é responsável por acompanhar a largura de banda provisionada e utilizada. A largura de banda provisionada é a soma da largura de banda de todos os circuitos no recurso ExpressRoute Direct, e a largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
 
-Há larguras de banda de circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para dar suporte aos cenários descritos acima. São elas: 40 Gbps e 100 Gbps.
+Há mais larguras de banda de circuito que podem ser utilizadas no ExpressRoute Direct para dar suporte apenas aos cenários descritos acima. Essas larguras de banda são 40 Gbps e 100 Gbps.
 
 **SkuTier** pode ser local, Standard ou Premium.
 
-**SkuFamily** deve ser MeteredData somente como ilimitado não tem suporte no ExpressRoute Direct.
+**SkuFamily** só pode ser MeteredData. Não há suporte para ilimitado no ExpressRoute Direct.
 
 Crie um circuito no recurso ExpressRoute Direct.
 

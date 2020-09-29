@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 972f9b1ac96ca180aa6eaeead7cde51b60ec0e93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ce65d6f1806965a55a91117725d2232d4d6460bd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278474"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449633"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de protocolo duplo (NFSv3 e SMB) para Azure NetApp Files
 
@@ -38,6 +38,8 @@ O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFS
 * Verifique se você atende aos [requisitos de conexões de Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Crie uma zona de pesquisa inversa no servidor DNS e adicione um registro de ponteiro (PTR) do computador host do AD nessa zona de pesquisa inversa. Caso contrário, a criação do volume de protocolo duplo falhará.
 * Verifique se o cliente NFS está atualizado e executando as atualizações mais recentes para o sistema operacional.
+* Verifique se o servidor LDAP do Active Directory (AD) está ativo e em execução no AD. Isso é feito instalando e configurando a função [Active Directory Lightweight Directory Services (AD LDS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) no computador do AD.
+* Certifique-se de que uma AC (autoridade de certificação) seja criada no AD usando a função de [serviços de certificados do Active Directory (AD CS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) para gerar e exportar o certificado da AC raiz autoassinado.   
 
 ## <a name="create-a-dual-protocol-volume"></a>Criar um volume de protocolo duplo
 
@@ -136,6 +138,11 @@ Você pode gerenciar atributos POSIX, como UID, diretório base e outros valores
 
 ![Editor de atributos Active Directory](../media/azure-netapp-files/active-directory-attribute-editor.png) 
 
+Você precisa definir os seguintes atributos para usuários LDAP e grupos LDAP: 
+* Atributos necessários para usuários LDAP:   
+    `uid`: Alice, `uidNumber` : 139, `gidNumber` : 555, `objectClass` : posixAccount
+* Atributos necessários para grupos LDAP:   
+    `objectClass`: "POSIX", `gidNumber` : 555
 
 ## <a name="configure-the-nfs-client"></a>Configurar o cliente NFS 
 
