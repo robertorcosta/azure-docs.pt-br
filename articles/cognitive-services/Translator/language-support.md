@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: e8feb4f2012d323d954ba000323824bc157bcf87
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300214"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534051"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Suporte a idiomas e regiões para conversão de texto e fala
 
@@ -71,7 +71,6 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 |Japonês|  `ja`    |
 |canarim|`kn`|
 |Cazaque|`kk`|
-|Suaíli| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Coreano |`ko`   |
@@ -102,6 +101,7 @@ O tradutor dá suporte aos seguintes idiomas para tradução de texto para texto
 |Eslovaco|    `sk`    |
 |Esloveno| `sl`    |
 |Espanhol|   `es`    |
+|Swahili|   `sw`    |
 |Sueco|   `sv`    |
 |Taitiano|  `ty`    |
 |Tâmil| `ta`    |
@@ -152,7 +152,6 @@ O tradutor detecta os seguintes idiomas para tradução e transliteração.
 |Irlandês | `ga`|
 |Italiano|   `it`    |
 |Japonês|  `ja`    |
-|Suaíli| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coreano |`ko`   |
 |Curdo (central)  |`ku-Arab`  |
@@ -173,6 +172,7 @@ O tradutor detecta os seguintes idiomas para tradução e transliteração.
 |Eslovaco|    `sk`    |
 |Esloveno| `sl`    |
 |Espanhol|   `es`    |
+|Swahili|   `sw`    |
 |Sueco|   `sv`    |
 |Taitiano|  `ty`    |
 |Tailandês|  `th`    |
@@ -190,7 +190,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 [Exibir a documentação de referência de operação de transliteração](reference/v3-0-translate.md)
 
 
-| Linguagem    | Código de idioma | script | Para/De | script|
+| Linguagem    | Código de idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -200,7 +200,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Chinês (Tradicional) | `zh-Hant` | Chinês tradicional `Hant`| <--> | Chinês simplificado `Hans` |
 | Guzerate | `gu`  | Guzerate `Gujr` | <--> | Latim `Latn` |
 | Hebraico | `he` | Hebraico `Hebr` | <--> | Latim `Latn` |
-| Híndi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latim `Latn` |
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
 | canarim | `kn` | Canarim `Knda` | <--> | Latim `Latn` |
 | Malaiala | `ml` | Malaiala `Mlym` | <--> | Latim `Latn` |
@@ -210,7 +210,7 @@ O método Transliterate suporta os seguintes idiomas. Em "Para / De", "<->" indi
 | Sérvio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (latino) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
 | Tâmil | `ta` | Tâmil `Taml` | <--> | Latim `Latn` |
-| Télugo | `te` | Télugo `Telu` | <--> | Latim `Latn` |
+| Telugu | `te` | Télugo `Telu` | <--> | Latim `Latn` |
 | Tailandês | `th` | Tailandês `Thai` | --> | Latim `Latn` |
 
 ### <a name="dictionary"></a>Dicionário
@@ -246,7 +246,6 @@ Veja a documentação de referência para as operações de [exemplos de dicion�
 | Indonésio      | `id`          |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
-| Suaíli      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
@@ -263,6 +262,7 @@ Veja a documentação de referência para as operações de [exemplos de dicion�
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
 | Espanhol      | `es`          |
+| Swahili      | `sw`          |
 | Sueco      | `sv`          |
 | Tâmil      | `ta`          |
 | Tailandês      | `th`          |
@@ -314,7 +314,6 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
 |canarim|`kn`|
-| Suaíli|    `sw`    |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
@@ -335,6 +334,7 @@ Os idiomas a seguir estão disponíveis para personalização de ou para o ingl�
 | Eslovaco     | `sk`          |
 | Esloveno      | `sl`          |
 | Espanhol      | `es`          |
+| Swahili|  `sw`    |
 | Sueco      | `sv`          |
 |Taitiano|  `ty`    |
 | Tailandês      | `th`          |
@@ -365,7 +365,7 @@ Converta a fala em texto para traduzir para o idioma de texto de sua escolha. A 
 |Francês|
 |Alemão|
 |Guzerate|
-|Híndi|
+|Hindi|
 |Italiano|
 |Japonês|
 |Coreano|

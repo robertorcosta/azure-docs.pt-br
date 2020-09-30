@@ -5,23 +5,61 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 8882625d28871135223dd30e3fd96a385a13e8fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7a546c06e990d7fdb0fa7865c176f39772136539
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376921"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539956"
 ---
 ![Documentação do Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
-A taxa de transferência máxima do disco não **armazenado em cache** é o limite máximo de armazenamento padrão que a máquina virtual pode manipular. O limite máximo de taxa de transferência de armazenamento **em cache** é um limite separado quando você habilita o cache de host. Habilitar o cache de host pode ser feito ao criar sua máquina virtual e anexar discos. Você também pode ajustar para ativar e desativar o cache de host de seus discos em uma VM existente:
+A taxa de transferência máxima do disco não **armazenado em cache** é o limite máximo de armazenamento padrão que a máquina virtual pode manipular. O limite máximo de taxa de transferência de armazenamento **em cache** é um limite separado quando você habilita o cache de host. O cache de host funciona colocando o armazenamento mais próximo da VM que pode ser gravada ou lida com rapidez. A quantidade de armazenamento disponível para a VM para o cache de host está na documentação. Por exemplo, você pode ver que a Standard_D8s_v3 vem com 200 GiB de armazenamento em cache. Vamos 
+
+Habilitar o cache de host pode ser feito ao criar sua máquina virtual e anexar discos. Você também pode ajustar para ativar e desativar o cache de host de seus discos em uma VM existente.
 
 ![Cache de host](media/vm-disk-performance/host-caching.jpg)
 
-O cache de host pode ser ajustado para corresponder aos seus requisitos de carga de trabalho para cada disco. Você pode definir o cache do host para ser somente leitura para cargas de trabalho que só lêem operações e leitura/gravação para cargas de trabalho que fazem um saldo de operações de leitura e gravação. Se sua carga de trabalho não seguir nenhum desses padrões, infelizmente você não poderá usar o cache de host. 
+O cache de host pode ser ajustado para corresponder aos seus requisitos de carga de trabalho para cada disco. Você pode definir o cache do host para ser somente leitura para cargas de trabalho que só lêem operações e leitura/gravação para cargas de trabalho que fazem um saldo de operações de leitura e gravação. Se sua carga de trabalho não seguir nenhum desses padrões, não é recomendável usar o cache de host. 
+
+Vamos executar alguns exemplos de diferentes configurações de cache de host e ver como ele afeta o fluxo de dados e o desempenho. Neste primeiro exemplo, veremos o que acontece com as solicitações de e/s quando a configuração de cache do host é definida como **somente leitura**.
+
+Configurar:
+- Standard_D8s_v3 
+    - IOPS em cache: 16.000
+    - IOPS não armazenado em cache: 12.800
+- Disco de dados p30 
+    - IOPS: 5.000
+    - **Cache de host: somente leitura** 
+
+Quando uma leitura é executada e os dados desejados estão disponíveis no cache, o cache retorna os dados solicitados e não há necessidade de ler a partir do disco. Essa leitura é contada em direção aos limites em cache da VM.
+
+![Ler o cache do host ler o acesso](media/vm-disk-performance/host-caching-read-hit.jpg)
+
+Quando uma leitura é executada e os dados desejados **não** estão disponíveis no cache, a solicitação de leitura é retransmitida para o disco que, em seguida, a coloca no cache e na VM. Essa leitura é contada em relação ao limite não armazenado em cache da VM e ao limite em cache da VM.
+
+![Ler erro de leitura do cache do host](media/vm-disk-performance/host-caching-read-miss.jpg)
+
+Quando uma gravação é executada, a gravação precisa ser gravada no cache e no disco antes que ele seja considerado concluído. Essa gravação é contada em direção ao limite não armazenado em cache da VM e ao limite em cache da VM.
+
+![Ler gravação de cache do host](media/vm-disk-performance/host-caching-write.jpg)
+
+Neste próximo exemplo, vamos dar uma olhada no que acontece com as solicitações de e/s quando a configuração de cache do host é definida como **leitura/gravação**.
+
+Configurar:
+- Standard_D8s_v3 
+    - IOPS em cache: 16.000
+    - IOPS não armazenado em cache: 12.800
+- Disco de dados p30 
+    - IOPS: 5.000
+    - **Cache de host: leitura/gravação** 
+
+As leituras são tratadas exatamente da mesma maneira como somente leitura, as gravações são a única coisa que é diferente com o cache de leitura/gravação. Ao gravar com cache de host definido como leitura/gravação, o Write só precisa ser gravado no cache do host para ser considerado concluído. Em seguida, a gravação é gravada lentamente no disco como um processo em segundo plano. Isso significa que as gravações serão contadas em direção à e/s em cache quando gravadas no cache e quando elas forem gravadas lentamente no disco, serão contadas em direção à e/s não armazenada em cache.
+
+![Leitura/gravação de cache de host gravação](media/vm-disk-performance/host-caching-read-write.jpg)
 
 Vamos continuar com um exemplo com nossa máquina virtual de Standard_D8s_v3. Exceto desta vez, Habilitaremos o cache de host nos discos e, agora, o limite de IOPS da VM será de 16.000 IOPS. Anexado à VM há três discos p30 subjacentes que podem lidar com 5.000 IOPS.
 
@@ -31,10 +69,10 @@ Configurar:
     - IOPS não armazenado em cache: 12.800
 - Disco do sistema operacional p30 
     - IOPS: 5.000
-    - Cache de host habilitado 
+    - Cache de host: leitura/gravação 
 - 2 discos de dados p30
     - IOPS: 5.000
-    - Cache de host habilitado
+    - Cache de host: leitura/gravação
 
 ![Exemplo de cache de host](media/vm-disk-performance/host-caching-example-without-remote.jpg)
 
@@ -50,13 +88,13 @@ Configurar:
     - IOPS não armazenado em cache: 12.800
 - Disco do sistema operacional p30 
     - IOPS: 5.000
-    - Cache de host habilitado 
+    - Cache de host: leitura/gravação
 - 2 discos de dados p30 X 2
     - IOPS: 5.000
-    - Cache de host habilitado
+    - Cache de host: leitura/gravação
 - 2 discos de dados p30 X 2
     - IOPS: 5.000
-    - Cache de host desabilitado
+    - Cache de host: leitura/gravação
 
 ![Exemplo de cache de host com armazenamento remoto](media/vm-disk-performance/host-caching-example-with-remote.jpg)
 
@@ -87,7 +125,8 @@ Métricas que ajudam a diagnosticar a e/s de disco com limitação:
 - **Porcentagem consumida da largura de banda do disco do so** -a porcentagem calculada pela taxa de transferência do disco do sistema operacional concluída na taxa de transferência do disco do so provisionado Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de largura de banda do disco do sistema operacional.
 
 Métricas que ajudam a diagnosticar a e/s de VM com limitação:
-- **Porcentagem consumida de IOPS em cache da VM** -a porcentagem calculada pelo total de IOPS concluída com relação ao limite de IOPS máximo de máquina virtual em cache. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de IOPs em cache de sua VM.
+- **Porcentagem consumida de IOPS em cache da VM** -a porcentagem calculada pelo total de IOPS concluída com relação ao limite de IOPS máximo de máquina virtual em cache. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de IOPS em cache de sua VM.
 - **Porcentagem consumida da largura de banda em cache da VM** -a porcentagem calculada pela taxa de transferência total do disco concluída na taxa de transferência máxima de máquina virtual em cache. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de largura de banda em cache da VM.
-- **Porcentagem consumida de IOPS não armazenada em cache da VM** -a porcentagem calculada pelo IOPS total em uma máquina virtual foi concluída com o limite máximo de IOPS de máquina virtual sem cache. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de IOPs sem cache da sua VM.
+- **Porcentagem consumida de IOPS não armazenada em cache da VM** -a porcentagem calculada pelo IOPS total em uma máquina virtual foi concluída com o limite máximo de IOPS de máquina virtual sem cache. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de IOPS sem cache da sua VM.
 - **Porcentagem consumida da largura de banda não armazenada em cache da VM** -a porcentagem calculada pela taxa de transferência total do disco em uma máquina virtual foi concluída com a taxa de transferência máxima da máquina virtual provisionada. Se esse valor for de 100%, seu aplicativo em execução será a e/s limitada do limite de largura de banda sem cache da sua VM.
+

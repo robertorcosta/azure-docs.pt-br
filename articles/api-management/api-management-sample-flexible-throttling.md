@@ -15,15 +15,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 7ef1c09b12d3c7e365f090391aa3fa8afa03749b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213994"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537337"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de solicitação avançada com o Gerenciamento de API do Azure
 Ser capaz de limitar as solicitações de entrada é fundamental para o Gerenciamento de API do Azure. Ao controlar a taxa de solicitações ou as solicitações/dados totais transferidos, o Gerenciamento de API permite que os provedores de API protejam suas APIs contra o abuso e criem valor para diferentes níveis de produto de API.
+
+## <a name="rate-limits-and-quotas"></a>Limites de taxa e cotas
+Os limites de taxa e as cotas são usados para finalidades diferentes.
+
+### <a name="rate-limits"></a>Limites de taxa
+Os limites de taxa geralmente são usados para proteger contra picos de volume curtos e intensos. Por exemplo, se você souber que seu serviço de back-end tem um afunilamento em seu banco de dados com um alto volume de chamadas, você pode definir uma `rate-limit-by-key` política para não permitir o alto volume de chamadas usando essa configuração.
+
+### <a name="quotas"></a>Cotas
+As cotas geralmente são usadas para controlar as taxas de chamada em um período de tempo maior. Por exemplo, eles podem definir o número total de chamadas que um determinado assinante pode fazer dentro de um determinado mês. Para monetização sua API, as cotas também podem ser definidas de forma diferente para assinaturas baseadas em camadas. Por exemplo, uma assinatura de camada básica pode não ser capaz de fazer mais de 10.000 chamadas por mês, mas uma camada Premium pode ir até 100 milhões chamadas por mês.
+
+No gerenciamento de API do Azure, os limites de taxa normalmente são propagados mais rapidamente entre os nós para proteção contra picos. Por outro lado, as informações de cota de uso são usadas em um prazo maior e, portanto, sua implementação é diferente.
+
+> [!CAUTION]
+> Devido à natureza distribuída da arquitetura de limitação, a limitação de taxa nunca é completamente precisa. A diferença entre o número configurado e o real de solicitações permitidas varia de acordo com o volume e a taxa de solicitação, a latência de back-end e outros fatores.
 
 ## <a name="product-based-throttling"></a>Limitação com base no produto
 Até o momento, os recursos de limitação da taxa estavam restritos à assinatura de um produto específico, definida no Portal do Azure. Isso é útil para o provedor de API aplicar limites aos desenvolvedores que se inscreveram para usar sua API, mas não ajuda, por exemplo, na limitação de usuários finais individuais da API. É possível que um único usuário do aplicativo do desenvolvedor consuma toda a cota, impedindo que outros clientes do desenvolvedor possam usar o aplicativo. Além disso, vários clientes que gerem um grande volume de solicitações podem limitar o acesso a usuários ocasionais.

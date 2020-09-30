@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d41518b1fc0d8cdda3ded1e8036bd29e24e2b34a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334252"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541349"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotear eventos dentro e fora do Azure digital gêmeos
 
@@ -55,7 +55,9 @@ Para definir uma rota de eventos, os desenvolvedores devem primeiro definir pont
 * Hub de evento
 * Barramento de Serviço
 
-Os pontos de extremidade são configurados usando as APIs do plano de controle (com suporte da [CLI do gêmeos digital do Azure](how-to-use-cli.md)ou por meio do portal do Azure. Uma definição de ponto de extremidade fornece:
+Para criar um ponto de extremidade, você pode usar as [**APIs do plano de controle**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins)gêmeos digital do Azure, comandos da [**CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou o [**portal do Azure**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+
+Ao definir um ponto de extremidade, você precisará fornecer:
 * O nome do ponto de extremidade
 * O tipo de ponto de extremidade (grade de eventos, Hub de eventos ou barramento de serviço)
 * A cadeia de conexão primária e a cadeia de conexão secundária para autenticar 
@@ -69,7 +71,9 @@ As APIs de ponto de extremidade que estão disponíveis no plano de controle sã
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
  
-As rotas de eventos são criadas em um aplicativo cliente. Uma maneira de fazer isso é com a `CreateEventRoute` chamada do [SDK do .net (C#)](how-to-use-apis-sdks.md) : 
+Para criar uma rota de eventos, você pode usar as APIs do [**plano de dados**](how-to-manage-routes-apis-cli.md#create-an-event-route)do gêmeos digital do Azure, os [**comandos da CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou a [**portal do Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
+
+Aqui está um exemplo de criação de uma rota de eventos dentro de um aplicativo cliente, usando a chamada do `CreateEventRoute` [SDK do .net (C#)](how-to-use-apis-sdks.md) : 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");

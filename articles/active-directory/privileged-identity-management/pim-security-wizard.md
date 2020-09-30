@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335877"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534430"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Descoberta e insights (visualização) para funções do Azure AD (anteriormente conhecido como assistente de segurança)
 
@@ -45,7 +45,7 @@ Além disso, mantenha as atribuições de função permanentes se um usuário ti
 
 1. Selecione **reduzir administradores globais**.
 
-    ![Reduzir os administradores globais-painel de funções mostrando todos os membros](./media/pim-security-wizard/new-preview-page.png)
+    ![Captura de tela que mostra a "descoberta e informações (versão prévia)" com a ação "reduzir administradores globais" selecionada.](./media/pim-security-wizard/new-preview-page.png)
 
 1. Examine a lista de atribuições de função de administrador global.
 

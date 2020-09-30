@@ -3,20 +3,18 @@ title: Exportar & excluir dados-LUIS
 titleSuffix: Azure Cognitive Services
 description: Você tem controle total sobre a exibição, a exportação e a exclusão de seus dados. Exclua os dados do cliente para garantir a privacidade e a conformidade.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/02/2019
-ms.author: diberry
-ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 868443e52b7159e6ee9478f64b7b2f376a10f604
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273356"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540999"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e excluir dados do cliente no LUIS (Serviço Inteligente de Reconhecimento Vocal) nos Serviços Cognitivos
 
@@ -37,7 +35,7 @@ O conteúdo do cliente foi armazenado criptografado no armazenamento do Azure re
 ## <a name="deleting-customer-data"></a>Excluindo os dados do cliente
 LUIS os usuários têm controle total para excluir qualquer conteúdo de usuário, seja por meio do portal da Web do LUIS ou das APIs de criação de LUIS (também conhecidas como programáticas). A tabela a seguir exibe links para ajudar a ajudar com ambos:
 
-| | **Conta de Usuário** | **Aplicativo** | **Expressão (s) de exemplo** | **Consultas do usuário final** |
+| | **Conta de usuário** | **Aplicativo** | **Expressão (s) de exemplo** | **Consultas do usuário final** |
 | --- | --- | --- | --- | --- |
 | **Portal** | [Link](luis-concept-data-storage.md#delete-an-account) | [Link](luis-how-to-start-new-app.md#delete-app) | [Link](luis-concept-data-storage.md#utterances-in-an-intent) | [Declarações de aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Declarações registrados](luis-concept-data-storage.md#disable-logging-utterances) |
 | **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
@@ -46,7 +44,7 @@ LUIS os usuários têm controle total para excluir qualquer conteúdo de usuári
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 Os usuários do LUIS têm controle total para exibir os dados no portal, no entanto, eles devem ser exportados por meio das APIs de criação de LUIS (também conhecidas como programáticas). A tabela a seguir exibe links que auxiliam com exportações de dados por meio das APIs de criação LUIS (também conhecidas como programáticas):
 
-| | **Conta de Usuário** | **Aplicativo** | **Expressão (s)** | **Consultas do usuário final** |
+| | **Conta de usuário** | **Aplicativo** | **Expressão (s)** | **Consultas do usuário final** |
 | --- | --- | --- | --- | --- |
 | **APIs** | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Link](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
@@ -66,7 +64,7 @@ O portal [eu.Luis.ai](https://eu.luis.ai) e a criação da Europa (também conhe
 
 * Europa
 * França
-* United Kingdom
+* Reino Unido
 
 Ao implantar nessas regiões do Azure, o declarações recebido pelo ponto de extremidade dos usuários finais do seu aplicativo será armazenado na geografia da Europa do Azure para o aprendizado ativo. Você pode desabilitar o aprendizado ativo, consulte [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Para gerenciar o declarações armazenado, consulte [excluir expressão](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 

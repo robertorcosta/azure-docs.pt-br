@@ -4,12 +4,12 @@ description: Respostas para algumas das perguntas e cenários mais comuns de red
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.reviewer: glenga
-ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: d07484943f8ba85cc8e46737f3ef85b6e25d5187
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385901"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538051"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas frequentes sobre rede em Azure Functions
 
@@ -27,7 +27,7 @@ Você pode restringir o acesso à Internet de duas maneiras:
     * Em restrições de IP, você também pode configurar [pontos de extremidade de serviço](../virtual-network/virtual-network-service-endpoints-overview.md), que restringem sua função para aceitar somente o tráfego de entrada de uma rede virtual específica.
 * Remoção de todos os gatilhos HTTP. Para alguns aplicativos, é suficiente simplesmente evitar gatilhos HTTP e usar qualquer outra origem de evento para disparar sua função.
 
-Tenha em mente que o editor de portal do Azure requer acesso direto à sua função em execução. Qualquer alteração de código por meio da portal do Azure exigirá que o dispositivo que você está usando para procurar o portal tenha seu IP na lista de permissões. Mas você ainda pode usar qualquer coisa na guia recursos da plataforma com restrições de rede em vigor.
+Tenha em mente que o editor de portal do Azure requer acesso direto à sua função em execução. Qualquer alteração de código através da portal do Azure exigirá que o dispositivo que você está usando para procurar o portal tenha seu IP adicionado à lista aprovada. Mas você ainda pode usar qualquer coisa na guia recursos da plataforma com restrições de rede em vigor.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Como fazer restringir meu aplicativo de funções a uma rede virtual?
 

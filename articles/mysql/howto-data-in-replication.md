@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: 8ebb524a5297380fca575ce6849fe4c5f15507cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f745e5e8b611271be9dff2131a2079abc609cf91
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903992"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539054"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a replicação nos dados para o Banco de Dados do Azure para MySQL
 
-Este artigo descreve como configurar o [replicação de dados](concepts-data-in-replication.md) no banco de dados do Azure para MySQL Configurando os servidores mestre e de réplica. Este artigo pressupõe que você tenha alguma experiência anterior com servidores e bancos de dados MySQL.
+Este artigo descreve como configurar [replicação de dados](concepts-data-in-replication.md) no banco de dados do Azure para MySQL Configurando os servidores de origem e de réplica. Este artigo pressupõe que você tenha alguma experiência anterior com servidores e bancos de dados MySQL.
 
 > [!NOTE]
 > Comunicação livre de desvio
@@ -23,7 +23,7 @@ Este artigo descreve como configurar o [replicação de dados](concepts-data-in-
 > A Microsoft dá suporte a um ambiente diversificado e de inclusão. Este artigo contém referências à palavra _subordinada_. O [Guia de estilo da Microsoft para comunicação sem tendência](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isso como uma palavra de exclusão. A palavra é usada neste artigo para fins de consistência porque, atualmente, ela é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
 >
 
-Para criar uma réplica no serviço de banco de dados do Azure para MySQL, [replicação de dados](concepts-data-in-replication.md)  sincroniza dados de um servidor mestre MySQL local, em VMS (máquinas virtuais) ou em serviços de banco de dados de nuvem. A Replicação nos dados se baseia na replicação nativa baseada na posição do arquivo de log binário (binlog) para o MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Para criar uma réplica no serviço de banco de dados do Azure para MySQL, [replicação de dados](concepts-data-in-replication.md)  sincroniza dados de um servidor MySQL de origem local, em VMS (máquinas virtuais) ou em serviços de banco de dados de nuvem. A Replicação nos dados se baseia na replicação nativa baseada na posição do arquivo de log binário (binlog) para o MySQL. Para saber mais sobre a replicação do binlog, confira a [visão geral da replicação do binlog do MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Examine as [limitações e os requisitos](concepts-data-in-replication.md#limitations-and-considerations) de replicação de dados antes de executar as etapas neste artigo.
 
@@ -39,25 +39,25 @@ Examine as [limitações e os requisitos](concepts-data-in-replication.md#limita
 
 1. Criar as mesmas contas de usuário e os privilégios correspondentes
 
-   Contas de usuário não são replicadas do servidor mestre para o servidor de réplica. Se você planeja fornecer aos usuários acesso ao servidor de réplica, precisa criar manualmente todas as contas e privilégios correspondentes no servidor do Banco de Dados do Azure para MySQL recém-criado.
+   As contas de usuário não são replicadas do servidor de origem para o servidor de réplica. Se você planeja fornecer aos usuários acesso ao servidor de réplica, precisa criar manualmente todas as contas e privilégios correspondentes no servidor do Banco de Dados do Azure para MySQL recém-criado.
 
-1. Adicione o endereço IP do servidor mestre às regras de firewall da réplica. 
+1. Adicione o endereço IP do servidor de origem às regras de firewall da réplica. 
 
    Atualizar regras de firewall usando o [Portal do Azure](howto-manage-firewall-using-portal.md) ou a [CLI do Azure](howto-manage-firewall-using-cli.md).
 
-## <a name="configure-the-master-server"></a>Configurar o servidor mestre
+## <a name="configure-the-source-server"></a>Configurar o servidor de origem
 As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em uma máquina virtual ou serviço de banco de dados hospedado por outros provedores de nuvem para replicação de entrada nos dados. Esse servidor é o "mestre" em replicação de dados.
 
 
 1. Examine os [requisitos do servidor mestre](concepts-data-in-replication.md#requirements) antes de continuar. 
 
-   Por exemplo, verifique se o servidor mestre permite o tráfego de entrada e de saída na porta 3306 e se o servidor mestre tem um **endereço IP público**, se o DNS está publicamente acessível ou tem um FQDN (nome de domínio totalmente qualificado). 
+   Por exemplo, verifique se o servidor de origem permite o tráfego de entrada e de saída na porta 3306 e se o servidor de origem tem um **endereço IP público**, se o DNS está acessível publicamente ou tem um FQDN (nome de domínio totalmente qualificado). 
    
-   Teste a conectividade com o servidor mestre tentando se conectar de uma ferramenta como a linha de comando do MySQL hospedada em outro computador ou da [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal do Azure.
+   Teste a conectividade com o servidor de origem tentando se conectar de uma ferramenta como a linha de comando do MySQL hospedada em outro computador ou da [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponível no portal do Azure.
 
 1. Ligar o registro em log binário
 
-   Verifique se o log binário foi ativado no mestre executando o seguinte comando: 
+   Verifique se o log binário foi habilitado na origem executando o seguinte comando: 
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
@@ -67,9 +67,9 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
    Se `log_bin` for retornado com o valor "off", ative o log binário editando o arquivo My. cnf para que `log_bin=ON` o e reinicie o servidor para que a alteração entre em vigor.
 
-1. Configurações do servidor mestre
+1. Configurações do servidor de origem
 
-   A replicação de entrada de dados exige que o parâmetro `lower_case_table_names` seja consistente entre os servidores mestre e de réplica. Esse parâmetro é 1 por padrão no Banco de Dados do Azure para MySQL. 
+   Replicação de Dados requer `lower_case_table_names` que o parâmetro seja consistente entre os servidores de origem e de réplica. Esse parâmetro é 1 por padrão no Banco de Dados do Azure para MySQL. 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -77,9 +77,9 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 1. Criar uma nova função de replicação e configurar permissão
 
-   Crie uma conta de usuário no servidor mestre que é configurado com privilégios de replicação. Isso pode ser feito por meio de comandos SQL ou de uma ferramenta como o Workbench do MySQL. Leve em conta se você planeja replicar com SSL, pois isso precisa ser especificado na criação do usuário. Consulte a documentação do MySQL para entender como [adicionar contas de usuário](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) ao seu servidor mestre. 
+   Crie uma conta de usuário no servidor de origem que está configurada com privilégios de replicação. Isso pode ser feito por meio de comandos SQL ou de uma ferramenta como o Workbench do MySQL. Leve em conta se você planeja replicar com SSL, pois isso precisa ser especificado na criação do usuário. Consulte a documentação do MySQL para entender como [Adicionar contas de usuário](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) no servidor de origem. 
 
-   Nos comandos abaixo, a nova função de replicação criada é capaz de acessar o mestre de qualquer máquina, não apenas da máquina que hospeda o próprio mestre. Isso é feito especificando "syncuser@'%'" no comando create user. Confira a documentação do MySQL para saber mais sobre [como especificar nomes de conta](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
+   Nos comandos abaixo, a nova função de replicação criada é capaz de acessar a origem de qualquer computador, não apenas da máquina que hospeda a própria origem. Isso é feito especificando "syncuser@'%'" no comando create user. Confira a documentação do MySQL para saber mais sobre [como especificar nomes de conta](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
    **Comando SQL**
 
@@ -109,15 +109,15 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
    Digite o nome de usuário no campo **Nome de Logon**. 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Sincronizar usuário":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Privilégios e usuários":::
  
    Clique no painel **Funções Administrativas** painel e selecione **Replicação Subordinada** na lista de **Privilégios Globais**. Em seguida, clique em **Aplicar** para criar a função de replicação.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Replicação subordinada":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Privilégios e usuários":::
 
-1. Configure o servidor mestre para o modo somente leitura
+1. Definir o servidor de origem para o modo somente leitura
 
-   Antes de começar a despejar o banco de dados, o servidor precisa ser colocado no modo somente leitura. No modo somente leitura, o mestre será capaz de processar todas as transações de gravação. Avalie o impacto em seus negócios e agende a janela de somente leitura em um horário fora de pico, se necessário.
+   Antes de começar a despejar o banco de dados, o servidor precisa ser colocado no modo somente leitura. Enquanto estiver no modo somente leitura, a origem não poderá processar nenhuma transação de gravação. Avalie o impacto em seus negócios e agende a janela de somente leitura em um horário fora de pico, se necessário.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -126,24 +126,24 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 1. Obter o nome e o deslocamento do arquivo de log binário
 
-   Execute o [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando para determinar o deslocamento e o nome do arquivo de log binário atual.
+   Execute o [` show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) comando para determinar o deslocamento e o nome do arquivo de log binário atual.
     
    ```sql
-   show master status;
+    show master status;
    ```
    Os resultados devem ser assim. Anote o nome de arquivo binário, pois ele será usado em etapas posteriores.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Resultados de status do mestre":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Privilégios e usuários":::
  
-## <a name="dump-and-restore-master-server"></a>Despejar e restaurar o servidor principal
+## <a name="dump-and-restore-source-server"></a>Despejar e restaurar o servidor de origem
 
-1. Determine os bancos de dados e as tabelas que você deseja replicar no Azure Database para MySQL e execute o despejo do servidor mestre.
+1. Determine os bancos de dados e as tabelas que você deseja replicar no Azure Database para MySQL e execute o despejo do servidor de origem.
  
     Você pode usar o mysqldump para despejar bancos de dados do seu mestre. Para obter detalhes, consulte [Despejar e restaurar](concepts-migrate-dump-restore.md). Não é necessário despejar as bibliotecas normal e de teste do MySQL.
 
-1. Definir o servidor mestre para o modo de leitura/gravação
+1. Definir o servidor de origem para o modo de leitura/gravação
 
-   Uma vez que o banco de dados foi descartado, mude o servidor MySQL de volta para o modo de leitura / gravação.
+   Depois que o banco de dados tiver sido despejado, altere o servidor MySQL de origem de volta para o modo de leitura/gravação.
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -154,28 +154,28 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
    Restaure o arquivo de despejo no servidor criado no serviço Banco de Dados do Azure para MySQL. Consulte [Despejar e restaurar](concepts-migrate-dump-restore.md) para saber como restaurar um arquivo de despejo em um servidor MySQL. Se o arquivo de despejo é grande, carregue-o em uma máquina virtual do Azure na mesma região do servidor de réplica. Restaure-o no serviço Banco de Dados do Azure para MySQL da máquina virtual.
 
-## <a name="link-master-and-replica-servers-to-start-data-in-replication"></a>Vincular servidores mestre e de réplica para iniciar a replicação de dados
+## <a name="link-source-and-replica-servers-to-start-data-in-replication"></a>Vincular os servidores de origem e de réplica para iniciar Replicação de Dados
 
-1. Definir o servidor mestre
+1. Definir servidor de origem
 
    Todas as funções de replicação nos dados são feitas por procedimentos armazenados. Você pode encontrar todos os procedimentos em [Procedimentos armazenados de replicação nos dados](reference-data-in-stored-procedures.md). Os procedimentos armazenados podem ser executados no shell do MySQL ou no Workbench do MySQL. 
 
-   Para vincular dois servidores e iniciar a replicação, faça logon no servidor de réplica de destino no BD do Azure para o serviço MySQL e defina a instância externa como o servidor mestre. Isso é feito usando o procedimento armazenado `mysql.az_replication_change_master` no servidor do Banco de Dados do Azure para MySQL.
+   Para vincular dois servidores e iniciar a replicação, faça logon no servidor de réplica de destino no serviço BD do Azure para MySQL e defina a instância externa como o servidor de origem. Isso é feito usando o procedimento armazenado `mysql.az_replication_change_master` no servidor do Banco de Dados do Azure para MySQL.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
-   - master_host: nome do host do servidor mestre
-   - master_user: nome de usuário para o servidor mestre
-   - master_password: a senha para o servidor mestre
+   - master_host: nome de host do servidor de origem
+   - master_user: nome de usuário para o servidor de origem
+   - master_password: senha para o servidor de origem
    - master_log_file: nome de arquivo de log binário de `show master status` em execução
    - master_log_pos: posição de log binário de `show master status` em execução
    - master_ssl_ca: contexto do certificado de autoridade de certificação. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
        - É recomendável passar esse parâmetro como uma variável. Confira os exemplos a seguir para obter mais informações.
 
    > [!NOTE]
-   > Se o servidor mestre estiver hospedado em uma VM do Azure, defina "Permitir acesso a serviços do Azure" como "ATIVADO" para permitir que os servidores mestres e de réplica comuniquem-se entre si. Essa configuração pode ser alterada a partir das opções **Segurança de conexão**. Consulte [gerenciar regras de firewall usando o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
+   > Se o servidor de origem estiver hospedado em uma VM do Azure, defina "permitir acesso aos serviços do Azure" como "ativado" para permitir que os servidores de origem e de réplica se comuniquem entre si. Essa configuração pode ser alterada a partir das opções **Segurança de conexão**. Consulte [gerenciar regras de firewall usando o portal](howto-manage-firewall-using-portal.md) para obter mais informações.
       
    **Exemplos**
    
@@ -189,14 +189,14 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
       -----END CERTIFICATE-----'
       ```
    
-   A replicação com SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica hospedado no banco de dados do Azure para MySQL. Esse procedimento armazenado é executado na réplica. 
+   A replicação com SSL é configurada entre um servidor de origem hospedado no domínio "companya.com" e um servidor de réplica hospedado no banco de dados do Azure para MySQL. Esse procedimento armazenado é executado na réplica. 
    
       ```sql
       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
       ```
    *Replicação sem SSL*
    
-   A replicação sem SSL é configurada entre um servidor mestre hospedado no domínio "companya.com" e um servidor de réplica hospedado no banco de dados do Azure para MySQL. Esse procedimento armazenado é executado na réplica.
+   A replicação sem SSL é configurada entre um servidor de origem hospedado no domínio "companya.com" e um servidor de réplica hospedado no banco de dados do Azure para MySQL. Esse procedimento armazenado é executado na réplica.
    
       ```sql
       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
@@ -232,7 +232,7 @@ As etapas a seguir preparam e configuram o servidor MySQL hospedado no local, em
 
 ### <a name="stop-replication"></a>Parar replicação
 
-Para interromper a replicação entre o servidor primário e o de réplica, use o seguinte procedimento armazenado:
+Para interromper a replicação entre o servidor de origem e de réplica, use o seguinte procedimento armazenado:
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -240,7 +240,7 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-replication-relationship"></a>Remover relação de replicação
 
-Para remover o relacionamento entre o servidor mestre e o servidor de réplica, use o seguinte procedimento armazenado:
+Para remover a relação entre o servidor de origem e de réplica, use o seguinte procedimento armazenado:
 
 ```sql
 CALL mysql.az_replication_remove_master;

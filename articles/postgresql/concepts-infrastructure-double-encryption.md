@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: d54bef277d80a178c45ce918290d46c11387b7d1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 241c404eff1242c52520f94d5d955db7e260148c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918087"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537898"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Criptografia dupla da infraestrutura do banco de dados do Azure para PostgreSQL
-
-> [!NOTE]
-> No momento, é necessário solicitar acesso para usar esta capacidade. Para fazer isso, entre em contato com AskAzureDBforPostgreSQL@service.microsoft.com .
 
 O banco de dados do Azure para PostgreSQL usa a [criptografia de armazenamento de data em repouso](concepts-security.md#at-rest) para dados usando chaves gerenciadas da Microsoft. Os dados, incluindo backups, são criptografados no disco e essa criptografia está sempre ativa e não pode ser desabilitada. A criptografia usa o módulo de criptografia do FIPS 140-2 validado e uma codificação de 256 de bits do AES para a criptografia de armazenamento do Azure.
 
@@ -32,7 +29,7 @@ A implementação nas camadas de infraestrutura também dá suporte a uma divers
 > [!NOTE]
 > Usar a criptografia dupla de infraestrutura terá impacto no desempenho no banco de dados do Azure para o servidor PostgreSQL devido ao processo de criptografia adicional.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 A criptografia dupla de infraestrutura para o banco de dados do Azure para PostgreSQL oferece os seguintes benefícios:
 

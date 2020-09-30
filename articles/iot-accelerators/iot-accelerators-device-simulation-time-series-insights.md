@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73889342"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540567"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use as informações do Time Series para visualizar a telemetria enviada a partir do acelerador de solução do Device Simulation
 
@@ -63,7 +63,7 @@ As etapas a seguir usam a CLI do Azure no Azure Cloud Shell para criar o grupo d
 
 1. Para criar seu ambiente do Time Series Insights no mesmo grupo de recursos do acelerador de solução, use os valores na tabela a seguir:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome do ambiente | A captura de tela a seguir usa o nome **Contoso-TSI**. Ao concluir esta etapa, escolha seu próprio nome exclusivo. |
     | Subscription | Na lista suspensa, selecione sua assinatura do Azure. |
@@ -95,10 +95,10 @@ Crie uma nova fonte de evento para se conectar ao hub IoT. Use o grupo de consum
 
 1. Para configurar seu hub IoT como uma nova origem do evento, use os valores da tabela a seguir:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome da Origem do Evento | A captura de tela a seguir usa o nome **contoso-iot-hub**. Ao concluir esta etapa, use seu próprio nome exclusivo. |
-    | Origem | **Hub IoT** |
+    | Fonte | **Hub IoT** |
     | Importar opção | **Usar o Hub IoT nas assinaturas disponíveis** |
     | ID da assinatura | Na lista suspensa, selecione sua assinatura do Azure. |
     | Nome do Hub IoT | **contoso-simulation7d894**. Use o nome do hub IoT do seu acelerador de solução de simulação de dispositivo. |
@@ -137,7 +137,7 @@ O explorador do Time Series Insights é um aplicativo da web que você pode usar
 
 1. No painel de termos à esquerda, selecione **temperature** como **Measure** e **iothub-connection-device-id** como o valor **Split By**:
 
-    ![Consulta do Gerenciador de análise de séries de tempo](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
+    ![Captura de tela que mostra o Time Series Insights painel "termos", com os valores de "medida" e "divisão por" realçados.](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-query1.png)
 
 1. Clique com o botão direito do mouse no gráfico e selecione **explorar eventos**:
 
@@ -163,7 +163,7 @@ O explorador do Time Series Insights é um aplicativo da web que você pode usar
 
     ![Painel do Explorador de análise de séries de tempo](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-dashboard.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você planejar explorar ainda mais, deixe o acelerador de solução implantado.
 

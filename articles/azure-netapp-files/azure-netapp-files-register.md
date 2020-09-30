@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: b8707b6fb006a45d63f1b2b426530a7e25f5b497
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e2838b759a611cb55b9fd3fadf834c84eb74210d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512917"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533631"
 ---
 # <a name="register-for-azure-netapp-files"></a>Registro no Azure NetApp Files
 
@@ -50,13 +50,13 @@ Para usar o serviço, é necessário registrar o Provedor de recursos do Azure n
 
       ![ícone do Azure Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
-2. Se você tiver várias assinaturas em sua conta do Azure, selecione a que foi incluída na lista de permissões para o Azure NetApp Files:
+2. Se você tiver várias assinaturas em sua conta do Azure, selecione aquela que foi aprovada para Azure NetApp Files:
     
     ```azurepowershell
     az account set --subscription <subscriptionId>
     ```
 
-3. No console do Azure Cloud Shell, insira o seguinte comando para verificar se sua assinatura foi incluída na lista de permissões:
+3. No console do Azure Cloud Shell, digite o seguinte comando para verificar se sua assinatura foi aprovada:
     
     ```azurepowershell
     az feature list | grep NetApp

@@ -3,12 +3,12 @@ title: Como proteger sua hierarquia de recursos – Governança do Azure
 description: Saiba como proteger sua hierarquia de recursos com configurações de hierarquia que incluem a definição do grupo de gerenciamento padrão.
 ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 8630562786da922a36baa3bec4863acbb21b197d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469772"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533972"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Como proteger a hierarquia de recursos
 
@@ -16,9 +16,9 @@ Seus recursos, grupos de recursos, assinaturas, grupos de gerenciamento e locat�
 
 Os grupos de gerenciamento agora têm configurações de hierarquia que permitem ao administrador de locatários controlar esses comportamentos. Este artigo aborda cada uma das configurações de hierarquia disponíveis e como defini-las.
 
-## <a name="rbac-permissions-for-hierarchy-settings"></a>Permissões RBAC para configurações de hierarquia
+## <a name="azure-rbac-permissions-for-hierarchy-settings"></a>Permissões do RBAC do Azure para configurações de hierarquia
 
-A configuração de qualquer uma das configurações de hierarquia requer as duas operações RBAC a seguir no grupo de gerenciamento raiz:
+A configuração de qualquer uma das configurações de hierarquia requer as duas operações de provedor de recursos a seguir no grupo de gerenciamento raiz:
 
 - `Microsoft.Management/managementgroups/settings/write`
 - `Microsoft.Management/managementgroups/settings/read`
@@ -27,7 +27,7 @@ Essas operações só permitem que um usuário leia e atualize as configuraçõe
 
 ## <a name="setting---default-management-group"></a>Configuração – Grupo de gerenciamento padrão
 
-Por padrão, uma nova assinatura adicionada dentro de um locatário é adicionada como um membro do grupo de gerenciamento raiz. Se atribuições de política, controle de acesso baseado em função (RBAC) e outros constructos de governança forem atribuídos ao grupo de gerenciamento raiz, eles afetarão imediatamente essas novas assinaturas. Por esse motivo, muitas organizações não aplicam esses constructos no grupo de gerenciamento raiz, embora esse seja o local recomendado para atribuí-los. Em outros casos, um conjunto mais restritivo de controles é o mais indicado para novas assinaturas, mas não deve ser atribuído a todas as assinaturas. Essa configuração dá suporte a ambos os casos de uso.
+Por padrão, uma nova assinatura adicionada dentro de um locatário é adicionada como um membro do grupo de gerenciamento raiz. Se as atribuições de política, o controle de acesso baseado em função do Azure (RBAC do Azure) e outras construções de governança forem atribuídas ao grupo de gerenciamento raiz, elas afetarão imediatamente essas novas assinaturas. Por esse motivo, muitas organizações não aplicam esses constructos no grupo de gerenciamento raiz, embora esse seja o local recomendado para atribuí-los. Em outros casos, um conjunto mais restritivo de controles é o mais indicado para novas assinaturas, mas não deve ser atribuído a todas as assinaturas. Essa configuração dá suporte a ambos os casos de uso.
 
 Ao permitir que o grupo de gerenciamento padrão para novas assinaturas seja definido, as construções de governança de toda a organização podem ser aplicadas no grupo de gerenciamento raiz e um grupo de gerenciamento separado com atribuições de política ou atribuições de função do Azure mais adequadas para uma nova assinatura pode ser definido.
 
