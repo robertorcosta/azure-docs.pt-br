@@ -3,18 +3,18 @@ title: Configurar seu ambiente para o operador Blueprint
 description: Saiba como configurar seu ambiente do Azure para uso com a função interna do operador Blueprint do Azure.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: ef911553b4985a6497fb397a1ae405387c6539fb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ae881ac6d0714401f8c80e880b4d288f594b7cf3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051450"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535774"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar seu ambiente para um operador de Blueprint
 
 O gerenciamento de suas definições de plantas e atribuições de Blueprint pode ser atribuído a equipes diferentes. É comum que um arquiteto ou uma equipe de governança seja responsável pelo gerenciamento do ciclo de vida de suas definições de plantas, enquanto uma equipe de operações é responsável por gerenciar atribuições dessas definições de Blueprints controladas centralmente.
 
-O RBAC (controle de acesso baseado em função) interno do **operador Blueprint** é projetado especificamente para uso nesse tipo de cenário. A função permite que as equipes do tipo operações gerenciem a atribuição das definições do plano gráfico das organizações, mas não a capacidade de modificá-las. Isso requer algumas configurações em seu ambiente do Azure e este artigo explica as etapas necessárias.
+A função interna do **operador Blueprint** foi projetada especificamente para uso nesse tipo de cenário. A função permite que as equipes do tipo operações gerenciem a atribuição das definições do plano gráfico das organizações, mas não a capacidade de modificá-las. Isso requer algumas configurações em seu ambiente do Azure e este artigo explica as etapas necessárias.
 
 ## <a name="grant-permission-to-the-blueprint-operator"></a>Conceder permissão ao operador Blueprint
 

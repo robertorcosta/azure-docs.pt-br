@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: a4186909db3d784938ada4baaaf08aba02b31d30
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317116"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534192"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projetando a implantação de logs do Azure Monitor
 
@@ -26,6 +26,8 @@ Um espaço de trabalho do Log Analytics fornece:
 * Uma localização geográfica para armazenamento de dados.
 * Isolamento de dados concedendo direitos de acesso de usuários diferentes após uma das nossas estratégias de design recomendadas.
 * Escopo para configuração de configurações, como [tipo de preço](./manage-cost-storage.md#changing-pricing-tier), [retenção](./manage-cost-storage.md#change-the-data-retention-period)e limitação de [dados](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
+
+Os espaços de trabalho são hospedados em clusters físicos. Por padrão, o sistema está criando e gerenciando esses clusters. Os clientes que ingerirem mais de 4 TB/dia devem criar seus próprios clusters dedicados para seus espaços de trabalho – ele permite um controle melhor e uma taxa de ingestão mais alta.
 
 Este artigo fornece uma visão geral detalhada das considerações de design e migração, visão geral do controle de acesso e uma compreensão das implementações de design recomendadas para sua organização de ti.
 
@@ -125,37 +127,16 @@ O *modo de controle de acesso* é uma configuração em cada espaço de trabalho
 
 Para saber como alterar o modo de controle de acesso no portal, com o PowerShell ou usando um modelo do Resource Manager, consulte [Configurar o modo de controle de acesso](manage-access.md#configure-access-control-mode).
 
-## <a name="ingestion-volume-rate-limit"></a>Limite da taxa de volume de ingestão
+## <a name="scale-and-ingestion-volume-rate-limit"></a>Limite de taxa de volume de escala e ingestão
 
-O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite de taxa de volume pretende isolar Azure Monitor clientes de picos de ingestão repentinas no ambiente multilocação. Um limite de taxa de volume de ingestão padrão de 500 MB (compactado) é definido em espaços de trabalho, isso é convertido em aproximadamente **6 GB/min** descompactado--o tamanho real pode variar entre os tipos de dados, dependendo do tamanho do log e da sua taxa de compactação. O limite de taxa de volume se aplica a todos os dados ingeridos, sejam eles enviados de recursos do Azure usando [configurações de diagnóstico](diagnostic-settings.md), API do [coletor de dados](data-collector-api.md) ou agentes.
+Azure Monitor é um serviço de dados de alta escala que atende a milhares de clientes enviando petabytes de dados a cada mês em um ritmo crescente. Os espaços de trabalho não são limitados em seu espaço de armazenamento e podem crescer até petabytes de dados. Não é necessário dividir espaços de trabalho devido à escala.
 
-Ao enviar dados para um workspace a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa de volume de ingestão continuar excedendo o limite ou se você estiver esperando contatá-lo em breve, você poderá solicitar para aumentá-lo no abrindo uma solicitação de suporte. 
+Para proteger e isolar Azure Monitor clientes e sua infraestrutura de back-end, há um limite de taxa de ingestão padrão projetado para proteger contra situações de picos e inundações. O padrão de limite de taxa é de cerca de **6 GB/minuto** e é projetado para habilitar a ingestão normal. Para obter mais detalhes sobre a medição do limite de volume de ingestão, consulte [Azure monitor limites de serviço](../service-limits.md#data-ingestion-volume-rate).
 
-Para ser notificado sobre como se aproximar ou atingir o limite de taxa de volume de ingestão em seu espaço de trabalho, crie uma [regra de alerta de log](alerts-log.md) usando a consulta a seguir com a base lógica de alerta no número de resultados maior que zero, período de avaliação de 5 minutos e frequência de 5 minutos.
+Os clientes que ingerirem menos de 4 TB/dia normalmente não atenderão a esses limites. Os clientes que ingerirem volumes maiores ou que tenham picos como parte de suas operações normais devem considerar a migração para [clusters dedicados](../log-query/logs-dedicated-clusters.md) em que o limite da taxa de ingestão pode ser gerado.
 
-A taxa de volume de ingestão ultrapassou o limite
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Error"
-```
+Quando o limite da taxa de ingestão for ativado ou chegar a 80% do limite, um evento será adicionado à tabela de *operações* no seu espaço de trabalho. É recomendável monitorá-lo e criar um alerta. Veja mais detalhes na [taxa de volume de ingestão de dados](../service-limits.md#data-ingestion-volume-rate).
 
-A taxa de volume de ingestão ultrapassou 80% do limite
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Warning"
-```
-
-A taxa de volume de ingestão ultrapassou 70% do limite
-```Kusto
-Operation
-| where Category == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where Level == "Info"
-```
 
 ## <a name="recommendations"></a>Recomendações
 

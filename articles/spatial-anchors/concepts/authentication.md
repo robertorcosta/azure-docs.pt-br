@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4d25637498bec223e294eecf2be6dc88fa2aa0d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997159"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538238"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para Âncoras Espaciais do Azure
 
@@ -22,7 +22,7 @@ Nesta seção, abordaremos as várias maneiras pelas quais você pode autenticar
 
 ## <a name="overview"></a>Visão geral
 
-![Uma visão geral de autenticação para Âncoras Espaciais do Azure](./media/spatial-anchors-authentication-overview.png)
+![Diagrama que mostra uma visão geral da autenticação para âncoras espaciais do Azure.](./media/spatial-anchors-authentication-overview.png)
 
 Para acessar uma determinada conta de Âncoras Espaciais do Azure, os clientes precisam primeiro obter um token de acesso do STS (serviço de token de segurança) da Realidade Misturada do Azure. Os tokens obtidos do STS Live por 24 horas e contêm informações para os serviços de Âncoras Espaciais para tomar decisões de autorização na conta e garantir que apenas entidades de segurança autorizadas possam acessar essa conta.
 
@@ -39,7 +39,7 @@ Os tokens de autenticação do Azure AD podem ser obtidos de duas maneiras:
 
 O uso de chaves de conta para acesso à sua conta de Âncoras Espaciais do Azure é a maneira mais simples de começar. Você encontrará suas chaves de conta no portal do Azure. Navegue até sua conta e selecione a guia "Chaves".
 
-![Uma visão geral de autenticação para Âncoras Espaciais do Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Captura de tela que mostra a página "chaves" com o botão "copiar" para a "chave primária" realçada.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 Duas chaves são disponibilizadas, que são simultaneamente válidas para acesso à conta de Âncoras Espaciais. É recomendável que você atualize regularmente a chave usada para acessar a conta; ter duas chaves válidas separadas habilita tais atualizações sem tempo de inatividade; você só precisa atualizar a chave primária e a chave secundária como alternativa.
 

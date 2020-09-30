@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fea05ada52ba4281acb3451769446d7f0bad790d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e548e99cc60d67b477fd087b993764bf7f223592
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448713"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541179"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Exibir e atribuir funções de administrador no Azure Active Directory
 
@@ -55,7 +55,7 @@ Se você for um Administrador Global ou um Administrador de Funções com Privil
 
 Quando estiver exibindo os membros de uma função, selecione **Descrição** para ver a lista completa de permissões concedidas pela atribuição de função. A página inclui links para a documentação relevante para ajudar a orientá-lo a gerenciar as funções do diretório.
 
-![lista de permissões para uma função de administrador](./media/directory-manage-roles-portal/role-description.png)
+![Captura de tela que mostra a página "administrador global-descrição".](./media/directory-manage-roles-portal/role-description.png)
 
 ## <a name="download-role-assignments"></a>Baixar atribuições de função
 
@@ -71,7 +71,7 @@ Para baixar todas as atribuições de uma função específica, na página **fun
 
 1. Selecione uma função para ver suas atribuições.
 
-    ![lista de permissões para uma função de administrador](./media/directory-manage-roles-portal/member-list.png)
+    ![Captura de tela que mostra a página "atribuições de administrador de usuário" com a ação "gerenciar no PIM" selecionada.](./media/directory-manage-roles-portal/member-list.png)
 
 1. Selecione **Adicionar atribuições** e selecione as funções que você deseja atribuir. Selecione **Gerenciar no PIM** para obter funcionalidades de gerenciamento adicionais. Se você vir algo diferente da imagem a seguir, leia a observação em [exibir atribuições de funções com privilégios](#view-assignments-for-privileged-roles) para verificar se você está no PIM.
 

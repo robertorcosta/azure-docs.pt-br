@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 00cd291824eabfe8e1b43f35bc3618bfd793077d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7c095aa710d97292afc7d2d8f633058c21fa4d0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566983"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539224"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Mover um banco de dados do Azure para o banco de dados do Azure para PostgreSQL-servidor único para outra região usando o portal do Azure
 
@@ -33,10 +33,10 @@ Você pode usar uma [réplica de leitura entre regiões](concepts-read-replicas.
 
 Para preparar o servidor de origem para replicação usando o portal do Azure, use as seguintes etapas: 
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 1. Selecione o servidor do banco de dados do Azure para PostgreSQL existente que você deseja usar como o servidor de origem. Essa ação abre a página **Visão geral** do runbook.
 1. No menu do servidor, selecione **replicação**. Se o suporte à replicação do Azure for definido como pelo menos **réplica**, você poderá criar réplicas de leitura. 
-1. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Selecione **Salvar**.
+1. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Clique em **Salvar**.
 1. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
 1. Você receberá duas notificações de portal do Azure quando a operação for concluída. Há uma notificação para atualizar o parâmetro do servidor. Há outra notificação para a reinicialização do servidor que segue imediatamente.
 1. Atualize a página de portal do Azure para atualizar a barra de ferramentas de replicação. Agora você pode criar réplicas de leitura para este servidor.
@@ -47,11 +47,11 @@ Para criar um servidor de réplica de leitura entre regiões na região de desti
 1. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
 1. Selecione **para adicionar réplica**.
 1. Insira um nome para o servidor de réplica.
-1. Selecione o local para o servidor de réplica. O local padrão é o mesmo que o do servidor mestre. Verifique se você selecionou o local de destino onde deseja que a réplica seja implantada.
+1. Selecione o local para o servidor de réplica. O local padrão é o mesmo que o do servidor primário. Verifique se você selecionou o local de destino onde deseja que a réplica seja implantada.
 1. Selecione **OK** para confirmar a criação da réplica. Durante a criação da réplica, os dados são copiados do servidor de origem para a réplica. O tempo de criação pode durar vários minutos ou mais, em proporção ao tamanho do servidor de origem.
 
 >[!NOTE]
-> Quando você cria uma réplica, ela não herda as regras de firewall e os pontos de extremidade de serviço de VNet do servidor mestre. Essas regras precisam ser configuradas independentemente da réplica.
+> Quando você cria uma réplica, ela não herda as regras de firewall e os pontos de extremidade de serviço de VNet do servidor primário. Essas regras precisam ser configuradas independentemente da réplica.
 
 ## <a name="move"></a>Mover
 

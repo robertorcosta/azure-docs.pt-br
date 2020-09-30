@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b733d1e5eae9cae01233fda4be078bd188e07c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7a534f794f7ab5323ad46ebc555e42b2514e94e2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334354"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542335"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Atualizar sua GPU do Azure Stack Edge pro 
 
@@ -22,7 +22,7 @@ Este artigo descreve as etapas necessárias para instalar a atualização no Azu
 O procedimento descrito neste artigo foi executado usando uma versão diferente do software, mas o processo permanece o mesmo para a versão atual do software.
 
 > [!IMPORTANT]
-> - A atualização **2009** corresponde à versão do **2.1.1358.2075** software em seu dispositivo. Para obter informações sobre essa atualização, acesse [notas de versão](azure-stack-edge-gpu-2009-release-notes.md).
+> - A atualização **2009** corresponde à versão do **2.1.1364.2110** software em seu dispositivo. Para obter informações sobre essa atualização, acesse [notas de versão](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Tenha em mente que instalar uma atualização ou um hotfix reinicia seu dispositivo. Essa atualização exige que você aplique duas atualizações sequencialmente. Primeiro, aplique as atualizações de software do dispositivo e, em seguida, as atualizações do kubernetes. Considerando que o Azure Stack Edge pro é um dispositivo de nó único, qualquer e/s em andamento será interrompida e o dispositivo apresentará um tempo de inatividade de até 30 minutos para a atualização de software do dispositivo.
 
@@ -188,7 +188,7 @@ Esse procedimento leva cerca de 20 minutos para ser concluído. Execute as etapa
 
    ![atualizar dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-3a.png)
 
-3. Escolha **Aplicar**. 
+3. Selecione **Aplicar**. 
 
    ![atualizar dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-4.png)
 
@@ -206,7 +206,7 @@ Esse procedimento leva cerca de 20 minutos para ser concluído. Execute as etapa
 
    <!--![update device](./media/azure-stack-edge-gpu-install-update/local-ui-update-7.png)--> 
 
-8. Escolha **Aplicar**. 
+8. Selecione **Aplicar**. 
 
    ![atualizar dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)
 

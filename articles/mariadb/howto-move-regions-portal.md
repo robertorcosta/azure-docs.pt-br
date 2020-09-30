@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: abb692f71a3ed69c6779b6141c9098dc94c75c4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567028"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542420"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Mover um banco de dados do Azure para o servidor MariaDB para outra região usando o portal do Azure
 
@@ -33,16 +33,16 @@ Você pode usar um banco de dados do Azure para MariaDB [réplica de leitura ent
 
 Para criar um servidor de réplica de leitura entre regiões na região de destino usando o portal do Azure, use as seguintes etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 1. Selecione o banco de dados do Azure existente para o servidor MariaDB que você deseja usar como o servidor de origem. Essa ação abre a página **Visão geral** do runbook.
 1. Selecione **Replicação** no menu, em **CONFIGURAÇÕES**.
 1. Selecione **para adicionar réplica**.
 1. Insira um nome para o servidor de réplica.
-1. Selecione o local para o servidor de réplica. O local padrão é o mesmo que o do servidor mestre. Verifique se você selecionou o local de destino onde deseja que a réplica seja implantada.
+1. Selecione o local para o servidor de réplica. O local padrão é o mesmo que o do servidor de origem. Verifique se você selecionou o local de destino onde deseja que a réplica seja implantada.
 1. Selecione **OK** para confirmar a criação da réplica. Durante a criação da réplica, os dados são copiados do servidor de origem para a réplica. O tempo de criação pode durar vários minutos ou mais, em proporção ao tamanho do servidor de origem.
 
 >[!NOTE]
-> Quando você cria uma réplica, ela não herda os pontos de extremidade do serviço de VNet do servidor mestre. Essas regras precisam ser configuradas independentemente da réplica.
+> Quando você cria uma réplica, ela não herda os pontos de extremidade do serviço de VNet do servidor de origem. Essas regras precisam ser configuradas independentemente da réplica.
 
 ## <a name="move"></a>Mover
 

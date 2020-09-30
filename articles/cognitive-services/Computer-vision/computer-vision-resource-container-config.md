@@ -1,7 +1,7 @@
 ---
-title: Configure os contêineres - Pesquisa Visual Computacional
+title: Configurar contêineres de OCR de leitura-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostra como definir as configurações obrigatórias e opcionais para contêineres de Reconhecimento de Texto no Pesquisa Visual Computacional.
+description: Este artigo mostra como definir as configurações obrigatórias e opcionais para ler contêineres de OCR no Pesquisa Visual Computacional.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 28116a373b66aa5bfa6d3ebbf027c2db6d24ba5d
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 00c96333e612c7f92d7c53630eaa006b060986ad
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397123"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536232"
 ---
-# <a name="configure-computer-vision-docker-containers"></a>Configurar contêineres do Docker Pesquisa Visual Computacional
+# <a name="configure-read-ocr-docker-containers"></a>Configurar contêineres de Docker de OCR de leitura
 
-Você configura o ambiente de tempo de execução do contêiner de Pesquisa Visual Computacional usando os `docker run` argumentos de comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+Você configura o ambiente de tempo de execução do contêiner de OCR de Pesquisa Visual Computacional leitura usando os `docker run` argumentos de comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
 ## <a name="configuration-settings"></a>Definições de configuração
 
@@ -31,7 +31,7 @@ Você configura o ambiente de tempo de execução do contêiner de Pesquisa Visu
 
 O contêiner também tem as seguintes definições de configuração específicas de contêiner:
 
-|Obrigatório|Configuração|Finalidade|
+|Necessária|Configuração|Finalidade|
 |--|--|--|
 |Não|ReadEngineConfig:ResultExpirationPeriod| somente contêineres v 2.0. Período de expiração do resultado em horas. O padrão é 48 horas. A configuração especifica quando o sistema deve limpar os resultados de reconhecimento. Por exemplo, se `resultExpirationPeriod=1` o sistema limpar o resultado de reconhecimento 1 hora após o processo. Se `resultExpirationPeriod=0` , o sistema limpará o resultado de reconhecimento depois que o resultado for recuperado.|
 |Não|Cache: Redis| somente contêineres v 2.0. Habilita o armazenamento Redis para armazenar os resultados. Um cache será *necessário* se vários contêineres de leitura forem colocados atrás de um balanceador de carga.|
@@ -62,7 +62,7 @@ Essa configuração pode ser localizada no seguinte local:
 
 Lembre-se de adicionar o `vision/v1.0` Roteamento ao URI do ponto de extremidade, conforme mostrado na tabela a seguir. 
 
-|Obrigatório| Nome | Tipo de dados | Descrição |
+|Necessária| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI do ponto de extremidade de cobrança<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 

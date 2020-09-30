@@ -10,12 +10,12 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b6d4ac2727e558ed3d4538b6d325b7304d7928f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2ed8910db8b903dab3b81d9db6c9b5798d2b6b69
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250871"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542046"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar execuções e métricas de experimento com TensorBoard e Azure Machine Learning
 
@@ -39,8 +39,8 @@ O TensorBoard é iniciado de maneira diferente de acordo com o tipo do experimen
     * Instância de computação do Azure Machine Learning - nenhum download ou instalação é necessária
         * Conclua o [Tutorial: Configure o ambiente e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o exemplo de repositório.
         * Na pasta de amostras no servidor do notebook, há dois notebooks concluídos e expandidos que você pode encontrar nestes diretórios:
-            * **how-to-use-azureml > training-with-deep-learning > export-run-history-to-tensorboard > export-run-history-to-tensorboard.ipynb**
-            * **how-to-use-azureml > track-and-monitor-experiments > tensorboard.ipynb**
+            * **instruções-para-uso – azureml > os experimentos de monitoramento e monitor > tensorboard > exportar-executar-History-to-tensorboard > exportar-Run-History-to-tensorboard. ipynb**
+            * **instruções-para-uso-azureml > a cursos de monitoramento e monitor > tensorboard > tensorboard > tensorboard. ipynb**
     * Seu próprio servidor de notebook Juptyer
        * [Instale o SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) com `tensorboard` extra
         * [Criar um workspace do Azure Machine Learning](how-to-manage-workspace.md).  

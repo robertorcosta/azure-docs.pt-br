@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 93bd6972a89065832a20fbd66949cde5b7510534
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: dc9764ce68d54418578c293833c1fd38080ba0ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794205"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538901"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Práticas recomendadas para criar um aplicativo com o banco de dados do Azure para MySQL 
 
@@ -69,9 +69,9 @@ Seu aplicativo pode apresentar [erros transitórios](https://docs.microsoft.com/
 Uma prática recomendada é aguardar 5 segundos antes de sua primeira tentativa. Em seguida, siga cada nova tentativa aumentando a espera gradualmente, até 60 segundos. Limite o número máximo de repetições em que o seu aplicativo considera que a operação falhou, para que você possa investigar ainda mais. Consulte [como solucionar problemas de erros de conexão](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) para saber mais. 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>Habilitar a replicação de leitura para mitigar failovers
-Você pode usar [replicação de dados](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) para cenários de failover. Quando você estiver usando réplicas de leitura, ocorrerá nenhum failover automatizado entre os servidores mestre e de réplica. 
+Você pode usar [replicação de dados](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) para cenários de failover. Quando você estiver usando réplicas de leitura, ocorrerá nenhum failover automatizado entre os servidores de origem e de réplica. 
 
-Você perceberá um atraso entre o mestre e a réplica porque a replicação é assíncrona. O retardo de rede pode ser influenciado por muitos fatores, como o tamanho da carga de trabalho em execução no servidor mestre e a latência entre datacenters. Na maioria dos casos, a latência de réplica varia de alguns segundos a alguns minutos.
+Você perceberá um atraso entre a origem e a réplica porque a replicação é assíncrona. O retardo de rede pode ser influenciado por muitos fatores, como o tamanho da carga de trabalho em execução no servidor de origem e a latência entre datacenters. Na maioria dos casos, a latência de réplica varia de alguns segundos a alguns minutos.
 
 ## <a name="database-deployment"></a>Implantação de banco de dados 
 

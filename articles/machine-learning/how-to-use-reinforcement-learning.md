@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f4003f8cd78a20e2ed40c6d874d50ffcd49b704e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302251"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541706"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Reinforcement Learning (versão prévia) com Azure Machine Learning
 
@@ -215,7 +215,7 @@ else:
 
 Nesta seção, você aprenderá a usar o [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) para enviar um trabalho de treinamento para o Azure Machine Learning.
 
-O Azure Machine Learning usa classes do avaliador para encapsular informações de configuração de execução. Isso permite que você especifique facilmente como configurar uma execução de script. Para obter mais informações sobre o padrão do avaliador do Azure Machine Learning, consulte [Como treinar modelos usando os avaliadores](how-to-train-ml-models.md).
+O Azure Machine Learning usa classes do avaliador para encapsular informações de configuração de execução. Isso permite que você especifique facilmente como configurar uma execução de script. 
 
 ### <a name="define-a-worker-configuration"></a>Definir uma configuração de trabalho
 

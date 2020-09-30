@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/27/2020
-ms.openlocfilehash: f6527a0c5712d68756310b699d214013e89f38e1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: feb186fbe216305039fcc0a23a10419c44fd0483
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449578"
+ms.locfileid: "91535603"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de versão do Azure HDInsight
 
@@ -28,8 +28,8 @@ O Microsoft Azure HDInsight é um dos serviços mais populares entre os clientes
 Esta versão se aplica tanto ao HDInsight 3,6 quanto ao HDInsight 4,0. A versão do HDInsight é disponibilizada para todas as regiões durante vários dias. A data de lançamento mostrada aqui indica a data de lançamento da primeira região. Se você não vir as alterações abaixo, aguarde até que a liberação seja ativada em sua região em vários dias.
 
 ## <a name="new-features"></a>Novos recursos
-### <a name="llap-cluster-auto-scale-general-available"></a>Dimensionamento automático do cluster LLAP geral disponível
-O dimensionamento automático para o tipo de cluster LLAP agora está disponível para o público geral (GA). Todos os clusters LLAP criados após 27 de agosto de 2020 terão suporte de GA para dimensionamento automático.
+### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>O dimensionamento automático para consulta interativa com o HDInsight 4,0 já está disponível para o público geral
+O dimensionamento automático para o tipo de cluster de consulta interativa agora é geral disponível (GA) para o HDInsight 4,0. Todos os clusters de consulta interativa 4,0 criados após 27 de agosto de 2020 terão suporte de GA para dimensionamento automático.
 
 ### <a name="hbase-cluster-supports-premium-adls-gen2"></a>O cluster HBase dá suporte a ADLS Gen2 Premium
 O HDInsight agora dá suporte ao ADLS Gen2 Premium como conta de armazenamento principal para clusters HDInsight HBase 3,6 e 4,0. Junto com as [gravações aceleradas](./hbase/apache-hbase-accelerated-writes.md), você pode obter um melhor desempenho para seus clusters HBase.

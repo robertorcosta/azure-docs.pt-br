@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 51d6920d9ab52b907f2cb51e29d85f82dc74d45b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 842d43c82875a1a8e5e45ba14f47ceb6eac26727
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250225"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538799"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exemplo: Adicionar sinônimos para o Azure Pesquisa Cognitiva em C #
 
@@ -23,8 +23,8 @@ Os sinônimos expandem uma consulta correspondendo os termos considerados semant
 No Azure Pesquisa Cognitiva, os sinônimos são definidos em um *mapa de sinônimos*, por meio de *regras de mapeamento* que associam termos equivalentes. Este exemplo aborda as etapas essenciais para adicionar e usar sinônimos com um índice existente. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Crie um mapa de sinônimos usando a classe  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
-> * Defina a propriedade [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) em campos que devem dar suporte à expansão de consulta por meio de sinônimos.
+> * Crie um mapa de sinônimos usando a classe  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap) . 
+> * Defina a propriedade [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps) em campos que devem dar suporte à expansão de consulta por meio de sinônimos.
 
 Você pode consultar um campo habilitado para sinônimo como faria normalmente. Não há nenhuma sintaxe de consulta adicional necessária para acessar sinônimos.
 

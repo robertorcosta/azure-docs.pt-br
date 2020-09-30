@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5b96ac9cf43782764e88039d736ba61454d65911
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489615"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539174"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre Redes Virtuais do Azure comece com as informações aqui: [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -203,7 +203,7 @@ Cada unidade de escala adicional do gerenciamento de API requer mais dois endere
 
 ## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> Controlar endereços IP planos
 
-Os endereços IP são divididos por **ambiente do Azure**. Ao permitir que as solicitações de entrada, o endereço IP marcado com **global** deve estar na lista de Permissões junto com a **região** de endereço IP específico.
+Os endereços IP são divididos por **ambiente do Azure**. Ao permitir que as solicitações de entrada, o endereço IP marcado com **global** deve ser permitido junto com o endereço IP específico da **região** .
 
 | **Azure Environment**|   **Região**|  **Endereço IP**|
 |-----------------|-------------------------|---------------|
