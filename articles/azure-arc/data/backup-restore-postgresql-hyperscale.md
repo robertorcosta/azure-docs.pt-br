@@ -1,6 +1,6 @@
 ---
-title: Backup e restauração de banco de dados do Azure para grupos de servidores de hiperescala PostgreSQL
-description: Backup e restauração de banco de dados do Azure para grupos de servidores de hiperescala PostgreSQL
+title: Backup e restauração dos grupos de servidores de hiperescala do Banco de Dados do Azure para PostgreSQL
+description: Backup e restauração dos grupos de servidores de hiperescala do Banco de Dados do Azure para PostgreSQL
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d300f3e02d2a1a83410d5b7d981298a4743fb223
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90933632"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569718"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Backup e restauração para grupos de servidores de hiperescala PostgreSQL habilitados para o Azure Arc
 
@@ -52,7 +52,7 @@ Examine a seção armazenamento da saída:
     }
 ...
 ```
-Se você vir uma seção "backups", significa que o grupo de servidores foi configurado para usar uma classe de armazenamento de backup e está pronto para fazer backups e fazer restaurações. Se você não vir uma seção "backups", será necessário excluir e recriar o grupo de servidores para configurar a classe de armazenamento de backup. Neste ponto, ainda não é possível configurar uma classe de armazenamento de backup depois que o grupo de servidores tiver sido criado.
+Se você vir o nome de uma classe de armazenamento indicada na seção "backups" da saída desse comando, significa que o grupo de servidores foi configurado para usar uma classe de armazenamento de backup e está pronto para fazer backups e fazer restaurações. Se você não vir uma seção "backups", será necessário excluir e recriar o grupo de servidores para configurar a classe de armazenamento de backup. Neste ponto, ainda não é possível configurar uma classe de armazenamento de backup depois que o grupo de servidores tiver sido criado.
 
 >[!IMPORTANT]
 >Se o grupo de servidores já estiver configurado para usar uma classe de armazenamento de backup, pule a próxima etapa e vá diretamente para a etapa "fazer backup completo manual".
@@ -134,10 +134,12 @@ azdata arc postgres backup list --server-name postgres01
 
 Retornará uma saída como:
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+Timestamp indica o ponto no tempo em que o backup foi feito.
 
 ## <a name="restore-a-backup"></a>Restaurar um backup
 
@@ -175,7 +177,7 @@ O comando geral para excluir backups é:
 ```console
 azdata arc postgres backup delete  [--server-name, -sn] {[--name, -n], -id}
 ```
-em que:
+onde:
 - `--server-name` é o nome do grupo de servidores do qual o usuário deseja excluir um backup
 - `--name` é o nome do backup a ser excluído
 - `-id`é a ID do backup a ser excluído

@@ -5,19 +5,22 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 11783f8fac147e6fb2cf371ee1a588cf318a5e9c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
-ms.translationtype: MT
+ms.openlocfilehash: 5de121a1a905a58f8b5eaf8e60c1f8da71ee8cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "75379411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276928"
 ---
 O Reconhecimento de Formulários funciona em documentos de entrada que atendem aos seguintes requisitos:
 
 * O formato deve ser JPG, PNG, PDF (texto ou digitalizado) ou TIFF. PDFs com texto inserido são o melhor porque não há nenhuma possibilidade de erro na extração e na localização de caracteres.
+* O tamanho do arquivo deve ser inferior a 20 MB.
+* As imagens de dimensões devem estar entre 50 x 50 pixels e 10.000 x 10.000 pixels.
+* As dimensões de PDF devem ter no máximo 17 x 17 polegadas, correspondentes aos tamanhos de papel ofício ou A3 e menores.
+* Para PDF e TIFF, somente as primeiras 200 páginas são processadas (com uma assinatura de camada gratuita, somente as duas primeiras páginas são processadas).
+* O tamanho total do conjunto de dados de treinamento deve ser de até 500 páginas.
 * Se os PDFs estiverem com bloqueio de senha, você deverá remover o bloqueio antes de enviá-los.
-* Documentos PDF e TIFF devem ter 200 páginas ou menos e o tamanho total do conjunto de dados de treinamento deve ser de 500 páginas ou menos.
-* Para imagens, as dimensões devem estar entre 600 x 100 pixels e 4200 x 4200 pixels.
 * Se documentos em papel forem digitalizados, os formulários deverão ser digitalizações de alta qualidade.
 * O texto precisa usar o alfabeto latino (caracteres em português).
 * Para aprendizado não supervisionado (sem dados rotulados), os dados devem conter chaves e valores.

@@ -2,16 +2,16 @@
 title: Tutorial – usar um arquivo de parâmetro para implantar o modelo
 description: Use arquivos de parâmetro que contenham os valores a serem usados para implantar seu modelo do Azure Resource Manager.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/10/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd7917a96550d45b14eb5a5b5cae1ac957aa78b5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de72f9f32a3b08ad1742ee2055efce5b93cab899
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502793"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069502"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-arm-template"></a>Tutorial: Usar arquivos de parâmetro para implantar seu modelo do ARM
 
@@ -34,6 +34,12 @@ Esse modelo funciona bem, mas agora convém gerenciar facilmente os parâmetros 
 ## <a name="add-parameter-files"></a>Adicionar arquivos de parâmetro
 
 Os arquivos de parâmetro são arquivos JSON com uma estrutura semelhante ao seu modelo. No arquivo, você fornece os valores de parâmetro que você deseja passar durante a implantação.
+
+No arquivo de parâmetros, forneça valores para os parâmetros em seu modelo. O nome de cada parâmetro nesse arquivo deve corresponder ao nome de um parâmetro em seu modelo. O nome não diferencia maiúsculas de minúsculas, mas, para ver com mais facilidade os valores correspondentes, recomendamos que você faça a correspondência com o uso de maiúsculas e minúsculas do modelo.
+
+Você não precisa fornecer um valor para cada parâmetro. Se um parâmetro não especificado tiver um valor padrão, esse valor será usado durante a implantação. Se um parâmetro não tiver um valor padrão e não for especificado no arquivo de parâmetros, será solicitado que você forneça um valor durante a implantação.
+
+Não é possível especificar um nome de parâmetro no arquivo de parâmetros que não corresponda a um nome de parâmetro no modelo. Você receberá um erro quando forem fornecidos parâmetros desconhecidos.
 
 No VS Code, crie um arquivo com o seguinte conteúdo. Salve o arquivo com o nome **azuredeploy.parameters.dev.json**.
 
@@ -122,7 +128,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implantação falhar, use a opção **debug** com o comando de implantação para mostrar os logs de depuração.  Use também a opção **verbose** para mostrar os logs de depuração completos.
+> Se a implantação falhar, use a opção **Detalhado** para obter informações sobre os recursos que estão sendo criados. Use a opção **Depurar** para obter mais informações de depuração.
 
 ## <a name="verify-deployment"></a>Verificar implantação
 

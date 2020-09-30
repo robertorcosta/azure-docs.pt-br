@@ -1,21 +1,21 @@
 ---
-title: Usar o Criador para criar mapas internos
-description: Use o Criador do Azure Mapas para criar mapas internos.
+title: 'Tutorial: Usar o Criador para criar mapas internos'
+description: Tutorial sobre como usar o Criador do Azure Mapas para criar mapas internos
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
-ms.translationtype: MT
+ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469908"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371415"
 ---
-# <a name="use-creator-to-create-indoor-maps"></a>Usar o Criador para criar mapas internos
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Usar o Criador para criar mapas internos
 
 Este tutorial mostra como criar mapas internos. Neste tutorial, você aprenderá como usar a API para:
 
@@ -35,12 +35,12 @@ Para criar mapas internos:
 1. [Faça uma conta do Azure Mapas](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de assinatura primária](quick-demo-map-app.md#get-the-primary-key-for-your-account), também conhecida como a chave primária ou a chave de assinatura.
 3. [Crie um recurso do Criador](how-to-manage-creator.md)
-4. Baixe o [pacote de exemplo do Drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+4. Baixe o [pacote de exemplo do Drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 Este tutorial usa o aplicativo [Postman](https://www.postman.com/), mas você pode escolher um ambiente de desenvolvimento de API diferente.
 
 >[!IMPORTANT]
-> As URLs de API neste documento podem precisar ser ajustadas de acordo com o local do recurso de criador. Para obter mais detalhes, consulte [acesso aos serviços do criador](how-to-manage-creator.md#access-to-creator-services).
+> As URLs da API neste documento talvez tenham que ser ajustadas de acordo com a localização do recurso do Criador. Para obter mais detalhes, confira o [Acesso aos Serviços do Criador](how-to-manage-creator.md#access-to-creator-services).
 
 ## <a name="upload-a-drawing-package"></a>Carregar um pacote do Drawing
 
@@ -64,7 +64,7 @@ A API de upload de dados é uma transação de execução prolongada que impleme
 
 5. Clique no botão azul **Enviar** e aguarde a solicitação ser processada. Depois que a solicitação for concluída, vá para a guia **Cabeçalhos** da resposta. Copie o valor da chave **Local**, que é `status URL`.
 
-6. Para verificar o status da chamada à API, crie uma solicitação HTTP **GET** em `status URL`. Você precisará acrescentar sua chave de assinatura primária à URL para autenticação. A solicitação **Get** deve ser semelhante à seguinte URL:
+6. Para verificar o status da chamada à API, crie uma solicitação HTTP **GET** em `status URL`. Você precisará acrescentar sua chave de assinatura primária à URL para autenticação. A solicitação **GET** deve ser semelhante à seguinte URL:
 
     ```http
     https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -111,13 +111,13 @@ A API de upload de dados é uma transação de execução prolongada que impleme
     ```
 
     >[!IMPORTANT]
-    > As URLs de API neste documento podem precisar ser ajustadas de acordo com o local do recurso de criador. Para obter mais detalhes, consulte [acesso aos serviços do criador](how-to-manage-creator.md#access-to-creator-services).
+    > As URLs da API neste documento talvez tenham que ser ajustadas de acordo com a localização do recurso do Criador. Para obter mais detalhes, confira o [Acesso aos Serviços do Criador](how-to-manage-creator.md#access-to-creator-services).
 
 3. Clique no botão **Enviar** e aguarde a solicitação ser processada. Depois que a solicitação for concluída, vá para a guia **Cabeçalhos** da resposta e procure pela chave **Local**. Copie o valor da chave **Local**, que é `status URL`, para a solicitação de conversão. Você usará isso na próxima etapa.
 
-    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copiar o valor da chave de local":::
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Copie o valor da chave local":::
 
-4. Inicie um novo método HTTP **GET** na guia do construtor. Acrescente sua chave de assinatura primária do Azure Mapas ao `status URL`. Faça uma solicitação **Get** no `status URL` que você copiou na etapa 3. O `status URL` é semelhante à seguinte URL:
+4. Inicie um novo método HTTP **GET** na guia do construtor. Acrescente sua chave de assinatura primária do Azure Mapas ao `status URL`. Faça uma solicitação **GET** no `status URL` que você copiou na etapa 3. O `status URL` se parece com a seguinte URL:
 
     ```http
     https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -404,43 +404,11 @@ Um conjunto de peças é um conjunto de peças de vetor que são renderizadas no
 
 A [API de obtenção de estados do recurso](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) permite que você recupere o estado de um recurso usando seu recurso `ID`. Você também pode excluir o conjunto de estados e seus recursos usando a [API de exclusão de estado do recurso](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 
+Para saber mais sobre os diferentes serviços do Criador do Azure Mapas discutidos neste artigo, confira o [Indoor Maps do Criador](creator-indoor-maps.md).
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a:
-
-> [!div class="checklist"]
-> * Carregar seu pacote do Drawing de mapa interno
-> * Converter seu pacote do Drawing em dados do mapa
-> * Criar um conjunto de dados de seus dados de mapa
-> * Criar um conjunto de peças dos dados em seu conjunto de dados
-> * Consultar o serviço WFS do Azure Mapas para saber mais sobre seus recursos de mapa
-> * Criar um conjunto de estados do recurso usando seus recursos de mapa e os dados em seu conjunto de dados
-> * Atualizar seu conjunto de estados do recurso
-
-Agora você está equipado com as habilidades que precisa para avançar para os próximos guias:
+Para saber como usar o módulo do Indoor Maps, confira
 
 > [!div class="nextstepaction"]
-> [Usar o módulo de Mapas internos](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implementar estilo dinâmico para mapas internos](indoor-map-dynamic-styling.md)
-
-Saiba mais sobre os diferentes serviços do Azure Mapas discutidos neste artigo:
-
-> [!div class="nextstepaction"]
-> [Upload de dados](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Conversão de Dados](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Conjunto de dados](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Conjunto de peças](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Conjunto de estado do recurso](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [Serviço WFS](creator-indoor-maps.md#web-feature-service-api)
+> [Usar o módulo do Azure Mapas Interno](how-to-use-indoor-module.md)

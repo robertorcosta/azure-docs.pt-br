@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4c87ee92a2bc30dc2923127241013601cf3f4419
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bb8eef01e2673c3f84b1678a93b4bd168f1faf63
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88519832"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708114"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Clever
 
@@ -40,6 +40,7 @@ Para começar, você precisará dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Clever dá suporte ao SSO iniciado por **SP**
+* Depois de configurar o Concur, você poderá impor o controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
@@ -56,7 +57,7 @@ Para configurar a integração do Clever ao Azure AD, você precisará adicionar
 1. Selecione **Clever** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-clever"></a>Configurar e testar o logon único do Azure AD para o Clever
+## <a name="configure-and-test-azure-ad-sso-for-clever"></a>Configurar e testar o SSO do Azure AD para o Clever
 
 Configure e teste o SSO do Azure AD com o Clever usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Clever.
 
@@ -83,10 +84,12 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://clever.com/in/<companyname>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://clever.com/oauth/saml/metadata.xml`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `https://clever.com/oauth/saml/metadata.xml`
 
+    c. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://clever.com/<companyname>`
+    
     > [!NOTE]
-    > O valor da URL de Entrada não é real. Atualize o valor com a URL de Entrada real. Contate a [equipe de suporte ao cliente do Clever](https://clever.com/about/contact/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    >  Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do Clever](https://clever.com/about/contact/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
 
@@ -131,11 +134,11 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     ![Logon Instantâneo](./media/clever-tutorial/ic798984.png "Logon Instantâneo")
 
     > [!NOTE]
-    > Antes de testar o logon único, você precisa entrar em contato com a [equipe de suporte de Clever Client](https://clever.com/about/contact/) para habilitar o SSO do Office 365 no back-end.
+    > Antes de testar o logon único, você precisa entrar em contato com a [equipe de suporte do cliente Clever](https://clever.com/about/contact/) para habilitar o SSO do Microsoft 365 no back-end.
 
 1. Na página **Logon Instantâneo** , execute as seguintes etapas:
  
-    ![Logon Instantâneo](./media/clever-tutorial/ic798985.png "Logon Instantâneo")
+    ![Configuração do SSO na página de Logon Instantâneo](./media/clever-tutorial/ic798985.png "Logon Instantâneo")
 
     a. Digite a **URL de Logon**.
 

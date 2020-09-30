@@ -2,310 +2,173 @@
 title: Avaliar servidores físicos para migração para o Azure com a avaliação de servidor de Migrações para Azure
 description: Descreve como avaliar servidores físicos para a migração para o Azure usando a Avaliação de Servidor das Migrações para Azure.
 ms.topic: tutorial
-ms.date: 04/15/2020
-ms.openlocfilehash: 25bd5241700d5950eb032a6c932470871e79945f
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.date: 09/14/2020
+ms.custom: MVC
+ms.openlocfilehash: 3669658100681d08e754c19377b82faff5bce1ea
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514111"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090410"
 ---
-# <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Avaliar servidores físicos com as Migrações para Azure: Avaliação de Servidor
+# <a name="tutorial-assess-physical-servers-for-migration-to-azure"></a>Tutorial: Avaliar servidores físicos para migração para o Azure
 
-Este artigo mostra como avaliar as servidores físicos locais usando a ferramenta Migrações para Azure: Avaliação de Servidor.
+Como parte de sua jornada de migração para o Azure, é necessário avaliar suas cargas de trabalho locais para medir a prontidão para a nuvem, identificar riscos e estimar custos e complexidade.
 
-As [Migrações para Azure](migrate-services-overview.md) fornecem um hub de ferramentas que ajudam você a descobrir, avaliar e migrar aplicativos, a infraestrutura e cargas de trabalho para o Microsoft Azure. O hub inclui ferramentas das Migrações para Azure e ofertas de ISV (fornecedor independente de software) de terceiros.
+Este artigo mostra como avaliar os servidores físicos locais para migração para o Azure usando a ferramenta Migrações para Azure: Avaliação de Servidor.
 
-Este tutorial é o segundo de uma série que demonstra como avaliar e migrar servidores físicos para o Azure. Neste tutorial, você aprenderá como:
+
+Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
-> * Configurar um projeto das Migrações para Azure.
-> * Configurar um dispositivo das Migrações para Azure que é executado localmente para avaliar os servidores físicos.
-> * Iniciar a descoberta contínua de servidores físicos locais. O dispositivo envia dados de desempenho e configuração para os servidores descobertos ao Azure.
-> * Agrupe os servidores descobertos e avalie o grupo de servidores.
-> * Examinar a avaliação.
+- Executar uma avaliação com base nos metadados do computador e nas informações de configuração.
+- Executar uma avaliação com base nos dados de desempenho.
 
 > [!NOTE]
-> Os tutoriais mostram o caminho de implantação mais simples para um cenário para que você possa configurar rapidamente uma prova de conceito. Os tutoriais usam opções padrão quando possível e não mostram todas as configurações e todos os caminhos possíveis. Para obter instruções detalhadas, examine os artigos de instruções.
+> Os tutoriais mostram o caminho mais rápido para experimentar um cenário e usam as opções padrão sempre que possível. 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Conclua](tutorial-prepare-physical.md) o primeiro tutorial desta série. Caso contrário, as instruções deste tutorial não funcionarão.
-- Veja o que você deve ter feito no primeiro tutorial:
-    - [Configurar as permissões do Azure](tutorial-prepare-physical.md) para as Migrações para Azure.
-    - [Preparar servidores físicos](tutorial-prepare-physical.md#prepare-for-physical-server-assessment) para avaliação e migração. Os requisitos do dispositivo devem ser verificados. Você também deve ter uma conta configurada para a descoberta do servidor físico. As portas necessárias devem estar disponíveis, e você deve estar ciente das URLs necessárias para o acesso ao Azure.
+- Antes de seguir este tutorial a fim de avaliar seus computadores para a migração para as VMs do Azure, é preciso descobrir os computadores que você deseja avaliar:
+    - Para descobrir computadores usando o dispositivo de Migrações para Azure, [siga este tutorial](tutorial-discover-physical.md). 
+    - Para descobrir computadores usando um arquivo CSV importado, [siga este tutorial](tutorial-discover-import.md).
+- É preciso que os computadores físicos que você deseja avaliar não estejam executando o Windows Server 2003 nem o SUSE Linux. A avaliação não dá suporte a esses computadores.
 
 
+## <a name="decide-which-assessment-to-run"></a>Decidir qual avaliação executar
 
 
-## <a name="set-up-an-azure-migrate-project"></a>Configurar um projeto das Migrações para Azure
+Decida se deseja executar uma avaliação usando critérios de dimensionamento com base nos dados/metadados de configuração do computador, que são coletados como estão no local, ou em dados de desempenho dinâmicos.
 
-Configure um novo projeto das Migrações para Azure, conforme descrito a seguir.
-
-1. No portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**.
-2. Em **Serviços**, selecione **Migrações para Azure**.
-3. Em **Visão Geral**, em **Descobrir, avaliar e migrar servidores**, clique em **Avaliar e migrar servidores**.
-
-    ![Descobrir e avaliar servidores](./media/tutorial-assess-physical/assess-migrate.png)
-
-4. Em **Introdução**, clique em **Adicionar ferramentas**.
-5. Em **Migrar projeto**, selecione sua assinatura do Azure e crie um grupo de recursos, caso não tenha um.  
-6. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia em que deseja criar o projeto. Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
-
-    - A geografia do projeto é usada apenas para armazenar os metadados coletados dos servidores locais.
-    - Você pode selecionar qualquer região de destino ao executar uma migração.
-
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-physical/migrate-project.png)
-
-
-7. Clique em **Próximo**.
-8. Em **Selecionar ferramenta de avaliação**, selecione **Migrações para Azure: Avaliação de Servidor** > **Avançar**.
-
-    ![Criar um projeto das Migrações para Azure](./media/tutorial-assess-physical/assessment-tool.png)
-
-9. Em **Selecionar ferramenta de migração**, selecione **Ignorar a adição de uma ferramenta de migração por enquanto** > **Avançar**.
-10. Em **Examinar + adicionar ferramentas**, examine as configurações e clique em **Adicionar ferramentas**.
-11. Aguarde alguns minutos até que o projeto das Migrações para Azure seja implantado. Você será levado para a página do projeto. Caso não veja o projeto, acesse-o em **Servidores** no painel das Migrações para Azure.
-
-
-## <a name="set-up-the-azure-migrate-appliance"></a>Configurar o dispositivo das Migrações para Azure
-
-Migrações para Azure: A Avaliação de Servidor executa um dispositivo leve.
-
-- Esse dispositivo executa a descoberta do servidor físico e envia os metadados do servidor e os dados de desempenho para a Avaliação de Servidor das Migrações para Azure.
-- Para configurar o dispositivo:
-    - Baixe um arquivo compactado com o script do instalador de Migrações para Azure do portal do Azure.
-    - Extraia o conteúdo do arquivo compactado. Inicie o console do PowerShell com privilégios administrativos.
-    - Execute o script do PowerShell para iniciar o aplicativo Web do dispositivo.
-    - Configure o dispositivo pela primeira vez e registre-o com o projeto de Migrações para Azure.
-- Você pode configurar vários dispositivos para um único projeto das Migrações para Azure. Em todos os dispositivos, você pode descobrir qualquer número de servidores físicos. Um máximo de 1.000 servidores pode ser descoberto por dispositivo.
-
-### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
-
-1. Em **Metas de Migração** > **Servidores** > **Migrações para Azure: Avaliação de Servidor**, selecione **Descobrir**.
-2. Em **Descobrir computadores** > **Os computadores estão virtualizados?** , selecione **Físico ou outro (AWS, GCP, Xen etc.)** .
-3. Em **1: Gerar chave de projeto das Migrações para Azure**, forneça um nome para o dispositivo das Migrações para Azure que você vai configurar para a descoberta de servidores físicos ou virtuais. O nome deverá conter até 14 caracteres alfanuméricos.
-1. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir computadores durante a criação de recursos.
-1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
-1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
-
-### <a name="download-the-installer-script"></a>Baixe o script do instalador.
-
-Em **2: Baixar o dispositivo das Migrações para Azure**, clique em **Baixar**.
-
-   ![Seleções para Descobrir computadores](./media/tutorial-assess-physical/servers-discover.png)
-
-
-   ![Seleções para Gerar Chave](./media/tutorial-assess-physical/generate-key-physical.png)
-
-
-### <a name="verify-security"></a>Verificar a segurança
-
-Verifique se o arquivo compactado é seguro antes de implantá-lo.
-
-1. No computador no qual você baixou o arquivo, abra uma janela de comando do administrador.
-2. Execute o seguinte comando para gerar o hash para o arquivo zip:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo de uso da nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
-    - Exemplo de uso da nuvem governamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
-3.  Verifique as versões mais recentes do dispositivo e os valores de hash:
-    - Para a nuvem pública:
-
-        **Cenário** | **Baixar*** | **Valor de hash**
-        --- | --- | ---
-        Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
-
-    - Para o Azure Government:
-
-        **Cenário** | **Baixar*** | **Valor de hash**
-        --- | --- | ---
-        Físico (85 MB) | [Última versão](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
-
-### <a name="run-the-azure-migrate-installer-script"></a>Executar o script de instalador de Migrações para Azure
-
-O script do instalador faz o seguinte:
-
-- Instala agentes e um aplicativo Web para avaliação e descoberta de servidor físico.
-- Instala as funções do Windows, incluindo o serviço de ativação do Windows, o IIS e o ISE do PowerShell.
-- Baixa e instala um módulo regravável do IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
-- Atualiza uma chave do registro (HKLM) com detalhes de configuração persistente para Migrações para Azure.
-- Cria os seguintes arquivos sob o caminho:
-    - **Arquivos de configuração**: %Programdata%\Microsoft Azure\Config
-    - **Arquivos de configuração**: %Programdata%\Microsoft Azure\Logs
-
-Crie o script da seguinte maneira:
-
-1. Extraia o arquivo .zip para uma pasta no servidor que hospedará o dispositivo.  Você não deve executar o script em um computador em um dispositivo de Migrações para Azure existente.
-2. Inicie o PowerShell no servidor acima com privilégio administrativo (elevado).
-3. Altere o diretório do PowerShell para a pasta em que o conteúdo foi extraído do arquivo compactado baixado.
-4. Execute o script chamado **AzureMigrateInstaller.ps1** executando o seguinte comando:
-
-    - Para a nuvem pública: 
-    
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - Para o Azure Government: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
-
-    O script iniciará o aplicativo Web do dispositivo quando ele for concluído com êxito.
-
-Se você encontrar algum problema, poderá acessar os logs do script em C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Carimbo de data/hora</em>.log para solucionar problemas.
-
-### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
-
-Verifique se o dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
-
-
-### <a name="configure-the-appliance"></a>Configurar o dispositivo
-
-Configure o dispositivo pela primeira vez.
-
-1. Abra um navegador em qualquer computador que possa se conectar ao dispositivo e abra a URL do aplicativo Web do dispositivo: **https://*nome do dispositivo ou endereço IP*: 44368**.
-
-   Como alternativa, você pode abrir o aplicativo na área de trabalho clicando no atalho do aplicativo.
-2. Aceite os **termos de licença** e leia as informações de terceiros.
-1. No aplicativo Web > **Configurar os pré-requisitos**, faça o seguinte:
-    - **Conectividade**: O aplicativo verifica se o servidor tem acesso à Internet. Se o servidor usar um proxy:
-        - Clique em **Configurar proxy** e especifique o endereço de proxy (na forma http://ProxyIPAddress ou http://ProxyFQDN) e na porta de escuta.
-        - Especifique as credenciais caso o proxy exija autenticação.
-        - Há suporte apenas para o proxy HTTP.
-        - Se você tiver adicionado detalhes de proxy ou desabilitado o proxy e/ou a autenticação, clique em **Salvar** para disparar a verificação de conectividade novamente.
-    - **Sincronização do horário**: o horário é verificado. O horário no dispositivo deve ser sincronizado com o horário na Internet para que a descoberta do servidor funcione corretamente.
-    - **Instalar as atualizações**: A avaliação do servidor das Migrações para Azure verifica se o dispositivo tem as últimas atualizações instaladas. Depois que a verificação for concluída, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos componentes em execução no dispositivo.
-
-### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
-
-1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
-1. Clique em **Fazer logon**. Será aberto um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-1. Na nova guia, entre usando seu nome de usuário e senha do Azure.
-   
-   Não há suporte para a entrada com um PIN.
-3. Depois de fazer logon com êxito, volte para o aplicativo Web. 
-4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](tutorial-prepare-physical.md) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
-1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
-
-
-## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
-
-Agora, conecte-se do dispositivo aos servidores físicos a serem descobertos e inicie a descoberta.
-
-1. Na **Etapa 1: Fornecer credenciais para descoberta de servidores físicos ou virtuais do Windows e Linux**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicione **Nome de usuário** e **Senha** para um servidor Windows ou Linux. Clique em **Save**.
-1. Se desejar adicionar várias credenciais ao mesmo tempo, clique em **Adicionar mais** para salvar e adicionar mais credenciais. Há suporte para várias credenciais para descoberta de servidores físicos.
-1. Na **Etapa 2: Fornecer detalhes do servidor virtual ou físico**, clique em **Adicionar origem da descoberta** para especificar o **endereço IP/FQDN** do servidor e o nome amigável para as credenciais se conectarem ao servidor.
-1. Você pode **Adicionar um item** de cada vez ou **Adicionar vários itens** em um só lugar. Também há uma opção de fornecer detalhes do servidor por meio de **Importar CSV**.
-
-    ![Seleções para adicionar a origem da descoberta](./media/tutorial-assess-physical/add-discovery-source-physical.png)
-
-    - Se você escolher **Adicionar um item**, poderá escolher o tipo de sistema operacional, especificar o nome amigável para as credenciais, adicionar **endereço IP/FQDN** do servidor e clicar em **Salvar**.
-    - Se você escolher **Adicionar vários itens**, poderá adicionar vários registros de uma vez especificando o **endereço IP/FQDN** do servidor com o nome amigável para as credenciais na caixa de texto. **Verifique** os registros adicionados e clique em **Salvar**.
-    - Se você escolher **Importar CSV** _(selecionado por padrão)_ , poderá baixar um arquivo de modelo CSV, preencher o arquivo com o **endereço IP/FQDN** do servidor e o nome amigável para as credenciais. Em seguida, importe o arquivo para o dispositivo, **verifique** os registros no arquivo e clique em **Salvar**.
-
-1. Quando você clicar em Salvar, o dispositivo tentará validar a conexão com os servidores adicionados e mostrará o **Status de validação** na tabela em cada servidor.
-    - Se a validação falhar para um servidor, examine o erro clicando em **Falha na validação** na coluna Status da tabela. Corrija o problema e valide novamente.
-    - Para remover um servidor, clique em **Excluir**.
-1. Você pode **revalidar** a conectividade com os servidores a qualquer momento antes de iniciar a descoberta.
-1. Clique em **Iniciar descoberta** para iniciar a descoberta dos servidores validados com êxito. Depois que a descoberta for iniciada com êxito, você poderá verificar o status da descoberta em cada servidor na tabela.
-
-
-Isso iniciará a descoberta. São necessários aproximadamente 2 minutos por servidor para que os metadados dos servidores descobertos sejam exibidos no portal do Azure.
-
-### <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
-
-Após a descoberta, verifique se os servidores são exibidos no portal do Azure.
-
-1. Abra o painel das Migrações para Azure.
-2. Na página **Migrações para Azure – Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique no ícone que exibe a contagem de **Servidores descobertos**.
-
-## <a name="set-up-an-assessment"></a>Configurar uma avaliação
-
-Há dois tipos de avaliações que podem ser criadas usando as Migrações para Azure: Avaliação de Servidor.
-
-**Avaliação** | **Detalhes** | **Dados**
+**Avaliação** | **Detalhes** | **Recomendação**
 --- | --- | ---
-**Com base no desempenho** | Avaliações com base nos dados de desempenho coletados | **Tamanho de VM recomendado**: com base nos dados de utilização da CPU e de memória.<br/><br/> **Tipo de disco recomendado (disco gerenciado Standard ou Premium)** : com base na IOPS e na taxa de transferência dos discos locais.
-**Como local** | Avaliações com base no dimensionamento local. | **Tamanho de VM recomendado**: com base no tamanho do servidor local<br/><br> **Tipo de disco recomendado**: com base na configuração de tipo de armazenamento selecionada para a avaliação.
+**No estado em que se encontra localmente** | Avaliar com base nos dados/metadados de configuração do computador.  | A recomendação de tamanho da VM do Azure é baseada no tamanho da VM local.<br/><br> O tipo de disco recomendado do Azure é baseado no que você seleciona na configuração de tipo de armazenamento na avaliação.
+**Com base no desempenho** | Avaliar com base nos dados de desempenho dinâmicos coletados. | A recomendação de tamanho da VM do Azure é baseada nos dados de utilização da CPU e da memória.<br/><br/> A recomendação do tipo de disco é baseada na IOPS e na taxa de transferência dos discos locais.
 
-
-### <a name="run-an-assessment"></a>Ler uma avaliação
+## <a name="run-an-assessment"></a>Ler uma avaliação
 
 Execute uma avaliação da seguinte maneira:
 
-1. Examine as [melhores práticas](best-practices-assessment.md) para a criação de avaliações.
-2. Na guia **Servidores**, no bloco **Migrações para Azure: Avaliação de Servidor**, clique em **Avaliar**.
+1. Na página **Servidores** > **Servidores Windows e Linux**, clique em **Avaliar e migrar servidores**.
 
-    ![Avaliar](./media/tutorial-assess-physical/assess.png)
+   ![Localização do botão Avaliar e migrar servidores](./media/tutorial-assess-physical/assess.png)
 
-2. Em **Avaliar servidores**, especifique um nome para a avaliação.
-3. Clique em **Exibir tudo** para examinar as propriedades da avaliação.
+2. Em **Migrações para Azure: Avaliação de Servidor**, clique em **Avaliar**.
 
-    ![Propriedades de avaliação](./media/tutorial-assess-physical/view-all.png)
+    ![Localização do botão Avaliar](./media/tutorial-assess-physical/assess-servers.png)
 
-3. Em **Selecionar ou criar um grupo**, selecione **Criar** e especifique um nome de grupo. Um grupo reúne uma ou mais servidores para avaliação.
-4. Em **Adicionar computadores ao grupo**, escolha os computadores que serão adicionados ao grupo.
-5. Clique em **Criar Avaliação** para criar o grupo e execute a avaliação.
+3. Em **Avaliar servidores** > **Tipo de avaliação**, selecione **VM do Azure**.
+4. Em **Origem da descoberta**:
 
-    ![Criar uma avaliação](./media/tutorial-assess-physical/assessment-create.png)
+    - Se você descobriu computadores usando o dispositivo, selecione **Computadores descobertos no dispositivo de Migrações para Azure**.
+    - Se você descobriu computadores usando um arquivo CSV importado, selecione **Computadores importados**. 
+    
+5. Especifique um nome para a avaliação. 
+6. Clique em **Exibir tudo** para examinar as propriedades da avaliação.
 
-6. Após a criação da avaliação, veja-a em **Servidores** > **Migrações para Azure: Avaliação de Servidor** > **Avaliações**.
-7. Clique em **Exportar avaliação**, para baixá-la como um arquivo do Excel.
+    ![Localização do botão Exibir tudo para examinar as propriedades da avaliação](./media/tutorial-assess-physical/assessment-name.png)
+
+7. Em **Propriedades da avaliação** > **Propriedades de Destino**:
+    - Em **Local de destino**, especifique a região do Azure para a qual você deseja migrar.
+        - As recomendações de tamanho e custo são baseadas na localização especificada.
+        - No Azure Governamental, você pode direcionar avaliações [nestas regiões](migrate-support-matrix.md#supported-geographies-azure-government)
+    - Em **Tipo de armazenamento**,
+        - Se você quiser usar dados baseados em desempenho na avaliação, selecione **Automático** para que as Migrações para Azure recomendem um tipo de armazenamento com base na IOPS do disco e na taxa de transferência.
+        - Como alternativa, selecione o tipo de armazenamento que você deseja usar para a VM ao migrá-la.
+    - Em **Instâncias Reservadas**, especifique se deseja usar instâncias reservadas para a VM ao migrá-la.
+        - Se você optar por usar uma instância reservada, não poderá especificar **Desconto (%)** nem **Tempo de atividade da VM**. 
+        - [Saiba mais](https://aka.ms/azurereservedinstances).
+8. Em **Tamanho da VM**:
+ 
+    - Em **Critério de dimensionamento**, selecione se você deseja basear a avaliação em metadados/dados de configuração de computador ou em dados baseados no desempenho. Se você optar por usar dados de desempenho:
+        - Em **Histórico de desempenho**, indique a duração dos dados em que você deseja basear a avaliação
+        - Em **Utilização de percentual**, especifique o valor percentual que você deseja usar para a amostragem de desempenho. 
+    - Em **Série de VMs**, especifique a série de VMs do Azure que você deseja considerar.
+        - Se você usa a avaliação baseada em desempenho, a ferramenta Migrações para Azure sugere um valor para você.
+        - Ajuste as configurações conforme necessário. Por exemplo, se você não tiver um ambiente de produção que exija VMs da série A no Azure, poderá excluir a série A da lista de séries.
+    - Em **Fator de conforto**, indique o buffer que você deseja usar durante a avaliação. Esse recurso detecta problemas como uso sazonal, histórico de desempenho baixo e prováveis aumentos no uso futuro. Por exemplo, se você usar um fator de conforto de dois: **Componente** | **Utilização efetiva** | **Adicionar fator de conforto (2.0)** Núcleos | 2 | 4 Memória | 8 GB | 16 GB    
+   
+9. Em **Preços**:
+    - Em **Oferta**, especifique a [Oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) se você estiver registrado. A Avaliação de Servidor estima o custo dessa oferta.
+    - Em **Moeda**, selecione a moeda de cobrança para sua conta.
+    - Em **Desconto (%)** , adicione quaisquer descontos específicos à assinatura recebidos sobre a oferta do Azure. A configuração padrão é 0%.
+    - Em **Tempo de atividade da VM**, especifique a duração (dias por mês/hora por dia) em que as VMs serão executadas.
+        - Isso é útil para VMs do Azure que não serão executadas continuamente.
+        - As estimativas de custo são baseadas na duração especificada.
+        - O valor padrão é de 31 dias por mês/24 horas por dia.
+
+    - Em **Assinatura de EA**, especifique se deseja levar em consideração o desconto de assinatura de EA (Contrato Enterprise) para a estimativa de custo. 
+    - Em **Benefício Híbrido do Azure**, especifique se você já tem uma licença do Windows Server. Caso você tenha e ela esteja coberta pelo Software Assurance das Assinaturas do Windows Server, você pode se inscrever no [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/) ao trazer as licenças para o Azure.
+
+10. Clique em **Salvar** se você fizer alterações.
+
+    ![Propriedades de avaliação](./media/tutorial-assess-physical/assessment-properties.png)
+
+11. Em **Avaliar Servidores**, clique em **Próximo**.
+12. Em **Selecionar computadores para avaliar**, selecione **Criar** e especifique um nome de grupo. 
+13. Selecione o dispositivo e as VMs que você deseja adicionar ao grupo. Em seguida, clique em **Próximo**.
+14. Em **Examinar + criar avaliação, examine os detalhes da avaliação e clique em **Criar avaliação** para criar o grupo e executar a avaliação.
 
 
+    > [!NOTE]
+    > Para avaliações baseadas em desempenho, recomendamos que você espere pelo menos um dia após o início da descoberta antes de criar uma avaliação. Isso fornecerá tempo para coletar dados de desempenho com maior confiança. O ideal é que, depois de iniciar a descoberta, você aguarde a duração do desempenho especificada (dia/semana/mês) para obter uma classificação de alta confiança.
 
 ## <a name="review-an-assessment"></a>Examinar uma avaliação
 
 Uma avaliação descreve:
 
-- **Preparação para o Azure**: indica se os servidores são adequados para a migração para o Azure.
-- **Estimativa de custo mensal**: os custos mensais estimados de computação e armazenamento para execução dos servidores no Azure.
+- **Preparação para o Azure**: indica se as VMs são adequadas para a migração para o Azure.
+- **Estimativa de custo mensal**: os custos mensais estimados de computação e armazenamento para execução das VMs no Azure.
 - **Estimativa de custo de armazenamento mensal**: custos estimados para o armazenamento em disco após a migração.
 
-### <a name="view-an-assessment"></a>Exibir uma avaliação
+Para exibir uma avaliação:
 
-1. Em **Metas de migração** >  **Servidores**, clique em **Avaliações** em **Migrações para Azure: Avaliação de Servidor**.
-2. Em **Avaliações**, clique em uma avaliação para abri-la.
+1. Em **Servidores** > **Migrações para Azure: Avaliação de Servidor**, clique no número ao lado de **Avaliações**.
+2. Em **Avaliações**, selecione uma avaliação para abri-la. Como exemplo (estimativas e custos somente para exemplo): 
 
     ![Resumo da avaliação](./media/tutorial-assess-physical/assessment-summary.png)
 
-### <a name="review-azure-readiness"></a>Examinar a Preparação para o Azure
+3. Examine o resumo da avaliação. Você também pode editar as propriedades ou recalcular a avaliação.
+ 
+ 
+### <a name="review-readiness"></a>Examinar preparação
 
-1. Em **Preparação para o Azure**, verifique se os servidores estão preparados para a migração para o Azure.
-2. Examine o status:
-    - **Pronto para o Azure**: as Migrações para Azure recomendam um tamanho de VM e estimativas de custo para as VMs na avaliação.
+1. Clique em **Preparação para o Azure**.
+2. Em **Preparação para o Azure**, examine o status da VM:
+    - **Pronto para o Azure**: usado quando as Migrações para Azure recomendam um tamanho e estimativas de custo para as VMs na avaliação.
     - **Pronto com condições**: mostra os problemas e a correção sugerida.
     - **Não está pronto para o Azure**: mostra os problemas e a correção sugerida.
-    - **Preparação desconhecida**: usado quando as Migrações para Azure não podem avaliar a preparação, devido a problemas de disponibilidade de dados.
+    - **Preparação desconhecida**: usado quando as Migrações para Azure não podem avaliar a preparação devido a problemas de disponibilidade de dados.
 
-2. Clique em um status de **Preparação para o Azure**. Você pode exibir os detalhes de preparação do servidor e fazer uma busca detalhada para ver os detalhes do servidor, incluindo as configurações de computação, armazenamento e rede.
+3. Selecione um status de **Preparação para o Azure**. Você pode exibir os detalhes de preparação da VM. Você também pode fazer drill down para ver os detalhes da VM, incluindo as configurações de computação, armazenamento e rede.
 
+### <a name="review-cost-estimates"></a>Examinar estimativas de custo
 
+O resumo da avaliação mostra o custo estimado de computação e armazenamento da execução das VMs no Azure. 
 
-### <a name="review-cost-details"></a>Examinar os detalhes de custo
+1. Examinar os custos totais mensais. Os custos são agregados para todas as VMs no grupo avaliado.
 
-Essa exibição mostra o custo estimado de computação e armazenamento da execução das VMs no Azure.
-
-1. Examine os custos mensais de computação e armazenamento. Os custos são agregados para todos os servidores no grupo avaliado.
-
-    - As estimativas de custo são baseadas nas recomendações de tamanho para um computador e em seus discos e propriedades.
+    - As estimativas de custo são baseadas nas recomendações de tamanho para um computador, seus discos e suas propriedades.
     - Os custos mensais estimados de computação e armazenamento são mostrados.
-    - A estimativa de custo refere-se à execução dos servidores locais como VMs de IaaS. A Avaliação de Servidor das Migrações para Azure não considera os custos de PaaS ou SaaS.
+    - A estimativa de custo refere-se à execução das VMs locais em VMs do Azure. A estimativa não considera os custos de PaaS ou SaaS.
 
-2. Você pode examinar as estimativas de custo mensal de armazenamento. Essa exibição mostra os custos agregados de armazenamento para o grupo avaliado, divididos em diferentes tipos de discos de armazenamento.
-3. Você pode fazer uma busca detalhada para ver os detalhes de servidores específicos.
-
+2. Examinar os custos mensais de armazenamento. Essa exibição mostra os custos agregados de armazenamento para o grupo avaliado, divididos em diferentes tipos de discos de armazenamento. 
+3. Você pode fazer drill down para ver os detalhes de custo de VMs específicas.
 
 ### <a name="review-confidence-rating"></a>Revisar classificação de confiança
 
-Quando você executa avaliações com base no desempenho, uma classificação de confiança é atribuída à avaliação.
+A Avaliação de Servidor atribui uma classificação de confiança às avaliações baseadas no desempenho. A classificação varia de uma estrela (mais baixa) a cinco estrelas (mais alta).
 
 ![Classificação de confiança](./media/tutorial-assess-physical/confidence-rating.png)
 
-- Uma classificação de 1 estrela (mais baixa) a 5 estrelas (mais alta) é fornecida.
-- A classificação de confiança ajuda você a estimar a confiabilidade das recomendações de tamanho fornecidas pela avaliação.
-- A classificação de confiança é baseada na disponibilidade dos pontos de dados necessários para calcular a avaliação.
+A classificação de confiança ajuda a estimar a confiabilidade das recomendações de tamanho na avaliação. A classificação é baseada na disponibilidade dos pontos de dados necessários para calcular a avaliação.
 
-As classificações de confiança para uma avaliação são indicadas a seguir.
+> [!NOTE]
+> As classificações de confiança não serão atribuídas se você criar uma avaliação com base em um arquivo CSV.
+
+As classificações de confiança são as mostradas a seguir.
 
 **Disponibilidade do ponto de dados** | **Classificação de confiança**
 --- | ---
@@ -315,18 +178,9 @@ As classificações de confiança para uma avaliação são indicadas a seguir.
 61%-80% | 4 estrelas
 81%-100% | 5 estrelas
 
-[Saiba mais](best-practices-assessment.md#best-practices-for-confidence-ratings) sobre as melhores práticas de classificações de confiança.
-
+[Saiba mais](concepts-assessment-calculation.md#confidence-ratings-performance-based) sobre as classificações de confiança.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você:
-
-> [!div class="checklist"]
-> * Configurou um dispositivo das Migrações para Azure
-> * Criou e examinou uma avaliação
-
-Continue e acesse o terceiro tutorial da série para saber como migrar os servidores físicos para o Azure com as Migrações para Azure: Migração de Servidor.
-
-> [!div class="nextstepaction"]
-> [Migrar servidores físicos](./tutorial-migrate-physical-virtual-machines.md)
+- Encontre dependências de computador usando o [mapeamento de dependências](concepts-dependency-visualization.md).
+- Configure o mapeamento de dependências [baseado em agente](how-to-create-group-machine-dependencies.md).
